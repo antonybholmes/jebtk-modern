@@ -1,0 +1,67 @@
+/**
+ * Copyright 2017 Antony Holmes
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.jebtk.modern.animation;
+
+import org.jebtk.modern.event.ModernClickEvent;
+import org.jebtk.modern.event.ModernClickListener;
+import org.jebtk.modern.widget.ModernClickWidget;
+import org.jebtk.modern.widget.ModernWidget;
+
+// TODO: Auto-generated Javadoc
+/**
+ * Allows for fade in/out animation on an element.
+ *
+ * @author Antony Holmes
+ */
+public abstract class ClickAnimation extends TimerAnimation {
+	
+	/**
+	 * The listener interface for receiving click events.
+	 * The class that is interested in processing a click
+	 * event implements this interface, and the object created
+	 * with that class is registered with a component using the
+	 * component's <code>addClickListener<code> method. When
+	 * the click event occurs, that object's appropriate
+	 * method is invoked.
+	 *
+	 * @see ClickEvent
+	 */
+	private class ClickListener implements ModernClickListener {
+		
+		/* (non-Javadoc)
+		 * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.ModernClickEvent)
+		 */
+		@Override
+		public void clicked(ModernClickEvent e) {
+			animateClick();
+		}
+	}
+	
+	/**
+	 * Instantiates a new click animation.
+	 *
+	 * @param widget the widget
+	 */
+	public ClickAnimation(ModernWidget widget) {
+		super(widget);
+		
+		((ModernClickWidget)widget).addClickListener(new ClickListener());
+	}
+	
+	public void animateClick() {
+		startTimer();
+	}
+}
