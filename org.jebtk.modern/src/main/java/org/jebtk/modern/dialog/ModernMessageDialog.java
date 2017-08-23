@@ -168,7 +168,8 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
 		box.add(mOkButton);
 
 		if (type == MessageDialogType.INFORMATION_YES_NO ||
-				type == MessageDialogType.WARNING_YES_NO_CANCEL) {
+				type == MessageDialogType.WARNING_YES_NO_CANCEL ||
+				type == MessageDialogType.WARNING_YES_NO) {
 			mNoButton.addClickListener(this);
 
 			focusButton = mNoButton;
@@ -187,7 +188,8 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
 		}
 
 		if (type == MessageDialogType.INFORMATION_YES_NO ||
-				type == MessageDialogType.WARNING_YES_NO_CANCEL) {
+				type == MessageDialogType.WARNING_YES_NO_CANCEL ||
+				type == MessageDialogType.WARNING_YES_NO) {
 			mOkButton.setText("Yes");
 		}
 		

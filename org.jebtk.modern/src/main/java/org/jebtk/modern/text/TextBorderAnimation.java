@@ -49,7 +49,7 @@ public class TextBorderAnimation extends HoverFadeAnimation {
 			int w = r.getW(); 
 			int h = r.getH();
 			
-			//widget.getWidgetRenderer().drawContentBoxFill(g2, x, y, w, h);
+			widget.getWidgetRenderer().drawContentBoxFill(g2, x, y, w, h);
 			
 			widget.getWidgetRenderer().outline(g2, 
 					getFadeColor("outline"), 

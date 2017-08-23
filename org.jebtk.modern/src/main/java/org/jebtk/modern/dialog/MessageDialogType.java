@@ -61,5 +61,7 @@ public enum MessageDialogType {
 	/**
 	 * The warning yes no cancel.
 	 */
-	WARNING_YES_NO_CANCEL
+	WARNING_YES_NO_CANCEL, 
+	
+	WARNING_YES_NO
 }
