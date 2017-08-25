@@ -23,7 +23,8 @@ import java.awt.event.ComponentEvent;
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateListener;
-import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.ModernWidgetRenderer;
+import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -36,6 +37,15 @@ import org.jebtk.modern.widget.ModernWidget;
 public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 
 	private ModernCheckSwitch mButton;
+
+	/**
+	 * Pick a color a few shades lighter than the background
+	 */
+	public static final Color SELECTED_COLOR =
+			ThemeService.getInstance().colors().getColorHighlight32(ThemeService.getInstance().colors().getColorHighlightIndex(ModernWidgetRenderer.SELECTED_FILL_COLOR) / 2);
+
+	public static final Color LINE_COLOR =
+			ThemeService.getInstance().colors().getHighlight32(ThemeService.getInstance().colors().getHighlightIndex(ModernWidget.LINE_COLOR) / 2);
 
 
 	/**
@@ -55,8 +65,8 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 				restart();
 			}
 		});
-		*/
-		
+		 */
+
 		// Animation should be triggered on a state change and not a click
 		// event since we want the button to respond to setSelected events.
 		mButton.addStateListener(new ModernStateListener() {
@@ -79,7 +89,7 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 		int x2;
 
 		int x = 0; //getWidget().getInsets().left;
-		
+
 		if (mButton.isSelected()) {
 			// Off to on
 
@@ -100,7 +110,12 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 
 		int y1 = (widget.getHeight() - s) / 2;
 
+		//Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+
+		//try {
+
 		if (mButton.isSelected()) {
+			/*
 			widget.getWidgetRenderer().buttonFillPaint(g2, 
 					0, 
 					0, 
@@ -108,16 +123,26 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 					s, 
 					RenderMode.SELECTED, 
 					false);
+			 */
+
+			g2.setColor(SELECTED_COLOR);
 		} else {
-			g2.setColor(Color.WHITE);
+			g2.setColor(ModernWidget.LIGHT_LINE_COLOR); //Color.WHITE);
 		}
 
-		g2.setColor(Color.WHITE);
+		//g2.setColor(Color.WHITE);
 		g2.fillOval(0, y1, s, s);
+
+		g2.setColor(Color.WHITE);
+		s -= 2;
+		g2.fillOval(1, y1 + 1, s, s);
+		//} finally {
+		//g2Temp.dispose();
+		//}
 
 		//if (!mButton.isSelected()) {
 		//	g2.setColor(ModernWidget.LINE_COLOR);
-///
+		///
 		//	g2.drawOval(0, y1, s - 1, s - 1);
 		//}
 	}	

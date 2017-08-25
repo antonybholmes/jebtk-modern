@@ -56,12 +56,12 @@ public class ModernCheckSwitch extends CheckBox {
 
 
 	/** The Constant ORB_HEIGHT. */
-	protected static final int ORB_HEIGHT = 18;
+	protected static final int ORB_HEIGHT = 20;
 
-	protected static final int SLIDER_HEIGHT = ORB_HEIGHT + 2;
+	protected static final int SLIDER_HEIGHT = ORB_HEIGHT - 4;
 
 	/** The Constant SLIDER_WIDTH. */
-	protected static final int SLIDER_WIDTH = SLIDER_HEIGHT * 3 / 2;
+	protected static final int SLIDER_WIDTH = ORB_HEIGHT * 3 / 2;
 
 
 	/** The Constant SWITCH_ON_OFFSET. */

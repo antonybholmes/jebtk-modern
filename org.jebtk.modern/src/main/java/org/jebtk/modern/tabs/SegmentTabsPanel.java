@@ -19,6 +19,7 @@ import java.awt.Dimension;
 
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
+import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -30,7 +31,7 @@ public class SegmentTabsPanel extends ModernComponent {
 	private static final long serialVersionUID = 1L;
 	
 	private static final Dimension MAX_SIZE = 
-			new Dimension(Short.MAX_VALUE, 28);
+			new Dimension(Short.MAX_VALUE, ModernWidget.WIDGET_HEIGHT + 2);
 
 	/**
 	 * Instantiates a new segment tabs panel.

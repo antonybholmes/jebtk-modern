@@ -211,6 +211,10 @@ public class ThemeService extends ModernTheme {
 		public Color getColorHighlight32(int i) {
 			return mColorHighlight.getColor32(i);
 		}
+		
+		public int getColorHighlightIndex(Color color) {
+			return mColorHighlight.getIndex(color);
+		}
 
 		/**
 		 * Gets the highlight.
@@ -230,6 +234,10 @@ public class ThemeService extends ModernTheme {
 		 */
 		public Color getHighlight32(int i) {
 			return mHighlight.getColor32(i);
+		}
+		
+		public int getHighlightIndex(Color color) {
+			return mHighlight.getIndex(color);
 		}
 
 		/**
@@ -354,6 +362,8 @@ public class ThemeService extends ModernTheme {
 		public Color getDisabledTextColor() {
 			return get("disabled-text");
 		}
+
+		
 	}
 
 	/**
@@ -419,6 +429,8 @@ public class ThemeService extends ModernTheme {
 			this(ColorTheme.BLUE);
 		}
 
+		
+
 		/**
 		 * Instantiates a new theme colors.
 		 *
@@ -465,7 +477,11 @@ public class ThemeService extends ModernTheme {
 		 */
 		public Color getColor32(int i) {
 			return mColorMap32.getColorByIndex(Mathematics.bound(i, 0, MAX_COLOR_INDEX));
-		}	
+		}
+		
+		public int getIndex(Color color) {
+			return mColorMap32.getIndex(color);
+		}
 	}
 
 	/** The m fonts. */

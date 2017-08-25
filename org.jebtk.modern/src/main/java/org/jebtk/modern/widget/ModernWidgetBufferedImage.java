@@ -64,8 +64,9 @@ public class ModernWidgetBufferedImage {
 	 * @return the buffered image
 	 */
 	public BufferedImage create() {
-		BufferedImage image = 
-				new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_ARGB);
+		BufferedImage image = new BufferedImage(size.width, 
+				size.height, 
+				BufferedImage.TYPE_INT_ARGB);
 		
 		Graphics2D g2 = (Graphics2D)image.createGraphics();
 		

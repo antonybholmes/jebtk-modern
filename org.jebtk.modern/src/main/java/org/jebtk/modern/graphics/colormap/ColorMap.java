@@ -33,8 +33,10 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Mathematics;
@@ -351,46 +353,8 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
 	private List<ColorMapColor> mColors;
 
 
-	/**
-	 * Instantiates a new color map.
-	 *
-	 * @param colorMap the color map
-	 */
-	/*
-	public ColorMap(String name,
-			double min,
-			double max) {
-		mName = name;
-
-		setRange(min, max);
-	}
-	 */
-
-	/**
-	 * Instantiates a new color map.
-	 *
-	 * @param colorMap the color map
-	 */
-	/*
-	public ColorMap(ColorMap colorMap) {
-		this(colorMap, false);
-	}
-	 */
-
-	/**
-	 * Instantiates a new color map.
-	 *
-	 * @param colorMap the color map
-	 * @param min the min
-	 * @param max the max
-	 */
-	/*
-	public ColorMap(ColorMap colorMap,
-			double min,
-			double max) {
-		this(colorMap, min, max, false);
-	}
-	 */
+	private Map<ColorMapColor, Integer> mIndexMap =
+			new HashMap<ColorMapColor, Integer>();
 	
 	public ColorMap(ColorMap colorMap) {
 		this(colorMap, false);
@@ -548,47 +512,25 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
 		mName = name;
 		
 		mMaxIndex = mColors.size() - 1;
+		
+		for (int i = 0; i < mColors.size(); ++i) {
+			mIndexMap.put(mColors.get(i), i);
+		}
 	}
 
 	/**
-	 * Instantiates a new color map.
-	 *
-	 * @return the iterator
+	 * Returns the index of a color, or -1 if the color does not exist.
+	 * 
+	 * @param color
+	 * @return
 	 */
-	/*
-	public ColorMap(ColorMap colorMap,
-			double min,
-			double max,
-			boolean reverse) {
-		this(colorMap.mName);
-
-		for (ColorMapColor color : colorMap) {
-			add(color);
+	public int getIndex(Color color) {
+		if (mIndexMap.containsKey(color)) {
+			return mIndexMap.get(color);
+		} else {
+			return -1;
 		}
-
-		if (reverse) {
-			Collections.reverse(this);
-		}
-
-		setRange(min, max);
 	}
-	 */
-
-	/**
-	 * Sets the range.
-	 *
-	 * @param min the min
-	 * @param max the max
-	 */
-	/*
-	public void setRange(double min, double max) {
-		mMin = Math.min(min, max);
-		mMax = Math.max(min, max);
-		mRange = max - min;
-
-		fireChanged();
-	}
-	 */
 	
 	@Override
 	public Iterator<ColorMapColor> iterator() {
@@ -1735,6 +1677,8 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
 			boolean reverse) {
 		return createTwoColorMap(name, Color.WHITE, color, colors, reverse);
 	}
+
+	
 
 	
 

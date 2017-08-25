@@ -23,6 +23,7 @@ import java.awt.event.ComponentEvent;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.animation.TranslateXAnimation;
+import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -39,7 +40,7 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
 	protected static final int HEIGHT = 1;
 
 	public static final Color COLOR = 
-			ColorUtils.getTransparentColor(Color.BLACK, 0.92);
+			ColorUtils.getTransparentColor(Ribbon.BAR_BACKGROUND, 0.9); // Color.BLACK
 
 	
 	/**

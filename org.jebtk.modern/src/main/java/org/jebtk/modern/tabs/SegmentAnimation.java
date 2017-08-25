@@ -18,6 +18,7 @@ package org.jebtk.modern.tabs;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.WidgetAnimation;
+import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -63,7 +64,7 @@ public class SegmentAnimation extends WidgetAnimation {
 		for (int i = 0; i < n; ++i) {
 			boolean selected = i == selectedIndex;
 	
-			//g2.setColor(selected ? Ribbon.BAR_BACKGROUND : ModernWidget.TEXT_COLOR);
+			g2.setColor(selected ? Ribbon.BAR_BACKGROUND : ModernWidget.TEXT_COLOR);
 			
 			//g2.setFont(selected ? ModernWidget.BOLD_FONT : ModernWidget.FONT);
 

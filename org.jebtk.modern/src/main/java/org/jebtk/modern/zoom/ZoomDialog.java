@@ -142,7 +142,7 @@ public class ZoomDialog extends ModernDialogTaskWindow {
 	
 		setResizable(false);
 		setDarkBackground();
-		setSize(480, 380);
+		setSize(420, 360);
 		setTitle("Zoom");
 		mModel = model;
 
@@ -175,7 +175,7 @@ public class ZoomDialog extends ModernDialogTaskWindow {
 		hbox.add(new ModernAutoSizeLabel("%"));
 		box.add(hbox);
 		
-		setContent(new CardPanel2(box));
+		setDialogCardContent(box);
 
 		new ModernButtonGroup()
 			.add(mCheck25)
