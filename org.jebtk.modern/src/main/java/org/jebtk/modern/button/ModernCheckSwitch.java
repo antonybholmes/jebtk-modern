@@ -50,11 +50,6 @@ public class ModernCheckSwitch extends CheckBox {
 	/** The Constant SLIDER_OFFSET. */
 	protected static final int SLIDER_OFFSET = 2;
 
-	/** The Constant SLIDER_HEIGHT. */
-
-
-
-
 	/** The Constant ORB_HEIGHT. */
 	protected static final int ORB_HEIGHT = 20;
 
@@ -117,7 +112,7 @@ public class ModernCheckSwitch extends CheckBox {
 		getBackgroundAnimations()
 			.clear()
 			.add(new CheckSwitchAnimation(this, color))
-			.add(new CheckSwitchChangeAnimation(this));
+			.add(new CheckSwitchChangeAnimation(this, color));
 	}
 
 	/* (non-Javadoc)

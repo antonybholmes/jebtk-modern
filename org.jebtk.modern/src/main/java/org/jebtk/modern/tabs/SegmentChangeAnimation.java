@@ -40,7 +40,7 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
 	protected static final int HEIGHT = 1;
 
 	public static final Color COLOR = 
-			ColorUtils.getTransparentColor(Ribbon.BAR_BACKGROUND, 0.9); // Color.BLACK
+			ColorUtils.getTransparentColor(Ribbon.BAR_BACKGROUND, 0.8); // Color.BLACK
 
 	
 	/**

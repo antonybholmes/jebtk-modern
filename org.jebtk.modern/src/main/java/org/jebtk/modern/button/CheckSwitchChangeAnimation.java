@@ -24,7 +24,6 @@ import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateListener;
 import org.jebtk.modern.theme.ModernWidgetRenderer;
-import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -38,25 +37,31 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 
 	private ModernCheckSwitch mButton;
 
+	private Color mColor;
+
 	/**
 	 * Pick a color a few shades lighter than the background
 	 */
 	public static final Color SELECTED_COLOR =
-			ThemeService.getInstance().colors().getColorHighlight32(ThemeService.getInstance().colors().getColorHighlightIndex(ModernWidgetRenderer.SELECTED_FILL_COLOR) / 2);
+			ModernWidgetRenderer.SELECTED_FILL_COLOR; //ThemeService.getInstance().colors().getColorHighlight32(ThemeService.getInstance().colors().getColorHighlightIndex(ModernWidgetRenderer.SELECTED_FILL_COLOR) / 2);
 
-	public static final Color LINE_COLOR =
-			ThemeService.getInstance().colors().getHighlight32(ThemeService.getInstance().colors().getHighlightIndex(ModernWidget.LINE_COLOR) / 2);
+	//public static final Color LINE_COLOR =
+	//		ThemeService.getInstance().colors().getHighlight32(ThemeService.getInstance().colors().getHighlightIndex(ModernWidget.LINE_COLOR) / 2);
 
 
+	public CheckSwitchChangeAnimation(ModernWidget button) {
+		this(button, SELECTED_COLOR);
+	}
 	/**
 	 * Instantiates a new state animation.
 	 *
 	 * @param ribbon the ribbon
 	 */
-	public CheckSwitchChangeAnimation(ModernWidget button) {
+	public CheckSwitchChangeAnimation(ModernWidget button, Color color) {
 		super(button);
 
 		mButton = (ModernCheckSwitch)button;
+		mColor = color;
 
 		/*
 		mButton.addClickListener(new ModernClickListener() {
@@ -103,12 +108,16 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 
 		restart(x1, x2);
 	}
+	
+	public void setSelectedColor(Graphics2D g2) {
+		g2.setColor(mColor);
+	}
 
 	@Override
 	public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
 		int s = ModernCheckSwitch.ORB_HEIGHT;
 
-		int y1 = (widget.getHeight() - s) / 2;
+		int y1 = (widget.getInternalRect().getH() - s) / 2;
 
 		//Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
@@ -125,9 +134,10 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 					false);
 			 */
 
-			g2.setColor(SELECTED_COLOR);
+			setSelectedColor(g2);
+			
 		} else {
-			g2.setColor(ModernWidget.LIGHT_LINE_COLOR); //Color.WHITE);
+			g2.setColor(ModernWidget.LINE_COLOR); //Color.WHITE);
 		}
 
 		//g2.setColor(Color.WHITE);

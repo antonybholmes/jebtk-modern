@@ -145,8 +145,6 @@ public class ColorMatrixPanel extends ModernWidget implements MouseMotionListene
 			i = (int)(mModel.getNewColor().mBlue / ratio);
 			
 			g2.drawLine(i, 0, i, getHeight());
-			
-			System.err.println("i " + i);
 			break;
 		case GREEN:
 			// green y
@@ -158,8 +156,6 @@ public class ColorMatrixPanel extends ModernWidget implements MouseMotionListene
 			i = (int)(mModel.getNewColor().mBlue / ratio);
 			
 			g2.drawLine(i, 0, i, getHeight());
-			
-			System.err.println("i " + i);
 			break;
 		default:
 			// green y
@@ -171,8 +167,6 @@ public class ColorMatrixPanel extends ModernWidget implements MouseMotionListene
 			i = (int)(mModel.getNewColor().mGreen / ratio);
 			
 			g2.drawLine(i, 0, i, getHeight());
-			
-			System.err.println("i " + i);
 			break;
 		}
 	}

@@ -43,6 +43,7 @@ import org.jebtk.modern.button.CheckSwitchAnimation;
 import org.jebtk.modern.button.CheckSwitchChangeAnimation;
 import org.jebtk.modern.button.ChipButtonAnimation;
 import org.jebtk.modern.button.ChipButtonHighlightAnimation;
+import org.jebtk.modern.button.CircularButtonHighlightAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation;
 import org.jebtk.modern.button.RadioAnimation;
 import org.jebtk.modern.button.RadioOutlineAnimation;
@@ -153,6 +154,8 @@ public class AnimationService {
 		//
 		
 		getCreator("button").add(DialogMaterialButtonHighlightAnimation.class);
+		
+		getCreator("circular-button").add(CircularButtonHighlightAnimation.class);
 		
 		getCreator("dropdown-button")
 			.add(DropDownButtonAnimation.class);

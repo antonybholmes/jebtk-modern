@@ -27,6 +27,8 @@
  */
 package org.jebtk.modern.dialog;
 
+import java.awt.Component;
+
 import javax.swing.Box;
 import javax.swing.JComponent;
 
@@ -37,6 +39,7 @@ import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.contentpane.ModernHContentPane;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
+import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.text.ModernDialogHeadingLabel;
 import org.jebtk.modern.widget.ModernWidget;
@@ -152,6 +155,20 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
 		setLightBackground();
 		
 		setInternalContent(mContentPane);
+	}
+	
+	/**
+	 * Set the center card panel.
+	 * 
+	 * @param c
+	 */
+	public void setCard(Component c) {
+		getTabsPane()
+			.getModel()
+			.setCenterTab(new ModernComponent(new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)), 
+					ModernWidget.DOUBLE_BORDER));
+		
+		setDarkBackground();
 	}
 
 	/**

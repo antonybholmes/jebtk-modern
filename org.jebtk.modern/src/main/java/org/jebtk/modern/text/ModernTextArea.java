@@ -108,7 +108,7 @@ public class ModernTextArea extends JTextArea {
 	 * @param <T> the generic type
 	 * @param items the new text
 	 */
-	public <T extends Comparable<T>> void setText(List<T> items) {
+	public <T> void setText(List<T> items) {
 		setText(Stream.stream(items).mapToString().join(TextUtils.NEW_LINE_DELIMITER));
 	}
 

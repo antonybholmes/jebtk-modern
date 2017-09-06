@@ -38,11 +38,10 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.text.ParseException;
 
 import javax.swing.SwingUtilities;
-import org.jebtk.core.event.ChangeEvent;
 
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.text.TextUtils;
@@ -748,7 +747,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
 		if (v != null) {
 			try {
 				return TextUtils.parseInt(v.toString());
-			} catch (ParseException e) {
+			} catch (Exception e) {
 				return Integer.MIN_VALUE;
 			}
 		} else {
@@ -768,8 +767,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
 
 		if (v != null) {
 			try {
-				return TextUtils.parseDouble(v.toString());
-			} catch (ParseException e) {
+				return Double.parseDouble(v.toString());
+			} catch (Exception e) {
 				return Double.NaN;
 			}
 		} else {

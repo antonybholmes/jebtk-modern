@@ -181,6 +181,9 @@ public class ModernComponent extends JComponent {
 	public static final Border BOTTOM_BORDER = 
 			BorderService.getInstance().createBottomBorder(PADDING);
 	
+	public static final Border DOUBLE_BOTTOM_BORDER = 
+			BorderService.getInstance().createBottomBorder(DOUBLE_PADDING);
+	
 	/**
 	 * The constant RIGHT_BORDER.
 	 */
@@ -457,6 +460,12 @@ public class ModernComponent extends JComponent {
 	 */
 	public void setBorder(int border) {
 		setBorder(BorderService.getInstance().createBorder(border));
+	}
+	
+	public ModernComponent border(Border border) {
+		setBorder(border);
+		
+		return this;
 	}
 	
 	/* (non-Javadoc)

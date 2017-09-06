@@ -299,7 +299,7 @@ public class ModernHContentPane extends ModernWidget {
 		addMouseListener(new MouseEvents());
 		addMouseMotionListener(new MouseMotionEvents());
 		
-		setBackgroundAnimations("hoz-content-pane");
+		//setBackgroundAnimations("hoz-content-pane");
 	}
 
 	/**
