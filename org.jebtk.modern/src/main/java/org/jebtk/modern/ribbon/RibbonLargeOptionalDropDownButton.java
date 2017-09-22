@@ -52,7 +52,7 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
 	 * The constant serialVersionUID.
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/** The m compact icon. */
 	protected ModernScaleIcon mCompactIcon;
 
@@ -94,6 +94,14 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
 		super(text1, icon, menu);
 
 		mText = text1;
+
+		setup();
+	}
+
+	public RibbonLargeOptionalDropDownButton(String text1, ModernPopupMenu menu) {
+		super(text1, menu);
+
+		mText = text1;
 		
 		setup();
 	}
@@ -128,12 +136,12 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
 		if (mIcon != null) {
 			mCompactIcon = new ModernScaleIcon(mIcon, Ribbon.COMPACT_ICON_SIZE);
 		}
-		
+
 		setSize(RibbonSize.COMPACT);
-		
+
 		setBackgroundAnimations("ribbon-optional-dropdown-button");
 	}
-	
+
 	/**
 	 * Sets the show text.
 	 *
@@ -141,10 +149,10 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
 	 */
 	public void setShowText(boolean show) {
 		mShowText = show;
-		
+
 		setSize(mMode);
 	}
-	
+
 	/**
 	 * Gets the show text.
 	 *
@@ -195,20 +203,24 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
 
 			h = Ribbon.LARGE_BUTTON_HEIGHT;
 		} else {
-			w += Ribbon.COMPACT_ICON_SIZE + TRIANGLE_ICON.getWidth();
+			if (mCompactIcon != null) {
+				w += Ribbon.COMPACT_ICON_SIZE;
+			}
+			
+			w += TRIANGLE_ICON.getWidth();
 
 			if (mShowText && mText != null) {
 				w += ModernWidget.getStringWidth(mText) + PADDING;
 			}
 
-			w = Math.max(w, Ribbon.MIN_COMPACT_BUTTON_WIDTH);
+			//w = Math.max(w, Ribbon.MIN_COMPACT_BUTTON_WIDTH);
 
 			h = Ribbon.COMPACT_BUTTON_HEIGHT;
 		}
 
 		UI.setSize(this, w, h);
 	}
-	
+
 	@Override
 	public void drawBackgroundAA(Graphics2D g2) {
 		super.drawAnimatedBackground(g2);
@@ -218,12 +230,12 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
 	@Override
 	public void drawBackgroundAA(Graphics2D g2) {
 		IntRect rect = new IntRect(0, 0, getWidth(), getHeight());
-		
+
 		int x = 0;
 		int y = mRect.getY();
 		int h = mRect.getH();
 		int w = 0;
-		
+
 		if (mPrimaryButton || mPopupShown) {
 			x = mRect.getX();
 			w = mDividerLocation - mRect.getX();
@@ -236,21 +248,21 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
 
 		if (isSelected() || mPopupShown) {
 			//paintHighlighted(g2, rect);
-			
+
 			getWidgetRenderer().drawRibbonButton(g2, rect, RenderMode.SELECTED);
-			
+
 		} else if (mHighlight) {
 			getWidgetRenderer().drawRibbonButtonOutline(g2, rect, RenderMode.SELECTED);
 			getWidgetRenderer().drawRibbonButton(g2, x, y, w, h, RenderMode.SELECTED);
-			
+
 			//paintHighlightedBorder(g2, rect);
 			//paintHighlighted(g2, x, y, w, h);
 		} else {
-			
+
 		}
-		
+
 	}
-	*/
+	 */
 
 	/* (non-Javadoc)
 	 * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.Graphics2D)
@@ -298,22 +310,26 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
 			}
 		} else {
 			x = PADDING;
-			y = (getHeight() - mCompactIcon.getHeight()) / 2;
 
-			if (isEnabled()) {
-				mCompactIcon.drawIcon(g2, x, y, 24);
-			} else {
-				mCompactIcon.getDisabledIcon().drawIcon(g2, x, y, 24);
+			if (mCompactIcon != null) {
+				y = (getHeight() - mCompactIcon.getHeight()) / 2;
+
+				if (isEnabled()) {
+					mCompactIcon.drawIcon(g2, x, y, 24);
+				} else {
+					mCompactIcon.getDisabledIcon().drawIcon(g2, x, y, 24);
+				}
+
+				x += DOUBLE_PADDING + mCompactIcon.getWidth();
 			}
-			
+
 			if (mShowText && mText != null) {
-				x = DOUBLE_PADDING + mCompactIcon.getWidth();
 				y = ModernWidget.getTextYPosCenter(g2, mRect.getH());
 
 				g2.drawString(mText, x, y);
 			}
 		}
-		
+
 		if (mMode == RibbonSize.LARGE) {
 			x = (getWidth() - TRIANGLE_ICON.getWidth()) / 2;
 			y = getHeight() - TRIANGLE_ICON.getHeight() - PADDING;
@@ -321,7 +337,9 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
 			x = getWidth() - (mSecondaryButtonWidth - TRIANGLE_ICON.getWidth()) / 2 - TRIANGLE_ICON.getWidth();
 			y = (getHeight() - TRIANGLE_ICON.getHeight()) / 2;
 		}
-		
+
 		TRIANGLE_ICON.drawIcon(g2, x, y, 16);
 	}
+
+
 }

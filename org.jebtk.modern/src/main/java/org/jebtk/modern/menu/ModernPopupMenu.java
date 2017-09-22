@@ -177,8 +177,12 @@ public class ModernPopupMenu extends ModernPopup {
 	 * Adds the glue.
 	 */
 	public void addGlue() {
-
 		add(Box.createVerticalGlue());
+	}
+	
+	@Override
+	public void addSeparator() {
+		addMenuItem(new ModernMenuSeparator());
 	}
 
 	/*

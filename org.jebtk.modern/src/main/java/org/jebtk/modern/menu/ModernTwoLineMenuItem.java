@@ -107,6 +107,14 @@ public class ModernTwoLineMenuItem extends ModernIconMenuItem implements TwoLine
 		
 		setup();
 	}
+	
+	public ModernTwoLineMenuItem(String text1, String text2) {
+		super(text1);
+
+		setText(text1, text2);
+		
+		setup();
+	}
 
 	/**
 	 * Setup.

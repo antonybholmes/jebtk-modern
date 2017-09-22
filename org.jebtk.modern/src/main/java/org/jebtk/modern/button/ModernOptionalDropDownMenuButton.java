@@ -164,7 +164,8 @@ public class ModernOptionalDropDownMenuButton extends ModernDropDownWidget  {
 	 * @param icon the icon
 	 * @param menu the menu
 	 */
-	public ModernOptionalDropDownMenuButton(ModernIcon icon, ModernPopupMenu menu) {
+	public ModernOptionalDropDownMenuButton(ModernIcon icon, 
+			ModernPopupMenu menu) {
 		super(icon);
 		
 		setMenu(menu);
@@ -176,6 +177,17 @@ public class ModernOptionalDropDownMenuButton extends ModernDropDownWidget  {
 		setup();
 	}
 	
+	public ModernOptionalDropDownMenuButton(String text1, 
+			ModernPopupMenu menu) {
+		super(text1);
+		
+		setMenu(menu);
+		
+		setClickMessage(PRIMARY_BUTTON);
+		
+		setup();
+	}
+
 	/**
 	 * Setup.
 	 */
