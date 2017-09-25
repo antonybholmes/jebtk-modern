@@ -15,6 +15,8 @@
  */
 package org.jebtk.modern.dialog;
 
+import java.awt.Component;
+
 import javax.swing.JComponent;
 
 import org.jebtk.modern.ModernComponent;
@@ -45,6 +47,8 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
 	
 	/** The m view panel. */
 	protected TabsViewPanel mViewPanel = new TabsViewPanel(mTabsModel);
+	
+	private ModernComponent mTabsPanel = new ModernComponent();
 
 	/**
 	 * Instantiates a new t test dialog.
@@ -172,7 +176,9 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
 		ModernComponent panel = new ModernComponent();
 		
 		
-		panel.setLeft(tabs);
+		mTabsPanel.setBody(tabs);
+		
+		panel.setLeft(mTabsPanel);
 		
 		//getButtonBar().addLeft(mHelpButton);
 		
@@ -188,5 +194,9 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
 		setInternalContent(panel);
 		
 		//setup(type);
+	}
+	
+	public void setLeftSecondary(Component c) {
+		mTabsPanel.setFooter(c);
 	}
 }

@@ -175,6 +175,18 @@ public class ModernRibbonWindow extends ModernWindow {
 			.setCenterTab(new ModernComponent(new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)), 
 					ModernWidget.DOUBLE_BORDER));
 	}
+	
+	public void setCardBottom(Component c, Component c2) {
+		
+		ModernComponent panel = new ModernComponent();
+		
+		//panel.setBody(new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)));
+		panel.setFooter(new ModernComponent(c2, ModernWidget.TOP_DOUBLE_BORDER));
+		
+		getTabsPane()
+			.getModel()
+			.setCenterTab(new ModernComponent(panel, ModernWidget.DOUBLE_BORDER));
+	}
 
 	/**
 	 * Add a quick access button. Depending on the window decoration this

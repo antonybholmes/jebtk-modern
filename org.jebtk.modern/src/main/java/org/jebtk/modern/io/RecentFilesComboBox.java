@@ -60,7 +60,8 @@ public class RecentFilesComboBox extends ModernComboBox {
 	/**
 	 * The icon.
 	 */
-	private ModernIcon icon = UIService.getInstance().loadIcon("file", UIService.ICON_SIZE_32);
+	private ModernIcon icon = 
+			UIService.getInstance().loadIcon("file", UIService.ICON_SIZE_32);
 
 	/**
 	 * The max.

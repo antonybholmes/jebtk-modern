@@ -37,10 +37,10 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
 
 	private SegmentTabs mTabs;
 	
-	protected static final int HEIGHT = 1;
+	protected static final int HEIGHT = 2;
 
 	public static final Color COLOR = 
-			ColorUtils.getTransparentColor(Ribbon.BAR_BACKGROUND, 0.8); // Color.BLACK
+			Ribbon.BAR_BACKGROUND; //ColorUtils.getTransparentColor(Ribbon.BAR_BACKGROUND, 0.8); // Color.BLACK
 
 	
 	/**
@@ -106,10 +106,10 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
 				false);
 		*/
 		
-		g2.setColor(COLOR);
-		mTabs.getWidgetRenderer().drawPillButtonFill(g2, 0, 0, mTabs.mTabSize, h);
+		//g2.setColor(COLOR);
+		//mTabs.getWidgetRenderer().drawPillButtonFill(g2, 0, 0, mTabs.mTabSize, h);
 		
-		//g2.setColor(Ribbon.BAR_BACKGROUND);
-		//g2.fillRect(0, h - HEIGHT, mTabs.mTabSize, HEIGHT);
+		g2.setColor(COLOR);
+		g2.fillRect(0, h - HEIGHT, mTabs.mTabSize, HEIGHT);
 	}	
 }
