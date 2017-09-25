@@ -114,7 +114,7 @@ public class ModernFileCrumb extends ModernWidget {
 			
 			g2.drawString(part, x, y1);
 			
-			x += PADDING;
+			x += getStringWidth(g2, part) + PADDING;
 		}
 	}
 }
