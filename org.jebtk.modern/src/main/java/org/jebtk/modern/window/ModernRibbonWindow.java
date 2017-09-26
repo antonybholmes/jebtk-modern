@@ -94,7 +94,7 @@ public class ModernRibbonWindow extends ModernWindow {
 
 		//setGlassPane(mMessagePane);
 		mRibbon = new Ribbon(this);
-		setHeader(mRibbon);
+		super.setHeader(mRibbon);
 		
 		if (UI.CUSTOM_WINDOW_DECORATION) {
 			// Disable chrome
@@ -160,6 +160,7 @@ public class ModernRibbonWindow extends ModernWindow {
 	/* (non-Javadoc)
 	 * @see org.abh.common.ui.window.ModernWindow#setBody(java.awt.Component)
 	 */
+	@Override
 	public void setBody(Component c) {
 		super.setBody(new TopShadowPanel(c));
 	}
@@ -174,18 +175,6 @@ public class ModernRibbonWindow extends ModernWindow {
 			.getModel()
 			.setCenterTab(new ModernComponent(new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)), 
 					ModernWidget.DOUBLE_BORDER));
-	}
-	
-	public void setCardBottom(Component c, Component c2) {
-		
-		ModernComponent panel = new ModernComponent();
-		
-		//panel.setBody(new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)));
-		panel.setFooter(new ModernComponent(c2, ModernWidget.TOP_DOUBLE_BORDER));
-		
-		getTabsPane()
-			.getModel()
-			.setCenterTab(new ModernComponent(panel, ModernWidget.DOUBLE_BORDER));
 	}
 
 	/**

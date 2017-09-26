@@ -77,7 +77,7 @@ public class CrossVectorIcon extends ModernVectorScalableIcon {
 		double yf = y + (h - wf) / 2;
 		
 		g2.setColor(mColor);
-		g2.drawLine((int)xf, (int)yf, (int)(xf + wf), (int)(yf + wf));
-		g2.drawLine((int)xf, (int)(yf + wf), (int)(xf + wf), (int)yf);
+		g2.drawLine((int)xf, (int)yf, (int)(xf + wf) - 1, (int)(yf + wf) - 1);
+		g2.drawLine((int)xf, (int)(yf + wf) - 1, (int)(xf + wf) - 1, (int)yf);
 	}
 }

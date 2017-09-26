@@ -45,7 +45,7 @@ public class CloseButton extends ModernButton {
 	public CloseButton() {
 		super(ICON);
 		
-		//this.setBackgroundAnimations(animations)
+		setBackgroundAnimations("circular-button");
 	}
 	
 	/*

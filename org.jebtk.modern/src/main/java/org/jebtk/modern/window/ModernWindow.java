@@ -122,9 +122,11 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
 	/**
 	 * The member content panel.
 	 */
-	protected ModernPanel mContentPanel = new ModernWindowContentPanel(); //ModernGradientPanel();
+	protected ModernPanel mWindowContentPanel = new ModernWindowContentPanel(); //ModernGradientPanel();
 
-	private ModernHContentPane mContentPane = new ModernHContentPane();
+	private ModernComponent mContentPanel = new ModernComponent();
+	
+	private ModernHContentPane mTabsPane = new ModernHContentPane();
 	
 	/**
 	 * The member cl.
@@ -198,16 +200,16 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
 		
 		mCards.add(mRibbonMenu, MENU_CARD);
 		mRibbonMenu.addClickListener(new MenuActions());
+		mCards.add(mWindowContentPanel, CONTENT_CARD);
 		
-		
-		mCards.add(mContentPanel, CONTENT_CARD);
+		// Window uses card layout
 		super.getContentPane().add(mCards, BorderLayout.CENTER);
 
 		mCl = (CardLayout)mCards.getLayout();
 		mCl.show(mCards, CONTENT_CARD);
 		
-		
-		setBody(mContentPane);
+		mContentPanel.setBody(mTabsPane);
+		setBody(mContentPanel);
 		
 		//mHeaderContainer = new WindowVBoxAutoWidth(this);
 		//getContentPane().add(mHeaderContainer, BorderLayout.PAGE_START);
@@ -320,6 +322,10 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
 		getContentPane().add(c, BorderLayout.PAGE_START);
 	}
 	
+	protected void setContentHeader(Component c) {
+		getContentPanel().setHeader(c);
+	}
+	
 	/**
 	 * Sets the body.
 	 *
@@ -337,6 +343,10 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
 		getContentPane().repaint();
 	}
 	
+	public void setContentBody(Component c) {
+		getContentPanel().setBody(c);
+	}
+	
 	/**
 	 * Sets the footer.
 	 *
@@ -344,6 +354,10 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
 	 */
 	public void setFooter(Component c) {
 		getContentPane().add(c, BorderLayout.PAGE_END);
+	}
+	
+	public void setContentFooter(Component c) {
+		getContentPanel().setFooter(c);
 	}
 	
 	/**
@@ -357,7 +371,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
 	 */
 	@Override
 	public Container getContentPane() {
-		return getContentPanel();
+		return getWindowContentPanel();
 	}
 	
 	/**
@@ -372,12 +386,16 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
 	 *
 	 * @return the content panel
 	 */
-	public ModernPanel getContentPanel() {
+	public ModernPanel getWindowContentPanel() {
+		return mWindowContentPanel;
+	}
+	
+	public ModernComponent getContentPanel() {
 		return mContentPanel;
 	}
 	
 	public ModernHContentPane getTabsPane() {
-		return mContentPane;
+		return mTabsPane;
 	}
 	
 	/**

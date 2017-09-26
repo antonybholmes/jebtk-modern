@@ -65,7 +65,7 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
 	/**
 	 * The member items.
 	 */
-	private List<T> mItems = new ArrayList<T>();
+	private List<T> mItems = new ArrayList<T>(100);
 	
 	
 	/**

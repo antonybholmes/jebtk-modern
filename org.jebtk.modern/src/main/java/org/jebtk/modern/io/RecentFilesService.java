@@ -27,19 +27,15 @@
  */
 package org.jebtk.modern.io;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -47,24 +43,13 @@ import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.TransformerException;
 
 import org.jebtk.core.AppService;
-import org.jebtk.core.collections.ArrayListCreator;
-import org.jebtk.core.collections.DefaultTreeMap;
-import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.core.io.FileIsNotADirException;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.json.Json;
-import org.jebtk.core.json.JsonArray;
-import org.jebtk.core.json.JsonObject;
 import org.jebtk.core.json.JsonParser;
-import org.jebtk.core.json.JsonRepresentation;
-import org.jebtk.core.settings.SettingsService;
-import org.jebtk.core.xml.XmlRepresentation;
 import org.jebtk.core.xml.XmlUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -79,7 +64,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * @author Antony Holmes Holmes
  *
  */
-public class RecentFilesService extends ChangeListeners implements XmlRepresentation, JsonRepresentation, Iterable<Path> {
+public class RecentFilesService extends RecentFilesModel {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -88,8 +73,6 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 	 * The Class RecentFilesServiceLoader.
 	 */
 	private static class RecentFilesServiceLoader {
-		
-		/** The Constant INSTANCE. */
 		private static final RecentFilesService INSTANCE = new RecentFilesService();
 	}
 
@@ -102,34 +85,10 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 		return RecentFilesServiceLoader.INSTANCE;
 	}
 
-	// the format to store and read back dates in, when loading the recent
-	/**
-	 * The constant STORAGE_DATE_FORMAT.
-	 */
-	// files list
-	public static final String STORAGE_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
-
-	/**
-	 * The log.
-	 */
-	private final Logger LOG = 
-			LoggerFactory.getLogger(RecentFilesService.class);
-
-	/**
-	 * The member pwd.
-	 */
-	private Path mPwd = PathUtils.getPwd();
-
 	/**
 	 * The member loaded.
 	 */
 	private boolean mLoaded = false;
-
-	/**
-	 * The constant MAX_FILES.
-	 */
-	public static final int MAX_FILES = 
-			SettingsService.getInstance().getAsInt("ui.recent-files.max-files");
 
 	/**
 	 * The constant DEFAULT_XML_FILE.
@@ -144,17 +103,6 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 	/** The Constant USER_JSON_FILE. */
 	public static final Path USER_JSON_FILE = 
 			AppService.getInstance().getAppDir().resolve("recent.files.json");
-
-	/** The m file type map. */
-	private Map<String, List<Path>> mFileTypeMap =
-			DefaultTreeMap.create(new ArrayListCreator<Path>());
-
-	/** The m files. */
-	private List<Path> mFiles = new ArrayList<Path>();
-
-	/** The m date map. */
-	private Map<Path, Date> mDateMap = new HashMap<Path, Date>();
-
 
 	/**
 	 * The Class RecentFilesXmlHandler.
@@ -218,8 +166,8 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 	/**
 	 * Instantiates a new recent files service.
 	 */
-	public RecentFilesService() {
-		init();
+	private RecentFilesService() {
+		//super();
 	}
 
 	/**
@@ -232,16 +180,9 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 	 * @throws FileIsNotADirException the file is not A dir exception
 	 */
 	public RecentFilesService(Path file) throws IOException, SAXException, ParserConfigurationException, FileIsNotADirException {
-		init();
+		super();
 
 		loadJson(file);
-	}
-
-	/**
-	 * Inits the.
-	 */
-	private void init() {
-		mPwd = FileUtils.home(); //PathUtils.getPath("");
 	}
 
 	/**
@@ -336,9 +277,13 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 					files.add(file);
 
 					mDateMap.put(file, date);
+					
+					System.err.println("recent " + file);
 				}
 			}
 
+			System.err.println("recent " + files);
+			
 			mFiles.addAll(files);
 			setPwd(PathUtils.getPath(json.get("pwd").getAsString()));
 		}
@@ -352,6 +297,8 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 		// Attempt to auto load files if they
 		// have not already been done so
 
+		System.err.println("iter");
+		
 		try {
 			autoLoad();
 		} catch (IOException e) {
@@ -362,7 +309,7 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 			e.printStackTrace();
 		}
 
-		return mFiles.iterator();
+		return super.iterator();
 	}
 
 	/**
@@ -372,7 +319,8 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 	 * @throws SAXException the SAX exception
 	 * @throws ParserConfigurationException the parser configuration exception
 	 */
-	private void autoLoad() throws IOException, SAXException, ParserConfigurationException {
+	private synchronized void autoLoad() throws IOException, SAXException, ParserConfigurationException {
+		System.err.println("loaded 1 " + mLoaded + " " + this.getClass());
 		if (!mLoaded) {
 			mLoaded = true;
 
@@ -382,16 +330,7 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 			
 			loadJson();
 		}
-	}
-
-	/**
-	 * Adds the.
-	 *
-	 * @param file the file
-	 * @return true, if successful
-	 */
-	public synchronized boolean add(Path file) {
-		return addFile(file);
+		System.err.println("loaded 2 " + mLoaded + " " + this.getClass());
 	}
 
 	/**
@@ -400,65 +339,18 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 	 * @param file the file
 	 * @return true, if successful
 	 */
-	public synchronized boolean addFile(Path file) {
-		file = file.toAbsolutePath();
+	@Override
+	public synchronized boolean add(Path file) {
+		boolean ret = super.add(file);
 		
-		if (FileUtils.exists(file)) {
-			setPwd(file.getParent());
-
-			//List<Path> current = new ArrayList<Path>(mFiles);
-
-			// Remove from its old position
-			mFiles.remove(file);
-			mFileTypeMap.get(PathUtils.getFileExt(file)).remove(file);
-
-			// Add file to head of list
-			mFiles.add(0, file);
-
-			mFileTypeMap.get(PathUtils.getFileExt(file)).add(file);
-			mDateMap.put(file, Calendar.getInstance().getTime());
-
+		if (ret) {
 			try {
 				write();
 			} catch (IOException | TransformerException | ParserConfigurationException e) {
 				e.printStackTrace();
 			}
-
-			fireChanged();
-
-			return true;
-		} else {
-			return false;
 		}
-	}
-
-	/**
-	 * Adds the file.
-	 *
-	 * @param file the file
-	 * @param date the date
-	 */
-	public void addFile(Path file, Date date) {
-		file = file.toAbsolutePath();
 		
-		if (addFile(file)) {
-			mDateMap.put(file, date);
-		}
-	}
-
-	/**
-	 * Return only files with a particular extension.
-	 *
-	 * @param exts the exts
-	 * @return the files by ext
-	 */
-	public List<Path> getFilesByExt(String... exts) {
-		List<Path> ret = new ArrayList<Path>();
-
-		for (String ext : exts) {
-			ret.addAll(mFileTypeMap.get(ext));
-		}
-
 		return ret;
 	}
 
@@ -532,118 +424,51 @@ public class RecentFilesService extends ChangeListeners implements XmlRepresenta
 	 *
 	 * @return the pwd
 	 */
+	@Override
 	public Path getPwd() {
+		System.err.println("getpwd");
+		
 		try {
 			autoLoad();
 		} catch (IOException | SAXException | ParserConfigurationException e) {
 			e.printStackTrace();
 		}
 
-		System.err.println("pwd " + mPwd);
-
-		return mPwd;
-	}
-
-	/**
-	 * Set the present working directory.
-	 *
-	 * @param pwd the new pwd
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws SAXException the SAX exception
-	 * @throws ParserConfigurationException the parser configuration exception
-	 * @throws TransformerException the transformer exception
-	 */
-	public synchronized void setPwd(File pwd) throws IOException, SAXException, ParserConfigurationException, TransformerException {
-		setPwd(pwd.toPath());
+		return super.getPwd();
 	}
 
 	/**
 	 * Sets the pwd.
 	 *
 	 * @param pwd the new pwd
+	 * @return 
 	 */
-	public synchronized void setPwd(Path pwd) {
+	@Override
+	public synchronized boolean updatePwd(Path pwd) {
+		System.err.println("updatepwd");
+		
+		pwd = pwd.toAbsolutePath();
+		
+		if (!FileUtils.isDirectory(pwd)) {
+			return false;
+		}
+		
 		try {
 			autoLoad();
 		} catch (IOException | SAXException | ParserConfigurationException e) {
 			e.printStackTrace();
 		}
 
-		mPwd = pwd.toAbsolutePath();
+		mPwd = pwd;
 
 		System.err.println("pwd " + mPwd);
-
-		
 		
 		try {
 			write();
 		} catch (IOException | TransformerException | ParserConfigurationException e) {
 			e.printStackTrace();
 		}
-
-		fireChanged();
-	}
-
-	/* (non-Javadoc)
-	 * @see org.abh.lib.xml.XmlRepresentation#toXml()
-	 */
-	@Override
-	public Element toXml(Document doc) {
-		SimpleDateFormat df = new SimpleDateFormat(STORAGE_DATE_FORMAT);
-
-		Element filesElement = doc.createElement("files");
-
-		filesElement.setAttribute("pwd", mPwd.toAbsolutePath().toString());
-
-		// We write out no more than max files
-		int n = Math.min(mFiles.size(), MAX_FILES);
-
-		for (int i = 0; i < n; ++i) {
-			Path f = mFiles.get(i);
-
-			Element fileElement = doc.createElement("file");
-			fileElement.setAttribute("name", PathUtils.toString(f));
-			fileElement.setAttribute("date", df.format(mDateMap.get(f)));
-			filesElement.appendChild(fileElement);
-		}
-
-		return filesElement;
-	}
-
-	/* (non-Javadoc)
-	 * @see org.abh.common.json.JsonRepresentation#toJson()
-	 */
-	@Override
-	public Json toJson() {
-		Json o = new JsonObject();
-
-		o.add("pwd", mPwd.toAbsolutePath());
-
-		Json filesJ = new JsonArray();
-
-		SimpleDateFormat df = new SimpleDateFormat(STORAGE_DATE_FORMAT);
-
-		for (Path f : this) {
-			Json fileJ = new JsonObject();
-
-			fileJ.add("file", f);
-			fileJ.add("date", df.format(mDateMap.get(f)));
-
-			filesJ.add(fileJ);
-		}
-
-		o.add("files", filesJ);
-
-		return o;
-	}
-
-	/**
-	 * Gets the date.
-	 *
-	 * @param file the file
-	 * @return the date
-	 */
-	public Date getDate(Path file) {
-		return mDateMap.get(file);
+		
+		return true;
 	}
 }

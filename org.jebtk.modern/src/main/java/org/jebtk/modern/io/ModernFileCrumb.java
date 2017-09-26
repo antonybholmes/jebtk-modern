@@ -1,35 +1,70 @@
 package org.jebtk.modern.io;
 
+import java.awt.Cursor;
 import java.awt.Graphics2D;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 import java.nio.file.Path;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 
+import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.event.ChangeEventProducer;
+import org.jebtk.core.event.ChangeListener;
+import org.jebtk.core.event.ChangeListeners;
+import org.jebtk.core.geom.IntBlock;
+import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.CheveronRightVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.window.ModernWindowContentPanel;
 
-public class ModernFileCrumb extends ModernWidget {
-	
+public class ModernFileCrumb extends ModernWidget implements ChangeEventProducer  {
+
 	/**
 	 * The constant serialVersionUID.
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Path mFile;
+	private Path mDir;
 
-	private ArrayList<String> mParts;
-	
+	private List<Path> mPaths;
+
 	private static final int ICON_SIZE = 12;
-	
+
 	private ModernIcon CRUMB_ICON =
 			UIService.getInstance().loadIcon(CheveronRightVectorIcon.class, ICON_SIZE);
 
-	
+	private ModernTextField mTextField = new ModernTextField();
+
+	private boolean mEnterMode = false;
+
+	private ChangeListeners mListeners = new ChangeListeners();
+
+	private List<IntBlock> mStarts = new ArrayList<IntBlock>(50);
+
+	private int mSelectedIndex = -1;
+
+	private class ResizeEvents extends ComponentAdapter {
+		@Override
+		public void componentResized(ComponentEvent e) {
+			mTextField.setBounds(PADDING, PADDING, getWidth() - DOUBLE_PADDING, getHeight() - DOUBLE_PADDING);
+		}
+	}
+
 	/**
 	 * Instantiates a new modern text border panel.
 	 *
@@ -37,84 +72,258 @@ public class ModernFileCrumb extends ModernWidget {
 	 * @param color the color
 	 */
 	public ModernFileCrumb(Path file) {
-		
-
 		setup();
-		
-		setFile(file);
+
+		setDir(file);
 	}
 
-	
+
 
 	/**
 	 * Setup.
 	 */
 	private final void setup() {
-		//mComponent.setBorder(SMALL_BORDER);
-		
-		
-		
+		setLayout(null);
+
+		add(mTextField);
+
+		mTextField.setVisible(false);
+		mTextField.setBackground(ModernWindowContentPanel.COLOR); //ColorUtils.TRANS_COLOR);
+
+		addComponentListener(new ResizeEvents());
+		addMouseListener(new MouseAdapter() {
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
+			 */
+			//@Override
+			//public void mouseEntered(MouseEvent e) {
+			//	setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			//}
+
+			/* (non-Javadoc)
+			 * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
+			 */
+			@Override
+			public void mouseExited(MouseEvent e) {
+				reset();
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				if (e.getClickCount() > 1) {
+					setEnterMode(true);
+				} else {
+					if (mSelectedIndex != -1) {
+						setDir(mPaths.get(mSelectedIndex));
+					}
+				}
+			}});
+
+		addMouseMotionListener(new MouseMotionListener() {
+			@Override
+			public void mouseDragged(MouseEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				int i = getIndex(e.getX());
+
+				if (i != -1) {
+					mSelectedIndex = i;
+
+					setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+				} else {
+					setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+				}
+			}});
+
+		addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void focusLost(FocusEvent arg0) {
+				setEnterMode(false);
+				
+				reset();
+			}});
+
+		mTextField.addFocusListener(new FocusListener() {
+			@Override
+			public void focusGained(FocusEvent arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void focusLost(FocusEvent arg0) {
+				setEnterMode(false);
+				
+				reset();
+			}});
+
+		mTextField.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+					setDir(PathUtils.getPath(mTextField.getText()));
+				}
+			}});
+
 		//setMinimumSize(mComponent.getMinimumSize());
 		//setMaximumSize(mComponent.getMaximumSize());
-		
+
 		UI.setSize(this, STANDARD_SIZE);
-		
-		setBorder(SMALL_BORDER);
-		
-		setBackgroundAnimations("text-border");
-		
+
+		//setBorder(SMALL_BORDER);
+
+		//setBackgroundAnimations("text-border");
 	}
-	
-	public void setFile(Path file) {
-		mFile = file.toAbsolutePath();
-		
-		Deque<Path> stack = new ArrayDeque<Path>();
-		
-		Path p = mFile;
-		
-		while (p != null) {
-			Path f = p.getFileName();
-			
-			if (f != null) {
-				//System.err.println("crumb " + p.getFileName() + " " + p);
-				stack.push(f);
+
+	private int getIndex(int x) {
+		for (int i = 0; i < mStarts.size(); ++i) {
+			IntBlock start = mStarts.get(i);
+
+			if (x >= start.mX && x < start.mX + start.mW) {
+				return i;
 			}
-			
+		}
+
+		return -1;
+	}
+
+	public void setDir(Path dir) {
+		if (updateDir(dir)) {
+			fireChanged();
+		}
+	}
+
+	public boolean updateDir(Path dir) {
+		if (!FileUtils.isDirectory(dir)) {
+			return false;
+		}
+
+		mDir = dir.toAbsolutePath();
+
+		Deque<Path> stack = new ArrayDeque<Path>();
+
+		Path p = mDir;
+
+		while (p != null) {
+			stack.push(p);
+
 			p = p.getParent();
 		}
-		
-		mParts = new ArrayList<String>(stack.size());
-		
+
+		mPaths = new ArrayList<Path>(stack.size());
+
 		while (!stack.isEmpty()) {
-			mParts.add(PathUtils.getName(stack.pop()));
+			mPaths.add(stack.pop());
 		}
+
+		mTextField.setText(PathUtils.toString(mDir));
+
+		mStarts.clear();
+
+		setEnterMode(false);
+
+		return true;
 	}
-	
-	
-	@Override
-	public void drawAnimatedBackground(Graphics2D g2) {
-		getWidgetRenderer().drawContentBox(g2, mRect);
-		
-		super.drawAnimatedBackground(g2);
-	}
-	
+
+
+
+
+	//@Override
+	//public void drawAnimatedBackground(Graphics2D g2) {
+	//	getWidgetRenderer().drawContentBox(g2, mRect);
+
+	//	super.drawAnimatedBackground(g2);
+	//}
+
 	@Override
 	public void drawForegroundAA(Graphics2D g2) {
-		int x = PADDING;
-		
-		int y1 = getTextYPosCenter(g2, getHeight());
-		int y2 = (getHeight() - CRUMB_ICON.getHeight()) / 2;
-		
-		g2.setColor(TEXT_COLOR);
-		
-		for (String part : mParts) {
-			CRUMB_ICON.drawIcon(g2, x, y2, ICON_SIZE);
-			
-			x += ICON_SIZE + PADDING;
-			
-			g2.drawString(part, x, y1);
-			
-			x += getStringWidth(g2, part) + PADDING;
+		if (!mEnterMode) {
+			boolean cache = mStarts.size() == 0;
+
+			int x = PADDING;
+			int w;
+
+			int y1 = getTextYPosCenter(g2, getHeight());
+			int y2 = (getHeight() - CRUMB_ICON.getHeight()) / 2;
+
+			g2.setColor(TEXT_COLOR);
+
+			for (Path part : mPaths) {
+
+				String name = PathUtils.getName(part);
+
+				if (name.length() > 0) {
+					CRUMB_ICON.drawIcon(g2, x, y2, ICON_SIZE);
+
+					x += ICON_SIZE + PADDING;
+
+					g2.drawString(name, x, y1);
+				}
+
+				w = getStringWidth(g2, name);
+
+				if (cache) {
+					mStarts.add(IntBlock.create(x, w));
+				}
+
+				x += w + PADDING;
+			}
 		}
+	}
+
+	private void setEnterMode(boolean mode) {
+		mEnterMode = mode;
+
+		mTextField.setVisible(mode);
+
+		if (mode) {
+			mTextField.requestFocusInWindow();
+
+			mTextField.selectAll();
+		}
+
+		repaint();
+	}
+
+
+
+	@Override
+	public void addChangeListener(ChangeListener l) {
+		mListeners.addChangeListener(l);
+	}
+
+
+
+	@Override
+	public void removeChangeListener(ChangeListener l) {
+		mListeners.removeChangeListener(l);
+	}
+
+	private void fireChanged() {
+		fireChanged(new ChangeEvent(this));
+	}
+
+	@Override
+	public void fireChanged(ChangeEvent e) {
+		mListeners.fireChanged(e);
+	}
+
+	public Path getDir() {
+		return mDir;
+	}
+	
+	private void reset() {
+		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+		mSelectedIndex = -1;
 	}
 }
