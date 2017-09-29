@@ -29,7 +29,6 @@ package org.jebtk.modern.io;
 
 import java.io.IOException;
 import java.nio.file.Path;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,9 +39,11 @@ import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 
 import org.jebtk.core.collections.ArrayListCreator;
 import org.jebtk.core.collections.DefaultTreeMap;
+import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.core.io.FileIsNotADirException;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.PathUtils;
@@ -56,9 +57,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
 
 // TODO: Auto-generated Javadoc
@@ -70,7 +69,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * @author Antony Holmes Holmes
  *
  */
-public class RecentFilesModel extends PwdModel implements XmlRepresentation, JsonRepresentation, Iterable<Path> {
+public class RecentFilesModel extends ChangeListeners implements XmlRepresentation, JsonRepresentation, Iterable<Path> {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
@@ -103,66 +102,9 @@ public class RecentFilesModel extends PwdModel implements XmlRepresentation, Jso
 
 	/** The m date map. */
 	protected Map<Path, Date> mDateMap = new HashMap<Path, Date>();
+	
+	private PwdModel mPwdModel = new PwdModel();
 
-
-	/**
-	 * The Class RecentFilesXmlHandler.
-	 */
-	public class RecentFilesXmlHandler extends DefaultHandler {
-		
-		/** The m df. */
-		private SimpleDateFormat mDf;
-
-		/**
-		 * Instantiates a new recent files xml handler.
-		 */
-		public RecentFilesXmlHandler() {
-			mDf = new SimpleDateFormat(RecentFilesModel.STORAGE_DATE_FORMAT);
-		}
-
-		/* (non-Javadoc)
-		 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
-		 */
-		@Override
-		public final void startElement(String uri,
-				String localName,
-				String qName,
-				Attributes attributes) throws SAXException {
-
-			if (qName.equals("files")) {
-				System.err.println("xml pwd " + attributes.getValue("pwd"));
-				
-				mPwd = PathUtils.getPath(attributes.getValue("pwd"));
-			} else if (qName.equals("file")) {
-				Path file = PathUtils.getPath(attributes.getValue("name"));
-
-				if (FileUtils.exists(file)) {
-					if (attributes.getValue("date") != null) {
-						try {
-							Date date = mDf.parse(attributes.getValue("date"));
-
-							mDateMap.put(file, date);
-						} catch (ParseException e) {
-							e.printStackTrace();
-						}
-					}
-
-					mFiles.add(file);
-				}
-			} else {
-
-			}
-		}
-
-		/**
-		 * Gets the pwd.
-		 *
-		 * @return the pwd
-		 */
-		public Path pwd() {
-			return mPwd;
-		}
-	}
 
 	/**
 	 * Instantiates a new recent files service.
@@ -178,7 +120,7 @@ public class RecentFilesModel extends PwdModel implements XmlRepresentation, Jso
 	}
 	
 	public RecentFilesModel(Path pwd) {
-		setPwd(pwd);
+		mPwdModel.setPwd(pwd);
 	}
 
 	/* (non-Javadoc)
@@ -209,10 +151,8 @@ public class RecentFilesModel extends PwdModel implements XmlRepresentation, Jso
 		file = file.toAbsolutePath();
 		
 		if (FileUtils.exists(file)) {
-			updatePwd(file.getParent());
+			mPwdModel.setPwd(file.getParent());
 			
-			System.err.println("what now " + file);
-
 			//List<Path> current = new ArrayList<Path>(mFiles);
 
 			// Remove from its old position
@@ -280,7 +220,7 @@ public class RecentFilesModel extends PwdModel implements XmlRepresentation, Jso
 
 		Element filesElement = doc.createElement("files");
 
-		filesElement.setAttribute("pwd", mPwd.toAbsolutePath().toString());
+		filesElement.setAttribute("pwd", mPwdModel.getPwd().toAbsolutePath().toString());
 
 		// We write out no more than max files
 		int n = Math.min(mFiles.size(), MAX_FILES);
@@ -304,7 +244,7 @@ public class RecentFilesModel extends PwdModel implements XmlRepresentation, Jso
 	public Json toJson() {
 		Json o = new JsonObject();
 
-		o.add("pwd", mPwd.toAbsolutePath());
+		o.add("pwd", mPwdModel.getPwd().toAbsolutePath());
 
 		Json filesJ = new JsonArray();
 
@@ -330,5 +270,21 @@ public class RecentFilesModel extends PwdModel implements XmlRepresentation, Jso
 
 	public Path get(int index) {
 		return mFiles.get(index);
+	}
+
+	public PwdModel getPwdModel() {
+		return mPwdModel;
+	}
+
+	public boolean setPwd(Path pwd) {
+		return getPwdModel().setPwd(pwd);
+	}
+
+	public Path getPwd() {
+		return getPwdModel().getPwd();
+	}
+
+	public synchronized boolean updatePwd(Path pwd) {
+		return getPwdModel().setPwd(pwd);
 	}
 }

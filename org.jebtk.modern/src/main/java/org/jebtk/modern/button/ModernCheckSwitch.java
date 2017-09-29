@@ -101,9 +101,9 @@ public class ModernCheckSwitch extends CheckBox {
 	public ModernCheckSwitch(String text, boolean selected) {
 		setText(text);
 
-		setSelected(selected);
-
 		setBackgroundAnimations("check-switch");
+		
+		setSelected(selected);
 	}
 
 	public ModernCheckSwitch(String text, boolean selected, Color color) {
@@ -113,6 +113,8 @@ public class ModernCheckSwitch extends CheckBox {
 			.clear()
 			.add(new CheckSwitchAnimation(this, color))
 			.add(new CheckSwitchChangeAnimation(this, color));
+		
+		setSelected(selected);
 	}
 
 	/* (non-Javadoc)

@@ -131,7 +131,7 @@ public class RecentFilesService extends RecentFilesModel {
 			if (qName.equals("files")) {
 				System.err.println("xml pwd " + attributes.getValue("pwd"));
 				
-				mPwd = PathUtils.getPath(attributes.getValue("pwd"));
+				setPwd(PathUtils.getPath(attributes.getValue("pwd")));
 			} else if (qName.equals("file")) {
 				Path file = PathUtils.getPath(attributes.getValue("name"));
 
@@ -151,15 +151,6 @@ public class RecentFilesService extends RecentFilesModel {
 			} else {
 
 			}
-		}
-
-		/**
-		 * Gets the pwd.
-		 *
-		 * @return the pwd
-		 */
-		public Path pwd() {
-			return mPwd;
 		}
 	}
 
@@ -296,8 +287,6 @@ public class RecentFilesService extends RecentFilesModel {
 	public Iterator<Path> iterator() {
 		// Attempt to auto load files if they
 		// have not already been done so
-
-		System.err.println("iter");
 		
 		try {
 			autoLoad();
@@ -320,7 +309,6 @@ public class RecentFilesService extends RecentFilesModel {
 	 * @throws ParserConfigurationException the parser configuration exception
 	 */
 	private synchronized void autoLoad() throws IOException, SAXException, ParserConfigurationException {
-		System.err.println("loaded 1 " + mLoaded + " " + this.getClass());
 		if (!mLoaded) {
 			mLoaded = true;
 
@@ -330,7 +318,6 @@ public class RecentFilesService extends RecentFilesModel {
 			
 			loadJson();
 		}
-		System.err.println("loaded 2 " + mLoaded + " " + this.getClass());
 	}
 
 	/**
@@ -426,8 +413,6 @@ public class RecentFilesService extends RecentFilesModel {
 	 */
 	@Override
 	public Path getPwd() {
-		System.err.println("getpwd");
-		
 		try {
 			autoLoad();
 		} catch (IOException | SAXException | ParserConfigurationException e) {
@@ -445,8 +430,6 @@ public class RecentFilesService extends RecentFilesModel {
 	 */
 	@Override
 	public synchronized boolean updatePwd(Path pwd) {
-		System.err.println("updatepwd");
-		
 		pwd = pwd.toAbsolutePath();
 		
 		if (!FileUtils.isDirectory(pwd)) {
@@ -459,9 +442,7 @@ public class RecentFilesService extends RecentFilesModel {
 			e.printStackTrace();
 		}
 
-		mPwd = pwd;
-
-		System.err.println("pwd " + mPwd);
+		getPwdModel().setPwd(pwd);
 		
 		try {
 			write();

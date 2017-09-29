@@ -28,6 +28,7 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.CheveronRightVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindowContentPanel;
@@ -131,9 +132,12 @@ public class ModernFileCrumb extends ModernWidget implements ChangeEventProducer
 				int i = getIndex(e.getX());
 
 				if (i != -1) {
-					mSelectedIndex = i;
-
 					setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+					
+					if (mSelectedIndex != i) {
+						mSelectedIndex = i;
+						repaint();
+					}
 				} else {
 					setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 				}
@@ -256,9 +260,8 @@ public class ModernFileCrumb extends ModernWidget implements ChangeEventProducer
 			int y1 = getTextYPosCenter(g2, getHeight());
 			int y2 = (getHeight() - CRUMB_ICON.getHeight()) / 2;
 
-			g2.setColor(TEXT_COLOR);
-
-			for (Path part : mPaths) {
+			for (int i = 0; i < mPaths.size(); ++i) {
+				Path part = mPaths.get(i); 
 
 				String name = PathUtils.getName(part);
 
@@ -267,6 +270,12 @@ public class ModernFileCrumb extends ModernWidget implements ChangeEventProducer
 
 					x += ICON_SIZE + PADDING;
 
+					if (i == mSelectedIndex) {
+						g2.setColor(Ribbon.BAR_BACKGROUND);
+					} else {
+						g2.setColor(TEXT_COLOR);
+					}
+					
 					g2.drawString(name, x, y1);
 				}
 
@@ -325,5 +334,6 @@ public class ModernFileCrumb extends ModernWidget implements ChangeEventProducer
 	private void reset() {
 		setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		mSelectedIndex = -1;
+		repaint();
 	}
 }
