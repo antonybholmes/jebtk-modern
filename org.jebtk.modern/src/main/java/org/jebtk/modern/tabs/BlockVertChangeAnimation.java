@@ -20,6 +20,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 import org.jebtk.modern.animation.TranslateYAnimation;
+import org.jebtk.modern.ribbon.RibbonChangeAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -82,7 +83,7 @@ public class BlockVertChangeAnimation extends TranslateYAnimation {
 	public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
 		g2.setColor(BlockVertTabs.TEXT_TAB_SELECTED_COLOR);
 		//g2.fill(mTabs.mP);
-		g2.fillRect(0, 0, SegmentChangeAnimation.HEIGHT, mTabs.mTabSize);
+		g2.fillRect(0, 0, RibbonChangeAnimation.BAR_HEIGHT, mTabs.mTabSize);
 		
 	}	
 }

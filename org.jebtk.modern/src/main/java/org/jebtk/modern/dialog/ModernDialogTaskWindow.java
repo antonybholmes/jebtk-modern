@@ -262,7 +262,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
 	 * @param box the box
 	 */
 	public static void midSectionHeader(final String name, Box box) {
-		box.add(UI.createVGap(20));
+		box.add(UI.createVGap(30));
 		sectionHeader(name, box);
 	}
 }

@@ -20,10 +20,10 @@ import java.awt.Graphics2D;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.ribbon.Ribbon;
+import org.jebtk.modern.ribbon.RibbonChangeAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -37,7 +37,7 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
 
 	private SegmentTabs mTabs;
 	
-	protected static final int HEIGHT = 2;
+	//protected static final int HEIGHT = 2;
 
 	public static final Color COLOR = 
 			Ribbon.BAR_BACKGROUND; //ColorUtils.getTransparentColor(Ribbon.BAR_BACKGROUND, 0.8); // Color.BLACK
@@ -110,6 +110,9 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
 		//mTabs.getWidgetRenderer().drawPillButtonFill(g2, 0, 0, mTabs.mTabSize, h);
 		
 		g2.setColor(COLOR);
-		g2.fillRect(0, h - HEIGHT, mTabs.mTabSize, HEIGHT);
+		g2.fillRect(0, 
+				h - RibbonChangeAnimation.BAR_HEIGHT, 
+				mTabs.mTabSize, 
+				RibbonChangeAnimation.BAR_HEIGHT);
 	}	
 }

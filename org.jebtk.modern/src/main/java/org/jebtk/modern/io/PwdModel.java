@@ -101,7 +101,7 @@ public class PwdModel extends ChangeListeners {
 	public synchronized boolean updatePwd(Path pwd) {
 		pwd = pwd.toAbsolutePath();
 
-		if (FileUtils.isDirectory(pwd) && !pwd.equals(mPwd)) {
+		if (FileUtils.isDirectory(pwd)) { //if (FileUtils.isDirectory(pwd) && !pwd.equals(mPwd)) {
 			mPwd = pwd;
 			return true;
 		} else {

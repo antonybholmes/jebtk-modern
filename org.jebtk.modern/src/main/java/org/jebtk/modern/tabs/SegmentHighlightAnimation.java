@@ -18,6 +18,7 @@ package org.jebtk.modern.tabs;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.HighlightAnimation;
+import org.jebtk.modern.ribbon.RibbonChangeAnimation;
 import org.jebtk.modern.ribbon.RibbonHighlightTextAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -71,7 +72,10 @@ public class SegmentHighlightAnimation extends HighlightAnimation {
 			//g2.drawRect(x, mSegments.getInsets().top, mSegments.mTabSize, h - 1);
 			//g2.fillRect(x, mSegments.getInsets().top, mSegments.mTabSize, h);
 			
-			g2.fillRect(x, mTabs.getInsets().top + h - SegmentChangeAnimation.HEIGHT, mTabs.mTabSize, SegmentChangeAnimation.HEIGHT);
+			g2.fillRect(x, 
+					mTabs.getInsets().top + h - RibbonChangeAnimation.BAR_HEIGHT, 
+					mTabs.mTabSize, 
+					RibbonChangeAnimation.BAR_HEIGHT);
 			
 		}
 

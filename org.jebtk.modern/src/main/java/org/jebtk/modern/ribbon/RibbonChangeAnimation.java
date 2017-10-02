@@ -32,7 +32,7 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RibbonChangeAnimation extends TranslateXAnimation {
 
-	private static final int BAR_HEIGHT = 1;
+	public static final int BAR_HEIGHT = 2;
 	private Ribbon mTabs;
 		
 	/**
