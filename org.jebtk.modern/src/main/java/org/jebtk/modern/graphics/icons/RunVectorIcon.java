@@ -33,6 +33,7 @@ import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.core.settings.SettingsService;
+import org.jebtk.modern.ribbon.Ribbon;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -52,13 +53,13 @@ public class RunVectorIcon extends ModernVectorIcon {
 	 * The constant SCALE.
 	 */
 	private static final double SCALE = 
-			SettingsService.getInstance().getAsDouble("theme.icons.run-icon.width-scale");
+			1; //SettingsService.getInstance().getAsDouble("theme.icons.run-icon.width-scale");
 	
 	/**
 	 * The constant BACKGROUND.
 	 */
 	private static final Color BACKGROUND = 
-			SettingsService.getInstance().getAsColor("theme.icons.run-icon.colors.foreground");
+			Ribbon.BAR_BACKGROUND; //SettingsService.getInstance().getAsColor("theme.icons.run-icon.colors.foreground");
 	
 	/* (non-Javadoc)
 	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)

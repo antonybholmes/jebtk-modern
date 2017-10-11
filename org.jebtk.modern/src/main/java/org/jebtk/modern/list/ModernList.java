@@ -72,7 +72,7 @@ import org.jebtk.modern.theme.ThemeService;
  * @param <T> the generic type
  */
 public class ModernList<T> extends ModernCanvas implements ModernSelectionEventProducer, ModernDataViewEventProducer, HighlightEventProducer {
-	
+
 	/**
 	 * The constant serialVersionUID.
 	 */
@@ -113,7 +113,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 	 */
 	private ModernSelectionListeners mSelectionListeners = 
 			new ModernSelectionListeners();
-	
+
 	private HighlightListeners mHighlightListeners =
 			new HighlightListeners();
 
@@ -124,7 +124,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 			new ModernDataViewListeners();
 
 	protected int mPreviousHighlightCellIndex = -1;
-	
+
 	/**
 	 * The member highlight cell index.
 	 */
@@ -150,7 +150,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 	 * The member visible cells.
 	 */
 	ModernDataRowSelection mVisibleCells;
-	
+
 	/**
 	 * The member selected cell index.
 	 */
@@ -160,7 +160,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 	 * The class MouseEvents.
 	 */
 	private class MouseEvents extends MouseAdapter {
-		
+
 
 		/* (non-Javadoc)
 		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
@@ -193,7 +193,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 			if (mDragEnabled) {
 				dragReorder();
 			}
-			
+
 			mSelectedCellIndex = -1;
 
 			repaint();
@@ -260,7 +260,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 	 * The class SelectionEvents.
 	 */
 	private class SelectionEvents implements ModernSelectionListener {
-		
+
 		/**
 		 * The member list.
 		 */
@@ -288,7 +288,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 	 * The class DataEvents.
 	 */
 	private class DataEvents implements ModernDataViewListener {
-		
+
 		/**
 		 * The member list.
 		 */
@@ -309,7 +309,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 		@Override
 		public void dataChanged(ChangeEvent e) {
 			adjustSize();
-			
+
 			fireDataChanged(new ChangeEvent(mList));
 		}
 
@@ -414,7 +414,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 				selectAll();
 			}
 		});
-		
+
 		setBackgroundAnimations("list");
 	}
 
@@ -439,33 +439,35 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 			// dragged
 
 			int from = mSelectedCellIndex; //mSelectionModel.first();
-			int to = mDragCellIndex;
-			
-			// Once the drag is complete, mark it invalid so a new drag
-			// must be initiated.
-			mDragCellIndex = -1;
-			
+			//int to = mDragCellIndex;
+
+
+
 			mHighlightCellIndex = -1;
-			
-			int diff = to - from;
-			
+
+			int diff = mDragCellIndex - from;
+
 			List<Integer> fromIndices = new ArrayList<Integer>();
 			List<Integer> toIndices = new ArrayList<Integer>();
-			
+
 			for (int index : mSelectionModel) {
 				fromIndices.add(index);
 				toIndices.add(index + diff);
 			}
-			
+
 			mListModel.shift(fromIndices, toIndices);
-			
+
 			// Update the new selected cells
 			mSelectionModel.setSelection(toIndices);
+
+			// Once the drag is complete, mark it invalid so a new drag
+			// must be initiated.
+			mDragCellIndex = -1;
 		}
 
-		
+
 	}
-	
+
 	/**
 	 * Selects a cell if the mouse is over a valid cell when clicked.
 	 *
@@ -480,7 +482,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 		if (index == -1) {
 			return;
 		}
-		
+
 		// If we a single selection and the item is already selected,
 		// do nothing since we may be trying to move multiple items.
 		// Without this test, if a group of items are selected and then
@@ -492,7 +494,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 			return;
 		}
 
-		
+
 		if ((!multiItemSelect && !multiRangeSelect) ||
 				mSelectionPolicy != SelectionPolicy.MULTIPLE) {
 			// If we are not selecting multiple cells, clear
@@ -548,7 +550,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 	 */
 	public void adjustSize() {
 		setCanvasSize(getWidth(), Math.max(1, getItemCount()) * mRowHeight);
-		
+
 		//System.err.println("list " + getCanvasSize() + " " + getName());
 	}
 
@@ -629,7 +631,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 
 		createDragImage(g2, mVisibleCells);
 	}
-	
+
 	protected void createDragImage(Graphics2D g2, ModernDataRowSelection visibleCells) {
 		if (!mDragEnabled || mDragCellIndex == -1) {
 			return;
@@ -641,7 +643,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 
 		g2.drawLine(0, y, getWidth(), y);
 	}
-	*/
+	 */
 
 
 
@@ -735,7 +737,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 	public T getSelectedItem() {
 		return mListModel.getValueAt(getSelectedIndex());
 	}
-	
+
 	/**
 	 * Returns a list of the selected items.
 	 *
@@ -743,14 +745,14 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 	 */
 	public List<T> getSelectedItems() {
 		List<T> ret = new ArrayList<T>();
-		
+
 		for (int i : getSelectionModel()) {
 			ret.add(mListModel.getValueAt(i));
 		}
-		
+
 		return ret;
 	}
-	
+
 	/**
 	 * Returns a list of the items in the list.
 	 *
@@ -759,7 +761,7 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 	public List<T> getItems() {
 		return CollectionUtils.toList(mListModel);
 	}
-	
+
 	/**
 	 * Equivalent to getListModel().clear();
 	 */
@@ -865,19 +867,19 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 	@Override
 	public void fireDataChanged(ChangeEvent e) {
 		mSelectionModel.clear();
-		
+
 		adjustSize();
 
 		mDataListeners.fireDataChanged(e);
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#fireDataUpdated(org.abh.lib.event.ChangeEvent)
 	 */
 	@Override
 	public void fireDataUpdated(ChangeEvent e) {
 		mSelectionModel.clear();
-		
+
 		repaint();
 
 		mDataListeners.fireDataUpdated(e);
@@ -904,11 +906,11 @@ public class ModernList<T> extends ModernCanvas implements ModernSelectionEventP
 	public void fireHighlighted(HighlightEvent e) {
 		mHighlightListeners.fireHighlighted(e);
 	}
-	
+
 	public void fireHighlighted() {
 		fireHighlighted(new HighlightEvent(this, mHighlightCellIndex));
 	}
-	
+
 	private void reset() {
 		mPreviousHighlightCellIndex = -1;
 		mHighlightCellIndex = -1;

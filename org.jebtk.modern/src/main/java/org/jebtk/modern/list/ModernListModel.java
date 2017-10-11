@@ -270,18 +270,13 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
 		
 		//System.err.println("swap " + index + " " + newIndex);
 		
-		if (newIndex > index) {
-			// If the new index is after the current, reduce it by one
-			// to account for the removal of the old item and its
-			// reinsertion into the list at a later index. Once the item
-			// it removed, the insertion index will be one less than
-			// requested
-			--newIndex;
-		}
+	
 		
 		T tmp = mItems.get(index);
 		
 		mItems.remove(index);
+		
+		System.err.println("sddsf " + index + " " + newIndex);
 		
 		if (newIndex < getItemCount()) {
 			mItems.add(newIndex, tmp);

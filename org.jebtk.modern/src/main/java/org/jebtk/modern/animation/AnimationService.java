@@ -63,6 +63,8 @@ import org.jebtk.modern.help.HelpButtonHighlightAnimation;
 import org.jebtk.modern.list.ListAnimation;
 import org.jebtk.modern.list.ListChangeAnimation;
 import org.jebtk.modern.list.ListHighlightAnimation;
+import org.jebtk.modern.listpanel.ListPanelItemAnimation;
+import org.jebtk.modern.listpanel.ListPanelItemPressedAnimation;
 import org.jebtk.modern.menu.MenuItemColorHighlightAnimation;
 import org.jebtk.modern.menu.MenuItemColorHighlightFadeAnimation;
 import org.jebtk.modern.menu.MenuItemHighlightAnimation;
@@ -276,6 +278,11 @@ public class AnimationService {
 		getCreator("check-switch")
 			.add(CheckSwitchAnimation.class)
 			.add(CheckSwitchChangeAnimation.class);
+		
+		getCreator("listpanel")
+			.add(ListPanelItemPressedAnimation.class)	
+			.add(ListPanelItemAnimation.class);
+			
 	}
 	
 	/**

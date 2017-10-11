@@ -1,18 +1,3 @@
-/**
- * Copyright 2017 Antony Holmes
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- * 
- *   http://www.apache.org/licenses/LICENSE-2.0
- * 
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package org.jebtk.modern.animation;
 
 import java.awt.Component;
@@ -30,7 +15,7 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  * @author Antony Holmes
  */
-public abstract class MousePressedAnimation extends WidgetAnimation {
+public abstract class MousePressReleaseAnimation extends WidgetAnimation {
 
 	/** The m mouse over timer. */
 	private Timer mTimer;
@@ -41,9 +26,6 @@ public abstract class MousePressedAnimation extends WidgetAnimation {
 	 * The Class MouseEvents.
 	 */
 	private class MouseEvents extends MouseAdapter {
-
-		
-
 		/* (non-Javadoc)
 		 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
 		 */
@@ -54,6 +36,13 @@ public abstract class MousePressedAnimation extends WidgetAnimation {
 			startTimer();
 		}
 
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			mPressed = false;
+			
+			startTimer();
+		}
+		
 		@Override
 		public void mouseExited(MouseEvent e) {
 			reset();
@@ -79,7 +68,7 @@ public abstract class MousePressedAnimation extends WidgetAnimation {
 	 *
 	 * @param widget the widget
 	 */
-	public MousePressedAnimation(ModernWidget widget) {
+	public MousePressReleaseAnimation(ModernWidget widget) {
 		super(widget);
 		
 		mTimer = new Timer(0, new PressedEvents());
@@ -97,7 +86,7 @@ public abstract class MousePressedAnimation extends WidgetAnimation {
 	 * @param widget
 	 * @return 
 	 */
-	public MousePressedAnimation bind(Component c) {
+	public MousePressReleaseAnimation bind(Component c) {
 		c.addMouseListener(new MouseEvents());
 		
 		return this;
@@ -119,8 +108,6 @@ public abstract class MousePressedAnimation extends WidgetAnimation {
 	}
 	
 	public void reset() {
-		mPressed = false;
-		
 		stopTimer();
 	}
 	

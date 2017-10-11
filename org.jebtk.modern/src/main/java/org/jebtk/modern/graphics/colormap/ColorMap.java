@@ -61,7 +61,7 @@ import org.w3c.dom.Element;
 public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, XmlRepresentation, JsonRepresentation {
 
 	/** The Constant DEFAULT_COLORS. */
-	public static final int DEFAULT_COLORS = 64;
+	public static final int DEFAULT_COLORS = 65;
 
 	/** The Constant GREEN. */
 	public static final Color GREEN = ColorUtils.decodeHtmlColor("#00aa00");
@@ -882,19 +882,15 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
 		float[] ainc = {(color2.getAlpha() - color1.getAlpha()) / NF, 
 				(color3.getAlpha() - color2.getAlpha()) / NF};
 
-		float[] rf = {color1.getRed() / NF, color2.getRed()  / NF};
-
+		float[] rf = {color1.getRed() / NF, color2.getRed() / NF};
 		float[] gf = {color1.getGreen() / NF, color2.getGreen() / NF};
-
 		float[] bf = {color1.getBlue() / NF, color2.getBlue() / NF};
-
 		float[] af = {color1.getAlpha() / NF, color2.getAlpha() / NF};
 
-
-
-
+		int e = colors - 1;
+		
 		// fill in the gaps
-		for (int i = 0; i < colors - 1; ++i) {
+		for (int i = 0; i < e; ++i) {
 			int bin = i / binSize;
 
 			// bound p within a block
@@ -905,12 +901,14 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
 			b[i] = bf[bin] + (binc[bin] * p);
 			a[i] = af[bin] + (ainc[bin] * p);
 		}
+		
+		
 
 		// Set the end color
-		r[r.length - 1] = color3.getRed() / NF;
-		g[g.length - 1] = color3.getGreen() / NF;
-		b[b.length - 1] = color3.getBlue() / NF;
-		a[a.length - 1] = color3.getAlpha() / NF;
+		r[e] = color3.getRed() / NF;
+		g[e] = color3.getGreen() / NF;
+		b[e] = color3.getBlue() / NF;
+		a[e] = color3.getAlpha() / NF;
 
 		List<ColorMapColor> ret = new ArrayList<ColorMapColor>();
 		

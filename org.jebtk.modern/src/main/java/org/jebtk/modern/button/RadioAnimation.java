@@ -9,7 +9,7 @@ import org.jebtk.modern.widget.ModernWidget;
 
 public class RadioAnimation extends WidgetAnimation {
 
-	public static int RADIO_SIZE = ModernCheckSwitch.SLIDER_HEIGHT;
+	public static int RADIO_SIZE = ModernCheckSwitch.SLIDER_HEIGHT + 2;
 	private int w2;
 
 	public RadioAnimation(ModernWidget widget) {
