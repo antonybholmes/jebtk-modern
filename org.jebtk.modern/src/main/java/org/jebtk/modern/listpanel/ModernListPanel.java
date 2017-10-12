@@ -33,6 +33,7 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -44,6 +45,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import javax.swing.Scrollable;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
 
@@ -59,7 +61,7 @@ import org.jebtk.modern.animation.TranslateAnimation;
  *
  * @author Antony Holmes Holmes
  */
-public class ModernListPanel extends ModernComponent implements Iterable<ModernListPanelItem> {
+public class ModernListPanel extends ModernComponent implements Iterable<ModernListPanelItem>, Scrollable {
 
 	/**
 	 * The constant serialVersionUID.
@@ -527,7 +529,7 @@ public class ModernListPanel extends ModernComponent implements Iterable<ModernL
 	public Dimension getPreferredSize() {
 		return new Dimension(getWidth(), mH);
 	}
-
+	
 	/**
 	 * Gets the.
 	 *
@@ -620,5 +622,35 @@ public class ModernListPanel extends ModernComponent implements Iterable<ModernL
 		autoReorder();
 
 		return mListModel.iterator();
+	}
+	
+	@Override
+	public Dimension getPreferredScrollableViewportSize() {
+		return getPreferredSize();
+	}
+
+
+
+	@Override
+	public int getScrollableBlockIncrement(Rectangle arg0, int arg1, int arg2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public boolean getScrollableTracksViewportHeight() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean getScrollableTracksViewportWidth() {
+		return true;
+	}
+
+	@Override
+	public int getScrollableUnitIncrement(Rectangle arg0, int arg1, int arg2) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

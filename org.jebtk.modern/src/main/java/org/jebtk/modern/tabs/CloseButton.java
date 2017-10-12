@@ -20,6 +20,7 @@ import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.CloseVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.Raster16Icon;
+import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -48,7 +49,7 @@ public class CloseButton extends ModernButton {
 		
 		setBackgroundAnimations("circular-button");
 		
-		UI.setSize(this, 20);
+		UI.setSize(this, ModernWidget.WIDGET_HEIGHT - 2);
 	}
 	
 	/*

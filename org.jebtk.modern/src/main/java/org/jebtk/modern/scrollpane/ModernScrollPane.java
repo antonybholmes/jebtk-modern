@@ -1208,6 +1208,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 		// Causes rendering errors
 		//mComponent.setBounds(b);
 		//mComponent.setSize(b.width, b.height);
+		//mComponent.set(b.width, b.height);
 
 		/*
 		// Set the preferred size of the component based on whether the
