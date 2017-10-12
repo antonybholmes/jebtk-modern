@@ -261,7 +261,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 
 	/** The m V scroll sep. */
 	int mVScrollSep = 0;
-	
+
 	/** The m H scroll sep. */
 	int mHScrollSep = 0;
 
@@ -629,7 +629,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 		mComponent = table;
 
 		setup();
-		
+
 		/*
 		if (table.getShowHeader()) {
 			setTopHeader(new ModernTableHeaderColumn(table));
@@ -649,7 +649,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 
 		configureTable(table);
 
-		
+
 	}
 
 	/**
@@ -661,7 +661,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 		mComponent = table;
 
 		setup();
-		
+
 		/*
 		if (table.getShowHeader()) {
 			setTopHeader(new ModernTableHeaderColumn(table));
@@ -672,7 +672,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 
 		configureTable(table);
 
-		
+
 	}
 
 	/**
@@ -748,7 +748,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 		mComponent = tree;
 
 		setup();
-		
+
 		mVScrollBar.setScroller(new ModernTreeScrollerV());
 		tree.getSelectionModel().addSelectionListener(new ModernTreeSelectionScrollV(tree, mVScrollBar));
 	}
@@ -781,7 +781,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 		if (mComponent instanceof ModernCanvas) {
 			((ModernCanvas)mComponent).addCanvasListener(this);
 		}
-		
+
 		//else {
 		//mCompInsets = (Insets)mComponent.getInsets().clone();
 
@@ -793,58 +793,58 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 
 		//mLayerPanel.add(mComponent, DEFAULT_Z);
 		mLayerPanel.add(mViewport, DEFAULT_Z);
-		
+
 		PropertyChangeListener l = new PropertyChangeListener() {
 			@Override
 			public void propertyChange(PropertyChangeEvent e) {
 				adjustDisplay();
 			}};
 
-		mVScrollBar = new ModernVScrollBarMac(this, mComponent);
-		mHScrollBar = new ModernHScrollBarMac(this, mComponent);
-		
-		setVerticalScrollBarPolicy(ScrollBarPolicy.AUTO);
-		setVScrollBarLocation(ScrollBarLocation.SIDE);
-		mVScrollBar.addChangeListener(new VScrollBarEvents());
-		mVScrollBar.addKeyListener(new VScrollKeyEvents());
-		mVScrollBar.setView(mComponent);
-		mVScrollBar.addPropertyChangeListener("preferredSize", l);
+			mVScrollBar = new ModernVScrollBarMac(this, mComponent);
+			mHScrollBar = new ModernHScrollBarMac(this, mComponent);
 
-		setHorizontalScrollBarPolicy(ScrollBarPolicy.AUTO);
-		setHScrollBarLocation(ScrollBarLocation.SIDE);
-		mHScrollBar.addChangeListener(new HScrollBarEvents());
-		mHScrollBar.addKeyListener(new HScrollKeyEvents());
-		mHScrollBar.setView(mComponent);
-		mHScrollBar.addPropertyChangeListener("preferredSize", l);
+			setVerticalScrollBarPolicy(ScrollBarPolicy.AUTO);
+			setVScrollBarLocation(ScrollBarLocation.SIDE);
+			mVScrollBar.addChangeListener(new VScrollBarEvents());
+			mVScrollBar.addKeyListener(new VScrollKeyEvents());
+			mVScrollBar.setView(mComponent);
+			mVScrollBar.addPropertyChangeListener("preferredSize", l);
 
-		mComponent.addMouseListener(new InnerComponentMouseEvents());
-		mComponent.addMouseMotionListener(new InnerComponentMouseMotionEvents());
-		mComponent.addMouseWheelListener(new InnerComponentMouseWheelEvents());
-		mComponent.addKeyListener(new InnerCompKeyEvents());
+			setHorizontalScrollBarPolicy(ScrollBarPolicy.AUTO);
+			setHScrollBarLocation(ScrollBarLocation.SIDE);
+			mHScrollBar.addChangeListener(new HScrollBarEvents());
+			mHScrollBar.addKeyListener(new HScrollKeyEvents());
+			mHScrollBar.setView(mComponent);
+			mHScrollBar.addPropertyChangeListener("preferredSize", l);
 
-		addComponentListener(new ComponentEvents());
+			mComponent.addMouseListener(new InnerComponentMouseEvents());
+			mComponent.addMouseMotionListener(new InnerComponentMouseMotionEvents());
+			mComponent.addMouseWheelListener(new InnerComponentMouseWheelEvents());
+			mComponent.addKeyListener(new InnerCompKeyEvents());
 
-		//mComponent.addKeyListener(new KeyboardEvents());
-		//addKeyListener(new KeyboardEvents());
+			addComponentListener(new ComponentEvents());
 
-		//
-		// Register this listener to detect when we are inside or outside
-		// the boundaries of the scrollpane even when the mouse events are
-		// on the children
+			//mComponent.addKeyListener(new KeyboardEvents());
+			//addKeyListener(new KeyboardEvents());
 
-		HoverMouseEvents ml = new HoverMouseEvents(this);
+			//
+			// Register this listener to detect when we are inside or outside
+			// the boundaries of the scrollpane even when the mouse events are
+			// on the children
 
-		addMouseListener(ml);
+			HoverMouseEvents ml = new HoverMouseEvents(this);
 
-
-		// Add the listener to the component and all its children
-		UI.addMouseListenerAllChildren(mComponent, ml);
+			addMouseListener(ml);
 
 
-		mVScrollBar.addMouseListener(ml);
-		mHScrollBar.addMouseListener(ml);
+			// Add the listener to the component and all its children
+			UI.addMouseListenerAllChildren(mComponent, ml);
 
-		adjustDisplay();
+
+			mVScrollBar.addMouseListener(ml);
+			mHScrollBar.addMouseListener(ml);
+
+			adjustDisplay();
 	}
 
 	/**
@@ -880,7 +880,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 		JViewport port = new JViewport();
 		port.setOpaque(false);
 		port.setView(c);
-		
+
 		return port;
 	}
 
@@ -1200,39 +1200,43 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 			}
 		}
 
+
+
+		//mViewport.setBounds(b);
+		mViewport.setSize(b.width, b.height);
+
 		// Causes rendering errors
 		//mComponent.setBounds(b);
-		
-		mViewport.setBounds(b);
-		
+		//mComponent.setSize(b.width, b.height);
+
 		/*
 		// Set the preferred size of the component based on whether the
 		// scroll bars are visible or not
-		
+
 		int w = -1;
 		h = -1;
-		
+
 		Dimension p = mComponent.getPreferredSize();
-		
+
 		if (!mHScrollBar.isVisible()) {
 			w = p.width;
 		} else {
 			w = b.width;
 		}
-		
+
 		if (mVScrollBar.isVisible()) {
 			h = p.height;
 		} else {
 			h = b.height;
 		}
-		
+
 		//if ((!mHScrollBar.isVisible() && w != p.width) ||
 		//		(!mVScrollBar.isVisible() && h != p.height)) {
 		if (w != p.width || h != p.height) {
 			Dimension d = new Dimension(w, h);
 			mComponent.setPreferredSize(d);
 		}
-		*/
+		 */
 	}
 
 	/**
@@ -1397,7 +1401,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 		//} else {
 		//	return mComponent.getPreferredSize().width > w;
 		//}
-		
+
 		return mComponent.getPreferredSize().width > w;
 	}
 

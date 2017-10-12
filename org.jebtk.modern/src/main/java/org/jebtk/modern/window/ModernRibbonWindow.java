@@ -31,6 +31,7 @@ import java.awt.Component;
 import java.io.IOException;
 import java.nio.file.Path;
 
+import javax.swing.JComponent;
 import javax.swing.border.Border;
 
 import org.jebtk.core.io.PathUtils;
@@ -43,11 +44,16 @@ import org.jebtk.modern.dialog.MessageDialogOkCancelGlassPane;
 import org.jebtk.modern.dialog.MessageDialogTaskGlassPane;
 import org.jebtk.modern.dialog.MessageDialogType;
 import org.jebtk.modern.dialog.ModernMessageDialog;
+import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.help.GuiAppInfo;
+import org.jebtk.modern.panel.AutoHidePanel;
 import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.shadow.TopShadowPanel;
 import org.jebtk.modern.status.ModernStatusBar;
+import org.jebtk.modern.tabs.IconTabsPanel;
+import org.jebtk.modern.tabs.IconTabsVectorIcon;
+import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -81,6 +87,11 @@ public class ModernRibbonWindow extends ModernWindow {
 	
 	/** The m status bar. */
 	protected ModernStatusBar mStatusBar = new ModernStatusBar();
+	
+	
+	private TabsModel mLeftTabsModel;
+
+	private IconTabsPanel mViewPanel;
 
 
 
@@ -175,6 +186,42 @@ public class ModernRibbonWindow extends ModernWindow {
 			.getModel()
 			.setCenterTab(new ModernComponent(new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)), 
 					ModernWidget.DOUBLE_BORDER));
+	}
+	
+	public void addLeftTab(String name, char t, JComponent c) {
+		addLeftSideTab(name, new IconTabsVectorIcon(t), c);
+	}
+	
+	/**
+	 * Create a left pane with editable tabs to conserve space.
+	 * @param name
+	 * @param icon
+	 * @param c
+	 */
+	public void addLeftSideTab(String name, ModernIcon icon, JComponent c) {
+		getLeftTabsModel().addTab(name, icon, c);
+
+		addLeftTabsPane();
+	}
+	
+	public TabsModel getLeftTabsModel() {
+		if (mLeftTabsModel == null) {
+			mLeftTabsModel = new TabsModel();
+			mViewPanel = new IconTabsPanel(mLeftTabsModel, 36, 22);
+		}
+		
+		return mLeftTabsModel;
+	}
+	
+	/**
+	 * Create the left pane to hold the left tabs if it does not exist.
+	 */
+	public void addLeftTabsPane() {
+		if (getTabsPane().getModel().containsTab("Left Tabs")) {
+			return;
+		}
+
+		getTabsPane().addLeftTab("Left Tabs", new AutoHidePanel(mViewPanel, 100, ModernWidget.BORDER), 200, ModernWidget.WIDGET_HEIGHT, 500);
 	}
 
 	/**

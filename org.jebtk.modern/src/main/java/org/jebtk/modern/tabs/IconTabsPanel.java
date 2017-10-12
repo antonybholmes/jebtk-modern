@@ -31,10 +31,9 @@ public class IconTabsPanel extends ModernComponent {
 	/**
 	 * Instantiates a new segment tabs panel.
 	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param pagePadding the page padding
-	 * @param centered the centered
+	 * @param model 		the model
+	 * @param tabSize 		the tab size
+	 * @param iconSize		The icon size
 	 */
 	public IconTabsPanel(TabsModel model, 
 			int tabSize,

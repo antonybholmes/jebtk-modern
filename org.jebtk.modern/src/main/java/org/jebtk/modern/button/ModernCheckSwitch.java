@@ -63,6 +63,8 @@ public class ModernCheckSwitch extends CheckBox {
 	protected static final int SWITCH_ON_OFFSET = 
 			SLIDER_WIDTH - ORB_HEIGHT - SWITCH_ICON_OFFSET;
 
+	private Color mTextColor;
+
 
 	public ModernCheckSwitch() {
 		this(TextUtils.EMPTY_STRING);
@@ -107,8 +109,17 @@ public class ModernCheckSwitch extends CheckBox {
 	}
 
 	public ModernCheckSwitch(String text, boolean selected, Color color) {
+		this(text, selected, color, TEXT_COLOR);
+	}
+	
+	public ModernCheckSwitch(String text, 
+			boolean selected, 
+			Color color,
+			Color textColor) {
 		this(text, selected);
 
+		mTextColor = textColor;
+		
 		getBackgroundAnimations()
 			.clear()
 			.add(new CheckSwitchAnimation(this, color))
@@ -186,7 +197,7 @@ public class ModernCheckSwitch extends CheckBox {
 	 */
 	@Override
 	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(TEXT_COLOR); //isSelected() ? TEXT_COLOR : TEXT_DISABLED_COLOR);
+		g2.setColor(mTextColor); //isSelected() ? TEXT_COLOR : TEXT_DISABLED_COLOR);
 		g2.drawString(mText1, 
 				getInsets().left + SLIDER_WIDTH + PADDING, 
 				getTextYPosCenter(g2, getHeight()));

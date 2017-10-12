@@ -81,12 +81,14 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 			}
 		});
 
+		/*
 		mButton.addComponentListener(new ComponentAdapter() {
 
 			@Override
 			public void componentResized(ComponentEvent arg0) {
 				restart();
 			}});
+		*/
 	}
 
 	public void restart() {

@@ -20,6 +20,7 @@ import java.awt.Graphics2D;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
+import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.ribbon.Ribbon;
@@ -39,7 +40,7 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
 	
 	//protected static final int HEIGHT = 2;
 
-	public static final Color COLOR = Ribbon.BAR_BACKGROUND; //ColorUtils.getTransparentColor(Ribbon.BAR_BACKGROUND, 0.8); // Color.BLACK
+	public static final Color COLOR = Ribbon.BAR_BACKGROUND; // Color.BLACK
 
 	
 	/**

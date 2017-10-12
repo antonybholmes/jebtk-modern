@@ -284,6 +284,8 @@ public class ModernListPanel extends ModernComponent implements Iterable<ModernL
 			@Override
 			public void componentResized(ComponentEvent e) {
 				layoutContainer();
+				
+				System.err.println("width " + getWidth());
 			}});
 	}
 

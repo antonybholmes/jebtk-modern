@@ -34,6 +34,7 @@ import javax.swing.border.Border;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
+import org.jebtk.modern.tabs.CloseButton;
 import org.jebtk.modern.tabs.TabsModel;
 
 

@@ -77,11 +77,21 @@ public class IconTabs extends TabsPanel {
 		mTabSize = tabSize;
 		mIconSize = iconSize;
 
-		createTabs();
-		
 		setBackgroundAnimations("icon-tabs");
 		
+		model.addTabListener(new TabEventAdapter() {
+
+			@Override
+			public void tabAdded(TabEvent e) {
+				createTabs();
+			}
+
+			@Override
+			public void tabRemoved(TabEvent e) {
+				createTabs();
+			}});
 		
+		createTabs();
 	}
 	
 	private void createTabs() {
@@ -90,6 +100,9 @@ public class IconTabs extends TabsPanel {
 		for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
 			mTabWidths.add(mTabSize);
 		}
+		
+		// Change to the tab just added
+		getTabsModel().changeTab(getTabsModel().getTabCount() - 1);
 	}
 
 	/* (non-Javadoc)

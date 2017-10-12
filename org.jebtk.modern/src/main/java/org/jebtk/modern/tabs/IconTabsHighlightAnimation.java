@@ -17,7 +17,10 @@ package org.jebtk.modern.tabs;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.animation.HighlightAnimation;
+import org.jebtk.modern.graphics.ImageUtils;
+import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -45,7 +48,8 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
 
 		mTabs = (IconTabs)w;
 		
-		getFade().setFadeColor("highlight", SegmentChangeAnimation.COLOR);
+		getFade().setFadeColor("highlight", 
+				ColorUtils.getTransparentColor(Ribbon.BAR_BACKGROUND, 0.8));
 	}
 
 	/* (non-Javadoc)
@@ -66,8 +70,17 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
 		//
 		
 		if (highlighted != -1 && highlighted != selected) {
-			g2.setColor(getFade().getFadeColor("highlight"));
-			g2.fillRect(x + mTabs.mTabSize * highlighted, y, h, h);
+			//g2.setColor(getFade().getFadeColor("highlight"));
+			//g2.fillRect(x + mTabs.mTabSize * highlighted, y, h, h);
+			
+			Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+			
+			try {
+				g2Temp.setColor(getFade().getFadeColor("highlight"));
+				g2Temp.fillOval(x + mTabs.mTabSize * highlighted, y, h, h);
+			} finally {
+				g2Temp.dispose();
+			}
 		}
 	}	
 }

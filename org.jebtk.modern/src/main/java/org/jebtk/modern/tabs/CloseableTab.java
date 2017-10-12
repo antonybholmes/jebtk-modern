@@ -25,72 +25,73 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.contentpane;
+package org.jebtk.modern.tabs;
 
 import java.awt.Component;
 
-import javax.swing.Box;
-
-import org.jebtk.modern.panel.HBox;
-import org.jebtk.modern.text.ModernAutoSizeLabel;
+import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.button.ModernButton;
+import org.jebtk.modern.event.ModernClickEvent;
+import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.text.ModernSubHeadingLabel;
-import org.jebtk.modern.widget.ModernWidget;
-
 
 
 // TODO: Auto-generated Javadoc
 /**
- * The class HTabToolbar2.
+ * The Class CloseableTab allows tabs to be closed by the user using a 'x'
+ * button.
  */
-public class HTabToolbar extends HBox {
+public class CloseableTab extends ModernComponent {
 	
-	/**
-	 * The constant serialVersionUID.
-	 */
+	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-
-	//private Box mBox = HBox.create();
 	
 	/**
-	 * Instantiates a new h tab toolbar2.
-	 *
-	 * @param title the title
+	 * The member model.
 	 */
-	public HTabToolbar(String title) {
-		this(title, null);
-	}
-	
+	private TabsModel mModel;
+
+	/** The m title. */
+	private String mTitle;
+
+
 	/**
-	 * Instantiates a new h tab toolbar2.
+	 * The Class ClickEvents.
+	 */
+	private class ClickEvents implements ModernClickListener {
+
+		/* (non-Javadoc)
+		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
+		 */
+		@Override
+		public void clicked(ModernClickEvent e) {
+			mModel.removeTab(mTitle);
+		}
+		
+	}
+
+	/**
+	 * Instantiates a new closeable tab.
 	 *
 	 * @param title the title
 	 * @param c the c
+	 * @param model the model
 	 */
-	public HTabToolbar(String title, Component c) {
-		ModernAutoSizeLabel label = new ModernSubHeadingLabel(title);
+	public CloseableTab(String title,
+			Component c,
+			TabsModel model) {
+		mTitle = title;
+		mModel = model;
 		
-		add(label);
+		ModernButton button = new CloseButton();
 		
-		add(Box.createHorizontalGlue());
+		button.addClickListener(new ClickEvents());
 		
-		if (c != null) {
-			add(c);
-		}
+		ModernComponent header = new ModernComponent();
 		
-		//setBody(mBox);
-		
-		setBorder(ModernWidget.BORDER);
+		header.setLeft(new ModernSubHeadingLabel(title));
+		header.setRight(button);
+		setHeader(header);
+		setBody(c);
 	}
-	
-	
-	//@Override
-	//public void drawBackground(Graphics2D g2) {
-		//g2.setColor(LINE_COLOR);
-		
-		//int y = getHeight() - 1;
-		
-		//g2.drawLine(0, y, getWidth(), y);
-		
-	//	fill(g2, LINE_COLOR);
-	//}
 }

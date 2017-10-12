@@ -60,7 +60,11 @@ public class IconTabsChangeAnimation extends HighlightBaseAnimation {
 		int x = mTabs.getInsets().left;
 	
 		int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
-	
+		
+		if (selectedIndex == -1) {
+			return;
+		}
+		
 		ModernIcon icon = mTabs.getTabsModel().getSelectedTab().getIcon();
 		
 		int offset = (mTabs.mTabSize - mTabs.mIconSize) / 2;

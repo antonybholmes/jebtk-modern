@@ -131,7 +131,7 @@ public class TabsPanel extends TabsController implements HighlightEventProducer 
 		int x1 = getInsets().left;
 		int x2;
 		
-		for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+		for (int i = 0; i < mTabWidths.size(); ++i) {
 			x2 = x1 + mTabWidths.get(i);
 			
 			if (x >= x1 && x <= x2) {
@@ -161,7 +161,7 @@ public class TabsPanel extends TabsController implements HighlightEventProducer 
 		int x1 = getInsets().left;
 		int x2;
 		
-		for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+		for (int i = 0; i < mTabWidths.size(); ++i) {
 			x2 = x1 + mTabWidths.get(i);
 			
 			if (x >= x1 && x <= x2) {

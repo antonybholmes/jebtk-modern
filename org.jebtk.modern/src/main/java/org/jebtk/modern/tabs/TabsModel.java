@@ -132,8 +132,10 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
 	 * Instantiates a new tabs model.
 	 */
 	public TabsModel() {
-		mLeftTabs.addTabListener(new TabEvents());
-		mRightTabs.addTabListener(new TabEvents());
+		TabEvents te = new TabEvents();
+		
+		mLeftTabs.addTabListener(te);
+		mRightTabs.addTabListener(te);
 	}
 
 	/**
@@ -276,6 +278,8 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
 		getLeftTabs().addTab(tab);
 		
 		fireTabAdded(new TabEvent(this, tab));
+		
+		
 	}
 	
 	public void addRightTab(String name, 

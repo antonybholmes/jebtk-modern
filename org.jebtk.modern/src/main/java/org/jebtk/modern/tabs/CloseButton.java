@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.contentpane;
+package org.jebtk.modern.tabs;
 
+import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.CloseVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -46,6 +47,8 @@ public class CloseButton extends ModernButton {
 		super(ICON);
 		
 		setBackgroundAnimations("circular-button");
+		
+		UI.setSize(this, 20);
 	}
 	
 	/*

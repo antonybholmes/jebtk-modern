@@ -25,72 +25,73 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.contentpane;
+package org.jebtk.modern.tabs;
 
-import java.awt.Component;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Point;
 
-import javax.swing.Box;
-
-import org.jebtk.modern.panel.HBox;
-import org.jebtk.modern.text.ModernAutoSizeLabel;
-import org.jebtk.modern.text.ModernSubHeadingLabel;
+import org.jebtk.modern.graphics.icons.ModernVectorIcon;
 import org.jebtk.modern.widget.ModernWidget;
 
 
 
 // TODO: Auto-generated Javadoc
 /**
- * The class HTabToolbar2.
+ * Group vector icon showing 3 colored balls spaced equally around a circle.
+ * 
+ * @author Antony Holmes Holmes
+ *
  */
-public class HTabToolbar extends HBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+public class IconTabsVectorIcon extends ModernVectorIcon {
 
-	//private Box mBox = HBox.create();
-	
-	/**
-	 * Instantiates a new h tab toolbar2.
-	 *
-	 * @param title the title
-	 */
-	public HTabToolbar(String title) {
-		this(title, null);
+
+	private String mLetter;
+
+	public IconTabsVectorIcon(char c) {
+		mLetter = Character.toString(c);
 	}
 	
-	/**
-	 * Instantiates a new h tab toolbar2.
-	 *
-	 * @param title the title
-	 * @param c the c
+	/* (non-Javadoc)
+	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
 	 */
-	public HTabToolbar(String title, Component c) {
-		ModernAutoSizeLabel label = new ModernSubHeadingLabel(title);
-		
-		add(label);
-		
-		add(Box.createHorizontalGlue());
-		
-		if (c != null) {
-			add(c);
+	@Override
+	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+		Color color = (Color)params[0];
+
+		g2.setColor(color);
+		g2.fillOval(x, y, w, w);
+
+		g2.setColor(Color.WHITE);
+		g2.setFont(ModernWidget.FONT);
+
+		Point p = ModernWidget.getStringCenterPlotCoordinates(g2, w, h, mLetter);
+
+		g2.drawString(mLetter, x + p.x, y + p.y);
+
+		/*
+		Color color = (Color)params[0];
+
+		int blockSize = (w - 2) / 3;
+
+		g2.setColor(color);
+
+		x += (w - blockSize * 3 - 2) / 2;
+		y = x;
+
+		for (int i = 0; i < 3; ++i) {
+			int x1 = x;
+
+			for (int j = 0; j < 3; ++j) {
+				g2.fillRect(x1, y, blockSize, blockSize);
+
+				x1 += blockSize + 1;
+			}
+
+			y += blockSize + 1;
 		}
-		
-		//setBody(mBox);
-		
-		setBorder(ModernWidget.BORDER);
+		 */
 	}
-	
-	
-	//@Override
-	//public void drawBackground(Graphics2D g2) {
-		//g2.setColor(LINE_COLOR);
-		
-		//int y = getHeight() - 1;
-		
-		//g2.drawLine(0, y, getWidth(), y);
-		
-	//	fill(g2, LINE_COLOR);
-	//}
+
 }
