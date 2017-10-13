@@ -64,7 +64,7 @@ public abstract class RotationAnimation extends TimerAnimation {
 	public synchronized void restart(int a1, int a2) {
 		setup(a1, a2);
 		
-		startTimer();
+		start();
 	}
 	
 	public synchronized void restart() {
@@ -80,7 +80,7 @@ public abstract class RotationAnimation extends TimerAnimation {
 			mStep = MAX_INDEX;
 		}
 		
-		startTimer();
+		start();
 	}
 	
 	@Override
@@ -93,13 +93,13 @@ public abstract class RotationAnimation extends TimerAnimation {
 			mStep = Math.min(mStep + 1, MAX_INDEX);
 			
 			if (mStep >= MAX_INDEX) {
-				stopTimer();
+				stop();
 			}
 		} else {
 			mStep = Math.max(mStep - 1, 0);
 			
 			if (mStep <= 0) {
-				stopTimer();
+				stop();
 			}
 		}
 	}

@@ -16,6 +16,8 @@ public class ModernListPanelItem extends ModernWidget {
 	public static final int BURGER_WIDTH = 16;
 
 	protected final Color mColor;
+	
+	
 		
 	public ModernListPanelItem(Component c, Color color) {
 		mColor = color;

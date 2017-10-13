@@ -25,7 +25,7 @@ public class CompResizeAnimation extends ChangeAnimation {
 	}
 	
 	public void restart(Component c, int min, int max, boolean fdir) {
-		stopTimer();
+		stop();
 		
 		mC = c;
 		
@@ -40,13 +40,13 @@ public class CompResizeAnimation extends ChangeAnimation {
 			mSizes[i] = mSizes[i - 1] + inc;
 		}
 		
-		startTimer();
+		start();
 	}
 
 	@Override
 	public void animate() {
 		if (end()) {
-			stopTimer();
+			stop();
 		} else {
 			animateExpand();
 			

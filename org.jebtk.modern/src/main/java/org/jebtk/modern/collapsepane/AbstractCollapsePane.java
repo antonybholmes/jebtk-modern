@@ -30,7 +30,6 @@ package org.jebtk.modern.collapsepane;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Rectangle;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.beans.PropertyChangeEvent;
@@ -40,17 +39,17 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import javax.swing.Scrollable;
 import javax.swing.border.Border;
-import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.event.ChangeListener;
 
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeEventProducer;
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.event.HighlightEvent;
 import org.jebtk.modern.event.HighlightEventProducer;
 import org.jebtk.modern.event.HighlightListener;
 import org.jebtk.modern.event.HighlightListeners;
+import org.jebtk.modern.widget.ModernVertWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
 
@@ -68,7 +67,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public abstract class AbstractCollapsePane extends ModernWidget implements ChangeEventProducer, HighlightEventProducer, Scrollable {
+public abstract class AbstractCollapsePane extends ModernVertWidget implements ChangeEventProducer, HighlightEventProducer {
 
 	/**
 	 * The constant serialVersionUID.
@@ -489,33 +488,5 @@ public abstract class AbstractCollapsePane extends ModernWidget implements Chang
 	@Override
 	public void fireHighlighted(HighlightEvent e) {
 		mHighlightListeners.fireHighlighted(e);
-	}
-
-	@Override
-	public Dimension getPreferredScrollableViewportSize() {
-		return getPreferredSize();
-	}
-
-	@Override
-	public int getScrollableBlockIncrement(Rectangle arg0, int arg1, int arg2) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean getScrollableTracksViewportHeight() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean getScrollableTracksViewportWidth() {
-		return true;
-	}
-
-	@Override
-	public int getScrollableUnitIncrement(Rectangle arg0, int arg1, int arg2) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }

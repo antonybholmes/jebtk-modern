@@ -18,8 +18,8 @@ package org.jebtk.modern.tabs;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.animation.WidgetAnimation;
-import org.jebtk.modern.theme.ThemeService;
+import org.jebtk.core.ColorUtils;
+import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -29,10 +29,10 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes
  * @param <T>
  */
-public class IconTabsAnimation extends WidgetAnimation {
+public class IconTabsAnimation extends HoverFadeAnimation {
 
 	private static final Color BACKGROUND = 
-			ThemeService.getInstance().colors().getHighlight(2);
+			ColorUtils.getTransparentColor(Color.BLACK, 0.95); //ThemeService.getInstance().colors().getHighlight(2);
 	
 	private IconTabs mTabs;
 
@@ -45,6 +45,8 @@ public class IconTabsAnimation extends WidgetAnimation {
 		super(w);
 		
 		mTabs = (IconTabs)w;
+		
+		setFadeColor("highlight", BACKGROUND);
 	}
 
 	/* (non-Javadoc)
@@ -57,7 +59,7 @@ public class IconTabsAnimation extends WidgetAnimation {
 		int y = mTabs.getInsets().top;
 		int h = mTabs.getInternalRect().getH();
 	
-		g2.setColor(BACKGROUND);
+		g2.setColor(getFadeColor("highlight"));
 		g2.fillRect(x, y, mTabs.getInternalRect().getW(), h);
 	}	
 }

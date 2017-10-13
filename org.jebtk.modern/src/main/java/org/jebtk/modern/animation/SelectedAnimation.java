@@ -58,6 +58,6 @@ public abstract class SelectedAnimation extends TimerAnimation {
 	}
 	
 	public void animateSelected() {
-		startTimer();
+		start();
 	}
 }

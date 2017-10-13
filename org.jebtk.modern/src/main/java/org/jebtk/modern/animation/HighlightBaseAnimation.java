@@ -51,7 +51,7 @@ public abstract class HighlightBaseAnimation extends TimerAnimation {
 	 */
 	public void restart() {
 		mFade.reset();
-		startTimer();
+		start();
 	}
 
 	/* (non-Javadoc)
@@ -62,7 +62,7 @@ public abstract class HighlightBaseAnimation extends TimerAnimation {
 		getWidget().repaint();
 
 		if (mFade.getTrans() <= 0) {
-			stopTimer();
+			stop();
 		} else {
 			mFade.fadeIn();
 		}

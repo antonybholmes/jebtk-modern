@@ -62,6 +62,6 @@ public abstract class ClickAnimation extends TimerAnimation {
 	}
 	
 	public void animateClick() {
-		startTimer();
+		start();
 	}
 }

@@ -1,20 +1,32 @@
 package org.jebtk.modern.listpanel;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Graphics2D;
 
-import javax.swing.Timer;
-
+import org.jebtk.modern.animation.TimerAnimation;
 import org.jebtk.modern.animation.TranslateAnimation;
+import org.jebtk.modern.widget.ModernWidget;
 
-public abstract class TransitionStepAnimation implements ActionListener {
+public abstract class TransitionStepAnimation extends TimerAnimation {
+
+	
 
 	/** The m pos. */
 	private double[] mPos = new double[TranslateAnimation.STEPS];
 
 	/** The m step. */
 	private int mStep;
+	
+	public TransitionStepAnimation(ModernWidget w) {
+		super(w);
+	}
 
+	
+	public void start(double y1, double y2) {
+		setup(y1, y2);
+		
+		start();
+	}
+	
 	/**
 	 * Instantiates a new animate movement.
 	 *
@@ -38,15 +50,20 @@ public abstract class TransitionStepAnimation implements ActionListener {
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		actionPerformed(e, mStep, mPos[mStep]);
+	public synchronized void animate() {
+		animate(mStep, mPos[mStep]);
 
 		if (++mStep == TranslateAnimation.STEPS) {
 			// Auto stop timer once we run out of steps
-			((Timer)e.getSource()).stop();
+			stop();
 		}
 
 	}
 
-	public abstract void actionPerformed(ActionEvent e, int step, double x);
+	public abstract void animate(int step, double x);
+	
+	@Override
+	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+		// Do nothing
+	}
 }

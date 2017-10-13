@@ -44,9 +44,11 @@ public class IconTabsPanel extends ModernComponent {
 		
 		setFooter(tabs); //new TextTabsTriangle(model, centered));
 		
-		TabsViewPanel panel = new TabsViewPanel(model);
+		TabsViewPanel panel = new TabsViewPanel(model, BORDER);
 		//panel.setBorder(0);
 		
 		setBody(panel);
+		
+		//setBorder(BORDER);
 	}
 }

@@ -62,7 +62,7 @@ public class IconTabsIconAnimation extends WidgetAnimation {
 		ModernIcon icon;
 
 		int offset = (mTabs.mTabSize - mTabs.mIconSize) / 2;
-		int yoffset = (mTabs.getInternalRect().getH() - mTabs.mIconSize) / 2; 
+		int yoffset = (mTabs.getHeight() - mTabs.mIconSize) / 2; 
 
 		for (int i = 0; i < n; ++i) {
 			if (i != selectedIndex) {

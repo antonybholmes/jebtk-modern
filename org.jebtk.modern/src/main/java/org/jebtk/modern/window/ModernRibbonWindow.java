@@ -93,6 +93,8 @@ public class ModernRibbonWindow extends ModernWindow {
 
 	private IconTabsPanel mViewPanel;
 
+	private IconTabs mIconTabs;
+
 
 
 	/**
@@ -126,6 +128,8 @@ public class ModernRibbonWindow extends ModernWindow {
 		setFooter(mStatusBar);
 		
 		setTitle(getTitle());
+		
+		mIconTabs = new IconTabs(getTabsPane());
 	}
 	
 	
@@ -188,40 +192,13 @@ public class ModernRibbonWindow extends ModernWindow {
 					ModernWidget.DOUBLE_BORDER));
 	}
 	
-	public void addLeftTab(String name, char t, JComponent c) {
-		addLeftSideTab(name, new IconTabsVectorIcon(t), c);
-	}
-	
 	/**
-	 * Create a left pane with editable tabs to conserve space.
-	 * @param name
-	 * @param icon
-	 * @param c
+	 * Gets the icon tabs pane that sits on the left of the window. This
+	 * is automatically created if it does not exist.
+	 * @return
 	 */
-	public void addLeftSideTab(String name, ModernIcon icon, JComponent c) {
-		getLeftTabsModel().addTab(name, icon, c);
-
-		addLeftTabsPane();
-	}
-	
-	public TabsModel getLeftTabsModel() {
-		if (mLeftTabsModel == null) {
-			mLeftTabsModel = new TabsModel();
-			mViewPanel = new IconTabsPanel(mLeftTabsModel, 36, 22);
-		}
-		
-		return mLeftTabsModel;
-	}
-	
-	/**
-	 * Create the left pane to hold the left tabs if it does not exist.
-	 */
-	public void addLeftTabsPane() {
-		if (getTabsPane().getModel().containsTab("Left Tabs")) {
-			return;
-		}
-
-		getTabsPane().addLeftTab("Left Tabs", new AutoHidePanel(mViewPanel, 100, ModernWidget.BORDER), 200, ModernWidget.WIDGET_HEIGHT, 500);
+	public IconTabs getIconTabs() {
+		return mIconTabs;
 	}
 
 	/**

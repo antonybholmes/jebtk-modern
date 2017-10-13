@@ -58,6 +58,6 @@ public abstract class StateAnimation extends TimerAnimation {
 	}
 	
 	public void animateState() {
-		startTimer();
+		start();
 	}
 }

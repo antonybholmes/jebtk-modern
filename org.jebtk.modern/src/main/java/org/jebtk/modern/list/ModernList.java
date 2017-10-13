@@ -40,9 +40,9 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
-import org.jebtk.core.event.ChangeEvent;
 
 import org.jebtk.core.collections.CollectionUtils;
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.modern.SelectionPolicy;
 import org.jebtk.modern.SelectionRangeModel;
@@ -58,7 +58,7 @@ import org.jebtk.modern.event.HighlightListeners;
 import org.jebtk.modern.event.ModernSelectionEventProducer;
 import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.event.ModernSelectionListeners;
-import org.jebtk.modern.graphics.ModernCanvas;
+import org.jebtk.modern.graphics.ModernVertCanvas;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ThemeService;
 
@@ -71,7 +71,7 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes Holmes
  * @param <T> the generic type
  */
-public class ModernList<T> extends ModernCanvas implements ModernSelectionEventProducer, ModernDataViewEventProducer, HighlightEventProducer {
+public class ModernList<T> extends ModernVertCanvas implements ModernSelectionEventProducer, ModernDataViewEventProducer, HighlightEventProducer {
 
 	/**
 	 * The constant serialVersionUID.

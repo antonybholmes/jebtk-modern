@@ -52,7 +52,7 @@ public abstract class SelectedFadeAnimation extends SelectedAnimation {
 	@Override
 	public void animateSelected() {
 		mFade.reset();
-		startTimer();
+		start();
 	}
 	
 	@Override
@@ -60,7 +60,7 @@ public abstract class SelectedFadeAnimation extends SelectedAnimation {
 		getWidget().repaint();
 
 		if (mFade.getTrans() <= 0) {
-			stopTimer();
+			stop();
 		} else {
 			mFade.fadeIn();
 		}

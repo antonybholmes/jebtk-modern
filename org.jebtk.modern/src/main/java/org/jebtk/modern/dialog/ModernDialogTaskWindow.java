@@ -39,10 +39,16 @@ import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.contentpane.ModernHContentPane;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
+import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.panel.AutoHidePanel;
 import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.panel.ModernPanel;
+import org.jebtk.modern.tabs.IconTabsPanel;
+import org.jebtk.modern.tabs.IconTabsVectorIcon;
+import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.text.ModernDialogHeadingLabel;
 import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.window.IconTabs;
 import org.jebtk.modern.window.ModernWindow;
 
 
@@ -78,6 +84,18 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
 	
 	private ModernHContentPane mContentPane = 
 			new ModernHContentPane();
+
+
+
+	private TabsModel mLeftTabsModel;
+
+
+
+	private IconTabsPanel mViewPanel;
+
+
+
+	private IconTabs mIconTabs;
 	
 	
 	/**
@@ -121,6 +139,8 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
 			boolean modal,
 			ModernDialogTaskType type) {
 		super(parent, modal);
+		
+		
 
 		if (type != ModernDialogTaskType.NONE) {
 			setButtons(mButtons);
@@ -155,6 +175,8 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
 		setLightBackground();
 		
 		setInternalContent(mContentPane);
+		
+		mIconTabs = new IconTabs(getTabsPane());
 	}
 	
 	/**
@@ -188,6 +210,10 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
 	 */
 	public ModernHContentPane getTabsPane() {
 		return mContentPane;
+	}
+	
+	public IconTabs getIconTabs() {
+		return mIconTabs;
 	}
 
 	/**

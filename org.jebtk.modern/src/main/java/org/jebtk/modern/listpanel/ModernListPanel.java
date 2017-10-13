@@ -33,8 +33,6 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.awt.event.MouseAdapter;
@@ -45,13 +43,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import javax.swing.Scrollable;
 import javax.swing.SwingUtilities;
-import javax.swing.Timer;
 
 import org.jebtk.core.Mathematics;
-import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.animation.TranslateAnimation;
+import org.jebtk.modern.widget.ModernVertWidget;
 
 
 // TODO: Auto-generated Javadoc
@@ -61,7 +56,7 @@ import org.jebtk.modern.animation.TranslateAnimation;
  *
  * @author Antony Holmes Holmes
  */
-public class ModernListPanel extends ModernComponent implements Iterable<ModernListPanelItem>, Scrollable {
+public class ModernListPanel extends ModernVertWidget implements Iterable<ModernListPanelItem> {
 
 	/**
 	 * The constant serialVersionUID.
@@ -153,6 +148,8 @@ public class ModernListPanel extends ModernComponent implements Iterable<ModernL
 		 * @param y2 the y 2
 		 */
 		public AnimateMovement(int index, int y2) {
+			super(null);
+			
 			mIndex = index;
 
 			int y1 = mYPos.get(index);
@@ -164,7 +161,7 @@ public class ModernListPanel extends ModernComponent implements Iterable<ModernL
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
 		@Override
-		public void actionPerformed(ActionEvent e, int step, double x) {
+		public void animate(int step, double x) {
 			mYPos.set(mIndex, (int)x); //mPressBlockY);
 
 			layoutContainer();
@@ -254,8 +251,6 @@ public class ModernListPanel extends ModernComponent implements Iterable<ModernL
 
 			Component c = (Component)e.getSource();
 
-
-
 			mDragCellIndex = getIndex(e, mSelectedC);
 
 			mDragC = getComp(e, mSelectedC);
@@ -286,8 +281,6 @@ public class ModernListPanel extends ModernComponent implements Iterable<ModernL
 			@Override
 			public void componentResized(ComponentEvent e) {
 				layoutContainer();
-				
-				System.err.println("width " + getWidth());
 			}});
 	}
 
@@ -456,12 +449,8 @@ public class ModernListPanel extends ModernComponent implements Iterable<ModernL
 
 		//System.err.println("s3");
 
-		Timer timer = new Timer(0, new AnimateMovement(mDragCellIndex, mPressBlockY));
-		timer.setDelay(TranslateAnimation.DELAY_MS);
-		timer.start(); 
-
-
-
+		new AnimateMovement(mDragCellIndex, mPressBlockY).start();
+		
 
 
 		mPressBlockY = mDragBlockY;
@@ -622,35 +611,5 @@ public class ModernListPanel extends ModernComponent implements Iterable<ModernL
 		autoReorder();
 
 		return mListModel.iterator();
-	}
-	
-	@Override
-	public Dimension getPreferredScrollableViewportSize() {
-		return getPreferredSize();
-	}
-
-
-
-	@Override
-	public int getScrollableBlockIncrement(Rectangle arg0, int arg1, int arg2) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean getScrollableTracksViewportHeight() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean getScrollableTracksViewportWidth() {
-		return true;
-	}
-
-	@Override
-	public int getScrollableUnitIncrement(Rectangle arg0, int arg1, int arg2) {
-		// TODO Auto-generated method stub
-		return 0;
 	}
 }

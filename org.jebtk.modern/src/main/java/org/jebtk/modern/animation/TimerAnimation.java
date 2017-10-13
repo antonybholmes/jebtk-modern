@@ -75,11 +75,11 @@ public abstract class TimerAnimation extends WidgetAnimation {
 	/**
 	 * Stop timer.
 	 */
-	public void stopTimer() {
+	public void stop() {
 		mTimer.stop();
 	}
 	
-	public void startTimer() {
+	public void start() {
 		if (!mTimer.isRunning()) {
 			mTimer.start();
 		}

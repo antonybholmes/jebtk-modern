@@ -56,7 +56,7 @@ public abstract class ClickFadeAnimation extends ClickAnimation {
 	@Override
 	public void animateClick() {
 		mFade.reset();
-		startTimer();
+		start();
 	}
 	
 	@Override
@@ -64,7 +64,7 @@ public abstract class ClickFadeAnimation extends ClickAnimation {
 		getWidget().repaint();
 
 		if (mFade.getTrans() <= 0) {
-			stopTimer();
+			stop();
 		} else {
 			mFade.fadeIn();
 		}

@@ -66,7 +66,7 @@ public abstract class StateFadeAnimation extends StateAnimation {
 			mSelected = false;
 		}
 		
-		startTimer();
+		start();
 	}
 	
 	@Override
@@ -74,7 +74,7 @@ public abstract class StateFadeAnimation extends StateAnimation {
 		getWidget().repaint();
 		
 		if ((mSelected && mFade.getTrans() <= 0) || (!mSelected && mFade.getTrans() >= 1)) {
-			stopTimer();
+			stop();
 		} else {
 			if (mSelected) {
 				mFade.fadeIn();

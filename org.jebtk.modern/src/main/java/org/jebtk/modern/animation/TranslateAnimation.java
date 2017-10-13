@@ -69,7 +69,7 @@ public abstract class TranslateAnimation extends TimerAnimation {
 			mXPos[i] = x1 + (int)(BEZ_T[i] * mD); //BEZIER.eval(t)   mXPos[i - 1] + mD;
 		}
 		
-		startTimer();
+		start();
 	}
 	
 	@Override
@@ -79,7 +79,7 @@ public abstract class TranslateAnimation extends TimerAnimation {
 		//System.err.println("translate " + mStep);
 
 		if (++mStep == MAX_STEP_INDEX) {
-			stopTimer();
+			stop();
 		}
 	}
 	

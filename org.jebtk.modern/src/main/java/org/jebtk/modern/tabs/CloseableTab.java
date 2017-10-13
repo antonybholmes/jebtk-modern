@@ -93,5 +93,7 @@ public class CloseableTab extends ModernComponent {
 		header.setRight(button);
 		setHeader(header);
 		setBody(c);
+		
+		setBorder(BORDER);
 	}
 }

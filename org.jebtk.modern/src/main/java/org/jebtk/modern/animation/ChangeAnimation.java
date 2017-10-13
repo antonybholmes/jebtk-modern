@@ -65,6 +65,6 @@ public abstract class ChangeAnimation extends TimerAnimation {
 	}
 	
 	public void animateChanged() {
-		startTimer();
+		start();
 	}
 }

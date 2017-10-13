@@ -15,6 +15,7 @@
  */
 package org.jebtk.modern.tabs;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.ColorUtils;
@@ -49,7 +50,7 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
 		mTabs = (IconTabs)w;
 		
 		getFade().setFadeColor("highlight", 
-				ColorUtils.getTransparentColor(Ribbon.BAR_BACKGROUND, 0.8));
+				ColorUtils.getTransparentColor(Color.BLACK, 0.95));
 	}
 
 	/* (non-Javadoc)
@@ -70,9 +71,10 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
 		//
 		
 		if (highlighted != -1 && highlighted != selected) {
-			//g2.setColor(getFade().getFadeColor("highlight"));
-			//g2.fillRect(x + mTabs.mTabSize * highlighted, y, h, h);
+			g2.setColor(getFade().getFadeColor("highlight"));
+			g2.fillRect(x + mTabs.mTabSize * highlighted, y, h, h);
 			
+			/*
 			Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 			
 			try {
@@ -81,6 +83,7 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
 			} finally {
 				g2Temp.dispose();
 			}
+			*/
 		}
 	}	
 }

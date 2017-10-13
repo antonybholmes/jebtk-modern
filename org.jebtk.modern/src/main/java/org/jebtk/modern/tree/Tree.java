@@ -27,13 +27,8 @@
  */
 package org.jebtk.modern.tree;
 
-import java.awt.Dimension;
-import java.awt.Rectangle;
-
-import javax.swing.Scrollable;
 import org.jebtk.core.tree.TreeNode;
-
-import org.jebtk.modern.graphics.ModernCanvas;
+import org.jebtk.modern.graphics.ModernVertCanvas;
 
 
 
@@ -43,7 +38,7 @@ import org.jebtk.modern.graphics.ModernCanvas;
  *
  * @param <T> the generic type
  */
-public abstract class Tree<T> extends ModernCanvas implements Iterable<TreeNode<T>>, Scrollable {
+public abstract class Tree<T> extends ModernVertCanvas implements Iterable<TreeNode<T>> {
 	
 	/**
 	 * The constant serialVersionUID.
@@ -68,32 +63,4 @@ public abstract class Tree<T> extends ModernCanvas implements Iterable<TreeNode<
 	/** The Constant NODE_COLLAPSE_REGION_CLICKED. */
 	public static final String NODE_COLLAPSE_REGION_CLICKED = 
 			"tree_node_collapse_region_clicked";
-
-	@Override
-	public Dimension getPreferredScrollableViewportSize() {
-		return getPreferredSize();
-	}
-
-	@Override
-	public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public boolean getScrollableTracksViewportHeight() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean getScrollableTracksViewportWidth() {
-		return true;
-	}
-
-	@Override
-	public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 }

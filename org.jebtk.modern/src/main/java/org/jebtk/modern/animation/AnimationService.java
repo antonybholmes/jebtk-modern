@@ -90,6 +90,7 @@ import org.jebtk.modern.splitpane.ModernVSplitPaneLineAnimation;
 import org.jebtk.modern.tabs.BlockVertHighlightAnimation;
 import org.jebtk.modern.tabs.BlockVertPressedAnimation;
 import org.jebtk.modern.tabs.BlockVertSelectedAnimation;
+import org.jebtk.modern.tabs.IconTabsAnimation;
 import org.jebtk.modern.tabs.IconTabsChangeAnimation;
 import org.jebtk.modern.tabs.IconTabsHighlightAnimation;
 import org.jebtk.modern.tabs.IconTabsIconAnimation;
@@ -184,7 +185,7 @@ public class AnimationService {
 			.add(OrbTabsAnimation.class);
 		
 		getCreator("icon-tabs")
-			//.add(IconTabsAnimation.class)
+			.add(IconTabsAnimation.class)
 			.add(IconTabsHighlightAnimation.class)
 			.add(IconTabsIconAnimation.class)
 			.add(IconTabsChangeAnimation.class);
