@@ -39,6 +39,7 @@ import java.awt.font.FontRenderContext;
 import java.awt.font.GlyphVector;
 import java.awt.image.BufferedImage;
 
+import org.jebtk.core.geom.DoubleDim;
 import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntRect;
 
@@ -120,6 +121,10 @@ public class ImageUtils {
 	 */
 	public static BufferedImage createImage(final IntDim dim) {
 		return createImage(dim.getW(), dim.getH());
+	}
+	
+	public static BufferedImage createImage(final DoubleDim dim) {
+		return createImage((int)Math.max(1, dim.getW()), (int)Math.max(1, dim.getH()));
 	}
 
 	/**
