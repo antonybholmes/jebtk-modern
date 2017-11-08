@@ -25,6 +25,7 @@ import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Mathematics;
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.HashMapCreator;
+import org.jebtk.core.collections.IterMap;
 import org.jebtk.modern.graphics.colormap.ColorMap;
 import org.jebtk.modern.graphics.colormap.ColorMapColor;
 import org.jebtk.modern.widget.ModernWidget;
@@ -50,7 +51,7 @@ public class FadeAnimation extends WidgetAnimation {
 	private int mCurrentStep = MAX_INDEX;
 	
 	/** The m fade color map. */
-	private Map<Integer, Map<String, Color>> mFadeColorMap =
+	private Map<Integer, IterMap<String, Color>> mFadeColorMap =
 			DefaultHashMap.create(new HashMapCreator<String, Color>());
 	
 	/** Map step to transparency level */

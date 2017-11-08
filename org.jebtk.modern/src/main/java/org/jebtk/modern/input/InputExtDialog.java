@@ -105,7 +105,7 @@ public class InputExtDialog extends ModernDialogTaskWindow implements ModernClic
 		ModernScrollPane scrollPane = new ModernScrollPane(mText);
 		scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
 		
-		setContent(scrollPane);
+		setDialogCardContent(scrollPane);
 	}
 
 	/**

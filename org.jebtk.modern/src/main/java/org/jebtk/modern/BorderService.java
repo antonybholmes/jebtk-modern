@@ -37,6 +37,7 @@ import javax.swing.border.Border;
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.DefaultHashMapCreator;
 import org.jebtk.core.collections.HashMapCreator;
+import org.jebtk.core.collections.IterMap;
 
 
 // TODO: Auto-generated Javadoc
@@ -69,8 +70,8 @@ public class BorderService {
 	/**
 	 * The map.
 	 */
-	private Map<Integer, Map<Integer, Map<Integer, Map<Integer, Border>>>> mMap = 
-			DefaultHashMap.create(new DefaultHashMapCreator<Integer, Map<Integer, Map<Integer, Border>>>(new DefaultHashMapCreator<Integer, Map<Integer, Border>>(new HashMapCreator<Integer, Border>())));
+	private Map<Integer, IterMap<Integer, IterMap<Integer, IterMap<Integer, Border>>>> mMap = 
+			DefaultHashMap.create(new DefaultHashMapCreator<Integer, IterMap<Integer, IterMap<Integer, Border>>>(new DefaultHashMapCreator<Integer, IterMap<Integer, Border>>(new HashMapCreator<Integer, Border>())));
 
 	/** The m line border map. */
 	private Map<Color, Border> mLineBorderMap = new HashMap<Color, Border>();

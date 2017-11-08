@@ -41,6 +41,7 @@ import javax.swing.ImageIcon;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.HashMapCreator;
+import org.jebtk.core.collections.IterMap;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.ModernImageIcon;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
@@ -167,13 +168,13 @@ public class UIService {
 	/**
 	 * The map.
 	 */
-	private Map<Integer, Map<String, ModernIcon>> map = 
+	private Map<Integer, IterMap<String, ModernIcon>> map = 
 			DefaultHashMap.create(new HashMapCreator<String, ModernIcon>());
 
 	/**
 	 * The member vector icon map.
 	 */
-	private Map<String, Map<Integer, ModernIcon>> mVectorIconMap = 
+	private Map<String, IterMap<Integer, ModernIcon>> mVectorIconMap = 
 			DefaultHashMap.create(new HashMapCreator<Integer, ModernIcon>()); //.createnew HashMap<Class<?>, Map<Integer, ModernIcon>>();
 
 

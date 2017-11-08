@@ -32,6 +32,7 @@ import java.util.Map;
 
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.HashMapCreator;
+import org.jebtk.core.collections.IterMap;
 
 
 // TODO: Auto-generated Javadoc
@@ -63,7 +64,7 @@ public class ShapeService {
 	/**
 	 * The map.
 	 */
-	private Map<String, Map<Integer, Shape>> mShapeMap = 
+	private Map<String, IterMap<Integer, Shape>> mShapeMap = 
 			DefaultHashMap.create(new HashMapCreator<Integer, Shape>());
 
 	/**

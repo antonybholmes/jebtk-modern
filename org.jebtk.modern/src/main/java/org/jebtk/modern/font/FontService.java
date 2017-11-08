@@ -21,6 +21,7 @@ import java.util.Map;
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.DefaultHashMapCreator;
 import org.jebtk.core.collections.HashMapCreator;
+import org.jebtk.core.collections.IterMap;
 import org.jebtk.core.path.Path;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ModernTheme;
@@ -50,11 +51,11 @@ public class FontService extends ModernTheme {
 	}
 	
 	/** The m font map. */
-	private Map<String, Map<Integer, Map<Integer, Map<Boolean, Map<Boolean, Font>>>>> mFontMap =
+	private Map<String, IterMap<Integer, IterMap<Integer, IterMap<Boolean, IterMap<Boolean, Font>>>>> mFontMap =
 			DefaultHashMap.create(
-					new DefaultHashMapCreator<Integer, Map<Integer, Map<Boolean, Map<Boolean, Font>>>>(
-							new DefaultHashMapCreator<Integer, Map<Boolean, Map<Boolean, Font>>>(
-									new DefaultHashMapCreator<Boolean, Map<Boolean, Font>>(
+					new DefaultHashMapCreator<Integer, IterMap<Integer, IterMap<Boolean, IterMap<Boolean, Font>>>>(
+							new DefaultHashMapCreator<Integer, IterMap<Boolean, IterMap<Boolean, Font>>>(
+									new DefaultHashMapCreator<Boolean, IterMap<Boolean, Font>>(
 											new HashMapCreator<Boolean, Font>()))));
 
 	/**
