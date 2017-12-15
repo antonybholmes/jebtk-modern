@@ -109,7 +109,7 @@ public class ModernTextArea extends JTextArea {
 	 * @param items the new text
 	 */
 	public <T> void setText(List<T> items) {
-		setText(Stream.stream(items).mapToString().join(TextUtils.NEW_LINE_DELIMITER));
+		setText(Stream.of(items).asString().join(TextUtils.NEW_LINE_DELIMITER));
 	}
 
 	/**

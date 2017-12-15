@@ -60,7 +60,7 @@ public class GuiFileFilterGroup extends GuiFileExtFilter implements Iterable<Gui
 			GuiFileExtFilter... filters) {
 		super(getExtensions(filters));
 		
-		mName= name + " (" + Stream.stream(getExtension()).join(";") + ")";
+		mName= name + " (" + Stream.of(getExtension()).join(";") + ")";
 		
 		mFilters = CollectionUtils.toList(filter, filters);
 	}
