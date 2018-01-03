@@ -2,3 +2,4 @@ bin
 .metadata
 /target/
 /target2/
+/.classpath
