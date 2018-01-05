@@ -48,132 +48,147 @@ import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.text.ModernTextArea;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class LogTextAreaPanel.
  */
 public class LogTextAreaPanel extends ModernWidget implements MouseListener, ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The text area.
-	 */
-	private JTextArea textArea = new ModernTextArea();
-	
-	/**
-	 * The log popup.
-	 */
-	private ModernPopupMenu logPopup = new ModernPopupMenu();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new log text area panel.
-	 */
-	public LogTextAreaPanel() {
+  /**
+   * The text area.
+   */
+  private JTextArea textArea = new ModernTextArea();
 
-		textArea.setEditable(false);
+  /**
+   * The log popup.
+   */
+  private ModernPopupMenu logPopup = new ModernPopupMenu();
 
-		ModernScrollPane scrollPane = new ModernScrollPane(textArea);
-		//scrollPane.showClipBorder(true);
-		//scrollPane.getClip().setOpaque(true);
-		//scrollPane.getClip().setBackground(Color.WHITE);
+  /**
+   * Instantiates a new log text area panel.
+   */
+  public LogTextAreaPanel() {
 
-		add(scrollPane, BorderLayout.CENTER);
+    textArea.setEditable(false);
 
-		ModernMenuItem menuItem = new ModernIconMenuItem(UI.MENU_COPY, UIService.getInstance().loadIcon("copy", UIService.ICON_SIZE_16));
-		menuItem.addClickListener(this);
-		logPopup.add(menuItem);
+    ModernScrollPane scrollPane = new ModernScrollPane(textArea);
+    // scrollPane.showClipBorder(true);
+    // scrollPane.getClip().setOpaque(true);
+    // scrollPane.getClip().setBackground(Color.WHITE);
 
-		logPopup.add(new ModernMenuSeparator());
+    add(scrollPane, BorderLayout.CENTER);
 
-		menuItem = new ModernIconMenuItem(UI.MENU_SELECT_ALL);
-		menuItem.addClickListener(this);
-		logPopup.add(menuItem);
-	}
+    ModernMenuItem menuItem = new ModernIconMenuItem(UI.MENU_COPY,
+        UIService.getInstance().loadIcon("copy", UIService.ICON_SIZE_16));
+    menuItem.addClickListener(this);
+    logPopup.add(menuItem);
 
-	/**
-	 * Adds the event.
-	 *
-	 * @param event the event
-	 */
-	public final void addEvent(LogEvent event) {
-		textArea.append("[");
-		textArea.append(event.getFormattedDate());
-		textArea.append("] ");
-		textArea.append(event.getMessage());
-		textArea.append(TextUtils.NEW_LINE);
-		textArea.setCaretPosition(textArea.getDocument().getLength());
-	}
+    logPopup.add(new ModernMenuSeparator());
 
-	/**
-	 * Show log popup.
-	 *
-	 * @param e the e
-	 */
-	private void showLogPopup(MouseEvent e) {
-		logPopup.showPopup(e.getComponent(), e.getX(), e.getY());
-	}
+    menuItem = new ModernIconMenuItem(UI.MENU_SELECT_ALL);
+    menuItem.addClickListener(this);
+    logPopup.add(menuItem);
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-	 */
-	public final void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+  /**
+   * Adds the event.
+   *
+   * @param event
+   *          the event
+   */
+  public final void addEvent(LogEvent event) {
+    textArea.append("[");
+    textArea.append(event.getFormattedDate());
+    textArea.append("] ");
+    textArea.append(event.getMessage());
+    textArea.append(TextUtils.NEW_LINE);
+    textArea.setCaretPosition(textArea.getDocument().getLength());
+  }
 
-	}
+  /**
+   * Show log popup.
+   *
+   * @param e
+   *          the e
+   */
+  private void showLogPopup(MouseEvent e) {
+    logPopup.showPopup(e.getComponent(), e.getX(), e.getY());
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-	 */
-	public final void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+   */
+  public final void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
 
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-	 */
-	public final void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+   */
+  public final void mouseEntered(MouseEvent e) {
+    // TODO Auto-generated method stub
 
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-	 */
-	public final void mousePressed(MouseEvent e) {
-		if (e.isPopupTrigger()) {
-			showLogPopup(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+   */
+  public final void mouseExited(MouseEvent e) {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-	 */
-	public final void mouseReleased(MouseEvent e) {
-		if (e.isPopupTrigger()) {
-			showLogPopup(e);
-		}
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public final void clicked(ModernClickEvent e) {
-		if (e.getMessage().equals(UI.MENU_COPY)) {
-			copy();
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+   */
+  public final void mousePressed(MouseEvent e) {
+    if (e.isPopupTrigger()) {
+      showLogPopup(e);
+    }
+  }
 
-	/**
-	 * Copy selected rows to the clipboard as text.
-	 */
-	private void copy() {
-		ClipboardService.copyToClipboard(textArea.getText());
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+   */
+  public final void mouseReleased(MouseEvent e) {
+    if (e.isPopupTrigger()) {
+      showLogPopup(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public final void clicked(ModernClickEvent e) {
+    if (e.getMessage().equals(UI.MENU_COPY)) {
+      copy();
+    }
+  }
+
+  /**
+   * Copy selected rows to the clipboard as text.
+   */
+  private void copy() {
+    ClipboardService.copyToClipboard(textArea.getText());
+  }
 }

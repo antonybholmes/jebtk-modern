@@ -31,7 +31,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Allows collapsable panes to be created.
@@ -41,113 +40,119 @@ import java.awt.event.MouseMotionAdapter;
  */
 public class ModernSubCollapsePane extends AbstractCollapsePane {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The highlight index.
-	 */
-	protected int mHighlightIndex = -1;
+  /**
+   * The highlight index.
+   */
+  protected int mHighlightIndex = -1;
 
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			if (e.isPopupTrigger()) {
-				return;
-			}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      if (e.isPopupTrigger()) {
+        return;
+      }
 
-			int y = getInsets().top;
-			int i = 0;
+      int y = getInsets().top;
+      int i = 0;
 
-			while (y <= e.getY() && i < mExpanded.size()) {
-				if (y + mHeaderHeight > e.getY()) {
-					invertExpanded(i);
+      while (y <= e.getY() && i < mExpanded.size()) {
+        if (y + mHeaderHeight > e.getY()) {
+          invertExpanded(i);
 
-					break;
-				}
+          break;
+        }
 
-				y += mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0);
+        y += mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0);
 
-				++i;
-			}
-		}
+        ++i;
+      }
+    }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseExited(MouseEvent e) {
-			mHighlightIndex = -1;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseExited(MouseEvent e) {
+      mHighlightIndex = -1;
 
-			fireHighlighted();
-		}
-	}
+      fireHighlighted();
+    }
+  }
 
-	/**
-	 * The class MouseMotionEvents.
-	 */
-	private class MouseMotionEvents extends MouseMotionAdapter {
+  /**
+   * The class MouseMotionEvents.
+   */
+  private class MouseMotionEvents extends MouseMotionAdapter {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseMotionAdapter#mouseMoved(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseMoved(MouseEvent e) {
-			int y = getInsets().top;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseMotionAdapter#mouseMoved(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseMoved(MouseEvent e) {
+      int y = getInsets().top;
 
-			int i = 0;
-			int h = -1;
+      int i = 0;
+      int h = -1;
 
-			while (i < mExpanded.size()) {
-				if (i >= mComponents.size()) {
-					break;
-				}
+      while (i < mExpanded.size()) {
+        if (i >= mComponents.size()) {
+          break;
+        }
 
-				if (y > e.getY()) {
-					break;
-				}
+        if (y > e.getY()) {
+          break;
+        }
 
-				if (y <= e.getY() && y + mHeaderHeight > e.getY()) {
-					h = i;
-				}
+        if (y <= e.getY() && y + mHeaderHeight > e.getY()) {
+          h = i;
+        }
 
-				if (h == mComponents.size() - 1) {
-					break;
-				}
+        if (h == mComponents.size() - 1) {
+          break;
+        }
 
-				y += mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0);
+        y += mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0);
 
-				++i;
-			}
+        ++i;
+      }
 
-			if (h != -1 && h != mHighlightIndex) {
-				mHighlightIndex = h;
-				
-				fireHighlighted();
-			}
-		}
-	}
+      if (h != -1 && h != mHighlightIndex) {
+        mHighlightIndex = h;
 
-	/**
-	 * Instantiates a new modern collapse pane.
-	 */
-	public ModernSubCollapsePane() {
-		addMouseListener(new MouseEvents());
-		addMouseMotionListener(new MouseMotionEvents());
-		
-		setBorder(LEFT_BORDER);
-		
-		setHeaderHeight(36);
-		
-		setBackgroundAnimations("sub-collapse-pane");
-	}
+        fireHighlighted();
+      }
+    }
+  }
+
+  /**
+   * Instantiates a new modern collapse pane.
+   */
+  public ModernSubCollapsePane() {
+    addMouseListener(new MouseEvents());
+    addMouseMotionListener(new MouseMotionEvents());
+
+    setBorder(LEFT_BORDER);
+
+    setHeaderHeight(36);
+
+    setBackgroundAnimations("sub-collapse-pane");
+  }
 }

@@ -31,24 +31,27 @@ import java.io.File;
 
 import javax.swing.filechooser.FileFilter;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class DirectoryGuiFileFilter.
  */
 public class DirectoryGuiFileFilter extends FileFilter {
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#accept(java.io.File)
-	 */
-	public final boolean accept(File f) {
-		return f.isDirectory();
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	public final String getDescription() {
-		return "Directories";
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#accept(java.io.File)
+   */
+  public final boolean accept(File f) {
+    return f.isDirectory();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  public final String getDescription() {
+    return "Directories";
+  }
 }

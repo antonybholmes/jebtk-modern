@@ -36,9 +36,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernFocusableWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Basic features of a slider control without any ui elements.
@@ -47,138 +44,151 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public abstract class Slider extends ModernFocusableWidget implements ChangeEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant VALUE_CHANGED.
-	 */
-	public static final String VALUE_CHANGED = "value_changed";
-	
-	/**
-	 * The member value.
-	 */
-	protected double mValue = 1;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member change listeners.
-	 */
-	private ChangeListeners mChangeListeners = new ChangeListeners();
-	
-	/**
-	 * The member click listeners.
-	 */
-	//private ModernClickListeners mClickListeners = new ModernClickListeners();
+  /**
+   * The constant VALUE_CHANGED.
+   */
+  public static final String VALUE_CHANGED = "value_changed";
 
-	public Slider() {
-		UI.setSize(this, 200, ModernWidget.WIDGET_HEIGHT);
-	}
-	
-	/**
-	 * Increment.
-	 */
-	public abstract void increment();
+  /**
+   * The member value.
+   */
+  protected double mValue = 1;
 
-	/**
-	 * Decrement.
-	 */
-	public abstract void decrement();
-	
-	/**
-	 * Gets the value.
-	 *
-	 * @return the value
-	 */
-	public abstract double getValue();
+  /**
+   * The member change listeners.
+   */
+  private ChangeListeners mChangeListeners = new ChangeListeners();
 
-	/**
-	 * Gets the int value.
-	 *
-	 * @return the int value
-	 */
-	public int getIntValue() {
-		return (int)getValue();
-	}
-	
-	/**
-	 * Sets the value.
-	 *
-	 * @param value the new value
-	 */
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.slider.Slider#setValue(int)
-	 */
-	public void setValue(double value) {
-		updateValue(value);
+  /**
+   * The member click listeners.
+   */
+  // private ModernClickListeners mClickListeners = new ModernClickListeners();
 
-		fireChanged(new ChangeEvent(this, VALUE_CHANGED));
-	}
+  public Slider() {
+    UI.setSize(this, 200, ModernWidget.WIDGET_HEIGHT);
+  }
 
-	/**
-	 * Update the slider without causing a change event.
-	 *
-	 * @param v the v
-	 */
-	public abstract void updateValue(double v);
-	
-	/**
-	 * Gets the min value.
-	 *
-	 * @return the min value
-	 */
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.slider.Slider#getMinValue()
-	 */
-	public abstract double getMinValue();
+  /**
+   * Increment.
+   */
+  public abstract void increment();
 
-	/**
-	 * Gets the max value.
-	 *
-	 * @return the max value
-	 */
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.slider.Slider#getMaxValue()
-	 */
-	public abstract double getMaxValue();
+  /**
+   * Decrement.
+   */
+  public abstract void decrement();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.event.ChangeEventProducer#addChangeListener(org.abh.lib.event.ChangeListener)
-	 */
-	public void addChangeListener(ChangeListener l) {
-		mChangeListeners.addChangeListener(l);
-	}
+  /**
+   * Gets the value.
+   *
+   * @return the value
+   */
+  public abstract double getValue();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.event.ChangeListener)
-	 */
-	public void removeChangeListener(ChangeListener l) {
-		mChangeListeners.removeChangeListener(l);
-	}
+  /**
+   * Gets the int value.
+   *
+   * @return the int value
+   */
+  public int getIntValue() {
+    return (int) getValue();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.event.ChangeEventProducer#fireChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireChanged(ChangeEvent event) {
-		mChangeListeners.fireChanged(event);
-	}
+  /**
+   * Sets the value.
+   *
+   * @param value
+   *          the new value
+   */
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.slider.Slider#setValue(int)
+   */
+  public void setValue(double value) {
+    updateValue(value);
 
-	/**
-	@Override
-	public void addClickListener(ModernClickListener l) {
-		mClickListeners.addClickListener(l);
-	}
-	
-	@Override
-	public void removeClickListener(ModernClickListener l) {
-		mClickListeners.removeClickListener(l);
-	}
-	
-	@Override
-	public void fireClicked(ModernClickEvent e) {
-		mClickListeners.fireClicked(e);
-	}
-	*/
+    fireChanged(new ChangeEvent(this, VALUE_CHANGED));
+  }
+
+  /**
+   * Update the slider without causing a change event.
+   *
+   * @param v
+   *          the v
+   */
+  public abstract void updateValue(double v);
+
+  /**
+   * Gets the min value.
+   *
+   * @return the min value
+   */
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.slider.Slider#getMinValue()
+   */
+  public abstract double getMinValue();
+
+  /**
+   * Gets the max value.
+   *
+   * @return the max value
+   */
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.slider.Slider#getMaxValue()
+   */
+  public abstract double getMaxValue();
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.event.ChangeEventProducer#addChangeListener(org.abh.lib.event.
+   * ChangeListener)
+   */
+  public void addChangeListener(ChangeListener l) {
+    mChangeListeners.addChangeListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.event.
+   * ChangeListener)
+   */
+  public void removeChangeListener(ChangeListener l) {
+    mChangeListeners.removeChangeListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.event.ChangeEventProducer#fireChanged(org.abh.lib.event.
+   * ChangeEvent)
+   */
+  public void fireChanged(ChangeEvent event) {
+    mChangeListeners.fireChanged(event);
+  }
+
+  /**
+   * @Override public void addClickListener(ModernClickListener l) {
+   *           mClickListeners.addClickListener(l); }
+   * 
+   * @Override public void removeClickListener(ModernClickListener l) {
+   *           mClickListeners.removeClickListener(l); }
+   * 
+   * @Override public void fireClicked(ModernClickEvent e) {
+   *           mClickListeners.fireClicked(e); }
+   */
 }

@@ -42,8 +42,6 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.event.ModernClickListeners;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * A popup is a component that will appear in a popup window.
@@ -52,131 +50,152 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernPopup extends JPopupMenu implements ModernClickListener, ModernClickEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member listeners.
-	 */
-	protected ModernClickListeners mListeners = 
-			new ModernClickListeners();
 
-	
-	/**
-	 * Instantiates a new modern popup.
-	 */
-	public ModernPopup() {
-		setLayout(new BorderLayout());
-		setBackground(Color.WHITE);
-		setOpaque(true);
-		setBorder(ModernWidget.DARK_LINE_BORDER);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Show popup.
-	 *
-	 * @param component the component
-	 */
-	public void showPopup(JComponent component) {
-		showPopup(component, component.getInsets().left, component.getHeight());
-	}
+  /**
+   * The member listeners.
+   */
+  protected ModernClickListeners mListeners = new ModernClickListeners();
 
+  /**
+   * Instantiates a new modern popup.
+   */
+  public ModernPopup() {
+    setLayout(new BorderLayout());
+    setBackground(Color.WHITE);
+    setOpaque(true);
+    setBorder(ModernWidget.DARK_LINE_BORDER);
+  }
 
-	/**
-	 * Show popup.
-	 *
-	 * @param component the component
-	 * @param offsetX the offset x
-	 * @param offsetY the offset y
-	 */
-	public void showPopup(Component component, int offsetX, int offsetY) {
-		showPopup((JComponent)component, offsetX, offsetY);
-	}
+  /**
+   * Show popup.
+   *
+   * @param component
+   *          the component
+   */
+  public void showPopup(JComponent component) {
+    showPopup(component, component.getInsets().left, component.getHeight());
+  }
 
-	/**
-	 * Each popup type should override this method to determine how
-	 * the custom popup is placed by default.
-	 *
-	 * @param component the component
-	 * @param offsetX the offset x
-	 * @param offsetY the offset y
-	 */
-	public void showPopup(JComponent component, int offsetX, int offsetY) {
-		//System.err.println("show popup offset " + component.getInsets().left + " " + component.getHeight());
-		
-		showPopup(component, new Point(offsetX, offsetY));
-	}
-	
+  /**
+   * Show popup.
+   *
+   * @param component
+   *          the component
+   * @param offsetX
+   *          the offset x
+   * @param offsetY
+   *          the offset y
+   */
+  public void showPopup(Component component, int offsetX, int offsetY) {
+    showPopup((JComponent) component, offsetX, offsetY);
+  }
 
+  /**
+   * Each popup type should override this method to determine how the custom popup
+   * is placed by default.
+   *
+   * @param component
+   *          the component
+   * @param offsetX
+   *          the offset x
+   * @param offsetY
+   *          the offset y
+   */
+  public void showPopup(JComponent component, int offsetX, int offsetY) {
+    // System.err.println("show popup offset " + component.getInsets().left + " " +
+    // component.getHeight());
 
-	/**
-	 * Show popup.
-	 *
-	 * @param component the component
-	 * @param pt the pt
-	 */
-	public void showPopup(JComponent component, Point pt) {
-		show(component, pt.x, pt.y);
-		
-		//ModernPopupWindow window = createPopupWindow(component);
+    showPopup(component, new Point(offsetX, offsetY));
+  }
 
-		//showPopup(window, pt);
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
-	 */
-	@Override
-	public void paintComponent(Graphics g) {
-		g.setColor(getBackground());
-		g.fillRect(0, 0, getWidth(), getHeight());
-	}
+  /**
+   * Show popup.
+   *
+   * @param component
+   *          the component
+   * @param pt
+   *          the pt
+   */
+  public void showPopup(JComponent component, Point pt) {
+    show(component, pt.x, pt.y);
 
-	
-	
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		removeAll();
-		revalidate();
-		repaint();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		setVisible(false);
-		
-		fireClicked(e);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	@Override
-	public void addClickListener(ModernClickListener l) {
-		mListeners.addClickListener(l);
-	}
+    // ModernPopupWindow window = createPopupWindow(component);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	@Override
-	public void removeClickListener(ModernClickListener l) {
-		mListeners.removeClickListener(l);
-	}
+    // showPopup(window, pt);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void fireClicked(ModernClickEvent e) {
-		mListeners.fireClicked(e);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+   */
+  @Override
+  public void paintComponent(Graphics g) {
+    g.setColor(getBackground());
+    g.fillRect(0, 0, getWidth(), getHeight());
+  }
+
+  /**
+   * Clear.
+   */
+  public void clear() {
+    removeAll();
+    revalidate();
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    setVisible(false);
+
+    fireClicked(e);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh
+   * .lib.ui.modern.event.ModernClickListener)
+   */
+  @Override
+  public void addClickListener(ModernClickListener l) {
+    mListeners.addClickListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.
+   * abh.lib.ui.modern.event.ModernClickListener)
+   */
+  @Override
+  public void removeClickListener(ModernClickListener l) {
+    mListeners.removeClickListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.
+   * ui.modern.event.ModernClickEvent)
+   */
+  @Override
+  public void fireClicked(ModernClickEvent e) {
+    mListeners.fireClicked(e);
+  }
 }

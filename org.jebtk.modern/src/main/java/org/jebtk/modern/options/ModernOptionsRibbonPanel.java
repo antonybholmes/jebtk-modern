@@ -49,7 +49,6 @@ import org.jebtk.modern.table.ModernRowTable;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.tree.PathTree;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Display the program settings tree inline within the Ribbon menu.
@@ -58,158 +57,165 @@ import org.jebtk.modern.tree.PathTree;
  *
  */
 public class ModernOptionsRibbonPanel extends RibbonMenuPanel implements ModernSelectionListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member table.
-	 */
-	private ModernRowTable mTable;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The tree label.
-	 */
-	private ModernAutoSizeLabel mTreeLabel = new ModernAutoSizeLabel("");
+  /**
+   * The member table.
+   */
+  private ModernRowTable mTable;
 
-	/**
-	 * The split pane.
-	 */
-	private SplitPane mSplitPane;
+  /**
+   * The tree label.
+   */
+  private ModernAutoSizeLabel mTreeLabel = new ModernAutoSizeLabel("");
 
-	/**
-	 * The member tree.
-	 */
-	private PathTree mTree;
+  /**
+   * The split pane.
+   */
+  private SplitPane mSplitPane;
 
-	/**
-	 * Instantiates a new modern options ribbon panel.
-	 *
-	 * @param productDetails the product details
-	 */
-	public ModernOptionsRibbonPanel(GuiAppInfo productDetails) {
-		super(productDetails.getName() + " Settings");
+  /**
+   * The member tree.
+   */
+  private PathTree mTree;
 
-		setup(productDetails.getName() + " Settings");
-	}
+  /**
+   * Instantiates a new modern options ribbon panel.
+   *
+   * @param productDetails
+   *          the product details
+   */
+  public ModernOptionsRibbonPanel(GuiAppInfo productDetails) {
+    super(productDetails.getName() + " Settings");
 
+    setup(productDetails.getName() + " Settings");
+  }
 
-	/**
-	 * Sets the up.
-	 *
-	 * @param title the new up
-	 */
-	private void setup(String title) {
-		createUi(title);
-		
-		refresh();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ribbon.RibbonMenuPanel#refresh()
-	 */
-	@Override
-	public void refresh() {
-		try {
-			createTree();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+  /**
+   * Sets the up.
+   *
+   * @param title
+   *          the new up
+   */
+  private void setup(String title) {
+    createUi(title);
 
-	/**
-	 * Creates the ui.
-	 *
-	 * @param title the title
-	 */
-	private final void createUi(String title) {
-		//ModernLabel heading = new ModernTitleLabel(title);
-		//heading.setBorder(BorderService.getInstance().createBottomBorder(40));
-		//setHeader(heading);
+    refresh();
+  }
 
-		mTreeLabel.setBorder(BorderService.getInstance().createBorder(20));
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ribbon.RibbonMenuPanel#refresh()
+   */
+  @Override
+  public void refresh() {
+    try {
+      createTree();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
 
-		setFooter(mTreeLabel);
-	}
+  /**
+   * Creates the ui.
+   *
+   * @param title
+   *          the title
+   */
+  private final void createUi(String title) {
+    // ModernLabel heading = new ModernTitleLabel(title);
+    // heading.setBorder(BorderService.getInstance().createBottomBorder(40));
+    // setHeader(heading);
 
-	/**
-	 * Creates the tree.
-	 *
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	private void createTree() throws IOException {
-		// Copy the existings settings so we can modify
+    mTreeLabel.setBorder(BorderService.getInstance().createBorder(20));
 
+    setFooter(mTreeLabel);
+  }
 
-		List<Path> paths = new ArrayList<Path>();
+  /**
+   * Creates the tree.
+   *
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  private void createTree() throws IOException {
+    // Copy the existings settings so we can modify
 
-		for (Path path : SettingsService.getInstance()) {
-			paths.add(path);
-		}
+    List<Path> paths = new ArrayList<Path>();
 
-		mTree = new PathTree(paths, false);
-				
-		mTree.addSelectionListener(this);
-		mTree.setBorder(RIGHT_BORDER);
+    for (Path path : SettingsService.getInstance()) {
+      paths.add(path);
+    }
 
-		ModernScrollPane scrollPane = new ModernScrollPane(mTree)
-				.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER)
-				.setVerticalScrollBarPolicy(ScrollBarPolicy.AUTO_SHOW);
-		
-		mTable = new ModernRowTable();
+    mTree = new PathTree(paths, false);
 
-		mSplitPane = new ModernHSplitPaneLine().setDividerWidth(10);
-		
-		mSplitPane.addComponent(scrollPane, 0.3);
-		mSplitPane.addComponent(new ModernScrollPane(mTable), -1);
-		//splitPane.setDividerLocation(200);
+    mTree.addSelectionListener(this);
+    mTree.setBorder(RIGHT_BORDER);
 
-		setBody(mSplitPane);
-		
-		mTree.selectNode(0);
-	}
+    ModernScrollPane scrollPane = new ModernScrollPane(mTree).setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER)
+        .setVerticalScrollBarPolicy(ScrollBarPolicy.AUTO_SHOW);
 
-	/**
-	 * Sets the table model.
-	 *
-	 * @param node the new table model
-	 */
-	private void setTableModel(TreeNode<List<Path>> node) {
-		ModernSettingsTableModel tableModel = 
-				new ModernSettingsTableModel(node);
+    mTable = new ModernRowTable();
 
-		mTable.setModel(tableModel);
-		//table.getColumnModel().setCellEditor(1, new ModernTableTextCellEditor(true));
-		mTable.getColumnModel().setWidth(0, 200);
-		mTable.getColumnModel().setWidth(1, 200);
-	}
+    mSplitPane = new ModernHSplitPaneLine().setDividerWidth(10);
 
+    mSplitPane.addComponent(scrollPane, 0.3);
+    mSplitPane.addComponent(new ModernScrollPane(mTable), -1);
+    // splitPane.setDividerLocation(200);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void selectionChanged(ChangeEvent e) {
-		if (mTree.getSelectedNode() == null) {
-			return;
-		}
+    setBody(mSplitPane);
 
-		TreeNode<List<Path>> node = mTree.getSelectedNode();
+    mTree.selectNode(0);
+  }
 
-		TreePath treePath = node.getPath();
-		
-		//System.err.println("tp " + node.getName() + " " + node.getParent() + " " + treePath);
+  /**
+   * Sets the table model.
+   *
+   * @param node
+   *          the new table model
+   */
+  private void setTableModel(TreeNode<List<Path>> node) {
+    ModernSettingsTableModel tableModel = new ModernSettingsTableModel(node);
 
-		Path path = mTree.convertToPath(treePath);
+    mTable.setModel(tableModel);
+    // table.getColumnModel().setCellEditor(1, new ModernTableTextCellEditor(true));
+    mTable.getColumnModel().setWidth(0, 200);
+    mTable.getColumnModel().setWidth(1, 200);
+  }
 
-		mTreeLabel.setText(path.toString());
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
+   * lib.event.ChangeEvent)
+   */
+  @Override
+  public void selectionChanged(ChangeEvent e) {
+    if (mTree.getSelectedNode() == null) {
+      return;
+    }
 
-		if (mTree.getSelectedNode().getValue() != null) {
-			setTableModel(node);
-		} else {
-			setTableModel(new TreeNode<List<Path>>(TextUtils.EMPTY_STRING));
-		}
-	}
+    TreeNode<List<Path>> node = mTree.getSelectedNode();
+
+    TreePath treePath = node.getPath();
+
+    // System.err.println("tp " + node.getName() + " " + node.getParent() + " " +
+    // treePath);
+
+    Path path = mTree.convertToPath(treePath);
+
+    mTreeLabel.setText(path.toString());
+
+    if (mTree.getSelectedNode().getValue() != null) {
+      setTableModel(node);
+    } else {
+      setTableModel(new TreeNode<List<Path>>(TextUtils.EMPTY_STRING));
+    }
+  }
 }

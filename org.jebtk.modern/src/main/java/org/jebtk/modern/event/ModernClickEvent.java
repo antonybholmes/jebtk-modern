@@ -37,33 +37,36 @@ import org.jebtk.core.event.Event;
  *
  */
 public class ModernClickEvent extends Event {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant CLICK_MESSAGE.
-	 */
-	private static final String CLICK_MESSAGE = "clicked";
-	
-	/**
-	 * Instantiates a new modern click event.
-	 *
-	 * @param source the source
-	 */
-	public ModernClickEvent(Object source) {
-		this(source, CLICK_MESSAGE);
-	}
-	
-	/**
-	 * Instantiates a new modern click event.
-	 *
-	 * @param source the source
-	 * @param message the message
-	 */
-	public ModernClickEvent(Object source, String message) {
-		super(source, message);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant CLICK_MESSAGE.
+   */
+  private static final String CLICK_MESSAGE = "clicked";
+
+  /**
+   * Instantiates a new modern click event.
+   *
+   * @param source
+   *          the source
+   */
+  public ModernClickEvent(Object source) {
+    this(source, CLICK_MESSAGE);
+  }
+
+  /**
+   * Instantiates a new modern click event.
+   *
+   * @param source
+   *          the source
+   * @param message
+   *          the message
+   */
+  public ModernClickEvent(Object source, String message) {
+    super(source, message);
+  }
 }

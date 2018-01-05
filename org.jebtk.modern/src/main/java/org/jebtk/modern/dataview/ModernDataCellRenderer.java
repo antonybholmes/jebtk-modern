@@ -36,105 +36,106 @@ import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.zoom.ZoomCanvas;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a flat look table renderer for the flat table
- * although it can be used with standard JTables as well.
+ * Provides a flat look table renderer for the flat table although it can be
+ * used with standard JTables as well.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDataCellRenderer extends ModernClickWidget {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member can highlight.
-	 */
-	protected boolean mCanHighlight = true;
+  /**
+   * The member can highlight.
+   */
+  protected boolean mCanHighlight = true;
 
-	/**
-	 * The member is highlighted.
-	 */
-	protected boolean mIsHighlighted;
+  /**
+   * The member is highlighted.
+   */
+  protected boolean mIsHighlighted;
 
-	/**
-	 * The member is selected.
-	 */
-	protected boolean mIsSelected;
+  /**
+   * The member is selected.
+   */
+  protected boolean mIsSelected;
 
-	/**
-	 * The member has focus.
-	 */
-	protected boolean mHasFocus;
+  /**
+   * The member has focus.
+   */
+  protected boolean mHasFocus;
 
-	/** The m enabled. */
-	protected boolean mEnabled;
+  /** The m enabled. */
+  protected boolean mEnabled;
 
-	/** The Constant DISABLED_COLOR. */
-	public static final Color DISABLED_COLOR = 
-			ThemeService.getInstance().colors().getHighlight(2);
+  /** The Constant DISABLED_COLOR. */
+  public static final Color DISABLED_COLOR = ThemeService.getInstance().colors().getHighlight(2);
 
+  /**
+   * Sets the can highlight.
+   *
+   * @param canHighlight
+   *          the new can highlight
+   */
+  public void setCanHighlight(boolean canHighlight) {
+    mCanHighlight = canHighlight;
+  }
 
-	/**
-	 * Sets the can highlight.
-	 *
-	 * @param canHighlight the new can highlight
-	 */
-	public void setCanHighlight(boolean canHighlight) {
-		mCanHighlight = canHighlight;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    if (!mEnabled) {
+      fill(g2, DISABLED_COLOR, getRect());
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (!mEnabled) {
-			fill(g2, DISABLED_COLOR, getRect());
-		}
+    if (mCanHighlight && (mIsSelected || mIsHighlighted)) {
+      paintHighlighted(g2, getRect());
+    }
+  }
 
-		if (mCanHighlight && (mIsSelected || mIsHighlighted)) {
-			paintHighlighted(g2, getRect());
-		}
-	}
+  /**
+   * Returns the rendering component for the given data view.
+   *
+   * @param dataView
+   *          the data view
+   * @param value
+   *          the value
+   * @param highlight
+   *          the highlight
+   * @param isSelected
+   *          the is selected
+   * @param hasFocus
+   *          the has focus
+   * @param row
+   *          the row
+   * @param column
+   *          the column
+   * @return the cell renderer component
+   */
+  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
 
-	/**
-	 * Returns the rendering component for the given data view.
-	 *
-	 * @param dataView the data view
-	 * @param value the value
-	 * @param highlight the highlight
-	 * @param isSelected the is selected
-	 * @param hasFocus the has focus
-	 * @param row the row
-	 * @param column the column
-	 * @return the cell renderer component
-	 */
-	public Component getCellRendererComponent(ModernData dataView,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
+    mIsHighlighted = highlight;
+    mIsSelected = isSelected;
+    mHasFocus = hasFocus;
+    mEnabled = dataView.getIsCellEnabled(row, column);
 
-		mIsHighlighted = highlight;
-		mIsSelected = isSelected;
-		mHasFocus = hasFocus;
-		mEnabled = dataView.getIsCellEnabled(row, column);
-		
-		// Scale the font to match the zoom level.
-		
-		double mZoom = ((ZoomCanvas)dataView).getZoomModel().getZoom();
-		
-		setFont(FontUtils.scale(FONT, mZoom));
+    // Scale the font to match the zoom level.
 
-		return this;
-	}
+    double mZoom = ((ZoomCanvas) dataView).getZoomModel().getZoom();
+
+    setFont(FontUtils.scale(FONT, mZoom));
+
+    return this;
+  }
 }

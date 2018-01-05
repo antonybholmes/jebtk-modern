@@ -35,7 +35,6 @@ import org.jebtk.modern.graphics.icons.CheveronDownVectorIcon;
 import org.jebtk.modern.graphics.icons.CheveronUpVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
@@ -44,107 +43,115 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  *
  */
 public class ModernVScrollBarOffice extends ModernVScrollBar {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant UP_ARROW_ICON.
-	 */
-	protected static final ModernIcon UP_ARROW_ICON = 
-			UIService.getInstance().loadIcon(CheveronUpVectorIcon.class, SCROLLBAR_SIZE);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant DOWN_ARROW_ICON.
-	 */
-	protected static final ModernIcon DOWN_ARROW_ICON = 
-			UIService.getInstance().loadIcon(CheveronDownVectorIcon.class, SCROLLBAR_SIZE); //Resources.getInstance().loadIcon("down_scroll", Resources.ICON_SIZE_16);
+  /**
+   * The constant UP_ARROW_ICON.
+   */
+  protected static final ModernIcon UP_ARROW_ICON = UIService.getInstance().loadIcon(CheveronUpVectorIcon.class,
+      SCROLLBAR_SIZE);
 
-	/**
-	 * Instantiates a new modern V scroll bar office.
-	 */
-	public ModernVScrollBarOffice() {
-		setBorder(LEFT_BORDER);
-	}
+  /**
+   * The constant DOWN_ARROW_ICON.
+   */
+  protected static final ModernIcon DOWN_ARROW_ICON = UIService.getInstance().loadIcon(CheveronDownVectorIcon.class,
+      SCROLLBAR_SIZE); // Resources.getInstance().loadIcon("down_scroll", Resources.ICON_SIZE_16);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#scrollBarSetup()
-	 */
-	@Override
-	public void scrollBarSetup() {
-		// Determine the number of pixels that can be scrolled which is the
-		// height of the scrollbar less the space for the two end buttons
-		scrollBarSetup(mInternalRect.getH() - 2 * mIternalFixedDim);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.ModernScrollBar#paintScrollBarBase(java.awt.Graphics2D)
-	 */
-	@Override
-	protected void paintScrollBarBase(Graphics2D g2) {
-		fill(g2, BASE_COLOR, mInternalRect);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#paintScrollBar(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void paintScrollBar(Graphics2D g2, Rectangle r) {
-		if (mHighlightScroll) {
-			paintScrollBarHighlighted(g2, r);
-		} else {
-			paintScrollBarButton(g2, r);
-		}
-	}
+  /**
+   * Instantiates a new modern V scroll bar office.
+   */
+  public ModernVScrollBarOffice() {
+    setBorder(LEFT_BORDER);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernVScrollBar#paintUpButton(java.awt.Graphics2D)
-	 */
-	@Override
-	public void paintUpButton(Graphics2D g2) {
-		Rectangle r = new Rectangle(getInsets().left, 
-				getInsets().top, 
-				mIternalFixedDim, 
-				mIternalFixedDim);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#scrollBarSetup()
+   */
+  @Override
+  public void scrollBarSetup() {
+    // Determine the number of pixels that can be scrolled which is the
+    // height of the scrollbar less the space for the two end buttons
+    scrollBarSetup(mInternalRect.getH() - 2 * mIternalFixedDim);
+  }
 
-		if (mHighlightButton1) {
-			paintScrollBarButtonHighlighted(g2, r);
-		} else {
-			paintScrollBarButton(g2, r);
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.scrollpane.ModernScrollBar#paintScrollBarBase(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  protected void paintScrollBarBase(Graphics2D g2) {
+    fill(g2, BASE_COLOR, mInternalRect);
+  }
 
-		int offset = (getInternalFixedDimension() - UP_ARROW_ICON.getWidth()) / 2;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.scrollpane.ModernScrollBar#paintScrollBar(java.awt.
+   * Graphics2D, java.awt.Rectangle)
+   */
+  @Override
+  public void paintScrollBar(Graphics2D g2, Rectangle r) {
+    if (mHighlightScroll) {
+      paintScrollBarHighlighted(g2, r);
+    } else {
+      paintScrollBarButton(g2, r);
+    }
+  }
 
-		UP_ARROW_ICON.drawIcon(g2,
-				getInsets().left + offset,
-				getInsets().top + offset,
-				mIternalFixedDim);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.scrollpane.ModernVScrollBar#paintUpButton(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void paintUpButton(Graphics2D g2) {
+    Rectangle r = new Rectangle(getInsets().left, getInsets().top, mIternalFixedDim, mIternalFixedDim);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernVScrollBar#paintDownButton(java.awt.Graphics2D)
-	 */
-	@Override
-	public void paintDownButton(Graphics2D g2) {
-		Rectangle r = new Rectangle(getInsets().left,
-				getHeight() - mIternalFixedDim - getInsets().bottom,
-				mIternalFixedDim,
-				mIternalFixedDim);
+    if (mHighlightButton1) {
+      paintScrollBarButtonHighlighted(g2, r);
+    } else {
+      paintScrollBarButton(g2, r);
+    }
 
-		if (mHighlightButton2) {
-			paintScrollBarButtonHighlighted(g2, r);
-		} else {
-			paintScrollBarButton(g2, r);
-		}
+    int offset = (getInternalFixedDimension() - UP_ARROW_ICON.getWidth()) / 2;
 
-		int offset = (mIternalFixedDim - DOWN_ARROW_ICON.getWidth()) / 2;
-		
-		DOWN_ARROW_ICON.drawIcon(g2,
-				getInsets().left + offset,
-				getHeight() - mIternalFixedDim - getInsets().bottom + offset,
-				getInternalFixedDimension());
-	}
+    UP_ARROW_ICON.drawIcon(g2, getInsets().left + offset, getInsets().top + offset, mIternalFixedDim);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.scrollpane.ModernVScrollBar#paintDownButton(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void paintDownButton(Graphics2D g2) {
+    Rectangle r = new Rectangle(getInsets().left, getHeight() - mIternalFixedDim - getInsets().bottom, mIternalFixedDim,
+        mIternalFixedDim);
+
+    if (mHighlightButton2) {
+      paintScrollBarButtonHighlighted(g2, r);
+    } else {
+      paintScrollBarButton(g2, r);
+    }
+
+    int offset = (mIternalFixedDim - DOWN_ARROW_ICON.getWidth()) / 2;
+
+    DOWN_ARROW_ICON.drawIcon(g2, getInsets().left + offset,
+        getHeight() - mIternalFixedDim - getInsets().bottom + offset, getInternalFixedDimension());
+  }
 
 }

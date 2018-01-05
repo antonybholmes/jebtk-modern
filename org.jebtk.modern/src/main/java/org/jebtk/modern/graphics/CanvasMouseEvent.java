@@ -38,96 +38,87 @@ import org.jebtk.core.geom.IntPos2D;
  */
 public class CanvasMouseEvent extends MouseEvent {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member p.
-	 */
-	private IntPos2D mP;
+  /**
+   * The member p.
+   */
+  private IntPos2D mP;
 
-	/**
-	 * Instantiates a new canvas mouse event.
-	 *
-	 * @param e the e
-	 * @param p the p
-	 */
-	public CanvasMouseEvent(MouseEvent e, IntPos2D p) {
-		this(e.getComponent(), 
-				e.getID(),
-				e.getWhen(),
-				e.getModifiers(),
-				e.getX(),
-				e.getY(),
-				p,
-				e.getClickCount(),
-				e.isPopupTrigger());
-	}
-	
-	/**
-	 * Instantiates a new canvas mouse event.
-	 *
-	 * @param source the source
-	 * @param e the e
-	 * @param p the p
-	 */
-	public CanvasMouseEvent(Component source, MouseEvent e, IntPos2D p) {
-		this(source, 
-				e.getID(),
-				e.getWhen(),
-				e.getModifiers(),
-				e.getX(),
-				e.getY(),
-				p,
-				e.getClickCount(),
-				e.isPopupTrigger());
-	}
+  /**
+   * Instantiates a new canvas mouse event.
+   *
+   * @param e
+   *          the e
+   * @param p
+   *          the p
+   */
+  public CanvasMouseEvent(MouseEvent e, IntPos2D p) {
+    this(e.getComponent(), e.getID(), e.getWhen(), e.getModifiers(), e.getX(), e.getY(), p, e.getClickCount(),
+        e.isPopupTrigger());
+  }
 
-	/**
-	 * Instantiates a new canvas mouse event.
-	 *
-	 * @param source the source
-	 * @param id the id
-	 * @param when the when
-	 * @param modifiers the modifiers
-	 * @param x 				The x position of the mouse regardless of
-	 * 							canvas modifications
-	 * @param y the y
-	 * @param p 				The possibly adjusted p indicating where on
-	 * 							the canvas the mouse event was generated. In
-	 * 							the case of a zoom canvas, this will be the
-	 * 							coordinate adjusted for the zoom.
-	 * @param clickCount the click count
-	 * @param popupTrigger the popup trigger
-	 */
-	public CanvasMouseEvent(Component source, 
-			int id, 
-			long when, 
-			int modifiers,
-			int x, 
-			int y,
-			IntPos2D p,
-			int clickCount, 
-			boolean popupTrigger) {
-		super(source, id, when, modifiers, x, y, clickCount, popupTrigger);
+  /**
+   * Instantiates a new canvas mouse event.
+   *
+   * @param source
+   *          the source
+   * @param e
+   *          the e
+   * @param p
+   *          the p
+   */
+  public CanvasMouseEvent(Component source, MouseEvent e, IntPos2D p) {
+    this(source, e.getID(), e.getWhen(), e.getModifiers(), e.getX(), e.getY(), p, e.getClickCount(),
+        e.isPopupTrigger());
+  }
 
-		mP = p;
-	}
+  /**
+   * Instantiates a new canvas mouse event.
+   *
+   * @param source
+   *          the source
+   * @param id
+   *          the id
+   * @param when
+   *          the when
+   * @param modifiers
+   *          the modifiers
+   * @param x
+   *          The x position of the mouse regardless of canvas modifications
+   * @param y
+   *          the y
+   * @param p
+   *          The possibly adjusted p indicating where on the canvas the mouse
+   *          event was generated. In the case of a zoom canvas, this will be the
+   *          coordinate adjusted for the zoom.
+   * @param clickCount
+   *          the click count
+   * @param popupTrigger
+   *          the popup trigger
+   */
+  public CanvasMouseEvent(Component source, int id, long when, int modifiers, int x, int y, IntPos2D p, int clickCount,
+      boolean popupTrigger) {
+    super(source, id, when, modifiers, x, y, clickCount, popupTrigger);
 
-	/**
-	 * Returns the point associated with the canvas rather than where the
-	 * mouse was pressed. Often this will be the same as the mouse coordinate
-	 * but for example in a translated canvas or zoomed canvas the coordinates
-	 * will be different to reflect the transformations. For example with a
-	 * zoom, this position would represent the coordinate on the unscaled
-	 * image rather than the actual position of the mouse etc.
-	 *
-	 * @return the adjusted p
-	 */
-	public IntPos2D getScaledPos() {
-		return mP;
-	}
+    mP = p;
+  }
+
+  /**
+   * Returns the point associated with the canvas rather than where the mouse was
+   * pressed. Often this will be the same as the mouse coordinate but for example
+   * in a translated canvas or zoomed canvas the coordinates will be different to
+   * reflect the transformations. For example with a zoom, this position would
+   * represent the coordinate on the unscaled image rather than the actual
+   * position of the mouse etc.
+   *
+   * @return the adjusted p
+   */
+  public IntPos2D getScaledPos() {
+    return mP;
+  }
 
 }

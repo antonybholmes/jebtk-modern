@@ -33,93 +33,93 @@ import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.settings.SettingsService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class FileVectorIcon.
  */
 public class FileVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant HEIGHT_SCALE.
-	 */
-	private static final double HEIGHT_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.file-icon.height-scale");	
 
-	/**
-	 * The constant WIDTH_SCALE.
-	 */
-	private static final double WIDTH_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.file-icon.width-scale");	
+  /**
+   * The constant HEIGHT_SCALE.
+   */
+  private static final double HEIGHT_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.file-icon.height-scale");
 
-	/**
-	 * The constant CORNER_SCALE.
-	 */
-	private static final double CORNER_SCALE = 
-			SettingsService.getInstance().getAsDouble("theme.icons.file-icon.corner-scale");	
-	
-	/**
-	 * The member outline.
-	 */
-	private Color mOutline;
-	
-	/**
-	 * Instantiates a new file vector icon.
-	 */
-	public FileVectorIcon() {
-		this(SettingsService.getInstance().getAsColor("theme.icons.file-icon.colors.foreground"));
-	}
-	
-	/**
-	 * Instantiates a new file vector icon.
-	 *
-	 * @param outline the outline
-	 */
-	public FileVectorIcon(Color outline) {
-		mOutline = outline;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		double hf = h * HEIGHT_SCALE;
-		double wf =  h * WIDTH_SCALE;
-		
-		double corner = wf * CORNER_SCALE;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - hf) / 2.0;
-		
-		GeneralPath gp = new GeneralPath();
-		
-		gp.moveTo(xf, yf);
-		
-		gp.lineTo(xf + wf - corner, yf);
-		gp.lineTo(xf + wf, yf + corner);
-		gp.lineTo(xf + wf, yf + hf);
-		gp.lineTo(xf + wf, yf + hf);
-		gp.lineTo(xf, yf + hf);
-		
-		gp.closePath();
-		
-		g2.setColor(Color.WHITE);
-		g2.fill(gp);
-		
-		g2.setColor(mOutline);
-		g2.draw(gp);
-		
-		// the corner piece
-		
-		g2.drawLine((int)Math.round(xf + wf - corner), 
-				(int)Math.round(yf), 
-				(int)Math.round(xf + wf - corner), 
-				(int)Math.round(yf + corner));
-		
-		g2.drawLine((int)Math.round(xf + wf - corner), 
-				(int)Math.round(yf + corner), 
-				(int)Math.round(xf + wf), 
-				(int)Math.round(yf + corner));
-	}
+  /**
+   * The constant WIDTH_SCALE.
+   */
+  private static final double WIDTH_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.file-icon.width-scale");
+
+  /**
+   * The constant CORNER_SCALE.
+   */
+  private static final double CORNER_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.file-icon.corner-scale");
+
+  /**
+   * The member outline.
+   */
+  private Color mOutline;
+
+  /**
+   * Instantiates a new file vector icon.
+   */
+  public FileVectorIcon() {
+    this(SettingsService.getInstance().getAsColor("theme.icons.file-icon.colors.foreground"));
+  }
+
+  /**
+   * Instantiates a new file vector icon.
+   *
+   * @param outline
+   *          the outline
+   */
+  public FileVectorIcon(Color outline) {
+    mOutline = outline;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    double hf = h * HEIGHT_SCALE;
+    double wf = h * WIDTH_SCALE;
+
+    double corner = wf * CORNER_SCALE;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - hf) / 2.0;
+
+    GeneralPath gp = new GeneralPath();
+
+    gp.moveTo(xf, yf);
+
+    gp.lineTo(xf + wf - corner, yf);
+    gp.lineTo(xf + wf, yf + corner);
+    gp.lineTo(xf + wf, yf + hf);
+    gp.lineTo(xf + wf, yf + hf);
+    gp.lineTo(xf, yf + hf);
+
+    gp.closePath();
+
+    g2.setColor(Color.WHITE);
+    g2.fill(gp);
+
+    g2.setColor(mOutline);
+    g2.draw(gp);
+
+    // the corner piece
+
+    g2.drawLine((int) Math.round(xf + wf - corner), (int) Math.round(yf), (int) Math.round(xf + wf - corner),
+        (int) Math.round(yf + corner));
+
+    g2.drawLine((int) Math.round(xf + wf - corner), (int) Math.round(yf + corner), (int) Math.round(xf + wf),
+        (int) Math.round(yf + corner));
+  }
 }

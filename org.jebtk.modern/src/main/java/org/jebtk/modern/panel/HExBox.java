@@ -37,23 +37,23 @@ import javax.swing.Box;
  */
 public class HExBox extends HBox {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	@Override
-	public Component add(Component c) {
-		super.add(c);
-		
-		if (getComponentCount() == 1) {
-			addGlue();
-		}
-		
-		return this;
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	public static Box createHExBox() {
-		return new HExBox();
-	}
+  @Override
+  public Component add(Component c) {
+    super.add(c);
+
+    if (getComponentCount() == 1) {
+      addGlue();
+    }
+
+    return this;
+  }
+
+  public static Box createHExBox() {
+    return new HExBox();
+  }
 }

@@ -34,30 +34,33 @@ import javax.swing.border.Border;
  * The class ModernDialogHeadingLabel.
  */
 public class ModernDialogHeadingLabel extends ModernSubHeadingLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog heading label.
-	 *
-	 * @param text the text
-	 */
-	public ModernDialogHeadingLabel(String text) {
-		super(text);
-	}
-	
-	/**
-	 * Instantiates a new modern dialog heading label.
-	 *
-	 * @param text the text
-	 * @param border the border
-	 */
-	public ModernDialogHeadingLabel(String text, Border border) {
-		super(text);
-		
-		setBorder(border);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern dialog heading label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernDialogHeadingLabel(String text) {
+    super(text);
+  }
+
+  /**
+   * Instantiates a new modern dialog heading label.
+   *
+   * @param text
+   *          the text
+   * @param border
+   *          the border
+   */
+  public ModernDialogHeadingLabel(String text, Border border) {
+    super(text);
+
+    setBorder(border);
+  }
 }

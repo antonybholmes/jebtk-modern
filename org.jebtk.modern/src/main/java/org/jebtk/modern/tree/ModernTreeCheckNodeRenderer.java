@@ -34,86 +34,82 @@ import org.jebtk.core.tree.TreeNode;
 import org.jebtk.core.tree.CheckTreeNode;
 import org.jebtk.modern.theme.RenderMode;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Renders the icon as a checkbox.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernTreeCheckNodeRenderer extends TreeNodeFileRenderer {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The m checked. */
-	private boolean mChecked = false;
+  /** The m checked. */
+  private boolean mChecked = false;
 
-	/** The m is check node. */
-	private boolean mIsCheckNode;
+  /** The m is check node. */
+  private boolean mIsCheckNode;
 
-	/**
-	 * Sets the checked.
-	 *
-	 * @param checked the new checked
-	 */
-	public void setChecked(boolean checked) {
-		mChecked = checked;
-	}
+  /**
+   * Sets the checked.
+   *
+   * @param checked
+   *          the new checked
+   */
+  public void setChecked(boolean checked) {
+    mChecked = checked;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawNodeIcon(Graphics2D g2) {
-		if (mIsCheckNode) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawNodeIcon(Graphics2D g2) {
+    if (mIsCheckNode) {
 
-			int x = (mIconWidth - 16) / 2;
-			int y = (getHeight() - 16) / 2;
+      int x = (mIconWidth - 16) / 2;
+      int y = (getHeight() - 16) / 2;
 
-			if (mChecked) {
-				getWidgetRenderer().drawChecked(g2, x, y, 16, 16, RenderMode.SELECTED);
-			} else {
-				getWidgetRenderer().drawCheckBox(g2, x, y, 16, 16);
-			}
-		} else {
-			super.drawNodeIcon(g2);
-		}
-	}
+      if (mChecked) {
+        getWidgetRenderer().drawChecked(g2, x, y, 16, 16, RenderMode.SELECTED);
+      } else {
+        getWidgetRenderer().drawCheckBox(g2, x, y, 16, 16);
+      }
+    } else {
+      super.drawNodeIcon(g2);
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.tree.TreeIconNodeRenderer#getRenderer(org.abh.common.ui.tree.Tree, org.abh.common.tree.TreeNode, boolean, boolean, boolean, boolean, int, int)
-	 */
-	@Override
-	public ModernTreeNodeRenderer getRenderer(Tree<?> tree,
-			TreeNode<?> node,
-			boolean nodeIsHighlighted,
-			boolean nodeIsSelected,
-			boolean hasFocus,
-			boolean isDragToNode,
-			int depth,
-			int row) {
-		super.getRenderer(tree, 
-				node, 
-				nodeIsHighlighted, 
-				nodeIsSelected, 
-				hasFocus, 
-				isDragToNode, 
-				depth, 
-				row);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.tree.TreeIconNodeRenderer#getRenderer(org.abh.common.ui.
+   * tree.Tree, org.abh.common.tree.TreeNode, boolean, boolean, boolean, boolean,
+   * int, int)
+   */
+  @Override
+  public ModernTreeNodeRenderer getRenderer(Tree<?> tree, TreeNode<?> node, boolean nodeIsHighlighted,
+      boolean nodeIsSelected, boolean hasFocus, boolean isDragToNode, int depth, int row) {
+    super.getRenderer(tree, node, nodeIsHighlighted, nodeIsSelected, hasFocus, isDragToNode, depth, row);
 
+    if (node instanceof CheckTreeNode) {
+      mIsCheckNode = true;
+      mChecked = ((CheckTreeNode<?>) node).getIsChecked();
+    } else {
+      mIsCheckNode = false;
+      mChecked = false;
+    }
 
-		if (node instanceof CheckTreeNode) {
-			mIsCheckNode = true;
-			mChecked = ((CheckTreeNode<?>)node).getIsChecked();
-		} else {
-			mIsCheckNode = false;
-			mChecked = false;
-		}
-
-		return this;
-	}
+    return this;
+  }
 }

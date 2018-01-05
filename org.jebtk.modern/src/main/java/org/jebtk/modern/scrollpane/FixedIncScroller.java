@@ -31,33 +31,36 @@ import java.awt.Component;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class FixedIncScroller allows the scrollbars to move a fixed number
- * of pixels per scroll notch.
+ * The Class FixedIncScroller allows the scrollbars to move a fixed number of
+ * pixels per scroll notch.
  */
 public class FixedIncScroller extends Scroller {
-	
-	/** The m inc. */
-	private int mInc;
 
-	/**
-	 * Instantiates a new fixed inc scroller.
-	 *
-	 * @param inc the inc
-	 */
-	public FixedIncScroller(int inc) {
-		mInc = inc;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.ComponentScroller#wheelScroll(int, org.abh.common.ui.graphics.ModernCanvas, org.abh.common.ui.scrollpane.ModernScrollBar)
-	 */
-	@Override
-	public void wheelScroll(int notches, 
-			Component c,
-			ModernScrollBar scrollBar) {
+  /** The m inc. */
+  private int mInc;
 
-		double p = scrollBar.normalize(mInc) * Math.signum(notches); // * notches;
+  /**
+   * Instantiates a new fixed inc scroller.
+   *
+   * @param inc
+   *          the inc
+   */
+  public FixedIncScroller(int inc) {
+    mInc = inc;
+  }
 
-		scrollBar.incrementNormalizedScrollPosition(p); //.setNormalizedScrollPosition(p);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.scrollpane.ComponentScroller#wheelScroll(int,
+   * org.abh.common.ui.graphics.ModernCanvas,
+   * org.abh.common.ui.scrollpane.ModernScrollBar)
+   */
+  @Override
+  public void wheelScroll(int notches, Component c, ModernScrollBar scrollBar) {
+
+    double p = scrollBar.normalize(mInc) * Math.signum(notches); // * notches;
+
+    scrollBar.incrementNormalizedScrollPosition(p); // .setNormalizedScrollPosition(p);
+  }
 }

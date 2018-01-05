@@ -34,7 +34,6 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Low height button for small form factor toolbar buttons.
@@ -42,94 +41,105 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * @author Antony Holmes Holmes
  */
 public class TabButton extends ModernCheckButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new tab button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 */
-	public TabButton(String text1, ModernIcon icon) {
-		super(text1, icon);
-		
-		setup();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new tab button.
-	 *
-	 * @param text1 the text1
-	 */
-	public TabButton(String text1) {
-		super(text1);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new tab button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   */
+  public TabButton(String text1, ModernIcon icon) {
+    super(text1, icon);
 
-	/**
-	 * Instantiates a new tab button.
-	 *
-	 * @param icon the icon
-	 */
-	public TabButton(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		//font = new Font(getFont().getFamily(), Font.PLAIN, 14);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		IntRect rect = new IntRect(0, 0, getWidth(), getHeight());
-		
-		if (isSelected()) {
-			paintThemeHighlighted(g2, rect);
-		} else if (mHighlight) {
-			paintThemeHighlightedBorder(g2, rect);
-		} else {
-			super.drawBackground(g2);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int iconX = mRect.getX() + PADDING;
-		
-		if (this.getIcon() != null) {
-			int iconY = (mRect.getH() - UIService.ICON_SIZE_16) / 2;
-			
-			this.getIcon().drawIcon(g2, iconX, iconY, UIService.ICON_SIZE_16);
-		}
-		
-		if (mText1 != null) {
-			int x;
-			
-			if (this.getIcon() != null) {
-				x = iconX + UIService.ICON_SIZE_16 + PADDING;
-			} else {
-				x = UIService.ICON_SIZE_16;
-			}
-			
-			int y = UIService.ICON_SIZE_20;
-			g2.setColor(getForeground());
-			g2.drawString(mText1, x, y);
-		}
-	}
+    setup();
+  }
+
+  /**
+   * Instantiates a new tab button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public TabButton(String text1) {
+    super(text1);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new tab button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public TabButton(ModernIcon icon) {
+    super(icon);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    // font = new Font(getFont().getFamily(), Font.PLAIN, 14);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    IntRect rect = new IntRect(0, 0, getWidth(), getHeight());
+
+    if (isSelected()) {
+      paintThemeHighlighted(g2, rect);
+    } else if (mHighlight) {
+      paintThemeHighlightedBorder(g2, rect);
+    } else {
+      super.drawBackground(g2);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernCheckButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int iconX = mRect.getX() + PADDING;
+
+    if (this.getIcon() != null) {
+      int iconY = (mRect.getH() - UIService.ICON_SIZE_16) / 2;
+
+      this.getIcon().drawIcon(g2, iconX, iconY, UIService.ICON_SIZE_16);
+    }
+
+    if (mText1 != null) {
+      int x;
+
+      if (this.getIcon() != null) {
+        x = iconX + UIService.ICON_SIZE_16 + PADDING;
+      } else {
+        x = UIService.ICON_SIZE_16;
+      }
+
+      int y = UIService.ICON_SIZE_20;
+      g2.setColor(getForeground());
+      g2.drawString(mText1, x, y);
+    }
+  }
 }

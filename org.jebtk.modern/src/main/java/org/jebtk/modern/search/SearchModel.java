@@ -35,104 +35,110 @@ import org.jebtk.core.model.ItemModel;
  */
 public class SearchModel extends ItemModel<String> {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m case sensitive. */
-	private boolean mCaseSensitive;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The m in list. */
-	private boolean mInList;
+  /** The m case sensitive. */
+  private boolean mCaseSensitive;
 
-	/** The m exact. */
-	private boolean mExact;
+  /** The m in list. */
+  private boolean mInList;
 
-	/**
-	 * Sets the case sensitive.
-	 *
-	 * @param caseSensitive the new case sensitive
-	 */
-	public void setCaseSensitive(boolean caseSensitive) {
-		updateCaseSensitive(caseSensitive);
-		
-		fireChanged();
-	}
-	
-	/**
-	 * Update case sensitive.
-	 *
-	 * @param caseSensitive the case sensitive
-	 */
-	public void updateCaseSensitive(boolean caseSensitive) {
-		mCaseSensitive = caseSensitive;
-	}
-	
-	/**
-	 * Sets the in list.
-	 *
-	 * @param inList the new in list
-	 */
-	public void setInList(boolean inList) {
-		updateInList(inList);
-		
-		fireChanged();
-	}
+  /** The m exact. */
+  private boolean mExact;
 
-	/**
-	 * Update in list.
-	 *
-	 * @param inList the in list
-	 */
-	public void updateInList(boolean inList) {
-		mInList = inList;
-	}
+  /**
+   * Sets the case sensitive.
+   *
+   * @param caseSensitive
+   *          the new case sensitive
+   */
+  public void setCaseSensitive(boolean caseSensitive) {
+    updateCaseSensitive(caseSensitive);
 
-	/**
-	 * Sets the exact match.
-	 *
-	 * @param exact the new exact match
-	 */
-	public void setExactMatch(boolean exact) {
-		setExactMatch(exact);
-		
-		fireChanged();
-	}
+    fireChanged();
+  }
 
-	/**
-	 * Update exact match.
-	 *
-	 * @param exact the exact
-	 */
-	public void updateExactMatch(boolean exact) {
-		mExact = exact;
-	}
+  /**
+   * Update case sensitive.
+   *
+   * @param caseSensitive
+   *          the case sensitive
+   */
+  public void updateCaseSensitive(boolean caseSensitive) {
+    mCaseSensitive = caseSensitive;
+  }
 
-	/**
-	 * Gets the in list.
-	 *
-	 * @return the in list
-	 */
-	public boolean getInList() {
-		return mInList;
-	}
+  /**
+   * Sets the in list.
+   *
+   * @param inList
+   *          the new in list
+   */
+  public void setInList(boolean inList) {
+    updateInList(inList);
 
-	/**
-	 * Gets the exact.
-	 *
-	 * @return the exact
-	 */
-	public boolean getExact() {
-		return mExact;
-	}
-	
-	/**
-	 * Gets the case sensitive.
-	 *
-	 * @return the case sensitive
-	 */
-	public boolean getCaseSensitive() {
-		return mCaseSensitive;
-	}
+    fireChanged();
+  }
+
+  /**
+   * Update in list.
+   *
+   * @param inList
+   *          the in list
+   */
+  public void updateInList(boolean inList) {
+    mInList = inList;
+  }
+
+  /**
+   * Sets the exact match.
+   *
+   * @param exact
+   *          the new exact match
+   */
+  public void setExactMatch(boolean exact) {
+    setExactMatch(exact);
+
+    fireChanged();
+  }
+
+  /**
+   * Update exact match.
+   *
+   * @param exact
+   *          the exact
+   */
+  public void updateExactMatch(boolean exact) {
+    mExact = exact;
+  }
+
+  /**
+   * Gets the in list.
+   *
+   * @return the in list
+   */
+  public boolean getInList() {
+    return mInList;
+  }
+
+  /**
+   * Gets the exact.
+   *
+   * @return the exact
+   */
+  public boolean getExact() {
+    return mExact;
+  }
+
+  /**
+   * Gets the case sensitive.
+   *
+   * @return the case sensitive
+   */
+  public boolean getCaseSensitive() {
+    return mCaseSensitive;
+  }
 }

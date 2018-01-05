@@ -20,13 +20,13 @@ package org.jebtk.modern.text;
  * The Enum ModernTextBoxAlignment.
  */
 public enum ModernTextBoxAlignment {
-	
-	/** The left. */
-	LEFT,
-	
-	/** The right. */
-	RIGHT,
-	
-	/** The center. */
-	CENTER
+
+  /** The left. */
+  LEFT,
+
+  /** The right. */
+  RIGHT,
+
+  /** The center. */
+  CENTER
 }

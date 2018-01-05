@@ -24,68 +24,60 @@ import org.jebtk.modern.animation.MousePressReleaseStepAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class ListPanelItemPressedAnimation extends MousePressReleaseStepAnimation {
-	
-	private FadeAnimation mFade;
 
-	public ListPanelItemPressedAnimation(ModernWidget widget) {
-		super(widget);
-		
-		mFade = new FadeAnimation(widget);
-		
-		mFade.setFadeColor("line", 
-				ModernWidget.DARK_LINE_COLOR);
-		
-		mFade.setFadeColor("highlight", 
-				ColorUtils.getTransparentColor(Color.BLACK, 0.92));
-	}
-	
-	@Override
-	public void animateMousePressed() {
-		if (mPressed) {
-			mFade.fadeIn();
-		} else {
-			mFade.fadeOut();
-		}
-		
-		super.animateMousePressed();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		//System.err.println("hmm " + mStep + " " + mFade.getCurrentStep());
-		
-		g2.setColor(mFade.getFadeColor("highlight"));
-		
-		int w = widget.getWidth();
-		int h = widget.getHeight();
-		
-		g2.fillRect(0,
-				0, 
-				w, 
-				h);
-		
-		//g2.setColor(mFade.getFadeColor("line"));
-		
-		/*
-		g2.drawLine(0,
-				y, 
-				w, 
-				y);
-		
-		y += widget.getHeight() - 1;
-		
-		g2.drawLine(widget.getInsets().left,
-				y, 
-				w, 
-				y);
-		*/
-		
-		//g2.drawRect(0, 
-		//		0,
-		//		w - 1, 
-		//		h - 1);
-	}
+  private FadeAnimation mFade;
+
+  public ListPanelItemPressedAnimation(ModernWidget widget) {
+    super(widget);
+
+    mFade = new FadeAnimation(widget);
+
+    mFade.setFadeColor("line", ModernWidget.DARK_LINE_COLOR);
+
+    mFade.setFadeColor("highlight", ColorUtils.getTransparentColor(Color.BLACK, 0.92));
+  }
+
+  @Override
+  public void animateMousePressed() {
+    if (mPressed) {
+      mFade.fadeIn();
+    } else {
+      mFade.fadeOut();
+    }
+
+    super.animateMousePressed();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    // System.err.println("hmm " + mStep + " " + mFade.getCurrentStep());
+
+    g2.setColor(mFade.getFadeColor("highlight"));
+
+    int w = widget.getWidth();
+    int h = widget.getHeight();
+
+    g2.fillRect(0, 0, w, h);
+
+    // g2.setColor(mFade.getFadeColor("line"));
+
+    /*
+     * g2.drawLine(0, y, w, y);
+     * 
+     * y += widget.getHeight() - 1;
+     * 
+     * g2.drawLine(widget.getInsets().left, y, w, y);
+     */
+
+    // g2.drawRect(0,
+    // 0,
+    // w - 1,
+    // h - 1);
+  }
 }

@@ -35,27 +35,30 @@ package org.jebtk.modern.widget;
  *
  */
 public interface TwoLineWidget {
-	
-	/**
-	 * Set the text for line 2.
-	 *
-	 * @param text the new text2
-	 */
-	void setText2(String text);
-	
-	/**
-	 * Returns the text for line 2.
-	 *
-	 * @return the text2
-	 */
-	String getText2();
 
-	/**
-	 * Set both lines of text.
-	 *
-	 * @param text1 the text1
-	 * @param text2 the text2
-	 */
-	void setText(String text1, String text2);
-	
+  /**
+   * Set the text for line 2.
+   *
+   * @param text
+   *          the new text2
+   */
+  void setText2(String text);
+
+  /**
+   * Returns the text for line 2.
+   *
+   * @return the text2
+   */
+  String getText2();
+
+  /**
+   * Set both lines of text.
+   *
+   * @param text1
+   *          the text1
+   * @param text2
+   *          the text2
+   */
+  void setText(String text1, String text2);
+
 }

@@ -20,73 +20,75 @@ import java.awt.Point;
 
 import org.jebtk.modern.menu.ModernIconMenuItem;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ColorMapMenuItem.
  */
 public class ColorMapMenuItem extends ModernIconMenuItem {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The color map.
-	 */
-	private ColorMap mColorMap;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new color map menu item.
-	 *
-	 * @param colorMap the color map
-	 * @param title the title
-	 */
-	public ColorMapMenuItem(ColorMap colorMap, String title) {
-		super(title);
+  /**
+   * The color map.
+   */
+  private ColorMap mColorMap;
 
-		mColorMap = colorMap;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.menu.ModernIconMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		Point p = getStringCenterPlotCoordinates(g2, getRect(), mText1);
-			
-		g2.setColor(getForeground());
-		g2.drawString(mText1, 32, p.y);
-		
-		int x = PADDING;
-		int y = (mRect.getH() - 16) / 2;
-		
-		double c = 0;
-		double inc = (mColorMap.getColorCount() - 1) / 16;
-		
-		for (int i = 0; i < 16; ++i) {
-			g2.setColor(mColorMap.getColorByIndex((int)c));
-			
-			g2.drawLine(x, y, x, y + 16);
-			
-			++x;
-			
-			c += inc;
-		}
-		
-		g2.setColor(DARK_LINE_COLOR);
-		g2.drawRect(PADDING, y, 16, 16);
-	}
+  /**
+   * Instantiates a new color map menu item.
+   *
+   * @param colorMap
+   *          the color map
+   * @param title
+   *          the title
+   */
+  public ColorMapMenuItem(ColorMap colorMap, String title) {
+    super(title);
 
-	/**
-	 * Gets the color map.
-	 *
-	 * @return the color map
-	 */
-	public ColorMap getColorMap() {
-		return mColorMap;
-	}
+    mColorMap = colorMap;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    Point p = getStringCenterPlotCoordinates(g2, getRect(), mText1);
+
+    g2.setColor(getForeground());
+    g2.drawString(mText1, 32, p.y);
+
+    int x = PADDING;
+    int y = (mRect.getH() - 16) / 2;
+
+    double c = 0;
+    double inc = (mColorMap.getColorCount() - 1) / 16;
+
+    for (int i = 0; i < 16; ++i) {
+      g2.setColor(mColorMap.getColorByIndex((int) c));
+
+      g2.drawLine(x, y, x, y + 16);
+
+      ++x;
+
+      c += inc;
+    }
+
+    g2.setColor(DARK_LINE_COLOR);
+    g2.drawRect(PADDING, y, 16, 16);
+  }
+
+  /**
+   * Gets the color map.
+   *
+   * @return the color map
+   */
+  public ColorMap getColorMap() {
+    return mColorMap;
+  }
 }

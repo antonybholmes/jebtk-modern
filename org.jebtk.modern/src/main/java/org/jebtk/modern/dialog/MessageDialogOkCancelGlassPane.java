@@ -43,165 +43,182 @@ import org.jebtk.modern.panel.HCenterBox;
 import org.jebtk.modern.ribbon.MessageButton;
 import org.jebtk.modern.text.ModernCenteredHeadingPanel;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Used as a glass pane to present messages to the user in the 
- * current window rather than a popup dialog.
+ * Used as a glass pane to present messages to the user in the current window
+ * rather than a popup dialog.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Used as a glass pane to present messages to the user in the 
-	 * current window rather than a popup dialog.
-	 * 
-	 * @author Antony Holmes Holmes
-	 *
-	 */
-	private class OKCancelPanel extends MessageDialogPanel implements ModernClickListener, FocusListener {
-		
-		/**
-		 * The constant serialVersionUID.
-		 */
-		private static final long serialVersionUID = 1L;
-		
-		/**
-		 * The member ok button.
-		 */
-		private ModernButton mOkButton = new MessageButton(UI.BUTTON_OK);
-		
-		/**
-		 * The member cancel button.
-		 */
-		private ModernButton mCancelButton = new MessageButton(UI.BUTTON_CANCEL);
 
-		/**
-		 * The member message label.
-		 */
-		private ModernCenteredHeadingPanel mMessageLabel = 
-				new ModernCenteredHeadingPanel("Heading", Color.WHITE);
-		
-		/**
-		 * The member listeners.
-		 */
-		private ModernClickListeners mListeners = new ModernClickListeners();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		/**
-		 * Instantiates a new OK cancel panel.
-		 */
-		public OKCancelPanel() {
-			Box box2 = new HCenterBox();
-			
-			//box3.add(mMessageLabel);
-			//box3.add(ModernPanel.createVGap());
-			//box3.add(new ModernSubHeadingLabel("Something or other", Color.WHITE));
-			
-			UI.setSize(mMessageLabel, new Dimension(500, 50));
-			
-			box2.add(mMessageLabel);
-			add(box2);
-			add(UI.createVGap(20));
-			
-			box2 = new HCenterBox();
-			box2.add(mOkButton);
-			box2.add(UI.createHGap(10));
-			box2.add(mCancelButton);
-			add(box2);
-			
-			mOkButton.addClickListener(this);
-			mCancelButton.addClickListener(this);
-			
-			addFocusListener(this);
-		}
-		
-		/**
-		 * Show message.
-		 *
-		 * @param message the message
-		 */
-		public void showMessage(String message) {
-			mMessageLabel.setText(message);
-		}
-		
-		/**
-		 * Adds the click listener.
-		 *
-		 * @param l the l
-		 */
-		public void addClickListener(ModernClickListener l) {
-			mListeners.addClickListener(l);
-		}
+  /**
+   * Used as a glass pane to present messages to the user in the current window
+   * rather than a popup dialog.
+   * 
+   * @author Antony Holmes Holmes
+   *
+   */
+  private class OKCancelPanel extends MessageDialogPanel implements ModernClickListener, FocusListener {
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			mListeners.fireClicked(e);
-		}
+    /**
+     * The constant serialVersionUID.
+     */
+    private static final long serialVersionUID = 1L;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusGained(FocusEvent e) {
-			mCancelButton.requestFocusInWindow();
-		}
+    /**
+     * The member ok button.
+     */
+    private ModernButton mOkButton = new MessageButton(UI.BUTTON_OK);
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusLost(FocusEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-	}
-	
-	/**
-	 * The member panel.
-	 */
-	private OKCancelPanel mPanel = new OKCancelPanel();
+    /**
+     * The member cancel button.
+     */
+    private ModernButton mCancelButton = new MessageButton(UI.BUTTON_CANCEL);
 
-	/**
-	 * Instantiates a new message dialog ok cancel glass pane.
-	 */
-	public MessageDialogOkCancelGlassPane() {
-		add(mPanel);
-		
-		mPanel.addClickListener(this);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.window.MessageDialogStatusGlassPane#showMessage(java.lang.String, org.abh.lib.ui.modern.dialog.DialogEventListener)
-	 */
-	@Override
-	public void showMessage(String message, DialogEventListener l) {
-		super.showMessage(message, l);
-		
-		mPanel.showMessage(message);
-		
-		setVisible(true);
-		
-		mPanel.requestFocusInWindow();
-	}
+    /**
+     * The member message label.
+     */
+    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel("Heading", Color.WHITE);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		setVisible(false);
-		
-		// call back
-		mListeners.fireDialogStatusChanged(new DialogEvent(this, (e.getMessage().equals(UI.BUTTON_OK) ? ModernDialogStatus.OK : ModernDialogStatus.CANCEL)));
-	}
+    /**
+     * The member listeners.
+     */
+    private ModernClickListeners mListeners = new ModernClickListeners();
+
+    /**
+     * Instantiates a new OK cancel panel.
+     */
+    public OKCancelPanel() {
+      Box box2 = new HCenterBox();
+
+      // box3.add(mMessageLabel);
+      // box3.add(ModernPanel.createVGap());
+      // box3.add(new ModernSubHeadingLabel("Something or other", Color.WHITE));
+
+      UI.setSize(mMessageLabel, new Dimension(500, 50));
+
+      box2.add(mMessageLabel);
+      add(box2);
+      add(UI.createVGap(20));
+
+      box2 = new HCenterBox();
+      box2.add(mOkButton);
+      box2.add(UI.createHGap(10));
+      box2.add(mCancelButton);
+      add(box2);
+
+      mOkButton.addClickListener(this);
+      mCancelButton.addClickListener(this);
+
+      addFocusListener(this);
+    }
+
+    /**
+     * Show message.
+     *
+     * @param message
+     *          the message
+     */
+    public void showMessage(String message) {
+      mMessageLabel.setText(message);
+    }
+
+    /**
+     * Adds the click listener.
+     *
+     * @param l
+     *          the l
+     */
+    public void addClickListener(ModernClickListener l) {
+      mListeners.addClickListener(l);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      mListeners.fireClicked(e);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusGained(FocusEvent e) {
+      mCancelButton.requestFocusInWindow();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusLost(FocusEvent arg0) {
+      // TODO Auto-generated method stub
+
+    }
+  }
+
+  /**
+   * The member panel.
+   */
+  private OKCancelPanel mPanel = new OKCancelPanel();
+
+  /**
+   * Instantiates a new message dialog ok cancel glass pane.
+   */
+  public MessageDialogOkCancelGlassPane() {
+    add(mPanel);
+
+    mPanel.addClickListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.window.MessageDialogStatusGlassPane#showMessage(java.
+   * lang.String, org.abh.lib.ui.modern.dialog.DialogEventListener)
+   */
+  @Override
+  public void showMessage(String message, DialogEventListener l) {
+    super.showMessage(message, l);
+
+    mPanel.showMessage(message);
+
+    setVisible(true);
+
+    mPanel.requestFocusInWindow();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    setVisible(false);
+
+    // call back
+    mListeners.fireDialogStatusChanged(new DialogEvent(this,
+        (e.getMessage().equals(UI.BUTTON_OK) ? ModernDialogStatus.OK : ModernDialogStatus.CANCEL)));
+  }
 }

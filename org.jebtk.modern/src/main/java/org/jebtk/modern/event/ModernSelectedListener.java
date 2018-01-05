@@ -37,11 +37,12 @@ import java.util.EventListener;
  *
  */
 public interface ModernSelectedListener extends EventListener {
-	
-	/**
-	 * Selected changed.
-	 *
-	 * @param e the e
-	 */
-	public void selected(ModernSelectedEvent e);
+
+  /**
+   * Selected changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void selected(ModernSelectedEvent e);
 }

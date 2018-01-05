@@ -36,62 +36,62 @@ import org.jebtk.modern.table.ModernTable;
 import org.jebtk.modern.table.ModernTableCheckboxCellEditor;
 import org.jebtk.modern.table.ModernTableCheckboxCellRenderer;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class LayersPanel.
  */
 public class LayersPanel extends ModernComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member table.
-	 */
-	private ModernTable mTable = new ModernRowTable();
-	
 
-	/**
-	 * Instantiates a new layers panel.
-	 *
-	 * @param layerModel the layer model
-	 */
-	public LayersPanel(LayerModel layerModel) {
-		setup();
-		
-		setLayerModel(layerModel);
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		mTable.setShowHeader(false);
-		
-		ModernScrollPane scrollPane = new ModernScrollPane(mTable);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
-		
-		setBody(scrollPane);
-	}
-	
-	/**
-	 * Sets the layer model.
-	 *
-	 * @param layerModel the new layer model
-	 */
-	public void setLayerModel(LayerModel layerModel) {
-		LayersTableModel tableModel = new LayersTableModel(layerModel);
-		
-		mTable.setModel(tableModel);
-		
-		mTable.getRendererModel().setCol(0, new ModernTableCheckboxCellRenderer());
-		mTable.getEditorModel().setCol(0, new ModernTableCheckboxCellEditor());
-		mTable.getColumnModel().setWidth(0, 30);
-		
-		mTable.getRendererModel().setCol(1, new ModernDataGridCellRenderer());
-		mTable.getColumnModel().setWidth(1, 200);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member table.
+   */
+  private ModernTable mTable = new ModernRowTable();
+
+  /**
+   * Instantiates a new layers panel.
+   *
+   * @param layerModel
+   *          the layer model
+   */
+  public LayersPanel(LayerModel layerModel) {
+    setup();
+
+    setLayerModel(layerModel);
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    mTable.setShowHeader(false);
+
+    ModernScrollPane scrollPane = new ModernScrollPane(mTable);
+    scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
+
+    setBody(scrollPane);
+  }
+
+  /**
+   * Sets the layer model.
+   *
+   * @param layerModel
+   *          the new layer model
+   */
+  public void setLayerModel(LayerModel layerModel) {
+    LayersTableModel tableModel = new LayersTableModel(layerModel);
+
+    mTable.setModel(tableModel);
+
+    mTable.getRendererModel().setCol(0, new ModernTableCheckboxCellRenderer());
+    mTable.getEditorModel().setCol(0, new ModernTableCheckboxCellEditor());
+    mTable.getColumnModel().setWidth(0, 30);
+
+    mTable.getRendererModel().setCol(1, new ModernDataGridCellRenderer());
+    mTable.getColumnModel().setWidth(1, 200);
+  }
 }

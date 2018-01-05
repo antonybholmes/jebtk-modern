@@ -27,53 +27,52 @@ import org.jebtk.modern.widget.ModernWidget;
  * Provides the fade animation for quick access buttons
  */
 public class RibbonBackAnimation extends HoverFadeAnimation {
-	
-	public static final int HEIGHT = 32;
 
-	/**
-	 * Instantiates a new quick access animation.
-	 *
-	 * @param button the button
-	 */
-	public RibbonBackAnimation(ModernWidget button) {
-		super(button);
-		
-		//setFadeColor("fill", RibbonBackMenuItem.BASE_COLOR, Color.WHITE);
-		setFadeColor("fill", 
-				MaterialService.getInstance().color("gray-highlighted"));
-	}
-	
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+  public static final int HEIGHT = 32;
 
-		try {
-			g2Temp.setStroke(new BasicStroke(2));
+  /**
+   * Instantiates a new quick access animation.
+   *
+   * @param button
+   *          the button
+   */
+  public RibbonBackAnimation(ModernWidget button) {
+    super(button);
 
-			g2Temp.setColor(getFadeColor("fill"));
+    // setFadeColor("fill", RibbonBackMenuItem.BASE_COLOR, Color.WHITE);
+    setFadeColor("fill", MaterialService.getInstance().color("gray-highlighted"));
+  }
 
-			int x = ModernWidget.DOUBLE_PADDING;
-			int y = (widget.getHeight() - HEIGHT) / 2;
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
-			drawIcon(g2Temp, x, y);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
-	
-	public void drawIcon(Graphics2D g2, int x, int y) {
-		g2.setColor(getFadeColor("fill"));
-		g2.fillOval(x, y, HEIGHT, HEIGHT);
+    try {
+      g2Temp.setStroke(new BasicStroke(2));
 
-		g2.setColor(ModernWidget.TEXT_COLOR);
-		
-		int x1 = x + ModernWidget.DOUBLE_PADDING;
-		int y1 = y + HEIGHT / 2;
+      g2Temp.setColor(getFadeColor("fill"));
 
-		g2.drawLine(x1, y1, x1 + HEIGHT - 2 * ModernWidget.DOUBLE_PADDING, y1);
+      int x = ModernWidget.DOUBLE_PADDING;
+      int y = (widget.getHeight() - HEIGHT) / 2;
 
+      drawIcon(g2Temp, x, y);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 
-		g2.drawLine(x1, y1, x1 + ModernWidget.PADDING, y1 - ModernWidget.PADDING);
-		g2.drawLine(x1, y1, x1 + ModernWidget.PADDING, y1 + ModernWidget.PADDING);
-	}
+  public void drawIcon(Graphics2D g2, int x, int y) {
+    g2.setColor(getFadeColor("fill"));
+    g2.fillOval(x, y, HEIGHT, HEIGHT);
+
+    g2.setColor(ModernWidget.TEXT_COLOR);
+
+    int x1 = x + ModernWidget.DOUBLE_PADDING;
+    int y1 = y + HEIGHT / 2;
+
+    g2.drawLine(x1, y1, x1 + HEIGHT - 2 * ModernWidget.DOUBLE_PADDING, y1);
+
+    g2.drawLine(x1, y1, x1 + ModernWidget.PADDING, y1 - ModernWidget.PADDING);
+    g2.drawLine(x1, y1, x1 + ModernWidget.PADDING, y1 + ModernWidget.PADDING);
+  }
 }

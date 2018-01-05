@@ -12,106 +12,83 @@ import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class ComboBoxAnimation extends ButtonHighlightAnimation implements ChangeListener {
-	private ModernComboBox mCombo;
+  private ModernComboBox mCombo;
 
-	public ComboBoxAnimation(ModernWidget combo) {
-		super(combo);
+  public ComboBoxAnimation(ModernWidget combo) {
+    super(combo);
 
-		mCombo = (ModernComboBox)combo;
-		
-		mCombo.addPopupClosedListener(this);
-		
-		setFadeColor("outline", 
-				ModernWidget.LINE_COLOR, 
-				ModernWidgetRenderer.SELECTED_FILL_COLOR);
-	}
+    mCombo = (ModernComboBox) combo;
 
-	@Override
-	public void animateMouseExited() {
-		// If the popup is show, force the animation to display the button
-		// by making it opaque and stopping the timer
-		if (getButton().getPopupShown()) {
-			opaque();
-			stopMouseOverTimer();
-		} else {
-			super.animateMouseExited();
-		}
-	}
+    mCombo.addPopupClosedListener(this);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		if (getWidget().isEnabled()) {
-			IntRect rect = widget.getInternalRect();
-			
-			widget.getWidgetRenderer().drawBackground(g2, rect);
+    setFadeColor("outline", ModernWidget.LINE_COLOR, ModernWidgetRenderer.SELECTED_FILL_COLOR);
+  }
 
-			//widget.getWidgetRenderer().drawOutline(g2, rect);
+  @Override
+  public void animateMouseExited() {
+    // If the popup is show, force the animation to display the button
+    // by making it opaque and stopping the timer
+    if (getButton().getPopupShown()) {
+      opaque();
+      stopMouseOverTimer();
+    } else {
+      super.animateMouseExited();
+    }
+  }
 
-			//if (getButton().getHightlighted() || getButton().getPopupShown()) {
-				IntRect buttonRect = new IntRect(mCombo.mButtonX, 
-						widget.getInsets().top, 
-						ModernComboBox.BUTTON_WIDTH, 
-						rect.getH());
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    if (getWidget().isEnabled()) {
+      IntRect rect = widget.getInternalRect();
 
-				drawButtonOutline(g2, 
-						rect.getX(),
-						rect.getY(),
-						rect.getW(),
-						rect.getH(),
-						RenderMode.SELECTED,
-						widget.hasFocus());
+      widget.getWidgetRenderer().drawBackground(g2, rect);
 
+      // widget.getWidgetRenderer().drawOutline(g2, rect);
 
+      // if (getButton().getHightlighted() || getButton().getPopupShown()) {
+      IntRect buttonRect = new IntRect(mCombo.mButtonX, widget.getInsets().top, ModernComboBox.BUTTON_WIDTH,
+          rect.getH());
 
-				drawButtonFill(g2, 
-						buttonRect.getX(),
-						buttonRect.getY(),
-						buttonRect.getW(),
-						buttonRect.getH(),
-						RenderMode.SELECTED,
-						widget.hasFocus());
+      drawButtonOutline(g2, rect.getX(), rect.getY(), rect.getW(), rect.getH(), RenderMode.SELECTED, widget.hasFocus());
 
-				/*
-				drawButtonOutline(g2, 
-						buttonRect.getX(),
-						buttonRect.getY(),
-						buttonRect.getW(),
-						buttonRect.getH(),
-						RenderMode.SELECTED,
-						widget.hasFocus());
-				*/
-				
-				//paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON, buttonRect);
+      drawButtonFill(g2, buttonRect.getX(), buttonRect.getY(), buttonRect.getW(), buttonRect.getH(),
+          RenderMode.SELECTED, widget.hasFocus());
 
-				ModernComboBox.DOWN_ARROW_ICON.drawIcon(g2, buttonRect.getX(), buttonRect.getY() + (buttonRect.getH() - 16) / 2, 16);
-			//}
-		}
+      /*
+       * drawButtonOutline(g2, buttonRect.getX(), buttonRect.getY(),
+       * buttonRect.getW(), buttonRect.getH(), RenderMode.SELECTED,
+       * widget.hasFocus());
+       */
 
-		//Color c = ColorUtils.getTransparentColor(Color.RED, mTrans);
+      // paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON, buttonRect);
 
-		//int y = getHeight() / 2;
-		//
-		//g2.setColor(c);
-		//g2.drawLine(0, 0, getWidth(), y);
-	}
-	
-	@Override
-	public void drawButtonOutline(Graphics2D g2, 
-			int x,
-			int y, 
-			int w, 
-			int h,
-			RenderMode mode,
-			boolean hasFocus) {
-		g2.setColor(getFadeColor("outline"));
-		outline(g2, x, y, w, h);
-	}
+      ModernComboBox.DOWN_ARROW_ICON.drawIcon(g2, buttonRect.getX(), buttonRect.getY() + (buttonRect.getH() - 16) / 2,
+          16);
+      // }
+    }
 
-	@Override
-	public void changed(ChangeEvent e) {
-		pseudoMouseExited();
-	}
+    // Color c = ColorUtils.getTransparentColor(Color.RED, mTrans);
+
+    // int y = getHeight() / 2;
+    //
+    // g2.setColor(c);
+    // g2.drawLine(0, 0, getWidth(), y);
+  }
+
+  @Override
+  public void drawButtonOutline(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+    g2.setColor(getFadeColor("outline"));
+    outline(g2, x, y, w, h);
+  }
+
+  @Override
+  public void changed(ChangeEvent e) {
+    pseudoMouseExited();
+  }
 }

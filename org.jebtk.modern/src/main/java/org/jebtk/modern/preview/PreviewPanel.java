@@ -32,49 +32,50 @@ import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
- * A preview provides a standardized way of displaying multiple
- * output files on a single panel (e.g. using a tree) and removes
- * the need to separately code individual widgets to display
- * files. This is designed for methods that process text files
- * where it is desirable to show the results to the user so
+ * A preview provides a standardized way of displaying multiple output files on
+ * a single panel (e.g. using a tree) and removes the need to separately code
+ * individual widgets to display files. This is designed for methods that
+ * process text files where it is desirable to show the results to the user so
  * they can quickly determine if a tool has worked correctly.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public abstract class PreviewPanel extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Add a preview panel to the panel view.
-	 *
-	 * @param name the name
-	 * @param previewTablePanel the preview table panel
-	 */
-	public abstract void addPreview(String name, ModernPanel previewTablePanel);
-	
-	/**
-	 * Return the currently selected preview, or null if
-	 * nothing is selected.
-	 *
-	 * @return the selected preview
-	 */
-	public abstract ModernPanel getSelectedPreview();
-	
-	/**
-	 * Remove all previews.
-	 */
-	public abstract void clear();
 
-	/**
-	 * Returns a particular preview.
-	 *
-	 * @param index the index
-	 * @return the preview
-	 */
-	public abstract ModernPanel getPreview(int index);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Add a preview panel to the panel view.
+   *
+   * @param name
+   *          the name
+   * @param previewTablePanel
+   *          the preview table panel
+   */
+  public abstract void addPreview(String name, ModernPanel previewTablePanel);
+
+  /**
+   * Return the currently selected preview, or null if nothing is selected.
+   *
+   * @return the selected preview
+   */
+  public abstract ModernPanel getSelectedPreview();
+
+  /**
+   * Remove all previews.
+   */
+  public abstract void clear();
+
+  /**
+   * Returns a particular preview.
+   *
+   * @param index
+   *          the index
+   * @return the preview
+   */
+  public abstract ModernPanel getPreview(int index);
 }

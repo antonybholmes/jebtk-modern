@@ -34,48 +34,50 @@ import org.jebtk.core.tree.TreeNode;
  * Describes a drag event on a FlatTree control.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class NodeDraggedEvent<T> {
-	
-	/**
-	 * The dragged.
-	 */
-	private TreeNode<T> dragged;
-	
-	/**
-	 * The target.
-	 */
-	private TreeNode<T> target;
 
-	/**
-	 * Instantiates a new node dragged event.
-	 *
-	 * @param dragged the dragged
-	 * @param target the target
-	 */
-	public NodeDraggedEvent(TreeNode<T> dragged, TreeNode<T> target) {
-		this.dragged = dragged;
-		this.target = target;
-	}
+  /**
+   * The dragged.
+   */
+  private TreeNode<T> dragged;
 
-	/**
-	 * Returns the node that was dragged.
-	 *
-	 * @return the dragged
-	 */
-	public final TreeNode<T> getDragged() {
-		return dragged;
-	}
+  /**
+   * The target.
+   */
+  private TreeNode<T> target;
 
-	/**
-	 * Returns the node that the dragged node was
-	 * dragged onto, i.e. the node that become the
-	 * parent of the dragged node.
-	 *
-	 * @return the target
-	 */
-	public final TreeNode<T> getTarget() {
-		return target;
-	}
+  /**
+   * Instantiates a new node dragged event.
+   *
+   * @param dragged
+   *          the dragged
+   * @param target
+   *          the target
+   */
+  public NodeDraggedEvent(TreeNode<T> dragged, TreeNode<T> target) {
+    this.dragged = dragged;
+    this.target = target;
+  }
+
+  /**
+   * Returns the node that was dragged.
+   *
+   * @return the dragged
+   */
+  public final TreeNode<T> getDragged() {
+    return dragged;
+  }
+
+  /**
+   * Returns the node that the dragged node was dragged onto, i.e. the node that
+   * become the parent of the dragged node.
+   *
+   * @return the target
+   */
+  public final TreeNode<T> getTarget() {
+    return target;
+  }
 }

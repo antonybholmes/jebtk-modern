@@ -39,41 +39,43 @@ import org.jebtk.modern.dataview.ModernData;
  * The class ModernDataRowTextSorter.
  */
 public class ModernDataRowTextSorter extends ModernDataIndexMapSorter {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new modern data row text sorter.
-	 */
-	public ModernDataRowTextSorter() {
-		setEnabled(true);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.sort.ModernDataIndexMapSorter#sort(org.abh.lib.ui.modern.dataview.ModernData, int, boolean)
-	 */
-	@Override
-	public void sort(ModernData data, int column, boolean sortAscending) {
-		super.sort(data, column, sortAscending);
-		
-		List<Indexed<Integer, String>> values = 
-				new ArrayList<Indexed<Integer, String>>();
-			
-		for (int i = 0; i < data.getRowCount(); ++i) {
-			
-			String v;
-			
-			if (data.getModel().getValueAt(i, column) != null) {
-				v = data.getModel().getValueAt(i, column).toString();
-			} else {
-				v = TextUtils.EMPTY_STRING;
-			}
-			
-			values.add(new Indexed<Integer, String>(i, v));
-		}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-		sort(values);
-	}
+  /**
+   * Instantiates a new modern data row text sorter.
+   */
+  public ModernDataRowTextSorter() {
+    setEnabled(true);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexMapSorter#sort(org.abh.lib
+   * .ui.modern.dataview.ModernData, int, boolean)
+   */
+  @Override
+  public void sort(ModernData data, int column, boolean sortAscending) {
+    super.sort(data, column, sortAscending);
+
+    List<Indexed<Integer, String>> values = new ArrayList<Indexed<Integer, String>>();
+
+    for (int i = 0; i < data.getRowCount(); ++i) {
+
+      String v;
+
+      if (data.getModel().getValueAt(i, column) != null) {
+        v = data.getModel().getValueAt(i, column).toString();
+      } else {
+        v = TextUtils.EMPTY_STRING;
+      }
+
+      values.add(new Indexed<Integer, String>(i, v));
+    }
+
+    sort(values);
+  }
 }

@@ -36,7 +36,6 @@ import org.jebtk.modern.graphics.color.ColorPopupMenu;
 import org.jebtk.modern.graphics.color.ColorSelectionModel;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Allow users to select a color for an object etc.
@@ -45,93 +44,104 @@ import org.jebtk.modern.window.ModernWindow;
  *
  */
 public class RibbonLargeColorSwatchButton extends RibbonLargeDropDownButton implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon large color swatch button.
-	 *
-	 * @param parent the parent
-	 */
-	public RibbonLargeColorSwatchButton(ModernWindow parent) {
-		this(parent, Color.BLACK);
-	}
-	
-	/**
-	 * Instantiates a new color swatch button.
-	 *
-	 * @param parent the parent
-	 * @param color the color
-	 */
-	public RibbonLargeColorSwatchButton(ModernWindow parent, Color color) {
-		super(new ColorPopupMenu(parent, color));
+  /**
+   * Instantiates a new ribbon large color swatch button.
+   *
+   * @param parent
+   *          the parent
+   */
+  public RibbonLargeColorSwatchButton(ModernWindow parent) {
+    this(parent, Color.BLACK);
+  }
 
-		mMenu.addClickListener(this);
+  /**
+   * Instantiates a new color swatch button.
+   *
+   * @param parent
+   *          the parent
+   * @param color
+   *          the color
+   */
+  public RibbonLargeColorSwatchButton(ModernWindow parent, Color color) {
+    super(new ColorPopupMenu(parent, color));
 
-		//UI.setSize(this, ModernWidget.SIZE_48);
-	}
+    mMenu.addClickListener(this);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = PADDING;
+    // UI.setSize(this, ModernWidget.SIZE_48);
+  }
 
-		int y = (getHeight() - 6) / 2;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = PADDING;
 
-		Color color = ((ColorPopupMenu)mMenu).getSelectedColor();
+    int y = (getHeight() - 6) / 2;
 
-		if (color != null) {
-			g2.setColor(color);
-			g2.fillRect(x, y, 16, 6);
+    Color color = ((ColorPopupMenu) mMenu).getSelectedColor();
 
-			g2.setColor(Color.BLACK);
-			g2.drawRect(x, y, 16, 6);
-		}
-		
-		//g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
-		//g2.drawRect(x, y, 32, Resources.ICON_SIZE_16);
+    if (color != null) {
+      g2.setColor(color);
+      g2.fillRect(x, y, 16, 6);
 
-		TRIANGLE_ICON.drawIcon(g2, getWidth() - 16, (getHeight() - 16) / 2, 16);
-	}
+      g2.setColor(Color.BLACK);
+      g2.drawRect(x, y, 16, 6);
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		mPressed = false;
-		mHighlight = false;
+    // g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
+    // g2.drawRect(x, y, 32, Resources.ICON_SIZE_16);
 
-		repaint();
+    TRIANGLE_ICON.drawIcon(g2, getWidth() - 16, (getHeight() - 16) / 2, 16);
+  }
 
-		if (e.getMessage().equals(ColorSelectionModel.COLOR_CHANGED)) {
-			fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    mPressed = false;
+    mHighlight = false;
 
-	/**
-	 * Gets the selected color.
-	 *
-	 * @return the selected color
-	 */
-	public Color getSelectedColor() {
-		return ((ColorPopupMenu)mMenu).getSelectedColor();
-	}
+    repaint();
 
-	/**
-	 * Sets the selected color.
-	 *
-	 * @param color the new selected color
-	 */
-	public void setSelectedColor(Color color) {
-		((ColorPopupMenu)mMenu).setSelectedColor(color);
+    if (e.getMessage().equals(ColorSelectionModel.COLOR_CHANGED)) {
+      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+    }
+  }
 
-		repaint();
-	}
+  /**
+   * Gets the selected color.
+   *
+   * @return the selected color
+   */
+  public Color getSelectedColor() {
+    return ((ColorPopupMenu) mMenu).getSelectedColor();
+  }
+
+  /**
+   * Sets the selected color.
+   *
+   * @param color
+   *          the new selected color
+   */
+  public void setSelectedColor(Color color) {
+    ((ColorPopupMenu) mMenu).setSelectedColor(color);
+
+    repaint();
+  }
 }

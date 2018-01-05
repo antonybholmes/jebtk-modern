@@ -32,22 +32,24 @@ package org.jebtk.modern.io;
  * The class TsvGuiFileFilter.
  */
 public class TsvGuiFileFilter extends GuiFileExtFilter {
-	
-	/** The Constant INSTANCE. */
-	public static final GuiFileExtFilter INSTANCE = new TsvGuiFileFilter();
 
-	/**
-	 * Instantiates a new tsv gui file filter.
-	 */
-	public TsvGuiFileFilter() {
-		super("tsv");
-	}
+  /** The Constant INSTANCE. */
+  public static final GuiFileExtFilter INSTANCE = new TsvGuiFileFilter();
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	public final String getDescription() {
-		return "Text (Tab delimited) (*.tsv)";
-	}
+  /**
+   * Instantiates a new tsv gui file filter.
+   */
+  public TsvGuiFileFilter() {
+    super("tsv");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  public final String getDescription() {
+    return "Text (Tab delimited) (*.tsv)";
+  }
 
 }

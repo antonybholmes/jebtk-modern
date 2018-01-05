@@ -30,93 +30,93 @@ package org.jebtk.modern.ribbon;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonButton2.
  */
 public class RibbonButton extends ModernButton {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon button.
-	 *
-	 * @param text1 the text 1
-	 * @param icon the icon
-	 */
-	public RibbonButton(String text1, ModernIcon icon) {
-		super(text1, icon);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new ribbon button.
+   *
+   * @param text1
+   *          the text 1
+   * @param icon
+   *          the icon
+   */
+  public RibbonButton(String text1, ModernIcon icon) {
+    super(text1, icon);
 
-	/**
-	 * Instantiates a new ribbon button2.
-	 *
-	 * @param text1 the text1
-	 * @param text2 the text 2
-	 * @param icon the icon
-	 */
-	public RibbonButton(String text1, 
-			String text2,
-			ModernIcon icon) {
-		super(text1, icon);
-		
-		setup();
-	}
+    setup();
+  }
 
-	/**
-	 * Instantiates a new ribbon button2.
-	 *
-	 * @param icon the icon
-	 */
-	public RibbonButton(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new ribbon button2.
+   *
+   * @param text1
+   *          the text1
+   * @param text2
+   *          the text 2
+   * @param icon
+   *          the icon
+   */
+  public RibbonButton(String text1, String text2, ModernIcon icon) {
+    super(text1, icon);
 
-	/**
-	 * Instantiates a new ribbon button.
-	 *
-	 * @param text1 the text 1
-	 * @param icon the icon
-	 * @param toolTipTitle the tool tip title
-	 * @param toolTipText the tool tip text
-	 */
-	public RibbonButton(String text1, 
-			ModernIcon icon,
-			String toolTipTitle, 
-			String toolTipText) {
-		this(text1, icon);
+    setup();
+  }
 
-		setToolTip(toolTipTitle, toolTipText);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setBackgroundAnimations("ribbon-button");
-	}
+  /**
+   * Instantiates a new ribbon button2.
+   *
+   * @param icon
+   *          the icon
+   */
+  public RibbonButton(ModernIcon icon) {
+    super(icon);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			if (isSelected() || mHighlight) {
-				getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
-			}
-		}
-	}
-	*/
+    setup();
+  }
+
+  /**
+   * Instantiates a new ribbon button.
+   *
+   * @param text1
+   *          the text 1
+   * @param icon
+   *          the icon
+   * @param toolTipTitle
+   *          the tool tip title
+   * @param toolTipText
+   *          the tool tip text
+   */
+  public RibbonButton(String text1, ModernIcon icon, String toolTipTitle, String toolTipText) {
+    this(text1, icon);
+
+    setToolTip(toolTipTitle, toolTipText);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setBackgroundAnimations("ribbon-button");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight) { getWidgetRenderer().drawRibbonButton(g2,
+   * mInternalRect, RenderMode.SELECTED); } } }
+   */
 }

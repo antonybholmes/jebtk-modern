@@ -32,8 +32,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.settings.SettingsService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Group vector icon showing 3 colored balls spaced equally around a circle.
@@ -42,86 +40,86 @@ import org.jebtk.core.settings.SettingsService;
  *
  */
 public class GroupVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant COLOR1.
-	 */
-	private static final Color COLOR1 = 
-			SettingsService.getInstance().getAsColor("theme.icons.group-icon.colors.color1");
-	
-	/**
-	 * The constant COLOR2.
-	 */
-	private static final Color COLOR2 = 
-			SettingsService.getInstance().getAsColor("theme.icons.group-icon.colors.color2");
-	
-	/**
-	 * The constant COLOR3.
-	 */
-	private static final Color COLOR3 = 
-			SettingsService.getInstance().getAsColor("theme.icons.group-icon.colors.color3");
-	
-	/**
-	 * The constant RADIUS.
-	 */
-	private static final double RADIUS =
-			SettingsService.getInstance().getAsDouble("theme.icons.group-icon.radius-scale");
-	
-	/**
-	 * The constant BALL_RADIUS.
-	 */
-	private static final double BALL_RADIUS =
-			SettingsService.getInstance().getAsDouble("theme.icons.group-icon.ball-radius-scale");
-	
-	/**
-	 * The constant ANGLE2.
-	 */
-	private static final double ANGLE2 = Math.PI * 11 / 6.0;
-	
-	/**
-	 * The constant ANGLE3.
-	 */
-	private static final double ANGLE3 = Math.PI * 7.0 / 6.0;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		
-		double wf = w * RADIUS;
-		double br = wf * BALL_RADIUS;
-		int bc = (int)Math.round(br * 2.0);
-		
-		double xf = x + wf / 2.0;
-		double yf = y + h / 2.0;
-		
-		// Color 1
-		
-		g2.setColor(COLOR1);
-		
-		double x2 = xf - br;
-		double y2 = yf - wf - br;
-		
-		g2.fillOval((int)Math.round(x2), (int)Math.round(y2), bc, bc);
-		
-		// Color 2
-		
-		g2.setColor(COLOR2);
-				
-		x2 = xf + wf * Math.cos(ANGLE2) - br;
-		y2 = yf - wf * Math.sin(ANGLE2) - br;
-				
-		g2.fillOval((int)Math.round(x2), (int)Math.round(y2), bc, bc);
-		
-		// Color 3
-		
-		g2.setColor(COLOR3);
 
-		x2 = xf + wf * Math.cos(ANGLE3) - br;
-		y2 = yf - wf * Math.sin(ANGLE3) - br;
+  /**
+   * The constant COLOR1.
+   */
+  private static final Color COLOR1 = SettingsService.getInstance().getAsColor("theme.icons.group-icon.colors.color1");
 
-		g2.fillOval((int)Math.round(x2), (int)Math.round(y2), bc, bc);
-	}
+  /**
+   * The constant COLOR2.
+   */
+  private static final Color COLOR2 = SettingsService.getInstance().getAsColor("theme.icons.group-icon.colors.color2");
+
+  /**
+   * The constant COLOR3.
+   */
+  private static final Color COLOR3 = SettingsService.getInstance().getAsColor("theme.icons.group-icon.colors.color3");
+
+  /**
+   * The constant RADIUS.
+   */
+  private static final double RADIUS = SettingsService.getInstance().getAsDouble("theme.icons.group-icon.radius-scale");
+
+  /**
+   * The constant BALL_RADIUS.
+   */
+  private static final double BALL_RADIUS = SettingsService.getInstance()
+      .getAsDouble("theme.icons.group-icon.ball-radius-scale");
+
+  /**
+   * The constant ANGLE2.
+   */
+  private static final double ANGLE2 = Math.PI * 11 / 6.0;
+
+  /**
+   * The constant ANGLE3.
+   */
+  private static final double ANGLE3 = Math.PI * 7.0 / 6.0;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+    double wf = w * RADIUS;
+    double br = wf * BALL_RADIUS;
+    int bc = (int) Math.round(br * 2.0);
+
+    double xf = x + wf / 2.0;
+    double yf = y + h / 2.0;
+
+    // Color 1
+
+    g2.setColor(COLOR1);
+
+    double x2 = xf - br;
+    double y2 = yf - wf - br;
+
+    g2.fillOval((int) Math.round(x2), (int) Math.round(y2), bc, bc);
+
+    // Color 2
+
+    g2.setColor(COLOR2);
+
+    x2 = xf + wf * Math.cos(ANGLE2) - br;
+    y2 = yf - wf * Math.sin(ANGLE2) - br;
+
+    g2.fillOval((int) Math.round(x2), (int) Math.round(y2), bc, bc);
+
+    // Color 3
+
+    g2.setColor(COLOR3);
+
+    x2 = xf + wf * Math.cos(ANGLE3) - br;
+    y2 = yf - wf * Math.sin(ANGLE3) - br;
+
+    g2.fillOval((int) Math.round(x2), (int) Math.round(y2), bc, bc);
+  }
 
 }

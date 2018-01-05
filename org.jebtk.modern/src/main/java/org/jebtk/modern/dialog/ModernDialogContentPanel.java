@@ -36,16 +36,17 @@ import org.jebtk.modern.ModernComponent;
  * Creates a standardized UI for panels on a dialog.
  */
 public class ModernDialogContentPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog content panel.
-	 *
-	 * @param c the c
-	 */
-	public ModernDialogContentPanel(Component c) {
-		super(new ModernDialogBorderPanel(new ModernComponent(c))); //, ModernWidget.DOUBLE_BORDER)));
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern dialog content panel.
+   *
+   * @param c
+   *          the c
+   */
+  public ModernDialogContentPanel(Component c) {
+    super(new ModernDialogBorderPanel(new ModernComponent(c))); // , ModernWidget.DOUBLE_BORDER)));
+  }
 }

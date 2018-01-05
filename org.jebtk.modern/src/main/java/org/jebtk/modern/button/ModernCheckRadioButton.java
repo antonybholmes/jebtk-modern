@@ -35,73 +35,82 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  */
 public class ModernCheckRadioButton extends ModernCheckButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern check radio button.
-	 *
-	 * @param name the name
-	 */
-	public ModernCheckRadioButton(String name) {
-		super(name);
-	}
-	
-	/**
-	 * Instantiates a new modern check radio button.
-	 *
-	 * @param name the name
-	 * @param selected the selected
-	 */
-	public ModernCheckRadioButton(String name, boolean selected) {
-		super(name);
-		
-		setSelected(selected);
-	}
-	
-	/**
-	 * Instantiates a new modern check radio button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernCheckRadioButton(ModernIcon icon) {
-		super(icon);
-	}
+  /**
+   * Instantiates a new modern check radio button.
+   *
+   * @param name
+   *          the name
+   */
+  public ModernCheckRadioButton(String name) {
+    super(name);
+  }
 
-	/**
-	 * Instantiates a new modern check radio button.
-	 *
-	 * @param name the name
-	 * @param icon the icon
-	 */
-	public ModernCheckRadioButton(String name, ModernIcon icon) {
-		super(name, icon);
-	}
+  /**
+   * Instantiates a new modern check radio button.
+   *
+   * @param name
+   *          the name
+   * @param selected
+   *          the selected
+   */
+  public ModernCheckRadioButton(String name, boolean selected) {
+    super(name);
 
-	/**
-	 * Instantiates a new modern check radio button.
-	 *
-	 * @param icon the icon
-	 * @param tooltipTitle the tooltip title
-	 * @param toolTipText the tool tip text
-	 */
-	public ModernCheckRadioButton(ModernIcon icon, 
-			String tooltipTitle,
-			String toolTipText) {
-		super(icon);
-		
-		setToolTip(tooltipTitle, toolTipText);
-	}
+    setSelected(selected);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernTwoStateWidget#toggleSelected()
-	 */
-	@Override
-	protected final void toggleSelected() {
-		// The radio button can only toggle to the
-		// on state
-		toggleSelected(true);
-	}
+  /**
+   * Instantiates a new modern check radio button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernCheckRadioButton(ModernIcon icon) {
+    super(icon);
+  }
+
+  /**
+   * Instantiates a new modern check radio button.
+   *
+   * @param name
+   *          the name
+   * @param icon
+   *          the icon
+   */
+  public ModernCheckRadioButton(String name, ModernIcon icon) {
+    super(name, icon);
+  }
+
+  /**
+   * Instantiates a new modern check radio button.
+   *
+   * @param icon
+   *          the icon
+   * @param tooltipTitle
+   *          the tooltip title
+   * @param toolTipText
+   *          the tool tip text
+   */
+  public ModernCheckRadioButton(ModernIcon icon, String tooltipTitle, String toolTipText) {
+    super(icon);
+
+    setToolTip(tooltipTitle, toolTipText);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernTwoStateWidget#toggleSelected()
+   */
+  @Override
+  protected final void toggleSelected() {
+    // The radio button can only toggle to the
+    // on state
+    toggleSelected(true);
+  }
 }

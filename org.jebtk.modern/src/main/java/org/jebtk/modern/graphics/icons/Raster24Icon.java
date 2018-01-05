@@ -35,13 +35,14 @@ package org.jebtk.modern.graphics.icons;
  *
  */
 public class Raster24Icon extends RasterIcon {
-	
-	/**
-	 * Instantiates a new raster24 icon.
-	 *
-	 * @param icon the icon
-	 */
-	public Raster24Icon(ModernIcon icon) {
-		super(icon, 24);
-	}
+
+  /**
+   * Instantiates a new raster24 icon.
+   *
+   * @param icon
+   *          the icon
+   */
+  public Raster24Icon(ModernIcon icon) {
+    super(icon, 24);
+  }
 }

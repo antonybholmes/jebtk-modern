@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Low height button for small form factor toolbar buttons.
@@ -40,47 +39,54 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * @author Antony Holmes Holmes
  */
 public class RibbonBarButton extends ModernButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new ribbon bar button.
-	 *
-	 * @param text1 the text1
-	 */
-	public RibbonBarButton(String text1) {
-		super(text1);
-	}
 
-	/**
-	 * Instantiates a new ribbon bar button.
-	 *
-	 * @param icon the icon
-	 */
-	public RibbonBarButton(ModernIcon icon) {
-		super(icon);
-	}
-	
-	/**
-	 * Instantiates a new ribbon bar button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 */
-	public RibbonBarButton(String text1, ModernIcon icon) {
-		super(text1, icon);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (isSelected()|| mHighlight) {
-			paintHighlightedOutlined(g2, getRect());
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new ribbon bar button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public RibbonBarButton(String text1) {
+    super(text1);
+  }
+
+  /**
+   * Instantiates a new ribbon bar button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public RibbonBarButton(ModernIcon icon) {
+    super(icon);
+  }
+
+  /**
+   * Instantiates a new ribbon bar button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   */
+  public RibbonBarButton(String text1, ModernIcon icon) {
+    super(text1, icon);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    if (isSelected() || mHighlight) {
+      paintHighlightedOutlined(g2, getRect());
+    }
+  }
 }

@@ -34,8 +34,6 @@ import org.jebtk.modern.dataview.ModernDataCellRenderer;
 import org.jebtk.modern.dataview.ModernDataSelection;
 import org.jebtk.modern.graphics.DrawingContext;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Simple table that does not highlight rows or columns.
@@ -44,68 +42,64 @@ import org.jebtk.modern.graphics.DrawingContext;
  */
 public class ModernSimpleTable extends ModernRowTable {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.table.ModernTable#createTableImage(java.awt.Graphics2D, org.abh.common.ui.graphics.DrawingContext, org.abh.common.ui.dataview.ModernDataSelection)
-	 */
-	@Override
-	protected final void createTableImage(Graphics2D g2, 
-			DrawingContext context,
-			ModernDataSelection visibleCells) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.table.ModernTable#createTableImage(java.awt.Graphics2D,
+   * org.abh.common.ui.graphics.DrawingContext,
+   * org.abh.common.ui.dataview.ModernDataSelection)
+   */
+  @Override
+  protected final void createTableImage(Graphics2D g2, DrawingContext context, ModernDataSelection visibleCells) {
 
-		Graphics2D g2Table = (Graphics2D)g2.create();
+    Graphics2D g2Table = (Graphics2D) g2.create();
 
-		try {
-			// translate to the start of the rendering rectangle so that we skip
-			// all non visible cells
-			translate(g2Table);
+    try {
+      // translate to the start of the rendering rectangle so that we skip
+      // all non visible cells
+      translate(g2Table);
 
-			ModernDataCellRenderer renderer;
+      ModernDataCellRenderer renderer;
 
-			int x;
+      int x;
 
-			for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i) {
-				if (i >= getRowCount()) {
-					break;
-				}
+      for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i) {
+        if (i >= getRowCount()) {
+          break;
+        }
 
-				x = 0;
+        x = 0;
 
-				for (int j = visibleCells.getStartCol(); j <= visibleCells.getEndCol(); ++j) {
-					if (j >= getColumnCount()) {
-						continue;
-					}
+        for (int j = visibleCells.getStartCol(); j <= visibleCells.getEndCol(); ++j) {
+          if (j >= getColumnCount()) {
+            continue;
+          }
 
-					renderer = mCellRendererModel.get(i, j);
+          renderer = mCellRendererModel.get(i, j);
 
-					Component c = renderer.getCellRendererComponent(this, 
-							getValueAt(i, j),
-							false,
-							false, 
-							isFocusOwner(),
-							i, 
-							j);
+          Component c = renderer.getCellRendererComponent(this, getValueAt(i, j), false, false, isFocusOwner(), i, j);
 
+          c.setSize(mColumnModel.getWidth(j), mRowModel.getWidth(i));
 
-					c.setSize(mColumnModel.getWidth(j), mRowModel.getWidth(i));
+          c.print(g2Table);
 
-					c.print(g2Table);
+          // Move to the next cell location.
+          g2Table.translate(mColumnModel.getWidth(j), 0);
 
-					// Move to the next cell location.
-					g2Table.translate(mColumnModel.getWidth(j), 0);
+          x += mColumnModel.getWidth(j);
+        }
 
-					x += mColumnModel.getWidth(j);
-				}
-
-				// Each time we start a new row, translate back to the X origin.
-				g2Table.translate(-x, mRowModel.getWidth(i));
-			}
-		} finally {
-			g2Table.dispose();
-		}
-	}
+        // Each time we start a new row, translate back to the X origin.
+        g2Table.translate(-x, mRowModel.getWidth(i));
+      }
+    } finally {
+      g2Table.dispose();
+    }
+  }
 }

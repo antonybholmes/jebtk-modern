@@ -43,44 +43,46 @@ import org.jebtk.modern.ribbon.Ribbon;
  * The class MessageDialogPanel.
  */
 public class MessageDialogPanel extends ModernPanel {
-	
-	/**
-	 * The height.
-	 */
-	private int HEIGHT = 120;
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member box.
-	 */
-	private Box mBox = new VCenterBox();
-	
-	/**
-	 * Instantiates a new message dialog panel.
-	 */
-	public MessageDialogPanel() {
-		super(Ribbon.BAR_BACKGROUND);
-		
-		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		
-		UI.setSize(this, new Dimension(Short.MAX_VALUE, HEIGHT));
-		
-		super.add(mBox);
-		
-		setFocusable(true);
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component c) {
-		mBox.add(c);
-		
-		return c;
-	}
+  /**
+   * The height.
+   */
+  private int HEIGHT = 120;
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member box.
+   */
+  private Box mBox = new VCenterBox();
+
+  /**
+   * Instantiates a new message dialog panel.
+   */
+  public MessageDialogPanel() {
+    super(Ribbon.BAR_BACKGROUND);
+
+    setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
+    UI.setSize(this, new Dimension(Short.MAX_VALUE, HEIGHT));
+
+    super.add(mBox);
+
+    setFocusable(true);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component c) {
+    mBox.add(c);
+
+    return c;
+  }
 }

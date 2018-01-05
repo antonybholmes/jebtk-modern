@@ -32,42 +32,46 @@ import javax.swing.SwingUtilities;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Used as a listener to respond to a click in the window menu
- * to activate a window.
+ * Used as a listener to respond to a click in the window menu to activate a
+ * window.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class WindowRegistryListener implements ModernClickListener {
 
-	/**
-	 * The window.
-	 */
-	private ModernWindow window;
+  /**
+   * The window.
+   */
+  private ModernWindow window;
 
-	/**
-	 * Instantiates a new window registry listener.
-	 *
-	 * @param window the window
-	 */
-	public WindowRegistryListener(ModernWindow window) {
+  /**
+   * Instantiates a new window registry listener.
+   *
+   * @param window
+   *          the window
+   */
+  public WindowRegistryListener(ModernWindow window) {
 
-		this.window = window;
-	}
+    this.window = window;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public final void clicked(ModernClickEvent e) {
-		SwingUtilities.invokeLater(new Runnable() {
-			@Override
-			public final void run() {
-				window.toFront();
-				window.requestFocusInWindow();
-			}
-		});
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public final void clicked(ModernClickEvent e) {
+    SwingUtilities.invokeLater(new Runnable() {
+      @Override
+      public final void run() {
+        window.toFront();
+        window.requestFocusInWindow();
+      }
+    });
+  }
 }

@@ -31,25 +31,23 @@ import java.util.EventListener;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving viewEvent events.
- * The class that is interested in processing a viewEvent
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addViewEventListener<code> method. When
- * the viewEvent event occurs, that object's appropriate
- * method is invoked.
+ * The listener interface for receiving viewEvent events. The class that is
+ * interested in processing a viewEvent event implements this interface, and the
+ * object created with that class is registered with a component using the
+ * component's <code>addViewEventListener<code> method. When the viewEvent event
+ * occurs, that object's appropriate method is invoked.
  *
  * @see ViewEventEvent
  */
 public interface ViewEventListener extends EventListener {
 
-	/**
-	 * View changed.
-	 *
-	 * @param e the e
-	 */
-	public void viewChanged(ChangeEvent e);
+  /**
+   * View changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void viewChanged(ChangeEvent e);
 }

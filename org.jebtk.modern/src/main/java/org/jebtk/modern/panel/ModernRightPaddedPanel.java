@@ -33,7 +33,6 @@ import java.awt.LayoutManager;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a layout panel with side padding.
@@ -41,57 +40,60 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  */
 public class ModernRightPaddedPanel extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new modern right padded panel.
-	 */
-	public ModernRightPaddedPanel() {
-		this(ModernWidget.PADDING);
-	}
-	
-	/**
-	 * Instantiates a new modern right padded panel.
-	 *
-	 * @param padding the padding
-	 */
-	public ModernRightPaddedPanel(int padding) {
-		setup(padding);
-	}
-	
-	/**
-	 * Instantiates a new modern right padded panel.
-	 *
-	 * @param c the c
-	 */
-	public ModernRightPaddedPanel(Component c) {
-		setup(ModernWidget.PADDING);
-		
-		add(c);
-	}
-	
-	/**
-	 * Instantiates a new modern right padded panel.
-	 *
-	 * @param layout the layout
-	 */
-	public ModernRightPaddedPanel(LayoutManager layout) {
-		super(layout);
-		
-		setup(ModernWidget.PADDING);
-	}
-	
-	/**
-	 * Sets the up.
-	 *
-	 * @param padding the new up
-	 */
-	private void setup(int padding) {
-		setBorder(BorderService.getInstance().createRightBorder(padding));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern right padded panel.
+   */
+  public ModernRightPaddedPanel() {
+    this(ModernWidget.PADDING);
+  }
+
+  /**
+   * Instantiates a new modern right padded panel.
+   *
+   * @param padding
+   *          the padding
+   */
+  public ModernRightPaddedPanel(int padding) {
+    setup(padding);
+  }
+
+  /**
+   * Instantiates a new modern right padded panel.
+   *
+   * @param c
+   *          the c
+   */
+  public ModernRightPaddedPanel(Component c) {
+    setup(ModernWidget.PADDING);
+
+    add(c);
+  }
+
+  /**
+   * Instantiates a new modern right padded panel.
+   *
+   * @param layout
+   *          the layout
+   */
+  public ModernRightPaddedPanel(LayoutManager layout) {
+    super(layout);
+
+    setup(ModernWidget.PADDING);
+  }
+
+  /**
+   * Sets the up.
+   *
+   * @param padding
+   *          the new up
+   */
+  private void setup(int padding) {
+    setBorder(BorderService.getInstance().createRightBorder(padding));
+  }
 }

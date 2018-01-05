@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Color;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Represents an icon that can have its color specified.
@@ -38,16 +37,17 @@ import java.awt.Color;
  *
  */
 public abstract class ModernVectorColorIcon extends ModernVectorIcon {
-	
-	/** The m color. */
-	protected Color mColor;
-	
-	/**
-	 * Instantiates a new modern vector color icon.
-	 *
-	 * @param color the color
-	 */
-	public ModernVectorColorIcon(Color color) {
-		mColor = color;
-	}
+
+  /** The m color. */
+  protected Color mColor;
+
+  /**
+   * Instantiates a new modern vector color icon.
+   *
+   * @param color
+   *          the color
+   */
+  public ModernVectorColorIcon(Color color) {
+    mColor = color;
+  }
 }

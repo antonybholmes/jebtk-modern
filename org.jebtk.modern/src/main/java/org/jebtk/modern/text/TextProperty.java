@@ -35,18 +35,19 @@ package org.jebtk.modern.text;
  *
  */
 public interface TextProperty {
-	
-	/**
-	 * Gets the text.
-	 *
-	 * @return the text
-	 */
-	public String getText();
-	
-	/**
-	 * Sets the text.
-	 *
-	 * @param text the new text
-	 */
-	public void setText(String text);
+
+  /**
+   * Gets the text.
+   *
+   * @return the text
+   */
+  public String getText();
+
+  /**
+   * Sets the text.
+   *
+   * @param text
+   *          the new text
+   */
+  public void setText(String text);
 }

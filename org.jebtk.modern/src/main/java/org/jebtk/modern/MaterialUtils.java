@@ -15,156 +15,111 @@ import org.jebtk.modern.theme.WidgetRendererService;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class MaterialUtils {
-	public static final Font FONT = 
-			MaterialService.getInstance().fonts().text();
+  public static final Font FONT = MaterialService.getInstance().fonts().text();
 
-	public static final Font TEXT_FONT = FONT;
+  public static final Font TEXT_FONT = FONT;
 
-	public static final int PADDING = ModernWidget.QUAD_PADDING;
+  public static final int PADDING = ModernWidget.QUAD_PADDING;
 
-	public static final Border BORDER = 
-			BorderService.getInstance().createBorder(PADDING);
+  public static final Border BORDER = BorderService.getInstance().createBorder(PADDING);
 
-	/** The Constant SHADOW_HEIGHT. */
-	public static final int SHADOW_HEIGHT = 3;
-	
-	public static final int SHADOW_BORDER_HEIGHT = SHADOW_HEIGHT; // + ModernWidget.PADDING; //2 * SHADOW_HEIGHT;
+  /** The Constant SHADOW_HEIGHT. */
+  public static final int SHADOW_HEIGHT = 3;
 
-	/** The Constant COLOR. */
-	protected static final Color SHADOW_COLOR = Color.BLACK;
+  public static final int SHADOW_BORDER_HEIGHT = SHADOW_HEIGHT; // + ModernWidget.PADDING; //2 * SHADOW_HEIGHT;
 
-	/** The Constant COLOR1. */
-	public static final Color SHADOW_COLOR_1 = 
-			ColorUtils.getTransparentColor90(SHADOW_COLOR);
+  /** The Constant COLOR. */
+  protected static final Color SHADOW_COLOR = Color.BLACK;
 
-	/** The Constant COLOR2. */
-	public static final Color SHADOW_COLOR_2 = 
-			ColorUtils.getTransparentColor100(SHADOW_COLOR);
+  /** The Constant COLOR1. */
+  public static final Color SHADOW_COLOR_1 = ColorUtils.getTransparentColor90(SHADOW_COLOR);
 
-	public static final Color HIGHLIGHT_COLOR = 
-			ColorUtils.getTransparentColor75(Color.WHITE);
+  /** The Constant COLOR2. */
+  public static final Color SHADOW_COLOR_2 = ColorUtils.getTransparentColor100(SHADOW_COLOR);
 
+  public static final Color HIGHLIGHT_COLOR = ColorUtils.getTransparentColor75(Color.WHITE);
 
+  public static final int SMALL_PADDING = ModernWidget.DOUBLE_PADDING;
 
-	public static final int SMALL_PADDING = ModernWidget.DOUBLE_PADDING;
+  public static final Color BUTTON_COLOR = MaterialService.getInstance().color("button"); // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
 
-	public static final Color BUTTON_COLOR = 
-			MaterialService.getInstance().color("button"); // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
+  public static final Color LINE_COLOR = MaterialService.getInstance().color("card-border"); // ColorUtils.getTransparentColor50(ModernWidget.LIGHT_LINE_COLOR);
 
-	public static final Color LINE_COLOR = 
-			MaterialService.getInstance().color("card-border"); //ColorUtils.getTransparentColor50(ModernWidget.LIGHT_LINE_COLOR);
+  public static final Color SELECTED_FONT_COLOR = Color.BLACK;
 
-	public static final Color SELECTED_FONT_COLOR = Color.BLACK;
+  public static final Color TEXT_COLOR = ModernWidget.TEXT_COLOR;
 
-	public static final Color TEXT_COLOR = ModernWidget.TEXT_COLOR;
+  private MaterialUtils() {
+    // Do nothing
+  }
 
+  public static void drawDropShadow(Graphics2D g2, int x, int y, int w, int h) {
+    drawDropShadow(g2, x, y, w, h, SHADOW_HEIGHT);
+  }
 
-	private MaterialUtils() {
-		// Do nothing
-	}
+  /**
+   * Draw a standard drop shadow effect at the specified location and dimension.
+   * 
+   * @param g2
+   * @param x
+   * @param y
+   * @param w
+   * @param h
+   */
+  public static void drawDropShadow(Graphics2D g2, int x, int y, int w, int h, int shadow) {
 
-	public static void drawDropShadow(Graphics2D g2,
-			int x, 
-			int y, 
-			int w,
-			int h) {
-		drawDropShadow(g2, x, y, w, h, SHADOW_HEIGHT);
-	}
+    int sh = 2 * shadow;
 
-	/**
-	 * Draw a standard drop shadow effect at the specified location and
-	 * dimension.
-	 * 
-	 * @param g2
-	 * @param x
-	 * @param y
-	 * @param w
-	 * @param h
-	 */
-	public static void drawDropShadow(Graphics2D g2,
-			int x, 
-			int y, 
-			int w, 
-			int h,
-			int shadow) {
-		
-		int sh = 2 * shadow;
-		
-		y += h - shadow;
-		
-		GradientPaint paint = 
-				new GradientPaint(0, y, SHADOW_COLOR_1, 0, y + sh, SHADOW_COLOR_2);
+    y += h - shadow;
 
-		g2.setPaint(paint);
-		
-		//g2.setPaint(Color.RED);
-		
-		WidgetRendererService.getInstance().getRenderer().fill(g2, 
-				x + 1,
-				y,
-				w - 2, 
-				sh);
+    GradientPaint paint = new GradientPaint(0, y, SHADOW_COLOR_1, 0, y + sh, SHADOW_COLOR_2);
 
-		//int a = Math.max(1, h / 2);
-		//g2.fillRoundRect(x, y, w, h, a, a);
-		//g2.fillRect(x + 1, y, w - 2, h);
-	}
+    g2.setPaint(paint);
 
-	public static void drawCard(Graphics2D g2,
-			int x, 
-			int y, 
-			int w, 
-			int h) {
-		drawBorderlessCard(g2,
-				x, 
-				y, 
-				w, 
-				h);
+    // g2.setPaint(Color.RED);
 
-		g2.setColor(LINE_COLOR);
-		
-		//WidgetRendererService.getInstance().getRenderer().outline(g2, 
-		//		x,
-		//		y,
-		//		w, 
-		//		h);
-		
-		h -= MaterialUtils.SHADOW_BORDER_HEIGHT;
-				
-		g2.drawLine(1, 0, w - 2, 0);
-		g2.drawLine(0, 1, 0, h - 2);
-		
-		x = w - 1;
-		g2.drawLine(x, 1, x, h - 2);
-		
-		y = y + h;
-		g2.drawLine(1, y, w - 2, y);
-	}
+    WidgetRendererService.getInstance().getRenderer().fill(g2, x + 1, y, w - 2, sh);
 
-	public static void drawBorderlessCard(Graphics2D g2,
-			int x, 
-			int y, 
-			int w, 
-			int h) {
-	
-		h -= MaterialUtils.SHADOW_BORDER_HEIGHT;
-		
-		drawDropShadow(g2, 
-				0, 
-				y,
-				w,
-				h);
-		
-		
-		
-		
-		g2.setColor(Color.WHITE);
-		g2.fillRect(x + 1, y + 1, w - 2, h - 2);
+    // int a = Math.max(1, h / 2);
+    // g2.fillRoundRect(x, y, w, h, a, a);
+    // g2.fillRect(x + 1, y, w - 2, h);
+  }
 
+  public static void drawCard(Graphics2D g2, int x, int y, int w, int h) {
+    drawBorderlessCard(g2, x, y, w, h);
 
-	}
+    g2.setColor(LINE_COLOR);
 
-	public static JComponent mainCard(Component c) {
-		return new ModernComponent(new CardPanel(c), MaterialUtils.SMALL_PADDING);
-	}
+    // WidgetRendererService.getInstance().getRenderer().outline(g2,
+    // x,
+    // y,
+    // w,
+    // h);
+
+    h -= MaterialUtils.SHADOW_BORDER_HEIGHT;
+
+    g2.drawLine(1, 0, w - 2, 0);
+    g2.drawLine(0, 1, 0, h - 2);
+
+    x = w - 1;
+    g2.drawLine(x, 1, x, h - 2);
+
+    y = y + h;
+    g2.drawLine(1, y, w - 2, y);
+  }
+
+  public static void drawBorderlessCard(Graphics2D g2, int x, int y, int w, int h) {
+
+    h -= MaterialUtils.SHADOW_BORDER_HEIGHT;
+
+    drawDropShadow(g2, 0, y, w, h);
+
+    g2.setColor(Color.WHITE);
+    g2.fillRect(x + 1, y + 1, w - 2, h - 2);
+
+  }
+
+  public static JComponent mainCard(Component c) {
+    return new ModernComponent(new CardPanel(c), MaterialUtils.SMALL_PADDING);
+  }
 }

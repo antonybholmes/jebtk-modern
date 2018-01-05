@@ -32,14 +32,14 @@ package org.jebtk.modern.graphics;
  * The enum DrawingContext.
  */
 public enum DrawingContext {
-	
-	/**
-	 * The screen.
-	 */
-	SCREEN,
-	
-	/**
-	 * The print.
-	 */
-	PRINT
+
+  /**
+   * The screen.
+   */
+  SCREEN,
+
+  /**
+   * The print.
+   */
+  PRINT
 }

@@ -29,7 +29,6 @@ package org.jebtk.modern.dataview;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Extended table model.
@@ -37,76 +36,97 @@ import org.jebtk.core.event.ChangeEvent;
  * @author Antony Holmes Holmes
  */
 public abstract class ModernDataGridModel extends ModernDataModel {
-	
-	/**
-	 * The member cell style model.
-	 */
-	protected ModernDataCellStyleModel mCellStyleModel = 
-			new ModernDataCellStyleModel();
-	
-	/**
-	 * The class StyleEvents.
-	 */
-	private class StyleEvents implements ModernDataViewListener {
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.lib.event.ChangeEvent)
-		 */
-		@Override
-		public void dataChanged(ChangeEvent e) {
-			fireDataUpdated();
-		}
+  /**
+   * The member cell style model.
+   */
+  protected ModernDataCellStyleModel mCellStyleModel = new ModernDataCellStyleModel();
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.lib.event.ChangeEvent)
-		 */
-		@Override
-		public void dataUpdated(ChangeEvent e) {
-			fireDataUpdated();
-		}
-		
-	}
-	
-	/**
-	 * Instantiates a new modern data grid model.
-	 */
-	public ModernDataGridModel() {
-		mCellStyleModel.addDataViewListener(new StyleEvents());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getCellStyle(int, int)
-	 */
-	public ModernDataCellStyle getCellStyle(int row, int col) {
-		return mCellStyleModel.get(row, col);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setCellStyle(int, int, org.abh.lib.ui.modern.dataview.ModernDataCellStyle)
-	 */
-	public void setCellStyle(int row, int col, ModernDataCellStyle style) {
-		mCellStyleModel.set(row, col, style);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setRowStyle(int, org.abh.lib.ui.modern.dataview.ModernDataCellStyle)
-	 */
-	public void setRowStyle(int row, ModernDataCellStyle style) {
-		mCellStyleModel.setRow(row, style);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setColStyle(int, org.abh.lib.ui.modern.dataview.ModernDataCellStyle)
-	 */
-	public void setColStyle(int col, ModernDataCellStyle style) {
-		mCellStyleModel.setRow(col, style);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getIsCellEditable(int, int)
-	 */
-	@Override
-	public boolean getIsCellEditable(int row, int column) {
-		return false;
-	}
+  /**
+   * The class StyleEvents.
+   */
+  private class StyleEvents implements ModernDataViewListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.lib
+     * .event.ChangeEvent)
+     */
+    @Override
+    public void dataChanged(ChangeEvent e) {
+      fireDataUpdated();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.lib
+     * .event.ChangeEvent)
+     */
+    @Override
+    public void dataUpdated(ChangeEvent e) {
+      fireDataUpdated();
+    }
+
+  }
+
+  /**
+   * Instantiates a new modern data grid model.
+   */
+  public ModernDataGridModel() {
+    mCellStyleModel.addDataViewListener(new StyleEvents());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getCellStyle(int, int)
+   */
+  public ModernDataCellStyle getCellStyle(int row, int col) {
+    return mCellStyleModel.get(row, col);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setCellStyle(int, int,
+   * org.abh.lib.ui.modern.dataview.ModernDataCellStyle)
+   */
+  public void setCellStyle(int row, int col, ModernDataCellStyle style) {
+    mCellStyleModel.set(row, col, style);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setRowStyle(int,
+   * org.abh.lib.ui.modern.dataview.ModernDataCellStyle)
+   */
+  public void setRowStyle(int row, ModernDataCellStyle style) {
+    mCellStyleModel.setRow(row, style);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setColStyle(int,
+   * org.abh.lib.ui.modern.dataview.ModernDataCellStyle)
+   */
+  public void setColStyle(int col, ModernDataCellStyle style) {
+    mCellStyleModel.setRow(col, style);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getIsCellEditable(int,
+   * int)
+   */
+  @Override
+  public boolean getIsCellEditable(int row, int column) {
+    return false;
+  }
 }

@@ -34,7 +34,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Displays an image.
@@ -43,75 +42,85 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernDialogImagePanel extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The image.
-	 */
-	private ModernIcon mImage;
 
-	/**
-	 * The size.
-	 */
-	private Dimension mSize;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog image panel.
-	 *
-	 * @param image the image
-	 * @param size the size
-	 */
-	public ModernDialogImagePanel(ModernIcon image, int size) {
-		setImage(image, size);
-	}
-	
-	/**
-	 * Instantiates a new modern dialog image panel.
-	 *
-	 * @param image the image
-	 * @param size the size
-	 */
-	public ModernDialogImagePanel(ModernIcon image, Dimension size) {
-		setImage(image, size);
-	}
-	
-	/**
-	 * Sets the image.
-	 *
-	 * @param image the image
-	 * @param size the size
-	 */
-	public void setImage(ModernIcon image, int size) {
-		setImage(image, new Dimension(size, size));
-	}
-	
-	/**
-	 * Sets the image.
-	 *
-	 * @param image the image
-	 * @param size the size
-	 */
-	public void setImage(ModernIcon image, Dimension size) {
-		mImage = image;
-		mSize = size;
-		
-		UI.setSize(this, size);
-		
-		repaint();
-	}
+  /**
+   * The image.
+   */
+  private ModernIcon mImage;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = (getWidth() - mSize.width) / 2;
-		int y = (getHeight() - mSize.height) / 2;
-		
-		mImage.drawIcon(g2, x, y, mSize.width, mSize.height);
-	}
+  /**
+   * The size.
+   */
+  private Dimension mSize;
+
+  /**
+   * Instantiates a new modern dialog image panel.
+   *
+   * @param image
+   *          the image
+   * @param size
+   *          the size
+   */
+  public ModernDialogImagePanel(ModernIcon image, int size) {
+    setImage(image, size);
+  }
+
+  /**
+   * Instantiates a new modern dialog image panel.
+   *
+   * @param image
+   *          the image
+   * @param size
+   *          the size
+   */
+  public ModernDialogImagePanel(ModernIcon image, Dimension size) {
+    setImage(image, size);
+  }
+
+  /**
+   * Sets the image.
+   *
+   * @param image
+   *          the image
+   * @param size
+   *          the size
+   */
+  public void setImage(ModernIcon image, int size) {
+    setImage(image, new Dimension(size, size));
+  }
+
+  /**
+   * Sets the image.
+   *
+   * @param image
+   *          the image
+   * @param size
+   *          the size
+   */
+  public void setImage(ModernIcon image, Dimension size) {
+    mImage = image;
+    mSize = size;
+
+    UI.setSize(this, size);
+
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = (getWidth() - mSize.width) / 2;
+    int y = (getHeight() - mSize.height) / 2;
+
+    mImage.drawIcon(g2, x, y, mSize.width, mSize.height);
+  }
 }

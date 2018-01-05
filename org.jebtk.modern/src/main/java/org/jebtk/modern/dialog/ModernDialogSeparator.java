@@ -32,9 +32,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a line separator for menus with a theme consistent with
@@ -44,48 +41,49 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernDialogSeparator extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member title.
-	 */
-	private String mTitle;
+  /**
+   * The member title.
+   */
+  private String mTitle;
 
-	
-	/**
-	 * Instantiates a new modern dialog separator.
-	 *
-	 * @param title the title
-	 */
-	public ModernDialogSeparator(String title) {
-		mTitle = title;
-		
-		UI.setSize(this, ModernWidget.MAX_SIZE);
-	}
+  /**
+   * Instantiates a new modern dialog separator.
+   *
+   * @param title
+   *          the title
+   */
+  public ModernDialogSeparator(String title) {
+    mTitle = title;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
+    UI.setSize(this, ModernWidget.MAX_SIZE);
+  }
 
-		g2.setColor(TEXT_COLOR);
-		
-		int x = getInsets().left;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
 
-		g2.drawString(mTitle, x, getTextYPosCenter(g2, getHeight()));
-		
-		g2.setColor(LINE_COLOR);
+    g2.setColor(TEXT_COLOR);
 
-		x += g2.getFontMetrics().stringWidth(mTitle) + PADDING;
-		
-		int y = mRect.getH() / 2 + 1;
+    int x = getInsets().left;
 
-		g2.drawLine(x, y, mInternalRect.getW(), y);
-	}
+    g2.drawString(mTitle, x, getTextYPosCenter(g2, getHeight()));
+
+    g2.setColor(LINE_COLOR);
+
+    x += g2.getFontMetrics().stringWidth(mTitle) + PADDING;
+
+    int y = mRect.getH() / 2 + 1;
+
+    g2.drawLine(x, y, mInternalRect.getW(), y);
+  }
 }

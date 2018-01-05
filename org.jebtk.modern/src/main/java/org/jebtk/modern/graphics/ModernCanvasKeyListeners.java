@@ -31,7 +31,6 @@ import java.awt.event.KeyEvent;
 
 import org.jebtk.core.event.EventProducer;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
@@ -39,58 +38,77 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernCanvasKeyListeners extends EventProducer<ModernCanvasKeyListener> implements ModernCanvasKeyEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+public class ModernCanvasKeyListeners extends EventProducer<ModernCanvasKeyListener>
+    implements ModernCanvasKeyEventProducer {
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#addCanvasKeyListener(org.abh.common.ui.graphics.ModernCanvasKeyListener)
-	 */
-	@Override
-	public void addCanvasKeyListener(ModernCanvasKeyListener l) {
-		mListeners.add(l);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#removeCanvasKeyListener(org.abh.common.ui.graphics.ModernCanvasKeyListener)
-	 */
-	@Override
-	public void removeCanvasKeyListener(ModernCanvasKeyListener l) {
-		mListeners.remove(l);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#addCanvasKeyListener(
+   * org.abh.common.ui.graphics.ModernCanvasKeyListener)
+   */
+  @Override
+  public void addCanvasKeyListener(ModernCanvasKeyListener l) {
+    mListeners.add(l);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyTyped(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void fireCanvasKeyTyped(KeyEvent e) {
-		for (ModernCanvasKeyListener l : mListeners) {
-			l.canvasKeyTyped(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
+   * removeCanvasKeyListener(org.abh.common.ui.graphics.ModernCanvasKeyListener)
+   */
+  @Override
+  public void removeCanvasKeyListener(ModernCanvasKeyListener l) {
+    mListeners.remove(l);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyPressed(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void fireCanvasKeyPressed(KeyEvent e) {
-		for (ModernCanvasKeyListener l : mListeners) {
-			l.canvasKeyPressed(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyTyped(
+   * java.awt.event.KeyEvent)
+   */
+  @Override
+  public void fireCanvasKeyTyped(KeyEvent e) {
+    for (ModernCanvasKeyListener l : mListeners) {
+      l.canvasKeyTyped(e);
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyReleased(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void fireCanvasKeyReleased(KeyEvent e) {
-		for (ModernCanvasKeyListener l : mListeners) {
-			l.canvasKeyReleased(e);
-		}
-	}
-	
-	
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyPressed(
+   * java.awt.event.KeyEvent)
+   */
+  @Override
+  public void fireCanvasKeyPressed(KeyEvent e) {
+    for (ModernCanvasKeyListener l : mListeners) {
+      l.canvasKeyPressed(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyReleased
+   * (java.awt.event.KeyEvent)
+   */
+  @Override
+  public void fireCanvasKeyReleased(KeyEvent e) {
+    for (ModernCanvasKeyListener l : mListeners) {
+      l.canvasKeyReleased(e);
+    }
+  }
+
 }

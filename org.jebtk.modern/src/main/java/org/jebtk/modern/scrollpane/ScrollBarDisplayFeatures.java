@@ -32,19 +32,19 @@ package org.jebtk.modern.scrollpane;
  * The enum ScrollBarDisplayFeatures.
  */
 public enum ScrollBarDisplayFeatures {
-	
-	/**
-	 * The none.
-	 */
-	NONE,
-	
-	/**
-	 * The buttons.
-	 */
-	BUTTONS,
-	
-	/**
-	 * The scroll.
-	 */
-	SCROLL
+
+  /**
+   * The none.
+   */
+  NONE,
+
+  /**
+   * The buttons.
+   */
+  BUTTONS,
+
+  /**
+   * The scroll.
+   */
+  SCROLL
 }

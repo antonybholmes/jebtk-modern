@@ -30,39 +30,42 @@ package org.jebtk.modern.tree;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a rudimentary implementation of a node renderer that
- * detects if is selected and what the tree branching depth is.
- * This forms the basis of concrete implementations of renderers.
+ * Provides a rudimentary implementation of a node renderer that detects if is
+ * selected and what the tree branching depth is. This forms the basis of
+ * concrete implementations of renderers.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernTreeTextNodeRenderer extends ModernTreeBranchNodeRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawNodeIconText(Graphics2D g2) {
-		Point p = getStringCenterPlotCoordinates(g2, getRect(), mNode.getName());
-			
-		g2.setColor(getForeground());
-		
-		if (mNodeIsSelected) {
-			g2.setFont(BOLD_FONT);
-		} else {
-			g2.setFont(FONT);
-		}
-		
-		g2.drawString(getTruncatedText(g2, mNode.getName(), 0, mRect.getW()), 0, p.y);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawNodeIconText(Graphics2D g2) {
+    Point p = getStringCenterPlotCoordinates(g2, getRect(), mNode.getName());
+
+    g2.setColor(getForeground());
+
+    if (mNodeIsSelected) {
+      g2.setFont(BOLD_FONT);
+    } else {
+      g2.setFont(FONT);
+    }
+
+    g2.drawString(getTruncatedText(g2, mNode.getName(), 0, mRect.getW()), 0, p.y);
+  }
 }

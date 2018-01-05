@@ -30,65 +30,68 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class TimerAnimation extends WidgetAnimation {
 
-	/**
-	 * Default delay between animation steps
-	 */
-	public static final int DELAY_MS = 30;
-	
-	public static final int STEPS = 8;
-	public static final int MAX_STEP_INDEX = STEPS - 1;
-	
-	
-	/** The m timer. */
-	private Timer mTimer;
-	
-	/**
-	 * The Class StateEvents.
-	 */
-	private class TimerEvents implements ActionListener {
+  /**
+   * Default delay between animation steps
+   */
+  public static final int DELAY_MS = 30;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			animate();
-		}
-	}
-	
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param widget the widget
-	 */
-	public TimerAnimation(ModernWidget w) {
-		this(w, DELAY_MS);
-	}
-	
-	public TimerAnimation(ModernWidget w, int delay) {
-		super(w);
-		
-		mTimer = new Timer(0, new TimerEvents());
-		mTimer.setDelay(delay);
-	}
-	
-	/**
-	 * Stop timer.
-	 */
-	public void stop() {
-		mTimer.stop();
-	}
-	
-	public void start() {
-		if (!mTimer.isRunning()) {
-			mTimer.start();
-		}
-	}
-	
-	/**
-	 * Animate state.
-	 */
-	public void animate() {
-		getWidget().repaint();
-	}
+  public static final int STEPS = 8;
+  public static final int MAX_STEP_INDEX = STEPS - 1;
+
+  /** The m timer. */
+  private Timer mTimer;
+
+  /**
+   * The Class StateEvents.
+   */
+  private class TimerEvents implements ActionListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      animate();
+    }
+  }
+
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param widget
+   *          the widget
+   */
+  public TimerAnimation(ModernWidget w) {
+    this(w, DELAY_MS);
+  }
+
+  public TimerAnimation(ModernWidget w, int delay) {
+    super(w);
+
+    mTimer = new Timer(0, new TimerEvents());
+    mTimer.setDelay(delay);
+  }
+
+  /**
+   * Stop timer.
+   */
+  public void stop() {
+    mTimer.stop();
+  }
+
+  public void start() {
+    if (!mTimer.isRunning()) {
+      mTimer.start();
+    }
+  }
+
+  /**
+   * Animate state.
+   */
+  public void animate() {
+    getWidget().repaint();
+  }
 }

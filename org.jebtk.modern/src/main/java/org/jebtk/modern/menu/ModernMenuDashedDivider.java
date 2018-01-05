@@ -30,9 +30,6 @@ package org.jebtk.modern.menu;
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a full line separator for menus with a theme consistent with
@@ -41,34 +38,35 @@ import java.awt.Graphics2D;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernMenuDashedDivider extends ModernMenuSeparator  {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant DASH.
-	 */
-	private final static float[] DASH = {4.0f};
-	
-	/**
-	 * The constant STROKE.
-	 */
-	private final static BasicStroke STROKE = new BasicStroke(1.0f,
-	                        BasicStroke.CAP_BUTT,
-	                        BasicStroke.JOIN_MITER,
-	                        1.0f, DASH, 0.0f);
+public class ModernMenuDashedDivider extends ModernMenuSeparator {
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernMenuSeparator#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(LINE_COLOR);
+  /**
+   * The constant DASH.
+   */
+  private final static float[] DASH = { 4.0f };
 
-		g2.setStroke(STROKE);
-		g2.drawLine(getInsets().left, y, getWidth() - getInsets().left - getInsets().right, y);
-	}
+  /**
+   * The constant STROKE.
+   */
+  private final static BasicStroke STROKE = new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f,
+      DASH, 0.0f);
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.menu.ModernMenuSeparator#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(LINE_COLOR);
+
+    g2.setStroke(STROKE);
+    g2.drawLine(getInsets().left, y, getWidth() - getInsets().left - getInsets().right, y);
+  }
 }

@@ -36,8 +36,6 @@ import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Mac Style tabs.
@@ -46,173 +44,161 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RibbonSegmentTabs extends SegmentTabs {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * Instantiates a new text tabs.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   */
+  public RibbonSegmentTabs(TabsModel model, int tabSize) {
+    this(model, tabSize, true);
+  }
 
-	/**
-	 * Instantiates a new text tabs.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 */
-	public RibbonSegmentTabs(TabsModel model,
-			int tabSize) {
-		this(model, tabSize, true);
-	}
+  /**
+   * Instantiates a new ribbon segment tabs.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param centered
+   *          the centered
+   */
+  public RibbonSegmentTabs(TabsModel model, int tabSize, boolean centered) {
+    super(model, tabSize, centered);
 
-	/**
-	 * Instantiates a new ribbon segment tabs.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param centered the centered
-	 */
-	public RibbonSegmentTabs(TabsModel model, int tabSize, boolean centered) {
-		super(model, tabSize, centered);
-		
-		UI.setSize(this, ModernWidget.MAX_SIZE_32);
-		
-		setFont(SUB_HEADING_FONT);
-	}
+    UI.setSize(this, ModernWidget.MAX_SIZE_32);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAA(Graphics2D g2) {
+    setFont(SUB_HEADING_FONT);
+  }
 
-		int x = mLeftOffset;
-		int y = getInsets().top;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAA(Graphics2D g2) {
 
-		int h = mInternalRect.getH();
+    int x = mLeftOffset;
+    int y = getInsets().top;
 
-		int n = getTabsModel().getTabCount();
+    int h = mInternalRect.getH();
 
-		int w = mTabSize * n;
+    int n = getTabsModel().getTabCount();
 
-		int selectedIndex = getTabsModel().getSelectedIndex();
+    int w = mTabSize * n;
 
-		createEndShapes();
+    int selectedIndex = getTabsModel().getSelectedIndex();
 
-		getWidgetRenderer().drawContentBoxFill(g2,
-				mLeftOffset, 
-				y,
-				w, 
-				h);
+    createEndShapes();
 
-		//
-		// Draw if highlighted
-		//
+    getWidgetRenderer().drawContentBoxFill(g2, mLeftOffset, y, w, h);
 
-		if (mHighlight > -1 && mHighlight < n) {
-			getWidgetRenderer().drawButtonFill(g2,
-					x, 
-					y,
-					w, 
-					h,
-					RenderMode.HIGHLIGHT,
-					hasFocus());
-			
-			if (mHighlight == 0) {
-				g2.fill(mLeftEnd);
-			} else if (mHighlight == n - 1) {
-				g2.fill(mRightEnd);
-			} else {
-				g2.fillRect(x + mHighlight * mTabSize, getInsets().top, mTabSize, h);
-			}
-		}
+    //
+    // Draw if highlighted
+    //
 
-		//
-		// Draw the outlines
-		//
+    if (mHighlight > -1 && mHighlight < n) {
+      getWidgetRenderer().drawButtonFill(g2, x, y, w, h, RenderMode.HIGHLIGHT, hasFocus());
 
-		g2.setColor(LIGHT_LINE_COLOR); //getRenderer().getOutlineColor());
+      if (mHighlight == 0) {
+        g2.fill(mLeftEnd);
+      } else if (mHighlight == n - 1) {
+        g2.fill(mRightEnd);
+      } else {
+        g2.fillRect(x + mHighlight * mTabSize, getInsets().top, mTabSize, h);
+      }
+    }
 
-		x = mLeftOffset + mTabSize;
+    //
+    // Draw the outlines
+    //
 
-		for (int i = 1; i < getTabsModel().getTabCount(); ++i) {
-			g2.drawLine(x, y, x, y + h - 1);
+    g2.setColor(LIGHT_LINE_COLOR); // getRenderer().getOutlineColor());
 
-			x += mTabSize;
-		}
+    x = mLeftOffset + mTabSize;
 
-		getWidgetRenderer().drawContentBoxOutline(g2,
-				mLeftOffset, 
-				y,
-				w, 
-				h);
-		
-		//
-		// Draw the selected tab
-		//
+    for (int i = 1; i < getTabsModel().getTabCount(); ++i) {
+      g2.drawLine(x, y, x, y + h - 1);
 
-		/*
-		GradientPaint paint = new GradientPaint(0, 
-				getInsets().top, 
-				TEXT_TAB_SELECTED_COLOR_1, 
-				0, 
-				getInsets().top + h, 
-				TEXT_TAB_SELECTED_COLOR_2);
-		
-		g2.setPaint(paint);
-		*/
-		
-		g2.setColor(TEXT_TAB_SELECTED_COLOR_1);
+      x += mTabSize;
+    }
 
-		x = mLeftOffset + selectedIndex * mTabSize;
-		
-		if (selectedIndex == 0) {
-			g2.fill(mLeftEnd);
-		} else if (selectedIndex == n - 1) {
-			g2.fill(mRightEnd);
-		} else {
-			g2.fillRect(x, getInsets().top, mTabSize, h);
-		}
-		
-		g2.setColor(TEXT_TAB_SELECTED_OUTLINE_COLOR);
+    getWidgetRenderer().drawContentBoxOutline(g2, mLeftOffset, y, w, h);
 
-		if (selectedIndex == 0) {
-			g2.draw(mLeftEnd);
-		} else if (selectedIndex == n - 1) {
-			g2.draw(mRightEnd);
-		} else {
-			g2.drawRect(x, getInsets().top, mTabSize, h);
-		}
-		
+    //
+    // Draw the selected tab
+    //
 
-		//
-		// Draw the labels
-		//
+    /*
+     * GradientPaint paint = new GradientPaint(0, getInsets().top,
+     * TEXT_TAB_SELECTED_COLOR_1, 0, getInsets().top + h,
+     * TEXT_TAB_SELECTED_COLOR_2);
+     * 
+     * g2.setPaint(paint);
+     */
 
-		x = mLeftOffset;
+    g2.setColor(TEXT_TAB_SELECTED_COLOR_1);
 
-		for (int i = 0; i < n; ++i) {
-			boolean selected = i == selectedIndex;
+    x = mLeftOffset + selectedIndex * mTabSize;
 
-			g2.setColor(selected ? Color.WHITE : TEXT_COLOR);
+    if (selectedIndex == 0) {
+      g2.fill(mLeftEnd);
+    } else if (selectedIndex == n - 1) {
+      g2.fill(mRightEnd);
+    } else {
+      g2.fillRect(x, getInsets().top, mTabSize, h);
+    }
 
-			int textY = getTextYPosCenter(g2, getHeight());
+    g2.setColor(TEXT_TAB_SELECTED_OUTLINE_COLOR);
 
-			String s = getTabsModel().getTab(i).getName();
-			
-			int tabX;
-			
-			if (getTabsModel().getTab(i).getIcon() != null) {
-				tabX = (mTabSize - 24 - DOUBLE_PADDING - g2.getFontMetrics().stringWidth(s)) / 2;
-				
-				getTabsModel().getTab(i).getIcon().drawIcon(g2, x + tabX, (getHeight() -24) / 2, 32);
-				
-				tabX += 24 + DOUBLE_PADDING;
-			} else {
-				tabX = (mTabSize - g2.getFontMetrics().stringWidth(s)) / 2;
-			}
+    if (selectedIndex == 0) {
+      g2.draw(mLeftEnd);
+    } else if (selectedIndex == n - 1) {
+      g2.draw(mRightEnd);
+    } else {
+      g2.drawRect(x, getInsets().top, mTabSize, h);
+    }
 
-			g2.drawString(s, x + tabX, textY);
+    //
+    // Draw the labels
+    //
 
-			x += mTabSize;
-		}
+    x = mLeftOffset;
 
-		//g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW() - 1, mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING);
-	}
+    for (int i = 0; i < n; ++i) {
+      boolean selected = i == selectedIndex;
+
+      g2.setColor(selected ? Color.WHITE : TEXT_COLOR);
+
+      int textY = getTextYPosCenter(g2, getHeight());
+
+      String s = getTabsModel().getTab(i).getName();
+
+      int tabX;
+
+      if (getTabsModel().getTab(i).getIcon() != null) {
+        tabX = (mTabSize - 24 - DOUBLE_PADDING - g2.getFontMetrics().stringWidth(s)) / 2;
+
+        getTabsModel().getTab(i).getIcon().drawIcon(g2, x + tabX, (getHeight() - 24) / 2, 32);
+
+        tabX += 24 + DOUBLE_PADDING;
+      } else {
+        tabX = (mTabSize - g2.getFontMetrics().stringWidth(s)) / 2;
+      }
+
+      g2.drawString(s, x + tabX, textY);
+
+      x += mTabSize;
+    }
+
+    // g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW() - 1,
+    // mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING);
+  }
 }

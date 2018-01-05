@@ -29,19 +29,18 @@ package org.jebtk.modern.history;
 
 import org.jebtk.modern.list.ModernListCellRenderer;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Interface for list renderers. These assume the same data type
- * within each row
+ * Interface for list renderers. These assume the same data type within each row
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernHistoryListCellRenderer extends ModernListCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 }

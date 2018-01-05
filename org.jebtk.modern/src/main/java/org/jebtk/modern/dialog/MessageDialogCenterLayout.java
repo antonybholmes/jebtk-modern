@@ -10,77 +10,77 @@ import org.jebtk.modern.widget.ModernWidget;
 
 public class MessageDialogCenterLayout extends VBoxCenterLayout {
 
-	private int mIconSize;
+  private int mIconSize;
 
-	public MessageDialogCenterLayout(int iconSize) {
-		mIconSize = iconSize;
-	}
+  public MessageDialogCenterLayout(int iconSize) {
+    mIconSize = iconSize;
+  }
 
-	@Override
-	public void layoutContainer(Container parent) {
-		Insets insets = parent.getInsets();
-		int maxWidth = parent.getWidth() - (insets.left + insets.right); // - mIconSize;
-		int maxHeight = parent.getHeight() - (insets.top + insets.bottom);
-		int nComps = parent.getComponentCount();
-		int x = insets.left+ ModernWidget.QUAD_PADDING;
-		int y = insets.top;
-		
-		Dimension pref = new Dimension(0, 0);
-		
-		for (int i = 0 ; i < nComps ; i++) {
-			Component c = parent.getComponent(i);
-			
-			if (c.isVisible()) {
-				Dimension d = c.getPreferredSize();
+  @Override
+  public void layoutContainer(Container parent) {
+    Insets insets = parent.getInsets();
+    int maxWidth = parent.getWidth() - (insets.left + insets.right); // - mIconSize;
+    int maxHeight = parent.getHeight() - (insets.top + insets.bottom);
+    int nComps = parent.getComponentCount();
+    int x = insets.left + ModernWidget.QUAD_PADDING;
+    int y = insets.top;
 
-				if (d.width > pref.width) {
-					pref.width = d.width;
-				}
-				
-				pref.height += d.height;
-			}
-		}
-		
-		//x += (maxWidth - pref.width) / 2;
-		y += (maxHeight - pref.height) / 2;
-		
-		for (int i = 0 ; i < nComps ; i++) {
-			Component c = parent.getComponent(i);
-			if (c.isVisible()) {
-				Dimension d = c.getPreferredSize();
+    Dimension pref = new Dimension(0, 0);
 
-				c.setBounds(x, y, maxWidth, d.height);
-				
-				y += d.height;
-			}
-		}
-	}
-	
-	@Override
-	protected Dimension size(Container parent) {
-        int nComps = parent.getComponentCount();
-        Dimension dim = new Dimension(0, 0);
-        
-        Dimension d;
- 
-        for (int i = 0; i < nComps; i++) {
-            Component c = parent.getComponent(i);
-            if (c.isVisible()) {
-                d = c.getPreferredSize();
- 
-                dim.height += d.height;
-                
-                if (d.width > dim.width) {
-                	dim.width = d.width;
-                }
-            }
+    for (int i = 0; i < nComps; i++) {
+      Component c = parent.getComponent(i);
+
+      if (c.isVisible()) {
+        Dimension d = c.getPreferredSize();
+
+        if (d.width > pref.width) {
+          pref.width = d.width;
         }
-        
-        Insets insets = parent.getInsets();
-        
-        dim.width = Math.max(dim.width + insets.left + insets.right, parent.getWidth());
-        dim.height += insets.top + insets.bottom;
-        
-        return dim;
+
+        pref.height += d.height;
+      }
     }
+
+    // x += (maxWidth - pref.width) / 2;
+    y += (maxHeight - pref.height) / 2;
+
+    for (int i = 0; i < nComps; i++) {
+      Component c = parent.getComponent(i);
+      if (c.isVisible()) {
+        Dimension d = c.getPreferredSize();
+
+        c.setBounds(x, y, maxWidth, d.height);
+
+        y += d.height;
+      }
+    }
+  }
+
+  @Override
+  protected Dimension size(Container parent) {
+    int nComps = parent.getComponentCount();
+    Dimension dim = new Dimension(0, 0);
+
+    Dimension d;
+
+    for (int i = 0; i < nComps; i++) {
+      Component c = parent.getComponent(i);
+      if (c.isVisible()) {
+        d = c.getPreferredSize();
+
+        dim.height += d.height;
+
+        if (d.width > dim.width) {
+          dim.width = d.width;
+        }
+      }
+    }
+
+    Insets insets = parent.getInsets();
+
+    dim.width = Math.max(dim.width + insets.left + insets.right, parent.getWidth());
+    dim.height += insets.top + insets.bottom;
+
+    return dim;
+  }
 }

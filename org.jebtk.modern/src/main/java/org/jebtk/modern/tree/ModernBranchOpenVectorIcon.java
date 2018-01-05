@@ -36,5 +36,5 @@ import org.jebtk.modern.graphics.icons.CheveronDownVectorIcon;
  *
  */
 public class ModernBranchOpenVectorIcon extends CheveronDownVectorIcon {
-	
+
 }

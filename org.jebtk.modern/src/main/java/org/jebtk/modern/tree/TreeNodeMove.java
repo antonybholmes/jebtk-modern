@@ -33,46 +33,51 @@ package org.jebtk.modern.tree;
  */
 public class TreeNodeMove {
 
-	/**
-	 * Whether to insert between two nodes.
-	 */
-	public boolean insertBetween;
-	
-	/**
-	 * The index.
-	 */
-	public int index;
-	
-	/**
-	 * The node depth.
-	 */
-	public int d;
-	
-	/**
-	 * The y offset.
-	 */
-	public int y;
-	
-	/**
-	 * The height of the node.
-	 */
-	public int h;
+  /**
+   * Whether to insert between two nodes.
+   */
+  public boolean insertBetween;
 
-	/**
-	 * Instantiates a new tree node move.
-	 *
-	 * @param i 				the node index.
-	 * @param d 				the node depth.
-	 * @param y 				the node y.
-	 * @param h 				the node height.
-	 * @param insertBetween 	whether to insert between two nodes.
-	 */
-	public TreeNodeMove(int i, int d, int y, int h, boolean insertBetween) {
-		this.index = i;
-		this.d = d;
-		this.y = y;
-		this.h = h;
-		this.insertBetween = insertBetween;
-	}
+  /**
+   * The index.
+   */
+  public int index;
+
+  /**
+   * The node depth.
+   */
+  public int d;
+
+  /**
+   * The y offset.
+   */
+  public int y;
+
+  /**
+   * The height of the node.
+   */
+  public int h;
+
+  /**
+   * Instantiates a new tree node move.
+   *
+   * @param i
+   *          the node index.
+   * @param d
+   *          the node depth.
+   * @param y
+   *          the node y.
+   * @param h
+   *          the node height.
+   * @param insertBetween
+   *          whether to insert between two nodes.
+   */
+  public TreeNodeMove(int i, int d, int y, int h, boolean insertBetween) {
+    this.index = i;
+    this.d = d;
+    this.y = y;
+    this.h = h;
+    this.insertBetween = insertBetween;
+  }
 
 }

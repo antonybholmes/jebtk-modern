@@ -46,124 +46,130 @@ import javax.swing.JPanel;
  */
 public class MultiPopupMenu {
 
-    /**
-     * The main method.
-     *
-     * @param args the arguments
-     */
-    public static void main(String[] args){
-    	JFrame frame = new JFrame();
-        //frame.setFocusable(true);
-        
-        // Create popup
-    	JDialog popup1 = createPopup(frame, "First label");
-    	//JDialog popup2 = createPopup(frame, "Second label");
+  /**
+   * The main method.
+   *
+   * @param args
+   *          the arguments
+   */
+  public static void main(String[] args) {
+    JFrame frame = new JFrame();
+    // frame.setFocusable(true);
 
-        // Create labels
-        JLabel label1 = new JLabel("abcde");
-        JLabel label2 = new JLabel("1234");
+    // Create popup
+    JDialog popup1 = createPopup(frame, "First label");
+    // JDialog popup2 = createPopup(frame, "Second label");
 
-        JPanel panel = new JPanel();
-        panel.add(label1);
-        panel.add(label2);
+    // Create labels
+    JLabel label1 = new JLabel("abcde");
+    JLabel label2 = new JLabel("1234");
 
-        // Add labels
-        
-        frame.add(panel);
+    JPanel panel = new JPanel();
+    panel.add(label1);
+    panel.add(label2);
 
-        frame.setPreferredSize(new Dimension(200,100));
-        frame.pack();
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+    // Add labels
 
-        // Show popups
-        popup1.pack();
-        //popup2.pack();
+    frame.add(panel);
 
-        Point floc = frame.getLocation();
-        Point loc = label1.getLocation();
-        System.out.println(floc);
-        popup1.setLocation((int)(floc.getX()+loc.getX())-20, (int)(floc.getY()+loc.getY())+40);
-        loc = label2.getLocation();
-        //popup2.setLocation((int)(floc.getX()+loc.getX())+20, (int)(floc.getY()+loc.getY())+40);
+    frame.setPreferredSize(new Dimension(200, 100));
+    frame.pack();
+    frame.setLocationRelativeTo(null);
+    frame.setVisible(true);
 
-        popup1.setBackground(Color.YELLOW);
-        popup1.setVisible(true);
-       // popup2.setVisible(true);
-    }
+    // Show popups
+    popup1.pack();
+    // popup2.pack();
 
-    /**
-     * Creates the popup.
-     *
-     * @param parent the parent
-     * @param label the label
-     * @return the j dialog
-     */
-    private static JDialog createPopup(Frame parent, String label){
-    	JDialog popup = new JDialog(parent);
-        popup.setUndecorated(true);
-    	
-        JLabel lblTest = new JLabel(label);
-        popup.add(lblTest);
-        popup.getContentPane().setBackground(Color.YELLOW);
-        
-        popup.addWindowFocusListener(new WindowFocusListener(){
+    Point floc = frame.getLocation();
+    Point loc = label1.getLocation();
+    System.out.println(floc);
+    popup1.setLocation((int) (floc.getX() + loc.getX()) - 20, (int) (floc.getY() + loc.getY()) + 40);
+    loc = label2.getLocation();
+    // popup2.setLocation((int)(floc.getX()+loc.getX())+20,
+    // (int)(floc.getY()+loc.getY())+40);
 
-			@Override
-			public void windowGainedFocus(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+    popup1.setBackground(Color.YELLOW);
+    popup1.setVisible(true);
+    // popup2.setVisible(true);
+  }
 
-			@Override
-			public void windowLostFocus(WindowEvent e) {
-				System.err.println("dssdjsdj");
-				
-				e.getWindow().setVisible(false);
-				e.getWindow().dispose();
-			}});
-        
-        popup.addWindowListener(new WindowListener() {
+  /**
+   * Creates the popup.
+   *
+   * @param parent
+   *          the parent
+   * @param label
+   *          the label
+   * @return the j dialog
+   */
+  private static JDialog createPopup(Frame parent, String label) {
+    JDialog popup = new JDialog(parent);
+    popup.setUndecorated(true);
 
-			@Override
-			public void windowActivated(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+    JLabel lblTest = new JLabel(label);
+    popup.add(lblTest);
+    popup.getContentPane().setBackground(Color.YELLOW);
 
-			@Override
-			public void windowClosed(WindowEvent e) {
-				System.err.println("dssdjsdj");
-			}
+    popup.addWindowFocusListener(new WindowFocusListener() {
 
-			@Override
-			public void windowClosing(WindowEvent e) {
-				System.err.println("dssdjsdj");
-			}
+      @Override
+      public void windowGainedFocus(WindowEvent e) {
+        // TODO Auto-generated method stub
 
-			@Override
-			public void windowDeactivated(WindowEvent e) {
-				System.err.println("dssdjsdj");
-			}
+      }
 
-			@Override
-			public void windowDeiconified(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+      @Override
+      public void windowLostFocus(WindowEvent e) {
+        System.err.println("dssdjsdj");
 
-			@Override
-			public void windowIconified(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
+        e.getWindow().setVisible(false);
+        e.getWindow().dispose();
+      }
+    });
 
-			@Override
-			public void windowOpened(WindowEvent e) {
-				// TODO Auto-generated method stub
-				
-			}});
-        
-        return popup;
-    }
+    popup.addWindowListener(new WindowListener() {
+
+      @Override
+      public void windowActivated(WindowEvent e) {
+        // TODO Auto-generated method stub
+
+      }
+
+      @Override
+      public void windowClosed(WindowEvent e) {
+        System.err.println("dssdjsdj");
+      }
+
+      @Override
+      public void windowClosing(WindowEvent e) {
+        System.err.println("dssdjsdj");
+      }
+
+      @Override
+      public void windowDeactivated(WindowEvent e) {
+        System.err.println("dssdjsdj");
+      }
+
+      @Override
+      public void windowDeiconified(WindowEvent e) {
+        // TODO Auto-generated method stub
+
+      }
+
+      @Override
+      public void windowIconified(WindowEvent e) {
+        // TODO Auto-generated method stub
+
+      }
+
+      @Override
+      public void windowOpened(WindowEvent e) {
+        // TODO Auto-generated method stub
+
+      }
+    });
+
+    return popup;
+  }
 }

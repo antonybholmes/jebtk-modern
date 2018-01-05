@@ -37,8 +37,6 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Lets a user pick a sort direction.
@@ -47,101 +45,96 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class SortDirectionButton extends ModernButton implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant ASCENDING_ICON.
-	 */
-	private static final ModernIcon ASCENDING_ICON = 
-			UIService.getInstance().loadIcon("sort_ascending", UIService.ICON_SIZE_16);
-	
-	/**
-	 * The constant DESCENDING_ICON.
-	 */
-	private static final ModernIcon DESCENDING_ICON = 
-			UIService.getInstance().loadIcon("sort_descending", UIService.ICON_SIZE_16);
-	
-	/**
-	 * The ascending.
-	 */
-	private boolean ascending;
-	
-	/**
-	 * Instantiates a new sort direction button.
-	 *
-	 * @param ascending the ascending
-	 */
-	public SortDirectionButton(boolean ascending) {
-		super("A to Z", DESCENDING_ICON);
-		
-		addClickListener(this);
-		
-		setAscending(ascending);
-		
-		UI.setSize(this, new Dimension(80, ModernWidget.WIDGET_HEIGHT));
-	}
-	
-	/**
-	 * Sets the ascending.
-	 *
-	 * @param ascending the new ascending
-	 */
-	public void setAscending(boolean ascending) {
-		this.ascending = ascending;
-		
-		if (ascending) {
-			setText("A to Z");
-			setIcon(DESCENDING_ICON);
-		} else {
-			setText("Z to A");
-			setIcon(ASCENDING_ICON);
-		}
-		
-		repaint();
-	}
 
-	/*
-	public final void paintComponent(Graphics g) {
-		Graphics2D g2 = (Graphics2D)g;
-		
-		if (isSelected()) {
-			ModernTheme.paintHighlightedBorder(g2, rect);
-		} else if (pressed) {
-			ModernTheme.paintHighlightedBorder(g2, rect);
-		} else if (highlight) {
-			ModernTheme.paintHighlightedBorder(g2, rect); //paintHighlighted(g2, rect);
-		} else {
-			// do nothing
-		}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		if (this.getIcon() != null) {
-			this.getIcon().paintIcon(this,
-					g2,
-					iconX,
-					iconY);
-		}
+  /**
+   * The constant ASCENDING_ICON.
+   */
+  private static final ModernIcon ASCENDING_ICON = UIService.getInstance().loadIcon("sort_ascending",
+      UIService.ICON_SIZE_16);
 
-		ThemeManager.getInstance().getTheme().paintTriangle(g2, rect);
-	}
-	*/
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void clicked(ModernClickEvent e) {
-		//setAscending(!ascending);
-	}
+  /**
+   * The constant DESCENDING_ICON.
+   */
+  private static final ModernIcon DESCENDING_ICON = UIService.getInstance().loadIcon("sort_descending",
+      UIService.ICON_SIZE_16);
 
-	/**
-	 * Gets the ascending.
-	 *
-	 * @return the ascending
-	 */
-	public boolean getAscending() {
-		return ascending;
-	}
+  /**
+   * The ascending.
+   */
+  private boolean ascending;
+
+  /**
+   * Instantiates a new sort direction button.
+   *
+   * @param ascending
+   *          the ascending
+   */
+  public SortDirectionButton(boolean ascending) {
+    super("A to Z", DESCENDING_ICON);
+
+    addClickListener(this);
+
+    setAscending(ascending);
+
+    UI.setSize(this, new Dimension(80, ModernWidget.WIDGET_HEIGHT));
+  }
+
+  /**
+   * Sets the ascending.
+   *
+   * @param ascending
+   *          the new ascending
+   */
+  public void setAscending(boolean ascending) {
+    this.ascending = ascending;
+
+    if (ascending) {
+      setText("A to Z");
+      setIcon(DESCENDING_ICON);
+    } else {
+      setText("Z to A");
+      setIcon(ASCENDING_ICON);
+    }
+
+    repaint();
+  }
+
+  /*
+   * public final void paintComponent(Graphics g) { Graphics2D g2 = (Graphics2D)g;
+   * 
+   * if (isSelected()) { ModernTheme.paintHighlightedBorder(g2, rect); } else if
+   * (pressed) { ModernTheme.paintHighlightedBorder(g2, rect); } else if
+   * (highlight) { ModernTheme.paintHighlightedBorder(g2, rect);
+   * //paintHighlighted(g2, rect); } else { // do nothing }
+   * 
+   * if (this.getIcon() != null) { this.getIcon().paintIcon(this, g2, iconX,
+   * iconY); }
+   * 
+   * ThemeManager.getInstance().getTheme().paintTriangle(g2, rect); }
+   */
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public void clicked(ModernClickEvent e) {
+    // setAscending(!ascending);
+  }
+
+  /**
+   * Gets the ascending.
+   *
+   * @return the ascending
+   */
+  public boolean getAscending() {
+    return ascending;
+  }
 }

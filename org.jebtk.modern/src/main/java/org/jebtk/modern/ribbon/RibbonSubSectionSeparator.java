@@ -33,84 +33,72 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonSubSectionSeparator.
  */
 public class RibbonSubSectionSeparator extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant WIDTH.
-	 */
-	public static final int WIDTH = 11;
-	
-	/**
-	 * The constant MINIMUM_SIZE.
-	 */
-	public static final Dimension MINIMUM_SIZE = new Dimension(WIDTH, 1);
-	
-	/**
-	 * The constant SIZE.
-	 */
-	public static final Dimension SIZE = new Dimension(WIDTH, Short.MAX_VALUE);
-	
-	/**
-	 * The constant MID_POINT.
-	 */
-	public static final int MID_POINT = WIDTH / 2;
+  /**
+   * The constant WIDTH.
+   */
+  public static final int WIDTH = 11;
 
-	/**
-	 * Instantiates a new ribbon sub section separator.
-	 */
-	public RibbonSubSectionSeparator() {
+  /**
+   * The constant MINIMUM_SIZE.
+   */
+  public static final Dimension MINIMUM_SIZE = new Dimension(WIDTH, 1);
 
-		setMinimumSize(MINIMUM_SIZE);
-		setPreferredSize(MINIMUM_SIZE);
-		setMaximumSize(SIZE);
-	}
+  /**
+   * The constant SIZE.
+   */
+  public static final Dimension SIZE = new Dimension(WIDTH, Short.MAX_VALUE);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
+  /**
+   * The constant MID_POINT.
+   */
+  public static final int MID_POINT = WIDTH / 2;
 
-		g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
-		
-		g2.drawLine(MID_POINT, mInternalRect.getY() + PADDING, MID_POINT, mInternalRect.getY() + mInternalRect.getH() - PADDING);
+  /**
+   * Instantiates a new ribbon sub section separator.
+   */
+  public RibbonSubSectionSeparator() {
 
+    setMinimumSize(MINIMUM_SIZE);
+    setPreferredSize(MINIMUM_SIZE);
+    setMaximumSize(SIZE);
+  }
 
-		/*
-		GradientPaint gradient = new GradientPaint(0,
-				y,
-				Color.WHITE,
-				0,
-				h2 + y,
-				RibbonSection.LINE_COLOR,
-				false);
-		
-		g2.setPaint(gradient);
-		g2.drawLine(MID_POINT, y, MID_POINT, y + h);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
 
-		gradient = new GradientPaint(0,
-				h2 + y,
-				LINE_COLOR,
-				0,
-				h + y,
-				Color.WHITE,
-				false);
-		
-		g2.setPaint(gradient);
+    g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
 
-		g2.drawLine(MID_POINT, y + h2, MID_POINT, y + h);
-		*/
-	}
+    g2.drawLine(MID_POINT, mInternalRect.getY() + PADDING, MID_POINT,
+        mInternalRect.getY() + mInternalRect.getH() - PADDING);
+
+    /*
+     * GradientPaint gradient = new GradientPaint(0, y, Color.WHITE, 0, h2 + y,
+     * RibbonSection.LINE_COLOR, false);
+     * 
+     * g2.setPaint(gradient); g2.drawLine(MID_POINT, y, MID_POINT, y + h);
+     * 
+     * gradient = new GradientPaint(0, h2 + y, LINE_COLOR, 0, h + y, Color.WHITE,
+     * false);
+     * 
+     * g2.setPaint(gradient);
+     * 
+     * g2.drawLine(MID_POINT, y + h2, MID_POINT, y + h);
+     */
+  }
 }

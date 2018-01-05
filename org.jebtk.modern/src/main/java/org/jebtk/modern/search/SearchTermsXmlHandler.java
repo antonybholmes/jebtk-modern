@@ -33,65 +33,70 @@ import org.xml.sax.helpers.DefaultHandler;
 
 // TODO: Auto-generated Javadoc
 /**
- * Allows search terms to be loaded from an XML file. Each term
- * is stored between a <term></term> tag pair.
+ * Allows search terms to be loaded from an XML file. Each term is stored
+ * between a <term></term> tag pair.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class SearchTermsXmlHandler extends DefaultHandler {
-	
-	/**
-	 * The search terms service.
-	 */
-	private SearchTermsService searchTermsService;
-    
-    /**
-     * The term mode.
-     */
-    boolean termMode = false;
 
-	/**
-	 * Instantiates a new search terms xml handler.
-	 *
-	 * @param searchTermsService the search terms service
-	 */
-	public SearchTermsXmlHandler(SearchTermsService searchTermsService) {
-		this.searchTermsService = searchTermsService;
-	}
+  /**
+   * The search terms service.
+   */
+  private SearchTermsService searchTermsService;
 
-	/* (non-Javadoc)
-	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
-	 */
-	@Override
-	public final void startElement(String uri,
-    		String localName,
-    		String qName,
-    		Attributes attributes) throws SAXException {
+  /**
+   * The term mode.
+   */
+  boolean termMode = false;
 
-		termMode = qName.equals("term");
+  /**
+   * Instantiates a new search terms xml handler.
+   *
+   * @param searchTermsService
+   *          the search terms service
+   */
+  public SearchTermsXmlHandler(SearchTermsService searchTermsService) {
+    this.searchTermsService = searchTermsService;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String,
+   * java.lang.String, java.lang.String, org.xml.sax.Attributes)
+   */
+  @Override
+  public final void startElement(String uri, String localName, String qName, Attributes attributes)
+      throws SAXException {
+
+    termMode = qName.equals("term");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String,
+   * java.lang.String, java.lang.String)
+   */
+  @Override
+  public final void endElement(String uri, String localName, String qName) throws SAXException {
+
+    termMode = false;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.xml.sax.helpers.DefaultHandler#characters(char[], int, int)
+   */
+  @Override
+  public void characters(char[] ch, int start, int length) {
+    if (!termMode) {
+      return;
     }
-	
-	/* (non-Javadoc)
-	 * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
-	 */
-	@Override
-	public final void endElement(String uri,
-    		String localName,
-    		String qName) throws SAXException {
 
-    	termMode = false;
-    }
-	
-	/* (non-Javadoc)
-	 * @see org.xml.sax.helpers.DefaultHandler#characters(char[], int, int)
-	 */
-	@Override
-	public void characters(char[] ch, int start, int length) {
-		if (!termMode) {
-			return;
-		}
-		
-		searchTermsService.addTerm(new String(ch, start, length));
-	}
+    searchTermsService.addTerm(new String(ch, start, length));
+  }
 }

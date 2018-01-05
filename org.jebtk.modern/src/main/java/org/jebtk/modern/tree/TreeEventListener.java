@@ -29,39 +29,39 @@ package org.jebtk.modern.tree;
 
 import java.util.EventListener;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving treeEvent events.
- * The class that is interested in processing a treeEvent
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addTreeEventListener<code> method. When
- * the treeEvent event occurs, that object's appropriate
- * method is invoked.
+ * The listener interface for receiving treeEvent events. The class that is
+ * interested in processing a treeEvent event implements this interface, and the
+ * object created with that class is registered with a component using the
+ * component's <code>addTreeEventListener<code> method. When the treeEvent event
+ * occurs, that object's appropriate method is invoked.
  *
  * @see TreeEventEvent
  */
 public interface TreeEventListener extends EventListener {
-	
-	/**
-	 * Tree node dragged.
-	 *
-	 * @param e the e
-	 */
-	public void treeNodeDragged(ModernTreeEvent e);
-	
-	/**
-	 * Tree node clicked.
-	 *
-	 * @param e the e
-	 */
-	public void treeNodeClicked(ModernTreeEvent e);
-	
-	/**
-	 * Tree node double clicked.
-	 *
-	 * @param e the e
-	 */
-	public void treeNodeDoubleClicked(ModernTreeEvent e);
+
+  /**
+   * Tree node dragged.
+   *
+   * @param e
+   *          the e
+   */
+  public void treeNodeDragged(ModernTreeEvent e);
+
+  /**
+   * Tree node clicked.
+   *
+   * @param e
+   *          the e
+   */
+  public void treeNodeClicked(ModernTreeEvent e);
+
+  /**
+   * Tree node double clicked.
+   *
+   * @param e
+   *          the e
+   */
+  public void treeNodeDoubleClicked(ModernTreeEvent e);
 }

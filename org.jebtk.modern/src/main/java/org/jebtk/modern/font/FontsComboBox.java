@@ -38,81 +38,79 @@ import org.jebtk.modern.combobox.ModernComboBox;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class FontsComboBox.
  */
 public class FontsComboBox extends ModernComboBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant MAX_FILES.
-	 */
-	public static final int MAX_FILES = 10;
-	
-	/**
-	 * The constant MENU_ITEM_SIZE.
-	 */
-	public static final Dimension MENU_ITEM_SIZE = 
-			new Dimension(300, WIDGET_HEIGHT);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new fonts combo box.
-	 */
-	public FontsComboBox() {
-		setup(MAX_FILES);
-	}
+  /**
+   * The constant MAX_FILES.
+   */
+  public static final int MAX_FILES = 10;
 
-	/**
-	 * Instantiates a new fonts combo box.
-	 *
-	 * @param max the max
-	 */
-	public FontsComboBox(int max) {
-		setup(max);
-	}
+  /**
+   * The constant MENU_ITEM_SIZE.
+   */
+  public static final Dimension MENU_ITEM_SIZE = new Dimension(300, WIDGET_HEIGHT);
 
-	/**
-	 * Sets the up.
-	 *
-	 * @param max the new up
-	 */
-	private void setup(int max) {
-		// add some logical fonts first
-		//addScrollMenuItem(new ModernIconMenuItem("Monospaced", icon));
-	    //addScrollMenuItem(new ModernIconMenuItem("Sans-Serif", icon));
-		//addScrollMenuItem(new ModernIconMenuItem("Serif", icon));
-		//addScrollMenuItem(new ModernMenuSeparator());
-	
-		String envfonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
+  /**
+   * Instantiates a new fonts combo box.
+   */
+  public FontsComboBox() {
+    setup(MAX_FILES);
+  }
 
-		List<String> fonts = new ArrayList<String>();
+  /**
+   * Instantiates a new fonts combo box.
+   *
+   * @param max
+   *          the max
+   */
+  public FontsComboBox(int max) {
+    setup(max);
+  }
 
-		for (String f : envfonts) {
-			fonts.add(f);
-		}
+  /**
+   * Sets the up.
+   *
+   * @param max
+   *          the new up
+   */
+  private void setup(int max) {
+    // add some logical fonts first
+    // addScrollMenuItem(new ModernIconMenuItem("Monospaced", icon));
+    // addScrollMenuItem(new ModernIconMenuItem("Sans-Serif", icon));
+    // addScrollMenuItem(new ModernIconMenuItem("Serif", icon));
+    // addScrollMenuItem(new ModernMenuSeparator());
 
-		Collections.sort(fonts);
+    String envfonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 
-		for (String font : fonts) {
-			ModernIconMenuItem item = new FontMenuItem(font);
-			
-			addScrollMenuItem(item);
-		}
+    List<String> fonts = new ArrayList<String>();
 
-		//addBreakLine();
+    for (String f : envfonts) {
+      fonts.add(f);
+    }
 
-		//addModernMenuItem(new ForwardRequestMenuItem("Other...", null));
+    Collections.sort(fonts);
 
-		setText("");
+    for (String font : fonts) {
+      ModernIconMenuItem item = new FontMenuItem(font);
 
-		UI.setSize(this, ModernWidget.LARGE_SIZE);
-	}
+      addScrollMenuItem(item);
+    }
+
+    // addBreakLine();
+
+    // addModernMenuItem(new ForwardRequestMenuItem("Other...", null));
+
+    setText("");
+
+    UI.setSize(this, ModernWidget.LARGE_SIZE);
+  }
 }

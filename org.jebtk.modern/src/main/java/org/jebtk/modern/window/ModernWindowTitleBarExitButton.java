@@ -43,45 +43,49 @@ import org.jebtk.modern.graphics.icons.Raster16Icon;
  */
 public class ModernWindowTitleBarExitButton extends ModernWindowTitleBarWinButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m window. */
-	private ModernWindow mWindow;
-	
-	/**
-	 * Instantiates a new modern window title bar close button.
-	 *
-	 * @param window the window
-	 */
-	public ModernWindowTitleBarExitButton(ModernWindow window) {
-		super(new Raster16Icon(new CrossVectorIcon(Color.WHITE)));
-		
-		mWindow = window;
-		
-		setClickMessage(UI.MENU_EXIT);
-		
-		setBackground(ColorUtils.decodeHtmlColor("#ff2a2a"));
-		
-		addClickListener(new ModernClickListener() {
-			@Override
-			public void clicked(ModernClickEvent e) {
-				ModernWindow.close(mWindow);
-			}});
-		
-		setToolTip("Close " + window.getAppInfo().getName(), 
-				"Exit the application.");
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (mHighlight) {
-			fillBackground(g2);
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /** The m window. */
+  private ModernWindow mWindow;
+
+  /**
+   * Instantiates a new modern window title bar close button.
+   *
+   * @param window
+   *          the window
+   */
+  public ModernWindowTitleBarExitButton(ModernWindow window) {
+    super(new Raster16Icon(new CrossVectorIcon(Color.WHITE)));
+
+    mWindow = window;
+
+    setClickMessage(UI.MENU_EXIT);
+
+    setBackground(ColorUtils.decodeHtmlColor("#ff2a2a"));
+
+    addClickListener(new ModernClickListener() {
+      @Override
+      public void clicked(ModernClickEvent e) {
+        ModernWindow.close(mWindow);
+      }
+    });
+
+    setToolTip("Close " + window.getAppInfo().getName(), "Exit the application.");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    if (mHighlight) {
+      fillBackground(g2);
+    }
+  }
 }

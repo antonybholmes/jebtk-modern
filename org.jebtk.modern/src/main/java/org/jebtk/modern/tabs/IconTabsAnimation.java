@@ -31,35 +31,38 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class IconTabsAnimation extends HoverFadeAnimation {
 
-	private static final Color BACKGROUND = 
-			ColorUtils.getTransparentColor(Color.BLACK, 0.95); //ThemeService.getInstance().colors().getHighlight(2);
-	
-	private IconTabs mTabs;
+  private static final Color BACKGROUND = ColorUtils.getTransparentColor(Color.BLACK, 0.95); // ThemeService.getInstance().colors().getHighlight(2);
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public IconTabsAnimation(ModernWidget w) {
-		super(w);
-		
-		mTabs = (IconTabs)w;
-		
-		setFadeColor("highlight", BACKGROUND);
-	}
+  private IconTabs mTabs;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public IconTabsAnimation(ModernWidget w) {
+    super(w);
 
-		int x = mTabs.getInsets().left;
-		int y = mTabs.getInsets().top;
-		int h = mTabs.getInternalRect().getH();
-	
-		g2.setColor(getFadeColor("highlight"));
-		g2.fillRect(x, y, mTabs.getInternalRect().getW(), h);
-	}	
+    mTabs = (IconTabs) w;
+
+    setFadeColor("highlight", BACKGROUND);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+
+    int x = mTabs.getInsets().left;
+    int y = mTabs.getInsets().top;
+    int h = mTabs.getInternalRect().getH();
+
+    g2.setColor(getFadeColor("highlight"));
+    g2.fillRect(x, y, mTabs.getInternalRect().getW(), h);
+  }
 }

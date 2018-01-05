@@ -35,21 +35,22 @@ import javax.swing.Box;
  */
 public abstract class GenericBox extends Box {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new box panel.
-	 *
-	 * @param axis the axis
-	 */
-	public GenericBox(int axis) {
-		super(axis);
-		
-		//setAlignmentY(TOP_ALIGNMENT);
-		setAlignmentX(LEFT_ALIGNMENT);
-	}
+  /**
+   * Instantiates a new box panel.
+   *
+   * @param axis
+   *          the axis
+   */
+  public GenericBox(int axis) {
+    super(axis);
+
+    // setAlignmentY(TOP_ALIGNMENT);
+    setAlignmentX(LEFT_ALIGNMENT);
+  }
 
 }

@@ -40,164 +40,172 @@ import org.jebtk.modern.graphics.DrawingContext;
 import org.jebtk.modern.graphics.ModernCanvas;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Displays multiple lines of text, breaking lines
- * at a space break before the line ends.
+ * Displays multiple lines of text, breaking lines at a space break before the
+ * line ends.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernMultilineLabel extends ModernCanvas implements TextProperty {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member h.
-	 */
-	private int mH;
-	
-	/**
-	 * The member text.
-	 */
-	private String mText;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member g2.
-	 */
-	private Graphics2D mG2;
+  /**
+   * The member h.
+   */
+  private int mH;
 
-	/**
-	 * The member lines.
-	 */
-	private List<String> mLines;
+  /**
+   * The member text.
+   */
+  private String mText;
 
+  /**
+   * The member g2.
+   */
+  private Graphics2D mG2;
 
-	
-	/**
-	 * The class ComponentEvents.
-	 */
-	private class ComponentEvents extends ComponentAdapter {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.ComponentAdapter#componentResized(java.awt.event.ComponentEvent)
-		 */
-		@Override
-		public void componentResized(ComponentEvent e) {
-			resize();
-		}
-	}
-	
-	/**
-	 * Instantiates a new modern multiline label.
-	 */
-	public ModernMultilineLabel() {
-		this(TextUtils.EMPTY_STRING);
-	}
-	
-	/**
-	 * Instantiates a new modern multiline label.
-	 *
-	 * @param text the text
-	 */
-	public ModernMultilineLabel(String text) {
-		setFont(ModernWidget.FONT);
-		
-		addComponentListener(new ComponentEvents());
-		
-		BufferedImage image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
-		mG2 = (Graphics2D)image.getGraphics();
-		mG2.setFont(getFont());
-		
-		
-		mH = mG2.getFontMetrics().getAscent() + mG2.getFontMetrics().getDescent();
-		//mW = mG2.getFontMetrics().stringWidth("A");
-		
-		setText(text);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvas#drawCanvasForeground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
-		if (mLines == null) {
-			return;
-		}
-		
-		g2.setColor(getForeground());
-		
-		int x = getInsets().left;
-		int y = getInsets().top + getTextYPosCenter(g2, mH);
+  /**
+   * The member lines.
+   */
+  private List<String> mLines;
 
-		for (String line : mLines) {
-			
-			g2.drawString(line, x, y);
-			
-			y += mH;
-		}
-	}
+  /**
+   * The class ComponentEvents.
+   */
+  private class ComponentEvents extends ComponentAdapter {
 
-	/**
-	 * Resize.
-	 */
-	private void resize() {
-		//if (getWidth() < 2) {
-		//	return;
-		//}
-		
-		mLines = new ArrayList<String>();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.ComponentAdapter#componentResized(java.awt.event.
+     * ComponentEvent)
+     */
+    @Override
+    public void componentResized(ComponentEvent e) {
+      resize();
+    }
+  }
 
-		List<String> words = TextUtils.fastSplit(mText, TextUtils.SPACE_DELIMITER);
-		
-		StringBuilder buffer = new StringBuilder();
-		
-		for (String word : words) {
-			// See what happens when we add a new word, if this exceeds the
-			// line width, create a new line
-			StringBuilder tp = new StringBuilder(buffer.toString()).append(TextUtils.SPACE_DELIMITER).append(word);
-			
-			int w = mG2.getFontMetrics().stringWidth(tp.toString());
-			
-			if (w > getWidth()) {
-				mLines.add(buffer.toString());
-				
-				buffer = new StringBuilder();
-			}
-			
-			buffer.append(word).append(TextUtils.SPACE_DELIMITER);
-		}
-		
-		if (buffer.length() > 0) {
-			mLines.add(buffer.toString());
-		}
-		
-		//System.err.println("x " + mInternalRect.getW() + " " + (mH * mLines.size()));
-		
-		setPreferredSize(new Dimension(Short.MAX_VALUE, mH * mLines.size()));
-		setMaximumSize(getPreferredSize());
-		setCanvasSize(getPreferredSize());
-	}
+  /**
+   * Instantiates a new modern multiline label.
+   */
+  public ModernMultilineLabel() {
+    this(TextUtils.EMPTY_STRING);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#getText()
-	 */
-	@Override
-	public String getText() {
-		return mText;
-	}
+  /**
+   * Instantiates a new modern multiline label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernMultilineLabel(String text) {
+    setFont(ModernWidget.FONT);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		mText = text;
-		
-		resize();
-	}
+    addComponentListener(new ComponentEvents());
+
+    BufferedImage image = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
+    mG2 = (Graphics2D) image.getGraphics();
+    mG2.setFont(getFont());
+
+    mH = mG2.getFontMetrics().getAscent() + mG2.getFontMetrics().getDescent();
+    // mW = mG2.getFontMetrics().stringWidth("A");
+
+    setText(text);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvas#drawCanvasForeground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
+    if (mLines == null) {
+      return;
+    }
+
+    g2.setColor(getForeground());
+
+    int x = getInsets().left;
+    int y = getInsets().top + getTextYPosCenter(g2, mH);
+
+    for (String line : mLines) {
+
+      g2.drawString(line, x, y);
+
+      y += mH;
+    }
+  }
+
+  /**
+   * Resize.
+   */
+  private void resize() {
+    // if (getWidth() < 2) {
+    // return;
+    // }
+
+    mLines = new ArrayList<String>();
+
+    List<String> words = TextUtils.fastSplit(mText, TextUtils.SPACE_DELIMITER);
+
+    StringBuilder buffer = new StringBuilder();
+
+    for (String word : words) {
+      // See what happens when we add a new word, if this exceeds the
+      // line width, create a new line
+      StringBuilder tp = new StringBuilder(buffer.toString()).append(TextUtils.SPACE_DELIMITER).append(word);
+
+      int w = mG2.getFontMetrics().stringWidth(tp.toString());
+
+      if (w > getWidth()) {
+        mLines.add(buffer.toString());
+
+        buffer = new StringBuilder();
+      }
+
+      buffer.append(word).append(TextUtils.SPACE_DELIMITER);
+    }
+
+    if (buffer.length() > 0) {
+      mLines.add(buffer.toString());
+    }
+
+    // System.err.println("x " + mInternalRect.getW() + " " + (mH * mLines.size()));
+
+    setPreferredSize(new Dimension(Short.MAX_VALUE, mH * mLines.size()));
+    setMaximumSize(getPreferredSize());
+    setCanvasSize(getPreferredSize());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#getText()
+   */
+  @Override
+  public String getText() {
+    return mText;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    mText = text;
+
+    resize();
+  }
 }

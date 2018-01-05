@@ -34,53 +34,47 @@ import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
- * Companion tab view panel for the ModernHTabBottom so that they
- * display a seamless border.
+ * Companion tab view panel for the ModernHTabBottom so that they display a
+ * seamless border.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class TabsViewBottomPanel extends TabsViewPanel {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new tabs view bottom panel.
-	 *
-	 * @param tabsModel the tabs model
-	 */
-	public TabsViewBottomPanel(TabsModel tabsModel) {
-		super(tabsModel);
-		
-		setBorder(BorderService.getInstance().createBorder(1));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fillBackground(g2);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		g2.setColor(ModernWidget.LINE_COLOR);
-		
-		g2.drawLine(0, 
-				0, 
-				getWidth(),
-				0);
-		
-		g2.drawLine(0, 
-				0, 
-				0,
-				getHeight());
-		
-		g2.drawLine(getWidth() - 1, 
-				0, 
-				getWidth() - 1,
-				getHeight());
-	}
+  /**
+   * Instantiates a new tabs view bottom panel.
+   *
+   * @param tabsModel
+   *          the tabs model
+   */
+  public TabsViewBottomPanel(TabsModel tabsModel) {
+    super(tabsModel);
+
+    setBorder(BorderService.getInstance().createBorder(1));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fillBackground(g2);
+
+    g2.setColor(ModernWidget.LINE_COLOR);
+
+    g2.drawLine(0, 0, getWidth(), 0);
+
+    g2.drawLine(0, 0, 0, getHeight());
+
+    g2.drawLine(getWidth() - 1, 0, getWidth() - 1, getHeight());
+  }
 
 }

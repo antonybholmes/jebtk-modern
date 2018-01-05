@@ -34,140 +34,149 @@ import javax.swing.Box;
 
 import org.jebtk.modern.panel.HBox;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Represents a toolbar (with associated tab) on the ribbon control.
- * Each toolbar consists of sections containing buttons.
+ * Represents a toolbar (with associated tab) on the ribbon control. Each
+ * toolbar consists of sections containing buttons.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class RibbonToolbar extends HBox implements RibbonModeProperty {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member name.
-	 */
-	private String mName;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member section map.
-	 */
-	protected Map<String, RibbonSection> mSectionMap =
-			new HashMap<String, RibbonSection>();
+  /**
+   * The member name.
+   */
+  private String mName;
 
-	/** The m mode. */
-	private RibbonSize mMode;
+  /**
+   * The member section map.
+   */
+  protected Map<String, RibbonSection> mSectionMap = new HashMap<String, RibbonSection>();
 
-	/** The m ribbon. */
-	private Ribbon mRibbon;
-	
-	
-	/**
-	 * Instantiates a new ribbon toolbar.
-	 *
-	 * @param ribbon the ribbon
-	 * @param name the name
-	 */
-	public RibbonToolbar(Ribbon ribbon, String name) {
-		mRibbon = ribbon;
-		// Ensure name is formatted in sentence case
-		mName = name;
-		
-		setSize(RibbonSize.COMPACT);
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Component#getName()
-	 */
-	@Override
-	public String getName() {
-		return mName;
-	}
+  /** The m mode. */
+  private RibbonSize mMode;
 
-	/**
-	 * Fills up the rest of the toolbar with space.
-	 */
-	public final void addSpace() {
-		add(Box.createHorizontalGlue());
-	}
+  /** The m ribbon. */
+  private Ribbon mRibbon;
 
-	/**
-	 * Adds the.
-	 *
-	 * @param ribbonSection the ribbon section
-	 */
-	public void add(RibbonSection ribbonSection) {
-		addSection(ribbonSection);
-	}
-	
-	/**
-	 * Adds the section.
-	 *
-	 * @param ribbonSection the ribbon section
-	 */
-	public void addSection(RibbonSection ribbonSection) {
-		ribbonSection.setSize(mMode);
-		
-		mSectionMap.put(ribbonSection.getName(), ribbonSection);
-		
-		super.add(ribbonSection);
-	}
-	
-	//public RibbonSection getSection(String name) {
-	//	return mSectionMap.get(name);
-	//}
-	
-	/**
-	 * Create a section or return an existing one if it exists.
-	 *
-	 * @param name the name
-	 * @return the section
-	 */
-	public RibbonSection getSection(String name) {
-		RibbonSection section = mSectionMap.get(name);
-		
-		if (section != null) {
-			return section;
-		}
-		
-		addSection(new RibbonSection(mRibbon, name));
-		
-		return getSection(name);
-	}
-	
-	/**
-	 * Gets the home section.
-	 *
-	 * @return the home section
-	 */
-	public RibbonSection getHomeSection() {
-		return getSection(Ribbon.HOME_TOOLBAR);
-	}
-	
-	/**
-	 * Gets the.
-	 *
-	 * @param name the name
-	 * @return the ribbon section
-	 */
-	public RibbonSection get(String name) {
-		return getSection(name);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.ribbon.RibbonSize)
-	 */
-	public void setSize(RibbonSize mode) {
-		mMode = mode;
-		
-		for (RibbonSection section : mSectionMap.values()) {
-			section.setSize(mode);
-		}
-	}
+  /**
+   * Instantiates a new ribbon toolbar.
+   *
+   * @param ribbon
+   *          the ribbon
+   * @param name
+   *          the name
+   */
+  public RibbonToolbar(Ribbon ribbon, String name) {
+    mRibbon = ribbon;
+    // Ensure name is formatted in sentence case
+    mName = name;
+
+    setSize(RibbonSize.COMPACT);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Component#getName()
+   */
+  @Override
+  public String getName() {
+    return mName;
+  }
+
+  /**
+   * Fills up the rest of the toolbar with space.
+   */
+  public final void addSpace() {
+    add(Box.createHorizontalGlue());
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param ribbonSection
+   *          the ribbon section
+   */
+  public void add(RibbonSection ribbonSection) {
+    addSection(ribbonSection);
+  }
+
+  /**
+   * Adds the section.
+   *
+   * @param ribbonSection
+   *          the ribbon section
+   */
+  public void addSection(RibbonSection ribbonSection) {
+    ribbonSection.setSize(mMode);
+
+    mSectionMap.put(ribbonSection.getName(), ribbonSection);
+
+    super.add(ribbonSection);
+  }
+
+  // public RibbonSection getSection(String name) {
+  // return mSectionMap.get(name);
+  // }
+
+  /**
+   * Create a section or return an existing one if it exists.
+   *
+   * @param name
+   *          the name
+   * @return the section
+   */
+  public RibbonSection getSection(String name) {
+    RibbonSection section = mSectionMap.get(name);
+
+    if (section != null) {
+      return section;
+    }
+
+    addSection(new RibbonSection(mRibbon, name));
+
+    return getSection(name);
+  }
+
+  /**
+   * Gets the home section.
+   *
+   * @return the home section
+   */
+  public RibbonSection getHomeSection() {
+    return getSection(Ribbon.HOME_TOOLBAR);
+  }
+
+  /**
+   * Gets the.
+   *
+   * @param name
+   *          the name
+   * @return the ribbon section
+   */
+  public RibbonSection get(String name) {
+    return getSection(name);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.ribbon.
+   * RibbonSize)
+   */
+  public void setSize(RibbonSize mode) {
+    mMode = mode;
+
+    for (RibbonSection section : mSectionMap.values()) {
+      section.setSize(mode);
+    }
+  }
 }

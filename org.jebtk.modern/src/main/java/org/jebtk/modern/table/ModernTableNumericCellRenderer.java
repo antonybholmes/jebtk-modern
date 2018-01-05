@@ -35,60 +35,50 @@ import org.jebtk.core.text.Formatter.NumberFormatter;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.dataview.ModernDataGridCellRenderer;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTableNumericCellRenderer.
  */
 public class ModernTableNumericCellRenderer extends ModernDataGridCellRenderer {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member format.
-	 */
-	private NumberFormatter mFormat = Formatter.number().dp(3);
+  /**
+   * The member format.
+   */
+  private NumberFormatter mFormat = Formatter.number().dp(3);
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataGridCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
+   * java.lang.Object, boolean, boolean, boolean, int, int)
+   */
+  @Override
+  public final Component getCellRendererComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+    super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataGridCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	@Override
-	public final Component getCellRendererComponent(ModernData table,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
-		super.getCellRendererComponent(table, 
-				value, 
-				highlight, 
-				isSelected, 
-				hasFocus, 
-				row, 
-				column);
+    if (value != null && value instanceof Double) {
+      double v = (Double) value;
 
-		if (value != null && value instanceof Double) {
-			double v = (Double)value;
+      if (Mathematics.isValidNumber(v)) {
+        if (Mathematics.isInt(v)) {
+          setText(mFormat.format((int) v));
+        } else {
+          setText(mFormat.format(v));
+        }
+      }
+    }
 
-			if (Mathematics.isValidNumber(v)) {
-				if (Mathematics.isInt(v)) {
-					setText(mFormat.format((int)v));
-				} else {
-					setText(mFormat.format(v));
-				}
-			}
-		}
+    // if (value != null && value instanceof Number) {
+    // setText(mFormat.format(value));
+    // }
 
-		//if (value != null && value instanceof Number) {
-		//	setText(mFormat.format(value));
-		//}
-
-		return this;
-	}
+    return this;
+  }
 }

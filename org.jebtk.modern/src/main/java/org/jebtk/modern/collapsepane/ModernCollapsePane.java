@@ -40,28 +40,28 @@ import org.jebtk.modern.MaterialUtils;
  */
 public class ModernCollapsePane extends ModernSubCollapsePane {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern collapse pane.
-	 */
-	public ModernCollapsePane() {
-		setBackgroundAnimations("collapse-pane");
-		
-		setBorder(1);
-	}
-	
-	@Override
-	public Dimension layoutTabs(int index) {
-		Dimension d = super.layoutTabs(index);
-		
-		d.width += 2;
-		
-		d.height += 1 + MaterialUtils.SHADOW_BORDER_HEIGHT;
-		
-		return d;
-	}
+  /**
+   * Instantiates a new modern collapse pane.
+   */
+  public ModernCollapsePane() {
+    setBackgroundAnimations("collapse-pane");
+
+    setBorder(1);
+  }
+
+  @Override
+  public Dimension layoutTabs(int index) {
+    Dimension d = super.layoutTabs(index);
+
+    d.width += 2;
+
+    d.height += 1 + MaterialUtils.SHADOW_BORDER_HEIGHT;
+
+    return d;
+  }
 }

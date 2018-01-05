@@ -29,45 +29,44 @@ package org.jebtk.modern.dataview;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernDataGridIconTextCellRenderer.
  */
 public abstract class ModernDataGridIconTextCellRenderer extends ModernDataCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The text.
-	 */
-	protected String mText = "";
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The icon.
-	 */
-	protected ModernIcon mIcon = null;
+  /**
+   * The text.
+   */
+  protected String mText = "";
 
-	/**
-	 * Sets the text.
-	 *
-	 * @param text the new text
-	 */
-	public final void setText(String text) {
-		mText = text;
-	}
+  /**
+   * The icon.
+   */
+  protected ModernIcon mIcon = null;
 
-	
-	/**
-	 * Sets the icon.
-	 *
-	 * @param icon the new icon
-	 */
-	public final void setIcon(ModernIcon icon) {
-		mIcon = icon;
-	}
+  /**
+   * Sets the text.
+   *
+   * @param text
+   *          the new text
+   */
+  public final void setText(String text) {
+    mText = text;
+  }
+
+  /**
+   * Sets the icon.
+   *
+   * @param icon
+   *          the new icon
+   */
+  public final void setIcon(ModernIcon icon) {
+    mIcon = icon;
+  }
 }

@@ -37,35 +37,46 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class CanvasCursorListeners extends EventProducer<CanvasCursorListener> implements CanvasCursorEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.CanvasCursorEventProducer#addCanvasCursorListener(org.abh.common.ui.graphics.CanvasCursorListener)
-	 */
-	@Override
-	public void addCanvasCursorListener(CanvasCursorListener l) {
-		mListeners.add(l);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.CanvasCursorEventProducer#removeCanvasCursorListener(org.abh.common.ui.graphics.CanvasCursorListener)
-	 */
-	@Override
-	public void removeCanvasCursorListener(CanvasCursorListener l) {
-		mListeners.remove(l);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.CanvasCursorEventProducer#addCanvasCursorListener(
+   * org.abh.common.ui.graphics.CanvasCursorListener)
+   */
+  @Override
+  public void addCanvasCursorListener(CanvasCursorListener l) {
+    mListeners.add(l);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.CanvasCursorEventProducer#fireCanvasCursorChanged(org.abh.common.ui.graphics.CanvasCursorEvent)
-	 */
-	@Override
-	public void fireCanvasCursorChanged(CanvasCursorEvent e) {
-		for (CanvasCursorListener l : mListeners) {
-			l.cursorChanged(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.CanvasCursorEventProducer#
+   * removeCanvasCursorListener(org.abh.common.ui.graphics.CanvasCursorListener)
+   */
+  @Override
+  public void removeCanvasCursorListener(CanvasCursorListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.CanvasCursorEventProducer#fireCanvasCursorChanged(
+   * org.abh.common.ui.graphics.CanvasCursorEvent)
+   */
+  @Override
+  public void fireCanvasCursorChanged(CanvasCursorEvent e) {
+    for (CanvasCursorListener l : mListeners) {
+      l.cursorChanged(e);
+    }
+  }
 }

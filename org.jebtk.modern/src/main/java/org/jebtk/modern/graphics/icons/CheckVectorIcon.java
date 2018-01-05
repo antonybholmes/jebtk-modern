@@ -31,7 +31,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.theme.WidgetRendererService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Check vector icon optimized for 16 pixel icons.
@@ -40,9 +39,9 @@ import org.jebtk.modern.theme.WidgetRendererService;
  *
  */
 public class CheckVectorIcon extends ModernVectorScalableIcon {
-	
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		WidgetRendererService.getInstance().getRenderer().drawCheck(g2, x, y, w, h);
-	}
+
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    WidgetRendererService.getInstance().getRenderer().drawCheck(g2, x, y, w, h);
+  }
 }

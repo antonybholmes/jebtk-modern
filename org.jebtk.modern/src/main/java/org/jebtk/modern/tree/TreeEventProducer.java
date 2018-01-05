@@ -34,39 +34,44 @@ package org.jebtk.modern.tree;
  * @author Antony Holmes Holmes
  */
 public interface TreeEventProducer {
-	
-	/**
-	 * Add an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void addTreeListener(TreeEventListener l);
-	
-	/**
-	 * Remove an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeTreeListener(TreeEventListener l);
 
-	/**
-	 * Fire tree node dragged.
-	 *
-	 * @param e the e
-	 */
-	public void fireTreeNodeDragged(ModernTreeEvent e);
-	
-	/**
-	 * Fire tree node clicked.
-	 *
-	 * @param e the e
-	 */
-	public void fireTreeNodeClicked(ModernTreeEvent e);
-	
-	/**
-	 * Fire tree node double clicked.
-	 *
-	 * @param e the e
-	 */
-	public void fireTreeNodeDoubleClicked(ModernTreeEvent e);
+  /**
+   * Add an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addTreeListener(TreeEventListener l);
+
+  /**
+   * Remove an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeTreeListener(TreeEventListener l);
+
+  /**
+   * Fire tree node dragged.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireTreeNodeDragged(ModernTreeEvent e);
+
+  /**
+   * Fire tree node clicked.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireTreeNodeClicked(ModernTreeEvent e);
+
+  /**
+   * Fire tree node double clicked.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireTreeNodeDoubleClicked(ModernTreeEvent e);
 }

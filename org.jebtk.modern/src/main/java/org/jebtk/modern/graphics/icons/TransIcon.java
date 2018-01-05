@@ -41,59 +41,71 @@ import org.jebtk.modern.graphics.ImageUtils;
  */
 public class TransIcon extends ModernIcon {
 
-	/**
-	 * The buffered image.
-	 */
-	private BufferedImage mBufferedImage;
+  /**
+   * The buffered image.
+   */
+  private BufferedImage mBufferedImage;
 
-	/**
-	 * Instantiates a new raster icon.
-	 *
-	 * @param icon the icon
-	 * @param alpha the alpha
-	 */
-	public TransIcon(ModernIcon icon, float alpha) {
-		mBufferedImage = ImageUtils.createImage(icon.getWidth(), icon.getHeight());
-		
-		Graphics2D g2Temp = ImageUtils.createAAGraphics(mBufferedImage);
+  /**
+   * Instantiates a new raster icon.
+   *
+   * @param icon
+   *          the icon
+   * @param alpha
+   *          the alpha
+   */
+  public TransIcon(ModernIcon icon, float alpha) {
+    mBufferedImage = ImageUtils.createImage(icon.getWidth(), icon.getHeight());
 
-		try {
-			g2Temp.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC, 1 - alpha));
-			icon.drawIcon(g2Temp, 0, 0, icon.getWidth());
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+    Graphics2D g2Temp = ImageUtils.createAAGraphics(mBufferedImage);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		g2.drawImage(mBufferedImage, x, y, null);
-	}
+    try {
+      g2Temp.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC, 1 - alpha));
+      icon.drawIcon(g2Temp, 0, 0, icon.getWidth());
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
-	 */
-	@Override
-	public BufferedImage getImage() {
-		return mBufferedImage;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.icons.ModernIcon#getWidth()
-	 */
-	@Override
-	public int getWidth() {
-		return mBufferedImage.getWidth();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.icons.ModernIcon#getHeight()
-	 */
-	@Override
-	public int getHeight() {
-		return mBufferedImage.getHeight();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    g2.drawImage(mBufferedImage, x, y, null);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
+   */
+  @Override
+  public BufferedImage getImage() {
+    return mBufferedImage;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.icons.ModernIcon#getWidth()
+   */
+  @Override
+  public int getWidth() {
+    return mBufferedImage.getWidth();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.icons.ModernIcon#getHeight()
+   */
+  @Override
+  public int getHeight() {
+    return mBufferedImage.getHeight();
+  }
 }

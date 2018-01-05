@@ -36,95 +36,95 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.UnCheckedVectorIcon;
 import org.jebtk.modern.tree.ModernTreeBranchNodeRenderer;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a rudimentary implementation of a node renderer that
- * detects if is selected and what the tree branching depth is.
- * This forms the basis of concrete implementations of renderers.
+ * Provides a rudimentary implementation of a node renderer that detects if is
+ * selected and what the tree branching depth is. This forms the basis of
+ * concrete implementations of renderers.
  *
  * @author Antony Holmes Holmes
  */
 public class ModernCollapseEnableNodeRenderer extends ModernCollapseNodeRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The checked icon. */
-	private static ModernIcon CHECKED_ICON =
-			UIService.getInstance().loadIcon(CheckedVectorIcon.class, 16);
-	
-	/** The unchecked icon. */
-	private static ModernIcon UNCHECKED_ICON =
-			UIService.getInstance().loadIcon(UnCheckedVectorIcon.class, 16);
-	
-	/**
-	 * The is enabled.
-	 */
-	private boolean mIsEnabled;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.collapsepane.ModernCollapseNodeRenderer#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		int x = 0;
 
-		int y = (this.getHeight() - 16) / 2;
-		
-		if (mIsExpanded) {
-			ModernTreeBranchNodeRenderer.BRANCH_OPEN_ICON.drawIcon(g2, x, y, 16);
-		} else {
-			ModernTreeBranchNodeRenderer.BRANCH_CLOSED_ICON.drawIcon(g2, x, y, 16);
-		}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		x += ModernTreeBranchNodeRenderer.BRANCH_OPEN_ICON.getWidth(); //+ ModernTheme.getInstance().getClass("widget").getInt("padding");
+  /** The checked icon. */
+  private static ModernIcon CHECKED_ICON = UIService.getInstance().loadIcon(CheckedVectorIcon.class, 16);
 
-		if (mIsEnabled) {
-			CHECKED_ICON.drawIcon(g2, x, y, 16);
-		} else {
-			UNCHECKED_ICON.drawIcon(g2, x, y, 16);
-		}
-		
-		x += CHECKED_ICON.getWidth() + PADDING;
-		
-		Point p = getStringCenterPlotCoordinates(g2, getRect(), mName);
-			
-		g2.setColor(getForeground());
-		
-		g2.setFont(SUB_SUB_HEADING_FONT);
-	
-		g2.drawString(getTruncatedText(g2, mName, x, mRect.getW()), x, p.y);
-	}
-	
-	/**
-	 * Obtains a renderer for the tree node.
-	 *
-	 * @param name the name
-	 * @param isHighlighted 	whether to highlight the node.
-	 * @param isSelected 	whether the node is selected or not.
-	 * @param hasFocus the has focus
-	 * @param isExpanded the is expanded
-	 * @param isEnabled the is enabled
-	 * @return the renderer
-	 * @Param hasFocus				whether the tree has focus or not,
-	 * 								as this can determine color.
-	 */
-	public ModernCollapseEnableNodeRenderer getRenderer(AbstractCollapsePane pane,
-			String name,
-			int index,
-			boolean isHighlighted,
-			boolean isSelected,
-			boolean hasFocus,
-			boolean isExpanded,
-			boolean isEnabled) {
-		super.getRenderer(pane, name, index, isHighlighted, isSelected, hasFocus, isExpanded);
-		
-		mIsEnabled = isEnabled;
+  /** The unchecked icon. */
+  private static ModernIcon UNCHECKED_ICON = UIService.getInstance().loadIcon(UnCheckedVectorIcon.class, 16);
 
-		return this;
-	}
+  /**
+   * The is enabled.
+   */
+  private boolean mIsEnabled;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.collapsepane.ModernCollapseNodeRenderer#
+   * drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+    int x = 0;
+
+    int y = (this.getHeight() - 16) / 2;
+
+    if (mIsExpanded) {
+      ModernTreeBranchNodeRenderer.BRANCH_OPEN_ICON.drawIcon(g2, x, y, 16);
+    } else {
+      ModernTreeBranchNodeRenderer.BRANCH_CLOSED_ICON.drawIcon(g2, x, y, 16);
+    }
+
+    x += ModernTreeBranchNodeRenderer.BRANCH_OPEN_ICON.getWidth(); // +
+                                                                   // ModernTheme.getInstance().getClass("widget").getInt("padding");
+
+    if (mIsEnabled) {
+      CHECKED_ICON.drawIcon(g2, x, y, 16);
+    } else {
+      UNCHECKED_ICON.drawIcon(g2, x, y, 16);
+    }
+
+    x += CHECKED_ICON.getWidth() + PADDING;
+
+    Point p = getStringCenterPlotCoordinates(g2, getRect(), mName);
+
+    g2.setColor(getForeground());
+
+    g2.setFont(SUB_SUB_HEADING_FONT);
+
+    g2.drawString(getTruncatedText(g2, mName, x, mRect.getW()), x, p.y);
+  }
+
+  /**
+   * Obtains a renderer for the tree node.
+   *
+   * @param name
+   *          the name
+   * @param isHighlighted
+   *          whether to highlight the node.
+   * @param isSelected
+   *          whether the node is selected or not.
+   * @param hasFocus
+   *          the has focus
+   * @param isExpanded
+   *          the is expanded
+   * @param isEnabled
+   *          the is enabled
+   * @return the renderer
+   * @Param hasFocus whether the tree has focus or not, as this can determine
+   *        color.
+   */
+  public ModernCollapseEnableNodeRenderer getRenderer(AbstractCollapsePane pane, String name, int index,
+      boolean isHighlighted, boolean isSelected, boolean hasFocus, boolean isExpanded, boolean isEnabled) {
+    super.getRenderer(pane, name, index, isHighlighted, isSelected, hasFocus, isExpanded);
+
+    mIsEnabled = isEnabled;
+
+    return this;
+  }
 }

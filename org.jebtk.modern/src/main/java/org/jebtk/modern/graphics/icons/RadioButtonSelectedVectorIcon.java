@@ -31,8 +31,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.theme.WidgetRendererService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Radio version of a check box.
@@ -41,11 +39,15 @@ import org.jebtk.modern.theme.WidgetRendererService;
  */
 public class RadioButtonSelectedVectorIcon extends RadioButtonVectorIcon {
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.icons.RadioButtonVectorIcon#drawIcon(java.awt.Graphics2D, int, int, int, int)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		WidgetRendererService.getInstance().getRenderer().drawRadioSelected(g2, x, y, w, h);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.icons.RadioButtonVectorIcon#drawIcon(java.awt.
+   * Graphics2D, int, int, int, int)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    WidgetRendererService.getInstance().getRenderer().drawRadioSelected(g2, x, y, w, h);
+  }
 }

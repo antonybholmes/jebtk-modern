@@ -28,71 +28,76 @@ import org.jebtk.modern.tabs.TabsViewPanel;
  * The Class RibbonVertTabsPanel.
  */
 public class RibbonVertTabsPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon vert tabs panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 */
-	public RibbonVertTabsPanel(TabsModel model, int tabSize) {
-		this(model, tabSize, true);
-	}
-	
-	/**
-	 * Instantiates a new ribbon vert tabs panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param centered the centered
-	 */
-	public RibbonVertTabsPanel(TabsModel model, int tabSize, boolean centered) {
-		this(model, tabSize, 0, centered);
-	}
-	
-	/**
-	 * Instantiates a new ribbon vert tabs panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param pagePadding the page padding
-	 * @param centered the centered
-	 */
-	public RibbonVertTabsPanel(TabsModel model, 
-			int tabSize,
-			int pagePadding,
-			boolean centered) {
-		this(model, tabSize, 48, pagePadding, centered);
-	}
-	
-	/**
-	 * Instantiates a new ribbon vert tabs panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param tabHeight the tab height
-	 * @param pagePadding the page padding
-	 * @param centered the centered
-	 */
-	public RibbonVertTabsPanel(TabsModel model, 
-			int tabSize,
-			int tabHeight,
-			int pagePadding,
-			boolean centered) {
-		SegmentTabs tabs = new RibbonSegmentVertTabs(model, tabSize, centered);
-		
-		UI.setSize(tabs, 
-				new Dimension(tabSize, Short.MAX_VALUE),
-				UI.createRightBorder(pagePadding));
-		
-		setLeft(tabs); //new TextTabsTriangle(model, centered));
-		
-		TabsViewPanel panel = new TabsViewPanel(model);
-		//panel.setBorder(TOP_BORDER);
-		
-		setBody(panel);
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new ribbon vert tabs panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   */
+  public RibbonVertTabsPanel(TabsModel model, int tabSize) {
+    this(model, tabSize, true);
+  }
+
+  /**
+   * Instantiates a new ribbon vert tabs panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param centered
+   *          the centered
+   */
+  public RibbonVertTabsPanel(TabsModel model, int tabSize, boolean centered) {
+    this(model, tabSize, 0, centered);
+  }
+
+  /**
+   * Instantiates a new ribbon vert tabs panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param pagePadding
+   *          the page padding
+   * @param centered
+   *          the centered
+   */
+  public RibbonVertTabsPanel(TabsModel model, int tabSize, int pagePadding, boolean centered) {
+    this(model, tabSize, 48, pagePadding, centered);
+  }
+
+  /**
+   * Instantiates a new ribbon vert tabs panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param tabHeight
+   *          the tab height
+   * @param pagePadding
+   *          the page padding
+   * @param centered
+   *          the centered
+   */
+  public RibbonVertTabsPanel(TabsModel model, int tabSize, int tabHeight, int pagePadding, boolean centered) {
+    SegmentTabs tabs = new RibbonSegmentVertTabs(model, tabSize, centered);
+
+    UI.setSize(tabs, new Dimension(tabSize, Short.MAX_VALUE), UI.createRightBorder(pagePadding));
+
+    setLeft(tabs); // new TextTabsTriangle(model, centered));
+
+    TabsViewPanel panel = new TabsViewPanel(model);
+    // panel.setBorder(TOP_BORDER);
+
+    setBody(panel);
+  }
 }

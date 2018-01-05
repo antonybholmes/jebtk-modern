@@ -34,8 +34,6 @@ import java.awt.geom.GeneralPath;
 
 import org.jebtk.modern.theme.RenderMode;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Mac Style tabs.
@@ -44,231 +42,224 @@ import org.jebtk.modern.theme.RenderMode;
  */
 public class SegmentVertTabs extends SegmentTabs {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant TAB_SIZE. */
-	private static final int TAB_SIZE = 32;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant ICON_SIZE. */
-	private static final int ICON_SIZE = 16;
+  /** The Constant TAB_SIZE. */
+  private static final int TAB_SIZE = 32;
 
-	//private static final int ICON_SIZE = 24;
+  /** The Constant ICON_SIZE. */
+  private static final int ICON_SIZE = 16;
 
+  // private static final int ICON_SIZE = 24;
 
-	/**
-	 * Instantiates a new text tabs.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 */
-	public SegmentVertTabs(TabsModel model,
-			int tabSize) {
-		this(model, tabSize, true);
-	}
+  /**
+   * Instantiates a new text tabs.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   */
+  public SegmentVertTabs(TabsModel model, int tabSize) {
+    this(model, tabSize, true);
+  }
 
-	/**
-	 * Instantiates a new segment vert tabs.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param centered the centered
-	 */
-	public SegmentVertTabs(TabsModel model, int tabSize, boolean centered) {
-		super(model, tabSize, centered);
-		
-		//UI.setSize(this, ModernWidget.MAX_SIZE_32);
-		
-		//setFont(SUB_HEADING_FONT);
-	}
+  /**
+   * Instantiates a new segment vert tabs.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param centered
+   *          the centered
+   */
+  public SegmentVertTabs(TabsModel model, int tabSize, boolean centered) {
+    super(model, tabSize, centered);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAA(Graphics2D g2) {
+    // UI.setSize(this, ModernWidget.MAX_SIZE_32);
 
-		int x = getInsets().left;
-		int y = getInsets().top;
+    // setFont(SUB_HEADING_FONT);
+  }
 
-		int n = getTabsModel().getTabCount();
-		
-		int h = n * TAB_SIZE;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAA(Graphics2D g2) {
 
-		int y1;
+    int x = getInsets().left;
+    int y = getInsets().top;
 
-		int w = mInternalRect.getW();
+    int n = getTabsModel().getTabCount();
 
-		int selectedIndex = getTabsModel().getSelectedIndex();
+    int h = n * TAB_SIZE;
 
-		createEndShapes();
+    int y1;
 
-		getWidgetRenderer().drawBackground(g2,
-				x, 
-				y,
-				w, 
-				h);
+    int w = mInternalRect.getW();
 
-		//
-		// Draw if highlighted
-		//
+    int selectedIndex = getTabsModel().getSelectedIndex();
 
-		if (mHighlight > -1 && mHighlight < n) {
-			y += mHighlight * TAB_SIZE;
-			
-			getWidgetRenderer().buttonFillPaint(g2, 
-					x, 
-					y, 
-					w,
-					mTabSize,
-					RenderMode.HIGHLIGHT,
-					hasFocus());
-			
-			if (mHighlight == 0) {
-				g2.fill(mLeftEnd);
-			} else if (mHighlight == n - 1) {
-				g2.fill(mRightEnd);
-			} else {
-				g2.fillRect(x, y, w, TAB_SIZE);
-			}
-		}
+    createEndShapes();
 
-		//
-		// Draw the outlines
-		//
+    getWidgetRenderer().drawBackground(g2, x, y, w, h);
 
-		g2.setColor(LIGHT_LINE_COLOR); //getRenderer().getOutlineColor());
+    //
+    // Draw if highlighted
+    //
 
-		y1 = y + TAB_SIZE;
-		
-		for (int i = 1; i < getTabsModel().getTabCount(); ++i) {
-			g2.drawLine(x, y1, x + w - 1, y1);
+    if (mHighlight > -1 && mHighlight < n) {
+      y += mHighlight * TAB_SIZE;
 
-			y1 += TAB_SIZE;
-		}
+      getWidgetRenderer().buttonFillPaint(g2, x, y, w, mTabSize, RenderMode.HIGHLIGHT, hasFocus());
 
-		getWidgetRenderer().drawOutline(g2,
-				x, 
-				y,
-				w, 
-				h);
+      if (mHighlight == 0) {
+        g2.fill(mLeftEnd);
+      } else if (mHighlight == n - 1) {
+        g2.fill(mRightEnd);
+      } else {
+        g2.fillRect(x, y, w, TAB_SIZE);
+      }
+    }
 
-		//
-		// Draw the selected tab
-		//
+    //
+    // Draw the outlines
+    //
 
-		/*
-		GradientPaint paint = new GradientPaint(0, 
-				getInsets().top, 
-				TEXT_TAB_SELECTED_COLOR_1, 
-				0, 
-				getInsets().top + h, 
-				TEXT_TAB_SELECTED_COLOR_2);
-		
-		g2.setPaint(paint);
-		*/
-		
-		g2.setColor(TEXT_TAB_SELECTED_COLOR_1);
+    g2.setColor(LIGHT_LINE_COLOR); // getRenderer().getOutlineColor());
 
-		y1 = y + selectedIndex * TAB_SIZE;
-		
-		if (selectedIndex == 0) {
-			g2.fill(mLeftEnd);
-		} else if (selectedIndex == n - 1) {
-			g2.fill(mRightEnd);
-		} else {
-			g2.fillRect(x, y1, w, TAB_SIZE);
-		}
-		
-		g2.setColor(TEXT_TAB_SELECTED_OUTLINE_COLOR);
+    y1 = y + TAB_SIZE;
 
-		if (selectedIndex == 0) {
-			g2.draw(mLeftEnd);
-		} else if (selectedIndex == n - 1) {
-			g2.draw(mRightEnd);
-		} else {
-			g2.drawRect(x, y1, w - 1, TAB_SIZE);
-		}
-		
+    for (int i = 1; i < getTabsModel().getTabCount(); ++i) {
+      g2.drawLine(x, y1, x + w - 1, y1);
 
-		//
-		// Draw the labels
-		//
+      y1 += TAB_SIZE;
+    }
 
-		y1 = y;
-		
-		int textY = getTextYPosCenter(g2, TAB_SIZE);
-		int iconY = (TAB_SIZE - ICON_SIZE) / 2;
-		int tabX = TAB_SIZE / 2;
-		//int textX = tabX + ICON_SIZE + ICON_SIZE / 2;
-		
-		for (int i = 0; i < n; ++i) {
-			boolean selected = i == selectedIndex;
+    getWidgetRenderer().drawOutline(g2, x, y, w, h);
 
-			g2.setColor(selected ? Color.WHITE : TEXT_COLOR);
+    //
+    // Draw the selected tab
+    //
 
-			String s = getTabsModel().getTab(i).getName();
-			
-			int textX;
-			
-			if (getTabsModel().getTab(i).getIcon() != null) {
-				getTabsModel().getTab(i).getIcon().drawIcon(g2, tabX, iconY, TAB_SIZE);
-				textX = tabX + ICON_SIZE + ICON_SIZE / 2;
-			} else {
-				textX = getTextXPosCenter(g2, s, w);
-			}
+    /*
+     * GradientPaint paint = new GradientPaint(0, getInsets().top,
+     * TEXT_TAB_SELECTED_COLOR_1, 0, getInsets().top + h,
+     * TEXT_TAB_SELECTED_COLOR_2);
+     * 
+     * g2.setPaint(paint);
+     */
 
-			g2.drawString(s, textX, textY);
+    g2.setColor(TEXT_TAB_SELECTED_COLOR_1);
 
-			y1 += TAB_SIZE;
-			iconY += TAB_SIZE;
-			textY += TAB_SIZE;
-		}
+    y1 = y + selectedIndex * TAB_SIZE;
 
-		//g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW() - 1, mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.tabs.SegmentTabs#createEndShapes()
-	 */
-	@Override
-	protected void createEndShapes() {
-		if (mCreateEndShapes) {
-			int x = getInsets().left;
-			int y = getInsets().top;
-			int w = mInternalRect.getW() - 1;
-			int h = TAB_SIZE;
+    if (selectedIndex == 0) {
+      g2.fill(mLeftEnd);
+    } else if (selectedIndex == n - 1) {
+      g2.fill(mRightEnd);
+    } else {
+      g2.fillRect(x, y1, w, TAB_SIZE);
+    }
 
-			mLeftEnd = new GeneralPath();
-			mLeftEnd.moveTo(x, getInsets().top + ROUNDING);
-			mLeftEnd.append(new Arc2D.Double(x, y, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN), true);
-			mLeftEnd.lineTo(x + w - ROUNDING, y);
-			mLeftEnd.append(new Arc2D.Double(x + w - ROUNDING, y, ROUNDING, ROUNDING, 90, -90, Arc2D.OPEN), true);
-			mLeftEnd.lineTo(x + w, y + h);
-			mLeftEnd.lineTo(x, y + h);
-			//mLeftEnd.lineTo(getInsets().left, getInsets().top + ROUNDING);
-			mLeftEnd.closePath();
+    g2.setColor(TEXT_TAB_SELECTED_OUTLINE_COLOR);
 
-			y += (getTabsModel().getTabCount() - 1) * h;
+    if (selectedIndex == 0) {
+      g2.draw(mLeftEnd);
+    } else if (selectedIndex == n - 1) {
+      g2.draw(mRightEnd);
+    } else {
+      g2.drawRect(x, y1, w - 1, TAB_SIZE);
+    }
 
-			mRightEnd = new GeneralPath();
-			mRightEnd.moveTo(x, y);
-			mRightEnd.lineTo(x + w, y);
-			mRightEnd.lineTo(x + w, y + h - ROUNDING);
-			mRightEnd.append(new Arc2D.Double(x + w - ROUNDING, y + h - ROUNDING, ROUNDING, ROUNDING, 0, -90, Arc2D.OPEN), true);
-			mRightEnd.lineTo(x + ROUNDING, y + h);
-			mRightEnd.append(new Arc2D.Double(x, y + h - ROUNDING, ROUNDING, ROUNDING, 270, -90, Arc2D.OPEN), true);
-			mRightEnd.closePath();
+    //
+    // Draw the labels
+    //
 
-			mCreateEndShapes = false;
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.tabs.SegmentTabs#getTab(int, int)
-	 */
-	@Override
-	protected int getTab(int x, int y) {
-		return (y - getInsets().top) / TAB_SIZE;
-	}
+    y1 = y;
+
+    int textY = getTextYPosCenter(g2, TAB_SIZE);
+    int iconY = (TAB_SIZE - ICON_SIZE) / 2;
+    int tabX = TAB_SIZE / 2;
+    // int textX = tabX + ICON_SIZE + ICON_SIZE / 2;
+
+    for (int i = 0; i < n; ++i) {
+      boolean selected = i == selectedIndex;
+
+      g2.setColor(selected ? Color.WHITE : TEXT_COLOR);
+
+      String s = getTabsModel().getTab(i).getName();
+
+      int textX;
+
+      if (getTabsModel().getTab(i).getIcon() != null) {
+        getTabsModel().getTab(i).getIcon().drawIcon(g2, tabX, iconY, TAB_SIZE);
+        textX = tabX + ICON_SIZE + ICON_SIZE / 2;
+      } else {
+        textX = getTextXPosCenter(g2, s, w);
+      }
+
+      g2.drawString(s, textX, textY);
+
+      y1 += TAB_SIZE;
+      iconY += TAB_SIZE;
+      textY += TAB_SIZE;
+    }
+
+    // g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW() - 1,
+    // mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.tabs.SegmentTabs#createEndShapes()
+   */
+  @Override
+  protected void createEndShapes() {
+    if (mCreateEndShapes) {
+      int x = getInsets().left;
+      int y = getInsets().top;
+      int w = mInternalRect.getW() - 1;
+      int h = TAB_SIZE;
+
+      mLeftEnd = new GeneralPath();
+      mLeftEnd.moveTo(x, getInsets().top + ROUNDING);
+      mLeftEnd.append(new Arc2D.Double(x, y, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN), true);
+      mLeftEnd.lineTo(x + w - ROUNDING, y);
+      mLeftEnd.append(new Arc2D.Double(x + w - ROUNDING, y, ROUNDING, ROUNDING, 90, -90, Arc2D.OPEN), true);
+      mLeftEnd.lineTo(x + w, y + h);
+      mLeftEnd.lineTo(x, y + h);
+      // mLeftEnd.lineTo(getInsets().left, getInsets().top + ROUNDING);
+      mLeftEnd.closePath();
+
+      y += (getTabsModel().getTabCount() - 1) * h;
+
+      mRightEnd = new GeneralPath();
+      mRightEnd.moveTo(x, y);
+      mRightEnd.lineTo(x + w, y);
+      mRightEnd.lineTo(x + w, y + h - ROUNDING);
+      mRightEnd.append(new Arc2D.Double(x + w - ROUNDING, y + h - ROUNDING, ROUNDING, ROUNDING, 0, -90, Arc2D.OPEN),
+          true);
+      mRightEnd.lineTo(x + ROUNDING, y + h);
+      mRightEnd.append(new Arc2D.Double(x, y + h - ROUNDING, ROUNDING, ROUNDING, 270, -90, Arc2D.OPEN), true);
+      mRightEnd.closePath();
+
+      mCreateEndShapes = false;
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.tabs.SegmentTabs#getTab(int, int)
+   */
+  @Override
+  protected int getTab(int x, int y) {
+    return (y - getInsets().top) / TAB_SIZE;
+  }
 }

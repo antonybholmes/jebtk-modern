@@ -41,7 +41,6 @@ import org.jebtk.modern.text.ModernSubHeadingLabel;
 import org.jebtk.modern.text.ModernTitleLabel;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Displays about information for a software product.
@@ -50,118 +49,121 @@ import org.jebtk.modern.window.ModernWindow;
  *
  */
 public class RibbonPanelProductInfo extends RibbonMenuPanel implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The button.
-	 */
-	private RibbonPanelAboutButton button;
 
-	/**
-	 * Instantiates a new ribbon panel product info.
-	 *
-	 * @param product the product
-	 */
-	public RibbonPanelProductInfo(GuiAppInfo product) {
-		this(null, product);
-	}
-	
-	/**
-	 * Instantiates a new ribbon panel product info.
-	 *
-	 * @param window the window
-	 */
-	public RibbonPanelProductInfo(ModernWindow window) {
-		this(window, window.getAppInfo());
-	}
-	
-	//private JTextArea textArea = new TextArea();
-	//private TabbedPane tabbedPane = new TabbedPane();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon panel product info.
-	 *
-	 * @param window the window
-	 * @param product the product
-	 */
-	public RibbonPanelProductInfo(ModernWindow window, GuiAppInfo product) {
-		super("Help");
-		
-		Box box = VBox.create();
-		
-		box.add(new ModernTitleLabel("Product Information"));
+  /**
+   * The button.
+   */
+  private RibbonPanelAboutButton button;
 
-		box.add(UI.createVGap(40));
-		
-		Box box2 = HBox.create();
-		
-		ModernImagePanel image = new ModernImagePanel(product.getIcon128(), 128, 64);
-	
-		box2.add(image);
-		box2.add(UI.createHGap(10));
-		box2.add(new ModernSubHeadingLabel(product.getName()));
-		box.add(box2);
+  /**
+   * Instantiates a new ribbon panel product info.
+   *
+   * @param product
+   *          the product
+   */
+  public RibbonPanelProductInfo(GuiAppInfo product) {
+    this(null, product);
+  }
 
-		box.add(UI.createVGap(10));
-		
+  /**
+   * Instantiates a new ribbon panel product info.
+   *
+   * @param window
+   *          the window
+   */
+  public RibbonPanelProductInfo(ModernWindow window) {
+    this(window, window.getAppInfo());
+  }
 
-		box.add(new ModernAutoSizeLabel(product.getCopyright()));
-		
-		box.add(UI.createVGap(10));
-		
-		box.add(new ModernAutoSizeLabel("Version " + product.getVersion().toString()));
+  // private JTextArea textArea = new TextArea();
+  // private TabbedPane tabbedPane = new TabbedPane();
 
-		if (window != null) {
-			box.add(UI.createVGap(40));
-			
-			box.add(new ThemeSelectionPanel(window));
-		}
-		
-		box.add(UI.createVGap(40));
+  /**
+   * Instantiates a new ribbon panel product info.
+   *
+   * @param window
+   *          the window
+   * @param product
+   *          the product
+   */
+  public RibbonPanelProductInfo(ModernWindow window, GuiAppInfo product) {
+    super("Help");
 
-		button = new RibbonPanelAboutButton(product);
-		
-		box.add(button);
-		
-		button.addClickListener(this);
-		
-		
-		box.add(UI.createVGap(40));
-		
-		box.add(new RibbonHelpLinkButton(product));
-		
-		/*
-		box2 = HBox.create();
-		box2.add(button);
-		button.setAlignmentY(TOP_ALIGNMENT);
-		box2.add(UI.createHGap(20));
-		
-		Box box3 = VBox.create();
-		box3.add(new ModernSubTitleLabel("About " + product.getName()));
-		box3.add(UI.createVGap(10));
-		box3.add(new ModernAutoSizeLabel("Learn more about " + product.getName() + " and copyright information."));
-		box2.add(box3);
-		box3.setAlignmentY(TOP_ALIGNMENT);
-		
-		box.add(box2);
-		*/
-		
-		setHeader(box);
+    Box box = VBox.create();
 
-		//textArea.setEditable(false);
+    box.add(new ModernTitleLabel("Product Information"));
 
-		//textArea.setText(Resources.loadText("resources/license.txt"));
-	}
+    box.add(UI.createVGap(40));
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		fireClicked(new ModernClickEvent(this, e.getMessage()));
-	}
+    Box box2 = HBox.create();
+
+    ModernImagePanel image = new ModernImagePanel(product.getIcon128(), 128, 64);
+
+    box2.add(image);
+    box2.add(UI.createHGap(10));
+    box2.add(new ModernSubHeadingLabel(product.getName()));
+    box.add(box2);
+
+    box.add(UI.createVGap(10));
+
+    box.add(new ModernAutoSizeLabel(product.getCopyright()));
+
+    box.add(UI.createVGap(10));
+
+    box.add(new ModernAutoSizeLabel("Version " + product.getVersion().toString()));
+
+    if (window != null) {
+      box.add(UI.createVGap(40));
+
+      box.add(new ThemeSelectionPanel(window));
+    }
+
+    box.add(UI.createVGap(40));
+
+    button = new RibbonPanelAboutButton(product);
+
+    box.add(button);
+
+    button.addClickListener(this);
+
+    box.add(UI.createVGap(40));
+
+    box.add(new RibbonHelpLinkButton(product));
+
+    /*
+     * box2 = HBox.create(); box2.add(button); button.setAlignmentY(TOP_ALIGNMENT);
+     * box2.add(UI.createHGap(20));
+     * 
+     * Box box3 = VBox.create(); box3.add(new ModernSubTitleLabel("About " +
+     * product.getName())); box3.add(UI.createVGap(10)); box3.add(new
+     * ModernAutoSizeLabel("Learn more about " + product.getName() +
+     * " and copyright information.")); box2.add(box3);
+     * box3.setAlignmentY(TOP_ALIGNMENT);
+     * 
+     * box.add(box2);
+     */
+
+    setHeader(box);
+
+    // textArea.setEditable(false);
+
+    // textArea.setText(Resources.loadText("resources/license.txt"));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    fireClicked(new ModernClickEvent(this, e.getMessage()));
+  }
 }

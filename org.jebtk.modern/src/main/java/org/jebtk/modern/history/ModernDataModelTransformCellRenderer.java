@@ -33,78 +33,82 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.list.ModernList;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Generate a view of the DataModel transform so that users can see what
- * it represents in their history list.
+ * Generate a view of the DataModel transform so that users can see what it
+ * represents in their history list.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDataModelTransformCellRenderer extends ModernHistoryListBasicCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member text1.
-	 */
-	private String mText1;
-	
-	/**
-	 * The member text2.
-	 */
-	private String mText2;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int y = 0;
-		int x = PADDING;
-		
-		g2.setColor(mTextColor);
-		
-		y += UIService.ICON_SIZE_20;
-		
-		g2.drawString(mText1, x, y);
-		
-		y += UIService.ICON_SIZE_20;
-		g2.drawString(mText2, x, y);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.history.ModernHistoryListBasicCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList, java.lang.Object, boolean, boolean, boolean, int)
-	 */
-	@Override
-	public Component getCellRendererComponent(ModernList<?> list,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row) {
-		
-		ModernDataModelTransform t = (ModernDataModelTransform)value;
-		
-		setText(row, t.getName(), t.getDescription());
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
-	}
+  /**
+   * The member text1.
+   */
+  private String mText1;
 
-	/**
-	 * Sets the text.
-	 *
-	 * @param row the row
-	 * @param name the name
-	 * @param description the description
-	 */
-	private void setText(int row, String name, String description) {
-		mText1 = Integer.toString(row + 1) + ". " + name;
-		mText2 = description;
-	}
+  /**
+   * The member text2.
+   */
+  private String mText2;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int y = 0;
+    int x = PADDING;
+
+    g2.setColor(mTextColor);
+
+    y += UIService.ICON_SIZE_20;
+
+    g2.drawString(mText1, x, y);
+
+    y += UIService.ICON_SIZE_20;
+    g2.drawString(mText2, x, y);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.history.ModernHistoryListBasicCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList,
+   * java.lang.Object, boolean, boolean, boolean, int)
+   */
+  @Override
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
+
+    ModernDataModelTransform t = (ModernDataModelTransform) value;
+
+    setText(row, t.getName(), t.getDescription());
+
+    return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
+  }
+
+  /**
+   * Sets the text.
+   *
+   * @param row
+   *          the row
+   * @param name
+   *          the name
+   * @param description
+   *          the description
+   */
+  private void setText(int row, String name, String description) {
+    mText1 = Integer.toString(row + 1) + ". " + name;
+    mText2 = description;
+  }
 
 }

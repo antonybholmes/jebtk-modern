@@ -35,8 +35,6 @@ import javax.swing.JComponent;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Replacement ModernButton with a common skin.
@@ -45,51 +43,55 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernDialogButtonBox extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member color.
-	 */
-	private Color mColor;
-	
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR = 
-			ThemeService.getInstance().colors().getHighlight(4);
 
-	/**
-	 * Instantiates a new modern dialog button box.
-	 *
-	 * @param c the c
-	 */
-	public ModernDialogButtonBox(JComponent c) {
-		this(c, COLOR);
-	}
-	
-	/**
-	 * Instantiates a new modern dialog button box.
-	 *
-	 * @param c the c
-	 * @param color the color
-	 */
-	public ModernDialogButtonBox(JComponent c, Color color) {
-		super(c);
-		
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		g2.setColor(mColor);
-		
-		g2.drawLine(0, 0, getWidth(), 0);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member color.
+   */
+  private Color mColor;
+
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = ThemeService.getInstance().colors().getHighlight(4);
+
+  /**
+   * Instantiates a new modern dialog button box.
+   *
+   * @param c
+   *          the c
+   */
+  public ModernDialogButtonBox(JComponent c) {
+    this(c, COLOR);
+  }
+
+  /**
+   * Instantiates a new modern dialog button box.
+   *
+   * @param c
+   *          the c
+   * @param color
+   *          the color
+   */
+  public ModernDialogButtonBox(JComponent c, Color color) {
+    super(c);
+
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    g2.setColor(mColor);
+
+    g2.drawLine(0, 0, getWidth(), 0);
+  }
 }

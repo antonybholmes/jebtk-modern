@@ -40,268 +40,292 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.menu.ModernPopupMenu;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernClipboardTextBox.
  */
 public class ModernClipboardTextBox extends ModernTextBox implements ClipboardUiControl {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * The member cut enabled.
-	 */
-	private boolean mCutEnabled = true;
-	
-	/**
-	 * The member paste enabled.
-	 */
-	//private boolean copyEnabled = true;
-	private boolean mPasteEnabled = true;
-	
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			showPopup(e);
-		}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			showPopup(e);
-		}	
-	}
-	
-	/**
-	 * The class FocusEvents.
-	 */
-	private class FocusEvents implements FocusListener {
-		
-		/**
-		 * The member c.
-		 */
-		private ClipboardUiControl mC;
+  /**
+   * The member cut enabled.
+   */
+  private boolean mCutEnabled = true;
 
-		/**
-		 * Instantiates a new focus events.
-		 *
-		 * @param c the c
-		 */
-		public FocusEvents(ClipboardUiControl c) {
-			mC = c;
-		}
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusGained(FocusEvent e) {
-			ClipboardService.getInstance().register(mC);
-		}
+  /**
+   * The member paste enabled.
+   */
+  // private boolean copyEnabled = true;
+  private boolean mPasteEnabled = true;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusLost(FocusEvent e) {
-			ClipboardService.getInstance().unregister(mC);
-		}
-	}
-	
-	/**
-	 * The class ModernClickEvents.
-	 */
-	private class ModernClickEvents implements ModernClickListener {
-		
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		public final void clicked(ModernClickEvent e) {
-			if (e.getMessage().equals(UI.MENU_SELECT_ALL)) {
-				selectAll();
-			} else if (e.getMessage().equals(UI.MENU_CUT)) {
-				cut();
-			} else if (e.getMessage().equals(UI.MENU_COPY)) {
-				//setClipboardContents(getSelectedText());
-				copy();
-			} else if (e.getMessage().equals(UI.MENU_PASTE)) {
-				//getClipboardContents();
-				paste();
-			} else {
-				// do nothing
-			}
-		}
-	}
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
 
-	/**
-	 * Instantiates a new modern clipboard text box.
-	 */
-	public ModernClipboardTextBox() {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      showPopup(e);
+    }
 
-		setup();
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseReleased(MouseEvent e) {
+      showPopup(e);
+    }
+  }
 
-	/**
-	 * Instantiates a new modern clipboard text box.
-	 *
-	 * @param cutEnabled the cut enabled
-	 * @param copyEnabled the copy enabled
-	 * @param pasteEnabled the paste enabled
-	 */
-	public ModernClipboardTextBox(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
-		mCutEnabled = cutEnabled;
-		//this.copyEnabled = copyEnabled;
-		mPasteEnabled = pasteEnabled;
+  /**
+   * The class FocusEvents.
+   */
+  private class FocusEvents implements FocusListener {
 
-		setup();
-	}
+    /**
+     * The member c.
+     */
+    private ClipboardUiControl mC;
 
-	/**
-	 * Instantiates a new modern clipboard text box.
-	 *
-	 * @param text the text
-	 */
-	public ModernClipboardTextBox(String text) {
+    /**
+     * Instantiates a new focus events.
+     *
+     * @param c
+     *          the c
+     */
+    public FocusEvents(ClipboardUiControl c) {
+      mC = c;
+    }
 
-		super(text);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusGained(FocusEvent e) {
+      ClipboardService.getInstance().register(mC);
+    }
 
-		setup();
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusLost(FocusEvent e) {
+      ClipboardService.getInstance().unregister(mC);
+    }
+  }
 
-	/**
-	 * Instantiates a new modern clipboard text box.
-	 *
-	 * @param text the text
-	 * @param cutEnabled the cut enabled
-	 * @param copyEnabled the copy enabled
-	 * @param pasteEnabled the paste enabled
-	 */
-	public ModernClipboardTextBox(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
+  /**
+   * The class ModernClickEvents.
+   */
+  private class ModernClickEvents implements ModernClickListener {
 
-		super(text);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    public final void clicked(ModernClickEvent e) {
+      if (e.getMessage().equals(UI.MENU_SELECT_ALL)) {
+        selectAll();
+      } else if (e.getMessage().equals(UI.MENU_CUT)) {
+        cut();
+      } else if (e.getMessage().equals(UI.MENU_COPY)) {
+        // setClipboardContents(getSelectedText());
+        copy();
+      } else if (e.getMessage().equals(UI.MENU_PASTE)) {
+        // getClipboardContents();
+        paste();
+      } else {
+        // do nothing
+      }
+    }
+  }
 
-		mCutEnabled = cutEnabled;
-		//this.copyEnabled = copyEnabled;
-		mPasteEnabled = pasteEnabled;
+  /**
+   * Instantiates a new modern clipboard text box.
+   */
+  public ModernClipboardTextBox() {
 
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
+    setup();
+  }
 
-		addMouseListener(new MouseEvents());
-		addFocusListener(new FocusEvents(this));
-	}
+  /**
+   * Instantiates a new modern clipboard text box.
+   *
+   * @param cutEnabled
+   *          the cut enabled
+   * @param copyEnabled
+   *          the copy enabled
+   * @param pasteEnabled
+   *          the paste enabled
+   */
+  public ModernClipboardTextBox(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
+    mCutEnabled = cutEnabled;
+    // this.copyEnabled = copyEnabled;
+    mPasteEnabled = pasteEnabled;
 
+    setup();
+  }
 
-	/**
-	 * Show popup.
-	 *
-	 * @param e the e
-	 */
-	private void showPopup(MouseEvent e) {
+  /**
+   * Instantiates a new modern clipboard text box.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernClipboardTextBox(String text) {
 
-		if (e.isPopupTrigger()) {
-			//cutModernMenuItem.setEnabled(cutEnabled && this.isEditable());
-			//copyModernMenuItem.setEnabled(copyEnabled);
-			//pasteModernMenuItem.setEnabled(pasteEnabled && this.isEditable());
+    super(text);
 
-			ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(new ModernClickEvents(), 
-					mCutEnabled && this.isEditable(), 
-					true,
-					mPasteEnabled && this.isEditable());
+    setup();
+  }
 
-			popup.showPopup(e.getComponent(), e.getX(), e.getY());
-		}
-	}
-	
+  /**
+   * Instantiates a new modern clipboard text box.
+   *
+   * @param text
+   *          the text
+   * @param cutEnabled
+   *          the cut enabled
+   * @param copyEnabled
+   *          the copy enabled
+   * @param pasteEnabled
+   *          the paste enabled
+   */
+  public ModernClipboardTextBox(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
 
-	/**
-	 * Clicked.
-	 *
-	 * @param e the e
-	 */
-	public final void clicked(ModernClickEvent e) {
-		if (e.getMessage().equals(UI.MENU_SELECT_ALL)) {
-			selectAll();
-		} else if (e.getMessage().equals(UI.MENU_CUT)) {
-			cut();
-		} else if (e.getMessage().equals(UI.MENU_COPY)) {
-			//setClipboardContents(getSelectedText());
-			copy();
-		} else if (e.getMessage().equals(UI.MENU_PASTE)) {
-			//getClipboardContents();
-			paste();
-		} else {
-			// do nothing
-		}
-	}
+    super(text);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.ModernTextBox#setEditable(boolean)
-	 */
-	public final void setEditable(boolean editable) {
+    mCutEnabled = cutEnabled;
+    // this.copyEnabled = copyEnabled;
+    mPasteEnabled = pasteEnabled;
 
-		super.setEditable(editable);
+    setup();
+  }
 
-		if (editable) {
-			setForeground(ENABLED_COLOR);
-		} else {
-			setForeground(DISABLED_COLOR);
-		}
-		
-		mCutEnabled = editable;
-		//this.copyEnabled = copyEnabled;
-		mPasteEnabled = editable;
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.ModernTextBox#toString()
-	 */
-	public final String toString() {
+    addMouseListener(new MouseEvents());
+    addFocusListener(new FocusEvents(this));
+  }
 
-		return getText();
-	}
+  /**
+   * Show popup.
+   *
+   * @param e
+   *          the e
+   */
+  private void showPopup(MouseEvent e) {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#cutEnabled()
-	 */
-	public boolean cutEnabled() {
-		return isEnabled() && isEditable();
-	}
+    if (e.isPopupTrigger()) {
+      // cutModernMenuItem.setEnabled(cutEnabled && this.isEditable());
+      // copyModernMenuItem.setEnabled(copyEnabled);
+      // pasteModernMenuItem.setEnabled(pasteEnabled && this.isEditable());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#copyEnabled()
-	 */
-	public boolean copyEnabled() {
-		return isEnabled();
-	}
+      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(new ModernClickEvents(),
+          mCutEnabled && this.isEditable(), true, mPasteEnabled && this.isEditable());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#pasteEnabled()
-	 */
-	public boolean pasteEnabled() {
-		return isEnabled() && isEditable();
-	}
+      popup.showPopup(e.getComponent(), e.getX(), e.getY());
+    }
+  }
 
-	
+  /**
+   * Clicked.
+   *
+   * @param e
+   *          the e
+   */
+  public final void clicked(ModernClickEvent e) {
+    if (e.getMessage().equals(UI.MENU_SELECT_ALL)) {
+      selectAll();
+    } else if (e.getMessage().equals(UI.MENU_CUT)) {
+      cut();
+    } else if (e.getMessage().equals(UI.MENU_COPY)) {
+      // setClipboardContents(getSelectedText());
+      copy();
+    } else if (e.getMessage().equals(UI.MENU_PASTE)) {
+      // getClipboardContents();
+      paste();
+    } else {
+      // do nothing
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.ModernTextBox#setEditable(boolean)
+   */
+  public final void setEditable(boolean editable) {
+
+    super.setEditable(editable);
+
+    if (editable) {
+      setForeground(ENABLED_COLOR);
+    } else {
+      setForeground(DISABLED_COLOR);
+    }
+
+    mCutEnabled = editable;
+    // this.copyEnabled = copyEnabled;
+    mPasteEnabled = editable;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.ModernTextBox#toString()
+   */
+  public final String toString() {
+
+    return getText();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#cutEnabled()
+   */
+  public boolean cutEnabled() {
+    return isEnabled() && isEditable();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#copyEnabled()
+   */
+  public boolean copyEnabled() {
+    return isEnabled();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#pasteEnabled()
+   */
+  public boolean pasteEnabled() {
+    return isEnabled() && isEditable();
+  }
+
 }

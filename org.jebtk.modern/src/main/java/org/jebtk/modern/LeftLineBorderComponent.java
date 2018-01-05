@@ -27,60 +27,64 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class LeftLineBorderComponent extends ModernComponent {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m color. */
-	private Color mColor;
-	
-	/**
-	 * Instantiates a new left line border component.
-	 */
-	public LeftLineBorderComponent() {
-		this(ModernWidget.LINE_COLOR);
-	}
-	
-	/**
-	 * Instantiates a new left line border component.
-	 *
-	 * @param c the c
-	 */
-	public LeftLineBorderComponent(Component c) {
-		this();
-		
-		setBody(c);
-	}
-	
-	/**
-	 * Instantiates a new left line border component.
-	 *
-	 * @param color the color
-	 */
-	public LeftLineBorderComponent(Color color) {
-		mColor = color;
-	}
-	
-	
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new left line border component.
-	 *
-	 * @param c the c
-	 * @param color the color
-	 */
-	public LeftLineBorderComponent(Component c, Color color) {
-		this(color);
-		
-		setBody(c);
-	}
+  /** The m color. */
+  private Color mColor;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		g2.setColor(mColor);
-		
-		g2.drawLine(0, 0, 0, getHeight());
-	}
+  /**
+   * Instantiates a new left line border component.
+   */
+  public LeftLineBorderComponent() {
+    this(ModernWidget.LINE_COLOR);
+  }
+
+  /**
+   * Instantiates a new left line border component.
+   *
+   * @param c
+   *          the c
+   */
+  public LeftLineBorderComponent(Component c) {
+    this();
+
+    setBody(c);
+  }
+
+  /**
+   * Instantiates a new left line border component.
+   *
+   * @param color
+   *          the color
+   */
+  public LeftLineBorderComponent(Color color) {
+    mColor = color;
+  }
+
+  /**
+   * Instantiates a new left line border component.
+   *
+   * @param c
+   *          the c
+   * @param color
+   *          the color
+   */
+  public LeftLineBorderComponent(Component c, Color color) {
+    this(color);
+
+    setBody(c);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    g2.setColor(mColor);
+
+    g2.drawLine(0, 0, 0, getHeight());
+  }
 }

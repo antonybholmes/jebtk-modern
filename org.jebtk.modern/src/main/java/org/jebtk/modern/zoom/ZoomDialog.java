@@ -45,189 +45,187 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.widget.ModernTwoStateWidget;
 import org.jebtk.modern.window.ModernWindow;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ZoomDialog.
  */
 public class ZoomDialog extends ModernDialogTaskWindow {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	//private ZoomToolsPanel zoomPanel;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The check25.
-	 */
-	private ModernTwoStateWidget mCheck25 = new ModernRadioButton("25 %");
-	
-	/**
-	 * The check50.
-	 */
-	private ModernTwoStateWidget mCheck50 = new ModernRadioButton("50 %");
-	
-	/**
-	 * The check75.
-	 */
-	private ModernTwoStateWidget mCheck75 = new ModernRadioButton("75 %");
-	
-	/**
-	 * The check100.
-	 */
-	private ModernTwoStateWidget mCheck100 = new ModernRadioButton("100 %");
-	
-	/**
-	 * The check200.
-	 */
-	private ModernTwoStateWidget mCheck200 = new ModernRadioButton("200 %");
-	
-	/**
-	 * The check400.
-	 */
-	private ModernTwoStateWidget mCheck400 = new ModernRadioButton("400 %");
-	
-	/**
-	 * The check custom.
-	 */
-	private ModernTwoStateWidget mCheckCustom = new ModernRadioButton("Custom");
-	
-	/**
-	 * The text custom.
-	 */
-	private ModernCompactSpinner mTextCustom = 
-			new ModernCompactSpinner(1, 400, 100);
+  // private ZoomToolsPanel zoomPanel;
 
-	/**
-	 * The member model.
-	 */
-	private ZoomModel mModel;
+  /**
+   * The check25.
+   */
+  private ModernTwoStateWidget mCheck25 = new ModernRadioButton("25 %");
 
-	/**
-	 * The class FocusEvents.
-	 */
-	private class FocusEvents implements FocusListener {
+  /**
+   * The check50.
+   */
+  private ModernTwoStateWidget mCheck50 = new ModernRadioButton("50 %");
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusGained(FocusEvent arg0) {
-			mCheckCustom.doClick();
-		}
+  /**
+   * The check75.
+   */
+  private ModernTwoStateWidget mCheck75 = new ModernRadioButton("75 %");
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusLost(FocusEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}
-	
-	/**
-	 * Instantiates a new zoom dialog.
-	 *
-	 * @param parent the parent
-	 * @param model the model
-	 */
-	public ZoomDialog(ModernWindow parent, ZoomModel model) {
-		super(parent, ModernDialogTaskType.CLOSE);
-	
-		setResizable(false);
-		setDarkBackground();
-		setSize(420, 360);
-		setTitle("Zoom");
-		mModel = model;
+  /**
+   * The check100.
+   */
+  private ModernTwoStateWidget mCheck100 = new ModernRadioButton("100 %");
 
-		//zoomPanel = new ZoomToolsPanel(model);
+  /**
+   * The check200.
+   */
+  private ModernTwoStateWidget mCheck200 = new ModernRadioButton("200 %");
 
-		Box box = Box.createVerticalBox();
+  /**
+   * The check400.
+   */
+  private ModernTwoStateWidget mCheck400 = new ModernRadioButton("400 %");
 
-		//box.add(zoomPanel);
+  /**
+   * The check custom.
+   */
+  private ModernTwoStateWidget mCheckCustom = new ModernRadioButton("Custom");
 
-		//box.add(Ui.createVerticalGap(20));
+  /**
+   * The text custom.
+   */
+  private ModernCompactSpinner mTextCustom = new ModernCompactSpinner(1, 400, 100);
 
-		box.add(mCheck400);
-		box.add(ModernPanel.createVGap());
-		box.add(mCheck200);
-		box.add(ModernPanel.createVGap());
-		box.add(mCheck100);
-		box.add(ModernPanel.createVGap());
-		box.add(mCheck75);
-		box.add(ModernPanel.createVGap());
-		box.add(mCheck50);
-		box.add(ModernPanel.createVGap());
-		box.add(mCheck25);
-		box.add(ModernPanel.createVGap());
-		
-		Box hbox = HBox.create();
-		
-		hbox.add(mCheckCustom);
-		hbox.add(mTextCustom);
-		hbox.add(ModernPanel.createHGap());
-		hbox.add(new ModernAutoSizeLabel("%"));
-		box.add(hbox);
-		
-		setDialogCardContent(box);
+  /**
+   * The member model.
+   */
+  private ZoomModel mModel;
 
-		new ModernButtonGroup()
-			.add(mCheck25)
-			.add(mCheck50)
-			.add(mCheck75)
-			.add(mCheck100)
-			.add(mCheck200)
-			.add(mCheck400)
-			.add(mCheckCustom);
+  /**
+   * The class FocusEvents.
+   */
+  private class FocusEvents implements FocusListener {
 
-		mCheck25.addClickListener(this);
-		mCheck50.addClickListener(this);
-		mCheck75.addClickListener(this);
-		mCheck100.addClickListener(this);
-		mCheck200.addClickListener(this);
-		mCheck400.addClickListener(this);
-		mCheckCustom.addClickListener(this);
-		
-		mTextCustom.addFocusListener(new FocusEvents());
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusGained(FocusEvent arg0) {
+      mCheckCustom.doClick();
+    }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusLost(FocusEvent arg0) {
+      // TODO Auto-generated method stub
 
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		if (e.getSource().equals(mCheck25)) {
-			mModel.setZoom(0.25);
-		} else if (e.getSource().equals(mCheck50)) {
-			mModel.setZoom(0.5);
-		} else if (e.getSource().equals(mCheck75)) {
-			mModel.setZoom(0.75);
-		} else if (e.getSource().equals(mCheck100)) {
-			mModel.setZoom(1);
-		} else if (e.getSource().equals(mCheck200)) {
-			mModel.setZoom(2);
-		} else if (e.getSource().equals(mCheck400)) {
-			mModel.setZoom(4);
-		} else if (e.getSource().equals(mCheckCustom)) {
-			zoomCustom();
-		} else {
-			super.clicked(e);
-		}
-	}
-	
-	/**
-	 * Zoom custom.
-	 */
-	private void zoomCustom() {
-		mCheckCustom.setSelected(true);
-		mModel.setZoom(Double.parseDouble(mTextCustom.getText()) / 100.0);
-	}
+  }
+
+  /**
+   * Instantiates a new zoom dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param model
+   *          the model
+   */
+  public ZoomDialog(ModernWindow parent, ZoomModel model) {
+    super(parent, ModernDialogTaskType.CLOSE);
+
+    setResizable(false);
+    setDarkBackground();
+    setSize(420, 360);
+    setTitle("Zoom");
+    mModel = model;
+
+    // zoomPanel = new ZoomToolsPanel(model);
+
+    Box box = Box.createVerticalBox();
+
+    // box.add(zoomPanel);
+
+    // box.add(Ui.createVerticalGap(20));
+
+    box.add(mCheck400);
+    box.add(ModernPanel.createVGap());
+    box.add(mCheck200);
+    box.add(ModernPanel.createVGap());
+    box.add(mCheck100);
+    box.add(ModernPanel.createVGap());
+    box.add(mCheck75);
+    box.add(ModernPanel.createVGap());
+    box.add(mCheck50);
+    box.add(ModernPanel.createVGap());
+    box.add(mCheck25);
+    box.add(ModernPanel.createVGap());
+
+    Box hbox = HBox.create();
+
+    hbox.add(mCheckCustom);
+    hbox.add(mTextCustom);
+    hbox.add(ModernPanel.createHGap());
+    hbox.add(new ModernAutoSizeLabel("%"));
+    box.add(hbox);
+
+    setDialogCardContent(box);
+
+    new ModernButtonGroup().add(mCheck25).add(mCheck50).add(mCheck75).add(mCheck100).add(mCheck200).add(mCheck400)
+        .add(mCheckCustom);
+
+    mCheck25.addClickListener(this);
+    mCheck50.addClickListener(this);
+    mCheck75.addClickListener(this);
+    mCheck100.addClickListener(this);
+    mCheck200.addClickListener(this);
+    mCheck400.addClickListener(this);
+    mCheckCustom.addClickListener(this);
+
+    mTextCustom.addFocusListener(new FocusEvents());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    if (e.getSource().equals(mCheck25)) {
+      mModel.setZoom(0.25);
+    } else if (e.getSource().equals(mCheck50)) {
+      mModel.setZoom(0.5);
+    } else if (e.getSource().equals(mCheck75)) {
+      mModel.setZoom(0.75);
+    } else if (e.getSource().equals(mCheck100)) {
+      mModel.setZoom(1);
+    } else if (e.getSource().equals(mCheck200)) {
+      mModel.setZoom(2);
+    } else if (e.getSource().equals(mCheck400)) {
+      mModel.setZoom(4);
+    } else if (e.getSource().equals(mCheckCustom)) {
+      zoomCustom();
+    } else {
+      super.clicked(e);
+    }
+  }
+
+  /**
+   * Zoom custom.
+   */
+  private void zoomCustom() {
+    mCheckCustom.setSelected(true);
+    mModel.setZoom(Double.parseDouble(mTextCustom.getText()) / 100.0);
+  }
 }

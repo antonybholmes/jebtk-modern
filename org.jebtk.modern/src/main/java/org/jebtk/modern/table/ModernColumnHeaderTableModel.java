@@ -38,18 +38,20 @@ import org.jebtk.core.collections.CollectionUtils;
  * @author Antony Holmes Holmes
  */
 public abstract class ModernColumnHeaderTableModel extends ModernTableModel {
-	
-	/**
-	 * The constant HEADER_NAMES.
-	 */
-	protected static final List<String> HEADER_NAMES = 
-			CollectionUtils.asList("Name");
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotationNames()
-	 */
-	@Override
-	public List<String> getColumnAnnotationNames() {
-		return HEADER_NAMES;
-	}
+
+  /**
+   * The constant HEADER_NAMES.
+   */
+  protected static final List<String> HEADER_NAMES = CollectionUtils.asList("Name");
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotationNames()
+   */
+  @Override
+  public List<String> getColumnAnnotationNames() {
+    return HEADER_NAMES;
+  }
 }

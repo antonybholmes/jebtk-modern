@@ -31,22 +31,21 @@ import java.util.EventListener;
 
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving progressEvent events.
- * The class that is interested in processing a progressEvent
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addProgressEventListener<code> method. When
- * the progressEvent event occurs, that object's appropriate
- * method is invoked.
+ * The listener interface for receiving progressEvent events. The class that is
+ * interested in processing a progressEvent event implements this interface, and
+ * the object created with that class is registered with a component using the
+ * component's <code>addProgressEventListener<code> method. When the
+ * progressEvent event occurs, that object's appropriate method is invoked.
  *
  * @see ProgressEventEvent
  */
 public interface ProgressEventListener extends EventListener {
 
-	/**
-	 * Invoked when progress update occurs.
-	 *
-	 * @param e the e
-	 */
-	public void progressUpdated(ProgressEvent e);
+  /**
+   * Invoked when progress update occurs.
+   *
+   * @param e
+   *          the e
+   */
+  public void progressUpdated(ProgressEvent e);
 }

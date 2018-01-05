@@ -33,62 +33,68 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.theme.ThemeService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernDefaultDialogButton2.
  */
 public class ModernDefaultDialogButton extends ModernButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant BUTTON_HIGHLIGHT_COLOR.
-	 */
-	private static final Color BUTTON_HIGHLIGHT_COLOR =
-			ThemeService.getInstance().colors().getColorHighlight(5);
-	
-	/**
-	 * The constant BUTTON_BACKGROUND_COLOR.
-	 */
-	private static final Color BUTTON_BACKGROUND_COLOR = 
-			ThemeService.getInstance().colors().getColorHighlight(4);
-	
-	/**
-	 * Instantiates a new modern default dialog button2.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernDefaultDialogButton(String text1) {
-		super(text1);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ribbon2.ModernDialogButton2#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (isEnabled()) {
-			if (mHighlight) {
-				fill(g2, BUTTON_HIGHLIGHT_COLOR, getRect());
-			} else {
-				fill(g2, BUTTON_BACKGROUND_COLOR, getRect());
-			}
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ribbon2.ModernDialogButton2#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
-		
-		g2.setColor(Color.WHITE);
-		
-		g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant BUTTON_HIGHLIGHT_COLOR.
+   */
+  private static final Color BUTTON_HIGHLIGHT_COLOR = ThemeService.getInstance().colors().getColorHighlight(5);
+
+  /**
+   * The constant BUTTON_BACKGROUND_COLOR.
+   */
+  private static final Color BUTTON_BACKGROUND_COLOR = ThemeService.getInstance().colors().getColorHighlight(4);
+
+  /**
+   * Instantiates a new modern default dialog button2.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernDefaultDialogButton(String text1) {
+    super(text1);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ribbon2.ModernDialogButton2#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    if (isEnabled()) {
+      if (mHighlight) {
+        fill(g2, BUTTON_HIGHLIGHT_COLOR, getRect());
+      } else {
+        fill(g2, BUTTON_BACKGROUND_COLOR, getRect());
+      }
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ribbon2.ModernDialogButton2#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
+
+    g2.setColor(Color.WHITE);
+
+    g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
+  }
 }

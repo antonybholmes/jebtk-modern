@@ -45,130 +45,142 @@ import org.jebtk.modern.ModernComponent;
  *
  */
 public class ModernPanel extends ModernComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
 
-	/**
-	 * Instantiates a new modern panel.
-	 */
-	public ModernPanel() {
-		setup();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern panel.
-	 *
-	 * @param color the color
-	 */
-	public ModernPanel(Color color) {		
-		setup();
+  /**
+   * Instantiates a new modern panel.
+   */
+  public ModernPanel() {
+    setup();
+  }
 
-		setBackground(color);
-	}
+  /**
+   * Instantiates a new modern panel.
+   *
+   * @param color
+   *          the color
+   */
+  public ModernPanel(Color color) {
+    setup();
 
-	/**
-	 * Instantiates a new modern panel.
-	 *
-	 * @param manager the manager
-	 */
-	public ModernPanel(LayoutManager manager) {
-		setup();
-		
-		setLayout(manager);
-	}
+    setBackground(color);
+  }
 
-	/**
-	 * Instantiates a new modern panel.
-	 *
-	 * @param c the c
-	 */
-	public ModernPanel(Component c) {
-		setup();
+  /**
+   * Instantiates a new modern panel.
+   *
+   * @param manager
+   *          the manager
+   */
+  public ModernPanel(LayoutManager manager) {
+    setup();
 
-		add(c);
-	}
-	
-	/**
-	 * Instantiates a new modern panel.
-	 *
-	 * @param c the c
-	 * @param border the border
-	 */
-	public ModernPanel(Component c, int border) {
-		this(c, BorderService.getInstance().createBorder(border));
-	}
-	
-	/**
-	 * Instantiates a new modern panel.
-	 *
-	 * @param c the c
-	 * @param border the border
-	 */
-	public ModernPanel(Component c, Border border) {
-		this(c);
-		
-		setBorder(border);
-	}
-	
-	/**
-	 * Instantiates a new modern panel.
-	 *
-	 * @param c the c
-	 * @param color the color
-	 */
-	public ModernPanel(Component c, Color color) {
-		this(c);
-		
-		setBackground(color);
-	}
-	
-	/**
-	 * Instantiates a new modern panel.
-	 *
-	 * @param c the c
-	 * @param color the color
-	 * @param border the border
-	 */
-	public ModernPanel(Component c, Color color, Border border) {
-		this(c, color);
-		
-		setBorder(border);
-	}
-	
-	/**
-	 * Instantiates a new modern panel.
-	 *
-	 * @param c the c
-	 * @param color the color
-	 * @param padding the padding
-	 */
-	public ModernPanel(Component c, Color color, int padding) {
-		this(c, padding);
-		
-		setBackground(color);
-	}
+    setLayout(manager);
+  }
 
-	
+  /**
+   * Instantiates a new modern panel.
+   *
+   * @param c
+   *          the c
+   */
+  public ModernPanel(Component c) {
+    setup();
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setBackground(Color.WHITE);
-	}
+    add(c);
+  }
 
-	/**
-	 * Should be in charge of rendering the foreground using
-	 * anti-aliasing.
-	 *
-	 * @param g2 the g2
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fillBackground(g2);
-	}
+  /**
+   * Instantiates a new modern panel.
+   *
+   * @param c
+   *          the c
+   * @param border
+   *          the border
+   */
+  public ModernPanel(Component c, int border) {
+    this(c, BorderService.getInstance().createBorder(border));
+  }
+
+  /**
+   * Instantiates a new modern panel.
+   *
+   * @param c
+   *          the c
+   * @param border
+   *          the border
+   */
+  public ModernPanel(Component c, Border border) {
+    this(c);
+
+    setBorder(border);
+  }
+
+  /**
+   * Instantiates a new modern panel.
+   *
+   * @param c
+   *          the c
+   * @param color
+   *          the color
+   */
+  public ModernPanel(Component c, Color color) {
+    this(c);
+
+    setBackground(color);
+  }
+
+  /**
+   * Instantiates a new modern panel.
+   *
+   * @param c
+   *          the c
+   * @param color
+   *          the color
+   * @param border
+   *          the border
+   */
+  public ModernPanel(Component c, Color color, Border border) {
+    this(c, color);
+
+    setBorder(border);
+  }
+
+  /**
+   * Instantiates a new modern panel.
+   *
+   * @param c
+   *          the c
+   * @param color
+   *          the color
+   * @param padding
+   *          the padding
+   */
+  public ModernPanel(Component c, Color color, int padding) {
+    this(c, padding);
+
+    setBackground(color);
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setBackground(Color.WHITE);
+  }
+
+  /**
+   * Should be in charge of rendering the foreground using anti-aliasing.
+   *
+   * @param g2
+   *          the g2
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fillBackground(g2);
+  }
 }

@@ -35,336 +35,347 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.ModernScaleIcon;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonLargeCheckButton2.
  */
 public class RibbonLargeCheckButton extends ModernCheckButton implements RibbonModeProperty {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m mode. */
-	private RibbonSize mMode;
-	
-	/** The m text 2. */
-	private String mText2;
-	
-	/** The m text. */
-	private String mText;
-	
-	/** The m compact icon. */
-	private ModernScaleIcon mCompactIcon;
-	
-	/** The m show text. */
-	private boolean mShowText = true;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon large check button2.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 */
-	public RibbonLargeCheckButton(String text1, ModernIcon icon) {
-		super(text1, icon);
+  /** The m mode. */
+  private RibbonSize mMode;
 
-		setup();
-	}
+  /** The m text 2. */
+  private String mText2;
 
-	/**
-	 * Instantiates a new ribbon large check button.
-	 *
-	 * @param text1 the text 1
-	 */
-	public RibbonLargeCheckButton(String text1) {
-		super(text1);
+  /** The m text. */
+  private String mText;
 
-		setup();
-	}
+  /** The m compact icon. */
+  private ModernScaleIcon mCompactIcon;
 
-	/**
-	 * Instantiates a new ribbon large check button.
-	 *
-	 * @param icon the icon
-	 * @param text1 the text 1
-	 */
-	public RibbonLargeCheckButton(ModernIcon icon, String text1) {
-		super(icon);
+  /** The m show text. */
+  private boolean mShowText = true;
 
-		setup();
+  /**
+   * Instantiates a new ribbon large check button2.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   */
+  public RibbonLargeCheckButton(String text1, ModernIcon icon) {
+    super(text1, icon);
 
-		setClickMessage(text1);
-	}
+    setup();
+  }
 
-	/**
-	 * Instantiates a new ribbon large check button2.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 * @param toolTipTitle the tool tip title
-	 * @param toolTipText the tool tip text
-	 */
-	public RibbonLargeCheckButton(String text1, 
-			ModernIcon icon,
-			String toolTipTitle, 
-			String toolTipText) {
-		this(text1, icon);
+  /**
+   * Instantiates a new ribbon large check button.
+   *
+   * @param text1
+   *          the text 1
+   */
+  public RibbonLargeCheckButton(String text1) {
+    super(text1);
 
-		setToolTip(toolTipTitle, toolTipText);
+    setup();
+  }
 
-		setup();
-	}
+  /**
+   * Instantiates a new ribbon large check button.
+   *
+   * @param icon
+   *          the icon
+   * @param text1
+   *          the text 1
+   */
+  public RibbonLargeCheckButton(ModernIcon icon, String text1) {
+    super(icon);
 
-	/**
-	 * Instantiates a new ribbon button2.
-	 *
-	 * @param text1 the text1
-	 * @param text2 the text 2
-	 * @param icon the icon
-	 */
-	public RibbonLargeCheckButton(String text1, 
-			String text2,
-			ModernIcon icon) {
-		this(text1, text2, icon, false);
-		
-		setup();
-	}
+    setup();
 
-	/**
-	 * Instantiates a new ribbon large check button.
-	 *
-	 * @param text1 the text 1
-	 * @param text2 the text 2
-	 * @param icon the icon
-	 * @param selected the selected
-	 */
-	public RibbonLargeCheckButton(String text1, 
-			String text2,
-			ModernIcon icon,
-			boolean selected) {
-		super(text1, icon);
+    setClickMessage(text1);
+  }
 
-		mText2 = text2;
+  /**
+   * Instantiates a new ribbon large check button2.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   * @param toolTipTitle
+   *          the tool tip title
+   * @param toolTipText
+   *          the tool tip text
+   */
+  public RibbonLargeCheckButton(String text1, ModernIcon icon, String toolTipTitle, String toolTipText) {
+    this(text1, icon);
 
-		setClickMessage(mText);
+    setToolTip(toolTipTitle, toolTipText);
 
-		setSelected(selected);
+    setup();
+  }
 
-		setup();
+  /**
+   * Instantiates a new ribbon button2.
+   *
+   * @param text1
+   *          the text1
+   * @param text2
+   *          the text 2
+   * @param icon
+   *          the icon
+   */
+  public RibbonLargeCheckButton(String text1, String text2, ModernIcon icon) {
+    this(text1, text2, icon, false);
 
-		mText = text1 + " " + text2;
-	}
+    setup();
+  }
 
-	/**
-	 * Instantiates a new ribbon large check button.
-	 *
-	 * @param text1 the text 1
-	 * @param selected the selected
-	 */
-	public RibbonLargeCheckButton(String text1, boolean selected) {
-		this(text1);
-		
-		setSelected(selected);
-	}
+  /**
+   * Instantiates a new ribbon large check button.
+   *
+   * @param text1
+   *          the text 1
+   * @param text2
+   *          the text 2
+   * @param icon
+   *          the icon
+   * @param selected
+   *          the selected
+   */
+  public RibbonLargeCheckButton(String text1, String text2, ModernIcon icon, boolean selected) {
+    super(text1, icon);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		mText = mText1;
-		
-		if (mIcon != null) {
-			mCompactIcon = new ModernScaleIcon(mIcon, 24);
-		}
+    mText2 = text2;
 
-		setSize(RibbonSize.COMPACT);
-		
-		setBackgroundAnimations("ribbon-button"); //new RibbonButtonHighlightAnimation(this));
-	}
+    setClickMessage(mText);
 
-	/**
-	 * Gets the compact icon.
-	 *
-	 * @return the compact icon
-	 */
-	public ModernIcon getCompactIcon() {
-		return mCompactIcon;
-	}
+    setSelected(selected);
 
-	/**
-	 * Gets the disabled icon.
-	 *
-	 * @return the disabled icon
-	 */
-	public ModernIcon getCompactDisabledIcon() {
-		if (mCompactIcon != null) {
-			return mCompactIcon.getDisabledIcon();
-		} else {
-			return null;
-		}
-	}
+    setup();
 
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			if (isSelected() || mHighlight) {
-				getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
-			}
-		}
-	}
-	*/
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.button.ModernCheckButton#drawForegroundAAText(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x;
-		int y;
+    mText = text1 + " " + text2;
+  }
 
-		if (isEnabled()) {
-			g2.setColor(ModernWidget.TEXT_COLOR);
-		} else {
-			g2.setColor(ModernWidget.ALT_TEXT_COLOR);
-		}
+  /**
+   * Instantiates a new ribbon large check button.
+   *
+   * @param text1
+   *          the text 1
+   * @param selected
+   *          the selected
+   */
+  public RibbonLargeCheckButton(String text1, boolean selected) {
+    this(text1);
 
-		if (mMode == RibbonSize.LARGE) {
-			if (mShowText && mText1 != null) {
-				y = mRect.getH() - PADDING - ModernWidget.getStringHeight();
-				x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
-				g2.drawString(mText1, x, y);
+    setSelected(selected);
+  }
 
-				if (mText2 != null) {
-					y += ModernWidget.getStringHeight();
-					x = (getWidth() - g2.getFontMetrics().stringWidth(mText2)) / 2;
-					g2.drawString(mText2, x, y);
-				}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    mText = mText1;
 
-				x = (mRect.getW() - getIcon().getWidth()) / 2;
-				y = PADDING;
+    if (mIcon != null) {
+      mCompactIcon = new ModernScaleIcon(mIcon, 24);
+    }
 
-				if (isEnabled()) {
-					getIcon().drawIcon(g2, x, y, Ribbon.LARGE_ICON_SIZE);
-				} else {
-					getDisabledIcon().drawIcon(g2, x, y, Ribbon.LARGE_ICON_SIZE);
-				}
-			} else {
-				x = (mRect.getW() - Ribbon.LARGE_ICON_SIZE) / 2;
-				y = (mRect.getH() - Ribbon.LARGE_ICON_SIZE) / 2;
+    setSize(RibbonSize.COMPACT);
 
-				if (isEnabled()) {
-					getIcon().drawIcon(g2, x, y, Ribbon.LARGE_ICON_SIZE);
-				} else {
-					getDisabledIcon().drawIcon(g2, x, y, Ribbon.LARGE_ICON_SIZE);
-				}
-			}
-		} else {
-			if (mShowText && mText != null) {
-				if (mCompactIcon != null) {
-					x = PADDING;
-					
-					y = (mRect.getH() - mCompactIcon.getHeight()) / 2;
+    setBackgroundAnimations("ribbon-button"); // new RibbonButtonHighlightAnimation(this));
+  }
 
-					if (isEnabled()) {
-						mCompactIcon.drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
-					} else {
-						getCompactDisabledIcon().drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
-					}
+  /**
+   * Gets the compact icon.
+   *
+   * @return the compact icon
+   */
+  public ModernIcon getCompactIcon() {
+    return mCompactIcon;
+  }
 
-					x += mCompactIcon.getWidth();
-					
-					x += PADDING;
-				} else {
-					x = getTextXPosCenter(g2, mText, getWidth());
-				}
+  /**
+   * Gets the disabled icon.
+   *
+   * @return the disabled icon
+   */
+  public ModernIcon getCompactDisabledIcon() {
+    if (mCompactIcon != null) {
+      return mCompactIcon.getDisabledIcon();
+    } else {
+      return null;
+    }
+  }
 
-				y = getTextYPosCenter(g2, getHeight());
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight) { getWidgetRenderer().drawRibbonButton(g2,
+   * mInternalRect, RenderMode.SELECTED); } } }
+   */
 
-				g2.drawString(mText, x, y);
-			} else {
-				if (mCompactIcon != null) {
-					x = (mRect.getW() - Ribbon.COMPACT_ICON_SIZE) / 2;
-					y = (mRect.getH() - Ribbon.COMPACT_ICON_SIZE) / 2;
-					
-					if (isEnabled()) {
-						mCompactIcon.drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
-					} else {
-						getCompactDisabledIcon().drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
-					}
-				}
-			}
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.button.ModernCheckButton#drawForegroundAAText(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x;
+    int y;
 
-	/**
-	 * Sets the show text.
-	 *
-	 * @param show the new show text
-	 */
-	public void setShowText(boolean show) {
-		mShowText = show;
+    if (isEnabled()) {
+      g2.setColor(ModernWidget.TEXT_COLOR);
+    } else {
+      g2.setColor(ModernWidget.ALT_TEXT_COLOR);
+    }
 
-		resize();
-	}
+    if (mMode == RibbonSize.LARGE) {
+      if (mShowText && mText1 != null) {
+        y = mRect.getH() - PADDING - ModernWidget.getStringHeight();
+        x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
+        g2.drawString(mText1, x, y);
 
-	/**
-	 * Gets the show text.
-	 *
-	 * @return the show text
-	 */
-	public boolean getShowText() {
-		return mShowText;
-	}
+        if (mText2 != null) {
+          y += ModernWidget.getStringHeight();
+          x = (getWidth() - g2.getFontMetrics().stringWidth(mText2)) / 2;
+          g2.drawString(mText2, x, y);
+        }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.ribbon.RibbonSize)
-	 */
-	@Override
-	public void setSize(RibbonSize mode) {
-		mMode = mode;
+        x = (mRect.getW() - getIcon().getWidth()) / 2;
+        y = PADDING;
 
-		resize();
-	}
+        if (isEnabled()) {
+          getIcon().drawIcon(g2, x, y, Ribbon.LARGE_ICON_SIZE);
+        } else {
+          getDisabledIcon().drawIcon(g2, x, y, Ribbon.LARGE_ICON_SIZE);
+        }
+      } else {
+        x = (mRect.getW() - Ribbon.LARGE_ICON_SIZE) / 2;
+        y = (mRect.getH() - Ribbon.LARGE_ICON_SIZE) / 2;
 
-	/**
-	 * Resize.
-	 */
-	private void resize() {
-		int w = DOUBLE_PADDING;
-		int h;
+        if (isEnabled()) {
+          getIcon().drawIcon(g2, x, y, Ribbon.LARGE_ICON_SIZE);
+        } else {
+          getDisabledIcon().drawIcon(g2, x, y, Ribbon.LARGE_ICON_SIZE);
+        }
+      }
+    } else {
+      if (mShowText && mText != null) {
+        if (mCompactIcon != null) {
+          x = PADDING;
 
-		if (mMode == RibbonSize.LARGE) {
-			if (mText1 != null) {
-				if (mText2 == null || mText1.length() > mText2.length()) {
-					w += ModernWidget.getStringWidth(mText1);
-				} else {
-					w += ModernWidget.getStringWidth(mText2);
-				}
-			}
+          y = (mRect.getH() - mCompactIcon.getHeight()) / 2;
 
-			w = Math.max(w, Ribbon.MIN_BUTTON_WIDTH);
+          if (isEnabled()) {
+            mCompactIcon.drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
+          } else {
+            getCompactDisabledIcon().drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
+          }
 
-			h = Ribbon.LARGE_BUTTON_HEIGHT;
-		} else {
-			if (mCompactIcon != null) {
-				w += mCompactIcon.getWidth();
-			}
+          x += mCompactIcon.getWidth();
 
-			if (mShowText && mText != null) {
-				w += ModernWidget.getStringWidth(mText) + PADDING;
-			}
+          x += PADDING;
+        } else {
+          x = getTextXPosCenter(g2, mText, getWidth());
+        }
 
-			w = Math.max(w, Ribbon.MIN_COMPACT_BUTTON_WIDTH);
+        y = getTextYPosCenter(g2, getHeight());
 
-			h = Ribbon.COMPACT_BUTTON_HEIGHT;
-		}
+        g2.drawString(mText, x, y);
+      } else {
+        if (mCompactIcon != null) {
+          x = (mRect.getW() - Ribbon.COMPACT_ICON_SIZE) / 2;
+          y = (mRect.getH() - Ribbon.COMPACT_ICON_SIZE) / 2;
 
-		UI.setSize(this, w, h);
-	}
+          if (isEnabled()) {
+            mCompactIcon.drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
+          } else {
+            getCompactDisabledIcon().drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
+          }
+        }
+      }
+    }
+  }
+
+  /**
+   * Sets the show text.
+   *
+   * @param show
+   *          the new show text
+   */
+  public void setShowText(boolean show) {
+    mShowText = show;
+
+    resize();
+  }
+
+  /**
+   * Gets the show text.
+   *
+   * @return the show text
+   */
+  public boolean getShowText() {
+    return mShowText;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.ribbon.
+   * RibbonSize)
+   */
+  @Override
+  public void setSize(RibbonSize mode) {
+    mMode = mode;
+
+    resize();
+  }
+
+  /**
+   * Resize.
+   */
+  private void resize() {
+    int w = DOUBLE_PADDING;
+    int h;
+
+    if (mMode == RibbonSize.LARGE) {
+      if (mText1 != null) {
+        if (mText2 == null || mText1.length() > mText2.length()) {
+          w += ModernWidget.getStringWidth(mText1);
+        } else {
+          w += ModernWidget.getStringWidth(mText2);
+        }
+      }
+
+      w = Math.max(w, Ribbon.MIN_BUTTON_WIDTH);
+
+      h = Ribbon.LARGE_BUTTON_HEIGHT;
+    } else {
+      if (mCompactIcon != null) {
+        w += mCompactIcon.getWidth();
+      }
+
+      if (mShowText && mText != null) {
+        w += ModernWidget.getStringWidth(mText) + PADDING;
+      }
+
+      w = Math.max(w, Ribbon.MIN_COMPACT_BUTTON_WIDTH);
+
+      h = Ribbon.COMPACT_BUTTON_HEIGHT;
+    }
+
+    UI.setSize(this, w, h);
+  }
 }

@@ -25,14 +25,17 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class NoAnimation implements Animation {
 
-	/** The Constant NO_ANIMATION. */
-	public static final Animation NO_ANIMATION = new NoAnimation();
+  /** The Constant NO_ANIMATION. */
+  public static final Animation NO_ANIMATION = new NoAnimation();
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		// Do nothing
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    // Do nothing
+  }
 }

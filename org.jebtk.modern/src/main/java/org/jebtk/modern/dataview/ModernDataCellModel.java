@@ -32,139 +32,147 @@ import java.util.Map;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Generic model for storing objects associated with cells. Since we don't
- * actually want to associate objects with every cell to save memory, we
- * lazily assign objects as necessary and use a default for all cells that
- * do not have an assignment. We further allow row and column association
- * so that individual cells do not need an object.
+ * actually want to associate objects with every cell to save memory, we lazily
+ * assign objects as necessary and use a default for all cells that do not have
+ * an assignment. We further allow row and column association so that individual
+ * cells do not need an object.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member default object.
-	 */
-	private T mDefaultObject;
-	
-	/**
-	 * The member cell level map.
-	 */
-	private Map<Integer, Map<Integer, T>> mCellLevelMap =
-			new HashMap<Integer, Map<Integer, T>>();
-	
-	/**
-	 * The member row level map.
-	 */
-	private Map<Integer, T> mRowLevelMap = 
-			new HashMap<Integer, T>();
-	
-	/**
-	 * The member column level map.
-	 */
-	private Map<Integer, T> mColumnLevelMap = 
-			new HashMap<Integer, T>();
-	
-	/**
-	 * Instantiates a new modern data cell model.
-	 *
-	 * @param defaultObject the default object
-	 */
-	public ModernDataCellModel(T defaultObject) {
-		setDefault(defaultObject);
-	}
-	
-	/**
-	 * Sets the default.
-	 *
-	 * @param defaultObject the new default
-	 */
-	public void setDefault(T defaultObject) {
-		mDefaultObject = defaultObject;
-		
-		fireDataUpdated(new ChangeEvent(this));
-	}
-	
-	/**
-	 * Equivalent to setDefault().
-	 *
-	 * @param defaultObject the default object
-	 */
-	public void set(T defaultObject) {
-		setDefault(defaultObject);
-	}
-	
-	/**
-	 * Gets the.
-	 *
-	 * @param row the row
-	 * @param col the col
-	 * @return the t
-	 */
-	public T get(int row, int col) {
-		if (mCellLevelMap.containsKey(row) && mCellLevelMap.get(row).containsKey(col)) {
-			return mCellLevelMap.get(row).get(col);
-		} else if (mColumnLevelMap.containsKey(col)) {
-			return mColumnLevelMap.get(col);
-		} else if (mRowLevelMap.containsKey(row)) {
-			return mRowLevelMap.get(row);
-		} else {
-			return mDefaultObject;
-		}
-	}
-	
-	/**
-	 * Sets the.
-	 *
-	 * @param row the row
-	 * @param col the col
-	 * @param o the o
-	 */
-	public void set(int row, int col, T o) {
-		if (!mCellLevelMap.containsKey(row)) {
-			mCellLevelMap.put(row, new HashMap<Integer, T>());
-		}
-		
-		mCellLevelMap.get(row).put(col, o);
-		
-		fireDataUpdated(new ChangeEvent(this));
-	}
-	
-	/**
-	 * Sets the row.
-	 *
-	 * @param row the row
-	 * @param o the o
-	 */
-	public void setRow(int row, T o) {
-		if (!mRowLevelMap.containsKey(row)) {
-			mRowLevelMap.put(row, o);
-		}
-		
-		fireDataUpdated(new ChangeEvent(this));
-	}
-	
-	/**
-	 * Sets the col.
-	 *
-	 * @param col the col
-	 * @param o the o
-	 */
-	public void setCol(int col, T o) {
-		if (!mColumnLevelMap.containsKey(col)) {
-			mColumnLevelMap.put(col, o);
-		}
-		
-		fireDataUpdated(new ChangeEvent(this));
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member default object.
+   */
+  private T mDefaultObject;
+
+  /**
+   * The member cell level map.
+   */
+  private Map<Integer, Map<Integer, T>> mCellLevelMap = new HashMap<Integer, Map<Integer, T>>();
+
+  /**
+   * The member row level map.
+   */
+  private Map<Integer, T> mRowLevelMap = new HashMap<Integer, T>();
+
+  /**
+   * The member column level map.
+   */
+  private Map<Integer, T> mColumnLevelMap = new HashMap<Integer, T>();
+
+  /**
+   * Instantiates a new modern data cell model.
+   *
+   * @param defaultObject
+   *          the default object
+   */
+  public ModernDataCellModel(T defaultObject) {
+    setDefault(defaultObject);
+  }
+
+  /**
+   * Sets the default.
+   *
+   * @param defaultObject
+   *          the new default
+   */
+  public void setDefault(T defaultObject) {
+    mDefaultObject = defaultObject;
+
+    fireDataUpdated(new ChangeEvent(this));
+  }
+
+  /**
+   * Equivalent to setDefault().
+   *
+   * @param defaultObject
+   *          the default object
+   */
+  public void set(T defaultObject) {
+    setDefault(defaultObject);
+  }
+
+  /**
+   * Gets the.
+   *
+   * @param row
+   *          the row
+   * @param col
+   *          the col
+   * @return the t
+   */
+  public T get(int row, int col) {
+    if (mCellLevelMap.containsKey(row) && mCellLevelMap.get(row).containsKey(col)) {
+      return mCellLevelMap.get(row).get(col);
+    } else if (mColumnLevelMap.containsKey(col)) {
+      return mColumnLevelMap.get(col);
+    } else if (mRowLevelMap.containsKey(row)) {
+      return mRowLevelMap.get(row);
+    } else {
+      return mDefaultObject;
+    }
+  }
+
+  /**
+   * Sets the.
+   *
+   * @param row
+   *          the row
+   * @param col
+   *          the col
+   * @param o
+   *          the o
+   */
+  public void set(int row, int col, T o) {
+    if (!mCellLevelMap.containsKey(row)) {
+      mCellLevelMap.put(row, new HashMap<Integer, T>());
+    }
+
+    mCellLevelMap.get(row).put(col, o);
+
+    fireDataUpdated(new ChangeEvent(this));
+  }
+
+  /**
+   * Sets the row.
+   *
+   * @param row
+   *          the row
+   * @param o
+   *          the o
+   */
+  public void setRow(int row, T o) {
+    if (!mRowLevelMap.containsKey(row)) {
+      mRowLevelMap.put(row, o);
+    }
+
+    fireDataUpdated(new ChangeEvent(this));
+  }
+
+  /**
+   * Sets the col.
+   *
+   * @param col
+   *          the col
+   * @param o
+   *          the o
+   */
+  public void setCol(int col, T o) {
+    if (!mColumnLevelMap.containsKey(col)) {
+      mColumnLevelMap.put(col, o);
+    }
+
+    fireDataUpdated(new ChangeEvent(this));
+  }
 }

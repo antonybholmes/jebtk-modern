@@ -39,115 +39,120 @@ import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
- * Shows animated balls to indicate something
- * is happening.
+ * Shows animated balls to indicate something is happening.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernActivityBar2 extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant BAR_WIDTH.
-	 */
-	private static final int BAR_WIDTH = 100;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant BACKGROUND.
-	 */
-	private static final Color BACKGROUND = 
-			ColorUtils.getTransparentColor75(Color.WHITE);
+  /**
+   * The constant BAR_WIDTH.
+   */
+  private static final int BAR_WIDTH = 100;
 
-	/**
-	 * The xpos.
-	 */
-	private int xpos = -BAR_WIDTH;
+  /**
+   * The constant BACKGROUND.
+   */
+  private static final Color BACKGROUND = ColorUtils.getTransparentColor75(Color.WHITE);
 
-	/**
-	 * The increment.
-	 */
-	private int increment = 3;
-	
-	/**
-	 * The w.
-	 */
-	private int w = 2;
+  /**
+   * The xpos.
+   */
+  private int xpos = -BAR_WIDTH;
 
-	/**
-	 * The member timer.
-	 */
-	private Timer mTimer;
+  /**
+   * The increment.
+   */
+  private int increment = 3;
 
-	//private ProgressWorker timer;
+  /**
+   * The w.
+   */
+  private int w = 2;
 
-	/**
-	 * The class ProgressWorker.
-	 */
-	private class ProgressWorker implements ActionListener {
+  /**
+   * The member timer.
+   */
+  private Timer mTimer;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			xpos += increment;	
+  // private ProgressWorker timer;
 
-			if (xpos > getWidth()) {
-				xpos = -BAR_WIDTH;
-			}
+  /**
+   * The class ProgressWorker.
+   */
+  private class ProgressWorker implements ActionListener {
 
-			repaint();
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      xpos += increment;
 
-	}
+      if (xpos > getWidth()) {
+        xpos = -BAR_WIDTH;
+      }
 
-	/**
-	 * Instantiates a new modern activity bar2.
-	 */
-	public ModernActivityBar2() {
-		mTimer = new Timer(20, new ProgressWorker());
-	}
+      repaint();
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		int y = (getHeight() - w) / 2;
+  }
 
-		g2.setColor(BACKGROUND);
+  /**
+   * Instantiates a new modern activity bar2.
+   */
+  public ModernActivityBar2() {
+    mTimer = new Timer(20, new ProgressWorker());
+  }
 
-		g2.fillRect(0, y, getWidth(), w);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    int y = (getHeight() - w) / 2;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int y = (getHeight() - w) / 2;
+    g2.setColor(BACKGROUND);
 
-		g2.setColor(Color.WHITE);
+    g2.fillRect(0, y, getWidth(), w);
+  }
 
-		g2.fillRect(xpos, y, BAR_WIDTH, w);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int y = (getHeight() - w) / 2;
 
-	/**
-	 * Start.
-	 */
-	public void start() {
-		mTimer.start();
-	}
+    g2.setColor(Color.WHITE);
 
-	/**
-	 * Stop.
-	 */
-	public void stop() {
-		mTimer.stop();
-	}
+    g2.fillRect(xpos, y, BAR_WIDTH, w);
+  }
+
+  /**
+   * Start.
+   */
+  public void start() {
+    mTimer.start();
+  }
+
+  /**
+   * Stop.
+   */
+  public void stop() {
+    mTimer.stop();
+  }
 }

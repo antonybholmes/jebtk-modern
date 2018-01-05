@@ -41,143 +41,160 @@ import org.jebtk.modern.ribbon.RibbonStripContainer;
 import org.jebtk.modern.window.ModernRibbonWindow;
 import org.jebtk.modern.window.ModernWindow;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Standardized ribbon menu section for providing basic cut, copy and paste
- * functionality to the currently highlighted control that supports
- * clipboard operations.
+ * functionality to the currently highlighted control that supports clipboard
+ * operations.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ZoomRibbonSection extends RibbonSection implements Zoom, ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member zoom button.
-	 */
-	private ModernButtonWidget mZoomButton = 
-			new RibbonLargeButton(UIService.getInstance().loadIcon(SearchVectorIcon.class, 24)); // Resources.getInstance().loadIcon("zoom", Resources.ICON_SIZE_32));
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member zoom panel.
-	 */
-	private ZoomRibbonPanel mZoomPanel;
+  /**
+   * The member zoom button.
+   */
+  private ModernButtonWidget mZoomButton = new RibbonLargeButton(
+      UIService.getInstance().loadIcon(SearchVectorIcon.class, 24)); // Resources.getInstance().loadIcon("zoom",
+                                                                     // Resources.ICON_SIZE_32));
 
-	/**
-	 * The member parent.
-	 */
-	private ModernWindow mParent;
+  /**
+   * The member zoom panel.
+   */
+  private ZoomRibbonPanel mZoomPanel;
 
-	/**
-	 * The member model.
-	 */
-	private ZoomModel mModel;
-	
-	/**
-	 * The member zoom slider.
-	 */
-	private ModernZoomSlider mZoomSlider;
+  /**
+   * The member parent.
+   */
+  private ModernWindow mParent;
 
-	/**
-	 * Instantiates a new zoom ribbon section2.
-	 *
-	 * @param parent the parent
-	 * @param model the model
-	 */
-	public ZoomRibbonSection(ModernRibbonWindow parent, 
-			ZoomModel model) {
-		super(parent.getRibbon(), "Zoom");
+  /**
+   * The member model.
+   */
+  private ZoomModel mModel;
 
-		mParent = parent;
-		mModel = model;
-		
-		mZoomPanel = new ZoomRibbonPanel(model);
-		mZoomSlider = new ModernZoomSlider(model);
-		
-		add(mZoomButton);
-		add(createHGap());
-		
-		Box box = new RibbonStripContainer();
-		
-		box.add(mZoomSlider);
-		box.add(createHGap());
-		box.add(mZoomPanel);
+  /**
+   * The member zoom slider.
+   */
+  private ModernZoomSlider mZoomSlider;
 
-		add(box);
+  /**
+   * Instantiates a new zoom ribbon section2.
+   *
+   * @param parent
+   *          the parent
+   * @param model
+   *          the model
+   */
+  public ZoomRibbonSection(ModernRibbonWindow parent, ZoomModel model) {
+    super(parent.getRibbon(), "Zoom");
 
-		mZoomButton.setToolTip("Zoom", "Set the zoom level.", mRibbon);
-		mZoomButton.addClickListener(this);
-	}
+    mParent = parent;
+    mModel = model;
 
-	/**
-	 * Enabled or disable all the controls on the panel.
-	 *
-	 * @param enabled the enabled
-	 */
-	public final void enableControls(boolean enabled) {
-		mZoomButton.setEnabled(enabled);
-		mZoomPanel.enableControls(enabled);
-	}
+    mZoomPanel = new ZoomRibbonPanel(model);
+    mZoomSlider = new ModernZoomSlider(model);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#getZoom()
-	 */
-	public double getZoom() {
-		return mZoomPanel.getZoom();
-	}
+    add(mZoomButton);
+    add(createHGap());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#setZoom(double)
-	 */
-	public void setZoom(double zoom) {
-		mZoomPanel.setZoom(zoom);
-	}
+    Box box = new RibbonStripContainer();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#getMinZoom()
-	 */
-	public double getMinZoom() {
-		return mZoomPanel.getMinZoom();
-	}
+    box.add(mZoomSlider);
+    box.add(createHGap());
+    box.add(mZoomPanel);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#setMinZoom(double)
-	 */
-	public void setMinZoom(double zoom) {
-		mZoomPanel.setMinZoom(zoom);
-	}
+    add(box);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#getMaxZoom()
-	 */
-	public double getMaxZoom() {
-		return mZoomPanel.getMaxZoom();
-	}
+    mZoomButton.setToolTip("Zoom", "Set the zoom level.", mRibbon);
+    mZoomButton.addClickListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#setMaxZoom(double)
-	 */
-	public void setMaxZoom(double zoom) {
-		mZoomPanel.setMaxZoom(zoom);
-	}
+  /**
+   * Enabled or disable all the controls on the panel.
+   *
+   * @param enabled
+   *          the enabled
+   */
+  public final void enableControls(boolean enabled) {
+    mZoomButton.setEnabled(enabled);
+    mZoomPanel.enableControls(enabled);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void clicked(ModernClickEvent e) {
-		if (e.getSource().equals(mZoomButton)) {
-			ZoomDialog dialog = new ZoomDialog(mParent, mModel);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#getZoom()
+   */
+  public double getZoom() {
+    return mZoomPanel.getZoom();
+  }
 
-			UI.centerWindowToScreen(dialog);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#setZoom(double)
+   */
+  public void setZoom(double zoom) {
+    mZoomPanel.setZoom(zoom);
+  }
 
-			dialog.setVisible(true);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#getMinZoom()
+   */
+  public double getMinZoom() {
+    return mZoomPanel.getMinZoom();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#setMinZoom(double)
+   */
+  public void setMinZoom(double zoom) {
+    mZoomPanel.setMinZoom(zoom);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#getMaxZoom()
+   */
+  public double getMaxZoom() {
+    return mZoomPanel.getMaxZoom();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#setMaxZoom(double)
+   */
+  public void setMaxZoom(double zoom) {
+    mZoomPanel.setMaxZoom(zoom);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public void clicked(ModernClickEvent e) {
+    if (e.getSource().equals(mZoomButton)) {
+      ZoomDialog dialog = new ZoomDialog(mParent, mModel);
+
+      UI.centerWindowToScreen(dialog);
+
+      dialog.setVisible(true);
+    }
+  }
 }

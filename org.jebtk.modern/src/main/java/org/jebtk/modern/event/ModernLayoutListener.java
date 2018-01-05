@@ -31,25 +31,23 @@ import java.util.EventListener;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving modernLayout events.
- * The class that is interested in processing a modernLayout
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addModernLayoutListener<code> method. When
- * the modernLayout event occurs, that object's appropriate
- * method is invoked.
+ * The listener interface for receiving modernLayout events. The class that is
+ * interested in processing a modernLayout event implements this interface, and
+ * the object created with that class is registered with a component using the
+ * component's <code>addModernLayoutListener<code> method. When the modernLayout
+ * event occurs, that object's appropriate method is invoked.
  *
  * @see ModernLayoutEvent
  */
 public interface ModernLayoutListener extends EventListener {
 
-	/**
-	 * Layout changed.
-	 *
-	 * @param e the e
-	 */
-	public void layoutChanged(ChangeEvent e);
+  /**
+   * Layout changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void layoutChanged(ChangeEvent e);
 }

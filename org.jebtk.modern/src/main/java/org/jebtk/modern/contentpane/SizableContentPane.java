@@ -39,69 +39,73 @@ import org.jebtk.modern.tabs.Tab;
  *
  */
 public class SizableContentPane extends Tab {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member min width.
-	 */
-	private int mMinWidth;
 
-	/**
-	 * The member max width.
-	 */
-	private int mMaxWidth;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new sizable content pane.
-	 *
-	 * @param name the name
-	 * @param c the c
-	 * @param width the width
-	 * @param minWidth the min width
-	 * @param maxWidth the max width
-	 */
-	public SizableContentPane(String name,
-			JComponent c,
-			int width,
-			int minWidth,
-			int maxWidth) {
-		super(name, c);
-		
-		mMinWidth = minWidth;
-		mMaxWidth = maxWidth;
-		
-		setWidth(width);
-	}
-	
-	/**
-	 * Instantiates a new sizable content pane.
-	 *
-	 * @param name the name
-	 * @param width the width
-	 * @param minWidth the min width
-	 * @param maxWidth the max width
-	 */
-	public SizableContentPane(String name,
-			int width,
-			int minWidth,
-			int maxWidth) {
-		super(name);
-		
-		mMinWidth = minWidth;
-		mMaxWidth = maxWidth;
-		
-		setWidth(width);
-	}
+  /**
+   * The member min width.
+   */
+  private int mMinWidth;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.Tab#adjustWidth(int)
-	 */
-	@Override
-	public void adjustWidth(int width) {
-		super.adjustWidth(Math.min(mMaxWidth, Math.max(mMinWidth, width)));
-	}
+  /**
+   * The member max width.
+   */
+  private int mMaxWidth;
+
+  /**
+   * Instantiates a new sizable content pane.
+   *
+   * @param name
+   *          the name
+   * @param c
+   *          the c
+   * @param width
+   *          the width
+   * @param minWidth
+   *          the min width
+   * @param maxWidth
+   *          the max width
+   */
+  public SizableContentPane(String name, JComponent c, int width, int minWidth, int maxWidth) {
+    super(name, c);
+
+    mMinWidth = minWidth;
+    mMaxWidth = maxWidth;
+
+    setWidth(width);
+  }
+
+  /**
+   * Instantiates a new sizable content pane.
+   *
+   * @param name
+   *          the name
+   * @param width
+   *          the width
+   * @param minWidth
+   *          the min width
+   * @param maxWidth
+   *          the max width
+   */
+  public SizableContentPane(String name, int width, int minWidth, int maxWidth) {
+    super(name);
+
+    mMinWidth = minWidth;
+    mMaxWidth = maxWidth;
+
+    setWidth(width);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.tabs.Tab#adjustWidth(int)
+   */
+  @Override
+  public void adjustWidth(int width) {
+    super.adjustWidth(Math.min(mMaxWidth, Math.max(mMinWidth, width)));
+  }
 }

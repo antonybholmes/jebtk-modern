@@ -34,19 +34,21 @@ import org.jebtk.core.event.Event;
  * The class StatusEvent.
  */
 public class StatusEvent extends Event {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new status event.
-	 *
-	 * @param source the source
-	 * @param message the message
-	 */
-	public StatusEvent(Object source, String message) {
-		super(source, message);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new status event.
+   *
+   * @param source
+   *          the source
+   * @param message
+   *          the message
+   */
+  public StatusEvent(Object source, String message) {
+    super(source, message);
+  }
 }

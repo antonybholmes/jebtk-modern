@@ -38,254 +38,263 @@ import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.event.ModernSelectionListeners;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Generic model for storing items and notifying
- * of changes.
+ * Generic model for storing items and notifying of changes.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class SelectionModel<T> extends ModernSelectionListeners implements Iterable<T> {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The items.
-	 */
-	private List<T> items = new ArrayList<T>();
 
-	/**
-	 * The fire.
-	 */
-	private boolean fire = true;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Sets the.
-	 *
-	 * @param item the item
-	 */
-	public final void set(T item) {
-		clearNoUpdate();
-		
-		add(item);
-	}
-	
-	/**
-	 * Sets the.
-	 *
-	 * @param items the items
-	 */
-	public void set(Set<T> items) {
-		clearNoUpdate();
-		
-		add(items);
-	}
-	
-	/**
-	 * Sets the.
-	 *
-	 * @param items the items
-	 */
-	public void set(SelectionModel<T> items) {
-		clearNoUpdate();
-		
-		add(items);
-	}
-	
-	/**
-	 * Clear the current selection and set a new
-	 * list of items.
-	 *
-	 * @param items the items
-	 */
-	public final void set(List<T> items) {
-		clearNoUpdate();
-		
-		add(items);
-	}
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param item the item
-	 */
-	public final void add(T item) {
-		add(CollectionUtils.asList(item));
-	}
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param items the items
-	 */
-	public void add(Set<T> items) {
-		if (CollectionUtils.isNullOrEmpty(items)) {
-			return;
-		}
-		
-		for (T item : items) {
-			this.items.add(item);
-		}
-		
-		update();
-	}
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param items the items
-	 */
-	public void add(SelectionModel<T> items) {
-		if (items == null) {
-			return;
-		}
-		
-		for (T item : items) {
-			this.items.add(item);
-		}
-		
-		update();
-	}
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param items the items
-	 */
-	public void add(List<T> items) {
-		if (items == null) {
-			return;
-		}
-		
-		for (T item : items) {
-			this.items.add(item);
-		}
-		
-		update();
-	}
-	
-	/**
-	 * Returns a list copy of the items in the
-	 * selection.
-	 *
-	 * @return the items
-	 */
-	public List<T> getItems() {
-		List<T> ret = new ArrayList<T>();
-		
-		for (T item : items) {
-			ret.add(item);
-		}
-		
-		return ret;
-	}
-	
-	/**
-	 * Remove a selected node.
-	 *
-	 * @param index the index
-	 */
-	public void remove(int index) {
-		items.remove(index);
-	}
-	
-	/**
-	 * Removes the.
-	 *
-	 * @param item the item
-	 */
-	public void remove(T item) {
-		items.remove(item);
-	}
+  /**
+   * The items.
+   */
+  private List<T> items = new ArrayList<T>();
 
-	/**
-	 * Clear.
-	 */
-	public final void clear() {
-		clearNoUpdate();
+  /**
+   * The fire.
+   */
+  private boolean fire = true;
 
-		update();
-	}
-	
-	/**
-	 * Clear no update.
-	 */
-	public final void clearNoUpdate() {
-		items.clear();
-	}
-	
-	/**
-	 * Update.
-	 */
-	private final void update() {
-		if (fire) {
-			fireSelectionChanged(new ChangeEvent(this));
-		}
-	}
-	
-	/**
-	 * Returns the first selected item or null if nothing
-	 * is selected.
-	 *
-	 * @return the selected
-	 */
-	public T getSelected() {
-		return get(0);
-	}
-	
-	/**
-	 * Gets the.
-	 *
-	 * @param index the index
-	 * @return the t
-	 */
-	public T get(int index) {
-		if (items.size() == 0 || index < 0 || index >= items.size()) {
-			return null;
-		}
-		
-		return items.get(index);
-	}
-	
-	/**
-	 * Size.
-	 *
-	 * @return the int
-	 */
-	public int size() {
-		return items.size();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	@Override
-	public Iterator<T> iterator() {
-		return items.iterator();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return TextUtils.join(items, TextUtils.COMMA_DELIMITER);
-	}
+  /**
+   * Sets the.
+   *
+   * @param item
+   *          the item
+   */
+  public final void set(T item) {
+    clearNoUpdate();
 
+    add(item);
+  }
 
+  /**
+   * Sets the.
+   *
+   * @param items
+   *          the items
+   */
+  public void set(Set<T> items) {
+    clearNoUpdate();
 
-	/**
-	 * Sets whether the selection model reports changes
-	 * or not.
-	 *
-	 * @param fire the new fire update
-	 */
-	public void setFireUpdate(boolean fire) {
-		this.fire = fire;
-	}
+    add(items);
+  }
+
+  /**
+   * Sets the.
+   *
+   * @param items
+   *          the items
+   */
+  public void set(SelectionModel<T> items) {
+    clearNoUpdate();
+
+    add(items);
+  }
+
+  /**
+   * Clear the current selection and set a new list of items.
+   *
+   * @param items
+   *          the items
+   */
+  public final void set(List<T> items) {
+    clearNoUpdate();
+
+    add(items);
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param item
+   *          the item
+   */
+  public final void add(T item) {
+    add(CollectionUtils.asList(item));
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param items
+   *          the items
+   */
+  public void add(Set<T> items) {
+    if (CollectionUtils.isNullOrEmpty(items)) {
+      return;
+    }
+
+    for (T item : items) {
+      this.items.add(item);
+    }
+
+    update();
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param items
+   *          the items
+   */
+  public void add(SelectionModel<T> items) {
+    if (items == null) {
+      return;
+    }
+
+    for (T item : items) {
+      this.items.add(item);
+    }
+
+    update();
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param items
+   *          the items
+   */
+  public void add(List<T> items) {
+    if (items == null) {
+      return;
+    }
+
+    for (T item : items) {
+      this.items.add(item);
+    }
+
+    update();
+  }
+
+  /**
+   * Returns a list copy of the items in the selection.
+   *
+   * @return the items
+   */
+  public List<T> getItems() {
+    List<T> ret = new ArrayList<T>();
+
+    for (T item : items) {
+      ret.add(item);
+    }
+
+    return ret;
+  }
+
+  /**
+   * Remove a selected node.
+   *
+   * @param index
+   *          the index
+   */
+  public void remove(int index) {
+    items.remove(index);
+  }
+
+  /**
+   * Removes the.
+   *
+   * @param item
+   *          the item
+   */
+  public void remove(T item) {
+    items.remove(item);
+  }
+
+  /**
+   * Clear.
+   */
+  public final void clear() {
+    clearNoUpdate();
+
+    update();
+  }
+
+  /**
+   * Clear no update.
+   */
+  public final void clearNoUpdate() {
+    items.clear();
+  }
+
+  /**
+   * Update.
+   */
+  private final void update() {
+    if (fire) {
+      fireSelectionChanged(new ChangeEvent(this));
+    }
+  }
+
+  /**
+   * Returns the first selected item or null if nothing is selected.
+   *
+   * @return the selected
+   */
+  public T getSelected() {
+    return get(0);
+  }
+
+  /**
+   * Gets the.
+   *
+   * @param index
+   *          the index
+   * @return the t
+   */
+  public T get(int index) {
+    if (items.size() == 0 || index < 0 || index >= items.size()) {
+      return null;
+    }
+
+    return items.get(index);
+  }
+
+  /**
+   * Size.
+   *
+   * @return the int
+   */
+  public int size() {
+    return items.size();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  @Override
+  public Iterator<T> iterator() {
+    return items.iterator();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString() {
+    return TextUtils.join(items, TextUtils.COMMA_DELIMITER);
+  }
+
+  /**
+   * Sets whether the selection model reports changes or not.
+   *
+   * @param fire
+   *          the new fire update
+   */
+  public void setFireUpdate(boolean fire) {
+    this.fire = fire;
+  }
 }

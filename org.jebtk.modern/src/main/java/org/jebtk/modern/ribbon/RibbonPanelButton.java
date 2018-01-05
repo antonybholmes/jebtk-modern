@@ -36,82 +36,85 @@ import org.jebtk.modern.dialog.ModernDialogFlatButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonPanelButton.
  */
 public class RibbonPanelButton extends ModernDialogFlatButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant FONT.
-	 */
-	protected static final Font FONT = 
-			ThemeService.loadFont("theme.ribbon-panel-button.text-font");
 
-	/** The Constant SIZE. */
-	public static final int SIZE = 90;
-	
-	/**
-	 * Instantiates a new ribbon panel button.
-	 *
-	 * @param text the text
-	 */
-	public RibbonPanelButton(String text) {
-		super(text);
-		
-		setup();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon panel button.
-	 *
-	 * @param icon the icon
-	 */
-	public RibbonPanelButton(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new ribbon panel button.
-	 *
-	 * @param text the text
-	 * @param icon the icon
-	 */
-	public RibbonPanelButton(String text, ModernIcon icon) {
-		super(text, icon);
-		
-		setup();
-	}
+  /**
+   * The constant FONT.
+   */
+  protected static final Font FONT = ThemeService.loadFont("theme.ribbon-panel-button.text-font");
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		UI.setSize(this, SIZE, SIZE);
-	}
+  /** The Constant SIZE. */
+  public static final int SIZE = 90;
 
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = (mRect.getW() - getIcon().getWidth()) / 2;
-		int y = UIService.ICON_SIZE_16;
-		
-		mIcon.drawIcon(g2, x, y, 16);
-		
-		g2.setColor(TEXT_COLOR);
-		g2.setFont(FONT);
-		g2.drawString(getText(), (mRect.getW() - g2.getFontMetrics().stringWidth(getText())) / 2, mRect.getH() - 16);
-	}
+  /**
+   * Instantiates a new ribbon panel button.
+   *
+   * @param text
+   *          the text
+   */
+  public RibbonPanelButton(String text) {
+    super(text);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new ribbon panel button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public RibbonPanelButton(ModernIcon icon) {
+    super(icon);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new ribbon panel button.
+   *
+   * @param text
+   *          the text
+   * @param icon
+   *          the icon
+   */
+  public RibbonPanelButton(String text, ModernIcon icon) {
+    super(text, icon);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    UI.setSize(this, SIZE, SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = (mRect.getW() - getIcon().getWidth()) / 2;
+    int y = UIService.ICON_SIZE_16;
+
+    mIcon.drawIcon(g2, x, y, 16);
+
+    g2.setColor(TEXT_COLOR);
+    g2.setFont(FONT);
+    g2.drawString(getText(), (mRect.getW() - g2.getFontMetrics().stringWidth(getText())) / 2, mRect.getH() - 16);
+  }
 }

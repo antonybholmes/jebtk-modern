@@ -40,64 +40,72 @@ import org.jebtk.modern.UI;
  */
 public abstract class StatusTask extends SwingWorker<Void, String> {
 
-	/**
-	 * The member status model.
-	 */
-	protected StatusModel mStatusModel;
+  /**
+   * The member status model.
+   */
+  protected StatusModel mStatusModel;
 
-	/**
-	 * The class Message.
-	 */
-	private class Message implements Runnable {
+  /**
+   * The class Message.
+   */
+  private class Message implements Runnable {
 
-		/**
-		 * The member status.
-		 */
-		private String mStatus;
+    /**
+     * The member status.
+     */
+    private String mStatus;
 
-		/**
-		 * Instantiates a new message.
-		 *
-		 * @param status the status
-		 */
-		public Message(String status) {
-			mStatus = status;
-		}
-
-		/* (non-Javadoc)
-		 * @see java.lang.Runnable#run()
-		 */
-		@Override
-		public void run() {
-			mStatusModel.setStatus(mStatus);
-		}
-		
-	}
-	
-	/**
-	 * Instantiates a new status task.
-	 *
-	 * @param statusModel the status model
-	 */
-	public StatusTask(StatusModel statusModel) {
-		mStatusModel = statusModel;
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.SwingWorker#done()
-	 */
-	@Override
-	public void done() {
-		publish(UI.STATUS_READY);
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.SwingWorker#process(java.util.List)
-	 */
-	@Override
-    protected void process(List<String> chunks) {
-        for (String status : chunks) {
-            SwingUtilities.invokeLater(new Message(status));
-        }
+    /**
+     * Instantiates a new message.
+     *
+     * @param status
+     *          the status
+     */
+    public Message(String status) {
+      mStatus = status;
     }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Runnable#run()
+     */
+    @Override
+    public void run() {
+      mStatusModel.setStatus(mStatus);
+    }
+
+  }
+
+  /**
+   * Instantiates a new status task.
+   *
+   * @param statusModel
+   *          the status model
+   */
+  public StatusTask(StatusModel statusModel) {
+    mStatusModel = statusModel;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.SwingWorker#done()
+   */
+  @Override
+  public void done() {
+    publish(UI.STATUS_READY);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.SwingWorker#process(java.util.List)
+   */
+  @Override
+  protected void process(List<String> chunks) {
+    for (String status : chunks) {
+      SwingUtilities.invokeLater(new Message(status));
+    }
+  }
 }

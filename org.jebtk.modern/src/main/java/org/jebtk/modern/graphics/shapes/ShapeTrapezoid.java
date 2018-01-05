@@ -36,32 +36,35 @@ import java.awt.Polygon;
  * @author Antony Holmes Holmes
  */
 public class ShapeTrapezoid extends Polygon {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The offset. */
-	public static double OFFSET = 0.3;
 
-	/**
-	 * Instantiates a new shape diamond.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param size the size
-	 */
-	public ShapeTrapezoid(int x, int y, int size) {
-		int l = (int)(size * OFFSET);
-		
-		y += l / 2;
-		
-		int s = size - l - 1;
-		
-		addPoint(x + l, y);
-		addPoint(x + size - l - 1, y);
-		addPoint(x + size - 1, y + s);
-		addPoint(x, y + s);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /** The offset. */
+  public static double OFFSET = 0.3;
+
+  /**
+   * Instantiates a new shape diamond.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param size
+   *          the size
+   */
+  public ShapeTrapezoid(int x, int y, int size) {
+    int l = (int) (size * OFFSET);
+
+    y += l / 2;
+
+    int s = size - l - 1;
+
+    addPoint(x + l, y);
+    addPoint(x + size - l - 1, y);
+    addPoint(x + size - 1, y + s);
+    addPoint(x, y + s);
+  }
 }

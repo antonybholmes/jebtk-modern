@@ -32,23 +32,25 @@ package org.jebtk.modern.io;
  * The class CsvGuiFileFilter.
  */
 public class CsvGuiFileFilter extends GuiFileExtFilter {
-	
-	/** The Constant INSTANCE. */
-	public static final GuiFileExtFilter INSTANCE = new CsvGuiFileFilter();
 
-	/**
-	 * Instantiates a new csv gui file filter.
-	 */
-	public CsvGuiFileFilter() {
-		super("csv");
-	}
+  /** The Constant INSTANCE. */
+  public static final GuiFileExtFilter INSTANCE = new CsvGuiFileFilter();
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return "CSV (Comma delimited) (*.csv)";
-	}
+  /**
+   * Instantiates a new csv gui file filter.
+   */
+  public CsvGuiFileFilter() {
+    super("csv");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return "CSV (Comma delimited) (*.csv)";
+  }
 
 }

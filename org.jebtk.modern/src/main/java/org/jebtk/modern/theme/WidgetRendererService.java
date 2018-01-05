@@ -30,32 +30,30 @@ package org.jebtk.modern.theme;
 // TODO: Auto-generated Javadoc
 /**
  * Provides the shared renderer to components. This is the default way to
- * control component look and feel and to ensure they share renderers as
- * much as possible.
+ * control component look and feel and to ensure they share renderers as much as
+ * possible.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class WidgetRendererService extends WidgetRendererProvider {
 
-	/**
-	 * The Class WidgetRendererServiceLoader.
-	 */
-	private static class WidgetRendererServiceLoader {
-		
-		/** The Constant INSTANCE. */
-		private static final WidgetRendererService INSTANCE = 
-				new WidgetRendererService();
-	}
+  /**
+   * The Class WidgetRendererServiceLoader.
+   */
+  private static class WidgetRendererServiceLoader {
 
-	/**
-	 * Gets the single instance of SettingsService.
-	 *
-	 * @return single instance of SettingsService
-	 */
-	public static WidgetRendererService getInstance() {
-		return WidgetRendererServiceLoader.INSTANCE;
-	}
+    /** The Constant INSTANCE. */
+    private static final WidgetRendererService INSTANCE = new WidgetRendererService();
+  }
 
-	
+  /**
+   * Gets the single instance of SettingsService.
+   *
+   * @return single instance of SettingsService
+   */
+  public static WidgetRendererService getInstance() {
+    return WidgetRendererServiceLoader.INSTANCE;
+  }
+
 }

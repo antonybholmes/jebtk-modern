@@ -31,9 +31,6 @@ import java.awt.Component;
 
 import org.jebtk.modern.ModernComponent;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Allows panel to switch between components.
@@ -42,30 +39,33 @@ import org.jebtk.modern.ModernComponent;
  *
  */
 public class ViewPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component component) {
-		changeView(component);
-		
-		return component;
-	}
-	
-	/**
-	 * Change view.
-	 *
-	 * @param component the component
-	 */
-	public void changeView(Component component) {
-		//removeAll();
-		
-		if (component != null) {
-			setBody(component);
-		}
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component component) {
+    changeView(component);
+
+    return component;
+  }
+
+  /**
+   * Change view.
+   *
+   * @param component
+   *          the component
+   */
+  public void changeView(Component component) {
+    // removeAll();
+
+    if (component != null) {
+      setBody(component);
+    }
+  }
 }

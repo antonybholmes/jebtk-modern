@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Left arrow vector icon.
@@ -41,45 +40,50 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public abstract class CheveronVectorIcon extends ModernVectorIcon {
-	/**
-	 * The member color.
-	 */
-	protected Color mColor;
+  /**
+   * The member color.
+   */
+  protected Color mColor;
 
-	protected int mC;
+  protected int mC;
 
-	protected int mH;
+  protected int mH;
 
-	protected int mHalf;
+  protected int mHalf;
 
-	protected int mW;
-	
-	/**
-	 * Instantiates a new cheveron vector icon.
-	 */
-	public CheveronVectorIcon() {
-		this(ModernWidget.TEXT_COLOR);
-	}
-	
-	/**
-	 * Instantiates a new cheveron vector icon.
-	 *
-	 * @param color the color
-	 */
-	public CheveronVectorIcon(Color color) {
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		g2.setColor(mColor);
-		
-		mW = (w - 4);
-		mC = mW / 2;
-		mH = mC;
-		mHalf = mH / 2;
-	}
+  protected int mW;
+
+  /**
+   * Instantiates a new cheveron vector icon.
+   */
+  public CheveronVectorIcon() {
+    this(ModernWidget.TEXT_COLOR);
+  }
+
+  /**
+   * Instantiates a new cheveron vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public CheveronVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    g2.setColor(mColor);
+
+    mW = (w - 4);
+    mC = mW / 2;
+    mH = mC;
+    mHalf = mH / 2;
+  }
 }

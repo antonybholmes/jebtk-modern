@@ -38,8 +38,6 @@ import org.jebtk.modern.graphics.icons.RadioButtonVectorIcon;
 import org.jebtk.modern.widget.ModernTwoStateWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Radio version of a check box.
@@ -48,160 +46,163 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class ModernRadioButton extends ModernTwoStateWidget {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /** The Constant ICON_1. */
+  public static final ModernIcon ICON_1 = UIService.getInstance().loadIcon(RadioButtonVectorIcon.class, 16);
 
-	/** The Constant ICON_1. */
-	public static final ModernIcon ICON_1 = 
-			UIService.getInstance().loadIcon(RadioButtonVectorIcon.class, 16);
-	
-	/** The Constant ICON_2. */
-	public static final ModernIcon ICON_2 = 
-			UIService.getInstance().loadIcon(RadioButtonSelectedVectorIcon.class, 16);
+  /** The Constant ICON_2. */
+  public static final ModernIcon ICON_2 = UIService.getInstance().loadIcon(RadioButtonSelectedVectorIcon.class, 16);
 
+  /**
+   * The member text1.
+   */
+  protected String mText1;
 
-	/**
-	 * The member text1.
-	 */
-	protected String mText1;
+  /**
+   * Instantiates a new modern radio button.
+   */
+  public ModernRadioButton() {
+    setup();
+  }
 
-	/**
-	 * Instantiates a new modern radio button.
-	 */
-	public ModernRadioButton() {
-		setup();
-	}
+  /**
+   * Instantiates a new modern radio button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernRadioButton(String text1) {
+    this(text1, false);
+  }
 
-	/**
-	 * Instantiates a new modern radio button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernRadioButton(String text1) {
-		this(text1, false);
-	}
+  /**
+   * Instantiates a new modern radio button.
+   *
+   * @param text1
+   *          the text1
+   * @param selected
+   *          the selected
+   */
+  public ModernRadioButton(String text1, boolean selected) {
+    this(text1, selected, ModernButton.getIconButtonSize(text1));
+  }
 
-	/**
-	 * Instantiates a new modern radio button.
-	 *
-	 * @param text1 the text1
-	 * @param selected the selected
-	 */
-	public ModernRadioButton(String text1, boolean selected) {
-		this(text1, selected, ModernButton.getIconButtonSize(text1));
-	}
+  /**
+   * Instantiates a new modern radio button.
+   *
+   * @param text1
+   *          the text 1
+   * @param width
+   *          the width
+   */
+  public ModernRadioButton(String text1, int width) {
+    this(text1, new Dimension(width, ModernWidget.WIDGET_HEIGHT));
+  }
 
-	/**
-	 * Instantiates a new modern radio button.
-	 *
-	 * @param text1 the text 1
-	 * @param width the width
-	 */
-	public ModernRadioButton(String text1, int width) {
-		this(text1, new Dimension(width, ModernWidget.WIDGET_HEIGHT));
-	}
+  /**
+   * Instantiates a new modern radio button.
+   *
+   * @param text1
+   *          the text1
+   * @param size
+   *          the size
+   */
+  public ModernRadioButton(String text1, Dimension size) {
+    this(text1, false, size);
+  }
 
-	/**
-	 * Instantiates a new modern radio button.
-	 *
-	 * @param text1 the text1
-	 * @param size the size
-	 */
-	public ModernRadioButton(String text1, Dimension size) {
-		this(text1, false, size);
-	}
+  /**
+   * Instantiates a new modern radio button.
+   *
+   * @param text1
+   *          the text1
+   * @param selected
+   *          the selected
+   * @param size
+   *          the size
+   */
+  public ModernRadioButton(String text1, boolean selected, Dimension size) {
+    setText(text1);
 
-	/**
-	 * Instantiates a new modern radio button.
-	 *
-	 * @param text1 the text1
-	 * @param selected the selected
-	 * @param size the size
-	 */
-	public ModernRadioButton(String text1, 
-			boolean selected, 
-			Dimension size) {
-		setText(text1);
+    setSelected(selected);
 
-		setSelected(selected);
+    UI.setSize(this, size);
 
-		UI.setSize(this, size);
-		
-		setup();
-	}
-	
-	private void setup() {
-		setBackgroundAnimations("radio-button");
-	}
+    setup();
+  }
 
-	/**
-	 * Gets the text.
-	 *
-	 * @return the text
-	 */
-	public String getText() {
-		return mText1;
-	}
+  private void setup() {
+    setBackgroundAnimations("radio-button");
+  }
 
-	/**
-	 * Sets the text.
-	 *
-	 * @param text the new text
-	 */
-	public void setText(String text) {
-		mText1 = text;
+  /**
+   * Gets the text.
+   *
+   * @return the text
+   */
+  public String getText() {
+    return mText1;
+  }
 
-		setClickMessage(text);
-	}
+  /**
+   * Sets the text.
+   *
+   * @param text
+   *          the new text
+   */
+  public void setText(String text) {
+    mText1 = text;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		// Do nothing
+    setClickMessage(text);
+  }
 
-		int x = mInternalRect.getX() + 1;
-		int y = (getHeight() - 16) / 2;
-		
-		if (isSelected()) {			
-			ICON_2.drawIcon(g2, x, y, 16);
-		} else {
-			ICON_1.drawIcon(g2, x, y, 16);
-		}
-	}
-	*/
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
+   */
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { // Do nothing
+   * 
+   * int x = mInternalRect.getX() + 1; int y = (getHeight() - 16) / 2;
+   * 
+   * if (isSelected()) { ICON_2.drawIcon(g2, x, y, 16); } else {
+   * ICON_1.drawIcon(g2, x, y, 16); } }
+   */
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAA(Graphics2D g2) {
-		int iconX = mInternalRect.getX();
-		int iconY = (getHeight() - RadioAnimation.RADIO_SIZE) / 2;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAA(Graphics2D g2) {
+    int iconX = mInternalRect.getX();
+    int iconY = (getHeight() - RadioAnimation.RADIO_SIZE) / 2;
 
-		g2.setColor(TEXT_COLOR);
+    g2.setColor(TEXT_COLOR);
 
-		if (mText1 != null) {
-			int x = iconX + RadioAnimation.RADIO_SIZE + PADDING;
+    if (mText1 != null) {
+      int x = iconX + RadioAnimation.RADIO_SIZE + PADDING;
 
-			g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
-		}
+      g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
+    }
 
+  }
 
-	}
-
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernTwoStateWidget#toggleSelected()
-	 */
-	@Override
-	protected final void toggleSelected() {
-		// The radio button can only toggle to the
-		// on state
-		toggleSelected(true);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernTwoStateWidget#toggleSelected()
+   */
+  @Override
+  protected final void toggleSelected() {
+    // The radio button can only toggle to the
+    // on state
+    toggleSelected(true);
+  }
 }

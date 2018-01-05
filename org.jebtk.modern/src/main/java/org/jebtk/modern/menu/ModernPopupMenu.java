@@ -37,10 +37,6 @@ import org.jebtk.modern.panel.VBoxAutoSizeLayout;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Specialised popup for displaying menus.
@@ -48,172 +44,170 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  */
 public class ModernPopupMenu extends ModernPopup {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member items.
-	 */
-	protected List<ModernClickWidget> mItems = 
-			new ArrayList<ModernClickWidget>();
-	
-	
-	
-	/**
-	 * The member cons.
-	 */
-	//public static GridBagConstraints CONS = new GridBagConstraints();
-	
-	//static {
-	//	CONS.fill = GridBagConstraints.HORIZONTAL;
-	//	CONS.weightx = 1;
-	//	CONS.gridx = 0;
-	//}
-	
-	/**
-	 * Instantiates a new modern popup menu.
-	 */
-	public ModernPopupMenu() {
-		//setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		
-		setLayout(new VBoxAutoSizeLayout());
+  /**
+   * The member items.
+   */
+  protected List<ModernClickWidget> mItems = new ArrayList<ModernClickWidget>();
 
-		// Have a one pixel internal border
-		setBorder(ModernWidget.LINE_BORDER);
-		
-		//setBorder(BorderFactory.createCompoundBorder(ModernWidget.DARK_LINE_BORDER, 
-		//		BorderService.getInstance().createBorder(1)));
-	}
-	
-	/**
-	 * Instantiates a new modern popup menu.
-	 *
-	 * @param menuItems the menu items
-	 */
-	public ModernPopupMenu(ModernClickWidget...menuItems) {
-		this();
-		
-		add(menuItems);
-	}
+  /**
+   * The member cons.
+   */
+  // public static GridBagConstraints CONS = new GridBagConstraints();
 
-	/**
-	 * Gets the item count.
-	 *
-	 * @return the item count
-	 */
-	public int getItemCount() {
-		return mItems.size();
-	}
+  // static {
+  // CONS.fill = GridBagConstraints.HORIZONTAL;
+  // CONS.weightx = 1;
+  // CONS.gridx = 0;
+  // }
 
-	/**
-	 * Adds the menu item.
-	 *
-	 * @param menuItem the menu item
-	 */
-	public void addMenuItem(ModernClickWidget menuItem) {
-		add(menuItem);
-	}
-	
-	@Override
-	public void add(Component c, Object constraints) {
-		if (c instanceof ModernClickWidget) {
-			add((ModernClickWidget)c);
-		} else {
-			add(c);
-		}
-	}
-	
-	@Override
-	public Component add(Component c) {
-		if (c instanceof ModernClickWidget) {
-			return add((ModernClickWidget)c);
-		} else {
-			return super.add(c);
-		}
-	}
+  /**
+   * Instantiates a new modern popup menu.
+   */
+  public ModernPopupMenu() {
+    // setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
-	/**
-	 * Adds the.
-	 *
-	 * @param menuItem the menu item
-	 * @return 
-	 */
-	public Component add(ModernClickWidget c) {
-		mItems.add(c);
+    setLayout(new VBoxAutoSizeLayout());
 
-		c.addClickListener(this);
+    // Have a one pixel internal border
+    setBorder(ModernWidget.LINE_BORDER);
 
-		super.add(c);
-		
-		return c;
-	}
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param menuItems the menu items
-	 */
-	public void add(ModernClickWidget... menuItems) {
-		for (ModernClickWidget menuItem : menuItems) {
-			add(menuItem);
-		}
-	}
-	
-	//@Override
-	//public Component add(Component c) {
-	//	super.add(c);
-	//	
-	//	return c;
-	//}
-	
+    // setBorder(BorderFactory.createCompoundBorder(ModernWidget.DARK_LINE_BORDER,
+    // BorderService.getInstance().createBorder(1)));
+  }
 
-	
-	
-	/**
-	 * Adds the glue.
-	 */
-	public void addGlue() {
-		add(Box.createVerticalGlue());
-	}
-	
-	@Override
-	public void addSeparator() {
-		addMenuItem(new ModernMenuSeparator());
-	}
+  /**
+   * Instantiates a new modern popup menu.
+   *
+   * @param menuItems
+   *          the menu items
+   */
+  public ModernPopupMenu(ModernClickWidget... menuItems) {
+    this();
 
-	/*
-	public void addPopupMenuListener(PopupMenuListener l) {
-		popupListeners.add(l);
-	}
-*/
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernPopup#clear()
-	 */
-	public void clear() {
-		//super.removeAll();
-		mItems.clear();
-		
-		super.clear();
-	}
+    add(menuItems);
+  }
 
-	/*
-	public final PopupMenuListeners getPopupMenuListeners() {
-		return popupListeners;
-	}
-*/
-	
-	/**
-	 * Gets the.
-	 *
-	 * @param index the index
-	 * @return the modern click widget
-	 */
-	public ModernClickWidget get(int index) {
-		return mItems.get(index);
-	}
+  /**
+   * Gets the item count.
+   *
+   * @return the item count
+   */
+  public int getItemCount() {
+    return mItems.size();
+  }
+
+  /**
+   * Adds the menu item.
+   *
+   * @param menuItem
+   *          the menu item
+   */
+  public void addMenuItem(ModernClickWidget menuItem) {
+    add(menuItem);
+  }
+
+  @Override
+  public void add(Component c, Object constraints) {
+    if (c instanceof ModernClickWidget) {
+      add((ModernClickWidget) c);
+    } else {
+      add(c);
+    }
+  }
+
+  @Override
+  public Component add(Component c) {
+    if (c instanceof ModernClickWidget) {
+      return add((ModernClickWidget) c);
+    } else {
+      return super.add(c);
+    }
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param menuItem
+   *          the menu item
+   * @return
+   */
+  public Component add(ModernClickWidget c) {
+    mItems.add(c);
+
+    c.addClickListener(this);
+
+    super.add(c);
+
+    return c;
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param menuItems
+   *          the menu items
+   */
+  public void add(ModernClickWidget... menuItems) {
+    for (ModernClickWidget menuItem : menuItems) {
+      add(menuItem);
+    }
+  }
+
+  // @Override
+  // public Component add(Component c) {
+  // super.add(c);
+  //
+  // return c;
+  // }
+
+  /**
+   * Adds the glue.
+   */
+  public void addGlue() {
+    add(Box.createVerticalGlue());
+  }
+
+  @Override
+  public void addSeparator() {
+    addMenuItem(new ModernMenuSeparator());
+  }
+
+  /*
+   * public void addPopupMenuListener(PopupMenuListener l) {
+   * popupListeners.add(l); }
+   */
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.menu.ModernPopup#clear()
+   */
+  public void clear() {
+    // super.removeAll();
+    mItems.clear();
+
+    super.clear();
+  }
+
+  /*
+   * public final PopupMenuListeners getPopupMenuListeners() { return
+   * popupListeners; }
+   */
+
+  /**
+   * Gets the.
+   *
+   * @param index
+   *          the index
+   * @return the modern click widget
+   */
+  public ModernClickWidget get(int index) {
+    return mItems.get(index);
+  }
 }

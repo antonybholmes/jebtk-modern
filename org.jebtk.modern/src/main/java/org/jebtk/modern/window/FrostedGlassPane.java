@@ -38,57 +38,61 @@ import javax.swing.BoxLayout;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.panel.ModernPanel;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Used as a glass pane to present messages to the user in the 
- * current window rather than a popup dialog.
+ * Used as a glass pane to present messages to the user in the current window
+ * rather than a popup dialog.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class FrostedGlassPane extends ModernPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant GLASS_COLOR.
-	 */
-	public static final Color GLASS_COLOR = 
-			ColorUtils.getTransparentColor80(Color.BLACK);
-	
-	/**
-	 * Instantiates a new frosted glass pane.
-	 */
-	public FrostedGlassPane() {
-		super(GLASS_COLOR);
-		
-		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		
-		// capture all mouse events
-		addMouseListener(new MouseAdapter() {});
-		addMouseMotionListener(new MouseAdapter() {});
-		addMouseWheelListener(new MouseAdapter() {});
-		addKeyListener(new KeyAdapter() {});
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component c) {
-		removeAll();
-		
-		super.add(Box.createVerticalGlue());
-		super.add(c);
-		super.add(Box.createVerticalGlue());
-		
-		revalidate();
-		repaint();
-		
-		return c;
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant GLASS_COLOR.
+   */
+  public static final Color GLASS_COLOR = ColorUtils.getTransparentColor80(Color.BLACK);
+
+  /**
+   * Instantiates a new frosted glass pane.
+   */
+  public FrostedGlassPane() {
+    super(GLASS_COLOR);
+
+    setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
+    // capture all mouse events
+    addMouseListener(new MouseAdapter() {
+    });
+    addMouseMotionListener(new MouseAdapter() {
+    });
+    addMouseWheelListener(new MouseAdapter() {
+    });
+    addKeyListener(new KeyAdapter() {
+    });
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component c) {
+    removeAll();
+
+    super.add(Box.createVerticalGlue());
+    super.add(c);
+    super.add(Box.createVerticalGlue());
+
+    revalidate();
+    repaint();
+
+    return c;
+  }
 }

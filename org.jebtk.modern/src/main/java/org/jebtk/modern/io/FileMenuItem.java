@@ -43,126 +43,126 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernTwoLineMenuItem;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class FileMenuItem.
  */
 public class FileMenuItem extends ModernTwoLineMenuItem {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant SDF.
-	 */
-	private static final SimpleDateFormat SDF = 
-			new SimpleDateFormat("MM/dd/yyyy HH:mm");
-	
-	/**
-	 * The member file.
-	 */
-	private Path mFile;
 
-	/**
-	 * Instantiates a new file menu item.
-	 *
-	 * @param file the file
-	 */
-	public FileMenuItem(Path file) {
-		this(file, UIService.getInstance().loadIcon(FileVectorIcon.class, 32));
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		
-	}
+  /**
+   * The constant SDF.
+   */
+  private static final SimpleDateFormat SDF = new SimpleDateFormat("MM/dd/yyyy HH:mm");
 
-	/**
-	 * Instantiates a new file menu item.
-	 *
-	 * @param file the file
-	 * @param icon the icon
-	 */
-	public FileMenuItem(Path file, ModernIcon icon) {		
-		super(PathUtils.toString(file.getFileName()), 
-				PathUtils.toString(file.getParent()), 
-				icon);
+  /**
+   * The member file.
+   */
+  private Path mFile;
 
-		mFile = file;
-		
-		setClickMessage(PathUtils.toString(file));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernTwoLineMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int iconX = PADDING;
+  /**
+   * Instantiates a new file menu item.
+   *
+   * @param file
+   *          the file
+   */
+  public FileMenuItem(Path file) {
+    this(file, UIService.getInstance().loadIcon(FileVectorIcon.class, 32));
 
-		int h2 = getHeight() / 2;
+  }
 
-		int y = (h2 + g2.getFontMetrics().getAscent()) / 2;
-		int x;
+  /**
+   * Instantiates a new file menu item.
+   *
+   * @param file
+   *          the file
+   * @param icon
+   *          the icon
+   */
+  public FileMenuItem(Path file, ModernIcon icon) {
+    super(PathUtils.toString(file.getFileName()), PathUtils.toString(file.getParent()), icon);
 
-		if (mIcon != null) {
-			x = iconX + mIcon.getWidth() + PADDING;
-		} else {
-			x = PADDING;
-		}
+    mFile = file;
 
-		
+    setClickMessage(PathUtils.toString(file));
+  }
 
-		String text = TextUtils.truncate(PathUtils.getName(mFile), 60);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.menu.ModernTwoLineMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int iconX = PADDING;
 
-		g2.setColor(TEXT_COLOR);
-		g2.setFont(MaterialService.getInstance().font("text"));
-		g2.drawString(text, x, y);
-		
-		g2.setColor(ALT_TEXT_COLOR);
-		g2.setFont(MaterialService.getInstance().font("subtext"));
+    int h2 = getHeight() / 2;
 
-		y = h2 + (h2 + g2.getFontMetrics().getAscent()) / 2;
+    int y = (h2 + g2.getFontMetrics().getAscent()) / 2;
+    int x;
 
-		text = TextUtils.truncate(PathUtils.toString(mFile.getParent()), 60);
+    if (mIcon != null) {
+      x = iconX + mIcon.getWidth() + PADDING;
+    } else {
+      x = PADDING;
+    }
 
-		g2.drawString(text, x, y);
+    String text = TextUtils.truncate(PathUtils.getName(mFile), 60);
 
-		try {
-			text = SDF.format(new Date(Files.getLastModifiedTime(mFile).toMillis()));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+    g2.setColor(TEXT_COLOR);
+    g2.setFont(MaterialService.getInstance().font("text"));
+    g2.drawString(text, x, y);
 
-		x = getWidth() - g2.getFontMetrics().stringWidth(text) - DOUBLE_PADDING;
-		y = ModernWidget.getTextYPosCenter(g2, getHeight());
-		
-		g2.drawString(text, x, y);
-		
+    g2.setColor(ALT_TEXT_COLOR);
+    g2.setFont(MaterialService.getInstance().font("subtext"));
 
-		int iconY = (getHeight() - mIcon.getHeight()) / 2;
+    y = h2 + (h2 + g2.getFontMetrics().getAscent()) / 2;
 
-		mIcon.drawIcon(g2, iconX, iconY, getHeight());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#getText()
-	 */
-	@Override
-	public String getText() {
-		// The two line file menu item should return the full
-		// file name as its string, which is what the
-		// action command is
-		return getClickMessage();
-	}
+    text = TextUtils.truncate(PathUtils.toString(mFile.getParent()), 60);
 
-	/**
-	 * Gets the file.
-	 *
-	 * @return the file
-	 */
-	public Path getFile() {
-		return mFile;
-	}
+    g2.drawString(text, x, y);
+
+    try {
+      text = SDF.format(new Date(Files.getLastModifiedTime(mFile).toMillis()));
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    x = getWidth() - g2.getFontMetrics().stringWidth(text) - DOUBLE_PADDING;
+    y = ModernWidget.getTextYPosCenter(g2, getHeight());
+
+    g2.drawString(text, x, y);
+
+    int iconY = (getHeight() - mIcon.getHeight()) / 2;
+
+    mIcon.drawIcon(g2, iconX, iconY, getHeight());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#getText()
+   */
+  @Override
+  public String getText() {
+    // The two line file menu item should return the full
+    // file name as its string, which is what the
+    // action command is
+    return getClickMessage();
+  }
+
+  /**
+   * Gets the file.
+   *
+   * @return the file
+   */
+  public Path getFile() {
+    return mFile;
+  }
 }

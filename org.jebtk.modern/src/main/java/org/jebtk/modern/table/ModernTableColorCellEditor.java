@@ -38,74 +38,79 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.color.ColorSwatchButton;
 import org.jebtk.modern.window.ModernWindow;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTableComboBoxCellEditor.
  */
-public class ModernTableColorCellEditor extends AbstractModernTableCellEditor implements ModernClickListener  {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
+public class ModernTableColorCellEditor extends AbstractModernTableCellEditor implements ModernClickListener {
 
-	/** The m color button. */
-	private ColorSwatchButton mColorButton;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern table combo box cell editor.
-	 *
-	 * @param window the window
-	 */
-	public ModernTableColorCellEditor(ModernWindow window) {
-		mColorButton = new ColorSwatchButton(window);
+  /** The m color button. */
+  private ColorSwatchButton mColorButton;
 
-		mColorButton.addClickListener(this);
-	}
+  /**
+   * Instantiates a new modern table combo box cell editor.
+   *
+   * @param window
+   *          the window
+   */
+  public ModernTableColorCellEditor(ModernWindow window) {
+    mColorButton = new ColorSwatchButton(window);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
-	 */
-	@Override
-	public final Object getCellEditorValue() {
-		return mColorButton.getSelectedColor();
-	}
+    mColorButton.addClickListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public final void clicked(ModernClickEvent e) {
-		fireChanged(new ChangeEvent(this));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.dataview.ModernDataCellEditor#setFocus()
-	 */
-	@Override
-	public void setFocus() {
-		mColorButton.showMenu();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   */
+  @Override
+  public final Object getCellEditorValue() {
+    return mColorButton.getSelectedColor();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	@Override
-	public Component getCellEditorComponent(ModernData table,
-            Object value,
-            boolean highlight,
-            boolean isSelected,
-            boolean hasFocus,
-            int row,
-            int column) {
-		if (value != null) {
-			mColorButton.setSelectedColor((Color)value);
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public final void clicked(ModernClickEvent e) {
+    fireChanged(new ChangeEvent(this));
+  }
 
-		return mColorButton;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.dataview.ModernDataCellEditor#setFocus()
+   */
+  @Override
+  public void setFocus() {
+    mColorButton.showMenu();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorComponent(
+   * org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean,
+   * boolean, boolean, int, int)
+   */
+  @Override
+  public Component getCellEditorComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+    if (value != null) {
+      mColorButton.setSelectedColor((Color) value);
+    }
+
+    return mColorButton;
+  }
 }

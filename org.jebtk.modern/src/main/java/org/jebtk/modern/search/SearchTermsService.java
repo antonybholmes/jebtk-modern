@@ -43,186 +43,197 @@ import org.jebtk.core.collections.CircularArray;
 import org.jebtk.core.xml.Xml;
 import org.xml.sax.SAXException;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a model of storing and firing
- * search terms so that when users type into
- * text/comboboxes, their search terms can be
- * logged and suggested the next time they
- * perform a search.
+ * Provides a model of storing and firing search terms so that when users type
+ * into text/comboboxes, their search terms can be logged and suggested the next
+ * time they perform a search.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class SearchTermsService extends SearchTermEventListeners implements Iterable<String> {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant MAX_SIZE.
-	 */
-	// Store the first 100 terms entered
-	private static final int MAX_SIZE = 100;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SEARCH_TERMS_CHANGED.
-	 */
-	public static final String SEARCH_TERMS_CHANGED = "search_terms_changed";
+  /**
+   * The constant MAX_SIZE.
+   */
+  // Store the first 100 terms entered
+  private static final int MAX_SIZE = 100;
 
-	/**
-	 * The constant DEFAULT_XML_FILE.
-	 */
-	public static final File DEFAULT_XML_FILE = new File("search.terms.xml");
+  /**
+   * The constant SEARCH_TERMS_CHANGED.
+   */
+  public static final String SEARCH_TERMS_CHANGED = "search_terms_changed";
 
-	/**
-	 * The member search terms.
-	 */
-	private List<String> mSearchTerms = new CircularArray<String>(MAX_SIZE);
+  /**
+   * The constant DEFAULT_XML_FILE.
+   */
+  public static final File DEFAULT_XML_FILE = new File("search.terms.xml");
 
-	/**
-	 * The instance.
-	 */
-	private static SearchTermsService INSTANCE = new SearchTermsService();
+  /**
+   * The member search terms.
+   */
+  private List<String> mSearchTerms = new CircularArray<String>(MAX_SIZE);
 
-	/**
-	 * Gets the single instance of SearchTermsService.
-	 *
-	 * @return single instance of SearchTermsService
-	 */
-	public static final SearchTermsService getInstance() {
-		return INSTANCE;
-	}
+  /**
+   * The instance.
+   */
+  private static SearchTermsService INSTANCE = new SearchTermsService();
 
-	/**
-	 * Instantiates a new search terms service.
-	 */
-	private SearchTermsService() {
-		// do nothing
-	}
+  /**
+   * Gets the single instance of SearchTermsService.
+   *
+   * @return single instance of SearchTermsService
+   */
+  public static final SearchTermsService getInstance() {
+    return INSTANCE;
+  }
 
-	/**
-	 * Load xml.
-	 *
-	 * @throws ParserConfigurationException the parser configuration exception
-	 * @throws SAXException the SAX exception
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public final void loadXml() throws ParserConfigurationException, SAXException, IOException {
-		loadXml(DEFAULT_XML_FILE);
-	}
+  /**
+   * Instantiates a new search terms service.
+   */
+  private SearchTermsService() {
+    // do nothing
+  }
 
-	/**
-	 * Load search terms from an XML file.
-	 *
-	 * @param file the file
-	 * @throws ParserConfigurationException the parser configuration exception
-	 * @throws SAXException the SAX exception
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public final void loadXml(File file) throws ParserConfigurationException, SAXException, IOException {
-		if (!file.exists()) {
-			return;
-		}
+  /**
+   * Load xml.
+   *
+   * @throws ParserConfigurationException
+   *           the parser configuration exception
+   * @throws SAXException
+   *           the SAX exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public final void loadXml() throws ParserConfigurationException, SAXException, IOException {
+    loadXml(DEFAULT_XML_FILE);
+  }
 
-		SAXParserFactory factory = SAXParserFactory.newInstance();
-		SAXParser saxParser = factory.newSAXParser();
+  /**
+   * Load search terms from an XML file.
+   *
+   * @param file
+   *          the file
+   * @throws ParserConfigurationException
+   *           the parser configuration exception
+   * @throws SAXException
+   *           the SAX exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public final void loadXml(File file) throws ParserConfigurationException, SAXException, IOException {
+    if (!file.exists()) {
+      return;
+    }
 
-		SearchTermsXmlHandler handler = new SearchTermsXmlHandler(this);
+    SAXParserFactory factory = SAXParserFactory.newInstance();
+    SAXParser saxParser = factory.newSAXParser();
 
-		saxParser.parse(file.getAbsolutePath(), handler);
-	}
+    SearchTermsXmlHandler handler = new SearchTermsXmlHandler(this);
 
-	/**
-	 * Adds the term.
-	 *
-	 * @param term the term
-	 */
-	public final void addTerm(String term) {
+    saxParser.parse(file.getAbsolutePath(), handler);
+  }
 
-		if (term.length() == 0) {
-			return;
-		}
+  /**
+   * Adds the term.
+   *
+   * @param term
+   *          the term
+   */
+  public final void addTerm(String term) {
 
-		// Ignore whitespace
-		if (term.matches("^\\s+$")) {
-			return;
-		}
+    if (term.length() == 0) {
+      return;
+    }
 
-		if (mSearchTerms.contains(term)) {
-			return;
-		}
+    // Ignore whitespace
+    if (term.matches("^\\s+$")) {
+      return;
+    }
 
-		mSearchTerms.add(term);
+    if (mSearchTerms.contains(term)) {
+      return;
+    }
 
-		fireSearchTermsChanged(new ChangeEvent(this, SEARCH_TERMS_CHANGED));
-	}
+    mSearchTerms.add(term);
 
-	/**
-	 * Write.
-	 *
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public final void write() throws IOException {
-		write(DEFAULT_XML_FILE);
-	}
+    fireSearchTermsChanged(new ChangeEvent(this, SEARCH_TERMS_CHANGED));
+  }
 
-	/**
-	 * Write.
-	 *
-	 * @param file the file
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public final void write(File file) throws IOException {
-		BufferedWriter out = new BufferedWriter(new FileWriter(file));
+  /**
+   * Write.
+   *
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public final void write() throws IOException {
+    write(DEFAULT_XML_FILE);
+  }
 
-		try {
-			out.write(Xml.xmlHeader());
-			//out.write('\n');
-			//out.write('\n');
-			out.write("<searches>");
-			//out.write('\n');
+  /**
+   * Write.
+   *
+   * @param file
+   *          the file
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public final void write(File file) throws IOException {
+    BufferedWriter out = new BufferedWriter(new FileWriter(file));
 
-			for (String search : mSearchTerms) {
-				//System.err.println(search);
+    try {
+      out.write(Xml.xmlHeader());
+      // out.write('\n');
+      // out.write('\n');
+      out.write("<searches>");
+      // out.write('\n');
 
-				out.write(Xml.startTag("term"));
-				out.write(Xml.cdata(search));
-				out.write(Xml.endTag("term"));
-				//out.write('\n');
-			}
+      for (String search : mSearchTerms) {
+        // System.err.println(search);
 
-			out.write("</searches>");
-		} finally {
-			//Close the output stream
-			out.close();
-		}
-	}
+        out.write(Xml.startTag("term"));
+        out.write(Xml.cdata(search));
+        out.write(Xml.endTag("term"));
+        // out.write('\n');
+      }
 
-	/**
-	 * Clear.
-	 */
-	public final void clear() {
-		mSearchTerms.clear();
-	}
+      out.write("</searches>");
+    } finally {
+      // Close the output stream
+      out.close();
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	public final Iterator<String> iterator() {
-		return mSearchTerms.iterator();
-	}
+  /**
+   * Clear.
+   */
+  public final void clear() {
+    mSearchTerms.clear();
+  }
 
-	/**
-	 * Contains.
-	 *
-	 * @param query the query
-	 * @return true, if successful
-	 */
-	public final boolean contains(String query) {
-		return mSearchTerms.contains(query);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  public final Iterator<String> iterator() {
+    return mSearchTerms.iterator();
+  }
+
+  /**
+   * Contains.
+   *
+   * @param query
+   *          the query
+   * @return true, if successful
+   */
+  public final boolean contains(String query) {
+    return mSearchTerms.contains(query);
+  }
 }

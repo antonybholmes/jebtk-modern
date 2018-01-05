@@ -36,35 +36,39 @@ import java.awt.Graphics2D;
  */
 public class PlusVectorIcon extends MinusVectorIcon {
 
-	/**
-	 * Instantiates a new plus vector icon.
-	 */
-	public PlusVectorIcon() {
-		// do nothing
-	}
-	
-	/**
-	 * Instantiates a new plus vector icon.
-	 *
-	 * @param color the color
-	 */
-	public PlusVectorIcon(Color color) {
-		super(color);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.MinusVectorIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		super.drawIcon(g2, x, y, w, h, params);
-		
-		double wf = w * SCALE;
-		double w2 = wf / 2.0;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - wf) / 2.0;
-		
-		g2.drawLine((int)Math.round(xf + w2), (int)Math.round(yf), (int)Math.round(xf + w2), (int)Math.round(yf + wf));
-	}
+  /**
+   * Instantiates a new plus vector icon.
+   */
+  public PlusVectorIcon() {
+    // do nothing
+  }
+
+  /**
+   * Instantiates a new plus vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public PlusVectorIcon(Color color) {
+    super(color);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.MinusVectorIcon#drawForeground(java.awt.
+   * Graphics2D, java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    super.drawIcon(g2, x, y, w, h, params);
+
+    double wf = w * SCALE;
+    double w2 = wf / 2.0;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - wf) / 2.0;
+
+    g2.drawLine((int) Math.round(xf + w2), (int) Math.round(yf), (int) Math.round(xf + w2), (int) Math.round(yf + wf));
+  }
 }

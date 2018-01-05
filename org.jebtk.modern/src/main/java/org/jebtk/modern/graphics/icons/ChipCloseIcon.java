@@ -34,42 +34,42 @@ import org.jebtk.core.Mathematics;
 import org.jebtk.modern.button.ChipButtonHighlightAnimation;
 import org.jebtk.modern.theme.ThemeService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RoundelVectorIcon.
  */
 public class ChipCloseIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant WIDTH_SCALE.
-	 */
-	private static final double WIDTH_SCALE = 0.5;
-	
-	private static final Color LINE_COLOR = 
-			ChipButtonHighlightAnimation.HIGHLIGHT;
-	
-	private static final Color FILL_COLOR = 
-			ThemeService.getInstance().colors().getHighlight32(16);
-	
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-			
-		int wf = (int)Mathematics.makeMult2(w * WIDTH_SCALE);
-	
-		int xf = x + (w - wf) / 2;
-		int yf = y + (h - wf) / 2;
-		
-		g2.setColor(FILL_COLOR);
-		g2.fillOval(x, y, w, w);
-		
-		g2.setColor(LINE_COLOR);	
-		g2.drawLine(xf, yf, xf + wf- 1, yf + wf - 1);
-		g2.drawLine(xf, yf + wf - 1, xf + wf - 1, yf);
-		
-	}
+
+  /**
+   * The constant WIDTH_SCALE.
+   */
+  private static final double WIDTH_SCALE = 0.5;
+
+  private static final Color LINE_COLOR = ChipButtonHighlightAnimation.HIGHLIGHT;
+
+  private static final Color FILL_COLOR = ThemeService.getInstance().colors().getHighlight32(16);
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+    int wf = (int) Mathematics.makeMult2(w * WIDTH_SCALE);
+
+    int xf = x + (w - wf) / 2;
+    int yf = y + (h - wf) / 2;
+
+    g2.setColor(FILL_COLOR);
+    g2.fillOval(x, y, w, w);
+
+    g2.setColor(LINE_COLOR);
+    g2.drawLine(xf, yf, xf + wf - 1, yf + wf - 1);
+    g2.drawLine(xf, yf + wf - 1, xf + wf - 1, yf);
+
+  }
 }

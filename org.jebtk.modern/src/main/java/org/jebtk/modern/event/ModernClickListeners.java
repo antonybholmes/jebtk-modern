@@ -37,32 +37,44 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class ModernClickListeners extends EventProducer<ModernClickListener> implements ModernClickEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	public void addClickListener(ModernClickListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	public void removeClickListener(ModernClickListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void fireClicked(ModernClickEvent e) {
-		for (ModernClickListener l : mListeners) {
-			l.clicked(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh
+   * .lib.ui.modern.event.ModernClickListener)
+   */
+  public void addClickListener(ModernClickListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.
+   * abh.lib.ui.modern.event.ModernClickListener)
+   */
+  public void removeClickListener(ModernClickListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.
+   * ui.modern.event.ModernClickEvent)
+   */
+  public void fireClicked(ModernClickEvent e) {
+    for (ModernClickListener l : mListeners) {
+      l.clicked(e);
+    }
+  }
 }

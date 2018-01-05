@@ -35,34 +35,36 @@ import org.jebtk.core.event.ChangeEvent;
  */
 public class TabEvent extends ChangeEvent {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member pane.
-	 */
-	private Tab mPane;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new tab event.
-	 *
-	 * @param source the source
-	 * @param pane the pane
-	 */
-	public TabEvent(Object source, Tab pane) {
-		super(source);
-		
-		mPane = pane;
-	}
+  /**
+   * The member pane.
+   */
+  private Tab mPane;
 
-	/**
-	 * Gets the tab.
-	 *
-	 * @return the tab
-	 */
-	public Tab getTab() {
-		return mPane;
-	}
+  /**
+   * Instantiates a new tab event.
+   *
+   * @param source
+   *          the source
+   * @param pane
+   *          the pane
+   */
+  public TabEvent(Object source, Tab pane) {
+    super(source);
+
+    mPane = pane;
+  }
+
+  /**
+   * Gets the tab.
+   *
+   * @return the tab
+   */
+  public Tab getTab() {
+    return mPane;
+  }
 }

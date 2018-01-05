@@ -42,54 +42,57 @@ import org.jebtk.modern.event.ModernClickListener;
  */
 public class ModernWindowTitleBarExitRoundButton extends ModernWindowTitleBarRoundButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant COLOR. */
-	private static final Color COLOR = ColorUtils.decodeHtmlColor("#ff5555");
+  /** The Constant COLOR. */
+  private static final Color COLOR = ColorUtils.decodeHtmlColor("#ff5555");
 
-	/** The m window. */
-	private ModernWindow mWindow;
+  /** The m window. */
+  private ModernWindow mWindow;
 
-	/**
-	 * Instantiates a new modern window title bar close button.
-	 *
-	 * @param window the window
-	 */
-	public ModernWindowTitleBarExitRoundButton(ModernWindow window) {
-		super(COLOR);
-		
-		mWindow = window;
+  /**
+   * Instantiates a new modern window title bar close button.
+   *
+   * @param window
+   *          the window
+   */
+  public ModernWindowTitleBarExitRoundButton(ModernWindow window) {
+    super(COLOR);
 
-		setClickMessage(UI.MENU_EXIT);
-		
-		addClickListener(new ModernClickListener() {
-			@Override
-			public void clicked(ModernClickEvent e) {
-				mWindow.dispatchEvent(new WindowEvent(mWindow, WindowEvent.WINDOW_CLOSING));
-			}});
-		
-		setToolTip("Close " + window.getAppInfo().getName(), "Exit the application.");
-	}
+    mWindow = window;
 
+    setClickMessage(UI.MENU_EXIT);
 
+    addClickListener(new ModernClickListener() {
+      @Override
+      public void clicked(ModernClickEvent e) {
+        mWindow.dispatchEvent(new WindowEvent(mWindow, WindowEvent.WINDOW_CLOSING));
+      }
+    });
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.button.ModernButton#drawForegroundAAText(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		super.drawForegroundAAText(g2);
+    setToolTip("Close " + window.getAppInfo().getName(), "Exit the application.");
+  }
 
-		if (mHighlight) {
-			g2.setColor(Color.BLACK);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.button.ModernButton#drawForegroundAAText(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    super.drawForegroundAAText(g2);
 
-			int x = (getWidth() - 6) / 2;
+    if (mHighlight) {
+      g2.setColor(Color.BLACK);
 
-			g2.drawLine(x, x, x + 5, x + 5);
-			g2.drawLine(x, x + 5, x + 5, x);
-		}
-	}
+      int x = (getWidth() - 6) / 2;
+
+      g2.drawLine(x, x, x + 5, x + 5);
+      g2.drawLine(x, x + 5, x + 5, x);
+    }
+  }
 }

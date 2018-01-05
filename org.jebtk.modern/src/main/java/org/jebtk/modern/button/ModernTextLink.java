@@ -30,73 +30,78 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernTextLink extends ModernLinkButton {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	public ModernTextLink(String title) {
-		this(title, Ribbon.BAR_BACKGROUND);
-	}
-	
-	public ModernTextLink(String title, Color color) {
-		super(title);
-		
-		setForeground(color);
-		
-		setBackgroundAnimations("url-text-button");
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.button.ModernButton#autoSize()
-	 */
-	@Override
-	public void autoSize() {
-		if (mIcon == null) {
-			UI.setSize(this, 
-					ModernWidget.getStringWidth(getFont(), mText1), 
-					ModernWidget.getStringHeight(getFont()));
-		} else {
-			super.autoSize();
-		}
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	//@Override
-	//public void drawBackground(Graphics2D g2) {
-	//	super.drawAnimatedBackground(g2);
-	//}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.button.ModernButton#drawText(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawText(Graphics2D g2) {
-		if (mText1 != null) {
-			int x;
-			
-			if (mIcon != null) {
-				x = mIcon.getWidth() + DOUBLE_PADDING;
-			} else {
-				x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
-			}
-			
-			int y = getTextYPosCenter(g2, getHeight());
-			
-			//boolean underline = mHighlight || isSelected();
-			
-			//g2.setFont(FONT); //underline ? UNDER_LINE_FONT : FONT);
-			g2.setColor(getForeground());
-			g2.drawString(mText1, x, y);
-			
-			// I don't line the way underline fonts are rendered so do it
-			// manually
-			//if (underline) {
-			//	y += LINE_OFFSET;
-			//
-			//	g2.drawLine(x, y, x + getStringWidth(g2, mText1), y);
-			//}
-		}
-	}
+  public ModernTextLink(String title) {
+    this(title, Ribbon.BAR_BACKGROUND);
+  }
+
+  public ModernTextLink(String title, Color color) {
+    super(title);
+
+    setForeground(color);
+
+    setBackgroundAnimations("url-text-button");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.button.ModernButton#autoSize()
+   */
+  @Override
+  public void autoSize() {
+    if (mIcon == null) {
+      UI.setSize(this, ModernWidget.getStringWidth(getFont(), mText1), ModernWidget.getStringHeight(getFont()));
+    } else {
+      super.autoSize();
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  // @Override
+  // public void drawBackground(Graphics2D g2) {
+  // super.drawAnimatedBackground(g2);
+  // }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.button.ModernButton#drawText(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawText(Graphics2D g2) {
+    if (mText1 != null) {
+      int x;
+
+      if (mIcon != null) {
+        x = mIcon.getWidth() + DOUBLE_PADDING;
+      } else {
+        x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
+      }
+
+      int y = getTextYPosCenter(g2, getHeight());
+
+      // boolean underline = mHighlight || isSelected();
+
+      // g2.setFont(FONT); //underline ? UNDER_LINE_FONT : FONT);
+      g2.setColor(getForeground());
+      g2.drawString(mText1, x, y);
+
+      // I don't line the way underline fonts are rendered so do it
+      // manually
+      // if (underline) {
+      // y += LINE_OFFSET;
+      //
+      // g2.drawLine(x, y, x + getStringWidth(g2, mText1), y);
+      // }
+    }
+  }
 }

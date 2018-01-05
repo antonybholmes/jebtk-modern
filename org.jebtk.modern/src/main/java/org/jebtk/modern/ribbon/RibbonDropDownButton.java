@@ -31,83 +31,79 @@ import org.jebtk.modern.button.ModernDropDownButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonButton2.
  */
 public class RibbonDropDownButton extends ModernDropDownButton {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon drop down button.
-	 *
-	 * @param text the text
-	 */
-	public RibbonDropDownButton(String text) {
-		super(text);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new ribbon drop down button.
+   *
+   * @param text
+   *          the text
+   */
+  public RibbonDropDownButton(String text) {
+    super(text);
 
-	/**
-	 * Instantiates a new ribbon drop down button.
-	 *
-	 * @param text1 the text 1
-	 * @param menu the menu
-	 */
-	public RibbonDropDownButton(String text1,
-			ModernPopupMenu menu) {
-		super(text1, menu);
-		
-		setup();
-	}
+    setup();
+  }
 
-	/**
-	 * Instantiates a new ribbon drop down button.
-	 *
-	 * @param text1 the text 1
-	 * @param text2 the text 2
-	 * @param menu the menu
-	 */
-	public RibbonDropDownButton(String text1,
-			String text2,
-			ModernPopupMenu menu) {
-		super(text1, menu);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new ribbon drop down button.
-	 *
-	 * @param icon the icon
-	 */
-	public RibbonDropDownButton(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setBackgroundAnimation(new RibbonDropDownButtonAnimation(this));
-	}
-	
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			if(mHighlight || mPopupShown) {
-				getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
-			}
-		}
-	}
-	*/
+  /**
+   * Instantiates a new ribbon drop down button.
+   *
+   * @param text1
+   *          the text 1
+   * @param menu
+   *          the menu
+   */
+  public RibbonDropDownButton(String text1, ModernPopupMenu menu) {
+    super(text1, menu);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new ribbon drop down button.
+   *
+   * @param text1
+   *          the text 1
+   * @param text2
+   *          the text 2
+   * @param menu
+   *          the menu
+   */
+  public RibbonDropDownButton(String text1, String text2, ModernPopupMenu menu) {
+    super(text1, menu);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new ribbon drop down button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public RibbonDropDownButton(ModernIcon icon) {
+    super(icon);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setBackgroundAnimation(new RibbonDropDownButtonAnimation(this));
+  }
+
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
+   * if(mHighlight || mPopupShown) { getWidgetRenderer().drawRibbonButton(g2,
+   * mInternalRect, RenderMode.SELECTED); } } }
+   */
 }

@@ -8,21 +8,20 @@ import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class CheckBoxSelectedAnimation extends WidgetAnimation {
-	public CheckBoxSelectedAnimation(ModernWidget widget) {
-		super((ModernClickWidget)widget);
+  public CheckBoxSelectedAnimation(ModernWidget widget) {
+    super((ModernClickWidget) widget);
 
-		//setFadeColor("fill", ModernWidgetRenderer.SELECTED_FILL_COLOR);
-	}
+    // setFadeColor("fill", ModernWidgetRenderer.SELECTED_FILL_COLOR);
+  }
 
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		int x = widget.getInsets().left;
-		int y = (widget.getHeight() - ModernCheckBox.CHECKED_ICON.getWidth()) / 2;
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    int x = widget.getInsets().left;
+    int y = (widget.getHeight() - ModernCheckBox.CHECKED_ICON.getWidth()) / 2;
 
-
-		if (widget.isEnabled() && ((ModernClickWidget)getWidget()).isSelected()) {
-			g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR); //getFadeColor("fill"));
-			getWidget().getWidgetRenderer().fill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
-		}
-	}
+    if (widget.isEnabled() && ((ModernClickWidget) getWidget()).isSelected()) {
+      g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR); // getFadeColor("fill"));
+      getWidget().getWidgetRenderer().fill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
+    }
+  }
 }

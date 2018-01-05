@@ -32,19 +32,21 @@ package org.jebtk.modern.io;
  * The class JpgGuiFileFilter.
  */
 public class JsonGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new jpg gui file filter.
-	 */
-	public JsonGuiFileFilter() {
-		super("json");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return "JSON (*.json)";
-	}
+  /**
+   * Instantiates a new jpg gui file filter.
+   */
+  public JsonGuiFileFilter() {
+    super("json");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return "JSON (*.json)";
+  }
 }

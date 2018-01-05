@@ -29,34 +29,39 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class ListPanelItemAnimation extends WidgetAnimation {
 
-	private ModernListPanelItem mItem;
+  private ModernListPanelItem mItem;
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public ListPanelItemAnimation(ModernWidget w) {
-		super(w);
-		
-		mItem = (ModernListPanelItem)w;
-	}
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public ListPanelItemAnimation(ModernWidget w) {
+    super(w);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    mItem = (ModernListPanelItem) w;
+  }
 
-		g2.setColor(mItem.mColor);
-		
-		int x = widget.getWidth() - widget.getInsets().right - ModernListPanelItem.HANDLE_SIZE + (ModernListPanelItem.HANDLE_SIZE - ModernListPanelItem.BURGER_WIDTH) / 2;
-		int y = (widget.getHeight() - 6) / 2;
-		
-		g2.drawLine(x, y, x + ModernListPanelItem.BURGER_WIDTH, y);
-		y += 2;
-		g2.drawLine(x, y, x + ModernListPanelItem.BURGER_WIDTH, y);
-		y += 2;
-		g2.drawLine(x, y, x + ModernListPanelItem.BURGER_WIDTH, y);
-	}	
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+
+    g2.setColor(mItem.mColor);
+
+    int x = widget.getWidth() - widget.getInsets().right - ModernListPanelItem.HANDLE_SIZE
+        + (ModernListPanelItem.HANDLE_SIZE - ModernListPanelItem.BURGER_WIDTH) / 2;
+    int y = (widget.getHeight() - 6) / 2;
+
+    g2.drawLine(x, y, x + ModernListPanelItem.BURGER_WIDTH, y);
+    y += 2;
+    g2.drawLine(x, y, x + ModernListPanelItem.BURGER_WIDTH, y);
+    y += 2;
+    g2.drawLine(x, y, x + ModernListPanelItem.BURGER_WIDTH, y);
+  }
 }

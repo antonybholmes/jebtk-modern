@@ -57,7 +57,6 @@ import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * All windowed apps should inherit from this.
@@ -65,257 +64,261 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  */
 public class ModernRibbonWindow extends ModernWindow {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member message pane.
-	 */
-	//private MessageDialogGlassPane mMessagePane = 
-	//		new MessageDialogGlassPane();
-	
-	private static final Border RIBBON_BORDER = 
-			BorderService.getInstance().createLineBorder(Ribbon.BAR_BACKGROUND);
 
-	/**
-	 * The member ribbon.
-	 */
-	protected Ribbon mRibbon = null;
-	
-	/** The m status bar. */
-	protected ModernStatusBar mStatusBar = new ModernStatusBar();
-	
-	
-	private TabsModel mLeftTabsModel;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	private IconTabsPanel mViewPanel;
+  /**
+   * The member message pane.
+   */
+  // private MessageDialogGlassPane mMessagePane =
+  // new MessageDialogGlassPane();
 
-	private IconTabs mIconTabs;
+  private static final Border RIBBON_BORDER = BorderService.getInstance().createLineBorder(Ribbon.BAR_BACKGROUND);
 
+  /**
+   * The member ribbon.
+   */
+  protected Ribbon mRibbon = null;
 
+  /** The m status bar. */
+  protected ModernStatusBar mStatusBar = new ModernStatusBar();
 
-	/**
-	 * Instantiates a new modern window2.
-	 *
-	 * @param appInfo the app info
-	 */
-	public ModernRibbonWindow(GuiAppInfo appInfo) {
-		super(appInfo);
+  private TabsModel mLeftTabsModel;
 
-		//setGlassPane(mMessagePane);
-		mRibbon = new Ribbon(this);
-		super.setHeader(mRibbon);
-		
-		if (UI.CUSTOM_WINDOW_DECORATION) {
-			// Disable chrome
-			setUndecorated(true);
+  private IconTabsPanel mViewPanel;
 
-			
-			
-			// Add a colored border for aesthetics and to ensure resizing
-			// works from any border location
-			//mContentPanel.setBorder(RIBBON_BORDER);
-			//mRibbonMenu.setBorder(RIBBON_BORDER);
-			mCards.setBorder(RIBBON_BORDER);
-			
-			new WindowMover(this, mRibbon);
-			new WindowResizer(this);
-		}
-		
-		setFooter(mStatusBar);
-		
-		setTitle(getTitle());
-		
-		mIconTabs = new IconTabs(getTabsPane());
-	}
-	
-	
-	/**
-	 * Gets the ribbon.
-	 *
-	 * @return the ribbon
-	 */
-	public Ribbon getRibbon() {
-		return mRibbon;
-	}
-	
-	/**
-	 * Gets the status bar.
-	 *
-	 * @return the status bar
-	 */
-	public ModernStatusBar getStatusBar() {
-		return mStatusBar;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.window.ModernWindow#setTitle(java.lang.String)
-	 */
-	@Override
-	public void setTitle(String title) {
-		if (mRibbon != null) {
-			mRibbon.setTitle(title);
-		}
-		
-		super.setTitle(title);
-	}
+  private IconTabs mIconTabs;
 
-	/**
-	 * Gets the title bar.
-	 *
-	 * @return the title bar
-	 */
-	public ModernTitleBar getTitleBar() {
-		return mRibbon.getTitleBar();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.window.ModernWindow#setBody(java.awt.Component)
-	 */
-	@Override
-	public void setBody(Component c) {
-		super.setBody(new TopShadowPanel(c));
-	}
-	
-	/**
-	 * Set the center card panel.
-	 * 
-	 * @param c
-	 */
-	public void setCard(Component c) {
-		getTabsPane()
-			.getModel()
-			.setCenterTab(new ModernComponent(new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)), 
-					ModernWidget.DOUBLE_BORDER));
-	}
-	
-	/**
-	 * Gets the icon tabs pane that sits on the left of the window. This
-	 * is automatically created if it does not exist.
-	 * @return
-	 */
-	public IconTabs getIconTabs() {
-		return mIconTabs;
-	}
+  /**
+   * Instantiates a new modern window2.
+   *
+   * @param appInfo
+   *          the app info
+   */
+  public ModernRibbonWindow(GuiAppInfo appInfo) {
+    super(appInfo);
 
-	/**
-	 * Add a quick access button. Depending on the window decoration this
-	 * will automatically be either on the left side of the title bar or the
-	 * ribbon itself.
-	 *
-	 * @param button the button
-	 */
-	public void addQuickAccessButton(ModernClickWidget button) {
-		// Add the quick access buttons to the title bar rather than the
-		// ribbon.
-		
-		mRibbon.addQuickAccessButton(button);
-		
-		//super.addQuickAccessButton(button);
-	}
+    // setGlassPane(mMessagePane);
+    mRibbon = new Ribbon(this);
+    super.setHeader(mRibbon);
 
-	//public void setRibbon(Ribbon2 ribbon, RibbonFileMenu menu) {
-	//	setHeader(ribbon);
-	//	setRibbonMenu(menu);
-	//}
+    if (UI.CUSTOM_WINDOW_DECORATION) {
+      // Disable chrome
+      setUndecorated(true);
 
-	/**
-	 * Creates the file saved dialog.
-	 *
-	 * @param file the file
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public void createFileSavedDialog(Path file) throws IOException {
-		createInformationDialog(TextUtils.singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file))) + " was saved.");
-	}
+      // Add a colored border for aesthetics and to ensure resizing
+      // works from any border location
+      // mContentPanel.setBorder(RIBBON_BORDER);
+      // mRibbonMenu.setBorder(RIBBON_BORDER);
+      mCards.setBorder(RIBBON_BORDER);
 
-	/**
-	 * Creates the file exists dialog.
-	 *
-	 * @param file the file
-	 * @param l the l
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public void createFileExistsDialog(Path file, DialogEventListener l) throws IOException {
-		createOkCancelDialog(TextUtils.singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file))) + " already exists. Do you want to replace it?", 
-				l);
-	}
+      new WindowMover(this, mRibbon);
+      new WindowResizer(this);
+    }
 
-	/**
-	 * Creates the ok cancel dialog.
-	 *
-	 * @param message the message
-	 * @param l the l
-	 * @return the message dialog ok cancel glass pane
-	 */
-	public MessageDialogOkCancelGlassPane createOkCancelDialog(String message, 
-			DialogEventListener l) {
-		MessageDialogOkCancelGlassPane searchPane = 
-				new MessageDialogOkCancelGlassPane();
+    setFooter(mStatusBar);
 
-		setGlassPane(searchPane);
+    setTitle(getTitle());
 
-		searchPane.setVisible(true);
+    mIconTabs = new IconTabs(getTabsPane());
+  }
 
-		searchPane.showMessage(message, l);
+  /**
+   * Gets the ribbon.
+   *
+   * @return the ribbon
+   */
+  public Ribbon getRibbon() {
+    return mRibbon;
+  }
 
-		return searchPane;
-	}
+  /**
+   * Gets the status bar.
+   *
+   * @return the status bar
+   */
+  public ModernStatusBar getStatusBar() {
+    return mStatusBar;
+  }
 
-	/**
-	 * Creates the information dialog.
-	 *
-	 * @param message the message
-	 */
-	public void createInformationDialog(String message) {
-		createDialog(message, MessageDialogType.INFORMATION);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.window.ModernWindow#setTitle(java.lang.String)
+   */
+  @Override
+  public void setTitle(String title) {
+    if (mRibbon != null) {
+      mRibbon.setTitle(title);
+    }
 
-	/**
-	 * Create a message overlay over the window.
-	 *
-	 * @param message the message
-	 * @param type the type
-	 */
-	public void createDialog(String message,
-			MessageDialogType type) {
-		//setGlassPane(mMessagePane);
+    super.setTitle(title);
+  }
 
-		//mMessagePane.showMessage(message);
-	}
+  /**
+   * Gets the title bar.
+   *
+   * @return the title bar
+   */
+  public ModernTitleBar getTitleBar() {
+    return mRibbon.getTitleBar();
+  }
 
-	/**
-	 * Creates the task dialog.
-	 *
-	 * @param message the message
-	 * @return the message dialog task glass pane
-	 */
-	public MessageDialogTaskGlassPane createTaskDialog(final String message) {
-		MessageDialogTaskGlassPane pane = 
-				new MessageDialogTaskGlassPane();
-		
-		setGlassPane(pane);
-		
-		invalidate();
-		repaint();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.window.ModernWindow#setBody(java.awt.Component)
+   */
+  @Override
+  public void setBody(Component c) {
+    super.setBody(new TopShadowPanel(c));
+  }
 
-		pane.showMessage(message);
-		
-		//setVisible(true);
-		
-		
+  /**
+   * Set the center card panel.
+   * 
+   * @param c
+   */
+  public void setCard(Component c) {
+    getTabsPane().getModel().setCenterTab(new ModernComponent(
+        new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)), ModernWidget.DOUBLE_BORDER));
+  }
 
-		//SwingUtilities.invokeLater(new TaskPaneRunnable(message, searchPane));
+  /**
+   * Gets the icon tabs pane that sits on the left of the window. This is
+   * automatically created if it does not exist.
+   * 
+   * @return
+   */
+  public IconTabs getIconTabs() {
+    return mIconTabs;
+  }
 
-		//setGlassPane(searchPane);
+  /**
+   * Add a quick access button. Depending on the window decoration this will
+   * automatically be either on the left side of the title bar or the ribbon
+   * itself.
+   *
+   * @param button
+   *          the button
+   */
+  public void addQuickAccessButton(ModernClickWidget button) {
+    // Add the quick access buttons to the title bar rather than the
+    // ribbon.
 
-		//searchPane.setVisible(true);
+    mRibbon.addQuickAccessButton(button);
 
-		//searchPane.showMessage(message);
-		
-		return pane;
-	}
+    // super.addQuickAccessButton(button);
+  }
+
+  // public void setRibbon(Ribbon2 ribbon, RibbonFileMenu menu) {
+  // setHeader(ribbon);
+  // setRibbonMenu(menu);
+  // }
+
+  /**
+   * Creates the file saved dialog.
+   *
+   * @param file
+   *          the file
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public void createFileSavedDialog(Path file) throws IOException {
+    createInformationDialog(
+        TextUtils.singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file))) + " was saved.");
+  }
+
+  /**
+   * Creates the file exists dialog.
+   *
+   * @param file
+   *          the file
+   * @param l
+   *          the l
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public void createFileExistsDialog(Path file, DialogEventListener l) throws IOException {
+    createOkCancelDialog(TextUtils.singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file)))
+        + " already exists. Do you want to replace it?", l);
+  }
+
+  /**
+   * Creates the ok cancel dialog.
+   *
+   * @param message
+   *          the message
+   * @param l
+   *          the l
+   * @return the message dialog ok cancel glass pane
+   */
+  public MessageDialogOkCancelGlassPane createOkCancelDialog(String message, DialogEventListener l) {
+    MessageDialogOkCancelGlassPane searchPane = new MessageDialogOkCancelGlassPane();
+
+    setGlassPane(searchPane);
+
+    searchPane.setVisible(true);
+
+    searchPane.showMessage(message, l);
+
+    return searchPane;
+  }
+
+  /**
+   * Creates the information dialog.
+   *
+   * @param message
+   *          the message
+   */
+  public void createInformationDialog(String message) {
+    createDialog(message, MessageDialogType.INFORMATION);
+  }
+
+  /**
+   * Create a message overlay over the window.
+   *
+   * @param message
+   *          the message
+   * @param type
+   *          the type
+   */
+  public void createDialog(String message, MessageDialogType type) {
+    // setGlassPane(mMessagePane);
+
+    // mMessagePane.showMessage(message);
+  }
+
+  /**
+   * Creates the task dialog.
+   *
+   * @param message
+   *          the message
+   * @return the message dialog task glass pane
+   */
+  public MessageDialogTaskGlassPane createTaskDialog(final String message) {
+    MessageDialogTaskGlassPane pane = new MessageDialogTaskGlassPane();
+
+    setGlassPane(pane);
+
+    invalidate();
+    repaint();
+
+    pane.showMessage(message);
+
+    // setVisible(true);
+
+    // SwingUtilities.invokeLater(new TaskPaneRunnable(message, searchPane));
+
+    // setGlassPane(searchPane);
+
+    // searchPane.setVisible(true);
+
+    // searchPane.showMessage(message);
+
+    return pane;
+  }
 }

@@ -36,32 +36,32 @@ import java.awt.Graphics2D;
  */
 public class ListVectorIcon extends ModernVectorIcon {
 
-	/**
-	 * The constant SCALE.
-	 */
-	private static final double SCALE = 0.9;
+  /**
+   * The constant SCALE.
+   */
+  private static final double SCALE = 0.9;
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    double wf = w * SCALE;
+    double hf = h * SCALE / 5;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		double wf = w * SCALE;
-		double hf = h * SCALE / 5;
+    double xf = x + (w - wf) / 2.0;
+    double yf = hf;
 
-		double xf = x + (w - wf) / 2.0;
-		double yf = hf;
-		
-		g2.setColor(Color.BLACK);
-		
-		for (int i = 0; i < 4; ++i) {
-			g2.drawLine((int)Math.round(xf), 
-					(int)Math.round(yf), 
-					(int)Math.round(xf + wf), 
-					(int)Math.round(yf));
-		
-			yf += hf;
-		}
-	}
+    g2.setColor(Color.BLACK);
+
+    for (int i = 0; i < 4; ++i) {
+      g2.drawLine((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(xf + wf), (int) Math.round(yf));
+
+      yf += hf;
+    }
+  }
 }

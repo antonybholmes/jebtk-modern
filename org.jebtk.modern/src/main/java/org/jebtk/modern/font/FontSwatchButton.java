@@ -37,7 +37,6 @@ import org.jebtk.modern.ribbon.RibbonColorSwatchButton;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Allow users to select a color for an object etc.
@@ -47,56 +46,64 @@ import org.jebtk.modern.window.ModernWindow;
  */
 public class FontSwatchButton extends RibbonColorSwatchButton {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new font swatch button.
-	 *
-	 * @param parent the parent
-	 */
-	public FontSwatchButton(ModernWindow parent) {
-		this(parent, Color.BLACK);
-	}
+  /**
+   * Instantiates a new font swatch button.
+   *
+   * @param parent
+   *          the parent
+   */
+  public FontSwatchButton(ModernWindow parent) {
+    this(parent, Color.BLACK);
+  }
 
-	/**
-	 * Instantiates a new color swatch button.
-	 *
-	 * @param parent the parent
-	 * @param color the color
-	 */
-	public FontSwatchButton(ModernWindow parent, Color color) {
-		super(parent, color);
-		
-		UI.setSize(this, ModernWidget.SIZE_32);
-		
-		setToolTip("Font color", "Set the font color.");
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setFont(BOLD_FONT);
-		
-		int x = getTextXPosCenter(g2, "A", 24);
+  /**
+   * Instantiates a new color swatch button.
+   *
+   * @param parent
+   *          the parent
+   * @param color
+   *          the color
+   */
+  public FontSwatchButton(ModernWindow parent, Color color) {
+    super(parent, color);
 
-		int y = getTextYPosCenter(g2, getHeight());
+    UI.setSize(this, ModernWidget.SIZE_32);
 
-		g2.setColor(Color.BLACK);
-		g2.drawString("A", x, y);
-		
-		Color color = mPopup.getSelectedColor();
+    setToolTip("Font color", "Set the font color.");
+  }
 
-		if (color != null) {
-			g2.setColor(mPopup.getSelectedColor());
-			
-			int w = getStringWidth(g2, "A");
-			
-			g2.fillRect(x - 2, y + 1, w + 4, 4);
-		}
-		
-		UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, getWidth() - 16, (getHeight() - 16) / 2, 16);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setFont(BOLD_FONT);
+
+    int x = getTextXPosCenter(g2, "A", 24);
+
+    int y = getTextYPosCenter(g2, getHeight());
+
+    g2.setColor(Color.BLACK);
+    g2.drawString("A", x, y);
+
+    Color color = mPopup.getSelectedColor();
+
+    if (color != null) {
+      g2.setColor(mPopup.getSelectedColor());
+
+      int w = getStringWidth(g2, "A");
+
+      g2.fillRect(x - 2, y + 1, w + 4, 4);
+    }
+
+    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, getWidth() - 16,
+        (getHeight() - 16) / 2, 16);
+  }
 }

@@ -32,94 +32,99 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Acts like a flat drop down menu button, but alters the button
- * text.
+ * Acts like a flat drop down menu button, but alters the button text.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDropDownMenuComboButton extends ModernDropDownButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The class ModernClickEvents.
-	 */
-	private class ModernClickEvents implements ModernClickListener {
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			setText(e.getMessage());
-		}
-		
-	}
-	
-	/**
-	 * Instantiates a new modern drop down menu combo button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernDropDownMenuComboButton(String text1) {
-		super(text1);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern drop down menu combo button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public ModernDropDownMenuComboButton(String text1, 
-			ModernIcon icon, 
-			ModernPopupMenu menu) {
-		super(text1, icon, menu);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern drop down menu combo button.
-	 *
-	 * @param text1 the text1
-	 * @param menu the menu
-	 */
-	public ModernDropDownMenuComboButton(String text1, 
-			ModernPopupMenu menu) {
-		super(text1, menu);
-		
-		setup();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern drop down menu combo button.
-	 *
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public ModernDropDownMenuComboButton(ModernIcon icon, 
-			ModernPopupMenu menu) {
-		super(icon, menu);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		addClickListener(new ModernClickEvents());
-	}
+  /**
+   * The class ModernClickEvents.
+   */
+  private class ModernClickEvents implements ModernClickListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      setText(e.getMessage());
+    }
+
+  }
+
+  /**
+   * Instantiates a new modern drop down menu combo button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernDropDownMenuComboButton(String text1) {
+    super(text1);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern drop down menu combo button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public ModernDropDownMenuComboButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
+    super(text1, icon, menu);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern drop down menu combo button.
+   *
+   * @param text1
+   *          the text1
+   * @param menu
+   *          the menu
+   */
+  public ModernDropDownMenuComboButton(String text1, ModernPopupMenu menu) {
+    super(text1, menu);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern drop down menu combo button.
+   *
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public ModernDropDownMenuComboButton(ModernIcon icon, ModernPopupMenu menu) {
+    super(icon, menu);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    addClickListener(new ModernClickEvents());
+  }
 }

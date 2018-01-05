@@ -31,7 +31,6 @@ import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
@@ -41,78 +40,73 @@ import java.awt.Rectangle;
  */
 public class ModernVScrollBarMac extends ModernVScrollBar {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern v scroll bar office.
-	 */
-	public ModernVScrollBarMac(ModernScrollPane scrollPane, Component c) {
-		setButtonSize(0);
-		setInternalFixedDimension(10);
-		setMinimumScrollBarSize(20);
+  /**
+   * Instantiates a new modern v scroll bar office.
+   */
+  public ModernVScrollBarMac(ModernScrollPane scrollPane, Component c) {
+    setButtonSize(0);
+    setInternalFixedDimension(10);
+    setMinimumScrollBarSize(20);
 
-		// Bind both scroll bar and the component to the animation so that
-		// if the user moves over the component, the scroll bar will also
-		// animate
-		setBackgroundAnimation(new MacScrollAnimation(this));
-				//bind(scrollPane)
-				//.bind(c));
-	}
+    // Bind both scroll bar and the component to the animation so that
+    // if the user moves over the component, the scroll bar will also
+    // animate
+    setBackgroundAnimation(new MacScrollAnimation(this));
+    // bind(scrollPane)
+    // .bind(c));
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#scrollBarSetup()
-	 */
-	@Override
-	public void scrollBarSetup() {
-		// Determine the number of pixels that can be scrolled which is the
-		// height of the scrollbar less the space for the two end buttons
-		scrollBarSetup(mInternalRect.getH());
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#scrollBarSetup()
+   */
+  @Override
+  public void scrollBarSetup() {
+    // Determine the number of pixels that can be scrolled which is the
+    // height of the scrollbar less the space for the two end buttons
+    scrollBarSetup(mInternalRect.getH());
+  }
 
-	/*
-	@Override
-	public void paintScrollBarBase(Graphics2D g2) {
-		Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+  /*
+   * @Override public void paintScrollBarBase(Graphics2D g2) { Graphics2D g2Temp =
+   * ImageUtils.createAAGraphics(g2);
+   * 
+   * int rounding = mIternalFixedDim;
+   * 
+   * try { g2Temp.setColor(ROUNDED_SCROLLBAR_BACKGROUND_COLOR);
+   * 
+   * g2Temp.fillRoundRect(getInsets().left, getInsets().top, rounding,
+   * mInternalRect.getH(), rounding, rounding); } finally { g2Temp.dispose(); } }
+   */
 
-		int rounding = mIternalFixedDim;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.scrollpane.ModernScrollBar#paintScrollBar(java.awt.
+   * Graphics2D, java.awt.Rectangle)
+   */
+  @Override
+  public void paintScrollBar(Graphics2D g2, Rectangle r) {
+    // Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
 
-		try {
-			g2Temp.setColor(ROUNDED_SCROLLBAR_BACKGROUND_COLOR);
+    int rounding = mIternalFixedDim;
 
-			g2Temp.fillRoundRect(getInsets().left, 
-					getInsets().top, 
-					rounding, 
-					mInternalRect.getH(), 
-					rounding,
-					rounding);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
-	 */
+    // try {
+    // g2.setColor(ROUNDED_SCROLLBAR_COLOR);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.ModernScrollBar#paintScrollBar(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void paintScrollBar(Graphics2D g2, Rectangle r) {
-		//Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+    // g2.fillRoundRect(r.x, r.y, r.width, r.height, rounding, rounding);
 
-		int rounding = mIternalFixedDim;
+    getBackgroundAnimations().draw(this, g2, r, rounding);
 
-		//try {
-		//g2.setColor(ROUNDED_SCROLLBAR_COLOR);
-
-		//g2.fillRoundRect(r.x, r.y, r.width, r.height, rounding, rounding);
-
-		getBackgroundAnimations().draw(this, g2, r, rounding);
-
-		//} finally {
-		//	g2Temp.dispose();
-		//}
-	}
+    // } finally {
+    // g2Temp.dispose();
+    // }
+  }
 
 }

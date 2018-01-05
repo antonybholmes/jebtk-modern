@@ -34,56 +34,55 @@ import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.theme.ThemeService;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class MessageButton2.
  */
 public class MessageButton extends ModernButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant FOCUS_COLOR.
-	 */
-	private static final Color FOCUS_COLOR =
-			ThemeService.getInstance().colors().getColorHighlight(4);
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new message button2.
-	 *
-	 * @param text1 the text1
-	 */
-	public MessageButton(String text1) {
-		super(text1);
-		
-		setForeground(Color.WHITE);
-	}
+  /**
+   * The constant FOCUS_COLOR.
+   */
+  private static final Color FOCUS_COLOR = ThemeService.getInstance().colors().getColorHighlight(4);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ribbon2.ModernDialogButton2#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fill(g2, Ribbon.BAR_BACKGROUND);
-		
-		
-		if (isEnabled()) {
-			if (mHighlight) {
-				fill(g2, ColorUtils.getTransparentColor80(Color.WHITE), getRect());
-			} else if (hasFocus()) {
-				fill(g2, FOCUS_COLOR, getRect());
-			}
-		}
-		
-		//System.err.println("huh " + getRect() + " " + getWidth());
-		
-		drawRect(g2, Color.WHITE, getRect());
-	}
+  /**
+   * Instantiates a new message button2.
+   *
+   * @param text1
+   *          the text1
+   */
+  public MessageButton(String text1) {
+    super(text1);
+
+    setForeground(Color.WHITE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ribbon2.ModernDialogButton2#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fill(g2, Ribbon.BAR_BACKGROUND);
+
+    if (isEnabled()) {
+      if (mHighlight) {
+        fill(g2, ColorUtils.getTransparentColor80(Color.WHITE), getRect());
+      } else if (hasFocus()) {
+        fill(g2, FOCUS_COLOR, getRect());
+      }
+    }
+
+    // System.err.println("huh " + getRect() + " " + getWidth());
+
+    drawRect(g2, Color.WHITE, getRect());
+  }
 }

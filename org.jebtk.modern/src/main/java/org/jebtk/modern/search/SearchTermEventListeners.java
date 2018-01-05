@@ -31,7 +31,6 @@ import org.jebtk.core.event.ChangeEvent;
 
 import org.jebtk.core.event.EventProducer;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
@@ -39,30 +38,41 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class SearchTermEventListeners extends EventProducer<SearchTermEventListener> implements SearchTermEventProducer {
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.search.SearchTermEventProducer#addSearchTermListener(org.abh.lib.ui.modern.search.SearchTermEventListener)
-	 */
-	public void addSearchTermListener(SearchTermEventListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.search.SearchTermEventProducer#removeSearchTermListener(org.abh.lib.ui.modern.search.SearchTermEventListener)
-	 */
-	public void removeSearchTermListener(SearchTermEventListener l) {
-		mListeners.remove(l);
-	}
-	
+public class SearchTermEventListeners extends EventProducer<SearchTermEventListener>
+    implements SearchTermEventProducer {
 
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.search.SearchTermEventProducer#fireSearchTermsChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireSearchTermsChanged(ChangeEvent e) {
-		for (SearchTermEventListener l : mListeners) {
-			l.searchTermsChanged(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.search.SearchTermEventProducer#addSearchTermListener(
+   * org.abh.lib.ui.modern.search.SearchTermEventListener)
+   */
+  public void addSearchTermListener(SearchTermEventListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.search.SearchTermEventProducer#removeSearchTermListener
+   * (org.abh.lib.ui.modern.search.SearchTermEventListener)
+   */
+  public void removeSearchTermListener(SearchTermEventListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.search.SearchTermEventProducer#fireSearchTermsChanged(
+   * org.abh.lib.event.ChangeEvent)
+   */
+  public void fireSearchTermsChanged(ChangeEvent e) {
+    for (SearchTermEventListener l : mListeners) {
+      l.searchTermsChanged(e);
+    }
+  }
 }

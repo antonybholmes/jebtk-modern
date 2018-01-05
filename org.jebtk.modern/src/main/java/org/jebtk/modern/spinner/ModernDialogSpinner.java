@@ -32,48 +32,53 @@ import org.jebtk.modern.graphics.icons.MinusVectorIcon;
 import org.jebtk.modern.graphics.icons.PlusVectorIcon;
 import org.jebtk.modern.ribbon.RibbonBarButton;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernDialogSpinner.
  */
 public class ModernDialogSpinner extends ModernSpinner {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new modern dialog spinner.
-	 *
-	 * @param min the min
-	 * @param max the max
-	 */
-	public ModernDialogSpinner(int min, int max) {
-		super(min, max);
-	}
-	
-	/**
-	 * Instantiates a new modern dialog spinner.
-	 *
-	 * @param min the min
-	 * @param max the max
-	 * @param value the value
-	 */
-	public ModernDialogSpinner(int min, int max, int value) {
-		super(min, max, value);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.spinner.ModernSpinner#setup()
-	 */
-	protected void setup() {
-		mIncButton = new RibbonBarButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		mDecButton = new RibbonBarButton(UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
-		
-		super.setup();
-	}
+  /**
+   * Instantiates a new modern dialog spinner.
+   *
+   * @param min
+   *          the min
+   * @param max
+   *          the max
+   */
+  public ModernDialogSpinner(int min, int max) {
+    super(min, max);
+  }
+
+  /**
+   * Instantiates a new modern dialog spinner.
+   *
+   * @param min
+   *          the min
+   * @param max
+   *          the max
+   * @param value
+   *          the value
+   */
+  public ModernDialogSpinner(int min, int max, int value) {
+    super(min, max, value);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.spinner.ModernSpinner#setup()
+   */
+  protected void setup() {
+    mIncButton = new RibbonBarButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+
+    mDecButton = new RibbonBarButton(UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+
+    super.setup();
+  }
 }

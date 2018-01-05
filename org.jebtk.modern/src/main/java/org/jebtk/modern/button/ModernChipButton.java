@@ -31,7 +31,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.UI;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Low height button for small form factor toolbar buttons.
@@ -40,47 +39,50 @@ import org.jebtk.modern.UI;
  */
 public class ModernChipButton extends ModernCheckButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * Instantiates a new modern check button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernChipButton(String text1) {
+    this(text1, false);
+  }
 
-	/**
-	 * Instantiates a new modern check button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernChipButton(String text1) {
-		this(text1, false);
-	}
+  /**
+   * Instantiates a new modern check button.
+   *
+   * @param text1
+   *          the text1
+   * @param selected
+   *          the selected
+   */
+  public ModernChipButton(String text1, boolean selected) {
+    super(text1, selected);
 
-	/**
-	 * Instantiates a new modern check button.
-	 *
-	 * @param text1 the text1
-	 * @param selected the selected
-	 */
-	public ModernChipButton(String text1, boolean selected) {
-		super(text1, selected);
+    UI.setSize(this, ModernButton.getButtonWidth(text1) + 16, ModernButton.getButtonHeight());
 
-		UI.setSize(this, ModernButton.getButtonWidth(text1) + 16, ModernButton.getButtonHeight());
-		
-		setBackgroundAnimations("chip-button");
-	}
+    setBackgroundAnimations("chip-button");
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    // Rectangle rect = new Rectangle(0, 0, getWidth(), getHeight());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		//Rectangle rect = new Rectangle(0, 0, getWidth(), getHeight());
+    int x = getHeight() / 2;
 
-		int x = getHeight() / 2;
+    g2.setColor(getForeground());
 
-		g2.setColor(getForeground());
-
-		g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
-	}
+    g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
+  }
 }

@@ -30,97 +30,93 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RibbonHighlightTextAnimation extends HighlightAnimation {
 
-	public static final Color HIGHLIGHT_COLOR = 
-			MaterialService.getInstance().color("ribbon-theme-highlighted");
-	
-	/** The m ribbon. */
-	private Ribbon mRibbon;
+  public static final Color HIGHLIGHT_COLOR = MaterialService.getInstance().color("ribbon-theme-highlighted");
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public RibbonHighlightTextAnimation(ModernWidget ribbon) {
-		super((Ribbon)ribbon);
+  /** The m ribbon. */
+  private Ribbon mRibbon;
 
-		mRibbon = (Ribbon)ribbon;
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public RibbonHighlightTextAnimation(ModernWidget ribbon) {
+    super((Ribbon) ribbon);
 
-		setFadeColor("highlight", 
-				MaterialService.getInstance().color("ribbon-menu-font"), 
-				MaterialService.getInstance().color("ribbon-theme"));
-	}
+    mRibbon = (Ribbon) ribbon;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    setFadeColor("highlight", MaterialService.getInstance().color("ribbon-menu-font"),
+        MaterialService.getInstance().color("ribbon-theme"));
+  }
 
-		/*
-		int x;
-		int tabWidth;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		for (int i = 0; i < mRibbon.mTitles.size(); ++i) {
-			x = mRibbon.mTabStartX + mRibbon.mTabStarts.get(i);
-			tabWidth = mRibbon.mTabWidths.get(i);
+    /*
+     * int x; int tabWidth;
+     * 
+     * for (int i = 0; i < mRibbon.mTitles.size(); ++i) { x = mRibbon.mTabStartX +
+     * mRibbon.mTabStarts.get(i); tabWidth = mRibbon.mTabWidths.get(i);
+     * 
+     * if (i == mRibbon.mHighlightedTab) {
+     * g2.setColor(mFade.getFadeColor("highlight"));
+     * 
+     * //g2.fill(tabShape);
+     * 
+     * g2.fillRect(x, Ribbon.Y_OFFSET, tabWidth, Ribbon.TAB_HEIGHT);
+     * 
+     * break; } }
+     */
 
-			if (i == mRibbon.mHighlightedTab) {
-				g2.setColor(mFade.getFadeColor("highlight"));
+    int x;
+    int y = Ribbon.TAB_BODY_Y - Ribbon.TAB_HEIGHT + (Ribbon.TAB_HEIGHT + g2.getFontMetrics().getAscent()) / 2;
+    int tabWidth;
 
-				//g2.fill(tabShape);
-				
-				g2.fillRect(x, Ribbon.Y_OFFSET, tabWidth, Ribbon.TAB_HEIGHT);
-				
-				break;
-			} 
-		}
-		*/
-		
-		
-		int x;
-		int y = Ribbon.TAB_BODY_Y - Ribbon.TAB_HEIGHT + (Ribbon.TAB_HEIGHT + g2.getFontMetrics().getAscent()) / 2;
-		int tabWidth;
+    //
+    // Paint the file menu item
+    //
 
-		//
-		// Paint the file menu item
-		//
+    // int textX = x + TAB_PADDING_X;
 
-		//int textX = x + TAB_PADDING_X;
+    // g2.setColor(Color.WHITE);
+    // g2.drawString(FILE_TOOLBAR, textX, y);
 
-		//g2.setColor(Color.WHITE);
-		//g2.drawString(FILE_TOOLBAR, textX, y);
+    //
+    // Paint the tabs.
+    //
 
+    // x = mTabStartX;
 
-		// 
-		// Paint the tabs.
-		//
+    for (int i = 0; i < mRibbon.mTitles.size(); ++i) {
+      x = mRibbon.mTabStartX + mRibbon.mTabStarts.get(i);
+      tabWidth = mRibbon.mTabWidths.get(i);
 
-		//x = mTabStartX;
+      // Render the headings
 
-		for (int i = 0; i < mRibbon.mTitles.size(); ++i) {
-			x = mRibbon.mTabStartX + mRibbon.mTabStarts.get(i);
-			tabWidth = mRibbon.mTabWidths.get(i);
+      // if (mToolbarVisible && i == mSelectedTab) {
+      // g2.setColor(BAR_BACKGROUND);
+      // } else {
+      // g2.setColor(i == mSelectedTab ? BAR_BACKGROUND : TEXT_COLOR); //Color.WHITE);
+      // }
 
-			// Render the headings
+      if (i == mRibbon.mSelectedTab) {
+        g2.setColor(Ribbon.BAR_BACKGROUND); // MaterialService.getInstance().color("ribbon-menu-font-selected"));
+      } else if (i == mRibbon.mHighlightedTab) {
+        g2.setColor(getFadeColor("highlight"));
+      } else {
+        g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
+      }
 
-			//if (mToolbarVisible && i == mSelectedTab) {
-			//	g2.setColor(BAR_BACKGROUND);
-			//} else {
-			//g2.setColor(i == mSelectedTab ? BAR_BACKGROUND : TEXT_COLOR); //Color.WHITE);
-			//}
+      int textX = x + (tabWidth - g2.getFontMetrics().stringWidth(mRibbon.mTitles.get(i))) / 2;
 
-			if (i == mRibbon.mSelectedTab) {
-				g2.setColor(Ribbon.BAR_BACKGROUND); //MaterialService.getInstance().color("ribbon-menu-font-selected"));
-			} else if (i == mRibbon.mHighlightedTab) {
-				g2.setColor(getFadeColor("highlight"));
-			} else {
-				g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
-			}
-
-			int textX = x + (tabWidth - g2.getFontMetrics().stringWidth(mRibbon.mTitles.get(i))) / 2;
-
-			g2.drawString(mRibbon.mTitles.get(i), textX, y);
-		}
-	}
+      g2.drawString(mRibbon.mTitles.get(i), textX, y);
+    }
+  }
 }

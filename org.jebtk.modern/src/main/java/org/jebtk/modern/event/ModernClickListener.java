@@ -37,11 +37,12 @@ import java.util.EventListener;
  *
  */
 public interface ModernClickListener extends EventListener {
-	
-	/**
-	 * Clicked.
-	 *
-	 * @param e the e
-	 */
-	public void clicked(ModernClickEvent e);
+
+  /**
+   * Clicked.
+   *
+   * @param e
+   *          the e
+   */
+  public void clicked(ModernClickEvent e);
 }

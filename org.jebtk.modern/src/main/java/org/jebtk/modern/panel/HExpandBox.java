@@ -26,134 +26,151 @@ import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
- * Create a hbox containing two components, one aligned left, the other
- * aligned right that expands to fill horizontal space.
+ * Create a hbox containing two components, one aligned left, the other aligned
+ * right that expands to fill horizontal space.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class HExpandBox extends ModernComponent implements ComponentListener {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	public HExpandBox() {
-		setLayout(null);
+  public HExpandBox() {
+    setLayout(null);
 
-		UI.setSize(this, ModernWidget.MAX_SIZE_24);
+    UI.setSize(this, ModernWidget.MAX_SIZE_24);
 
-		addComponentListener(this);
-	}
-	
-	/**
-	 * Instantiates a new h expand box.
-	 *
-	 * @param name the name
-	 * @param c2 the c 2
-	 * @param others the others
-	 */
-	public HExpandBox(String name, Component c2, Component... others) {
-		this(new ModernAutoSizeLabel(name), c2, others);
-	}
+    addComponentListener(this);
+  }
 
-	/**
-	 * Instantiates a new h expand box.
-	 *
-	 * @param c1 the c 1
-	 * @param c2 the c 2
-	 * @param others the others
-	 */
-	public HExpandBox(Component c1, Component c2, Component... others) {
-		this();
-		
-		add(c1, c2, others);
-	}
-	
-	public Component add(String name, Component c2) {
-		add(new ModernAutoSizeLabel(name), c2);
-		
-		return this;
-	}
-	
-	public void add(String name, Component c2, Component... others) {
-		add(new ModernAutoSizeLabel(name), c2, others);
-	}
-	
-	public void add(Component c1, Component c2) {
-		add(c1);
-		add(c2);
-	}
-	
-	public void add(Component c1, Component c2, Component... others) {
-		add(c1);
-		add(c2);
+  /**
+   * Instantiates a new h expand box.
+   *
+   * @param name
+   *          the name
+   * @param c2
+   *          the c 2
+   * @param others
+   *          the others
+   */
+  public HExpandBox(String name, Component c2, Component... others) {
+    this(new ModernAutoSizeLabel(name), c2, others);
+  }
 
-		for (Component c : others) {
-			add(c);
-		}
-	}
+  /**
+   * Instantiates a new h expand box.
+   *
+   * @param c1
+   *          the c 1
+   * @param c2
+   *          the c 2
+   * @param others
+   *          the others
+   */
+  public HExpandBox(Component c1, Component c2, Component... others) {
+    this();
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentHidden(ComponentEvent arg0) {
-		// TODO Auto-generated method stub
+    add(c1, c2, others);
+  }
 
-	}
+  public Component add(String name, Component c2) {
+    add(new ModernAutoSizeLabel(name), c2);
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentMoved(ComponentEvent e) {
-		// TODO Auto-generated method stub
+    return this;
+  }
 
-	}
+  public void add(String name, Component c2, Component... others) {
+    add(new ModernAutoSizeLabel(name), c2, others);
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentResized(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentResized(ComponentEvent e) {
+  public void add(Component c1, Component c2) {
+    add(c1);
+    add(c2);
+  }
 
-		int h = mInternalRect.getH();
+  public void add(Component c1, Component c2, Component... others) {
+    add(c1);
+    add(c2);
 
-		Component c;
+    for (Component c : others) {
+      add(c);
+    }
+  }
 
-		c = getComponent(0);
-		c.setBounds(getInsets().left, getInsets().top, c.getPreferredSize().width, h);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentHidden(ComponentEvent arg0) {
+    // TODO Auto-generated method stub
 
+  }
 
-		// Determine the offset of the right components
-		int w = 0;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentMoved(ComponentEvent e) {
+    // TODO Auto-generated method stub
 
-		for (int i = 1; i < getComponentCount(); ++i) {
-			c = getComponent(i);
+  }
 
-			w += c.getPreferredSize().width;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentResized(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentResized(ComponentEvent e) {
 
-		int x = mRect.getW() - getInsets().right - w;
+    int h = mInternalRect.getH();
 
-		for (int i = 1; i < getComponentCount(); ++i) {
-			c = getComponent(i);
+    Component c;
 
-			w = c.getPreferredSize().width;
+    c = getComponent(0);
+    c.setBounds(getInsets().left, getInsets().top, c.getPreferredSize().width, h);
 
-			c.setBounds(x, getInsets().top, w, h);
+    // Determine the offset of the right components
+    int w = 0;
 
-			x += w;
-		}
+    for (int i = 1; i < getComponentCount(); ++i) {
+      c = getComponent(i);
 
-	}
+      w += c.getPreferredSize().width;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentShown(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentShown(ComponentEvent e) {
-		// TODO Auto-generated method stub
+    int x = mRect.getW() - getInsets().right - w;
 
-	}
+    for (int i = 1; i < getComponentCount(); ++i) {
+      c = getComponent(i);
+
+      w = c.getPreferredSize().width;
+
+      c.setBounds(x, getInsets().top, w, h);
+
+      x += w;
+    }
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentShown(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentShown(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

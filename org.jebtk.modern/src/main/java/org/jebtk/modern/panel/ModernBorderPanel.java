@@ -34,9 +34,6 @@ import java.awt.LayoutManager;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Replacement ModernButton with a common skin.
@@ -45,53 +42,58 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernBorderPanel extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new modern dialog border panel.
-	 */
-	public ModernBorderPanel() {
-		init();
-	}
-	
-	/**
-	 * Instantiates a new modern dialog border panel.
-	 *
-	 * @param layout the layout
-	 */
-	public ModernBorderPanel(LayoutManager layout) {
-		super(layout);
 
-		init();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog border panel.
-	 *
-	 * @param component the component
-	 */
-	public ModernBorderPanel(Component component) {
-		add(component);
-		
-		init();
-	}
-	
-	/**
-	 * Inits the.
-	 */
-	private void init() {
-		setBorder(BorderService.getInstance().createBorder(2));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		getWidgetRenderer().drawContentBox(g2, mRect);
-	}
+  /**
+   * Instantiates a new modern dialog border panel.
+   */
+  public ModernBorderPanel() {
+    init();
+  }
+
+  /**
+   * Instantiates a new modern dialog border panel.
+   *
+   * @param layout
+   *          the layout
+   */
+  public ModernBorderPanel(LayoutManager layout) {
+    super(layout);
+
+    init();
+  }
+
+  /**
+   * Instantiates a new modern dialog border panel.
+   *
+   * @param component
+   *          the component
+   */
+  public ModernBorderPanel(Component component) {
+    add(component);
+
+    init();
+  }
+
+  /**
+   * Inits the.
+   */
+  private void init() {
+    setBorder(BorderService.getInstance().createBorder(2));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.widget.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+    getWidgetRenderer().drawContentBox(g2, mRect);
+  }
 }

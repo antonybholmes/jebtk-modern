@@ -32,23 +32,25 @@ package org.jebtk.modern.io;
  * The class AllGuiFilesFilter.
  */
 public class AllGuiFilesFilter extends GuiFileExtFilter {
-	
-	/** The Constant INSTANCE. */
-	public static final GuiFileExtFilter INSTANCE = new AllGuiFilesFilter();
 
-	/**
-	 * Instantiates a new all gui files filter.
-	 */
-	public AllGuiFilesFilter() {
-		super("");
-	}
+  /** The Constant INSTANCE. */
+  public static final GuiFileExtFilter INSTANCE = new AllGuiFilesFilter();
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return "All Files (*.*)";
-	}
+  /**
+   * Instantiates a new all gui files filter.
+   */
+  public AllGuiFilesFilter() {
+    super("");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return "All Files (*.*)";
+  }
 
 }

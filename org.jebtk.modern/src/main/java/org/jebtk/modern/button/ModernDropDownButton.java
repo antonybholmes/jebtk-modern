@@ -47,160 +47,170 @@ import org.jebtk.modern.theme.ModernTheme;
  */
 public class ModernDropDownButton extends ModernDropDownWidget {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant TRIANGLE_ICON. */
-	protected static final ModernIcon TRIANGLE_ICON = 
-			UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /** The Constant TRIANGLE_ICON. */
+  protected static final ModernIcon TRIANGLE_ICON = UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16);
 
+  /**
+   * The constant SIZE.
+   */
+  private static final Dimension SIZE = ModernTheme.loadDimension("theme.button.dimensions.dropdown-icon-only");
 
-	/**
-	 * The constant SIZE.
-	 */
-	private static final Dimension SIZE = 
-			ModernTheme.loadDimension("theme.button.dimensions.dropdown-icon-only");
+  protected boolean mChangeText = true;
 
-	protected boolean mChangeText = true;
+  /**
+   * Instantiates a new modern drop down button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public ModernDropDownButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
 
-	/**
-	 * Instantiates a new modern drop down button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public ModernDropDownButton(String text1, 
-			ModernIcon icon, 
-			ModernPopupMenu menu) {
+    this(text1, icon);
 
-		this(text1, icon);
+    setMenu(menu);
+  }
 
-		setMenu(menu);
-	}
+  /**
+   * Instantiates a new modern drop down button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   */
+  public ModernDropDownButton(String text1, ModernIcon icon) {
+    super(text1, icon);
+  }
 
-	/**
-	 * Instantiates a new modern drop down button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 */
-	public ModernDropDownButton(String text1, ModernIcon icon) {
-		super(text1, icon);
-	}
+  /**
+   * Instantiates a new modern drop down button.
+   *
+   * @param text1
+   *          the text1
+   * @param menu
+   *          the menu
+   */
+  public ModernDropDownButton(String text1, ModernPopupMenu menu) {
+    super(text1);
 
-	/**
-	 * Instantiates a new modern drop down button.
-	 *
-	 * @param text1 the text1
-	 * @param menu the menu
-	 */
-	public ModernDropDownButton(String text1, ModernPopupMenu menu) {
-		super(text1);
+    setMenu(menu);
+  }
 
-		setMenu(menu);
-	}
+  /**
+   * Instantiates a new modern drop down button.
+   *
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public ModernDropDownButton(ModernIcon icon, ModernPopupMenu menu) {
+    this(icon);
 
-	/**
-	 * Instantiates a new modern drop down button.
-	 *
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public ModernDropDownButton(ModernIcon icon, ModernPopupMenu menu) {
-		this(icon);
+    setMenu(menu);
+  }
 
-		setMenu(menu);
-	}
-	
-	/**
-	 * Instantiates a new modern drop down button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernDropDownButton(ModernIcon icon) {
-		super(icon);
+  /**
+   * Instantiates a new modern drop down button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernDropDownButton(ModernIcon icon) {
+    super(icon);
 
-		UI.setSize(this, SIZE);
-	}
+    UI.setSize(this, SIZE);
+  }
 
-	/**
-	 * Instantiates a new modern drop down button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernDropDownButton(String text1) {
-		super(text1);
-	}
+  /**
+   * Instantiates a new modern drop down button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernDropDownButton(String text1) {
+    super(text1);
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int iconX = PADDING;
 
+    g2.setColor(getForeground());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int iconX = PADDING;
+    if (mText1 != null) {
+      int x = iconX;
 
-		g2.setColor(getForeground());
+      if (this.getIcon() != null) {
+        x += getIcon().getWidth() + PADDING;
+      }
 
-		if (mText1 != null) {
-			int x = iconX;
+      g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
+    }
 
-			if (this.getIcon() != null) {
-				x += getIcon().getWidth() + PADDING;
-			}
+    if (getIcon() != null) {
+      int iconY = (getHeight() - 16) / 2;
 
-			g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
-		}
+      getIcon().drawIcon(g2, iconX, iconY, 16);
+    }
 
-		if (getIcon() != null) {
-			int iconY = (getHeight() - 16) / 2;
+    TRIANGLE_ICON.drawIcon(g2, mRect.getW() - 16, (getHeight() - 16) / 2, 16);
+  }
 
-			getIcon().drawIcon(g2, iconX, iconY, 16);
-		}
+  /**
+   * Default to a particular menu item.
+   *
+   * @param index
+   *          the new selected index
+   */
+  public void setSelectedIndex(int index) {
+    ((ModernPopupMenu) mMenu).get(index).doClick();
+  }
 
-		TRIANGLE_ICON.drawIcon(g2, mRect.getW() - 16, (getHeight() - 16) / 2, 16);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernClickWidget#fireClicked(org.abh.lib.ui.modern.
+   * event.ModernClickEvent)
+   */
+  @Override
+  public void fireClicked(ModernClickEvent e) {
+    if (mChangeText) {
+      mText1 = e.getMessage();
 
-	/**
-	 * Default to a particular menu item.
-	 *
-	 * @param index the new selected index
-	 */
-	public void setSelectedIndex(int index) {
-		((ModernPopupMenu)mMenu).get(index).doClick();
-	}
+      setClickMessage(mText1);
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernClickWidget#fireClicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void fireClicked(ModernClickEvent e) {
-		if (mChangeText) {
-			mText1 = e.getMessage();
-		
-			setClickMessage(mText1);
-		}
+    repaint();
 
-		repaint();
+    super.fireClicked(e);
+  }
 
-		super.fireClicked(e);
-	}
-	
-	/**
-	 * Sets whether the drop down should change its text in response to
-	 * a menu item being clicked on.
-	 * 
-	 * @param change
-	 * @return
-	 */
-	public ModernDropDownButton setChangeText(boolean change) {
-		mChangeText = change;
-		
-		return this;
-	}
+  /**
+   * Sets whether the drop down should change its text in response to a menu item
+   * being clicked on.
+   * 
+   * @param change
+   * @return
+   */
+  public ModernDropDownButton setChangeText(boolean change) {
+    mChangeText = change;
+
+    return this;
+  }
 }

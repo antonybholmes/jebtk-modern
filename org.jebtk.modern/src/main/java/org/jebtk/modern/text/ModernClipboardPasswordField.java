@@ -36,158 +36,177 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.menu.ModernPopupMenu;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernClipboardPasswordField.
  */
 public class ModernClipboardPasswordField extends ModernPasswordField implements MouseListener, ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The popup.
-	 */
-	private ModernPopupMenu popup;
+  /**
+   * The popup.
+   */
+  private ModernPopupMenu popup;
 
-	/**
-	 * The cut enabled.
-	 */
-	private boolean cutEnabled = true;
-	
-	/**
-	 * The paste enabled.
-	 */
-	//private boolean copyEnabled = true;
-	private boolean pasteEnabled = true;
+  /**
+   * The cut enabled.
+   */
+  private boolean cutEnabled = true;
 
+  /**
+   * The paste enabled.
+   */
+  // private boolean copyEnabled = true;
+  private boolean pasteEnabled = true;
 
-	/**
-	 * Instantiates a new modern clipboard password field.
-	 */
-	public ModernClipboardPasswordField() {
-		
-	}
+  /**
+   * Instantiates a new modern clipboard password field.
+   */
+  public ModernClipboardPasswordField() {
 
-	/**
-	 * Instantiates a new modern clipboard password field.
-	 *
-	 * @param cutEnabled the cut enabled
-	 * @param copyEnabled the copy enabled
-	 * @param pasteEnabled the paste enabled
-	 */
-	public ModernClipboardPasswordField(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
+  }
 
-		this.cutEnabled = cutEnabled;
-		//this.copyEnabled = copyEnabled;
-		this.pasteEnabled = pasteEnabled;
-	}
+  /**
+   * Instantiates a new modern clipboard password field.
+   *
+   * @param cutEnabled
+   *          the cut enabled
+   * @param copyEnabled
+   *          the copy enabled
+   * @param pasteEnabled
+   *          the paste enabled
+   */
+  public ModernClipboardPasswordField(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
 
-	/**
-	 * Instantiates a new modern clipboard password field.
-	 *
-	 * @param text the text
-	 */
-	public ModernClipboardPasswordField(String text) {
+    this.cutEnabled = cutEnabled;
+    // this.copyEnabled = copyEnabled;
+    this.pasteEnabled = pasteEnabled;
+  }
 
-		super(text);
-	}
+  /**
+   * Instantiates a new modern clipboard password field.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernClipboardPasswordField(String text) {
 
-	/**
-	 * Instantiates a new modern clipboard password field.
-	 *
-	 * @param text the text
-	 * @param cutEnabled the cut enabled
-	 * @param copyEnabled the copy enabled
-	 * @param pasteEnabled the paste enabled
-	 */
-	public ModernClipboardPasswordField(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
+    super(text);
+  }
 
-		super(text);
+  /**
+   * Instantiates a new modern clipboard password field.
+   *
+   * @param text
+   *          the text
+   * @param cutEnabled
+   *          the cut enabled
+   * @param copyEnabled
+   *          the copy enabled
+   * @param pasteEnabled
+   *          the paste enabled
+   */
+  public ModernClipboardPasswordField(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
 
-		this.cutEnabled = cutEnabled;
-		//this.copyEnabled = copyEnabled;
-		this.pasteEnabled = pasteEnabled;
-	}
+    super(text);
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-	 */
-	public final void mousePressed(MouseEvent e) {
-		showPopup(e);
-	}
+    this.cutEnabled = cutEnabled;
+    // this.copyEnabled = copyEnabled;
+    this.pasteEnabled = pasteEnabled;
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-	 */
-	public final void mouseReleased(MouseEvent e) {
-		showPopup(e);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+   */
+  public final void mousePressed(MouseEvent e) {
+    showPopup(e);
+  }
 
-	/**
-	 * Show popup.
-	 *
-	 * @param e the e
-	 */
-	private void showPopup(MouseEvent e) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+   */
+  public final void mouseReleased(MouseEvent e) {
+    showPopup(e);
+  }
 
-		if (e.isPopupTrigger()) {
-			//cutModernMenuItem.setEnabled(cutEnabled && this.isEditable());
-			//copyModernMenuItem.setEnabled(copyEnabled);
-			//pasteModernMenuItem.setEnabled(pasteEnabled && this.isEditable());
+  /**
+   * Show popup.
+   *
+   * @param e
+   *          the e
+   */
+  private void showPopup(MouseEvent e) {
 
-			popup = ClipboardSharedMenu.getInstance().getMenu(this, cutEnabled && this.isEditable(), true, pasteEnabled && this.isEditable());
+    if (e.isPopupTrigger()) {
+      // cutModernMenuItem.setEnabled(cutEnabled && this.isEditable());
+      // copyModernMenuItem.setEnabled(copyEnabled);
+      // pasteModernMenuItem.setEnabled(pasteEnabled && this.isEditable());
 
-			popup.showPopup(e.getComponent(), e.getX(), e.getY());
-		}
-	}
+      popup = ClipboardSharedMenu.getInstance().getMenu(this, cutEnabled && this.isEditable(), true,
+          pasteEnabled && this.isEditable());
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-	 */
-	public final void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+      popup.showPopup(e.getComponent(), e.getX(), e.getY());
+    }
+  }
 
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+   */
+  public final void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-	 */
-	public final void mouseEntered(MouseEvent e) {
-		//setBorder(BorderFactory.createCompoundBorder(BorderService.getInstance().createLineBorder(HIGHLIGHT_COLOR),
-	    //		Ui.SMALL_WIDGET_BORDER));
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-	 */
-	public final void mouseExited(MouseEvent e) {
-		//setBorder(BorderFactory.createCompoundBorder(BorderService.getInstance().createLineBorder(NON_HIGHLIGHT_COLOR),
-	   // 		Ui.SMALL_WIDGET_BORDER));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+   */
+  public final void mouseEntered(MouseEvent e) {
+    // setBorder(BorderFactory.createCompoundBorder(BorderService.getInstance().createLineBorder(HIGHLIGHT_COLOR),
+    // Ui.SMALL_WIDGET_BORDER));
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+   */
+  public final void mouseExited(MouseEvent e) {
+    // setBorder(BorderFactory.createCompoundBorder(BorderService.getInstance().createLineBorder(NON_HIGHLIGHT_COLOR),
+    // Ui.SMALL_WIDGET_BORDER));
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public final void clicked(ModernClickEvent e) {
-		if (e.getMessage().equals(UI.MENU_SELECT_ALL)) {
-			selectAll();
-		} else if (e.getMessage().equals(UI.MENU_CUT)) {
-			this.cut();
-		} else if (e.getMessage().equals(UI.MENU_COPY)) {
-			//setClipboardContents(getSelectedText());
-			this.copy();
-		} else if (e.getMessage().equals(UI.MENU_PASTE)) {
-			//getClipboardContents();
-			this.paste();
-		} else {
-			// do nothing
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public final void clicked(ModernClickEvent e) {
+    if (e.getMessage().equals(UI.MENU_SELECT_ALL)) {
+      selectAll();
+    } else if (e.getMessage().equals(UI.MENU_CUT)) {
+      this.cut();
+    } else if (e.getMessage().equals(UI.MENU_COPY)) {
+      // setClipboardContents(getSelectedText());
+      this.copy();
+    } else if (e.getMessage().equals(UI.MENU_PASTE)) {
+      // getClipboardContents();
+      this.paste();
+    } else {
+      // do nothing
+    }
+  }
 }

@@ -38,75 +38,82 @@ import org.jebtk.modern.graphics.icons.HelpVectorIcon;
 import org.jebtk.modern.ribbon.RibbonPanelButton;
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonPanelHelpButton.
  */
 public class RibbonPanelHelpButton extends RibbonPanelButton implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The width.
-	 */
-	private int WIDTH = 42;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member product.
-	 */
-	private GuiAppInfo mProduct;
+  /**
+   * The width.
+   */
+  private int WIDTH = 42;
 
-	/**
-	 * Instantiates a new ribbon panel help button.
-	 *
-	 * @param product the product
-	 */
-	public RibbonPanelHelpButton(GuiAppInfo product) {
-		super("Help");
-		
-		mProduct = product;
-		
-		addClickListener(this);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ribbon.RibbonPanelButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
-		
-		int x = (mRect.getW() - WIDTH) / 2;
-		int y = 16;
-		
-		UIService.getInstance().loadIcon(HelpVectorIcon.class, 32).drawIcon(g2, x, y, 32);
-		
-		x = (mRect.getW() - WIDTH) / 2 + (WIDTH - g2.getFontMetrics().stringWidth("?")) / 2;
-		y = 16 + (WIDTH + g2.getFontMetrics().getAscent() - g2.getFontMetrics().getDescent()) / 2;
-		
-		g2.drawString("?", x, y);
-		
-		g2.setColor(TEXT_COLOR);
-		g2.setFont(ThemeService.loadFont("widget.text"));
-		
-		g2.drawString(getText(), (mRect.getW() - g2.getFontMetrics().stringWidth(getText())) / 2, mRect.getH() - 16);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void clicked(ModernClickEvent e) {
-		try {
-			HelpManager.launchHelp(mProduct);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		} catch (URISyntaxException e1) {
-			e1.printStackTrace();
-		}
-	}
+  /**
+   * The member product.
+   */
+  private GuiAppInfo mProduct;
+
+  /**
+   * Instantiates a new ribbon panel help button.
+   *
+   * @param product
+   *          the product
+   */
+  public RibbonPanelHelpButton(GuiAppInfo product) {
+    super("Help");
+
+    mProduct = product;
+
+    addClickListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ribbon.RibbonPanelButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
+
+    int x = (mRect.getW() - WIDTH) / 2;
+    int y = 16;
+
+    UIService.getInstance().loadIcon(HelpVectorIcon.class, 32).drawIcon(g2, x, y, 32);
+
+    x = (mRect.getW() - WIDTH) / 2 + (WIDTH - g2.getFontMetrics().stringWidth("?")) / 2;
+    y = 16 + (WIDTH + g2.getFontMetrics().getAscent() - g2.getFontMetrics().getDescent()) / 2;
+
+    g2.drawString("?", x, y);
+
+    g2.setColor(TEXT_COLOR);
+    g2.setFont(ThemeService.loadFont("widget.text"));
+
+    g2.drawString(getText(), (mRect.getW() - g2.getFontMetrics().stringWidth(getText())) / 2, mRect.getH() - 16);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public void clicked(ModernClickEvent e) {
+    try {
+      HelpManager.launchHelp(mProduct);
+    } catch (IOException e1) {
+      e1.printStackTrace();
+    } catch (URISyntaxException e1) {
+      e1.printStackTrace();
+    }
+  }
 }

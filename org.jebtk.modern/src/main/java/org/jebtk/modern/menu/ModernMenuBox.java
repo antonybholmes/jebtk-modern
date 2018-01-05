@@ -33,8 +33,6 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.event.ModernClickListeners;
 import org.jebtk.modern.panel.VBoxAutoWidth;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * A popup is a component that will appear in a popup window.
@@ -43,66 +41,84 @@ import org.jebtk.modern.panel.VBoxAutoWidth;
  *
  */
 public class ModernMenuBox extends VBoxAutoWidth implements ModernClickEventProducer, ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member listeners.
-	 */
-	private ModernClickListeners mListeners = new ModernClickListeners();
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param item the item
-	 */
-	public void add(ModernMenuItem item) {
-		addMenuItem(item);
-	}
-	
-	/**
-	 * Adds the menu item.
-	 *
-	 * @param item the item
-	 */
-	public void addMenuItem(ModernMenuItem item) {
-		super.add(item);
-		
-		item.addClickListener(this);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	@Override
-	public void addClickListener(ModernClickListener l) {
-		mListeners.addClickListener(l);
-	}
+  /**
+   * The member listeners.
+   */
+  private ModernClickListeners mListeners = new ModernClickListeners();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	@Override
-	public void removeClickListener(ModernClickListener l) {
-		mListeners.removeClickListener(l);
-	}
+  /**
+   * Adds the.
+   *
+   * @param item
+   *          the item
+   */
+  public void add(ModernMenuItem item) {
+    addMenuItem(item);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void fireClicked(ModernClickEvent e) {
-		mListeners.fireClicked(e); //new ModernClickEvent(this, e.getMessage()));
-	}
+  /**
+   * Adds the menu item.
+   *
+   * @param item
+   *          the item
+   */
+  public void addMenuItem(ModernMenuItem item) {
+    super.add(item);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		fireClicked(e);
-	}
+    item.addClickListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh
+   * .lib.ui.modern.event.ModernClickListener)
+   */
+  @Override
+  public void addClickListener(ModernClickListener l) {
+    mListeners.addClickListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.
+   * abh.lib.ui.modern.event.ModernClickListener)
+   */
+  @Override
+  public void removeClickListener(ModernClickListener l) {
+    mListeners.removeClickListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.
+   * ui.modern.event.ModernClickEvent)
+   */
+  @Override
+  public void fireClicked(ModernClickEvent e) {
+    mListeners.fireClicked(e); // new ModernClickEvent(this, e.getMessage()));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    fireClicked(e);
+  }
 }

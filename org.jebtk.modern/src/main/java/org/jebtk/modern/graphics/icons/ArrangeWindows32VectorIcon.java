@@ -33,8 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Simple pane icon.
@@ -43,74 +41,81 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ArrangeWindows32VectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant WIDTH.
-	 */
-	protected static final int WIDTH = 24;
-	
-	/**
-	 * The constant HEIGHT.
-	 */
-	protected static final int HEIGHT = 14;
-	
-	/**
-	 * The constant BAR_HEIGHT.
-	 */
-	protected static final int BAR_HEIGHT = 5;
-	
-	/**
-	 * The bar color.
-	 */
-	protected Color barColor;
 
-	/**
-	 * Instantiates a new arrange windows32 vector icon.
-	 */
-	public ArrangeWindows32VectorIcon() {
-		this(ThemeService.getInstance().colors().getColorHighlight(4));
-	}
-	
-	/**
-	 * Instantiates a new arrange windows32 vector icon.
-	 *
-	 * @param barColor the bar color
-	 */
-	public ArrangeWindows32VectorIcon(Color barColor) {
-		this.barColor = barColor;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		x = x + (w - WIDTH) / 2;
+  /**
+   * The constant WIDTH.
+   */
+  protected static final int WIDTH = 24;
 
-		drawWindow(g2, x, y);
-		
-		y += HEIGHT + 1;
-		
-		drawWindow(g2, x, y);
-	}
-	
-	/**
-	 * Draw window.
-	 *
-	 * @param g2 the g2
-	 * @param x the x
-	 * @param y the y
-	 */
-	private void drawWindow(Graphics2D g2, int x, int y) {
-		g2.setColor(Color.WHITE);
-		g2.fillRect(x, y, WIDTH, HEIGHT);
-		
-	
-		g2.setColor(ModernWidget.LINE_COLOR);
-		g2.drawRect(x, y, WIDTH - 1, HEIGHT);
-		
-		g2.setColor(barColor);
-		g2.fillRect(x, y, WIDTH, BAR_HEIGHT);
-	}
+  /**
+   * The constant HEIGHT.
+   */
+  protected static final int HEIGHT = 14;
+
+  /**
+   * The constant BAR_HEIGHT.
+   */
+  protected static final int BAR_HEIGHT = 5;
+
+  /**
+   * The bar color.
+   */
+  protected Color barColor;
+
+  /**
+   * Instantiates a new arrange windows32 vector icon.
+   */
+  public ArrangeWindows32VectorIcon() {
+    this(ThemeService.getInstance().colors().getColorHighlight(4));
+  }
+
+  /**
+   * Instantiates a new arrange windows32 vector icon.
+   *
+   * @param barColor
+   *          the bar color
+   */
+  public ArrangeWindows32VectorIcon(Color barColor) {
+    this.barColor = barColor;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    x = x + (w - WIDTH) / 2;
+
+    drawWindow(g2, x, y);
+
+    y += HEIGHT + 1;
+
+    drawWindow(g2, x, y);
+  }
+
+  /**
+   * Draw window.
+   *
+   * @param g2
+   *          the g2
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   */
+  private void drawWindow(Graphics2D g2, int x, int y) {
+    g2.setColor(Color.WHITE);
+    g2.fillRect(x, y, WIDTH, HEIGHT);
+
+    g2.setColor(ModernWidget.LINE_COLOR);
+    g2.drawRect(x, y, WIDTH - 1, HEIGHT);
+
+    g2.setColor(barColor);
+    g2.fillRect(x, y, WIDTH, BAR_HEIGHT);
+  }
 
 }

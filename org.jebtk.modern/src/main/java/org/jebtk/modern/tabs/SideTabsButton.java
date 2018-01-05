@@ -38,65 +38,75 @@ import org.jebtk.modern.theme.RenderMode;
  * The class SideTabsButton.
  */
 public class SideTabsButton extends ModernCheckRadioButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new side tabs button.
-	 *
-	 * @param name the name
-	 */
-	public SideTabsButton(String name) {
-		super(name);
-		
-		setup();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new side tabs button.
-	 *
-	 * @param name the name
-	 * @param icon the icon
-	 */
-	public SideTabsButton(String name, ModernIcon icon) {
-		super(name, icon);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setAlignmentY(TOP_ALIGNMENT);
-		
-		//Ui.setSize(this, SIZE);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (isEnabled()) {
-			if (isSelected() || mHighlight) {
-				getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
-			}
-		}
-	}
+  /**
+   * Instantiates a new side tabs button.
+   *
+   * @param name
+   *          the name
+   */
+  public SideTabsButton(String name) {
+    super(name);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		//Rectangle rect = new Rectangle(0, 0, getWidth(), getHeight());
-		
-		g2.setColor(getForeground());
-			
-		g2.drawString(mText1, PADDING, getTextYPosCenter(g2, getHeight()));
-	}
+    setup();
+  }
+
+  /**
+   * Instantiates a new side tabs button.
+   *
+   * @param name
+   *          the name
+   * @param icon
+   *          the icon
+   */
+  public SideTabsButton(String name, ModernIcon icon) {
+    super(name, icon);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setAlignmentY(TOP_ALIGNMENT);
+
+    // Ui.setSize(this, SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.widget.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    if (isEnabled()) {
+      if (isSelected() || mHighlight) {
+        getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
+      }
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernCheckButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    // Rectangle rect = new Rectangle(0, 0, getWidth(), getHeight());
+
+    g2.setColor(getForeground());
+
+    g2.drawString(mText1, PADDING, getTextYPosCenter(g2, getHeight()));
+  }
 }

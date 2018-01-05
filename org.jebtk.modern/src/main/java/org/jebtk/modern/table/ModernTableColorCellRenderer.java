@@ -36,120 +36,121 @@ import java.awt.event.MouseListener;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.dataview.ModernDataCellRenderer;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTableCheckboxCellRenderer.
  */
 public class ModernTableColorCellRenderer extends ModernDataCellRenderer implements MouseListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/** The m color. */
-	private Color mColor = Color.BLACK;
-	
-	/**
-	 * Instantiates a new modern table checkbox cell renderer.
-	 */
-	public ModernTableColorCellRenderer() {
-		addMouseListener(this);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int h = getHeight() - 10;
-		int w = h;
-		
-		
-		int x = (getWidth() - w) / 2;
-		int y = (getHeight() - h) / 2;
-		
-		g2.setColor(mColor);
-		
-		g2.fillRect(x, y, w, h);
-		
-		g2.setColor(DARK_LINE_COLOR);
-		
-		g2.drawRect(x, y, w, h);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	public final Component getCellRendererComponent(ModernData table,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
-		
-		mColor = (Color)value;
-		
-		//return renderer;
-		
-		//this.selected = (Boolean)value;
+  /** The m color. */
+  private Color mColor = Color.BLACK;
 
-		//repaint();
-		
-		return super.getCellRendererComponent(table, 
-				value, 
-				highlight, 
-				isSelected, 
-				hasFocus, 
-				row, 
-				column);
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mousePressed(MouseEvent e) {
-		fireClicked();
-	}
+  /**
+   * Instantiates a new modern table checkbox cell renderer.
+   */
+  public ModernTableColorCellRenderer() {
+    addMouseListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int h = getHeight() - 10;
+    int w = h;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    int x = (getWidth() - w) / 2;
+    int y = (getHeight() - h) / 2;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    g2.setColor(mColor);
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    g2.fillRect(x, y, w, h);
+
+    g2.setColor(DARK_LINE_COLOR);
+
+    g2.drawRect(x, y, w, h);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
+   * java.lang.Object, boolean, boolean, boolean, int, int)
+   */
+  public final Component getCellRendererComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+
+    mColor = (Color) value;
+
+    // return renderer;
+
+    // this.selected = (Boolean)value;
+
+    // repaint();
+
+    return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mousePressed(MouseEvent e) {
+    fireClicked();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseEntered(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseExited(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseReleased(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

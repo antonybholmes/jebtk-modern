@@ -31,32 +31,31 @@ import java.util.EventListener;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving filterEvent events.
- * The class that is interested in processing a filterEvent
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addFilterEventListener<code> method. When
- * the filterEvent event occurs, that object's appropriate
- * method is invoked.
+ * The listener interface for receiving filterEvent events. The class that is
+ * interested in processing a filterEvent event implements this interface, and
+ * the object created with that class is registered with a component using the
+ * component's <code>addFilterEventListener<code> method. When the filterEvent
+ * event occurs, that object's appropriate method is invoked.
  *
  * @see FilterEventEvent
  */
 public interface FilterEventListener extends EventListener {
 
-	/**
-	 * Filter changed.
-	 *
-	 * @param e the e
-	 */
-	public void filtersUpdated(ChangeEvent e);
-	
-	/**
-	 * Invoked when filters update occurs.
-	 *
-	 * @param e the e
-	 */
-	public void filtersChanged(ChangeEvent e);
+  /**
+   * Filter changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void filtersUpdated(ChangeEvent e);
+
+  /**
+   * Invoked when filters update occurs.
+   *
+   * @param e
+   *          the e
+   */
+  public void filtersChanged(ChangeEvent e);
 }

@@ -43,50 +43,51 @@ import org.jebtk.modern.theme.ThemeService;
  *
  */
 public class ModernTableLayerCellRenderer extends ModernTableCheckboxCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant VISIBLE_ICON.
-	 */
-	private final static ModernIcon VISIBLE_ICON = 
-			UIService.getInstance().loadIcon("layer_visible", 16);
-	
-	/**
-	 * The constant INVISIBLE_ICON.
-	 */
-	private final static ModernIcon INVISIBLE_ICON = 
-			UIService.getInstance().loadIcon("blank", 16);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern table layer cell renderer.
-	 */
-	public ModernTableLayerCellRenderer() {
-		setCanHighlight(false);
-	}
+  /**
+   * The constant VISIBLE_ICON.
+   */
+  private final static ModernIcon VISIBLE_ICON = UIService.getInstance().loadIcon("layer_visible", 16);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.table.ModernTableCheckboxCellRenderer#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
+  /**
+   * The constant INVISIBLE_ICON.
+   */
+  private final static ModernIcon INVISIBLE_ICON = UIService.getInstance().loadIcon("blank", 16);
 
-		int x = (this.getWidth() - 16) / 2;
-		int y = (this.getHeight() - 16) / 2;
-		
-		if (selected) {
-			VISIBLE_ICON.drawIcon(g2, x, y, 16);
-		} else {
-			INVISIBLE_ICON.drawIcon(g2, x, y, 16);
-		}
-		
-		x = (this.getWidth() - UIService.ICON_SIZE_20) / 2;
-		y = (this.getHeight() - UIService.ICON_SIZE_20) / 2;
-		
-		drawRect(g2, ThemeService.getInstance().colors().getColorHighlight(2),
-				new Rectangle(x, y, 20, 20));
-	}
+  /**
+   * Instantiates a new modern table layer cell renderer.
+   */
+  public ModernTableLayerCellRenderer() {
+    setCanHighlight(false);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.table.ModernTableCheckboxCellRenderer#drawForegroundAA(
+   * java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+
+    int x = (this.getWidth() - 16) / 2;
+    int y = (this.getHeight() - 16) / 2;
+
+    if (selected) {
+      VISIBLE_ICON.drawIcon(g2, x, y, 16);
+    } else {
+      INVISIBLE_ICON.drawIcon(g2, x, y, 16);
+    }
+
+    x = (this.getWidth() - UIService.ICON_SIZE_20) / 2;
+    y = (this.getHeight() - UIService.ICON_SIZE_20) / 2;
+
+    drawRect(g2, ThemeService.getInstance().colors().getColorHighlight(2), new Rectangle(x, y, 20, 20));
+  }
 }

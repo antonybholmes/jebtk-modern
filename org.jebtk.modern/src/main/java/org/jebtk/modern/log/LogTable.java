@@ -35,26 +35,29 @@ import org.jebtk.core.log.LogEventListener;
  * The class LogTable.
  */
 public class LogTable implements LogEventListener {
-	
-	/**
-	 * The log panel.
-	 */
-	private LogTablePanel logPanel;
 
-	/**
-	 * Instantiates a new log table.
-	 *
-	 * @param logPanel the log panel
-	 */
-	public LogTable(LogTablePanel logPanel) {
-		this.logPanel = logPanel;
-	}
+  /**
+   * The log panel.
+   */
+  private LogTablePanel logPanel;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
-	 */
-	@Override
-	public void logEvent(LogEvent e) {
-		logPanel.logEvent(e);
-	}
+  /**
+   * Instantiates a new log table.
+   *
+   * @param logPanel
+   *          the log panel
+   */
+  public LogTable(LogTablePanel logPanel) {
+    this.logPanel = logPanel;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
+   */
+  @Override
+  public void logEvent(LogEvent e) {
+    logPanel.logEvent(e);
+  }
 }

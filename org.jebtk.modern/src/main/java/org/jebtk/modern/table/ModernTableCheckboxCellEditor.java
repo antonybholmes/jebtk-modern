@@ -35,89 +35,94 @@ import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTableCheckboxCellEditor.
  */
 public class ModernTableCheckboxCellEditor extends AbstractModernTableCellEditor implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member renderer.
-	 */
-	protected ModernTableCheckboxCellRenderer mRenderer = 
-			new ModernTableCheckboxCellRenderer();
 
-	/**
-	 * Instantiates a new modern table checkbox cell editor.
-	 */
-	public ModernTableCheckboxCellEditor() {
-		mRenderer.addClickListener(this);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
-	 */
-	public final Object getCellEditorValue() {
-		return mRenderer.isSelected();
-	}
+  /**
+   * The member renderer.
+   */
+  protected ModernTableCheckboxCellRenderer mRenderer = new ModernTableCheckboxCellRenderer();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public final void clicked(ModernClickEvent e) {
-		setSelected(!isSelected());
-	}
+  /**
+   * Instantiates a new modern table checkbox cell editor.
+   */
+  public ModernTableCheckboxCellEditor() {
+    mRenderer.addClickListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	public final Component getCellEditorComponent(ModernData table,
-            Object value,
-            boolean highlight,
-            boolean isSelected,
-            boolean hasFocus,
-            int row,
-            int column) {
-		
-		//renderer.setSelected((Boolean)value);
-		
-		//return renderer;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   */
+  public final Object getCellEditorValue() {
+    return mRenderer.isSelected();
+  }
 
-		//renderer.setDisplay(table, value, isSelected, true, row, column);
-		
-		// Setup the renderer to reflect the value
-		Component c = mRenderer.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
-		
-		// Before returning the component, force the selection
-		// to be inverted to simulate the user clicking
-		setSelected(!isSelected());
-		
-		return c;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public final void clicked(ModernClickEvent e) {
+    setSelected(!isSelected());
+  }
 
-	/**
-	 * Checks if is selected.
-	 *
-	 * @return true, if is selected
-	 */
-	public boolean isSelected() {
-		return mRenderer.isSelected();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorComponent(
+   * org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean,
+   * boolean, boolean, int, int)
+   */
+  public final Component getCellEditorComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
 
-	/**
-	 * Sets the selected.
-	 *
-	 * @param selected the new selected
-	 */
-	public void setSelected(boolean selected) {
-		mRenderer.setSelected(selected);
-		
-		fireChanged(new ChangeEvent(this));
-	}
+    // renderer.setSelected((Boolean)value);
+
+    // return renderer;
+
+    // renderer.setDisplay(table, value, isSelected, true, row, column);
+
+    // Setup the renderer to reflect the value
+    Component c = mRenderer.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
+
+    // Before returning the component, force the selection
+    // to be inverted to simulate the user clicking
+    setSelected(!isSelected());
+
+    return c;
+  }
+
+  /**
+   * Checks if is selected.
+   *
+   * @return true, if is selected
+   */
+  public boolean isSelected() {
+    return mRenderer.isSelected();
+  }
+
+  /**
+   * Sets the selected.
+   *
+   * @param selected
+   *          the new selected
+   */
+  public void setSelected(boolean selected) {
+    mRenderer.setSelected(selected);
+
+    fireChanged(new ChangeEvent(this));
+  }
 }

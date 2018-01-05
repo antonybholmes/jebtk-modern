@@ -32,38 +32,40 @@ package org.jebtk.modern.tree;
  * Renderer for drawing between nodes when user is dragging.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernTreeNodeInsertRenderer extends ModernTreeNodeRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member row.
-	 */
-	protected int mRow;
-	
-	/**
-	 * Obtains a renderer for the tree node.
-	 *
-	 * @param tree 		the tree control.
-	 * @param depth 		the nested depth of the node.
-	 * @param row the row
-	 * @return the renderer
-	 * @Param hasFocus				whether the tree has focus or not,
-	 * 								as this can determine color.
-	 */
-	public ModernTreeNodeInsertRenderer getRenderer(Tree<?> tree,
-			int depth,
-			int row) {
-		mDepth = depth;
-		mRow = row;
-		
-		setSize(tree.getWidth(), mBranchHeight);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		return this;
-	}
+  /**
+   * The member row.
+   */
+  protected int mRow;
+
+  /**
+   * Obtains a renderer for the tree node.
+   *
+   * @param tree
+   *          the tree control.
+   * @param depth
+   *          the nested depth of the node.
+   * @param row
+   *          the row
+   * @return the renderer
+   * @Param hasFocus whether the tree has focus or not, as this can determine
+   *        color.
+   */
+  public ModernTreeNodeInsertRenderer getRenderer(Tree<?> tree, int depth, int row) {
+    mDepth = depth;
+    mRow = row;
+
+    setSize(tree.getWidth(), mBranchHeight);
+
+    return this;
+  }
 }

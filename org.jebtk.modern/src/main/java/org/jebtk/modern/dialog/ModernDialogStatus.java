@@ -32,14 +32,14 @@ package org.jebtk.modern.dialog;
  * The enum ModernDialogStatus.
  */
 public enum ModernDialogStatus {
-	
-	/**
-	 * The ok.
-	 */
-	OK,
-	
-	/**
-	 * The cancel.
-	 */
-	CANCEL
+
+  /**
+   * The ok.
+   */
+  OK,
+
+  /**
+   * The cancel.
+   */
+  CANCEL
 }

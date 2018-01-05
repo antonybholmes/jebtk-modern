@@ -35,8 +35,6 @@ import org.jebtk.modern.dataview.ModernDataSelection;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.ModernTheme;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides similar functionality to the JTable.
@@ -45,125 +43,138 @@ import org.jebtk.modern.theme.ModernTheme;
  *
  */
 public class ModernRowTable extends ModernTable {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern row table.
-	 */
-	public ModernRowTable() {
-		setup();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern row table.
-	 *
-	 * @param model the model
-	 */
-	public ModernRowTable(ModernDataModel model) {
-		setModel(model);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new modern row table.
+   */
+  public ModernRowTable() {
+    setup();
+  }
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setShowHeader(true);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvas#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	protected void createGridLines(Graphics2D g2, ModernDataSelection visibleCells) {
-		// Do nothing as we don't want the grid lines
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernData#selectAll()
-	 */
-	@Override
-	public void selectAll() {
-		super.selectAll();
-		
-		selectRows();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.table.ModernTable#setSelectedCell(int, int, boolean, boolean)
-	 */
-	@Override
-	public void setSelectedCell(int row, 
-			int column, 
-			boolean multiSelect, 
-			boolean multiRangeSelect) {
-		super.setSelectedCell(row, column, multiSelect, multiRangeSelect);
-		
-		selectRows();
-	}
-	
-	/**
-	 * Select rows.
-	 */
-	private void selectRows() {
-		mRowModel.unselectAll();
-		
-		for (int i : mSelectionModel.getRowSelectionModel()) {
-			mRowModel.setSelected(i);
-		}
-	}
+  /**
+   * Instantiates a new modern row table.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernRowTable(ModernDataModel model) {
+    setModel(model);
 
+    setup();
+  }
 
-	/**
-	 * Gets the selection model.
-	 *
-	 * @return the selection model
-	 */
-	public SelectionRangeModel getSelectionModel() {
-		return getCellSelectionModel().getRowSelectionModel();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.table.ModernTable#drawSelectionRow(java.awt.Graphics2D, org.abh.common.ui.dataview.ModernDataSelection)
-	 */
-	@Override
-	public void drawSelectionRow(Graphics2D g2, ModernDataSelection visibleCells) {
-		int x = 0; //getX(visibleCells.getStartCol()); //invTranslateX(getX(0));
-		int y = getY(mRowModel.getSelectionModel().first()) - getY(visibleCells.getStartRow()); //invTranslateY(getY(mRowModel.getSelectionModel().first())); // - mViewRect.getY();
-		int w = getX(visibleCells.getEndCol()) - getX(visibleCells.getStartCol()) + mColumnModel.getWidth(visibleCells.getEndCol()) - 1; //getColumnCount() - 1) + mColumnModel.getWidth(getColumnCount() - 1) + 1;
-		int h = getY(mRowModel.getSelectionModel().last()) - getY(mRowModel.getSelectionModel().first()) + mRowModel.getWidth(mRowModel.getSelectionModel().last());
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setShowHeader(true);
+  }
 
-		Graphics2D g2Temp = ImageUtils.clone(g2);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvas#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  protected void createGridLines(Graphics2D g2, ModernDataSelection visibleCells) {
+    // Do nothing as we don't want the grid lines
+  }
 
-		try {
-			translate(g2Temp, visibleCells);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernData#selectAll()
+   */
+  @Override
+  public void selectAll() {
+    super.selectAll();
 
-			g2Temp.setColor(SELECTION_RECT_COLOR);
-			g2Temp.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+    selectRows();
+  }
 
-			g2Temp.drawLine(x, y, w, y);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.table.ModernTable#setSelectedCell(int, int,
+   * boolean, boolean)
+   */
+  @Override
+  public void setSelectedCell(int row, int column, boolean multiSelect, boolean multiRangeSelect) {
+    super.setSelectedCell(row, column, multiSelect, multiRangeSelect);
 
-			int p = y + h - 1;
+    selectRows();
+  }
 
-			g2Temp.drawLine(x, p, w, p);
+  /**
+   * Select rows.
+   */
+  private void selectRows() {
+    mRowModel.unselectAll();
 
-			if (visibleCells.getStartCol() == 0) {
-				g2Temp.drawLine(x + 1, y - 1, x + 1, p);
-			}
+    for (int i : mSelectionModel.getRowSelectionModel()) {
+      mRowModel.setSelected(i);
+    }
+  }
 
-			if (visibleCells.getEndCol() == (getColumnCount() - 1)) {
-				p = x + w;
-				g2Temp.drawLine(p, y - 1, p, y + h - 1);
-			}
+  /**
+   * Gets the selection model.
+   *
+   * @return the selection model
+   */
+  public SelectionRangeModel getSelectionModel() {
+    return getCellSelectionModel().getRowSelectionModel();
+  }
 
-			//g2Temp.drawRect(x, y, w - bo2, h - bo2);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.table.ModernTable#drawSelectionRow(java.awt.Graphics2D,
+   * org.abh.common.ui.dataview.ModernDataSelection)
+   */
+  @Override
+  public void drawSelectionRow(Graphics2D g2, ModernDataSelection visibleCells) {
+    int x = 0; // getX(visibleCells.getStartCol()); //invTranslateX(getX(0));
+    int y = getY(mRowModel.getSelectionModel().first()) - getY(visibleCells.getStartRow()); // invTranslateY(getY(mRowModel.getSelectionModel().first()));
+                                                                                            // // - mViewRect.getY();
+    int w = getX(visibleCells.getEndCol()) - getX(visibleCells.getStartCol())
+        + mColumnModel.getWidth(visibleCells.getEndCol()) - 1; // getColumnCount() - 1) +
+                                                               // mColumnModel.getWidth(getColumnCount() - 1) + 1;
+    int h = getY(mRowModel.getSelectionModel().last()) - getY(mRowModel.getSelectionModel().first())
+        + mRowModel.getWidth(mRowModel.getSelectionModel().last());
+
+    Graphics2D g2Temp = ImageUtils.clone(g2);
+
+    try {
+      translate(g2Temp, visibleCells);
+
+      g2Temp.setColor(SELECTION_RECT_COLOR);
+      g2Temp.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+
+      g2Temp.drawLine(x, y, w, y);
+
+      int p = y + h - 1;
+
+      g2Temp.drawLine(x, p, w, p);
+
+      if (visibleCells.getStartCol() == 0) {
+        g2Temp.drawLine(x + 1, y - 1, x + 1, p);
+      }
+
+      if (visibleCells.getEndCol() == (getColumnCount() - 1)) {
+        p = x + w;
+        g2Temp.drawLine(p, y - 1, p, y + h - 1);
+      }
+
+      // g2Temp.drawRect(x, y, w - bo2, h - bo2);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 }

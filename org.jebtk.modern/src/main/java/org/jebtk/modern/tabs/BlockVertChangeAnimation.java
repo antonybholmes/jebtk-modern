@@ -32,58 +32,55 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class BlockVertChangeAnimation extends TranslateYAnimation {
 
-	private BlockVertTabs mTabs;
+  private BlockVertTabs mTabs;
 
-	
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public BlockVertChangeAnimation(ModernWidget tabs) {
-		super((BlockVertTabs)tabs);
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public BlockVertChangeAnimation(ModernWidget tabs) {
+    super((BlockVertTabs) tabs);
 
-		mTabs = (BlockVertTabs)tabs;
-		
-		mTabs.getTabsModel().addTabListener(new TabEventAdapter() {
-			@Override
-			public void tabChanged(TabEvent e) {
-				restart();
-			}
-		});
-		
-		mTabs.addComponentListener(new ComponentAdapter() {
+    mTabs = (BlockVertTabs) tabs;
 
-			@Override
-			public void componentResized(ComponentEvent arg0) {
-				restart();
-			}});
-	}
-	
-	public void restart() {
-		int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
-		int previousIndex = mTabs.getTabsModel().getPreviousIndex();
-		
-		if (previousIndex == -1) {
-			previousIndex = selectedIndex;
-		}
-		
-		int y1 = mTabs.getInsets().top + 
-				mTabs.mOffset + 
-				previousIndex * mTabs.mTabSize;
-		
-		int y2 = mTabs.getInsets().top + 
-				mTabs.mOffset + 
-				selectedIndex * mTabs.mTabSize;
-		
-		restart(y1, y2);
-	}
-	
-	@Override
-	public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
-		g2.setColor(BlockVertTabs.TEXT_TAB_SELECTED_COLOR);
-		//g2.fill(mTabs.mP);
-		g2.fillRect(0, 0, RibbonChangeAnimation.BAR_HEIGHT, mTabs.mTabSize);
-		
-	}	
+    mTabs.getTabsModel().addTabListener(new TabEventAdapter() {
+      @Override
+      public void tabChanged(TabEvent e) {
+        restart();
+      }
+    });
+
+    mTabs.addComponentListener(new ComponentAdapter() {
+
+      @Override
+      public void componentResized(ComponentEvent arg0) {
+        restart();
+      }
+    });
+  }
+
+  public void restart() {
+    int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
+    int previousIndex = mTabs.getTabsModel().getPreviousIndex();
+
+    if (previousIndex == -1) {
+      previousIndex = selectedIndex;
+    }
+
+    int y1 = mTabs.getInsets().top + mTabs.mOffset + previousIndex * mTabs.mTabSize;
+
+    int y2 = mTabs.getInsets().top + mTabs.mOffset + selectedIndex * mTabs.mTabSize;
+
+    restart(y1, y2);
+  }
+
+  @Override
+  public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
+    g2.setColor(BlockVertTabs.TEXT_TAB_SELECTED_COLOR);
+    // g2.fill(mTabs.mP);
+    g2.fillRect(0, 0, RibbonChangeAnimation.BAR_HEIGHT, mTabs.mTabSize);
+
+  }
 }

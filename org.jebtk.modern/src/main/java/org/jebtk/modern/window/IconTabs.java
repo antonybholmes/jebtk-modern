@@ -40,87 +40,87 @@ import org.jebtk.modern.tabs.IconTabsVectorIcon;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Standardized dialog window for dialogs that have buttons along the 
- * bottom such as OK and Cancel for when user is performing a task.
+ * Standardized dialog window for dialogs that have buttons along the bottom
+ * such as OK and Cancel for when user is performing a task.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class IconTabs {
 
-	private static final Border BORDER = 
-			BorderService.getInstance().createBorder(ModernWidget.DOUBLE_PADDING, ModernWidget.PADDING, ModernWidget.DOUBLE_PADDING, ModernWidget.PADDING);
+  private static final Border BORDER = BorderService.getInstance().createBorder(ModernWidget.DOUBLE_PADDING,
+      ModernWidget.PADDING, ModernWidget.DOUBLE_PADDING, ModernWidget.PADDING);
 
-	private TabsModel mLeftTabsModel;
+  private TabsModel mLeftTabsModel;
 
-	private IconTabsPanel mViewPanel;
+  private IconTabsPanel mViewPanel;
 
-	private ModernHContentPane mTabsPane;
-	
-	
-	/**
-	 * Instantiates a new modern dialog window.
-	 *
-	 * @param parent the parent
-	 */
-	public IconTabs(ModernHContentPane tabsPane) {
-		mTabsPane = tabsPane;
-	}
-	
-	/**
-	 * Return the default tabs pane available in the dialog to create
-	 * horizontally tabbed layouts such as a side bar and main panel.
-	 * 
-	 * @return
-	 */
-	public ModernHContentPane getTabsPane() {
-		return mTabsPane;
-	}
-	
-	public void addTab(String name, char t, JComponent c) {
-		addTab(name, new IconTabsVectorIcon(t), c);
-	}
-	
-	/**
-	 * Create a left pane with editable tabs to conserve space.
-	 * @param name
-	 * @param icon
-	 * @param c
-	 */
-	public void addTab(String name, ModernIcon icon, JComponent c) {
-		getModel().addTab(name, icon, c);
+  private ModernHContentPane mTabsPane;
 
-		addPane();
-	}
-	
-	public TabsModel getModel() {
-		if (mLeftTabsModel == null) {
-			mLeftTabsModel = new TabsModel();
-			mViewPanel = new IconTabsPanel(mLeftTabsModel, 40, 22);
-		}
-		
-		return mLeftTabsModel;
-	}
-	
-	/**
-	 * Create the left pane to hold the left tabs if it does not exist.
-	 */
-	public void addPane() {
-		if (getTabsPane().getModel().containsTab("Left Tabs")) {
-			return;
-		}
+  /**
+   * Instantiates a new modern dialog window.
+   *
+   * @param parent
+   *          the parent
+   */
+  public IconTabs(ModernHContentPane tabsPane) {
+    mTabsPane = tabsPane;
+  }
 
-		getTabsPane().addLeftTab("Left Tabs", new AutoHidePanel(mViewPanel, 100), 200, ModernWidget.WIDGET_HEIGHT, 500);
-	}
+  /**
+   * Return the default tabs pane available in the dialog to create horizontally
+   * tabbed layouts such as a side bar and main panel.
+   * 
+   * @return
+   */
+  public ModernHContentPane getTabsPane() {
+    return mTabsPane;
+  }
 
-	public void changeTab(int index) {
-		getModel().changeTab(index);
-	}
+  public void addTab(String name, char t, JComponent c) {
+    addTab(name, new IconTabsVectorIcon(t), c);
+  }
 
-	public void removeTab(String name) {
-		getModel().removeTab(name);
-	}
+  /**
+   * Create a left pane with editable tabs to conserve space.
+   * 
+   * @param name
+   * @param icon
+   * @param c
+   */
+  public void addTab(String name, ModernIcon icon, JComponent c) {
+    getModel().addTab(name, icon, c);
+
+    addPane();
+  }
+
+  public TabsModel getModel() {
+    if (mLeftTabsModel == null) {
+      mLeftTabsModel = new TabsModel();
+      mViewPanel = new IconTabsPanel(mLeftTabsModel, 40, 22);
+    }
+
+    return mLeftTabsModel;
+  }
+
+  /**
+   * Create the left pane to hold the left tabs if it does not exist.
+   */
+  public void addPane() {
+    if (getTabsPane().getModel().containsTab("Left Tabs")) {
+      return;
+    }
+
+    getTabsPane().addLeftTab("Left Tabs", new AutoHidePanel(mViewPanel, 100), 200, ModernWidget.WIDGET_HEIGHT, 500);
+  }
+
+  public void changeTab(int index) {
+    getModel().changeTab(index);
+  }
+
+  public void removeTab(String name) {
+    getModel().removeTab(name);
+  }
 }

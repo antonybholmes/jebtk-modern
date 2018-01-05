@@ -30,78 +30,74 @@ package org.jebtk.modern.dialog;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * A dialog button appears on dialogs and typically represents the OK and
- * Cancel buttons etc.
+ * A dialog button appears on dialogs and typically represents the OK and Cancel
+ * buttons etc.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDialogButton extends ModernButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernDialogButton(String text1) {
-		super(text1);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new modern dialog button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernDialogButton(String text1) {
+    super(text1);
 
-	/**
-	 * Instantiates a new modern dialog button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernDialogButton(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
+    setup();
+  }
 
-	/**
-	 * Instantiates a new modern dialog button.
-	 *
-	 * @param text1 the text 1
-	 * @param icon the icon
-	 */
-	public ModernDialogButton(String text1, ModernIcon icon) {
-		super(text1, icon);
-		
-		setup();
-	}
-	
-	public ModernDialogButton(String text1, ModernIcon icon, int width) {
-		super(text1, icon, width);
-		
-		setup();
-	}
-	
-	private void setup() {
-		setFont(BOLD_FONT);
-		
-		setBackgroundAnimations("dialog-button");
-	}
+  /**
+   * Instantiates a new modern dialog button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernDialogButton(ModernIcon icon) {
+    super(icon);
 
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			getWidgetRenderer().drawDialogButton(g2, 
-					mInternalRect,
-					getRenderMode(),
-					hasFocus());
-		}
-	}
-	*/
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern dialog button.
+   *
+   * @param text1
+   *          the text 1
+   * @param icon
+   *          the icon
+   */
+  public ModernDialogButton(String text1, ModernIcon icon) {
+    super(text1, icon);
+
+    setup();
+  }
+
+  public ModernDialogButton(String text1, ModernIcon icon, int width) {
+    super(text1, icon, width);
+
+    setup();
+  }
+
+  private void setup() {
+    setFont(BOLD_FONT);
+
+    setBackgroundAnimations("dialog-button");
+  }
+
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
+   * getWidgetRenderer().drawDialogButton(g2, mInternalRect, getRenderMode(),
+   * hasFocus()); } }
+   */
 }

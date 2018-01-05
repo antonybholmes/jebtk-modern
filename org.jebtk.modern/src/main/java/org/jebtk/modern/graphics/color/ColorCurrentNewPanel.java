@@ -36,82 +36,87 @@ import org.jebtk.core.ColorValue;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ColorCurrentNewPanel.
  */
 public class ColorCurrentNewPanel extends ModernWidget implements ChangeListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The current color.
-	 */
-	private ColorValue currentColor = new ColorValue();
-	
-	/**
-	 * The new color.
-	 */
-	private ColorValue newColor = new ColorValue();
-	
-	/**
-	 * The size.
-	 */
-	private static final int HEIGHT = 48;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant HALF_HEIGHT. */
-	private static final int HALF_HEIGHT = HEIGHT / 2;
-	
-	/**
-	 * The model.
-	 */
-	private ColorSelectionModel mModel;
-	
-	/**
-	 * Instantiates a new color current new panel.
-	 *
-	 * @param model the model
-	 */
-	public ColorCurrentNewPanel(ColorSelectionModel model) {
-		mModel = model;
-		
-		model.addChangeListener(this);
-		
-		setAlignmentY(TOP_ALIGNMENT);
-		
-		UI.setSize(this, 200, HEIGHT);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(ColorValue.convert(newColor));
-		g2.fillRect(0, 0, HEIGHT, HALF_HEIGHT);
-		
-		g2.setColor(ColorValue.convert(currentColor));
-		g2.fillRect(0, HALF_HEIGHT, HEIGHT, HALF_HEIGHT);
-		
-		g2.setColor(ModernWidget.TEXT_COLOR);
-		
-		g2.drawString("New", HEIGHT + PADDING, 20);
-		g2.drawString("Current", HEIGHT + PADDING, 20 + HALF_HEIGHT);
-	}
+  /**
+   * The current color.
+   */
+  private ColorValue currentColor = new ColorValue();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void changed(ChangeEvent e) {
-		currentColor = mModel.getCurrentColor();
-		newColor = mModel.getNewColor();
-		
-		repaint();
-	}
+  /**
+   * The new color.
+   */
+  private ColorValue newColor = new ColorValue();
+
+  /**
+   * The size.
+   */
+  private static final int HEIGHT = 48;
+
+  /** The Constant HALF_HEIGHT. */
+  private static final int HALF_HEIGHT = HEIGHT / 2;
+
+  /**
+   * The model.
+   */
+  private ColorSelectionModel mModel;
+
+  /**
+   * Instantiates a new color current new panel.
+   *
+   * @param model
+   *          the model
+   */
+  public ColorCurrentNewPanel(ColorSelectionModel model) {
+    mModel = model;
+
+    model.addChangeListener(this);
+
+    setAlignmentY(TOP_ALIGNMENT);
+
+    UI.setSize(this, 200, HEIGHT);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(ColorValue.convert(newColor));
+    g2.fillRect(0, 0, HEIGHT, HALF_HEIGHT);
+
+    g2.setColor(ColorValue.convert(currentColor));
+    g2.fillRect(0, HALF_HEIGHT, HEIGHT, HALF_HEIGHT);
+
+    g2.setColor(ModernWidget.TEXT_COLOR);
+
+    g2.drawString("New", HEIGHT + PADDING, 20);
+    g2.drawString("Current", HEIGHT + PADDING, 20 + HALF_HEIGHT);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void changed(ChangeEvent e) {
+    currentColor = mModel.getCurrentColor();
+    newColor = mModel.getNewColor();
+
+    repaint();
+  }
 }

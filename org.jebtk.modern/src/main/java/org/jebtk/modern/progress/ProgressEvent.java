@@ -34,36 +34,39 @@ import org.jebtk.core.event.Event;
  * The class ProgressEvent.
  */
 public class ProgressEvent extends Event {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The percent.
-	 */
-	private int percent;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new progress event.
-	 *
-	 * @param source the source
-	 * @param message the message
-	 * @param percent the percent
-	 */
-	public ProgressEvent(Object source, String message, int percent) {
-		super(source, message);
-		
-		this.percent = percent;
-	}
-	
-	/**
-	 * Gets the percent.
-	 *
-	 * @return the percent
-	 */
-	public int getPercent() {
-		return percent;
-	}
+  /**
+   * The percent.
+   */
+  private int percent;
+
+  /**
+   * Instantiates a new progress event.
+   *
+   * @param source
+   *          the source
+   * @param message
+   *          the message
+   * @param percent
+   *          the percent
+   */
+  public ProgressEvent(Object source, String message, int percent) {
+    super(source, message);
+
+    this.percent = percent;
+  }
+
+  /**
+   * Gets the percent.
+   *
+   * @return the percent
+   */
+  public int getPercent() {
+    return percent;
+  }
 }

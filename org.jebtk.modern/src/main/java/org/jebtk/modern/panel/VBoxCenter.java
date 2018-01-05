@@ -29,22 +29,21 @@ package org.jebtk.modern.panel;
 
 import org.jebtk.modern.ModernComponent;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Lay components out in a vertical box and auto size their width so they
- * are always the same width as the box itself.
+ * Lay components out in a vertical box and auto size their width so they are
+ * always the same width as the box itself.
  */
 public class VBoxCenter extends ModernComponent {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * 
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new v box auto width panel.
-	 */
-	public VBoxCenter() {
-		setLayout(new VBoxCenterLayout());
-	}
+  /**
+   * Instantiates a new v box auto width panel.
+   */
+  public VBoxCenter() {
+    setLayout(new VBoxCenterLayout());
+  }
 }

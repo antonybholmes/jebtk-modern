@@ -29,7 +29,6 @@ package org.jebtk.modern.view;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * For classes that generate ModernClickEvents.
@@ -37,25 +36,28 @@ import org.jebtk.core.event.ChangeEvent;
  * @author Antony Holmes Holmes
  */
 public interface ViewEventProducer {
-	
-	/**
-	 * Add an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void addViewListener(ViewEventListener l);
-	
-	/**
-	 * Remove an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeViewListener(ViewEventListener l);
-	
-	/**
-	 * fire an event.
-	 *
-	 * @param event the event
-	 */
-	public void fireViewChanged(ChangeEvent event);
+
+  /**
+   * Add an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addViewListener(ViewEventListener l);
+
+  /**
+   * Remove an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeViewListener(ViewEventListener l);
+
+  /**
+   * fire an event.
+   *
+   * @param event
+   *          the event
+   */
+  public void fireViewChanged(ChangeEvent event);
 }

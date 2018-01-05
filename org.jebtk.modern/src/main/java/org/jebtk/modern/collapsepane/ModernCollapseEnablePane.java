@@ -39,247 +39,265 @@ import javax.swing.JComponent;
 
 import org.jebtk.modern.UIService;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Allows collapsable panes to be created. A tick box
- * allows each pane to be enabled or disabled.
+ * Allows collapsable panes to be created. A tick box allows each pane to be
+ * enabled or disabled.
  * 
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernCollapseEnablePane extends ModernCollapsePane implements MouseListener, MouseMotionListener {
-	
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant TAB_ENABLED.
-	 */
-	public static final String TAB_ENABLED = "tab_enabled";
-	
-	/**
-	 * The constant CLICK_REGION_X.
-	 */
-	private static final int CLICK_REGION_X = 
-			PADDING + UIService.ICON_SIZE_16;
-	
-	/**
-	 * The enabled.
-	 */
-	private List<Boolean> mEnabledTabs = new CopyOnWriteArrayList<Boolean>();
+  /**
+   * The constant TAB_ENABLED.
+   */
+  public static final String TAB_ENABLED = "tab_enabled";
 
-	/**
-	 * The highlight.
-	 */
-	private int highlight;
-	
-	/**
-	 * Instantiates a new modern collapse enable pane.
-	 */
-	public ModernCollapseEnablePane() {
-		addMouseListener(this);
-		addMouseMotionListener(this);
-		
-		setNodeRenderer(new ModernCollapseEnableNodeRenderer());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.collapsepane.AbstractCollapsePane#addTab(java.lang.String, javax.swing.JComponent, boolean)
-	 */
-	public void addTab(String name, JComponent c1, boolean hidden) {
- 		addTab(name, c1, true, hidden);
-	}
-	
-	/**
-	 * Adds the tab.
-	 *
-	 * @param name the name
-	 * @param c1 the c1
-	 * @param tabEnabled the tab enabled
-	 * @param hidden the hidden
-	 */
-	public void addTab(String name, JComponent c1, boolean tabEnabled, boolean hidden) {
- 		super.addTab(name, c1, hidden);
- 		
- 		mEnabledTabs.add(tabEnabled);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		Rectangle r = new Rectangle(getInsets().left, 
-				getInsets().top, 
-				getWidth() - getInsets().left - getInsets().right, 
-				WIDGET_HEIGHT);
+  /**
+   * The constant CLICK_REGION_X.
+   */
+  private static final int CLICK_REGION_X = PADDING + UIService.ICON_SIZE_16;
 
-		Graphics2D g2Temp = (Graphics2D)g2.create();
+  /**
+   * The enabled.
+   */
+  private List<Boolean> mEnabledTabs = new CopyOnWriteArrayList<Boolean>();
 
-		g2Temp.translate(mInternalRect.getX(), r.y);
-		
-		for (int i = 0; i < mTabNames.size(); ++i) {
-			((ModernCollapseEnableNodeRenderer)mNodeRenderer).getRenderer(this,
-					mTabNames.get(i),
-					i,
-					highlight == i,
-					false,
-					false,
-					mExpanded.get(i),
-					mEnabledTabs.get(i));
-			
-			mNodeRenderer.setSize(mInternalRect.getW(), mHeaderHeight);
-			
-			mNodeRenderer.print(g2Temp);
-			
-			g2Temp.translate(0, mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0));
-		}
-		
-		g2Temp.dispose();
-	}
-	
-	/**
-	 * Sets the enabled.
-	 *
-	 * @param i the new enabled
-	 */
-	private void setEnabled(int i) {
-		mEnabledTabs.set(i, !mEnabledTabs.get(i));
-		
-		repaint();
-		
-		//fireClicked(new ModernClickEvent(this, TAB_ENABLED));
-	}
-	
-	/**
-	 * Gets the enabled.
-	 *
-	 * @param i the i
-	 * @return the enabled
-	 */
-	public boolean getEnabled(int i) {
-		return mEnabledTabs.get(i);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.collapsepane.AbstractCollapsePane#clear()
-	 */
-	public void clear() {
-		mEnabledTabs.clear();
-		
-		super.clear();
-	}
+  /**
+   * The highlight.
+   */
+  private int highlight;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mousePressed(MouseEvent e) {
-		if (e.isPopupTrigger()) {
-			return;
-		}
-		
-		int y = getInsets().top;
-		int i = 0;
+  /**
+   * Instantiates a new modern collapse enable pane.
+   */
+  public ModernCollapseEnablePane() {
+    addMouseListener(this);
+    addMouseMotionListener(this);
 
-		while (y <= e.getY()) {
-			if (y + mHeaderHeight > e.getY()) {
-				if (e.getX() < CLICK_REGION_X) {
-					invertExpanded(i);
-				} else {
-					setEnabled(i);
-				}
+    setNodeRenderer(new ModernCollapseEnableNodeRenderer());
+  }
 
-				break;
-			}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.collapsepane.AbstractCollapsePane#addTab(java.lang.
+   * String, javax.swing.JComponent, boolean)
+   */
+  public void addTab(String name, JComponent c1, boolean hidden) {
+    addTab(name, c1, true, hidden);
+  }
 
-			y += mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0);
+  /**
+   * Adds the tab.
+   *
+   * @param name
+   *          the name
+   * @param c1
+   *          the c1
+   * @param tabEnabled
+   *          the tab enabled
+   * @param hidden
+   *          the hidden
+   */
+  public void addTab(String name, JComponent c1, boolean tabEnabled, boolean hidden) {
+    super.addTab(name, c1, hidden);
 
-			++i;
-		}
-	}
+    mEnabledTabs.add(tabEnabled);
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    Rectangle r = new Rectangle(getInsets().left, getInsets().top, getWidth() - getInsets().left - getInsets().right,
+        WIDGET_HEIGHT);
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    Graphics2D g2Temp = (Graphics2D) g2.create();
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    g2Temp.translate(mInternalRect.getX(), r.y);
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    for (int i = 0; i < mTabNames.size(); ++i) {
+      ((ModernCollapseEnableNodeRenderer) mNodeRenderer).getRenderer(this, mTabNames.get(i), i, highlight == i, false,
+          false, mExpanded.get(i), mEnabledTabs.get(i));
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		if (!e.getSource().equals(this)) {
-			highlight = -1;
-			
-			repaint();
-			
-			return;
-		}
-		
-		int y = getInsets().top;
-		
-		highlight = 0;
+      mNodeRenderer.setSize(mInternalRect.getW(), mHeaderHeight);
 
-		while (y <= e.getY()) {
-			if (y + mHeaderHeight > e.getY()) {
-				break;
-			}
-			
-			if (highlight == mComponents.size() - 1) {
-				break;
-			}
+      mNodeRenderer.print(g2Temp);
 
-			y += mHeaderHeight + (mExpanded.get(highlight) ? mComponents.get(highlight).getPreferredSize().height : 0);
+      g2Temp.translate(0, mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0));
+    }
 
-			++highlight;
-		}
-		
-		repaint();
-	}
+    g2Temp.dispose();
+  }
+
+  /**
+   * Sets the enabled.
+   *
+   * @param i
+   *          the new enabled
+   */
+  private void setEnabled(int i) {
+    mEnabledTabs.set(i, !mEnabledTabs.get(i));
+
+    repaint();
+
+    // fireClicked(new ModernClickEvent(this, TAB_ENABLED));
+  }
+
+  /**
+   * Gets the enabled.
+   *
+   * @param i
+   *          the i
+   * @return the enabled
+   */
+  public boolean getEnabled(int i) {
+    return mEnabledTabs.get(i);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.collapsepane.AbstractCollapsePane#clear()
+   */
+  public void clear() {
+    mEnabledTabs.clear();
+
+    super.clear();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mousePressed(MouseEvent e) {
+    if (e.isPopupTrigger()) {
+      return;
+    }
+
+    int y = getInsets().top;
+    int i = 0;
+
+    while (y <= e.getY()) {
+      if (y + mHeaderHeight > e.getY()) {
+        if (e.getX() < CLICK_REGION_X) {
+          invertExpanded(i);
+        } else {
+          setEnabled(i);
+        }
+
+        break;
+      }
+
+      y += mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0);
+
+      ++i;
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseEntered(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseExited(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseReleased(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseDragged(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseMoved(MouseEvent e) {
+    if (!e.getSource().equals(this)) {
+      highlight = -1;
+
+      repaint();
+
+      return;
+    }
+
+    int y = getInsets().top;
+
+    highlight = 0;
+
+    while (y <= e.getY()) {
+      if (y + mHeaderHeight > e.getY()) {
+        break;
+      }
+
+      if (highlight == mComponents.size() - 1) {
+        break;
+      }
+
+      y += mHeaderHeight + (mExpanded.get(highlight) ? mComponents.get(highlight).getPreferredSize().height : 0);
+
+      ++highlight;
+    }
+
+    repaint();
+  }
 }

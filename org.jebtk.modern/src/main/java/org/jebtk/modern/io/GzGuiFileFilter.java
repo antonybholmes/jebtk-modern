@@ -37,26 +37,30 @@ import org.jebtk.core.io.Io;
  * The class ZipGuiFileFilter.
  */
 public class GzGuiFileFilter extends GuiFileExtFilter implements FileFilter {
-	
-	/**
-	 * Instantiates a new zip gui file filter.
-	 */
-	public GzGuiFileFilter() {
-		super("gz");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	public final String getDescription() {
-		return "GZ File (*.gz)";
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.io.GuiFileExtFilter#accept(java.io.File)
-	 */
-	@Override
-	public boolean accept(File file) {
-		return Io.getFileExt(file).equals("gz");
-	}
+  /**
+   * Instantiates a new zip gui file filter.
+   */
+  public GzGuiFileFilter() {
+    super("gz");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  public final String getDescription() {
+    return "GZ File (*.gz)";
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.io.GuiFileExtFilter#accept(java.io.File)
+   */
+  @Override
+  public boolean accept(File file) {
+    return Io.getFileExt(file).equals("gz");
+  }
 }

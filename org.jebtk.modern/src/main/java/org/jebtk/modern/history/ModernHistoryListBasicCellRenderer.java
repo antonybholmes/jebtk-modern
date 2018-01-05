@@ -32,46 +32,45 @@ import java.awt.Component;
 
 import org.jebtk.modern.list.ModernList;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a flat look table renderer for the flat table
- * although it can be used with standard JTables as well.
+ * Provides a flat look table renderer for the flat table although it can be
+ * used with standard JTables as well.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernHistoryListBasicCellRenderer extends ModernHistoryListCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member text color.
-	 */
-	protected Color mTextColor;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.list.ModernListCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList, java.lang.Object, boolean, boolean, boolean, int)
-	 */
-	@Override
-	public Component getCellRendererComponent(ModernList<?> list,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row) {
-		
-		if (row <= list.getSelectedIndex()) {
-			mTextColor = TEXT_COLOR;
-		} else {
-			mTextColor = ALT_TEXT_COLOR;
-		}
+  /**
+   * The member text color.
+   */
+  protected Color mTextColor;
 
-		return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.list.ModernListCellRenderer#getCellRendererComponent(
+   * org.abh.lib.ui.modern.list.ModernList, java.lang.Object, boolean, boolean,
+   * boolean, int)
+   */
+  @Override
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
+
+    if (row <= list.getSelectedIndex()) {
+      mTextColor = TEXT_COLOR;
+    } else {
+      mTextColor = ALT_TEXT_COLOR;
+    }
+
+    return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
+  }
 }

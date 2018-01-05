@@ -32,47 +32,47 @@ import org.jebtk.modern.combobox.ModernComboBox;
 import org.jebtk.modern.menu.ModernMenuItem;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class FontSizesComboBox.
  */
 public class FontSizesComboBox extends ModernComboBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant sizes.
-	 */
-	private static final int[] sizes = {8, 9, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 44, 48, 54, 60, 66, 72, 80, 88, 96};
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new font sizes combo box.
-	 */
-	public FontSizesComboBox() {
-		setup();
-	}
+  /**
+   * The constant sizes.
+   */
+  private static final int[] sizes = { 8, 9, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 44, 48, 54, 60, 66, 72, 80, 88,
+      96 };
 
-	/**
-	 * Sets the up.
-	 */
-	private void setup() {
-		for (int i : sizes) {
-			addScrollMenuItem(new ModernMenuItem(Integer.toString(i)));
-		}
+  /**
+   * Instantiates a new font sizes combo box.
+   */
+  public FontSizesComboBox() {
+    setup();
+  }
 
-		//addBreakLine();
+  /**
+   * Sets the up.
+   */
+  private void setup() {
+    for (int i : sizes) {
+      addScrollMenuItem(new ModernMenuItem(Integer.toString(i)));
+    }
 
-		//addModernMenuItem(new ForwardRequestMenuItem("Other...", null));
+    // addBreakLine();
 
-		setText("12");
+    // addModernMenuItem(new ForwardRequestMenuItem("Other...", null));
 
-		//Ui.setSize(this, ModernTheme.getInstance().getClass("button").getDimension("default"));
+    setText("12");
 
-		UI.setSize(this, ModernWidget.TINY_SIZE);
-	}
+    // Ui.setSize(this,
+    // ModernTheme.getInstance().getClass("button").getDimension("default"));
+
+    UI.setSize(this, ModernWidget.TINY_SIZE);
+  }
 }

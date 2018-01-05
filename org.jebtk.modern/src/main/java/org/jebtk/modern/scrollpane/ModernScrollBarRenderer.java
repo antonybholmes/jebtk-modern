@@ -23,44 +23,49 @@ import java.awt.Rectangle;
  * The Class ModernScrollBarRenderer.
  */
 public class ModernScrollBarRenderer {
-	
-	/**
-	 * Paint scroll bar base.
-	 *
-	 * @param g2 the g 2
-	 */
-	protected void paintScrollBarBase(Graphics2D g2) {
-		// TODO Auto-generated method stub
-	}
 
-	/**
-	 * Paint scroll bar.
-	 *
-	 * @param g2 the g 2
-	 * @param r the r
-	 */
-	protected void paintScrollBar(Graphics2D g2, Rectangle r) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * Paint scroll bar base.
+   *
+   * @param g2
+   *          the g 2
+   */
+  protected void paintScrollBarBase(Graphics2D g2) {
+    // TODO Auto-generated method stub
+  }
 
-	/**
-	 * Paint up button.
-	 *
-	 * @param g2 the g 2
-	 */
-	protected void paintUpButton(Graphics2D g2) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * Paint scroll bar.
+   *
+   * @param g2
+   *          the g 2
+   * @param r
+   *          the r
+   */
+  protected void paintScrollBar(Graphics2D g2, Rectangle r) {
+    // TODO Auto-generated method stub
 
-	/**
-	 * Paint down button.
-	 *
-	 * @param g2 the g 2
-	 */
-	protected void paintDownButton(Graphics2D g2) {
-		// TODO Auto-generated method stub
-		
-	}
+  }
+
+  /**
+   * Paint up button.
+   *
+   * @param g2
+   *          the g 2
+   */
+  protected void paintUpButton(Graphics2D g2) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /**
+   * Paint down button.
+   *
+   * @param g2
+   *          the g 2
+   */
+  protected void paintDownButton(Graphics2D g2) {
+    // TODO Auto-generated method stub
+
+  }
 }

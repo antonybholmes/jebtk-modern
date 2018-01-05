@@ -33,55 +33,55 @@ import java.awt.Graphics2D;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.UI;
 
-
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonMenuSeparator.
  */
 public class RibbonMenuSeparator extends RibbonMenuItem {
-	
-	/** The Constant COLOR. */
-	private static final Color COLOR =
-			ColorUtils.getTransparentColor70(Color.WHITE);
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /** The Constant COLOR. */
+  private static final Color COLOR = ColorUtils.getTransparentColor70(Color.WHITE);
 
-	/**
-	 * Instantiates a new ribbon menu separator.
-	 */
-	public RibbonMenuSeparator() {
-		super("Separator");
-		
-		setEnabled(false);
-		
-		UI.setSize(this, Short.MAX_VALUE, 9);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ribbon.RibbonMenuItem#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ribbon.RibbonMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(COLOR);
-		
-		int x = DOUBLE_PADDING;
-		int y = mRect.getH() / 2;
-		
-		g2.drawLine(x, y, mRect.getW() - DOUBLE_PADDING, y);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new ribbon menu separator.
+   */
+  public RibbonMenuSeparator() {
+    super("Separator");
+
+    setEnabled(false);
+
+    UI.setSize(this, Short.MAX_VALUE, 9);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ribbon.RibbonMenuItem#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ribbon.RibbonMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(COLOR);
+
+    int x = DOUBLE_PADDING;
+    int y = mRect.getH() / 2;
+
+    g2.drawLine(x, y, mRect.getW() - DOUBLE_PADDING, y);
+  }
 }

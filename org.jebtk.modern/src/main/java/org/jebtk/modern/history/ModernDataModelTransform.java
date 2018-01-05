@@ -29,7 +29,6 @@ package org.jebtk.modern.history;
 
 import org.jebtk.modern.dataview.ModernDataModel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Wrapper for providing a GUI to edit matrix transformations.
@@ -38,72 +37,74 @@ import org.jebtk.modern.dataview.ModernDataModel;
  *
  */
 public class ModernDataModelTransform {
-	
-	/**
-	 * The member name.
-	 */
-	private String mName;
-	
-	/**
-	 * The member description.
-	 */
-	private String mDescription;
-	
-	/**
-	 * The member model.
-	 */
-	private ModernDataModel mModel;
 
-	/**
-	 * Instantiates a new modern data model transform.
-	 *
-	 * @param name the name
-	 * @param model the model
-	 */
-	public ModernDataModelTransform(String name, 
-			ModernDataModel model) {
-		this(name, name, model);
-	}
-	
-	/**
-	 * Instantiates a new modern data model transform.
-	 *
-	 * @param name the name
-	 * @param description the description
-	 * @param model the model
-	 */
-	public ModernDataModelTransform(String name, 
-			String description, 
-			ModernDataModel model) {
-		mName = name;
-		mDescription = description;
-		mModel = model;
-	}
-	
-	/**
-	 * Gets the model.
-	 *
-	 * @return the model
-	 */
-	public ModernDataModel getModel() {
-		return mModel;
-	}
-	
-	/**
-	 * Gets the name.
-	 *
-	 * @return the name
-	 */
-	public String getName() {
-		return mName;
-	}
-	
-	/**
-	 * Gets the description.
-	 *
-	 * @return the description
-	 */
-	public String getDescription() {
-		return mDescription;
-	}
+  /**
+   * The member name.
+   */
+  private String mName;
+
+  /**
+   * The member description.
+   */
+  private String mDescription;
+
+  /**
+   * The member model.
+   */
+  private ModernDataModel mModel;
+
+  /**
+   * Instantiates a new modern data model transform.
+   *
+   * @param name
+   *          the name
+   * @param model
+   *          the model
+   */
+  public ModernDataModelTransform(String name, ModernDataModel model) {
+    this(name, name, model);
+  }
+
+  /**
+   * Instantiates a new modern data model transform.
+   *
+   * @param name
+   *          the name
+   * @param description
+   *          the description
+   * @param model
+   *          the model
+   */
+  public ModernDataModelTransform(String name, String description, ModernDataModel model) {
+    mName = name;
+    mDescription = description;
+    mModel = model;
+  }
+
+  /**
+   * Gets the model.
+   *
+   * @return the model
+   */
+  public ModernDataModel getModel() {
+    return mModel;
+  }
+
+  /**
+   * Gets the name.
+   *
+   * @return the name
+   */
+  public String getName() {
+    return mName;
+  }
+
+  /**
+   * Gets the description.
+   *
+   * @return the description
+   */
+  public String getDescription() {
+    return mDescription;
+  }
 }

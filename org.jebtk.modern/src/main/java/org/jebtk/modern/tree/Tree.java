@@ -30,37 +30,35 @@ package org.jebtk.modern.tree;
 import org.jebtk.core.tree.TreeNode;
 import org.jebtk.modern.graphics.ModernVertCanvas;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class Tree.
  *
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public abstract class Tree<T> extends ModernVertCanvas implements Iterable<TreeNode<T>> {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant NODE_DRAGGED.
-	 */
-	public static final String NODE_DRAGGED = "tree_node_dragged";
-	
-	/**
-	 * The constant NODE_DOUBLE_CLICKED.
-	 */
-	public static final String NODE_DOUBLE_CLICKED = "tree_node_double_clicked";
-	
-	/**
-	 * The constant NODE_CLICKED.
-	 */
-	public static final String NODE_CLICKED = "tree_node_clicked";
-	
-	/** The Constant NODE_COLLAPSE_REGION_CLICKED. */
-	public static final String NODE_COLLAPSE_REGION_CLICKED = 
-			"tree_node_collapse_region_clicked";
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant NODE_DRAGGED.
+   */
+  public static final String NODE_DRAGGED = "tree_node_dragged";
+
+  /**
+   * The constant NODE_DOUBLE_CLICKED.
+   */
+  public static final String NODE_DOUBLE_CLICKED = "tree_node_double_clicked";
+
+  /**
+   * The constant NODE_CLICKED.
+   */
+  public static final String NODE_CLICKED = "tree_node_clicked";
+
+  /** The Constant NODE_COLLAPSE_REGION_CLICKED. */
+  public static final String NODE_COLLAPSE_REGION_CLICKED = "tree_node_collapse_region_clicked";
 }

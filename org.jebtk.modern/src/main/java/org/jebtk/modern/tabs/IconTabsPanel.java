@@ -23,32 +23,32 @@ import org.jebtk.modern.UI;
  * The Class SegmentTabsPanel.
  */
 public class IconTabsPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * Instantiates a new segment tabs panel.
-	 *
-	 * @param model 		the model
-	 * @param tabSize 		the tab size
-	 * @param iconSize		The icon size
-	 */
-	public IconTabsPanel(TabsModel model, 
-			int tabSize,
-			int iconSize) {
-		IconTabs tabs = new IconTabs(model, tabSize, iconSize);
-		
-		UI.setSize(tabs, Short.MAX_VALUE, tabSize);
-		
-		setFooter(tabs); //new TextTabsTriangle(model, centered));
-		
-		TabsViewPanel panel = new TabsViewPanel(model, BORDER);
-		//panel.setBorder(0);
-		
-		setBody(panel);
-		
-		//setBorder(BORDER);
-	}
+
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new segment tabs panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param iconSize
+   *          The icon size
+   */
+  public IconTabsPanel(TabsModel model, int tabSize, int iconSize) {
+    IconTabs tabs = new IconTabs(model, tabSize, iconSize);
+
+    UI.setSize(tabs, Short.MAX_VALUE, tabSize);
+
+    setFooter(tabs); // new TextTabsTriangle(model, centered));
+
+    TabsViewPanel panel = new TabsViewPanel(model, BORDER);
+    // panel.setBorder(0);
+
+    setBody(panel);
+
+    // setBorder(BORDER);
+  }
 }

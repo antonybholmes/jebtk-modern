@@ -43,8 +43,6 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a sidebar with clickable tabs.
@@ -53,202 +51,221 @@ import org.jebtk.modern.widget.ModernClickWidget;
  *
  */
 public class SideTabs extends TabsController implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant BUTTON_HEIGHT. */
-	private static final int BUTTON_HEIGHT = 32;
+  /** The Constant BUTTON_HEIGHT. */
+  private static final int BUTTON_HEIGHT = 32;
 
+  /** The Constant SIZE. */
+  private static final Dimension SIZE = new Dimension(160, Short.MAX_VALUE);
 
-	/** The Constant SIZE. */
-	private static final Dimension SIZE = new Dimension(160, Short.MAX_VALUE);
+  /**
+   * The member buttons.
+   */
+  private List<ModernClickWidget> mButtons = new ArrayList<ModernClickWidget>();
 
+  /**
+   * The member button map.
+   */
+  private Map<ModernClickWidget, Integer> mButtonMap = new HashMap<ModernClickWidget, Integer>();
 
-	/**
-	 * The member buttons.
-	 */
-	private List<ModernClickWidget> mButtons = 
-			new ArrayList<ModernClickWidget>();
-	
-	/**
-	 * The member button map.
-	 */
-	private Map<ModernClickWidget, Integer> mButtonMap = 
-			new HashMap<ModernClickWidget, Integer>();
+  /**
+   * The group.
+   */
+  private ModernButtonGroup group = new ModernButtonGroup();
 
-	/**
-	 * The group.
-	 */
-	private ModernButtonGroup group = new ModernButtonGroup();
-	
-	/**
-	 * The class ComponentEvents.
-	 */
-	private class ComponentEvents extends ComponentAdapter {
+  /**
+   * The class ComponentEvents.
+   */
+  private class ComponentEvents extends ComponentAdapter {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.ComponentAdapter#componentResized(java.awt.event.ComponentEvent)
-		 */
-		@Override
-		public void componentResized(ComponentEvent e) {
-			resize();
-		}
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.ComponentAdapter#componentResized(java.awt.event.
+     * ComponentEvent)
+     */
+    @Override
+    public void componentResized(ComponentEvent e) {
+      resize();
+    }
+  }
 
-	/**
-	 * Instantiates a new side tabs.
-	 *
-	 * @param model the model
-	 */
-	public SideTabs(TabsModel model) {
-		super(model);
-		
-		setLayout(null); //new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		
-		addComponentListener(new ComponentEvents());
-		
-		setBorder(LINE_BORDER);
-		
-		UI.setSize(this, SIZE);
-		
-		refresh();
-	}
+  /**
+   * Instantiates a new side tabs.
+   *
+   * @param model
+   *          the model
+   */
+  public SideTabs(TabsModel model) {
+    super(model);
 
-	/**
-	 * Adds the tab.
-	 *
-	 * @param name the name
-	 */
-	public final void addTab(String name) {
-		ModernClickWidget button = new SideTabsButton(name); //VerticalTabsModernCheckButton(name, JLabel.LEFT);
+    setLayout(null); // new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
-		addTab(button);
-	}
+    addComponentListener(new ComponentEvents());
 
-	/**
-	 * Adds the tab.
-	 *
-	 * @param button the button
-	 */
-	private final void addTab(ModernClickWidget button) {
-		button.addClickListener(this);
+    setBorder(LINE_BORDER);
 
-		mButtonMap.put(button, mButtons.size());
-		mButtons.add(button);
-		group.add(button);
+    UI.setSize(this, SIZE);
 
-		add(button);
-		//add(ModernTheme.createVerticalGap());
+    refresh();
+  }
 
-		//System.err.println("add side tab"  + " " + button.getPreferredSize());
-		
-		
-	}
+  /**
+   * Adds the tab.
+   *
+   * @param name
+   *          the name
+   */
+  public final void addTab(String name) {
+    ModernClickWidget button = new SideTabsButton(name); // VerticalTabsModernCheckButton(name, JLabel.LEFT);
 
-	/**
-	 * Change tab.
-	 *
-	 * @param tab the tab
-	 */
-	private final void changeTab(int tab) {
-		getTabsModel().changeTab(tab);
-	}
+    addTab(button);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		changeTab(mButtonMap.get(e.getSource()));
-	}
-	
-	/**
-	 * Refresh.
-	 */
-	public void refresh() {
-		clear();
-		
-		for (Tab tab : getTabsModel()) {
-			addTab(tab.getName());
-		}
-		
-		resize();
-		
-		if (getTabsModel().getSelectedIndex() != -1 && mButtons.size() > getTabsModel().getSelectedIndex() ) {
-			mButtons.get(getTabsModel().getSelectedIndex()).setSelected(true);
-		}
-		
-		revalidate();
-		repaint();
-	}
+  /**
+   * Adds the tab.
+   *
+   * @param button
+   *          the button
+   */
+  private final void addTab(ModernClickWidget button) {
+    button.addClickListener(this);
 
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		mButtons.clear();
-		mButtonMap.clear();
-		group.clear();
-		
-		removeAll();
-	}
+    mButtonMap.put(button, mButtons.size());
+    mButtons.add(button);
+    group.add(button);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabsController#tabChanged(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void tabChanged(TabEvent e) {
-		
-		if (getTabsModel().getSelectedIndex() != -1) {
-			mButtons.get(getTabsModel().getSelectedIndex()).setSelected(true);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabsController#tabAdded(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void tabAdded(TabEvent e) {
-		refresh();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabsController#tabRemoved(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void tabRemoved(TabEvent e) {
-		refresh();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		//g2.setColor(ModernWidget.LINE_COLOR_2);
-		//g2.drawLine(0, 0, 0, getHeight());
-		//int x = getWidth() - 1;
-		//g2.drawLine(x, 0, x, getHeight());
-		
-		//getRenderer().drawContentBox(g2, mRect);
-		
-		fill(g2, Color.WHITE);
-	}
-	
-	/**
-	 * Resize.
-	 */
-	private void resize() {
-		int y = getInsets().top;
-		
-		for (ModernClickWidget button : mButtons) {
-			button.setBounds(getInsets().left, y, getWidth() - mLinePadding, BUTTON_HEIGHT);
-			
-			y += BUTTON_HEIGHT;
-		}
-	}
+    add(button);
+    // add(ModernTheme.createVerticalGap());
+
+    // System.err.println("add side tab" + " " + button.getPreferredSize());
+
+  }
+
+  /**
+   * Change tab.
+   *
+   * @param tab
+   *          the tab
+   */
+  private final void changeTab(int tab) {
+    getTabsModel().changeTab(tab);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    changeTab(mButtonMap.get(e.getSource()));
+  }
+
+  /**
+   * Refresh.
+   */
+  public void refresh() {
+    clear();
+
+    for (Tab tab : getTabsModel()) {
+      addTab(tab.getName());
+    }
+
+    resize();
+
+    if (getTabsModel().getSelectedIndex() != -1 && mButtons.size() > getTabsModel().getSelectedIndex()) {
+      mButtons.get(getTabsModel().getSelectedIndex()).setSelected(true);
+    }
+
+    revalidate();
+    repaint();
+  }
+
+  /**
+   * Clear.
+   */
+  public void clear() {
+    mButtons.clear();
+    mButtonMap.clear();
+    group.clear();
+
+    removeAll();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabsController#tabChanged(org.abh.lib.ui.modern.
+   * tabs.TabEvent)
+   */
+  @Override
+  public void tabChanged(TabEvent e) {
+
+    if (getTabsModel().getSelectedIndex() != -1) {
+      mButtons.get(getTabsModel().getSelectedIndex()).setSelected(true);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabsController#tabAdded(org.abh.lib.ui.modern.tabs
+   * .TabEvent)
+   */
+  @Override
+  public void tabAdded(TabEvent e) {
+    refresh();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabsController#tabRemoved(org.abh.lib.ui.modern.
+   * tabs.TabEvent)
+   */
+  @Override
+  public void tabRemoved(TabEvent e) {
+    refresh();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    // g2.setColor(ModernWidget.LINE_COLOR_2);
+    // g2.drawLine(0, 0, 0, getHeight());
+    // int x = getWidth() - 1;
+    // g2.drawLine(x, 0, x, getHeight());
+
+    // getRenderer().drawContentBox(g2, mRect);
+
+    fill(g2, Color.WHITE);
+  }
+
+  /**
+   * Resize.
+   */
+  private void resize() {
+    int y = getInsets().top;
+
+    for (ModernClickWidget button : mButtons) {
+      button.setBounds(getInsets().left, y, getWidth() - mLinePadding, BUTTON_HEIGHT);
+
+      y += BUTTON_HEIGHT;
+    }
+  }
 }

@@ -38,8 +38,6 @@ import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Replacement ModernButton with a common skin.
@@ -49,81 +47,87 @@ import org.jebtk.modern.UI;
  */
 public class LeftLineBorderPanel extends ModernComponent {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern line border panel.
-	 */
-	public LeftLineBorderPanel() {
-		init();
-	}
+  /**
+   * Instantiates a new modern line border panel.
+   */
+  public LeftLineBorderPanel() {
+    init();
+  }
 
-	/**
-	 * Instantiates a new modern line border panel.
-	 *
-	 * @param color the color
-	 */
-	public LeftLineBorderPanel(Color color) {
-		setBackground(color);
+  /**
+   * Instantiates a new modern line border panel.
+   *
+   * @param color
+   *          the color
+   */
+  public LeftLineBorderPanel(Color color) {
+    setBackground(color);
 
-		init();
-	}
+    init();
+  }
 
-	/**
-	 * Instantiates a new modern line border panel.
-	 *
-	 * @param layout the layout
-	 */
-	public LeftLineBorderPanel(LayoutManager layout) {
-		super(layout);
+  /**
+   * Instantiates a new modern line border panel.
+   *
+   * @param layout
+   *          the layout
+   */
+  public LeftLineBorderPanel(LayoutManager layout) {
+    super(layout);
 
-		init();
-	}
+    init();
+  }
 
-	/**
-	 * Instantiates a new modern line border panel.
-	 *
-	 * @param component the component
-	 */
-	public LeftLineBorderPanel(Component component) {
-		add(component, BorderLayout.CENTER);
+  /**
+   * Instantiates a new modern line border panel.
+   *
+   * @param component
+   *          the component
+   */
+  public LeftLineBorderPanel(Component component) {
+    add(component, BorderLayout.CENTER);
 
-		init();
-	}
+    init();
+  }
 
+  /**
+   * Instantiates a new modern line border panel.
+   *
+   * @param component
+   *          the component
+   * @param dimension
+   *          the dimension
+   */
+  public LeftLineBorderPanel(Component component, Dimension dimension) {
+    this(component);
 
-	/**
-	 * Instantiates a new modern line border panel.
-	 *
-	 * @param component the component
-	 * @param dimension the dimension
-	 */
-	public LeftLineBorderPanel(Component component, Dimension dimension) {
-		this(component);
+    UI.setSize(this, dimension);
 
-		UI.setSize(this, dimension);
+    init();
+  }
 
-		init();
-	}
+  /**
+   * 1 Inits the.
+   */
+  private void init() {
+    setBorder(BorderService.getInstance().createLeftBorder(1));
+  }
 
-	/**1
-	 * Inits the.
-	 */
-	private void init() {
-		setBorder(BorderService.getInstance().createLeftBorder(1));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.widget.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    g2.setColor(LIGHT_LINE_COLOR);
 
-
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		g2.setColor(LIGHT_LINE_COLOR);
-		
-		g2.drawLine(0, 0, 0, getHeight());
-	}
+    g2.drawLine(0, 0, 0, getHeight());
+  }
 }

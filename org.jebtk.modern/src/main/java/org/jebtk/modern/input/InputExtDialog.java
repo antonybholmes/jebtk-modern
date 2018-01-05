@@ -45,88 +45,89 @@ import org.jebtk.modern.window.WindowWidgetFocusEvents;
  * The class MatchDialog.
  */
 public class InputExtDialog extends ModernDialogTaskWindow implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m text. */
-	private ModernTextArea mText = new ModernTextArea();
 
-	/** The m delimiter. */
-	private String mDelimiter;
-	
-	
-	/**
-	 * Instantiates a new match dialog.
-	 *
-	 * @param parent the parent
-	 * @param text the text
-	 * @param delimiter the delimiter
-	 */
-	public InputExtDialog(ModernWindow parent, String text, String delimiter) {
-		super(parent);
-		
-		mDelimiter = delimiter;
-		
-		List<String> lines = Splitter.on(delimiter).trim().text(text);
-		
-		setTitle("Input");
-		
-		setup();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		createUi(lines);
-	}
+  /** The m text. */
+  private ModernTextArea mText = new ModernTextArea();
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		addWindowListener(new WindowWidgetFocusEvents(mOkButton));
+  /** The m delimiter. */
+  private String mDelimiter;
 
-		setSize(600, 400);
-		
-		setResizable(true);
-		
-		UI.centerWindowToScreen(this);
-	}
-	
-	
+  /**
+   * Instantiates a new match dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param text
+   *          the text
+   * @param delimiter
+   *          the delimiter
+   */
+  public InputExtDialog(ModernWindow parent, String text, String delimiter) {
+    super(parent);
 
-	/**
-	 * Creates the ui.
-	 *
-	 * @param lines the lines
-	 */
-	private final void createUi(List<String> lines) {
-		mText.setText(lines);
-		
-		ModernScrollPane scrollPane = new ModernScrollPane(mText);
-		scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
-		
-		setDialogCardContent(scrollPane);
-	}
+    mDelimiter = delimiter;
 
-	/**
-	 * Gets the window name.
-	 *
-	 * @return the window name
-	 */
-	public List<String> getLines() {
-		List<String> lines = mText.getLines();
-		
-		// Also split on lines containing delimiter
-		ArrayList<String> ret = new ArrayList<String>(lines.size());
-		
-		for (String line : lines) {
-			List<String> lines2 = Splitter.on(mDelimiter).trim().text(line);
-			
-			for (String line2 : lines2) {
-				ret.add(line2);
-			}
-		}
-		
-		return ret;
-	}
+    List<String> lines = Splitter.on(delimiter).trim().text(text);
+
+    setTitle("Input");
+
+    setup();
+
+    createUi(lines);
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    addWindowListener(new WindowWidgetFocusEvents(mOkButton));
+
+    setSize(600, 400);
+
+    setResizable(true);
+
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Creates the ui.
+   *
+   * @param lines
+   *          the lines
+   */
+  private final void createUi(List<String> lines) {
+    mText.setText(lines);
+
+    ModernScrollPane scrollPane = new ModernScrollPane(mText);
+    scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
+
+    setDialogCardContent(scrollPane);
+  }
+
+  /**
+   * Gets the window name.
+   *
+   * @return the window name
+   */
+  public List<String> getLines() {
+    List<String> lines = mText.getLines();
+
+    // Also split on lines containing delimiter
+    ArrayList<String> ret = new ArrayList<String>(lines.size());
+
+    for (String line : lines) {
+      List<String> lines2 = Splitter.on(mDelimiter).trim().text(line);
+
+      for (String line2 : lines2) {
+        ret.add(line2);
+      }
+    }
+
+    return ret;
+  }
 }

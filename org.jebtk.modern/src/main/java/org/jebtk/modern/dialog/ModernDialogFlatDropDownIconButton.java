@@ -31,7 +31,6 @@ import org.jebtk.modern.button.ModernDropDownIconButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Flat button for dialogs.
@@ -41,52 +40,46 @@ import org.jebtk.modern.menu.ModernPopupMenu;
  */
 public class ModernDialogFlatDropDownIconButton extends ModernDropDownIconButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new modern dialog flat button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernDialogFlatDropDownIconButton(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern dialog flat drop down icon button.
-	 *
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public ModernDialogFlatDropDownIconButton(ModernIcon icon,
-			ModernPopupMenu menu) {
-		super(icon, menu);
-		
-		setup();
-	}
-	
-	private void setup() {
-		setBackgroundAnimation(new FlatDropDownButtonAnimation(this));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			if (isSelected() || mHighlight || mPopupShown) {
-				getWidgetRenderer().drawButton(g2, 
-						mInternalRect,
-						RenderMode.SELECTED,
-						hasFocus());
-			} else {
-				getWidgetRenderer().drawContentBox(g2, mInternalRect);
-			}
-		}
-	}
-	*/
+  /**
+   * Instantiates a new modern dialog flat button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernDialogFlatDropDownIconButton(ModernIcon icon) {
+    super(icon);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern dialog flat drop down icon button.
+   *
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public ModernDialogFlatDropDownIconButton(ModernIcon icon, ModernPopupMenu menu) {
+    super(icon, menu);
+
+    setup();
+  }
+
+  private void setup() {
+    setBackgroundAnimation(new FlatDropDownButtonAnimation(this));
+  }
+
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight || mPopupShown) {
+   * getWidgetRenderer().drawButton(g2, mInternalRect, RenderMode.SELECTED,
+   * hasFocus()); } else { getWidgetRenderer().drawContentBox(g2, mInternalRect);
+   * } } }
+   */
 }

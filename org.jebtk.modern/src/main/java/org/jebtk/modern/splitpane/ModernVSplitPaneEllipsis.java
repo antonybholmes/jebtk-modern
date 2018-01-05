@@ -30,69 +30,63 @@ package org.jebtk.modern.splitpane;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Creates a horizontal split pane that uses three holds for the
- * grab handle.
+ * Creates a horizontal split pane that uses three holds for the grab handle.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernVSplitPaneEllipsis extends VSplitPane {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant WIDTH.
-	 */
-	private static final int WIDTH = 2;
-	
-	/**
-	 * The constant DY.
-	 */
-	private static final int DY = 5;
-	
-	/**
-	 * The constant H.
-	 */
-	private static final int H = DY * 2;
-	
-	
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR = LINE_COLOR;
-	
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int y = getInsets().top; //mDividerMidPoint - WIDTH / 2;
+  /**
+   * The constant WIDTH.
+   */
+  private static final int WIDTH = 2;
 
-		int h = getInternalRect().getH();
-		
-		g2.setColor(COLOR);
+  /**
+   * The constant DY.
+   */
+  private static final int DY = 5;
 
-		for (int i = 0; i < mDividerLocations.size() - 1; ++i) {
-			y = getInsets().top + (int)(h * mDividerLocations.get(i));
-			
-			int x = (getHeight() - H) / 2;
-			
-			for (int j = 0; j < 3; ++j) {
-				g2.fillRect(x,
-						y,
-						WIDTH,
-						WIDTH);
+  /**
+   * The constant H.
+   */
+  private static final int H = DY * 2;
 
-				x += DY;
-			}
-		}
-	}
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = LINE_COLOR;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int y = getInsets().top; // mDividerMidPoint - WIDTH / 2;
+
+    int h = getInternalRect().getH();
+
+    g2.setColor(COLOR);
+
+    for (int i = 0; i < mDividerLocations.size() - 1; ++i) {
+      y = getInsets().top + (int) (h * mDividerLocations.get(i));
+
+      int x = (getHeight() - H) / 2;
+
+      for (int j = 0; j < 3; ++j) {
+        g2.fillRect(x, y, WIDTH, WIDTH);
+
+        x += DY;
+      }
+    }
+  }
 }

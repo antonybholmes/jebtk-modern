@@ -29,19 +29,18 @@ package org.jebtk.modern.table;
 
 import org.jebtk.modern.dataview.ModernDataCellEditor;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a flat look table renderer for the flat table
- * although it can be used with standard JTables as well.
+ * Provides a flat look table renderer for the flat table although it can be
+ * used with standard JTables as well.
  *
  * @author Antony Holmes Holmes
  *
  */
 public abstract class AbstractModernTableCellEditor extends ModernDataCellEditor {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 }

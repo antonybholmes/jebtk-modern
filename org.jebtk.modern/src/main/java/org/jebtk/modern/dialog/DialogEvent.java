@@ -29,7 +29,6 @@ package org.jebtk.modern.dialog;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Modern UI controls such as buttons should fire ModernClickEvents.
@@ -38,41 +37,42 @@ import org.jebtk.core.event.ChangeEvent;
  *
  */
 public class DialogEvent extends ChangeEvent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant STATUS_MESSSAGE.
-	 */
-	public static final String STATUS_MESSSAGE = "status";
 
-	/**
-	 * The member status.
-	 */
-	private ModernDialogStatus mStatus;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new dialog event.
-	 *
-	 * @param source the source
-	 * @param status the status
-	 */
-	public DialogEvent(Object source, ModernDialogStatus status) {
-		super(source);
-		
-		mStatus = status;
-	}
-	
-	/**
-	 * Gets the status.
-	 *
-	 * @return the status
-	 */
-	public ModernDialogStatus getStatus() {
-		return mStatus;
-	}
+  /**
+   * The constant STATUS_MESSSAGE.
+   */
+  public static final String STATUS_MESSSAGE = "status";
+
+  /**
+   * The member status.
+   */
+  private ModernDialogStatus mStatus;
+
+  /**
+   * Instantiates a new dialog event.
+   *
+   * @param source
+   *          the source
+   * @param status
+   *          the status
+   */
+  public DialogEvent(Object source, ModernDialogStatus status) {
+    super(source);
+
+    mStatus = status;
+  }
+
+  /**
+   * Gets the status.
+   *
+   * @return the status
+   */
+  public ModernDialogStatus getStatus() {
+    return mStatus;
+  }
 }

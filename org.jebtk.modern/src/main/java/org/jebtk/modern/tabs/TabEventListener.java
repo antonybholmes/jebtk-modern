@@ -29,48 +29,49 @@ package org.jebtk.modern.tabs;
 
 import java.util.EventListener;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving tabEvent events.
- * The class that is interested in processing a tabEvent
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addTabEventListener<code> method. When
- * the tabEvent event occurs, that object's appropriate
- * method is invoked.
+ * The listener interface for receiving tabEvent events. The class that is
+ * interested in processing a tabEvent event implements this interface, and the
+ * object created with that class is registered with a component using the
+ * component's <code>addTabEventListener<code> method. When the tabEvent event
+ * occurs, that object's appropriate method is invoked.
  *
  * @see TabEventEvent
  */
 public interface TabEventListener extends EventListener {
 
-	/**
-	 * Tab changed.
-	 *
-	 * @param e the e
-	 */
-	public void tabChanged(TabEvent e);
-	
-	/**
-	 * Tab added.
-	 *
-	 * @param e the e
-	 */
-	public void tabAdded(TabEvent e);
-	
-	/**
-	 * Tab removed.
-	 *
-	 * @param e the e
-	 */
-	public void tabRemoved(TabEvent e);
-	
-	/**
-	 * Tab resized.
-	 *
-	 * @param e the e
-	 */
-	public void tabResized(TabEvent e);
-	
-	public void tabHighlighted(TabEvent e);
+  /**
+   * Tab changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void tabChanged(TabEvent e);
+
+  /**
+   * Tab added.
+   *
+   * @param e
+   *          the e
+   */
+  public void tabAdded(TabEvent e);
+
+  /**
+   * Tab removed.
+   *
+   * @param e
+   *          the e
+   */
+  public void tabRemoved(TabEvent e);
+
+  /**
+   * Tab resized.
+   *
+   * @param e
+   *          the e
+   */
+  public void tabResized(TabEvent e);
+
+  public void tabHighlighted(TabEvent e);
 }

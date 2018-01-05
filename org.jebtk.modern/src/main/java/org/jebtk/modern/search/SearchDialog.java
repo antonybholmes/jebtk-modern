@@ -52,129 +52,128 @@ import org.jebtk.modern.window.WindowWidgetFocusEvents;
  * The class MatchDialog.
  */
 public class SearchDialog extends ModernDialogTaskWindow implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
 
-	/** The m check in list. */
-	private ModernCheckBox mCheckInList = 
-			new ModernCheckBox("Match in list", true);
-	
-	/** The m check exact. */
-	private ModernCheckBox mCheckExact = 
-			new ModernCheckBox("Match entire contents");
-	
-	/** The m check case. */
-	private ModernCheckBox mCheckCase = 
-			new ModernCheckBox("Case sensitive");
-	
-	/** The m text. */
-	private ModernTextArea mText = new ModernTextArea();
-	
-	
-	/**
-	 * Instantiates a new match dialog.
-	 *
-	 * @param parent the parent
-	 * @param text the text
-	 * @param delimiter the delimiter
-	 */
-	public SearchDialog(ModernWindow parent, String text, String delimiter) {
-		super(parent);
-		
-		List<String> lines = Splitter.on(delimiter).trim().text(text);
-		
-		setTitle("Search");
-		
-		setup();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		createUi(lines);
-	}
+  /** The m check in list. */
+  private ModernCheckBox mCheckInList = new ModernCheckBox("Match in list", true);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		addWindowListener(new WindowWidgetFocusEvents(mOkButton));
+  /** The m check exact. */
+  private ModernCheckBox mCheckExact = new ModernCheckBox("Match entire contents");
 
-		setSize(640, 400);
-		
-		setResizable(true);
-		
-		UI.centerWindowToScreen(this);
-	}
-	
-	
+  /** The m check case. */
+  private ModernCheckBox mCheckCase = new ModernCheckBox("Case sensitive");
 
-	/**
-	 * Creates the ui.
-	 *
-	 * @param lines the lines
-	 */
-	private final void createUi(List<String> lines) {
-		//this.getContentPane().add(new JLabel("Change " + getProductDetails().getProductName() + " settings", JLabel.LEFT), BorderLayout.PAGE_START);
-		
-		ModernComponent content = new ModernComponent();
-		
-		content.setHeader(new ModernSubHeadingLabel("Search for:", BorderService.getInstance().createBottomBorder(5)));
-		
-		mText.setText(lines);
-		
-		ModernScrollPane scrollPane = new ModernScrollPane(mText);
-		//scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
-		
-		content.setBody(new ModernBorderPanel(new ModernComponent(scrollPane, ModernWidget.BORDER)));
-		
-		Box box = VBox.create();
-		
-		box.add(UI.createVGap(10));
-		box.add(mCheckInList);
-		box.add(UI.createVGap(5));
-		box.add(mCheckExact);
-		box.add(UI.createVGap(5));
-		box.add(mCheckCase);
-		
-		content.setFooter(box);
-		
-		setContent(content);
-	}
+  /** The m text. */
+  private ModernTextArea mText = new ModernTextArea();
 
-	/**
-	 * Gets the window name.
-	 *
-	 * @return the window name
-	 */
-	public List<String> getLines() {
-		return mText.getLines();
-	}
+  /**
+   * Instantiates a new match dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param text
+   *          the text
+   * @param delimiter
+   *          the delimiter
+   */
+  public SearchDialog(ModernWindow parent, String text, String delimiter) {
+    super(parent);
 
-	/**
-	 * Case sensitive.
-	 *
-	 * @return true, if successful
-	 */
-	public boolean caseSensitive() {
-		return mCheckCase.isSelected();
-	}
+    List<String> lines = Splitter.on(delimiter).trim().text(text);
 
-	/**
-	 * Gets the in list.
-	 *
-	 * @return the in list
-	 */
-	public boolean getInList() {
-		return mCheckInList.isSelected();
-	}
-	
-	/**
-	 * Gets the exact.
-	 *
-	 * @return the exact
-	 */
-	public boolean getExact() {
-		return mCheckExact.isSelected();
-	}
+    setTitle("Search");
+
+    setup();
+
+    createUi(lines);
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    addWindowListener(new WindowWidgetFocusEvents(mOkButton));
+
+    setSize(640, 400);
+
+    setResizable(true);
+
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Creates the ui.
+   *
+   * @param lines
+   *          the lines
+   */
+  private final void createUi(List<String> lines) {
+    // this.getContentPane().add(new JLabel("Change " +
+    // getProductDetails().getProductName() + " settings", JLabel.LEFT),
+    // BorderLayout.PAGE_START);
+
+    ModernComponent content = new ModernComponent();
+
+    content.setHeader(new ModernSubHeadingLabel("Search for:", BorderService.getInstance().createBottomBorder(5)));
+
+    mText.setText(lines);
+
+    ModernScrollPane scrollPane = new ModernScrollPane(mText);
+    // scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
+
+    content.setBody(new ModernBorderPanel(new ModernComponent(scrollPane, ModernWidget.BORDER)));
+
+    Box box = VBox.create();
+
+    box.add(UI.createVGap(10));
+    box.add(mCheckInList);
+    box.add(UI.createVGap(5));
+    box.add(mCheckExact);
+    box.add(UI.createVGap(5));
+    box.add(mCheckCase);
+
+    content.setFooter(box);
+
+    setContent(content);
+  }
+
+  /**
+   * Gets the window name.
+   *
+   * @return the window name
+   */
+  public List<String> getLines() {
+    return mText.getLines();
+  }
+
+  /**
+   * Case sensitive.
+   *
+   * @return true, if successful
+   */
+  public boolean caseSensitive() {
+    return mCheckCase.isSelected();
+  }
+
+  /**
+   * Gets the in list.
+   *
+   * @return the in list
+   */
+  public boolean getInList() {
+    return mCheckInList.isSelected();
+  }
+
+  /**
+   * Gets the exact.
+   *
+   * @return the exact
+   */
+  public boolean getExact() {
+    return mCheckExact.isSelected();
+  }
 }

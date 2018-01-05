@@ -30,51 +30,55 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class SegmentAnimation extends WidgetAnimation {
 
-	private SegmentTabs mSegments;
+  private SegmentTabs mSegments;
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public SegmentAnimation(ModernWidget w) {
-		super(w);
-		
-		mSegments = (SegmentTabs)w;
-	}
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public SegmentAnimation(ModernWidget w) {
+    super(w);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    mSegments = (SegmentTabs) w;
+  }
 
-		int x = mSegments.mLeftOffset;
-		int n = mSegments.getTabsModel().getTabCount();
-		int selectedIndex = mSegments.getTabsModel().getSelectedIndex();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		//
-		// Draw the labels
-		//
+    int x = mSegments.mLeftOffset;
+    int n = mSegments.getTabsModel().getTabCount();
+    int selectedIndex = mSegments.getTabsModel().getSelectedIndex();
 
-		x = mSegments.mLeftOffset;
+    //
+    // Draw the labels
+    //
 
-		g2.setColor(ModernWidget.TEXT_COLOR);
-		
-		for (int i = 0; i < n; ++i) {
-			boolean selected = i == selectedIndex;
-	
-			g2.setColor(selected ? Ribbon.BAR_BACKGROUND : ModernWidget.TEXT_COLOR);
-			
-			//g2.setFont(selected ? ModernWidget.BOLD_FONT : ModernWidget.FONT);
+    x = mSegments.mLeftOffset;
 
-			int textY = ModernWidget.getTextYPosCenter(g2, mSegments.getHeight());
+    g2.setColor(ModernWidget.TEXT_COLOR);
 
-			String s = mSegments.getTabsModel().getTab(i).getName(); //.toUpperCase();
+    for (int i = 0; i < n; ++i) {
+      boolean selected = i == selectedIndex;
 
-			g2.drawString(s, x + (mSegments.mTabSize - g2.getFontMetrics().stringWidth(s)) / 2, textY);
+      g2.setColor(selected ? Ribbon.BAR_BACKGROUND : ModernWidget.TEXT_COLOR);
 
-			x += mSegments.mTabSize;
-		}
-	}	
+      // g2.setFont(selected ? ModernWidget.BOLD_FONT : ModernWidget.FONT);
+
+      int textY = ModernWidget.getTextYPosCenter(g2, mSegments.getHeight());
+
+      String s = mSegments.getTabsModel().getTab(i).getName(); // .toUpperCase();
+
+      g2.drawString(s, x + (mSegments.mTabSize - g2.getFontMetrics().stringWidth(s)) / 2, textY);
+
+      x += mSegments.mTabSize;
+    }
+  }
 }

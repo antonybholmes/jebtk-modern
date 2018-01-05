@@ -42,77 +42,70 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class ModernTableCorner extends ModernWidget {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		//fill(g2, getRect(), ThemeService.getInstance().colors().getHighlight(1));
-		
-		fillBackground(g2);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		IntRect rect = getRect();
-		
-		g2.setColor(ModernWidget.LINE_COLOR);
-		
-		/*
-		GradientPaint gradient = new GradientPaint(x,
-				0,
-				ThemeService.getInstance().colors().getHighlight(1),
-				x + w,
-				0,
-				LINE_COLOR,
-				false);
-		
-		g2.setPaint(gradient);
-		*/
-		
-		g2.drawLine(0, getHeight() - 1, getWidth(), getHeight() - 1);
-		
-		/*
-		gradient = new GradientPaint(0,
-				y,
-				ThemeService.getInstance().colors().getHighlight(1),
-				0,
-				y + h,
-				LINE_COLOR,
-				false);
-		
-		g2.setPaint(gradient);
-		*/
-		
-		g2.drawLine(rect.getX() + rect.getW() - 1, 
-				rect.getY(), 
-				rect.getX() + rect.getW() - 1, 
-				rect.getY() + rect.getH());
-		
-		g2.setColor(ThemeService.getInstance().colors().getHighlight(2));
-		
-		// Draw triangle in corner
-		
-		int o = getHeight() / 4;
-		int h = o * 2;
-		
-		GeneralPath polygon = new GeneralPath(GeneralPath.WIND_EVEN_ODD, 3);
-		
-		polygon.moveTo(getWidth() - o, o);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		polygon.lineTo(getWidth() - o, o + h);
-		polygon.lineTo(getWidth() - o - h, o + h);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    // fill(g2, getRect(), ThemeService.getInstance().colors().getHighlight(1));
 
-		polygon.closePath();
-		g2.fill(polygon);
-	}
+    fillBackground(g2);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    IntRect rect = getRect();
+
+    g2.setColor(ModernWidget.LINE_COLOR);
+
+    /*
+     * GradientPaint gradient = new GradientPaint(x, 0,
+     * ThemeService.getInstance().colors().getHighlight(1), x + w, 0, LINE_COLOR,
+     * false);
+     * 
+     * g2.setPaint(gradient);
+     */
+
+    g2.drawLine(0, getHeight() - 1, getWidth(), getHeight() - 1);
+
+    /*
+     * gradient = new GradientPaint(0, y,
+     * ThemeService.getInstance().colors().getHighlight(1), 0, y + h, LINE_COLOR,
+     * false);
+     * 
+     * g2.setPaint(gradient);
+     */
+
+    g2.drawLine(rect.getX() + rect.getW() - 1, rect.getY(), rect.getX() + rect.getW() - 1, rect.getY() + rect.getH());
+
+    g2.setColor(ThemeService.getInstance().colors().getHighlight(2));
+
+    // Draw triangle in corner
+
+    int o = getHeight() / 4;
+    int h = o * 2;
+
+    GeneralPath polygon = new GeneralPath(GeneralPath.WIND_EVEN_ODD, 3);
+
+    polygon.moveTo(getWidth() - o, o);
+
+    polygon.lineTo(getWidth() - o, o + h);
+    polygon.lineTo(getWidth() - o - h, o + h);
+
+    polygon.closePath();
+    g2.fill(polygon);
+  }
 
 }

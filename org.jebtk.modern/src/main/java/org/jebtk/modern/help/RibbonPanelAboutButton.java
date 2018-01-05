@@ -30,48 +30,48 @@ package org.jebtk.modern.help;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernTextLink;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonPanelAboutButton.
  */
 public class RibbonPanelAboutButton extends ModernTextLink {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon panel about button.
-	 *
-	 * @param product the product
-	 */
-	public RibbonPanelAboutButton(GuiAppInfo product) {
-		super("Learn more about " + product.getName() + " and copyright information"); //"About " + product.getName());
-		
-		//mProduct = product;
-		
-		setClickMessage(UI.MENU_ABOUT);
-		
-		//UI.setSize(this, Math.max(SIZE, ImageUtils.getStringWidth(FONT, product.getName()) + DOUBLE_PADDING), SIZE);
-	}
-	
-	/*
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = (mRect.getW() - 32) / 2;
-		int y = 10;
-		
-		UIService.getInstance().loadIcon(HelpVectorIcon.class, 32).drawIcon(g2, x, y, 32);
-		
-		g2.setColor(TEXT_COLOR);
-		g2.setFont(FONT);
-		
-		g2.drawString("About", (mRect.getW() - g2.getFontMetrics().stringWidth("About")) / 2, mRect.getH() - 24);
-		
-		g2.drawString(mProduct.getName(), (mRect.getW() - g2.getFontMetrics().stringWidth(mProduct.getName())) / 2, mRect.getH() - 10);
-	}
-	*/
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new ribbon panel about button.
+   *
+   * @param product
+   *          the product
+   */
+  public RibbonPanelAboutButton(GuiAppInfo product) {
+    super("Learn more about " + product.getName() + " and copyright information"); // "About " + product.getName());
+
+    // mProduct = product;
+
+    setClickMessage(UI.MENU_ABOUT);
+
+    // UI.setSize(this, Math.max(SIZE, ImageUtils.getStringWidth(FONT,
+    // product.getName()) + DOUBLE_PADDING), SIZE);
+  }
+
+  /*
+   * @Override public void drawForegroundAAText(Graphics2D g2) { int x =
+   * (mRect.getW() - 32) / 2; int y = 10;
+   * 
+   * UIService.getInstance().loadIcon(HelpVectorIcon.class, 32).drawIcon(g2, x, y,
+   * 32);
+   * 
+   * g2.setColor(TEXT_COLOR); g2.setFont(FONT);
+   * 
+   * g2.drawString("About", (mRect.getW() -
+   * g2.getFontMetrics().stringWidth("About")) / 2, mRect.getH() - 24);
+   * 
+   * g2.drawString(mProduct.getName(), (mRect.getW() -
+   * g2.getFontMetrics().stringWidth(mProduct.getName())) / 2, mRect.getH() - 10);
+   * }
+   */
 }

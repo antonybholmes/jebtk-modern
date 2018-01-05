@@ -34,79 +34,80 @@ import org.jebtk.core.text.TextUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * A style element that can be used to theme cells in
- * a dataview control.
+ * A style element that can be used to theme cells in a dataview control.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDataCellStyle {
-	
-	/**
-	 * The constant DEFAULT_STYLE.
-	 */
-	public static final ModernDataCellStyle DEFAULT_STYLE = 
-			new ModernDataCellStyle();
-	
-	/**
-	 * The member background.
-	 */
-	private Color mBackground = Color.WHITE;
-	
-	/**
-	 * The member color.
-	 */
-	private Color mColor = Color.BLACK;
-	//private Font font = ModernWidget.FONT;
-	
-	/**
-	 * Sets the color.
-	 *
-	 * @param color the new color
-	 */
-	public void setColor(Color color) {
-		mColor = color;
-	}
-	
-	/**
-	 * Gets the color.
-	 *
-	 * @return the color
-	 */
-	public Color getColor() {
-		return mColor;
-	}
 
-	/**
-	 * Sets the background.
-	 *
-	 * @param color the new background
-	 */
-	public void setBackground(Color color) {
-		mBackground = color;
-	}
-	
-	/**
-	 * Gets the background.
-	 *
-	 * @return the background
-	 */
-	public Color getBackground() {
-		return mBackground;
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		StringBuilder buffer = new StringBuilder();
-		buffer.append(ColorUtils.toHtml(mColor));
-		buffer.append(TextUtils.COLON_DELIMITER);
-		buffer.append(ColorUtils.toHtml(mBackground));
-		
-		return buffer.toString();
-	}
+  /**
+   * The constant DEFAULT_STYLE.
+   */
+  public static final ModernDataCellStyle DEFAULT_STYLE = new ModernDataCellStyle();
 
+  /**
+   * The member background.
+   */
+  private Color mBackground = Color.WHITE;
+
+  /**
+   * The member color.
+   */
+  private Color mColor = Color.BLACK;
+  // private Font font = ModernWidget.FONT;
+
+  /**
+   * Sets the color.
+   *
+   * @param color
+   *          the new color
+   */
+  public void setColor(Color color) {
+    mColor = color;
+  }
+
+  /**
+   * Gets the color.
+   *
+   * @return the color
+   */
+  public Color getColor() {
+    return mColor;
+  }
+
+  /**
+   * Sets the background.
+   *
+   * @param color
+   *          the new background
+   */
+  public void setBackground(Color color) {
+    mBackground = color;
+  }
+
+  /**
+   * Gets the background.
+   *
+   * @return the background
+   */
+  public Color getBackground() {
+    return mBackground;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString() {
+    StringBuilder buffer = new StringBuilder();
+    buffer.append(ColorUtils.toHtml(mColor));
+    buffer.append(TextUtils.COLON_DELIMITER);
+    buffer.append(ColorUtils.toHtml(mBackground));
+
+    return buffer.toString();
+  }
 
 }

@@ -66,309 +66,315 @@ import org.jebtk.modern.window.WindowMover;
  */
 public class RibbonFileMenu extends ModernClickWidget implements ModernClickListener {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member menu panel.
-	 */
-	private RibbonFileMenuPanel mMenuPanel =
-			new RibbonFileMenuPanel();
+  /**
+   * The member menu panel.
+   */
+  private RibbonFileMenuPanel mMenuPanel = new RibbonFileMenuPanel();
 
-	//private RibbonFileMenuContentPanel contentPanel = 
-	//		new RibbonFileMenuContentPanel();
+  // private RibbonFileMenuContentPanel contentPanel =
+  // new RibbonFileMenuContentPanel();
 
-	//private Map<RibbonMenuItem, RibbonMenuPanel> contentPanels =
-	//	new HashMap<RibbonMenuItem, RibbonMenuPanel>();
+  // private Map<RibbonMenuItem, RibbonMenuPanel> contentPanels =
+  // new HashMap<RibbonMenuItem, RibbonMenuPanel>();
 
-	/**
-	 * The member content panels.
-	 */
-	private RibbonMenuTabsContainerPanel mContentPanels = null;
+  /**
+   * The member content panels.
+   */
+  private RibbonMenuTabsContainerPanel mContentPanels = null;
 
-	/**
-	 * The model.
-	 */
-	private TabsModel mModel = new TabsModel();
+  /**
+   * The model.
+   */
+  private TabsModel mModel = new TabsModel();
 
-	/**
-	 * The group.
-	 */
-	private ModernButtonGroup mGroup = new ModernButtonGroup();
+  /**
+   * The group.
+   */
+  private ModernButtonGroup mGroup = new ModernButtonGroup();
 
-	/**
-	 * The menu items.
-	 */
-	private List<RibbonMenuItem> mMenuItems =
-			new ArrayList<RibbonMenuItem>();
+  /**
+   * The menu items.
+   */
+  private List<RibbonMenuItem> mMenuItems = new ArrayList<RibbonMenuItem>();
 
-	/**
-	 * The member default menu index.
-	 */
-	private int mDefaultMenuIndex = 0;
+  /**
+   * The member default menu index.
+   */
+  private int mDefaultMenuIndex = 0;
 
-	/** The m title bar. */
-	private RibbonTitleBar mTitleBar;
+  /** The m title bar. */
+  private RibbonTitleBar mTitleBar;
 
-	private Toolbar mToolbar = new Toolbar(Color.WHITE);
+  private Toolbar mToolbar = new Toolbar(Color.WHITE);
 
-	/**
-	 * The constant CLOSE_MENU.
-	 */
-	private static final String CLOSE_MENU = "close_menu";
+  /**
+   * The constant CLOSE_MENU.
+   */
+  private static final String CLOSE_MENU = "close_menu";
 
-	private static final Color RIBBON_FILE_BACKGROUND = 
-			ThemeService.getInstance().colors().getHighlight32(1);
+  private static final Color RIBBON_FILE_BACKGROUND = ThemeService.getInstance().colors().getHighlight32(1);
 
-	/**
-	 * The class CloseAction.
-	 */
-	private class CloseAction extends AbstractAction {
+  /**
+   * The class CloseAction.
+   */
+  private class CloseAction extends AbstractAction {
 
-		/**
-		 * The constant serialVersionUID.
-		 */
-		private static final long serialVersionUID = 1L;
+    /**
+     * The constant serialVersionUID.
+     */
+    private static final long serialVersionUID = 1L;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			// trigger the menu to close
-			fireClicked(new ModernClickEvent(this, CLOSE_MENU));
-		}
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      // trigger the menu to close
+      fireClicked(new ModernClickEvent(this, CLOSE_MENU));
+    }
+  }
 
-	/**
-	 * Instantiates a new ribbon file menu.
-	 *
-	 * @param window the window
-	 */
-	public RibbonFileMenu(ModernWindow window) {
+  /**
+   * Instantiates a new ribbon file menu.
+   *
+   * @param window
+   *          the window
+   */
+  public RibbonFileMenu(ModernWindow window) {
 
-		// If we need custom window dressing
-		if (UI.CUSTOM_WINDOW_DECORATION) {
-			mTitleBar = new RibbonTitleBar(window);
-			mTitleBar.setTitle(window.getTitle());
-			setHeader(mTitleBar);
-			//mTitleBar.addClickListener(this);
-			// So we can respond to move events
-			new WindowMover(window, mTitleBar);
-		}
+    // If we need custom window dressing
+    if (UI.CUSTOM_WINDOW_DECORATION) {
+      mTitleBar = new RibbonTitleBar(window);
+      mTitleBar.setTitle(window.getTitle());
+      setHeader(mTitleBar);
+      // mTitleBar.addClickListener(this);
+      // So we can respond to move events
+      new WindowMover(window, mTitleBar);
+    }
 
-		mContentPanels = new RibbonMenuTabsContainerPanel(mModel);
+    mContentPanels = new RibbonMenuTabsContainerPanel(mModel);
 
-		setHeader(mToolbar);
-		
-		ModernComponent panel = new ModernComponent();
-		
-		panel.setLeft(mMenuPanel);
-		panel.setBody(new ModernComponent(new CardPanel(mContentPanels), ModernWidget.QUAD_BORDER));
+    setHeader(mToolbar);
 
-		//panel.setBorder(BorderService.getInstance().createBorder(20));
+    ModernComponent panel = new ModernComponent();
 
-		setBody(new TopShadowPanel(panel));
-		
-		
-		//menuPanel.add(new TabbedBarSeparator());
-		mMenuPanel.add(UI.createVGap(40));
+    panel.setLeft(mMenuPanel);
+    panel.setBody(new ModernComponent(new CardPanel(mContentPanels), ModernWidget.QUAD_BORDER));
 
-		//RibbonBackMenuItem ribbonBackMenuItem = new RibbonBackMenuItem();
-		//ribbonBackMenuItem.addClickListener(this);
-		//mMenuPanel.add(ribbonBackMenuItem);
-		//mMenuPanel.add(UI.createVGap(20));
-		
-		RibbonBackButton ribbonBackButton = new RibbonBackButton();
-		ribbonBackButton.addClickListener(this);
-		mToolbar.add(ribbonBackButton);
+    // panel.setBorder(BorderService.getInstance().createBorder(20));
 
-		// When the menu is visible, make it respond to the escape key
-		getInputMap(WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0),
-				CLOSE_MENU);
+    setBody(new TopShadowPanel(panel));
 
-		getActionMap().put(CLOSE_MENU, new CloseAction());
-	}
+    // menuPanel.add(new TabbedBarSeparator());
+    mMenuPanel.add(UI.createVGap(40));
 
-	/**
-	 * Sets the default index.
-	 *
-	 * @param defaultMenuIndex the new default index
-	 */
-	public void setDefaultIndex(int defaultMenuIndex) {
-		mDefaultMenuIndex = defaultMenuIndex;
-	}
+    // RibbonBackMenuItem ribbonBackMenuItem = new RibbonBackMenuItem();
+    // ribbonBackMenuItem.addClickListener(this);
+    // mMenuPanel.add(ribbonBackMenuItem);
+    // mMenuPanel.add(UI.createVGap(20));
 
-	/**
-	 * Add a line separator between menu items.
-	 */
-	public void addSeparator() {
-		mMenuPanel.add(new RibbonMenuSeparator());
-	}
+    RibbonBackButton ribbonBackButton = new RibbonBackButton();
+    ribbonBackButton.addClickListener(this);
+    mToolbar.add(ribbonBackButton);
 
-	/**
-	 * Adds the tabbed menu item.
-	 *
-	 * @param item the item
-	 */
-	public final void addTabbedMenuItem(RibbonMenuItem item) {
+    // When the menu is visible, make it respond to the escape key
+    getInputMap(WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), CLOSE_MENU);
 
-		mMenuPanel.add(item);
-		mMenuItems.add(item);
-		mGroup.add(item);
+    getActionMap().put(CLOSE_MENU, new CloseAction());
+  }
 
-		item.addClickListener(this);
-	}
+  /**
+   * Sets the default index.
+   *
+   * @param defaultMenuIndex
+   *          the new default index
+   */
+  public void setDefaultIndex(int defaultMenuIndex) {
+    mDefaultMenuIndex = defaultMenuIndex;
+  }
 
-	/**
-	 * Add a menu item with associated content panel.
-	 *
-	 * @param item the item
-	 * @param contentPanel the content panel
-	 */
-	public final void addTabbedMenuItem(RibbonMenuItem item, 
-			RibbonMenuPanel contentPanel) {
+  /**
+   * Add a line separator between menu items.
+   */
+  public void addSeparator() {
+    mMenuPanel.add(new RibbonMenuSeparator());
+  }
 
-		if (contentPanel == null) {
-			return;
-		}
+  /**
+   * Adds the tabbed menu item.
+   *
+   * @param item
+   *          the item
+   */
+  public final void addTabbedMenuItem(RibbonMenuItem item) {
 
-		// register so the menu can take action to make itself invisible if a button
-		// action is performed that doesn't already achive this
+    mMenuPanel.add(item);
+    mMenuItems.add(item);
+    mGroup.add(item);
 
-		//TODO is this necessary? 
-		contentPanel.addClickListener(this);
+    item.addClickListener(this);
+  }
 
-		mModel.addTab(item.getText(), contentPanel);
+  /**
+   * Add a menu item with associated content panel.
+   *
+   * @param item
+   *          the item
+   * @param contentPanel
+   *          the content panel
+   */
+  public final void addTabbedMenuItem(RibbonMenuItem item, RibbonMenuPanel contentPanel) {
 
-		addTabbedMenuItem(item);
-	}
+    if (contentPanel == null) {
+      return;
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		if (e.getSource() instanceof RibbonMenuItem) {
-			// if the item is a normal menu item
-			click((RibbonMenuItem)e.getSource());
-		} else {
-			//super.clicked(e);
+    // register so the menu can take action to make itself invisible if a button
+    // action is performed that doesn't already achive this
 
-			super.fireClicked(new ModernClickEvent(this, e.getMessage()));
-		}
-	}
+    // TODO is this necessary?
+    contentPanel.addClickListener(this);
 
-	/**
-	 * Sets the active menu item.
-	 */
-	public final void setActiveMenuItem() {
-		//return setActiveMenuItem(defaultMenuIndex);
+    mModel.addTab(item.getText(), contentPanel);
 
-		setActiveMenuItem(mDefaultMenuIndex);
-	}
+    addTabbedMenuItem(item);
+  }
 
-	/**
-	 * Sets the active menu item.
-	 *
-	 * @param index the new active menu item
-	 */
-	public void setActiveMenuItem(int index) {
-		if (CollectionUtils.inBounds(index, mMenuItems)) {
-			setActiveMenuItem(mMenuItems.get(index));
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    if (e.getSource() instanceof RibbonMenuItem) {
+      // if the item is a normal menu item
+      click((RibbonMenuItem) e.getSource());
+    } else {
+      // super.clicked(e);
 
-		//menuItems.get(index).doClick();
-	}
+      super.fireClicked(new ModernClickEvent(this, e.getMessage()));
+    }
+  }
 
-	/**
-	 * Sets an active item which should be an item with an
-	 * appropriate loadable side menu.
-	 *
-	 * @param item the item
-	 * @return true, if successful
-	 */
-	public final boolean setActiveMenuItem(RibbonMenuItem item) {
-		if (!mModel.containsTab(item.getText())) {
-			return false;
-		}
+  /**
+   * Sets the active menu item.
+   */
+  public final void setActiveMenuItem() {
+    // return setActiveMenuItem(defaultMenuIndex);
 
+    setActiveMenuItem(mDefaultMenuIndex);
+  }
 
-		mModel.changeTab(item.getText());
+  /**
+   * Sets the active menu item.
+   *
+   * @param index
+   *          the new active menu item
+   */
+  public void setActiveMenuItem(int index) {
+    if (CollectionUtils.inBounds(index, mMenuItems)) {
+      setActiveMenuItem(mMenuItems.get(index));
+    }
 
-		((RibbonMenuPanel)mModel.getSelectedTab().getComponent()).refresh();
+    // menuItems.get(index).doClick();
+  }
 
-		item.setSelected(true);
+  /**
+   * Sets an active item which should be an item with an appropriate loadable side
+   * menu.
+   *
+   * @param item
+   *          the item
+   * @return true, if successful
+   */
+  public final boolean setActiveMenuItem(RibbonMenuItem item) {
+    if (!mModel.containsTab(item.getText())) {
+      return false;
+    }
 
-		return true;
-	}
+    mModel.changeTab(item.getText());
 
-	/**
-	 * Click.
-	 *
-	 * @param item the item
-	 */
-	private void click(RibbonMenuItem item) {
-		boolean active = setActiveMenuItem(item);
+    ((RibbonMenuPanel) mModel.getSelectedTab().getComponent()).refresh();
 
-		if (!active) {
-			// menu item does not have a panel so
-			// fire menu click in case we 
-			// need to close the menu
+    item.setSelected(true);
 
+    return true;
+  }
 
-			fireClicked(new ModernClickEvent(this, item.getClickMessage()));
-		}
-	}
+  /**
+   * Click.
+   *
+   * @param item
+   *          the item
+   */
+  private void click(RibbonMenuItem item) {
+    boolean active = setActiveMenuItem(item);
 
-	/**
-	 * Add a predefined amount of vertical space between menu items.
-	 */
-	public void addSpace() {
-		mMenuPanel.add(ModernPanel.createVGap());
-	}
+    if (!active) {
+      // menu item does not have a panel so
+      // fire menu click in case we
+      // need to close the menu
 
-	/**
-	 * Adds the default items.
-	 *
-	 * @param appInfo the app info
-	 */
-	public void addDefaultItems(GuiAppInfo appInfo) {
-		addDefaultItems(appInfo, true);
-	}
+      fireClicked(new ModernClickEvent(this, item.getClickMessage()));
+    }
+  }
 
-	/**
-	 * Adds default Exit and option buttons to the ribbon since these are
-	 * fairly boilerplate.
-	 *
-	 * @param appInfo the app info
-	 * @param exit 	If true adds exit item to menu, otherwise adds close
-	 * 					item.
-	 */
-	public void addDefaultItems(GuiAppInfo appInfo, boolean exit) {
-		RibbonMenuItem menuItem = 
-				new RibbonMenuItem(exit ? UI.MENU_EXIT : UI.MENU_CLOSE);
+  /**
+   * Add a predefined amount of vertical space between menu items.
+   */
+  public void addSpace() {
+    mMenuPanel.add(ModernPanel.createVGap());
+  }
 
-		addTabbedMenuItem(menuItem);
+  /**
+   * Adds the default items.
+   *
+   * @param appInfo
+   *          the app info
+   */
+  public void addDefaultItems(GuiAppInfo appInfo) {
+    addDefaultItems(appInfo, true);
+  }
 
-		//addSeparator();
-		
-		mMenuPanel.add(UI.createVGap(20));
+  /**
+   * Adds default Exit and option buttons to the ribbon since these are fairly
+   * boilerplate.
+   *
+   * @param appInfo
+   *          the app info
+   * @param exit
+   *          If true adds exit item to menu, otherwise adds close item.
+   */
+  public void addDefaultItems(GuiAppInfo appInfo, boolean exit) {
+    RibbonMenuItem menuItem = new RibbonMenuItem(exit ? UI.MENU_EXIT : UI.MENU_CLOSE);
 
-		menuItem = new RibbonMenuItem(UI.MENU_INFO);
+    addTabbedMenuItem(menuItem);
 
-		addTabbedMenuItem(menuItem, 
-				new RibbonPanelProductInfo(appInfo));
+    // addSeparator();
 
-		menuItem = new RibbonMenuItem(UI.MENU_OPTIONS);
-		addTabbedMenuItem(menuItem,
-				new ModernOptionsRibbonPanel(appInfo));
-	}
+    mMenuPanel.add(UI.createVGap(20));
 
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fill(g2, RIBBON_FILE_BACKGROUND);
-	}
+    menuItem = new RibbonMenuItem(UI.MENU_INFO);
+
+    addTabbedMenuItem(menuItem, new RibbonPanelProductInfo(appInfo));
+
+    menuItem = new RibbonMenuItem(UI.MENU_OPTIONS);
+    addTabbedMenuItem(menuItem, new ModernOptionsRibbonPanel(appInfo));
+  }
+
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fill(g2, RIBBON_FILE_BACKGROUND);
+  }
 }

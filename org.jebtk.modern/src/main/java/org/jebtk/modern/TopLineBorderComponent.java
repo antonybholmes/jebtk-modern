@@ -27,56 +27,62 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class TopLineBorderComponent extends ModernComponent {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m color. */
-	private Color mColor;
-	
-	/**
-	 * Instantiates a new top line border component.
-	 */
-	public TopLineBorderComponent() {
-		this(ModernWidget.LIGHT_LINE_COLOR);
-	}
-	
-	/**
-	 * Instantiates a new top line border component.
-	 *
-	 * @param c the c
-	 */
-	public TopLineBorderComponent(Component c) {
-		this(c, ModernWidget.LIGHT_LINE_COLOR);
-	}
-	
-	/**
-	 * Instantiates a new top line border component.
-	 *
-	 * @param color the color
-	 */
-	public TopLineBorderComponent(Color color) {
-		mColor = color;
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new top line border component.
-	 *
-	 * @param c the c
-	 * @param color the color
-	 */
-	public TopLineBorderComponent(Component c, Color color) {
-		this(color);
-		
-		setBody(c);
-	}
+  /** The m color. */
+  private Color mColor;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		g2.setColor(mColor);
-		
-		g2.drawLine(0, 0, getWidth(), 0);
-	}
+  /**
+   * Instantiates a new top line border component.
+   */
+  public TopLineBorderComponent() {
+    this(ModernWidget.LIGHT_LINE_COLOR);
+  }
+
+  /**
+   * Instantiates a new top line border component.
+   *
+   * @param c
+   *          the c
+   */
+  public TopLineBorderComponent(Component c) {
+    this(c, ModernWidget.LIGHT_LINE_COLOR);
+  }
+
+  /**
+   * Instantiates a new top line border component.
+   *
+   * @param color
+   *          the color
+   */
+  public TopLineBorderComponent(Color color) {
+    mColor = color;
+  }
+
+  /**
+   * Instantiates a new top line border component.
+   *
+   * @param c
+   *          the c
+   * @param color
+   *          the color
+   */
+  public TopLineBorderComponent(Component c, Color color) {
+    this(color);
+
+    setBody(c);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    g2.setColor(mColor);
+
+    g2.drawLine(0, 0, getWidth(), 0);
+  }
 }

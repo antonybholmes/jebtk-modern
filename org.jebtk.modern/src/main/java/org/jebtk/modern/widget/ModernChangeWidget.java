@@ -27,12 +27,10 @@
  */
 package org.jebtk.modern.widget;
 
-
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeEventProducer;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
-
 
 // TODO: Auto-generated Javadoc
 /**
@@ -42,47 +40,56 @@ import org.jebtk.core.event.ChangeListeners;
  *
  */
 public abstract class ModernChangeWidget extends ModernClickWidget implements ChangeEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member listeners.
-	 */
-	private ChangeListeners mListeners = 
-			new ChangeListeners();
-	
-	
-	/**
-	 * Fire item changed.
-	 */
-	protected void fireItemChanged() {
-		fireChanged(new ChangeEvent(this));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.event.ChangeEventProducer#addChangeListener(org.abh.lib.event.ChangeListener)
-	 */
-	@Override
-	public void addChangeListener(ChangeListener l) {
-		mListeners.addChangeListener(l);
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.event.ChangeListener)
-	 */
-	@Override
-	public void removeChangeListener(ChangeListener l) {
-		mListeners.removeChangeListener(l);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.event.ChangeEventProducer#fireChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void fireChanged(ChangeEvent event) {
-		mListeners.fireChanged(event);
-	}
+  /**
+   * The member listeners.
+   */
+  private ChangeListeners mListeners = new ChangeListeners();
+
+  /**
+   * Fire item changed.
+   */
+  protected void fireItemChanged() {
+    fireChanged(new ChangeEvent(this));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.event.ChangeEventProducer#addChangeListener(org.abh.lib.event.
+   * ChangeListener)
+   */
+  @Override
+  public void addChangeListener(ChangeListener l) {
+    mListeners.addChangeListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.event.
+   * ChangeListener)
+   */
+  @Override
+  public void removeChangeListener(ChangeListener l) {
+    mListeners.removeChangeListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.event.ChangeEventProducer#fireChanged(org.abh.lib.event.
+   * ChangeEvent)
+   */
+  @Override
+  public void fireChanged(ChangeEvent event) {
+    mListeners.fireChanged(event);
+  }
 }

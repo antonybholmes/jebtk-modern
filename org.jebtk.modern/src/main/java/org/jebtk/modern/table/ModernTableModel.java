@@ -44,77 +44,79 @@ import org.jebtk.modern.dataview.ModernDataGridModel;
  */
 public abstract class ModernTableModel extends ModernDataGridModel {
 
-	
+  /** The m header map. */
+  private Map<Integer, List<String>> mHeaderMap = new HashMap<Integer, List<String>>();
 
-	/** The m header map. */
-	private Map<Integer, List<String>> mHeaderMap =
-			new HashMap<Integer, List<String>>();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.dataview.ModernDataModel#getRowAnnotationText(int)
+   */
+  @Override
+  public List<String> getRowAnnotationText(int row) {
+    return CollectionUtils.toList(Integer.toString(row + 1));
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.dataview.ModernDataModel#getRowAnnotationText(int)
-	 */
-	@Override
-	public List<String> getRowAnnotationText(int row) {
-		return CollectionUtils.toList(Integer.toString(row + 1));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.dataview.ModernDataModel#getColumnAnnotationText(int)
+   */
+  @Override
+  public List<String> getColumnAnnotationText(int column) {
+    // Use the auto names A,B,C... etc
+    return getAutoColumnName(column);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.dataview.ModernDataModel#getColumnAnnotationText(int)
-	 */
-	@Override
-	public List<String> getColumnAnnotationText(int column) {
-		// Use the auto names A,B,C... etc
-		return getAutoColumnName(column);
-	}
-	
-	/**
-	 * Convert a header array into a column annotation list.
-	 * 
-	 * @param header
-	 * @param column
-	 * @return
-	 */
-	public List<String> getColumnAnnotationText(String[] header, int column) {
-		if (column < header.length) {
-			return CollectionUtils.toList(header[column]);
-		} else {
-			return Collections.emptyList();
-		}
-	}
+  /**
+   * Convert a header array into a column annotation list.
+   * 
+   * @param header
+   * @param column
+   * @return
+   */
+  public List<String> getColumnAnnotationText(String[] header, int column) {
+    if (column < header.length) {
+      return CollectionUtils.toList(header[column]);
+    } else {
+      return Collections.emptyList();
+    }
+  }
 
-	/**
-	 * Gets the auto header name.
-	 *
-	 * @param column the column
-	 * @return the auto header name
-	 */
-	public List<String> getAutoColumnName(int column) {
+  /**
+   * Gets the auto header name.
+   *
+   * @param column
+   *          the column
+   * @return the auto header name
+   */
+  public List<String> getAutoColumnName(int column) {
 
-		if (!mHeaderMap.containsKey(column)) {
-			mHeaderMap.put(column, 
-					CollectionUtils.toList(getAutoColumnHeading(column)));
-		}
+    if (!mHeaderMap.containsKey(column)) {
+      mHeaderMap.put(column, CollectionUtils.toList(getAutoColumnHeading(column)));
+    }
 
-		return mHeaderMap.get(column);
-	}
+    return mHeaderMap.get(column);
+  }
 
-	/**
-	 * Generates a column heading where the first 26 columns are A-Z followed
-	 * by AA-AZ etc.
-	 *
-	 * @param column the column
-	 * @return the auto column heading
-	 */
-	public static String getAutoColumnHeading(int column) {
+  /**
+   * Generates a column heading where the first 26 columns are A-Z followed by
+   * AA-AZ etc.
+   *
+   * @param column
+   *          the column
+   * @return the auto column heading
+   */
+  public static String getAutoColumnHeading(int column) {
 
-		StringBuilder buffer = new StringBuilder();
+    StringBuilder buffer = new StringBuilder();
 
-		while (column >= 0) {
-			buffer.append(TextUtils.CAPITAL_ALPHABET_CHARS[column % 26]);
+    while (column >= 0) {
+      buffer.append(TextUtils.CAPITAL_ALPHABET_CHARS[column % 26]);
 
-			column = (column / 26) - 1;
-		}
+      column = (column / 26) - 1;
+    }
 
-		return buffer.reverse().toString();
-	}
+    return buffer.reverse().toString();
+  }
 }

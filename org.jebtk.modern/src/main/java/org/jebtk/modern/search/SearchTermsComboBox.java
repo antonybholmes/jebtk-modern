@@ -36,7 +36,6 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.combobox.ModernComboBox;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Specialised combobox for showing selecting search criteria.
@@ -44,65 +43,70 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
  * @author Antony Holmes Holmes
  */
 public class SearchTermsComboBox extends ModernComboBox implements SearchTermEventListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant MAX_SEARCHES.
-	 */
-	private static final int MAX_SEARCHES = 5;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new search terms combo box.
-	 *
-	 * @param searchTermsModel the search terms model
-	 */
-	public SearchTermsComboBox(SearchTermsService searchTermsModel) {
-		searchTermsModel.addSearchTermListener(this);
-		addSearches();
-		
-		setEditable(true);
-	}
+  /**
+   * The constant MAX_SEARCHES.
+   */
+  private static final int MAX_SEARCHES = 5;
 
-	/**
-	 * Adds the searches.
-	 */
-	public final void addSearches() {
-		int c = 0;
+  /**
+   * Instantiates a new search terms combo box.
+   *
+   * @param searchTermsModel
+   *          the search terms model
+   */
+  public SearchTermsComboBox(SearchTermsService searchTermsModel) {
+    searchTermsModel.addSearchTermListener(this);
+    addSearches();
 
-		clear();
-		
-		List<String> terms = new ArrayList<String>();
+    setEditable(true);
+  }
 
-		for (String search : SearchTermsService.getInstance()) {
-			//searchesCombo.addItem(search);
+  /**
+   * Adds the searches.
+   */
+  public final void addSearches() {
+    int c = 0;
 
-			// create a list of 10 search items
+    clear();
 
-			if (c == MAX_SEARCHES) {
-				break;
-			}
+    List<String> terms = new ArrayList<String>();
 
-			++c;
+    for (String search : SearchTermsService.getInstance()) {
+      // searchesCombo.addItem(search);
 
-			terms.add(search);
-		}
-		
-		Collections.sort(terms);
-		
-		for (String term : terms) {
-			addScrollMenuItem(new ModernIconMenuItem(term));
-		}
-	}
+      // create a list of 10 search items
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void searchTermsChanged(ChangeEvent e) {
-		addSearches();
-	}
+      if (c == MAX_SEARCHES) {
+        break;
+      }
+
+      ++c;
+
+      terms.add(search);
+    }
+
+    Collections.sort(terms);
+
+    for (String term : terms) {
+      addScrollMenuItem(new ModernIconMenuItem(term));
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(org.
+   * abh.lib.event.ChangeEvent)
+   */
+  @Override
+  public void searchTermsChanged(ChangeEvent e) {
+    addSearches();
+  }
 }

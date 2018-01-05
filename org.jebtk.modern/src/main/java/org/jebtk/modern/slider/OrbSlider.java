@@ -36,8 +36,6 @@ import java.util.List;
 
 import org.jebtk.core.Mathematics;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Slider with an orb button and plus minus controls.
@@ -46,209 +44,232 @@ import org.jebtk.core.Mathematics;
  *
  */
 public abstract class OrbSlider extends SteppedSlider {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SLIDER_RADIUS.
-	 */
-	protected int mSliderRadius = 5;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SLIDER_DIAMETER.
-	 */
-	protected int mSliderDiameter = mSliderRadius * 2;
-	
-	/**
-	 * The drag.
-	 */
-	private boolean mDrag;
+  /**
+   * The constant SLIDER_RADIUS.
+   */
+  protected int mSliderRadius = 5;
 
-	/**
-	 * The slider width.
-	 */
-	protected int mSliderWidth;
+  /**
+   * The constant SLIDER_DIAMETER.
+   */
+  protected int mSliderDiameter = mSliderRadius * 2;
 
-	/**
-	 * The highlight slider.
-	 */
-	protected boolean mHighlightSlider = false;
+  /**
+   * The drag.
+   */
+  private boolean mDrag;
 
-	
-	/**
-	 * The class MouseMoveEvents.
-	 */
-	private class MouseMotionEvents extends MouseMotionAdapter {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseDragged(MouseEvent e) {
-			if (!mDrag) {
-				return;
-			}
-			
-			double value = getValue(getIndexFromX(translateX(e.getX())));
-			
-			setValue(getClosestValue(value));
-		}
-	}
-	
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseExited(MouseEvent e) {
-			mHighlightSlider = false;
+  /**
+   * The slider width.
+   */
+  protected int mSliderWidth;
 
-			repaint();
-		}
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			mHighlightSlider = true;
+  /**
+   * The highlight slider.
+   */
+  protected boolean mHighlightSlider = false;
 
-			repaint();
-		}
+  /**
+   * The class MouseMoveEvents.
+   */
+  private class MouseMotionEvents extends MouseMotionAdapter {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			if (e.getX() >= getInsets().left && 
-					e.getX() < getWidth() - getInsets().right) {
-				mDrag = true;
-			}
-			
-			double value = getValue(getIndexFromX(translateX(e.getX())));
-			
-			setValue(getClosestValue(value));
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseDragged(MouseEvent e) {
+      if (!mDrag) {
+        return;
+      }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			mDrag = false;
-		}
-	}
-	
-	/**
-	 * The Class MouseWheelEvents.
-	 */
-	private class MouseWheelEvents implements MouseWheelListener {
+      double value = getValue(getIndexFromX(translateX(e.getX())));
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseWheelListener#mouseWheelMoved(java.awt.event.MouseWheelEvent)
-		 */
-		@Override
-		public void mouseWheelMoved(MouseWheelEvent e) {
-			if (e.getWheelRotation() > 0) {
-				increment();
-			} else {
-				decrement();
-			}
-		}
-	}
-	
-	/**
-	 * Instantiates a new orb slider.
-	 */
-	public OrbSlider() {
-		this(1, 100, 1);
-	}
-	
-	/**
-	 * Instantiates a new orb slider.
-	 *
-	 * @param min the min
-	 * @param max the max
-	 * @param value the value
-	 */
-	public OrbSlider(double min, double max, double value) {
-		super(min, max, value);
-		
-		init();
-	}
-	
-	/**
-	 * Instantiates a new orb slider.
-	 *
-	 * @param value the value
-	 * @param values the values
-	 */
-	public OrbSlider(double value, double... values) {
-		super(value, values);
-		
-		init();
-	}
-	
-	/**
-	 * Instantiates a new orb slider.
-	 *
-	 * @param value the value
-	 * @param values the values
-	 */
-	public OrbSlider(double value, List<Double> values) {
-		super(value, values);
-		
-		init();
-	}
-	
-	/**
-	 * Inits the.
-	 */
-	private void init() {
-		addMouseListener(new MouseEvents());
-		addMouseMotionListener(new MouseMotionEvents());
-		addMouseWheelListener(new MouseWheelEvents());
-	}
-	
-	/**
-	 * Sets the radius.
-	 *
-	 * @param radius the new radius
-	 */
-	public void setRadius(int radius) {
-		mSliderRadius = radius;
-		mSliderDiameter = radius * 2;
-		
-		resize();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.slider.SteppedSlider#resize()
-	 */
-	@Override
-	public void resize() {
-		mSliderWidth = mInternalRect.getW() - 2 * mSliderRadius;
-		
-		mGap = mSliderWidth / (double)(mMarks.length - 1);
-		
-		repaint();
-	}
-	
-	/**
-	 * Translate X.
-	 *
-	 * @param x the x
-	 * @return the int
-	 */
-	public int translateX(int x) {
-		return Mathematics.bound(x - mSliderRadius - getInsets().left, 0, mSliderWidth);
-	}
+      setValue(getClosestValue(value));
+    }
+  }
+
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseExited(MouseEvent e) {
+      mHighlightSlider = false;
+
+      repaint();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseEntered(MouseEvent e) {
+      mHighlightSlider = true;
+
+      repaint();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      if (e.getX() >= getInsets().left && e.getX() < getWidth() - getInsets().right) {
+        mDrag = true;
+      }
+
+      double value = getValue(getIndexFromX(translateX(e.getX())));
+
+      setValue(getClosestValue(value));
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseReleased(MouseEvent e) {
+      mDrag = false;
+    }
+  }
+
+  /**
+   * The Class MouseWheelEvents.
+   */
+  private class MouseWheelEvents implements MouseWheelListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseWheelListener#mouseWheelMoved(java.awt.event.
+     * MouseWheelEvent)
+     */
+    @Override
+    public void mouseWheelMoved(MouseWheelEvent e) {
+      if (e.getWheelRotation() > 0) {
+        increment();
+      } else {
+        decrement();
+      }
+    }
+  }
+
+  /**
+   * Instantiates a new orb slider.
+   */
+  public OrbSlider() {
+    this(1, 100, 1);
+  }
+
+  /**
+   * Instantiates a new orb slider.
+   *
+   * @param min
+   *          the min
+   * @param max
+   *          the max
+   * @param value
+   *          the value
+   */
+  public OrbSlider(double min, double max, double value) {
+    super(min, max, value);
+
+    init();
+  }
+
+  /**
+   * Instantiates a new orb slider.
+   *
+   * @param value
+   *          the value
+   * @param values
+   *          the values
+   */
+  public OrbSlider(double value, double... values) {
+    super(value, values);
+
+    init();
+  }
+
+  /**
+   * Instantiates a new orb slider.
+   *
+   * @param value
+   *          the value
+   * @param values
+   *          the values
+   */
+  public OrbSlider(double value, List<Double> values) {
+    super(value, values);
+
+    init();
+  }
+
+  /**
+   * Inits the.
+   */
+  private void init() {
+    addMouseListener(new MouseEvents());
+    addMouseMotionListener(new MouseMotionEvents());
+    addMouseWheelListener(new MouseWheelEvents());
+  }
+
+  /**
+   * Sets the radius.
+   *
+   * @param radius
+   *          the new radius
+   */
+  public void setRadius(int radius) {
+    mSliderRadius = radius;
+    mSliderDiameter = radius * 2;
+
+    resize();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.slider.SteppedSlider#resize()
+   */
+  @Override
+  public void resize() {
+    mSliderWidth = mInternalRect.getW() - 2 * mSliderRadius;
+
+    mGap = mSliderWidth / (double) (mMarks.length - 1);
+
+    repaint();
+  }
+
+  /**
+   * Translate X.
+   *
+   * @param x
+   *          the x
+   * @return the int
+   */
+  public int translateX(int x) {
+    return Mathematics.bound(x - mSliderRadius - getInsets().left, 0, mSliderWidth);
+  }
 }

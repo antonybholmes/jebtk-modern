@@ -24,39 +24,45 @@ import org.jebtk.modern.graphics.ImageUtils;
  * Rotate an icon by a fixed number of degrees.
  */
 public class RotateVectorIcon extends ModernVectorScalableIcon {
-	
-	/** The m icon. */
-	private ModernVectorScalableIcon mIcon;
 
-	/** The m D. */
-	private double mD;
-	
-	/**
-	 * Instantiates a new rotate vector icon.
-	 *
-	 * @param icon the icon
-	 * @param d the d
-	 */
-	public RotateVectorIcon(ModernVectorScalableIcon icon, int d) {
-		mIcon = icon;
-		mD = Math.toRadians(d);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		Graphics2D g2Temp = ImageUtils.clone(g2);
-		
-		try {
-			g2Temp.translate(x + w / 2, y + h / 2);
-			g2Temp.rotate(mD);
-			g2Temp.translate(-x - w / 2, -y - h / 2);
-			
-			mIcon.drawIcon(g2Temp, x, y, w, h);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+  /** The m icon. */
+  private ModernVectorScalableIcon mIcon;
+
+  /** The m D. */
+  private double mD;
+
+  /**
+   * Instantiates a new rotate vector icon.
+   *
+   * @param icon
+   *          the icon
+   * @param d
+   *          the d
+   */
+  public RotateVectorIcon(ModernVectorScalableIcon icon, int d) {
+    mIcon = icon;
+    mD = Math.toRadians(d);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    Graphics2D g2Temp = ImageUtils.clone(g2);
+
+    try {
+      g2Temp.translate(x + w / 2, y + h / 2);
+      g2Temp.rotate(mD);
+      g2Temp.translate(-x - w / 2, -y - h / 2);
+
+      mIcon.drawIcon(g2Temp, x, y, w, h);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 }

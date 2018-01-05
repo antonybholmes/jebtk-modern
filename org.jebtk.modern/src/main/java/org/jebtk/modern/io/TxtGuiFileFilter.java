@@ -32,18 +32,20 @@ package org.jebtk.modern.io;
  * The class TxtGuiFileFilter.
  */
 public class TxtGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new txt gui file filter.
-	 */
-	public TxtGuiFileFilter() {
-		super("txt");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	public final String getDescription() {
-		return "Text File (*.txt)";
-	}
+  /**
+   * Instantiates a new txt gui file filter.
+   */
+  public TxtGuiFileFilter() {
+    super("txt");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  public final String getDescription() {
+    return "Text File (*.txt)";
+  }
 }

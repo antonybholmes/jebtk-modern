@@ -30,7 +30,6 @@ package org.jebtk.modern;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * For classes that generate ModernClickEvents.
@@ -38,46 +37,52 @@ import java.awt.event.ComponentListener;
  * @author Antony Holmes Holmes
  */
 public interface ModernComponentEventProducer {
-	
-	/**
-	 * Adds the component listener.
-	 *
-	 * @param l the l
-	 */
-	public void addComponentListener(ComponentListener l);
-	
-	/**
-	 * Removes the component listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeComponentListener(ComponentListener l);
-	
-	/**
-	 * Fire component hidden.
-	 *
-	 * @param e the e
-	 */
-	public void fireComponentHidden(ComponentEvent e);
-	
-	/**
-	 * Fire component moved.
-	 *
-	 * @param e the e
-	 */
-	public void fireComponentMoved(ComponentEvent e);
-	
-	/**
-	 * Fire component resized.
-	 *
-	 * @param e the e
-	 */
-	public void fireComponentResized(ComponentEvent e);
-	
-	/**
-	 * Fire component shown.
-	 *
-	 * @param e the e
-	 */
-	public void fireComponentShown(ComponentEvent e);
+
+  /**
+   * Adds the component listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addComponentListener(ComponentListener l);
+
+  /**
+   * Removes the component listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeComponentListener(ComponentListener l);
+
+  /**
+   * Fire component hidden.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireComponentHidden(ComponentEvent e);
+
+  /**
+   * Fire component moved.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireComponentMoved(ComponentEvent e);
+
+  /**
+   * Fire component resized.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireComponentResized(ComponentEvent e);
+
+  /**
+   * Fire component shown.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireComponentShown(ComponentEvent e);
 }

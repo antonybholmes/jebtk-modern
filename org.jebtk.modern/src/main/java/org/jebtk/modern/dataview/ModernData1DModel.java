@@ -32,82 +32,85 @@ import java.util.Map;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Generic model for storing objects associated with cells. Since we don't
- * actually want to associate objects with every cell to save memory, we
- * lazily assign objects as necessary and use a default for all cells that
- * do not have an assignment. We further allow row and column association
- * so that individual cells do not need an object.
+ * actually want to associate objects with every cell to save memory, we lazily
+ * assign objects as necessary and use a default for all cells that do not have
+ * an assignment. We further allow row and column association so that individual
+ * cells do not need an object.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernData1DModel<T> extends ModernDataViewListeners {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member default object.
-	 */
-	private T mDefaultObject;
-	
-	/**
-	 * The member row level map.
-	 */
-	private Map<Integer, T> m1dMap = 
-			new HashMap<Integer, T>();
-	
-	/**
-	 * Instantiates a new modern data cell model.
-	 *
-	 * @param defaultObject the default object
-	 */
-	public ModernData1DModel(T defaultObject) {
-		setDefault(defaultObject);
-	}
-	
-	/**
-	 * Sets the default.
-	 *
-	 * @param defaultObject the new default
-	 */
-	public void setDefault(T defaultObject) {
-		mDefaultObject = defaultObject;
-		
-		fireDataUpdated(new ChangeEvent(this));
-	}
-	
-	/**
-	 * Gets the.
-	 *
-	 * @param index the row
-	 * @return the t
-	 */
-	public T get(int index) {
-		if (m1dMap.containsKey(index)) {
-			return m1dMap.get(index);
-		} else {
-			return mDefaultObject;
-		}
-	}
-	
-	/**
-	 * Sets the row.
-	 *
-	 * @param index the row
-	 * @param o the o
-	 */
-	public void set(int index, T o) {
-		if (!m1dMap.containsKey(index)) {
-			m1dMap.put(index, o);
-		}
-		
-		fireDataUpdated(new ChangeEvent(this));
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member default object.
+   */
+  private T mDefaultObject;
+
+  /**
+   * The member row level map.
+   */
+  private Map<Integer, T> m1dMap = new HashMap<Integer, T>();
+
+  /**
+   * Instantiates a new modern data cell model.
+   *
+   * @param defaultObject
+   *          the default object
+   */
+  public ModernData1DModel(T defaultObject) {
+    setDefault(defaultObject);
+  }
+
+  /**
+   * Sets the default.
+   *
+   * @param defaultObject
+   *          the new default
+   */
+  public void setDefault(T defaultObject) {
+    mDefaultObject = defaultObject;
+
+    fireDataUpdated(new ChangeEvent(this));
+  }
+
+  /**
+   * Gets the.
+   *
+   * @param index
+   *          the row
+   * @return the t
+   */
+  public T get(int index) {
+    if (m1dMap.containsKey(index)) {
+      return m1dMap.get(index);
+    } else {
+      return mDefaultObject;
+    }
+  }
+
+  /**
+   * Sets the row.
+   *
+   * @param index
+   *          the row
+   * @param o
+   *          the o
+   */
+  public void set(int index, T o) {
+    if (!m1dMap.containsKey(index)) {
+      m1dMap.put(index, o);
+    }
+
+    fireDataUpdated(new ChangeEvent(this));
+  }
 }

@@ -31,15 +31,15 @@ import org.jebtk.modern.dialog.ModernDialogConstructor;
 
 // TODO: Auto-generated Javadoc
 /**
- * All JFrames should implement this to provide a consistent way to manage
- * UI code.
+ * All JFrames should implement this to provide a consistent way to manage UI
+ * code.
  *
  * @author Antony Holmes Holmes
  *
  */
 public interface ModernWindowConstructor extends ModernDialogConstructor {
-	/**
-	 * Creates the toolbar that will appear.
-	 */
-	void createRibbon();
+  /**
+   * Creates the toolbar that will appear.
+   */
+  void createRibbon();
 }

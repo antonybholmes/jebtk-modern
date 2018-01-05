@@ -38,8 +38,6 @@ import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.MaterialService;
 import org.jebtk.modern.ribbon.RibbonMenuItem;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Mac Style tabs.
@@ -48,245 +46,253 @@ import org.jebtk.modern.ribbon.RibbonMenuItem;
  */
 public class BlockVertTabs extends TextTabs implements ComponentListener {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant TAB_SIZE. */
-	static final int TAB_SIZE = 42;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant TEXT_TAB_HIGHLIGHT_COLOR. */
-	static final Color TEXT_TAB_HIGHLIGHT_COLOR =
-			ColorUtils.getTransparentColor90(Color.BLACK);
+  /** The Constant TAB_SIZE. */
+  static final int TAB_SIZE = 42;
 
-	/** The Constant TEXT_TAB_SELECTED_COLOR. */
-	static final Color TEXT_TAB_SELECTED_COLOR = ColorUtils.getTransparentColor50(Color.BLACK); //Color.WHITE;
+  /** The Constant TEXT_TAB_HIGHLIGHT_COLOR. */
+  static final Color TEXT_TAB_HIGHLIGHT_COLOR = ColorUtils.getTransparentColor90(Color.BLACK);
 
-	//private static final Color BG_COLOR = 
-	//		ThemeService.getInstance().colors().getHighlight32(0); //ColorUtils.getTransparentColor10(Color.WHITE);
+  /** The Constant TEXT_TAB_SELECTED_COLOR. */
+  static final Color TEXT_TAB_SELECTED_COLOR = ColorUtils.getTransparentColor50(Color.BLACK); // Color.WHITE;
 
-	/** The m tab size. */
-	int mTabSize;
+  // private static final Color BG_COLOR =
+  // ThemeService.getInstance().colors().getHighlight32(0);
+  // //ColorUtils.getTransparentColor10(Color.WHITE);
 
-	/** The m P. */
-	GeneralPath mP;
-	
-	/** The Constant OFFSET. */
-	protected int mOffset = 16;
+  /** The m tab size. */
+  int mTabSize;
 
-	//private static final int ICON_SIZE = 24;
+  /** The m P. */
+  GeneralPath mP;
 
-	/**
-	 * Instantiates a new block vert tabs.
-	 *
-	 * @param model the model
-	 */
-	public BlockVertTabs(TabsModel model) {
-		this(model, TAB_SIZE);
-	}
-	
-	/**
-	 * Instantiates a new block vert tabs.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 */
-	public BlockVertTabs(TabsModel model, int tabSize) {
-		super(model, false);
-		
-		mTabSize = tabSize;
-		mOffset = tabSize / 2;
-		
-		setFont(MaterialService.getInstance().fonts().text());
-		
-		addComponentListener(this);
-		
-		setBackgroundAnimations("block-vert-tabs");
-	}
-	
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		int x = getInsets().left;
-		int y = getInsets().top + OFFSET;
+  /** The Constant OFFSET. */
+  protected int mOffset = 16;
 
-		int n = getTabsModel().getTabCount();
-		
-		int y1;
+  // private static final int ICON_SIZE = 24;
 
-		//int w = mInternalRect.getW();
+  /**
+   * Instantiates a new block vert tabs.
+   *
+   * @param model
+   *          the model
+   */
+  public BlockVertTabs(TabsModel model) {
+    this(model, TAB_SIZE);
+  }
 
-		int selectedIndex = getTabsModel().getSelectedIndex();
+  /**
+   * Instantiates a new block vert tabs.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   */
+  public BlockVertTabs(TabsModel model, int tabSize) {
+    super(model, false);
 
-		//
-		// Draw if highlighted
-		//
+    mTabSize = tabSize;
+    mOffset = tabSize / 2;
 
-		if (mHighlight > -1 && mHighlight < n && mHighlight != selectedIndex) {
-			//g2.setColor(TEXT_TAB_HIGHLIGHT_COLOR); //getRenderer().getHighlightFillColor()); //TEXT_TAB_HIGHLIGHT_COLOR);
-			//g2.fillRect(x, y + mHighlight * mTabSize, w, mTabSize);
-			
-			Graphics2D g2Temp = ImageUtils.clone(g2);
-			
-			try {
-				g2Temp.setColor(TEXT_TAB_HIGHLIGHT_COLOR);
-				
-				g2Temp.translate(x, y + mHighlight * mTabSize);
-				g2Temp.fill(mP);
-			} finally {
-				g2Temp.dispose();
-			}
-		}
+    setFont(MaterialService.getInstance().fonts().text());
 
+    addComponentListener(this);
 
-		//
-		// Draw the selected tab
-		//
-		
-		y1 = y + selectedIndex * mTabSize;
-		
-		//g2.setColor(TEXT_TAB_SELECTED_COLOR);
-		//g2.fillRect(x, y1, w, mTabSize);
-		
-		Graphics2D g2Temp = ImageUtils.clone(g2);
-		
-		try {
-			g2Temp.setColor(TEXT_TAB_SELECTED_COLOR);
-			
-			g2Temp.translate(x, y1);
-			g2Temp.fill(mP);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
-	*/
-	
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		super.drawAnimatedBackground(g2);
-	}
-	
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAA(Graphics2D g2) {
+    setBackgroundAnimations("block-vert-tabs");
+  }
 
-		int y = getInsets().top + mOffset;
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { int x =
+   * getInsets().left; int y = getInsets().top + OFFSET;
+   * 
+   * int n = getTabsModel().getTabCount();
+   * 
+   * int y1;
+   * 
+   * //int w = mInternalRect.getW();
+   * 
+   * int selectedIndex = getTabsModel().getSelectedIndex();
+   * 
+   * // // Draw if highlighted //
+   * 
+   * if (mHighlight > -1 && mHighlight < n && mHighlight != selectedIndex) {
+   * //g2.setColor(TEXT_TAB_HIGHLIGHT_COLOR);
+   * //getRenderer().getHighlightFillColor()); //TEXT_TAB_HIGHLIGHT_COLOR);
+   * //g2.fillRect(x, y + mHighlight * mTabSize, w, mTabSize);
+   * 
+   * Graphics2D g2Temp = ImageUtils.clone(g2);
+   * 
+   * try { g2Temp.setColor(TEXT_TAB_HIGHLIGHT_COLOR);
+   * 
+   * g2Temp.translate(x, y + mHighlight * mTabSize); g2Temp.fill(mP); } finally {
+   * g2Temp.dispose(); } }
+   * 
+   * 
+   * // // Draw the selected tab //
+   * 
+   * y1 = y + selectedIndex * mTabSize;
+   * 
+   * //g2.setColor(TEXT_TAB_SELECTED_COLOR); //g2.fillRect(x, y1, w, mTabSize);
+   * 
+   * Graphics2D g2Temp = ImageUtils.clone(g2);
+   * 
+   * try { g2Temp.setColor(TEXT_TAB_SELECTED_COLOR);
+   * 
+   * g2Temp.translate(x, y1); g2Temp.fill(mP); } finally { g2Temp.dispose(); } }
+   */
 
-		int n = getTabsModel().getTabCount();
-		//int selectedIndex = getTabsModel().getSelectedIndex();
-		
-		int y1 = y;
-		
-		//int textY = getTextYPosCenter(g2, mTabSize);
-		//int iconY = (mTabSize - ICON_SIZE) / 2;
-		//int tabX = mTabSize / 2;
-		//int textX = tabX + ICON_SIZE + ICON_SIZE / 2;
-		
-		g2.setColor(TEXT_COLOR);
-		
-		int x = getWidth() / 4;
-		
-		for (int i = 0; i < n; ++i) {
-			//boolean selected = i == selectedIndex;
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+    super.drawAnimatedBackground(g2);
+  }
 
-			//g2.setFont(MaterialUtils.FONT); //selected ? BOLD_FONT : FONT);
-			//g2.setColor(selected ? Color.WHITE : TEXT_COLOR);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAA(Graphics2D g2) {
 
-			String s = getTabsModel().getTab(i).getName();
-			
-			//int textX;
-			
-			//if (getTabsModel().getTab(i).getIcon() != null) {
-			//	getTabsModel().getTab(i).getIcon().drawIcon(g2, tabX, iconY, mTabSize);
-			//	textX = tabX + ICON_SIZE + ICON_SIZE / 2;
-			//} else {
-			//	textX = tabX; //DOUBLE_PADDING; //tabX; //getTextXPosCenter(g2, s, w);
-			//}
+    int y = getInsets().top + mOffset;
 
-			g2.drawString(s, x, y1 + getTextYPosCenter(g2, mTabSize));
+    int n = getTabsModel().getTabCount();
+    // int selectedIndex = getTabsModel().getSelectedIndex();
 
-			y1 += mTabSize;
-			//iconY += mTabSize;
-			//textY += mTabSize;
-		}
+    int y1 = y;
 
-		//g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW() - 1, mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.tabs.TextTabs#changeTab(int, int)
-	 */
-	@Override
-	protected void changeTab(int x, int y) {
-		getTabsModel().changeTab(getTab(x, y));
-	}
+    // int textY = getTextYPosCenter(g2, mTabSize);
+    // int iconY = (mTabSize - ICON_SIZE) / 2;
+    // int tabX = mTabSize / 2;
+    // int textX = tabX + ICON_SIZE + ICON_SIZE / 2;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.tabs.TextTabs#highlightTab(int, int)
-	 */
-	@Override
-	protected void highlightTab(int x, int y) {
-		int t = getTab(x, y);
+    g2.setColor(TEXT_COLOR);
 
-		if (t >= 0 && t < getTabsModel().getTabCount() && t != mHighlight) {
-			mHighlight = t;
-			
-			fireHighlighted();
-		}
-	}
-	
-	/**
-	 * Gets the tab.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @return the tab
-	 */
-	protected int getTab(int x, int y) {
-		return (y - getInsets().top - mOffset) / mTabSize;
-	}
+    int x = getWidth() / 4;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentHidden(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    for (int i = 0; i < n; ++i) {
+      // boolean selected = i == selectedIndex;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentMoved(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+      // g2.setFont(MaterialUtils.FONT); //selected ? BOLD_FONT : FONT);
+      // g2.setColor(selected ? Color.WHITE : TEXT_COLOR);
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentResized(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentResized(ComponentEvent e) {
-		mP = new GeneralPath();
-		mP.moveTo(RibbonMenuItem.OFFSET, RibbonMenuItem.ROUNDING);
-		mP.append(new Arc2D.Float(RibbonMenuItem.OFFSET, 0, RibbonMenuItem.ROUNDING, RibbonMenuItem.ROUNDING, 180, -90, Arc2D.OPEN), true);
-		mP.lineTo(getWidth(), 0);
-		mP.lineTo(getWidth(), mTabSize);
-		mP.lineTo(RibbonMenuItem.OFFSET + RibbonMenuItem.ROUNDING, mTabSize);
-		mP.append(new Arc2D.Float(RibbonMenuItem.OFFSET, mTabSize - RibbonMenuItem.ROUNDING, RibbonMenuItem.ROUNDING, RibbonMenuItem.ROUNDING, 270, -90, Arc2D.OPEN), true);
-		mP.closePath();
-	}
+      String s = getTabsModel().getTab(i).getName();
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentShown(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentShown(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+      // int textX;
+
+      // if (getTabsModel().getTab(i).getIcon() != null) {
+      // getTabsModel().getTab(i).getIcon().drawIcon(g2, tabX, iconY, mTabSize);
+      // textX = tabX + ICON_SIZE + ICON_SIZE / 2;
+      // } else {
+      // textX = tabX; //DOUBLE_PADDING; //tabX; //getTextXPosCenter(g2, s, w);
+      // }
+
+      g2.drawString(s, x, y1 + getTextYPosCenter(g2, mTabSize));
+
+      y1 += mTabSize;
+      // iconY += mTabSize;
+      // textY += mTabSize;
+    }
+
+    // g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW() - 1,
+    // mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.tabs.TextTabs#changeTab(int, int)
+   */
+  @Override
+  protected void changeTab(int x, int y) {
+    getTabsModel().changeTab(getTab(x, y));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.tabs.TextTabs#highlightTab(int, int)
+   */
+  @Override
+  protected void highlightTab(int x, int y) {
+    int t = getTab(x, y);
+
+    if (t >= 0 && t < getTabsModel().getTabCount() && t != mHighlight) {
+      mHighlight = t;
+
+      fireHighlighted();
+    }
+  }
+
+  /**
+   * Gets the tab.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @return the tab
+   */
+  protected int getTab(int x, int y) {
+    return (y - getInsets().top - mOffset) / mTabSize;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentHidden(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentMoved(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentResized(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentResized(ComponentEvent e) {
+    mP = new GeneralPath();
+    mP.moveTo(RibbonMenuItem.OFFSET, RibbonMenuItem.ROUNDING);
+    mP.append(new Arc2D.Float(RibbonMenuItem.OFFSET, 0, RibbonMenuItem.ROUNDING, RibbonMenuItem.ROUNDING, 180, -90,
+        Arc2D.OPEN), true);
+    mP.lineTo(getWidth(), 0);
+    mP.lineTo(getWidth(), mTabSize);
+    mP.lineTo(RibbonMenuItem.OFFSET + RibbonMenuItem.ROUNDING, mTabSize);
+    mP.append(new Arc2D.Float(RibbonMenuItem.OFFSET, mTabSize - RibbonMenuItem.ROUNDING, RibbonMenuItem.ROUNDING,
+        RibbonMenuItem.ROUNDING, 270, -90, Arc2D.OPEN), true);
+    mP.closePath();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentShown(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentShown(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

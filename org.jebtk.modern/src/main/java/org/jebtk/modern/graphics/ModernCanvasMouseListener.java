@@ -37,53 +37,60 @@ import java.util.EventListener;
  *
  */
 public interface ModernCanvasMouseListener extends EventListener {
-	
-	/**
-	 * Canvas mouse clicked.
-	 *
-	 * @param e the e
-	 */
-	public void canvasMouseClicked(CanvasMouseEvent e);
 
-	/**
-	 * Canvas mouse entered.
-	 *
-	 * @param e the e
-	 */
-	public void canvasMouseEntered(CanvasMouseEvent e);
+  /**
+   * Canvas mouse clicked.
+   *
+   * @param e
+   *          the e
+   */
+  public void canvasMouseClicked(CanvasMouseEvent e);
 
-	/**
-	 * Canvas mouse exited.
-	 *
-	 * @param e the e
-	 */
-	public void canvasMouseExited(CanvasMouseEvent e);
+  /**
+   * Canvas mouse entered.
+   *
+   * @param e
+   *          the e
+   */
+  public void canvasMouseEntered(CanvasMouseEvent e);
 
-	/**
-	 * Canvas mouse pressed.
-	 *
-	 * @param e the e
-	 */
-	public void canvasMousePressed(CanvasMouseEvent e);
+  /**
+   * Canvas mouse exited.
+   *
+   * @param e
+   *          the e
+   */
+  public void canvasMouseExited(CanvasMouseEvent e);
 
-	/**
-	 * Canvas mouse released.
-	 *
-	 * @param e the e
-	 */
-	public void canvasMouseReleased(CanvasMouseEvent e);
-	
-	/**
-	 * Canvas mouse dragged.
-	 *
-	 * @param e the e
-	 */
-	public void canvasMouseDragged(CanvasMouseEvent e);
+  /**
+   * Canvas mouse pressed.
+   *
+   * @param e
+   *          the e
+   */
+  public void canvasMousePressed(CanvasMouseEvent e);
 
-	/**
-	 * Canvas mouse moved.
-	 *
-	 * @param e the e
-	 */
-	public void canvasMouseMoved(CanvasMouseEvent e);
+  /**
+   * Canvas mouse released.
+   *
+   * @param e
+   *          the e
+   */
+  public void canvasMouseReleased(CanvasMouseEvent e);
+
+  /**
+   * Canvas mouse dragged.
+   *
+   * @param e
+   *          the e
+   */
+  public void canvasMouseDragged(CanvasMouseEvent e);
+
+  /**
+   * Canvas mouse moved.
+   *
+   * @param e
+   *          the e
+   */
+  public void canvasMouseMoved(CanvasMouseEvent e);
 }

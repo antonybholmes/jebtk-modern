@@ -38,7 +38,6 @@ import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.dataview.ModernDataCellRenderer;
 import org.jebtk.modern.event.ModernClickEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Displays an icon in a table cell.
@@ -47,118 +46,129 @@ import org.jebtk.modern.event.ModernClickEvent;
  *
  */
 public class ModernTableColorCellRenderer extends ModernDataCellRenderer implements MouseListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The color.
-	 */
-	private Color color = Color.BLACK;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Gets the color.
-	 *
-	 * @return the color
-	 */
-	public Color getColor() {
-		return color;
-	}
-	
-	/**
-	 * Instantiates a new modern table color cell renderer.
-	 */
-	public ModernTableColorCellRenderer() {
-		addMouseListener(this);
-	}
+  /**
+   * The color.
+   */
+  private Color color = Color.BLACK;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		//System.err.println("what bounds " + getBounds());
-		
-		int x = (this.getWidth() - UIService.ICON_SIZE_16) / 2;
-		int y = (this.getHeight() - UIService.ICON_SIZE_16) / 2;
-		
-		g2.setColor(color);
-		g2.fillRect(x, y, UIService.ICON_SIZE_16, UIService.ICON_SIZE_16);
-	}
+  /**
+   * Gets the color.
+   *
+   * @return the color
+   */
+  public Color getColor() {
+    return color;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	public final Component getCellRendererComponent(ModernData table,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
-		
-		if (value != null) {
-			color = (Color)value;
-		}
-		
-		return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mousePressed(MouseEvent e) {
-		//super.mousePressed(e);
-		
-		fireClicked(new ModernClickEvent(this,  "change_color"));
-	}
+  /**
+   * Instantiates a new modern table color cell renderer.
+   */
+  public ModernTableColorCellRenderer() {
+    addMouseListener(this);
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    // System.err.println("what bounds " + getBounds());
 
-	/**
-	 * Sets the color.
-	 *
-	 * @param color the new color
-	 */
-	public void setColor(Color color) {
-		this.color = color;
-	}
+    int x = (this.getWidth() - UIService.ICON_SIZE_16) / 2;
+    int y = (this.getHeight() - UIService.ICON_SIZE_16) / 2;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    g2.setColor(color);
+    g2.fillRect(x, y, UIService.ICON_SIZE_16, UIService.ICON_SIZE_16);
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
+   * java.lang.Object, boolean, boolean, boolean, int, int)
+   */
+  public final Component getCellRendererComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    if (value != null) {
+      color = (Color) value;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mousePressed(MouseEvent e) {
+    // super.mousePressed(e);
+
+    fireClicked(new ModernClickEvent(this, "change_color"));
+  }
+
+  /**
+   * Sets the color.
+   *
+   * @param color
+   *          the new color
+   */
+  public void setColor(Color color) {
+    this.color = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseEntered(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseExited(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseReleased(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

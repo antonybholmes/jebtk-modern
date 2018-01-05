@@ -24,42 +24,41 @@ import org.jebtk.core.geom.IntPos2D;
  * The Class MouseUtils.
  */
 public class MouseUtils {
-	
-	/**
-	 * Instantiates a new mouse utils.
-	 */
-	private MouseUtils() {
-		// Do nothing
-	}
-	
-	/**
-	 * Clone a mouse event but update its location. Useful for callback
-	 * functions that need to normalize mouse events.
-	 *
-	 * @param e the e
-	 * @param x the x
-	 * @param y the y
-	 * @return the mouse event
-	 */
-	public static MouseEvent updateXY(final MouseEvent e, int x, int y) {
-		return new MouseEvent(e.getComponent(), 
-				e.getID(),
-				e.getWhen(),
-				e.getModifiers(),
-				x,
-				y,
-				e.getClickCount(),
-				e.isPopupTrigger());
-	}
 
-	/**
-	 * Update XY.
-	 *
-	 * @param e the e
-	 * @param p the p
-	 * @return the mouse event
-	 */
-	public static MouseEvent updateXY(final MouseEvent e, final IntPos2D p) {
-		return updateXY(e, p.getX(), p.getY());
-	}
+  /**
+   * Instantiates a new mouse utils.
+   */
+  private MouseUtils() {
+    // Do nothing
+  }
+
+  /**
+   * Clone a mouse event but update its location. Useful for callback functions
+   * that need to normalize mouse events.
+   *
+   * @param e
+   *          the e
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @return the mouse event
+   */
+  public static MouseEvent updateXY(final MouseEvent e, int x, int y) {
+    return new MouseEvent(e.getComponent(), e.getID(), e.getWhen(), e.getModifiers(), x, y, e.getClickCount(),
+        e.isPopupTrigger());
+  }
+
+  /**
+   * Update XY.
+   *
+   * @param e
+   *          the e
+   * @param p
+   *          the p
+   * @return the mouse event
+   */
+  public static MouseEvent updateXY(final MouseEvent e, final IntPos2D p) {
+    return updateXY(e, p.getX(), p.getY());
+  }
 }

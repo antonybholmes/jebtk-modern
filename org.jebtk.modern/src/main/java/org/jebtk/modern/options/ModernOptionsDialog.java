@@ -57,7 +57,6 @@ import org.jebtk.modern.tree.ModernTree;
 import org.jebtk.modern.tree.PathTree;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Allow users to look at and modify program settings.
@@ -65,183 +64,193 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernOptionsDialog extends ModernDialogTaskWindow implements ModernSelectionListener  {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+public class ModernOptionsDialog extends ModernDialogTaskWindow implements ModernSelectionListener {
 
-	/**
-	 * The member table.
-	 */
-	private ModernRowTable mTable;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member tree.
-	 */
-	private ModernTree<List<Path>> mTree = 
-			new ModernTree<List<Path>>();
-	
-	/**
-	 * The tree label.
-	 */
-	private ModernAutoSizeLabel treeLabel = new ModernAutoSizeLabel("");
+  /**
+   * The member table.
+   */
+  private ModernRowTable mTable;
 
-	/**
-	 * Instantiates a new modern options dialog.
-	 *
-	 * @param parent the parent
-	 * @param details the details
-	 */
-	public ModernOptionsDialog(ModernWindow parent, 
-			GuiAppInfo details) {
-		super(parent);
+  /**
+   * The member tree.
+   */
+  private ModernTree<List<Path>> mTree = new ModernTree<List<Path>>();
 
-		setTitle(details.getName() + " Options");
+  /**
+   * The tree label.
+   */
+  private ModernAutoSizeLabel treeLabel = new ModernAutoSizeLabel("");
 
-		//setResizable(false);
+  /**
+   * Instantiates a new modern options dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param details
+   *          the details
+   */
+  public ModernOptionsDialog(ModernWindow parent, GuiAppInfo details) {
+    super(parent);
 
-		setSize(800, 600);
+    setTitle(details.getName() + " Options");
 
-		try {
-			setup();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+    // setResizable(false);
 
-		createUi();
-	}
+    setSize(800, 600);
 
-	/**
-	 * Setup.
-	 *
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	private void setup() throws IOException {
-		createUi();
-		
-		createTree();
-		
-		mTree.selectNode(0);
-	}
+    try {
+      setup();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
 
-	/**
-	 * Creates the ui.
-	 */
-	private final void createUi() {
-		ModernComponent content = new ModernComponent();
+    createUi();
+  }
 
-		ModernScrollPane scrollPane1 = new ModernScrollPane(mTree);
-		
-		mTable = new ModernRowTable();
-		ModernScrollPane scrollPane2 = new ModernScrollPane(mTable);
-		
+  /**
+   * Setup.
+   *
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  private void setup() throws IOException {
+    createUi();
 
-		HSplitPane splitPane = new ModernHSplitPaneLine();
-		splitPane.addComponent(scrollPane1, 0.2);
-		splitPane.addComponent(scrollPane2, 0.8);
-		
-		//splitPane.setDividerLocation(200);
-		
-		content.add(new ModernDialogBorderPanel(splitPane), BorderLayout.CENTER);
+    createTree();
 
-		setBody(content);
-		
-		getButtonBar().addLeft(ModernPanel.createHGap());
-		getButtonBar().addLeft(treeLabel);
-		
-	}
-	
-	/**
-	 * Creates the tree.
-	 *
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	private void createTree() throws IOException {
-		List<Path> paths = new ArrayList<Path>();
+    mTree.selectNode(0);
+  }
 
-		for (Path path : SettingsService.getInstance()) {
-			paths.add(path);
-		}
+  /**
+   * Creates the ui.
+   */
+  private final void createUi() {
+    ModernComponent content = new ModernComponent();
 
-		mTree = new PathTree(paths, false);
+    ModernScrollPane scrollPane1 = new ModernScrollPane(mTree);
 
-		mTree.addSelectionListener(this);
+    mTable = new ModernRowTable();
+    ModernScrollPane scrollPane2 = new ModernScrollPane(mTable);
 
-		mTree.selectNode(0);
-	}
+    HSplitPane splitPane = new ModernHSplitPaneLine();
+    splitPane.addComponent(scrollPane1, 0.2);
+    splitPane.addComponent(scrollPane2, 0.8);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public final void clicked(ModernClickEvent e) {
-		if (e.getMessage().equals(UI.BUTTON_OK)) {
-			save();
-		}
-		
-		super.clicked(e);
-	}
-	
-	/**
-	 * Save.
-	 */
-	private void save() {
-		SettingsService.getInstance().save();
-	}
+    // splitPane.setDividerLocation(200);
 
-	/**
-	 * Sets the table model.
-	 *
-	 * @param node the new table model
-	 */
-	private void setTableModel(TreeNode<List<Path>> node) {
-		ModernSettingsTableModel tableModel = new ModernSettingsTableModel(node);
-		
-		mTable.setModel(tableModel);
-		mTable.getEditorModel().setCol(1, new ModernDataGridCellEditor(true));
-		mTable.getColumnModel().setWidth(0, 200);
-		mTable.getColumnModel().setWidth(1, 200);
-	}
+    content.add(new ModernDialogBorderPanel(splitPane), BorderLayout.CENTER);
 
+    setBody(content);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void selectionChanged(ChangeEvent e) {
-		if (mTree.getSelectedNode() == null) {
-			return;
-		}
-		
-		TreeNode<List<Path>> node = mTree.getSelectedNode();
-			
-		TreePath treePath = node.getPath();
-		
-		Path path = mTree.convertToPath(treePath);
-		
-		treeLabel.setText(path.toString());
-		
-		if (mTree.getSelectedNode().getValue() != null) {
-			setTableModel(node);
-		} else {
-			setTableModel(new TreeNode<List<Path>>(""));
-		}
-	}
-	
+    getButtonBar().addLeft(ModernPanel.createHGap());
+    getButtonBar().addLeft(treeLabel);
 
-	/**
-	 * Sets the visible.
-	 *
-	 * @param parent the parent
-	 * @param details the details
-	 */
-	public static void setVisible(ModernWindow parent, GuiAppInfo details) {
-		JDialog dialog = new ModernOptionsDialog(parent, details);
+  }
 
-		UI.centerWindowToScreen(dialog);
+  /**
+   * Creates the tree.
+   *
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  private void createTree() throws IOException {
+    List<Path> paths = new ArrayList<Path>();
 
-		dialog.setVisible(true);
-	}
+    for (Path path : SettingsService.getInstance()) {
+      paths.add(path);
+    }
+
+    mTree = new PathTree(paths, false);
+
+    mTree.addSelectionListener(this);
+
+    mTree.selectNode(0);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public final void clicked(ModernClickEvent e) {
+    if (e.getMessage().equals(UI.BUTTON_OK)) {
+      save();
+    }
+
+    super.clicked(e);
+  }
+
+  /**
+   * Save.
+   */
+  private void save() {
+    SettingsService.getInstance().save();
+  }
+
+  /**
+   * Sets the table model.
+   *
+   * @param node
+   *          the new table model
+   */
+  private void setTableModel(TreeNode<List<Path>> node) {
+    ModernSettingsTableModel tableModel = new ModernSettingsTableModel(node);
+
+    mTable.setModel(tableModel);
+    mTable.getEditorModel().setCol(1, new ModernDataGridCellEditor(true));
+    mTable.getColumnModel().setWidth(0, 200);
+    mTable.getColumnModel().setWidth(1, 200);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
+   * lib.event.ChangeEvent)
+   */
+  @Override
+  public void selectionChanged(ChangeEvent e) {
+    if (mTree.getSelectedNode() == null) {
+      return;
+    }
+
+    TreeNode<List<Path>> node = mTree.getSelectedNode();
+
+    TreePath treePath = node.getPath();
+
+    Path path = mTree.convertToPath(treePath);
+
+    treeLabel.setText(path.toString());
+
+    if (mTree.getSelectedNode().getValue() != null) {
+      setTableModel(node);
+    } else {
+      setTableModel(new TreeNode<List<Path>>(""));
+    }
+  }
+
+  /**
+   * Sets the visible.
+   *
+   * @param parent
+   *          the parent
+   * @param details
+   *          the details
+   */
+  public static void setVisible(ModernWindow parent, GuiAppInfo details) {
+    JDialog dialog = new ModernOptionsDialog(parent, details);
+
+    UI.centerWindowToScreen(dialog);
+
+    dialog.setVisible(true);
+  }
 }

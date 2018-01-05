@@ -31,22 +31,21 @@ import java.util.EventListener;
 
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving statusEvent events.
- * The class that is interested in processing a statusEvent
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addStatusEventListener<code> method. When
- * the statusEvent event occurs, that object's appropriate
- * method is invoked.
+ * The listener interface for receiving statusEvent events. The class that is
+ * interested in processing a statusEvent event implements this interface, and
+ * the object created with that class is registered with a component using the
+ * component's <code>addStatusEventListener<code> method. When the statusEvent
+ * event occurs, that object's appropriate method is invoked.
  *
  * @see StatusEventEvent
  */
 public interface StatusEventListener extends EventListener {
 
-	/**
-	 * Status changed.
-	 *
-	 * @param e the e
-	 */
-	public void statusChanged(StatusEvent e);
+  /**
+   * Status changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void statusChanged(StatusEvent e);
 }

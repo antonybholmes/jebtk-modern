@@ -30,51 +30,44 @@ package org.jebtk.modern.dialog;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.ribbon.Ribbon;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * A dialog button appears on dialogs and typically represents the OK and
- * Cancel buttons etc.
+ * A dialog button appears on dialogs and typically represents the OK and Cancel
+ * buttons etc.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDialogMaterialButton extends ModernButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernDialogMaterialButton(String text1) {
-		super(text1);
-		
-		setForeground(Ribbon.BAR_BACKGROUND);
-		setFont(BOLD_FONT);
-		
-		setBackgroundAnimations("dialog-material-button");
-	}
-	
-	@Override
-	public void setText(String text) {
-		super.setText(text.toUpperCase());
-	}
+  /**
+   * Instantiates a new modern dialog button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernDialogMaterialButton(String text1) {
+    super(text1);
 
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			getWidgetRenderer().drawDialogButton(g2, 
-					mInternalRect,
-					getRenderMode(),
-					hasFocus());
-		}
-	}
-	*/
+    setForeground(Ribbon.BAR_BACKGROUND);
+    setFont(BOLD_FONT);
+
+    setBackgroundAnimations("dialog-material-button");
+  }
+
+  @Override
+  public void setText(String text) {
+    super.setText(text.toUpperCase());
+  }
+
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
+   * getWidgetRenderer().drawDialogButton(g2, mInternalRect, getRenderMode(),
+   * hasFocus()); } }
+   */
 }

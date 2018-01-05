@@ -35,26 +35,29 @@ import org.jebtk.core.log.LogEventListener;
  * The class LogList.
  */
 public class LogList implements LogEventListener {
-	
-	/**
-	 * The log panel.
-	 */
-	private LogListPanel logPanel;
 
-	/**
-	 * Instantiates a new log list.
-	 *
-	 * @param logPanel the log panel
-	 */
-	public LogList(LogListPanel logPanel) {
-		this.logPanel = logPanel;
-	}
+  /**
+   * The log panel.
+   */
+  private LogListPanel logPanel;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
-	 */
-	@Override
-	public void logEvent(LogEvent e) {
-		logPanel.addEvent(e);
-	}
+  /**
+   * Instantiates a new log list.
+   *
+   * @param logPanel
+   *          the log panel
+   */
+  public LogList(LogListPanel logPanel) {
+    this.logPanel = logPanel;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
+   */
+  @Override
+  public void logEvent(LogEvent e) {
+    logPanel.addEvent(e);
+  }
 }

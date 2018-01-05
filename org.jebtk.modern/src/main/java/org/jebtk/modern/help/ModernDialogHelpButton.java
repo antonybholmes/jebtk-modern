@@ -32,7 +32,6 @@ import java.net.URL;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.button.ModernUrlTextLink;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Provide help in dialogs.
@@ -41,54 +40,49 @@ import org.jebtk.modern.button.ModernUrlTextLink;
  *
  */
 public class ModernDialogHelpButton extends ModernUrlTextLink {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Creates a new dialog help button, referring to the URL specified by
-	 * the settings url string. The parameter must be a setting name that
-	 * maps to a URL. It cannot be a URL as a string. To use a URL directory
-	 * use the URL constructor.
-	 *
-	 * @param settingsUrl the settings url
-	 */
-	public ModernDialogHelpButton(String settingsUrl) {
-		this(SettingsService.getInstance().getAsUrl(settingsUrl));
-	}
-	
-	/**
-	 * Instantiates a new modern dialog help button.
-	 *
-	 * @param url the url
-	 */
-	public ModernDialogHelpButton(URL url) {
-		super("Help...", url);
-		
-		//setBackgroundAnimation(new HelpButtonHighlightAnimation(this));
-	}
-	
-	/*
-	@Override
-	public void autoSize() {
-		UI.setSize(this, 100, getWidgetHeight(getFont()));
-	}
-	
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		super.drawAnimatedBackground(g2);
-	}
-	
-	@Override
-	public void drawText(Graphics2D g2) {
-		g2.setColor(Ribbon.BAR_BACKGROUND);
-		
-		int x = 20 + DOUBLE_PADDING;
-			
-		g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
-	}
-	*/
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Creates a new dialog help button, referring to the URL specified by the
+   * settings url string. The parameter must be a setting name that maps to a URL.
+   * It cannot be a URL as a string. To use a URL directory use the URL
+   * constructor.
+   *
+   * @param settingsUrl
+   *          the settings url
+   */
+  public ModernDialogHelpButton(String settingsUrl) {
+    this(SettingsService.getInstance().getAsUrl(settingsUrl));
+  }
+
+  /**
+   * Instantiates a new modern dialog help button.
+   *
+   * @param url
+   *          the url
+   */
+  public ModernDialogHelpButton(URL url) {
+    super("Help...", url);
+
+    // setBackgroundAnimation(new HelpButtonHighlightAnimation(this));
+  }
+
+  /*
+   * @Override public void autoSize() { UI.setSize(this, 100,
+   * getWidgetHeight(getFont())); }
+   * 
+   * @Override public void drawBackground(Graphics2D g2) {
+   * super.drawAnimatedBackground(g2); }
+   * 
+   * @Override public void drawText(Graphics2D g2) {
+   * g2.setColor(Ribbon.BAR_BACKGROUND);
+   * 
+   * int x = 20 + DOUBLE_PADDING;
+   * 
+   * g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight())); }
+   */
 }

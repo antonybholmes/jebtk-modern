@@ -29,42 +29,45 @@ package org.jebtk.modern.search;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * For classes that generate experiment sort events for
- * when an experiment sort changes.
+ * For classes that generate experiment sort events for when an experiment sort
+ * changes.
  *
  * @author Antony Holmes Holmes
  *
  */
 public interface FilterEventProducer {
-	
-	/**
-	 * Add an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void addFilterListener(FilterEventListener l);
-	
-	/**
-	 * Remove an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeFilterListener(FilterEventListener l);
-	
-	/**
-	 * fire an event.
-	 *
-	 * @param event the event
-	 */
-	public void fireFiltersUpdated(ChangeEvent event);
-	
-	/**
-	 * Fire filters updated.
-	 *
-	 * @param event the event
-	 */
-	public void fireFiltersChanged(ChangeEvent event);
+
+  /**
+   * Add an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addFilterListener(FilterEventListener l);
+
+  /**
+   * Remove an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeFilterListener(FilterEventListener l);
+
+  /**
+   * fire an event.
+   *
+   * @param event
+   *          the event
+   */
+  public void fireFiltersUpdated(ChangeEvent event);
+
+  /**
+   * Fire filters updated.
+   *
+   * @param event
+   *          the event
+   */
+  public void fireFiltersChanged(ChangeEvent event);
 }

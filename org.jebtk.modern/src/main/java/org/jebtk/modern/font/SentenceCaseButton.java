@@ -40,129 +40,126 @@ import org.jebtk.modern.menu.ModernMenuSeparator;
 import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.ribbon.RibbonDropDownIconButton;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class SentenceCaseButton.
  */
 public class SentenceCaseButton extends RibbonDropDownIconButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The sentence case modern menu item.
-	 */
-	private ModernIconMenuItem sentenceCaseModernMenuItem = 
-			new ModernIconMenuItem(SentenceCase.FONT_CASES[0]);
-	
-	/**
-	 * The upper case modern menu item.
-	 */
-	private ModernIconMenuItem upperCaseModernMenuItem = 
-			new ModernIconMenuItem(SentenceCase.FONT_CASES[1]);
-	
-	/**
-	 * The lower case modern menu item.
-	 */
-	private ModernIconMenuItem lowerCaseModernMenuItem = 
-			new ModernIconMenuItem(SentenceCase.FONT_CASES[2]);
-	
-	/**
-	 * The capitalize modern menu item.
-	 */
-	private ModernIconMenuItem capitalizeModernMenuItem = 
-			new ModernIconMenuItem(SentenceCase.FONT_CASES[3]);
-	
-	/**
-	 * The remove case item.
-	 */
-	private ModernIconMenuItem removeCaseItem = 
-			new ModernIconMenuItem("Remove");
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The sentence case.
-	 */
-	private SentenceCaseType mSentenceCase = SentenceCaseType.NONE;
-	
-	/**
-	 * The class ModernClickEvents.
-	 */
-	private class ModernClickEvents implements ModernClickListener {
+  /**
+   * The sentence case modern menu item.
+   */
+  private ModernIconMenuItem sentenceCaseModernMenuItem = new ModernIconMenuItem(SentenceCase.FONT_CASES[0]);
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			if (e.getSource().equals(sentenceCaseModernMenuItem)) {
-				mSentenceCase = SentenceCaseType.NONE;
-			} else if (e.getSource().equals(upperCaseModernMenuItem)) {
-				mSentenceCase = SentenceCaseType.UPPERCASE;
-			} else if (e.getSource().equals(lowerCaseModernMenuItem)) {
-				mSentenceCase = SentenceCaseType.LOWERCASE;
-			} else if (e.getSource().equals(lowerCaseModernMenuItem)) {
-				mSentenceCase = SentenceCaseType.LOWERCASE;
-			} else if (e.getSource().equals(capitalizeModernMenuItem)) {
-				mSentenceCase = SentenceCaseType.CAPITALIZE_EACH_WORD;
-			} else {
-				mSentenceCase = SentenceCaseType.NONE;
-			}
-		}
-		
-	}
+  /**
+   * The upper case modern menu item.
+   */
+  private ModernIconMenuItem upperCaseModernMenuItem = new ModernIconMenuItem(SentenceCase.FONT_CASES[1]);
 
-	/**
-	 * Instantiates a new sentence case button.
-	 */
-	public SentenceCaseButton() {
-		super(UIService.getInstance().loadIcon("font_case", UIService.ICON_SIZE_16));
+  /**
+   * The lower case modern menu item.
+   */
+  private ModernIconMenuItem lowerCaseModernMenuItem = new ModernIconMenuItem(SentenceCase.FONT_CASES[2]);
 
-		setup();
-	}
+  /**
+   * The capitalize modern menu item.
+   */
+  private ModernIconMenuItem capitalizeModernMenuItem = new ModernIconMenuItem(SentenceCase.FONT_CASES[3]);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		UI.setSize(this, new Dimension(40, WIDGET_HEIGHT));
+  /**
+   * The remove case item.
+   */
+  private ModernIconMenuItem removeCaseItem = new ModernIconMenuItem("Remove");
 
-		ModernPopupMenu popup = new ModernPopupMenu();
+  /**
+   * The sentence case.
+   */
+  private SentenceCaseType mSentenceCase = SentenceCaseType.NONE;
 
-		popup.addMenuItem(sentenceCaseModernMenuItem);
-		popup.addMenuItem(upperCaseModernMenuItem);
-		popup.addMenuItem(lowerCaseModernMenuItem);
+  /**
+   * The class ModernClickEvents.
+   */
+  private class ModernClickEvents implements ModernClickListener {
 
-		UI.setSize(capitalizeModernMenuItem, new Dimension(200, WIDGET_HEIGHT));
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      if (e.getSource().equals(sentenceCaseModernMenuItem)) {
+        mSentenceCase = SentenceCaseType.NONE;
+      } else if (e.getSource().equals(upperCaseModernMenuItem)) {
+        mSentenceCase = SentenceCaseType.UPPERCASE;
+      } else if (e.getSource().equals(lowerCaseModernMenuItem)) {
+        mSentenceCase = SentenceCaseType.LOWERCASE;
+      } else if (e.getSource().equals(lowerCaseModernMenuItem)) {
+        mSentenceCase = SentenceCaseType.LOWERCASE;
+      } else if (e.getSource().equals(capitalizeModernMenuItem)) {
+        mSentenceCase = SentenceCaseType.CAPITALIZE_EACH_WORD;
+      } else {
+        mSentenceCase = SentenceCaseType.NONE;
+      }
+    }
 
-		popup.addMenuItem(capitalizeModernMenuItem);
-		popup.add(new ModernMenuSeparator());
-		popup.addMenuItem(removeCaseItem);
+  }
 
-		popup.addClickListener(new ModernClickEvents());
-		
-		setMenu(popup);
-	}
+  /**
+   * Instantiates a new sentence case button.
+   */
+  public SentenceCaseButton() {
+    super(UIService.getInstance().loadIcon("font_case", UIService.ICON_SIZE_16));
 
-	/**
-	 * Gets the sentence case.
-	 *
-	 * @return the sentence case
-	 */
-	public SentenceCaseType getSentenceCase() {
-		return mSentenceCase;
-	}
+    setup();
+  }
 
-	/**
-	 * Sets the sentence case.
-	 *
-	 * @param sentenceCase the new sentence case
-	 */
-	public void setSentenceCase(SentenceCaseType sentenceCase) {
-		mSentenceCase = sentenceCase;
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    UI.setSize(this, new Dimension(40, WIDGET_HEIGHT));
+
+    ModernPopupMenu popup = new ModernPopupMenu();
+
+    popup.addMenuItem(sentenceCaseModernMenuItem);
+    popup.addMenuItem(upperCaseModernMenuItem);
+    popup.addMenuItem(lowerCaseModernMenuItem);
+
+    UI.setSize(capitalizeModernMenuItem, new Dimension(200, WIDGET_HEIGHT));
+
+    popup.addMenuItem(capitalizeModernMenuItem);
+    popup.add(new ModernMenuSeparator());
+    popup.addMenuItem(removeCaseItem);
+
+    popup.addClickListener(new ModernClickEvents());
+
+    setMenu(popup);
+  }
+
+  /**
+   * Gets the sentence case.
+   *
+   * @return the sentence case
+   */
+  public SentenceCaseType getSentenceCase() {
+    return mSentenceCase;
+  }
+
+  /**
+   * Sets the sentence case.
+   *
+   * @param sentenceCase
+   *          the new sentence case
+   */
+  public void setSentenceCase(SentenceCaseType sentenceCase) {
+    mSentenceCase = sentenceCase;
+  }
 }

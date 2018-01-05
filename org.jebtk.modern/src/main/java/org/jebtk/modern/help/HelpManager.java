@@ -44,129 +44,152 @@ import org.jebtk.core.settings.Setting;
  *
  */
 public class HelpManager {
-	
-	/**
-	 * The constant LOCAL_HELP_URL.
-	 */
-	public static final File LOCAL_HELP_URL = new File("help/help.html");
-	
-	/**
-	 * Instantiates a new help manager.
-	 */
-	private HelpManager() {
-		// do nothing
-	}
-	
-	/**
-	 * Launch help.
-	 *
-	 * @param file the file
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public static void launchHelp(File file) throws IOException {
-		UrlUtils.launch(file.toURI());
-	}
-	
-	/**
-	 * Launch help.
-	 *
-	 * @param product the product
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws URISyntaxException the URI syntax exception
-	 */
-	public static void launchHelp(GuiAppInfo product) throws IOException, URISyntaxException {
-		boolean local = true;
-		
-		// If the help settings exist, see if we want to use local help or not.
-		Setting setting = product.getSetting("help.type");
-		
-		if (setting != null) {
-			// If the setting is web or remote, use remote help.
-			local = setting.getAsString().equals("local");
-		}
-		
-		launchHelp(product, local);
-	}
-	
-	/**
-	 * Launch help.
-	 *
-	 * @param product the product
-	 * @param local the local
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws URISyntaxException the URI syntax exception
-	 */
-	public static void launchHelp(GuiAppInfo product, boolean local) throws IOException, URISyntaxException {
-		System.err.println("Help " + local);
-		
-		if (local) {
-			launchLocalHelp(product);
-		} else {
-			launchRemoteHelp(product);
-		}
-	}
-	
-	/**
-	 * Launch local help.
-	 *
-	 * @param product the product
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws URISyntaxException the URI syntax exception
-	 */
-	public static void launchLocalHelp(GuiAppInfo product) throws IOException, URISyntaxException {
-		//StringBuilder buffer = new StringBuilder();
-		
-		//buffer.append(SettingsService.getInstance().getSetting(product.getName() + ".help.url").getValue());
-		//buffer.append(HELP_URL);
-		//buffer.append(product);
-		//buffer.append("/index.html");
-		
-		launchHelp(LOCAL_HELP_URL.toURI());
-	}
-	
-	/**
-	 * Launch remote help.
-	 *
-	 * @param product the product
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws URISyntaxException the URI syntax exception
-	 */
-	public static void launchRemoteHelp(GuiAppInfo product) throws IOException, URISyntaxException {
-		StringBuilder buffer = new StringBuilder();
-		
-		//System.err.println("aha" + SettingsService.getInstance().getAsString(product.getHelpName() + ".help.url"));
-		
-		buffer.append(product.getSetting("help.url").getAsString());
-		//buffer.append("/help.html");
-		
-		URL url = new URL(buffer.toString());
-			
-		launchHelp(url);
-	}
-	
-	/**
-	 * Launch help.
-	 *
-	 * @param url the url
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws URISyntaxException the URI syntax exception
-	 */
-	public static void launchHelp(URL url) throws IOException, URISyntaxException {
-		System.err.println("Help URL " + url);
-		
-		UrlUtils.launch(url.toURI());
-	}
-	
-	/**
-	 * Launch help.
-	 *
-	 * @param url the url
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws URISyntaxException the URI syntax exception
-	 */
-	public static void launchHelp(URI url) throws IOException, URISyntaxException {
-		UrlUtils.launch(url);
-	}
-	
-	
+
+  /**
+   * The constant LOCAL_HELP_URL.
+   */
+  public static final File LOCAL_HELP_URL = new File("help/help.html");
+
+  /**
+   * Instantiates a new help manager.
+   */
+  private HelpManager() {
+    // do nothing
+  }
+
+  /**
+   * Launch help.
+   *
+   * @param file
+   *          the file
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public static void launchHelp(File file) throws IOException {
+    UrlUtils.launch(file.toURI());
+  }
+
+  /**
+   * Launch help.
+   *
+   * @param product
+   *          the product
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   * @throws URISyntaxException
+   *           the URI syntax exception
+   */
+  public static void launchHelp(GuiAppInfo product) throws IOException, URISyntaxException {
+    boolean local = true;
+
+    // If the help settings exist, see if we want to use local help or not.
+    Setting setting = product.getSetting("help.type");
+
+    if (setting != null) {
+      // If the setting is web or remote, use remote help.
+      local = setting.getAsString().equals("local");
+    }
+
+    launchHelp(product, local);
+  }
+
+  /**
+   * Launch help.
+   *
+   * @param product
+   *          the product
+   * @param local
+   *          the local
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   * @throws URISyntaxException
+   *           the URI syntax exception
+   */
+  public static void launchHelp(GuiAppInfo product, boolean local) throws IOException, URISyntaxException {
+    System.err.println("Help " + local);
+
+    if (local) {
+      launchLocalHelp(product);
+    } else {
+      launchRemoteHelp(product);
+    }
+  }
+
+  /**
+   * Launch local help.
+   *
+   * @param product
+   *          the product
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   * @throws URISyntaxException
+   *           the URI syntax exception
+   */
+  public static void launchLocalHelp(GuiAppInfo product) throws IOException, URISyntaxException {
+    // StringBuilder buffer = new StringBuilder();
+
+    // buffer.append(SettingsService.getInstance().getSetting(product.getName() +
+    // ".help.url").getValue());
+    // buffer.append(HELP_URL);
+    // buffer.append(product);
+    // buffer.append("/index.html");
+
+    launchHelp(LOCAL_HELP_URL.toURI());
+  }
+
+  /**
+   * Launch remote help.
+   *
+   * @param product
+   *          the product
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   * @throws URISyntaxException
+   *           the URI syntax exception
+   */
+  public static void launchRemoteHelp(GuiAppInfo product) throws IOException, URISyntaxException {
+    StringBuilder buffer = new StringBuilder();
+
+    // System.err.println("aha" +
+    // SettingsService.getInstance().getAsString(product.getHelpName() +
+    // ".help.url"));
+
+    buffer.append(product.getSetting("help.url").getAsString());
+    // buffer.append("/help.html");
+
+    URL url = new URL(buffer.toString());
+
+    launchHelp(url);
+  }
+
+  /**
+   * Launch help.
+   *
+   * @param url
+   *          the url
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   * @throws URISyntaxException
+   *           the URI syntax exception
+   */
+  public static void launchHelp(URL url) throws IOException, URISyntaxException {
+    System.err.println("Help URL " + url);
+
+    UrlUtils.launch(url.toURI());
+  }
+
+  /**
+   * Launch help.
+   *
+   * @param url
+   *          the url
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   * @throws URISyntaxException
+   *           the URI syntax exception
+   */
+  public static void launchHelp(URI url) throws IOException, URISyntaxException {
+    UrlUtils.launch(url);
+  }
+
 }

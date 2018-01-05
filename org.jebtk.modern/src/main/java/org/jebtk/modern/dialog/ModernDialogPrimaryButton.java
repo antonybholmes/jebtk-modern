@@ -31,80 +31,75 @@ import java.awt.Color;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * A dialog button appears on dialogs and typically represents the OK and
- * Cancel buttons etc.
+ * A dialog button appears on dialogs and typically represents the OK and Cancel
+ * buttons etc.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDialogPrimaryButton extends ModernDialogButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernDialogPrimaryButton(String text1) {
-		super(text1);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new modern dialog button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernDialogPrimaryButton(String text1) {
+    super(text1);
 
-	/**
-	 * Instantiates a new modern dialog button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernDialogPrimaryButton(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
+    setup();
+  }
 
-	/**
-	 * Instantiates a new modern dialog button.
-	 *
-	 * @param text1 the text 1
-	 * @param icon the icon
-	 */
-	public ModernDialogPrimaryButton(String text1, ModernIcon icon) {
-		super(text1, icon);
-		
-		setup();
-	}
-	
-	private void setup() {
-		setForeground(Color.WHITE);
-		
-		setBackgroundAnimations("primary-dialog-button");
-	}
-	
-	/*
-	@Override
-	public void setText(String text) {
-		super.setText(text.toUpperCase());
-	}
-	*/
+  /**
+   * Instantiates a new modern dialog button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernDialogPrimaryButton(ModernIcon icon) {
+    super(icon);
 
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			getWidgetRenderer().drawPrimaryDialogButton(g2, 
-					mInternalRect,
-					getRenderMode(),
-					hasFocus());
+    setup();
+  }
 
-		}
-	}
-	*/
+  /**
+   * Instantiates a new modern dialog button.
+   *
+   * @param text1
+   *          the text 1
+   * @param icon
+   *          the icon
+   */
+  public ModernDialogPrimaryButton(String text1, ModernIcon icon) {
+    super(text1, icon);
+
+    setup();
+  }
+
+  private void setup() {
+    setForeground(Color.WHITE);
+
+    setBackgroundAnimations("primary-dialog-button");
+  }
+
+  /*
+   * @Override public void setText(String text) {
+   * super.setText(text.toUpperCase()); }
+   */
+
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
+   * getWidgetRenderer().drawPrimaryDialogButton(g2, mInternalRect,
+   * getRenderMode(), hasFocus());
+   * 
+   * } }
+   */
 }

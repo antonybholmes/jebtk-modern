@@ -34,9 +34,6 @@ import java.awt.event.KeyListener;
 
 import org.jebtk.core.Mathematics;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Basic features of a slider control that jumps from step to step.
@@ -45,215 +42,225 @@ import org.jebtk.core.Mathematics;
  *
  */
 public abstract class ContinuousSlider extends Slider {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	private static final int MID_ZONE = 2;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member value.
-	 */
-	protected double mValue = 1;
-	
-	/** The m gap. */
-	protected double mGap = 0;
+  private static final int MID_ZONE = 2;
 
-	private double mMin;
+  /**
+   * The member value.
+   */
+  protected double mValue = 1;
 
-	private double mMid;
+  /** The m gap. */
+  protected double mGap = 0;
 
-	private double mMax;
+  private double mMin;
 
-	protected double mD1;
+  private double mMid;
 
-	protected double mD2;
+  private double mMax;
 
-	protected double mGap2;
+  protected double mD1;
 
-	protected double mGap1;
+  protected double mD2;
 
-	protected int mHalfD;
+  protected double mGap2;
 
-	protected double mP1;
+  protected double mGap1;
 
-	protected double mP2;
+  protected int mHalfD;
 
-	protected int mPixelInc;
+  protected double mP1;
 
+  protected double mP2;
 
-	/**
-	 * Instantiates a new stepped slider.
-	 *
-	 * @param value the value
-	 * @param marks the marks
-	 */
-	public ContinuousSlider(double value,
-			double min,
-			double mid,
-			double max) {
-		mMin = min;
-		mMid = mid;
-		mMax = max;
-		
-		mD1 = mid - min;
-		mD2 = max - mid;
-		
-		setLayout(null);
-		
-		setValue(value);
-		
-		addComponentListener(new ComponentAdapter() {
-			@Override
-			public void componentResized(ComponentEvent e) {
-				resize();
-			}});
-		
-		addKeyListener(new KeyListener() {
+  protected int mPixelInc;
 
-			@Override
-			public void keyPressed(KeyEvent e) {
-				switch (e.getKeyCode()) {
-				case KeyEvent.VK_UP:
-				case KeyEvent.VK_RIGHT:
-					increment();
-					break;
-				case KeyEvent.VK_DOWN:
-				case KeyEvent.VK_LEFT:
-					decrement();
-					break;
-				}
-			}
+  /**
+   * Instantiates a new stepped slider.
+   *
+   * @param value
+   *          the value
+   * @param marks
+   *          the marks
+   */
+  public ContinuousSlider(double value, double min, double mid, double max) {
+    mMin = min;
+    mMid = mid;
+    mMax = max;
 
-			@Override
-			public void keyReleased(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
+    mD1 = mid - min;
+    mD2 = max - mid;
 
-			@Override
-			public void keyTyped(KeyEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}});
-		
-		// Force a sync in case another resize event is not triggered.
-		resize();
-	}
-	
-	/**
-	 * Increment.
-	 */
-	@Override
-	public void increment() {
-		setValue(getValue(vToX(getValue()) + mPixelInc));
+    setLayout(null);
+
+    setValue(value);
+
+    addComponentListener(new ComponentAdapter() {
+      @Override
+      public void componentResized(ComponentEvent e) {
+        resize();
+      }
+    });
+
+    addKeyListener(new KeyListener() {
+
+      @Override
+      public void keyPressed(KeyEvent e) {
+        switch (e.getKeyCode()) {
+        case KeyEvent.VK_UP:
+        case KeyEvent.VK_RIGHT:
+          increment();
+          break;
+        case KeyEvent.VK_DOWN:
+        case KeyEvent.VK_LEFT:
+          decrement();
+          break;
+        }
+      }
+
+      @Override
+      public void keyReleased(KeyEvent arg0) {
+        // TODO Auto-generated method stub
+
+      }
+
+      @Override
+      public void keyTyped(KeyEvent arg0) {
+        // TODO Auto-generated method stub
+
+      }
+    });
+
+    // Force a sync in case another resize event is not triggered.
+    resize();
+  }
+
+  /**
+   * Increment.
+   */
+  @Override
+  public void increment() {
+    setValue(getValue(vToX(getValue()) + mPixelInc));
+  }
+
+  /**
+   * Decrement.
+   */
+  @Override
+  public void decrement() {
+    setValue(getValue(vToX(getValue()) - mPixelInc));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.slider.Slider#getValue()
+   */
+  @Override
+  public double getValue() {
+    return mValue;
+  }
+
+  /**
+   * Update the slider without causing a change event.
+   *
+   * @param v
+   *          the v
+   */
+  @Override
+  public void updateValue(double v) {
+    mValue = bound(v);
+
+    // use a binary search to set the pc to the greatest index whose
+    // mark value is less than v
+
+    repaint();
+  }
+
+  private double bound(double v) {
+    return Mathematics.bound(v, getMinValue(), getMaxValue());
+  }
+
+  /**
+   * Return the value of a given mark.
+   *
+   * @param index
+   *          the index
+   * @return the value
+   */
+  public double getValue(int x) {
+
+    if (Math.abs(x - mHalfD) <= MID_ZONE) {
+      return mMid;
+    } else if (x > mHalfD) {
+      return bound(mMid + (x - mHalfD) * mGap2);
+    } else {
+      // if (x < mHalfD)
+      return bound(mMin + x * mGap1);
     }
+  }
 
-	/**
-	 * Decrement.
-	 */
-	@Override
-	public void decrement() {
-		setValue(getValue(vToX(getValue()) - mPixelInc));
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.slider.Slider#getMinValue()
+   */
+  @Override
+  public double getMinValue() {
+    return mMin;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.slider.Slider#getMaxValue()
+   */
+  @Override
+  public double getMaxValue() {
+    return mMax;
+  }
+
+  /**
+   * Returns the current slider value in terms of pixels
+   * 
+   * @return
+   */
+  public int vToX() {
+    return vToX(getValue());
+  }
+
+  public int vToX(double v) {
+    if (v < mMid) {
+
+      // System.err.println("ss " + v + " " + mMin + " " + mP1 + " " + Math.round((v -
+      // mMin) * mP1));
+
+      return (int) Math.round((v - mMin) * mP1);
+    } else if (v > mMid) {
+      return mHalfD + (int) Math.round((v - mMid) * mP2);
+    } else {
+      return mHalfD;
     }
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.slider.Slider#getValue()
-	 */
-	@Override
-	public double getValue() {
-		return mValue;
-	}
+  }
 
-	/**
-	 * Update the slider without causing a change event.
-	 *
-	 * @param v the v
-	 */
-	@Override
-	public void updateValue(double v) {
-		mValue = bound(v);
+  /**
+   * Resize.
+   */
+  public void resize() {
+    mHalfD = getInternalRect().getW() / 2;
 
-		// use a binary search to set the pc to the greatest index whose
-		// mark value is less than v
-		
-		repaint();
-	}
-	
-	private double bound(double v) {
-		return Mathematics.bound(v, getMinValue(), getMaxValue());
-	}
-	
-	/**
-	 * Return the value of a given mark.
-	 *
-	 * @param index the index
-	 * @return the value
-	 */
-	public double getValue(int x) {
-		
-		if (Math.abs(x - mHalfD) <= MID_ZONE) {
-			return mMid;
-		} else if (x > mHalfD) {
-			return bound(mMid + (x - mHalfD) * mGap2);
-		} else {
-			//if (x < mHalfD) 
-			return bound(mMin + x * mGap1);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.slider.Slider#getMinValue()
-	 */
-	@Override
-	public double getMinValue() {
-		return mMin;
-	}
+    mPixelInc = getInternalRect().getW() / 20;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.slider.Slider#getMaxValue()
-	 */
-	@Override
-	public double getMaxValue() {
-		return mMax;
-	}
-	
-	/**
-	 * Returns the current slider value in terms of pixels
-	 * @return
-	 */
-	public int vToX() {
-		return vToX(getValue());
-	}
-	
-	public int vToX(double v) {
-		if (v < mMid) {
-			
-			//System.err.println("ss " + v + " " + mMin + " " + mP1 + " " + Math.round((v - mMin) * mP1));
-			
-			return (int)Math.round((v - mMin) * mP1);
-		} else if (v > mMid) {
-			return mHalfD + (int)Math.round((v - mMid) * mP2);
-		} else {
-			return mHalfD;
-		}
-	}
-	
-	/**
-	 * Resize.
-	 */
-	public void resize() {
-		mHalfD = getInternalRect().getW() / 2;
-		
-		mPixelInc = getInternalRect().getW() / 20;
-		
-		// how much each pixel of movement is worth
-		mGap1 = mD1 / mHalfD;
-		mGap2 = mD2 / mHalfD;
-		
-		mP1 = mHalfD / mD1;
-		mP2 = mHalfD / mD2;
-	}
+    // how much each pixel of movement is worth
+    mGap1 = mD1 / mHalfD;
+    mGap2 = mD2 / mHalfD;
+
+    mP1 = mHalfD / mD1;
+    mP2 = mHalfD / mD2;
+  }
 }

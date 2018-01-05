@@ -35,56 +35,58 @@ import org.jebtk.modern.button.ModernCheckBox;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ThemeService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernLayersCheckBox.
  */
 public class ModernLayersCheckBox extends ModernCheckBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant IMAGE_CHECKED.
-	 */
-	public static final ModernIcon IMAGE_CHECKED =
-			UIService.getInstance().loadIcon("layer_visible", 16);
 
-	/**
-	 * Instantiates a new modern layers check box.
-	 */
-	public ModernLayersCheckBox() {
-		
-	}
-	
-	/**
-	 * Instantiates a new modern layers check box.
-	 *
-	 * @param selected the selected
-	 */
-	public ModernLayersCheckBox(boolean selected) {
-		super(selected);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernCheckBox#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int iconX = mInternalRect.getX() + PADDING;
-		int iconY = (getHeight() - 16) / 2;
-		
-		g2.setColor(Color.WHITE);
-		g2.fillRect(iconX, iconY, 16, 16);
+  /**
+   * The constant IMAGE_CHECKED.
+   */
+  public static final ModernIcon IMAGE_CHECKED = UIService.getInstance().loadIcon("layer_visible", 16);
 
-		if (isSelected()) {
-			IMAGE_CHECKED.drawIcon(g2, iconX, iconY, UIService.ICON_SIZE_16);
-		}
-	
-		g2.setColor(ThemeService.getInstance().colors().getHighlight(5));
-		g2.drawRect(iconX, iconY, 16, 16);
-	}
+  /**
+   * Instantiates a new modern layers check box.
+   */
+  public ModernLayersCheckBox() {
+
+  }
+
+  /**
+   * Instantiates a new modern layers check box.
+   *
+   * @param selected
+   *          the selected
+   */
+  public ModernLayersCheckBox(boolean selected) {
+    super(selected);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernCheckBox#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int iconX = mInternalRect.getX() + PADDING;
+    int iconY = (getHeight() - 16) / 2;
+
+    g2.setColor(Color.WHITE);
+    g2.fillRect(iconX, iconY, 16, 16);
+
+    if (isSelected()) {
+      IMAGE_CHECKED.drawIcon(g2, iconX, iconY, UIService.ICON_SIZE_16);
+    }
+
+    g2.setColor(ThemeService.getInstance().colors().getHighlight(5));
+    g2.drawRect(iconX, iconY, 16, 16);
+  }
 }

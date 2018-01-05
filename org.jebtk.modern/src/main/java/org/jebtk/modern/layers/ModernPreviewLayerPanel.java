@@ -44,117 +44,129 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernPreviewLayerPanel.
  */
 public class ModernPreviewLayerPanel extends ModernWidget implements ModernClickListener, LayerEventListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The size.
-	 */
-	private int size = 48;
-	
-	/**
-	 * The check visible.
-	 */
-	private ModernCheckBox checkVisible = new ModernLayersCheckBox(true); //ModernLayersCheckBox(true);
 
-	/**
-	 * The member layer model.
-	 */
-	private LayerModel mLayerModel;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member name.
-	 */
-	private String mName;
+  /**
+   * The size.
+   */
+  private int size = 48;
 
-	/**
-	 * Instantiates a new modern preview layer panel.
-	 *
-	 * @param name the name
-	 * @param layerModel the layer model
-	 * @param canvas the canvas
-	 */
-	public ModernPreviewLayerPanel(String name, 
-			LayerModel layerModel, 
-			ModernCanvas canvas) {
-		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-		
-		this.mName = name;
-		this.mLayerModel = layerModel;
-		
-		double scale = Math.max(0.2, size / (double)Math.max(canvas.getPreferredSize().width, 
-				canvas.getPreferredSize().height));
-		
-		//ZoomCanvas zoomCanvas = new ZoomCanvas(canvas, scale);
-		
-		//zoomCanvas.setCanvasSize(size, size);
-		
-		
-		
-		ImageCanvas imageCanvas = new ImageCanvas(canvas);
-		
-		UI.setSize(imageCanvas, size, size);
-		
-		FrameCanvas frameCanvas = new FrameCanvas(imageCanvas);
-		
-		UI.setSize(frameCanvas, size, size);
-		
-		add(checkVisible);
-		add(createHGap());
-		add(frameCanvas);
-		add(createHGap());
-		add(new ModernAutoSizeLabel(name));
-		
-		setMinimumSize(new Dimension(400, size));
-		
-		layerModel.addLayerListener(this);
-		checkVisible.addClickListener(this);
-		
-		checkVisible.setSelected(layerModel.isVisible(name));
-		
-		setBorder(BORDER);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(ThemeService.getInstance().colors().getHighlight(1));
-		
-		g2.drawLine(0, mRect.getH() - 1, mRect.getW(), mRect.getH() - 1);
-	}
+  /**
+   * The check visible.
+   */
+  private ModernCheckBox checkVisible = new ModernLayersCheckBox(true); // ModernLayersCheckBox(true);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		mLayerModel.setVisible(mName, this.checkVisible.isSelected());
-	}
+  /**
+   * The member layer model.
+   */
+  private LayerModel mLayerModel;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.layers.LayerEventListener#layerChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void layerChanged(ChangeEvent e) {
-		//this.checkVisible.setSelected(layerModel.isVisible(name));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.event.ChangeEvent)
-	 */
-	@Override
-	public void layerUpdated(ChangeEvent e) {
-		//this.checkVisible.setSelected(layerModel.isVisible(name));
-	}
+  /**
+   * The member name.
+   */
+  private String mName;
+
+  /**
+   * Instantiates a new modern preview layer panel.
+   *
+   * @param name
+   *          the name
+   * @param layerModel
+   *          the layer model
+   * @param canvas
+   *          the canvas
+   */
+  public ModernPreviewLayerPanel(String name, LayerModel layerModel, ModernCanvas canvas) {
+    setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+
+    this.mName = name;
+    this.mLayerModel = layerModel;
+
+    double scale = Math.max(0.2,
+        size / (double) Math.max(canvas.getPreferredSize().width, canvas.getPreferredSize().height));
+
+    // ZoomCanvas zoomCanvas = new ZoomCanvas(canvas, scale);
+
+    // zoomCanvas.setCanvasSize(size, size);
+
+    ImageCanvas imageCanvas = new ImageCanvas(canvas);
+
+    UI.setSize(imageCanvas, size, size);
+
+    FrameCanvas frameCanvas = new FrameCanvas(imageCanvas);
+
+    UI.setSize(frameCanvas, size, size);
+
+    add(checkVisible);
+    add(createHGap());
+    add(frameCanvas);
+    add(createHGap());
+    add(new ModernAutoSizeLabel(name));
+
+    setMinimumSize(new Dimension(400, size));
+
+    layerModel.addLayerListener(this);
+    checkVisible.addClickListener(this);
+
+    checkVisible.setSelected(layerModel.isVisible(name));
+
+    setBorder(BORDER);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(ThemeService.getInstance().colors().getHighlight(1));
+
+    g2.drawLine(0, mRect.getH() - 1, mRect.getW(), mRect.getH() - 1);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    mLayerModel.setVisible(mName, this.checkVisible.isSelected());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.layers.LayerEventListener#layerChanged(org.abh.lib.
+   * event.ChangeEvent)
+   */
+  @Override
+  public void layerChanged(ChangeEvent e) {
+    // this.checkVisible.setSelected(layerModel.isVisible(name));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.event
+   * .ChangeEvent)
+   */
+  @Override
+  public void layerUpdated(ChangeEvent e) {
+    // this.checkVisible.setSelected(layerModel.isVisible(name));
+  }
 }

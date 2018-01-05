@@ -30,39 +30,43 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class BlockVertSelectedAnimation extends HighlightAnimation {
 
-	private BlockVertTabs mTabs;
+  private BlockVertTabs mTabs;
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public BlockVertSelectedAnimation(ModernWidget segments) {
-		super((BlockVertTabs)segments);
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public BlockVertSelectedAnimation(ModernWidget segments) {
+    super((BlockVertTabs) segments);
 
-		mTabs = (BlockVertTabs)segments;
-	}
+    mTabs = (BlockVertTabs) segments;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		int x = mTabs.getInsets().left; // + widget.getWidth() - SegmentChangeAnimation.HEIGHT;
-		int y = mTabs.getInsets().top + mTabs.mOffset;
+    int x = mTabs.getInsets().left; // + widget.getWidth() - SegmentChangeAnimation.HEIGHT;
+    int y = mTabs.getInsets().top + mTabs.mOffset;
 
-		int w = mTabs.getInternalRect().getW();
+    int w = mTabs.getInternalRect().getW();
 
-		int selected = mTabs.getTabsModel().getSelectedIndex();
-		
-		//
-		// Draw if highlighted
-		//
+    int selected = mTabs.getTabsModel().getSelectedIndex();
 
-		if (selected != -1) { // && mTabs.mHighlight != selectedIndex) {
-			g2.setColor(MaterialService.getInstance().color("gray-selected"));
-			g2.fillRect(x, y + selected * mTabs.mTabSize, w, mTabs.mTabSize);
-		}
-	}	
+    //
+    // Draw if highlighted
+    //
+
+    if (selected != -1) { // && mTabs.mHighlight != selectedIndex) {
+      g2.setColor(MaterialService.getInstance().color("gray-selected"));
+      g2.fillRect(x, y + selected * mTabs.mTabSize, w, mTabs.mTabSize);
+    }
+  }
 }

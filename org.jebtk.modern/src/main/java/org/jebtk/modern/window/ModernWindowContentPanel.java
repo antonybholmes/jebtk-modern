@@ -32,8 +32,6 @@ import java.awt.Color;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The default background look of a window.
@@ -42,23 +40,21 @@ import org.jebtk.modern.theme.ThemeService;
  *
  */
 public class ModernWindowContentPanel extends ModernPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant COLOR.
-	 */
-	public static final Color COLOR =
-			ThemeService.getInstance().colors().getHighlight32(1);
-	
-	
-	/**
-	 * Instantiates a new modern window content panel.
-	 */
-	public ModernWindowContentPanel() {
-		super(COLOR);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant COLOR.
+   */
+  public static final Color COLOR = ThemeService.getInstance().colors().getHighlight32(1);
+
+  /**
+   * Instantiates a new modern window content panel.
+   */
+  public ModernWindowContentPanel() {
+    super(COLOR);
+  }
 }

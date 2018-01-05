@@ -30,38 +30,36 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class HighlightAnimation extends HighlightBaseAnimation {
 
+  /**
+   * The listener interface for receiving state events. The class that is
+   * interested in processing a state event implements this interface, and the
+   * object created with that class is registered with a component using the
+   * component's <code>addStateListener<code> method. When the state event occurs,
+   * that object's appropriate method is invoked.
+   *
+   * @see StateEvent
+   */
+  private class Listener implements HighlightListener {
 
+    @Override
+    public void highlighted(HighlightEvent e) {
+      restart();
+    }
+  }
 
-	/**
-	 * The listener interface for receiving state events.
-	 * The class that is interested in processing a state
-	 * event implements this interface, and the object created
-	 * with that class is registered with a component using the
-	 * component's <code>addStateListener<code> method. When
-	 * the state event occurs, that object's appropriate
-	 * method is invoked.
-	 *
-	 * @see StateEvent
-	 */
-	private class Listener implements HighlightListener {
+  /**
+   * Instantiates a new state animation.
+   * 
+   * @param <T>
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public <T extends ModernWidget & HighlightEventProducer> HighlightAnimation(T widget) {
+    super(widget);
 
-		@Override
-		public void highlighted(HighlightEvent e) {
-			restart();
-		}
-	}
+    mFade = new FadeAnimation(widget);
 
-	/**
-	 * Instantiates a new state animation.
-	 * @param <T>
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public <T extends ModernWidget & HighlightEventProducer> HighlightAnimation(T widget) {
-		super(widget);
-
-		mFade = new FadeAnimation(widget);
-
-		widget.addHighlightListener(new Listener());
-	}
+    widget.addHighlightListener(new Listener());
+  }
 }

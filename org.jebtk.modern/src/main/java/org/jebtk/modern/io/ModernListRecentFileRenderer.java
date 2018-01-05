@@ -31,8 +31,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Renders a file as a list item.
@@ -41,47 +39,52 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  *
  */
 public class ModernListRecentFileRenderer extends ModernListFileRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern list recent file renderer.
-	 */
-	public ModernListRecentFileRenderer() {
-		
-	}
-	
-	/**
-	 * Instantiates a new modern list recent file renderer.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernListRecentFileRenderer(ModernIcon icon) {
-		super(icon);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.list.ModernListCellRenderer#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		// We want to use the color theming here so that elements are
-		// highlighted in color to match the ribbon rather than the default
-		// grey scheme
-		
-		if (!mCanHighlight) {
-			return;
-		}
-		
-		if (mIsSelected) {
-			paintThemeSelected(g2, getRect());
-		} else if (mIsHighlighted) {
-			paintThemeHighlighted(g2, getRect());
-		} else {
-			// do nothing
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern list recent file renderer.
+   */
+  public ModernListRecentFileRenderer() {
+
+  }
+
+  /**
+   * Instantiates a new modern list recent file renderer.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernListRecentFileRenderer(ModernIcon icon) {
+    super(icon);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.list.ModernListCellRenderer#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    // We want to use the color theming here so that elements are
+    // highlighted in color to match the ribbon rather than the default
+    // grey scheme
+
+    if (!mCanHighlight) {
+      return;
+    }
+
+    if (mIsSelected) {
+      paintThemeSelected(g2, getRect());
+    } else if (mIsHighlighted) {
+      paintThemeHighlighted(g2, getRect());
+    } else {
+      // do nothing
+    }
+  }
 }

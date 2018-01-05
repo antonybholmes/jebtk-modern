@@ -28,40 +28,42 @@ import org.jebtk.modern.widget.ModernWidget;
  * The Class FontMenuItem.
  */
 public class FontMenuItem extends ModernIconMenuItem {
-	
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The icon. */
-	public static ModernIcon ICON = 
-			UIService.getInstance().loadIcon("font", UIService.ICON_SIZE_16);
-	
-	/** The m font. */
-	private Font mFont;
-	
-	/**
-	 * Instantiates a new font menu item.
-	 *
-	 * @param font the font
-	 */
-	public FontMenuItem(String font) {
-		super(font, ICON);
-		
-		mFont = new Font(font, Font.PLAIN, ModernWidget.FONT.getSize());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.menu.ModernIconMenuItem#drawForegroundAAText(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		Graphics2D g2Temp = (Graphics2D)g2.create();
-		
-		g2Temp.setFont(mFont);
-		
-		super.drawForegroundAAText(g2Temp);
-		
-		g2Temp.dispose();
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /** The icon. */
+  public static ModernIcon ICON = UIService.getInstance().loadIcon("font", UIService.ICON_SIZE_16);
+
+  /** The m font. */
+  private Font mFont;
+
+  /**
+   * Instantiates a new font menu item.
+   *
+   * @param font
+   *          the font
+   */
+  public FontMenuItem(String font) {
+    super(font, ICON);
+
+    mFont = new Font(font, Font.PLAIN, ModernWidget.FONT.getSize());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.menu.ModernIconMenuItem#drawForegroundAAText(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    Graphics2D g2Temp = (Graphics2D) g2.create();
+
+    g2Temp.setFont(mFont);
+
+    super.drawForegroundAAText(g2Temp);
+
+    g2Temp.dispose();
+  }
 }

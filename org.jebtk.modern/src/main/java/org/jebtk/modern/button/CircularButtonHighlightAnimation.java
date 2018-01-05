@@ -11,38 +11,35 @@ import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class CircularButtonHighlightAnimation extends ButtonHighlightAnimation {
-	public CircularButtonHighlightAnimation(ModernWidget button) {
-		super(button);
+  public CircularButtonHighlightAnimation(ModernWidget button) {
+    super(button);
 
-		setFadeColor("fill", MaterialUtils.BUTTON_COLOR);
-	}
+    setFadeColor("fill", MaterialUtils.BUTTON_COLOR);
+  }
 
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		if (getWidget().isEnabled()) {
-			
-			Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
-			
-			try {
-			if (widget instanceof ModernClickWidget) {
-				if (((ModernClickWidget)widget).isSelected()) {
-					g2Temp.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR);
-				} else {
-					g2Temp.setColor(getFadeColor("fill"));
-				}
-			} else {
-				g2Temp.setColor(getFadeColor("fill"));
-			}
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    if (getWidget().isEnabled()) {
 
-			IntRect rect = getWidget().getInternalRect();
+      Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
-			g2Temp.fillOval(rect.getX(),
-					rect.getY(),
-					rect.getW(),
-					rect.getH());
-			} finally {
-				g2Temp.dispose();
-			}
-		}
-	}
+      try {
+        if (widget instanceof ModernClickWidget) {
+          if (((ModernClickWidget) widget).isSelected()) {
+            g2Temp.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR);
+          } else {
+            g2Temp.setColor(getFadeColor("fill"));
+          }
+        } else {
+          g2Temp.setColor(getFadeColor("fill"));
+        }
+
+        IntRect rect = getWidget().getInternalRect();
+
+        g2Temp.fillOval(rect.getX(), rect.getY(), rect.getW(), rect.getH());
+      } finally {
+        g2Temp.dispose();
+      }
+    }
+  }
 }

@@ -29,7 +29,6 @@ package org.jebtk.modern.layers;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * For classes that generate ModernClickEvents.
@@ -37,30 +36,33 @@ import org.jebtk.core.event.ChangeEvent;
  * @author Antony Holmes Holmes
  */
 public interface LayerEventProducer {
-	
-	/**
-	 * The constant LAYER_CHANGED.
-	 */
-	public static final String LAYER_CHANGED = "layer_changed";
-	
-	/**
-	 * Add an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void addLayerListener(LayerEventListener l);
-	
-	/**
-	 * Remove an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeLayerListener(LayerEventListener l);
-	
-	/**
-	 * fire an event.
-	 *
-	 * @param event the event
-	 */
-	public void fireLayerChanged(ChangeEvent event);
+
+  /**
+   * The constant LAYER_CHANGED.
+   */
+  public static final String LAYER_CHANGED = "layer_changed";
+
+  /**
+   * Add an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addLayerListener(LayerEventListener l);
+
+  /**
+   * Remove an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeLayerListener(LayerEventListener l);
+
+  /**
+   * fire an event.
+   *
+   * @param event
+   *          the event
+   */
+  public void fireLayerChanged(ChangeEvent event);
 }

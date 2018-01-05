@@ -33,8 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.graphics.ImageUtils;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Search vector icon.
@@ -44,55 +42,57 @@ import org.jebtk.modern.graphics.ImageUtils;
  */
 public class SearchVectorIcon extends ModernVectorIcon {
 
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR = 
-			Color.BLACK; //SettingsService.getInstance().getAsColor("theme.icons.search-icon.colors.foreground");
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = Color.BLACK; // SettingsService.getInstance().getAsColor("theme.icons.search-icon.colors.foreground");
 
-	/**
-	 * The constant SCALE.
-	 */
-	private static final double SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.search-icon.width-scale");
+  /**
+   * The constant SCALE.
+   */
+  private static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.search-icon.width-scale");
 
-	/**
-	 * The constant GLASS_SCALE.
-	 */
-	private static final double GLASS_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.search-icon.glass-scale");
+  /**
+   * The constant GLASS_SCALE.
+   */
+  private static final double GLASS_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.search-icon.glass-scale");
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
 
-		Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+    Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
-		double wf = w * SCALE;
+    double wf = w * SCALE;
 
-		double w2 = wf * GLASS_SCALE;
+    double w2 = wf * GLASS_SCALE;
 
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - wf) / 2.0;
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - wf) / 2.0;
 
-		try {
-			//g2Temp.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-			g2Temp.setColor(COLOR);
+    try {
+      // g2Temp.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+      g2Temp.setColor(COLOR);
 
+      double w3 = w2 / 2.0;
 
-			double w3 = w2 / 2.0;
+      g2Temp.drawLine((int) Math.round(xf + w3), (int) Math.round(yf + w3), (int) Math.round(xf + wf),
+          (int) Math.round(yf + wf));
 
-			g2Temp.drawLine((int)Math.round(xf + w3), (int)Math.round(yf + w3), (int)Math.round(xf + wf), (int)Math.round(yf + wf));
-
-			g2Temp.setColor(Color.WHITE);
-			g2Temp.fillOval((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(w2), (int)Math.round(w2));
-			g2Temp.setColor(COLOR);
-			g2Temp.drawOval((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(w2), (int)Math.round(w2));
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+      g2Temp.setColor(Color.WHITE);
+      g2Temp.fillOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(w2), (int) Math.round(w2));
+      g2Temp.setColor(COLOR);
+      g2Temp.drawOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(w2), (int) Math.round(w2));
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 
 }

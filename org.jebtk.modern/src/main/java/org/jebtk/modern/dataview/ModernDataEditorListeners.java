@@ -32,63 +32,75 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.EventListeners;
 import org.jebtk.core.event.EventProducer;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides the ability to register and unregister ModernClickEventListeners
- * for controls and provides standard functions to interface with {
+ * Provides the ability to register and unregister ModernClickEventListeners for
+ * controls and provides standard functions to interface with {
  * EventListenerList by taking care of casting etc.
  *
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDataEditorListeners extends EventProducer<ModernDataEditorListener> implements ModernDataEditorEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
+public class ModernDataEditorListeners extends EventProducer<ModernDataEditorListener>
+    implements ModernDataEditorEventProducer {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataEditorEventProducer#addEditorListener(org.abh.lib.ui.modern.dataview.ModernDataEditorListener)
-	 */
-	public void addEditorListener(ModernDataEditorListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataEditorEventProducer#removeEditorListener(org.abh.lib.ui.modern.dataview.ModernDataEditorListener)
-	 */
-	public void removeEditorListener(ModernDataEditorListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataEditorEventProducer#fireChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireChanged(ChangeEvent e) {
-		for (ModernDataEditorListener l : mListeners) {
-			l.changed(e);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataEditorEventProducer#fireEditingStopped()
-	 */
-	public void fireEditingStopped() {
-		// We use a copy of the events so that mListeners can be updated
-		// if editing stopped triggers this to be updated (e.g. removing
-		// or adding a listener). This is a fix for table controls where
-		// stopping editing usually triggers the cell below to be selected
-		// so that gets the focus and the editor list is adjusted for the
-		// new editor. We generally dont care if new editors are being
-		// added after editing stopped, only that the current list is
-		// notified.
-		for (ModernDataEditorListener l : new EventListeners<ModernDataEditorListener>(mListeners)) {
-			//System.err.println("hmm " + l.toString());
-			
-			l.editingStopped();
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataEditorEventProducer#
+   * addEditorListener(org.abh.lib.ui.modern.dataview.ModernDataEditorListener)
+   */
+  public void addEditorListener(ModernDataEditorListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataEditorEventProducer#
+   * removeEditorListener(org.abh.lib.ui.modern.dataview.ModernDataEditorListener)
+   */
+  public void removeEditorListener(ModernDataEditorListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataEditorEventProducer#fireChanged(org.
+   * abh.lib.event.ChangeEvent)
+   */
+  public void fireChanged(ChangeEvent e) {
+    for (ModernDataEditorListener l : mListeners) {
+      l.changed(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataEditorEventProducer#
+   * fireEditingStopped()
+   */
+  public void fireEditingStopped() {
+    // We use a copy of the events so that mListeners can be updated
+    // if editing stopped triggers this to be updated (e.g. removing
+    // or adding a listener). This is a fix for table controls where
+    // stopping editing usually triggers the cell below to be selected
+    // so that gets the focus and the editor list is adjusted for the
+    // new editor. We generally dont care if new editors are being
+    // added after editing stopped, only that the current list is
+    // notified.
+    for (ModernDataEditorListener l : new EventListeners<ModernDataEditorListener>(mListeners)) {
+      // System.err.println("hmm " + l.toString());
+
+      l.editingStopped();
+    }
+  }
 }

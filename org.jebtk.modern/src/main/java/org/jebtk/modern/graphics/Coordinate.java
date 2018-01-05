@@ -35,39 +35,43 @@ package org.jebtk.modern.graphics;
  *
  */
 public class Coordinate {
-	
-	/**
-	 * The x.
-	 */
-	public double x = -1;
-	
-	/**
-	 * The y.
-	 */
-	public double y = -1;
 
-	/**
-	 * Instantiates a new coordinate.
-	 */
-	public Coordinate() {
-		// do nothing
-	}
+  /**
+   * The x.
+   */
+  public double x = -1;
 
-	/**
-	 * Instantiates a new coordinate.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 */
-	public Coordinate(double x, double y) {
-		this.x = x;
-		this.y = y;
-	}
+  /**
+   * The y.
+   */
+  public double y = -1;
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	public String toString() {
-		return "[" + x + ", " + y +"]";
-	}
+  /**
+   * Instantiates a new coordinate.
+   */
+  public Coordinate() {
+    // do nothing
+  }
+
+  /**
+   * Instantiates a new coordinate.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   */
+  public Coordinate(double x, double y) {
+    this.x = x;
+    this.y = y;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#toString()
+   */
+  public String toString() {
+    return "[" + x + ", " + y + "]";
+  }
 }

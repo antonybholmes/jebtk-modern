@@ -38,24 +38,28 @@ import java.awt.geom.GeneralPath;
  *
  */
 public class TriangleRightVectorIcon extends TriangleVectorIcon {
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.TriangleVectorIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		super.drawIcon(g2, x, y, w, h, params);
-		
-		x = x + (w - HEIGHT) / 2;
-		y = y + (h - WIDTH) / 2;
-		
-		GeneralPath gp = new GeneralPath();
-		gp.moveTo(x, y);
-		gp.lineTo(x, y + WIDTH);
-		gp.lineTo(x + HEIGHT, y + HALF_WIDTH);
-		gp.closePath();
-		
-		g2.fill(gp);
-	}
-	
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.scrollpane.TriangleVectorIcon#drawForeground(java.awt.
+   * Graphics2D, java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    super.drawIcon(g2, x, y, w, h, params);
+
+    x = x + (w - HEIGHT) / 2;
+    y = y + (h - WIDTH) / 2;
+
+    GeneralPath gp = new GeneralPath();
+    gp.moveTo(x, y);
+    gp.lineTo(x, y + WIDTH);
+    gp.lineTo(x + HEIGHT, y + HALF_WIDTH);
+    gp.closePath();
+
+    g2.fill(gp);
+  }
+
 }

@@ -38,154 +38,154 @@ import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
- * Shows animated balls to indicate something
- * is happening.
+ * Shows animated balls to indicate something is happening.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernActivityOrbs extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The xpos.
-	 */
-	private double[] xpos = {-4.5, -4, -3.5, -3};
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The increment.
-	 */
-	private double increment = 0.1;
+  /**
+   * The xpos.
+   */
+  private double[] xpos = { -4.5, -4, -3.5, -3 };
 
+  /**
+   * The increment.
+   */
+  private double increment = 0.1;
 
-	/**
-	 * The w.
-	 */
-	private int w = 8;
-	
-	/**
-	 * The mean.
-	 */
-	private double mean = 0;
-	
-	/**
-	 * The sd.
-	 */
-	private double sd = 0.5;
-	
-	/**
-	 * The var.
-	 */
-	private double var = sd * sd;
-	
-	/**
-	 * The exdiv.
-	 */
-	private double exdiv = 2 * var;
+  /**
+   * The w.
+   */
+  private int w = 8;
 
-	/**
-	 * The sc.
-	 */
-	private double sc = 1 / (sd * Math.sqrt(2 * Math.PI));
+  /**
+   * The mean.
+   */
+  private double mean = 0;
 
-	/**
-	 * The max x.
-	 */
-	private int maxX = 5;
+  /**
+   * The sd.
+   */
+  private double sd = 0.5;
 
-	/**
-	 * The timer.
-	 */
-	private ProgressWorker timer;
+  /**
+   * The var.
+   */
+  private double var = sd * sd;
 
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR =
-			SettingsService.getInstance().getAsColor("theme.activity-bar.dot-color");
+  /**
+   * The exdiv.
+   */
+  private double exdiv = 2 * var;
 
-	/**
-	 * The class ProgressWorker.
-	 */
-	private class ProgressWorker extends SwingWorker<Void, Void> {
+  /**
+   * The sc.
+   */
+  private double sc = 1 / (sd * Math.sqrt(2 * Math.PI));
 
-		/* (non-Javadoc)
-		 * @see javax.swing.SwingWorker#doInBackground()
-		 */
-		@Override
-		public Void doInBackground() throws InterruptedException {
-			double a;
-			double s;
-			double dx;
-			
-			while (!isCancelled()) {
+  /**
+   * The max x.
+   */
+  private int maxX = 5;
 
-				for (int i = 0; i < xpos.length; ++i) {
-					a = sc * Math.exp(-Mathematics.square(xpos[i] - mean) / exdiv);
+  /**
+   * The timer.
+   */
+  private ProgressWorker timer;
 
-					s = 1 + a;
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = SettingsService.getInstance().getAsColor("theme.activity-bar.dot-color");
 
-					dx = s * increment;
-					
-					//System.err.println("pos " + xpos[i] + " " + dx +  " " + a);
+  /**
+   * The class ProgressWorker.
+   */
+  private class ProgressWorker extends SwingWorker<Void, Void> {
 
-					xpos[i] += dx;
-					
-					if (xpos[i] > maxX) {
-						xpos[i] = -5;
-					}
-				}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.SwingWorker#doInBackground()
+     */
+    @Override
+    public Void doInBackground() throws InterruptedException {
+      double a;
+      double s;
+      double dx;
 
-				repaint();
-				
-				Thread.sleep(20);
-			}
-			
-			return null;
-		}
+      while (!isCancelled()) {
 
-	}
+        for (int i = 0; i < xpos.length; ++i) {
+          a = sc * Math.exp(-Mathematics.square(xpos[i] - mean) / exdiv);
 
+          s = 1 + a;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	public void drawForegroundAAText(Graphics2D g2) {
-		int y = getInsets().top + (mInternalRect.getH() - w) / 2;
+          dx = s * increment;
 
-		g2.setColor(COLOR);
+          // System.err.println("pos " + xpos[i] + " " + dx + " " + a);
 
-		int offset = getWidth() / 2;
+          xpos[i] += dx;
 
-		int p = getWidth() / 4;
+          if (xpos[i] > maxX) {
+            xpos[i] = -5;
+          }
+        }
 
-		for (int i = 0; i < xpos.length; ++i) {
-			//System.err.println(xpos[i] + " " + y);
+        repaint();
 
-			g2.fillOval((int)(xpos[i] * p) + offset, y, w, w);
-		}
-	}
+        Thread.sleep(20);
+      }
 
-	/**
-	 * Start.
-	 */
-	public void start() {
-		if (timer != null) {
-			stop();
-		}
-		
-		timer = new ProgressWorker();
-		timer.execute();
-	}
+      return null;
+    }
 
-	/**
-	 * Stop.
-	 */
-	public void stop() {
-		timer.cancel(true);
-	}
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  public void drawForegroundAAText(Graphics2D g2) {
+    int y = getInsets().top + (mInternalRect.getH() - w) / 2;
+
+    g2.setColor(COLOR);
+
+    int offset = getWidth() / 2;
+
+    int p = getWidth() / 4;
+
+    for (int i = 0; i < xpos.length; ++i) {
+      // System.err.println(xpos[i] + " " + y);
+
+      g2.fillOval((int) (xpos[i] * p) + offset, y, w, w);
+    }
+  }
+
+  /**
+   * Start.
+   */
+  public void start() {
+    if (timer != null) {
+      stop();
+    }
+
+    timer = new ProgressWorker();
+    timer.execute();
+  }
+
+  /**
+   * Stop.
+   */
+  public void stop() {
+    timer.cancel(true);
+  }
 }

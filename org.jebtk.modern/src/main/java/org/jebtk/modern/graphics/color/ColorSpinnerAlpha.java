@@ -35,20 +35,20 @@ package org.jebtk.modern.graphics.color;
  *
  */
 public class ColorSpinnerAlpha extends ColorSpinner {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new color spinner alpha.
-	 *
-	 * @param model the model
-	 */
-	public ColorSpinnerAlpha(ColorSelectionModel model) {
-		super(model, ColorChannel.ALPHA);
-	}
+  /**
+   * Instantiates a new color spinner alpha.
+   *
+   * @param model
+   *          the model
+   */
+  public ColorSpinnerAlpha(ColorSelectionModel model) {
+    super(model, ColorChannel.ALPHA);
+  }
 
 }

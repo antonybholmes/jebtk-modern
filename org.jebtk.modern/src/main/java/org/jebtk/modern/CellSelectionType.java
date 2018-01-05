@@ -32,24 +32,24 @@ package org.jebtk.modern;
  * The enum CellSelectionType.
  */
 public enum CellSelectionType {
-	
-	/**
-	 * The none.
-	 */
-	NONE,
-	
-	/**
-	 * The highlighted.
-	 */
-	HIGHLIGHTED,
-	
-	/**
-	 * The selected.
-	 */
-	SELECTED,
-	
-	/**
-	 * The has focus.
-	 */
-	HAS_FOCUS
+
+  /**
+   * The none.
+   */
+  NONE,
+
+  /**
+   * The highlighted.
+   */
+  HIGHLIGHTED,
+
+  /**
+   * The selected.
+   */
+  SELECTED,
+
+  /**
+   * The has focus.
+   */
+  HAS_FOCUS
 }

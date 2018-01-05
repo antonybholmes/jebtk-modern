@@ -30,126 +30,128 @@ package org.jebtk.modern.dataview.sort;
 import java.util.HashMap;
 import java.util.Map;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Represents a collection of sortIndex sorters for a dataview.
- * This allows specific columns to have independent sorters
- * for example if one sortIndex is known to contain only numbers.
+ * Represents a collection of sortIndex sorters for a dataview. This allows
+ * specific columns to have independent sorters for example if one sortIndex is
+ * known to contain only numbers.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDataSortModel {
-	
-	/**
-	 * The member sort map.
-	 */
-	private Map<Integer, ModernDataIndexSorter> mSortMap = 
-			new HashMap<Integer, ModernDataIndexSorter>();
-	
-	/**
-	 * If a sort index of -1 is specified, the no sorter is used to
-	 * present the table in an unsorted state.
-	 * 
-	 * since
-	 */
-	private static final ModernDataIndexSorter NO_SORT = 
-			new ModernDataIndexSorter();
 
-	/**
-	 * Sets a sorter for columns if non has been specified.
-	 */
-	private ModernDataIndexSorter mDefaultSorter = NO_SORT;
-	
-	/**
-	 * The member sort index.
-	 */
-	private int mSortIndex = -1;
+  /**
+   * The member sort map.
+   */
+  private Map<Integer, ModernDataIndexSorter> mSortMap = new HashMap<Integer, ModernDataIndexSorter>();
 
-	/**
-	 * Sets the default sorter.
-	 *
-	 * @param sorter the new default sorter
-	 */
-	public final void setDefaultSorter(ModernDataIndexSorter sorter) {
-		if (sorter == null) {
-			return;
-		}
-		
-		mDefaultSorter = sorter;
-	}
-	
-	/**
-	 * Sets the.
-	 *
-	 * @param sortIndex the sort index
-	 * @param sorter the sorter
-	 */
-	public final void set(int sortIndex, ModernDataIndexSorter sorter) {
-		if (sorter != null && sortIndex > -1) {
-			mSortMap.put(sortIndex, sorter);
-		}
-	}
+  /**
+   * If a sort index of -1 is specified, the no sorter is used to present the
+   * table in an unsorted state.
+   * 
+   * since
+   */
+  private static final ModernDataIndexSorter NO_SORT = new ModernDataIndexSorter();
 
-	/**
-	 * Sets the sort index.
-	 *
-	 * @param sortIndex the new sort index
-	 */
-	public void setSortIndex(int sortIndex) {
-		//System.err.println("Setting sort sortIndex " + sortIndex);
-		
-		mSortIndex = sortIndex;
-	}
-	
-	/**
-	 * Gets the sort index.
-	 *
-	 * @return the sort index
-	 */
-	public int getSortIndex() {
-		return mSortIndex;
-	}
-	
-	/**
-	 * Returns the selected sorter.
-	 *
-	 * @return the sorter
-	 */
-	public ModernDataIndexSorter getSorter() {
-		return get(mSortIndex);
-	}
-	
-	/**
-	 * Returns the sortIndex sorter for a given table sortIndex.
-	 * If the index is -1, the special nosort indexer is returned
-	 * so that the table can be display as it was loaded (i.e unsorted)
-	 *
-	 * @param index the index
-	 * @return the modern data index sorter
-	 */
-	public final ModernDataIndexSorter get(int index) {
-		if (index == -1) {
-			return NO_SORT;
-		}
-		
-		ModernDataIndexSorter sorter = mSortMap.get(index);
-		
-		//System.err.println("get sorter " + index + " " + sorter);
-		
-		// Use a default if not specified
-		if (sorter == null) {
-			sorter = mDefaultSorter;
-		}
-		
-		return sorter;
-	}
+  /**
+   * Sets a sorter for columns if non has been specified.
+   */
+  private ModernDataIndexSorter mDefaultSorter = NO_SORT;
 
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		mSortMap.clear();
-	}
+  /**
+   * The member sort index.
+   */
+  private int mSortIndex = -1;
+
+  /**
+   * Sets the default sorter.
+   *
+   * @param sorter
+   *          the new default sorter
+   */
+  public final void setDefaultSorter(ModernDataIndexSorter sorter) {
+    if (sorter == null) {
+      return;
+    }
+
+    mDefaultSorter = sorter;
+  }
+
+  /**
+   * Sets the.
+   *
+   * @param sortIndex
+   *          the sort index
+   * @param sorter
+   *          the sorter
+   */
+  public final void set(int sortIndex, ModernDataIndexSorter sorter) {
+    if (sorter != null && sortIndex > -1) {
+      mSortMap.put(sortIndex, sorter);
+    }
+  }
+
+  /**
+   * Sets the sort index.
+   *
+   * @param sortIndex
+   *          the new sort index
+   */
+  public void setSortIndex(int sortIndex) {
+    // System.err.println("Setting sort sortIndex " + sortIndex);
+
+    mSortIndex = sortIndex;
+  }
+
+  /**
+   * Gets the sort index.
+   *
+   * @return the sort index
+   */
+  public int getSortIndex() {
+    return mSortIndex;
+  }
+
+  /**
+   * Returns the selected sorter.
+   *
+   * @return the sorter
+   */
+  public ModernDataIndexSorter getSorter() {
+    return get(mSortIndex);
+  }
+
+  /**
+   * Returns the sortIndex sorter for a given table sortIndex. If the index is -1,
+   * the special nosort indexer is returned so that the table can be display as it
+   * was loaded (i.e unsorted)
+   *
+   * @param index
+   *          the index
+   * @return the modern data index sorter
+   */
+  public final ModernDataIndexSorter get(int index) {
+    if (index == -1) {
+      return NO_SORT;
+    }
+
+    ModernDataIndexSorter sorter = mSortMap.get(index);
+
+    // System.err.println("get sorter " + index + " " + sorter);
+
+    // Use a default if not specified
+    if (sorter == null) {
+      sorter = mDefaultSorter;
+    }
+
+    return sorter;
+  }
+
+  /**
+   * Clear.
+   */
+  public void clear() {
+    mSortMap.clear();
+  }
 }

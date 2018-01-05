@@ -36,60 +36,60 @@ import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.scrollpane.ScrollBarPolicy;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernLayersPanel.
  */
 public class ModernLayersPanel extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The collapse pane.
-	 */
-	private ModernCollapsePane collapsePane = new ModernCollapsePane();
-	
 
-	/**
-	 * Instantiates a new modern layers panel.
-	 */
-	public ModernLayersPanel() {
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		ModernScrollPane scrollPane = new ModernScrollPane(collapsePane);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
-		//scrollPane.setOpaque(false);
-		//scrollPane.getClip().setOpaque(false);
-		//collapsePane.setOpaque(false);
-		collapsePane.getNodeRenderer().setOpaque(false);
-		//setOpaque(false);
-		
-		add(scrollPane, BorderLayout.CENTER);
-	}
-	
-	/**
-	 * Adds the group.
-	 *
-	 * @param group the group
-	 * @param container the container
-	 */
-	public void addGroup(String group, Box container) {
-		collapsePane.addTab(group, container, true);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		collapsePane.clear();
-	}
+  /**
+   * The collapse pane.
+   */
+  private ModernCollapsePane collapsePane = new ModernCollapsePane();
+
+  /**
+   * Instantiates a new modern layers panel.
+   */
+  public ModernLayersPanel() {
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    ModernScrollPane scrollPane = new ModernScrollPane(collapsePane);
+    scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
+    // scrollPane.setOpaque(false);
+    // scrollPane.getClip().setOpaque(false);
+    // collapsePane.setOpaque(false);
+    collapsePane.getNodeRenderer().setOpaque(false);
+    // setOpaque(false);
+
+    add(scrollPane, BorderLayout.CENTER);
+  }
+
+  /**
+   * Adds the group.
+   *
+   * @param group
+   *          the group
+   * @param container
+   *          the container
+   */
+  public void addGroup(String group, Box container) {
+    collapsePane.addTab(group, container, true);
+  }
+
+  /**
+   * Clear.
+   */
+  public void clear() {
+    collapsePane.clear();
+  }
 }

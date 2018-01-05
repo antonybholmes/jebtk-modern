@@ -35,61 +35,60 @@ import org.jebtk.modern.MaterialService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.menu.ModernMenuItem;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class FileTitleMenuItem.
  */
 public class FileTitleMenuItem extends ModernMenuItem {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant TITLE_COLOR.
-	 */
-	private static final Color TITLE_COLOR = 
-			MaterialService.getInstance().color("ribbon-theme"); //ThemeService.getInstance().colors().getColorHighlight32(16);
-	
-	/**
-	 * The constant TITLE_SIZE.
-	 */
-	private static final Dimension TITLE_SIZE = 
-			new Dimension(Short.MAX_VALUE, 60);
-		
-	
-	/**
-	 * Instantiates a new file title menu item.
-	 *
-	 * @param text the text
-	 */
-	public FileTitleMenuItem(String text) {
-		super(text);
-		
-		setEnabled(false);
-		
-		setFont(HEADING_FONT);
-		
-		//setMinimumSize(TITLE_SIZE);
-		//setPreferredSize(TITLE_SIZE);
-		
-		UI.setSize(this, TITLE_SIZE);
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (mDisplayText == null) {
-			return;
-		}
-		
-		g2.setColor(TITLE_COLOR);
-		
-		g2.drawString(mDisplayText, PADDING, getTextYPosCenter(g2, getHeight()));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant TITLE_COLOR.
+   */
+  private static final Color TITLE_COLOR = MaterialService.getInstance().color("ribbon-theme"); // ThemeService.getInstance().colors().getColorHighlight32(16);
+
+  /**
+   * The constant TITLE_SIZE.
+   */
+  private static final Dimension TITLE_SIZE = new Dimension(Short.MAX_VALUE, 60);
+
+  /**
+   * Instantiates a new file title menu item.
+   *
+   * @param text
+   *          the text
+   */
+  public FileTitleMenuItem(String text) {
+    super(text);
+
+    setEnabled(false);
+
+    setFont(HEADING_FONT);
+
+    // setMinimumSize(TITLE_SIZE);
+    // setPreferredSize(TITLE_SIZE);
+
+    UI.setSize(this, TITLE_SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.menu.ModernMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mDisplayText == null) {
+      return;
+    }
+
+    g2.setColor(TITLE_COLOR);
+
+    g2.drawString(mDisplayText, PADDING, getTextYPosCenter(g2, getHeight()));
+  }
 }

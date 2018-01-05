@@ -35,20 +35,20 @@ package org.jebtk.modern.dialog;
  *
  */
 public interface ModernDialogConstructor {
-	//public void createRibbon();
-	
-	/**
-	 * Creates the ui.
-	 */
-	public void createUi();
+  // public void createRibbon();
 
-	/**
-	 * Creates the menus.
-	 */
-	public void createMenus();
+  /**
+   * Creates the ui.
+   */
+  public void createUi();
 
-	/**
-	 * Inits the.
-	 */
-	public void init();
+  /**
+   * Creates the menus.
+   */
+  public void createMenus();
+
+  /**
+   * Inits the.
+   */
+  public void init();
 }

@@ -37,55 +37,57 @@ import org.jebtk.core.event.ChangeListeners;
  *
  */
 public class ViewModel extends ChangeListeners {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant VIEW_CHANGED_EVENT.
-	 */
-	public static final String VIEW_CHANGED_EVENT = "view_changed";
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member view.
-	 */
-	private String mView = "Details";
-	
-	/**
-	 * Instantiates a new view model.
-	 */
-	public ViewModel() {
-		
-	}
-	
-	/**
-	 * Instantiates a new view model.
-	 *
-	 * @param view the view
-	 */
-	public ViewModel(String view) {
-		setView(view);
-	}
+  /**
+   * The constant VIEW_CHANGED_EVENT.
+   */
+  public static final String VIEW_CHANGED_EVENT = "view_changed";
 
-	/**
-	 * Gets the view.
-	 *
-	 * @return the view
-	 */
-	public String getView() {
-		return mView;
-	}
+  /**
+   * The member view.
+   */
+  private String mView = "Details";
 
-	/**
-	 * Sets the view.
-	 *
-	 * @param view the new view
-	 */
-	public void setView(String view) {
-		mView = view;
-		
-		fireChanged();
-	}
+  /**
+   * Instantiates a new view model.
+   */
+  public ViewModel() {
+
+  }
+
+  /**
+   * Instantiates a new view model.
+   *
+   * @param view
+   *          the view
+   */
+  public ViewModel(String view) {
+    setView(view);
+  }
+
+  /**
+   * Gets the view.
+   *
+   * @return the view
+   */
+  public String getView() {
+    return mView;
+  }
+
+  /**
+   * Sets the view.
+   *
+   * @param view
+   *          the new view
+   */
+  public void setView(String view) {
+    mView = view;
+
+    fireChanged();
+  }
 }

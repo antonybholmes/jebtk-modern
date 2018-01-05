@@ -32,34 +32,33 @@ import java.awt.Dimension;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Concrete implementation of a button which
- * responds to click events.
+ * Concrete implementation of a button which responds to click events.
  *
  * @author Antony Holmes Holmes
  */
 public class ModernSideTabIconButton extends ModernButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant SIZE.
-	 */
-	private static final Dimension SIZE = new Dimension(32, 32);
 
-	/**
-	 * Instantiates a new modern side tab icon button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernSideTabIconButton(ModernIcon icon) {
-		super(icon);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		UI.setSize(this, SIZE);
-	}
+  /**
+   * The constant SIZE.
+   */
+  private static final Dimension SIZE = new Dimension(32, 32);
+
+  /**
+   * Instantiates a new modern side tab icon button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernSideTabIconButton(ModernIcon icon) {
+    super(icon);
+
+    UI.setSize(this, SIZE);
+  }
 }

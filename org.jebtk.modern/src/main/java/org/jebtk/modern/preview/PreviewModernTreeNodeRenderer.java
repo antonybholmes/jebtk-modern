@@ -30,7 +30,6 @@ package org.jebtk.modern.preview;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.tree.TreeIconNodeCountRenderer;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Basic renderer for displaying directories and files.
@@ -39,18 +38,18 @@ import org.jebtk.modern.tree.TreeIconNodeCountRenderer;
  *
  */
 public class PreviewModernTreeNodeRenderer extends TreeIconNodeCountRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new preview modern tree node renderer.
-	 */
-	public PreviewModernTreeNodeRenderer() {
 
-		super(UIService.getInstance().loadIcon("table", UIService.ICON_SIZE_16),
-			UIService.getInstance().loadIcon("table", UIService.ICON_SIZE_16));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new preview modern tree node renderer.
+   */
+  public PreviewModernTreeNodeRenderer() {
+
+    super(UIService.getInstance().loadIcon("table", UIService.ICON_SIZE_16),
+        UIService.getInstance().loadIcon("table", UIService.ICON_SIZE_16));
+  }
 }

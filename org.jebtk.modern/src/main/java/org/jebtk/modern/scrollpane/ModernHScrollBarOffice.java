@@ -35,7 +35,6 @@ import org.jebtk.modern.graphics.icons.CheveronLeftVectorIcon;
 import org.jebtk.modern.graphics.icons.CheveronRightVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
@@ -45,106 +44,112 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  */
 public class ModernHScrollBarOffice extends ModernHScrollBar {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant LEFT_ARROW_ICON.
+   */
+  protected static final ModernIcon LEFT_ARROW_ICON = UIService.getInstance().loadIcon(CheveronLeftVectorIcon.class,
+      SCROLLBAR_SIZE);
 
-	/**
-	 * The constant LEFT_ARROW_ICON.
-	 */
-	protected static final ModernIcon LEFT_ARROW_ICON = 
-			UIService.getInstance().loadIcon(CheveronLeftVectorIcon.class, SCROLLBAR_SIZE);
+  /**
+   * The constant RIGHT_ARROW_ICON.
+   */
+  protected static final ModernIcon RIGHT_ARROW_ICON = UIService.getInstance().loadIcon(CheveronRightVectorIcon.class,
+      SCROLLBAR_SIZE); // Resources.getInstance().loadIcon("right_scroll", Resources.ICON_SIZE_16);
 
-	/**
-	 * The constant RIGHT_ARROW_ICON.
-	 */
-	protected static final ModernIcon RIGHT_ARROW_ICON = 
-			UIService.getInstance().loadIcon(CheveronRightVectorIcon.class, SCROLLBAR_SIZE); //Resources.getInstance().loadIcon("right_scroll", Resources.ICON_SIZE_16);
+  /**
+   * Instantiates a new modern H scroll bar office.
+   */
+  public ModernHScrollBarOffice() {
+    setBorder(TOP_BORDER);
+  }
 
-	
-	/**
-	 * Instantiates a new modern H scroll bar office.
-	 */
-	public ModernHScrollBarOffice() {
-		setBorder(TOP_BORDER);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#scrollBarSetup()
-	 */
-	@Override
-	public void scrollBarSetup() {
-		scrollBarSetup(mInternalRect.getW() - 2 * mIternalFixedDim);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.ModernScrollBar#paintScrollBarBase(java.awt.Graphics2D)
-	 */
-	@Override
-	protected void paintScrollBarBase(Graphics2D g2) {
-		fill(g2, BASE_COLOR, mInternalRect);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#scrollBarSetup()
+   */
+  @Override
+  public void scrollBarSetup() {
+    scrollBarSetup(mInternalRect.getW() - 2 * mIternalFixedDim);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#paintScrollBar(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void paintScrollBar(Graphics2D g2, Rectangle r) {
-		if (mHighlightScroll) {
-			paintScrollBarHighlighted(g2, r);
-		} else {
-			paintScrollBarButton(g2, r);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.scrollpane.ModernScrollBar#paintScrollBarBase(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  protected void paintScrollBarBase(Graphics2D g2) {
+    fill(g2, BASE_COLOR, mInternalRect);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernHScrollBar#paintUpButton(java.awt.Graphics2D)
-	 */
-	@Override
-	public void paintUpButton(Graphics2D g2) {
-		Rectangle r = new Rectangle(getInsets().left, 
-				getInsets().top, 
-				mIternalFixedDim, 
-				mIternalFixedDim);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.scrollpane.ModernScrollBar#paintScrollBar(java.awt.
+   * Graphics2D, java.awt.Rectangle)
+   */
+  @Override
+  public void paintScrollBar(Graphics2D g2, Rectangle r) {
+    if (mHighlightScroll) {
+      paintScrollBarHighlighted(g2, r);
+    } else {
+      paintScrollBarButton(g2, r);
+    }
+  }
 
-		if (mHighlightButton1) {
-			paintScrollBarButtonHighlighted(g2, r);
-		} else {
-			paintScrollBarButton(g2, r);
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.scrollpane.ModernHScrollBar#paintUpButton(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void paintUpButton(Graphics2D g2) {
+    Rectangle r = new Rectangle(getInsets().left, getInsets().top, mIternalFixedDim, mIternalFixedDim);
 
-		int offset = (getInternalFixedDimension() - LEFT_ARROW_ICON.getWidth()) / 2;
+    if (mHighlightButton1) {
+      paintScrollBarButtonHighlighted(g2, r);
+    } else {
+      paintScrollBarButton(g2, r);
+    }
 
-		LEFT_ARROW_ICON.drawIcon(g2,
-				getInsets().left + offset,
-				getInsets().top + offset,
-				mIternalFixedDim);
-	}
+    int offset = (getInternalFixedDimension() - LEFT_ARROW_ICON.getWidth()) / 2;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernHScrollBar#paintDownButton(java.awt.Graphics2D)
-	 */
-	@Override
-	public void paintDownButton(Graphics2D g2) {
-		Rectangle r = new Rectangle(getWidth() - mIternalFixedDim - getInsets().right,
-				getInsets().top,
-				mIternalFixedDim,
-				mIternalFixedDim);
+    LEFT_ARROW_ICON.drawIcon(g2, getInsets().left + offset, getInsets().top + offset, mIternalFixedDim);
+  }
 
-		if (mHighlightButton2) {
-			paintScrollBarButtonHighlighted(g2, r);
-		} else {
-			paintScrollBarButton(g2, r);
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.scrollpane.ModernHScrollBar#paintDownButton(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void paintDownButton(Graphics2D g2) {
+    Rectangle r = new Rectangle(getWidth() - mIternalFixedDim - getInsets().right, getInsets().top, mIternalFixedDim,
+        mIternalFixedDim);
 
-		int offset = (mIternalFixedDim - RIGHT_ARROW_ICON.getWidth()) / 2;
+    if (mHighlightButton2) {
+      paintScrollBarButtonHighlighted(g2, r);
+    } else {
+      paintScrollBarButton(g2, r);
+    }
 
-		RIGHT_ARROW_ICON.drawIcon(g2,
-				getWidth() - mIternalFixedDim - getInsets().right + offset,
-				getInsets().top + offset,
-				mIternalFixedDim);
-	}
+    int offset = (mIternalFixedDim - RIGHT_ARROW_ICON.getWidth()) / 2;
+
+    RIGHT_ARROW_ICON.drawIcon(g2, getWidth() - mIternalFixedDim - getInsets().right + offset, getInsets().top + offset,
+        mIternalFixedDim);
+  }
 
 }

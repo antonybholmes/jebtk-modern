@@ -31,33 +31,34 @@ import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.log.LogEventListener;
 import org.jebtk.modern.status.StatusModel;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class StatusLog.
  */
 public class StatusLog implements LogEventListener {
-	
-	/**
-	 * The status model.
-	 */
-	private StatusModel statusModel;
 
-	/**
-	 * Instantiates a new status log.
-	 *
-	 * @param statusModel the status model
-	 */
-	public StatusLog(StatusModel statusModel) {
-		this.statusModel = statusModel;
-	}
+  /**
+   * The status model.
+   */
+  private StatusModel statusModel;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
-	 */
-	@Override
-	public void logEvent(LogEvent e) {
-		statusModel.setStatus(e.getMessage());
-	}
+  /**
+   * Instantiates a new status log.
+   *
+   * @param statusModel
+   *          the status model
+   */
+  public StatusLog(StatusModel statusModel) {
+    this.statusModel = statusModel;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
+   */
+  @Override
+  public void logEvent(LogEvent e) {
+    statusModel.setStatus(e.getMessage());
+  }
 }

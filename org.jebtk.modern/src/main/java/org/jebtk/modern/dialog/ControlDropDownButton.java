@@ -19,7 +19,6 @@ import java.awt.Dimension;
 
 import org.jebtk.modern.UI;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Generic control drop down button. Provides the basic button UI
@@ -28,26 +27,26 @@ import org.jebtk.modern.UI;
  *
  */
 public abstract class ControlDropDownButton extends ModernDialogFlatDropDownButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SIZE.
-	 */
-	protected static final Dimension SIZE = 
-			new Dimension(48, WIDGET_HEIGHT);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new dashed line type button.
-	 *
-	 * @param text1 the text 1
-	 */
-	public ControlDropDownButton(String text1) {
-		super(text1);
-		
-		UI.setSize(this, SIZE);
-	}
+  /**
+   * The constant SIZE.
+   */
+  protected static final Dimension SIZE = new Dimension(48, WIDGET_HEIGHT);
+
+  /**
+   * Instantiates a new dashed line type button.
+   *
+   * @param text1
+   *          the text 1
+   */
+  public ControlDropDownButton(String text1) {
+    super(text1);
+
+    UI.setSize(this, SIZE);
+  }
 }

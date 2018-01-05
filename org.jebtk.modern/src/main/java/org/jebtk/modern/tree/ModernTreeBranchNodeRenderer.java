@@ -33,112 +33,120 @@ import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RasterIcon;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a rudimentary implementation of a node renderer that
- * detects if is selected and what the tree branching depth is.
- * This forms the basis of concrete implementations of renderers.
+ * Provides a rudimentary implementation of a node renderer that detects if is
+ * selected and what the tree branching depth is. This forms the basis of
+ * concrete implementations of renderers.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public abstract class ModernTreeBranchNodeRenderer extends ModernTreeNodeRenderer {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/** The Constant BRANCH_OPEN_ICON. */
-	public static final RasterIcon BRANCH_OPEN_ICON = 
-			new RasterIcon(new ModernBranchOpenVectorIcon(), 12); //new TriangleDownVectorIcon()); //CheveronDownVectorIcon());
-	
-	/** The Constant BRANCH_CLOSED_ICON. */
-	public static final RasterIcon BRANCH_CLOSED_ICON = 
-			new RasterIcon(new ModernBranchClosedVectorIcon(), 12); //new TriangleRightVectorIcon());
-	
-	/** The m branch closed icon. */
-	public static ModernIcon mBranchClosedIcon = BRANCH_CLOSED_ICON; //new ModernBranchClosedVectorIcon());
-	
-	/** The m branch open icon. */
-	public static ModernIcon mBranchOpenIcon = BRANCH_OPEN_ICON; //new ModernBranchOpenVectorIcon());
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/** The m branch width. */
-	protected int mBranchWidth = 16;
-	
-	/**
-	 * Gets the branch width.
-	 *
-	 * @return the branch width
-	 */
-	public int getBranchWidth() {
-		return mBranchWidth ;
-	}
-	
-	/**
-	 * Set the height the node will be rendered at.
-	 *
-	 * @param branchWidth the new branch width
-	 */
-	public void setBranchWidth(int branchWidth) {
-		mBranchWidth = branchWidth;
-	}
+  /** The Constant BRANCH_OPEN_ICON. */
+  public static final RasterIcon BRANCH_OPEN_ICON = new RasterIcon(new ModernBranchOpenVectorIcon(), 12); // new
+                                                                                                          // TriangleDownVectorIcon());
+                                                                                                          // //CheveronDownVectorIcon());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawNode(Graphics2D g2) {
-		drawNodeBranch(g2);
-		
-		Graphics2D g2Temp = ImageUtils.clone(g2);
-		
-		try {
-			g2Temp.translate(mBranchWidth, 0);
-			
-			drawNodeIconText(g2Temp);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
-	
-	/**
-	 * Draws the rest of the node excluding the branch icon. It is assumed
-	 * the branch icon will rename the same even if the node look changes.
-	 *
-	 * @param g2 the g 2
-	 */
-	public void drawNodeIconText(Graphics2D g2) {
-		// Do nothing
-	}
+  /** The Constant BRANCH_CLOSED_ICON. */
+  public static final RasterIcon BRANCH_CLOSED_ICON = new RasterIcon(new ModernBranchClosedVectorIcon(), 12); // new
+                                                                                                              // TriangleRightVectorIcon());
 
-	/**
-	 * Draws the branch icon for the node.
-	 *
-	 * @param g2 the g 2
-	 */
-	public void drawNodeBranch(Graphics2D g2) {
-		int x = (mBranchWidth - mBranchOpenIcon.getWidth()) / 2;
+  /** The m branch closed icon. */
+  public static ModernIcon mBranchClosedIcon = BRANCH_CLOSED_ICON; // new ModernBranchClosedVectorIcon());
 
-		int y = (getHeight() - mBranchOpenIcon.getHeight()) / 2;
-		
-		drawNodeBranch(g2, x, y);
-	}
-	
-	/**
-	 * Draw the branch at a particular location.
-	 *
-	 * @param g2 the g 2
-	 * @param x the x
-	 * @param y the y
-	 */
-	public void drawNodeBranch(Graphics2D g2, int x, int y) {
-		if (mNode.isParent()) {
-			if (mNode.isExpanded()) {
-				mBranchOpenIcon.drawIcon(g2, x, y, 16);
-			} else {
-				mBranchClosedIcon.drawIcon(g2, x, y, 16);
-			}
-		}
-	}
+  /** The m branch open icon. */
+  public static ModernIcon mBranchOpenIcon = BRANCH_OPEN_ICON; // new ModernBranchOpenVectorIcon());
+
+  /** The m branch width. */
+  protected int mBranchWidth = 16;
+
+  /**
+   * Gets the branch width.
+   *
+   * @return the branch width
+   */
+  public int getBranchWidth() {
+    return mBranchWidth;
+  }
+
+  /**
+   * Set the height the node will be rendered at.
+   *
+   * @param branchWidth
+   *          the new branch width
+   */
+  public void setBranchWidth(int branchWidth) {
+    mBranchWidth = branchWidth;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawNode(Graphics2D g2) {
+    drawNodeBranch(g2);
+
+    Graphics2D g2Temp = ImageUtils.clone(g2);
+
+    try {
+      g2Temp.translate(mBranchWidth, 0);
+
+      drawNodeIconText(g2Temp);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
+
+  /**
+   * Draws the rest of the node excluding the branch icon. It is assumed the
+   * branch icon will rename the same even if the node look changes.
+   *
+   * @param g2
+   *          the g 2
+   */
+  public void drawNodeIconText(Graphics2D g2) {
+    // Do nothing
+  }
+
+  /**
+   * Draws the branch icon for the node.
+   *
+   * @param g2
+   *          the g 2
+   */
+  public void drawNodeBranch(Graphics2D g2) {
+    int x = (mBranchWidth - mBranchOpenIcon.getWidth()) / 2;
+
+    int y = (getHeight() - mBranchOpenIcon.getHeight()) / 2;
+
+    drawNodeBranch(g2, x, y);
+  }
+
+  /**
+   * Draw the branch at a particular location.
+   *
+   * @param g2
+   *          the g 2
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   */
+  public void drawNodeBranch(Graphics2D g2, int x, int y) {
+    if (mNode.isParent()) {
+      if (mNode.isExpanded()) {
+        mBranchOpenIcon.drawIcon(g2, x, y, 16);
+      } else {
+        mBranchClosedIcon.drawIcon(g2, x, y, 16);
+      }
+    }
+  }
 }

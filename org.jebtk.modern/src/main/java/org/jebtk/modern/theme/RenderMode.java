@@ -20,16 +20,16 @@ package org.jebtk.modern.theme;
  * The Enum RenderMode.
  */
 public enum RenderMode {
-	
-	/** The highlight. */
-	HIGHLIGHT,
-	
-	/** The selected. */
-	SELECTED,
-	
-	/** The disabled. */
-	DISABLED,
-	
-	/** The none. */
-	NONE
+
+  /** The highlight. */
+  HIGHLIGHT,
+
+  /** The selected. */
+  SELECTED,
+
+  /** The disabled. */
+  DISABLED,
+
+  /** The none. */
+  NONE
 }

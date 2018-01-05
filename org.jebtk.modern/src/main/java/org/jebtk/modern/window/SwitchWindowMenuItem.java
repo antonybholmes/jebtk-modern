@@ -29,9 +29,6 @@ package org.jebtk.modern.window;
 
 import org.jebtk.modern.menu.ModernCheckBoxMenuItem;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Specialized menu item for switching between windows.
@@ -40,21 +37,24 @@ import org.jebtk.modern.menu.ModernCheckBoxMenuItem;
  *
  */
 public class SwitchWindowMenuItem extends ModernCheckBoxMenuItem {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new switch window menu item.
-	 *
-	 * @param index the index
-	 * @param text the text
-	 * @param selected the selected
-	 */
-	public SwitchWindowMenuItem(int index, String text, boolean selected) {
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		super(new StringBuilder().append(index).append(". ").append(text).toString(), selected);
-	}
+  /**
+   * Instantiates a new switch window menu item.
+   *
+   * @param index
+   *          the index
+   * @param text
+   *          the text
+   * @param selected
+   *          the selected
+   */
+  public SwitchWindowMenuItem(int index, String text, boolean selected) {
+
+    super(new StringBuilder().append(index).append(". ").append(text).toString(), selected);
+  }
 }

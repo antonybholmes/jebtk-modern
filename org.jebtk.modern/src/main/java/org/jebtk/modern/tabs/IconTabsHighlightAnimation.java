@@ -33,57 +33,55 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class IconTabsHighlightAnimation extends HighlightAnimation {
 
-	//protected static final Color HIGHLIGHT_COLOR = 
-	//		ThemeService.getInstance().colors().getHighlight(3);
-	
-	
-	private IconTabs mTabs;
-	
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public IconTabsHighlightAnimation(ModernWidget w) {
-		super((IconTabs)w);
+  // protected static final Color HIGHLIGHT_COLOR =
+  // ThemeService.getInstance().colors().getHighlight(3);
 
-		mTabs = (IconTabs)w;
-		
-		getFade().setFadeColor("highlight", 
-				ColorUtils.getTransparentColor(Color.BLACK, 0.95));
-	}
+  private IconTabs mTabs;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public IconTabsHighlightAnimation(ModernWidget w) {
+    super((IconTabs) w);
 
-		int x = mTabs.getInsets().left;
-		int h = mTabs.getInternalRect().getH();
-		int y = mTabs.getInsets().top;
-		
-		int highlighted = mTabs.mHighlight;
-		int selected = mTabs.getTabsModel().getSelectedIndex();
-		
-		//
-		// Draw if highlighted
-		//
-		
-		if (highlighted != -1 && highlighted != selected) {
-			g2.setColor(getFade().getFadeColor("highlight"));
-			g2.fillRect(x + mTabs.mTabSize * highlighted, y, h, h);
-			
-			/*
-			Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
-			
-			try {
-				g2Temp.setColor(getFade().getFadeColor("highlight"));
-				g2Temp.fillOval(x + mTabs.mTabSize * highlighted, y, h, h);
-			} finally {
-				g2Temp.dispose();
-			}
-			*/
-		}
-	}	
+    mTabs = (IconTabs) w;
+
+    getFade().setFadeColor("highlight", ColorUtils.getTransparentColor(Color.BLACK, 0.95));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+
+    int x = mTabs.getInsets().left;
+    int h = mTabs.getInternalRect().getH();
+    int y = mTabs.getInsets().top;
+
+    int highlighted = mTabs.mHighlight;
+    int selected = mTabs.getTabsModel().getSelectedIndex();
+
+    //
+    // Draw if highlighted
+    //
+
+    if (highlighted != -1 && highlighted != selected) {
+      g2.setColor(getFade().getFadeColor("highlight"));
+      g2.fillRect(x + mTabs.mTabSize * highlighted, y, h, h);
+
+      /*
+       * Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+       * 
+       * try { g2Temp.setColor(getFade().getFadeColor("highlight")); g2Temp.fillOval(x
+       * + mTabs.mTabSize * highlighted, y, h, h); } finally { g2Temp.dispose(); }
+       */
+    }
+  }
 }

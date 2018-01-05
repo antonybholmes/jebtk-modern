@@ -48,173 +48,179 @@ import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.widget.ModernTwoStateWidget;
 import org.jebtk.modern.window.ModernWindow;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class FilterPopupMenu.
  */
 public class FilterPopupMenu extends ModernPopup implements FilterEventListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SIZE.
-	 */
-	private static final Dimension SIZE = 
-			new Dimension(280, 24);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member filter model.
-	 */
-	private FilterModel mFilterModel;
-	
-	/**
-	 * The member button map.
-	 */
-	private Map<String, ModernTwoStateWidget> mButtonMap =
-			new HashMap<String, ModernTwoStateWidget>();
+  /**
+   * The constant SIZE.
+   */
+  private static final Dimension SIZE = new Dimension(280, 24);
 
-	/**
-	 * The member check menu item.
-	 */
-	private ModernTwoStateWidget mCheckMenuItem;
+  /**
+   * The member filter model.
+   */
+  private FilterModel mFilterModel;
 
-	/**
-	 * Instantiates a new filter popup menu.
-	 *
-	 * @param parent the parent
-	 * @param filterModel the filter model
-	 */
-	public FilterPopupMenu(ModernWindow parent,
-			FilterModel filterModel) {
-		mFilterModel = filterModel;
-		
-		//mSortModel.addSampleSortListener(this);
-		mFilterModel.addFilterListener(this);
-		
-		mCheckMenuItem = new ModernCheckSwitch(UI.MENU_SELECT_ALL, true);
-		mCheckMenuItem.addClickListener(this);
-		UI.setSize(mCheckMenuItem, SIZE);
-		
-		setup();
-		
-		//addMenuItem(new ModernMenuDivider());
-		
-		//checkMenuItem = new ModernCheckBoxMenuItem("Check All", true);
-		//Ui.setSize(checkMenuItem, SIZE);
-		
-		//addMenuItem(checkMenuItem);
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		
-		removeAll();
-		
-		//ModernTitleMenuItem title = new ModernTitleMenuItem("Filters");
-		
-		//Ui.setSize(title, SIZE);
-		
-		//add(title);
-		
-		ModernComponent box = new ModernComponent(new ColumnLayout(3, 160, 28));
-		
-		mCheckMenuItem.setSelected(true);
-		box.add(mCheckMenuItem);
-		
-		for (String name : mFilterModel) {
-			ModernTwoStateWidget menuItem = 
-					new ModernCheckSwitch(name, mFilterModel.keep(name));
-			
-			menuItem.addClickListener(this);
-			
-			UI.setSize(menuItem, SIZE);
-			
-			mButtonMap.put(name, menuItem);
-			
-			box.add(menuItem);
-		}
-		
-		
-		
-		//ModernScrollPane scrollPane = new ModernScrollPane(box);
-		
-		//UI.setSize(scrollPane, SIZE.width, 200); //scrollPane.setMinimuSize(Short.MAX_VALUE, 300);
-		//scrollPane.setBorder(ModernPanel.BORDER);
-		//scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
-		add(box);
-		
-		Box buttonBox = new ButtonsBox();
-		
-		ModernButton button = new ModernDialogButton(UI.BUTTON_OK);
-		button.addClickListener(this);
-		buttonBox.add(button);
-		
-		buttonBox.add(ModernPanel.createHGap());
-		
-		button = new ModernDialogButton(UI.BUTTON_CANCEL);
-		button.addClickListener(this);
-		buttonBox.add(button);
-		
-		buttonBox.setBorder(ModernPanel.BORDER);
-		add(buttonBox);
-		
-		//setBorder(ModernPanel.BORDER);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernPopup#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		if (e.getMessage().equals(UI.BUTTON_OK)) {
-			Map<String, Boolean> updates = new HashMap<String, Boolean>();
-			
-			for (String name : mButtonMap.keySet()) {
-				updates.put(name, mButtonMap.get(name).isSelected());
-				
-			}
-			
-			mFilterModel.setSelected(updates);
-			
-			super.clicked(new ModernClickEvent(this, e.getMessage()));
-		} else if (e.getMessage().equals(UI.BUTTON_CANCEL)) {
-			super.clicked(new ModernClickEvent(this, e.getMessage()));
-		} else if (e.getMessage().equals("Select All")) {
-			for (String name : mButtonMap.keySet()) {
-				mButtonMap.get(name).setSelected(mCheckMenuItem.isSelected());
-			}
-		} else {
-			//mFilterModel.setFilter(e.getMessage(), mButtonMap.get(e.getMessage()).isSelected());
-		}
-	}
+  /**
+   * The member button map.
+   */
+  private Map<String, ModernTwoStateWidget> mButtonMap = new HashMap<String, ModernTwoStateWidget>();
 
-	
+  /**
+   * The member check menu item.
+   */
+  private ModernTwoStateWidget mCheckMenuItem;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.search.FilterEventListener#filterChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void filtersUpdated(ChangeEvent e) {
-		for (String name : mFilterModel) {
-			ModernTwoStateWidget menuItem = mButtonMap.get(name);
-			
-			menuItem.setSelected(mFilterModel.keep(name));
-		}
-	}
+  /**
+   * Instantiates a new filter popup menu.
+   *
+   * @param parent
+   *          the parent
+   * @param filterModel
+   *          the filter model
+   */
+  public FilterPopupMenu(ModernWindow parent, FilterModel filterModel) {
+    mFilterModel = filterModel;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.search.FilterEventListener#filtersUpdated(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void filtersChanged(ChangeEvent e) {
-		setup();
-	}
+    // mSortModel.addSampleSortListener(this);
+    mFilterModel.addFilterListener(this);
+
+    mCheckMenuItem = new ModernCheckSwitch(UI.MENU_SELECT_ALL, true);
+    mCheckMenuItem.addClickListener(this);
+    UI.setSize(mCheckMenuItem, SIZE);
+
+    setup();
+
+    // addMenuItem(new ModernMenuDivider());
+
+    // checkMenuItem = new ModernCheckBoxMenuItem("Check All", true);
+    // Ui.setSize(checkMenuItem, SIZE);
+
+    // addMenuItem(checkMenuItem);
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
+    removeAll();
+
+    // ModernTitleMenuItem title = new ModernTitleMenuItem("Filters");
+
+    // Ui.setSize(title, SIZE);
+
+    // add(title);
+
+    ModernComponent box = new ModernComponent(new ColumnLayout(3, 160, 28));
+
+    mCheckMenuItem.setSelected(true);
+    box.add(mCheckMenuItem);
+
+    for (String name : mFilterModel) {
+      ModernTwoStateWidget menuItem = new ModernCheckSwitch(name, mFilterModel.keep(name));
+
+      menuItem.addClickListener(this);
+
+      UI.setSize(menuItem, SIZE);
+
+      mButtonMap.put(name, menuItem);
+
+      box.add(menuItem);
+    }
+
+    // ModernScrollPane scrollPane = new ModernScrollPane(box);
+
+    // UI.setSize(scrollPane, SIZE.width, 200);
+    // //scrollPane.setMinimuSize(Short.MAX_VALUE, 300);
+    // scrollPane.setBorder(ModernPanel.BORDER);
+    // scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
+    add(box);
+
+    Box buttonBox = new ButtonsBox();
+
+    ModernButton button = new ModernDialogButton(UI.BUTTON_OK);
+    button.addClickListener(this);
+    buttonBox.add(button);
+
+    buttonBox.add(ModernPanel.createHGap());
+
+    button = new ModernDialogButton(UI.BUTTON_CANCEL);
+    button.addClickListener(this);
+    buttonBox.add(button);
+
+    buttonBox.setBorder(ModernPanel.BORDER);
+    add(buttonBox);
+
+    // setBorder(ModernPanel.BORDER);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.menu.ModernPopup#clicked(org.abh.lib.ui.modern.event.
+   * ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    if (e.getMessage().equals(UI.BUTTON_OK)) {
+      Map<String, Boolean> updates = new HashMap<String, Boolean>();
+
+      for (String name : mButtonMap.keySet()) {
+        updates.put(name, mButtonMap.get(name).isSelected());
+
+      }
+
+      mFilterModel.setSelected(updates);
+
+      super.clicked(new ModernClickEvent(this, e.getMessage()));
+    } else if (e.getMessage().equals(UI.BUTTON_CANCEL)) {
+      super.clicked(new ModernClickEvent(this, e.getMessage()));
+    } else if (e.getMessage().equals("Select All")) {
+      for (String name : mButtonMap.keySet()) {
+        mButtonMap.get(name).setSelected(mCheckMenuItem.isSelected());
+      }
+    } else {
+      // mFilterModel.setFilter(e.getMessage(),
+      // mButtonMap.get(e.getMessage()).isSelected());
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.search.FilterEventListener#filterChanged(org.abh.lib.
+   * event.ChangeEvent)
+   */
+  @Override
+  public void filtersUpdated(ChangeEvent e) {
+    for (String name : mFilterModel) {
+      ModernTwoStateWidget menuItem = mButtonMap.get(name);
+
+      menuItem.setSelected(mFilterModel.keep(name));
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.search.FilterEventListener#filtersUpdated(org.abh.lib.
+   * event.ChangeEvent)
+   */
+  @Override
+  public void filtersChanged(ChangeEvent e) {
+    setup();
+  }
 }

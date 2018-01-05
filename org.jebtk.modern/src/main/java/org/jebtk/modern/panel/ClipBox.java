@@ -33,57 +33,61 @@ import javax.swing.JComponent;
 
 // TODO: Auto-generated Javadoc
 /**
- * Provides a basic way to clip a panel that holds ui elements
- * and not just drawing code for the canvas.
+ * Provides a basic way to clip a panel that holds ui elements and not just
+ * drawing code for the canvas.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ClipBox extends JComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The content.
-	 */
-	protected JComponent content;
 
-	/**
-	 * Instantiates a new clip box.
-	 *
-	 * @param content the content
-	 */
-	public ClipBox(JComponent content) {
-		setLayout(null);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		this.content = content;
+  /**
+   * The content.
+   */
+  protected JComponent content;
 
-		add(content);
-		
-		setOffset(0, 0);
-		
-		content.setSize(content.getPreferredSize());
-	}
+  /**
+   * Instantiates a new clip box.
+   *
+   * @param content
+   *          the content
+   */
+  public ClipBox(JComponent content) {
+    setLayout(null);
 
-	/**
-	 * Sets the offset.
-	 *
-	 * @param offset the new offset
-	 */
-	public final void setOffset(Point offset) {
-		setOffset(offset.x, offset.y);
-	}
+    this.content = content;
 
-	/**
-	 * Sets the offset.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 */
-	public void setOffset(int x, int y) {
-		content.setLocation(x, y);
-	}
+    add(content);
+
+    setOffset(0, 0);
+
+    content.setSize(content.getPreferredSize());
+  }
+
+  /**
+   * Sets the offset.
+   *
+   * @param offset
+   *          the new offset
+   */
+  public final void setOffset(Point offset) {
+    setOffset(offset.x, offset.y);
+  }
+
+  /**
+   * Sets the offset.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   */
+  public void setOffset(int x, int y) {
+    content.setLocation(x, y);
+  }
 }

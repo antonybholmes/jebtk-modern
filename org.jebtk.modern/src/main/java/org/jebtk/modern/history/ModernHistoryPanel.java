@@ -48,285 +48,307 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernHistoryPanel.
  *
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernHistoryPanel<T> extends ModernComponent implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member up button.
-	 */
-	private ModernButton mUpButton = new 
-			ModernButton(UIService.getInstance().loadIcon("up_arrow", 16));
-	
-	/**
-	 * The member down button.
-	 */
-	private ModernButton mDownButton = new 
-			ModernButton(UIService.getInstance().loadIcon("down_arrow", 16));
-	
-	/**
-	 * The member history model.
-	 */
-	protected ModernListModel<T> mHistoryModel = 
-			new ModernListModel<T>();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member history list.
-	 */
-	protected ModernHistoryList<T> mHistoryList = 
-			new ModernHistoryList<T>(mHistoryModel);
-	
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents implements MouseListener {
+  /**
+   * The member up button.
+   */
+  private ModernButton mUpButton = new ModernButton(UIService.getInstance().loadIcon("up_arrow", 16));
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseClicked(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
+  /**
+   * The member down button.
+   */
+  private ModernButton mDownButton = new ModernButton(UIService.getInstance().loadIcon("down_arrow", 16));
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseEntered(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
+  /**
+   * The member history model.
+   */
+  protected ModernListModel<T> mHistoryModel = new ModernListModel<T>();
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseExited(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
+  /**
+   * The member history list.
+   */
+  protected ModernHistoryList<T> mHistoryList = new ModernHistoryList<T>(mHistoryModel);
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents implements MouseListener {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}
-	
-	/**
-	 * Instantiates a new modern history panel.
-	 *
-	 * @param parent the parent
-	 */
-	public ModernHistoryPanel(ModernWindow parent) {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseClicked(MouseEvent arg0) {
+      // TODO Auto-generated method stub
 
-		//mParent = parent;
+    }
 
-		createUi();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseEntered(MouseEvent arg0) {
+      // TODO Auto-generated method stub
 
-		mUpButton.addClickListener(this);
-		mDownButton.addClickListener(this);
-		
-		mHistoryList.addMouseListener(new MouseEvents());
-		
-		// Sync ui
-		mHistoryList.getModel().fireDataChanged();
-	}
+    }
 
-	/**
-	 * Creates the ui.
-	 */
-	public void createUi() {
-		HTabToolbar toolbar = new HTabToolbar("History");
-		
-		toolbar.add(mUpButton);
-		toolbar.add(mDownButton);
-		//toolbar.setBorder(BOTTOM_BORDER);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseExited(MouseEvent arg0) {
+      // TODO Auto-generated method stub
 
-		setHeader(toolbar);
-		
-		ModernScrollPane scrollPane = new ModernScrollPane(mHistoryList);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
-		scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.AUTO_SHOW);
-		scrollPane.setVScrollBarLocation(ScrollBarLocation.FLOATING);
-		//scrollPane.setBorder(DOUBLE_BORDER);
-		setBody(scrollPane);
-	}
+    }
 
-	/**
-	 * Adds the item.
-	 *
-	 * @param item the item
-	 * @return the t
-	 */
-	public T addItem(T item) {
-		return addItem(item, mHistoryList.getSelectedIndex());
-	}
-	
-	/**
-	 * Adds the item.
-	 *
-	 * @param item the item
-	 * @param selectedIndex the selected index
-	 * @return the t
-	 */
-	public T addItem(T item, int selectedIndex) {
-		if (item == null) {
-			return null;
-		}
-		
-		for (int i = mHistoryModel.getItemCount() - 1; i > selectedIndex; --i) {
-			//System.err.println("remove " + i);
-			
-			mHistoryModel.removeValueAt(i);
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent arg0) {
+      // TODO Auto-generated method stub
 
-		mHistoryModel.addValue(item);
+    }
 
-		mHistoryList.setSelectedIndex(mHistoryList.getItemCount() - 1);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseReleased(MouseEvent arg0) {
+      // TODO Auto-generated method stub
 
-		return item;
-	}
-	
-	/**
-	 * Sets the cell renderer.
-	 *
-	 * @param renderer the new cell renderer
-	 */
-	public void setCellRenderer(ModernListCellRenderer renderer) {
-		mHistoryList.setCellRenderer(renderer);
-	}
+    }
 
-	/**
-	 * Adds the selection listener.
-	 *
-	 * @param l the l
-	 */
-	public void addSelectionListener(ModernSelectionListener l) {
-		mHistoryList.addSelectionListener(l);
-	}
+  }
 
-	/**
-	 * Reset history.
-	 */
-	public void resetHistory() {
-		mHistoryList.setSelectedIndex(0);
-	}
+  /**
+   * Instantiates a new modern history panel.
+   *
+   * @param parent
+   *          the parent
+   */
+  public ModernHistoryPanel(ModernWindow parent) {
 
-	/**
-	 * Gets the item count.
-	 *
-	 * @return the item count
-	 */
-	public int getItemCount() {
-		return mHistoryList.getItemCount();
-	}
+    // mParent = parent;
 
-	/**
-	 * Gets the selected item.
-	 *
-	 * @return the selected item
-	 */
-	public T getSelectedItem() {
-		return mHistoryList.getSelectedItem();
-	}
+    createUi();
 
-	/**
-	 * Gets the selected index.
-	 *
-	 * @return the selected index
-	 */
-	public int getSelectedIndex() {
-		return mHistoryList.getSelectedIndex();
-	}
-	
-	/**
-	 * Sets the selected index.
-	 *
-	 * @param i the new selected index
-	 */
-	public void setSelectedIndex(int i) {
-		mHistoryList.setSelectedIndex(i);
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Component#addMouseListener(java.awt.event.MouseListener)
-	 */
-	@Override
-	public void addMouseListener(MouseListener l) {
-		mHistoryList.addMouseListener(l);
-	}
+    mUpButton.addClickListener(this);
+    mDownButton.addClickListener(this);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		if (e.getSource().equals(mUpButton)) {
-			if (mHistoryList.getSelectedIndex() != 0) {
-				mHistoryList.setSelectedIndex(mHistoryList.getSelectedIndex() - 1);
-			}
-		} else {
-			if (mHistoryList.getSelectedIndex() < mHistoryList.getItemCount() - 1) {
-				mHistoryList.setSelectedIndex(mHistoryList.getSelectedIndex() + 1);
-			}
-		}
-	}
+    mHistoryList.addMouseListener(new MouseEvents());
 
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		mHistoryModel.clear();
-	}
+    // Sync ui
+    mHistoryList.getModel().fireDataChanged();
+  }
 
-	/**
-	 * Gets the value at.
-	 *
-	 * @param index the index
-	 * @return the value at
-	 */
-	public T getValueAt(int index) {
-		return mHistoryList.getValueAt(index);
-	}
+  /**
+   * Creates the ui.
+   */
+  public void createUi() {
+    HTabToolbar toolbar = new HTabToolbar("History");
 
-	/**
-	 * Removes the value at.
-	 *
-	 * @param index the index
-	 */
-	public void removeValueAt(int index) {
-		mHistoryList.removeValueAt(index);
-	}
+    toolbar.add(mUpButton);
+    toolbar.add(mDownButton);
+    // toolbar.setBorder(BOTTOM_BORDER);
 
-	/**
-	 * Sets the row height.
-	 *
-	 * @param rowHeight the new row height
-	 */
-	public void setRowHeight(int rowHeight) {
-		mHistoryList.setRowHeight(rowHeight);
-	}
+    setHeader(toolbar);
 
-	
+    ModernScrollPane scrollPane = new ModernScrollPane(mHistoryList);
+    scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
+    scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.AUTO_SHOW);
+    scrollPane.setVScrollBarLocation(ScrollBarLocation.FLOATING);
+    // scrollPane.setBorder(DOUBLE_BORDER);
+    setBody(scrollPane);
+  }
+
+  /**
+   * Adds the item.
+   *
+   * @param item
+   *          the item
+   * @return the t
+   */
+  public T addItem(T item) {
+    return addItem(item, mHistoryList.getSelectedIndex());
+  }
+
+  /**
+   * Adds the item.
+   *
+   * @param item
+   *          the item
+   * @param selectedIndex
+   *          the selected index
+   * @return the t
+   */
+  public T addItem(T item, int selectedIndex) {
+    if (item == null) {
+      return null;
+    }
+
+    for (int i = mHistoryModel.getItemCount() - 1; i > selectedIndex; --i) {
+      // System.err.println("remove " + i);
+
+      mHistoryModel.removeValueAt(i);
+    }
+
+    mHistoryModel.addValue(item);
+
+    mHistoryList.setSelectedIndex(mHistoryList.getItemCount() - 1);
+
+    return item;
+  }
+
+  /**
+   * Sets the cell renderer.
+   *
+   * @param renderer
+   *          the new cell renderer
+   */
+  public void setCellRenderer(ModernListCellRenderer renderer) {
+    mHistoryList.setCellRenderer(renderer);
+  }
+
+  /**
+   * Adds the selection listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addSelectionListener(ModernSelectionListener l) {
+    mHistoryList.addSelectionListener(l);
+  }
+
+  /**
+   * Reset history.
+   */
+  public void resetHistory() {
+    mHistoryList.setSelectedIndex(0);
+  }
+
+  /**
+   * Gets the item count.
+   *
+   * @return the item count
+   */
+  public int getItemCount() {
+    return mHistoryList.getItemCount();
+  }
+
+  /**
+   * Gets the selected item.
+   *
+   * @return the selected item
+   */
+  public T getSelectedItem() {
+    return mHistoryList.getSelectedItem();
+  }
+
+  /**
+   * Gets the selected index.
+   *
+   * @return the selected index
+   */
+  public int getSelectedIndex() {
+    return mHistoryList.getSelectedIndex();
+  }
+
+  /**
+   * Sets the selected index.
+   *
+   * @param i
+   *          the new selected index
+   */
+  public void setSelectedIndex(int i) {
+    mHistoryList.setSelectedIndex(i);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Component#addMouseListener(java.awt.event.MouseListener)
+   */
+  @Override
+  public void addMouseListener(MouseListener l) {
+    mHistoryList.addMouseListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    if (e.getSource().equals(mUpButton)) {
+      if (mHistoryList.getSelectedIndex() != 0) {
+        mHistoryList.setSelectedIndex(mHistoryList.getSelectedIndex() - 1);
+      }
+    } else {
+      if (mHistoryList.getSelectedIndex() < mHistoryList.getItemCount() - 1) {
+        mHistoryList.setSelectedIndex(mHistoryList.getSelectedIndex() + 1);
+      }
+    }
+  }
+
+  /**
+   * Clear.
+   */
+  public void clear() {
+    mHistoryModel.clear();
+  }
+
+  /**
+   * Gets the value at.
+   *
+   * @param index
+   *          the index
+   * @return the value at
+   */
+  public T getValueAt(int index) {
+    return mHistoryList.getValueAt(index);
+  }
+
+  /**
+   * Removes the value at.
+   *
+   * @param index
+   *          the index
+   */
+  public void removeValueAt(int index) {
+    mHistoryList.removeValueAt(index);
+  }
+
+  /**
+   * Sets the row height.
+   *
+   * @param rowHeight
+   *          the new row height
+   */
+  public void setRowHeight(int rowHeight) {
+    mHistoryList.setRowHeight(rowHeight);
+  }
+
 }

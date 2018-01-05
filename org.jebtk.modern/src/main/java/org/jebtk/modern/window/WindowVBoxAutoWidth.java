@@ -23,7 +23,7 @@ import org.jebtk.modern.panel.VBoxAutoWidth;
  */
 public class WindowVBoxAutoWidth extends VBoxAutoWidth {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
 }

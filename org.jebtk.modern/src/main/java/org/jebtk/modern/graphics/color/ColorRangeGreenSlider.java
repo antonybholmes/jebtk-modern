@@ -32,20 +32,20 @@ package org.jebtk.modern.graphics.color;
  * The class ColorRangeGreenPanel.
  */
 public class ColorRangeGreenSlider extends ColorRangeSlider {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new color range green panel.
-	 *
-	 * @param model the model
-	 */
-	public ColorRangeGreenSlider(ColorSelectionModel model) {
-		super(model, ColorChannel.GREEN);
-	}
+  /**
+   * Instantiates a new color range green panel.
+   *
+   * @param model
+   *          the model
+   */
+  public ColorRangeGreenSlider(ColorSelectionModel model) {
+    super(model, ColorChannel.GREEN);
+  }
 
 }

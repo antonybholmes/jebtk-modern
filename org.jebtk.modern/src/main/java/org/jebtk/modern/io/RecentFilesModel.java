@@ -59,232 +59,243 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Maintains a list of recently opened files as well as the
- * currently directory, allowing the lists to be shared
- * amongst multiple windows/apps in the same process.
+ * Maintains a list of recently opened files as well as the currently directory,
+ * allowing the lists to be shared amongst multiple windows/apps in the same
+ * process.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class RecentFilesModel extends ChangeListeners implements XmlRepresentation, JsonRepresentation, Iterable<Path> {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	// the format to store and read back dates in, when loading the recent
-	/**
-	 * The constant STORAGE_DATE_FORMAT.
-	 */
-	// files list
-	public static final String STORAGE_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
+  // the format to store and read back dates in, when loading the recent
+  /**
+   * The constant STORAGE_DATE_FORMAT.
+   */
+  // files list
+  public static final String STORAGE_DATE_FORMAT = "yyyy-MM-dd HH:mm:ss";
 
-	/**
-	 * The log.
-	 */
-	protected final Logger LOG = 
-			LoggerFactory.getLogger(RecentFilesModel.class);
+  /**
+   * The log.
+   */
+  protected final Logger LOG = LoggerFactory.getLogger(RecentFilesModel.class);
 
-	/**
-	 * The constant MAX_FILES.
-	 */
-	public static final int MAX_FILES = 
-			SettingsService.getInstance().getAsInt("ui.recent-files.max-files");
+  /**
+   * The constant MAX_FILES.
+   */
+  public static final int MAX_FILES = SettingsService.getInstance().getAsInt("ui.recent-files.max-files");
 
-	/** The m file type map. */
-	protected Map<String, List<Path>> mFileTypeMap =
-			DefaultTreeMap.create(new ArrayListCreator<Path>());
+  /** The m file type map. */
+  protected Map<String, List<Path>> mFileTypeMap = DefaultTreeMap.create(new ArrayListCreator<Path>());
 
-	/** The m files. */
-	protected List<Path> mFiles = new ArrayList<Path>(100);
+  /** The m files. */
+  protected List<Path> mFiles = new ArrayList<Path>(100);
 
-	/** The m date map. */
-	protected Map<Path, Date> mDateMap = new HashMap<Path, Date>();
-	
-	private PwdModel mPwdModel = new PwdModel();
+  /** The m date map. */
+  protected Map<Path, Date> mDateMap = new HashMap<Path, Date>();
 
+  private PwdModel mPwdModel = new PwdModel();
 
-	/**
-	 * Instantiates a new recent files service.
-	 *
-	 * @param file the file
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws SAXException the SAX exception
-	 * @throws ParserConfigurationException the parser configuration exception
-	 * @throws FileIsNotADirException the file is not A dir exception
-	 */
-	public RecentFilesModel() {
-		
-	}
-	
-	public RecentFilesModel(Path pwd) {
-		mPwdModel.setPwd(pwd);
-	}
+  /**
+   * Instantiates a new recent files service.
+   *
+   * @param file
+   *          the file
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   * @throws SAXException
+   *           the SAX exception
+   * @throws ParserConfigurationException
+   *           the parser configuration exception
+   * @throws FileIsNotADirException
+   *           the file is not A dir exception
+   */
+  public RecentFilesModel() {
 
-	/* (non-Javadoc)
-	 * @see java.util.ArrayList#iterator()
-	 */
-	@Override
-	public Iterator<Path> iterator() {
-		return mFiles.iterator();
-	}
+  }
 
-	/**
-	 * Adds the.
-	 *
-	 * @param file the file
-	 * @return true, if successful
-	 */
-	public synchronized boolean add(Path file) {
-		boolean ret = update(file);
-		
-		if (ret) {
-			fireChanged();
-		}
-		
-		return ret;
-	}
-	
-	public synchronized boolean update(Path file) {
-		file = file.toAbsolutePath();
-		
-		if (FileUtils.exists(file)) {
-			mPwdModel.setPwd(file.getParent());
-			
-			//List<Path> current = new ArrayList<Path>(mFiles);
+  public RecentFilesModel(Path pwd) {
+    mPwdModel.setPwd(pwd);
+  }
 
-			// Remove from its old position
-			mFiles.remove(file);
-			mFileTypeMap.get(PathUtils.getFileExt(file)).remove(file);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.util.ArrayList#iterator()
+   */
+  @Override
+  public Iterator<Path> iterator() {
+    return mFiles.iterator();
+  }
 
-			// Add file to head of list
-			mFiles.add(0, file);
+  /**
+   * Adds the.
+   *
+   * @param file
+   *          the file
+   * @return true, if successful
+   */
+  public synchronized boolean add(Path file) {
+    boolean ret = update(file);
 
-			mFileTypeMap.get(PathUtils.getFileExt(file)).add(file);
-			mDateMap.put(file, Calendar.getInstance().getTime());
+    if (ret) {
+      fireChanged();
+    }
 
-			return true;
-		} else {
-			return false;
-		}
-	}
+    return ret;
+  }
 
-	/**
-	 * Adds the file.
-	 *
-	 * @param file the file
-	 * @param date the date
-	 */
-	public synchronized void add(Path file, Date date) {
-		file = file.toAbsolutePath();
-		
-		if (add(file)) {
-			mDateMap.put(file, date);
-		}
-	}
+  public synchronized boolean update(Path file) {
+    file = file.toAbsolutePath();
 
-	/**
-	 * Return only files with a particular extension.
-	 *
-	 * @param exts the exts
-	 * @return the files by ext
-	 */
-	public List<Path> getFilesByExt(String... exts) {
-		List<Path> ret = new ArrayList<Path>();
+    if (FileUtils.exists(file)) {
+      mPwdModel.setPwd(file.getParent());
 
-		for (String ext : exts) {
-			ret.addAll(mFileTypeMap.get(ext));
-		}
+      // List<Path> current = new ArrayList<Path>(mFiles);
 
-		return ret;
-	}
+      // Remove from its old position
+      mFiles.remove(file);
+      mFileTypeMap.get(PathUtils.getFileExt(file)).remove(file);
 
-	/**
-	 * Gets the date.
-	 *
-	 * @param file the file
-	 * @return the date
-	 */
-	public Date getDate(Path file) {
-		return mDateMap.get(file);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.xml.XmlRepresentation#toXml()
-	 */
-	@Override
-	public Element toXml(Document doc) {
-		SimpleDateFormat df = new SimpleDateFormat(STORAGE_DATE_FORMAT);
+      // Add file to head of list
+      mFiles.add(0, file);
 
-		Element filesElement = doc.createElement("files");
+      mFileTypeMap.get(PathUtils.getFileExt(file)).add(file);
+      mDateMap.put(file, Calendar.getInstance().getTime());
 
-		filesElement.setAttribute("pwd", mPwdModel.getPwd().toAbsolutePath().toString());
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-		// We write out no more than max files
-		int n = Math.min(mFiles.size(), MAX_FILES);
+  /**
+   * Adds the file.
+   *
+   * @param file
+   *          the file
+   * @param date
+   *          the date
+   */
+  public synchronized void add(Path file, Date date) {
+    file = file.toAbsolutePath();
 
-		for (int i = 0; i < n; ++i) {
-			Path f = mFiles.get(i);
+    if (add(file)) {
+      mDateMap.put(file, date);
+    }
+  }
 
-			Element fileElement = doc.createElement("file");
-			fileElement.setAttribute("name", PathUtils.toString(f));
-			fileElement.setAttribute("date", df.format(mDateMap.get(f)));
-			filesElement.appendChild(fileElement);
-		}
+  /**
+   * Return only files with a particular extension.
+   *
+   * @param exts
+   *          the exts
+   * @return the files by ext
+   */
+  public List<Path> getFilesByExt(String... exts) {
+    List<Path> ret = new ArrayList<Path>();
 
-		return filesElement;
-	}
+    for (String ext : exts) {
+      ret.addAll(mFileTypeMap.get(ext));
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.json.JsonRepresentation#toJson()
-	 */
-	@Override
-	public Json toJson() {
-		Json o = new JsonObject();
+    return ret;
+  }
 
-		o.add("pwd", mPwdModel.getPwd().toAbsolutePath());
+  /**
+   * Gets the date.
+   *
+   * @param file
+   *          the file
+   * @return the date
+   */
+  public Date getDate(Path file) {
+    return mDateMap.get(file);
+  }
 
-		Json filesJ = new JsonArray();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.xml.XmlRepresentation#toXml()
+   */
+  @Override
+  public Element toXml(Document doc) {
+    SimpleDateFormat df = new SimpleDateFormat(STORAGE_DATE_FORMAT);
 
-		SimpleDateFormat df = new SimpleDateFormat(STORAGE_DATE_FORMAT);
+    Element filesElement = doc.createElement("files");
 
-		for (Path f : this) {
-			Json fileJ = new JsonObject();
+    filesElement.setAttribute("pwd", mPwdModel.getPwd().toAbsolutePath().toString());
 
-			fileJ.add("file", f);
-			fileJ.add("date", df.format(mDateMap.get(f)));
+    // We write out no more than max files
+    int n = Math.min(mFiles.size(), MAX_FILES);
 
-			filesJ.add(fileJ);
-		}
+    for (int i = 0; i < n; ++i) {
+      Path f = mFiles.get(i);
 
-		o.add("files", filesJ);
+      Element fileElement = doc.createElement("file");
+      fileElement.setAttribute("name", PathUtils.toString(f));
+      fileElement.setAttribute("date", df.format(mDateMap.get(f)));
+      filesElement.appendChild(fileElement);
+    }
 
-		return o;
-	}
+    return filesElement;
+  }
 
-	public int size() {
-		return mFiles.size();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.json.JsonRepresentation#toJson()
+   */
+  @Override
+  public Json toJson() {
+    Json o = new JsonObject();
 
-	public Path get(int index) {
-		return mFiles.get(index);
-	}
+    o.add("pwd", mPwdModel.getPwd().toAbsolutePath());
 
-	public PwdModel getPwdModel() {
-		return mPwdModel;
-	}
+    Json filesJ = new JsonArray();
 
-	public boolean setPwd(Path pwd) {
-		return getPwdModel().setPwd(pwd);
-	}
+    SimpleDateFormat df = new SimpleDateFormat(STORAGE_DATE_FORMAT);
 
-	public Path getPwd() {
-		return getPwdModel().getPwd();
-	}
+    for (Path f : this) {
+      Json fileJ = new JsonObject();
 
-	public synchronized boolean updatePwd(Path pwd) {
-		return getPwdModel().setPwd(pwd);
-	}
+      fileJ.add("file", f);
+      fileJ.add("date", df.format(mDateMap.get(f)));
+
+      filesJ.add(fileJ);
+    }
+
+    o.add("files", filesJ);
+
+    return o;
+  }
+
+  public int size() {
+    return mFiles.size();
+  }
+
+  public Path get(int index) {
+    return mFiles.get(index);
+  }
+
+  public PwdModel getPwdModel() {
+    return mPwdModel;
+  }
+
+  public boolean setPwd(Path pwd) {
+    return getPwdModel().setPwd(pwd);
+  }
+
+  public Path getPwd() {
+    return getPwdModel().getPwd();
+  }
+
+  public synchronized boolean updatePwd(Path pwd) {
+    return getPwdModel().setPwd(pwd);
+  }
 }

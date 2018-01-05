@@ -36,7 +36,6 @@ import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateListener;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Groups buttons and ensures only one at a time can be selected.
@@ -45,134 +44,134 @@ import org.jebtk.modern.widget.ModernClickWidget;
  *
  */
 public class ModernButtonGroup implements ModernClickListener, ModernStateListener {
-	
-	/**
-	 * The buttons.
-	 */
-	private Set<ModernClickWidget> buttons = 
-			new HashSet<ModernClickWidget>();
-	
-	/**
-	 * The current.
-	 */
-	private ModernClickWidget current;
-	
-	/**
-	 * Instantiates a new modern button group.
-	 *
-	 * @param buttons the buttons
-	 */
-	public ModernButtonGroup(ModernClickWidget... buttons) {
-		for (ModernClickWidget button : buttons) {
-			add(button);
-		}
-	}
 
-	/**
-	 * Adds the.
-	 *
-	 * @param button the button
-	 * @return 
-	 */
-	public ModernButtonGroup add(ModernClickWidget button) {
-		addButton(button);
-		
-		return this;
-	}
-	
-	/*
-	public void add(ModernRadioButton button) {
-		addButton(button);
-	}
-	
-	public void add(ModernRadioCheckBox button) {
-		addButton(button);
-	}
-	
-	public void add(ModernRadioMenuItem button) {
-		addButton(button);
-	}
-	
-	public void add(RibbonLargeRadioButton button) {
-		addButton(button);
-	}
-	*/
-	
-	/**
-	 * Adds the button.
-	 *
-	 * @param button the button
-	 */
-	private void addButton(ModernClickWidget button) {
-		//button.addClickListener(this);
-		
-		button.addStateListener(this);
-		
-		this.buttons.add(button);
-	}
+  /**
+   * The buttons.
+   */
+  private Set<ModernClickWidget> buttons = new HashSet<ModernClickWidget>();
 
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		buttons.clear();
-	}
+  /**
+   * The current.
+   */
+  private ModernClickWidget current;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		update((ModernClickWidget)e.getSource());
-	}
+  /**
+   * Instantiates a new modern button group.
+   *
+   * @param buttons
+   *          the buttons
+   */
+  public ModernButtonGroup(ModernClickWidget... buttons) {
+    for (ModernClickWidget button : buttons) {
+      add(button);
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib.ui.modern.event.ModernStateEvent)
-	 */
-	@Override
-	public void stateChanged(ModernStateEvent e) {
-		update((ModernClickWidget)e.getSource());
-	}
-	
-	/**
-	 * Update.
-	 *
-	 * @param source the source
-	 */
-	private void update(ModernClickWidget source) {
-		/*
-		if (current != null && current.equals(source) && !source.isSelected()) {
-			source.setSelected(true);
-		}
-		*/
-		
-		//System.err.println("source 1 " + source + " " + source.isSelected());
-		
-		if (!source.isSelected()) {
-			return;
-		}
-		
-		/*
-		if (source.isSelected()) {
-			current = source;
-		}
-		*/
-		
-		if (current != null && source.equals(current)) {
-			return;
-		}
-		
-		//System.err.println("source " + source + " " + source.isSelected());
-		
-		current = source;
+  /**
+   * Adds the.
+   *
+   * @param button
+   *          the button
+   * @return
+   */
+  public ModernButtonGroup add(ModernClickWidget button) {
+    addButton(button);
 
-		for (ModernClickWidget button : buttons) {
-			if (button.equals(source)) {
-				continue;
-			}
-			
-			button.setHighlighted(false);
-			button.setSelected(false);
-		}
-	}
+    return this;
+  }
+
+  /*
+   * public void add(ModernRadioButton button) { addButton(button); }
+   * 
+   * public void add(ModernRadioCheckBox button) { addButton(button); }
+   * 
+   * public void add(ModernRadioMenuItem button) { addButton(button); }
+   * 
+   * public void add(RibbonLargeRadioButton button) { addButton(button); }
+   */
+
+  /**
+   * Adds the button.
+   *
+   * @param button
+   *          the button
+   */
+  private void addButton(ModernClickWidget button) {
+    // button.addClickListener(this);
+
+    button.addStateListener(this);
+
+    this.buttons.add(button);
+  }
+
+  /**
+   * Clear.
+   */
+  public void clear() {
+    buttons.clear();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    update((ModernClickWidget) e.getSource());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib.ui.
+   * modern.event.ModernStateEvent)
+   */
+  @Override
+  public void stateChanged(ModernStateEvent e) {
+    update((ModernClickWidget) e.getSource());
+  }
+
+  /**
+   * Update.
+   *
+   * @param source
+   *          the source
+   */
+  private void update(ModernClickWidget source) {
+    /*
+     * if (current != null && current.equals(source) && !source.isSelected()) {
+     * source.setSelected(true); }
+     */
+
+    // System.err.println("source 1 " + source + " " + source.isSelected());
+
+    if (!source.isSelected()) {
+      return;
+    }
+
+    /*
+     * if (source.isSelected()) { current = source; }
+     */
+
+    if (current != null && source.equals(current)) {
+      return;
+    }
+
+    // System.err.println("source " + source + " " + source.isSelected());
+
+    current = source;
+
+    for (ModernClickWidget button : buttons) {
+      if (button.equals(source)) {
+        continue;
+      }
+
+      button.setHighlighted(false);
+      button.setSelected(false);
+    }
+  }
 }

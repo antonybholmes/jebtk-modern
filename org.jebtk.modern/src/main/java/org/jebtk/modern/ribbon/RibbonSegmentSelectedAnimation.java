@@ -30,45 +30,50 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RibbonSegmentSelectedAnimation extends WidgetAnimation {
 
-	private RibbonSegmentVertTabs mSegments;
+  private RibbonSegmentVertTabs mSegments;
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public RibbonSegmentSelectedAnimation(ModernWidget segments) {
-		super(segments);
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public RibbonSegmentSelectedAnimation(ModernWidget segments) {
+    super(segments);
 
-		mSegments = (RibbonSegmentVertTabs)segments;
-	}
+    mSegments = (RibbonSegmentVertTabs) segments;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		int x = mSegments.getInsets().left;
-		int y = mSegments.getInsets().top;
+    int x = mSegments.getInsets().left;
+    int y = mSegments.getInsets().top;
 
-		int y1;
+    int y1;
 
-		int w = mSegments.getInternalRect().getW();
+    int w = mSegments.getInternalRect().getW();
 
-		int selected = mSegments.getTabsModel().getSelectedIndex();
-		
-		//
-		// Draw if highlighted
-		//
+    int selected = mSegments.getTabsModel().getSelectedIndex();
 
-		if (selected != -1) { //highlighted != selectedIndex && 
-			y1 = y + selected * RibbonSegmentVertTabs.TAB_SIZE;
-			
-			g2.setColor(MaterialService.getInstance().color("ribbon-theme-selected"));
-			
-			//g2.fillRect(x + w - RibbonSegmentChangeAnimation.WIDTH, y1, RibbonSegmentChangeAnimation.WIDTH, RibbonSegmentVertTabs.TAB_SIZE);
-			g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
-		}
-	}	
+    //
+    // Draw if highlighted
+    //
+
+    if (selected != -1) { // highlighted != selectedIndex &&
+      y1 = y + selected * RibbonSegmentVertTabs.TAB_SIZE;
+
+      g2.setColor(MaterialService.getInstance().color("ribbon-theme-selected"));
+
+      // g2.fillRect(x + w - RibbonSegmentChangeAnimation.WIDTH, y1,
+      // RibbonSegmentChangeAnimation.WIDTH, RibbonSegmentVertTabs.TAB_SIZE);
+      g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
+    }
+  }
 }

@@ -44,82 +44,83 @@ import org.jebtk.modern.window.ModernWindow;
  *
  */
 public class ModernIntInputDialog extends ModernDialogTaskWindow {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member spinner.
-	 */
-	private ModernCompactSpinner mSpinner;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern int input dialog.
-	 *
-	 * @param parent the parent
-	 * @param title the title
-	 * @param prompt the prompt
-	 * @param value the value
-	 * @param min the min
-	 * @param max the max
-	 */
-	public ModernIntInputDialog(ModernWindow parent, 
-			String title,
-			String prompt,
-			int value,
-			int min,
-			int max) {
-		super(parent);
-		
-		setTitle(title);
-	
-		mSpinner = new ModernCompactSpinner(min, max, value);
-		
-		setup();
+  /**
+   * The member spinner.
+   */
+  private ModernCompactSpinner mSpinner;
 
-		createUi(prompt);
+  /**
+   * Instantiates a new modern int input dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param title
+   *          the title
+   * @param prompt
+   *          the prompt
+   * @param value
+   *          the value
+   * @param min
+   *          the min
+   * @param max
+   *          the max
+   */
+  public ModernIntInputDialog(ModernWindow parent, String title, String prompt, int value, int min, int max) {
+    super(parent);
 
-	}
+    setTitle(title);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setSize(400, 160);
-		
-		UI.centerWindowToScreen(this);
-	}
-	
-	
+    mSpinner = new ModernCompactSpinner(min, max, value);
 
-	/**
-	 * Creates the ui.
-	 *
-	 * @param prompt the prompt
-	 */
-	private final void createUi(String prompt) {
-		//this.getContentPane().add(new JLabel("Change " + getProductDetails().getProductName() + " settings", JLabel.LEFT), BorderLayout.PAGE_START);
-		
-		Box box = HBox.create();
-		
-		ModernAutoSizeLabel label = new ModernAutoSizeLabel(prompt);
-		
-		box.add(label);
-		box.add(Box.createHorizontalGlue());
-		box.add(mSpinner);
+    setup();
 
-		setContent(box);
-	}
+    createUi(prompt);
 
-	/**
-	 * Gets the value.
-	 *
-	 * @return the value
-	 */
-	public int getValue() {
-		return mSpinner.getIntValue();
-	}
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setSize(400, 160);
+
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Creates the ui.
+   *
+   * @param prompt
+   *          the prompt
+   */
+  private final void createUi(String prompt) {
+    // this.getContentPane().add(new JLabel("Change " +
+    // getProductDetails().getProductName() + " settings", JLabel.LEFT),
+    // BorderLayout.PAGE_START);
+
+    Box box = HBox.create();
+
+    ModernAutoSizeLabel label = new ModernAutoSizeLabel(prompt);
+
+    box.add(label);
+    box.add(Box.createHorizontalGlue());
+    box.add(mSpinner);
+
+    setContent(box);
+  }
+
+  /**
+   * Gets the value.
+   *
+   * @return the value
+   */
+  public int getValue() {
+    return mSpinner.getIntValue();
+  }
 }

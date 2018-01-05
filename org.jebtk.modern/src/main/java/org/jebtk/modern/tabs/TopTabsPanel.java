@@ -23,18 +23,19 @@ import org.jebtk.modern.panel.ModernPanel;
  * The Class TopTabsPanel.
  */
 public class TopTabsPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new top tabs panel.
-	 *
-	 * @param model the model
-	 */
-	public TopTabsPanel(TabsModel model) {
-		setHeader(new ModernHTabBarTop(model));
-		
-		setBody(new ModernPanel(new TabsViewPanel(model)));
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new top tabs panel.
+   *
+   * @param model
+   *          the model
+   */
+  public TopTabsPanel(TabsModel model) {
+    setHeader(new ModernHTabBarTop(model));
+
+    setBody(new ModernPanel(new TabsViewPanel(model)));
+  }
 }

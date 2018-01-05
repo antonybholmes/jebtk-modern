@@ -33,66 +33,63 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class OrbTabsChangeAnimation extends TranslateXAnimation {
 
-	private OrbTabs mTabs;
-	
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public OrbTabsChangeAnimation(ModernWidget tabs) {
-		super(tabs);
+  private OrbTabs mTabs;
 
-		mTabs = (OrbTabs)tabs;
-		
-		mTabs.getTabsModel().addTabListener(new TabEventAdapter() {
-			@Override
-			public void tabChanged(TabEvent e) {
-				restart();
-			}
-		});
-		
-		mTabs.addComponentListener(new ComponentAdapter() {
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public OrbTabsChangeAnimation(ModernWidget tabs) {
+    super(tabs);
 
-			@Override
-			public void componentResized(ComponentEvent arg0) {
-				restart();
-			}});
-	}
-	
-	public void restart() {
-		int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
-		int previousIndex = mTabs.getTabsModel().getPreviousIndex();
-		
-		if (previousIndex > selectedIndex) {
-			previousIndex = selectedIndex + 1;
-		} else {
-			previousIndex = Mathematics.bound(selectedIndex - 1, 0, mTabs.getTabsModel().getTabCount() - 1);
-		}
-		
-		int leftOffset = mTabs.getInsets().left;
-		
-		int x1 = leftOffset + previousIndex * mTabs.mTabSize;
-		int x2 = leftOffset + selectedIndex * mTabs.mTabSize;
+    mTabs = (OrbTabs) tabs;
 
-		restart(x1, x2);
-	}
-	
-	@Override
-	public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
-		int h = mTabs.getInternalRect().getH();
-		
-		/*
-		mTabs.getWidgetRenderer().primaryDialogButtonFillPaint(g2, 
-				0, 
-				0, 
-				mTabs.mTabSize, 
-				h,
-				RenderMode.NONE,
-				false);
-		*/
-		
-		g2.setColor(Ribbon.BAR_BACKGROUND);
-		g2.fillOval(0, mTabs.getInsets().top, h, h);
-	}	
+    mTabs.getTabsModel().addTabListener(new TabEventAdapter() {
+      @Override
+      public void tabChanged(TabEvent e) {
+        restart();
+      }
+    });
+
+    mTabs.addComponentListener(new ComponentAdapter() {
+
+      @Override
+      public void componentResized(ComponentEvent arg0) {
+        restart();
+      }
+    });
+  }
+
+  public void restart() {
+    int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
+    int previousIndex = mTabs.getTabsModel().getPreviousIndex();
+
+    if (previousIndex > selectedIndex) {
+      previousIndex = selectedIndex + 1;
+    } else {
+      previousIndex = Mathematics.bound(selectedIndex - 1, 0, mTabs.getTabsModel().getTabCount() - 1);
+    }
+
+    int leftOffset = mTabs.getInsets().left;
+
+    int x1 = leftOffset + previousIndex * mTabs.mTabSize;
+    int x2 = leftOffset + selectedIndex * mTabs.mTabSize;
+
+    restart(x1, x2);
+  }
+
+  @Override
+  public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
+    int h = mTabs.getInternalRect().getH();
+
+    /*
+     * mTabs.getWidgetRenderer().primaryDialogButtonFillPaint(g2, 0, 0,
+     * mTabs.mTabSize, h, RenderMode.NONE, false);
+     */
+
+    g2.setColor(Ribbon.BAR_BACKGROUND);
+    g2.fillOval(0, mTabs.getInsets().top, h, h);
+  }
 }

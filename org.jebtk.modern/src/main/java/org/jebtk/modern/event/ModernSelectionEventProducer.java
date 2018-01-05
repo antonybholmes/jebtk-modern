@@ -29,7 +29,6 @@ package org.jebtk.modern.event;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * For classes that generate ModernSelectionEvents.
@@ -37,25 +36,28 @@ import org.jebtk.core.event.ChangeEvent;
  * @author Antony Holmes Holmes
  */
 public interface ModernSelectionEventProducer {
-	
-	/**
-	 * Add a ModernSelection listener.
-	 *
-	 * @param l the l
-	 */
-	public void addSelectionListener(ModernSelectionListener l);
-	
-	/**
-	 * Remove a ModernSelection listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeSelectionListener(ModernSelectionListener l);
-	
-	/**
-	 * fire an event.
-	 *
-	 * @param event the event
-	 */
-	public void fireSelectionChanged(ChangeEvent event);
+
+  /**
+   * Add a ModernSelection listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addSelectionListener(ModernSelectionListener l);
+
+  /**
+   * Remove a ModernSelection listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeSelectionListener(ModernSelectionListener l);
+
+  /**
+   * fire an event.
+   *
+   * @param event
+   *          the event
+   */
+  public void fireSelectionChanged(ChangeEvent event);
 }

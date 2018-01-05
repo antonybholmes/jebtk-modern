@@ -27,66 +27,72 @@ import javax.swing.Scrollable;
  * 
  */
 public abstract class ModernVertCanvas extends ModernCanvas implements Scrollable {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Gets the preferred scrollable viewport size.
-	 *
-	 * @return the preferred scrollable viewport size
-	 */
-	@Override
-	public Dimension getPreferredScrollableViewportSize() {
-		return getPreferredSize();
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Gets the scrollable block increment.
-	 *
-	 * @param arg0 the arg 0
-	 * @param arg1 the arg 1
-	 * @param arg2 the arg 2
-	 * @return the scrollable block increment
-	 */
-	@Override
-	public int getScrollableBlockIncrement(Rectangle arg0, int arg1, int arg2) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+  /**
+   * Gets the preferred scrollable viewport size.
+   *
+   * @return the preferred scrollable viewport size
+   */
+  @Override
+  public Dimension getPreferredScrollableViewportSize() {
+    return getPreferredSize();
+  }
 
-	/**
-	 * Gets the scrollable tracks viewport height.
-	 *
-	 * @return the scrollable tracks viewport height
-	 */
-	@Override
-	public boolean getScrollableTracksViewportHeight() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+  /**
+   * Gets the scrollable block increment.
+   *
+   * @param arg0
+   *          the arg 0
+   * @param arg1
+   *          the arg 1
+   * @param arg2
+   *          the arg 2
+   * @return the scrollable block increment
+   */
+  @Override
+  public int getScrollableBlockIncrement(Rectangle arg0, int arg1, int arg2) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
 
-	/**
-	 * Gets the scrollable tracks viewport width.
-	 *
-	 * @return the scrollable tracks viewport width
-	 */
-	@Override
-	public boolean getScrollableTracksViewportWidth() {
-		return true;
-	}
+  /**
+   * Gets the scrollable tracks viewport height.
+   *
+   * @return the scrollable tracks viewport height
+   */
+  @Override
+  public boolean getScrollableTracksViewportHeight() {
+    // TODO Auto-generated method stub
+    return false;
+  }
 
-	/**
-	 * Gets the scrollable unit increment.
-	 *
-	 * @param arg0 the arg 0
-	 * @param arg1 the arg 1
-	 * @param arg2 the arg 2
-	 * @return the scrollable unit increment
-	 */
-	@Override
-	public int getScrollableUnitIncrement(Rectangle arg0, int arg1, int arg2) {
-		return 0;
-	}
+  /**
+   * Gets the scrollable tracks viewport width.
+   *
+   * @return the scrollable tracks viewport width
+   */
+  @Override
+  public boolean getScrollableTracksViewportWidth() {
+    return true;
+  }
+
+  /**
+   * Gets the scrollable unit increment.
+   *
+   * @param arg0
+   *          the arg 0
+   * @param arg1
+   *          the arg 1
+   * @param arg2
+   *          the arg 2
+   * @return the scrollable unit increment
+   */
+  @Override
+  public int getScrollableUnitIncrement(Rectangle arg0, int arg1, int arg2) {
+    return 0;
+  }
 
 }

@@ -20,20 +20,21 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
- * An animation is a series of one or more widget drawings to indicate a 
- * sense of flow or movement.
+ * An animation is a series of one or more widget drawings to indicate a sense
+ * of flow or movement.
  */
 public interface Animation {
-	
-	
-	
-	/**
-	 * The animation becomes responsible handling the drawing for the widget.
-	 * This method this called on each animation refresh.
-	 *
-	 * @param widget the widget
-	 * @param g2 the g 2
-	 * @param params the params
-	 */
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params);
+
+  /**
+   * The animation becomes responsible handling the drawing for the widget. This
+   * method this called on each animation refresh.
+   *
+   * @param widget
+   *          the widget
+   * @param g2
+   *          the g 2
+   * @param params
+   *          the params
+   */
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params);
 }

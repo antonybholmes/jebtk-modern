@@ -29,78 +29,67 @@ import org.jebtk.modern.dataview.ModernDataCellRenderer;
  */
 public class ColorMapCellRenderer extends ModernDataCellRenderer {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m color map. */
-	private ColorMap mColorMap;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		
-		int x = 2;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-		int w = getWidth() - 4;
-		
-		
-		LinearGradientPaint paint = 
-				mColorMap.getAnchorColors().toGradientPaint(new Point2D.Float(x, 0), 
-						new Point2D.Float(x + w, 0));
-		
-		g2.setPaint(paint);
-		
-		/*
-		g2.fillRoundRect(x, 
-				2, 
-				w, 
-				getHeight() - 4, 
-				ModernRoundedWidgetRenderer.ROUNDING, 
-				ModernRoundedWidgetRenderer.ROUNDING);
-		*/
-		
-		g2.fillRect(x, 2, w, getHeight() - 4);
-		
-		//g2.setColor(LINE_COLOR);
-		//g2.drawRect(x, 2, w, getHeight() - 4);
-		
-		/*
-		double c = 0;
-		double inc = (mColorMap.getColorCount() - 1) / (double)w;
-		
-		for (int i = 0; i < w; ++i) {
-			g2.setColor(mColorMap.getColorByIndex((int)c));
-			
-			g2.drawLine(x, 
-					2, 
-					x, 
-					getHeight() - 4);
-			
-			++x;
-			
-			c += inc;
-		}
-		*/
-		
-		//paintDarkOutline(g2, getInternalRect());
-	}
+  /** The m color map. */
+  private ColorMap mColorMap;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	public final Component getCellRendererComponent(ModernData table,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
-		
-		mColorMap = (ColorMap)value;
-		
-		return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+
+    int x = 2;
+
+    int w = getWidth() - 4;
+
+    LinearGradientPaint paint = mColorMap.getAnchorColors().toGradientPaint(new Point2D.Float(x, 0),
+        new Point2D.Float(x + w, 0));
+
+    g2.setPaint(paint);
+
+    /*
+     * g2.fillRoundRect(x, 2, w, getHeight() - 4,
+     * ModernRoundedWidgetRenderer.ROUNDING, ModernRoundedWidgetRenderer.ROUNDING);
+     */
+
+    g2.fillRect(x, 2, w, getHeight() - 4);
+
+    // g2.setColor(LINE_COLOR);
+    // g2.drawRect(x, 2, w, getHeight() - 4);
+
+    /*
+     * double c = 0; double inc = (mColorMap.getColorCount() - 1) / (double)w;
+     * 
+     * for (int i = 0; i < w; ++i) { g2.setColor(mColorMap.getColorByIndex((int)c));
+     * 
+     * g2.drawLine(x, 2, x, getHeight() - 4);
+     * 
+     * ++x;
+     * 
+     * c += inc; }
+     */
+
+    // paintDarkOutline(g2, getInternalRect());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
+   * java.lang.Object, boolean, boolean, boolean, int, int)
+   */
+  public final Component getCellRendererComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+
+    mColorMap = (ColorMap) value;
+
+    return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
+  }
 
 }

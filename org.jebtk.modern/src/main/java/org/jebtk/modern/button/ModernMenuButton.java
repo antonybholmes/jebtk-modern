@@ -43,69 +43,71 @@ import org.jebtk.modern.menu.ModernPopupMenu;
  */
 public class ModernMenuButton extends ModernDropDownWidget {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern drop down button.
-	 *
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public ModernMenuButton(ModernIcon icon, 
-			ModernPopupMenu menu) {
-		super(icon);
+  /**
+   * Instantiates a new modern drop down button.
+   *
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public ModernMenuButton(ModernIcon icon, ModernPopupMenu menu) {
+    super(icon);
 
-		setMenu(menu);
-		
-		UI.setSize(this, ModernButton.ICON_ONLY_SIZE);
-	}
+    setMenu(menu);
 
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			if (isSelected() || mHighlight || mPopupShown) {
-				getWidgetRenderer().drawButton(g2, mInternalRect, RenderMode.SELECTED);
-			} else {
-				getWidgetRenderer().drawButton(g2, mInternalRect, RenderMode.SELECTED);
-			}
-		}
-	}
-	*/
+    UI.setSize(this, ModernButton.ICON_ONLY_SIZE);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = (getWidth() - 16) / 2;
-		int y = (getHeight() - 16) / 2;
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight || mPopupShown) {
+   * getWidgetRenderer().drawButton(g2, mInternalRect, RenderMode.SELECTED); }
+   * else { getWidgetRenderer().drawButton(g2, mInternalRect,
+   * RenderMode.SELECTED); } } }
+   */
 
-		getIcon().drawIcon(g2, x, y, 16);
-	}
-	
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = (getWidth() - 16) / 2;
+    int y = (getHeight() - 16) / 2;
 
-	/**
-	 * Default to a particular menu item.
-	 *
-	 * @param index the new selected index
-	 */
-	public void setSelectedIndex(int index) {
-		((ModernPopupMenu)mMenu).get(index).doClick();
-	}
+    getIcon().drawIcon(g2, x, y, 16);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernClickWidget#fireClicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void fireClicked(ModernClickEvent e) {
-		mText1 = e.getMessage();
+  /**
+   * Default to a particular menu item.
+   *
+   * @param index
+   *          the new selected index
+   */
+  public void setSelectedIndex(int index) {
+    ((ModernPopupMenu) mMenu).get(index).doClick();
+  }
 
-		repaint();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernClickWidget#fireClicked(org.abh.lib.ui.modern.
+   * event.ModernClickEvent)
+   */
+  @Override
+  public void fireClicked(ModernClickEvent e) {
+    mText1 = e.getMessage();
 
-		super.fireClicked(e);
-	}
+    repaint();
+
+    super.fireClicked(e);
+  }
 }

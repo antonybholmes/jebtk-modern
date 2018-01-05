@@ -32,37 +32,36 @@ import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ProductInfoTitleLabel.
  */
 public class ProductInfoTitleLabel extends ModernAutoSizeLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new product info title label.
-	 *
-	 * @param text the text
-	 */
-	public ProductInfoTitleLabel(String text) {
-		super(text);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		
-		setBorder(BorderService.getInstance().createTopBottomBorder(ModernPanel.DOUBLE_PADDING));
+  /**
+   * Instantiates a new product info title label.
+   *
+   * @param text
+   *          the text
+   */
+  public ProductInfoTitleLabel(String text) {
+    super(text);
 
-		setFont(ThemeService.loadFont("widget.title"));
-	}
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+
+    setBorder(BorderService.getInstance().createTopBottomBorder(ModernPanel.DOUBLE_PADDING));
+
+    setFont(ThemeService.loadFont("widget.title"));
+  }
 }

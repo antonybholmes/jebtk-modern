@@ -31,105 +31,114 @@ import org.jebtk.core.event.ChangeListeners;
 
 // TODO: Auto-generated Javadoc
 /**
- * Provides a zoom model for zoom components to communicate through.
- * Zoom is expressed as a percentage 0 = 0%, 1 = 100%.
+ * Provides a zoom model for zoom components to communicate through. Zoom is
+ * expressed as a percentage 0 = 0%, 1 = 100%.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ZoomModel extends ChangeListeners implements Zoom {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant ZOOM_CHANGED_EVENT.
-	 */
-	public static final String ZOOM_CHANGED_EVENT = "zoom_changed";
-	
-	/**
-	 * The constant ZOOM_STEP_CHANGED_EVENT.
-	 */
-	public static final String ZOOM_STEP_CHANGED_EVENT = "zoom_step_changed";
-	
-	/**
-	 * The member zoom.
-	 */
-	protected double mZoom = 1;
-	
-	/**
-	 * The member min zoom.
-	 */
-	//protected double mZoomStep = 0.25;
-	protected double mMinZoom = 0.1;
-	
-	/**
-	 * The member max zoom.
-	 */
-	protected double mMaxZoom = 4;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#getZoom()
-	 */
-	public double getZoom() {
-		return mZoom;
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#setZoom(double)
-	 */
-	public void setZoom(double zoom) {
-		mZoom = zoom;
-		
-		fireChanged();
-	}
-	
-	//public double getZoomStep() {
-	//	return mZoomStep;
-	//}
-	
-	/**
-	 * Set the zoom step/increment size and notify listeners
-	 * that the model has changed.
-	 *
-	 * @return the min zoom
-	 */
-	//public void setZoomStep(double step) {
-	//	mZoomStep = step;
-		
-	//	fireZoomChanged(new ChangeEvent(this, ZOOM_STEP_CHANGED_EVENT));
-	//}
-	
-	public double getMinZoom() {
-		return mMinZoom;
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Set the minimum zoom level and notify any listeners of changes.
-	 *
-	 * @param zoom the new min zoom
-	 */
-	public void setMinZoom(double zoom) {
-		mMinZoom = zoom;
-		
-		fireChanged();
-	}
+  /**
+   * The constant ZOOM_CHANGED_EVENT.
+   */
+  public static final String ZOOM_CHANGED_EVENT = "zoom_changed";
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#getMaxZoom()
-	 */
-	public double getMaxZoom() {
-		return mMaxZoom;
-	}
+  /**
+   * The constant ZOOM_STEP_CHANGED_EVENT.
+   */
+  public static final String ZOOM_STEP_CHANGED_EVENT = "zoom_step_changed";
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#setMaxZoom(double)
-	 */
-	public void setMaxZoom(double zoom) {
-		mMaxZoom = zoom;
-		
-		fireChanged();
-	}
+  /**
+   * The member zoom.
+   */
+  protected double mZoom = 1;
+
+  /**
+   * The member min zoom.
+   */
+  // protected double mZoomStep = 0.25;
+  protected double mMinZoom = 0.1;
+
+  /**
+   * The member max zoom.
+   */
+  protected double mMaxZoom = 4;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#getZoom()
+   */
+  public double getZoom() {
+    return mZoom;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#setZoom(double)
+   */
+  public void setZoom(double zoom) {
+    mZoom = zoom;
+
+    fireChanged();
+  }
+
+  // public double getZoomStep() {
+  // return mZoomStep;
+  // }
+
+  /**
+   * Set the zoom step/increment size and notify listeners that the model has
+   * changed.
+   *
+   * @return the min zoom
+   */
+  // public void setZoomStep(double step) {
+  // mZoomStep = step;
+
+  // fireZoomChanged(new ChangeEvent(this, ZOOM_STEP_CHANGED_EVENT));
+  // }
+
+  public double getMinZoom() {
+    return mMinZoom;
+  }
+
+  /**
+   * Set the minimum zoom level and notify any listeners of changes.
+   *
+   * @param zoom
+   *          the new min zoom
+   */
+  public void setMinZoom(double zoom) {
+    mMinZoom = zoom;
+
+    fireChanged();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#getMaxZoom()
+   */
+  public double getMaxZoom() {
+    return mMaxZoom;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#setMaxZoom(double)
+   */
+  public void setMaxZoom(double zoom) {
+    mMaxZoom = zoom;
+
+    fireChanged();
+  }
 }

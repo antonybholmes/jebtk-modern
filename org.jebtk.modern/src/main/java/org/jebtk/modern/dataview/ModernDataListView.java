@@ -34,218 +34,219 @@ import java.awt.Graphics2D;
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.core.geom.IntRect;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Represents a list view of a grid similar to the list view
- * on a file explorer. Items are rendered row first.
+ * Represents a list view of a grid similar to the list view on a file explorer.
+ * Items are rendered row first.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDataListView extends ModernDataGridView {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern data list view.
-	 */
-	public ModernDataListView() {
-		super();
-		
-		setCellRenderer(new ModernDataListCellRenderer());
-		
-		setCellSize(200, 40);
-	}
-	
-	/**
-	 * Instantiates a new modern data list view.
-	 *
-	 * @param renderer the renderer
-	 */
-	public ModernDataListView(ModernDataCellRenderer renderer) {
-		super();
-		
-		setCellRenderer(renderer);
-		
-		setCellSize(200, 40);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataGridView#adjustSize()
-	 */
-	@Override
-	public void adjustSize() {
-		if (mModel == null) {
-			return;
-		}
-		
-		
-		if (mModel.getRowCount() == 0) {
-			return;
-		}
-		
-		mRows = getHeight() / mCellSize.height;
-		
-		if (mRows == 0) {
-			return;
-		}
-		
-		mCols = mModel.getRowCount() / mRows;
-		
-		if (mModel.getRowCount() % mRows != 0) {
-			++mCols;
-		}
-		
-		int width = mCols * mCellSize.width;
-		int height = mRows * mCellSize.height;
+  /**
+   * Instantiates a new modern data list view.
+   */
+  public ModernDataListView() {
+    super();
 
-		setCanvasSize(new Dimension(width, height));
+    setCellRenderer(new ModernDataListCellRenderer());
 
-		refreshView();
-	}
+    setCellSize(200, 40);
+  }
 
-	/**
-	 * Provides a standard method for rendering the cells. This method
-	 * ensures only visible cells are rendered, which is improves
-	 * drawing time since it wastes a lot of effort drawing cells no
-	 * one can see.
-	 *
-	 * @param g2 the g2
-	 */
-	@Override
-	public final void createImage(Graphics2D g2) {
+  /**
+   * Instantiates a new modern data list view.
+   *
+   * @param renderer
+   *          the renderer
+   */
+  public ModernDataListView(ModernDataCellRenderer renderer) {
+    super();
 
-		ModernDataSelection visibleCells = calculateVisibleCells();
-		
-		ModernDataCellRenderer renderer;
-		
-		Graphics2D g2Table = (Graphics2D)g2.create();
+    setCellRenderer(renderer);
 
-		// translate to the start of the rendering rectangle so that we skip
-	    // all non visible cells
-		translate(g2Table);
-		
-	
-		for (int i = visibleCells.getStartCol(); i <= visibleCells.getEndCol(); ++i) {
-			if (i >= getColumnCount()) {
-				break;
-			}
-	
-			int index = i * getRowCount();
-			
-			int x = 0;
+    setCellSize(200, 40);
+  }
 
-			for (int j = 0; j < getRowCount(); ++j) {
-				if (index >= mModel.getRowCount()) {
-					break;
-				}
-				
-				renderer = mCellRendererModel.get(i, j);
-				
-				Component c = renderer.getCellRendererComponent(this, 
-						getValueAt(index, 0), 
-						index == mHighlightCellIndex,
-						mSelectionModel.contains(index, 0),
-						this.isFocusOwner(), 
-						index, 0);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataGridView#adjustSize()
+   */
+  @Override
+  public void adjustSize() {
+    if (mModel == null) {
+      return;
+    }
 
+    if (mModel.getRowCount() == 0) {
+      return;
+    }
 
-				c.setSize(mCellSize);
+    mRows = getHeight() / mCellSize.height;
 
-				c.print(g2Table);
+    if (mRows == 0) {
+      return;
+    }
 
-				// Move to the next cell location.
-				g2Table.translate(0, mCellSize.height);
+    mCols = mModel.getRowCount() / mRows;
 
-				x += mCellSize.height;
-				
-				++index;
-			}
+    if (mModel.getRowCount() % mRows != 0) {
+      ++mCols;
+    }
 
-			// Each time we start a new row, translate back to the X origin.
-			g2Table.translate(mCellSize.width, -x);
-		}
+    int width = mCols * mCellSize.width;
+    int height = mRows * mCellSize.height;
 
-		g2Table.dispose();
-	}
+    setCanvasSize(new Dimension(width, height));
 
-	/**
-	 * Calculates the range of cells visible at any given time.
-	 *
-	 * @return the modern data selection
-	 */
-	@Override
-	protected ModernDataSelection calculateVisibleCells() {
+    refreshView();
+  }
 
-		IntRect viewRectangle = getViewRect();
-		
-		int startRow = 0;
-		int endRow = getRowCount() - 1;
-		
-		// min row
+  /**
+   * Provides a standard method for rendering the cells. This method ensures only
+   * visible cells are rendered, which is improves drawing time since it wastes a
+   * lot of effort drawing cells no one can see.
+   *
+   * @param g2
+   *          the g2
+   */
+  @Override
+  public final void createImage(Graphics2D g2) {
 
-		double t = viewRectangle.getX();
+    ModernDataSelection visibleCells = calculateVisibleCells();
 
-		int startCol = (int)(t / mCellSize.width);
-		
-		// max row
+    ModernDataCellRenderer renderer;
 
-		t += viewRectangle.getW();
-		
-		int endCol = (int)(t / mCellSize.width) + 1;
-		
-		return new ModernDataSelection(startRow, endRow, startCol, endCol);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataGridView#getCell(int)
-	 */
-	@Override
-	protected ModernDataCell getCell(int index) {
-		if (index == -1) {
-			return null;
-		}
-		
-		int c = index / mRows;
-		int r = index - c * mRows;
-		
-		return new ModernDataCell(r, c);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataGridView#getIndex(java.awt.Point)
-	 */
-	@Override
-	protected int getIndex(IntPos2D p) {
-		if (p.getX() / mCellSize.width > mCols) {
-			return -1;
-		}
-		
-		if (p.getY() / mCellSize.height > mRows) {
-			return -1;
-		}
-		
-		return (int)(p.getY() / mCellSize.height + p.getX() / mCellSize.width * mRows);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernData#getIndex(int, int)
-	 */
-	@Override
-	protected int getIndex(int row, int col) {
-		if (col >= mCols) {
-			return -1;
-		}
-		
-		if (row >= mRows) {
-			return -1;
-		}
-		
-		return col * mRows + row;
-	}
+    Graphics2D g2Table = (Graphics2D) g2.create();
+
+    // translate to the start of the rendering rectangle so that we skip
+    // all non visible cells
+    translate(g2Table);
+
+    for (int i = visibleCells.getStartCol(); i <= visibleCells.getEndCol(); ++i) {
+      if (i >= getColumnCount()) {
+        break;
+      }
+
+      int index = i * getRowCount();
+
+      int x = 0;
+
+      for (int j = 0; j < getRowCount(); ++j) {
+        if (index >= mModel.getRowCount()) {
+          break;
+        }
+
+        renderer = mCellRendererModel.get(i, j);
+
+        Component c = renderer.getCellRendererComponent(this, getValueAt(index, 0), index == mHighlightCellIndex,
+            mSelectionModel.contains(index, 0), this.isFocusOwner(), index, 0);
+
+        c.setSize(mCellSize);
+
+        c.print(g2Table);
+
+        // Move to the next cell location.
+        g2Table.translate(0, mCellSize.height);
+
+        x += mCellSize.height;
+
+        ++index;
+      }
+
+      // Each time we start a new row, translate back to the X origin.
+      g2Table.translate(mCellSize.width, -x);
+    }
+
+    g2Table.dispose();
+  }
+
+  /**
+   * Calculates the range of cells visible at any given time.
+   *
+   * @return the modern data selection
+   */
+  @Override
+  protected ModernDataSelection calculateVisibleCells() {
+
+    IntRect viewRectangle = getViewRect();
+
+    int startRow = 0;
+    int endRow = getRowCount() - 1;
+
+    // min row
+
+    double t = viewRectangle.getX();
+
+    int startCol = (int) (t / mCellSize.width);
+
+    // max row
+
+    t += viewRectangle.getW();
+
+    int endCol = (int) (t / mCellSize.width) + 1;
+
+    return new ModernDataSelection(startRow, endRow, startCol, endCol);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataGridView#getCell(int)
+   */
+  @Override
+  protected ModernDataCell getCell(int index) {
+    if (index == -1) {
+      return null;
+    }
+
+    int c = index / mRows;
+    int r = index - c * mRows;
+
+    return new ModernDataCell(r, c);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataGridView#getIndex(java.awt.Point)
+   */
+  @Override
+  protected int getIndex(IntPos2D p) {
+    if (p.getX() / mCellSize.width > mCols) {
+      return -1;
+    }
+
+    if (p.getY() / mCellSize.height > mRows) {
+      return -1;
+    }
+
+    return (int) (p.getY() / mCellSize.height + p.getX() / mCellSize.width * mRows);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernData#getIndex(int, int)
+   */
+  @Override
+  protected int getIndex(int row, int col) {
+    if (col >= mCols) {
+      return -1;
+    }
+
+    if (row >= mRows) {
+      return -1;
+    }
+
+    return col * mRows + row;
+  }
 }

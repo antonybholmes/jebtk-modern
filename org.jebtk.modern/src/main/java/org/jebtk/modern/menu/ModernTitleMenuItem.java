@@ -32,71 +32,79 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.UI;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTitleMenuItem.
  */
 public class ModernTitleMenuItem extends ModernMenuItem {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant BACKGROUND.
-	 *
-	 * @param text the text
-	 */
-	//private static final Color BACKGROUND = 
-	//		ThemeService.getInstance().colors().getHighlight(3);
 
-	/**
-	 * Instantiates a new modern title menu item.
-	 *
-	 * @param text the text
-	 */
-	public ModernTitleMenuItem(String text) {
-		super(text);
-		
-		setEnabled(false);
-		
-		setFont(BOLD_FONT);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern title menu item.
-	 *
-	 * @param text the text
-	 * @param size the size
-	 */
-	public ModernTitleMenuItem(String text, Dimension size) {
-		super(text);
-		
-		setEnabled(false);
-		
-		setFont(BOLD_FONT);
-		
-		UI.setSize(this, size);
-	}
+  /**
+   * The constant BACKGROUND.
+   *
+   * @param text
+   *          the text
+   */
+  // private static final Color BACKGROUND =
+  // ThemeService.getInstance().colors().getHighlight(3);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		//fill(g2, BACKGROUND, getRect());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(TEXT_COLOR);
-		
-		g2.drawString(getText(), PADDING, getTextYPosCenter(g2, getHeight()));
-	}
+  /**
+   * Instantiates a new modern title menu item.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernTitleMenuItem(String text) {
+    super(text);
+
+    setEnabled(false);
+
+    setFont(BOLD_FONT);
+  }
+
+  /**
+   * Instantiates a new modern title menu item.
+   *
+   * @param text
+   *          the text
+   * @param size
+   *          the size
+   */
+  public ModernTitleMenuItem(String text, Dimension size) {
+    super(text);
+
+    setEnabled(false);
+
+    setFont(BOLD_FONT);
+
+    UI.setSize(this, size);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    // fill(g2, BACKGROUND, getRect());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.menu.ModernMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(TEXT_COLOR);
+
+    g2.drawString(getText(), PADDING, getTextYPosCenter(g2, getHeight()));
+  }
 }

@@ -31,44 +31,44 @@ import javax.swing.border.Border;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Colored header using an appropriate color from the
- * theme palette e.g. Dark blue for the blue theme, dark
- * green for the green theme.
+ * Colored header using an appropriate color from the theme palette e.g. Dark
+ * blue for the blue theme, dark green for the green theme.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernColoredHeadingLabel extends ModernHeadingLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern colored heading label.
-	 *
-	 * @param text the text
-	 */
-	public ModernColoredHeadingLabel(String text) {
-		super(text);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	    setForeground(ThemeService.getInstance().colors().getColorHighlight(5));
-	}
+  /**
+   * Instantiates a new modern colored heading label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernColoredHeadingLabel(String text) {
+    super(text);
 
-	/**
-	 * Instantiates a new modern colored heading label.
-	 *
-	 * @param text the text
-	 * @param border the border
-	 */
-	public ModernColoredHeadingLabel(String text, Border border) {
-		this(text);
-		
-		setBorder(border);
-	}
+    setForeground(ThemeService.getInstance().colors().getColorHighlight(5));
+  }
+
+  /**
+   * Instantiates a new modern colored heading label.
+   *
+   * @param text
+   *          the text
+   * @param border
+   *          the border
+   */
+  public ModernColoredHeadingLabel(String text, Border border) {
+    this(text);
+
+    setBorder(border);
+  }
 }

@@ -6,26 +6,26 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class DropDownButtonAnimation extends ButtonHighlightAnimation implements ChangeListener {
-	public DropDownButtonAnimation(ModernWidget button) {
-		super(button);
-		
-		((ModernDropDownWidget)button).addPopupClosedListener(this);
-	}
-	
-	@Override
-	public void animateMouseExited() {
-		// If the popup is show, force the animation to display the button
-		// by making it opaque and stopping the timer
-		if (getButton().getPopupShown()) {
-			opaque();
-			stopMouseOverTimer();
-		} else {
-			super.animateMouseExited();
-		}
-	}
-	
-	@Override
-	public void changed(ChangeEvent e) {
-		pseudoMouseExited();
-	}
+  public DropDownButtonAnimation(ModernWidget button) {
+    super(button);
+
+    ((ModernDropDownWidget) button).addPopupClosedListener(this);
+  }
+
+  @Override
+  public void animateMouseExited() {
+    // If the popup is show, force the animation to display the button
+    // by making it opaque and stopping the timer
+    if (getButton().getPopupShown()) {
+      opaque();
+      stopMouseOverTimer();
+    } else {
+      super.animateMouseExited();
+    }
+  }
+
+  @Override
+  public void changed(ChangeEvent e) {
+    pseudoMouseExited();
+  }
 }

@@ -42,7 +42,6 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.text.ModernColoredHeadingLabel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * All content panes.
@@ -51,75 +50,79 @@ import org.jebtk.modern.text.ModernColoredHeadingLabel;
  *
  */
 public class CollapseHTab extends ModernComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member pane.
-	 */
-	private SizableContentPane mPane;
 
-	/**
-	 * The default width.
-	 */
-	private int defaultWidth = 1;
-	
-	/**
-	 * The constant MIN_WIDTH.
-	 */
-	public static final int MIN_WIDTH = 24;
-	
-	/**
-	 * The class ClickEvents.
-	 */
-	private class ClickEvents implements ModernClickListener {
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		
+  /**
+   * The member pane.
+   */
+  private SizableContentPane mPane;
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			if (mPane.getWidth() > MIN_WIDTH) {
-				defaultWidth = mPane.getWidth();
-				mPane.setWidth(MIN_WIDTH);
-			} else {
-				mPane.setWidth(defaultWidth);
-			}
-		}
-		
-	}
-	
-	/**
-	 * Instantiates a new collapse h tab.
-	 *
-	 * @param pane the pane
-	 * @param c the c
-	 */
-	public CollapseHTab(SizableContentPane pane, JComponent c) {
-		mPane = pane;
-		
-		Box box = HBox.create();
-		
-		box.add(new ModernColoredHeadingLabel(pane.getName()));
-		
-		box.add(Box.createHorizontalGlue());
-		
-		ModernButtonWidget button = new ModernSideButton(UIService.getInstance().loadIcon("left_arrow", 16));
-		button.addClickListener(new ClickEvents());
-		
-		box.add(button);
-		
-		box.setBorder(BorderService.getInstance().createBottomBorder(10));
-		
-		add(box, BorderLayout.PAGE_START);
-		
-		add(c, BorderLayout.CENTER);
-		
-		setBorder(BORDER);
-	}
+  /**
+   * The default width.
+   */
+  private int defaultWidth = 1;
+
+  /**
+   * The constant MIN_WIDTH.
+   */
+  public static final int MIN_WIDTH = 24;
+
+  /**
+   * The class ClickEvents.
+   */
+  private class ClickEvents implements ModernClickListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      if (mPane.getWidth() > MIN_WIDTH) {
+        defaultWidth = mPane.getWidth();
+        mPane.setWidth(MIN_WIDTH);
+      } else {
+        mPane.setWidth(defaultWidth);
+      }
+    }
+
+  }
+
+  /**
+   * Instantiates a new collapse h tab.
+   *
+   * @param pane
+   *          the pane
+   * @param c
+   *          the c
+   */
+  public CollapseHTab(SizableContentPane pane, JComponent c) {
+    mPane = pane;
+
+    Box box = HBox.create();
+
+    box.add(new ModernColoredHeadingLabel(pane.getName()));
+
+    box.add(Box.createHorizontalGlue());
+
+    ModernButtonWidget button = new ModernSideButton(UIService.getInstance().loadIcon("left_arrow", 16));
+    button.addClickListener(new ClickEvents());
+
+    box.add(button);
+
+    box.setBorder(BorderService.getInstance().createBottomBorder(10));
+
+    add(box, BorderLayout.PAGE_START);
+
+    add(c, BorderLayout.CENTER);
+
+    setBorder(BORDER);
+  }
 }

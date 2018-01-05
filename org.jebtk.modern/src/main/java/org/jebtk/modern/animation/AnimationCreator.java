@@ -26,81 +26,88 @@ import org.jebtk.core.event.ChangeListeners;
  * The Class Animations.
  */
 public class AnimationCreator extends ChangeListeners implements Iterable<Class<?>> {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m animations. */
-	private List<Class<?>> mAnimations = new ArrayList<Class<?>>();
-	
-	/**
-	 * Add an animation class which can be used to create an animation object
-	 * for a particular widget.
-	 *
-	 * @param animation the animation
-	 * @return 
-	 */
-	public AnimationCreator add(Class<?> animation) {
-		update(animation);
-		
-		fireChanged();
-		
-		return this;
-	}
-	
-	/**
-	 * Update.
-	 *
-	 * @param animation the animation
-	 * @return 
-	 */
-	public AnimationCreator update(Class<?> animation) {
-		mAnimations.add(animation);
-		
-		return this;
-	}
-	
-	/**
-	 * Sets the.
-	 *
-	 * @param animation the animation
-	 * @param animations the animations
-	 * @return 
-	 */
-	public AnimationCreator set(Class<?> animation) {
-		clear();
-		
-		add(animation);
-		
-		return this;
-	}
-	
-	/**
-	 * Clear.
-	 * @return 
-	 */
-	private AnimationCreator clear() {
-		mAnimations.clear();
-		
-		return this;
-	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	@Override
-	public Iterator<Class<?>> iterator() {
-		return mAnimations.iterator();
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Get a particular animation by index.
-	 * 
-	 * @param index
-	 * @return
-	 */
-	public Class<?> get(int index) {
-		return mAnimations.get(index);
-	}
+  /** The m animations. */
+  private List<Class<?>> mAnimations = new ArrayList<Class<?>>();
+
+  /**
+   * Add an animation class which can be used to create an animation object for a
+   * particular widget.
+   *
+   * @param animation
+   *          the animation
+   * @return
+   */
+  public AnimationCreator add(Class<?> animation) {
+    update(animation);
+
+    fireChanged();
+
+    return this;
+  }
+
+  /**
+   * Update.
+   *
+   * @param animation
+   *          the animation
+   * @return
+   */
+  public AnimationCreator update(Class<?> animation) {
+    mAnimations.add(animation);
+
+    return this;
+  }
+
+  /**
+   * Sets the.
+   *
+   * @param animation
+   *          the animation
+   * @param animations
+   *          the animations
+   * @return
+   */
+  public AnimationCreator set(Class<?> animation) {
+    clear();
+
+    add(animation);
+
+    return this;
+  }
+
+  /**
+   * Clear.
+   * 
+   * @return
+   */
+  private AnimationCreator clear() {
+    mAnimations.clear();
+
+    return this;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  @Override
+  public Iterator<Class<?>> iterator() {
+    return mAnimations.iterator();
+  }
+
+  /**
+   * Get a particular animation by index.
+   * 
+   * @param index
+   * @return
+   */
+  public Class<?> get(int index) {
+    return mAnimations.get(index);
+  }
 
 }

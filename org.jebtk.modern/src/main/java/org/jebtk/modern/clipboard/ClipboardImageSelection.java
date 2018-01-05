@@ -39,39 +39,49 @@ import java.awt.datatransfer.Transferable;
  *
  */
 public class ClipboardImageSelection implements Transferable {
-	
-	/**
-	 * The image.
-	 */
-	private Image image;
 
-	/**
-	 * Instantiates a new clipboard image selection.
-	 *
-	 * @param image the image
-	 */
-	public ClipboardImageSelection(Image image) {
-		this.image = image;
-	}
+  /**
+   * The image.
+   */
+  private Image image;
 
-	/* (non-Javadoc)
-	 * @see java.awt.datatransfer.Transferable#getTransferDataFlavors()
-	 */
-	public DataFlavor[] getTransferDataFlavors() {
-		return new DataFlavor[]{DataFlavor.imageFlavor};
-	}
+  /**
+   * Instantiates a new clipboard image selection.
+   *
+   * @param image
+   *          the image
+   */
+  public ClipboardImageSelection(Image image) {
+    this.image = image;
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.datatransfer.Transferable#isDataFlavorSupported(java.awt.datatransfer.DataFlavor)
-	 */
-	public boolean isDataFlavorSupported(DataFlavor flavor) {
-		return DataFlavor.imageFlavor.equals(flavor);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.datatransfer.Transferable#getTransferDataFlavors()
+   */
+  public DataFlavor[] getTransferDataFlavors() {
+    return new DataFlavor[] { DataFlavor.imageFlavor };
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.datatransfer.Transferable#getTransferData(java.awt.datatransfer.DataFlavor)
-	 */
-	public Object getTransferData(DataFlavor flavor) {
-		return image;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.datatransfer.Transferable#isDataFlavorSupported(java.awt.
+   * datatransfer.DataFlavor)
+   */
+  public boolean isDataFlavorSupported(DataFlavor flavor) {
+    return DataFlavor.imageFlavor.equals(flavor);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * java.awt.datatransfer.Transferable#getTransferData(java.awt.datatransfer.
+   * DataFlavor)
+   */
+  public Object getTransferData(DataFlavor flavor) {
+    return image;
+  }
 }

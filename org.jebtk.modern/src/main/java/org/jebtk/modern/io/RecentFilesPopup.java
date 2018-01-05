@@ -41,117 +41,126 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernMenuSeparator;
 import org.jebtk.modern.menu.ModernScrollPopupMenu;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RecentFilesPopup.
  */
 public class RecentFilesPopup extends ModernScrollPopupMenu implements ChangeListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant MAX_FILES.
-	 */
-	public static final int MAX_FILES = 5;
-	
-	/**
-	 * The recent files.
-	 */
-	private RecentFilesService mRecentFiles;
-	
-	/**
-	 * The max.
-	 */
-	private int max;
-	
-	/**
-	 * The icon.
-	 */
-	private ModernIcon mIcon;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new recent files popup.
-	 *
-	 * @param recentFiles the recent files
-	 */
-	public RecentFilesPopup(RecentFilesService recentFiles) {
-		setup(recentFiles, UIService.getInstance().loadIcon("file", UIService.ICON_SIZE_32), MAX_FILES);
-	}
+  /**
+   * The constant MAX_FILES.
+   */
+  public static final int MAX_FILES = 5;
 
-	/**
-	 * Instantiates a new recent files popup.
-	 *
-	 * @param recentFiles the recent files
-	 * @param icon the icon
-	 */
-	public RecentFilesPopup(RecentFilesService recentFiles, ModernIcon icon) {
-		setup(recentFiles, icon, MAX_FILES);
-	}
+  /**
+   * The recent files.
+   */
+  private RecentFilesService mRecentFiles;
 
-	/**
-	 * Instantiates a new recent files popup.
-	 *
-	 * @param recentFiles the recent files
-	 * @param icon the icon
-	 * @param max the max
-	 */
-	public RecentFilesPopup(RecentFilesService recentFiles, ModernIcon icon, int max) {
-		setup(recentFiles, icon, max);
-	}
+  /**
+   * The max.
+   */
+  private int max;
 
-	/**
-	 * Setup.
-	 *
-	 * @param recentFiles the recent files
-	 * @param icon the icon
-	 * @param max the max
-	 */
-	private void setup(RecentFilesService recentFiles, ModernIcon icon, int max) {
-		mRecentFiles = recentFiles;
-		recentFiles.addChangeListener(this);
-		mIcon = icon;
-		this.max = max;
-		
-		reload();
-	}
-	
-	/**
-	 * Reload.
-	 */
-	private void reload() {
-		int c = 0;
+  /**
+   * The icon.
+   */
+  private ModernIcon mIcon;
 
-		clear();
-		
-		for (Path file : mRecentFiles) {
-			if (c == max) {
-				break;
-			}
+  /**
+   * Instantiates a new recent files popup.
+   *
+   * @param recentFiles
+   *          the recent files
+   */
+  public RecentFilesPopup(RecentFilesService recentFiles) {
+    setup(recentFiles, UIService.getInstance().loadIcon("file", UIService.ICON_SIZE_32), MAX_FILES);
+  }
 
-			ModernIconMenuItem item = new FileMenuItem(file, mIcon);
-			
-			UI.setSize(item, new Dimension(400, UIService.ICON_SIZE_48));
+  /**
+   * Instantiates a new recent files popup.
+   *
+   * @param recentFiles
+   *          the recent files
+   * @param icon
+   *          the icon
+   */
+  public RecentFilesPopup(RecentFilesService recentFiles, ModernIcon icon) {
+    setup(recentFiles, icon, MAX_FILES);
+  }
 
-			addScrollMenuItem(item);
+  /**
+   * Instantiates a new recent files popup.
+   *
+   * @param recentFiles
+   *          the recent files
+   * @param icon
+   *          the icon
+   * @param max
+   *          the max
+   */
+  public RecentFilesPopup(RecentFilesService recentFiles, ModernIcon icon, int max) {
+    setup(recentFiles, icon, max);
+  }
 
-			++c;
-		}
-		
-		addMenuItem(new ModernMenuSeparator());
+  /**
+   * Setup.
+   *
+   * @param recentFiles
+   *          the recent files
+   * @param icon
+   *          the icon
+   * @param max
+   *          the max
+   */
+  private void setup(RecentFilesService recentFiles, ModernIcon icon, int max) {
+    mRecentFiles = recentFiles;
+    recentFiles.addChangeListener(this);
+    mIcon = icon;
+    this.max = max;
 
-		addMenuItem(new ForwardRequestMenuItem("Other...", null));
-	}
+    reload();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void changed(ChangeEvent e) {
-		reload();
-	}
+  /**
+   * Reload.
+   */
+  private void reload() {
+    int c = 0;
+
+    clear();
+
+    for (Path file : mRecentFiles) {
+      if (c == max) {
+        break;
+      }
+
+      ModernIconMenuItem item = new FileMenuItem(file, mIcon);
+
+      UI.setSize(item, new Dimension(400, UIService.ICON_SIZE_48));
+
+      addScrollMenuItem(item);
+
+      ++c;
+    }
+
+    addMenuItem(new ModernMenuSeparator());
+
+    addMenuItem(new ForwardRequestMenuItem("Other...", null));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+   */
+  @Override
+  public void changed(ChangeEvent e) {
+    reload();
+  }
 }

@@ -36,12 +36,14 @@ import java.util.List;
  * @author Antony Holmes Holmes
  */
 public abstract class ModernRowColumnHeaderTableModel extends ModernColumnHeaderTableModel {
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowAnnotationNames()
-	 */
-	@Override
-	public List<String> getRowAnnotationNames() {
-		return HEADER_NAMES;
-	}
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowAnnotationNames()
+   */
+  @Override
+  public List<String> getRowAnnotationNames() {
+    return HEADER_NAMES;
+  }
 }

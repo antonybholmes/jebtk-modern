@@ -42,94 +42,103 @@ import org.jebtk.core.xml.XmlUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Settings factory for providing global settings to an application.
- * Can load settings from an XML file or a text file.
+ * Settings factory for providing global settings to an application. Can load
+ * settings from an XML file or a text file.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ColorMaps extends NameListModel<ColorMap> implements XmlRepresentation, JsonRepresentation {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Adds the.
-	 *
-	 * @param colorMap the color map
-	 */
-	public void add(ColorMap colorMap) {
-		add(colorMap.getName(), colorMap);
-	}
-	
-	/**
-	 * Update.
-	 *
-	 * @param colorMap the color map
-	 */
-	public void update(ColorMap colorMap) {
-		update(colorMap.getName(), colorMap);
-	}
-	
-	/**
-	 * Write xml.
-	 *
-	 * @param file the file
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws TransformerException the transformer exception
-	 * @throws ParserConfigurationException the parser configuration exception
-	 */
-	public synchronized final void writeXml(Path file) throws IOException, TransformerException, ParserConfigurationException {
-		Document doc = XmlUtils.createDoc(); //new XmlDocument(toXml());
-		
-		doc.appendChild(toXml(doc));
-		
-		XmlUtils.writeXml(doc, file);
-	}
+  /**
+   * Adds the.
+   *
+   * @param colorMap
+   *          the color map
+   */
+  public void add(ColorMap colorMap) {
+    add(colorMap.getName(), colorMap);
+  }
 
+  /**
+   * Update.
+   *
+   * @param colorMap
+   *          the color map
+   */
+  public void update(ColorMap colorMap) {
+    update(colorMap.getName(), colorMap);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.xml.XmlRepresentation#toXml()
-	 */
-	@Override
-	public Element toXml(Document doc) {
-		Element element = doc.createElement("colormaps");
-		
-		for (String name : this) {
-			element.appendChild(get(name).toXml(doc));
-		}
-		
-		return element;
-	}
+  /**
+   * Write xml.
+   *
+   * @param file
+   *          the file
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   * @throws TransformerException
+   *           the transformer exception
+   * @throws ParserConfigurationException
+   *           the parser configuration exception
+   */
+  public synchronized final void writeXml(Path file)
+      throws IOException, TransformerException, ParserConfigurationException {
+    Document doc = XmlUtils.createDoc(); // new XmlDocument(toXml());
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.json.JsonRepresentation#toJson()
-	 */
-	@Override
-	public Json toJson() {
-		Json json = new JsonArray();
-		
-		for (String name : this) {
-			json.add(get(name).toJson());
-		}
-		
-		return json;
-	}
+    doc.appendChild(toXml(doc));
 
-	/**
-	 * Write json.
-	 *
-	 * @param file the file
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public synchronized void writeJson(Path file) throws IOException {
-		Json.prettyWrite(toJson(), file);
-	}
+    XmlUtils.writeXml(doc, file);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.xml.XmlRepresentation#toXml()
+   */
+  @Override
+  public Element toXml(Document doc) {
+    Element element = doc.createElement("colormaps");
+
+    for (String name : this) {
+      element.appendChild(get(name).toXml(doc));
+    }
+
+    return element;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.json.JsonRepresentation#toJson()
+   */
+  @Override
+  public Json toJson() {
+    Json json = new JsonArray();
+
+    for (String name : this) {
+      json.add(get(name).toJson());
+    }
+
+    return json;
+  }
+
+  /**
+   * Write json.
+   *
+   * @param file
+   *          the file
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public synchronized void writeJson(Path file) throws IOException {
+    Json.prettyWrite(toJson(), file);
+  }
 }

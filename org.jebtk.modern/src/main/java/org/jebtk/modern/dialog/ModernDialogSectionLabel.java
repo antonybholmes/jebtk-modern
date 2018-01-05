@@ -32,32 +32,30 @@ import javax.swing.JLabel;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.theme.ThemeService;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernDialogHeadingLabel.
  */
 public class ModernDialogSectionLabel extends JLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog heading label.
-	 *
-	 * @param text the text
-	 */
-	public ModernDialogSectionLabel(String text) {
-		super(text);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		setFont(ThemeService.loadFont("widget.heading"));
+  /**
+   * Instantiates a new modern dialog heading label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernDialogSectionLabel(String text) {
+    super(text);
 
-		setBorder(ModernPanel.BORDER);
+    setFont(ThemeService.loadFont("widget.heading"));
 
-		setAlignmentX(LEFT_ALIGNMENT);
-	}
+    setBorder(ModernPanel.BORDER);
+
+    setAlignmentX(LEFT_ALIGNMENT);
+  }
 }

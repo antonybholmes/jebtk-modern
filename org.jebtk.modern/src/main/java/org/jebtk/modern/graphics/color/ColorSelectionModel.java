@@ -27,135 +27,136 @@
  */
 package org.jebtk.modern.graphics.color;
 
-
 import org.jebtk.core.ColorValue;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListeners;
-
-
 
 // TODO: Auto-generated Javadoc
 /**
  * The class ColorSelectionModel.
  */
 public class ColorSelectionModel extends ChangeListeners {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant COLOR_CHANGED.
-	 */
-	public static final String COLOR_CHANGED = "color_changed";
-	
-	/**
-	 * The constant CHANNEL_CHANGED.
-	 */
-	public static final String CHANNEL_CHANGED = "channel_changed";
-	
-	/**
-	 * The member current color.
-	 */
-	private ColorValue mCurrentColor;
-	
-	/**
-	 * The member new color.
-	 */
-	private ColorValue mNewColor;
 
-	/**
-	 * The member channel.
-	 */
-	private ColorChannel mChannel = ColorChannel.RED;
-	
-	/**
-	 * Sets the current color.
-	 *
-	 * @param color the new current color
-	 */
-	public void setCurrentColor(ColorValue color) {
-		mCurrentColor = color;
-		
-		setNewColor(new ColorValue(color));
-		
-		//this.fireModernClickEvent(new ModernClickEvent(this,  COLOR_CHANGED));
-		
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	}
-	
-	/**
-	 * Update color.
-	 *
-	 * @param channel the channel
-	 * @param value the value
-	 */
-	public void updateColor(ColorChannel channel, int value) {
-		switch (channel) {
-		case RED:
-			mNewColor.mRed = value;
-			break;
-		case GREEN:
-			mNewColor.mGreen = value;
-			break;
-		case BLUE:
-			mNewColor.mBlue = value;
-			break;
-		default:
-			mNewColor.mAlpha = value;
-			break;
-		}
-		
-		fireChanged(new ChangeEvent(this, COLOR_CHANGED));
-	}
+  /**
+   * The constant COLOR_CHANGED.
+   */
+  public static final String COLOR_CHANGED = "color_changed";
 
-	/**
-	 * Sets the channel.
-	 *
-	 * @param channel the new channel
-	 */
-	public void setChannel(ColorChannel channel) {
-		mChannel = channel;
-		
-		fireChanged(new ChangeEvent(this, CHANNEL_CHANGED));
-	}
-	
-	/**
-	 * Gets the channel.
-	 *
-	 * @return the channel
-	 */
-	public ColorChannel getChannel() {
-		return mChannel;
-	}
+  /**
+   * The constant CHANNEL_CHANGED.
+   */
+  public static final String CHANNEL_CHANGED = "channel_changed";
 
-	/**
-	 * Gets the new color.
-	 *
-	 * @return the new color
-	 */
-	public ColorValue getNewColor() {
-		return mNewColor;
-	}
-	
-	/**
-	 * Gets the current color.
-	 *
-	 * @return the current color
-	 */
-	public ColorValue getCurrentColor() {
-		return mCurrentColor;
-	}
+  /**
+   * The member current color.
+   */
+  private ColorValue mCurrentColor;
 
-	/**
-	 * Sets the new color.
-	 *
-	 * @param color the new color
-	 */
-	public void setNewColor(ColorValue color) {
-		mNewColor = color;
-		
-		fireChanged(new ChangeEvent(this, COLOR_CHANGED));
-	}
+  /**
+   * The member new color.
+   */
+  private ColorValue mNewColor;
+
+  /**
+   * The member channel.
+   */
+  private ColorChannel mChannel = ColorChannel.RED;
+
+  /**
+   * Sets the current color.
+   *
+   * @param color
+   *          the new current color
+   */
+  public void setCurrentColor(ColorValue color) {
+    mCurrentColor = color;
+
+    setNewColor(new ColorValue(color));
+
+    // this.fireModernClickEvent(new ModernClickEvent(this, COLOR_CHANGED));
+
+  }
+
+  /**
+   * Update color.
+   *
+   * @param channel
+   *          the channel
+   * @param value
+   *          the value
+   */
+  public void updateColor(ColorChannel channel, int value) {
+    switch (channel) {
+    case RED:
+      mNewColor.mRed = value;
+      break;
+    case GREEN:
+      mNewColor.mGreen = value;
+      break;
+    case BLUE:
+      mNewColor.mBlue = value;
+      break;
+    default:
+      mNewColor.mAlpha = value;
+      break;
+    }
+
+    fireChanged(new ChangeEvent(this, COLOR_CHANGED));
+  }
+
+  /**
+   * Sets the channel.
+   *
+   * @param channel
+   *          the new channel
+   */
+  public void setChannel(ColorChannel channel) {
+    mChannel = channel;
+
+    fireChanged(new ChangeEvent(this, CHANNEL_CHANGED));
+  }
+
+  /**
+   * Gets the channel.
+   *
+   * @return the channel
+   */
+  public ColorChannel getChannel() {
+    return mChannel;
+  }
+
+  /**
+   * Gets the new color.
+   *
+   * @return the new color
+   */
+  public ColorValue getNewColor() {
+    return mNewColor;
+  }
+
+  /**
+   * Gets the current color.
+   *
+   * @return the current color
+   */
+  public ColorValue getCurrentColor() {
+    return mCurrentColor;
+  }
+
+  /**
+   * Sets the new color.
+   *
+   * @param color
+   *          the new color
+   */
+  public void setNewColor(ColorValue color) {
+    mNewColor = color;
+
+    fireChanged(new ChangeEvent(this, COLOR_CHANGED));
+  }
 }

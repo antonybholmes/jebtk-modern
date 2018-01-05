@@ -35,7 +35,6 @@ import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.dataview.ModernDataCellRenderer;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Displays an icon in a table cell.
@@ -44,56 +43,54 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  *
  */
 public class ModernTableIconCellRenderer extends ModernDataCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	///protected int end = 0;
+  /// protected int end = 0;
 
-	//protected JLabel label = new JLabel();
+  // protected JLabel label = new JLabel();
 
-	/**
-	 * The member icon.
-	 */
-	protected ModernIcon mIcon;
+  /**
+   * The member icon.
+   */
+  protected ModernIcon mIcon;
 
-	//protected boolean highlight = true;
+  // protected boolean highlight = true;
 
-	/**
-	 * Instantiates a new modern table icon cell renderer.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernTableIconCellRenderer(ModernIcon icon) {
+  /**
+   * Instantiates a new modern table icon cell renderer.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernTableIconCellRenderer(ModernIcon icon) {
 
-		mIcon = icon;
-	}
+    mIcon = icon;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	public void drawForegroundAAText(Graphics2D g2) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  public void drawForegroundAAText(Graphics2D g2) {
 
-		mIcon.drawIcon(g2, 
-				(this.getWidth() - UIService.ICON_SIZE_16) / 2, 
-				(this.getHeight() - UIService.ICON_SIZE_16) / 2,
-				UIService.ICON_SIZE_16);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	public final Component getCellRendererComponent(
-			ModernData table,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
-		return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
-	}
+    mIcon.drawIcon(g2, (this.getWidth() - UIService.ICON_SIZE_16) / 2, (this.getHeight() - UIService.ICON_SIZE_16) / 2,
+        UIService.ICON_SIZE_16);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
+   * java.lang.Object, boolean, boolean, boolean, int, int)
+   */
+  public final Component getCellRendererComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+    return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
+  }
 }

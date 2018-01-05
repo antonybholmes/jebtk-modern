@@ -33,7 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.ThemeService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Help icon.
@@ -43,78 +42,69 @@ import org.jebtk.modern.theme.ThemeService;
  */
 public class HelpVectorIcon extends ModernMessageIcon {
 
-	/** The Constant COLOR1. */
-	private static final Color COLOR1 = 
-			ThemeService.getInstance().colors().getColorHighlight32(14);
-	
-	/** The Constant COLOR2. */
-	private static final Color COLOR2 = 
-			ThemeService.getInstance().colors().getColorHighlight32(16);
+  /** The Constant COLOR1. */
+  private static final Color COLOR1 = ThemeService.getInstance().colors().getColorHighlight32(14);
 
+  /** The Constant COLOR2. */
+  private static final Color COLOR2 = ThemeService.getInstance().colors().getColorHighlight32(16);
 
-	/** The Constant TEXT. */
-	private static final String TEXT = "?";
+  /** The Constant TEXT. */
+  private static final String TEXT = "?";
 
-	/**
-	 * Instantiates a new help vector icon.
-	 */
-	public HelpVectorIcon() {
-		this(COLOR1, COLOR2);
-	}
+  /**
+   * Instantiates a new help vector icon.
+   */
+  public HelpVectorIcon() {
+    this(COLOR1, COLOR2);
+  }
 
-	/**
-	 * Instantiates a new help vector icon.
-	 *
-	 * @param color1 the color 1
-	 * @param color2 the color 2
-	 */
-	public HelpVectorIcon(Color color1, Color color2) {
-		super(color1 != null ? color1 : COLOR1, color2 != null ? color2 : COLOR2);
-	}
+  /**
+   * Instantiates a new help vector icon.
+   *
+   * @param color1
+   *          the color 1
+   * @param color2
+   *          the color 2
+   */
+  public HelpVectorIcon(Color color1, Color color2) {
+    super(color1 != null ? color1 : COLOR1, color2 != null ? color2 : COLOR2);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		int size = w - 2;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    int size = w - 2;
 
-		int xf = x + (w - size) / 2;
-		int yf = y + (h - size) / 2;
+    int xf = x + (w - size) / 2;
+    int yf = y + (h - size) / 2;
 
-		Graphics2D g2Temp = ImageUtils.clone(g2);
+    Graphics2D g2Temp = ImageUtils.clone(g2);
 
-		try {
-			// Useful for drawing circles with sub-pixel accuracy.
-			ImageUtils.setStrokeHints(g2Temp);
-			
-			/*
-			GradientPaint paint = new GradientPaint(0,
-		             yf,
-		             mColor1,
-		             0,
-		             yf + size,
-		             mColor2);
-			
-			//g2Temp.setPaint(paint);
-			*/
+    try {
+      // Useful for drawing circles with sub-pixel accuracy.
+      ImageUtils.setStrokeHints(g2Temp);
 
-			g2Temp.setColor(Color.WHITE);
-			g2Temp.fillOval(xf, yf, size, size);
-			g2Temp.setColor(mColor2);
-			g2Temp.drawOval(xf, yf, size, size);
-		} finally {
-			g2Temp.dispose();
-		}
-		
-	
-		drawScaledText(g2, 
-				w,
-				x,
-				y,
-				w,
-				h,
-				TEXT,
-				mColor1);
-	}
+      /*
+       * GradientPaint paint = new GradientPaint(0, yf, mColor1, 0, yf + size,
+       * mColor2);
+       * 
+       * //g2Temp.setPaint(paint);
+       */
+
+      g2Temp.setColor(Color.WHITE);
+      g2Temp.fillOval(xf, yf, size, size);
+      g2Temp.setColor(mColor2);
+      g2Temp.drawOval(xf, yf, size, size);
+    } finally {
+      g2Temp.dispose();
+    }
+
+    drawScaledText(g2, w, x, y, w, h, TEXT, mColor1);
+  }
 }

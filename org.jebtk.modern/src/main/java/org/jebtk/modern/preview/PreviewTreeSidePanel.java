@@ -35,73 +35,74 @@ import org.jebtk.modern.scrollpane.ScrollBarPolicy;
 import org.jebtk.modern.tree.ModernTree;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class PreviewTreeSidePanel.
  */
 public class PreviewTreeSidePanel extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The tree.
-	 */
-	private ModernTree<ModernWidget> tree;
 
-	/**
-	 * Instantiates a new preview tree side panel.
-	 */
-	public PreviewTreeSidePanel() {
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		super(new BorderLayout());
+  /**
+   * The tree.
+   */
+  private ModernTree<ModernWidget> tree;
 
-		tree = new ModernTree<ModernWidget>();
-		
-		tree.setNodeRenderer(new PreviewModernTreeNodeRenderer());
+  /**
+   * Instantiates a new preview tree side panel.
+   */
+  public PreviewTreeSidePanel() {
 
-		ModernScrollPane scrollPane = new ModernScrollPane(tree);
+    super(new BorderLayout());
 
-		scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
+    tree = new ModernTree<ModernWidget>();
 
-		add(scrollPane, BorderLayout.CENTER);
-	}
+    tree.setNodeRenderer(new PreviewModernTreeNodeRenderer());
 
-	/**
-	 * Sets the root.
-	 *
-	 * @param previewPanel the new root
-	 */
-	public final void setRoot(ModernWidget previewPanel) {
+    ModernScrollPane scrollPane = new ModernScrollPane(tree);
 
-		// create the tree with the restriction site groups. These
-		// no not change.
+    scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
 
-		tree.clear();
+    add(scrollPane, BorderLayout.CENTER);
+  }
 
-		tree.getRoot().addChild(new TreeNode<ModernWidget>(previewPanel.getName(), previewPanel));
-	}
+  /**
+   * Sets the root.
+   *
+   * @param previewPanel
+   *          the new root
+   */
+  public final void setRoot(ModernWidget previewPanel) {
 
-	/**
-	 * Adds the.
-	 *
-	 * @param name the name
-	 * @param previewPanel the preview panel
-	 */
-	public final void add(String name, ModernWidget previewPanel) {
-		tree.getRoot().getChild(0).addChild(new TreeNode<ModernWidget>(name, previewPanel));
-	}
+    // create the tree with the restriction site groups. These
+    // no not change.
 
-	/**
-	 * Gets the tree.
-	 *
-	 * @return the tree
-	 */
-	public ModernTree<ModernWidget> getTree() {
-		return tree;
-	}
+    tree.clear();
+
+    tree.getRoot().addChild(new TreeNode<ModernWidget>(previewPanel.getName(), previewPanel));
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param name
+   *          the name
+   * @param previewPanel
+   *          the preview panel
+   */
+  public final void add(String name, ModernWidget previewPanel) {
+    tree.getRoot().getChild(0).addChild(new TreeNode<ModernWidget>(name, previewPanel));
+  }
+
+  /**
+   * Gets the tree.
+   *
+   * @return the tree
+   */
+  public ModernTree<ModernWidget> getTree() {
+    return tree;
+  }
 }

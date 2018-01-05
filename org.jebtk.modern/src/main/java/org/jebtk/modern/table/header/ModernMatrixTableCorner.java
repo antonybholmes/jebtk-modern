@@ -42,95 +42,95 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class ModernMatrixTableCorner extends ModernWidget {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member table.
-	 */
-	private ModernTable mTable;
+  /**
+   * The member table.
+   */
+  private ModernTable mTable;
 
+  /**
+   * Instantiates a new modern matrix table corner.
+   *
+   * @param <T>
+   *          the generic type
+   * @param matrix
+   *          the matrix
+   */
+  public <T> ModernMatrixTableCorner(ModernTable matrix) {
+    mTable = matrix;
+  }
 
-	/**
-	 * Instantiates a new modern matrix table corner.
-	 *
-	 * @param <T> the generic type
-	 * @param matrix the matrix
-	 */
-	public <T> ModernMatrixTableCorner(ModernTable matrix) {
-		mTable = matrix;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fill(g2, ModernTableHeader.HEADER_BACKGROUND, mInternalRect);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fill(g2, ModernTableHeader.HEADER_BACKGROUND, mInternalRect);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int w = (int) mTable.scale(mTable.getRowModel().getHeaderSize());
+    int h = (int) mTable.scale(mTable.getColumnModel().getHeaderSize());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int w = (int)mTable.scale(mTable.getRowModel().getHeaderSize());
-		int h = (int)mTable.scale(mTable.getColumnModel().getHeaderSize());
+    fill(g2, ModernTableHeader.HEADER_BACKGROUND, new IntRect(0, 0, w, h));
 
-		fill(g2, ModernTableHeader.HEADER_BACKGROUND, new IntRect(0, 0, w, h));
-		
-		g2.setColor(ModernWidget.LINE_COLOR);
-		
-		g2.drawLine(0, h - 1, w - 1, h - 1);
+    g2.setColor(ModernWidget.LINE_COLOR);
 
-		g2.drawLine(w - 1, 
-				0, 
-				w - 1, 
-				h - 1);
+    g2.drawLine(0, h - 1, w - 1, h - 1);
 
-		/*
-		g2.setColor(ThemeService.getInstance().colors().getHighlight(2));
+    g2.drawLine(w - 1, 0, w - 1, h - 1);
 
+    /*
+     * g2.setColor(ThemeService.getInstance().colors().getHighlight(2));
+     * 
+     * 
+     * // Draw triangle in corner
+     * 
+     * int o = getHeight() / 4; int h = o * 2;
+     * 
+     * GeneralPath polygon = new GeneralPath(GeneralPath.WIND_EVEN_ODD, 3);
+     * 
+     * polygon.moveTo(getWidth() - o, o);
+     * 
+     * polygon.lineTo(getWidth() - o, o + h); polygon.lineTo(getWidth() - o - h, o +
+     * h);
+     * 
+     * polygon.closePath(); g2.fill(polygon);
+     */
 
-		// Draw triangle in corner
+    Graphics2D g2Temp = ImageUtils.clone(g2);
 
-		int o = getHeight() / 4;
-		int h = o * 2;
+    try {
+      g2Temp.setColor(TEXT_COLOR);
 
-		GeneralPath polygon = new GeneralPath(GeneralPath.WIND_EVEN_ODD, 3);
+      // g2Temp.translate(w, 0);
 
-		polygon.moveTo(getWidth() - o, o);
+      if (mTable.getModel().getRowAnnotationNames() != null) {
+        for (String name : mTable.getModel().getRowAnnotationNames()) {
+          String text = getTruncatedText(g2Temp, name, w);
 
-		polygon.lineTo(getWidth() - o, o + h);
-		polygon.lineTo(getWidth() - o - h, o + h);
+          int x = (w - g2Temp.getFontMetrics().stringWidth(text)) / 2;
+          int y = getTextYPosCenter(g2Temp, h);
 
-		polygon.closePath();
-		g2.fill(polygon);
-		 */
+          g2Temp.drawString(text, x, y);
 
-		Graphics2D g2Temp = ImageUtils.clone(g2);
-
-		try {
-			g2Temp.setColor(TEXT_COLOR);
-
-			//g2Temp.translate(w, 0);
-
-			if (mTable.getModel().getRowAnnotationNames() != null) {
-				for (String name : mTable.getModel().getRowAnnotationNames()) {
-					String text = getTruncatedText(g2Temp, name, w);
-
-					int x = (w - g2Temp.getFontMetrics().stringWidth(text)) / 2;
-					int y = getTextYPosCenter(g2Temp, h);
-
-					g2Temp.drawString(text, x, y);
-
-					g2Temp.translate(w, 0);
-				}
-			}
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+          g2Temp.translate(w, 0);
+        }
+      }
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 }

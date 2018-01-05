@@ -45,148 +45,164 @@ import org.jebtk.core.io.PathUtils;
  * @author Antony Holmes Holmes
  */
 public abstract class GuiFileExtFilter extends FileFilter implements Comparable<FileFilter> {
-	
-	/**
-	 * The extensions.
-	 */
-	private List<String> mExtensions;
-	
-	/**
-	 * Instantiates a new gui file ext filter.
-	 *
-	 * @param extensions the extensions
-	 */
-	public GuiFileExtFilter(String extension, String... extensions) {
-		mExtensions = CollectionUtils.toList(extension, extensions);
-	}
-	
-	/**
-	 * Instantiates a new gui file ext filter.
-	 *
-	 * @param extensions the extensions
-	 */
-	public GuiFileExtFilter(List<String> extensions) {
-		mExtensions = extensions;
-	}
-	
 
-	/* (non-Javadoc)
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
-	@Override
-	public int compareTo(FileFilter o) {
-		return getDescription().compareTo(o.getDescription());
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object o) {
-		if (o instanceof FileFilter) {
-			return compareTo((FileFilter)o) == 0;
-		} else {
-			return false;
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
-	 */
-	@Override
-	public int hashCode() {
-		return getDescription().hashCode();
-	}
+  /**
+   * The extensions.
+   */
+  private List<String> mExtensions;
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#accept(java.io.File)
-	 */
-	@Override
-	public boolean accept(File f) {
-		if (f.isDirectory()) {
-            return true;
-        }
+  /**
+   * Instantiates a new gui file ext filter.
+   *
+   * @param extensions
+   *          the extensions
+   */
+  public GuiFileExtFilter(String extension, String... extensions) {
+    mExtensions = CollectionUtils.toList(extension, extensions);
+  }
 
-		for (String extension : mExtensions) {
-			if (f.getName().toLowerCase().endsWith(extension)) {
-				return true;
-			}
-		}
-		
-		return false;
-	}
+  /**
+   * Instantiates a new gui file ext filter.
+   *
+   * @param extensions
+   *          the extensions
+   */
+  public GuiFileExtFilter(List<String> extensions) {
+    mExtensions = extensions;
+  }
 
-	
-	/**
-	 * Gets the extension.
-	 *
-	 * @return the extension
-	 */
-	public String getExtension() {
-		return getExtensions().get(0);
-	}
-	
-	/**
-	 * Returns the list of extensions associated with
-	 * this file filter.
-	 *  
-	 *
-	 * @return the extensions
-	 */
-	public List<String> getExtensions() {
-		return Collections.unmodifiableList(mExtensions);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Comparable#compareTo(java.lang.Object)
+   */
+  @Override
+  public int compareTo(FileFilter o) {
+    return getDescription().compareTo(o.getDescription());
+  }
 
-	
-	/**
-	 * Adds the extension.
-	 *
-	 * @param file the file
-	 * @param filter the filter
-	 * @return the file
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public static File addExtension(File file, GuiFileExtFilter filter) throws IOException {
-		return addExtension(file, filter.getExtension());
-	}
-	
-	/**
-	 * Adds a file extension to a file name. This method will check
-	 * to ensure it does not create duplicate endings such as .txt.txt,
-	 * but it will allow .csv.txt for example.
-	 *
-	 * @param file the file
-	 * @param extension the extension
-	 * @return the file
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public static final File addExtension(final File file, final String extension) throws IOException {
-		String s = file.getCanonicalPath();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#equals(java.lang.Object)
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (o instanceof FileFilter) {
+      return compareTo((FileFilter) o) == 0;
+    } else {
+      return false;
+    }
+  }
 
-		if (!s.toLowerCase().endsWith("." + extension)) {
-			s += "." + extension;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#hashCode()
+   */
+  @Override
+  public int hashCode() {
+    return getDescription().hashCode();
+  }
 
-		return new File(s);
-	}
-	
-	/**
-	 * Adds the extension.
-	 *
-	 * @param file the file
-	 * @param filter the filter
-	 * @return the path
-	 */
-	public static Path addExtension(Path file, GuiFileExtFilter filter) {
-		return PathUtils.addExtension(file, filter.getExtension());
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#accept(java.io.File)
+   */
+  @Override
+  public boolean accept(File f) {
+    if (f.isDirectory()) {
+      return true;
+    }
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public String getDescription() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    for (String extension : mExtensions) {
+      if (f.getName().toLowerCase().endsWith(extension)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /**
+   * Gets the extension.
+   *
+   * @return the extension
+   */
+  public String getExtension() {
+    return getExtensions().get(0);
+  }
+
+  /**
+   * Returns the list of extensions associated with this file filter.
+   * 
+   *
+   * @return the extensions
+   */
+  public List<String> getExtensions() {
+    return Collections.unmodifiableList(mExtensions);
+  }
+
+  /**
+   * Adds the extension.
+   *
+   * @param file
+   *          the file
+   * @param filter
+   *          the filter
+   * @return the file
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public static File addExtension(File file, GuiFileExtFilter filter) throws IOException {
+    return addExtension(file, filter.getExtension());
+  }
+
+  /**
+   * Adds a file extension to a file name. This method will check to ensure it
+   * does not create duplicate endings such as .txt.txt, but it will allow
+   * .csv.txt for example.
+   *
+   * @param file
+   *          the file
+   * @param extension
+   *          the extension
+   * @return the file
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public static final File addExtension(final File file, final String extension) throws IOException {
+    String s = file.getCanonicalPath();
+
+    if (!s.toLowerCase().endsWith("." + extension)) {
+      s += "." + extension;
+    }
+
+    return new File(s);
+  }
+
+  /**
+   * Adds the extension.
+   *
+   * @param file
+   *          the file
+   * @param filter
+   *          the filter
+   * @return the path
+   */
+  public static Path addExtension(Path file, GuiFileExtFilter filter) {
+    return PathUtils.addExtension(file, filter.getExtension());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public String getDescription() {
+    // TODO Auto-generated method stub
+    return null;
+  }
 }

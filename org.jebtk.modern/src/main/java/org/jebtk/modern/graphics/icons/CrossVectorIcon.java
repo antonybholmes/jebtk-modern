@@ -32,52 +32,55 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.settings.SettingsService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class CrossVectorIcon.
  */
 public class CrossVectorIcon extends ModernVectorScalableIcon {
-	
-	/**
-	 * The constant SCALE.
-	 */
-	protected static final double SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.cross-icon.width-scale");
-	
-	/** The m color. */
-	private Color mColor;
-	
-	/**
-	 * Instantiates a new cross vector icon.
-	 */
-	public CrossVectorIcon() {
-		this(Color.BLACK);
-	}
-	
-	/**
-	 * Instantiates a new cross vector icon.
-	 *
-	 * @param color the color
-	 */
-	public CrossVectorIcon(Color color) {
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		//g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-		
-		double wf = w * SCALE;
-		
-		double xf = x + (w - wf) / 2;
-		double yf = y + (h - wf) / 2;
-		
-		g2.setColor(mColor);
-		g2.drawLine((int)xf, (int)yf, (int)(xf + wf) - 1, (int)(yf + wf) - 1);
-		g2.drawLine((int)xf, (int)(yf + wf) - 1, (int)(xf + wf) - 1, (int)yf);
-	}
+
+  /**
+   * The constant SCALE.
+   */
+  protected static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.cross-icon.width-scale");
+
+  /** The m color. */
+  private Color mColor;
+
+  /**
+   * Instantiates a new cross vector icon.
+   */
+  public CrossVectorIcon() {
+    this(Color.BLACK);
+  }
+
+  /**
+   * Instantiates a new cross vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public CrossVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+
+    double wf = w * SCALE;
+
+    double xf = x + (w - wf) / 2;
+    double yf = y + (h - wf) / 2;
+
+    g2.setColor(mColor);
+    g2.drawLine((int) xf, (int) yf, (int) (xf + wf) - 1, (int) (yf + wf) - 1);
+    g2.drawLine((int) xf, (int) (yf + wf) - 1, (int) (xf + wf) - 1, (int) yf);
+  }
 }

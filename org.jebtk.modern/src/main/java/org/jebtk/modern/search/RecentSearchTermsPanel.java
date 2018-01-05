@@ -48,182 +48,182 @@ import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.ribbon.RibbonMenuPanel;
 import org.jebtk.modern.ribbon.RibbonPanelTitle;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RecentSearchTermsPanel.
  */
 public class RecentSearchTermsPanel extends RibbonMenuPanel implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The content.
-	 */
-	private Box content = Box.createVerticalBox();
+  /**
+   * The content.
+   */
+  private Box content = Box.createVerticalBox();
 
-	/**
-	 * The icon.
-	 */
-	private ModernIcon icon;
+  /**
+   * The icon.
+   */
+  private ModernIcon icon;
 
-	/**
-	 * The map.
-	 */
-	private Map<ModernButton, String> map = new HashMap<ModernButton, String>();
+  /**
+   * The map.
+   */
+  private Map<ModernButton, String> map = new HashMap<ModernButton, String>();
 
-	/**
-	 * The selected search.
-	 */
-	private String selectedSearch = null;
+  /**
+   * The selected search.
+   */
+  private String selectedSearch = null;
 
-	/**
-	 * The constant ITEM_HEIGHT.
-	 */
-	private static final int ITEM_HEIGHT = 40;
+  /**
+   * The constant ITEM_HEIGHT.
+   */
+  private static final int ITEM_HEIGHT = 40;
 
-	/**
-	 * The display count.
-	 */
-	private int displayCount = 10;
+  /**
+   * The display count.
+   */
+  private int displayCount = 10;
 
-	/**
-	 * Instantiates a new recent search terms panel.
-	 */
-	public RecentSearchTermsPanel() {
-		super("Recent searches");
-		
-		setup("Recent searches", UIService.getInstance().loadIcon("recent_search", UIService.ICON_SIZE_32));
-	}
+  /**
+   * Instantiates a new recent search terms panel.
+   */
+  public RecentSearchTermsPanel() {
+    super("Recent searches");
 
-	/**
-	 * Setup.
-	 *
-	 * @param title the title
-	 * @param icon the icon
-	 */
-	private void setup(String title, ModernIcon icon) {
+    setup("Recent searches", UIService.getInstance().loadIcon("recent_search", UIService.ICON_SIZE_32));
+  }
 
-		this.icon = icon;
-		
-		setLayout(new BorderLayout());
-		setBackground(Color.WHITE);
+  /**
+   * Setup.
+   *
+   * @param title
+   *          the title
+   * @param icon
+   *          the icon
+   */
+  private void setup(String title, ModernIcon icon) {
 
-		add(new RibbonPanelTitle(title), BorderLayout.PAGE_START);
+    this.icon = icon;
 
-		/*
-		model = new ListTableModel<java.io.File>(recentFiles.getRecentFiles());
-		table.setModel(model);
+    setLayout(new BorderLayout());
+    setBackground(Color.WHITE);
 
-		table.setRowHeight(40);
+    add(new RibbonPanelTitle(title), BorderLayout.PAGE_START);
 
-		table.setDefaultRenderer(Object.class, {
-				new RecentFilesTableCellRenderer(icon));
+    /*
+     * model = new ListTableModel<java.io.File>(recentFiles.getRecentFiles());
+     * table.setModel(model);
+     * 
+     * table.setRowHeight(40);
+     * 
+     * table.setDefaultRenderer(Object.class, { new
+     * RecentFilesTableCellRenderer(icon));
+     * 
+     * table.setBackground(Color.WHITE); //table.setAutoCreateRowSorter(true);
+     * //table.addMouseListener(this); //table.setMinimumSize(new Dimension(250,
+     * 250)); table.setTableHeader(null);
+     */
 
-		table.setBackground(Color.WHITE);
-		//table.setAutoCreateRowSorter(true);
-		//table.addMouseListener(this);
-		//table.setMinimumSize(new Dimension(250, 250));
-		table.setTableHeader(null);
-		*/
+    // table.getRowSorter().toggleSortOrder(0);
 
-		//table.getRowSorter().toggleSortOrder(0);
+    JScrollPane scrollPane = new JScrollPane(content);
+    scrollPane.setBorder(BORDER);
+    scrollPane.setViewportBorder(BorderFactory.createEmptyBorder());
+    scrollPane.getViewport().setBackground(Color.WHITE);
+    scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    scrollPane.setBackground(Color.WHITE);
 
-		JScrollPane scrollPane = new JScrollPane(content);
-		scrollPane.setBorder(BORDER);
-		scrollPane.setViewportBorder(BorderFactory.createEmptyBorder());
-		scrollPane.getViewport().setBackground(Color.WHITE);
-		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setBackground(Color.WHITE);
+    setBorder(BORDER);
 
-		setBorder(BORDER);
+    add(scrollPane, BorderLayout.CENTER);
 
-		add(scrollPane, BorderLayout.CENTER);
+    ModernPanel buttonPanel = new ModernPanel(new FlowLayout(FlowLayout.RIGHT));
 
-		ModernPanel buttonPanel = new ModernPanel(new FlowLayout(FlowLayout.RIGHT));
+    ModernButtonWidget button = new ModernButton("Clear",
+        UIService.getInstance().loadIcon("clear", UIService.ICON_SIZE_16));
 
-		ModernButtonWidget button = 
-				new ModernButton("Clear", UIService.getInstance().loadIcon("clear", UIService.ICON_SIZE_16));
+    button.addClickListener(this);
 
-		button.addClickListener(this);
+    buttonPanel.add(button);
 
-		buttonPanel.add(button);
+    add(buttonPanel, BorderLayout.PAGE_END);
+  }
 
-		add(buttonPanel, BorderLayout.PAGE_END);
-	}
+  /**
+   * Reload.
+   */
+  public final void reload() {
 
-	/**
-	 * Reload.
-	 */
-	public final void reload() {
+    content.removeAll();
+    map.clear();
 
-		content.removeAll();
-		map.clear();
+    int c = 0;
 
-		int c = 0;
+    for (String search : SearchTermsService.getInstance()) {
+      if (c == displayCount) {
+        break;
+      }
 
-		for (String search : SearchTermsService.getInstance()) {
-			if (c == displayCount) {
-				break;
-			}
+      ModernButton item = new RecentSearchTermButton(search, icon);
 
-			ModernButton item = new RecentSearchTermButton(search, icon);
+      item.setPreferredSize(new Dimension(0, ITEM_HEIGHT));
+      item.setMaximumSize(new Dimension(Short.MAX_VALUE, ITEM_HEIGHT));
+      item.addClickListener(this);
 
-			item.setPreferredSize(new Dimension(0, ITEM_HEIGHT));
-			item.setMaximumSize(new Dimension(Short.MAX_VALUE, ITEM_HEIGHT));
-			item.addClickListener(this);
+      map.put(item, search);
 
-			map.put(item, search);
+      content.add(item);
 
-			content.add(item);
+      ++c;
+    }
 
-			++c;
-		}
+    content.add(Box.createVerticalGlue());
+  }
 
-		content.add(Box.createVerticalGlue());
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public final void clicked(ModernClickEvent e) {
+    if (e.getMessage().equals("Clear")) {
 
+      clear();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public final void clicked(ModernClickEvent e) {
-		if (e.getMessage().equals("Clear")) {
+      return;
+    }
 
-			clear();
+    selectedSearch = map.get(e.getSource());
 
-			return;
-		}
+    fireClicked(new ModernClickEvent(this, e.getMessage()));
+  }
 
-		selectedSearch = map.get(e.getSource());
+  /**
+   * Clear.
+   */
+  private void clear() {
 
-		fireClicked(new ModernClickEvent(this, e.getMessage()));
-	}
+    // clear the list of items
 
-	/**
-	 * Clear.
-	 */
-	private void clear() {
+    SearchTermsService.getInstance().clear();
+    content.removeAll();
+    content.revalidate();
+    content.repaint();
+  }
 
-		//clear the list of items
-
-		SearchTermsService.getInstance().clear();
-		content.removeAll();
-		content.revalidate();
-		content.repaint();
-	}
-
-	/**
-	 * Gets the selected search.
-	 *
-	 * @return the selected search
-	 */
-	public final String getSelectedSearch() {
-		return selectedSearch;
-	}
+  /**
+   * Gets the selected search.
+   *
+   * @return the selected search
+   */
+  public final String getSelectedSearch() {
+    return selectedSearch;
+  }
 }

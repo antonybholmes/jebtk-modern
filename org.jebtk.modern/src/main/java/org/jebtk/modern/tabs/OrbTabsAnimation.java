@@ -31,49 +31,52 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class OrbTabsAnimation extends WidgetAnimation {
 
-	private static final Color TEXT_COLOR = 
-			ThemeService.getInstance().colors().getHighlight(10);
-	
-	private OrbTabs mTabs;
+  private static final Color TEXT_COLOR = ThemeService.getInstance().colors().getHighlight(10);
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public OrbTabsAnimation(ModernWidget w) {
-		super(w);
-		
-		mTabs = (OrbTabs)w;
-	}
+  private OrbTabs mTabs;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public OrbTabsAnimation(ModernWidget w) {
+    super(w);
 
-		int x = mTabs.getInsets().left;
-		int h = mTabs.getInternalRect().getH();
-		int n = mTabs.getTabsModel().getTabCount();
+    mTabs = (OrbTabs) w;
+  }
 
-		int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
-	
-		//
-		// Draw the labels
-		//
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		for (int i = 0; i < n; ++i) {
-			g2.setColor(i == selectedIndex ? Color.WHITE : TEXT_COLOR);
-			//g2.setFont(selected ? ModernWidget.BOLD_FONT : ModernWidget.FONT);
+    int x = mTabs.getInsets().left;
+    int h = mTabs.getInternalRect().getH();
+    int n = mTabs.getTabsModel().getTabCount();
 
-			int textY = ModernWidget.getTextYPosCenter(g2, mTabs.getHeight());
+    int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
 
-			String s = mTabs.getTabsModel().getTab(i).getName().toUpperCase().substring(0, 1);
+    //
+    // Draw the labels
+    //
 
-			g2.drawString(s, x + (h - g2.getFontMetrics().stringWidth(s)) / 2, textY);
+    for (int i = 0; i < n; ++i) {
+      g2.setColor(i == selectedIndex ? Color.WHITE : TEXT_COLOR);
+      // g2.setFont(selected ? ModernWidget.BOLD_FONT : ModernWidget.FONT);
 
-			x += mTabs.mTabSize;
-		}
-	}	
+      int textY = ModernWidget.getTextYPosCenter(g2, mTabs.getHeight());
+
+      String s = mTabs.getTabsModel().getTab(i).getName().toUpperCase().substring(0, 1);
+
+      g2.drawString(s, x + (h - g2.getFontMetrics().stringWidth(s)) / 2, textY);
+
+      x += mTabs.mTabSize;
+    }
+  }
 }

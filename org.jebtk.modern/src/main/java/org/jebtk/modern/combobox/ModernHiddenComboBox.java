@@ -34,69 +34,73 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.menu.ModernScrollPopupMenu;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernHiddenComboBox.
  */
 public class ModernHiddenComboBox extends ModernComboBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern hidden combo box.
-	 */
-	public ModernHiddenComboBox() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	/**
-	 * Instantiates a new modern hidden combo box.
-	 *
-	 * @param name the name
-	 * @param popup the popup
-	 */
-	public ModernHiddenComboBox(String name, ModernScrollPopupMenu popup) {
-		super(name, popup);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * Instantiates a new modern hidden combo box.
+   */
+  public ModernHiddenComboBox() {
+    // TODO Auto-generated constructor stub
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.combobox.ModernComboBox#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		Rectangle buttonRect = new Rectangle(mButtonX, mRect.getY(), BUTTON_WIDTH, mRect.getH());
+  /**
+   * Instantiates a new modern hidden combo box.
+   *
+   * @param name
+   *          the name
+   * @param popup
+   *          the popup
+   */
+  public ModernHiddenComboBox(String name, ModernScrollPopupMenu popup) {
+    super(name, popup);
+  }
 
-		if (mHighlight) {
-			//ModernTheme.fillRect(g2, getRect(), highlightBorderColor);
-			
-			drawHighlightedOutline(g2, getRect());
-			
-			paintHighlightedOutlined(g2, buttonRect);
-	
-			//g2.setColor(highlightBorderColor);
-			//g2.drawRect(mRect.getX(), mRect.getY(), mRect.getW() - 1, mRect.getH() - 1);
-			//Theme.paintRect(g2, getRect(), highlightBorderColor);
-			
-			//g2.setColor(ThemeService.getInstance().getThemeColor(2));
-			//ModernTheme.drawRect(g2, buttonRect, highlightBorderColor);
-			//g2.drawRect(buttonX, mRect.getY(), BUTTON_WIDTH - 1, mRect.getH() - 1);
-		} else if (mPopupShown) {
-			//g2.setColor(highlightBorderColor);
-			//g2.drawRect(mRect.getX(), mRect.getY(), mRect.getW() - 1, mRect.getH() - 1);
-			paintSelectedBorder(g2, getRect());
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.combobox.ModernComboBox#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    Rectangle buttonRect = new Rectangle(mButtonX, mRect.getY(), BUTTON_WIDTH, mRect.getH());
 
-			paintSelected(g2, buttonRect);
-		} else {
-			
-		}
+    if (mHighlight) {
+      // ModernTheme.fillRect(g2, getRect(), highlightBorderColor);
 
-		//paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON, buttonRect);
-		
-		UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, buttonRect.x, buttonRect.y + (buttonRect.height - 16) / 2, 16);
-	}
+      drawHighlightedOutline(g2, getRect());
+
+      paintHighlightedOutlined(g2, buttonRect);
+
+      // g2.setColor(highlightBorderColor);
+      // g2.drawRect(mRect.getX(), mRect.getY(), mRect.getW() - 1, mRect.getH() - 1);
+      // Theme.paintRect(g2, getRect(), highlightBorderColor);
+
+      // g2.setColor(ThemeService.getInstance().getThemeColor(2));
+      // ModernTheme.drawRect(g2, buttonRect, highlightBorderColor);
+      // g2.drawRect(buttonX, mRect.getY(), BUTTON_WIDTH - 1, mRect.getH() - 1);
+    } else if (mPopupShown) {
+      // g2.setColor(highlightBorderColor);
+      // g2.drawRect(mRect.getX(), mRect.getY(), mRect.getW() - 1, mRect.getH() - 1);
+      paintSelectedBorder(g2, getRect());
+
+      paintSelected(g2, buttonRect);
+    } else {
+
+    }
+
+    // paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON, buttonRect);
+
+    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, buttonRect.x,
+        buttonRect.y + (buttonRect.height - 16) / 2, 16);
+  }
 }

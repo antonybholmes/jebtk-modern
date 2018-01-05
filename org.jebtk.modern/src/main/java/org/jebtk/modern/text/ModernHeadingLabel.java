@@ -34,65 +34,64 @@ import javax.swing.border.Border;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernHeadingLabel.
  */
 public class ModernHeadingLabel extends ModernAutoSizeLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant HEADING_FONT.
-	 */
-	private static final Font HEADING_FONT = 
-			ThemeService.loadFont("theme.widget.fonts.heading");
-	
-	/**
-	 * Instantiates a new modern heading label.
-	 *
-	 * @param text the text
-	 */
-	public ModernHeadingLabel(String text) {
-		super(text);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern heading label.
-	 *
-	 * @param text the text
-	 * @param color the color
-	 */
-	public ModernHeadingLabel(String text, Color color) {
-		super(text, color);
+  /**
+   * The constant HEADING_FONT.
+   */
+  private static final Font HEADING_FONT = ThemeService.loadFont("theme.widget.fonts.heading");
 
-		setup();
-	}
-	
-	public ModernHeadingLabel(String text, Border border) {
-		super(text);
-		
-		setBorder(border);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new modern heading label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernHeadingLabel(String text) {
+    super(text);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setFont(HEADING_FONT);
-		
-		//setForeground(ThemeService.getInstance().getThemeColor(3));
-		
-		//setBorder(BorderService.getInstance().createBottomBorder(10));
-	}
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern heading label.
+   *
+   * @param text
+   *          the text
+   * @param color
+   *          the color
+   */
+  public ModernHeadingLabel(String text, Color color) {
+    super(text, color);
+
+    setup();
+  }
+
+  public ModernHeadingLabel(String text, Border border) {
+    super(text);
+
+    setBorder(border);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setFont(HEADING_FONT);
+
+    // setForeground(ThemeService.getInstance().getThemeColor(3));
+
+    // setBorder(BorderService.getInstance().createBottomBorder(10));
+  }
 }

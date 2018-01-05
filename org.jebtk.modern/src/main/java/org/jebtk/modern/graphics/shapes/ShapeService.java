@@ -34,7 +34,6 @@ import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.HashMapCreator;
 import org.jebtk.core.collections.IterMap;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Cache geometric shapes for drawing.
@@ -44,152 +43,157 @@ import org.jebtk.core.collections.IterMap;
  */
 public class ShapeService {
 
-	/**
-	 * The Class ShapeServiceLoader.
-	 */
-	private static class ShapeServiceLoader {
-		
-		/** The Constant INSTANCE. */
-		private static final ShapeService INSTANCE = new ShapeService();
-	}
+  /**
+   * The Class ShapeServiceLoader.
+   */
+  private static class ShapeServiceLoader {
 
-	/**
-	 * Gets the single instance of SettingsService.
-	 *
-	 * @return single instance of SettingsService
-	 */
-	public static ShapeService getInstance() {
-		return ShapeServiceLoader.INSTANCE;
-	}
-	/**
-	 * The map.
-	 */
-	private Map<String, IterMap<Integer, Shape>> mShapeMap = 
-			DefaultHashMap.create(new HashMapCreator<Integer, Shape>());
+    /** The Constant INSTANCE. */
+    private static final ShapeService INSTANCE = new ShapeService();
+  }
 
-	/**
-	 * Instantiates a new UI resources.
-	 */
-	private ShapeService() {
-		// do nothing
-	}
-	
-	/**
-	 * Load shape.
-	 *
-	 * @param name the name
-	 * @return the shape
-	 */
-	public Shape loadShape(String name) {
-		return loadShape(name, 16);
-	}
+  /**
+   * Gets the single instance of SettingsService.
+   *
+   * @return single instance of SettingsService
+   */
+  public static ShapeService getInstance() {
+    return ShapeServiceLoader.INSTANCE;
+  }
 
-	/**
-	 * Load shape.
-	 *
-	 * @param name the name
-	 * @param size the size
-	 * @return the shape
-	 */
-	public Shape loadShape(String name, int size) {
-		return loadShape(name, size, false);
-	}
-	
-	/**
-	 * Load icon64.
-	 *
-	 * @param name the name
-	 * @param size the size
-	 * @param centered the centered
-	 * @return the modern icon
-	 */
-	public Shape loadShape(String name, int size, boolean centered) {
-		String ln = name.toLowerCase();
-		
-		if (!mShapeMap.get(ln).containsKey(size)) {
-			Shape shape = null;
+  /**
+   * The map.
+   */
+  private Map<String, IterMap<Integer, Shape>> mShapeMap = DefaultHashMap.create(new HashMapCreator<Integer, Shape>());
 
-			if (centered) {
-				if (ln.equals("square")) {
-					shape = new ShapeCenteredSquare(0, 0, size);
-				} else if (ln.equals("triangle")) {
-					shape = new ShapeCenteredEquilateralTriangle(0, 0, size);
-				} else if (ln.equals("inverted triangle")) {
-					shape = new ShapeCenteredEquilateralInvertedTriangle(0, 0, size);
-				} else if (ln.equals("diamond")) {
-					shape = new ShapeCenteredDiamond(0, 0, size);
-				} else if (ln.equals("hexagon")) {
-					shape = new ShapeCenteredHexagon(0, 0, size);
-				} else if (ln.equals("pentagon")) {
-					shape = new ShapeCenteredPentagon(0, 0, size);
-				} else if (ln.equals("parallelogram")) {
-					shape = new ShapeCenteredParallelogram(0, 0, size);
-				} else if (ln.equals("trapezoid")) {
-					shape = new ShapeCenteredTrapezoid(0, 0, size);
-				} else if (ln.equals("star")) {
-					shape = new ShapeCenteredStar(0, 0, size);
-				} else {
-					shape = new ShapeCenteredCircle(0, 0, size);
-				}
-			} else {	
-				if (ln.equals("square")) {
-					shape = new ShapeSquare(0, 0, size);
-				} else if (ln.equals("triangle")) {
-					shape = new ShapeEquilateralTriangle(0, 0, size);
-				} else if (ln.equals("inverted triangle")) {
-					shape = new ShapeEquilateralInvertedTriangle(0, 0, size);
-				} else if (ln.equals("diamond")) {
-					shape = new ShapeDiamond(0, 0, size);
-				} else if (ln.equals("hexagon")) {
-					shape = new ShapeHexagon(0, 0, size);
-				} else if (ln.equals("pentagon")) {
-					shape = new ShapePentagon(0, 0, size);
-				} else if (ln.equals("parallelogram")) {
-					shape = new ShapeParallelogram(0, 0, size);
-				} else if (ln.equals("trapezoid")) {
-					shape = new ShapeTrapezoid(0, 0, size);
-				} else if (ln.equals("star")) {
-					shape = new ShapeStar(0, 0, size);
-				} else {
-					shape = new ShapeCircle(0, 0, size);
-				}
-			}
+  /**
+   * Instantiates a new UI resources.
+   */
+  private ShapeService() {
+    // do nothing
+  }
 
-			mShapeMap.get(ln).put(size, shape);
-		}
+  /**
+   * Load shape.
+   *
+   * @param name
+   *          the name
+   * @return the shape
+   */
+  public Shape loadShape(String name) {
+    return loadShape(name, 16);
+  }
 
-		return mShapeMap.get(ln).get(size);
-	}
+  /**
+   * Load shape.
+   *
+   * @param name
+   *          the name
+   * @param size
+   *          the size
+   * @return the shape
+   */
+  public Shape loadShape(String name, int size) {
+    return loadShape(name, size, false);
+  }
 
-	/**
-	 * Gets the shape.
-	 *
-	 * @param shape the shape
-	 * @return the shape
-	 */
-	public static String getShape(Shape shape) {
-		if (shape instanceof ShapeDiamond) {
-			return "diamond";
-		} else if (shape instanceof ShapeSquare) {
-			return "square";
-		} else if (shape instanceof ShapeEquilateralTriangle) {
-			return "triangle";
-		} else if (shape instanceof ShapeEquilateralInvertedTriangle) {
-			return "inverted triangle";
-		} else if (shape instanceof ShapeTrapezoid) {
-			return "trapezoid";
-		} else if (shape instanceof ShapeParallelogram) {
-			return "parallelogram";
-		} else if (shape instanceof ShapeHexagon) {
-			return "hexagon";
-		} else if (shape instanceof ShapePentagon) {
-			return "pentagon";
-		} else if (shape instanceof ShapeStar) {
-			return "star";
-		} else {
-			return "circle";
-		}
-	}
+  /**
+   * Load icon64.
+   *
+   * @param name
+   *          the name
+   * @param size
+   *          the size
+   * @param centered
+   *          the centered
+   * @return the modern icon
+   */
+  public Shape loadShape(String name, int size, boolean centered) {
+    String ln = name.toLowerCase();
+
+    if (!mShapeMap.get(ln).containsKey(size)) {
+      Shape shape = null;
+
+      if (centered) {
+        if (ln.equals("square")) {
+          shape = new ShapeCenteredSquare(0, 0, size);
+        } else if (ln.equals("triangle")) {
+          shape = new ShapeCenteredEquilateralTriangle(0, 0, size);
+        } else if (ln.equals("inverted triangle")) {
+          shape = new ShapeCenteredEquilateralInvertedTriangle(0, 0, size);
+        } else if (ln.equals("diamond")) {
+          shape = new ShapeCenteredDiamond(0, 0, size);
+        } else if (ln.equals("hexagon")) {
+          shape = new ShapeCenteredHexagon(0, 0, size);
+        } else if (ln.equals("pentagon")) {
+          shape = new ShapeCenteredPentagon(0, 0, size);
+        } else if (ln.equals("parallelogram")) {
+          shape = new ShapeCenteredParallelogram(0, 0, size);
+        } else if (ln.equals("trapezoid")) {
+          shape = new ShapeCenteredTrapezoid(0, 0, size);
+        } else if (ln.equals("star")) {
+          shape = new ShapeCenteredStar(0, 0, size);
+        } else {
+          shape = new ShapeCenteredCircle(0, 0, size);
+        }
+      } else {
+        if (ln.equals("square")) {
+          shape = new ShapeSquare(0, 0, size);
+        } else if (ln.equals("triangle")) {
+          shape = new ShapeEquilateralTriangle(0, 0, size);
+        } else if (ln.equals("inverted triangle")) {
+          shape = new ShapeEquilateralInvertedTriangle(0, 0, size);
+        } else if (ln.equals("diamond")) {
+          shape = new ShapeDiamond(0, 0, size);
+        } else if (ln.equals("hexagon")) {
+          shape = new ShapeHexagon(0, 0, size);
+        } else if (ln.equals("pentagon")) {
+          shape = new ShapePentagon(0, 0, size);
+        } else if (ln.equals("parallelogram")) {
+          shape = new ShapeParallelogram(0, 0, size);
+        } else if (ln.equals("trapezoid")) {
+          shape = new ShapeTrapezoid(0, 0, size);
+        } else if (ln.equals("star")) {
+          shape = new ShapeStar(0, 0, size);
+        } else {
+          shape = new ShapeCircle(0, 0, size);
+        }
+      }
+
+      mShapeMap.get(ln).put(size, shape);
+    }
+
+    return mShapeMap.get(ln).get(size);
+  }
+
+  /**
+   * Gets the shape.
+   *
+   * @param shape
+   *          the shape
+   * @return the shape
+   */
+  public static String getShape(Shape shape) {
+    if (shape instanceof ShapeDiamond) {
+      return "diamond";
+    } else if (shape instanceof ShapeSquare) {
+      return "square";
+    } else if (shape instanceof ShapeEquilateralTriangle) {
+      return "triangle";
+    } else if (shape instanceof ShapeEquilateralInvertedTriangle) {
+      return "inverted triangle";
+    } else if (shape instanceof ShapeTrapezoid) {
+      return "trapezoid";
+    } else if (shape instanceof ShapeParallelogram) {
+      return "parallelogram";
+    } else if (shape instanceof ShapeHexagon) {
+      return "hexagon";
+    } else if (shape instanceof ShapePentagon) {
+      return "pentagon";
+    } else if (shape instanceof ShapeStar) {
+      return "star";
+    } else {
+      return "circle";
+    }
+  }
 }
-
-

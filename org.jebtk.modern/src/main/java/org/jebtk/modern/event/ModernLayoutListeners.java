@@ -31,7 +31,6 @@ import org.jebtk.core.event.ChangeEvent;
 
 import org.jebtk.core.event.EventProducer;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
@@ -40,32 +39,44 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class ModernLayoutListeners extends EventProducer<ModernLayoutListener> implements ModernLayoutEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernLayoutEventProducer#addLayoutListener(org.abh.lib.ui.modern.event.ModernLayoutListener)
-	 */
-	public void addLayoutListener(ModernLayoutListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernLayoutEventProducer#removeLayoutListener(org.abh.lib.ui.modern.event.ModernLayoutListener)
-	 */
-	public void removeLayoutListener(ModernLayoutListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernLayoutEventProducer#fireLayoutChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireLayoutChanged(ChangeEvent e) {
-		for (ModernLayoutListener l : mListeners) {
-			l.layoutChanged(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernLayoutEventProducer#addLayoutListener(org.
+   * abh.lib.ui.modern.event.ModernLayoutListener)
+   */
+  public void addLayoutListener(ModernLayoutListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernLayoutEventProducer#removeLayoutListener(
+   * org.abh.lib.ui.modern.event.ModernLayoutListener)
+   */
+  public void removeLayoutListener(ModernLayoutListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernLayoutEventProducer#fireLayoutChanged(org.
+   * abh.lib.event.ChangeEvent)
+   */
+  public void fireLayoutChanged(ChangeEvent e) {
+    for (ModernLayoutListener l : mListeners) {
+      l.layoutChanged(e);
+    }
+  }
 }

@@ -31,53 +31,57 @@ import java.awt.Dimension;
 
 import org.jebtk.modern.graphics.ModernCanvas;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Draws a layer on a layer canvas when directed.
- * The LayerModel dictates if the layer gets draw or not.
+ * Draws a layer on a layer canvas when directed. The LayerModel dictates if the
+ * layer gets draw or not.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public abstract class LayerCanvas extends ModernCanvas {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member name.
-	 */
-	private String mName;
 
-	/**
-	 * Instantiates a new layer canvas.
-	 *
-	 * @param name the name
-	 */
-	public LayerCanvas(String name) {
-		mName = name;
-	}
-	
-	/**
-	 * Instantiates a new layer canvas.
-	 *
-	 * @param name the name
-	 * @param d the d
-	 */
-	public LayerCanvas(String name, Dimension d) {
-		super(d);
-		
-		mName = name;
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvas#getName()
-	 */
-	@Override
-	public String getName() {
-		return mName;
-	}
+  /**
+   * The member name.
+   */
+  private String mName;
+
+  /**
+   * Instantiates a new layer canvas.
+   *
+   * @param name
+   *          the name
+   */
+  public LayerCanvas(String name) {
+    mName = name;
+  }
+
+  /**
+   * Instantiates a new layer canvas.
+   *
+   * @param name
+   *          the name
+   * @param d
+   *          the d
+   */
+  public LayerCanvas(String name, Dimension d) {
+    super(d);
+
+    mName = name;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvas#getName()
+   */
+  @Override
+  public String getName() {
+    return mName;
+  }
 }

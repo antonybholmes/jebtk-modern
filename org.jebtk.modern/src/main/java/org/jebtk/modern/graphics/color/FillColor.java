@@ -22,39 +22,41 @@ import java.awt.Color;
  * The Class FillColor.
  */
 public class FillColor {
-	
-	/** The m fill color. */
-	private Color mFillColor;
-	
-	/** The m line color. */
-	private Color mLineColor;
 
-	/**
-	 * Instantiates a new fill color.
-	 *
-	 * @param lineColor the line color
-	 * @param fillColor the fill color
-	 */
-	public FillColor(Color lineColor, Color fillColor) {
-		mLineColor = lineColor;
-		mFillColor = fillColor;
-	}
-	
-	/**
-	 * Gets the line.
-	 *
-	 * @return the line
-	 */
-	public Color getLine() {
-		return mLineColor;
-	}
-	
-	/**
-	 * Gets the fill.
-	 *
-	 * @return the fill
-	 */
-	public Color getFill() {
-		return mFillColor;
-	}
+  /** The m fill color. */
+  private Color mFillColor;
+
+  /** The m line color. */
+  private Color mLineColor;
+
+  /**
+   * Instantiates a new fill color.
+   *
+   * @param lineColor
+   *          the line color
+   * @param fillColor
+   *          the fill color
+   */
+  public FillColor(Color lineColor, Color fillColor) {
+    mLineColor = lineColor;
+    mFillColor = fillColor;
+  }
+
+  /**
+   * Gets the line.
+   *
+   * @return the line
+   */
+  public Color getLine() {
+    return mLineColor;
+  }
+
+  /**
+   * Gets the fill.
+   *
+   * @return the fill
+   */
+  public Color getFill() {
+    return mFillColor;
+  }
 }

@@ -32,24 +32,24 @@ package org.jebtk.modern.scrollpane;
  * The enum ScrollBarPolicy.
  */
 public enum ScrollBarPolicy {
-	
-	/**
-	 * The auto.
-	 */
-	AUTO,
-	
-	/**
-	 * The auto show.
-	 */
-	AUTO_SHOW,
-	
-	/**
-	 * The always.
-	 */
-	ALWAYS,
-	
-	/**
-	 * The never.
-	 */
-	NEVER
+
+  /**
+   * The auto.
+   */
+  AUTO,
+
+  /**
+   * The auto show.
+   */
+  AUTO_SHOW,
+
+  /**
+   * The always.
+   */
+  ALWAYS,
+
+  /**
+   * The never.
+   */
+  NEVER
 }

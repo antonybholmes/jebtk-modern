@@ -36,113 +36,118 @@ import org.jebtk.modern.dialog.ModernDialogWindow;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ThemeService;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * A disabled menu item for breaking up a large menu
- * to indicate the function of a block of menu items.
+ * A disabled menu item for breaking up a large menu to indicate the function of
+ * a block of menu items.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernSeparatorMenuItem extends ModernIconMenuItem {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant HEIGHT.
-	 */
-	public static final int HEIGHT = 22;
-	
-	/**
-	 * The constant MIN_SIZE.
-	 */
-	public static final Dimension MIN_SIZE = new Dimension(0, HEIGHT);
-	
-	/**
-	 * The constant PREFERRED_SIZE.
-	 */
-	public static final Dimension PREFERRED_SIZE = new Dimension(160, HEIGHT);
-	
-	/**
-	 * The constant MAX_SIZE.
-	 */
-	public static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
-	
-	/**
-	 * Instantiates a new modern separator menu item.
-	 *
-	 * @param text the text
-	 */
-	public ModernSeparatorMenuItem(String text) {
-		super(text);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern separator menu item.
-	 *
-	 * @param text the text
-	 * @param icon the icon
-	 */
-	public ModernSeparatorMenuItem(String text, ModernIcon icon) {
-		super(text, icon);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setEnabled(false);
-		
-		setPreferredSize(PREFERRED_SIZE);
-		setMaximumSize(MAX_SIZE);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fillBackground(g2, getRect());
-		
-		Rectangle r = new Rectangle(ModernMenuItem.HEIGHT, 
-				0, 
-				mRect.getW() - ModernIconMenuItem.HEIGHT, 
-				mRect.getH());
-		
-		fill(g2, ModernDialogWindow.DIALOG_BACKGROUND, r);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	public void drawForegroundAAText(Graphics2D g2) {
-		
-		if (mText1 != null) {
-			int d = 0;
-			
-			if (this.getIcon() != null) {
-				d = UIService.ICON_SIZE_16 + DOUBLE_PADDING;
-			}
-			
-			int x = Math.max(UIService.ICON_SIZE_32, d);
-			
-			g2.setColor(ThemeService.getInstance().colors().getHighlight(6));
-			g2.setFont(ThemeService.loadFont("widget.bold-text"));
-			g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
-		}
-		
-		if (this.getIcon() != null) {
-			int iconY = (getHeight() - getIcon().getHeight()) / 2;
-			
-			this.getIcon().drawIcon(g2, PADDING, iconY, UIService.ICON_SIZE_16);
-		}
-	}
+  /**
+   * The constant HEIGHT.
+   */
+  public static final int HEIGHT = 22;
+
+  /**
+   * The constant MIN_SIZE.
+   */
+  public static final Dimension MIN_SIZE = new Dimension(0, HEIGHT);
+
+  /**
+   * The constant PREFERRED_SIZE.
+   */
+  public static final Dimension PREFERRED_SIZE = new Dimension(160, HEIGHT);
+
+  /**
+   * The constant MAX_SIZE.
+   */
+  public static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
+
+  /**
+   * Instantiates a new modern separator menu item.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernSeparatorMenuItem(String text) {
+    super(text);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern separator menu item.
+   *
+   * @param text
+   *          the text
+   * @param icon
+   *          the icon
+   */
+  public ModernSeparatorMenuItem(String text, ModernIcon icon) {
+    super(text, icon);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setEnabled(false);
+
+    setPreferredSize(PREFERRED_SIZE);
+    setMaximumSize(MAX_SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fillBackground(g2, getRect());
+
+    Rectangle r = new Rectangle(ModernMenuItem.HEIGHT, 0, mRect.getW() - ModernIconMenuItem.HEIGHT, mRect.getH());
+
+    fill(g2, ModernDialogWindow.DIALOG_BACKGROUND, r);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  public void drawForegroundAAText(Graphics2D g2) {
+
+    if (mText1 != null) {
+      int d = 0;
+
+      if (this.getIcon() != null) {
+        d = UIService.ICON_SIZE_16 + DOUBLE_PADDING;
+      }
+
+      int x = Math.max(UIService.ICON_SIZE_32, d);
+
+      g2.setColor(ThemeService.getInstance().colors().getHighlight(6));
+      g2.setFont(ThemeService.loadFont("widget.bold-text"));
+      g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
+    }
+
+    if (this.getIcon() != null) {
+      int iconY = (getHeight() - getIcon().getHeight()) / 2;
+
+      this.getIcon().drawIcon(g2, PADDING, iconY, UIService.ICON_SIZE_16);
+    }
+  }
 }

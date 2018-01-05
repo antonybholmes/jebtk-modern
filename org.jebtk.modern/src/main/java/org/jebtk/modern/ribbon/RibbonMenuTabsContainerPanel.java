@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.tabs.TabsViewPanel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a sidebar with clickable tabs.
@@ -41,30 +40,33 @@ import org.jebtk.modern.tabs.TabsViewPanel;
  *
  */
 public class RibbonMenuTabsContainerPanel extends TabsViewPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon menu tabs container panel.
-	 *
-	 * @param model the model
-	 */
-	public RibbonMenuTabsContainerPanel(TabsModel model) {
-		super(model);
-		
-		setBorder(BORDER);
-		
-		setBackground(RibbonMenuPanel.RIBBON_PANEL_COLOR);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fill(g2, RibbonMenuPanel.RIBBON_PANEL_COLOR);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new ribbon menu tabs container panel.
+   *
+   * @param model
+   *          the model
+   */
+  public RibbonMenuTabsContainerPanel(TabsModel model) {
+    super(model);
+
+    setBorder(BORDER);
+
+    setBackground(RibbonMenuPanel.RIBBON_PANEL_COLOR);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fill(g2, RibbonMenuPanel.RIBBON_PANEL_COLOR);
+  }
 }

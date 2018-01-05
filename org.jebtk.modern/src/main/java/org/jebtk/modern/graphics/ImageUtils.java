@@ -49,429 +49,457 @@ import org.jebtk.core.geom.IntRect;
  */
 public class ImageUtils {
 
-	/** The Constant DEFAULT_GRAPHICS. */
-	private static final Graphics2D DEFAULT_GRAPHICS;
+  /** The Constant DEFAULT_GRAPHICS. */
+  private static final Graphics2D DEFAULT_GRAPHICS;
 
-	static {
-		// Create a default graphics context that can be used to size
-		// Widgets based on the font
-		BufferedImage newImage = 
-				new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
+  static {
+    // Create a default graphics context that can be used to size
+    // Widgets based on the font
+    BufferedImage newImage = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
 
-		DEFAULT_GRAPHICS = newImage.createGraphics();
-	}
+    DEFAULT_GRAPHICS = newImage.createGraphics();
+  }
 
-	/**
-	 * Instantiates a new image utils.
-	 */
-	private ImageUtils() {
-		// Do nothing
-	}
+  /**
+   * Instantiates a new image utils.
+   */
+  private ImageUtils() {
+    // Do nothing
+  }
 
-	/**
-	 * Creates a graphics object of the given dimensions.
-	 *
-	 * @param width the width
-	 * @param height the height
-	 * @return the graphics 2 D
-	 */
-	public static Graphics2D createGraphics(int width, int height) {
-		return createGraphics(createImage(width, height));
-	}
+  /**
+   * Creates a graphics object of the given dimensions.
+   *
+   * @param width
+   *          the width
+   * @param height
+   *          the height
+   * @return the graphics 2 D
+   */
+  public static Graphics2D createGraphics(int width, int height) {
+    return createGraphics(createImage(width, height));
+  }
 
-	/**
-	 * Creates a graphics object from an existing image.
-	 *
-	 * @param image the image
-	 * @return the graphics 2 D
-	 */
-	public static Graphics2D createAAGraphics(final BufferedImage image) {
-		Graphics2D g2 = createGraphics(image);
+  /**
+   * Creates a graphics object from an existing image.
+   *
+   * @param image
+   *          the image
+   * @return the graphics 2 D
+   */
+  public static Graphics2D createAAGraphics(final BufferedImage image) {
+    Graphics2D g2 = createGraphics(image);
 
-		setAAHints(g2);
+    setAAHints(g2);
 
-		return g2;
-	}
-	
-	/**
-	 * Creates the graphics.
-	 *
-	 * @param image the image
-	 * @return the graphics 2 D
-	 */
-	public static Graphics2D createGraphics(final BufferedImage image) {
-		return (Graphics2D)image.createGraphics();
-	}
+    return g2;
+  }
 
-	/**
-	 * Creates the image.
-	 *
-	 * @param dim the dim
-	 * @return the buffered image
-	 */
-	public static BufferedImage createImage(final Dimension dim) {
-		return createImage(dim.width, dim.height);
-	}
+  /**
+   * Creates the graphics.
+   *
+   * @param image
+   *          the image
+   * @return the graphics 2 D
+   */
+  public static Graphics2D createGraphics(final BufferedImage image) {
+    return (Graphics2D) image.createGraphics();
+  }
 
-	/**
-	 * Creates the image.
-	 *
-	 * @param dim the dim
-	 * @return the buffered image
-	 */
-	public static BufferedImage createImage(final IntDim dim) {
-		return createImage(dim.getW(), dim.getH());
-	}
-	
-	public static BufferedImage createImage(final DoubleDim dim) {
-		return createImage((int)Math.max(1, dim.getW()), (int)Math.max(1, dim.getH()));
-	}
+  /**
+   * Creates the image.
+   *
+   * @param dim
+   *          the dim
+   * @return the buffered image
+   */
+  public static BufferedImage createImage(final Dimension dim) {
+    return createImage(dim.width, dim.height);
+  }
 
-	/**
-	 * Creates the image.
-	 *
-	 * @param width the width
-	 * @return the buffered image
-	 */
-	public static BufferedImage createImage(int width) {
-		return createImage(width, width);
-	}
-	
-	/**
-	 * Creates the image.
-	 *
-	 * @param width the width
-	 * @param height the height
-	 * @return the buffered image
-	 */
-	public static BufferedImage createImage(int width, int height) {
-		return new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
-	}
+  /**
+   * Creates the image.
+   *
+   * @param dim
+   *          the dim
+   * @return the buffered image
+   */
+  public static BufferedImage createImage(final IntDim dim) {
+    return createImage(dim.getW(), dim.getH());
+  }
 
-	/**
-	 * Create a temporary anti-aliased version of a graphics context.
-	 *
-	 * @param g the g
-	 * @return 		A clone of the graphics object with anti-aliasing
-	 * 					switched on.
-	 */
-	public static Graphics2D createAAGraphics(final Graphics g) {
-		Graphics2D g2Temp = clone(g);
+  public static BufferedImage createImage(final DoubleDim dim) {
+    return createImage((int) Math.max(1, dim.getW()), (int) Math.max(1, dim.getH()));
+  }
 
-		setAATextHints(g2Temp);
-		setAAHints(g2Temp);
+  /**
+   * Creates the image.
+   *
+   * @param width
+   *          the width
+   * @return the buffered image
+   */
+  public static BufferedImage createImage(int width) {
+    return createImage(width, width);
+  }
 
-		return g2Temp;
-	}
-	
-	/**
-	 * Clone the graphics context and enable text anti-aliasing hints
-	 * to make text look better on screen.
-	 *
-	 * @param g the g
-	 * @return the graphics 2 D
-	 */
-	public static Graphics2D createAATextGraphics(final Graphics g) {
-		Graphics2D g2 = clone(g);
+  /**
+   * Creates the image.
+   *
+   * @param width
+   *          the width
+   * @param height
+   *          the height
+   * @return the buffered image
+   */
+  public static BufferedImage createImage(int width, int height) {
+    return new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+  }
 
-		setAATextHints(g2);
-		
-		return g2;
-	}
-	
-	/**
-	 * Creates the AA stroke graphics.
-	 *
-	 * @param g the g
-	 * @return the graphics 2 D
-	 */
-	public static Graphics2D createAAStrokeGraphics(final Graphics g) {
-		Graphics2D g2 = clone(g);
+  /**
+   * Create a temporary anti-aliased version of a graphics context.
+   *
+   * @param g
+   *          the g
+   * @return A clone of the graphics object with anti-aliasing switched on.
+   */
+  public static Graphics2D createAAGraphics(final Graphics g) {
+    Graphics2D g2Temp = clone(g);
 
-		setAATextHints(g2);
-		setAAHints(g2);
-		setStrokeHints(g2);
-		
-		return g2;
-	}
+    setAATextHints(g2Temp);
+    setAAHints(g2Temp);
 
-	/**
-	 * Sets a default set of rendering hints for high quality, anti-aliased
-	 * graphics.
-	 *
-	 * @param g2 the new AA hints
-	 */
-	public static final void setAAHints(Graphics2D g2) {
-		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-				RenderingHints.VALUE_ANTIALIAS_ON);
+    return g2Temp;
+  }
 
-		g2.setRenderingHint(RenderingHints.KEY_RENDERING, 
-				RenderingHints.VALUE_RENDER_QUALITY);
-	}
+  /**
+   * Clone the graphics context and enable text anti-aliasing hints to make text
+   * look better on screen.
+   *
+   * @param g
+   *          the g
+   * @return the graphics 2 D
+   */
+  public static Graphics2D createAATextGraphics(final Graphics g) {
+    Graphics2D g2 = clone(g);
 
-	/**
-	 * Sets the AA text hints.
-	 *
-	 * @param g2 the new AA text hints
-	 */
-	public static void setAATextHints(Graphics2D g2) {
-		g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-		        RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
-	}
+    setAATextHints(g2);
 
-	
-	/**
-	 * Sets hits for drawing circles with sub-pixel accuracy. It is not
-	 * recommended to use these hints for general purpose rendering as they
-	 * produce somewhat pixelated results for other shapes and text.
-	 *
-	 * @param g2 the new stroke hints
-	 */
-	public static final void setStrokeHints(Graphics2D g2) {
-		g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL,
-				RenderingHints.VALUE_STROKE_PURE);
-	}
+    return g2;
+  }
 
-	/**
-	 * Return the height occupied by a font in the current graphics context.
-	 *
-	 * @param g2 the g2
-	 * @return the font height
-	 */
-	public static int getFontHeight(Graphics2D g2) {
-		return g2.getFontMetrics().getAscent() + g2.getFontMetrics().getDescent();
-	}
+  /**
+   * Creates the AA stroke graphics.
+   *
+   * @param g
+   *          the g
+   * @return the graphics 2 D
+   */
+  public static Graphics2D createAAStrokeGraphics(final Graphics g) {
+    Graphics2D g2 = clone(g);
 
-	/**
-	 * Gets the string width.
-	 *
-	 * @param text the text
-	 * @return the string width
-	 */
-	public static int getStringWidth(String text) {
-		return getStringWidth(DEFAULT_GRAPHICS, text);
-	}
+    setAATextHints(g2);
+    setAAHints(g2);
+    setStrokeHints(g2);
 
-	/**
-	 * Gets the string width.
-	 *
-	 * @param g2 the g2
-	 * @param text the text
-	 * @return the string width
-	 */
-	public static int getStringWidth(Graphics2D g2, String text) {
-		return getStringWidth(g2, g2.getFont(), text);
-	}
+    return g2;
+  }
 
-	/**
-	 * Gets the string width.
-	 *
-	 * @param font the font
-	 * @param text the text
-	 * @return the string width
-	 */
-	public static int getStringWidth(Font font, String text) {
-		return getStringWidth(DEFAULT_GRAPHICS, font, text);
-	}
-	
-	/**
-	 * Gets the string width.
-	 *
-	 * @param g2 the g 2
-	 * @param font the font
-	 * @param text the text
-	 * @return the string width
-	 */
-	public static int getStringWidth(Graphics2D g2, Font font, String text) {
-		if (text == null) {
-			return 0;
-		}
+  /**
+   * Sets a default set of rendering hints for high quality, anti-aliased
+   * graphics.
+   *
+   * @param g2
+   *          the new AA hints
+   */
+  public static final void setAAHints(Graphics2D g2) {
+    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-		Graphics g2Temp = clone(g2);
-		
-		int w = -1;
+    g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+  }
 
-		try {
-			g2Temp.setFont(font);
-			w = g2Temp.getFontMetrics().stringWidth(text);
-		} finally {
-			g2Temp.dispose();
-		}
+  /**
+   * Sets the AA text hints.
+   *
+   * @param g2
+   *          the new AA text hints
+   */
+  public static void setAATextHints(Graphics2D g2) {
+    g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+  }
 
-		return w;
-	}
+  /**
+   * Sets hits for drawing circles with sub-pixel accuracy. It is not recommended
+   * to use these hints for general purpose rendering as they produce somewhat
+   * pixelated results for other shapes and text.
+   *
+   * @param g2
+   *          the new stroke hints
+   */
+  public static final void setStrokeHints(Graphics2D g2) {
+    g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
+  }
 
-	/**
-	 * Gets the font height.
-	 *
-	 * @param s the s
-	 * @return the font height
-	 */
-	public static int getFontHeight(String s) {
-		return getFontBounds(DEFAULT_GRAPHICS, s).height;
-	}
+  /**
+   * Return the height occupied by a font in the current graphics context.
+   *
+   * @param g2
+   *          the g2
+   * @return the font height
+   */
+  public static int getFontHeight(Graphics2D g2) {
+    return g2.getFontMetrics().getAscent() + g2.getFontMetrics().getDescent();
+  }
 
-	/**
-	 * Gets the font height.
-	 *
-	 * @param s the s
-	 * @param font the font
-	 * @return the font height
-	 */
-	public static int getFontHeight(String s, Font font) {
+  /**
+   * Gets the string width.
+   *
+   * @param text
+   *          the text
+   * @return the string width
+   */
+  public static int getStringWidth(String text) {
+    return getStringWidth(DEFAULT_GRAPHICS, text);
+  }
 
-		Graphics2D g2 = clone(DEFAULT_GRAPHICS);
+  /**
+   * Gets the string width.
+   *
+   * @param g2
+   *          the g2
+   * @param text
+   *          the text
+   * @return the string width
+   */
+  public static int getStringWidth(Graphics2D g2, String text) {
+    return getStringWidth(g2, g2.getFont(), text);
+  }
 
-		int h = -1;
+  /**
+   * Gets the string width.
+   *
+   * @param font
+   *          the font
+   * @param text
+   *          the text
+   * @return the string width
+   */
+  public static int getStringWidth(Font font, String text) {
+    return getStringWidth(DEFAULT_GRAPHICS, font, text);
+  }
 
-		try {
-			g2.setFont(font);
+  /**
+   * Gets the string width.
+   *
+   * @param g2
+   *          the g 2
+   * @param font
+   *          the font
+   * @param text
+   *          the text
+   * @return the string width
+   */
+  public static int getStringWidth(Graphics2D g2, Font font, String text) {
+    if (text == null) {
+      return 0;
+    }
 
-			h = getFontBounds(g2, s).height;
-		} finally {
-			g2.dispose();
-		}
+    Graphics g2Temp = clone(g2);
 
-		return h;
+    int w = -1;
 
-	}
+    try {
+      g2Temp.setFont(font);
+      w = g2Temp.getFontMetrics().stringWidth(text);
+    } finally {
+      g2Temp.dispose();
+    }
 
-	/**
-	 * Returns the height required to bound the given string. This is more
-	 * accurate than using the ascent and descent since it measures the
-	 * actual characters rather than the size of the largest character in
-	 * the font.
-	 *
-	 * @param g2 	The graphics context
-	 * @param s 		A string.
-	 * @return the font height
-	 */
-	public static int getFontHeight(Graphics2D g2, String s) {
-		return getFontBounds(g2, s).height;
-	}
+    return w;
+  }
 
-	/**
-	 * Returns the rectangle required to bound the given string. This is more
-	 * accurate than using the ascent and descent since it measures the
-	 * actual characters rather than the size of the largest character in
-	 * the font.
-	 *
-	 * @param g2 	The graphics context
-	 * @param s 		A string.
-	 * @return the font bounds
-	 */
-	public static Rectangle getFontBounds(Graphics2D g2, String s) {
-		FontRenderContext frc = g2.getFontRenderContext();
-		GlyphVector gv = g2.getFont().createGlyphVector(frc, s);
-		return gv.getPixelBounds(null, 0, 0);
-	}
+  /**
+   * Gets the font height.
+   *
+   * @param s
+   *          the s
+   * @return the font height
+   */
+  public static int getFontHeight(String s) {
+    return getFontBounds(DEFAULT_GRAPHICS, s).height;
+  }
 
-	/**
-	 * Gets the text Y pos center.
-	 *
-	 * @param font the font
-	 * @param height the height
-	 * @return the text Y pos center
-	 */
-	public static int getTextYPosCenter(Font font, int height) {
+  /**
+   * Gets the font height.
+   *
+   * @param s
+   *          the s
+   * @param font
+   *          the font
+   * @return the font height
+   */
+  public static int getFontHeight(String s, Font font) {
 
-		Graphics2D g2 = clone(DEFAULT_GRAPHICS);
+    Graphics2D g2 = clone(DEFAULT_GRAPHICS);
 
-		int h = -1;
+    int h = -1;
 
-		try {
-			g2.setFont(font);
+    try {
+      g2.setFont(font);
 
-			h = getTextYPosCenter(g2, height);
-		} finally {
-			g2.dispose();
-		}
+      h = getFontBounds(g2, s).height;
+    } finally {
+      g2.dispose();
+    }
 
-		return h;
+    return h;
 
-	}
+  }
 
-	/**
-	 * Gets the text y pos center.
-	 *
-	 * @param g2 the g2
-	 * @param rect the rect
-	 * @return the text y pos center
-	 */
-	public static int getTextYPosCenter(Graphics2D g2, IntRect rect) {
-		return getTextYPosCenter(g2, rect.getH());
-	}
+  /**
+   * Returns the height required to bound the given string. This is more accurate
+   * than using the ascent and descent since it measures the actual characters
+   * rather than the size of the largest character in the font.
+   *
+   * @param g2
+   *          The graphics context
+   * @param s
+   *          A string.
+   * @return the font height
+   */
+  public static int getFontHeight(Graphics2D g2, String s) {
+    return getFontBounds(g2, s).height;
+  }
 
-	/**
-	 * Gets the text Y pos center.
-	 *
-	 * @param height the height
-	 * @return the text Y pos center
-	 */
-	public static int getTextYPosCenter(int height) {
-		return getTextYPosCenter(DEFAULT_GRAPHICS, height);
-	}
+  /**
+   * Returns the rectangle required to bound the given string. This is more
+   * accurate than using the ascent and descent since it measures the actual
+   * characters rather than the size of the largest character in the font.
+   *
+   * @param g2
+   *          The graphics context
+   * @param s
+   *          A string.
+   * @return the font bounds
+   */
+  public static Rectangle getFontBounds(Graphics2D g2, String s) {
+    FontRenderContext frc = g2.getFontRenderContext();
+    GlyphVector gv = g2.getFont().createGlyphVector(frc, s);
+    return gv.getPixelBounds(null, 0, 0);
+  }
 
-	/**
-	 * Returns the y position to draw text at so that is vertically
-	 * centered on the widget.
-	 *
-	 * @param g2 the g2
-	 * @param height the height
-	 * @return the text y pos center
-	 */
-	public static int getTextYPosCenter(Graphics2D g2, int height) {
-		return getTextYPosCenter(height, g2.getFontMetrics().getAscent(), g2.getFontMetrics().getDescent());
-	}
+  /**
+   * Gets the text Y pos center.
+   *
+   * @param font
+   *          the font
+   * @param height
+   *          the height
+   * @return the text Y pos center
+   */
+  public static int getTextYPosCenter(Font font, int height) {
 
-	/**
-	 * Gets the text Y pos center.
-	 *
-	 * @param height the height
-	 * @param ascent the ascent
-	 * @param descent the descent
-	 * @return the text Y pos center
-	 */
-	public static int getTextYPosCenter(int height, 
-			double ascent, 
-			double descent) {
-		return (int)((height + ascent - descent) / 2);
-	}
+    Graphics2D g2 = clone(DEFAULT_GRAPHICS);
 
-	/**
-	 * Clone the graphics context.
-	 *
-	 * @param g the g
-	 * @return the graphics 2 D
-	 */
-	public static Graphics2D clone(final Graphics g) {
-		return (Graphics2D)g.create();
-	}
+    int h = -1;
 
-	/**
-	 * Creates the stroke.
-	 *
-	 * @param lw the lw
-	 * @return the stroke
-	 */
-	public static Stroke createStroke(int lw) {
-		return new BasicStroke(lw);
-	}
+    try {
+      g2.setFont(font);
 
-	/**
-	 * Fill a rectangle.
-	 *
-	 * @param g2 the g 2
-	 * @param rect the rect
-	 */
-	public static void fillRect(Graphics2D g2, IntRect rect) {
-		g2.fillRect(rect.getX(),
-					rect.getY(),
-					rect.getW(),
-					rect.getH());
-	}
+      h = getTextYPosCenter(g2, height);
+    } finally {
+      g2.dispose();
+    }
 
-	
+    return h;
 
+  }
+
+  /**
+   * Gets the text y pos center.
+   *
+   * @param g2
+   *          the g2
+   * @param rect
+   *          the rect
+   * @return the text y pos center
+   */
+  public static int getTextYPosCenter(Graphics2D g2, IntRect rect) {
+    return getTextYPosCenter(g2, rect.getH());
+  }
+
+  /**
+   * Gets the text Y pos center.
+   *
+   * @param height
+   *          the height
+   * @return the text Y pos center
+   */
+  public static int getTextYPosCenter(int height) {
+    return getTextYPosCenter(DEFAULT_GRAPHICS, height);
+  }
+
+  /**
+   * Returns the y position to draw text at so that is vertically centered on the
+   * widget.
+   *
+   * @param g2
+   *          the g2
+   * @param height
+   *          the height
+   * @return the text y pos center
+   */
+  public static int getTextYPosCenter(Graphics2D g2, int height) {
+    return getTextYPosCenter(height, g2.getFontMetrics().getAscent(), g2.getFontMetrics().getDescent());
+  }
+
+  /**
+   * Gets the text Y pos center.
+   *
+   * @param height
+   *          the height
+   * @param ascent
+   *          the ascent
+   * @param descent
+   *          the descent
+   * @return the text Y pos center
+   */
+  public static int getTextYPosCenter(int height, double ascent, double descent) {
+    return (int) ((height + ascent - descent) / 2);
+  }
+
+  /**
+   * Clone the graphics context.
+   *
+   * @param g
+   *          the g
+   * @return the graphics 2 D
+   */
+  public static Graphics2D clone(final Graphics g) {
+    return (Graphics2D) g.create();
+  }
+
+  /**
+   * Creates the stroke.
+   *
+   * @param lw
+   *          the lw
+   * @return the stroke
+   */
+  public static Stroke createStroke(int lw) {
+    return new BasicStroke(lw);
+  }
+
+  /**
+   * Fill a rectangle.
+   *
+   * @param g2
+   *          the g 2
+   * @param rect
+   *          the rect
+   */
+  public static void fillRect(Graphics2D g2, IntRect rect) {
+    g2.fillRect(rect.getX(), rect.getY(), rect.getW(), rect.getH());
+  }
 
 }

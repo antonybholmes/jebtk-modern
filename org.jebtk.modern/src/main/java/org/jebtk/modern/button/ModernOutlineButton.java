@@ -34,80 +34,88 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 
 // TODO: Auto-generated Javadoc
 /**
- * Outline button with white background for more
- * contract on off-white panels.
+ * Outline button with white background for more contract on off-white panels.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernOutlineButton extends ModernButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern outline button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernOutlineButton(String text1) {
-		super(text1);
-		
-		setup();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern outline button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernOutlineButton(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern outline button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 */
-	public ModernOutlineButton(String text1, ModernIcon icon) {
-		super(text1, icon);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setForeground(Color.WHITE);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#setEnabled(boolean)
-	 */
-	@Override
-	public void setEnabled(boolean enabled) {
-		super.setEnabled(enabled);
-		
-		setup();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		
-		if (mHighlight) {
-			drawWhiteOutline(g2, getRect());
-		} else {
-			//paintOutlined(g2, getRect());
-		}
-	}
+  /**
+   * Instantiates a new modern outline button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernOutlineButton(String text1) {
+    super(text1);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern outline button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernOutlineButton(ModernIcon icon) {
+    super(icon);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern outline button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   */
+  public ModernOutlineButton(String text1, ModernIcon icon) {
+    super(text1, icon);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setForeground(Color.WHITE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#setEnabled(boolean)
+   */
+  @Override
+  public void setEnabled(boolean enabled) {
+    super.setEnabled(enabled);
+
+    setup();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+
+    if (mHighlight) {
+      drawWhiteOutline(g2, getRect());
+    } else {
+      // paintOutlined(g2, getRect());
+    }
+  }
 }

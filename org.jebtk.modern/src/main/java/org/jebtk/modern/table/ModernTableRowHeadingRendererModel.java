@@ -17,20 +17,19 @@ package org.jebtk.modern.table;
 
 import org.jebtk.modern.table.header.ModernTableHeaderRowCellRenderer;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class ModernTableRowHeadingRendererModel.
  */
 public class ModernTableRowHeadingRendererModel extends ModernTableHeadingRendererModel {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern table row heading renderer model.
-	 */
-	public ModernTableRowHeadingRendererModel() {
-		super(new ModernTableHeaderRowCellRenderer());
-	}
+  /**
+   * Instantiates a new modern table row heading renderer model.
+   */
+  public ModernTableRowHeadingRendererModel() {
+    super(new ModernTableHeaderRowCellRenderer());
+  }
 }

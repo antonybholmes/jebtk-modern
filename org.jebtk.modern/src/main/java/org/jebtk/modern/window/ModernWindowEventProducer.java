@@ -29,7 +29,6 @@ package org.jebtk.modern.window;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * For classes that generate ModernClickEvents.
@@ -37,32 +36,36 @@ import org.jebtk.core.event.ChangeEvent;
  * @author Antony Holmes Holmes
  */
 public interface ModernWindowEventProducer {
-	
-	/**
-	 * Add an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void addWindowListener(ModernWindowListener l);
-	
-	/**
-	 * Remove an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeWindowListener(ModernWindowListener l);
-	
-	/**
-	 * fire an event.
-	 *
-	 * @param event the event
-	 */
-	public void fireWindowAdded(ChangeEvent event);
-	
-	/**
-	 * Fire window removed.
-	 *
-	 * @param event the event
-	 */
-	public void fireWindowRemoved(ChangeEvent event);
+
+  /**
+   * Add an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addWindowListener(ModernWindowListener l);
+
+  /**
+   * Remove an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeWindowListener(ModernWindowListener l);
+
+  /**
+   * fire an event.
+   *
+   * @param event
+   *          the event
+   */
+  public void fireWindowAdded(ChangeEvent event);
+
+  /**
+   * Fire window removed.
+   *
+   * @param event
+   *          the event
+   */
+  public void fireWindowRemoved(ChangeEvent event);
 }

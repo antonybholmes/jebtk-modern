@@ -30,8 +30,6 @@ package org.jebtk.modern.combobox;
 import org.jebtk.core.BooleanOperator;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Preloaded combobox for AND and OR.
@@ -39,43 +37,46 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
  * @author Antony Holmes Holmes
  */
 public class AndOrLogicalComboBox extends LogicalComboBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new and or logical combo box.
-	 */
-	public AndOrLogicalComboBox() {
-		// do nothing
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new and or logical combo box.
-	 *
-	 * @param operator the operator
-	 */
-	public AndOrLogicalComboBox(BooleanOperator operator) {
-		super(operator);
-	}
+  /**
+   * Instantiates a new and or logical combo box.
+   */
+  public AndOrLogicalComboBox() {
+    // do nothing
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.combobox.LogicalComboBox#setup()
-	 */
-	@Override
-	protected void setup() {
-		ModernIconMenuItem item;
+  /**
+   * Instantiates a new and or logical combo box.
+   *
+   * @param operator
+   *          the operator
+   */
+  public AndOrLogicalComboBox(BooleanOperator operator) {
+    super(operator);
+  }
 
-		item = new ModernIconMenuItem("AND");
-		//Ui.setSize(item, new Dimension(WIDTH, Resources.ICON_SIZE_48));
-		addScrollMenuItem(item);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.combobox.LogicalComboBox#setup()
+   */
+  @Override
+  protected void setup() {
+    ModernIconMenuItem item;
 
-		item = new ModernIconMenuItem("OR");
-		//Ui.setSize(item, new Dimension(WIDTH, Resources.ICON_SIZE_48));
-		addScrollMenuItem(item);
-		
-		setSelectedIndex(0);
-	}
+    item = new ModernIconMenuItem("AND");
+    // Ui.setSize(item, new Dimension(WIDTH, Resources.ICON_SIZE_48));
+    addScrollMenuItem(item);
+
+    item = new ModernIconMenuItem("OR");
+    // Ui.setSize(item, new Dimension(WIDTH, Resources.ICON_SIZE_48));
+    addScrollMenuItem(item);
+
+    setSelectedIndex(0);
+  }
 }

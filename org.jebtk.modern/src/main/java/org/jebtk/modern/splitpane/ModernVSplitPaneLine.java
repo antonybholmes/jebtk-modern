@@ -32,39 +32,31 @@ package org.jebtk.modern.splitpane;
  * The class ModernVSplitPaneLine.
  */
 public class ModernVSplitPaneLine extends VSplitPane {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern v split pane line.
-	 */
-	public ModernVSplitPaneLine() {
-		setDividerWidth(0);
-		
-		setBackgroundAnimations("splitpane-vert-line");
-	}
-	
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		g2.setColor(LIGHT_LINE_COLOR);
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-		int x = getInsets().left;
-		int h = getInternalRect().getH();
-		int y = 0;
-		int x2 = getWidth() - getInsets().right;
+  /**
+   * Instantiates a new modern v split pane line.
+   */
+  public ModernVSplitPaneLine() {
+    setDividerWidth(0);
 
-		
-		
-		for (int i = 0; i < mDividerLocations.size() - 1; ++i) {
-			y = getInsets().top + (int)(h * mDividerLocations.get(i));
-			
-			g2.drawLine(x,
-					y,
-					x2,
-					y);
-		}
-	}
-	*/
+    setBackgroundAnimations("splitpane-vert-line");
+  }
+
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) {
+   * g2.setColor(LIGHT_LINE_COLOR);
+   * 
+   * int x = getInsets().left; int h = getInternalRect().getH(); int y = 0; int x2
+   * = getWidth() - getInsets().right;
+   * 
+   * 
+   * 
+   * for (int i = 0; i < mDividerLocations.size() - 1; ++i) { y = getInsets().top
+   * + (int)(h * mDividerLocations.get(i));
+   * 
+   * g2.drawLine(x, y, x2, y); } }
+   */
 }

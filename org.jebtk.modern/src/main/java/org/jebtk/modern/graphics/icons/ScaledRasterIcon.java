@@ -34,82 +34,96 @@ import org.jebtk.modern.graphics.ImageUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * Rastorizes an icon (for example a vector based on) to reduce
- * drawing overhead.
+ * Rastorizes an icon (for example a vector based on) to reduce drawing
+ * overhead.
  * 
  * @author Antony Holmes Holmes
  */
 public class ScaledRasterIcon extends ModernIcon {
 
-	/** The m size. */
-	private int mSize;
-	
-	/** The m buffered image. */
-	private BufferedImage mBufferedImage;
+  /** The m size. */
+  private int mSize;
 
-	/**
-	 * Instantiates a new scaled raster icon.
-	 *
-	 * @param icon the icon
-	 * @param size the size
-	 */
-	public ScaledRasterIcon(RasterIcon icon, int size) {
-		mSize = size;
-		
-		cache(icon, size);
-	}
+  /** The m buffered image. */
+  private BufferedImage mBufferedImage;
 
-	/**
-	 * Cache the image.
-	 *
-	 * @param icon the icon
-	 * @param size the size
-	 */
-	private void cache(RasterIcon icon, int size) {
-		mBufferedImage = ImageUtils.createImage(size);
+  /**
+   * Instantiates a new scaled raster icon.
+   *
+   * @param icon
+   *          the icon
+   * @param size
+   *          the size
+   */
+  public ScaledRasterIcon(RasterIcon icon, int size) {
+    mSize = size;
 
-		Graphics2D g2Temp = ImageUtils.createAAGraphics(mBufferedImage);
+    cache(icon, size);
+  }
 
-		//System.err.println("scaled " + icon.getImage().getWidth() + " " + size);
-		
-		int originalSize = icon.getImage().getWidth();
-		
-		try {
-			g2Temp.drawImage(icon.getImage(), 0, 0, size, size, 0, 0, originalSize, originalSize, null);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+  /**
+   * Cache the image.
+   *
+   * @param icon
+   *          the icon
+   * @param size
+   *          the size
+   */
+  private void cache(RasterIcon icon, int size) {
+    mBufferedImage = ImageUtils.createImage(size);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		g2.drawImage(mBufferedImage, x, y, null);
-	}
+    Graphics2D g2Temp = ImageUtils.createAAGraphics(mBufferedImage);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
-	 */
-	@Override
-	public BufferedImage getImage() {
-		return mBufferedImage;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.icons.ModernIcon#getWidth()
-	 */
-	@Override
-	public int getWidth() {
-		return mSize;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.icons.ModernIcon#getHeight()
-	 */
-	@Override
-	public int getHeight() {
-		return mSize;
-	}
+    // System.err.println("scaled " + icon.getImage().getWidth() + " " + size);
+
+    int originalSize = icon.getImage().getWidth();
+
+    try {
+      g2Temp.drawImage(icon.getImage(), 0, 0, size, size, 0, 0, originalSize, originalSize, null);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    g2.drawImage(mBufferedImage, x, y, null);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
+   */
+  @Override
+  public BufferedImage getImage() {
+    return mBufferedImage;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.icons.ModernIcon#getWidth()
+   */
+  @Override
+  public int getWidth() {
+    return mSize;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.icons.ModernIcon#getHeight()
+   */
+  @Override
+  public int getHeight() {
+    return mSize;
+  }
 }

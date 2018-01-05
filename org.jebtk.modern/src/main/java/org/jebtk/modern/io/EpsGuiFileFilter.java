@@ -29,37 +29,40 @@ package org.jebtk.modern.io;
 
 import java.io.File;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class EpsGuiFileFilter.
  */
 public class EpsGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new eps gui file filter.
-	 */
-	public EpsGuiFileFilter() {
-		super("eps");
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#accept(java.io.File)
-	 */
-	@Override
-	public final boolean accept(File f) {
-		if (f.isDirectory()) {
-            return true;
-        }
 
-        return f.getName().toLowerCase().endsWith("eps");
-	}
+  /**
+   * Instantiates a new eps gui file filter.
+   */
+  public EpsGuiFileFilter() {
+    super("eps");
+  }
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return "Encapsulated Postscript (*.eps)";
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#accept(java.io.File)
+   */
+  @Override
+  public final boolean accept(File f) {
+    if (f.isDirectory()) {
+      return true;
+    }
+
+    return f.getName().toLowerCase().endsWith("eps");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return "Encapsulated Postscript (*.eps)";
+  }
 }

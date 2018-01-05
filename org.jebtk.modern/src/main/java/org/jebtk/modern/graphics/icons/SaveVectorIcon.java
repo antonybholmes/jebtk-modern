@@ -33,7 +33,6 @@ import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.settings.SettingsService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Vector based save icon.
@@ -42,100 +41,101 @@ import org.jebtk.core.settings.SettingsService;
  *
  */
 public class SaveVectorIcon extends ModernVectorScalableIcon {
-	
-	/**
-	 * The constant SCALE.
-	 */
-	private static final double SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.save-icon.width-scale");
-	
-	/**
-	 * The constant CORNER_SCALE.
-	 */
-	private static final double CORNER_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.save-icon.corner-scale");
-	
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR = 
-			SettingsService.getInstance().getAsColor("theme.icons.save-icon.colors.background");
 
-	/**
-	 * The member color.
-	 */
-	private Color mColor;
-	
-	/**
-	 * Instantiates a new save vector icon.
-	 */
-	public SaveVectorIcon() {
-		this(COLOR);
-	}
-	
-	/**
-	 * Instantiates a new save vector icon.
-	 *
-	 * @param color the color
-	 */
-	public SaveVectorIcon(Color color) {
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		double wf = w * SCALE;
-		
-		double corner = wf * CORNER_SCALE;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - wf) / 2.0;
-		
-		GeneralPath gp = new GeneralPath();
-		
-		gp.moveTo(xf, yf);
-		
-		gp.lineTo(xf + wf, yf);
-		gp.lineTo(xf + wf, yf + wf);
-		gp.lineTo(x + corner, y + w);
-		gp.lineTo(xf, yf + wf - corner);
+  /**
+   * The constant SCALE.
+   */
+  private static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.save-icon.width-scale");
 
-		gp.closePath();
-		
-		g2.setColor(mColor);
-		g2.fill(gp);
-		
-		g2.setColor(Color.WHITE);
-		
-		// label
-		
-		double labelW =  wf * 0.75;
-		double labelH = wf * 0.45;
-		double offset = wf * 0.1;
-		
-		g2.fillRect((int)Math.round(xf + (wf - labelW) / 2.0), 
-				(int)Math.round(yf + offset), 
-				(int)Math.round(labelW), 
-				(int)Math.round(labelH));
-		
-		// slider
-		
-		labelW = wf * 0.5;
-		labelH = wf * 0.3;
-		
-		g2.fillRect((int)Math.round(xf + (wf - labelW) / 2.0), 
-				(int)Math.round(yf + wf - labelH), 
-				(int)Math.round(labelW), 
-				(int)Math.round(labelH));
-		
-		//g2.setColor(ThemeService.getInstance().getThemeColor(4));
-		
-		//labelW = w * 0.1;
-		//labelH = h * 0.2;
-		
-		//g2.fillRect((int)(x + w * 0.4), (int)(y + h - labelH), (int)labelW, (int)labelH);
-	}
+  /**
+   * The constant CORNER_SCALE.
+   */
+  private static final double CORNER_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.save-icon.corner-scale");
+
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = SettingsService.getInstance()
+      .getAsColor("theme.icons.save-icon.colors.background");
+
+  /**
+   * The member color.
+   */
+  private Color mColor;
+
+  /**
+   * Instantiates a new save vector icon.
+   */
+  public SaveVectorIcon() {
+    this(COLOR);
+  }
+
+  /**
+   * Instantiates a new save vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public SaveVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    double wf = w * SCALE;
+
+    double corner = wf * CORNER_SCALE;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - wf) / 2.0;
+
+    GeneralPath gp = new GeneralPath();
+
+    gp.moveTo(xf, yf);
+
+    gp.lineTo(xf + wf, yf);
+    gp.lineTo(xf + wf, yf + wf);
+    gp.lineTo(x + corner, y + w);
+    gp.lineTo(xf, yf + wf - corner);
+
+    gp.closePath();
+
+    g2.setColor(mColor);
+    g2.fill(gp);
+
+    g2.setColor(Color.WHITE);
+
+    // label
+
+    double labelW = wf * 0.75;
+    double labelH = wf * 0.45;
+    double offset = wf * 0.1;
+
+    g2.fillRect((int) Math.round(xf + (wf - labelW) / 2.0), (int) Math.round(yf + offset), (int) Math.round(labelW),
+        (int) Math.round(labelH));
+
+    // slider
+
+    labelW = wf * 0.5;
+    labelH = wf * 0.3;
+
+    g2.fillRect((int) Math.round(xf + (wf - labelW) / 2.0), (int) Math.round(yf + wf - labelH),
+        (int) Math.round(labelW), (int) Math.round(labelH));
+
+    // g2.setColor(ThemeService.getInstance().getThemeColor(4));
+
+    // labelW = w * 0.1;
+    // labelH = h * 0.2;
+
+    // g2.fillRect((int)(x + w * 0.4), (int)(y + h - labelH), (int)labelW,
+    // (int)labelH);
+  }
 }

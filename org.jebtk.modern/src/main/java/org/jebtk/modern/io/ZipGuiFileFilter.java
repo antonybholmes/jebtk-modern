@@ -32,18 +32,20 @@ package org.jebtk.modern.io;
  * The class ZipGuiFileFilter.
  */
 public class ZipGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new zip gui file filter.
-	 */
-	public ZipGuiFileFilter() {
-		super("zip");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	public final String getDescription() {
-		return "Zip File (*.zip)";
-	}
+  /**
+   * Instantiates a new zip gui file filter.
+   */
+  public ZipGuiFileFilter() {
+    super("zip");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  public final String getDescription() {
+    return "Zip File (*.zip)";
+  }
 }

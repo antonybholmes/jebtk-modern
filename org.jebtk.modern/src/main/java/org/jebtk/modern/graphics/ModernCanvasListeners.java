@@ -31,7 +31,6 @@ import org.jebtk.core.event.ChangeEvent;
 
 import org.jebtk.core.event.EventProducer;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
@@ -40,95 +39,119 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class ModernCanvasListeners extends EventProducer<ModernCanvasListener> implements ModernCanvasEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#addCanvasListener(org.abh.lib.ui.modern.graphics.ModernCanvasListener)
-	 */
-	@Override
-	public void addCanvasListener(ModernCanvasListener l) {
-		//System.err.println("mcl add " + this + " " + l);
-		
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#removeCanvasListener(org.abh.lib.ui.modern.graphics.ModernCanvasListener)
-	 */
-	@Override
-	public void removeCanvasListener(ModernCanvasListener l) {
-		mListeners.remove(l);
-	}
-	
-	/**
-	 * Fire canvas changed.
-	 */
-	public void fireCanvasChanged() {
-		fireCanvasChanged(new ChangeEvent(this));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void fireCanvasChanged(ChangeEvent e) {
-		for (ModernCanvasListener l : mListeners) {
-			l.canvasChanged(e);
-		}
-	}
-	
-	/**
-	 * Fire canvas redraw.
-	 */
-	public void fireCanvasRedraw() {
-		fireCanvasRedraw(new ChangeEvent(this));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasRedraw(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void fireCanvasRedraw(ChangeEvent e) {
-		for (ModernCanvasListener l : mListeners) {
-			l.redrawCanvas(e);
-		}
-	}
-	
-	/**
-	 * Fire canvas scrolled.
-	 */
-	public void fireCanvasScrolled() {
-		fireCanvasScrolled(new ChangeEvent(this));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasScrolled(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void fireCanvasScrolled(ChangeEvent e) {
-		for (ModernCanvasListener l : mListeners) {
-			l.canvasScrolled(e);
-		}
-	}
-	
-	/**
-	 * Fire canvas resized.
-	 */
-	public void fireCanvasResized() {
-		fireCanvasResized(new ChangeEvent(this));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasScrolled(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void fireCanvasResized(ChangeEvent e) {
-		for (ModernCanvasListener l : mListeners) {
-			l.canvasResized(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#addCanvasListener(
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener)
+   */
+  @Override
+  public void addCanvasListener(ModernCanvasListener l) {
+    // System.err.println("mcl add " + this + " " + l);
+
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#removeCanvasListener
+   * (org.abh.lib.ui.modern.graphics.ModernCanvasListener)
+   */
+  @Override
+  public void removeCanvasListener(ModernCanvasListener l) {
+    mListeners.remove(l);
+  }
+
+  /**
+   * Fire canvas changed.
+   */
+  public void fireCanvasChanged() {
+    fireCanvasChanged(new ChangeEvent(this));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasChanged(
+   * org.abh.lib.event.ChangeEvent)
+   */
+  @Override
+  public void fireCanvasChanged(ChangeEvent e) {
+    for (ModernCanvasListener l : mListeners) {
+      l.canvasChanged(e);
+    }
+  }
+
+  /**
+   * Fire canvas redraw.
+   */
+  public void fireCanvasRedraw() {
+    fireCanvasRedraw(new ChangeEvent(this));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasRedraw(org
+   * .abh.lib.event.ChangeEvent)
+   */
+  @Override
+  public void fireCanvasRedraw(ChangeEvent e) {
+    for (ModernCanvasListener l : mListeners) {
+      l.redrawCanvas(e);
+    }
+  }
+
+  /**
+   * Fire canvas scrolled.
+   */
+  public void fireCanvasScrolled() {
+    fireCanvasScrolled(new ChangeEvent(this));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasScrolled(
+   * org.abh.lib.event.ChangeEvent)
+   */
+  @Override
+  public void fireCanvasScrolled(ChangeEvent e) {
+    for (ModernCanvasListener l : mListeners) {
+      l.canvasScrolled(e);
+    }
+  }
+
+  /**
+   * Fire canvas resized.
+   */
+  public void fireCanvasResized() {
+    fireCanvasResized(new ChangeEvent(this));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasScrolled(
+   * org.abh.lib.event.ChangeEvent)
+   */
+  @Override
+  public void fireCanvasResized(ChangeEvent e) {
+    for (ModernCanvasListener l : mListeners) {
+      l.canvasResized(e);
+    }
+  }
 }

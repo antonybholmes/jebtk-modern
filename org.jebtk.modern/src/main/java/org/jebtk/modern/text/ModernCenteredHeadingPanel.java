@@ -31,47 +31,47 @@ import java.awt.Color;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernCenteredHeadingPanel.
  */
 public class ModernCenteredHeadingPanel extends ModernCenteredLabelPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern centered heading panel.
-	 *
-	 * @param text the text
-	 */
-	public ModernCenteredHeadingPanel(String text) {
-		super(text);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern centered heading panel.
-	 *
-	 * @param text the text
-	 * @param color the color
-	 */
-	public ModernCenteredHeadingPanel(String text, Color color) {
-		super(text, color);
+  /**
+   * Instantiates a new modern centered heading panel.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernCenteredHeadingPanel(String text) {
+    super(text);
 
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setFont(ModernWidget.HEADING_FONT);
-	}
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern centered heading panel.
+   *
+   * @param text
+   *          the text
+   * @param color
+   *          the color
+   */
+  public ModernCenteredHeadingPanel(String text, Color color) {
+    super(text, color);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setFont(ModernWidget.HEADING_FONT);
+  }
 }

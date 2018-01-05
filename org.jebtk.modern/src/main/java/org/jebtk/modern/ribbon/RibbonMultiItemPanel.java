@@ -39,18 +39,18 @@ import org.jebtk.modern.ModernComponent;
  */
 public class RibbonMultiItemPanel extends ModernComponent {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new ribbon multi item panel.
-	 */
-	public RibbonMultiItemPanel() {
-		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-		
-		setBorder(BorderFactory.createCompoundBorder(BorderService.getInstance().createBorder(2), OUTLINE_LINE_BORDER));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new ribbon multi item panel.
+   */
+  public RibbonMultiItemPanel() {
+    setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+
+    setBorder(BorderFactory.createCompoundBorder(BorderService.getInstance().createBorder(2), OUTLINE_LINE_BORDER));
+  }
 
 }

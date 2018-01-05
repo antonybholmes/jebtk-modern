@@ -36,25 +36,25 @@ import org.jebtk.modern.ribbon.QuickAccessButton;
  */
 public class ModernWindowTitleBarButton extends QuickAccessButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern window title bar button.
-	 */
-	public ModernWindowTitleBarButton() {
-		// Do nothing
-	}
-	
-	/**
-	 * Instantiates a new modern window title bar button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernWindowTitleBarButton(ModernIcon icon) {
-		super(icon);
-	}
+  /**
+   * Instantiates a new modern window title bar button.
+   */
+  public ModernWindowTitleBarButton() {
+    // Do nothing
+  }
+
+  /**
+   * Instantiates a new modern window title bar button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernWindowTitleBarButton(ModernIcon icon) {
+    super(icon);
+  }
 }

@@ -34,70 +34,62 @@ import java.util.Date;
 import org.jebtk.core.text.DateUtils;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernDataGridCellRenderer.
  */
 public class ModernDataDateRenderer extends ModernDataCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m text. */
-	private String mText;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (mText == null) {
-			return;
-		}
-		
-		String text = getTruncatedText(g2, mText, mRect.getW() - DOUBLE_PADDING);
-		
-		g2.setColor(getForeground());
-		
-		int x = PADDING;
-		
-		g2.drawString(text, x, getTextYPosCenter(g2, getHeight()));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	@Override
-	public Component getCellRendererComponent(ModernData dataView,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
-		if (value != null) {
-			setForeground(dataView.getModel().getCellStyle(row, column).getColor());
-			setBackground(dataView.getModel().getCellStyle(row, column).getBackground());
-			
-			// For rendering purposes, truncate long strings
-			String v = DateUtils.getAmericanFormattedDate((Date)value);
-					
-			mText = v;
-		} else {
-			setForeground(ModernWidget.TEXT_COLOR);
-		}
+  /** The m text. */
+  private String mText;
 
-		return super.getCellRendererComponent(dataView, 
-				value, 
-				highlight, 
-				isSelected, 
-				hasFocus, 
-				row, 
-				column);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mText == null) {
+      return;
+    }
+
+    String text = getTruncatedText(g2, mText, mRect.getW() - DOUBLE_PADDING);
+
+    g2.setColor(getForeground());
+
+    int x = PADDING;
+
+    g2.drawString(text, x, getTextYPosCenter(g2, getHeight()));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
+   * java.lang.Object, boolean, boolean, boolean, int, int)
+   */
+  @Override
+  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+    if (value != null) {
+      setForeground(dataView.getModel().getCellStyle(row, column).getColor());
+      setBackground(dataView.getModel().getCellStyle(row, column).getBackground());
+
+      // For rendering purposes, truncate long strings
+      String v = DateUtils.getAmericanFormattedDate((Date) value);
+
+      mText = v;
+    } else {
+      setForeground(ModernWidget.TEXT_COLOR);
+    }
+
+    return super.getCellRendererComponent(dataView, value, highlight, isSelected, hasFocus, row, column);
+  }
 }

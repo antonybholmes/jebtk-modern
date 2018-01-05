@@ -32,55 +32,59 @@ import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc
 /**
- * Standardized dialog that provides a help button to link to a URL, such
- * as a wiki, to offer more help.
+ * Standardized dialog that provides a help button to link to a URL, such as a
+ * wiki, to offer more help.
  */
 public class ModernDialogHelpWindow extends ModernDialogTaskWindow {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m help button. */
-	protected ModernDialogHelpButton mHelpButton;
-	
-	/**
-	 * Instantiates a new modern dialog help window.
-	 *
-	 * @param parent the parent
-	 * @param helpUrl the help url
-	 */
-	public ModernDialogHelpWindow(ModernWindow parent, String helpUrl) {
-		this(parent, helpUrl, ModernDialogTaskType.OK_CANCEL);
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog help window.
-	 *
-	 * @param parent the parent
-	 * @param helpUrl the help url
-	 * @param type the type
-	 */
-	public ModernDialogHelpWindow(ModernWindow parent, 
-			String helpUrl, 
-			ModernDialogTaskType type) {
-		super(parent, type);
-		
-		mHelpButton = new ModernDialogHelpButton(helpUrl);
-		
-		// If the layout is unspecified, do not add the help button
-		if (type != ModernDialogTaskType.NONE) {
-			getButtonBar().addLeft(mHelpButton);
-		}
-	}
-	
-	/**
-	 * Instantiates a new modern dialog help window.
-	 *
-	 * @param parent the parent
-	 * @param type the type
-	 */
-	public ModernDialogHelpWindow(ModernWindow parent, 
-			ModernDialogTaskType type) {
-		super(parent, type);
-	}
+  /** The m help button. */
+  protected ModernDialogHelpButton mHelpButton;
+
+  /**
+   * Instantiates a new modern dialog help window.
+   *
+   * @param parent
+   *          the parent
+   * @param helpUrl
+   *          the help url
+   */
+  public ModernDialogHelpWindow(ModernWindow parent, String helpUrl) {
+    this(parent, helpUrl, ModernDialogTaskType.OK_CANCEL);
+  }
+
+  /**
+   * Instantiates a new modern dialog help window.
+   *
+   * @param parent
+   *          the parent
+   * @param helpUrl
+   *          the help url
+   * @param type
+   *          the type
+   */
+  public ModernDialogHelpWindow(ModernWindow parent, String helpUrl, ModernDialogTaskType type) {
+    super(parent, type);
+
+    mHelpButton = new ModernDialogHelpButton(helpUrl);
+
+    // If the layout is unspecified, do not add the help button
+    if (type != ModernDialogTaskType.NONE) {
+      getButtonBar().addLeft(mHelpButton);
+    }
+  }
+
+  /**
+   * Instantiates a new modern dialog help window.
+   *
+   * @param parent
+   *          the parent
+   * @param type
+   *          the type
+   */
+  public ModernDialogHelpWindow(ModernWindow parent, ModernDialogTaskType type) {
+    super(parent, type);
+  }
 }

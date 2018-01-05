@@ -33,34 +33,36 @@ import org.jebtk.modern.table.ModernTable;
 
 // TODO: Auto-generated Javadoc
 /**
- * A specialized scroller for responding to vertical scroll keys. 
- * This only instigates scrolling when the selection rectangle moves 
- * outside the view window.
+ * A specialized scroller for responding to vertical scroll keys. This only
+ * instigates scrolling when the selection rectangle moves outside the view
+ * window.
  */
 public class ModernTableScroller extends Scroller {
 
-	/** The m table. */
-	protected ModernTable mTable;
+  /** The m table. */
+  protected ModernTable mTable;
 
-	/**
-	 * Instantiates a new modern table scroller.
-	 *
-	 * @param table the table
-	 */
-	public ModernTableScroller(ModernTable table) {
-		mTable = table;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.Scroller#keyScroll(boolean, java.awt.Component, org.abh.common.ui.scrollpane.ModernScrollBar)
-	 */
-	@Override
-	public void keyScroll(boolean up, 
-			Component c,
-			ModernScrollBar scrollbar) {
-		// Disable the default key scrolling so that keys can be used to
-		// move around cells rather than scrolling. Instead use a selection
-		// listener on the table to work out if the selected cell is outside
-		// the visible range and therefore should be scrolled to.
-	}
+  /**
+   * Instantiates a new modern table scroller.
+   *
+   * @param table
+   *          the table
+   */
+  public ModernTableScroller(ModernTable table) {
+    mTable = table;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.scrollpane.Scroller#keyScroll(boolean,
+   * java.awt.Component, org.abh.common.ui.scrollpane.ModernScrollBar)
+   */
+  @Override
+  public void keyScroll(boolean up, Component c, ModernScrollBar scrollbar) {
+    // Disable the default key scrolling so that keys can be used to
+    // move around cells rather than scrolling. Instead use a selection
+    // listener on the table to work out if the selected cell is outside
+    // the visible range and therefore should be scrolled to.
+  }
 }

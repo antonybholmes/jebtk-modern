@@ -39,96 +39,108 @@ import org.jebtk.modern.window.ModernWindow;
  * The class Validation.
  */
 public class Validation {
-	
-	/**
-	 * Validate as int.
-	 *
-	 * @param name the name
-	 * @param text the text
-	 * @return the int
-	 * @throws ValidationException the validation exception
-	 */
-	public static int validateAsInt(String name, String text) throws ValidationException {
-		try {
-			return Integer.parseInt(text);
-		} catch (Exception e) {
-			throw new ValidationException(name + " is not a valid integer.");
-		}
-	}
 
-	/**
-	 * Validate as double.
-	 *
-	 * @param name the name
-	 * @param text the text
-	 * @return the double
-	 * @throws ValidationException the validation exception
-	 */
-	public static double validateAsDouble(String name, String text) throws ValidationException {
-		try {
-			return Double.parseDouble(text);
-		} catch (Exception e) {
-			throw new ValidationException(name + " is not a valid number.");
-		}
-	}
+  /**
+   * Validate as int.
+   *
+   * @param name
+   *          the name
+   * @param text
+   *          the text
+   * @return the int
+   * @throws ValidationException
+   *           the validation exception
+   */
+  public static int validateAsInt(String name, String text) throws ValidationException {
+    try {
+      return Integer.parseInt(text);
+    } catch (Exception e) {
+      throw new ValidationException(name + " is not a valid integer.");
+    }
+  }
 
-	/**
-	 * Validates that the text field is a number between min and max inclusive.
-	 *
-	 * @param name the name
-	 * @param text the text
-	 * @param min the min
-	 * @param max the max
-	 * @return the double
-	 * @throws ValidationException the validation exception
-	 */
-	public static double validateAsDouble(String name, 
-			String text, 
-			double min, 
-			double max) throws ValidationException {
-		double ret = 0;
+  /**
+   * Validate as double.
+   *
+   * @param name
+   *          the name
+   * @param text
+   *          the text
+   * @return the double
+   * @throws ValidationException
+   *           the validation exception
+   */
+  public static double validateAsDouble(String name, String text) throws ValidationException {
+    try {
+      return Double.parseDouble(text);
+    } catch (Exception e) {
+      throw new ValidationException(name + " is not a valid number.");
+    }
+  }
 
-		ValidationException ex = 
-				new ValidationException(name + " must be a number between " + min + " and " + max + ".");
+  /**
+   * Validates that the text field is a number between min and max inclusive.
+   *
+   * @param name
+   *          the name
+   * @param text
+   *          the text
+   * @param min
+   *          the min
+   * @param max
+   *          the max
+   * @return the double
+   * @throws ValidationException
+   *           the validation exception
+   */
+  public static double validateAsDouble(String name, String text, double min, double max) throws ValidationException {
+    double ret = 0;
 
-		try {
-			ret = Double.parseDouble(text);
-		} catch (Exception e) {
-			throw ex;
-		}
+    ValidationException ex = new ValidationException(name + " must be a number between " + min + " and " + max + ".");
 
-		if (ret < min || ret > max) {
-			throw ex;
-		}
+    try {
+      ret = Double.parseDouble(text);
+    } catch (Exception e) {
+      throw ex;
+    }
 
-		return ret;
-	}
+    if (ret < min || ret > max) {
+      throw ex;
+    }
 
-	/**
-	 * Show validation error.
-	 *
-	 * @param parent the parent
-	 * @param e the e
-	 */
-	public static void showValidationError(ModernWindow parent, ValidationException e) {
-		ModernMessageDialog.createDialog(parent, e.getMessage(), MessageDialogType.WARNING);
-	}
+    return ret;
+  }
 
-	/**
-	 * Validates that a user made a selection.
-	 *
-	 * @param <T> the generic type
-	 * @param name the name
-	 * @param selection the selection
-	 * @throws ValidationException the validation exception
-	 */
-	public static <T> void validateSelection(String name, Collection<T> selection) throws ValidationException {
-		if (CollectionUtils.isNullOrEmpty(selection)) {
-			String message = "You must select some " + name + ".";
-			
-			throw new ValidationException(message);
-		}
-	}
+  /**
+   * Show validation error.
+   *
+   * @param parent
+   *          the parent
+   * @param e
+   *          the e
+   */
+  public static void showValidationError(ModernWindow parent, ValidationException e) {
+    ModernMessageDialog.createDialog(parent, e.getMessage(), MessageDialogType.WARNING);
+  }
 
+  /**
+   * Validates that a user made a selection.
+   *
+   * @param <T>
+   *          the generic type
+   * @param name
+   *          the name
+   * @param selection
+   *          the selection
+   * @throws ValidationException
+   *           the validation exception
+   */
+  public static <T> void validateSelection(String name, Collection<T> selection) throws ValidationException {
+    if (CollectionUtils.isNullOrEmpty(selection)) {
+      String message = "You must select some " + name + ".";
+
+      throw new ValidationException(message);
+    }
+  }
 
 }

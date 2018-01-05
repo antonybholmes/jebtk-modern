@@ -40,9 +40,6 @@ import org.jebtk.modern.graphics.icons.ModernScaleIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Drop down button for showing menu items.
@@ -52,353 +49,365 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RibbonLargeDropDownButton extends ModernDropDownButton implements RibbonModeProperty {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The m compact icon. */
-	protected ModernScaleIcon mCompactIcon;
+  /** The m compact icon. */
+  protected ModernScaleIcon mCompactIcon;
 
-	/** The m mode. */
-	private RibbonSize mMode;
+  /** The m mode. */
+  private RibbonSize mMode;
 
-	/** The m text 2. */
-	private String mText2;
+  /** The m text 2. */
+  private String mText2;
 
-	/** The m text. */
-	private String mText;
+  /** The m text. */
+  private String mText;
 
-	/** The m show text. */
-	private boolean mShowText = true;
+  /** The m show text. */
+  private boolean mShowText = true;
 
-	/** The m icon only. */
-	private boolean mIconOnly = false;
-	
-	private Map<RibbonSize, Integer> mMinSizeMap =
-			new HashMap<RibbonSize, Integer>();
+  /** The m icon only. */
+  private boolean mIconOnly = false;
 
-	/**
-	 * Instantiates a new ribbon large drop down menu button2.
-	 *
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public RibbonLargeDropDownButton(ModernIcon icon, 
-			ModernPopupMenu menu) {
-		super(icon, menu);
+  private Map<RibbonSize, Integer> mMinSizeMap = new HashMap<RibbonSize, Integer>();
 
-		mIconOnly = true;
-		
-		setup();
-	}
+  /**
+   * Instantiates a new ribbon large drop down menu button2.
+   *
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public RibbonLargeDropDownButton(ModernIcon icon, ModernPopupMenu menu) {
+    super(icon, menu);
 
-	/**
-	 * Instantiates a new ribbon large drop down menu button2.
-	 *
-	 * @param text1 the text 1
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public RibbonLargeDropDownButton(String text1,
-			ModernIcon icon,
-			ModernPopupMenu menu) {
-		super(text1, icon, menu);
+    mIconOnly = true;
 
-		mText = text1;
+    setup();
+  }
 
-		setup();
-	}
+  /**
+   * Instantiates a new ribbon large drop down menu button2.
+   *
+   * @param text1
+   *          the text 1
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public RibbonLargeDropDownButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
+    super(text1, icon, menu);
 
-	/**
-	 * Instantiates a new ribbon large drop down button.
-	 *
-	 * @param text1 the text 1
-	 * @param text2 the text 2
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public RibbonLargeDropDownButton(String text1, 
-			String text2,
-			ModernIcon icon,
-			ModernPopupMenu menu) {
-		super(text1, icon, menu);
+    mText = text1;
 
-		mText2 = text2;
+    setup();
+  }
 
-		mText = mText1 + " " + mText2;
+  /**
+   * Instantiates a new ribbon large drop down button.
+   *
+   * @param text1
+   *          the text 1
+   * @param text2
+   *          the text 2
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public RibbonLargeDropDownButton(String text1, String text2, ModernIcon icon, ModernPopupMenu menu) {
+    super(text1, icon, menu);
 
-		setClickMessage(mText);
+    mText2 = text2;
 
-		setup();
-	}
+    mText = mText1 + " " + mText2;
 
-	/**
-	 * Instantiates a new ribbon large drop down button.
-	 *
-	 * @param text1 the text 1
-	 * @param menu the menu
-	 */
-	public RibbonLargeDropDownButton(String text1, ModernPopupMenu menu) {
-		super(text1, menu);
+    setClickMessage(mText);
 
-		mText = text1;
+    setup();
+  }
 
-		setup();
-	}
+  /**
+   * Instantiates a new ribbon large drop down button.
+   *
+   * @param text1
+   *          the text 1
+   * @param menu
+   *          the menu
+   */
+  public RibbonLargeDropDownButton(String text1, ModernPopupMenu menu) {
+    super(text1, menu);
 
-	/**
-	 * Instantiates a new ribbon large drop down button.
-	 *
-	 * @param menu the menu
-	 */
-	public RibbonLargeDropDownButton(ModernPopupMenu menu) {
-		super(TextUtils.EMPTY_STRING, menu);
+    mText = text1;
 
-		mText = TextUtils.EMPTY_STRING;
+    setup();
+  }
 
-		setup();
-	}
+  /**
+   * Instantiates a new ribbon large drop down button.
+   *
+   * @param menu
+   *          the menu
+   */
+  public RibbonLargeDropDownButton(ModernPopupMenu menu) {
+    super(TextUtils.EMPTY_STRING, menu);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		mMinSizeMap.put(RibbonSize.LARGE, Ribbon.MIN_BUTTON_WIDTH);
-		mMinSizeMap.put(RibbonSize.COMPACT, Ribbon.MIN_COMPACT_BUTTON_WIDTH);
-		
-		if (mIcon != null) {
-			mCompactIcon = new ModernScaleIcon(mIcon, Ribbon.COMPACT_ICON_SIZE);
-		}
+    mText = TextUtils.EMPTY_STRING;
 
-		setSize(RibbonSize.COMPACT);
+    setup();
+  }
 
-		setBackgroundAnimations("ribbon-dropdown-button");
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    mMinSizeMap.put(RibbonSize.LARGE, Ribbon.MIN_BUTTON_WIDTH);
+    mMinSizeMap.put(RibbonSize.COMPACT, Ribbon.MIN_COMPACT_BUTTON_WIDTH);
 
-	/**
-	 * Sets the show text.
-	 *
-	 * @param show the new show text
-	 */
-	@Override
-	public void setShowText(boolean show) {
-		mShowText = show;
+    if (mIcon != null) {
+      mCompactIcon = new ModernScaleIcon(mIcon, Ribbon.COMPACT_ICON_SIZE);
+    }
 
-		setSize(mMode);
-	}
+    setSize(RibbonSize.COMPACT);
 
-	/**
-	 * Gets the show text.
-	 *
-	 * @return the show text
-	 */
-	@Override
-	public boolean getShowText() {
-		return mShowText;
-	}
+    setBackgroundAnimations("ribbon-dropdown-button");
+  }
 
-	/**
-	 * Gets the compact icon.
-	 *
-	 * @return the compact icon
-	 */
-	public ModernIcon getCompactIcon() {
-		return mCompactIcon;
-	}
+  /**
+   * Sets the show text.
+   *
+   * @param show
+   *          the new show text
+   */
+  @Override
+  public void setShowText(boolean show) {
+    mShowText = show;
 
-	/**
-	 * Gets the disabled mIcon.
-	 *
-	 * @return the disabled mIcon
-	 */
-	public ModernIcon getCompactDisabledIcon() {
-		return mCompactIcon.getDisabledIcon();
-	}
+    setSize(mMode);
+  }
 
-	@Override
-	public void setSize(RibbonSize mode) {
-		mMode = mode;
+  /**
+   * Gets the show text.
+   *
+   * @return the show text
+   */
+  @Override
+  public boolean getShowText() {
+    return mShowText;
+  }
 
-		setSize();
-	}
-	
-	/**
-	 * Set the minimum width of the button in compact mode.
-	 * 
-	 * @param width
-	 * @return
-	 */
-	public RibbonLargeDropDownButton setMinWidth(RibbonSize s, int width) {
-		mMinSizeMap.put(s, width);
-		
-		setSize();
-		
-		return this;
-	}
-	
-	public void setSize() {
-		if (mMode == RibbonSize.LARGE) {
-			setLargeSize();
-		} else {
-			setCompactSize();
-		}
-	}
-	
-	public void setLargeSize() {
-		int w = DOUBLE_PADDING;
-		int h;
-		
-		if (mText1 != null) {
-			if (mText2 == null || mText1.length() > mText2.length()) {
-				w += ModernWidget.getStringWidth(mText1);
-			} else {
-				w += ModernWidget.getStringWidth(mText2);
-			}
-		}
+  /**
+   * Gets the compact icon.
+   *
+   * @return the compact icon
+   */
+  public ModernIcon getCompactIcon() {
+    return mCompactIcon;
+  }
 
-		w = Math.max(w, mMinSizeMap.get(RibbonSize.LARGE));
+  /**
+   * Gets the disabled mIcon.
+   *
+   * @return the disabled mIcon
+   */
+  public ModernIcon getCompactDisabledIcon() {
+    return mCompactIcon.getDisabledIcon();
+  }
 
-		h = Ribbon.LARGE_BUTTON_HEIGHT;
-		
-		UI.setSize(this, w, h);
-	}
-	
-	/**
-	 * Should set the size of the button when it is in the compact mode.
-	 */
-	public void setCompactSize() {
-		int w = DOUBLE_PADDING;
-		int h;
-		
-		if (mCompactIcon != null) {
-			w += Ribbon.COMPACT_ICON_SIZE;
-		}
+  @Override
+  public void setSize(RibbonSize mode) {
+    mMode = mode;
 
-		w += TRIANGLE_ICON.getWidth();
+    setSize();
+  }
 
-		if (!mIconOnly && mShowText && mText != null) {
-			w += ModernWidget.getStringWidth(mText) + PADDING;
-		}
+  /**
+   * Set the minimum width of the button in compact mode.
+   * 
+   * @param width
+   * @return
+   */
+  public RibbonLargeDropDownButton setMinWidth(RibbonSize s, int width) {
+    mMinSizeMap.put(s, width);
 
-		w = Math.max(w, mMinSizeMap.get(RibbonSize.COMPACT));
+    setSize();
 
-		h = Ribbon.COMPACT_BUTTON_HEIGHT;
-		
-		UI.setSize(this, w, h);
-	}
+    return this;
+  }
 
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			if (isSelected() || mHighlight || mPopupShown) {
-				getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
-			}
-		}
-	}
-	*/
+  public void setSize() {
+    if (mMode == RibbonSize.LARGE) {
+      setLargeSize();
+    } else {
+      setCompactSize();
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x;
-		int y;
+  public void setLargeSize() {
+    int w = DOUBLE_PADDING;
+    int h;
 
-		if (isEnabled()) {
-			g2.setColor(ModernWidget.TEXT_COLOR);
-		} else {
-			g2.setColor(ModernWidget.ALT_TEXT_COLOR);
-		}
+    if (mText1 != null) {
+      if (mText2 == null || mText1.length() > mText2.length()) {
+        w += ModernWidget.getStringWidth(mText1);
+      } else {
+        w += ModernWidget.getStringWidth(mText2);
+      }
+    }
 
-		if (mMode == RibbonSize.LARGE) {
-			if (mShowText && mText1 != null) {
-				y = mRect.getH() - PADDING - ModernWidget.getStringHeight();
-				x = (mRect.getW() - g2.getFontMetrics().stringWidth(mText1)) / 2;
-				g2.drawString(mText1, x, y);
+    w = Math.max(w, mMinSizeMap.get(RibbonSize.LARGE));
 
-				if (mText2 != null) {
-					y += ModernWidget.getStringHeight();
-					x = (mRect.getW() - g2.getFontMetrics().stringWidth(mText2)) / 2;
-					g2.drawString(mText2, x, y);
-				}
+    h = Ribbon.LARGE_BUTTON_HEIGHT;
 
-				x = (mRect.getW() - mIcon.getWidth()) / 2;
-				y = PADDING;
+    UI.setSize(this, w, h);
+  }
 
-				if (isEnabled()) {
-					mIcon.drawIcon(g2, x, y, 32);
-				} else {
-					mIcon.getDisabledIcon().drawIcon(g2, x, y, 32);
-				}
-			} else {
-				x = (mRect.getW() - mCompactIcon.getWidth()) / 2;
-				y = (mRect.getH() - mCompactIcon.getHeight()) / 2;
+  /**
+   * Should set the size of the button when it is in the compact mode.
+   */
+  public void setCompactSize() {
+    int w = DOUBLE_PADDING;
+    int h;
 
-				if (isEnabled()) {
-					mIcon.drawIcon(g2, x, y, 32);
-				} else {
-					mIcon.getDisabledIcon().drawIcon(g2, x, y, 32);
-				}
-			}
-		} else {
-			// Compact
-			x = PADDING;
+    if (mCompactIcon != null) {
+      w += Ribbon.COMPACT_ICON_SIZE;
+    }
 
-			if (mCompactIcon != null) {
-				y = (getHeight() - mCompactIcon.getHeight()) / 2;
+    w += TRIANGLE_ICON.getWidth();
 
-				if (isEnabled()) {
-					mCompactIcon.drawIcon(g2, x, y, 24);
-				} else {
-					mCompactIcon.getDisabledIcon().drawIcon(g2, x, y, 24);
-				}
+    if (!mIconOnly && mShowText && mText != null) {
+      w += ModernWidget.getStringWidth(mText) + PADDING;
+    }
 
-				x += mCompactIcon.getWidth();
-			}
+    w = Math.max(w, mMinSizeMap.get(RibbonSize.COMPACT));
 
-			if (!mIconOnly && mShowText && mText != null) {
-				x += PADDING;
-				y = ModernWidget.getTextYPosCenter(g2, mRect.getH());
+    h = Ribbon.COMPACT_BUTTON_HEIGHT;
 
-				g2.drawString(mText, x, y);
-			}
-		}
+    UI.setSize(this, w, h);
+  }
 
-		if (mMode == RibbonSize.LARGE) {
-			x = (getWidth() - TRIANGLE_ICON.getWidth()) / 2;
-			y = getHeight() - TRIANGLE_ICON.getHeight() - PADDING;
-		} else {
-			x = getWidth() - PADDING - TRIANGLE_ICON.getWidth();
-			y = (getHeight() - TRIANGLE_ICON.getHeight()) / 2;
-		}
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight || mPopupShown) {
+   * getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+   * } } }
+   */
 
-		TRIANGLE_ICON.drawIcon(g2, x, y, 16);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x;
+    int y;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.button.ModernButtonWidget#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		mText = text;
+    if (isEnabled()) {
+      g2.setColor(ModernWidget.TEXT_COLOR);
+    } else {
+      g2.setColor(ModernWidget.ALT_TEXT_COLOR);
+    }
 
-		super.setText(text);
-	}
+    if (mMode == RibbonSize.LARGE) {
+      if (mShowText && mText1 != null) {
+        y = mRect.getH() - PADDING - ModernWidget.getStringHeight();
+        x = (mRect.getW() - g2.getFontMetrics().stringWidth(mText1)) / 2;
+        g2.drawString(mText1, x, y);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.button.ModernDropDownButton#fireClicked(org.abh.common.ui.event.ModernClickEvent)
-	 */
-	@Override
-	public void fireClicked(ModernClickEvent e) {
-		//mText = e.getMessage();
-		
-		if (mChangeText) {
-			setText(e.getMessage());
-		}
+        if (mText2 != null) {
+          y += ModernWidget.getStringHeight();
+          x = (mRect.getW() - g2.getFontMetrics().stringWidth(mText2)) / 2;
+          g2.drawString(mText2, x, y);
+        }
 
-		super.fireClicked(e);
-	}
+        x = (mRect.getW() - mIcon.getWidth()) / 2;
+        y = PADDING;
+
+        if (isEnabled()) {
+          mIcon.drawIcon(g2, x, y, 32);
+        } else {
+          mIcon.getDisabledIcon().drawIcon(g2, x, y, 32);
+        }
+      } else {
+        x = (mRect.getW() - mCompactIcon.getWidth()) / 2;
+        y = (mRect.getH() - mCompactIcon.getHeight()) / 2;
+
+        if (isEnabled()) {
+          mIcon.drawIcon(g2, x, y, 32);
+        } else {
+          mIcon.getDisabledIcon().drawIcon(g2, x, y, 32);
+        }
+      }
+    } else {
+      // Compact
+      x = PADDING;
+
+      if (mCompactIcon != null) {
+        y = (getHeight() - mCompactIcon.getHeight()) / 2;
+
+        if (isEnabled()) {
+          mCompactIcon.drawIcon(g2, x, y, 24);
+        } else {
+          mCompactIcon.getDisabledIcon().drawIcon(g2, x, y, 24);
+        }
+
+        x += mCompactIcon.getWidth();
+      }
+
+      if (!mIconOnly && mShowText && mText != null) {
+        x += PADDING;
+        y = ModernWidget.getTextYPosCenter(g2, mRect.getH());
+
+        g2.drawString(mText, x, y);
+      }
+    }
+
+    if (mMode == RibbonSize.LARGE) {
+      x = (getWidth() - TRIANGLE_ICON.getWidth()) / 2;
+      y = getHeight() - TRIANGLE_ICON.getHeight() - PADDING;
+    } else {
+      x = getWidth() - PADDING - TRIANGLE_ICON.getWidth();
+      y = (getHeight() - TRIANGLE_ICON.getHeight()) / 2;
+    }
+
+    TRIANGLE_ICON.drawIcon(g2, x, y, 16);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.button.ModernButtonWidget#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    mText = text;
+
+    super.setText(text);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.button.ModernDropDownButton#fireClicked(org.abh.common.ui.
+   * event.ModernClickEvent)
+   */
+  @Override
+  public void fireClicked(ModernClickEvent e) {
+    // mText = e.getMessage();
+
+    if (mChangeText) {
+      setText(e.getMessage());
+    }
+
+    super.fireClicked(e);
+  }
 }

@@ -37,54 +37,60 @@ import org.jebtk.core.settings.SettingsService;
  * The class ViewVerticalVectorIcon.
  */
 public class ViewVerticalVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant WIDTH_SCALE.
-	 */
-	private static final double WIDTH_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.vertical-view-icon.width-scale");
-	
-	/**
-	 * The constant BOX_SCALE.
-	 */
-	private static final double BOX_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.vertical-view-icon.box-scale");
 
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR =
-			SettingsService.getInstance().getAsColor("theme.icons.vertical-view-icon.colors.foreground");
-	
-	/**
-	 * The constant BACKGROUND.
-	 */
-	private static final Color BACKGROUND =
-			SettingsService.getInstance().getAsColor("theme.icons.vertical-view-icon.colors.background");
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		double wf =  w * WIDTH_SCALE;
+  /**
+   * The constant WIDTH_SCALE.
+   */
+  private static final double WIDTH_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.vertical-view-icon.width-scale");
 
-		double bw = wf * BOX_SCALE;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - wf) / 2.0;
-		
-		g2.setColor(BACKGROUND);
-		
-		g2.fillRect((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(bw), (int)Math.round(wf));
-		g2.fillRect((int)Math.round(xf + wf - bw), (int)Math.round(yf), (int)Math.round(bw), (int)Math.round(bw));
-		g2.fillRect((int)Math.round(xf + wf - bw), (int)Math.round(yf + wf - bw), (int)Math.round(bw), (int)Math.round(bw));
-		
-		g2.setColor(COLOR);
-		
-		g2.drawRect((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(bw), (int)Math.round(wf));
-		g2.drawRect((int)Math.round(xf + wf - bw), (int)Math.round(yf), (int)Math.round(bw), (int)Math.round(bw));
-		g2.drawRect((int)Math.round(xf + wf - bw), (int)Math.round(yf + wf - bw), (int)Math.round(bw), (int)Math.round(bw));
-		
-	}
+  /**
+   * The constant BOX_SCALE.
+   */
+  private static final double BOX_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.vertical-view-icon.box-scale");
+
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = SettingsService.getInstance()
+      .getAsColor("theme.icons.vertical-view-icon.colors.foreground");
+
+  /**
+   * The constant BACKGROUND.
+   */
+  private static final Color BACKGROUND = SettingsService.getInstance()
+      .getAsColor("theme.icons.vertical-view-icon.colors.background");
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    double wf = w * WIDTH_SCALE;
+
+    double bw = wf * BOX_SCALE;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - wf) / 2.0;
+
+    g2.setColor(BACKGROUND);
+
+    g2.fillRect((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(bw), (int) Math.round(wf));
+    g2.fillRect((int) Math.round(xf + wf - bw), (int) Math.round(yf), (int) Math.round(bw), (int) Math.round(bw));
+    g2.fillRect((int) Math.round(xf + wf - bw), (int) Math.round(yf + wf - bw), (int) Math.round(bw),
+        (int) Math.round(bw));
+
+    g2.setColor(COLOR);
+
+    g2.drawRect((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(bw), (int) Math.round(wf));
+    g2.drawRect((int) Math.round(xf + wf - bw), (int) Math.round(yf), (int) Math.round(bw), (int) Math.round(bw));
+    g2.drawRect((int) Math.round(xf + wf - bw), (int) Math.round(yf + wf - bw), (int) Math.round(bw),
+        (int) Math.round(bw));
+
+  }
 }

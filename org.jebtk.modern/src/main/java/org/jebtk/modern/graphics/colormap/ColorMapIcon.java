@@ -23,7 +23,6 @@ import java.awt.geom.Point2D;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Displays a color bar.
@@ -32,57 +31,57 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ColorMapIcon extends ModernVectorIcon {
-	
-	/**
-	 * The member color map.
-	 */
-	private ColorMap mColorMap;
 
+  /**
+   * The member color map.
+   */
+  private ColorMap mColorMap;
 
-	/**
-	 * Instantiates a new color map icon.
-	 *
-	 * @param colorMap the color map
-	 */
-	public ColorMapIcon(ColorMap colorMap) {
-		mColorMap = colorMap;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		
-		w = w - 2;
-		h = h / 3;
-		y = (h - h / 3) / 2;
-		
-		LinearGradientPaint paint = mColorMap.getAnchorColors().toGradientPaint(new Point2D.Float(x, 0), new Point2D.Float(x + w, 0));
+  /**
+   * Instantiates a new color map icon.
+   *
+   * @param colorMap
+   *          the color map
+   */
+  public ColorMapIcon(ColorMap colorMap) {
+    mColorMap = colorMap;
+  }
 
-		g2.setPaint(paint);
-		g2.fillRect(x, y, w, h);
-		
-		/*
-		g2.setColor(Color.WHITE);
-		g2.fillRect(x, y, w, h);
-		
-		
-		double c = 0;
-		double inc = (mColorMap.getColorCount() - 1) / (double)w;
-		
-		x = x + 1;
-		
-		for (int i = 0; i < w; ++i) {
-			g2.setColor(mColorMap.getColorByIndex((int)c));
-			
-			g2.drawLine(x, y + 1, x, y + h - 2);
-			
-			c += inc;
-			++x;
-		}
-		*/
-		
-		ModernWidget.paintDarkOutline(g2, new Rectangle(x, y, w, h));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.ui.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+    w = w - 2;
+    h = h / 3;
+    y = (h - h / 3) / 2;
+
+    LinearGradientPaint paint = mColorMap.getAnchorColors().toGradientPaint(new Point2D.Float(x, 0),
+        new Point2D.Float(x + w, 0));
+
+    g2.setPaint(paint);
+    g2.fillRect(x, y, w, h);
+
+    /*
+     * g2.setColor(Color.WHITE); g2.fillRect(x, y, w, h);
+     * 
+     * 
+     * double c = 0; double inc = (mColorMap.getColorCount() - 1) / (double)w;
+     * 
+     * x = x + 1;
+     * 
+     * for (int i = 0; i < w; ++i) { g2.setColor(mColorMap.getColorByIndex((int)c));
+     * 
+     * g2.drawLine(x, y + 1, x, y + h - 2);
+     * 
+     * c += inc; ++x; }
+     */
+
+    ModernWidget.paintDarkOutline(g2, new Rectangle(x, y, w, h));
+  }
 }

@@ -56,251 +56,237 @@ import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Allows user to sort samples.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class SortPanel<T extends NameProperty> extends HBox implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SORTER_CHANGED.
-	 */
-	public static final String SORTER_CHANGED = "sorter_changed";
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant MENU_SIZE.
-	 */
-	private static final Dimension MENU_SIZE = 
-			new Dimension(250, ModernIconMenuItem.HEIGHT);
+  /**
+   * The constant SORTER_CHANGED.
+   */
+  public static final String SORTER_CHANGED = "sorter_changed";
 
-	//private static final ModernIcon UP_ICON = Resources.getInstance().loadIcon("up_scroll", Resources.ICON_SIZE_16);
-	//private static final ModernIcon DOWN_ICON = Resources.getInstance().loadIcon("down_scroll", Resources.ICON_SIZE_16);
+  /**
+   * The constant MENU_SIZE.
+   */
+  private static final Dimension MENU_SIZE = new Dimension(250, ModernIconMenuItem.HEIGHT);
 
-	/**
-	 * The member popup.
-	 */
-	private ModernScrollPopupMenu mPopup;
+  // private static final ModernIcon UP_ICON =
+  // Resources.getInstance().loadIcon("up_scroll", Resources.ICON_SIZE_16);
+  // private static final ModernIcon DOWN_ICON =
+  // Resources.getInstance().loadIcon("down_scroll", Resources.ICON_SIZE_16);
 
-	/**
-	 * The member sort field menu button.
-	 */
-	private ModernComboBox mSortFieldMenuButton;
+  /**
+   * The member popup.
+   */
+  private ModernScrollPopupMenu mPopup;
 
-	/**
-	 * The member sort direction button.
-	 */
-	private SortDirectionButton mSortDirectionButton = 
-			new SortDirectionButton(true);
+  /**
+   * The member sort field menu button.
+   */
+  private ModernComboBox mSortFieldMenuButton;
 
-	/**
-	 * The member list button.
-	 */
-	private ModernCheckRadioButton mListButton = 
-			new ModernCheckRadioButton(UIService.getInstance().loadIcon(ListVectorIcon.class, 16),
-					"List view", 
-					"Display data in a list.");
-	
-	/**
-	 * The member tree button.
-	 */
-	private ModernCheckRadioButton mTreeButton = 
-			new ModernCheckRadioButton(UIService.getInstance().loadIcon(TreeVectorIcon.class, 16),
-					"Tree view", 
-					"Display data in a tree.");
+  /**
+   * The member sort direction button.
+   */
+  private SortDirectionButton mSortDirectionButton = new SortDirectionButton(true);
 
-	/**
-	 * The member filter button.
-	 */
-	//private FilterButton mFilterButton;
+  /**
+   * The member list button.
+   */
+  private ModernCheckRadioButton mListButton = new ModernCheckRadioButton(
+      UIService.getInstance().loadIcon(ListVectorIcon.class, 16), "List view", "Display data in a list.");
 
-	/**
-	 * The member sort model.
-	 */
-	private SortModel<T> mSortModel;
+  /**
+   * The member tree button.
+   */
+  private ModernCheckRadioButton mTreeButton = new ModernCheckRadioButton(
+      UIService.getInstance().loadIcon(TreeVectorIcon.class, 16), "Tree view", "Display data in a tree.");
 
-	/**
-	 * The member button sort map.
-	 */
-	private Map<String, ModernClickWidget> mButtonSortMap = 
-			new HashMap<String, ModernClickWidget>();
+  /**
+   * The member filter button.
+   */
+  // private FilterButton mFilterButton;
 
-	/**
-	 * The member view model.
-	 */
-	private ViewModel mViewModel;
+  /**
+   * The member sort model.
+   */
+  private SortModel<T> mSortModel;
 
-	/**
-	 * The class SortEvents.
-	 */
-	private class SortEvents implements ChangeListener {
-		
-		/* (non-Javadoc)
-		 * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
-		 */
-		@Override
-		public void changed(ChangeEvent e) {
-			//mSortFieldMenuButton.setText("Sort by " + mSortModel.getSorter().getName());
+  /**
+   * The member button sort map.
+   */
+  private Map<String, ModernClickWidget> mButtonSortMap = new HashMap<String, ModernClickWidget>();
 
-			mSortDirectionButton.setAscending(mSortModel.getSortAscending());
-			
-			mButtonSortMap.get(mSortModel.getSorter().getName()).setSelected(true);
-		}
-	}
+  /**
+   * The member view model.
+   */
+  private ViewModel mViewModel;
 
-	/**
-	 * Instantiates a new sort panel.
-	 *
-	 * @param parent the parent
-	 * @param sortModel the sort model
-	 * @param filterModel the filter model
-	 * @param viewModel the view model
-	 */
-	public SortPanel(ModernWindow parent, 
-			SortModel<T> sortModel,
-			FilterModel filterModel,
-			ViewModel viewModel) {
-		mSortModel = sortModel;
-		mViewModel = viewModel;
-		
-		ModernButtonGroup group = new ModernButtonGroup();
-		
-		group.add(mTreeButton);
-		group.add(mListButton);
-		
-		add(mTreeButton);
-		add(mListButton);
-		
-		add(new RibbonSubSectionSeparator());
+  /**
+   * The class SortEvents.
+   */
+  private class SortEvents implements ChangeListener {
 
-		group = new ModernButtonGroup();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     */
+    @Override
+    public void changed(ChangeEvent e) {
+      // mSortFieldMenuButton.setText("Sort by " + mSortModel.getSorter().getName());
 
-		//mFilterButton = new FilterButton(parent, filterModel);
-		//add(mFilterButton);
-		//add(new RibbonSubSectionSeparator());
-		
-		
-		add(new ModernAutoSizeLabel("Sort by"));
-		
-		add(ModernPanel.createHGap());
+      mSortDirectionButton.setAscending(mSortModel.getSortAscending());
 
-		mPopup = new ModernScrollPopupMenu(); //parentFrame);
+      mButtonSortMap.get(mSortModel.getSorter().getName()).setSelected(true);
+    }
+  }
 
-		ModernClickWidget menuItem;
+  /**
+   * Instantiates a new sort panel.
+   *
+   * @param parent
+   *          the parent
+   * @param sortModel
+   *          the sort model
+   * @param filterModel
+   *          the filter model
+   * @param viewModel
+   *          the view model
+   */
+  public SortPanel(ModernWindow parent, SortModel<T> sortModel, FilterModel filterModel, ViewModel viewModel) {
+    mSortModel = sortModel;
+    mViewModel = viewModel;
 
-		//menuItem = new ModernTitleMenuItem("Common Properties");
-		//Ui.setSize(menuItem, MENU_SIZE);
-		//popup.add(menuItem);
-		
-		for (Sorter<T> sorter : sortModel) {
-			menuItem = new ModernCheckBoxMenuItem(sorter.getName());
-			menuItem.addClickListener(this);
-			UI.setSize(menuItem, MENU_SIZE);
-			mPopup.add(menuItem);
-			group.add(menuItem);
-			mButtonSortMap.put(sorter.getName(), menuItem);
-		}
+    ModernButtonGroup group = new ModernButtonGroup();
 
+    group.add(mTreeButton);
+    group.add(mListButton);
 
-		//expandButton.addClickListener(this);
-		//expandButton.setToolTip(new ModernToolTip("Expand Groups", 
-		//		"Expand the groups so you can see all samples."));
-		//add(expandButton);
+    add(mTreeButton);
+    add(mListButton);
 
-		
+    add(new RibbonSubSectionSeparator());
 
-		//sortFieldMenuButton = new ModernHiddenComboBox("Array Design", popup);
-		//mSortFieldMenuButton = new ModernDropDownMenuLabelButton("Sort by", popup);
-		mSortFieldMenuButton = new ModernComboBox(mPopup);
-		mSortFieldMenuButton.addClickListener(this);
-		UI.setSize(mSortFieldMenuButton, 250, ModernWidget.WIDGET_HEIGHT);
+    group = new ModernButtonGroup();
 
-		add(mSortFieldMenuButton);
+    // mFilterButton = new FilterButton(parent, filterModel);
+    // add(mFilterButton);
+    // add(new RibbonSubSectionSeparator());
 
-		//add(ModernTheme.createHorizontalGap());
+    add(new ModernAutoSizeLabel("Sort by"));
 
-		//add(new RibbonSubSectionSeparator());
+    add(ModernPanel.createHGap());
 
-		//add(ModernTheme.createHorizontalGap());
+    mPopup = new ModernScrollPopupMenu(); // parentFrame);
 
-		add(ModernPanel.createHGap());
-		
-		add(mSortDirectionButton);
+    ModernClickWidget menuItem;
 
-		//add(ModernTheme.createHorizontalGap());
+    // menuItem = new ModernTitleMenuItem("Common Properties");
+    // Ui.setSize(menuItem, MENU_SIZE);
+    // popup.add(menuItem);
 
-		//addMouseListener(this);
+    for (Sorter<T> sorter : sortModel) {
+      menuItem = new ModernCheckBoxMenuItem(sorter.getName());
+      menuItem.addClickListener(this);
+      UI.setSize(menuItem, MENU_SIZE);
+      mPopup.add(menuItem);
+      group.add(menuItem);
+      mButtonSortMap.put(sorter.getName(), menuItem);
+    }
 
-		UI.setSize(this, ModernWidget.MAX_SIZE_24, ModernWidget.TOP_BOTTOM_BORDER);
+    // expandButton.addClickListener(this);
+    // expandButton.setToolTip(new ModernToolTip("Expand Groups",
+    // "Expand the groups so you can see all samples."));
+    // add(expandButton);
 
-		//addMouseListener(this);
-		mSortDirectionButton.addClickListener(this);
-		
-		mListButton.addClickListener(this);
-		mTreeButton.addClickListener(this);
-		
-		if (mViewModel.getView().equals("tree")) {
-			mTreeButton.setSelected(true);
-		} else {
-			mListButton.setSelected(true);
-		}
-		
-		mSortFieldMenuButton.setText(mSortModel.getSorter().getName());
-		
-		sortModel.addChangeListener(new SortEvents());
-	}
+    // sortFieldMenuButton = new ModernHiddenComboBox("Array Design", popup);
+    // mSortFieldMenuButton = new ModernDropDownMenuLabelButton("Sort by", popup);
+    mSortFieldMenuButton = new ModernComboBox(mPopup);
+    mSortFieldMenuButton.addClickListener(this);
+    UI.setSize(mSortFieldMenuButton, 250, ModernWidget.WIDGET_HEIGHT);
 
-	/*
-	public void paintComponent(Graphics g) {
-		super.paintComponent(g);
+    add(mSortFieldMenuButton);
 
-		Graphics2D g2 = (Graphics2D)g;
+    // add(ModernTheme.createHorizontalGap());
 
-		int x = getWidth() - Resources.ICON_SIZE_16 - ModernTheme.getInstance().getClass("widget").getInt("padding");
-		int y = (getHeight() - Resources.ICON_SIZE_16) / 2;
+    // add(new RibbonSubSectionSeparator());
 
-		// paint arrows so the user can see the sort order
+    // add(ModernTheme.createHorizontalGap());
 
-		if (ascending) {
-			DOWN_ICON.paintIcon(this,
-				g2,
-				x,
-				y);
-		} else {
-			UP_ICON.paintIcon(this,
-					g2,
-					x,
-					y);
-		}
+    add(ModernPanel.createHGap());
 
-		//g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-		//		RenderingHints.VALUE_ANTIALIAS_OFF);
-	}
-	*/
+    add(mSortDirectionButton);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public final void clicked(ModernClickEvent e) {
-		if (e.getSource().equals(mSortDirectionButton)) {
-			mSortModel.setSortAscending(!mSortModel.getSortAscending());
-		} else if (e.getSource().equals(mListButton)) {
-			mViewModel.setView("list");
-		} else if (e.getSource().equals(mTreeButton)) {
-			mViewModel.setView("tree");
-		} else {
-			mSortModel.setSorter(e.getMessage());
-		}
-	}
+    // add(ModernTheme.createHorizontalGap());
 
+    // addMouseListener(this);
 
+    UI.setSize(this, ModernWidget.MAX_SIZE_24, ModernWidget.TOP_BOTTOM_BORDER);
+
+    // addMouseListener(this);
+    mSortDirectionButton.addClickListener(this);
+
+    mListButton.addClickListener(this);
+    mTreeButton.addClickListener(this);
+
+    if (mViewModel.getView().equals("tree")) {
+      mTreeButton.setSelected(true);
+    } else {
+      mListButton.setSelected(true);
+    }
+
+    mSortFieldMenuButton.setText(mSortModel.getSorter().getName());
+
+    sortModel.addChangeListener(new SortEvents());
+  }
+
+  /*
+   * public void paintComponent(Graphics g) { super.paintComponent(g);
+   * 
+   * Graphics2D g2 = (Graphics2D)g;
+   * 
+   * int x = getWidth() - Resources.ICON_SIZE_16 -
+   * ModernTheme.getInstance().getClass("widget").getInt("padding"); int y =
+   * (getHeight() - Resources.ICON_SIZE_16) / 2;
+   * 
+   * // paint arrows so the user can see the sort order
+   * 
+   * if (ascending) { DOWN_ICON.paintIcon(this, g2, x, y); } else {
+   * UP_ICON.paintIcon(this, g2, x, y); }
+   * 
+   * //g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, //
+   * RenderingHints.VALUE_ANTIALIAS_OFF); }
+   */
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public final void clicked(ModernClickEvent e) {
+    if (e.getSource().equals(mSortDirectionButton)) {
+      mSortModel.setSortAscending(!mSortModel.getSortAscending());
+    } else if (e.getSource().equals(mListButton)) {
+      mViewModel.setView("list");
+    } else if (e.getSource().equals(mTreeButton)) {
+      mViewModel.setView("tree");
+    } else {
+      mSortModel.setSorter(e.getMessage());
+    }
+  }
 
 }

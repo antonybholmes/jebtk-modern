@@ -33,18 +33,18 @@ package org.jebtk.modern.table;
  */
 public enum PropertyValueEditType {
 
-	/**
-	 * The not editable.
-	 */
-	NOT_EDITABLE,
-	
-	/**
-	 * The editable.
-	 */
-	EDITABLE,
-	
-	/**
-	 * The selectable.
-	 */
-	SELECTABLE
+  /**
+   * The not editable.
+   */
+  NOT_EDITABLE,
+
+  /**
+   * The editable.
+   */
+  EDITABLE,
+
+  /**
+   * The selectable.
+   */
+  SELECTABLE
 }

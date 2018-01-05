@@ -43,8 +43,6 @@ import org.jebtk.modern.event.HighlightListeners;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Simple horizontal tabs using labels as buttons.
@@ -54,242 +52,251 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class TextTabs extends TabsController implements HighlightEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant GAP_WIDTH.
-	 */
-	protected static final int GAP_WIDTH = 
-			SettingsService.getInstance().getAsInt("theme.text-tabs.gap-width"); // ModernTheme.getInstance().getClass("text-tabs").getInt("gap-width");
-	
-	/**
-	 * The member tab widths.
-	 */
-	protected List<Integer> mTabWidths = new ArrayList<Integer>();
-	
-	/**
-	 * The constant FONT.
-	 */
-	protected static final Font TEXT_TABS_FONT = 
-			ThemeService.loadFont("theme/text-tabs/text-font"); // ThemeService.loadFont("text-tabs.text");
-	
-	/**
-	 * The constant BOLD_FONT.
-	 */
-	protected static final Font TEXT_TABS_BOLD_FONT = 
-			ThemeService.loadFont("theme/text-tabs/text-font-bold"); //ThemeService.loadFont("text-tabs.bold-text");
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant GAP_WIDTH.
+   */
+  protected static final int GAP_WIDTH = SettingsService.getInstance().getAsInt("theme.text-tabs.gap-width"); // ModernTheme.getInstance().getClass("text-tabs").getInt("gap-width");
 
-	/**
-	 * The member highlight.
-	 */
-	public int mHighlight = -1;
-	
-	/** The m center. */
-	protected boolean mCenter = false;
+  /**
+   * The member tab widths.
+   */
+  protected List<Integer> mTabWidths = new ArrayList<Integer>();
 
-	/** The m offset. */
-	protected int mOffset = 0;
-	
-	protected HighlightListeners mHighlightListeners =
-			new HighlightListeners();
+  /**
+   * The constant FONT.
+   */
+  protected static final Font TEXT_TABS_FONT = ThemeService.loadFont("theme/text-tabs/text-font"); // ThemeService.loadFont("text-tabs.text");
 
-	
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			changeTab(e.getX(), e.getY());
-		}
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseMoved(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseMoved(MouseEvent e) {
-			highlightTab(e.getX(), e.getY());
-		}
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseExited(MouseEvent e) {
-			mHighlight = -1;
-			
-			repaint();
-		}
-	}
-	
-	/**
-	 * Instantiates a new text tabs.
-	 *
-	 * @param model the model
-	 */
-	public TextTabs(TabsModel model) {
-		this(model, false);
-	}
-	
-	/**
-	 * Instantiates a new text tabs.
-	 *
-	 * @param model the model
-	 * @param center the center
-	 */
-	public TextTabs(TabsModel model, boolean center) {
-		super(model);
-		
-		mCenter = center;
-	
-		MouseEvents me = new MouseEvents();
-		
-		addMouseListener(me);
-		addMouseMotionListener(me);
-	
-		UI.setSize(this, ModernWidget.MAX_SIZE);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		
-		createTabs(g2);
+  /**
+   * The constant BOLD_FONT.
+   */
+  protected static final Font TEXT_TABS_BOLD_FONT = ThemeService.loadFont("theme/text-tabs/text-font-bold"); // ThemeService.loadFont("text-tabs.bold-text");
 
-		g2.setFont(FONT);
-		
-		int x = getInsets().left + mOffset;
+  /**
+   * The member highlight.
+   */
+  public int mHighlight = -1;
 
-		int textY = getTextYPosCenter(g2, getHeight());
-		
-		for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
-			boolean selected = i == getTabsModel().getSelectedIndex();
-			boolean highlight = i == mHighlight;
-			
-			g2.setColor(selected || highlight ? THEME_SELECTED_BORDER_COLOR : TEXT_COLOR);
-			
-			g2.setFont(selected ? BOLD_FONT : FONT);
+  /** The m center. */
+  protected boolean mCenter = false;
 
-			String s = getTabsModel().getTab(i).getName(); //.toUpperCase();
-			
-			int w = g2.getFontMetrics().stringWidth(s);
-			
-			g2.drawString(s, x + (mTabWidths.get(i) - w) / 2, textY);
-	
-			x += mTabWidths.get(i) + GAP_WIDTH;
-		}
-	}
-	
-	public void createTabs(Graphics2D g2) {
-		if (mTabWidths.size() == 0) {
-			g2.setFont(BOLD_FONT); //g2.setFont(BOLD_FONT);
-			
-			int tw = 0;
-			
-			for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
-				String s = getTabsModel().getTab(i).getName(); //.toUpperCase();
-				
-				int w = g2.getFontMetrics().stringWidth(s);
-				
-				mTabWidths.add(w);
-				
-				tw += w;
-			}
-			
-			if (mCenter) {
-				mOffset = (getInternalRect().getW() - (tw + GAP_WIDTH * (mTabWidths.size() - 1))) / 2;
-			}
-		}
-	}
+  /** The m offset. */
+  protected int mOffset = 0;
 
-	/**
-	 * Change tab.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 */
-	protected void changeTab(int x, int y) {
-		int tab = -1;
-		
-		int x1 = getInsets().left + mOffset;
-		int x2;
-		
-		for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
-			x2 = x1 + mTabWidths.get(i);
-			
-			if (x >= x1 && x <= x2) {
-				tab = i;
-				break;
-			}
-			
-			x1 = x2 + GAP_WIDTH;
-		}
-		
-		if (tab != -1) {
-			repaint();
-			
-			getTabsModel().changeTab(tab);
-		}
-	}
-	
-	/**
-	 * Highlight.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 */
-	protected void highlightTab(int x, int y) {
-		int t = -1;
-		
-		int x1 = getInsets().left + mOffset;
-		int x2;
-		
-		for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
-			x2 = x1 + mTabWidths.get(i);
-			
-			if (x >= x1 && x <= x2) {
-				t = i;
+  protected HighlightListeners mHighlightListeners = new HighlightListeners();
 
-				break;
-			}
-			
-			x1 = x2 + GAP_WIDTH;
-		}
-		
-		if (t != -1 && t != mHighlight) {
-			mHighlight = t;
-			
-			fireHighlighted();
-		}
-	}
-	
-	@Override
-	public void addHighlightListener(HighlightListener l) {
-		mHighlightListeners.addHighlightListener(l);
-	}
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
 
-	@Override
-	public void removeHighlightListener(HighlightListener l) {
-		mHighlightListeners.removeHighlightListener(l);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      changeTab(e.getX(), e.getY());
+    }
 
-	public void fireHighlighted() {
-		fireHighlighted(new HighlightEvent(this, mHighlight));
-	}
-	
-	@Override
-	public void fireHighlighted(HighlightEvent e) {
-		mHighlightListeners.fireHighlighted(e);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseMoved(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseMoved(MouseEvent e) {
+      highlightTab(e.getX(), e.getY());
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseExited(MouseEvent e) {
+      mHighlight = -1;
+
+      repaint();
+    }
+  }
+
+  /**
+   * Instantiates a new text tabs.
+   *
+   * @param model
+   *          the model
+   */
+  public TextTabs(TabsModel model) {
+    this(model, false);
+  }
+
+  /**
+   * Instantiates a new text tabs.
+   *
+   * @param model
+   *          the model
+   * @param center
+   *          the center
+   */
+  public TextTabs(TabsModel model, boolean center) {
+    super(model);
+
+    mCenter = center;
+
+    MouseEvents me = new MouseEvents();
+
+    addMouseListener(me);
+    addMouseMotionListener(me);
+
+    UI.setSize(this, ModernWidget.MAX_SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+
+    createTabs(g2);
+
+    g2.setFont(FONT);
+
+    int x = getInsets().left + mOffset;
+
+    int textY = getTextYPosCenter(g2, getHeight());
+
+    for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+      boolean selected = i == getTabsModel().getSelectedIndex();
+      boolean highlight = i == mHighlight;
+
+      g2.setColor(selected || highlight ? THEME_SELECTED_BORDER_COLOR : TEXT_COLOR);
+
+      g2.setFont(selected ? BOLD_FONT : FONT);
+
+      String s = getTabsModel().getTab(i).getName(); // .toUpperCase();
+
+      int w = g2.getFontMetrics().stringWidth(s);
+
+      g2.drawString(s, x + (mTabWidths.get(i) - w) / 2, textY);
+
+      x += mTabWidths.get(i) + GAP_WIDTH;
+    }
+  }
+
+  public void createTabs(Graphics2D g2) {
+    if (mTabWidths.size() == 0) {
+      g2.setFont(BOLD_FONT); // g2.setFont(BOLD_FONT);
+
+      int tw = 0;
+
+      for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+        String s = getTabsModel().getTab(i).getName(); // .toUpperCase();
+
+        int w = g2.getFontMetrics().stringWidth(s);
+
+        mTabWidths.add(w);
+
+        tw += w;
+      }
+
+      if (mCenter) {
+        mOffset = (getInternalRect().getW() - (tw + GAP_WIDTH * (mTabWidths.size() - 1))) / 2;
+      }
+    }
+  }
+
+  /**
+   * Change tab.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   */
+  protected void changeTab(int x, int y) {
+    int tab = -1;
+
+    int x1 = getInsets().left + mOffset;
+    int x2;
+
+    for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+      x2 = x1 + mTabWidths.get(i);
+
+      if (x >= x1 && x <= x2) {
+        tab = i;
+        break;
+      }
+
+      x1 = x2 + GAP_WIDTH;
+    }
+
+    if (tab != -1) {
+      repaint();
+
+      getTabsModel().changeTab(tab);
+    }
+  }
+
+  /**
+   * Highlight.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   */
+  protected void highlightTab(int x, int y) {
+    int t = -1;
+
+    int x1 = getInsets().left + mOffset;
+    int x2;
+
+    for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+      x2 = x1 + mTabWidths.get(i);
+
+      if (x >= x1 && x <= x2) {
+        t = i;
+
+        break;
+      }
+
+      x1 = x2 + GAP_WIDTH;
+    }
+
+    if (t != -1 && t != mHighlight) {
+      mHighlight = t;
+
+      fireHighlighted();
+    }
+  }
+
+  @Override
+  public void addHighlightListener(HighlightListener l) {
+    mHighlightListeners.addHighlightListener(l);
+  }
+
+  @Override
+  public void removeHighlightListener(HighlightListener l) {
+    mHighlightListeners.removeHighlightListener(l);
+  }
+
+  public void fireHighlighted() {
+    fireHighlighted(new HighlightEvent(this, mHighlight));
+  }
+
+  @Override
+  public void fireHighlighted(HighlightEvent e) {
+    mHighlightListeners.fireHighlighted(e);
+  }
 }

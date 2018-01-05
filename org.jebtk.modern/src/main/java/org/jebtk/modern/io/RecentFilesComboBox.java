@@ -39,139 +39,148 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ForwardRequestMenuItem;
 import org.jebtk.modern.menu.ModernMenuDivider;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RecentFilesComboBox.
  */
 public class RecentFilesComboBox extends ModernComboBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant MAX_FILES.
-	 */
-	public static final int MAX_FILES = 10;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The icon.
-	 */
-	private ModernIcon icon = 
-			UIService.getInstance().loadIcon("file", UIService.ICON_SIZE_32);
+  /**
+   * The constant MAX_FILES.
+   */
+  public static final int MAX_FILES = 10;
 
-	/**
-	 * The max.
-	 */
-	private int max;
+  /**
+   * The icon.
+   */
+  private ModernIcon icon = UIService.getInstance().loadIcon("file", UIService.ICON_SIZE_32);
 
-	/**
-	 * The recent files.
-	 */
-	private RecentFilesService recentFiles;
-	
-	/**
-	 * The class RecentEvents.
-	 */
-	private class RecentEvents implements ChangeListener {
+  /**
+   * The max.
+   */
+  private int max;
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
-		 */
-		@Override
-		public void changed(ChangeEvent e) {
-			reload();
-		}
-	}
+  /**
+   * The recent files.
+   */
+  private RecentFilesService recentFiles;
 
-	/**
-	 * Instantiates a new recent files combo box.
-	 *
-	 * @param recentFiles the recent files
-	 */
-	public RecentFilesComboBox(RecentFilesService recentFiles) {
-		setup(recentFiles, MAX_FILES);
-	}
+  /**
+   * The class RecentEvents.
+   */
+  private class RecentEvents implements ChangeListener {
 
-	/**
-	 * Instantiates a new recent files combo box.
-	 *
-	 * @param recentFiles the recent files
-	 * @param max the max
-	 */
-	public RecentFilesComboBox(RecentFilesService recentFiles, int max) {
-		setup(recentFiles, max);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     */
+    @Override
+    public void changed(ChangeEvent e) {
+      reload();
+    }
+  }
 
-	/**
-	 * Instantiates a new recent files combo box.
-	 *
-	 * @param recentFiles the recent files
-	 * @param icon the icon
-	 */
-	public RecentFilesComboBox(RecentFilesService recentFiles, ModernIcon icon) {
-		this.icon = icon;
+  /**
+   * Instantiates a new recent files combo box.
+   *
+   * @param recentFiles
+   *          the recent files
+   */
+  public RecentFilesComboBox(RecentFilesService recentFiles) {
+    setup(recentFiles, MAX_FILES);
+  }
 
-		setup(recentFiles, MAX_FILES);
-	}
+  /**
+   * Instantiates a new recent files combo box.
+   *
+   * @param recentFiles
+   *          the recent files
+   * @param max
+   *          the max
+   */
+  public RecentFilesComboBox(RecentFilesService recentFiles, int max) {
+    setup(recentFiles, max);
+  }
 
-	/**
-	 * Instantiates a new recent files combo box.
-	 *
-	 * @param recentFiles the recent files
-	 * @param icon the icon
-	 * @param max the max
-	 */
-	public RecentFilesComboBox(RecentFilesService recentFiles, ModernIcon icon, int max) {
-		this.icon = icon;
+  /**
+   * Instantiates a new recent files combo box.
+   *
+   * @param recentFiles
+   *          the recent files
+   * @param icon
+   *          the icon
+   */
+  public RecentFilesComboBox(RecentFilesService recentFiles, ModernIcon icon) {
+    this.icon = icon;
 
-		setup(recentFiles, max);
-	}
+    setup(recentFiles, MAX_FILES);
+  }
 
-	/**
-	 * Setup.
-	 *
-	 * @param recentFiles the recent files
-	 * @param max the max
-	 */
-	private void setup(RecentFilesService recentFiles, int max) {
-		this.recentFiles = recentFiles;
-		
-		recentFiles.addChangeListener(new RecentEvents());
-		this.max = max;
-				
-		reload();
-	}
-	
-	/**
-	 * Reload.
-	 */
-	private void reload() {
-		getPopup().clear();
+  /**
+   * Instantiates a new recent files combo box.
+   *
+   * @param recentFiles
+   *          the recent files
+   * @param icon
+   *          the icon
+   * @param max
+   *          the max
+   */
+  public RecentFilesComboBox(RecentFilesService recentFiles, ModernIcon icon, int max) {
+    this.icon = icon;
 
-		int c = 0;
+    setup(recentFiles, max);
+  }
 
-		for (Path file : recentFiles) {
-			if (c == max) {
-				break;
-			}
-	
-			addScrollMenuItem(new FileMenuItem(file, icon));
+  /**
+   * Setup.
+   *
+   * @param recentFiles
+   *          the recent files
+   * @param max
+   *          the max
+   */
+  private void setup(RecentFilesService recentFiles, int max) {
+    this.recentFiles = recentFiles;
 
-			++c;
-		}
+    recentFiles.addChangeListener(new RecentEvents());
+    this.max = max;
 
-		addMenuItem(new ModernMenuDivider());
+    reload();
+  }
 
-		addMenuItem(new ForwardRequestMenuItem("Other...", null));
+  /**
+   * Reload.
+   */
+  private void reload() {
+    getPopup().clear();
 
-		for (Path file : recentFiles) {
-			// default to the first file added
-			setText(PathUtils.toString(file));
-			break;
-		}
-	}
+    int c = 0;
+
+    for (Path file : recentFiles) {
+      if (c == max) {
+        break;
+      }
+
+      addScrollMenuItem(new FileMenuItem(file, icon));
+
+      ++c;
+    }
+
+    addMenuItem(new ModernMenuDivider());
+
+    addMenuItem(new ForwardRequestMenuItem("Other...", null));
+
+    for (Path file : recentFiles) {
+      // default to the first file added
+      setText(PathUtils.toString(file));
+      break;
+    }
+  }
 }

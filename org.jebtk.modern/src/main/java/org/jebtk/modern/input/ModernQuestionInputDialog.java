@@ -44,127 +44,127 @@ import org.jebtk.modern.window.ModernWindow;
  *
  */
 public class ModernQuestionInputDialog extends ModernDialogHelpWindow {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member spinner.
-	 */
-	private ModernCheckBox mCheckQuestion = null;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern question input dialog.
-	 *
-	 * @param parent the parent
-	 * @param title the title
-	 * @param question the question
-	 */
-	public ModernQuestionInputDialog(ModernWindow parent,
-			String title,
-			String question) {
-		this(parent, title, question, false);
-	}
-	
-	/**
-	 * Instantiates a new modern int input dialog.
-	 *
-	 * @param parent the parent
-	 * @param title the title
-	 * @param question the question
-	 * @param checked the checked
-	 */
-	public ModernQuestionInputDialog(ModernWindow parent,
-			String title,
-			String question,
-			boolean checked) {
-		super(parent,
-				ModernDialogTaskType.OK_CANCEL);
-		
-		setTitle(title);
-		
-		mCheckQuestion = new ModernCheckBox(question, checked);
-	
-		setup();
+  /**
+   * The member spinner.
+   */
+  private ModernCheckBox mCheckQuestion = null;
 
-		createUi();
-	}
-	
-	/**
-	 * Instantiates a new modern question input dialog.
-	 *
-	 * @param parent the parent
-	 * @param title the title
-	 * @param question the question
-	 * @param help the help
-	 */
-	public ModernQuestionInputDialog(ModernWindow parent,
-			String title,
-			String question,
-			String help) {
-		this(parent, title, question, help, false);
-	}
-	
-	/**
-	 * Instantiates a new modern question input dialog.
-	 *
-	 * @param parent the parent
-	 * @param title the title
-	 * @param question the question
-	 * @param help the help
-	 * @param checked the checked
-	 */
-	public ModernQuestionInputDialog(ModernWindow parent,
-			String title,
-			String question,
-			String help,
-			boolean checked) {
-		super(parent,
-				help,
-				ModernDialogTaskType.OK_CANCEL);
-		
-		setTitle(title);
-		
-		mCheckQuestion = new ModernCheckBox(question, checked);
-	
-		setup();
+  /**
+   * Instantiates a new modern question input dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param title
+   *          the title
+   * @param question
+   *          the question
+   */
+  public ModernQuestionInputDialog(ModernWindow parent, String title, String question) {
+    this(parent, title, question, false);
+  }
 
-		createUi();
-	}
+  /**
+   * Instantiates a new modern int input dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param title
+   *          the title
+   * @param question
+   *          the question
+   * @param checked
+   *          the checked
+   */
+  public ModernQuestionInputDialog(ModernWindow parent, String title, String question, boolean checked) {
+    super(parent, ModernDialogTaskType.OK_CANCEL);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setSize(400, 160);
-		
-		UI.centerWindowToScreen(this);
-	}
-	
-	
+    setTitle(title);
 
-	/**
-	 * Creates the ui.
-	 */
-	private final void createUi() {
-		//this.getContentPane().add(new JLabel("Change " + getProductDetails().getProductName() + " settings", JLabel.LEFT), BorderLayout.PAGE_START);
-		
-		Box box = HBox.create();
-		
-		box.add(mCheckQuestion);
+    mCheckQuestion = new ModernCheckBox(question, checked);
 
-		setContent(box);
-	}
+    setup();
 
-	/**
-	 * Gets the value.
-	 *
-	 * @return the value
-	 */
-	public boolean getAnswer() {
-		return mCheckQuestion.isSelected();
-	}
+    createUi();
+  }
+
+  /**
+   * Instantiates a new modern question input dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param title
+   *          the title
+   * @param question
+   *          the question
+   * @param help
+   *          the help
+   */
+  public ModernQuestionInputDialog(ModernWindow parent, String title, String question, String help) {
+    this(parent, title, question, help, false);
+  }
+
+  /**
+   * Instantiates a new modern question input dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param title
+   *          the title
+   * @param question
+   *          the question
+   * @param help
+   *          the help
+   * @param checked
+   *          the checked
+   */
+  public ModernQuestionInputDialog(ModernWindow parent, String title, String question, String help, boolean checked) {
+    super(parent, help, ModernDialogTaskType.OK_CANCEL);
+
+    setTitle(title);
+
+    mCheckQuestion = new ModernCheckBox(question, checked);
+
+    setup();
+
+    createUi();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setSize(400, 160);
+
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Creates the ui.
+   */
+  private final void createUi() {
+    // this.getContentPane().add(new JLabel("Change " +
+    // getProductDetails().getProductName() + " settings", JLabel.LEFT),
+    // BorderLayout.PAGE_START);
+
+    Box box = HBox.create();
+
+    box.add(mCheckQuestion);
+
+    setContent(box);
+  }
+
+  /**
+   * Gets the value.
+   *
+   * @return the value
+   */
+  public boolean getAnswer() {
+    return mCheckQuestion.isSelected();
+  }
 }

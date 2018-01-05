@@ -32,36 +32,36 @@ package org.jebtk.modern.dialog;
  * The enum MessageDialogType.
  */
 public enum MessageDialogType {
-	
-	/**
-	 * The information.
-	 */
-	INFORMATION,
-	
-	/**
-	 * The information ok cancel.
-	 */
-	INFORMATION_OK_CANCEL,
-	
-	/**
-	 * The information yes no.
-	 */
-	INFORMATION_YES_NO,
-	
-	/**
-	 * The warning.
-	 */
-	WARNING,
-	
-	/**
-	 * The warning ok cancel.
-	 */
-	WARNING_OK_CANCEL,
-	
-	/**
-	 * The warning yes no cancel.
-	 */
-	WARNING_YES_NO_CANCEL, 
-	
-	WARNING_YES_NO
+
+  /**
+   * The information.
+   */
+  INFORMATION,
+
+  /**
+   * The information ok cancel.
+   */
+  INFORMATION_OK_CANCEL,
+
+  /**
+   * The information yes no.
+   */
+  INFORMATION_YES_NO,
+
+  /**
+   * The warning.
+   */
+  WARNING,
+
+  /**
+   * The warning ok cancel.
+   */
+  WARNING_OK_CANCEL,
+
+  /**
+   * The warning yes no cancel.
+   */
+  WARNING_YES_NO_CANCEL,
+
+  WARNING_YES_NO
 }

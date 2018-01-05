@@ -30,288 +30,288 @@ import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ColorPicker.
  */
 public class ColorMapPicker extends ModernClickWidget {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant BLOCK_SIZE.
-	 */
-	public static final IntDim BLOCK_SIZE = new IntDim(90, 30);
+  /**
+   * The constant BLOCK_SIZE.
+   */
+  public static final IntDim BLOCK_SIZE = new IntDim(90, 30);
 
-	/** The Constant HEAT_MAP_SIZE. */
-	public static final IntDim HEAT_MAP_SIZE = new IntDim(80, 20);
+  /** The Constant HEAT_MAP_SIZE. */
+  public static final IntDim HEAT_MAP_SIZE = new IntDim(80, 20);
 
-	/** The Constant OFFSET. */
-	public static final Point OFFSET = new Point((BLOCK_SIZE.getW() - HEAT_MAP_SIZE.getW()) / 2,
-			(BLOCK_SIZE.getH() - HEAT_MAP_SIZE.getH()) / 2);
+  /** The Constant OFFSET. */
+  public static final Point OFFSET = new Point((BLOCK_SIZE.getW() - HEAT_MAP_SIZE.getW()) / 2,
+      (BLOCK_SIZE.getH() - HEAT_MAP_SIZE.getH()) / 2);
 
-	/** The Constant BLOCK_OFFSET. */
-	private static final int BLOCK_OFFSET = 10;
+  /** The Constant BLOCK_OFFSET. */
+  private static final int BLOCK_OFFSET = 10;
 
-	/**
-	 * The p.
-	 */
-	private IntPos2D mP = null;
+  /**
+   * The p.
+   */
+  private IntPos2D mP = null;
 
-	/**
-	 * The selected p.
-	 */
-	private IntPos2D mSelectedP = null;
+  /**
+   * The selected p.
+   */
+  private IntPos2D mSelectedP = null;
 
-	/**
-	 * The row.
-	 */
-	private int mRow = -1;
+  /**
+   * The row.
+   */
+  private int mRow = -1;
 
-	/**
-	 * The col.
-	 */
-	private int mCol = -1;
+  /**
+   * The col.
+   */
+  private int mCol = -1;
 
-	/**
-	 * The selected row.
-	 */
-	private int mSelectedRow = -1;
+  /**
+   * The selected row.
+   */
+  private int mSelectedRow = -1;
 
-	/**
-	 * The selected col.
-	 */
-	private int mSelectedCol = -1;
+  /**
+   * The selected col.
+   */
+  private int mSelectedCol = -1;
 
+  /** The m cols. */
+  private int mCols;
 
-	/** The m cols. */
-	private int mCols;
+  /** The m rows. */
+  private int mRows;
 
-	/** The m rows. */
-	private int mRows;
+  /** The m color maps. */
+  private List<ColorMap> mColorMaps;
 
-	/** The m color maps. */
-	private List<ColorMap> mColorMaps;
+  /** The m selected index. */
+  private int mSelectedIndex;
 
-	/** The m selected index. */
-	private int mSelectedIndex;
+  /** The m selected color map. */
+  private ColorMap mSelectedColorMap;
 
-	/** The m selected color map. */
-	private ColorMap mSelectedColorMap;
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
 
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      setSelectedColorMap(mRow, mCol);
+    }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			setSelectedColorMap(mRow, mCol);
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseExited(MouseEvent e) {
+      mRow = -1;
+      mCol = -1;
+      mSelectedRow = -1;
+      mSelectedCol = -1;
+      mSelectedIndex = -1;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseExited(MouseEvent e) {
-			mRow = -1;
-			mCol = -1;
-			mSelectedRow = -1;
-			mSelectedCol = -1;
-			mSelectedIndex = -1;
+      repaint();
+    }
+  }
 
-			repaint();
-		}
-	}
+  /**
+   * The class MouseMoveEvents.
+   */
+  private class MouseMoveEvents implements MouseMotionListener {
 
-	/**
-	 * The class MouseMoveEvents.
-	 */
-	private class MouseMoveEvents implements MouseMotionListener {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseMoved(MouseEvent e) {
+      int r = (e.getY() - DOUBLE_PADDING) / BLOCK_SIZE.getH();
+      int c = (e.getX() - DOUBLE_PADDING) / BLOCK_SIZE.getW();
+      int i = r * mCols + c;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseMoved(MouseEvent e) {
-			int r = (e.getY() - DOUBLE_PADDING) / BLOCK_SIZE.getH();
-			int c = (e.getX() - DOUBLE_PADDING) / BLOCK_SIZE.getW();
-			int i = r * mCols + c;
+      if (i < mColorMaps.size()) {
+        mRow = r;
+        mCol = c;
 
-			if (i < mColorMaps.size()) {
-				mRow = r;
-				mCol = c;
+        mP = new IntPos2D(DOUBLE_PADDING + BLOCK_SIZE.getW() * mCol, DOUBLE_PADDING + BLOCK_SIZE.getH() * mRow);
 
-				mP = new IntPos2D(DOUBLE_PADDING + BLOCK_SIZE.getW() * mCol,
-						DOUBLE_PADDING + BLOCK_SIZE.getH() * mRow);
+        repaint();
+      }
+    }
 
-				repaint();
-			}
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseDragged(MouseEvent arg0) {
+      // TODO Auto-generated method stub
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseDragged(MouseEvent arg0) {
-			// TODO Auto-generated method stub
+    }
+  }
 
-		}
-	}
+  /**
+   * Instantiates a new color map picker.
+   *
+   * @param cols
+   *          the cols
+   */
+  public ColorMapPicker(int cols) {
+    mCols = cols;
 
-	/**
-	 * Instantiates a new color map picker.
-	 *
-	 * @param cols the cols
-	 */
-	public ColorMapPicker(int cols) {
-		mCols = cols;
+    addMouseMotionListener(new MouseMoveEvents());
+    addMouseListener(new MouseEvents());
+  }
 
-		addMouseMotionListener(new MouseMoveEvents());
-		addMouseListener(new MouseEvents());
-	}
+  /**
+   * Update.
+   *
+   * @param colorMaps
+   *          the color maps
+   */
+  public void update(List<ColorMap> colorMaps) {
+    mRows = colorMaps.size() / mCols + (colorMaps.size() % mCols == 0 ? 0 : 1);
+    mColorMaps = colorMaps;
 
-	/**
-	 * Update.
-	 *
-	 * @param colorMaps the color maps
-	 */
-	public void update(List<ColorMap> colorMaps) {
-		mRows = colorMaps.size() / mCols + (colorMaps.size() % mCols == 0 ? 0 : 1);
-		mColorMaps = colorMaps;
+    setPreferredSize(new Dimension(QUAD_PADDING + BLOCK_SIZE.getW() * mCols - BLOCK_OFFSET,
+        QUAD_PADDING + BLOCK_SIZE.getH() * mRows - BLOCK_OFFSET));
+  }
 
-		setPreferredSize(new Dimension(QUAD_PADDING + BLOCK_SIZE.getW() * mCols - BLOCK_OFFSET, 
-				QUAD_PADDING + BLOCK_SIZE.getH() * mRows - BLOCK_OFFSET));
-	}
+  /**
+   * Sets the selected color.
+   *
+   * @param row
+   *          the row
+   * @param col
+   *          the col
+   */
+  public void setSelectedColorMap(int row, int col) {
+    mSelectedRow = row;
+    mSelectedCol = col;
+    mSelectedIndex = row * mCols + col;
 
+    mSelectedP = new IntPos2D(BLOCK_SIZE.getW() * mSelectedCol + DOUBLE_PADDING,
+        BLOCK_SIZE.getH() * mSelectedRow + DOUBLE_PADDING);
 
-	/**
-	 * Sets the selected color.
-	 *
-	 * @param row the row
-	 * @param col the col
-	 */
-	public void setSelectedColorMap(int row, int col) {
-		mSelectedRow = row;
-		mSelectedCol = col;
-		mSelectedIndex = row * mCols + col;
+    if (mSelectedIndex < mColorMaps.size()) {
+      mSelectedColorMap = mColorMaps.get(mSelectedIndex);
 
-		mSelectedP = new IntPos2D(BLOCK_SIZE.getW() * mSelectedCol + DOUBLE_PADDING,
-				BLOCK_SIZE.getH() * mSelectedRow + DOUBLE_PADDING);
+      fireClicked();
+    }
+  }
 
-		if (mSelectedIndex < mColorMaps.size()) {
-			mSelectedColorMap = mColorMaps.get(mSelectedIndex);
+  /**
+   * Gets the selected color.
+   *
+   * @return the selected color
+   */
+  public ColorMap getSelectedColorMap() {
+    return mSelectedColorMap;
+  }
 
-			fireClicked();
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+    // do nothing
+  }
 
-	/**
-	 * Gets the selected color.
-	 *
-	 * @return the selected color
-	 */
-	public ColorMap getSelectedColorMap() {
-		return mSelectedColorMap;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForeground(Graphics2D g2) {
+    int x = DOUBLE_PADDING;
+    int y = DOUBLE_PADDING;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		// do nothing
-	}
+    for (int i = 0; i < mColorMaps.size(); ++i) {
+      ColorMap colorMap = mColorMaps.get(i);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForeground(Graphics2D g2) {
-		int x = DOUBLE_PADDING;
-		int y = DOUBLE_PADDING;
+      y = i / mCols * BLOCK_SIZE.getH() + DOUBLE_PADDING;
+      x = (i % mCols) * BLOCK_SIZE.getW() + DOUBLE_PADDING;
 
-		for (int i = 0; i < mColorMaps.size(); ++i) {
-			ColorMap colorMap = mColorMaps.get(i);
+      LinearGradientPaint paint = colorMap.getAnchorColors().toGradientPaint(new Point2D.Float(x, 0),
+          new Point2D.Float(x + HEAT_MAP_SIZE.getW(), 0));
 
-			y = i / mCols * BLOCK_SIZE.getH() + DOUBLE_PADDING;
-			x = (i % mCols) * BLOCK_SIZE.getW() + DOUBLE_PADDING;
+      g2.setPaint(paint);
+      // g2.fillRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
+      // ModernRoundedWidgetRenderer.ROUNDING, ModernRoundedWidgetRenderer.ROUNDING);
+      g2.fillRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
 
-			LinearGradientPaint paint = 
-					colorMap.getAnchorColors().toGradientPaint(new Point2D.Float(x, 0), new Point2D.Float(x + HEAT_MAP_SIZE.getW(), 0));
+      g2.setColor(LINE_COLOR);
+      // g2.drawRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
+      // ModernRoundedWidgetRenderer.ROUNDING, ModernRoundedWidgetRenderer.ROUNDING);
+      g2.drawRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
 
-			g2.setPaint(paint);
-			//g2.fillRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(), ModernRoundedWidgetRenderer.ROUNDING, ModernRoundedWidgetRenderer.ROUNDING);
-			g2.fillRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
-			
+      /*
+       * double c = 0; double inc = (double)(colorMap.getColorCount() - 1) /
+       * HEAT_MAP_SIZE.getW();
+       * 
+       * int cx = x; for (int j = 0; j < HEAT_MAP_SIZE.getW(); ++j) {
+       * g2.setColor(colorMap.getColorByIndex((int)c));
+       * 
+       * g2.drawLine(cx, y, cx, y + HEAT_MAP_SIZE.getH());
+       * 
+       * ++cx;
+       * 
+       * c += inc; }
+       */
 
-			g2.setColor(LINE_COLOR);
-			//g2.drawRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(), ModernRoundedWidgetRenderer.ROUNDING, ModernRoundedWidgetRenderer.ROUNDING);
-			g2.drawRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
-			
-			/*
-			 double c = 0;
-			double inc = (double)(colorMap.getColorCount() - 1) / HEAT_MAP_SIZE.getW();
+      // g2.setColor(DARK_LINE_COLOR);
+      // g2.drawRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
+    }
 
-			int cx = x;
-			for (int j = 0; j < HEAT_MAP_SIZE.getW(); ++j) {
-				g2.setColor(colorMap.getColorByIndex((int)c));
+    if (mSelectedRow != -1) {
+      g2.setColor(Color.BLACK);
 
-				g2.drawLine(cx, y, cx, y + HEAT_MAP_SIZE.getH());
+      /*
+       * g2.drawRoundRect(mSelectedP.getX(), mSelectedP.getY(), HEAT_MAP_SIZE.getW(),
+       * HEAT_MAP_SIZE.getH(), ModernRoundedWidgetRenderer.ROUNDING,
+       * ModernRoundedWidgetRenderer.ROUNDING);
+       */
 
-				++cx;
+      g2.drawRect(mSelectedP.getX(), mSelectedP.getY(), HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
+    }
 
-				c += inc;
-			}
-			 */
+    if (mRow != -1) {
+      g2.setColor(Color.BLACK);
 
-			//g2.setColor(DARK_LINE_COLOR);
-			//g2.drawRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
-		}
+      /*
+       * g2.drawRoundRect(mP.getX(), mP.getY(), HEAT_MAP_SIZE.getW(),
+       * HEAT_MAP_SIZE.getH(), ModernRoundedWidgetRenderer.ROUNDING,
+       * ModernRoundedWidgetRenderer.ROUNDING);
+       */
 
-		if (mSelectedRow != -1) {
-			g2.setColor(Color.BLACK);
-			
-			/*
-			g2.drawRoundRect(mSelectedP.getX(), 
-					mSelectedP.getY(), 
-					HEAT_MAP_SIZE.getW(), 
-					HEAT_MAP_SIZE.getH(), 
-					ModernRoundedWidgetRenderer.ROUNDING, 
-					ModernRoundedWidgetRenderer.ROUNDING);
-			*/
-			
-			g2.drawRect(mSelectedP.getX(), 
-					mSelectedP.getY(), 
-					HEAT_MAP_SIZE.getW(), 
-					HEAT_MAP_SIZE.getH());
-		}
-		
-		if (mRow != -1) {
-			g2.setColor(Color.BLACK);
-			
-			/*
-			g2.drawRoundRect(mP.getX(), 
-					mP.getY(), 
-					HEAT_MAP_SIZE.getW(), 
-					HEAT_MAP_SIZE.getH(), 
-					ModernRoundedWidgetRenderer.ROUNDING, 
-					ModernRoundedWidgetRenderer.ROUNDING);
-			*/
-			
-			g2.drawRect(mP.getX(), 
-					mP.getY(), 
-					HEAT_MAP_SIZE.getW(), 
-					HEAT_MAP_SIZE.getH());
-		}
+      g2.drawRect(mP.getX(), mP.getY(), HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
+    }
 
-	}
+  }
 }

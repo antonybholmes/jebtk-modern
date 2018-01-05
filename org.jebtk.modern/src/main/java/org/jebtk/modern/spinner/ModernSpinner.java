@@ -51,266 +51,277 @@ import org.jebtk.modern.text.ModernTextBorderPanel;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernSpinner.
  */
 public class ModernSpinner extends ModernClickWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SPINNER_CHANGED.
-	 */
-	public static final String SPINNER_CHANGED = "spinner_changed";
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The field.
-	 */
-	private ModernTextField field = new ModernNumericalTextField();
-	
-	/**
-	 * The member inc button.
-	 */
-	protected ModernButton mIncButton =
-			new ModernButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+  /**
+   * The constant SPINNER_CHANGED.
+   */
+  public static final String SPINNER_CHANGED = "spinner_changed";
 
-	/**
-	 * The member dec button.
-	 */
-	protected ModernButton mDecButton =
-			new ModernButton(UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
-	
-	/**
-	 * The member min.
-	 */
-	int mMin = 0;
-	
-	/**
-	 * The member max.
-	 */
-	int mMax = 100;
+  /**
+   * The field.
+   */
+  private ModernTextField field = new ModernNumericalTextField();
 
-	/**
-	 * The value.
-	 */
-	protected int mValue = mMin;
+  /**
+   * The member inc button.
+   */
+  protected ModernButton mIncButton = new ModernButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
-	/**
-	 * The step.
-	 */
-	private int mStep = 1;
-	
-	/** The m inc. */
-	private int mInc = 0;
-	
-	/**
-	 * The timer.
-	 */
-	private Timer mScrollTimer;
-	
-	/**
-	 * The class IncrementTask.
-	 */
-	private class IncrementTask implements ActionListener {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
-		public void actionPerformed(ActionEvent e) {
-			setValue(getValue() + mInc);
-		}
+  /**
+   * The member dec button.
+   */
+  protected ModernButton mDecButton = new ModernButton(UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+
+  /**
+   * The member min.
+   */
+  int mMin = 0;
+
+  /**
+   * The member max.
+   */
+  int mMax = 100;
+
+  /**
+   * The value.
+   */
+  protected int mValue = mMin;
+
+  /**
+   * The step.
+   */
+  private int mStep = 1;
+
+  /** The m inc. */
+  private int mInc = 0;
+
+  /**
+   * The timer.
+   */
+  private Timer mScrollTimer;
+
+  /**
+   * The class IncrementTask.
+   */
+  private class IncrementTask implements ActionListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    public void actionPerformed(ActionEvent e) {
+      setValue(getValue() + mInc);
     }
-	
-	/**
-	 * The Class KeyEvents.
-	 */
-	private class KeyEvents extends KeyAdapter {
-		/* (non-Javadoc)
-		 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
-		 */
-		@Override
-		public void keyPressed(KeyEvent e) {
-			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-				try {
-					parse();
-				} catch (ParseException e1) {
-					e1.printStackTrace();
-				}
-		    }
-		}
-	}
-	
-	/**
-	 * The Class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			mScrollTimer.stop();
-		}
-	}
-	
-	/**
-	 * Instantiates a new modern spinner.
-	 *
-	 * @param min the min
-	 * @param max the max
-	 */
-	public ModernSpinner(int min, int max) {
-		mMin = min;
-		mMax = max;
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern spinner.
-	 *
-	 * @param min the min
-	 * @param max the max
-	 * @param value the value
-	 */
-	public ModernSpinner(int min, int max, int value) {
-		mMin = min;
-		mMax = max;
-		
-		setup();
-		
-		setValue(value);
-	}
-	
-	/**
-	 * Setup.
-	 */
-	protected void setup() {
-		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-		
-		add(mDecButton);
-		
-		UI.setSize(field, new Dimension(50, WIDGET_HEIGHT));
-		ModernTextBorderPanel p = new ModernTextBorderPanel(field);
-		
-		add(p);
-		add(mIncButton);
-		
-		field.addKeyListener(new KeyEvents());
-		
-		MouseEvents me = new MouseEvents();
-		
-		mIncButton.setOpaque(false);
-		mIncButton.addMouseListener(me);
-		mIncButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				mInc = mStep;
-				
-				mScrollTimer.start();
-			}
-		});
-		
-		mDecButton.setOpaque(false);
-		mDecButton.addMouseListener(me);
-		mDecButton.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				mInc = -mStep;
-				
-				mScrollTimer.start();
-			}
-		});
-		
-		setValue(mMin);
-		
-		setMaximumSize(new Dimension(Short.MAX_VALUE, WIDGET_HEIGHT));
-		setMinimumSize(new Dimension(WIDGET_HEIGHT, WIDGET_HEIGHT));
-	
-		setOpaque(false);
-		
-		mScrollTimer = new Timer(0, new IncrementTask());
-		mScrollTimer.setDelay(100);
-	}
+  }
 
-	
-	
-	/**
-	 * Parses the.
-	 *
-	 * @throws ParseException the parse exception
-	 */
-	private void parse() throws ParseException {
-		setValue(TextUtils.parseInt(field.getText()));
-	}
-	
-	/**
-	 * Sets the value.
-	 *
-	 * @param value the new value
-	 */
-	public void setValue(int value) {
-		setValue(value, true);
-	}
-	
-	/**
-	 * Sets the value.
-	 *
-	 * @param value the value
-	 * @param trigger the trigger
-	 */
-	protected void setValue(int value, boolean trigger) {
-		if (value < mMin) {
-			value = mMin;
-		}
-		
-		if (value > mMax) {
-			value = mMax;
-		}
-		
-		mValue = value;
-		
-		field.setText(Integer.toString(value));
-		
-		if (trigger) {
-			fireClicked(new ModernClickEvent(this,  SPINNER_CHANGED));
-		}
-	}
-	
-	/**
-	 * Gets the value.
-	 *
-	 * @return the value
-	 */
-	public int getValue() {
-		return mValue;
-	}
+  /**
+   * The Class KeyEvents.
+   */
+  private class KeyEvents extends KeyAdapter {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+     */
+    @Override
+    public void keyPressed(KeyEvent e) {
+      if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+        try {
+          parse();
+        } catch (ParseException e1) {
+          e1.printStackTrace();
+        }
+      }
+    }
+  }
 
-	/**
-	 * Decrement.
-	 */
-	public void decrement() {
-		setValue(getValue() - mStep);
-	}
+  /**
+   * The Class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseReleased(MouseEvent e) {
+      mScrollTimer.stop();
+    }
+  }
 
-	/**
-	 * Gets the step.
-	 *
-	 * @return the step
-	 */
-	public int getStep() {
-		return mStep;
-	}
+  /**
+   * Instantiates a new modern spinner.
+   *
+   * @param min
+   *          the min
+   * @param max
+   *          the max
+   */
+  public ModernSpinner(int min, int max) {
+    mMin = min;
+    mMax = max;
 
-	/**
-	 * Increment.
-	 */
-	public void increment() {
-		setValue(getValue() + mStep);
-	}
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern spinner.
+   *
+   * @param min
+   *          the min
+   * @param max
+   *          the max
+   * @param value
+   *          the value
+   */
+  public ModernSpinner(int min, int max, int value) {
+    mMin = min;
+    mMax = max;
+
+    setup();
+
+    setValue(value);
+  }
+
+  /**
+   * Setup.
+   */
+  protected void setup() {
+    setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+
+    add(mDecButton);
+
+    UI.setSize(field, new Dimension(50, WIDGET_HEIGHT));
+    ModernTextBorderPanel p = new ModernTextBorderPanel(field);
+
+    add(p);
+    add(mIncButton);
+
+    field.addKeyListener(new KeyEvents());
+
+    MouseEvents me = new MouseEvents();
+
+    mIncButton.setOpaque(false);
+    mIncButton.addMouseListener(me);
+    mIncButton.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mousePressed(MouseEvent e) {
+        mInc = mStep;
+
+        mScrollTimer.start();
+      }
+    });
+
+    mDecButton.setOpaque(false);
+    mDecButton.addMouseListener(me);
+    mDecButton.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mousePressed(MouseEvent e) {
+        mInc = -mStep;
+
+        mScrollTimer.start();
+      }
+    });
+
+    setValue(mMin);
+
+    setMaximumSize(new Dimension(Short.MAX_VALUE, WIDGET_HEIGHT));
+    setMinimumSize(new Dimension(WIDGET_HEIGHT, WIDGET_HEIGHT));
+
+    setOpaque(false);
+
+    mScrollTimer = new Timer(0, new IncrementTask());
+    mScrollTimer.setDelay(100);
+  }
+
+  /**
+   * Parses the.
+   *
+   * @throws ParseException
+   *           the parse exception
+   */
+  private void parse() throws ParseException {
+    setValue(TextUtils.parseInt(field.getText()));
+  }
+
+  /**
+   * Sets the value.
+   *
+   * @param value
+   *          the new value
+   */
+  public void setValue(int value) {
+    setValue(value, true);
+  }
+
+  /**
+   * Sets the value.
+   *
+   * @param value
+   *          the value
+   * @param trigger
+   *          the trigger
+   */
+  protected void setValue(int value, boolean trigger) {
+    if (value < mMin) {
+      value = mMin;
+    }
+
+    if (value > mMax) {
+      value = mMax;
+    }
+
+    mValue = value;
+
+    field.setText(Integer.toString(value));
+
+    if (trigger) {
+      fireClicked(new ModernClickEvent(this, SPINNER_CHANGED));
+    }
+  }
+
+  /**
+   * Gets the value.
+   *
+   * @return the value
+   */
+  public int getValue() {
+    return mValue;
+  }
+
+  /**
+   * Decrement.
+   */
+  public void decrement() {
+    setValue(getValue() - mStep);
+  }
+
+  /**
+   * Gets the step.
+   *
+   * @return the step
+   */
+  public int getStep() {
+    return mStep;
+  }
+
+  /**
+   * Increment.
+   */
+  public void increment() {
+    setValue(getValue() + mStep);
+  }
 }

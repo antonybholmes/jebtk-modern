@@ -21,14 +21,14 @@ package org.jebtk.modern.table;
  */
 public class TableIndexRowModel extends TableIndexModel {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new table index row model.
-	 */
-	public TableIndexRowModel() {
-		super(TableIndex.DEFAULT_CELL_HEIGHT, DEFAULT_CELL_WIDTH);
-	}
+  /**
+   * Instantiates a new table index row model.
+   */
+  public TableIndexRowModel() {
+    super(TableIndex.DEFAULT_CELL_HEIGHT, DEFAULT_CELL_WIDTH);
+  }
 
 }

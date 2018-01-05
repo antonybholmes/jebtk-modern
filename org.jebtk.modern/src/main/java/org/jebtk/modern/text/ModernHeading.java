@@ -33,49 +33,50 @@ import javax.swing.JComponent;
 
 import org.jebtk.modern.panel.ModernPanel;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a subRect.heighteading label and a control on the same line to
- * save space.
+ * Provides a subRect.heighteading label and a control on the same line to save
+ * space.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernHeading extends Box {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern heading.
-	 *
-	 * @param title the title
-	 */
-	public ModernHeading(String title) {
-		super(BoxLayout.LINE_AXIS);
-		
-		add(ModernPanel.createHGap());
-		add(new ModernHeadingLabel(title));
-	}
-	
-	/**
-	 * Instantiates a new modern heading.
-	 *
-	 * @param title the title
-	 * @param component the component
-	 */
-	public ModernHeading(String title, JComponent component) {
-		super(BoxLayout.LINE_AXIS);
-		
-		add(ModernPanel.createHGap());
-		add(new ModernColoredHeadingLabel(title));
-		add(Box.createHorizontalGlue());
-		add(component);
-		add(ModernPanel.createHGap());
-	}
+  /**
+   * Instantiates a new modern heading.
+   *
+   * @param title
+   *          the title
+   */
+  public ModernHeading(String title) {
+    super(BoxLayout.LINE_AXIS);
+
+    add(ModernPanel.createHGap());
+    add(new ModernHeadingLabel(title));
+  }
+
+  /**
+   * Instantiates a new modern heading.
+   *
+   * @param title
+   *          the title
+   * @param component
+   *          the component
+   */
+  public ModernHeading(String title, JComponent component) {
+    super(BoxLayout.LINE_AXIS);
+
+    add(ModernPanel.createHGap());
+    add(new ModernColoredHeadingLabel(title));
+    add(Box.createHorizontalGlue());
+    add(component);
+    add(ModernPanel.createHGap());
+  }
 
 }

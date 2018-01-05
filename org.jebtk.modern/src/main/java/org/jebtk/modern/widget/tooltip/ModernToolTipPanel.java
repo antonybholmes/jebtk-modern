@@ -31,26 +31,25 @@ import java.awt.Dimension;
 
 import org.jebtk.modern.panel.ModernBorderPanel;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The default tool tip panel provides a simple titled
- * tool tip that appears below the ribbon.
+ * The default tool tip panel provides a simple titled tool tip that appears
+ * below the ribbon.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public abstract class ModernToolTipPanel extends ModernBorderPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Should return how big the tool tip should appear.
-	 *
-	 * @return the tool tip size
-	 */
-	public abstract Dimension getToolTipSize();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Should return how big the tool tip should appear.
+   *
+   * @return the tool tip size
+   */
+  public abstract Dimension getToolTipSize();
 }

@@ -39,205 +39,198 @@ import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
- * Represents a vector icon that can have its color and size specified.
- * These types of vector icons are designed to be scale invariant.
+ * Represents a vector icon that can have its color and size specified. These
+ * types of vector icons are designed to be scale invariant.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public abstract class ModernApplicationIcon extends ModernVectorScalableIcon {
 
-	/** The Constant FONT_SCALE. */
-	private static final double FONT_SCALE = 0.7;
+  /** The Constant FONT_SCALE. */
+  private static final double FONT_SCALE = 0.7;
 
-	/** The Constant FONT_1. */
-	private static final Font FONT_1 = ModernWidget.TITLE_FONT_BOLD;
-	
-	/** The Constant FONT_2. */
-	private static final Font FONT_2 = ModernWidget.TITLE_FONT;
+  /** The Constant FONT_1. */
+  private static final Font FONT_1 = ModernWidget.TITLE_FONT_BOLD;
 
-	/** The m text 1. */
-	private String mText1;
+  /** The Constant FONT_2. */
+  private static final Font FONT_2 = ModernWidget.TITLE_FONT;
 
-	/** The m text 2. */
-	private String mText2;
+  /** The m text 1. */
+  private String mText1;
 
-	/**
-	 * Instantiates a new modern application icon.
-	 *
-	 * @param text1 the text 1
-	 * @param text2 the text 2
-	 * @param color1 the color 1
-	 * @param color2 the color 2
-	 */
-	public ModernApplicationIcon(String text1,
-			String text2,
-			Color color1, 
-			Color color2) {
-		super(color1, color2);
+  /** The m text 2. */
+  private String mText2;
 
-		mText1 = text1;
-		mText2 = text2;
-	}
+  /**
+   * Instantiates a new modern application icon.
+   *
+   * @param text1
+   *          the text 1
+   * @param text2
+   *          the text 2
+   * @param color1
+   *          the color 1
+   * @param color2
+   *          the color 2
+   */
+  public ModernApplicationIcon(String text1, String text2, Color color1, Color color2) {
+    super(color1, color2);
 
-	/**
-	 * Instantiates a new modern application icon.
-	 *
-	 * @param text1 the text 1
-	 * @param text2 the text 2
-	 * @param theme the theme
-	 */
-	public ModernApplicationIcon(String text1, 
-			String text2, 
-			ColorTheme theme) {
-		this(text1,
-				text2,
-				ThemeService.getInstance().colors().getColorTheme(theme).getColor32(22),
-				ThemeService.getInstance().colors().getColorTheme(theme).getColor32(24));
+    mText1 = text1;
+    mText2 = text2;
+  }
 
+  /**
+   * Instantiates a new modern application icon.
+   *
+   * @param text1
+   *          the text 1
+   * @param text2
+   *          the text 2
+   * @param theme
+   *          the theme
+   */
+  public ModernApplicationIcon(String text1, String text2, ColorTheme theme) {
+    this(text1, text2, ThemeService.getInstance().colors().getColorTheme(theme).getColor32(22),
+        ThemeService.getInstance().colors().getColorTheme(theme).getColor32(24));
 
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.icons.ModernIcon#drawIcon(java.awt.Graphics2D, int, int, int, int)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.icons.ModernIcon#drawIcon(java.awt.Graphics2D,
+   * int, int, int, int)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
 
-		GradientPaint p =
-				new GradientPaint(0, y, mColor1, 0, y + h, mColor2);
+    GradientPaint p = new GradientPaint(0, y, mColor1, 0, y + h, mColor2);
 
-		//int rounding = (int)Math.round(Math.max(1, w / 4.0f));
+    // int rounding = (int)Math.round(Math.max(1, w / 4.0f));
 
-		Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+    Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
-		try {
-			g2Temp.translate(x, y);
-			
-			g2Temp.setPaint(p);
-			//g2Temp.setColor(mColor2);
-			g2Temp.fillOval(x, y, w, h);
-			
-			//g2Temp.setColor(mColor2);
-			//g2Temp.drawOval(x, y, w, h);
-			
-			//g2Temp.fillRoundRect(x, y, w, h, rounding, rounding);
-		} finally {
-			g2Temp.dispose();
-		}
+    try {
+      g2Temp.translate(x, y);
 
-		drawScaledText(g2, 
-				w,
-				x,
-				y,
-				w,
-				h,
-				mText1,
-				mText2,
-				Color.WHITE);
-	}
+      g2Temp.setPaint(p);
+      // g2Temp.setColor(mColor2);
+      g2Temp.fillOval(x, y, w, h);
 
-	//
-	// Static methods
-	//
+      // g2Temp.setColor(mColor2);
+      // g2Temp.drawOval(x, y, w, h);
 
-	/**
-	 * Draws a scaled version of some text in the center of an icon.
-	 *
-	 * @param g2 the g 2
-	 * @param size the size
-	 * @param x the x
-	 * @param y the y
-	 * @param w the w
-	 * @param h the h
-	 * @param text1 the text 1
-	 * @param text2 the text 2
-	 * @param color the color
-	 */
-	public static void drawScaledText(Graphics2D g2, 
-			int size,
-			int x,
-			int y,
-			int w,
-			int h,
-			String text1,
-			String text2,
-			Color color) {
+      // g2Temp.fillRoundRect(x, y, w, h, rounding, rounding);
+    } finally {
+      g2Temp.dispose();
+    }
 
-		int x1;
-		int y1;
-		double wf = 0;
-		double w1 = 0;
-		double w2 = 0;
+    drawScaledText(g2, w, x, y, w, h, mText1, mText2, Color.WHITE);
+  }
 
-		double factor1;
-		double factor2;
+  //
+  // Static methods
+  //
 
-		Graphics2D g2Temp = ImageUtils.clone(g2);
+  /**
+   * Draws a scaled version of some text in the center of an icon.
+   *
+   * @param g2
+   *          the g 2
+   * @param size
+   *          the size
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param w
+   *          the w
+   * @param h
+   *          the h
+   * @param text1
+   *          the text 1
+   * @param text2
+   *          the text 2
+   * @param color
+   *          the color
+   */
+  public static void drawScaledText(Graphics2D g2, int size, int x, int y, int w, int h, String text1, String text2,
+      Color color) {
 
+    int x1;
+    int y1;
+    double wf = 0;
+    double w1 = 0;
+    double w2 = 0;
 
-		try {
-			g2Temp.setFont(FONT_1);
+    double factor1;
+    double factor2;
 
-			int fontHeight1 = ImageUtils.getFontHeight(g2Temp);
+    Graphics2D g2Temp = ImageUtils.clone(g2);
 
-			// Scale factor
-			factor1 = size / (double)fontHeight1 * FONT_SCALE;
+    try {
+      g2Temp.setFont(FONT_1);
 
-			w1 = g2Temp.getFontMetrics().stringWidth(text1) * factor1;
+      int fontHeight1 = ImageUtils.getFontHeight(g2Temp);
 
-			g2Temp.setFont(FONT_2);
+      // Scale factor
+      factor1 = size / (double) fontHeight1 * FONT_SCALE;
 
-			int fontHeight2 = ImageUtils.getFontHeight(g2Temp);
+      w1 = g2Temp.getFontMetrics().stringWidth(text1) * factor1;
 
-			// Scale factor
-			factor2 = size / (double)fontHeight2 * FONT_SCALE;
+      g2Temp.setFont(FONT_2);
 
-			w2 = g2Temp.getFontMetrics().stringWidth(text2) * factor2;
+      int fontHeight2 = ImageUtils.getFontHeight(g2Temp);
 
-			wf = w1 + w2;
-		} finally {
-			g2Temp.dispose();
-		}
+      // Scale factor
+      factor2 = size / (double) fontHeight2 * FONT_SCALE;
 
-		g2Temp = ImageUtils.clone(g2);
+      w2 = g2Temp.getFontMetrics().stringWidth(text2) * factor2;
 
-		try {
-			g2Temp.setFont(FONT_1);
+      wf = w1 + w2;
+    } finally {
+      g2Temp.dispose();
+    }
 
-			x1 = x + (int)((w - wf) / 2);
-			y1 = y + ModernWidget.getTextYPosCenter(h, 
-					g2Temp.getFontMetrics().getAscent() * factor1, 
-					g2Temp.getFontMetrics().getDescent() * factor1); //h - (int)((h - fontHeight * factor) / 2);
+    g2Temp = ImageUtils.clone(g2);
 
-			g2Temp.translate(x1, y1);
-			g2Temp.scale(factor1, factor1);
+    try {
+      g2Temp.setFont(FONT_1);
 
-			g2Temp.setColor(color);
+      x1 = x + (int) ((w - wf) / 2);
+      y1 = y + ModernWidget.getTextYPosCenter(h, g2Temp.getFontMetrics().getAscent() * factor1,
+          g2Temp.getFontMetrics().getDescent() * factor1); // h - (int)((h - fontHeight * factor) / 2);
 
-			g2Temp.drawString(text1, 0, 0);
-		} finally {
-			g2Temp.dispose();
-		}
+      g2Temp.translate(x1, y1);
+      g2Temp.scale(factor1, factor1);
 
-		g2Temp = ImageUtils.clone(g2);
+      g2Temp.setColor(color);
 
-		try {
-			g2Temp.setFont(FONT_2);
+      g2Temp.drawString(text1, 0, 0);
+    } finally {
+      g2Temp.dispose();
+    }
 
-			x1 = x + (int)((w - wf) / 2 + w1);
-			y1 = y + ModernWidget.getTextYPosCenter(h, 
-					g2Temp.getFontMetrics().getAscent() * factor2, 
-					g2Temp.getFontMetrics().getDescent() * factor2); //h - (int)((h - fontHeight * factor) / 2);
+    g2Temp = ImageUtils.clone(g2);
 
-			g2Temp.translate(x1, y1);
-			g2Temp.scale(factor2, factor2);
+    try {
+      g2Temp.setFont(FONT_2);
 
-			g2Temp.setColor(color);
+      x1 = x + (int) ((w - wf) / 2 + w1);
+      y1 = y + ModernWidget.getTextYPosCenter(h, g2Temp.getFontMetrics().getAscent() * factor2,
+          g2Temp.getFontMetrics().getDescent() * factor2); // h - (int)((h - fontHeight * factor) / 2);
 
-			g2Temp.drawString(text2, 0, 0);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+      g2Temp.translate(x1, y1);
+      g2Temp.scale(factor2, factor2);
+
+      g2Temp.setColor(color);
+
+      g2Temp.drawString(text2, 0, 0);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 }

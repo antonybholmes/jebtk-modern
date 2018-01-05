@@ -44,281 +44,313 @@ import javax.swing.JComponent;
  */
 public class Tabs extends TabEventListeners implements Iterable<Tab> {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member tabs.
-	 */
-	private List<Tab> mTabs = new ArrayList<Tab>();
+  /**
+   * The member tabs.
+   */
+  private List<Tab> mTabs = new ArrayList<Tab>();
 
-	/**
-	 * The member name index map.
-	 */
-	private Map<String, Integer> mNameIndexMap = 
-			new HashMap<String, Integer>();
+  /**
+   * The member name index map.
+   */
+  private Map<String, Integer> mNameIndexMap = new HashMap<String, Integer>();
 
-	/** The m te. */
-	private TabEvents mTe;
+  /** The m te. */
+  private TabEvents mTe;
 
-	/**
-	 * The class TabEvents.
-	 */
-	private class TabEvents implements TabEventListener {
-		
-		/** The m tabs. */
-		private Tabs mTabs;
+  /**
+   * The class TabEvents.
+   */
+  private class TabEvents implements TabEventListener {
 
-		/**
-		 * Instantiates a new tab events.
-		 *
-		 * @param tabs the tabs
-		 */
-		public TabEvents(Tabs tabs) {
-			mTabs = tabs;
-		}
+    /** The m tabs. */
+    private Tabs mTabs;
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.modern.tabs.TabEvent)
-		 */
-		@Override
-		public void tabAdded(TabEvent e) {
-			fireTabAdded(new TabEvent(mTabs, e.getTab()));
-		}
+    /**
+     * Instantiates a new tab events.
+     *
+     * @param tabs
+     *          the tabs
+     */
+    public TabEvents(Tabs tabs) {
+      mTabs = tabs;
+    }
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.modern.tabs.TabEvent)
-		 */
-		@Override
-		public void tabRemoved(TabEvent e) {
-			fireTabRemoved(new TabEvent(mTabs, e.getTab()));
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.modern.
+     * tabs.TabEvent)
+     */
+    @Override
+    public void tabAdded(TabEvent e) {
+      fireTabAdded(new TabEvent(mTabs, e.getTab()));
+    }
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.modern.tabs.TabEvent)
-		 */
-		@Override
-		public void tabResized(TabEvent e) {
-			fireTabResized(new TabEvent(mTabs, e.getTab()));
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.modern.
+     * tabs.TabEvent)
+     */
+    @Override
+    public void tabRemoved(TabEvent e) {
+      fireTabRemoved(new TabEvent(mTabs, e.getTab()));
+    }
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.modern.tabs.TabEvent)
-		 */
-		@Override
-		public void tabChanged(TabEvent e) {
-			fireTabChanged(new TabEvent(mTabs, e.getTab()));
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.modern.
+     * tabs.TabEvent)
+     */
+    @Override
+    public void tabResized(TabEvent e) {
+      fireTabResized(new TabEvent(mTabs, e.getTab()));
+    }
 
-		@Override
-		public void tabHighlighted(TabEvent e) {
-			fireTabHighlighted(new TabEvent(mTabs, e.getTab()));
-		}
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.modern.
+     * tabs.TabEvent)
+     */
+    @Override
+    public void tabChanged(TabEvent e) {
+      fireTabChanged(new TabEvent(mTabs, e.getTab()));
+    }
 
-	/**
-	 * Instantiates a new tabs.
-	 */
-	public Tabs() {
-		mTe = new TabEvents(this);
-	}
+    @Override
+    public void tabHighlighted(TabEvent e) {
+      fireTabHighlighted(new TabEvent(mTabs, e.getTab()));
+    }
+  }
 
-	/**
-	 * Adds the tab.
-	 *
-	 * @param name the name
-	 * @param c the c
-	 */
-	public void addTab(String name, JComponent c) {
-		addTab(new Tab(name, c));
-	}
+  /**
+   * Instantiates a new tabs.
+   */
+  public Tabs() {
+    mTe = new TabEvents(this);
+  }
 
-	/**
-	 * Adds the tab.
-	 *
-	 * @param pane the pane
-	 */
-	public void addTab(Tab pane) {
-		mNameIndexMap.put(pane.getName(), mTabs.size());
-		mTabs.add(pane);
+  /**
+   * Adds the tab.
+   *
+   * @param name
+   *          the name
+   * @param c
+   *          the c
+   */
+  public void addTab(String name, JComponent c) {
+    addTab(new Tab(name, c));
+  }
 
-		pane.addTabListener(mTe);
+  /**
+   * Adds the tab.
+   *
+   * @param pane
+   *          the pane
+   */
+  public void addTab(Tab pane) {
+    mNameIndexMap.put(pane.getName(), mTabs.size());
+    mTabs.add(pane);
 
-		fireTabAdded(new TabEvent(this, pane));
-		//fireTabChanged(new TabEvent(this, pane));
-	}
-	
-	/**
-	 * Replace tab.
-	 *
-	 * @param name the name
-	 * @param c the c
-	 */
-	public void replaceTab(String name, JComponent c) {
-		replaceTab(new Tab(name, c));
-	}
-	
-	/**
-	 * Replace an existing tab with a new one of the same name.
-	 *
-	 * @param tab the tab
-	 */
-	public void replaceTab(Tab tab) {
-		int index = indexOf(tab);
-		
-		if (index != -1) {
-			// If tab exists (by name), replace it
-			set(index, tab);
-		} else {
-			// Tab does not exist so add it
-			addTab(tab);
-		}
-	}
+    pane.addTabListener(mTe);
 
-	/**
-	 * Removes the tab.
-	 *
-	 * @param index the index
-	 */
-	private void removeTab(int index) {
-		if (index < 0 || index >= mTabs.size()) {
-			return;
-		}
+    fireTabAdded(new TabEvent(this, pane));
+    // fireTabChanged(new TabEvent(this, pane));
+  }
 
-		mTabs.remove(index);
-	}
+  /**
+   * Replace tab.
+   *
+   * @param name
+   *          the name
+   * @param c
+   *          the c
+   */
+  public void replaceTab(String name, JComponent c) {
+    replaceTab(new Tab(name, c));
+  }
 
-	//public void removeTab(Tab pane) {
-	//	removeTab(mTabs.indexOf(pane));
-	//}
+  /**
+   * Replace an existing tab with a new one of the same name.
+   *
+   * @param tab
+   *          the tab
+   */
+  public void replaceTab(Tab tab) {
+    int index = indexOf(tab);
 
-	/**
-	 * Contains tab.
-	 *
-	 * @param name the name
-	 * @return true, if successful
-	 */
-	public boolean containsTab(String name) {
-		return mNameIndexMap.containsKey(name);
-	}
+    if (index != -1) {
+      // If tab exists (by name), replace it
+      set(index, tab);
+    } else {
+      // Tab does not exist so add it
+      addTab(tab);
+    }
+  }
 
-	/**
-	 * Index of.
-	 *
-	 * @param tab the tab
-	 * @return the int
-	 */
-	public int indexOf(Tab tab) {
-		return indexOf(tab.getName());
-	}
-	
-	/**
-	 * Index of.
-	 *
-	 * @param name the name
-	 * @return the int
-	 */
-	public int indexOf(String name) {
-		if (mNameIndexMap.containsKey(name)) {
-			return mNameIndexMap.get(name);
-		} else {
-			return -1;
-		}
-	}
+  /**
+   * Removes the tab.
+   *
+   * @param index
+   *          the index
+   */
+  private void removeTab(int index) {
+    if (index < 0 || index >= mTabs.size()) {
+      return;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	@Override
-	public Iterator<Tab> iterator() {
-		return mTabs.iterator();
-	}
+    mTabs.remove(index);
+  }
 
-	/**
-	 * Gets the tab.
-	 *
-	 * @param i the i
-	 * @return the tab
-	 */
-	public Tab getTab(int i) {
-		if (mTabs.size() == 0 || i < 0 || i >= mTabs.size()) {
-			return null;
-		}
+  // public void removeTab(Tab pane) {
+  // removeTab(mTabs.indexOf(pane));
+  // }
 
-		return mTabs.get(i);
-	}
+  /**
+   * Contains tab.
+   *
+   * @param name
+   *          the name
+   * @return true, if successful
+   */
+  public boolean containsTab(String name) {
+    return mNameIndexMap.containsKey(name);
+  }
 
-	/**
-	 * Size.
-	 *
-	 * @return the integer
-	 */
-	public Integer size() {
-		return mTabs.size();
-	}
+  /**
+   * Index of.
+   *
+   * @param tab
+   *          the tab
+   * @return the int
+   */
+  public int indexOf(Tab tab) {
+    return indexOf(tab.getName());
+  }
 
-	/**
-	 * Sets the.
-	 *
-	 * @param index the index
-	 * @param pane the pane
-	 */
-	public void set(int index, Tab pane) {
-		mNameIndexMap.remove(mTabs.get(index).getName());
-		mTabs.set(index, pane);
-		mNameIndexMap.put(pane.getName(), index);
-		
-		pane.addTabListener(mTe);
+  /**
+   * Index of.
+   *
+   * @param name
+   *          the name
+   * @return the int
+   */
+  public int indexOf(String name) {
+    if (mNameIndexMap.containsKey(name)) {
+      return mNameIndexMap.get(name);
+    } else {
+      return -1;
+    }
+  }
 
-		fireTabAdded(new TabEvent(this, pane));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  @Override
+  public Iterator<Tab> iterator() {
+    return mTabs.iterator();
+  }
 
-	/**
-	 * Remove all tabs.
-	 */
-	public void clear() {
-		removeAllTabs();
-	}
-	
-	/**
-	 * Removes the all tabs.
-	 */
-	public void removeAllTabs() {
-		mNameIndexMap.clear();
-		mTabs.clear();
-		
-		fireTabRemoved(new TabEvent(this, null));
-	}
+  /**
+   * Gets the tab.
+   *
+   * @param i
+   *          the i
+   * @return the tab
+   */
+  public Tab getTab(int i) {
+    if (mTabs.size() == 0 || i < 0 || i >= mTabs.size()) {
+      return null;
+    }
 
-	/**
-	 * Remove an existing tab.
-	 *
-	 * @param tab the tab
-	 */
-	public void removeTab(Tab tab) {
-		removeTab(tab.getName());
-	}
-	
-	/**
-	 * Removes the tab.
-	 *
-	 * @param name the name
-	 */
-	public void removeTab(String name) {
-		int index = indexOf(name);
+    return mTabs.get(i);
+  }
 
-		if (index != -1) {
-			Tab pane = mTabs.get(index);
+  /**
+   * Size.
+   *
+   * @return the integer
+   */
+  public Integer size() {
+    return mTabs.size();
+  }
 
-			removeTab(index);
+  /**
+   * Sets the.
+   *
+   * @param index
+   *          the index
+   * @param pane
+   *          the pane
+   */
+  public void set(int index, Tab pane) {
+    mNameIndexMap.remove(mTabs.get(index).getName());
+    mTabs.set(index, pane);
+    mNameIndexMap.put(pane.getName(), index);
 
-			mNameIndexMap.remove(name);
+    pane.addTabListener(mTe);
 
-			fireTabRemoved(new TabEvent(this, pane));
-		}
-	}
+    fireTabAdded(new TabEvent(this, pane));
+  }
 
+  /**
+   * Remove all tabs.
+   */
+  public void clear() {
+    removeAllTabs();
+  }
+
+  /**
+   * Removes the all tabs.
+   */
+  public void removeAllTabs() {
+    mNameIndexMap.clear();
+    mTabs.clear();
+
+    fireTabRemoved(new TabEvent(this, null));
+  }
+
+  /**
+   * Remove an existing tab.
+   *
+   * @param tab
+   *          the tab
+   */
+  public void removeTab(Tab tab) {
+    removeTab(tab.getName());
+  }
+
+  /**
+   * Removes the tab.
+   *
+   * @param name
+   *          the name
+   */
+  public void removeTab(String name) {
+    int index = indexOf(name);
+
+    if (index != -1) {
+      Tab pane = mTabs.get(index);
+
+      removeTab(index);
+
+      mNameIndexMap.remove(name);
+
+      fireTabRemoved(new TabEvent(this, pane));
+    }
+  }
 
 }

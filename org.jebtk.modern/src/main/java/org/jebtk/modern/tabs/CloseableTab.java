@@ -35,65 +35,68 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.text.ModernSubHeadingLabel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class CloseableTab allows tabs to be closed by the user using a 'x'
  * button.
  */
 public class CloseableTab extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member model.
-	 */
-	private TabsModel mModel;
 
-	/** The m title. */
-	private String mTitle;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * The member model.
+   */
+  private TabsModel mModel;
 
-	/**
-	 * The Class ClickEvents.
-	 */
-	private class ClickEvents implements ModernClickListener {
+  /** The m title. */
+  private String mTitle;
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			mModel.removeTab(mTitle);
-		}
-		
-	}
+  /**
+   * The Class ClickEvents.
+   */
+  private class ClickEvents implements ModernClickListener {
 
-	/**
-	 * Instantiates a new closeable tab.
-	 *
-	 * @param title the title
-	 * @param c the c
-	 * @param model the model
-	 */
-	public CloseableTab(String title,
-			Component c,
-			TabsModel model) {
-		mTitle = title;
-		mModel = model;
-		
-		ModernButton button = new CloseButton();
-		
-		button.addClickListener(new ClickEvents());
-		
-		ModernComponent header = new ModernComponent();
-		
-		header.setLeft(new ModernSubHeadingLabel(title));
-		header.setRight(button);
-		setHeader(header);
-		setBody(c);
-		
-		setBorder(BORDER);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      mModel.removeTab(mTitle);
+    }
+
+  }
+
+  /**
+   * Instantiates a new closeable tab.
+   *
+   * @param title
+   *          the title
+   * @param c
+   *          the c
+   * @param model
+   *          the model
+   */
+  public CloseableTab(String title, Component c, TabsModel model) {
+    mTitle = title;
+    mModel = model;
+
+    ModernButton button = new CloseButton();
+
+    button.addClickListener(new ClickEvents());
+
+    ModernComponent header = new ModernComponent();
+
+    header.setLeft(new ModernSubHeadingLabel(title));
+    header.setRight(button);
+    setHeader(header);
+    setBody(c);
+
+    setBorder(BORDER);
+  }
 }

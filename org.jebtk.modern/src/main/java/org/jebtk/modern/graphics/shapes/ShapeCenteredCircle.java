@@ -32,20 +32,23 @@ package org.jebtk.modern.graphics.shapes;
  * The class ShapeCenteredCircle.
  */
 public class ShapeCenteredCircle extends ShapeCenteredEllipse {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new shape centered circle.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param diameter the diameter
-	 */
-	public ShapeCenteredCircle(int x, int y, int diameter) {
-		super(x, y, diameter, diameter);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new shape centered circle.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param diameter
+   *          the diameter
+   */
+  public ShapeCenteredCircle(int x, int y, int diameter) {
+    super(x, y, diameter, diameter);
+  }
 }

@@ -46,80 +46,79 @@ import org.jebtk.modern.window.ModernWindow;
  *
  */
 public class ModernInputDialog extends ModernDialogTaskWindow {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member text.
-	 */
-	private ModernTextField mText = new ModernTextField();
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern input dialog.
-	 *
-	 * @param parent the parent
-	 * @param title the title
-	 * @param message the message
-	 * @param text the text
-	 */
-	public ModernInputDialog(ModernWindow parent, 
-			String title,
-			String message,
-			String text) {
-		super(parent);
-		
-		setTitle(title);
-	
-		setup(text);
+  /**
+   * The member text.
+   */
+  private ModernTextField mText = new ModernTextField();
 
-		createUi(message);
+  /**
+   * Instantiates a new modern input dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param title
+   *          the title
+   * @param message
+   *          the message
+   * @param text
+   *          the text
+   */
+  public ModernInputDialog(ModernWindow parent, String title, String message, String text) {
+    super(parent);
 
-	}
+    setTitle(title);
 
-	/**
-	 * Setup.
-	 *
-	 * @param text the new up
-	 */
-	private void setup(String text) {
-		mText.setText(text);
+    setup(text);
 
-		setSize(360, 160);
-		
-		setResizable(true);
-		
-		UI.centerWindowToScreen(this);
-	}
-	
-	
+    createUi(message);
 
-	/**
-	 * Creates the ui.
-	 *
-	 * @param message the message
-	 */
-	private final void createUi(String message) {
-		Box box = VBox.create();
-		
-		box.add(new ModernAutoSizeLabel(message));
-		box.add(UI.createVGap(10));
-		box.add(new ModernTextBorderPanel(mText, ModernWidget.VERY_LARGE_SIZE));
+  }
 
-		setContent(box);
-	}
+  /**
+   * Setup.
+   *
+   * @param text
+   *          the new up
+   */
+  private void setup(String text) {
+    mText.setText(text);
 
-	/**
-	 * Gets the text.
-	 *
-	 * @return the text
-	 */
-	public String getText() {
-		return mText.getText();
-	}
+    setSize(360, 160);
 
-	
+    setResizable(true);
+
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Creates the ui.
+   *
+   * @param message
+   *          the message
+   */
+  private final void createUi(String message) {
+    Box box = VBox.create();
+
+    box.add(new ModernAutoSizeLabel(message));
+    box.add(UI.createVGap(10));
+    box.add(new ModernTextBorderPanel(mText, ModernWidget.VERY_LARGE_SIZE));
+
+    setContent(box);
+  }
+
+  /**
+   * Gets the text.
+   *
+   * @return the text
+   */
+  public String getText() {
+    return mText.getText();
+  }
+
 }

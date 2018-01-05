@@ -33,8 +33,6 @@ import java.util.List;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Slider with an orb button and plus minus controls.
@@ -43,108 +41,109 @@ import org.jebtk.modern.theme.ThemeService;
  *
  */
 public class ModernOrbSlider extends OrbSlider {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant HIGHLIGHT. */
-	protected static final Color HIGHLIGHT = 
-			ThemeService.getInstance().colors().getHighlight(7);
-	
-	/** The Constant COLOR. */
-	protected static final Color COLOR = 
-			ThemeService.getInstance().colors().getHighlight(9);
-	
-	/**
-	 * Instantiates a new modern orb slider.
-	 *
-	 * @param min the min
-	 * @param max the max
-	 * @param value the value
-	 */
-	public ModernOrbSlider(double min, double max, double value) {
-		super(min, max, value);
-	}
-	
-	/**
-	 * Instantiates a new modern orb slider.
-	 *
-	 * @param value the value
-	 * @param values the values
-	 */
-	public ModernOrbSlider(double value, double... values) {
-		super(value, values);
-	}
-	
-	/**
-	 * Instantiates a new modern orb slider.
-	 *
-	 * @param value the value
-	 * @param values the values
-	 */
-	public ModernOrbSlider(double value, List<Double> values) {
-		super(value, values);
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAA(Graphics2D g2) {
-		// draw buttons
-	
-		//
-		// the slider line
-		//
-		
-		g2.setColor(mHighlightSlider ? HIGHLIGHT : COLOR);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		int y = getHeight() / 2;
+  /** The Constant HIGHLIGHT. */
+  protected static final Color HIGHLIGHT = ThemeService.getInstance().colors().getHighlight(7);
 
-		g2.drawLine(getInsets().left + mSliderDiameter, 
-				y, 
-				mRect.getW() - getInsets().right - mSliderDiameter, 
-				y);
-		
-		//g2.drawLine(getInsets().left + SLIDER_DIAMETER, y - 1, 
-		//		mRect.getW() - getInsets().right - SLIDER_DIAMETER, 
-		//		y - 1);
-		
-		//g2.drawLine(getInsets().left + SLIDER_DIAMETER, y + 1, 
-		//		mRect.getW() - getInsets().right - SLIDER_DIAMETER, 
-		//		y + 1);
+  /** The Constant COLOR. */
+  protected static final Color COLOR = ThemeService.getInstance().colors().getHighlight(9);
 
-		// the mid point line
-		
-		double x = getWidth() / 2;
-	
-		g2.drawLine((int)x, y - mSliderRadius, (int)x, y + mSliderRadius);
-		
-		//
-		// Show the orb
-		//
-		
-		//g2.setColor(Color.WHITE);
-		
-		x = getInsets().left + mSliderDiameter % 2;
-		
-		
-		//double cv = getClosestValue();
-		
-		// Since bins can be unevenly spaced, we first find out the closest
-		// bin by value and then translate that to a pixel value by 
-		// multiplying it by the bin size. We then add on the difference
-		// between x and the closest x as a fraction of the bin width 
-		// multiplied by the bin width in pixels.
-		
-		x += mPc * mGap; // + (getValue() - cv) / (getValue(mPc + 1) - cv) * mGap;
+  /**
+   * Instantiates a new modern orb slider.
+   *
+   * @param min
+   *          the min
+   * @param max
+   *          the max
+   * @param value
+   *          the value
+   */
+  public ModernOrbSlider(double min, double max, double value) {
+    super(min, max, value);
+  }
 
-		g2.setColor(Color.WHITE);
-		
-		g2.fillOval((int)x, y - mSliderRadius, 
-				mSliderDiameter, 
-				mSliderDiameter);
-	}
+  /**
+   * Instantiates a new modern orb slider.
+   *
+   * @param value
+   *          the value
+   * @param values
+   *          the values
+   */
+  public ModernOrbSlider(double value, double... values) {
+    super(value, values);
+  }
+
+  /**
+   * Instantiates a new modern orb slider.
+   *
+   * @param value
+   *          the value
+   * @param values
+   *          the values
+   */
+  public ModernOrbSlider(double value, List<Double> values) {
+    super(value, values);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAA(Graphics2D g2) {
+    // draw buttons
+
+    //
+    // the slider line
+    //
+
+    g2.setColor(mHighlightSlider ? HIGHLIGHT : COLOR);
+
+    int y = getHeight() / 2;
+
+    g2.drawLine(getInsets().left + mSliderDiameter, y, mRect.getW() - getInsets().right - mSliderDiameter, y);
+
+    // g2.drawLine(getInsets().left + SLIDER_DIAMETER, y - 1,
+    // mRect.getW() - getInsets().right - SLIDER_DIAMETER,
+    // y - 1);
+
+    // g2.drawLine(getInsets().left + SLIDER_DIAMETER, y + 1,
+    // mRect.getW() - getInsets().right - SLIDER_DIAMETER,
+    // y + 1);
+
+    // the mid point line
+
+    double x = getWidth() / 2;
+
+    g2.drawLine((int) x, y - mSliderRadius, (int) x, y + mSliderRadius);
+
+    //
+    // Show the orb
+    //
+
+    // g2.setColor(Color.WHITE);
+
+    x = getInsets().left + mSliderDiameter % 2;
+
+    // double cv = getClosestValue();
+
+    // Since bins can be unevenly spaced, we first find out the closest
+    // bin by value and then translate that to a pixel value by
+    // multiplying it by the bin size. We then add on the difference
+    // between x and the closest x as a fraction of the bin width
+    // multiplied by the bin width in pixels.
+
+    x += mPc * mGap; // + (getValue() - cv) / (getValue(mPc + 1) - cv) * mGap;
+
+    g2.setColor(Color.WHITE);
+
+    g2.fillOval((int) x, y - mSliderRadius, mSliderDiameter, mSliderDiameter);
+  }
 }

@@ -39,99 +39,110 @@ import java.awt.LayoutManager;
  *
  */
 public class BorderPanel extends ModernPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * The color t.
-	 */
-	private Color colorT = null;
-	
-	/**
-	 * The color l.
-	 */
-	private Color colorL = null;
-	
-	/**
-	 * The color b.
-	 */
-	private Color colorB = null;
-	
-	/**
-	 * The color r.
-	 */
-	private Color colorR = null;
 
-	/**
-	 * Instantiates a new border panel.
-	 *
-	 * @param colorT the color t
-	 * @param colorL the color l
-	 * @param colorB the color b
-	 * @param colorR the color r
-	 * @param layout the layout
-	 */
-	public BorderPanel(Color colorT, Color colorL, Color colorB, Color colorR, LayoutManager layout) {
-		super(layout);
-		
-		this.colorT = colorT;
-		this.colorL = colorL;
-		this.colorB = colorB;
-		this.colorR = colorR;
-	}
-	
-	/**
-	 * Instantiates a new border panel.
-	 *
-	 * @param colorT the color t
-	 * @param colorL the color l
-	 * @param colorB the color b
-	 * @param colorR the color r
-	 */
-	public BorderPanel(Color colorT, Color colorL, Color colorB, Color colorR) {
-		this.colorT = colorT;
-		this.colorL = colorL;
-		this.colorB = colorB;
-		this.colorR = colorR;
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.panel.ModernPanel#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		super.drawBackground(g2);
-		
-		if (colorT != null) {
-			g2.setColor(colorT);
+  /**
+   * The color t.
+   */
+  private Color colorT = null;
 
-			g2.drawLine(0, 0, getWidth(), 0);
-		}
-		
-		if (colorL != null) {
-			g2.setColor(colorL);
+  /**
+   * The color l.
+   */
+  private Color colorL = null;
 
-			g2.drawLine(0, 0, 0, getHeight());
-		}
-		
-		if (colorB != null) {
-			g2.setColor(colorL);
-			
-			int y = getHeight() - 1;
-			
-			g2.drawLine(0, y, getWidth(), y);
-		}
-		
-		if (colorR != null) {
-			g2.setColor(colorL);
-			
-			int x = getWidth() - 1;
-			
-			g2.drawLine(x, 0, x, getHeight());
-		}
-	}
+  /**
+   * The color b.
+   */
+  private Color colorB = null;
+
+  /**
+   * The color r.
+   */
+  private Color colorR = null;
+
+  /**
+   * Instantiates a new border panel.
+   *
+   * @param colorT
+   *          the color t
+   * @param colorL
+   *          the color l
+   * @param colorB
+   *          the color b
+   * @param colorR
+   *          the color r
+   * @param layout
+   *          the layout
+   */
+  public BorderPanel(Color colorT, Color colorL, Color colorB, Color colorR, LayoutManager layout) {
+    super(layout);
+
+    this.colorT = colorT;
+    this.colorL = colorL;
+    this.colorB = colorB;
+    this.colorR = colorR;
+  }
+
+  /**
+   * Instantiates a new border panel.
+   *
+   * @param colorT
+   *          the color t
+   * @param colorL
+   *          the color l
+   * @param colorB
+   *          the color b
+   * @param colorR
+   *          the color r
+   */
+  public BorderPanel(Color colorT, Color colorL, Color colorB, Color colorR) {
+    this.colorT = colorT;
+    this.colorL = colorL;
+    this.colorB = colorB;
+    this.colorR = colorR;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.panel.ModernPanel#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    super.drawBackground(g2);
+
+    if (colorT != null) {
+      g2.setColor(colorT);
+
+      g2.drawLine(0, 0, getWidth(), 0);
+    }
+
+    if (colorL != null) {
+      g2.setColor(colorL);
+
+      g2.drawLine(0, 0, 0, getHeight());
+    }
+
+    if (colorB != null) {
+      g2.setColor(colorL);
+
+      int y = getHeight() - 1;
+
+      g2.drawLine(0, y, getWidth(), y);
+    }
+
+    if (colorR != null) {
+      g2.setColor(colorL);
+
+      int x = getWidth() - 1;
+
+      g2.drawLine(x, 0, x, getHeight());
+    }
+  }
 }

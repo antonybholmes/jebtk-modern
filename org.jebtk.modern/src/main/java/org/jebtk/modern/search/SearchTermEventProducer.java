@@ -29,7 +29,6 @@ package org.jebtk.modern.search;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Interface for notifying objects that search terms have changed.
@@ -38,25 +37,28 @@ import org.jebtk.core.event.ChangeEvent;
  *
  */
 public interface SearchTermEventProducer {
-	
-	/**
-	 * Add a search term listener.
-	 *
-	 * @param l the l
-	 */
-	public void addSearchTermListener(SearchTermEventListener l);
-	
-	/**
-	 * Remove a search term listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeSearchTermListener(SearchTermEventListener l);
-	
-	/**
-	 * fire an event.
-	 *
-	 * @param event the event
-	 */
-	public void fireSearchTermsChanged(ChangeEvent event);
+
+  /**
+   * Add a search term listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addSearchTermListener(SearchTermEventListener l);
+
+  /**
+   * Remove a search term listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeSearchTermListener(SearchTermEventListener l);
+
+  /**
+   * fire an event.
+   *
+   * @param event
+   *          the event
+   */
+  public void fireSearchTermsChanged(ChangeEvent event);
 }

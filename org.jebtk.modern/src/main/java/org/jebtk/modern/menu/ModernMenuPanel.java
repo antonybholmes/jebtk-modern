@@ -35,8 +35,6 @@ import javax.swing.BoxLayout;
 import org.jebtk.modern.panel.VBoxAutoWidth;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * A popup is a component that will appear in a popup window.
@@ -45,27 +43,28 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernMenuPanel extends VBoxAutoWidth {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * Instantiates a new modern popup.
-	 */
-	public ModernMenuPanel() {
-		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		setBackground(Color.WHITE);
-		setBorder(ModernWidget.DARK_LINE_BORDER);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fillBackground(g2, getRect());
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern popup.
+   */
+  public ModernMenuPanel() {
+    setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+    setBackground(Color.WHITE);
+    setBorder(ModernWidget.DARK_LINE_BORDER);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fillBackground(g2, getRect());
+  }
 }

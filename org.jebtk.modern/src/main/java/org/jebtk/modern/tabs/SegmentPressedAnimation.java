@@ -23,44 +23,47 @@ import org.jebtk.modern.ribbon.RibbonHighlightTextAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class SegmentPressedAnimation extends ButtonPressedAnimation {
-	
-	private SegmentTabs mTabs;
 
-	public SegmentPressedAnimation(ModernWidget tabs) {
-		super(tabs, RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
-		
-		mTabs = (SegmentTabs)tabs;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		//System.err.println("hmm " + isRunning() + " " + isPressed());
-		
-		if (getStep() == -1) {
-			return;
-		}
-		
-		int n = mTabs.getTabsModel().getTabCount();
+  private SegmentTabs mTabs;
 
-		int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
-		
-		if (selectedIndex < 0 || selectedIndex >= n) {
-			return;
-		}
-		
-		double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
-		
-		int w = mTabs.mTabSize;
-		
-		int d = (int)(w * r);
-		
-		int x = mTabs.mLeftOffset + selectedIndex * mTabs.mTabSize + (w - d) / 2;
-		
-		g2.setColor(mColor);
-		
-		g2.fillRect(x, mTabs.getInsets().top, d, mTabs.getInternalRect().getH());
-	}
+  public SegmentPressedAnimation(ModernWidget tabs) {
+    super(tabs, RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
+
+    mTabs = (SegmentTabs) tabs;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    // System.err.println("hmm " + isRunning() + " " + isPressed());
+
+    if (getStep() == -1) {
+      return;
+    }
+
+    int n = mTabs.getTabsModel().getTabCount();
+
+    int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
+
+    if (selectedIndex < 0 || selectedIndex >= n) {
+      return;
+    }
+
+    double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
+
+    int w = mTabs.mTabSize;
+
+    int d = (int) (w * r);
+
+    int x = mTabs.mLeftOffset + selectedIndex * mTabs.mTabSize + (w - d) / 2;
+
+    g2.setColor(mColor);
+
+    g2.fillRect(x, mTabs.getInsets().top, d, mTabs.getInternalRect().getH());
+  }
 }

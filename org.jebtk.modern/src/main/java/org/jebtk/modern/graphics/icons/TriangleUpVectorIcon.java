@@ -39,41 +39,46 @@ import java.awt.geom.GeneralPath;
  *
  */
 public class TriangleUpVectorIcon extends TriangleVectorIcon {
-	
-	/**
-	 * Instantiates a new triangle up vector icon.
-	 */
-	public TriangleUpVectorIcon() {
-		this(COLOR);
-	}
-	
-	/**
-	 * Instantiates a new triangle up vector icon.
-	 *
-	 * @param color1 the color 1
-	 */
-	public TriangleUpVectorIcon(Color color1) {
-		super(color1);
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		super.drawIcon(g2, x, y, w, h, params);
-		
-		mXf = x + (w - mWf) / 2.0;
-		mYf = y + (h - mHf) / 2.0;
-		
-		GeneralPath gp = new GeneralPath();	
-		gp.moveTo(mXf, mYf + mHf);
-		gp.lineTo(mXf + mWf, mYf + mHf);
-		gp.lineTo(mXf + mW2, mYf);
-		gp.closePath();
-		
-		g2.setColor(mColor1);
-		g2.fill(gp);
-	}
-	
+  /**
+   * Instantiates a new triangle up vector icon.
+   */
+  public TriangleUpVectorIcon() {
+    this(COLOR);
+  }
+
+  /**
+   * Instantiates a new triangle up vector icon.
+   *
+   * @param color1
+   *          the color 1
+   */
+  public TriangleUpVectorIcon(Color color1) {
+    super(color1);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    super.drawIcon(g2, x, y, w, h, params);
+
+    mXf = x + (w - mWf) / 2.0;
+    mYf = y + (h - mHf) / 2.0;
+
+    GeneralPath gp = new GeneralPath();
+    gp.moveTo(mXf, mYf + mHf);
+    gp.lineTo(mXf + mWf, mYf + mHf);
+    gp.lineTo(mXf + mW2, mYf);
+    gp.closePath();
+
+    g2.setColor(mColor1);
+    g2.fill(gp);
+  }
+
 }

@@ -29,45 +29,42 @@ package org.jebtk.modern.text;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernBoldTextField.
  */
 public class ModernBoldTextField extends ModernClipboardTextField {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern bold text field.
-	 */
-	public ModernBoldTextField() {
+  /**
+   * Instantiates a new modern bold text field.
+   */
+  public ModernBoldTextField() {
 
-		setup();
-	}
+    setup();
+  }
 
-	/**
-	 * Instantiates a new modern bold text field.
-	 *
-	 * @param text the text
-	 */
-	public ModernBoldTextField(String text) {
+  /**
+   * Instantiates a new modern bold text field.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernBoldTextField(String text) {
 
-		setText(text);
+    setText(text);
 
-		setup();
-	}
+    setup();
+  }
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setFont(ModernWidget.BOLD_FONT);
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setFont(ModernWidget.BOLD_FONT);
+  }
 }

@@ -32,50 +32,53 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class IconTabsIconAnimation extends WidgetAnimation {
 
-	public static final Color ICON_COLOR = 
-			ThemeService.getInstance().colors().getHighlight(5);
+  public static final Color ICON_COLOR = ThemeService.getInstance().colors().getHighlight(5);
 
-	private IconTabs mTabs;
+  private IconTabs mTabs;
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public IconTabsIconAnimation(ModernWidget w) {
-		super(w);
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public IconTabsIconAnimation(ModernWidget w) {
+    super(w);
 
-		mTabs = (IconTabs)w;
-	}
+    mTabs = (IconTabs) w;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		int x = mTabs.getInsets().left;
-		int n = mTabs.getTabsModel().getTabCount();
+    int x = mTabs.getInsets().left;
+    int n = mTabs.getTabsModel().getTabCount();
 
-		int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
+    int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
 
-		ModernIcon icon;
+    ModernIcon icon;
 
-		int offset = (mTabs.mTabSize - mTabs.mIconSize) / 2;
-		int yoffset = (mTabs.getHeight() - mTabs.mIconSize) / 2; 
+    int offset = (mTabs.mTabSize - mTabs.mIconSize) / 2;
+    int yoffset = (mTabs.getHeight() - mTabs.mIconSize) / 2;
 
-		for (int i = 0; i < n; ++i) {
-			if (i != selectedIndex) {
-				icon = mTabs.getTabsModel().getTab(i).getIcon();
+    for (int i = 0; i < n; ++i) {
+      if (i != selectedIndex) {
+        icon = mTabs.getTabsModel().getTab(i).getIcon();
 
-				int x1 = x + offset;
+        int x1 = x + offset;
 
-				Color color = ICON_COLOR;
+        Color color = ICON_COLOR;
 
-				icon.drawIcon(g2, x1, yoffset, mTabs.mIconSize, mTabs.mIconSize, color);
-			}
+        icon.drawIcon(g2, x1, yoffset, mTabs.mIconSize, mTabs.mIconSize, color);
+      }
 
-			x += mTabs.mTabSize;
-		}
-	}	
+      x += mTabs.mTabSize;
+    }
+  }
 }

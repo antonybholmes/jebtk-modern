@@ -38,121 +38,115 @@ import org.jebtk.modern.widget.ModernTwoStateWidget;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.WindowService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ArrangeWindowsDialog.
  */
-public class ArrangeWindowsDialog extends ModernDialogTaskWindow  {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * The tiled radio button.
-	 */
-	private ModernTwoStateWidget mTiledRadioButton = 
-			new ModernRadioButton("Tiled");
-	
-	/**
-	 * The horiz radio button.
-	 */
-	private ModernTwoStateWidget mHorizRadioButton = 
-			new ModernRadioButton("Horizontal");
-	
-	/**
-	 * The vert radio button.
-	 */
-	private ModernTwoStateWidget mVertRadioButton = 
-			new ModernRadioButton("Vertical");
-	
-	/**
-	 * The cascade radio button.
-	 */
-	private ModernTwoStateWidget mCascadeRadioButton = 
-			new ModernRadioButton("Cascade");
-	
-	/**
-	 * Instantiates a new arrange windows dialog.
-	 *
-	 * @param parent the parent
-	 */
-	public ArrangeWindowsDialog(ModernWindow parent) {
-		super(parent);
-		
-		setTitle("Arrange Windows");
-		
-		setup();
+public class ArrangeWindowsDialog extends ModernDialogTaskWindow {
 
-		createUi();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	}
+  /**
+   * The tiled radio button.
+   */
+  private ModernTwoStateWidget mTiledRadioButton = new ModernRadioButton("Tiled");
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		ModernClickListener l = new ModernClickListener() {
-			@Override
-			public void clicked(ModernClickEvent e) {
-				arrange();
-			}};
-		
-		mTiledRadioButton.addClickListener(l);
-		mHorizRadioButton.addClickListener(l);
-		mVertRadioButton.addClickListener(l);
-		
-		setSize(360, 200);
-		
-		UI.centerWindowToScreen(this);
-	}
+  /**
+   * The horiz radio button.
+   */
+  private ModernTwoStateWidget mHorizRadioButton = new ModernRadioButton("Horizontal");
 
-	/**
-	 * Creates the ui.
-	 */
-	private final void createUi() {
-		
-		
-		Box box = Box.createVerticalBox();
-		
-		//mTiledRadioButton.setBorder(ModernPanel.LEFT_BORDER);
-		box.add(mTiledRadioButton);
-		//box.add(ModernPanel.createVGap());
-		//mHorizRadioButton.setBorder(ModernPanel.LEFT_BORDER);
-		box.add(mHorizRadioButton);
-		//box.add(ModernPanel.createVGap());
-		//mVertRadioButton.setBorder(ModernPanel.LEFT_BORDER);
-		box.add(mVertRadioButton);
-		//box.add(ModernTheme.createVerticalGap());
-		//cascadeRadioButton.setBorder(LEFT_BORDER);
-		//box.add(cascadeRadioButton);
+  /**
+   * The vert radio button.
+   */
+  private ModernTwoStateWidget mVertRadioButton = new ModernRadioButton("Vertical");
 
-		setContent(box);
+  /**
+   * The cascade radio button.
+   */
+  private ModernTwoStateWidget mCascadeRadioButton = new ModernRadioButton("Cascade");
 
-		
-		ModernButtonGroup group = new ModernButtonGroup();
-		
-		group.add(mTiledRadioButton);
-		group.add(mHorizRadioButton);
-		group.add(mVertRadioButton);
-		group.add(mCascadeRadioButton);
-		
-		mTiledRadioButton.setSelected(true);
-	}
+  /**
+   * Instantiates a new arrange windows dialog.
+   *
+   * @param parent
+   *          the parent
+   */
+  public ArrangeWindowsDialog(ModernWindow parent) {
+    super(parent);
 
-	/**
-	 * Arrange.
-	 */
-	private void arrange() {
-		if (mHorizRadioButton.isSelected()) {
-			WindowService.getInstance().arrangeHorizontally();
-		} else if (mVertRadioButton.isSelected()) {
-			WindowService.getInstance().arrangeVertically();
-		} else {
-			WindowService.getInstance().tile();
-		}
-	}
+    setTitle("Arrange Windows");
+
+    setup();
+
+    createUi();
+
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    ModernClickListener l = new ModernClickListener() {
+      @Override
+      public void clicked(ModernClickEvent e) {
+        arrange();
+      }
+    };
+
+    mTiledRadioButton.addClickListener(l);
+    mHorizRadioButton.addClickListener(l);
+    mVertRadioButton.addClickListener(l);
+
+    setSize(360, 200);
+
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Creates the ui.
+   */
+  private final void createUi() {
+
+    Box box = Box.createVerticalBox();
+
+    // mTiledRadioButton.setBorder(ModernPanel.LEFT_BORDER);
+    box.add(mTiledRadioButton);
+    // box.add(ModernPanel.createVGap());
+    // mHorizRadioButton.setBorder(ModernPanel.LEFT_BORDER);
+    box.add(mHorizRadioButton);
+    // box.add(ModernPanel.createVGap());
+    // mVertRadioButton.setBorder(ModernPanel.LEFT_BORDER);
+    box.add(mVertRadioButton);
+    // box.add(ModernTheme.createVerticalGap());
+    // cascadeRadioButton.setBorder(LEFT_BORDER);
+    // box.add(cascadeRadioButton);
+
+    setContent(box);
+
+    ModernButtonGroup group = new ModernButtonGroup();
+
+    group.add(mTiledRadioButton);
+    group.add(mHorizRadioButton);
+    group.add(mVertRadioButton);
+    group.add(mCascadeRadioButton);
+
+    mTiledRadioButton.setSelected(true);
+  }
+
+  /**
+   * Arrange.
+   */
+  private void arrange() {
+    if (mHorizRadioButton.isSelected()) {
+      WindowService.getInstance().arrangeHorizontally();
+    } else if (mVertRadioButton.isSelected()) {
+      WindowService.getInstance().arrangeVertically();
+    } else {
+      WindowService.getInstance().tile();
+    }
+  }
 }

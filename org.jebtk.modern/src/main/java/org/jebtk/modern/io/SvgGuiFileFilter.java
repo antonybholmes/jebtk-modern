@@ -32,18 +32,20 @@ package org.jebtk.modern.io;
  * The class SvgGuiFileFilter.
  */
 public class SvgGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new svg gui file filter.
-	 */
-	public SvgGuiFileFilter() {
-		super("svg");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	public final String getDescription() {
-		return "Scalable Vector Graphics (*.svg)";
-	}
+  /**
+   * Instantiates a new svg gui file filter.
+   */
+  public SvgGuiFileFilter() {
+    super("svg");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  public final String getDescription() {
+    return "Scalable Vector Graphics (*.svg)";
+  }
 }

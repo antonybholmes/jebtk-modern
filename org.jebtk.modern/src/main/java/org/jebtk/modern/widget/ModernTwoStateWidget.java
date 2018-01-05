@@ -35,164 +35,174 @@ import java.awt.event.MouseEvent;
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * For widgets that can toggle between a
- * selected and unselected state.
+ * For widgets that can toggle between a selected and unselected state.
  * 
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernTwoStateWidget extends ModernClickWidget  {
+public abstract class ModernTwoStateWidget extends ModernClickWidget {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member selected.
-	 */
-	private boolean mSelected = false;
+  /**
+   * The member selected.
+   */
+  private boolean mSelected = false;
 
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			if (e.isPopupTrigger()) {
-				return;
-			}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      if (e.isPopupTrigger()) {
+        return;
+      }
 
-			if (!isEnabled()) {
-				return;
-			}
+      if (!isEnabled()) {
+        return;
+      }
 
-			click();
-		}
-	}
+      click();
+    }
+  }
 
-	/**
-	 * The class ActionEvents.
-	 */
-	private class ActionEvents extends AbstractAction {
+  /**
+   * The class ActionEvents.
+   */
+  private class ActionEvents extends AbstractAction {
 
-		/**
-		 * The constant serialVersionUID.
-		 */
-		private static final long serialVersionUID = 1L;
+    /**
+     * The constant serialVersionUID.
+     */
+    private static final long serialVersionUID = 1L;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			click();
-		}
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      click();
+    }
+  }
 
+  /**
+   * Instantiates a new modern two state widget.
+   */
+  public ModernTwoStateWidget() {
+    setup();
+  }
 
-	/**
-	 * Instantiates a new modern two state widget.
-	 */
-	public ModernTwoStateWidget() {
-		setup();
-	}
+  /**
+   * Instantiates a new modern two state widget.
+   *
+   * @param manager
+   *          the manager
+   */
+  public ModernTwoStateWidget(LayoutManager manager) {
+    super(manager);
 
-	/**
-	 * Instantiates a new modern two state widget.
-	 *
-	 * @param manager the manager
-	 */
-	public ModernTwoStateWidget(LayoutManager manager) {
-		super(manager);
+    setup();
+  }
 
-		setup();
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    addMouseListener(new MouseEvents());
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		addMouseListener(new MouseEvents());
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"), "enter_pressed");
+    getActionMap().put("enter_pressed", new ActionEvents());
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("SPACE"), "space_pressed");
+    getActionMap().put("space_pressed", new ActionEvents());
+  }
 
-		getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"), "enter_pressed");
-		getActionMap().put("enter_pressed", new ActionEvents());
-		getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("SPACE"), "space_pressed");
-		getActionMap().put("space_pressed", new ActionEvents());
-	}
+  /**
+   * Alternates control between two states.
+   */
+  protected void toggleSelected() {
 
-	/**
-	 * Alternates control between two states.
-	 */
-	protected void toggleSelected() {
+    toggleSelected(!mSelected);
+  }
 
-		toggleSelected(!mSelected);
-	}
+  /**
+   * Toggle selected.
+   *
+   * @param selected
+   *          the selected
+   */
+  protected void toggleSelected(boolean selected) {
+    // System.err.println("toggle selected " + selected);
 
-	/**
-	 * Toggle selected.
-	 *
-	 * @param selected the selected
-	 */
-	protected void toggleSelected(boolean selected) {
-		//System.err.println("toggle  selected " + selected);
+    if (selected != mSelected) {
+      mSelected = selected;
 
-		if (selected != mSelected) {
-			mSelected = selected;
+      repaint();
 
-			repaint();
+      fireStateChanged();
 
-			fireStateChanged();
-			
-			if (selected) {
-				fireSelected();
-			}
-		}
-	}
+      if (selected) {
+        fireSelected();
+      }
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernClickWidget#setSelected(boolean)
-	 */
-	@Override
-	public void setSelected(boolean selected) {
-		toggleSelected(selected);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernClickWidget#setSelected(boolean)
+   */
+  @Override
+  public void setSelected(boolean selected) {
+    toggleSelected(selected);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernClickWidget#isSelected()
-	 */
-	@Override
-	public boolean isSelected() {
-		return mSelected;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernClickWidget#isSelected()
+   */
+  @Override
+  public boolean isSelected() {
+    return mSelected;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernClickWidget#doClick()
-	 */
-	@Override
-	public void doClick() {
-		click();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernClickWidget#doClick()
+   */
+  @Override
+  public void doClick() {
+    click();
+  }
 
-	/**
-	 * Click.
-	 */
-	public void click() {
-		toggleSelected();
+  /**
+   * Click.
+   */
+  public void click() {
+    toggleSelected();
 
-		fireClicked();
-	}
-	
-	public void click(boolean selected) {
-		toggleSelected(selected);
+    fireClicked();
+  }
 
-		fireClicked();
-	}
+  public void click(boolean selected) {
+    toggleSelected(selected);
+
+    fireClicked();
+  }
 }

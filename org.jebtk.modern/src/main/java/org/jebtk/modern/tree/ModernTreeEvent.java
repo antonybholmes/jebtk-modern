@@ -35,19 +35,21 @@ import org.jebtk.modern.event.ModernClickEvent;
  */
 public class ModernTreeEvent extends ModernClickEvent {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern tree event.
-	 *
-	 * @param source the source
-	 * @param message the message
-	 */
-	public ModernTreeEvent(Object source, String message) {
-		super(source, message);
-	}
+  /**
+   * Instantiates a new modern tree event.
+   *
+   * @param source
+   *          the source
+   * @param message
+   *          the message
+   */
+  public ModernTreeEvent(Object source, String message) {
+    super(source, message);
+  }
 
 }

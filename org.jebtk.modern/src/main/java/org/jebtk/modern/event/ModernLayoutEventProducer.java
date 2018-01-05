@@ -29,7 +29,6 @@ package org.jebtk.modern.event;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * For classes that generate ModernClickEvents.
@@ -37,25 +36,28 @@ import org.jebtk.core.event.ChangeEvent;
  * @author Antony Holmes Holmes
  */
 public interface ModernLayoutEventProducer {
-	
-	/**
-	 * Add an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void addLayoutListener(ModernLayoutListener l);
-	
-	/**
-	 * Remove an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeLayoutListener(ModernLayoutListener l);
-	
-	/**
-	 * fire an event.
-	 *
-	 * @param e the e
-	 */
-	public void fireLayoutChanged(ChangeEvent e);
+
+  /**
+   * Add an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addLayoutListener(ModernLayoutListener l);
+
+  /**
+   * Remove an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeLayoutListener(ModernLayoutListener l);
+
+  /**
+   * fire an event.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireLayoutChanged(ChangeEvent e);
 }

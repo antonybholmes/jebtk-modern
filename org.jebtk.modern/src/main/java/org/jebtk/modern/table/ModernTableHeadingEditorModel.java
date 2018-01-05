@@ -24,14 +24,14 @@ import org.jebtk.modern.dataview.ModernDataCellEditor;
  */
 public class ModernTableHeadingEditorModel extends ModernData1DModel<ModernDataCellEditor> {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern table heading editor model.
-	 */
-	public ModernTableHeadingEditorModel() {
-		super(null);
-	}
+  /**
+   * Instantiates a new modern table heading editor model.
+   */
+  public ModernTableHeadingEditorModel() {
+    super(null);
+  }
 
 }

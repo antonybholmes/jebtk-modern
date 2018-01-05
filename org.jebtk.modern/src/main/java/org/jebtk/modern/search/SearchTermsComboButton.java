@@ -38,7 +38,6 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.menu.ModernScrollPopupMenu;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Specialised combobox for showing selecting search criteria.
@@ -46,69 +45,75 @@ import org.jebtk.modern.menu.ModernScrollPopupMenu;
  * @author Antony Holmes Holmes
  */
 public class SearchTermsComboButton extends ModernDropDownMenuComboButton implements SearchTermEventListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant MAX_SEARCHES.
-	 */
-	private static final int MAX_SEARCHES = 5;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new search terms combo button.
-	 *
-	 * @param text the text
-	 * @param searchTermsModel the search terms model
-	 */
-	public SearchTermsComboButton(String text, SearchTermsService searchTermsModel) {
-		super(text);
-		
-		searchTermsModel.addSearchTermListener(this);
-		
-		addSearches();
-	}
+  /**
+   * The constant MAX_SEARCHES.
+   */
+  private static final int MAX_SEARCHES = 5;
 
-	/**
-	 * Adds the searches.
-	 */
-	public final void addSearches() {
-		int c = 0;
+  /**
+   * Instantiates a new search terms combo button.
+   *
+   * @param text
+   *          the text
+   * @param searchTermsModel
+   *          the search terms model
+   */
+  public SearchTermsComboButton(String text, SearchTermsService searchTermsModel) {
+    super(text);
 
-		ModernPopupMenu menu = new ModernScrollPopupMenu();
-		
-		List<String> terms = new ArrayList<String>();
+    searchTermsModel.addSearchTermListener(this);
 
-		for (String search : SearchTermsService.getInstance()) {
-			//searchesCombo.addItem(search);
+    addSearches();
+  }
 
-			// create a list of 10 search items
+  /**
+   * Adds the searches.
+   */
+  public final void addSearches() {
+    int c = 0;
 
-			if (c == MAX_SEARCHES) {
-				break;
-			}
+    ModernPopupMenu menu = new ModernScrollPopupMenu();
 
-			++c;
+    List<String> terms = new ArrayList<String>();
 
-			terms.add(search);
-		}
-		
-		Collections.sort(terms);
-		
-		for (String term : terms) {
-			menu.add(new ModernIconMenuItem(term));
-		}
-		
-		setMenu(menu);
-	}
+    for (String search : SearchTermsService.getInstance()) {
+      // searchesCombo.addItem(search);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void searchTermsChanged(ChangeEvent e) {
-		addSearches();
-	}
+      // create a list of 10 search items
+
+      if (c == MAX_SEARCHES) {
+        break;
+      }
+
+      ++c;
+
+      terms.add(search);
+    }
+
+    Collections.sort(terms);
+
+    for (String term : terms) {
+      menu.add(new ModernIconMenuItem(term));
+    }
+
+    setMenu(menu);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(org.
+   * abh.lib.event.ChangeEvent)
+   */
+  @Override
+  public void searchTermsChanged(ChangeEvent e) {
+    addSearches();
+  }
 }

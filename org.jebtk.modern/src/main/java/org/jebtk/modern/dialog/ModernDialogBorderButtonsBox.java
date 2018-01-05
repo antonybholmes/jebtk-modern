@@ -32,8 +32,6 @@ import java.awt.Graphics;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Default layout for buttons in a dialog box.
@@ -41,26 +39,27 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes Holmes
  */
 public class ModernDialogBorderButtonsBox extends ModernDialogButtonsBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant LINE_COLOR.
-	 */
-	private static final Color LINE_COLOR =
-			ThemeService.getInstance().colors().getHighlight(4);
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.Box#paintComponent(java.awt.Graphics)
-	 */
-	@Override
-	public void paintComponent(Graphics g) {
-		g.setColor(LINE_COLOR);
-		
-		g.drawLine(0, 0, getWidth(), 0);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant LINE_COLOR.
+   */
+  private static final Color LINE_COLOR = ThemeService.getInstance().colors().getHighlight(4);
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.Box#paintComponent(java.awt.Graphics)
+   */
+  @Override
+  public void paintComponent(Graphics g) {
+    g.setColor(LINE_COLOR);
+
+    g.drawLine(0, 0, getWidth(), 0);
+  }
 
 }

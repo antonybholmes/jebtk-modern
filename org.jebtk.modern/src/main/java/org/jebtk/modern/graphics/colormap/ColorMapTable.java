@@ -23,20 +23,19 @@ import org.jebtk.modern.table.ModernRowTable;
  */
 public class ColorMapTable extends ModernRowTable {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * Instantiates a new color map table.
-	 */
-	public ColorMapTable() {
-		setModel(new ColorMapTableModel());
-		
-		getColumnModel().setWidth(0, 80);
-		getColumnModel().setWidth(1, 400);
-		
-		getRendererModel().setCol(0, new ColorMapCellRenderer());
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new color map table.
+   */
+  public ColorMapTable() {
+    setModel(new ColorMapTableModel());
+
+    getColumnModel().setWidth(0, 80);
+    getColumnModel().setWidth(1, 400);
+
+    getRendererModel().setCol(0, new ColorMapCellRenderer());
+  }
 
 }

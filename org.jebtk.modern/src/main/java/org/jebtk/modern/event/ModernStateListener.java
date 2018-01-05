@@ -37,11 +37,12 @@ import java.util.EventListener;
  *
  */
 public interface ModernStateListener extends EventListener {
-	
-	/**
-	 * State changed.
-	 *
-	 * @param e the e
-	 */
-	public void stateChanged(ModernStateEvent e);
+
+  /**
+   * State changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void stateChanged(ModernStateEvent e);
 }

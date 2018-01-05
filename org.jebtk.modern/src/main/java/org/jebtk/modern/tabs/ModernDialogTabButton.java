@@ -35,7 +35,6 @@ import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.dialog.ModernDialogWindow;
 import org.jebtk.modern.theme.ThemeService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Low height button for small form factor toolbar buttons.
@@ -43,53 +42,56 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes Holmes
  */
 public class ModernDialogTabButton extends ModernCheckButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog tab button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernDialogTabButton(String text1) {
-		super(text1);
-		
-		setBackground(ModernDialogWindow.DIALOG_BACKGROUND);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernComponent#draw(java.awt.Graphics2D)
-	 */
-	public void draw(Graphics2D g2) {
-		fill(g2, getBackground(), getRect());
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		int top = 0;
-		
-		if (isSelected()) {
-			fill(g2, Color.WHITE, getRect());
-		} else {
-			top = 3;
-		}
-		
-		g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
-		int x = getWidth() - 1;
-		int y = getHeight() - 1;
-		
-		g2.drawLine(0, top, 0, y);
-		
-		x = getWidth() - 1;
-		g2.drawLine(x, top, x, y);
-		
-		g2.drawLine(0, top, x, top);
+  /**
+   * Instantiates a new modern dialog tab button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernDialogTabButton(String text1) {
+    super(text1);
 
-		if (mText1 != null) {
-			x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
-			y = UIService.ICON_SIZE_20;
-			g2.setColor(getForeground());
-			g2.drawString(mText1, x, y);
-		}
-	}
+    setBackground(ModernDialogWindow.DIALOG_BACKGROUND);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernComponent#draw(java.awt.Graphics2D)
+   */
+  public void draw(Graphics2D g2) {
+    fill(g2, getBackground(), getRect());
+
+    int top = 0;
+
+    if (isSelected()) {
+      fill(g2, Color.WHITE, getRect());
+    } else {
+      top = 3;
+    }
+
+    g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
+    int x = getWidth() - 1;
+    int y = getHeight() - 1;
+
+    g2.drawLine(0, top, 0, y);
+
+    x = getWidth() - 1;
+    g2.drawLine(x, top, x, y);
+
+    g2.drawLine(0, top, x, top);
+
+    if (mText1 != null) {
+      x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
+      y = UIService.ICON_SIZE_20;
+      g2.setColor(getForeground());
+      g2.drawString(mText1, x, y);
+    }
+  }
 }

@@ -30,71 +30,74 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class ListHighlightAnimation extends HighlightAnimation {
 
-	private ModernList<?> mList;
+  private ModernList<?> mList;
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public ListHighlightAnimation(ModernWidget list) {
-		super((ModernList<?>)list);
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public ListHighlightAnimation(ModernWidget list) {
+    super((ModernList<?>) list);
 
-		mList = (ModernList<?>)list;
-		
-		getFade().setFadeColor("highlight", 
-				MaterialService.getInstance().color("gray-highlighted"));
-	}
+    mList = (ModernList<?>) list;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    getFade().setFadeColor("highlight", MaterialService.getInstance().color("gray-highlighted"));
+  }
 
-		if (mList.mListModel == null) {
-			return;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		if (mList.mListModel.getItemCount() == 0) {
-			return;
-		}
+    if (mList.mListModel == null) {
+      return;
+    }
 
-		createImage(g2);
-	}
+    if (mList.mListModel.getItemCount() == 0) {
+      return;
+    }
 
-	protected void createImage(Graphics2D g2) {
-		Graphics2D g2Table = (Graphics2D)g2.create();
+    createImage(g2);
+  }
 
-		double maxY = mList.getViewRect().getY() + mList.getInternalRect().getH();
+  protected void createImage(Graphics2D g2) {
+    Graphics2D g2Table = (Graphics2D) g2.create();
 
-		int y = 0; //mRowHeight * mVisibleCells.getStartRow();
+    double maxY = mList.getViewRect().getY() + mList.getInternalRect().getH();
 
-		try {
-			for (int i = 0; i < mList.getItemCount(); ++i) {
-				if (y > maxY) {
-					break;
-				}
+    int y = 0; // mRowHeight * mVisibleCells.getStartRow();
 
-				if (y + mList.mRowHeight >= mList.getViewRect().getY()) {
-					boolean highlighted = i == mList.mHighlightCellIndex;
-					
-					if (highlighted) {
-						g2Table.setColor(getFade().getFadeColor("highlight"));
-						g2Table.fillRect(0, 0, mList.getWidth(), mList.mRowHeight);
-						//getWidgetRenderer().drawButton(g2, getRect(), RenderMode.SELECTED);
-					} else {
-						// Do nothing
-					}
-				}
+    try {
+      for (int i = 0; i < mList.getItemCount(); ++i) {
+        if (y > maxY) {
+          break;
+        }
 
-				// Move to the next cell location.
-				g2Table.translate(0, mList.mRowHeight);
+        if (y + mList.mRowHeight >= mList.getViewRect().getY()) {
+          boolean highlighted = i == mList.mHighlightCellIndex;
 
-				y += mList.mRowHeight;
-			}
-		} finally {
-			g2Table.dispose();
-		}
-	}
+          if (highlighted) {
+            g2Table.setColor(getFade().getFadeColor("highlight"));
+            g2Table.fillRect(0, 0, mList.getWidth(), mList.mRowHeight);
+            // getWidgetRenderer().drawButton(g2, getRect(), RenderMode.SELECTED);
+          } else {
+            // Do nothing
+          }
+        }
+
+        // Move to the next cell location.
+        g2Table.translate(0, mList.mRowHeight);
+
+        y += mList.mRowHeight;
+      }
+    } finally {
+      g2Table.dispose();
+    }
+  }
 }

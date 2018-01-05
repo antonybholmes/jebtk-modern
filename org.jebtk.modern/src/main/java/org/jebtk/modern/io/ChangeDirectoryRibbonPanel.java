@@ -60,251 +60,252 @@ import org.jebtk.modern.text.ModernColoredHeadingLabel;
 import org.jebtk.modern.text.ModernDialogHeadingLabel;
 import org.jebtk.modern.text.ModernTitleLabel;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ChangeDirectoryRibbonPanel.
  */
-public class ChangeDirectoryRibbonPanel extends RibbonMenuPanel implements ModernClickListener, ModernSelectionListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+public class ChangeDirectoryRibbonPanel extends RibbonMenuPanel
+    implements ModernClickListener, ModernSelectionListener {
 
-	/**
-	 * The constant DIRECTORY_SELECTED.
-	 */
-	public static final String DIRECTORY_SELECTED = "change_directory_selected";
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant BROWSE_DIRECTORY.
-	 */
-	public static final String BROWSE_DIRECTORY = "change_directory_browse";
+  /**
+   * The constant DIRECTORY_SELECTED.
+   */
+  public static final String DIRECTORY_SELECTED = "change_directory_selected";
 
-	/**
-	 * The display count.
-	 */
-	private int displayCount = 10;
+  /**
+   * The constant BROWSE_DIRECTORY.
+   */
+  public static final String BROWSE_DIRECTORY = "change_directory_browse";
 
-	/**
-	 * The tabs model.
-	 */
-	private TabsModel tabsModel = new TabsModel();
-	
-	/**
-	 * The side tabs.
-	 */
-	private RibbonPanelSideTabs sideTabs = new RibbonPanelSideTabs(tabsModel);
-	
-	/**
-	 * The view panel.
-	 */
-	private TabsViewPanel viewPanel = new TabsViewPanel(tabsModel);
+  /**
+   * The display count.
+   */
+  private int displayCount = 10;
 
+  /**
+   * The tabs model.
+   */
+  private TabsModel tabsModel = new TabsModel();
 
-	/**
-	 * The current directory list.
-	 */
-	private ModernList<Path> currentDirectoryList;
+  /**
+   * The side tabs.
+   */
+  private RibbonPanelSideTabs sideTabs = new RibbonPanelSideTabs(tabsModel);
 
+  /**
+   * The view panel.
+   */
+  private TabsViewPanel viewPanel = new TabsViewPanel(tabsModel);
 
-	/**
-	 * The recent directories list.
-	 */
-	private ModernList<Path> recentDirectoriesList;
+  /**
+   * The current directory list.
+   */
+  private ModernList<Path> currentDirectoryList;
 
+  /**
+   * The recent directories list.
+   */
+  private ModernList<Path> recentDirectoriesList;
 
-	/**
-	 * The selected directory.
-	 */
-	private Path selectedDirectory = 
-			RecentFilesService.getInstance().getPwd();
+  /**
+   * The selected directory.
+   */
+  private Path selectedDirectory = RecentFilesService.getInstance().getPwd();
 
-	/**
-	 * Instantiates a new change directory ribbon panel.
-	 */
-	public ChangeDirectoryRibbonPanel() {
-		super("Change Directory");
-		
-		setup();
-	}
+  /**
+   * Instantiates a new change directory ribbon panel.
+   */
+  public ChangeDirectoryRibbonPanel() {
+    super("Change Directory");
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setBorder(BorderService.getInstance().createBorder(40));
+    setup();
+  }
 
-		ModernAutoSizeLabel label = new ModernTitleLabel("Change Directory");
-		
-		label.setBorder(BorderService.getInstance().createBottomBorder(20));
-		
-		add(label, BorderLayout.PAGE_START);
-		
-		sideTabs.addTab("Computer",
-				UIService.getInstance().loadIcon(ComputerVectorIcon.class, 32));
-		
-		UI.setSize(sideTabs, 300, Short.MAX_VALUE);
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setBorder(BorderService.getInstance().createBorder(40));
 
-		add(sideTabs, BorderLayout.LINE_START);
+    ModernAutoSizeLabel label = new ModernTitleLabel("Change Directory");
 
-		
-		//
-		// Recent directory
-		//
-		
-		Box box = Box.createVerticalBox();
-		
-		box.add(new ModernColoredHeadingLabel("Computer"));
-		
-		box.add(UI.createVGap(20));
-		
-		box.add(new ModernDialogHeadingLabel("Current Folder"));
-		
-		box.add(UI.createVGap(5));
-		
-		currentDirectoryList = new ModernList<Path>(new ModernListRecentDirectoryRenderer());
-		
-		currentDirectoryList.addSelectionListener(this);
-		currentDirectoryList.setRowHeight(48);
+    label.setBorder(BorderService.getInstance().createBottomBorder(20));
 
-		ModernScrollPane scrollPane = new ModernScrollPane(currentDirectoryList)
-				.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
-		
-		UI.setSize(scrollPane, Short.MAX_VALUE, 50);
-		
-		box.add(scrollPane);
-		
-		ModernDialogTaskWindow.midSectionHeader("Recent Directories", box);
-		
-		recentDirectoriesList = 
-				new ModernList<Path>(new ModernListRecentDirectoryRenderer());
-		
-		recentDirectoriesList.addSelectionListener(this);
-		recentDirectoriesList.setRowHeight(48);
+    add(label, BorderLayout.PAGE_START);
 
-		scrollPane = new ModernScrollPane(recentDirectoriesList)
-				.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
-		
-		box.add(scrollPane);
-			
-		box.add(UI.createVGap(20));
-		
-		ModernButtonWidget button = new RibbonPanelButton(UI.MENU_BROWSE, 
-				UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+    sideTabs.addTab("Computer", UIService.getInstance().loadIcon(ComputerVectorIcon.class, 32));
 
-		button.setClickMessage(BROWSE_DIRECTORY);
-		button.addClickListener(this);
-		
-		box.add(button);
-		
-		tabsModel.addTab("Computer", box);
+    UI.setSize(sideTabs, 300, Short.MAX_VALUE);
 
-		viewPanel.setBorder(BorderService.getInstance().createLeftBorder(20));
-		
-		setBody(viewPanel);
-	
-		tabsModel.changeTab(0);
-	}
+    add(sideTabs, BorderLayout.LINE_START);
 
-	/*
-	public final Table getTable() {
+    //
+    // Recent directory
+    //
 
-		return table;
-	}
-	*/
+    Box box = Box.createVerticalBox();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ribbon.RibbonMenuPanel#refresh()
-	 */
-	@Override
-	public final void refresh() {
-		try {
-			reload();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	
-	/**
-	 * Reload.
-	 *
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public final void reload() throws IOException {
+    box.add(new ModernColoredHeadingLabel("Computer"));
 
-		// current dir
-		
-		ModernListModel<Path> model = new ModernListModel<Path>();
-		model.addValue(RecentFilesService.getInstance().getPwd());
-		currentDirectoryList.setModel(model);
-		
-		// Recent folders
-		
-		model = new ModernListModel<Path>();
+    box.add(UI.createVGap(20));
 
-		int c = 0;
-		
-		Set<Path> used = new HashSet<Path>();
-		
-		for (Path file : RecentFilesService.getInstance()) {
-			if (c == displayCount) {
-				break;
-			}
-			
-			if (used.contains(file.getParent())) {
-				continue;
-			}
+    box.add(new ModernDialogHeadingLabel("Current Folder"));
 
-			model.addValue(file.getParent());
-			used.add(file.getParent());
-			
-			++c;
-		}
+    box.add(UI.createVGap(5));
 
-		recentDirectoriesList.setModel(model);
-	}
+    currentDirectoryList = new ModernList<Path>(new ModernListRecentDirectoryRenderer());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public final void clicked(ModernClickEvent e) {
-		fireClicked(new ModernClickEvent(this, e.getMessage()));
-	}
-	
-	/**
-	 * Gets the selected directory.
-	 *
-	 * @return the selected directory
-	 */
-	public final Path getSelectedDirectory() {
-		return selectedDirectory;
-	}
+    currentDirectoryList.addSelectionListener(this);
+    currentDirectoryList.setRowHeight(48);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void selectionChanged(ChangeEvent e) {
-		if (e.getSource().equals(currentDirectoryList)) {
-			int i = currentDirectoryList.getSelectedIndex();
-			
-			if (i != -1) {
-				selectedDirectory = recentDirectoriesList.getValueAt(i);
-				
-				fireClicked(new ModernClickEvent(this, DIRECTORY_SELECTED));
-			}
-		} else if (e.getSource().equals(recentDirectoriesList)) {
-			int i = recentDirectoriesList.getSelectedIndex();
-			
-			if (i != -1) {
-				selectedDirectory = recentDirectoriesList.getValueAt(i);
-				
-				fireClicked(new ModernClickEvent(this, DIRECTORY_SELECTED));
-			}
-		} else {
-			// do nothing
-		}
-	}
+    ModernScrollPane scrollPane = new ModernScrollPane(currentDirectoryList)
+        .setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
+
+    UI.setSize(scrollPane, Short.MAX_VALUE, 50);
+
+    box.add(scrollPane);
+
+    ModernDialogTaskWindow.midSectionHeader("Recent Directories", box);
+
+    recentDirectoriesList = new ModernList<Path>(new ModernListRecentDirectoryRenderer());
+
+    recentDirectoriesList.addSelectionListener(this);
+    recentDirectoriesList.setRowHeight(48);
+
+    scrollPane = new ModernScrollPane(recentDirectoriesList).setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
+
+    box.add(scrollPane);
+
+    box.add(UI.createVGap(20));
+
+    ModernButtonWidget button = new RibbonPanelButton(UI.MENU_BROWSE,
+        UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+
+    button.setClickMessage(BROWSE_DIRECTORY);
+    button.addClickListener(this);
+
+    box.add(button);
+
+    tabsModel.addTab("Computer", box);
+
+    viewPanel.setBorder(BorderService.getInstance().createLeftBorder(20));
+
+    setBody(viewPanel);
+
+    tabsModel.changeTab(0);
+  }
+
+  /*
+   * public final Table getTable() {
+   * 
+   * return table; }
+   */
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ribbon.RibbonMenuPanel#refresh()
+   */
+  @Override
+  public final void refresh() {
+    try {
+      reload();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Reload.
+   *
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public final void reload() throws IOException {
+
+    // current dir
+
+    ModernListModel<Path> model = new ModernListModel<Path>();
+    model.addValue(RecentFilesService.getInstance().getPwd());
+    currentDirectoryList.setModel(model);
+
+    // Recent folders
+
+    model = new ModernListModel<Path>();
+
+    int c = 0;
+
+    Set<Path> used = new HashSet<Path>();
+
+    for (Path file : RecentFilesService.getInstance()) {
+      if (c == displayCount) {
+        break;
+      }
+
+      if (used.contains(file.getParent())) {
+        continue;
+      }
+
+      model.addValue(file.getParent());
+      used.add(file.getParent());
+
+      ++c;
+    }
+
+    recentDirectoriesList.setModel(model);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public final void clicked(ModernClickEvent e) {
+    fireClicked(new ModernClickEvent(this, e.getMessage()));
+  }
+
+  /**
+   * Gets the selected directory.
+   *
+   * @return the selected directory
+   */
+  public final Path getSelectedDirectory() {
+    return selectedDirectory;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
+   * lib.event.ChangeEvent)
+   */
+  public void selectionChanged(ChangeEvent e) {
+    if (e.getSource().equals(currentDirectoryList)) {
+      int i = currentDirectoryList.getSelectedIndex();
+
+      if (i != -1) {
+        selectedDirectory = recentDirectoriesList.getValueAt(i);
+
+        fireClicked(new ModernClickEvent(this, DIRECTORY_SELECTED));
+      }
+    } else if (e.getSource().equals(recentDirectoriesList)) {
+      int i = recentDirectoriesList.getSelectedIndex();
+
+      if (i != -1) {
+        selectedDirectory = recentDirectoriesList.getValueAt(i);
+
+        fireClicked(new ModernClickEvent(this, DIRECTORY_SELECTED));
+      }
+    } else {
+      // do nothing
+    }
+  }
 }

@@ -34,18 +34,16 @@ import org.jebtk.modern.graphics.icons.ModernVectorIcon;
  * The class ModernHideButtonUp.
  */
 public class ModernHideButtonUp extends ModernHideButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * Instantiates a new modern hide button up.
-	 */
-	public ModernHideButtonUp() {
-		super(ModernVectorIcon.HIDE_UP_16_ICON, 
-				ModernVectorIcon.HIDE_DOWN_16_ICON);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern hide button up.
+   */
+  public ModernHideButtonUp() {
+    super(ModernVectorIcon.HIDE_UP_16_ICON, ModernVectorIcon.HIDE_DOWN_16_ICON);
+  }
 }

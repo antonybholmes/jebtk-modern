@@ -47,328 +47,323 @@ import org.jebtk.modern.UI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
-
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Keeps track of the windows associated with an application so they
- * can be switched between if necessary.
+ * Keeps track of the windows associated with an application so they can be
+ * switched between if necessary.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class WindowService extends ModernWindowEventListeners implements Iterable<ModernWindow> {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The Class WindowServiceLoader.
-	 */
-	private static class WindowServiceLoader {
-		
-		/** The Constant INSTANCE. */
-		private static final WindowService INSTANCE = new WindowService();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The Class WindowServiceLoader.
+   */
+  private static class WindowServiceLoader {
+
+    /** The Constant INSTANCE. */
+    private static final WindowService INSTANCE = new WindowService();
+  }
+
+  /**
+   * Gets the single instance of SettingsService.
+   *
+   * @return single instance of SettingsService
+   */
+  public static WindowService getInstance() {
+    return WindowServiceLoader.INSTANCE;
+  }
+
+  /**
+   * The member windows.
+   */
+  // private Map<String, ModernWindow> windows = new HashMap<String,
+  // ModernWindow>();
+  private List<ModernWindow> mWindows = new ArrayList<ModernWindow>();
+
+  /** The m max map. */
+  private Map<ModernWindow, Boolean> mMaxMap = DefaultHashMap.create(false);
+
+  /** The m max bound map. */
+  private Map<ModernWindow, Rectangle> mMaxBoundMap = new HashMap<ModernWindow, Rectangle>();
+
+  /**
+   * The constant LOG.
+   */
+  private static final Logger LOG = LoggerFactory.getLogger(WindowService.class);
+
+  /**
+   * The class BringWindowToFront.
+   */
+  private static class BringWindowToFront implements Runnable {
+
+    /**
+     * The window.
+     */
+    private ModernWindow window;
+
+    /**
+     * Instantiates a new bring window to front.
+     *
+     * @param window
+     *          the window
+     */
+    public BringWindowToFront(ModernWindow window) {
+      this.window = window;
     }
 
-	/**
-	 * Gets the single instance of SettingsService.
-	 *
-	 * @return single instance of SettingsService
-	 */
-    public static WindowService getInstance() {
-        return WindowServiceLoader.INSTANCE;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Runnable#run()
+     */
+    @Override
+    public void run() {
+      window.toFront();
+      window.requestFocusInWindow();
     }
-	
-	/**
-	 * The member windows.
-	 */
-	//private Map<String, ModernWindow> windows = new HashMap<String, ModernWindow>();
-	private List<ModernWindow> mWindows = new ArrayList<ModernWindow>();
-	
-	/** The m max map. */
-	private Map<ModernWindow, Boolean> mMaxMap = 
-			DefaultHashMap.create(false);
-	
-	/** The m max bound map. */
-	private Map<ModernWindow, Rectangle> mMaxBoundMap = 
-			new HashMap<ModernWindow, Rectangle>();
 
-	/**
-	 * The constant LOG.
-	 */
-	private static final Logger LOG = 
-			LoggerFactory.getLogger(WindowService.class);
-	
-	/**
-	 * The class BringWindowToFront.
-	 */
-	private static class BringWindowToFront implements Runnable {
-		
-		/**
-		 * The window.
-		 */
-		private ModernWindow window;
+  }
 
-		/**
-		 * Instantiates a new bring window to front.
-		 *
-		 * @param window the window
-		 */
-		public BringWindowToFront(ModernWindow window) {
-			this.window = window;
-		}
-		
-		/* (non-Javadoc)
-		 * @see java.lang.Runnable#run()
-		 */
-		@Override
-		public void run() {
-			window.toFront();
-	    	window.requestFocusInWindow();
-		}
-		
-	}
+  /**
+   * Register.
+   *
+   * @param window
+   *          the window
+   */
+  public synchronized void register(ModernWindow window) {
 
-	/**
-	 * Register.
-	 *
-	 * @param window the window
-	 */
-	public synchronized void register(ModernWindow window) {
+    if (mWindows.contains(window)) {
+      return;
+    }
 
-		if (mWindows.contains(window)) {
-			return;
-		}
+    LOG.info("Register {}", window.getTitle());
 
-		LOG.info("Register {}", window.getTitle());
-		
-		mWindows.add(window);
+    mWindows.add(window);
 
-		fireWindowAdded(new ChangeEvent(this));
-	}
+    fireWindowAdded(new ChangeEvent(this));
+  }
 
-	/**
-	 * Removes the.
-	 *
-	 * @param window the window
-	 */
-	public synchronized void remove(ModernWindow window) {
+  /**
+   * Removes the.
+   *
+   * @param window
+   *          the window
+   */
+  public synchronized void remove(ModernWindow window) {
 
-		if (!mWindows.contains(window)) {
-			return;
-		}
+    if (!mWindows.contains(window)) {
+      return;
+    }
 
-		LOG.info("Unregister {}", window.getTitle());
-		
-		mWindows.remove(window);
+    LOG.info("Unregister {}", window.getTitle());
 
-		/*
-		windows.clear();
+    mWindows.remove(window);
 
-		for (int i = 0; i < windowList.size(); ++i) {
-			windows.put(windowList.get(i), i);
-		}
-		*/
+    /*
+     * windows.clear();
+     * 
+     * for (int i = 0; i < windowList.size(); ++i) { windows.put(windowList.get(i),
+     * i); }
+     */
 
-		fireWindowRemoved(new ChangeEvent(this));
-	}
+    fireWindowRemoved(new ChangeEvent(this));
+  }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	public Iterator<ModernWindow> iterator() {
-		return mWindows.iterator();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  public Iterator<ModernWindow> iterator() {
+    return mWindows.iterator();
+  }
 
-	/**
-	 * Finds an active window by name, otherwise returns null.
-	 *
-	 * @param name the name
-	 * @return the modern window
-	 */
-	public final ModernWindow findByName(final String name) {
-		if (name == null) {
-			return null;
-		}
-		
-		for (ModernWindow frame : mWindows) {
-			if (frame.getTitle().contains(name)) {
-				return frame;
-			}
-		}
+  /**
+   * Finds an active window by name, otherwise returns null.
+   *
+   * @param name
+   *          the name
+   * @return the modern window
+   */
+  public final ModernWindow findByName(final String name) {
+    if (name == null) {
+      return null;
+    }
 
-		return null;
-	}
+    for (ModernWindow frame : mWindows) {
+      if (frame.getTitle().contains(name)) {
+        return frame;
+      }
+    }
 
-	/**
-	 * Sets the focus.
-	 *
-	 * @param window the new focus
-	 */
-	public static final void setFocus(ModernWindow window) {
-		SwingUtilities.invokeLater(new BringWindowToFront(window));
-	}
+    return null;
+  }
 
-	
-	/**
-	 * Size.
-	 *
-	 * @return the int
-	 */
-	public int size() {
-		return mWindows.size();
-	}
-	
-	/**
-	 * Tile.
-	 */
-	public void tile() {
-		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+  /**
+   * Sets the focus.
+   *
+   * @param window
+   *          the new focus
+   */
+  public static final void setFocus(ModernWindow window) {
+    SwingUtilities.invokeLater(new BringWindowToFront(window));
+  }
 
-		double g = Math.ceil(Math.sqrt(mWindows.size()));
-		
-		g *= g;
-		
-		double s = Math.sqrt(g);
-		
-	    int rows = (int)s;
-	    
-	    int cols = rows;
-	    
-	    if (s > Math.floor(s)) {
-	    	++cols;
-	    }
-	    
-	    LOG.info("Tile windows ({} x {})", rows, cols);
-	    
-	    int width = gd.getDisplayMode().getWidth() / cols;
-	    int height = gd.getDisplayMode().getHeight() / rows;
-	    
-	    int x = 0;
-	    int y = 0;
-	    
-	    for (int i = 0; i < rows; i++) {
-	    	x = 0;
-	    	
-	        for (int j = 0; j < cols; j++) {
-	        	
-	        	int c = i * rows + j;
-	        	
-	        	if (c >= mWindows.size()) {
-	        		continue;
-	        	}
-	        	
-	            mWindows.get(c).setBounds(x, 
-	            		y,
-	            		width, 
-	            		height);
-	            
-	            x += width;
-	        }
-	        
-	        y += height;
-	    }
-	}
+  /**
+   * Size.
+   *
+   * @return the int
+   */
+  public int size() {
+    return mWindows.size();
+  }
 
-	/**
-	 * Arrange horizontally.
-	 */
-	public void arrangeHorizontally() {
-		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+  /**
+   * Tile.
+   */
+  public void tile() {
+    GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
-	    int width = gd.getDisplayMode().getWidth();
-	    int height = gd.getDisplayMode().getHeight() / mWindows.size();
-	    
-	    int x = 0;
-	    int y = 0;
-	    
-	    for (ModernWindow window : mWindows) {
-	    	window.setBounds(x, y, width, height);
-	        
-	        y += height;
-	    }
-	}
-	
-	/**
-	 * Arrange vertically.
-	 */
-	public void arrangeVertically() {
-		GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+    double g = Math.ceil(Math.sqrt(mWindows.size()));
 
-	    int width = gd.getDisplayMode().getWidth() / mWindows.size();
-	    int height = gd.getDisplayMode().getHeight();
-	    
-	    int x = 0;
-	    int y = 0;
-	    
-	    for (ModernWindow window : mWindows) {
-	    	window.setBounds(x, y, width, height);
-	        
-	        x += width;
-	    }
-	}
-	
-	
-	/**
-	 * Auto maximize.
-	 *
-	 * @param window the window
-	 */
-	public void autoMaximize(ModernWindow window) {
-		DeviceConfig config = UI.findDeviceConfig(window);
+    g *= g;
 
-		if (config != null) {
+    double s = Math.sqrt(g);
 
-			// Force window to respond sinze resize appears not to trigger
-			// window or resize events automatically
-			//config.device.setFullScreenWindow(mIsMax ? null : mWindow);
-			//mWindow.revalidate();
-			//mWindow.dispatchEvent(new WindowEvent(mWindow, WindowEvent.WINDOW_STATE_CHANGED));
+    int rows = (int) s;
 
-			if (mMaxMap.get(window)) {
-				Rectangle bounds = mMaxBoundMap.get(window);
-				window.setSize(bounds.width, bounds.height);
-				window.setLocation(bounds.x, bounds.y);
-			} else {
-				mMaxBoundMap.put(window, new Rectangle(window.getBounds()));
-				
-				Rectangle bounds = 
-						config.device.getDefaultConfiguration().getBounds();
-				
-				// Try to account for task bars etc
-				Insets insets = 
-						Toolkit.getDefaultToolkit().getScreenInsets(config.device.getDefaultConfiguration());
+    int cols = rows;
 
-				bounds.width -= insets.left + insets.right;
-				bounds.height -= insets.top + insets.bottom;
-				
+    if (s > Math.floor(s)) {
+      ++cols;
+    }
 
-				if (config.deviceIndex == 0) {
-					window.setSize(bounds.width, bounds.height);
-				} else {
-					window.setSize(bounds.width - 1, bounds.height- 1);
-				}
+    LOG.info("Tile windows ({} x {})", rows, cols);
 
-				window.setLocation(bounds.x, bounds.y);
-			}
+    int width = gd.getDisplayMode().getWidth() / cols;
+    int height = gd.getDisplayMode().getHeight() / rows;
 
-			window.revalidate();
-			window.repaint();
+    int x = 0;
+    int y = 0;
 
-			//DisplayMode dm = config.device.getDisplayMode();
+    for (int i = 0; i < rows; i++) {
+      x = 0;
 
-			//mWindow.setLocation(0, 0);
-			//mWindow.setSize(dm.getWidth(), dm.getHeight());
-			//mWindow.validate();
+      for (int j = 0; j < cols; j++) {
 
-			mMaxMap.put(window, !mMaxMap.get(window));
-		}
+        int c = i * rows + j;
 
+        if (c >= mWindows.size()) {
+          continue;
+        }
 
-	}
+        mWindows.get(c).setBounds(x, y, width, height);
+
+        x += width;
+      }
+
+      y += height;
+    }
+  }
+
+  /**
+   * Arrange horizontally.
+   */
+  public void arrangeHorizontally() {
+    GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+
+    int width = gd.getDisplayMode().getWidth();
+    int height = gd.getDisplayMode().getHeight() / mWindows.size();
+
+    int x = 0;
+    int y = 0;
+
+    for (ModernWindow window : mWindows) {
+      window.setBounds(x, y, width, height);
+
+      y += height;
+    }
+  }
+
+  /**
+   * Arrange vertically.
+   */
+  public void arrangeVertically() {
+    GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+
+    int width = gd.getDisplayMode().getWidth() / mWindows.size();
+    int height = gd.getDisplayMode().getHeight();
+
+    int x = 0;
+    int y = 0;
+
+    for (ModernWindow window : mWindows) {
+      window.setBounds(x, y, width, height);
+
+      x += width;
+    }
+  }
+
+  /**
+   * Auto maximize.
+   *
+   * @param window
+   *          the window
+   */
+  public void autoMaximize(ModernWindow window) {
+    DeviceConfig config = UI.findDeviceConfig(window);
+
+    if (config != null) {
+
+      // Force window to respond sinze resize appears not to trigger
+      // window or resize events automatically
+      // config.device.setFullScreenWindow(mIsMax ? null : mWindow);
+      // mWindow.revalidate();
+      // mWindow.dispatchEvent(new WindowEvent(mWindow,
+      // WindowEvent.WINDOW_STATE_CHANGED));
+
+      if (mMaxMap.get(window)) {
+        Rectangle bounds = mMaxBoundMap.get(window);
+        window.setSize(bounds.width, bounds.height);
+        window.setLocation(bounds.x, bounds.y);
+      } else {
+        mMaxBoundMap.put(window, new Rectangle(window.getBounds()));
+
+        Rectangle bounds = config.device.getDefaultConfiguration().getBounds();
+
+        // Try to account for task bars etc
+        Insets insets = Toolkit.getDefaultToolkit().getScreenInsets(config.device.getDefaultConfiguration());
+
+        bounds.width -= insets.left + insets.right;
+        bounds.height -= insets.top + insets.bottom;
+
+        if (config.deviceIndex == 0) {
+          window.setSize(bounds.width, bounds.height);
+        } else {
+          window.setSize(bounds.width - 1, bounds.height - 1);
+        }
+
+        window.setLocation(bounds.x, bounds.y);
+      }
+
+      window.revalidate();
+      window.repaint();
+
+      // DisplayMode dm = config.device.getDisplayMode();
+
+      // mWindow.setLocation(0, 0);
+      // mWindow.setSize(dm.getWidth(), dm.getHeight());
+      // mWindow.validate();
+
+      mMaxMap.put(window, !mMaxMap.get(window));
+    }
+
+  }
 }

@@ -36,8 +36,6 @@ import javax.swing.BorderFactory;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a line separator for menus with a theme consistent with
@@ -47,54 +45,56 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class RibbonPanelTitle extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * The member font.
-	 */
-	private Font mFont;
-	
-	/**
-	 * The member name.
-	 */
-	private String mName;
-	
-	/**
-	 * The size.
-	 */
-	public static Dimension SIZE = new Dimension(Short.MAX_VALUE, 24);
-	
-	/**
-	 * Instantiates a new ribbon panel title.
-	 *
-	 * @param name the name
-	 */
-	public RibbonPanelTitle(String name) {
-		mName = name;
-		
-		mFont = new Font(getFont().getFamily(), Font.PLAIN, 16);
-		
-		setPreferredSize(SIZE);
-		setMinimumSize(SIZE);
-		setMaximumSize(SIZE);
-		
-		setBorder(BorderFactory.createEmptyBorder(10, PADDING, 10, PADDING));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = UIService.ICON_SIZE_8;
-		int y = UIService.ICON_SIZE_16;
-		
-		g2.setFont(mFont);
-		g2.drawString(mName, x, y);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member font.
+   */
+  private Font mFont;
+
+  /**
+   * The member name.
+   */
+  private String mName;
+
+  /**
+   * The size.
+   */
+  public static Dimension SIZE = new Dimension(Short.MAX_VALUE, 24);
+
+  /**
+   * Instantiates a new ribbon panel title.
+   *
+   * @param name
+   *          the name
+   */
+  public RibbonPanelTitle(String name) {
+    mName = name;
+
+    mFont = new Font(getFont().getFamily(), Font.PLAIN, 16);
+
+    setPreferredSize(SIZE);
+    setMinimumSize(SIZE);
+    setMaximumSize(SIZE);
+
+    setBorder(BorderFactory.createEmptyBorder(10, PADDING, 10, PADDING));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = UIService.ICON_SIZE_8;
+    int y = UIService.ICON_SIZE_16;
+
+    g2.setFont(mFont);
+    g2.drawString(mName, x, y);
+  }
 }

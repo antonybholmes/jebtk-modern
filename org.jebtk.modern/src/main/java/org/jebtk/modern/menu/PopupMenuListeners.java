@@ -32,72 +32,75 @@ import javax.swing.event.PopupMenuListener;
 
 import org.jebtk.core.event.EventListeners;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides the ability to register and unregister ModernClickEventListeners
- * for controls and provides standard functions to interface with {
+ * Provides the ability to register and unregister ModernClickEventListeners for
+ * controls and provides standard functions to interface with {
  * EventListenerList by taking care of casting etc.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class PopupMenuListeners {
-	
-	/**
-	 * The listeners.
-	 */
-	protected EventListeners<PopupMenuListener> listeners = 
-			new EventListeners<PopupMenuListener>();
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param l the l
-	 */
-	public void add(PopupMenuListener l) {
-		listeners.add(l);
-	}
-	
-	/**
-	 * Removes the.
-	 *
-	 * @param l the l
-	 */
-	public void remove(PopupMenuListener l) {
-		listeners.remove(l);
-	}
-	
-	/**
-	 * fires the event to any registered listeners.
-	 *
-	 * @param event the event
-	 */
-	public final void fireMenuCanceledEvent(PopupMenuEvent event) {
-		for (PopupMenuListener l : listeners) {
-        	l.popupMenuCanceled(event);
-        }
-    }
 
-	/**
-	 * fires the event to any registered listeners.
-	 *
-	 * @param event the event
-	 */
-	public final void fireMenuWillBecomeInvisibleEvent(PopupMenuEvent event) {
-		for (PopupMenuListener l : listeners) {
-        	l.popupMenuWillBecomeInvisible(event);
-        }
-    }
+  /**
+   * The listeners.
+   */
+  protected EventListeners<PopupMenuListener> listeners = new EventListeners<PopupMenuListener>();
 
-	/**
-	 * fires the event to any registered listeners.
-	 *
-	 * @param event the event
-	 */
-	public final void fireMenuWillBecomeVisibleEvent(PopupMenuEvent event) {
-        for (PopupMenuListener l : listeners) {
-        	l.popupMenuWillBecomeVisible(event);
-        }
+  /**
+   * Adds the.
+   *
+   * @param l
+   *          the l
+   */
+  public void add(PopupMenuListener l) {
+    listeners.add(l);
+  }
+
+  /**
+   * Removes the.
+   *
+   * @param l
+   *          the l
+   */
+  public void remove(PopupMenuListener l) {
+    listeners.remove(l);
+  }
+
+  /**
+   * fires the event to any registered listeners.
+   *
+   * @param event
+   *          the event
+   */
+  public final void fireMenuCanceledEvent(PopupMenuEvent event) {
+    for (PopupMenuListener l : listeners) {
+      l.popupMenuCanceled(event);
     }
+  }
+
+  /**
+   * fires the event to any registered listeners.
+   *
+   * @param event
+   *          the event
+   */
+  public final void fireMenuWillBecomeInvisibleEvent(PopupMenuEvent event) {
+    for (PopupMenuListener l : listeners) {
+      l.popupMenuWillBecomeInvisible(event);
+    }
+  }
+
+  /**
+   * fires the event to any registered listeners.
+   *
+   * @param event
+   *          the event
+   */
+  public final void fireMenuWillBecomeVisibleEvent(PopupMenuEvent event) {
+    for (PopupMenuListener l : listeners) {
+      l.popupMenuWillBecomeVisible(event);
+    }
+  }
 }

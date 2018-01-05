@@ -36,39 +36,44 @@ import java.awt.event.KeyEvent;
  * @author Antony Holmes Holmes
  */
 public interface ModernCanvasKeyEventProducer {
-	
-	/**
-	 * Adds the canvas key listener.
-	 *
-	 * @param l the l
-	 */
-	public void addCanvasKeyListener(ModernCanvasKeyListener l);
-	
-	/**
-	 * Removes the canvas key listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeCanvasKeyListener(ModernCanvasKeyListener l);
-	
-	/**
-	 * Fire canvas key typed.
-	 *
-	 * @param e the e
-	 */
-	public void fireCanvasKeyTyped(KeyEvent e);
-	
-	/**
-	 * Fire canvas key pressed.
-	 *
-	 * @param e the e
-	 */
-	public void fireCanvasKeyPressed(KeyEvent e);
-	
-	/**
-	 * Fire canvas key released.
-	 *
-	 * @param e the e
-	 */
-	public void fireCanvasKeyReleased(KeyEvent e);
+
+  /**
+   * Adds the canvas key listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addCanvasKeyListener(ModernCanvasKeyListener l);
+
+  /**
+   * Removes the canvas key listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeCanvasKeyListener(ModernCanvasKeyListener l);
+
+  /**
+   * Fire canvas key typed.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireCanvasKeyTyped(KeyEvent e);
+
+  /**
+   * Fire canvas key pressed.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireCanvasKeyPressed(KeyEvent e);
+
+  /**
+   * Fire canvas key released.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireCanvasKeyReleased(KeyEvent e);
 }

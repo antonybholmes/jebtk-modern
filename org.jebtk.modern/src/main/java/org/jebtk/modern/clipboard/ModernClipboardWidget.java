@@ -32,114 +32,128 @@ import java.awt.event.FocusListener;
 
 import org.jebtk.modern.widget.ModernFocusableWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernClipboardWidget.
  */
 public abstract class ModernClipboardWidget extends ModernFocusableWidget implements ClipboardUiControl {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The class FocusEvents.
-	 */
-	private class FocusEvents implements FocusListener {
-		
-		/**
-		 * The member c.
-		 */
-		private ClipboardUiControl mC;
 
-		/**
-		 * Instantiates a new focus events.
-		 *
-		 * @param c the c
-		 */
-		public FocusEvents(ClipboardUiControl c) {
-			mC = c;
-		}
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusGained(FocusEvent e) {
-			ClipboardService.getInstance().register(mC);
-		}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusLost(FocusEvent e) {
-			ClipboardService.getInstance().unregister(mC);
-		}
-	}
+  /**
+   * The class FocusEvents.
+   */
+  private class FocusEvents implements FocusListener {
 
-	/**
-	 * Instantiates a new modern clipboard widget.
-	 */
-	public ModernClipboardWidget() {
-		addFocusListener(new FocusEvents(this));
-	}
+    /**
+     * The member c.
+     */
+    private ClipboardUiControl mC;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.Clipboard#copy()
-	 */
-	@Override
-	public void copy() {
-		// TODO Auto-generated method stub
-		
-	}
+    /**
+     * Instantiates a new focus events.
+     *
+     * @param c
+     *          the c
+     */
+    public FocusEvents(ClipboardUiControl c) {
+      mC = c;
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.Clipboard#paste()
-	 */
-	@Override
-	public void paste() {
-		// TODO Auto-generated method stub
-		
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusGained(FocusEvent e) {
+      ClipboardService.getInstance().register(mC);
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.Clipboard#cut()
-	 */
-	@Override
-	public void cut() {
-		// TODO Auto-generated method stub
-		
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusLost(FocusEvent e) {
+      ClipboardService.getInstance().unregister(mC);
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#cutEnabled()
-	 */
-	@Override
-	public boolean cutEnabled() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+  /**
+   * Instantiates a new modern clipboard widget.
+   */
+  public ModernClipboardWidget() {
+    addFocusListener(new FocusEvents(this));
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#copyEnabled()
-	 */
-	@Override
-	public boolean copyEnabled() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.clipboard.Clipboard#copy()
+   */
+  @Override
+  public void copy() {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#pasteEnabled()
-	 */
-	@Override
-	public boolean pasteEnabled() {
-		// TODO Auto-generated method stub
-		return false;
-	}
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.clipboard.Clipboard#paste()
+   */
+  @Override
+  public void paste() {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.clipboard.Clipboard#cut()
+   */
+  @Override
+  public void cut() {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#cutEnabled()
+   */
+  @Override
+  public boolean cutEnabled() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#copyEnabled()
+   */
+  @Override
+  public boolean copyEnabled() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.clipboard.ClipboardUiControl#pasteEnabled()
+   */
+  @Override
+  public boolean pasteEnabled() {
+    // TODO Auto-generated method stub
+    return false;
+  }
 }

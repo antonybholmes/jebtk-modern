@@ -43,33 +43,34 @@ import org.jebtk.modern.ribbon.Ribbon;
  */
 public class Toolbar extends ModernPanel {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	private Color mColor;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+  private Color mColor;
 
-	
-	public Toolbar() {
-		this(Ribbon.BAR_BACKGROUND);
-	}
-	
-	/**
-	 * Instantiates a new card panel.
-	 *
-	 * @param title the title
-	 * @param content the content
-	 */
-	public Toolbar(Color color) {
-		mColor = color;
-		
-		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-		setBorder(DOUBLE_PADDING);
-	}
-	
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fill(g2, mColor);
-	}
+  public Toolbar() {
+    this(Ribbon.BAR_BACKGROUND);
+  }
+
+  /**
+   * Instantiates a new card panel.
+   *
+   * @param title
+   *          the title
+   * @param content
+   *          the content
+   */
+  public Toolbar(Color color) {
+    mColor = color;
+
+    setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+    setBorder(DOUBLE_PADDING);
+  }
+
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fill(g2, mColor);
+  }
 
 }

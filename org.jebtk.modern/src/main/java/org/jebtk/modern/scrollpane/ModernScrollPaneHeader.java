@@ -31,27 +31,25 @@ import org.jebtk.modern.graphics.ModernCanvas;
 
 // TODO: Auto-generated Javadoc
 /**
- * Represents a header element in a scroll pane. These can sit
- * on the top, bottom or left and sync with the main scroll
- * pane content. They can be used to display table headers
- * for example.
+ * Represents a header element in a scroll pane. These can sit on the top,
+ * bottom or left and sync with the main scroll pane content. They can be used
+ * to display table headers for example.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public abstract class ModernScrollPaneHeader extends ModernCanvas {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Returns the fixed dimension of the header, the
-	 * other dimension is dynamically adjusted to the
-	 * size of the scroll pane either by width or height.
-	 *
-	 * @return the fixed dimension
-	 */
-	public abstract int getFixedDimension();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Returns the fixed dimension of the header, the other dimension is dynamically
+   * adjusted to the size of the scroll pane either by width or height.
+   *
+   * @return the fixed dimension
+   */
+  public abstract int getFixedDimension();
 }

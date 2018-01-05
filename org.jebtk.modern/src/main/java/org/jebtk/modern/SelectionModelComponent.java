@@ -35,11 +35,11 @@ package org.jebtk.modern;
  *
  */
 public interface SelectionModelComponent {
-	
-	/**
-	 * Returns the selection model associated with the component.
-	 *
-	 * @return the selection model
-	 */
-	SelectionRangeModel getSelectionModel();
+
+  /**
+   * Returns the selection model associated with the component.
+   *
+   * @return the selection model
+   */
+  SelectionRangeModel getSelectionModel();
 }

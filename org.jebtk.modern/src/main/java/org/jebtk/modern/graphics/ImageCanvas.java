@@ -33,100 +33,110 @@ import java.awt.image.BufferedImage;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Render child canvas as an image to improve display
- * performance on the GUI of complex shapes.
+ * Render child canvas as an image to improve display performance on the GUI of
+ * complex shapes.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ImageCanvas extends ModernCanvas {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The image.
-	 */
-	private BufferedImage image;
 
-	/**
-	 * The member canvas.
-	 */
-	private ModernCanvas mCanvas;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The class CanvasEvents.
-	 */
-	private class CanvasEvents extends ModernCanvasAdapter {
-		
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.graphics.ModernCanvasAdapter#canvasChanged(org.abh.lib.event.ChangeEvent)
-		 */
-		@Override
-		public void canvasChanged(ChangeEvent e) {
-			generate();
-		}
-	}
-	
-	/**
-	 * Instantiates a new image canvas.
-	 *
-	 * @param canvas the canvas
-	 */
-	public ImageCanvas(ModernCanvas canvas) {
-		mCanvas = canvas;
-		
-		canvas.addCanvasListener(new CanvasEvents());
-		
-		generate();
-	}
-	
-	/**
-	 * Generate.
-	 */
-	private void generate() {
-		cache();
-		
-		fireCanvasChanged(new ChangeEvent(this));
-	}
+  /**
+   * The image.
+   */
+  private BufferedImage image;
 
-	/**
-	 * Cache.
-	 */
-	private void cache() {
-		Dimension size = new Dimension(mCanvas.getCanvasSize().getW(), mCanvas.getCanvasSize().getH());
-		
-		image = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_ARGB);
-		
-		Graphics2D g2Temp = ImageUtils.createAAGraphics(image);
+  /**
+   * The member canvas.
+   */
+  private ModernCanvas mCanvas;
 
-		try {
-			mCanvas.drawForegroundAA(g2Temp);
-		} finally {
-			g2Temp.dispose();
-		}
-		
-		repaint();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvas#getCanvasSize()
-	 */
-	@Override
-	public Dimension getPreferredSize() {
-		return mCanvas.getPreferredSize();
-	}
+  /**
+   * The class CanvasEvents.
+   */
+  private class CanvasEvents extends ModernCanvasAdapter {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvas#drawCanvasForeground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
-		g2.drawImage(image, 0, 0, null);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.graphics.ModernCanvasAdapter#canvasChanged(org.abh.lib.
+     * event.ChangeEvent)
+     */
+    @Override
+    public void canvasChanged(ChangeEvent e) {
+      generate();
+    }
+  }
+
+  /**
+   * Instantiates a new image canvas.
+   *
+   * @param canvas
+   *          the canvas
+   */
+  public ImageCanvas(ModernCanvas canvas) {
+    mCanvas = canvas;
+
+    canvas.addCanvasListener(new CanvasEvents());
+
+    generate();
+  }
+
+  /**
+   * Generate.
+   */
+  private void generate() {
+    cache();
+
+    fireCanvasChanged(new ChangeEvent(this));
+  }
+
+  /**
+   * Cache.
+   */
+  private void cache() {
+    Dimension size = new Dimension(mCanvas.getCanvasSize().getW(), mCanvas.getCanvasSize().getH());
+
+    image = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_ARGB);
+
+    Graphics2D g2Temp = ImageUtils.createAAGraphics(image);
+
+    try {
+      mCanvas.drawForegroundAA(g2Temp);
+    } finally {
+      g2Temp.dispose();
+    }
+
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvas#getCanvasSize()
+   */
+  @Override
+  public Dimension getPreferredSize() {
+    return mCanvas.getPreferredSize();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvas#drawCanvasForeground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
+    g2.drawImage(image, 0, 0, null);
+  }
 }

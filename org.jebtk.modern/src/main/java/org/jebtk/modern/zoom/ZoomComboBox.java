@@ -36,26 +36,26 @@ import org.jebtk.modern.widget.ModernWidget;
  * The class ZoomComboBox.
  */
 public class ZoomComboBox extends ModernComboBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new zoom combo box.
-	 */
-	public ZoomComboBox() {
-		setEditable(true);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		addScrollMenuItem("10 %");
-		addScrollMenuItem("25 %");
-		addScrollMenuItem("50 %");
-		addScrollMenuItem("100 %");
-		addScrollMenuItem("200 %");
-		addScrollMenuItem("300 %");
-		addScrollMenuItem("500 %");
-		
-		UI.setSize(this, ModernWidget.SMALL_SIZE);
-	}
+  /**
+   * Instantiates a new zoom combo box.
+   */
+  public ZoomComboBox() {
+    setEditable(true);
+
+    addScrollMenuItem("10 %");
+    addScrollMenuItem("25 %");
+    addScrollMenuItem("50 %");
+    addScrollMenuItem("100 %");
+    addScrollMenuItem("200 %");
+    addScrollMenuItem("300 %");
+    addScrollMenuItem("500 %");
+
+    UI.setSize(this, ModernWidget.SMALL_SIZE);
+  }
 }

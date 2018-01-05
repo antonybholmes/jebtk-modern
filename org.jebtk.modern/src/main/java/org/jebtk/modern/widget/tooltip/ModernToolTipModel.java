@@ -31,41 +31,42 @@ import java.awt.Point;
 
 import org.jebtk.modern.ModernComponent;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a model for notifying the ribbon that it should
- * display a tooltip.
+ * Provides a model for notifying the ribbon that it should display a tooltip.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public interface ModernToolTipModel {
-	
-	/**
-	 * Show tool tip.
-	 *
-	 * @param source the source
-	 * @param toolTipPanel the tool tip panel
-	 */
-	public void showToolTip(ModernComponent source, 
-			ModernToolTipPanel toolTipPanel);
-	
-	/**
-	 * Show tool tip.
-	 *
-	 * @param source the source
-	 * @param tooltipPanel the tooltip panel
-	 * @param location the location
-	 */
-	void showToolTip(ModernComponent source, 
-			ModernToolTipPanel tooltipPanel, 
-			Point location);
 
-	/**
-	 * Hide tool tips.
-	 *
-	 * @param source the source
-	 */
-	void hideToolTips(ModernComponent source);
+  /**
+   * Show tool tip.
+   *
+   * @param source
+   *          the source
+   * @param toolTipPanel
+   *          the tool tip panel
+   */
+  public void showToolTip(ModernComponent source, ModernToolTipPanel toolTipPanel);
+
+  /**
+   * Show tool tip.
+   *
+   * @param source
+   *          the source
+   * @param tooltipPanel
+   *          the tooltip panel
+   * @param location
+   *          the location
+   */
+  void showToolTip(ModernComponent source, ModernToolTipPanel tooltipPanel, Point location);
+
+  /**
+   * Hide tool tips.
+   *
+   * @param source
+   *          the source
+   */
+  void hideToolTips(ModernComponent source);
 }

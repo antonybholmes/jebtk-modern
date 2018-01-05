@@ -37,70 +37,93 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class TabEventListeners extends EventProducer<TabEventListener> implements TabEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabEventProducer#addTabListener(org.abh.lib.ui.modern.tabs.TabEventListener)
-	 */
-	public void addTabListener(TabEventListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabEventProducer#removeTabListener(org.abh.lib.ui.modern.tabs.TabEventListener)
-	 */
-	public void removeTabListener(TabEventListener l) {
-		mListeners.remove(l);
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabEventProducer#fireTabAdded(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void fireTabAdded(TabEvent e) {
-		for (TabEventListener l : mListeners) {
-			l.tabAdded(e);
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabEventProducer#fireTabRemoved(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void fireTabRemoved(TabEvent e) {
-		for (TabEventListener l : mListeners) {
-			l.tabRemoved(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabEventProducer#addTabListener(org.abh.lib.ui.
+   * modern.tabs.TabEventListener)
+   */
+  public void addTabListener(TabEventListener l) {
+    mListeners.add(l);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabEventProducer#fireTabResized(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void fireTabResized(TabEvent e) {
-		for (TabEventListener l : mListeners) {
-			l.tabResized(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabEventProducer#removeTabListener(org.abh.lib.ui.
+   * modern.tabs.TabEventListener)
+   */
+  public void removeTabListener(TabEventListener l) {
+    mListeners.remove(l);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabEventProducer#fireTabChanged(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void fireTabChanged(TabEvent e) {
-		for (TabEventListener l : mListeners) {
-			l.tabChanged(e);
-		}
-	}
-	
-	@Override
-	public void fireTabHighlighted(TabEvent e) {
-		for (TabEventListener l : mListeners) {
-			l.tabHighlighted(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.tabs.TabEventProducer#fireTabAdded(org.abh.lib.ui.
+   * modern.tabs.TabEvent)
+   */
+  @Override
+  public void fireTabAdded(TabEvent e) {
+    for (TabEventListener l : mListeners) {
+      l.tabAdded(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabEventProducer#fireTabRemoved(org.abh.lib.ui.
+   * modern.tabs.TabEvent)
+   */
+  @Override
+  public void fireTabRemoved(TabEvent e) {
+    for (TabEventListener l : mListeners) {
+      l.tabRemoved(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabEventProducer#fireTabResized(org.abh.lib.ui.
+   * modern.tabs.TabEvent)
+   */
+  @Override
+  public void fireTabResized(TabEvent e) {
+    for (TabEventListener l : mListeners) {
+      l.tabResized(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabEventProducer#fireTabChanged(org.abh.lib.ui.
+   * modern.tabs.TabEvent)
+   */
+  @Override
+  public void fireTabChanged(TabEvent e) {
+    for (TabEventListener l : mListeners) {
+      l.tabChanged(e);
+    }
+  }
+
+  @Override
+  public void fireTabHighlighted(TabEvent e) {
+    for (TabEventListener l : mListeners) {
+      l.tabHighlighted(e);
+    }
+  }
 }

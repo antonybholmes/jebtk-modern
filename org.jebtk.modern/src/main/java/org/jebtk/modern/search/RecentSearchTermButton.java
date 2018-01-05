@@ -30,7 +30,6 @@ package org.jebtk.modern.search;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Low height button for small form factor toolbar buttons.
@@ -38,20 +37,21 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * @author Antony Holmes Holmes
  */
 public class RecentSearchTermButton extends ModernButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new recent search term button.
-	 *
-	 * @param text the text
-	 * @param icon the icon
-	 */
-	public RecentSearchTermButton(String text, ModernIcon icon) {
-		super(text, icon);
-	}
+  /**
+   * Instantiates a new recent search term button.
+   *
+   * @param text
+   *          the text
+   * @param icon
+   *          the icon
+   */
+  public RecentSearchTermButton(String text, ModernIcon icon) {
+    super(text, icon);
+  }
 }

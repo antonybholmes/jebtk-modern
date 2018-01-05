@@ -41,33 +41,37 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class TriangleVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant COLOR.
-	 */
-	public static final Color COLOR = ModernWidget.TEXT_COLOR;
-	
-	/**
-	 * The constant WIDTH.
-	 */
-	public static final int WIDTH = 8;
-	
-	/**
-	 * The constant HALF_WIDTH.
-	 */
-	public static final int HALF_WIDTH = WIDTH / 2;
-	
-	/**
-	 * The constant HEIGHT.
-	 */
-	public static final int HEIGHT = 4;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		g2.setColor(COLOR);
-	}
-	
+
+  /**
+   * The constant COLOR.
+   */
+  public static final Color COLOR = ModernWidget.TEXT_COLOR;
+
+  /**
+   * The constant WIDTH.
+   */
+  public static final int WIDTH = 8;
+
+  /**
+   * The constant HALF_WIDTH.
+   */
+  public static final int HALF_WIDTH = WIDTH / 2;
+
+  /**
+   * The constant HEIGHT.
+   */
+  public static final int HEIGHT = 4;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    g2.setColor(COLOR);
+  }
+
 }

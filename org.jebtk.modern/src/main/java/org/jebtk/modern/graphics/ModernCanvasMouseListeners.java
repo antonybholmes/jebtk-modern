@@ -36,94 +36,124 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernCanvasMouseListeners extends EventProducer<ModernCanvasMouseListener> implements ModernCanvasMouseEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#addCanvasMouseListener(org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener)
-	 */
-	public void addCanvasMouseListener(ModernCanvasMouseListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#removeCanvasMouseListener(org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener)
-	 */
-	public void removeCanvasMouseListener(ModernCanvasMouseListener l) {
-		mListeners.remove(l);
-	}
+public class ModernCanvasMouseListeners extends EventProducer<ModernCanvasMouseListener>
+    implements ModernCanvasMouseEventProducer {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#fireCanvasMouseClicked(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void fireCanvasMouseClicked(CanvasMouseEvent e) {
-		for (ModernCanvasMouseListener l : mListeners) {
-			l.canvasMouseClicked(e);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#fireCanvasMouseMoved(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void fireCanvasMouseMoved(CanvasMouseEvent e) {
-		for (ModernCanvasMouseListener l : mListeners) {
-			l.canvasMouseMoved(e);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#fireCanvasMouseDragged(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void fireCanvasMouseDragged(CanvasMouseEvent e) {
-		for (ModernCanvasMouseListener l : mListeners) {
-			l.canvasMouseDragged(e);
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#fireCanvasMousePressed(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void fireCanvasMousePressed(CanvasMouseEvent e) {
-		for (ModernCanvasMouseListener l : mListeners) {
-			l.canvasMousePressed(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#
+   * addCanvasMouseListener(org.abh.lib.ui.modern.graphics.
+   * ModernCanvasMouseListener)
+   */
+  public void addCanvasMouseListener(ModernCanvasMouseListener l) {
+    mListeners.add(l);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#fireCanvasMouseReleased(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void fireCanvasMouseReleased(CanvasMouseEvent e) {
-		for (ModernCanvasMouseListener l : mListeners) {
-			l.canvasMouseReleased(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#
+   * removeCanvasMouseListener(org.abh.lib.ui.modern.graphics.
+   * ModernCanvasMouseListener)
+   */
+  public void removeCanvasMouseListener(ModernCanvasMouseListener l) {
+    mListeners.remove(l);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#fireCanvasMouseEntered(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void fireCanvasMouseEntered(CanvasMouseEvent e) {
-		for (ModernCanvasMouseListener l : mListeners) {
-			l.canvasMouseEntered(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#
+   * fireCanvasMouseClicked(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void fireCanvasMouseClicked(CanvasMouseEvent e) {
+    for (ModernCanvasMouseListener l : mListeners) {
+      l.canvasMouseClicked(e);
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#fireCanvasMouseExited(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void fireCanvasMouseExited(CanvasMouseEvent e) {
-		for (ModernCanvasMouseListener l : mListeners) {
-			l.canvasMouseExited(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#
+   * fireCanvasMouseMoved(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void fireCanvasMouseMoved(CanvasMouseEvent e) {
+    for (ModernCanvasMouseListener l : mListeners) {
+      l.canvasMouseMoved(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#
+   * fireCanvasMouseDragged(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void fireCanvasMouseDragged(CanvasMouseEvent e) {
+    for (ModernCanvasMouseListener l : mListeners) {
+      l.canvasMouseDragged(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#
+   * fireCanvasMousePressed(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void fireCanvasMousePressed(CanvasMouseEvent e) {
+    for (ModernCanvasMouseListener l : mListeners) {
+      l.canvasMousePressed(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#
+   * fireCanvasMouseReleased(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void fireCanvasMouseReleased(CanvasMouseEvent e) {
+    for (ModernCanvasMouseListener l : mListeners) {
+      l.canvasMouseReleased(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#
+   * fireCanvasMouseEntered(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void fireCanvasMouseEntered(CanvasMouseEvent e) {
+    for (ModernCanvasMouseListener l : mListeners) {
+      l.canvasMouseEntered(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseEventProducer#
+   * fireCanvasMouseExited(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void fireCanvasMouseExited(CanvasMouseEvent e) {
+    for (ModernCanvasMouseListener l : mListeners) {
+      l.canvasMouseExited(e);
+    }
+  }
 }

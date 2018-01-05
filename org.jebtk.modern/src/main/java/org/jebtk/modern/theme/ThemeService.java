@@ -56,574 +56,604 @@ import org.slf4j.LoggerFactory;
  */
 public class ThemeService extends ModernTheme {
 
-	/**
-	 * The Class ThemeServiceLoader.
-	 */
-	private static class ThemeServiceLoader {
-		
-		/** The Constant INSTANCE. */
-		private static final ThemeService INSTANCE = new ThemeService();
-	}
-
-	/**
-	 * Gets the single instance of SettingsService.
-	 *
-	 * @return single instance of SettingsService
-	 */
-	public static ThemeService getInstance() {
-		return ThemeServiceLoader.INSTANCE;
-	}
-
-	/** The Constant LOG. */
-	private final static Logger LOG = 
-			LoggerFactory.getLogger(ThemeService.class);
-
-	/**
-	 * The Class ThemeFonts.
-	 */
-	public static class ThemeFonts {
-		
-		
-
-		/**
-		 * Load font.
-		 *
-		 * @param path the path
-		 * @return the font
-		 */
-		
-
-		/**
-		 * Returns the default font used by most widgets.
-		 *
-		 * @return the font
-		 */
-		public Font getFont() {
-			return loadFont("theme.widget.fonts.text");
-		}
-
-		/**
-		 * Returns the default bold font.
-		 *
-		 * @return the bold font
-		 */
-		public Font getBoldFont() {
-			return loadFont("theme.widget.fonts.bold-text");
-		}
-
-		/**
-		 * Returns the default title font.
-		 *
-		 * @return the title font
-		 */
-		public Font getTitleFont() {
-			return loadFont("theme.widget.fonts.title");
-		}
-		
-		/**
-		 * Gets the sub title font.
-		 *
-		 * @return the sub title font
-		 */
-		public Font getSubTitleFont() {
-			return loadFont("theme.widget.fonts.sub-title");
-		}
-
-		/**
-		 * Returns the default heading font.
-		 *
-		 * @return the heading font
-		 */
-		public Font getHeadingFont() {
-			return loadFont("theme.widget.fonts.heading");
-		}
-	}
-
-	/**
-	 * The Class Theme.
-	 */
-	public static class Theme extends KeyStore<String, Color> {
-		
-		/** The m highlight. */
-		private ThemeColors mHighlight;
-
-		/** The m color highlight. */
-		private ThemeColors mColorHighlight;
-
-		/** The m color map. */
-		private ThemeColorMap mColorMap = new ThemeColorMap();
-
-		/**
-		 * Instantiates a new theme.
-		 */
-		public Theme() {
-			this(ColorTheme.BLUE);
-		}
-
-		/**
-		 * Instantiates a new theme.
-		 *
-		 * @param theme the theme
-		 */
-		public Theme(ColorTheme theme) {
-			mHighlight = getColorTheme(ColorTheme.GRAY);
-
-			setTheme(theme);
-			
-			put("light-line", getHighlight32(3));
-			put("line", getHighlight32(7));
-			put("dark-line", getHighlight32(9));
-			
-			put("text", getHighlight32(31)); //Color.BLACK; //getHighlight32(31);
-			put("alt-text", getHighlight32(28)); 
-			put("disabled-text", getHighlight32(24)); 
-		}
-
-		/**
-		 * Sets the theme.
-		 *
-		 * @param theme the new theme
-		 */
-		public void setTheme(ColorTheme theme) {
-
-			LOG.info("Setting color scheme to {}", theme);
-
-			mColorHighlight = getColorTheme(theme);
-		}
-
-		/**
-		 * Gets the color highlight.
-		 *
-		 * @param i the i
-		 * 
-		 * @return the color highlight
-		 */
-		public Color getColorHighlight(int i) {
-			return mColorHighlight.getColor(i);
-		}
-		
-		/**
-		 * Gets the color highlight 32.
-		 *
-		 * @param i the i
-		 * @return the color highlight 32
-		 */
-		public Color getColorHighlight32(int i) {
-			return mColorHighlight.getColor32(i);
-		}
-		
-		public int getColorHighlightIndex(Color color) {
-			return mColorHighlight.getIndex(color);
-		}
-
-		/**
-		 * Gets the highlight.
-		 *
-		 * @param i the i
-		 * @return the highlight
-		 */
-		public Color getHighlight(int i) {
-			return mHighlight.getColor(i);
-		}
-		
-		/**
-		 * Choose from 32 grayscale highlight colors.
-		 *
-		 * @param i 	An index from 0-31 inclusive.
-		 * @return the highlight 32
-		 */
-		public Color getHighlight32(int i) {
-			return mHighlight.getColor32(i);
-		}
-		
-		public int getHighlightIndex(Color color) {
-			return mHighlight.getIndex(color);
-		}
-
-		/**
-		 * Gets the color theme.
-		 *
-		 * @param theme the theme
-		 * @return the color theme
-		 */
-		public ThemeColors getColorTheme(ColorTheme theme) {
-			return getColorTheme(theme.toString());
-		}
-
-		/**
-		 * Gets the color theme.
-		 *
-		 * @param theme the theme
-		 * @return the color theme
-		 */
-		public ThemeColors getColorTheme(String theme) {
-			return mColorMap.getColors(theme);
-		}
-
-		/**
-		 * Gets the red theme.
-		 *
-		 * @return the red theme
-		 */
-		public ThemeColors getRedTheme() {
-			return getColorTheme(ColorTheme.RED);
-		}
-
-		/**
-		 * Gets the blue theme.
-		 *
-		 * @return the blue theme
-		 */
-		public ThemeColors getBlueTheme() {
-			return getColorTheme(ColorTheme.BLUE);
-		}
-
-		/**
-		 * Gets the green theme.
-		 *
-		 * @return the green theme
-		 */
-		public ThemeColors getGreenTheme() {
-			return getColorTheme(ColorTheme.GREEN);
-		}
-
-		/**
-		 * Gets the gray theme.
-		 *
-		 * @return the gray theme
-		 */
-		public ThemeColors getGrayTheme() {
-			return getColorTheme(ColorTheme.GRAY);
-		}
-
-		/**
-		 * Gets the orange theme.
-		 *
-		 * @return the orange theme
-		 */
-		public ThemeColors getOrangeTheme() {
-			return getColorTheme(ColorTheme.ORANGE);
-		}
-
-		/**
-		 * Gets the purple theme.
-		 *
-		 * @return the purple theme
-		 */
-		public ThemeColors getPurpleTheme() {
-			return getColorTheme(ColorTheme.PURPLE);
-		}
-
-		/**
-		 * Gets the line color.
-		 *
-		 * @return the line color
-		 */
-		public Color getLineColor() {
-			return get("line");
-		}
-
-		/**
-		 * Gets the light line color.
-		 *
-		 * @return the light line color
-		 */
-		public Color getLightLineColor() {
-			return get("light-line");
-		}
-		
-		public Color getDarkLineColor() {
-			return get("dark-line");
-		}
-
-		/**
-		 * Gets the text color.
-		 *
-		 * @return the text color
-		 */
-		public Color getTextColor() {
-			return get("text");//Color.BLACK; //getHighlight32(31);
-		}
-
-		/**
-		 * Gets the alt text color.
-		 *
-		 * @return the alt text color
-		 */
-		public Color getAltTextColor() {
-			return get("alt-text");
-		}
-		
-		/**
-		 * Gets the disabled text color.
-		 *
-		 * @return the disabled text color
-		 */
-		public Color getDisabledTextColor() {
-			return get("disabled-text");
-		}
-
-		
-	}
-
-	/**
-	 * The Class ThemeColorMap.
-	 */
-	public static class ThemeColorMap {
-		
-		/** The m map. */
-		private Map<String, ThemeColors> mMap =
-				new HashMap<String, ThemeColors>();
-
-		/**
-		 * Gets the colors.
-		 *
-		 * @param theme the theme
-		 * @return the colors
-		 */
-		public ThemeColors getColors(ColorTheme theme) {
-			return getColors(theme.toString());
-		}
-
-		/**
-		 * Gets the colors.
-		 *
-		 * @param theme the theme
-		 * @return the colors
-		 */
-		public ThemeColors getColors(String theme) {
-			String name = theme.toLowerCase();
-
-			if (!mMap.containsKey(name)) {
-				mMap.put(name, new ThemeColors(theme));
-			}
-
-			return mMap.get(name);
-		}
-	}
-
-	/**
-	 * Creates a set of graded theme colors.
-	 * 
-	 * @author Antony Holmes Holmes
-	 *
-	 */
-	public static class ThemeColors {
-		
-		/** The Constant COLORS. */
-		private static final int COLORS = 32;
-		
-		/** The Constant MAX_COLOR_INDEX. */
-		private static final int MAX_COLOR_INDEX = COLORS - 1;
-
-		/** The m color map 32. */
-		private ColorMap mColorMap32;
-		
-		/** The m color map. */
-		private ColorMap mColorMap;
-
-		/**
-		 * Instantiates a new theme colors.
-		 */
-		public ThemeColors() {
-			this(ColorTheme.BLUE);
-		}
-
-		
-
-		/**
-		 * Instantiates a new theme colors.
-		 *
-		 * @param theme the theme
-		 */
-		public ThemeColors(ColorTheme theme) {
-			this(theme.toString());
-		}
-
-		/**
-		 * Instantiates a new theme colors.
-		 *
-		 * @param theme the theme
-		 */
-		public ThemeColors(String theme) {
-			String color = "theme.color-schemes.color-scheme-" + theme.toLowerCase();
-
-			//Mathematics.bound(SettingsService.getInstance().getAsDouble(color + ".scaling"), 0, 1);
-
-			Color color1 = SettingsService.getInstance().getAsColor(color + ".start-color");
-			Color color2 = SettingsService.getInstance().getAsColor(color + ".end-color");
-
-			System.err.println("theme " + color + ".end-color" + " " + (SettingsService.getInstance().getSetting(color + ".end-color").toString()));
-			
-			mColorMap = ColorMap.createTwoColorMap(theme, color1, color2, 10, false);
-			mColorMap32 = ColorMap.createTwoColorMap(theme, color1, color2, COLORS, false);
-		}
-
-		/**
-		 * Returns a theme color. The index must be between 1 and 10 inclusive.
-		 *
-		 * @param i the i
-		 * @return the color
-		 */
-		public Color getColor(int i) {
-			return mColorMap.getColorByIndex(Mathematics.bound(i, 1, 10) - 1);
-		}
-
-		/**
-		 * Gets the color 32.
-		 *
-		 * @param i the i
-		 * @return the color 32
-		 */
-		public Color getColor32(int i) {
-			return mColorMap32.getColorByIndex(Mathematics.bound(i, 0, MAX_COLOR_INDEX));
-		}
-		
-		public int getIndex(Color color) {
-			return mColorMap32.getIndex(color);
-		}
-	}
-
-	/** The m fonts. */
-	private ThemeFonts mFonts = new ThemeFonts();
-	
-	/** The m colors. */
-	private Theme mColors = new Theme();
-	
-	/** The m setup. */
-	private boolean mSetup = true;
-
-
-	/**
-	 * Fonts.
-	 *
-	 * @return the theme fonts
-	 */
-	public ThemeFonts fonts() {
-		return mFonts;
-	}
-
-	/**
-	 * Colors.
-	 *
-	 * @return the theme
-	 */
-	public Theme colors() {
-		return mColors;
-	}
-
-	/**
-	 * Sets the theme.
-	 *
-	 * @throws ClassNotFoundException the class not found exception
-	 * @throws InstantiationException the instantiation exception
-	 * @throws IllegalAccessException the illegal access exception
-	 * @throws FontFormatException the font format exception
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws UnsupportedLookAndFeelException the unsupported look and feel exception
-	 */
-	public void setTheme() throws ClassNotFoundException, InstantiationException, IllegalAccessException, FontFormatException, IOException, UnsupportedLookAndFeelException {
-		setTheme(ColorTheme.BLUE);
-	}
-
-	/**
-	 * Sets the color theme used by the Modern UI and sets the overall look
-	 * and feel and loads fonts etc.
-	 *
-	 * @param theme the new theme
-	 * @throws FontFormatException the font format exception
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws ClassNotFoundException the class not found exception
-	 * @throws InstantiationException the instantiation exception
-	 * @throws IllegalAccessException the illegal access exception
-	 * @throws UnsupportedLookAndFeelException the unsupported look and feel exception
-	 */
-	public void setTheme(ColorTheme theme) throws FontFormatException, IOException, ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
-		colors().setTheme(theme);
-		
-		if (mSetup) {
-			setLookAndFeel();
-			registerFonts();
-			setWidgetRenderer();
-			
-			mSetup = false;
-		}
-
-		//Resources.getInstance().registerFont("DroidSansMono.ttf");
-		//Resources.registerFont("SourceSansPro-Regular.ttf");
-		//Resources.registerFont("Roboto-Regular.ttf");
-		//Resources.registerFont("OpenSans-Bold.ttf");
-		//Resources.registerFont("Lato-Regular.ttf");
-		//Resources.registerFont("Open Modern Bold", "OpenSans-Bold.ttf");
-	}
-	
-	/**
-	 * Sets the widget renderer.
-	 */
-	public static final void setWidgetRenderer() {
-		// Set the default way widgets are rendered.
-		WidgetRendererService.getInstance().set(new ModernRoundedWidgetRenderer());
-	}
-
-	/**
-	 * Sets the look and feel.
-	 *
-	 * @throws ClassNotFoundException the class not found exception
-	 * @throws InstantiationException the instantiation exception
-	 * @throws IllegalAccessException the illegal access exception
-	 * @throws UnsupportedLookAndFeelException the unsupported look and feel exception
-	 */
-	public static final void setLookAndFeel() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
-		List<String> looks = new ArrayList<String>();
-
-		looks.add("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-		looks.add("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-		looks.add("com.sun.java.swing.plaf.gtk.GTK");
-
-		// Keep trying them until an error is not thrown
-
-		UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-	}
-
-	/**
-	 * Register fonts.
-	 *
-	 * @throws FontFormatException the font format exception
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public static final void registerFonts() throws FontFormatException, IOException {
-		Resources.getInstance().registerFont("Inconsolata-Regular.ttf");
-		Resources.getInstance().registerFont("Roboto-Regular.ttf");
-		Resources.getInstance().registerFont("Roboto-Light.ttf");
-		Resources.getInstance().registerFont("Roboto-Thin.ttf");
-		Resources.getInstance().registerFont("Roboto-Bold.ttf");
-		
-		//Resources.getInstance().registerFont("OpenSans-Regular.ttf");
-		//Resources.getInstance().registerFont("OpenSans-Light.ttf");
-		//Resources.getInstance().registerFont("OpenSans-Bold.ttf");
-	}
-	
-	/**
-	 * Load font.
-	 *
-	 * @param path the path
-	 * @return the font
-	 */
-	public static Font loadFont(String path) {
-		return loadFont(new Path(path));
-	}
-	
-	public static Font loadFont(Path path) {
-		Path p = new Path(path).append("family");
-
-		String family = SettingsService.getInstance().getAsString(p);
-
-		p = new Path(path).append("size");
-
-		int size = SettingsService.getInstance().getAsInt(p);
-
-		return FontService.getInstance().loadFont(family, 
-				size,
-				SettingsService.getInstance().getAsString(p).equals("bold"));
-	}
+  /**
+   * The Class ThemeServiceLoader.
+   */
+  private static class ThemeServiceLoader {
+
+    /** The Constant INSTANCE. */
+    private static final ThemeService INSTANCE = new ThemeService();
+  }
+
+  /**
+   * Gets the single instance of SettingsService.
+   *
+   * @return single instance of SettingsService
+   */
+  public static ThemeService getInstance() {
+    return ThemeServiceLoader.INSTANCE;
+  }
+
+  /** The Constant LOG. */
+  private final static Logger LOG = LoggerFactory.getLogger(ThemeService.class);
+
+  /**
+   * The Class ThemeFonts.
+   */
+  public static class ThemeFonts {
+
+    /**
+     * Load font.
+     *
+     * @param path
+     *          the path
+     * @return the font
+     */
+
+    /**
+     * Returns the default font used by most widgets.
+     *
+     * @return the font
+     */
+    public Font getFont() {
+      return loadFont("theme.widget.fonts.text");
+    }
+
+    /**
+     * Returns the default bold font.
+     *
+     * @return the bold font
+     */
+    public Font getBoldFont() {
+      return loadFont("theme.widget.fonts.bold-text");
+    }
+
+    /**
+     * Returns the default title font.
+     *
+     * @return the title font
+     */
+    public Font getTitleFont() {
+      return loadFont("theme.widget.fonts.title");
+    }
+
+    /**
+     * Gets the sub title font.
+     *
+     * @return the sub title font
+     */
+    public Font getSubTitleFont() {
+      return loadFont("theme.widget.fonts.sub-title");
+    }
+
+    /**
+     * Returns the default heading font.
+     *
+     * @return the heading font
+     */
+    public Font getHeadingFont() {
+      return loadFont("theme.widget.fonts.heading");
+    }
+  }
+
+  /**
+   * The Class Theme.
+   */
+  public static class Theme extends KeyStore<String, Color> {
+
+    /** The m highlight. */
+    private ThemeColors mHighlight;
+
+    /** The m color highlight. */
+    private ThemeColors mColorHighlight;
+
+    /** The m color map. */
+    private ThemeColorMap mColorMap = new ThemeColorMap();
+
+    /**
+     * Instantiates a new theme.
+     */
+    public Theme() {
+      this(ColorTheme.BLUE);
+    }
+
+    /**
+     * Instantiates a new theme.
+     *
+     * @param theme
+     *          the theme
+     */
+    public Theme(ColorTheme theme) {
+      mHighlight = getColorTheme(ColorTheme.GRAY);
+
+      setTheme(theme);
+
+      put("light-line", getHighlight32(3));
+      put("line", getHighlight32(7));
+      put("dark-line", getHighlight32(9));
+
+      put("text", getHighlight32(31)); // Color.BLACK; //getHighlight32(31);
+      put("alt-text", getHighlight32(28));
+      put("disabled-text", getHighlight32(24));
+    }
+
+    /**
+     * Sets the theme.
+     *
+     * @param theme
+     *          the new theme
+     */
+    public void setTheme(ColorTheme theme) {
+
+      LOG.info("Setting color scheme to {}", theme);
+
+      mColorHighlight = getColorTheme(theme);
+    }
+
+    /**
+     * Gets the color highlight.
+     *
+     * @param i
+     *          the i
+     * 
+     * @return the color highlight
+     */
+    public Color getColorHighlight(int i) {
+      return mColorHighlight.getColor(i);
+    }
+
+    /**
+     * Gets the color highlight 32.
+     *
+     * @param i
+     *          the i
+     * @return the color highlight 32
+     */
+    public Color getColorHighlight32(int i) {
+      return mColorHighlight.getColor32(i);
+    }
+
+    public int getColorHighlightIndex(Color color) {
+      return mColorHighlight.getIndex(color);
+    }
+
+    /**
+     * Gets the highlight.
+     *
+     * @param i
+     *          the i
+     * @return the highlight
+     */
+    public Color getHighlight(int i) {
+      return mHighlight.getColor(i);
+    }
+
+    /**
+     * Choose from 32 grayscale highlight colors.
+     *
+     * @param i
+     *          An index from 0-31 inclusive.
+     * @return the highlight 32
+     */
+    public Color getHighlight32(int i) {
+      return mHighlight.getColor32(i);
+    }
+
+    public int getHighlightIndex(Color color) {
+      return mHighlight.getIndex(color);
+    }
+
+    /**
+     * Gets the color theme.
+     *
+     * @param theme
+     *          the theme
+     * @return the color theme
+     */
+    public ThemeColors getColorTheme(ColorTheme theme) {
+      return getColorTheme(theme.toString());
+    }
+
+    /**
+     * Gets the color theme.
+     *
+     * @param theme
+     *          the theme
+     * @return the color theme
+     */
+    public ThemeColors getColorTheme(String theme) {
+      return mColorMap.getColors(theme);
+    }
+
+    /**
+     * Gets the red theme.
+     *
+     * @return the red theme
+     */
+    public ThemeColors getRedTheme() {
+      return getColorTheme(ColorTheme.RED);
+    }
+
+    /**
+     * Gets the blue theme.
+     *
+     * @return the blue theme
+     */
+    public ThemeColors getBlueTheme() {
+      return getColorTheme(ColorTheme.BLUE);
+    }
+
+    /**
+     * Gets the green theme.
+     *
+     * @return the green theme
+     */
+    public ThemeColors getGreenTheme() {
+      return getColorTheme(ColorTheme.GREEN);
+    }
+
+    /**
+     * Gets the gray theme.
+     *
+     * @return the gray theme
+     */
+    public ThemeColors getGrayTheme() {
+      return getColorTheme(ColorTheme.GRAY);
+    }
+
+    /**
+     * Gets the orange theme.
+     *
+     * @return the orange theme
+     */
+    public ThemeColors getOrangeTheme() {
+      return getColorTheme(ColorTheme.ORANGE);
+    }
+
+    /**
+     * Gets the purple theme.
+     *
+     * @return the purple theme
+     */
+    public ThemeColors getPurpleTheme() {
+      return getColorTheme(ColorTheme.PURPLE);
+    }
+
+    /**
+     * Gets the line color.
+     *
+     * @return the line color
+     */
+    public Color getLineColor() {
+      return get("line");
+    }
+
+    /**
+     * Gets the light line color.
+     *
+     * @return the light line color
+     */
+    public Color getLightLineColor() {
+      return get("light-line");
+    }
+
+    public Color getDarkLineColor() {
+      return get("dark-line");
+    }
+
+    /**
+     * Gets the text color.
+     *
+     * @return the text color
+     */
+    public Color getTextColor() {
+      return get("text");// Color.BLACK; //getHighlight32(31);
+    }
+
+    /**
+     * Gets the alt text color.
+     *
+     * @return the alt text color
+     */
+    public Color getAltTextColor() {
+      return get("alt-text");
+    }
+
+    /**
+     * Gets the disabled text color.
+     *
+     * @return the disabled text color
+     */
+    public Color getDisabledTextColor() {
+      return get("disabled-text");
+    }
+
+  }
+
+  /**
+   * The Class ThemeColorMap.
+   */
+  public static class ThemeColorMap {
+
+    /** The m map. */
+    private Map<String, ThemeColors> mMap = new HashMap<String, ThemeColors>();
+
+    /**
+     * Gets the colors.
+     *
+     * @param theme
+     *          the theme
+     * @return the colors
+     */
+    public ThemeColors getColors(ColorTheme theme) {
+      return getColors(theme.toString());
+    }
+
+    /**
+     * Gets the colors.
+     *
+     * @param theme
+     *          the theme
+     * @return the colors
+     */
+    public ThemeColors getColors(String theme) {
+      String name = theme.toLowerCase();
+
+      if (!mMap.containsKey(name)) {
+        mMap.put(name, new ThemeColors(theme));
+      }
+
+      return mMap.get(name);
+    }
+  }
+
+  /**
+   * Creates a set of graded theme colors.
+   * 
+   * @author Antony Holmes Holmes
+   *
+   */
+  public static class ThemeColors {
+
+    /** The Constant COLORS. */
+    private static final int COLORS = 32;
+
+    /** The Constant MAX_COLOR_INDEX. */
+    private static final int MAX_COLOR_INDEX = COLORS - 1;
+
+    /** The m color map 32. */
+    private ColorMap mColorMap32;
+
+    /** The m color map. */
+    private ColorMap mColorMap;
+
+    /**
+     * Instantiates a new theme colors.
+     */
+    public ThemeColors() {
+      this(ColorTheme.BLUE);
+    }
+
+    /**
+     * Instantiates a new theme colors.
+     *
+     * @param theme
+     *          the theme
+     */
+    public ThemeColors(ColorTheme theme) {
+      this(theme.toString());
+    }
+
+    /**
+     * Instantiates a new theme colors.
+     *
+     * @param theme
+     *          the theme
+     */
+    public ThemeColors(String theme) {
+      String color = "theme.color-schemes.color-scheme-" + theme.toLowerCase();
+
+      // Mathematics.bound(SettingsService.getInstance().getAsDouble(color +
+      // ".scaling"), 0, 1);
+
+      Color color1 = SettingsService.getInstance().getAsColor(color + ".start-color");
+      Color color2 = SettingsService.getInstance().getAsColor(color + ".end-color");
+
+      System.err.println("theme " + color + ".end-color" + " "
+          + (SettingsService.getInstance().getSetting(color + ".end-color").toString()));
+
+      mColorMap = ColorMap.createTwoColorMap(theme, color1, color2, 10, false);
+      mColorMap32 = ColorMap.createTwoColorMap(theme, color1, color2, COLORS, false);
+    }
+
+    /**
+     * Returns a theme color. The index must be between 1 and 10 inclusive.
+     *
+     * @param i
+     *          the i
+     * @return the color
+     */
+    public Color getColor(int i) {
+      return mColorMap.getColorByIndex(Mathematics.bound(i, 1, 10) - 1);
+    }
+
+    /**
+     * Gets the color 32.
+     *
+     * @param i
+     *          the i
+     * @return the color 32
+     */
+    public Color getColor32(int i) {
+      return mColorMap32.getColorByIndex(Mathematics.bound(i, 0, MAX_COLOR_INDEX));
+    }
+
+    public int getIndex(Color color) {
+      return mColorMap32.getIndex(color);
+    }
+  }
+
+  /** The m fonts. */
+  private ThemeFonts mFonts = new ThemeFonts();
+
+  /** The m colors. */
+  private Theme mColors = new Theme();
+
+  /** The m setup. */
+  private boolean mSetup = true;
+
+  /**
+   * Fonts.
+   *
+   * @return the theme fonts
+   */
+  public ThemeFonts fonts() {
+    return mFonts;
+  }
+
+  /**
+   * Colors.
+   *
+   * @return the theme
+   */
+  public Theme colors() {
+    return mColors;
+  }
+
+  /**
+   * Sets the theme.
+   *
+   * @throws ClassNotFoundException
+   *           the class not found exception
+   * @throws InstantiationException
+   *           the instantiation exception
+   * @throws IllegalAccessException
+   *           the illegal access exception
+   * @throws FontFormatException
+   *           the font format exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   * @throws UnsupportedLookAndFeelException
+   *           the unsupported look and feel exception
+   */
+  public void setTheme() throws ClassNotFoundException, InstantiationException, IllegalAccessException,
+      FontFormatException, IOException, UnsupportedLookAndFeelException {
+    setTheme(ColorTheme.BLUE);
+  }
+
+  /**
+   * Sets the color theme used by the Modern UI and sets the overall look and feel
+   * and loads fonts etc.
+   *
+   * @param theme
+   *          the new theme
+   * @throws FontFormatException
+   *           the font format exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   * @throws ClassNotFoundException
+   *           the class not found exception
+   * @throws InstantiationException
+   *           the instantiation exception
+   * @throws IllegalAccessException
+   *           the illegal access exception
+   * @throws UnsupportedLookAndFeelException
+   *           the unsupported look and feel exception
+   */
+  public void setTheme(ColorTheme theme) throws FontFormatException, IOException, ClassNotFoundException,
+      InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+    colors().setTheme(theme);
+
+    if (mSetup) {
+      setLookAndFeel();
+      registerFonts();
+      setWidgetRenderer();
+
+      mSetup = false;
+    }
+
+    // Resources.getInstance().registerFont("DroidSansMono.ttf");
+    // Resources.registerFont("SourceSansPro-Regular.ttf");
+    // Resources.registerFont("Roboto-Regular.ttf");
+    // Resources.registerFont("OpenSans-Bold.ttf");
+    // Resources.registerFont("Lato-Regular.ttf");
+    // Resources.registerFont("Open Modern Bold", "OpenSans-Bold.ttf");
+  }
+
+  /**
+   * Sets the widget renderer.
+   */
+  public static final void setWidgetRenderer() {
+    // Set the default way widgets are rendered.
+    WidgetRendererService.getInstance().set(new ModernRoundedWidgetRenderer());
+  }
+
+  /**
+   * Sets the look and feel.
+   *
+   * @throws ClassNotFoundException
+   *           the class not found exception
+   * @throws InstantiationException
+   *           the instantiation exception
+   * @throws IllegalAccessException
+   *           the illegal access exception
+   * @throws UnsupportedLookAndFeelException
+   *           the unsupported look and feel exception
+   */
+  public static final void setLookAndFeel()
+      throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
+    List<String> looks = new ArrayList<String>();
+
+    looks.add("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+    looks.add("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+    looks.add("com.sun.java.swing.plaf.gtk.GTK");
+
+    // Keep trying them until an error is not thrown
+
+    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+  }
+
+  /**
+   * Register fonts.
+   *
+   * @throws FontFormatException
+   *           the font format exception
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public static final void registerFonts() throws FontFormatException, IOException {
+    Resources.getInstance().registerFont("Inconsolata-Regular.ttf");
+    Resources.getInstance().registerFont("Roboto-Regular.ttf");
+    Resources.getInstance().registerFont("Roboto-Light.ttf");
+    Resources.getInstance().registerFont("Roboto-Thin.ttf");
+    Resources.getInstance().registerFont("Roboto-Bold.ttf");
+
+    // Resources.getInstance().registerFont("OpenSans-Regular.ttf");
+    // Resources.getInstance().registerFont("OpenSans-Light.ttf");
+    // Resources.getInstance().registerFont("OpenSans-Bold.ttf");
+  }
+
+  /**
+   * Load font.
+   *
+   * @param path
+   *          the path
+   * @return the font
+   */
+  public static Font loadFont(String path) {
+    return loadFont(new Path(path));
+  }
+
+  public static Font loadFont(Path path) {
+    Path p = new Path(path).append("family");
+
+    String family = SettingsService.getInstance().getAsString(p);
+
+    p = new Path(path).append("size");
+
+    int size = SettingsService.getInstance().getAsInt(p);
+
+    return FontService.getInstance().loadFont(family, size,
+        SettingsService.getInstance().getAsString(p).equals("bold"));
+  }
 }

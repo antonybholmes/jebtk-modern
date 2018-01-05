@@ -32,7 +32,6 @@ import org.jebtk.modern.button.ModernDropDownIconButton;
 import org.jebtk.modern.graphics.icons.FilterVectorIcon;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Allow users to select a color for an object etc.
@@ -41,31 +40,32 @@ import org.jebtk.modern.window.ModernWindow;
  *
  */
 public class FilterButton extends ModernDropDownIconButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member popup.
-	 */
-	private FilterPopupMenu mPopup;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new filter button.
-	 *
-	 * @param parent the parent
-	 * @param filterModel the filter model
-	 */
-	public FilterButton(ModernWindow parent,
-			FilterModel filterModel) {
-		super(UIService.getInstance().loadIcon(FilterVectorIcon.class, 16));
-		
-		mPopup = new FilterPopupMenu(parent, filterModel);
-		
-		setMenu(mPopup);
-		
-		//Ui.setSize(this, SIZE);
-	}
+  /**
+   * The member popup.
+   */
+  private FilterPopupMenu mPopup;
+
+  /**
+   * Instantiates a new filter button.
+   *
+   * @param parent
+   *          the parent
+   * @param filterModel
+   *          the filter model
+   */
+  public FilterButton(ModernWindow parent, FilterModel filterModel) {
+    super(UIService.getInstance().loadIcon(FilterVectorIcon.class, 16));
+
+    mPopup = new FilterPopupMenu(parent, filterModel);
+
+    setMenu(mPopup);
+
+    // Ui.setSize(this, SIZE);
+  }
 }

@@ -31,8 +31,6 @@ import java.awt.Dimension;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Default menu item for creating menu items with large icons.
@@ -41,51 +39,54 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  *
  */
 public class ModernLargeIconMenuItem extends ModernIconMenuItem {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant DEFAULT_SIZE.
-	 */
-	public static final Dimension DEFAULT_SIZE = 
-			new Dimension(300, 48);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new modern large icon menu item.
-	 *
-	 * @param line1 the line1
-	 * @param icon the icon
-	 */
-	public ModernLargeIconMenuItem(String line1, ModernIcon icon) {
-		super(line1, icon);
+  /**
+   * The constant DEFAULT_SIZE.
+   */
+  public static final Dimension DEFAULT_SIZE = new Dimension(300, 48);
 
-		setup();
-	}
+  /**
+   * Instantiates a new modern large icon menu item.
+   *
+   * @param line1
+   *          the line1
+   * @param icon
+   *          the icon
+   */
+  public ModernLargeIconMenuItem(String line1, ModernIcon icon) {
+    super(line1, icon);
 
-	/**
-	 * Instantiates a new modern large icon menu item.
-	 *
-	 * @param line1 the line1
-	 * @param icon the icon
-	 * @param size the size
-	 */
-	public ModernLargeIconMenuItem(String line1, ModernIcon icon, Dimension size) {
-		super(line1, icon);
+    setup();
+  }
 
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setMinimumSize(DEFAULT_SIZE);
-		setPreferredSize(DEFAULT_SIZE);
-		setMaximumSize(MAX_SIZE_48);
+  /**
+   * Instantiates a new modern large icon menu item.
+   *
+   * @param line1
+   *          the line1
+   * @param icon
+   *          the icon
+   * @param size
+   *          the size
+   */
+  public ModernLargeIconMenuItem(String line1, ModernIcon icon, Dimension size) {
+    super(line1, icon);
 
-	}
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setMinimumSize(DEFAULT_SIZE);
+    setPreferredSize(DEFAULT_SIZE);
+    setMaximumSize(MAX_SIZE_48);
+
+  }
 }

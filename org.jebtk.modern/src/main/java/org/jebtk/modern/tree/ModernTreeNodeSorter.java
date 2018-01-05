@@ -35,93 +35,98 @@ import java.util.Map;
 
 import org.jebtk.core.tree.TreeNode;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The experiment tree can be sorted in multiple ways. Given a list
- * of experiments and a tree, generate a custom sorted tree of experiments.
+ * The experiment tree can be sorted in multiple ways. Given a list of
+ * experiments and a tree, generate a custom sorted tree of experiments.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public abstract class ModernTreeNodeSorter<T> implements Comparable<ModernTreeNodeSorter<T>> {
-	
-	/**
-	 * The member name.
-	 */
-	private String mName;
 
-	/**
-	 * Instantiates a new modern tree node sorter.
-	 *
-	 * @param name the name
-	 */
-	public ModernTreeNodeSorter(String name) {
-		mName = name;
-	}
-	
-	/**
-	 * Gets the name.
-	 *
-	 * @return the name
-	 */
-	public String getName() {
-		return mName;
-	}
-	
-	/**
-	 * Should take a list of experiments, organise them and then populate a tree.
-	 *
-	 * @param nodes the nodes
-	 * @param ascending the ascending
-	 * @return the list
-	 */
-	public abstract List<TreeNode<T>> sort(List<TreeNode<T>> nodes,
-			boolean ascending);
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
-	public int compareTo(ModernTreeNodeSorter<T> s) {
-		// TODO Auto-generated method stub
-		return mName.compareTo(s.getName());
-	}
-	
-	/**
-	 * Sort nodes by name.
-	 *
-	 * @param <T> the generic type
-	 * @param nodes the nodes
-	 * @param ascending the ascending
-	 * @return the list
-	 */
-	public static <T> List<TreeNode<T>> sortNodesByName(List<TreeNode<T>> nodes, 
-			boolean ascending) {
-		
-		List<String> names = new ArrayList<String>();
-		
-		Map<String, TreeNode<T>> nodeMap = 
-				new HashMap<String, TreeNode<T>>();
+  /**
+   * The member name.
+   */
+  private String mName;
 
-		for (TreeNode<T> node : nodes) {
-			String name = node.getName();
-			
-			names.add(name);
-			nodeMap.put(name, node);
-		}
+  /**
+   * Instantiates a new modern tree node sorter.
+   *
+   * @param name
+   *          the name
+   */
+  public ModernTreeNodeSorter(String name) {
+    mName = name;
+  }
 
-		Collections.sort(names);
+  /**
+   * Gets the name.
+   *
+   * @return the name
+   */
+  public String getName() {
+    return mName;
+  }
 
-		if (!ascending) {
-			Collections.reverse(names);
-		}
+  /**
+   * Should take a list of experiments, organise them and then populate a tree.
+   *
+   * @param nodes
+   *          the nodes
+   * @param ascending
+   *          the ascending
+   * @return the list
+   */
+  public abstract List<TreeNode<T>> sort(List<TreeNode<T>> nodes, boolean ascending);
 
-		List<TreeNode<T>> sortedNodes = new ArrayList<TreeNode<T>>();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Comparable#compareTo(java.lang.Object)
+   */
+  public int compareTo(ModernTreeNodeSorter<T> s) {
+    // TODO Auto-generated method stub
+    return mName.compareTo(s.getName());
+  }
 
-		for (String name : names) {
-			sortedNodes.add(nodeMap.get(name));
-		}
+  /**
+   * Sort nodes by name.
+   *
+   * @param <T>
+   *          the generic type
+   * @param nodes
+   *          the nodes
+   * @param ascending
+   *          the ascending
+   * @return the list
+   */
+  public static <T> List<TreeNode<T>> sortNodesByName(List<TreeNode<T>> nodes, boolean ascending) {
 
-		return sortedNodes;
-	}
+    List<String> names = new ArrayList<String>();
+
+    Map<String, TreeNode<T>> nodeMap = new HashMap<String, TreeNode<T>>();
+
+    for (TreeNode<T> node : nodes) {
+      String name = node.getName();
+
+      names.add(name);
+      nodeMap.put(name, node);
+    }
+
+    Collections.sort(names);
+
+    if (!ascending) {
+      Collections.reverse(names);
+    }
+
+    List<TreeNode<T>> sortedNodes = new ArrayList<TreeNode<T>>();
+
+    for (String name : names) {
+      sortedNodes.add(nodeMap.get(name));
+    }
+
+    return sortedNodes;
+  }
 }

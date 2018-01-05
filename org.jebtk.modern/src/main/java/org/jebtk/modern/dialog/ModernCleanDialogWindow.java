@@ -31,43 +31,43 @@ import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.widget.tooltip.ModernToolTipModel;
 import org.jebtk.modern.window.ModernWindow;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernCleanDialogWindow.
  */
 public class ModernCleanDialogWindow extends ModernDialogWindow implements ModernToolTipModel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new modern clean dialog window.
-	 *
-	 * @param parent the parent
-	 */
-	public ModernCleanDialogWindow(ModernWindow parent) {
-		super(parent);
-	}
-	
-	/**
-	 * Instantiates a new modern clean dialog window.
-	 *
-	 * @param productDetails the product details
-	 */
-	public ModernCleanDialogWindow(GuiAppInfo productDetails) {
-		super(productDetails);
-	}
 
-	/**
-	 * Sets the content pane.
-	 */
-	protected void setContentPane() {
-		//mBody = new ModernPanel();
-		
-		//getContentPane().add(mBody, BorderLayout.CENTER);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern clean dialog window.
+   *
+   * @param parent
+   *          the parent
+   */
+  public ModernCleanDialogWindow(ModernWindow parent) {
+    super(parent);
+  }
+
+  /**
+   * Instantiates a new modern clean dialog window.
+   *
+   * @param productDetails
+   *          the product details
+   */
+  public ModernCleanDialogWindow(GuiAppInfo productDetails) {
+    super(productDetails);
+  }
+
+  /**
+   * Sets the content pane.
+   */
+  protected void setContentPane() {
+    // mBody = new ModernPanel();
+
+    // getContentPane().add(mBody, BorderLayout.CENTER);
+  }
 }

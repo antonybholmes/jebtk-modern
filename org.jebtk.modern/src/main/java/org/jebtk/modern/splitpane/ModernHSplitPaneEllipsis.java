@@ -30,73 +30,70 @@ package org.jebtk.modern.splitpane;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Creates a horizontal split pane that uses three holds for the
- * grab handle.
+ * Creates a horizontal split pane that uses three holds for the grab handle.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernHSplitPaneEllipsis extends HSplitPane {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant WIDTH.
-	 */
-	private static final int WIDTH = 2;
-	
-	/**
-	 * The constant DY.
-	 */
-	private static final int DY = 5;
-	
-	/**
-	 * The constant H.
-	 */
-	private static final int H = DY * 2;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant WIDTH.
+   */
+  private static final int WIDTH = 2;
 
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR = LINE_COLOR;
+  /**
+   * The constant DY.
+   */
+  private static final int DY = 5;
 
+  /**
+   * The constant H.
+   */
+  private static final int H = DY * 2;
 
-	/**
-	 * Instantiates a new modern H split pane ellipsis.
-	 */
-	public ModernHSplitPaneEllipsis() {
-		setDividerWidth(PADDING);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = getInsets().left; //mDividerMidPoint - WIDTH / 2;
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = LINE_COLOR;
 
-		int w = getInternalRect().getW();
-		
-		g2.setColor(COLOR);
+  /**
+   * Instantiates a new modern H split pane ellipsis.
+   */
+  public ModernHSplitPaneEllipsis() {
+    setDividerWidth(PADDING);
+  }
 
-		for (int i = 0; i < mDividerLocations.size() - 1; ++i) {
-			x = getInsets().left + (int)(w * mDividerLocations.get(i));
-			
-			int y = (getHeight() - H) / 2;
-			
-			for (int j = 0; j < 3; ++j) {
-				g2.fillRect(x, y, WIDTH, WIDTH);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = getInsets().left; // mDividerMidPoint - WIDTH / 2;
 
-				y += DY;
-			}
-		}
-	}
+    int w = getInternalRect().getW();
+
+    g2.setColor(COLOR);
+
+    for (int i = 0; i < mDividerLocations.size() - 1; ++i) {
+      x = getInsets().left + (int) (w * mDividerLocations.get(i));
+
+      int y = (getHeight() - H) / 2;
+
+      for (int j = 0; j < 3; ++j) {
+        g2.fillRect(x, y, WIDTH, WIDTH);
+
+        y += DY;
+      }
+    }
+  }
 }

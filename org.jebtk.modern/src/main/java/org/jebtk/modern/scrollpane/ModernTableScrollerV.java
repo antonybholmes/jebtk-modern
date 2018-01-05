@@ -38,35 +38,38 @@ import org.jebtk.modern.table.ModernTable;
  */
 public class ModernTableScrollerV extends ModernTableScroller {
 
-	/**
-	 * Instantiates a new modern table scroller V.
-	 *
-	 * @param table the table
-	 */
-	public ModernTableScrollerV(ModernTable table) {
-		super(table);
-	}
+  /**
+   * Instantiates a new modern table scroller V.
+   *
+   * @param table
+   *          the table
+   */
+  public ModernTableScrollerV(ModernTable table) {
+    super(table);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.ComponentScroller#wheelScroll(int, org.abh.common.ui.graphics.ModernCanvas, org.abh.common.ui.scrollpane.ModernScrollBar)
-	 */
-	@Override
-	public void wheelScroll(int notches, 
-			Component c,
-			ModernScrollBar scrollBar) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.scrollpane.ComponentScroller#wheelScroll(int,
+   * org.abh.common.ui.graphics.ModernCanvas,
+   * org.abh.common.ui.scrollpane.ModernScrollBar)
+   */
+  @Override
+  public void wheelScroll(int notches, Component c, ModernScrollBar scrollBar) {
 
-		ModernDataSelection range = mTable.calculateVisibleCells();
+    ModernDataSelection range = mTable.calculateVisibleCells();
 
-		//int row = range.getStartRow() + notches;
+    // int row = range.getStartRow() + notches;
 
+    // Move the table by the width of the first row on display
+    int width = mTable.getRowModel().getWidth(range.getStartRow());
 
-		// Move the table by the width of the first row on display
-		int width = mTable.getRowModel().getWidth(range.getStartRow());
+    double p = scrollBar.normalize(width, notches); // * notches;
 
-		double p = scrollBar.normalize(width, notches); // * notches;
+    // System.err.println("Row " + range.getStartRow() + " " + notches + " " + width
+    // + " " + p);
 
-		//System.err.println("Row " + range.getStartRow() + " " + notches + " " + width + " " + p);
-
-		scrollBar.incrementNormalizedScrollPosition(p); //.setNormalizedScrollPosition(p);
-	}
+    scrollBar.incrementNormalizedScrollPosition(p); // .setNormalizedScrollPosition(p);
+  }
 }

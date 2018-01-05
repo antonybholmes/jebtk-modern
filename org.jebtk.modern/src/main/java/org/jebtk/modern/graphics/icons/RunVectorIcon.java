@@ -43,45 +43,47 @@ import org.jebtk.modern.ribbon.Ribbon;
  *
  */
 public class RunVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant ANGLE.
-	 */
-	private static final double ANGLE = Math.sin(Mathematics.QUARTER_PI);
-	
-	/**
-	 * The constant SCALE.
-	 */
-	private static final double SCALE = 
-			1; //SettingsService.getInstance().getAsDouble("theme.icons.run-icon.width-scale");
-	
-	/**
-	 * The constant BACKGROUND.
-	 */
-	private static final Color BACKGROUND = 
-			Ribbon.BAR_BACKGROUND; //SettingsService.getInstance().getAsColor("theme.icons.run-icon.colors.foreground");
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		
-		double hf = w * SCALE;
-		double h2 = hf / 2.0;
-		double wf = h * ANGLE;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - hf) / 2.0;
-		
-		GeneralPath gp = new GeneralPath();
-		
-		gp.moveTo(xf, yf);
-		gp.lineTo(xf + wf, yf + h2);
-		gp.lineTo(xf, yf + hf);
-		gp.closePath();
-		
-		g2.setColor(BACKGROUND);
-		g2.fill(gp);
-	}
+
+  /**
+   * The constant ANGLE.
+   */
+  private static final double ANGLE = Math.sin(Mathematics.QUARTER_PI);
+
+  /**
+   * The constant SCALE.
+   */
+  private static final double SCALE = 1; // SettingsService.getInstance().getAsDouble("theme.icons.run-icon.width-scale");
+
+  /**
+   * The constant BACKGROUND.
+   */
+  private static final Color BACKGROUND = Ribbon.BAR_BACKGROUND; // SettingsService.getInstance().getAsColor("theme.icons.run-icon.colors.foreground");
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+    double hf = w * SCALE;
+    double h2 = hf / 2.0;
+    double wf = h * ANGLE;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - hf) / 2.0;
+
+    GeneralPath gp = new GeneralPath();
+
+    gp.moveTo(xf, yf);
+    gp.lineTo(xf + wf, yf + h2);
+    gp.lineTo(xf, yf + hf);
+    gp.closePath();
+
+    g2.setColor(BACKGROUND);
+    g2.fill(gp);
+  }
 }

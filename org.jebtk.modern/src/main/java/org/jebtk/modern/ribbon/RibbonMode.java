@@ -20,10 +20,10 @@ package org.jebtk.modern.ribbon;
  * The Enum RibbonMode.
  */
 public enum RibbonMode {
-	
-	/** The tabs. */
-	TABS,
-	
-	/** The tabs commands. */
-	TABS_COMMANDS
+
+  /** The tabs. */
+  TABS,
+
+  /** The tabs commands. */
+  TABS_COMMANDS
 }

@@ -39,115 +39,122 @@ import org.jebtk.modern.widget.ModernWidget;
  * The class FilterVectorIcon.
  */
 public class FilterVectorIcon extends ModernVectorScalableIcon {
-	
-	/**
-	 * The constant HEIGHT_SCALE.
-	 */
-	private static final double HEIGHT_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.filter-icon.height-scale");
 
-	/**
-	 * The constant WIDTH_SCALE.
-	 */
-	private static final double WIDTH_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.filter-icon.width-scale");
+  /**
+   * The constant HEIGHT_SCALE.
+   */
+  private static final double HEIGHT_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.filter-icon.height-scale");
 
-	/**
-	 * The constant LIP_SCALE.
-	 */
-	private static final double LIP_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.filter-icon.lip-scale");
-	
-	/**
-	 * The constant FUNNEL_WIDTH_SCALE.
-	 */
-	private static final double FUNNEL_WIDTH_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.filter-icon.funnel-width-scale");
-	
-	/**
-	 * The constant FUNNEL_HEIGHT_SCALE.
-	 */
-	private static final double FUNNEL_HEIGHT_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.filter-icon.funnel-height-scale");
-	
-	/**
-	 * The constant SPOUT_SCALE.
-	 */
-	private static final double SPOUT_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.filter-icon.spout-scale");
-	
-	/**
-	 * The member color.
-	 */
-	private Color mColor;
+  /**
+   * The constant WIDTH_SCALE.
+   */
+  private static final double WIDTH_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.filter-icon.width-scale");
 
-	/** The m fill color. */
-	private Color mFillColor;
-	
-	/**
-	 * Instantiates a new filter vector icon.
-	 */
-	public FilterVectorIcon() {
-		this(ModernWidget.DARK_LINE_COLOR);
-	}
-	
-	/**
-	 * Instantiates a new filter vector icon.
-	 *
-	 * @param color the color
-	 */
-	public FilterVectorIcon(Color color) {
-		this(color, color);
-	}
-	
-	/**
-	 * Instantiates a new filter vector icon.
-	 *
-	 * @param line the line
-	 * @param fill the fill
-	 */
-	public FilterVectorIcon(Color line, Color fill) {
-		mColor = line;
-		mFillColor = fill;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		double hf = h * HEIGHT_SCALE;
-		double wf =  h * WIDTH_SCALE;
-		
-		double lip = h * LIP_SCALE;
-		
-		double fwf = w * FUNNEL_WIDTH_SCALE;
-		double fhf = h * FUNNEL_HEIGHT_SCALE;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - hf) / 2.0;
-		
-		double fxf = xf + (wf - fwf) / 2.0;
-		
-		double hs = hf * SPOUT_SCALE;
-		
-		GeneralPath gp = new GeneralPath();
-		
-		gp.moveTo(xf, yf);
-		
-		gp.lineTo(xf + wf, yf);
-		gp.lineTo(xf + wf, yf + lip);
-		gp.lineTo(fxf + fwf, yf + fhf);
-		gp.lineTo(fxf + fwf, yf + hf - hs);
-		gp.lineTo(fxf, yf + hf);
-		gp.lineTo(fxf, yf + fhf);
-		gp.lineTo(xf, yf + lip);
-		gp.closePath();
-		
-		g2.setColor(mFillColor);
-		g2.fill(gp);
-		
-		g2.setColor(mColor);
-		g2.draw(gp);
-	}
+  /**
+   * The constant LIP_SCALE.
+   */
+  private static final double LIP_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.filter-icon.lip-scale");
+
+  /**
+   * The constant FUNNEL_WIDTH_SCALE.
+   */
+  private static final double FUNNEL_WIDTH_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.filter-icon.funnel-width-scale");
+
+  /**
+   * The constant FUNNEL_HEIGHT_SCALE.
+   */
+  private static final double FUNNEL_HEIGHT_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.filter-icon.funnel-height-scale");
+
+  /**
+   * The constant SPOUT_SCALE.
+   */
+  private static final double SPOUT_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.filter-icon.spout-scale");
+
+  /**
+   * The member color.
+   */
+  private Color mColor;
+
+  /** The m fill color. */
+  private Color mFillColor;
+
+  /**
+   * Instantiates a new filter vector icon.
+   */
+  public FilterVectorIcon() {
+    this(ModernWidget.DARK_LINE_COLOR);
+  }
+
+  /**
+   * Instantiates a new filter vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public FilterVectorIcon(Color color) {
+    this(color, color);
+  }
+
+  /**
+   * Instantiates a new filter vector icon.
+   *
+   * @param line
+   *          the line
+   * @param fill
+   *          the fill
+   */
+  public FilterVectorIcon(Color line, Color fill) {
+    mColor = line;
+    mFillColor = fill;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    double hf = h * HEIGHT_SCALE;
+    double wf = h * WIDTH_SCALE;
+
+    double lip = h * LIP_SCALE;
+
+    double fwf = w * FUNNEL_WIDTH_SCALE;
+    double fhf = h * FUNNEL_HEIGHT_SCALE;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - hf) / 2.0;
+
+    double fxf = xf + (wf - fwf) / 2.0;
+
+    double hs = hf * SPOUT_SCALE;
+
+    GeneralPath gp = new GeneralPath();
+
+    gp.moveTo(xf, yf);
+
+    gp.lineTo(xf + wf, yf);
+    gp.lineTo(xf + wf, yf + lip);
+    gp.lineTo(fxf + fwf, yf + fhf);
+    gp.lineTo(fxf + fwf, yf + hf - hs);
+    gp.lineTo(fxf, yf + hf);
+    gp.lineTo(fxf, yf + fhf);
+    gp.lineTo(xf, yf + lip);
+    gp.closePath();
+
+    g2.setColor(mFillColor);
+    g2.fill(gp);
+
+    g2.setColor(mColor);
+    g2.draw(gp);
+  }
 }

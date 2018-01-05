@@ -41,7 +41,6 @@ import org.jebtk.modern.graphics.icons.ModernVectorScalableIcon;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.theme.ThemeService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Provide help in dialogs.
@@ -50,89 +49,97 @@ import org.jebtk.modern.theme.ThemeService;
  *
  */
 public class ModernMenuHelpItem extends ModernIconMenuItem {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/** The Constant SIZE. */
-	private static final int SIZE = 20; //ModernWidget.WIDGET_HEIGHT
-	
-	/** The Constant ICON. */
-	private static final ModernIcon ICON =
-			ModernVectorScalableIcon.createRastorIcon(HelpVectorIcon.class, 
-					ThemeService.getInstance().colors().getColorHighlight(5),
-					ThemeService.getInstance().colors().getColorHighlight(6),
-					SIZE);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The m url. */
-	private URL mUrl;
-	
-	/**
-	 * Creates a new dialog help button, referring to the URL specified by
-	 * the settings url string. The parameter must be a setting name that
-	 * maps to a URL. It cannot be a URL as a string. To use a URL directory
-	 * use the URL constructor.
-	 *
-	 * @param settingsUrl the settings url
-	 */
-	public ModernMenuHelpItem(String settingsUrl) {
-		this("Help...", SettingsService.getInstance().getAsUrl(settingsUrl));
-	}
-	
-	/**
-	 * Instantiates a new modern menu help item.
-	 *
-	 * @param name the name
-	 * @param settingsUrl the settings url
-	 */
-	public ModernMenuHelpItem(String name, String settingsUrl) {
-		this(name, SettingsService.getInstance().getAsUrl(settingsUrl));
-	}
-	
-	/**
-	 * Instantiates a new modern dialog help button.
-	 *
-	 * @param name the name
-	 * @param url the url
-	 */
-	public ModernMenuHelpItem(String name, URL url) {
-		this(name, url, ICON);
-	}
-	
-	/**
-	 * Instantiates a new modern menu help item.
-	 *
-	 * @param title the title
-	 * @param url the url
-	 * @param icon the icon
-	 */
-	public ModernMenuHelpItem(String title, URL url, ModernIcon icon) {
-		super(title, icon);
-		
-		init(url);
-	}
-	
-	/**
-	 * Inits the.
-	 *
-	 * @param url the url
-	 */
-	private void init(URL url) {
-		mUrl = url;
-		
-		addClickListener(new ModernClickListener(){
+  /** The Constant SIZE. */
+  private static final int SIZE = 20; // ModernWidget.WIDGET_HEIGHT
 
-			@Override
-			public void clicked(ModernClickEvent e) {
-				try {
-					UrlUtils.launch(mUrl);
-				} catch (URISyntaxException e1) {
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-			}});
-	}
+  /** The Constant ICON. */
+  private static final ModernIcon ICON = ModernVectorScalableIcon.createRastorIcon(HelpVectorIcon.class,
+      ThemeService.getInstance().colors().getColorHighlight(5),
+      ThemeService.getInstance().colors().getColorHighlight(6), SIZE);
+
+  /** The m url. */
+  private URL mUrl;
+
+  /**
+   * Creates a new dialog help button, referring to the URL specified by the
+   * settings url string. The parameter must be a setting name that maps to a URL.
+   * It cannot be a URL as a string. To use a URL directory use the URL
+   * constructor.
+   *
+   * @param settingsUrl
+   *          the settings url
+   */
+  public ModernMenuHelpItem(String settingsUrl) {
+    this("Help...", SettingsService.getInstance().getAsUrl(settingsUrl));
+  }
+
+  /**
+   * Instantiates a new modern menu help item.
+   *
+   * @param name
+   *          the name
+   * @param settingsUrl
+   *          the settings url
+   */
+  public ModernMenuHelpItem(String name, String settingsUrl) {
+    this(name, SettingsService.getInstance().getAsUrl(settingsUrl));
+  }
+
+  /**
+   * Instantiates a new modern dialog help button.
+   *
+   * @param name
+   *          the name
+   * @param url
+   *          the url
+   */
+  public ModernMenuHelpItem(String name, URL url) {
+    this(name, url, ICON);
+  }
+
+  /**
+   * Instantiates a new modern menu help item.
+   *
+   * @param title
+   *          the title
+   * @param url
+   *          the url
+   * @param icon
+   *          the icon
+   */
+  public ModernMenuHelpItem(String title, URL url, ModernIcon icon) {
+    super(title, icon);
+
+    init(url);
+  }
+
+  /**
+   * Inits the.
+   *
+   * @param url
+   *          the url
+   */
+  private void init(URL url) {
+    mUrl = url;
+
+    addClickListener(new ModernClickListener() {
+
+      @Override
+      public void clicked(ModernClickEvent e) {
+        try {
+          UrlUtils.launch(mUrl);
+        } catch (URISyntaxException e1) {
+          e1.printStackTrace();
+        } catch (IOException e1) {
+          e1.printStackTrace();
+        }
+      }
+    });
+  }
 }

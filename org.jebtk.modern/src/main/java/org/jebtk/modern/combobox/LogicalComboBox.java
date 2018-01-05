@@ -35,8 +35,6 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernMenuDivider;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Preloaded combobox with logical stagements.
@@ -44,108 +42,110 @@ import org.jebtk.modern.menu.ModernMenuDivider;
  * @author Antony Holmes Holmes
  */
 public class LogicalComboBox extends ModernComboBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant WIDTH.
-	 */
-	protected static final int WIDTH = 120;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Gets the boolean type from index.
-	 *
-	 * @param index the index
-	 * @return the boolean type from index
-	 */
-	public static final BooleanOperator getBooleanTypeFromIndex(int index) {
-		switch (index) {
-		case 0:
-			return BooleanOperator.AND;
-		case 1:
-			return BooleanOperator.OR;
-		case 2:
-			return BooleanOperator.NOR;
-		case 3:
-			return BooleanOperator.XOR;
-		case 4:
-			return BooleanOperator.NAND;
-		default:
-			return BooleanOperator.INVALID;
-		}
-	}
+  /**
+   * The constant WIDTH.
+   */
+  protected static final int WIDTH = 120;
 
-	/**
-	 * Gets the index from type.
-	 *
-	 * @param type the type
-	 * @return the index from type
-	 */
-	public static final int getIndexFromType(BooleanOperator type) {
-		switch (type) {
-		case AND:
-			return 0;
-		case OR:
-			return 1;
-		case NOR:
-			return 2;
-		case XOR:
-			return 3;
-		case NAND:
-			return 4;
-		default:
-			return -1;
-		}
-	}
+  /**
+   * Gets the boolean type from index.
+   *
+   * @param index
+   *          the index
+   * @return the boolean type from index
+   */
+  public static final BooleanOperator getBooleanTypeFromIndex(int index) {
+    switch (index) {
+    case 0:
+      return BooleanOperator.AND;
+    case 1:
+      return BooleanOperator.OR;
+    case 2:
+      return BooleanOperator.NOR;
+    case 3:
+      return BooleanOperator.XOR;
+    case 4:
+      return BooleanOperator.NAND;
+    default:
+      return BooleanOperator.INVALID;
+    }
+  }
 
+  /**
+   * Gets the index from type.
+   *
+   * @param type
+   *          the type
+   * @return the index from type
+   */
+  public static final int getIndexFromType(BooleanOperator type) {
+    switch (type) {
+    case AND:
+      return 0;
+    case OR:
+      return 1;
+    case NOR:
+      return 2;
+    case XOR:
+      return 3;
+    case NAND:
+      return 4;
+    default:
+      return -1;
+    }
+  }
 
-	/**
-	 * Instantiates a new logical combo box.
-	 */
-	public LogicalComboBox() {
-		setup();
-	}
+  /**
+   * Instantiates a new logical combo box.
+   */
+  public LogicalComboBox() {
+    setup();
+  }
 
-	/**
-	 * Instantiates a new logical combo box.
-	 *
-	 * @param operator the operator
-	 */
-	public LogicalComboBox(BooleanOperator operator) {
-		setup();
+  /**
+   * Instantiates a new logical combo box.
+   *
+   * @param operator
+   *          the operator
+   */
+  public LogicalComboBox(BooleanOperator operator) {
+    setup();
 
-		this.setSelectedIndex(getIndexFromType(operator));
-	}
+    this.setSelectedIndex(getIndexFromType(operator));
+  }
 
-	/**
-	 * Setup.
-	 */
-	protected void setup() {
-		ModernIconMenuItem item;
+  /**
+   * Setup.
+   */
+  protected void setup() {
+    ModernIconMenuItem item;
 
-		item = new ModernIconMenuItem("AND", UIService.getInstance().loadIcon("and", UIService.ICON_SIZE_48));
-		UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
-		addScrollMenuItem(item);
+    item = new ModernIconMenuItem("AND", UIService.getInstance().loadIcon("and", UIService.ICON_SIZE_48));
+    UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
+    addScrollMenuItem(item);
 
-		item = new ModernIconMenuItem("OR", UIService.getInstance().loadIcon("or", UIService.ICON_SIZE_48));
-		UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
-		addScrollMenuItem(item);
+    item = new ModernIconMenuItem("OR", UIService.getInstance().loadIcon("or", UIService.ICON_SIZE_48));
+    UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
+    addScrollMenuItem(item);
 
-		addScrollMenuItem(new ModernMenuDivider());
+    addScrollMenuItem(new ModernMenuDivider());
 
-		item = new ModernIconMenuItem("NOR", UIService.getInstance().loadIcon("nor", UIService.ICON_SIZE_48));
-		UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
-		addScrollMenuItem(item);
+    item = new ModernIconMenuItem("NOR", UIService.getInstance().loadIcon("nor", UIService.ICON_SIZE_48));
+    UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
+    addScrollMenuItem(item);
 
-		item = new ModernIconMenuItem("XOR", UIService.getInstance().loadIcon("xor", UIService.ICON_SIZE_48));
-		UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
-		addScrollMenuItem(item);
+    item = new ModernIconMenuItem("XOR", UIService.getInstance().loadIcon("xor", UIService.ICON_SIZE_48));
+    UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
+    addScrollMenuItem(item);
 
-		item = new ModernIconMenuItem("NAND", UIService.getInstance().loadIcon("nand", UIService.ICON_SIZE_48));
-		UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
-		addScrollMenuItem(item);
-	}
+    item = new ModernIconMenuItem("NAND", UIService.getInstance().loadIcon("nand", UIService.ICON_SIZE_48));
+    UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
+    addScrollMenuItem(item);
+  }
 }

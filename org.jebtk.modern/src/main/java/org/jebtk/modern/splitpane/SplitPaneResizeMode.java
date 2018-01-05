@@ -32,19 +32,19 @@ package org.jebtk.modern.splitpane;
  * The enum SplitPaneResizeMode.
  */
 public enum SplitPaneResizeMode {
-	
-	/**
-	 * The COMPONEN t_1.
-	 */
-	COMPONENT_1,
-	
-	/**
-	 * The COMPONEN t_2.
-	 */
-	COMPONENT_2,
-	
-	/**
-	 * The none.
-	 */
-	NONE
+
+  /**
+   * The COMPONEN t_1.
+   */
+  COMPONENT_1,
+
+  /**
+   * The COMPONEN t_2.
+   */
+  COMPONENT_2,
+
+  /**
+   * The none.
+   */
+  NONE
 }

@@ -51,244 +51,244 @@ import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.IconTabs;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Standardized dialog window for dialogs that have buttons along the 
- * bottom such as OK and Cancel for when user is performing a task.
+ * Standardized dialog window for dialogs that have buttons along the bottom
+ * such as OK and Cancel for when user is performing a task.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDialogTaskWindow extends ModernDialogWindow implements ModernClickListener {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /** The m buttons. */
+  protected ModernDialogButtonsBox mButtons = new ModernDialogButtonsBox();
 
+  /** The m ok button. */
+  protected ModernButton mOkButton = new ModernDialogMaterialButton(UI.BUTTON_OK);
 
-	/** The m buttons. */
-	protected ModernDialogButtonsBox mButtons = new ModernDialogButtonsBox();
+  /**
+   * The close button.
+   */
+  protected ModernButton mCancelButton = new ModernDialogMaterialButton(UI.BUTTON_CANCEL);
 
-	/** The m ok button. */
-	protected ModernButton mOkButton = 
-			new ModernDialogMaterialButton(UI.BUTTON_OK);
+  private ModernHContentPane mContentPane = new ModernHContentPane();
 
-	/**
-	 * The close button.
-	 */
-	protected ModernButton mCancelButton = 
-			new ModernDialogMaterialButton(UI.BUTTON_CANCEL);
-	
-	private ModernHContentPane mContentPane = 
-			new ModernHContentPane();
+  private TabsModel mLeftTabsModel;
 
+  private IconTabsPanel mViewPanel;
 
+  private IconTabs mIconTabs;
 
-	private TabsModel mLeftTabsModel;
+  /**
+   * Instantiates a new modern dialog window.
+   *
+   * @param parent
+   *          the parent
+   */
+  public ModernDialogTaskWindow(ModernWindow parent) {
+    this(parent, true);
+  }
 
+  /**
+   * Instantiates a new modern dialog window.
+   *
+   * @param parent
+   *          the parent
+   * @param modal
+   *          the modal
+   */
+  public ModernDialogTaskWindow(ModernWindow parent, boolean modal) {
+    this(parent, modal, ModernDialogTaskType.OK_CANCEL);
+  }
 
+  /**
+   * Instantiates a new modern dialog task window.
+   *
+   * @param parent
+   *          the parent
+   * @param type
+   *          the type
+   */
+  public ModernDialogTaskWindow(ModernWindow parent, ModernDialogTaskType type) {
+    this(parent, true, type);
+  }
 
-	private IconTabsPanel mViewPanel;
+  /**
+   * Instantiates a new modern dialog task window.
+   *
+   * @param parent
+   *          the parent
+   * @param modal
+   *          the modal
+   * @param type
+   *          the type
+   */
+  public ModernDialogTaskWindow(ModernWindow parent, boolean modal, ModernDialogTaskType type) {
+    super(parent, modal);
 
+    if (type != ModernDialogTaskType.NONE) {
+      setButtons(mButtons);
+    }
 
+    setup(type);
+  }
 
-	private IconTabs mIconTabs;
-	
-	
-	/**
-	 * Instantiates a new modern dialog window.
-	 *
-	 * @param parent the parent
-	 */
-	public ModernDialogTaskWindow(ModernWindow parent) {
-		this(parent, true);
-	}
+  /**
+   * Set the dialog type and hence which buttons are on display.
+   *
+   * @param type
+   *          the new up
+   */
+  protected void setup(ModernDialogTaskType type) {
 
-	/**
-	 * Instantiates a new modern dialog window.
-	 *
-	 * @param parent the parent
-	 * @param modal the modal
-	 */
-	public ModernDialogTaskWindow(ModernWindow parent, boolean modal) {
-		this(parent, modal, ModernDialogTaskType.OK_CANCEL);
-	}
+    switch (type) {
+    case CLOSE:
+      mOkButton.setText(UI.MENU_CLOSE);
+    case OK:
+      addOkButton();
+      break;
+    case CANCEL:
+      addCancelButton();
+      break;
+    case OK_CANCEL:
+      addOkCancelButtons();
+      break;
+    default:
+      break;
+    }
 
-	/**
-	 * Instantiates a new modern dialog task window.
-	 *
-	 * @param parent the parent
-	 * @param type the type
-	 */
-	public ModernDialogTaskWindow(ModernWindow parent,
-			ModernDialogTaskType type) {
-		this(parent, true, type);
-	}
+    setLightBackground();
 
-	/**
-	 * Instantiates a new modern dialog task window.
-	 *
-	 * @param parent the parent
-	 * @param modal the modal
-	 * @param type the type
-	 */
-	public ModernDialogTaskWindow(ModernWindow parent, 
-			boolean modal,
-			ModernDialogTaskType type) {
-		super(parent, modal);
-		
-		
+    setInternalContent(mContentPane);
 
-		if (type != ModernDialogTaskType.NONE) {
-			setButtons(mButtons);
-		}
+    mIconTabs = new IconTabs(getTabsPane());
+  }
 
-		setup(type);
-	}
+  /**
+   * Set the center card panel.
+   * 
+   * @param c
+   */
+  public void setCard(Component c) {
+    getTabsPane().getModel().setCenterTab(new ModernComponent(
+        new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)), ModernWidget.DOUBLE_BORDER));
 
-	/**
-	 * Set the dialog type and hence which buttons are on display.
-	 *
-	 * @param type the new up
-	 */
-	protected void setup(ModernDialogTaskType type) {
+    setDarkBackground();
+  }
 
-		switch(type) {
-		case CLOSE:
-			mOkButton.setText(UI.MENU_CLOSE);
-		case OK:
-			addOkButton();
-			break;
-		case CANCEL:
-			addCancelButton();
-			break;
-		case OK_CANCEL:
-			addOkCancelButtons();
-			break;
-		default:
-			break;
-		}
-		
-		setLightBackground();
-		
-		setInternalContent(mContentPane);
-		
-		mIconTabs = new IconTabs(getTabsPane());
-	}
-	
-	/**
-	 * Set the center card panel.
-	 * 
-	 * @param c
-	 */
-	public void setCard(Component c) {
-		getTabsPane()
-			.getModel()
-			.setCenterTab(new ModernComponent(new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)), 
-					ModernWidget.DOUBLE_BORDER));
-		
-		setDarkBackground();
-	}
+  /**
+   * Gets the button bar.
+   *
+   * @return the button bar
+   */
+  public ButtonsBox getButtonBar() {
+    return mButtons;
+  }
 
-	/**
-	 * Gets the button bar.
-	 *
-	 * @return the button bar
-	 */
-	public ButtonsBox getButtonBar() {
-		return mButtons;
-	}
-	
-	/**
-	 * Return the default tabs pane available in the dialog to create
-	 * horizontally tabbed layouts such as a side bar and main panel.
-	 * 
-	 * @return
-	 */
-	public ModernHContentPane getTabsPane() {
-		return mContentPane;
-	}
-	
-	public IconTabs getIconTabs() {
-		return mIconTabs;
-	}
+  /**
+   * Return the default tabs pane available in the dialog to create horizontally
+   * tabbed layouts such as a side bar and main panel.
+   * 
+   * @return
+   */
+  public ModernHContentPane getTabsPane() {
+    return mContentPane;
+  }
 
-	/**
-	 * Add standard OK and Cancel buttons to the dialog. Use clicked method
-	 * to respond.
-	 */
-	public void addOkCancelButtons() {
-		getButtonBar().add(mOkButton);
-		getButtonBar().add(ModernPanel.createHGap());
-		getButtonBar().add(mCancelButton);
+  public IconTabs getIconTabs() {
+    return mIconTabs;
+  }
 
-		mOkButton.addClickListener(this);
-		mCancelButton.addClickListener(this);
-	}
+  /**
+   * Add standard OK and Cancel buttons to the dialog. Use clicked method to
+   * respond.
+   */
+  public void addOkCancelButtons() {
+    getButtonBar().add(mOkButton);
+    getButtonBar().add(ModernPanel.createHGap());
+    getButtonBar().add(mCancelButton);
 
-	/**
-	 * Add standard OK and Cancel buttons to the dialog. Use clicked method
-	 * to respond.
-	 */
-	public void addOkButton() {
-		getButtonBar().add(mOkButton);
+    mOkButton.addClickListener(this);
+    mCancelButton.addClickListener(this);
+  }
 
-		mOkButton.addClickListener(this);
-	}
+  /**
+   * Add standard OK and Cancel buttons to the dialog. Use clicked method to
+   * respond.
+   */
+  public void addOkButton() {
+    getButtonBar().add(mOkButton);
 
-	/**
-	 * Add standard OK and Cancel buttons to the dialog. Use clicked method
-	 * to respond.
-	 */
-	public void addCancelButton() {
-		getButtonBar().add(mCancelButton);
+    mOkButton.addClickListener(this);
+  }
 
-		mCancelButton.addClickListener(this);
-	}
+  /**
+   * Add standard OK and Cancel buttons to the dialog. Use clicked method to
+   * respond.
+   */
+  public void addCancelButton() {
+    getButtonBar().add(mCancelButton);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		if (e.getSource().equals(mOkButton)) {
-			mStatus = ModernDialogStatus.OK;
-		}
+    mCancelButton.addClickListener(this);
+  }
 
-		close();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.dialog.ModernDialogWindow#setContent(javax.swing.JComponent)
-	 */
-	@Override
-	public void setContent(JComponent c) {
-		setInternalContent(new ModernComponent(c, ModernWidget.QUAD_BORDER)); //c); //new ModernDialogContentPanel(c));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
+   * ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    if (e.getSource().equals(mOkButton)) {
+      mStatus = ModernDialogStatus.OK;
+    }
 
-	/**
-	 * Create a standardized section header in a dialog vertical box.
-	 *
-	 * @param name the name
-	 * @param box the box
-	 */
-	public static void sectionHeader(final String name, Box box) {
-		box.add(new ModernDialogHeadingLabel(name));
-		box.add(UI.createVGap(10));
-	}
+    close();
+  }
 
-	/**
-	 * Create a standardized mid section header in a dialog vertical box.
-	 * This should be used for subsequent headers after using {@code sectionHeader(..)}
-	 *
-	 * @param name the name
-	 * @param box the box
-	 */
-	public static void midSectionHeader(final String name, Box box) {
-		box.add(UI.createVGap(30));
-		sectionHeader(name, box);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.dialog.ModernDialogWindow#setContent(javax.swing.
+   * JComponent)
+   */
+  @Override
+  public void setContent(JComponent c) {
+    setInternalContent(new ModernComponent(c, ModernWidget.QUAD_BORDER)); // c); //new ModernDialogContentPanel(c));
+  }
+
+  /**
+   * Create a standardized section header in a dialog vertical box.
+   *
+   * @param name
+   *          the name
+   * @param box
+   *          the box
+   */
+  public static void sectionHeader(final String name, Box box) {
+    box.add(new ModernDialogHeadingLabel(name));
+    box.add(UI.createVGap(10));
+  }
+
+  /**
+   * Create a standardized mid section header in a dialog vertical box. This
+   * should be used for subsequent headers after using {@code sectionHeader(..)}
+   *
+   * @param name
+   *          the name
+   * @param box
+   *          the box
+   */
+  public static void midSectionHeader(final String name, Box box) {
+    box.add(UI.createVGap(30));
+    sectionHeader(name, box);
+  }
 }

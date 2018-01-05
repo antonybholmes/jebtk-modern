@@ -31,7 +31,6 @@ import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
@@ -41,66 +40,61 @@ import java.awt.Rectangle;
  */
 public class ModernHScrollBarMac extends ModernHScrollBar {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern h scroll bar.
-	 */
-	public ModernHScrollBarMac(ModernScrollPane scrollPane, Component c) {
-		setButtonSize(0);
-		setInternalFixedDimension(10);
-		setMinimumScrollBarSize(20);
+  /**
+   * Instantiates a new modern h scroll bar.
+   */
+  public ModernHScrollBarMac(ModernScrollPane scrollPane, Component c) {
+    setButtonSize(0);
+    setInternalFixedDimension(10);
+    setMinimumScrollBarSize(20);
 
-		setBackgroundAnimation(new MacScrollAnimation(this));
-	}
+    setBackgroundAnimation(new MacScrollAnimation(this));
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#scrollBarSetup()
-	 */
-	@Override
-	public void scrollBarSetup() {
-		scrollBarSetup(mInternalRect.getW());
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#scrollBarSetup()
+   */
+  @Override
+  public void scrollBarSetup() {
+    scrollBarSetup(mInternalRect.getW());
+  }
 
-	/*
-	@Override
-	public void paintScrollBarBase(Graphics2D g2) {
-		Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+  /*
+   * @Override public void paintScrollBarBase(Graphics2D g2) { Graphics2D g2Temp =
+   * ImageUtils.createAAGraphics(g2);
+   * 
+   * int rounding = getInternalFixedDimension();
+   * 
+   * try { g2Temp.setColor(ROUNDED_SCROLLBAR_BACKGROUND_COLOR);
+   * 
+   * g2Temp.fillRoundRect(getInsets().left, getInsets().top, mInternalRect.getW(),
+   * rounding, rounding, rounding); } finally { g2Temp.dispose(); } }
+   */
 
-		int rounding = getInternalFixedDimension();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.scrollpane.ModernScrollBar#paintScrollBar(java.awt.
+   * Graphics2D, java.awt.Rectangle)
+   */
+  @Override
+  public void paintScrollBar(Graphics2D g2, Rectangle r) {
+    int rounding = mIternalFixedDim;
 
-		try {
-			g2Temp.setColor(ROUNDED_SCROLLBAR_BACKGROUND_COLOR);
+    // g2.setColor(ROUNDED_SCROLLBAR_COLOR);
 
-			g2Temp.fillRoundRect(getInsets().left, 
-					getInsets().top, 
-					mInternalRect.getW(),
-					rounding, 
-					rounding,
-					rounding);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
-	 */
+    // g2.fillRoundRect(r.x, r.y, r.width, r.height, rounding, rounding);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#paintScrollBar(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void paintScrollBar(Graphics2D g2, Rectangle r) {
-		int rounding = mIternalFixedDim;
+    getBackgroundAnimations().draw(this, g2, r, rounding);
 
-		//g2.setColor(ROUNDED_SCROLLBAR_COLOR);
-
-		//g2.fillRoundRect(r.x, r.y, r.width, r.height, rounding, rounding);
-
-		getBackgroundAnimations().draw(this, g2, r, rounding);
-
-	}
-
+  }
 
 }

@@ -33,36 +33,37 @@ import org.jebtk.modern.button.ModernDropDownIconButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.RenderMode;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonButton2.
  */
 public class RibbonDropDownIconButton extends ModernDropDownIconButton {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new ribbon drop down icon button.
-	 *
-	 * @param icon the icon
-	 */
-	public RibbonDropDownIconButton(ModernIcon icon) {
-		super(icon);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.button.ModernDropDownWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			if(mHighlight || mPopupShown) {
-				getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
-			}
-		}
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new ribbon drop down icon button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public RibbonDropDownIconButton(ModernIcon icon) {
+    super(icon);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.button.ModernDropDownWidget#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+    if (isEnabled()) {
+      if (mHighlight || mPopupShown) {
+        getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+      }
+    }
+  }
 }

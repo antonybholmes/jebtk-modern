@@ -34,77 +34,80 @@ import org.jebtk.core.settings.SettingsService;
 
 // TODO: Auto-generated Javadoc
 /**
- * Configurable zoom model that loads and saves its settings to the
- * Settings system.
+ * Configurable zoom model that loads and saves its settings to the Settings
+ * system.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class SettingsZoomModel extends ZoomModel {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member zoom setting.
-	 */
-	private String mZoomSetting;
-	
-	/**
-	 * The member max setting.
-	 */
-	private String mMaxSetting;
-	
-	/**
-	 * The member min setting.
-	 */
-	private String mMinSetting;
-	
-	/**
-	 * The class ZoomEvents.
-	 */
-	private class ZoomEvents implements ChangeListener {
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
-		 */
-		@Override
-		public void changed(ChangeEvent e) {
-			updateSettings();
-		}
-	}
-	
-	/**
-	 * Create a new settings zoom model.
-	 * 
-	 * @param zoomSetting		The setting storing the current zoom.
-	 * @param minSetting		The setting storing the minimum allowed zoom.
-	 * @param maxSetting		The setting storing the maximum allowed zoom.
-	 */
-	public SettingsZoomModel(String	zoomSetting, 
-			String minSetting, 
-			String maxSetting) {
-		mZoomSetting = zoomSetting;
-		mMaxSetting = maxSetting;
-		mMinSetting = minSetting;
-		
-		addChangeListener(new ZoomEvents());
-		
-		// Load the zoom settings from settings.
-		setZoom(SettingsService.getInstance().getAsDouble(mZoomSetting));
-		setMinZoom(SettingsService.getInstance().getAsDouble(mMinSetting));
-		setMaxZoom(SettingsService.getInstance().getAsDouble(mMaxSetting));
-	}
-	
-	/**
-	 * Write the settings.
-	 */
-	private void updateSettings() {
-		SettingsService.getInstance().update(mZoomSetting, mZoom);
-		SettingsService.getInstance().update(mMinSetting, mMinZoom);
-		SettingsService.getInstance().update(mMaxSetting, mMaxZoom);
-	}
+  /**
+   * The member zoom setting.
+   */
+  private String mZoomSetting;
+
+  /**
+   * The member max setting.
+   */
+  private String mMaxSetting;
+
+  /**
+   * The member min setting.
+   */
+  private String mMinSetting;
+
+  /**
+   * The class ZoomEvents.
+   */
+  private class ZoomEvents implements ChangeListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     */
+    @Override
+    public void changed(ChangeEvent e) {
+      updateSettings();
+    }
+  }
+
+  /**
+   * Create a new settings zoom model.
+   * 
+   * @param zoomSetting
+   *          The setting storing the current zoom.
+   * @param minSetting
+   *          The setting storing the minimum allowed zoom.
+   * @param maxSetting
+   *          The setting storing the maximum allowed zoom.
+   */
+  public SettingsZoomModel(String zoomSetting, String minSetting, String maxSetting) {
+    mZoomSetting = zoomSetting;
+    mMaxSetting = maxSetting;
+    mMinSetting = minSetting;
+
+    addChangeListener(new ZoomEvents());
+
+    // Load the zoom settings from settings.
+    setZoom(SettingsService.getInstance().getAsDouble(mZoomSetting));
+    setMinZoom(SettingsService.getInstance().getAsDouble(mMinSetting));
+    setMaxZoom(SettingsService.getInstance().getAsDouble(mMaxSetting));
+  }
+
+  /**
+   * Write the settings.
+   */
+  private void updateSettings() {
+    SettingsService.getInstance().update(mZoomSetting, mZoom);
+    SettingsService.getInstance().update(mMinSetting, mMinZoom);
+    SettingsService.getInstance().update(mMaxSetting, mMaxZoom);
+  }
 
 }

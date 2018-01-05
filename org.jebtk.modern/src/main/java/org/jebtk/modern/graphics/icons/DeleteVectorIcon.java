@@ -29,17 +29,16 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Color;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class DeleteVectorIcon.
  */
 public class DeleteVectorIcon extends CrossVectorIcon {
-	
-	/**
-	 * Instantiates a new delete vector icon.
-	 */
-	public DeleteVectorIcon() {
-		super(Color.RED);
-	}
+
+  /**
+   * Instantiates a new delete vector icon.
+   */
+  public DeleteVectorIcon() {
+    super(Color.RED);
+  }
 }

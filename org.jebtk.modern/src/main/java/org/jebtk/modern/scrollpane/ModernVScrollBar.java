@@ -48,246 +48,267 @@ import org.jebtk.modern.BorderService;
  */
 public abstract class ModernVScrollBar extends ModernScrollBar {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
 
-			int tp = getInternalRect().getH() - getButtonSize();
+      int tp = getInternalRect().getH() - getButtonSize();
 
-			int t = getInsets().top;
+      int t = getInsets().top;
 
-			if (e.getY() >= t && e.getY() < t + getButtonSize()) {
-				//setVScrollPosition(vScrollPosition - 1);
+      if (e.getY() >= t && e.getY() < t + getButtonSize()) {
+        // setVScrollPosition(vScrollPosition - 1);
 
-				mInc = -mScrollStepSize;
+        mInc = -mScrollStepSize;
 
-				mScrollTimer.start();
-			} else if (e.getY() >= tp && e.getY() <= tp + getButtonSize()) {
-				mInc = mScrollStepSize;
+        mScrollTimer.start();
+      } else if (e.getY() >= tp && e.getY() <= tp + getButtonSize()) {
+        mInc = mScrollStepSize;
 
-				mScrollTimer.start();
-			} else {
-				mScrollBarDrag = true;
+        mScrollTimer.start();
+      } else {
+        mScrollBarDrag = true;
 
-				setNormalizedScrollPosition(translate(e.getY()));
-			}
+        setNormalizedScrollPosition(translate(e.getY()));
+      }
 
-			mStartPosition.x = e.getX();
-			mStartPosition.y = e.getY();
+      mStartPosition.x = e.getX();
+      mStartPosition.y = e.getY();
 
-			mScrollStartPosition = mNormalizedScrollPosition;
+      mScrollStartPosition = mNormalizedScrollPosition;
 
-			repaint();
-		}
+      repaint();
+    }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			if (e.getX() < 0 || e.getX() > getWidth()) {
-				reset();
-			}
-		}
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseReleased(MouseEvent e) {
+      if (e.getX() < 0 || e.getX() > getWidth()) {
+        reset();
+      }
+    }
+  }
 
-	/**
-	 * The class MouseMotionEvents.
-	 */
-	private class MouseMotionEvents implements MouseMotionListener {
+  /**
+   * The class MouseMotionEvents.
+   */
+  private class MouseMotionEvents implements MouseMotionListener {
 
-		/** The m scroll bar. */
-		private ModernScrollBar mScrollbar;
-		
-		/** The m C. */
-		private Component mC;
+    /** The m scroll bar. */
+    private ModernScrollBar mScrollbar;
 
-		/**
-		 * Instantiates a new mouse wheel events.
-		 *
-		 * @param c the c
-		 * @param scrollbar the scrollbar
-		 */
-		public MouseMotionEvents(Component c, ModernScrollBar scrollbar) {
-			mC = c;
-			mScrollbar = scrollbar;
-		}
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseDragged(MouseEvent e) {
-			if (mScrollBarDrag) {
-				mScroller.drag(e.getY(), mStartPosition.y, mScrollStartPosition, mC, mScrollbar);
-			}
-		}
+    /** The m C. */
+    private Component mC;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseMoved(MouseEvent e) {
-			//highlightUpButton = false;
-			//highlightDownButton = false;
-			//highlightVScrollButton = false || vScrollBarDrag;
+    /**
+     * Instantiates a new mouse wheel events.
+     *
+     * @param c
+     *          the c
+     * @param scrollbar
+     *          the scrollbar
+     */
+    public MouseMotionEvents(Component c, ModernScrollBar scrollbar) {
+      mC = c;
+      mScrollbar = scrollbar;
+    }
 
-			if (e.getX() >= getWidth() - getInsets().right - getButtonSize()) {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseDragged(MouseEvent e) {
+      if (mScrollBarDrag) {
+        mScroller.drag(e.getY(), mStartPosition.y, mScrollStartPosition, mC, mScrollbar);
+      }
+    }
 
-				double y = e.getY() - getInsets().top;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseMoved(MouseEvent e) {
+      // highlightUpButton = false;
+      // highlightDownButton = false;
+      // highlightVScrollButton = false || vScrollBarDrag;
 
-				mHighlightButton1 = y >= 0 && y < getButtonSize();
+      if (e.getX() >= getWidth() - getInsets().right - getButtonSize()) {
 
-				y = e.getY() - getHeight() + getButtonSize() + getInsets().bottom;
+        double y = e.getY() - getInsets().top;
 
-				mHighlightButton2 = y >= 0 && y < getButtonSize();
+        mHighlightButton1 = y >= 0 && y < getButtonSize();
 
-				y = e.getY() - mScrollPosition - getButtonSize() - getInsets().top;
+        y = e.getY() - getHeight() + getButtonSize() + getInsets().bottom;
 
-				mHighlightScroll = y >= 0 && y < mScrollBarSize;
-			} else {
-				mHighlightScroll = false || mScrollBarDrag;
-				mHighlightButton1 = false;
-				mHighlightButton2 = false;
-			}
+        mHighlightButton2 = y >= 0 && y < getButtonSize();
 
-			repaint();
-		}
-	}
-	
-	private class KeyEvents extends KeyAdapter {
+        y = e.getY() - mScrollPosition - getButtonSize() - getInsets().top;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.KeyAdapter#keyPressed(java.awt.event.KeyEvent)
-		 */
-		@Override
-		public void keyPressed(KeyEvent e) {
-			keyScroll(e);
-		}		
-	}
+        mHighlightScroll = y >= 0 && y < mScrollBarSize;
+      } else {
+        mHighlightScroll = false || mScrollBarDrag;
+        mHighlightButton1 = false;
+        mHighlightButton2 = false;
+      }
 
-	/**
-	 * Instantiates a new modern v scroll bar office.
-	 */
-	public ModernVScrollBar() {
-		addMouseListener(new MouseEvents());
-		addKeyListener(new KeyEvents());
-		//setBorder(LEFT_BORDER);
-	}
-	
-	private void keyScroll(KeyEvent e) {
-		// Favor vertical scrolling over horizontal scrolling
+      repaint();
+    }
+  }
 
-		int k = e.getKeyCode();
+  private class KeyEvents extends KeyAdapter {
 
-		switch (k) {
-		case KeyEvent.VK_UP:
-			getScroller().keyScroll(true, mView, this);
-			break;
-		case KeyEvent.VK_DOWN:
-			getScroller().keyScroll(false, mView, this);
-			break;
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.ModernScrollBar#setCanvas(java.awt.Component)
-	 */
-	@Override
-	public void setView(Component c) {
-		super.setView(c);
-		
-		addMouseMotionListener(new MouseMotionEvents(c, this));
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.KeyAdapter#keyPressed(java.awt.event.KeyEvent)
+     */
+    @Override
+    public void keyPressed(KeyEvent e) {
+      keyScroll(e);
+    }
+  }
 
-	}
+  /**
+   * Instantiates a new modern v scroll bar office.
+   */
+  public ModernVScrollBar() {
+    addMouseListener(new MouseEvents());
+    addKeyListener(new KeyEvents());
+    // setBorder(LEFT_BORDER);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#drawForegroundAAText(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		int gap = mInternalRect.getH();
+  private void keyScroll(KeyEvent e) {
+    // Favor vertical scrolling over horizontal scrolling
 
-		boolean showScroll = gap >= 2 * getInternalFixedDimension() + mMinScrollBarSize;
-		boolean showButtons = gap >= 2 * getInternalFixedDimension();
+    int k = e.getKeyCode();
 
-		if (!showScroll && !showButtons) {
-			return;
-		}
+    switch (k) {
+    case KeyEvent.VK_UP:
+      getScroller().keyScroll(true, mView, this);
+      break;
+    case KeyEvent.VK_DOWN:
+      getScroller().keyScroll(false, mView, this);
+      break;
+    }
+  }
 
-		int x = getInsets().left;
-		int y = getInsets().top;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.scrollpane.ModernScrollBar#setCanvas(java.awt.Component)
+   */
+  @Override
+  public void setView(Component c) {
+    super.setView(c);
 
-		if (showScroll) {
+    addMouseMotionListener(new MouseMotionEvents(c, this));
 
-			paintScrollBarBase(g2);
+  }
 
-			Rectangle r = new Rectangle(x,
-					(int)(y + getButtonSize() + mScrollPosition),
-					getInternalFixedDimension(),
-					mScrollBarSize);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernWidget#drawForegroundAAText(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+    int gap = mInternalRect.getH();
 
-			//if (mVScrollBarDrag || mHighlightVScroll) {
-			//	paintHighlightedScrollBar(g2, r);
-			//} else {
-			//	paintScrollBar(g2, r);
-			//}
+    boolean showScroll = gap >= 2 * getInternalFixedDimension() + mMinScrollBarSize;
+    boolean showButtons = gap >= 2 * getInternalFixedDimension();
 
-			paintScrollBar(g2, r);
-		}
+    if (!showScroll && !showButtons) {
+      return;
+    }
 
-		if (showButtons) {
-			//
-			// Up button
-			//
+    int x = getInsets().left;
+    int y = getInsets().top;
 
-			paintUpButton(g2);
+    if (showScroll) {
 
-			//
-			// Down button
-			//
+      paintScrollBarBase(g2);
 
-			paintDownButton(g2);
-		}
+      Rectangle r = new Rectangle(x, (int) (y + getButtonSize() + mScrollPosition), getInternalFixedDimension(),
+          mScrollBarSize);
 
-	}
+      // if (mVScrollBarDrag || mHighlightVScroll) {
+      // paintHighlightedScrollBar(g2, r);
+      // } else {
+      // paintScrollBar(g2, r);
+      // }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#getFixedDimension()
-	 */
-	public int getFixedDimension() {
-		return getPreferredSize().width;
-	}
+      paintScrollBar(g2, r);
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.ModernScrollBar#getVariableDim()
-	 */
-	@Override
-	public int getVariableDim() {
-		return getHeight() - mPagePadding;
-	}
-	
-	@Override
-	protected void setPreferredSize() {
-		setPreferredSize(new Dimension(mLinePadding + getInternalFixedDimension(), mPagePadding));
-	}
-	
-	@Override
-	public ModernScrollBar setPadding(int p1, int p2) {
-		setBorder(BorderService.getInstance().createLeftRightBorder(p1, p2));
-		
-		return this;
-	}
+    if (showButtons) {
+      //
+      // Up button
+      //
+
+      paintUpButton(g2);
+
+      //
+      // Down button
+      //
+
+      paintDownButton(g2);
+    }
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#getFixedDimension()
+   */
+  public int getFixedDimension() {
+    return getPreferredSize().width;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.scrollpane.ModernScrollBar#getVariableDim()
+   */
+  @Override
+  public int getVariableDim() {
+    return getHeight() - mPagePadding;
+  }
+
+  @Override
+  protected void setPreferredSize() {
+    setPreferredSize(new Dimension(mLinePadding + getInternalFixedDimension(), mPagePadding));
+  }
+
+  @Override
+  public ModernScrollBar setPadding(int p1, int p2) {
+    setBorder(BorderService.getInstance().createLeftRightBorder(p1, p2));
+
+    return this;
+  }
 }

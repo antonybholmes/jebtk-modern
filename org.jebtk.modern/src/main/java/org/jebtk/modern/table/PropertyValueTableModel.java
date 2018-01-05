@@ -37,104 +37,124 @@ import org.jebtk.core.collections.CollectionUtils;
  * The class PropertyValueTableModel.
  */
 public class PropertyValueTableModel extends ModernColumnHeaderTableModel {
-	
-	/**
-	 * The constant HEADER.
-	 */
-	private static final String[] HEADER = {"Property", "Value"};
 
-	/**
-	 * The values.
-	 */
-	private List<PropertyValuePair> values = new ArrayList<PropertyValuePair>();
-	
-	/**
-	 * The editable.
-	 */
-	private List<PropertyValueEditType> editable = new ArrayList<PropertyValueEditType>();
+  /**
+   * The constant HEADER.
+   */
+  private static final String[] HEADER = { "Property", "Value" };
 
-	//private Experiment experiment;
+  /**
+   * The values.
+   */
+  private List<PropertyValuePair> values = new ArrayList<PropertyValuePair>();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
-	 */
-	public final int getColumnCount() {
-		return HEADER.length;
-	}
+  /**
+   * The editable.
+   */
+  private List<PropertyValueEditType> editable = new ArrayList<PropertyValueEditType>();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
-	 */
-	public final int getRowCount() {
-		//System.out.println("row count" + dataSection.getRows().size());
+  // private Experiment experiment;
 
-		return values.size();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
+   */
+  public final int getColumnCount() {
+    return HEADER.length;
+  }
 
-	/**
-	 * Gets the column annotation.
-	 *
-	 * @param col the col
-	 * @return the column annotation
-	 */
-	public final List<String> getColumnAnnotation(int col) {
-		//System.out.println("cname:" + columnNames.get(col));
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
+   */
+  public final int getRowCount() {
+    // System.out.println("row count" + dataSection.getRows().size());
 
-		return CollectionUtils.asList(HEADER[col]);
-	}
+    return values.size();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
-	 */
-	public final Object getValueAt(int row, int col) {
-		return col == 0 ? values.get(row).property : values.get(row).value;
-	}
+  /**
+   * Gets the column annotation.
+   *
+   * @param col
+   *          the col
+   * @return the column annotation
+   */
+  public final List<String> getColumnAnnotation(int col) {
+    // System.out.println("cname:" + columnNames.get(col));
 
-	/**
-	 * Adds the.
-	 *
-	 * @param property the property
-	 * @param value the value
-	 * @param editable the editable
-	 */
-	public final void add(String property, String value, PropertyValueEditType editable) {
+    return CollectionUtils.asList(HEADER[col]);
+  }
 
-		PropertyValuePair pair = new PropertyValuePair(property, value);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
+   */
+  public final Object getValueAt(int row, int col) {
+    return col == 0 ? values.get(row).property : values.get(row).value;
+  }
 
-		add(pair, editable);
-	}
+  /**
+   * Adds the.
+   *
+   * @param property
+   *          the property
+   * @param value
+   *          the value
+   * @param editable
+   *          the editable
+   */
+  public final void add(String property, String value, PropertyValueEditType editable) {
 
-	/**
-	 * Adds the.
-	 *
-	 * @param pair the pair
-	 * @param editable the editable
-	 */
-	public final void add(PropertyValuePair pair, PropertyValueEditType editable) {
+    PropertyValuePair pair = new PropertyValuePair(property, value);
 
-		values.add(pair);
+    add(pair, editable);
+  }
 
-		this.editable.add(editable);
-	}
+  /**
+   * Adds the.
+   *
+   * @param pair
+   *          the pair
+   * @param editable
+   *          the editable
+   */
+  public final void add(PropertyValuePair pair, PropertyValueEditType editable) {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int, int)
-	 */
-	@Override
-	public final boolean getIsCellEditable(int row, int col) {
-        //Note that the data/cell address is constant,
-        //no matter where the cell appears onscreen.
+    values.add(pair);
 
-		return col == 1 && (editable.get(row) == PropertyValueEditType.EDITABLE || editable.get(row) == PropertyValueEditType.SELECTABLE);
+    this.editable.add(editable);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * int)
+   */
+  @Override
+  public final boolean getIsCellEditable(int row, int col) {
+    // Note that the data/cell address is constant,
+    // no matter where the cell appears onscreen.
+
+    return col == 1 && (editable.get(row) == PropertyValueEditType.EDITABLE
+        || editable.get(row) == PropertyValueEditType.SELECTABLE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setValueAt(int, int,
+   * java.lang.Object)
+   */
+  @Override
+  public final void setValueAt(int row, int col, Object value) {
+    if (editable.get(row) == PropertyValueEditType.EDITABLE) {
+      values.get(row).value = value.toString();
     }
-
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setValueAt(int, int, java.lang.Object)
-	 */
-	@Override
-	public final void setValueAt(int row, int col, Object value) {
-		if (editable.get(row) == PropertyValueEditType.EDITABLE) {
-			values.get(row).value = value.toString();
-		}
-    }
+  }
 }

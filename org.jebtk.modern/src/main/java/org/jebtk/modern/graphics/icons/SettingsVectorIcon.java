@@ -33,92 +33,89 @@ import java.awt.Graphics2D;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.graphics.ImageUtils;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class OpenFolderVectorIcon.
  */
 public class SettingsVectorIcon extends ModernVectorScalableIcon {
 
+  /**
+   * The constant WIDTH_SCALE.
+   */
+  private static final double WIDTH_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.settings-icon.width-scale");
 
+  /** The Constant LINE_WIDTH. */
+  private static final double LINE_WIDTH = SettingsService.getInstance()
+      .getAsDouble("theme.icons.settings-icon.line-width");
 
+  /** The Constant COG_SCALE. */
+  private static final double COG_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.settings-icon.cog-scale");
 
-	/**
-	 * The constant WIDTH_SCALE.
-	 */
-	private static final double WIDTH_SCALE = 
-			SettingsService.getInstance().getAsDouble("theme.icons.settings-icon.width-scale");
+  /** The Constant THETA_INC. */
+  private static final double THETA_INC = Math.PI / 3;
 
-	/** The Constant LINE_WIDTH. */
-	private static final double LINE_WIDTH = 
-			SettingsService.getInstance().getAsDouble("theme.icons.settings-icon.line-width");
+  /**
+   * Instantiates a new settings vector icon.
+   */
+  public SettingsVectorIcon() {
+    this(Color.BLACK);
+  }
 
-	/** The Constant COG_SCALE. */
-	private static final double COG_SCALE = 
-			SettingsService.getInstance().getAsDouble("theme.icons.settings-icon.cog-scale");
+  /**
+   * Instantiates a new settings vector icon.
+   *
+   * @param color1
+   *          the color 1
+   */
+  public SettingsVectorIcon(Color color1) {
+    super(color1);
+  }
 
-	/** The Constant THETA_INC. */
-	private static final double THETA_INC = Math.PI / 3;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    int wf = (int) (w * WIDTH_SCALE);
+    int wf2 = (int) (w * WIDTH_SCALE / 2);
 
+    int lw = (int) Math.max(1, wf * LINE_WIDTH);
+    int d = (int) (wf * COG_SCALE);
+    int d2 = (int) (wf * COG_SCALE / 2) + 1;
 
+    double theta = 0;
 
-	/**
-	 * Instantiates a new settings vector icon.
-	 */
-	public SettingsVectorIcon() {
-		this(Color.BLACK);
-	}
+    Graphics2D g2Temp = ImageUtils.clone(g2);
 
-	/**
-	 * Instantiates a new settings vector icon.
-	 *
-	 * @param color1 the color 1
-	 */
-	public SettingsVectorIcon(Color color1) {
-		super(color1);
-	}
+    try {
+      g2Temp.setColor(mColor1);
 
+      g2Temp.translate(x + w / 2, y + h / 2);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		int wf = (int)(w * WIDTH_SCALE);
-		int wf2 = (int)(w * WIDTH_SCALE / 2);
+      for (int i = 0; i < 3; ++i) {
+        Graphics2D g2Temp2 = ImageUtils.clone(g2Temp);
 
+        try {
+          g2Temp2.rotate(theta);
 
-		int lw = (int)Math.max(1, wf * LINE_WIDTH);
-		int d = (int)(wf * COG_SCALE);
-		int d2 = (int)(wf * COG_SCALE / 2) + 1;
+          g2Temp2.setStroke(ImageUtils.createStroke(lw));
+          g2Temp2.drawLine(-wf2, 0, wf2, 0);
+        } finally {
+          g2Temp2.dispose();
+        }
 
-		double theta = 0;
+        theta += THETA_INC;
+      }
 
-		Graphics2D g2Temp = ImageUtils.clone(g2);
-
-		try {
-			g2Temp.setColor(mColor1);
-			
-			g2Temp.translate(x + w / 2, y + h / 2);
-
-			for (int i = 0; i < 3; ++i) {
-				Graphics2D g2Temp2 = ImageUtils.clone(g2Temp);
-
-				try {
-					g2Temp2.rotate(theta);
-					
-					g2Temp2.setStroke(ImageUtils.createStroke(lw));
-					g2Temp2.drawLine(-wf2, 0, wf2, 0);
-				} finally {
-					g2Temp2.dispose();
-				}
-
-				theta += THETA_INC;
-			}
-			
-			g2Temp.fillOval(-d2, -d2, d, d);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+      g2Temp.fillOval(-d2, -d2, d, d);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 }

@@ -40,31 +40,28 @@ import org.jebtk.modern.menu.ModernPopupMenu;
  */
 public class QuickAccessMenuButton extends ModernMenuButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new quick access menu button.
-	 *
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public QuickAccessMenuButton(ModernIcon icon, ModernPopupMenu menu) {
-		super(icon, menu);
-		
-		setBackgroundAnimation(new QuickAccessDropDownAnimation(this));
-	}
-	
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (isEnabled()) {
-			if (mHighlight || mPopupShown) {
-				fill(g2, RibbonMenuItem.MENU_SELECTED_COLOR);
-			}
-		}
-	}
-	*/
+  /**
+   * Instantiates a new quick access menu button.
+   *
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public QuickAccessMenuButton(ModernIcon icon, ModernPopupMenu menu) {
+    super(icon, menu);
+
+    setBackgroundAnimation(new QuickAccessDropDownAnimation(this));
+  }
+
+  /*
+   * @Override public void drawBackground(Graphics2D g2) { if (isEnabled()) { if
+   * (mHighlight || mPopupShown) { fill(g2, RibbonMenuItem.MENU_SELECTED_COLOR); }
+   * } }
+   */
 }

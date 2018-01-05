@@ -29,8 +29,6 @@ package org.jebtk.modern.event;
 
 import org.jebtk.core.event.Event;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Modern UI controls such as buttons should fire ModernClickEvents.
@@ -39,43 +37,44 @@ import org.jebtk.core.event.Event;
  *
  */
 public class HighlightEvent extends Event {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant EVENT_STATE_CHANGED.
-	 */
-	public static final String EVENT_HIGHLIGHTED = "highlighted";
 
-	private int mId;
-	
-	/**
-	 * Instantiates a new modern state event.
-	 *
-	 * @param source the source
-	 */
-	public HighlightEvent(Object source, int id) {
-		this(source, id, EVENT_HIGHLIGHTED);
-	}
-	
-	/**
-	 * Instantiates a new modern state event.
-	 *
-	 * @param source the source
-	 * @param message the message
-	 */
-	public HighlightEvent(Object source,
-			int id,
-			String message) {
-		super(source, message);
-		
-		mId = id;
-	}
-	
-	public int getHighlightId() {
-		return mId;
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant EVENT_STATE_CHANGED.
+   */
+  public static final String EVENT_HIGHLIGHTED = "highlighted";
+
+  private int mId;
+
+  /**
+   * Instantiates a new modern state event.
+   *
+   * @param source
+   *          the source
+   */
+  public HighlightEvent(Object source, int id) {
+    this(source, id, EVENT_HIGHLIGHTED);
+  }
+
+  /**
+   * Instantiates a new modern state event.
+   *
+   * @param source
+   *          the source
+   * @param message
+   *          the message
+   */
+  public HighlightEvent(Object source, int id, String message) {
+    super(source, message);
+
+    mId = id;
+  }
+
+  public int getHighlightId() {
+    return mId;
+  }
 }

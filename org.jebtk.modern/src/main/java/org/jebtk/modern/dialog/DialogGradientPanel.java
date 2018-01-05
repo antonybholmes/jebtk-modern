@@ -35,7 +35,6 @@ import javax.swing.border.Border;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.panel.ModernGradientPanel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Standard gradient panel for main ui window.
@@ -44,45 +43,46 @@ import org.jebtk.modern.panel.ModernGradientPanel;
  *
  */
 public class DialogGradientPanel extends ModernGradientPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant COLOR1.
-	 */
-	private static final Color COLOR1 = Color.WHITE;
-	
-	/**
-	 * The constant COLOR2.
-	 */
-	private static final Color COLOR2 = 
-			ColorUtils.decodeHtmlColor("#f2f2f2");
 
-	/**
-	 * Instantiates a new gradient dialog panel.
-	 */
-	public DialogGradientPanel() {
-		super(COLOR1, COLOR2);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new gradient dialog panel.
-	 *
-	 * @param manager the manager
-	 */
-	public DialogGradientPanel(LayoutManager manager) {
-		super(manager, COLOR1, COLOR2);
-	}
+  /**
+   * The constant COLOR1.
+   */
+  private static final Color COLOR1 = Color.WHITE;
 
-	/**
-	 * Instantiates a new gradient dialog panel.
-	 *
-	 * @param border the border
-	 */
-	public DialogGradientPanel(Border border) {
-		super(COLOR1, COLOR2);
-	}
+  /**
+   * The constant COLOR2.
+   */
+  private static final Color COLOR2 = ColorUtils.decodeHtmlColor("#f2f2f2");
+
+  /**
+   * Instantiates a new gradient dialog panel.
+   */
+  public DialogGradientPanel() {
+    super(COLOR1, COLOR2);
+  }
+
+  /**
+   * Instantiates a new gradient dialog panel.
+   *
+   * @param manager
+   *          the manager
+   */
+  public DialogGradientPanel(LayoutManager manager) {
+    super(manager, COLOR1, COLOR2);
+  }
+
+  /**
+   * Instantiates a new gradient dialog panel.
+   *
+   * @param border
+   *          the border
+   */
+  public DialogGradientPanel(Border border) {
+    super(COLOR1, COLOR2);
+  }
 }

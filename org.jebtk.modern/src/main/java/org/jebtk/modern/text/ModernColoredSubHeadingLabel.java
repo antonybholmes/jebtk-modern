@@ -29,28 +29,26 @@ package org.jebtk.modern.text;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernColoredSubHeadingLabel.
  */
 public class ModernColoredSubHeadingLabel extends ModernSubHeadingLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern colored sub heading label.
-	 *
-	 * @param text the text
-	 */
-	public ModernColoredSubHeadingLabel(String text) {
-		super(text);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	    setForeground(ThemeService.getInstance().colors().getColorHighlight(5));
-	}
+  /**
+   * Instantiates a new modern colored sub heading label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernColoredSubHeadingLabel(String text) {
+    super(text);
+
+    setForeground(ThemeService.getInstance().colors().getColorHighlight(5));
+  }
 }

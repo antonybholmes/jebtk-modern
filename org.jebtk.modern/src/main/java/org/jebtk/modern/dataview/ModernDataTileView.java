@@ -44,7 +44,6 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.TransferHandler;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Default to a large tile view.
@@ -52,178 +51,206 @@ import javax.swing.TransferHandler;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDataTileView extends ModernDataGridView implements Transferable, DragSourceListener, DragGestureListener {
+public class ModernDataTileView extends ModernDataGridView
+    implements Transferable, DragSourceListener, DragGestureListener {
 
-	/**
-	 * The Class DndButton.
-	 */
-	private class DndButton extends JButton implements Transferable {
-		
-		/**
-		 * Instantiates a new dnd button.
-		 *
-		 * @param text the text
-		 */
-		public DndButton(String text) {
-			super(text);
-			
-			t = new TransferHandler(){
-				public Transferable createTransferable(JComponent c){
-					return new DndButton(getText());
-				}
-				};
+  /**
+   * The Class DndButton.
+   */
+  private class DndButton extends JButton implements Transferable {
 
-			setTransferHandler(t);
+    /**
+     * Instantiates a new dnd button.
+     *
+     * @param text
+     *          the text
+     */
+    public DndButton(String text) {
+      super(text);
 
-		}
-		
-		/* (non-Javadoc)
-		 * @see java.awt.datatransfer.Transferable#getTransferData(java.awt.datatransfer.DataFlavor)
-		 */
-		@Override
-		public Object getTransferData(DataFlavor flavor)
-				throws UnsupportedFlavorException, IOException {
-			return this;
-		}
+      t = new TransferHandler() {
+        public Transferable createTransferable(JComponent c) {
+          return new DndButton(getText());
+        }
+      };
 
-		/* (non-Javadoc)
-		 * @see java.awt.datatransfer.Transferable#getTransferDataFlavors()
-		 */
-		@Override
-		public DataFlavor[] getTransferDataFlavors() {
-			return new DataFlavor[]{new DataFlavor(DndButton.class, "JButton")};
+      setTransferHandler(t);
 
-		}
+    }
 
-		/* (non-Javadoc)
-		 * @see java.awt.datatransfer.Transferable#isDataFlavorSupported(java.awt.datatransfer.DataFlavor)
-		 */
-		@Override
-		public boolean isDataFlavorSupported(DataFlavor flavor) {
-			return true;
-		}
-		
-	}
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.datatransfer.Transferable#getTransferData(java.awt.datatransfer.
+     * DataFlavor)
+     */
+    @Override
+    public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
+      return this;
+    }
 
-	/** The m source. */
-	private DragSource mSource = null;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.datatransfer.Transferable#getTransferDataFlavors()
+     */
+    @Override
+    public DataFlavor[] getTransferDataFlavors() {
+      return new DataFlavor[] { new DataFlavor(DndButton.class, "JButton") };
 
-	/** The t. */
-	private TransferHandler t = null;
+    }
 
-	/**
-	 * Instantiates a new modern data tile view.
-	 */
-	public ModernDataTileView() {
-		super();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.datatransfer.Transferable#isDataFlavorSupported(java.awt.
+     * datatransfer.DataFlavor)
+     */
+    @Override
+    public boolean isDataFlavorSupported(DataFlavor flavor) {
+      return true;
+    }
 
-		setCellRenderer(new ModernDataTileCellRenderer());
+  }
 
-		setCellSize(128, 128);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		//The TransferHandler returns a new DnDButton
-		t = new TransferHandler() {
-			public Transferable createTransferable(JComponent c){
-				return null;
-			}};
+  /** The m source. */
+  private DragSource mSource = null;
 
-		setTransferHandler(t);
+  /** The t. */
+  private TransferHandler t = null;
 
-		mSource = new DragSource();
-		mSource.createDefaultDragGestureRecognizer(this, DnDConstants.ACTION_COPY, this);
-	}
+  /**
+   * Instantiates a new modern data tile view.
+   */
+  public ModernDataTileView() {
+    super();
 
+    setCellRenderer(new ModernDataTileCellRenderer());
 
-	/* (non-Javadoc)
-	 * @see java.awt.dnd.DragGestureListener#dragGestureRecognized(java.awt.dnd.DragGestureEvent)
-	 */
-	@Override
-	public void dragGestureRecognized(DragGestureEvent e) {
-		mSource.startDrag(e, DragSource.DefaultMoveDrop, new DndButton("test"), this);
-	}
+    setCellSize(128, 128);
 
+    // The TransferHandler returns a new DnDButton
+    t = new TransferHandler() {
+      public Transferable createTransferable(JComponent c) {
+        return null;
+      }
+    };
 
-	/* (non-Javadoc)
-	 * @see java.awt.dnd.DragSourceListener#dragDropEnd(java.awt.dnd.DragSourceDropEvent)
-	 */
-	@Override
-	public void dragDropEnd(DragSourceDropEvent dsde) {
-		// TODO Auto-generated method stub
+    setTransferHandler(t);
 
-	}
+    mSource = new DragSource();
+    mSource.createDefaultDragGestureRecognizer(this, DnDConstants.ACTION_COPY, this);
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.dnd.DragGestureListener#dragGestureRecognized(java.awt.dnd.
+   * DragGestureEvent)
+   */
+  @Override
+  public void dragGestureRecognized(DragGestureEvent e) {
+    mSource.startDrag(e, DragSource.DefaultMoveDrop, new DndButton("test"), this);
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.dnd.DragSourceListener#dragEnter(java.awt.dnd.DragSourceDragEvent)
-	 */
-	@Override
-	public void dragEnter(DragSourceDragEvent dsde) {
-		// TODO Auto-generated method stub
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * java.awt.dnd.DragSourceListener#dragDropEnd(java.awt.dnd.DragSourceDropEvent)
+   */
+  @Override
+  public void dragDropEnd(DragSourceDropEvent dsde) {
+    // TODO Auto-generated method stub
 
-	}
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * java.awt.dnd.DragSourceListener#dragEnter(java.awt.dnd.DragSourceDragEvent)
+   */
+  @Override
+  public void dragEnter(DragSourceDragEvent dsde) {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see java.awt.dnd.DragSourceListener#dragExit(java.awt.dnd.DragSourceEvent)
-	 */
-	@Override
-	public void dragExit(DragSourceEvent dse) {
-		// TODO Auto-generated method stub
+  }
 
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.dnd.DragSourceListener#dragExit(java.awt.dnd.DragSourceEvent)
+   */
+  @Override
+  public void dragExit(DragSourceEvent dse) {
+    // TODO Auto-generated method stub
 
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.dnd.DragSourceListener#dragOver(java.awt.dnd.DragSourceDragEvent)
-	 */
-	@Override
-	public void dragOver(DragSourceDragEvent dsde) {
-		// TODO Auto-generated method stub
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * java.awt.dnd.DragSourceListener#dragOver(java.awt.dnd.DragSourceDragEvent)
+   */
+  @Override
+  public void dragOver(DragSourceDragEvent dsde) {
+    // TODO Auto-generated method stub
 
-	}
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.dnd.DragSourceListener#dropActionChanged(java.awt.dnd.
+   * DragSourceDragEvent)
+   */
+  @Override
+  public void dropActionChanged(DragSourceDragEvent dsde) {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see java.awt.dnd.DragSourceListener#dropActionChanged(java.awt.dnd.DragSourceDragEvent)
-	 */
-	@Override
-	public void dropActionChanged(DragSourceDragEvent dsde) {
-		// TODO Auto-generated method stub
+  }
 
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * java.awt.datatransfer.Transferable#getTransferData(java.awt.datatransfer.
+   * DataFlavor)
+   */
+  @Override
+  public Object getTransferData(DataFlavor arg0) throws UnsupportedFlavorException, IOException {
+    // TODO Auto-generated method stub
+    return null;
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.datatransfer.Transferable#getTransferDataFlavors()
+   */
+  @Override
+  public DataFlavor[] getTransferDataFlavors() {
+    // TODO Auto-generated method stub
+    return null;
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.datatransfer.Transferable#getTransferData(java.awt.datatransfer.DataFlavor)
-	 */
-	@Override
-	public Object getTransferData(DataFlavor arg0)
-			throws UnsupportedFlavorException, IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	/* (non-Javadoc)
-	 * @see java.awt.datatransfer.Transferable#getTransferDataFlavors()
-	 */
-	@Override
-	public DataFlavor[] getTransferDataFlavors() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	/* (non-Javadoc)
-	 * @see java.awt.datatransfer.Transferable#isDataFlavorSupported(java.awt.datatransfer.DataFlavor)
-	 */
-	@Override
-	public boolean isDataFlavorSupported(DataFlavor arg0) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.datatransfer.Transferable#isDataFlavorSupported(java.awt.
+   * datatransfer.DataFlavor)
+   */
+  @Override
+  public boolean isDataFlavorSupported(DataFlavor arg0) {
+    // TODO Auto-generated method stub
+    return false;
+  }
 }

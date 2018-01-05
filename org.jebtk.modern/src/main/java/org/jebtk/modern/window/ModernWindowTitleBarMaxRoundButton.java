@@ -41,53 +41,61 @@ import org.jebtk.modern.event.ModernClickListener;
  */
 public class ModernWindowTitleBarMaxRoundButton extends ModernWindowTitleBarRoundButton implements ModernClickListener {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant COLOR. */
-	private static final Color COLOR = ColorUtils.decodeHtmlColor("#00d455");
+  /** The Constant COLOR. */
+  private static final Color COLOR = ColorUtils.decodeHtmlColor("#00d455");
 
-	/** The m window. */
-	private ModernWindow mWindow;
+  /** The m window. */
+  private ModernWindow mWindow;
 
-	/**
-	 * Instantiates a new modern window title bar close button.
-	 *
-	 * @param window the window
-	 */
-	public ModernWindowTitleBarMaxRoundButton(ModernWindow window) {
-		super(COLOR);
-		
-		mWindow = window;
-		
-		setClickMessage(UI.MENU_MINIMIZE);
-		addClickListener(this);
-		
-		setToolTip("Maximzie", "Maximize the window.");
-	}
+  /**
+   * Instantiates a new modern window title bar close button.
+   *
+   * @param window
+   *          the window
+   */
+  public ModernWindowTitleBarMaxRoundButton(ModernWindow window) {
+    super(COLOR);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		WindowService.getInstance().autoMaximize(mWindow);
-	}
+    mWindow = window;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.button.ModernButton#drawForegroundAAText(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (mHighlight) {
-			g2.setColor(Color.BLACK);
+    setClickMessage(UI.MENU_MINIMIZE);
+    addClickListener(this);
 
-			int x = getWidth() / 2;
+    setToolTip("Maximzie", "Maximize the window.");
+  }
 
-			g2.drawLine(x - 3, x, x + 3, x);
-			g2.drawLine(x, x - 3, x, x + 3);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
+   * ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    WindowService.getInstance().autoMaximize(mWindow);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.button.ModernButton#drawForegroundAAText(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mHighlight) {
+      g2.setColor(Color.BLACK);
+
+      int x = getWidth() / 2;
+
+      g2.drawLine(x - 3, x, x + 3, x);
+      g2.drawLine(x, x - 3, x, x + 3);
+    }
+  }
 }

@@ -36,167 +36,172 @@ import java.util.Map;
 import org.jebtk.core.NameProperty;
 import org.jebtk.core.event.ChangeListeners;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Allows sort objects to be shared between entities that
- * control how samples and experiments are sorted.
+ * Allows sort objects to be shared between entities that control how samples
+ * and experiments are sorted.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class SortModel<T extends NameProperty> extends ChangeListeners implements Iterable<Sorter<T>> {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member sorters.
-	 */
-	private List<Sorter<T>> mSorters = 
-			new ArrayList<Sorter<T>>();
-			
-	/**
-	 * The member sorter map.
-	 */
-	private Map<String, Sorter<T>> mSorterMap =	
-			new HashMap<String, Sorter<T>>();
 
-	/**
-	 * The member sorter.
-	 */
-	private Sorter<T> mSorter;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member sort ascending.
-	 */
-	private boolean mSortAscending = true;
+  /**
+   * The member sorters.
+   */
+  private List<Sorter<T>> mSorters = new ArrayList<Sorter<T>>();
 
-	/**
-	 * The member expanded.
-	 */
-	private boolean mExpanded = true;
+  /**
+   * The member sorter map.
+   */
+  private Map<String, Sorter<T>> mSorterMap = new HashMap<String, Sorter<T>>();
 
-	/**
-	 * The member default sorter.
-	 */
-	private Sorter<T> mDefaultSorter;
+  /**
+   * The member sorter.
+   */
+  private Sorter<T> mSorter;
 
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	public Iterator<Sorter<T>> iterator() {
-		return mSorters.iterator();
-	}
+  /**
+   * The member sort ascending.
+   */
+  private boolean mSortAscending = true;
 
-	/**
-	 * Gets the.
-	 *
-	 * @param name the name
-	 * @return the sorter
-	 */
-	public Sorter<T> get(String name) {
-		return mSorterMap.get(name);
-	}
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param sorter the sorter
-	 */
-	public void add(Sorter<T> sorter) {
-		mSorters.add(sorter);
-		mSorterMap.put(sorter.getName(), sorter);
-	}
-	
-	/**
-	 * Sets the default.
-	 *
-	 * @param name the new default
-	 */
-	public void setDefault(String name) {
-		mDefaultSorter = mSorterMap.get(name);
-		
-		setSorter(name);
-	}
-	
-	/**
-	 * Gets the default.
-	 *
-	 * @return the default
-	 */
-	public Sorter<T> getDefault() {
-		return mDefaultSorter;
-	}
-	
-	/**
-	 * Sets the sorter.
-	 *
-	 * @param name the new sorter
-	 */
-	public void setSorter(String name) {
-		if (!mSorterMap.containsKey(name)) {
-			return;
-		}
-		
-		mSorter = mSorterMap.get(name);
-		
-		fireChanged();
-	}
-	
-	/**
-	 * Gets the sorter.
-	 *
-	 * @return the sorter
-	 */
-	public Sorter<T> getSorter() {
-		return mSorter;
-	}
-	
-	/**
-	 * Sets the sort ascending.
-	 *
-	 * @param sortAscending the new sort ascending
-	 */
-	public void setSortAscending(boolean sortAscending) {
-		mSortAscending = sortAscending;
-		
-		fireChanged();
-	}
-	
-	/**
-	 * Gets the sort ascending.
-	 *
-	 * @return the sort ascending
-	 */
-	public boolean getSortAscending() {
-		return mSortAscending;
-	}
-	
-	/**
-	 * Sets the expanded.
-	 *
-	 * @param expanded the new expanded
-	 */
-	public void setExpanded(boolean expanded) {
-		if (expanded == mExpanded) {
-			return;
-		}
-		
-		mExpanded = expanded;
-		
-		fireChanged();
-	}
+  /**
+   * The member expanded.
+   */
+  private boolean mExpanded = true;
 
-	/**
-	 * Gets the expanded.
-	 *
-	 * @return the expanded
-	 */
-	public boolean getExpanded() {
-		return mExpanded ;
-	}
+  /**
+   * The member default sorter.
+   */
+  private Sorter<T> mDefaultSorter;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  public Iterator<Sorter<T>> iterator() {
+    return mSorters.iterator();
+  }
+
+  /**
+   * Gets the.
+   *
+   * @param name
+   *          the name
+   * @return the sorter
+   */
+  public Sorter<T> get(String name) {
+    return mSorterMap.get(name);
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param sorter
+   *          the sorter
+   */
+  public void add(Sorter<T> sorter) {
+    mSorters.add(sorter);
+    mSorterMap.put(sorter.getName(), sorter);
+  }
+
+  /**
+   * Sets the default.
+   *
+   * @param name
+   *          the new default
+   */
+  public void setDefault(String name) {
+    mDefaultSorter = mSorterMap.get(name);
+
+    setSorter(name);
+  }
+
+  /**
+   * Gets the default.
+   *
+   * @return the default
+   */
+  public Sorter<T> getDefault() {
+    return mDefaultSorter;
+  }
+
+  /**
+   * Sets the sorter.
+   *
+   * @param name
+   *          the new sorter
+   */
+  public void setSorter(String name) {
+    if (!mSorterMap.containsKey(name)) {
+      return;
+    }
+
+    mSorter = mSorterMap.get(name);
+
+    fireChanged();
+  }
+
+  /**
+   * Gets the sorter.
+   *
+   * @return the sorter
+   */
+  public Sorter<T> getSorter() {
+    return mSorter;
+  }
+
+  /**
+   * Sets the sort ascending.
+   *
+   * @param sortAscending
+   *          the new sort ascending
+   */
+  public void setSortAscending(boolean sortAscending) {
+    mSortAscending = sortAscending;
+
+    fireChanged();
+  }
+
+  /**
+   * Gets the sort ascending.
+   *
+   * @return the sort ascending
+   */
+  public boolean getSortAscending() {
+    return mSortAscending;
+  }
+
+  /**
+   * Sets the expanded.
+   *
+   * @param expanded
+   *          the new expanded
+   */
+  public void setExpanded(boolean expanded) {
+    if (expanded == mExpanded) {
+      return;
+    }
+
+    mExpanded = expanded;
+
+    fireChanged();
+  }
+
+  /**
+   * Gets the expanded.
+   *
+   * @return the expanded
+   */
+  public boolean getExpanded() {
+    return mExpanded;
+  }
 }

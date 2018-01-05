@@ -26,38 +26,37 @@ import org.jebtk.modern.widget.ModernClickWidget;
  * @author Antony Holmes
  */
 public abstract class SelectedAnimation extends TimerAnimation {
-	
-	/**
-	 * The listener interface for receiving click events.
-	 * The class that is interested in processing a click
-	 * event implements this interface, and the object created
-	 * with that class is registered with a component using the
-	 * component's <code>addClickListener<code> method. When
-	 * the click event occurs, that object's appropriate
-	 * method is invoked.
-	 *
-	 * @see ClickEvent
-	 */
-	private class SelectedListener implements ModernSelectedListener {
-		
-		@Override
-		public void selected(ModernSelectedEvent e) {
-			animateSelected();
-		}
-	}
-	
-	/**
-	 * Instantiates a new click animation.
-	 *
-	 * @param widget the widget
-	 */
-	public SelectedAnimation(ModernClickWidget widget) {
-		super(widget);
-		
-		widget.addSelectedListener(new SelectedListener());
-	}
-	
-	public void animateSelected() {
-		start();
-	}
+
+  /**
+   * The listener interface for receiving click events. The class that is
+   * interested in processing a click event implements this interface, and the
+   * object created with that class is registered with a component using the
+   * component's <code>addClickListener<code> method. When the click event occurs,
+   * that object's appropriate method is invoked.
+   *
+   * @see ClickEvent
+   */
+  private class SelectedListener implements ModernSelectedListener {
+
+    @Override
+    public void selected(ModernSelectedEvent e) {
+      animateSelected();
+    }
+  }
+
+  /**
+   * Instantiates a new click animation.
+   *
+   * @param widget
+   *          the widget
+   */
+  public SelectedAnimation(ModernClickWidget widget) {
+    super(widget);
+
+    widget.addSelectedListener(new SelectedListener());
+  }
+
+  public void animateSelected() {
+    start();
+  }
 }

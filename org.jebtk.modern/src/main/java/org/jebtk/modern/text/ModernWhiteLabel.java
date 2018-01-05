@@ -35,18 +35,19 @@ import java.awt.Color;
  */
 public class ModernWhiteLabel extends ModernAutoSizeLabel {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern white label.
-	 *
-	 * @param text the text
-	 */
-	public ModernWhiteLabel(String text) {
-		super(text, Color.WHITE);
-	}
+  /**
+   * Instantiates a new modern white label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernWhiteLabel(String text) {
+    super(text, Color.WHITE);
+  }
 
 }

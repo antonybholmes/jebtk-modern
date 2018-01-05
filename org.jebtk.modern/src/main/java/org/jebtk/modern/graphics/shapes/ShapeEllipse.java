@@ -34,21 +34,25 @@ import java.awt.geom.Ellipse2D;
  * The class ShapeEllipse.
  */
 public class ShapeEllipse extends Ellipse2D.Double {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new shape ellipse.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param width the width
-	 * @param height the height
-	 */
-	public ShapeEllipse(int x, int y, int width, int height) {
-		super(x, y, width, height);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new shape ellipse.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param width
+   *          the width
+   * @param height
+   *          the height
+   */
+  public ShapeEllipse(int x, int y, int width, int height) {
+    super(x, y, width, height);
+  }
 }

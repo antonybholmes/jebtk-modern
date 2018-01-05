@@ -30,8 +30,6 @@ package org.jebtk.modern.io;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Renders a file as a list item.
@@ -40,16 +38,16 @@ import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
  *
  */
 public class ModernListRecentDirectoryRenderer extends ModernListRecentFileRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern list recent directory renderer.
-	 */
-	public ModernListRecentDirectoryRenderer() {
-		super(UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern list recent directory renderer.
+   */
+  public ModernListRecentDirectoryRenderer() {
+    super(UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
+  }
 }

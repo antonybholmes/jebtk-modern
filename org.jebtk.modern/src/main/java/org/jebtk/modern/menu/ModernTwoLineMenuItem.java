@@ -36,7 +36,6 @@ import java.awt.event.MouseEvent;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.widget.TwoLineWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Extended menu item that displays two lines of text and an icon.
@@ -44,161 +43,176 @@ import org.jebtk.modern.widget.TwoLineWidget;
  * @author Antony Holmes Holmes
  */
 public class ModernTwoLineMenuItem extends ModernIconMenuItem implements TwoLineWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
-		 */
-		public final void mouseEntered(MouseEvent e) {
-			mColor2 = TEXT_COLOR;
-		}
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
-		 */
-		public final void mouseExited(MouseEvent e) {
-			mColor2 = ALT_TEXT_COLOR;
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant DEFAULT_SIZE.
-	 */
-	public static final Dimension DEFAULT_SIZE = new Dimension(360, 48);
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
 
-	/**
-	 * The member color1.
-	 */
-	private Color mColor1;
-	
-	/**
-	 * The member color2.
-	 */
-	private Color mColor2;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
+     */
+    public final void mouseEntered(MouseEvent e) {
+      mColor2 = TEXT_COLOR;
+    }
 
-	/**
-	 * The member text2.
-	 */
-	private String mText2;
-	
-	//protected JLabel label1 = new JLabel();
-	//protected JLabel label2 = new JLabel();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
+     */
+    public final void mouseExited(MouseEvent e) {
+      mColor2 = ALT_TEXT_COLOR;
+    }
+  }
 
-	/**
-	 * Instantiates a new modern two line menu item.
-	 *
-	 * @param text1 the text1
-	 * @param text2 the text2
-	 * @param icon the icon
-	 */
-	public ModernTwoLineMenuItem(String text1, String text2, ModernIcon icon) {
-		super(text1, icon);
+  /**
+   * The constant DEFAULT_SIZE.
+   */
+  public static final Dimension DEFAULT_SIZE = new Dimension(360, 48);
 
-		setText(text1, text2);
-		
-		setup();
-	}
-	
-	public ModernTwoLineMenuItem(String text1, String text2) {
-		super(text1);
+  /**
+   * The member color1.
+   */
+  private Color mColor1;
 
-		setText(text1, text2);
-		
-		setup();
-	}
+  /**
+   * The member color2.
+   */
+  private Color mColor2;
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		// set a reasonable size but allow for
-		// resizing to the parent control
-		setMinimumSize(DEFAULT_SIZE);
-		setPreferredSize(DEFAULT_SIZE);
-		setMaximumSize(MAX_SIZE_48);
+  /**
+   * The member text2.
+   */
+  private String mText2;
 
-		removeAll();
+  // protected JLabel label1 = new JLabel();
+  // protected JLabel label2 = new JLabel();
 
-		//label1.setBorder(BorderService.getInstance().createLeftBorder(TEXT_OFFSET));
-		//label2.setBorder(BorderService.getInstance().createLeftBorder(TEXT_OFFSET));
+  /**
+   * Instantiates a new modern two line menu item.
+   *
+   * @param text1
+   *          the text1
+   * @param text2
+   *          the text2
+   * @param icon
+   *          the icon
+   */
+  public ModernTwoLineMenuItem(String text1, String text2, ModernIcon icon) {
+    super(text1, icon);
 
-		mColor1 = TEXT_COLOR;
-		mColor2 = ALT_TEXT_COLOR;
+    setText(text1, text2);
 
+    setup();
+  }
 
-		addMouseListener(new MouseEvents());
-		
-		setTextOffset(48);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.TwoLineWidget#setText(java.lang.String, java.lang.String)
-	 */
-	public void setText(String text1, String text2) {
-		setText(text1);
-		setText2(text2);
-		
-		//setActionCommand(text1 + " " + text2);
-		
-		repaint();
-	}
+  public ModernTwoLineMenuItem(String text1, String text2) {
+    super(text1);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.TwoLineWidget#setText2(java.lang.String)
-	 */
-	public void setText2(String text) {
-		mText2 = text;
-		
-		//setActionCommand(text1 + " " + text2);
-	}
+    setText(text1, text2);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.TwoLineWidget#getText2()
-	 */
-	public String getText2() {
-		return mText2;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
+    setup();
+  }
 
-		int x = mTextOffset;
-		int y = 0;
-		
-		if (mText1 != null) {
-			y += 20;
-			//g2.setFont(ThemeService.loadFont("widget.bold-text"));
-			g2.setColor(mColor1);
-			g2.drawString(mText1, x, y);
-		}
-		
-		if (mText2 != null) {
-			y += 20;
-			//g2.setFont(ThemeService.loadFont("widget.text"));
-			g2.setColor(mColor2);
-			g2.drawString(mText2, x, y);
-		}
-		
-		if (mIcon != null) {
-			int h = mIcon.getHeight();
-			int iconX = (mTextOffset - h) / 2;
-			int iconY = (getHeight() - h) / 2;
-			
-			mIcon.drawIcon(g2, iconX, iconY, h);
-		}
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    // set a reasonable size but allow for
+    // resizing to the parent control
+    setMinimumSize(DEFAULT_SIZE);
+    setPreferredSize(DEFAULT_SIZE);
+    setMaximumSize(MAX_SIZE_48);
 
-	
+    removeAll();
+
+    // label1.setBorder(BorderService.getInstance().createLeftBorder(TEXT_OFFSET));
+    // label2.setBorder(BorderService.getInstance().createLeftBorder(TEXT_OFFSET));
+
+    mColor1 = TEXT_COLOR;
+    mColor2 = ALT_TEXT_COLOR;
+
+    addMouseListener(new MouseEvents());
+
+    setTextOffset(48);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.TwoLineWidget#setText(java.lang.String,
+   * java.lang.String)
+   */
+  public void setText(String text1, String text2) {
+    setText(text1);
+    setText2(text2);
+
+    // setActionCommand(text1 + " " + text2);
+
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.TwoLineWidget#setText2(java.lang.String)
+   */
+  public void setText2(String text) {
+    mText2 = text;
+
+    // setActionCommand(text1 + " " + text2);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.TwoLineWidget#getText2()
+   */
+  public String getText2() {
+    return mText2;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+
+    int x = mTextOffset;
+    int y = 0;
+
+    if (mText1 != null) {
+      y += 20;
+      // g2.setFont(ThemeService.loadFont("widget.bold-text"));
+      g2.setColor(mColor1);
+      g2.drawString(mText1, x, y);
+    }
+
+    if (mText2 != null) {
+      y += 20;
+      // g2.setFont(ThemeService.loadFont("widget.text"));
+      g2.setColor(mColor2);
+      g2.drawString(mText2, x, y);
+    }
+
+    if (mIcon != null) {
+      int h = mIcon.getHeight();
+      int iconX = (mTextOffset - h) / 2;
+      int iconY = (getHeight() - h) / 2;
+
+      mIcon.drawIcon(g2, iconX, iconY, h);
+    }
+  }
+
 }

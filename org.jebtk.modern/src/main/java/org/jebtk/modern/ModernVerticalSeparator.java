@@ -32,61 +32,57 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernVerticalSeparator.
  */
 public class ModernVerticalSeparator extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant WIDTH.
-	 */
-	public static final int WIDTH = 1;
-	
-	/**
-	 * The constant MINIMUM_SIZE.
-	 */
-	public static final Dimension MINIMUM_SIZE = new Dimension(WIDTH, 24);
-	
-	/**
-	 * The constant SIZE.
-	 */
-	public static final Dimension SIZE = new Dimension(WIDTH, 24);
-	
-	/**
-	 * The constant MID_POINT.
-	 */
-	public static final int MID_POINT = WIDTH / 2;
+  /**
+   * The constant WIDTH.
+   */
+  public static final int WIDTH = 1;
 
-	/**
-	 * Instantiates a new modern vertical separator.
-	 */
-	public ModernVerticalSeparator() {
+  /**
+   * The constant MINIMUM_SIZE.
+   */
+  public static final Dimension MINIMUM_SIZE = new Dimension(WIDTH, 24);
 
-		setMinimumSize(MINIMUM_SIZE);
-		setPreferredSize(MINIMUM_SIZE);
-		setMaximumSize(SIZE);
-	}
+  /**
+   * The constant SIZE.
+   */
+  public static final Dimension SIZE = new Dimension(WIDTH, 24);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
+  /**
+   * The constant MID_POINT.
+   */
+  public static final int MID_POINT = WIDTH / 2;
 
-		g2.setColor(ModernWidget.LINE_COLOR);
-		
-		g2.drawLine(MID_POINT, 
-				mInternalRect.getY(), 
-				MID_POINT, 
-				mInternalRect.getY() + mInternalRect.getH());
-	}
+  /**
+   * Instantiates a new modern vertical separator.
+   */
+  public ModernVerticalSeparator() {
+
+    setMinimumSize(MINIMUM_SIZE);
+    setPreferredSize(MINIMUM_SIZE);
+    setMaximumSize(SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+
+    g2.setColor(ModernWidget.LINE_COLOR);
+
+    g2.drawLine(MID_POINT, mInternalRect.getY(), MID_POINT, mInternalRect.getY() + mInternalRect.getH());
+  }
 }

@@ -33,18 +33,18 @@ package org.jebtk.modern.window;
  */
 public class ModernSplashHelpButton extends ModernSplashTitleButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern splash help button.
-	 */
-	public ModernSplashHelpButton() {
-		super("?");
-		
-		setFont(HEADING_FONT);
-	}
+  /**
+   * Instantiates a new modern splash help button.
+   */
+  public ModernSplashHelpButton() {
+    super("?");
+
+    setFont(HEADING_FONT);
+  }
 
 }

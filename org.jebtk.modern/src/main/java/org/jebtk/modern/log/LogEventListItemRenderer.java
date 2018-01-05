@@ -33,8 +33,6 @@ import org.jebtk.core.log.LogEvent;
 import org.jebtk.modern.list.ModernList;
 import org.jebtk.modern.list.ModernListIconCellRenderer;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Renders a list item with an icon and glossy selection.
@@ -43,30 +41,29 @@ import org.jebtk.modern.list.ModernListIconCellRenderer;
  *
  */
 public class LogEventListItemRenderer extends ModernListIconCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.list.ModernListIconCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList, java.lang.Object, boolean, boolean, boolean, int)
-	 */
-	public Component getCellRendererComponent(ModernList<?> list,
-			Object value,
-			boolean highlight,
-            boolean isSelected,
-            boolean hasFocus,
-            int row) {
-		if (value == null) {
-			return this;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.list.ModernListIconCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList,
+   * java.lang.Object, boolean, boolean, boolean, int)
+   */
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
+    if (value == null) {
+      return this;
+    }
 
-		LogEvent e = (LogEvent)value;
-		
-		setText(e.getFormattedDate() + " " + e.getMessage());
+    LogEvent e = (LogEvent) value;
 
-		return this;
-	}
+    setText(e.getFormattedDate() + " " + e.getMessage());
+
+    return this;
+  }
 }

@@ -24,40 +24,37 @@ import org.jebtk.modern.widget.ModernWidget;
  * Provides the fade animation for quick access buttons
  */
 public class ModernHSplitPaneLineAnimation extends HoverFadeAnimation {
-	
-	private ModernHSplitPaneLine mPane;
 
-	/**
-	 * Instantiates a new quick access animation.
-	 *
-	 * @param button the button
-	 */
-	public ModernHSplitPaneLineAnimation(ModernWidget pane) {
-		super(pane);
-		
-		mPane = (ModernHSplitPaneLine)pane;
-		
-		setFadeColor("highlight", ModernWidget.LINE_COLOR);
-	}
+  private ModernHSplitPaneLine mPane;
 
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		int y = widget.getInsets().top;
-		int w = widget.getInternalRect().getW();
-		int x = widget.getInsets().left;
-		int y2 = widget.getHeight() - widget.getInsets().bottom;
+  /**
+   * Instantiates a new quick access animation.
+   *
+   * @param button
+   *          the button
+   */
+  public ModernHSplitPaneLineAnimation(ModernWidget pane) {
+    super(pane);
 
-		g2.setColor(getFadeColor("highlight"));
-		
+    mPane = (ModernHSplitPaneLine) pane;
 
-		for (int i = 0; i < mPane.mDividerLocations.size() - 1; ++i) {
-			x += (int)(w * mPane.mDividerLocations.get(i));
-			
-			g2.drawLine(x,
-					y,
-					x,
-					y2);
-		}
-	}
-	
+    setFadeColor("highlight", ModernWidget.LINE_COLOR);
+  }
+
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    int y = widget.getInsets().top;
+    int w = widget.getInternalRect().getW();
+    int x = widget.getInsets().left;
+    int y2 = widget.getHeight() - widget.getInsets().bottom;
+
+    g2.setColor(getFadeColor("highlight"));
+
+    for (int i = 0; i < mPane.mDividerLocations.size() - 1; ++i) {
+      x += (int) (w * mPane.mDividerLocations.get(i));
+
+      g2.drawLine(x, y, x, y2);
+    }
+  }
+
 }

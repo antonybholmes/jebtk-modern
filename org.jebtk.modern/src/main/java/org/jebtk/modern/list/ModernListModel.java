@@ -45,302 +45,328 @@ import org.jebtk.modern.dataview.ModernDataViewEventProducer;
 import org.jebtk.modern.dataview.ModernDataViewListener;
 import org.jebtk.modern.dataview.ModernDataViewListeners;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * ModernSelection model to determine which rows are selected in a list, table, tree etc.
+ * ModernSelection model to determine which rows are selected in a list, table,
+ * tree etc.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProducer {
-	
-	/**
-	 * The member listeners.
-	 */
-	private ModernDataViewListeners mListeners = 
-			new ModernDataViewListeners();
-	
-	/**
-	 * The member items.
-	 */
-	private List<T> mItems = new ArrayList<T>(100);
-	
-	
-	/**
-	 * Returns the number of items in the list model.
-	 *
-	 * @return the item count
-	 */
-	public int getItemCount() {
-		return mItems.size();
-	}
-	
-	/**
-	 * Gets the value at.
-	 *
-	 * @param row the row
-	 * @return the value at
-	 */
-	public T getValueAt(int row) {
-		if (row < 0 || row >= mItems.size()) {
-			return null;
-		}
-		
-		return mItems.get(row);
-	}
-	
-	/**
-	 * Adds the value.
-	 *
-	 * @param item the item
-	 */
-	public void addValue(T item) {
-		mItems.add(item);
-		
-		fireDataChanged();
-	}
-	
-	/**
-	 * Sets the values.
-	 *
-	 * @param items the new values
-	 */
-	public void setValues(Collection<T> items) {
-		// remove all without notifying
-		remove();
-		
-		addValues(items);
-	}
-	
-	/**
-	 * Adds the values.
-	 *
-	 * @param items the items
-	 */
-	public void addValues(Collection<T> items) {
-		mItems.addAll(items);
-		
-		fireDataChanged();
-	}
-	
-	/**
-	 * Adds the values.
-	 *
-	 * @param items the items
-	 * @param index the index
-	 */
-	public void addValues(Collection<T> items, int index) {
-		mItems.addAll(index, items);
-		
-		fireDataChanged();
-	}
-	
-	/**
-	 * Add the items in order at the start of the list rather than the
-	 * end.
-	 *
-	 * @param items the items
-	 */
-	public void addValuesAtStart(List<T> items) {
-		addValues(items, 0);
-	}
 
-	/**
-	 * Removes the value at.
-	 *
-	 * @param row the row
-	 */
-	public void removeValueAt(int row) {
-		if (mItems.size() == 0 || row < 0 || row >= mItems.size()) {
-			return;
-		}
-		
-		mItems.remove(row);
-		
-		fireDataChanged();
-	}
-	
-	/**
-	 * Remove multiple values.
-	 *
-	 * @param indices the indices
-	 */
-	public void removeValuesAt(ArrayList<Integer> indices) {
-		for (int i : CollectionUtils.reverse(CollectionUtils.sort(indices))) {
-			mItems.remove(i);
-		}
-		
-		fireDataChanged();
-	}
-	
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		remove();
-		
-		fireDataChanged();
-	}
-	
-	/**
-	 * Remove all items without notifying of change.
-	 */
-	public void remove() {
-		mItems.clear();
-	}
+  /**
+   * The member listeners.
+   */
+  private ModernDataViewListeners mListeners = new ModernDataViewListeners();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#addDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
-	 */
-	@Override
-	public void addDataViewListener(ModernDataViewListener l) {
-		mListeners.addDataViewListener(l);
-	}
+  /**
+   * The member items.
+   */
+  private List<T> mItems = new ArrayList<T>(100);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#removeDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
-	 */
-	@Override
-	public void removeDataViewListener(ModernDataViewListener l) {
-		mListeners.removeDataViewListener(l);
-	}
+  /**
+   * Returns the number of items in the list model.
+   *
+   * @return the item count
+   */
+  public int getItemCount() {
+    return mItems.size();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#fireDataChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void fireDataChanged(ChangeEvent e) {
-		//System.err.println("sdfsdf");
-		
-		mListeners.fireDataChanged(e);
-	}
+  /**
+   * Gets the value at.
+   *
+   * @param row
+   *          the row
+   * @return the value at
+   */
+  public T getValueAt(int row) {
+    if (row < 0 || row >= mItems.size()) {
+      return null;
+    }
 
-	/**
-	 * Fire data changed.
-	 */
-	public void fireDataChanged() {
-		fireDataChanged(new ChangeEvent(this));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#fireDataUpdated(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void fireDataUpdated(ChangeEvent e) {
-		mListeners.fireDataUpdated(e);
-	}
+    return mItems.get(row);
+  }
 
-	/**
-	 * Fire data updated.
-	 */
-	public void fireDataUpdated() {
-		fireDataUpdated(new ChangeEvent(this));
-	}
+  /**
+   * Adds the value.
+   *
+   * @param item
+   *          the item
+   */
+  public void addValue(T item) {
+    mItems.add(item);
 
-	/**
-	 * Indicates an item should be reordered in the list.
-	 *
-	 * @param index the index
-	 * @param newIndex the new index
-	 */
-	public void move(int index, int newIndex) {
-		shift(index, newIndex);
-		
-		fireDataChanged();
-	}
-	
-	/**
-	 * Shift.
-	 *
-	 * @param index the index
-	 * @param newIndex the new index
-	 */
-	public void shift(int index, int newIndex) {
-		// don't pointless swap an item with itself
-		if (index == newIndex || index == -1 || newIndex == -1) {
-			return;
-		}
-		
-		// Bound the new index. The index can be the number of items
-		// in the list. This indicates the item should be inserted at
-		// the end of the list.
-		newIndex = Math.max(0, Math.min(newIndex, mItems.size()));
-		
-		//System.err.println("swap " + index + " " + newIndex);
-		
-	
-		
-		T tmp = mItems.get(index);
-		
-		mItems.remove(index);
-		
-		System.err.println("sddsf " + index + " " + newIndex);
-		
-		if (newIndex < getItemCount()) {
-			mItems.add(newIndex, tmp);
-		} else {
-			mItems.add(tmp);
-		}
-	}
-	
-	/**
-	 * Shift.
-	 *
-	 * @param fromIndices the from indices
-	 * @param toIndices the to indices
-	 */
-	public void shift(List<Integer> fromIndices, 
-			List<Integer> toIndices) {
-		for (int i = 0; i < fromIndices.size(); ++i) {
-			shift(fromIndices.get(i), toIndices.get(i));
-		}
-		
-		fireDataUpdated();
-	}
+    fireDataChanged();
+  }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	@Override
-	public Iterator<T> iterator() {
-		return mItems.iterator();
-	}
+  /**
+   * Sets the values.
+   *
+   * @param items
+   *          the new values
+   */
+  public void setValues(Collection<T> items) {
+    // remove all without notifying
+    remove();
 
-	/**
-	 * Parse a text file into a list model. The first line
-	 * is assumed to be a header and is ignored.
-	 *
-	 * @param file the file
-	 * @return the modern list model
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public static ModernListModel<String> parse(File file) throws IOException {
-		ModernListModel<String> model = new ModernListModel<String>();
-		
-		BufferedReader reader = new BufferedReader(new FileReader(file));
+    addValues(items);
+  }
 
-		String line;
-		
-		try {
-			// skip header
-			reader.readLine();
+  /**
+   * Adds the values.
+   *
+   * @param items
+   *          the items
+   */
+  public void addValues(Collection<T> items) {
+    mItems.addAll(items);
 
-			while ((line = reader.readLine()) != null) {
-				if (Io.isEmptyLine(line)) {
-					continue;
-				}
+    fireDataChanged();
+  }
 
-				List<String> tokens = 
-						TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+  /**
+   * Adds the values.
+   *
+   * @param items
+   *          the items
+   * @param index
+   *          the index
+   */
+  public void addValues(Collection<T> items, int index) {
+    mItems.addAll(index, items);
 
-				model.addValue(tokens.get(0));
-			}
-		} finally {
-			reader.close();
-		}
-		
-		return model;
-	}
+    fireDataChanged();
+  }
+
+  /**
+   * Add the items in order at the start of the list rather than the end.
+   *
+   * @param items
+   *          the items
+   */
+  public void addValuesAtStart(List<T> items) {
+    addValues(items, 0);
+  }
+
+  /**
+   * Removes the value at.
+   *
+   * @param row
+   *          the row
+   */
+  public void removeValueAt(int row) {
+    if (mItems.size() == 0 || row < 0 || row >= mItems.size()) {
+      return;
+    }
+
+    mItems.remove(row);
+
+    fireDataChanged();
+  }
+
+  /**
+   * Remove multiple values.
+   *
+   * @param indices
+   *          the indices
+   */
+  public void removeValuesAt(ArrayList<Integer> indices) {
+    for (int i : CollectionUtils.reverse(CollectionUtils.sort(indices))) {
+      mItems.remove(i);
+    }
+
+    fireDataChanged();
+  }
+
+  /**
+   * Clear.
+   */
+  public void clear() {
+    remove();
+
+    fireDataChanged();
+  }
+
+  /**
+   * Remove all items without notifying of change.
+   */
+  public void remove() {
+    mItems.clear();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#
+   * addDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
+   */
+  @Override
+  public void addDataViewListener(ModernDataViewListener l) {
+    mListeners.addDataViewListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#
+   * removeDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
+   */
+  @Override
+  public void removeDataViewListener(ModernDataViewListener l) {
+    mListeners.removeDataViewListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#fireDataChanged(
+   * org.abh.lib.event.ChangeEvent)
+   */
+  @Override
+  public void fireDataChanged(ChangeEvent e) {
+    // System.err.println("sdfsdf");
+
+    mListeners.fireDataChanged(e);
+  }
+
+  /**
+   * Fire data changed.
+   */
+  public void fireDataChanged() {
+    fireDataChanged(new ChangeEvent(this));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#fireDataUpdated(
+   * org.abh.lib.event.ChangeEvent)
+   */
+  @Override
+  public void fireDataUpdated(ChangeEvent e) {
+    mListeners.fireDataUpdated(e);
+  }
+
+  /**
+   * Fire data updated.
+   */
+  public void fireDataUpdated() {
+    fireDataUpdated(new ChangeEvent(this));
+  }
+
+  /**
+   * Indicates an item should be reordered in the list.
+   *
+   * @param index
+   *          the index
+   * @param newIndex
+   *          the new index
+   */
+  public void move(int index, int newIndex) {
+    shift(index, newIndex);
+
+    fireDataChanged();
+  }
+
+  /**
+   * Shift.
+   *
+   * @param index
+   *          the index
+   * @param newIndex
+   *          the new index
+   */
+  public void shift(int index, int newIndex) {
+    // don't pointless swap an item with itself
+    if (index == newIndex || index == -1 || newIndex == -1) {
+      return;
+    }
+
+    // Bound the new index. The index can be the number of items
+    // in the list. This indicates the item should be inserted at
+    // the end of the list.
+    newIndex = Math.max(0, Math.min(newIndex, mItems.size()));
+
+    // System.err.println("swap " + index + " " + newIndex);
+
+    T tmp = mItems.get(index);
+
+    mItems.remove(index);
+
+    System.err.println("sddsf " + index + " " + newIndex);
+
+    if (newIndex < getItemCount()) {
+      mItems.add(newIndex, tmp);
+    } else {
+      mItems.add(tmp);
+    }
+  }
+
+  /**
+   * Shift.
+   *
+   * @param fromIndices
+   *          the from indices
+   * @param toIndices
+   *          the to indices
+   */
+  public void shift(List<Integer> fromIndices, List<Integer> toIndices) {
+    for (int i = 0; i < fromIndices.size(); ++i) {
+      shift(fromIndices.get(i), toIndices.get(i));
+    }
+
+    fireDataUpdated();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  @Override
+  public Iterator<T> iterator() {
+    return mItems.iterator();
+  }
+
+  /**
+   * Parse a text file into a list model. The first line is assumed to be a header
+   * and is ignored.
+   *
+   * @param file
+   *          the file
+   * @return the modern list model
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public static ModernListModel<String> parse(File file) throws IOException {
+    ModernListModel<String> model = new ModernListModel<String>();
+
+    BufferedReader reader = new BufferedReader(new FileReader(file));
+
+    String line;
+
+    try {
+      // skip header
+      reader.readLine();
+
+      while ((line = reader.readLine()) != null) {
+        if (Io.isEmptyLine(line)) {
+          continue;
+        }
+
+        List<String> tokens = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+
+        model.addValue(tokens.get(0));
+      }
+    } finally {
+      reader.close();
+    }
+
+    return model;
+  }
 }

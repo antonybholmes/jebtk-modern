@@ -31,7 +31,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Down arrow vector icon for combobox buttons etc.
@@ -40,40 +39,44 @@ import java.awt.geom.GeneralPath;
  *
  */
 public class TriangleDownVectorIcon extends TriangleVectorIcon {
-	
-	/**
-	 * Instantiates a new triangle down vector icon.
-	 */
-	public TriangleDownVectorIcon() {
-		this(COLOR);
-	}
-	
-	/**
-	 * Instantiates a new triangle down vector icon.
-	 *
-	 * @param color1 the color 1
-	 */
-	public TriangleDownVectorIcon(Color color1) {
-		super(color1);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.icons.TriangleVectorIcon#drawIcon(java.awt.Graphics2D, int, int, int, int)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		super.drawIcon(g2, x, y, w, h, params);
-		
-		mXf = x + (w - mWf) / 2.0;
-		mYf = y + (h - mHf) / 2.0;
-		
-		GeneralPath gp = new GeneralPath();	
-		gp.moveTo(mXf, mYf);
-		gp.lineTo(mXf + mWf, mYf);
-		gp.lineTo(mXf + mW2, mYf + mHf);
-		gp.closePath();
-		
-		g2.setColor(mColor1);
-		g2.fill(gp);
-	}
+
+  /**
+   * Instantiates a new triangle down vector icon.
+   */
+  public TriangleDownVectorIcon() {
+    this(COLOR);
+  }
+
+  /**
+   * Instantiates a new triangle down vector icon.
+   *
+   * @param color1
+   *          the color 1
+   */
+  public TriangleDownVectorIcon(Color color1) {
+    super(color1);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.icons.TriangleVectorIcon#drawIcon(java.awt.
+   * Graphics2D, int, int, int, int)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    super.drawIcon(g2, x, y, w, h, params);
+
+    mXf = x + (w - mWf) / 2.0;
+    mYf = y + (h - mHf) / 2.0;
+
+    GeneralPath gp = new GeneralPath();
+    gp.moveTo(mXf, mYf);
+    gp.lineTo(mXf + mWf, mYf);
+    gp.lineTo(mXf + mW2, mYf + mHf);
+    gp.closePath();
+
+    g2.setColor(mColor1);
+    g2.fill(gp);
+  }
 }

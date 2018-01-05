@@ -42,38 +42,42 @@ import org.jebtk.modern.window.ModernWindow;
  */
 public class RibbonTitleBarMinButton extends RibbonTitleBarButton implements ModernClickListener {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m window. */
-	private ModernWindow mWindow;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new ribbon title bar min button.
-	 *
-	 * @param window the window
-	 */
-	public RibbonTitleBarMinButton(ModernWindow window) {
-		super(new Raster16Icon(new WindowMinVectorIcon(DARK_LINE_COLOR)));
-		
-		mWindow = window;
-		
-		setClickMessage(UI.MENU_MINIMIZE);
-		
-		addClickListener(this);
-		
-		setToolTip("Minimize", "Minimize the window.");
-	}
+  /** The m window. */
+  private ModernWindow mWindow;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		mWindow.setState(Frame.ICONIFIED);
-	}
-	
+  /**
+   * Instantiates a new ribbon title bar min button.
+   *
+   * @param window
+   *          the window
+   */
+  public RibbonTitleBarMinButton(ModernWindow window) {
+    super(new Raster16Icon(new WindowMinVectorIcon(DARK_LINE_COLOR)));
+
+    mWindow = window;
+
+    setClickMessage(UI.MENU_MINIMIZE);
+
+    addClickListener(this);
+
+    setToolTip("Minimize", "Minimize the window.");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
+   * ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    mWindow.setState(Frame.ICONIFIED);
+  }
+
 }

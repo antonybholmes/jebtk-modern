@@ -43,56 +43,59 @@ import org.jebtk.modern.theme.ThemeService;
  * The class ToolbarBottomBox.
  */
 public class ToolbarBottomBox extends Box {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant LINE_COLOR.
-	 */
-	private static final Color LINE_COLOR =
-			ThemeService.getInstance().colors().getHighlight(4);
-	
-	/**
-	 * The member internal box.
-	 */
-	private Box mInternalBox = HBox.create();
-	
-	/**
-	 * Instantiates a new toolbar bottom box.
-	 */
-	public ToolbarBottomBox() {
-		super(BoxLayout.LINE_AXIS);
-		
-		setBorder(BorderService.getInstance().createTopBottomBorder(10));
-		
-		setAlignmentX(LEFT_ALIGNMENT);
-		
-		super.add(Box.createHorizontalGlue());
-		super.add(mInternalBox);
-		super.add(Box.createHorizontalGlue());
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component c) {
-		mInternalBox.add(c);
-		
-		return c;
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.Box#paintComponent(java.awt.Graphics)
-	 */
-	@Override
-	public void paintComponent(Graphics g) {
-		g.setColor(LINE_COLOR);
-		
-		g.drawLine(0, 0, getWidth(), 0);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant LINE_COLOR.
+   */
+  private static final Color LINE_COLOR = ThemeService.getInstance().colors().getHighlight(4);
+
+  /**
+   * The member internal box.
+   */
+  private Box mInternalBox = HBox.create();
+
+  /**
+   * Instantiates a new toolbar bottom box.
+   */
+  public ToolbarBottomBox() {
+    super(BoxLayout.LINE_AXIS);
+
+    setBorder(BorderService.getInstance().createTopBottomBorder(10));
+
+    setAlignmentX(LEFT_ALIGNMENT);
+
+    super.add(Box.createHorizontalGlue());
+    super.add(mInternalBox);
+    super.add(Box.createHorizontalGlue());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component c) {
+    mInternalBox.add(c);
+
+    return c;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.Box#paintComponent(java.awt.Graphics)
+   */
+  @Override
+  public void paintComponent(Graphics g) {
+    g.setColor(LINE_COLOR);
+
+    g.drawLine(0, 0, getWidth(), 0);
+  }
 
 }

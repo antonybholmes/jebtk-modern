@@ -33,26 +33,25 @@ import org.jebtk.modern.graphics.icons.FolderVectorIcon;
 
 // TODO: Auto-generated Javadoc
 /**
- * Standard renderer that displays parents as folders and
- * leaves as file icons.
+ * Standard renderer that displays parents as folders and leaves as file icons.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class TreeNodeFileRenderer extends TreeIconNodeRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new tree node file renderer.
-	 */
-	public TreeNodeFileRenderer() {
-		super(UIService.getInstance().loadIcon(FolderVectorIcon.class, 16), 
-				UIService.getInstance().loadIcon(FileVectorIcon.class, 16));
-	}
+  /**
+   * Instantiates a new tree node file renderer.
+   */
+  public TreeNodeFileRenderer() {
+    super(UIService.getInstance().loadIcon(FolderVectorIcon.class, 16),
+        UIService.getInstance().loadIcon(FileVectorIcon.class, 16));
+  }
 
 }

@@ -38,95 +38,98 @@ import org.jebtk.modern.table.ModernSpreadsheetBar;
 import org.jebtk.modern.table.ModernTable;
 import org.jebtk.modern.zoom.ZoomModel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class PreviewTablePanel.
  */
 public class PreviewTablePanel extends ModernPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member table.
-	 */
-	private ModernSpreadsheet mTable;
 
-	/**
-	 * The member file.
-	 */
-	private Path mPath;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new preview table panel.
-	 *
-	 * @param file the file
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public PreviewTablePanel(Path file) throws IOException {
-		this(file, -1);
-	}
-	
-	/**
-	 * Instantiates a new preview table panel.
-	 *
-	 * @param file the file
-	 * @param rows the rows
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public PreviewTablePanel(Path file, int rows) throws IOException {
-		this(new PreviewTableModel(file, rows));
-		
-		mPath = file;
-	}
-	
-	
-	public PreviewTablePanel(ModernDataModel model) {
-		this(model, new ZoomModel());
-	}
-	
-	/**
-	 * Instantiates a new preview table panel.
-	 *
-	 * @param model the model
-	 */
-	public PreviewTablePanel(ModernDataModel model, ZoomModel zoomModel) {
-		mTable = new ModernSpreadsheet();
-		mTable.setZoomModel(zoomModel);
-		
-		mTable.setModel(model);
-		
-		ModernSpreadsheetBar bar = new ModernSpreadsheetBar(mTable);
-		
-		setHeader(bar);
-		
-		ModernScrollPane scrollPane = new ModernScrollPane(mTable);
-		scrollPane.getVScrollBar().setPadding(PADDING, 0);
-		scrollPane.getHScrollBar().setPadding(PADDING, 0);
-		setBody(scrollPane);
-		
-		setBorder(BORDER);
-	}
+  /**
+   * The member table.
+   */
+  private ModernSpreadsheet mTable;
 
-	/**
-	 * Gets the file.
-	 *
-	 * @return the file
-	 */
-	public Path getFile() {
-		return mPath;
-	}
-	
-	/**
-	 * Gets the table.
-	 *
-	 * @return the table
-	 */
-	public ModernTable getTable() {
-		return mTable;
-	}
+  /**
+   * The member file.
+   */
+  private Path mPath;
+
+  /**
+   * Instantiates a new preview table panel.
+   *
+   * @param file
+   *          the file
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public PreviewTablePanel(Path file) throws IOException {
+    this(file, -1);
+  }
+
+  /**
+   * Instantiates a new preview table panel.
+   *
+   * @param file
+   *          the file
+   * @param rows
+   *          the rows
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public PreviewTablePanel(Path file, int rows) throws IOException {
+    this(new PreviewTableModel(file, rows));
+
+    mPath = file;
+  }
+
+  public PreviewTablePanel(ModernDataModel model) {
+    this(model, new ZoomModel());
+  }
+
+  /**
+   * Instantiates a new preview table panel.
+   *
+   * @param model
+   *          the model
+   */
+  public PreviewTablePanel(ModernDataModel model, ZoomModel zoomModel) {
+    mTable = new ModernSpreadsheet();
+    mTable.setZoomModel(zoomModel);
+
+    mTable.setModel(model);
+
+    ModernSpreadsheetBar bar = new ModernSpreadsheetBar(mTable);
+
+    setHeader(bar);
+
+    ModernScrollPane scrollPane = new ModernScrollPane(mTable);
+    scrollPane.getVScrollBar().setPadding(PADDING, 0);
+    scrollPane.getHScrollBar().setPadding(PADDING, 0);
+    setBody(scrollPane);
+
+    setBorder(BORDER);
+  }
+
+  /**
+   * Gets the file.
+   *
+   * @return the file
+   */
+  public Path getFile() {
+    return mPath;
+  }
+
+  /**
+   * Gets the table.
+   *
+   * @return the table
+   */
+  public ModernTable getTable() {
+    return mTable;
+  }
 }

@@ -30,8 +30,6 @@ package org.jebtk.modern.graphics;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Draws the canvas over a colored background.
@@ -40,47 +38,56 @@ import java.awt.Graphics2D;
  *
  */
 public class BackgroundCanvas extends ContainerCanvas {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new background canvas.
-	 *
-	 * @param canvas the canvas
-	 */
-	public BackgroundCanvas(ModernCanvas canvas) {
-		this(canvas, Color.WHITE);
-	}
-	
-	/**
-	 * Instantiates a new background canvas.
-	 *
-	 * @param canvas the canvas
-	 * @param color the color
-	 */
-	public BackgroundCanvas(ModernCanvas canvas, Color color) {
-		super(canvas);
-		
-		setBackground(color);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		g2.setColor(getBackground());
-		g2.fillRect(0, 0, getWidth(), getHeight());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ContainerCanvas#drawCanvasForeground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
-		mCanvas.drawCanvasForeground(g2, context);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new background canvas.
+   *
+   * @param canvas
+   *          the canvas
+   */
+  public BackgroundCanvas(ModernCanvas canvas) {
+    this(canvas, Color.WHITE);
+  }
+
+  /**
+   * Instantiates a new background canvas.
+   *
+   * @param canvas
+   *          the canvas
+   * @param color
+   *          the color
+   */
+  public BackgroundCanvas(ModernCanvas canvas, Color color) {
+    super(canvas);
+
+    setBackground(color);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    g2.setColor(getBackground());
+    g2.fillRect(0, 0, getWidth(), getHeight());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ContainerCanvas#drawCanvasForeground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
+    mCanvas.drawCanvasForeground(g2, context);
+  }
 }

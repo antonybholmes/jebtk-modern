@@ -43,47 +43,54 @@ import org.jebtk.modern.graphics.icons.WindowMinVectorIcon;
  */
 public class ModernWindowTitleBarMinButton extends ModernWindowTitleBarWinButton implements ModernClickListener {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m window. */
-	private ModernWindow mWindow;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern window title bar min button.
-	 *
-	 * @param window the window
-	 */
-	public ModernWindowTitleBarMinButton(ModernWindow window) {
-		this(window, new Raster16Icon(new WindowMinVectorIcon(Color.WHITE)));
-	}
-	
-	/**
-	 * Instantiates a new modern window title bar min button.
-	 *
-	 * @param window the window
-	 * @param icon the icon
-	 */
-	public ModernWindowTitleBarMinButton(ModernWindow window, ModernIcon icon) {
-		super(icon);
-		
-		mWindow = window;
-		
-		setClickMessage(UI.MENU_MINIMIZE);
-		
-		addClickListener(this);
-		
-		setToolTip("Minimize", "Minimize the window.");
-	}
+  /** The m window. */
+  private ModernWindow mWindow;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		mWindow.setState(Frame.ICONIFIED);
-	}
-	
+  /**
+   * Instantiates a new modern window title bar min button.
+   *
+   * @param window
+   *          the window
+   */
+  public ModernWindowTitleBarMinButton(ModernWindow window) {
+    this(window, new Raster16Icon(new WindowMinVectorIcon(Color.WHITE)));
+  }
+
+  /**
+   * Instantiates a new modern window title bar min button.
+   *
+   * @param window
+   *          the window
+   * @param icon
+   *          the icon
+   */
+  public ModernWindowTitleBarMinButton(ModernWindow window, ModernIcon icon) {
+    super(icon);
+
+    mWindow = window;
+
+    setClickMessage(UI.MENU_MINIMIZE);
+
+    addClickListener(this);
+
+    setToolTip("Minimize", "Minimize the window.");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
+   * ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    mWindow.setState(Frame.ICONIFIED);
+  }
+
 }

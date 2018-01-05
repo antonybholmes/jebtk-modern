@@ -35,97 +35,103 @@ import java.util.Map;
 import org.jebtk.core.Indexed;
 import org.jebtk.modern.dataview.ModernData;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * The data sorter provides a mapping between an index and
- * a sorted index so that a dataview can arbitrary reorder
- * a data model (e.g. sort all columns).
+ * The data sorter provides a mapping between an index and a sorted index so
+ * that a dataview can arbitrary reorder a data model (e.g. sort all columns).
  *
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernDataIndexMapSorter extends ModernDataIndexSorter  {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+public abstract class ModernDataIndexMapSorter extends ModernDataIndexSorter {
 
-	/**
-	 * The original sorted map.
-	 */
-	protected Map<Integer, Integer> mOriginalSortedMap = 
-			new HashMap<Integer, Integer>();
-	
-	/**
-	 * The sorted original map.
-	 */
-	protected Map<Integer, Integer> mSortedOriginalMap = 
-			new HashMap<Integer, Integer>();
-	
-	/**
-	 * Instantiates a new modern data index map sorter.
-	 */
-	public ModernDataIndexMapSorter() {
-		setEnabled(true);
-	}
-	
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#sort(org.abh.lib.ui.modern.dataview.ModernData, int, boolean)
-	 */
-	@Override
-	public void sort(ModernData data, int index, boolean sortAscending) {
-		super.sort(data, index, sortAscending);
-		
-		mOriginalSortedMap.clear();
-		mSortedOriginalMap.clear();
-	}
-	
-	/**
-	 * Sort indexed values for use in a table sorter.
-	 *
-	 * @param <T> the generic type
-	 * @param values the values
-	 */
-	public <T extends Comparable<? super T>> void sort(List<Indexed<Integer, T>> values) {
-		Collections.sort(values);
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-		if (!mSortAscending) {
-			Collections.reverse(values);
-		}
+  /**
+   * The original sorted map.
+   */
+  protected Map<Integer, Integer> mOriginalSortedMap = new HashMap<Integer, Integer>();
 
-		for (int i = 0; i < values.size(); ++i) {
-			mOriginalSortedMap.put(values.get(i).getIndex(), i);
-			mSortedOriginalMap.put(i, values.get(i).getIndex());
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#getModelIndex(int)
-	 */
-	@Override
-	public int getModelIndex(int sortedIndex) {
-		Integer i = mSortedOriginalMap.get(sortedIndex);
-		
-		if (i == null) {
-			return -1;
-		}
-		
-		return i;
-	}
+  /**
+   * The sorted original map.
+   */
+  protected Map<Integer, Integer> mSortedOriginalMap = new HashMap<Integer, Integer>();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#getSortedIndex(int)
-	 */
-	@Override
-	public int getSortedIndex(int originalIndex) {
-		Integer i = mOriginalSortedMap.get(originalIndex);
-		
-		if (i == null) {
-			return -1;
-		}
-		
-		return i;
-	}
+  /**
+   * Instantiates a new modern data index map sorter.
+   */
+  public ModernDataIndexMapSorter() {
+    setEnabled(true);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#sort(org.abh.lib.ui
+   * .modern.dataview.ModernData, int, boolean)
+   */
+  @Override
+  public void sort(ModernData data, int index, boolean sortAscending) {
+    super.sort(data, index, sortAscending);
+
+    mOriginalSortedMap.clear();
+    mSortedOriginalMap.clear();
+  }
+
+  /**
+   * Sort indexed values for use in a table sorter.
+   *
+   * @param <T>
+   *          the generic type
+   * @param values
+   *          the values
+   */
+  public <T extends Comparable<? super T>> void sort(List<Indexed<Integer, T>> values) {
+    Collections.sort(values);
+
+    if (!mSortAscending) {
+      Collections.reverse(values);
+    }
+
+    for (int i = 0; i < values.size(); ++i) {
+      mOriginalSortedMap.put(values.get(i).getIndex(), i);
+      mSortedOriginalMap.put(i, values.get(i).getIndex());
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#getModelIndex(int)
+   */
+  @Override
+  public int getModelIndex(int sortedIndex) {
+    Integer i = mSortedOriginalMap.get(sortedIndex);
+
+    if (i == null) {
+      return -1;
+    }
+
+    return i;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#getSortedIndex(int)
+   */
+  @Override
+  public int getSortedIndex(int originalIndex) {
+    Integer i = mOriginalSortedMap.get(originalIndex);
+
+    if (i == null) {
+      return -1;
+    }
+
+    return i;
+  }
 }

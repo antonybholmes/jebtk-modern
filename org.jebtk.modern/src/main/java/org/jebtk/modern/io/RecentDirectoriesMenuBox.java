@@ -40,39 +40,37 @@ import org.jebtk.modern.menu.ModernMenuBox;
  * The class RecentDirectoriesMenuBox.
  */
 public class RecentDirectoriesMenuBox extends ModernMenuBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Reload.
-	 */
-	public final void reload() {
-		removeAll();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		//add(new BrowseFileMenuItem());
+  /**
+   * Reload.
+   */
+  public final void reload() {
+    removeAll();
 
-		//add(new ModernMenuDivider());
-		
-		Date now = Calendar.getInstance().getTime();
-		
-		add(new FileTitleMenuItem("Current Folder"));
-		
-		add(new DirectoryMenuItem(RecentFilesService.getInstance().getPwd(), now));
-		
-		add(new FileTitleMenuItem("Recent Folders"));
-		
-		Set<Path> used = new HashSet<Path>();
-		
-		
-		
-		for (Path file : RecentFilesService.getInstance()) {
-			if (!used.contains(file.getParent())) {
-				add(new DirectoryMenuItem(file.getParent(), RecentFilesService.getInstance().getDate(file)));
-				used.add(file.getParent());
-			}
-		}
-	}
+    // add(new BrowseFileMenuItem());
+
+    // add(new ModernMenuDivider());
+
+    Date now = Calendar.getInstance().getTime();
+
+    add(new FileTitleMenuItem("Current Folder"));
+
+    add(new DirectoryMenuItem(RecentFilesService.getInstance().getPwd(), now));
+
+    add(new FileTitleMenuItem("Recent Folders"));
+
+    Set<Path> used = new HashSet<Path>();
+
+    for (Path file : RecentFilesService.getInstance()) {
+      if (!used.contains(file.getParent())) {
+        add(new DirectoryMenuItem(file.getParent(), RecentFilesService.getInstance().getDate(file)));
+        used.add(file.getParent());
+      }
+    }
+  }
 }

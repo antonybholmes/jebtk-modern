@@ -39,276 +39,287 @@ import javax.swing.border.Border;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class SimpleMatrixPanel.
  */
 public class SimpleMatrixPanel extends ModernWidget implements ComponentListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The row heights.
-	 */
-	private int[] rowHeights = null;
-	
-	/**
-	 * The column width.
-	 */
-	private int columnWidth;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The x sep.
-	 */
-	private int xSep; // = new CopyOnWriteArrayList<Integer>();
-	
-	/**
-	 * The y sep.
-	 */
-	private int ySep; // = new CopyOnWriteArrayList<Integer>();
+  /**
+   * The row heights.
+   */
+  private int[] rowHeights = null;
 
-	//private List<Component> components = new CopyOnWriteArrayList<Component>();
+  /**
+   * The column width.
+   */
+  private int columnWidth;
 
-	/**
-	 * The row objects map.
-	 */
-	private List<List<Component>> rowObjectsMap = new CopyOnWriteArrayList<List<Component>>();
+  /**
+   * The x sep.
+   */
+  private int xSep; // = new CopyOnWriteArrayList<Integer>();
 
-	/**
-	 * Instantiates a new simple matrix panel.
-	 *
-	 * @param rowHeights the row heights
-	 * @param columnWidth the column width
-	 * @param xSep the x sep
-	 * @param ySep the y sep
-	 */
-	public SimpleMatrixPanel(int[] rowHeights, int columnWidth, int xSep, int ySep) {
-		super.setLayout(null);
+  /**
+   * The y sep.
+   */
+  private int ySep; // = new CopyOnWriteArrayList<Integer>();
 
-		this.rowHeights = rowHeights;
-		this.columnWidth = columnWidth;
+  // private List<Component> components = new CopyOnWriteArrayList<Component>();
 
-		this.xSep = xSep;
-		this.ySep = ySep;
-		
-		addComponentListener(this);
-	}
+  /**
+   * The row objects map.
+   */
+  private List<List<Component>> rowObjectsMap = new CopyOnWriteArrayList<List<Component>>();
 
-	/*
-	public MatrixPanel(int[] rowHeights, int[] columnWidths, int[] xSep, int[] ySep) {
-		super();
+  /**
+   * Instantiates a new simple matrix panel.
+   *
+   * @param rowHeights
+   *          the row heights
+   * @param columnWidth
+   *          the column width
+   * @param xSep
+   *          the x sep
+   * @param ySep
+   *          the y sep
+   */
+  public SimpleMatrixPanel(int[] rowHeights, int columnWidth, int xSep, int ySep) {
+    super.setLayout(null);
 
-		super.setLayout(null);
+    this.rowHeights = rowHeights;
+    this.columnWidth = columnWidth;
 
-		this.rowHeights = rowHeights;
-		this.columnWidths = columnWidths;
+    this.xSep = xSep;
+    this.ySep = ySep;
 
-		int w = getInsets().left;
-		int h = getInsets().bottom;
+    addComponentListener(this);
+  }
 
-		for (int i : rowHeights) {
-			h += i;
-		}
+  /*
+   * public MatrixPanel(int[] rowHeights, int[] columnWidths, int[] xSep, int[]
+   * ySep) { super();
+   * 
+   * super.setLayout(null);
+   * 
+   * this.rowHeights = rowHeights; this.columnWidths = columnWidths;
+   * 
+   * int w = getInsets().left; int h = getInsets().bottom;
+   * 
+   * for (int i : rowHeights) { h += i; }
+   * 
+   * for (int i : columnWidths) { w += i; }
+   * 
+   * for (int i : xSep) { this.xSep.add(i); w += i; }
+   * 
+   * for (int i : ySep) { this.ySep.add(i); h += i; }
+   * 
+   * w += getInsets().right; h += getInsets().top;
+   * 
+   * setCanvasSize(new Dimension(w, h)); }
+   */
 
-		for (int i : columnWidths) {
-			w += i;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#setLayout(java.awt.LayoutManager)
+   */
+  public final void setLayout(LayoutManager manager) {
+    // super.setLayout(manager);
+  }
 
-		for (int i : xSep) {
-			this.xSep.add(i);
-			w += i;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component, java.lang.Object)
+   */
+  public final void add(Component component, Object constraints) {
+    add(component);
+  }
 
-		for (int i : ySep) {
-			this.ySep.add(i);
-			h += i;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  public final Component add(Component component) {
+    super.add(component);
 
-		w += getInsets().right;
-		h += getInsets().top;
+    int i = rowObjectsMap.size() - 1;
 
-		setCanvasSize(new Dimension(w, h));
-	}
-*/
+    if (rowObjectsMap.size() == 0 || rowObjectsMap.get(i).size() == 2) {
+      addRow();
+      ++i;
+    }
 
-	/* (non-Javadoc)
-	 * @see java.awt.Container#setLayout(java.awt.LayoutManager)
-	 */
-	public final void setLayout(LayoutManager manager) {
-		//super.setLayout(manager);
-	}
+    rowObjectsMap.get(i).add(component);
 
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component, java.lang.Object)
-	 */
-	public final void add(Component component, Object constraints) {
-		add(component);
-	}
+    layoutComponents();
 
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	public final Component add(Component component) {
-		super.add(component);
+    refresh();
 
-		int i = rowObjectsMap.size() - 1;
+    return component;
+  }
 
-		if (rowObjectsMap.size() == 0 || rowObjectsMap.get(i).size() == 2) {
-			addRow();
-			++i;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#remove(java.awt.Component)
+   */
+  public final void remove(Component component) {
+    // do nothing
+  }
 
-		rowObjectsMap.get(i).add(component);
+  /**
+   * Clear.
+   */
+  public void clear() {
+    removeAll();
+    rowObjectsMap.clear();
+  }
 
-		layoutComponents();
+  /**
+   * Removes the row.
+   *
+   * @param row
+   *          the row
+   */
+  public final void removeRow(int row) {
+    if (row < 0 || row > rowObjectsMap.size() - 1) {
+      return;
+    }
 
-		refresh();
+    for (Component c : rowObjectsMap.get(row)) {
+      super.remove(c);
+    }
 
-		return component;
-	}
+    rowObjectsMap.remove(row);
 
-	/* (non-Javadoc)
-	 * @see java.awt.Container#remove(java.awt.Component)
-	 */
-	public final void remove(Component component) {
-		// do nothing
-	}
+    layoutComponents();
 
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		removeAll();
-		rowObjectsMap.clear();
-	}
+    refresh();
+  }
 
-	/**
-	 * Removes the row.
-	 *
-	 * @param row the row
-	 */
-	public final void removeRow(int row) {
-		if (row < 0 || row > rowObjectsMap.size() - 1) {
-			return;
-		}
+  /**
+   * Refresh.
+   */
+  private void refresh() {
+    revalidate();
+    repaint();
+  }
 
-		for (Component c : rowObjectsMap.get(row)) {
-			super.remove(c);
-		}
+  /**
+   * Gets the row count.
+   *
+   * @return the row count
+   */
+  public final int getRowCount() {
+    return rowObjectsMap.size();
+  }
 
-		rowObjectsMap.remove(row);
+  /**
+   * Adds the row.
+   */
+  public final void addRow() {
+    rowObjectsMap.add(new CopyOnWriteArrayList<Component>());
+  }
 
-		layoutComponents();
+  /**
+   * Layout components.
+   */
+  public final void layoutComponents() {
+    if (rowHeights == null || rowObjectsMap.size() == 0) {
+      // setBorder is called before initialization so
+      // put a check here
+      return;
+    }
 
-		refresh();
-	}
+    int x = this.getInsets().left;
+    int y = this.getInsets().top;
 
-	/**
-	 * Refresh.
-	 */
-	private void refresh() {
-		revalidate();
-		repaint();
-	}
+    for (int row = 0; row < rowObjectsMap.size(); ++row) {
+      x = this.getInsets().left;
 
-	/**
-	 * Gets the row count.
-	 *
-	 * @return the row count
-	 */
-	public final int getRowCount() {
-		return rowObjectsMap.size();
-	}
+      int r = row % rowHeights.length;
 
-	/**
-	 * Adds the row.
-	 */
-	public final void addRow() {
-		rowObjectsMap.add(new CopyOnWriteArrayList<Component>());
-	}
+      int w = columnWidth;
+      int h = rowHeights[r];
 
-	/**
-	 * Layout components.
-	 */
-	public final void layoutComponents() {
-		if (rowHeights == null || rowObjectsMap.size() == 0) {
-			// setBorder is called before initialization so
-			// put a check here
-			return;
-		}
+      rowObjectsMap.get(row).get(0).setBounds(x, y, w, h);
 
-		int x = this.getInsets().left;
-		int y = this.getInsets().top;
+      x += w + this.xSep;
+      w = getWidth() - getInsets().right - x - PADDING;
 
-		for (int row = 0; row < rowObjectsMap.size(); ++row) {
-			x = this.getInsets().left;
+      if (rowObjectsMap.get(row).size() > 1) {
+        rowObjectsMap.get(row).get(1).setBounds(x, y, w, h);
+      }
 
-			int r = row % rowHeights.length;
+      y += rowHeights[r] + ySep;
+    }
 
-			int w = columnWidth;
-			int h = rowHeights[r];
+    setPreferredSize(new Dimension(0, y));
+  }
 
-			rowObjectsMap.get(row).get(0).setBounds(x, y, w, h);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernComponent#setBorder(javax.swing.border.Border)
+   */
+  public final void setBorder(Border border) {
+    super.setBorder(border);
 
-			x += w + this.xSep;
-			w = getWidth() - getInsets().right - x - PADDING;
+    layoutComponents();
+  }
 
-			if (rowObjectsMap.get(row).size() > 1) {
-				rowObjectsMap.get(row).get(1).setBounds(x, y, w, h);
-			}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentResized(java.awt.event.
+   * ComponentEvent)
+   */
+  public final void componentResized(ComponentEvent e) {
+    layoutComponents();
+  }
 
-			y += rowHeights[r] + ySep;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentHidden(ComponentEvent e) {
+    // TODO Auto-generated method stub
 
-		setPreferredSize(new Dimension(0, y));
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernComponent#setBorder(javax.swing.border.Border)
-	 */
-	public final void setBorder(Border border) {
-		super.setBorder(border);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentMoved(ComponentEvent e) {
+    // TODO Auto-generated method stub
 
-		layoutComponents();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentResized(java.awt.event.ComponentEvent)
-	 */
-	public final void componentResized(ComponentEvent e) {
-		layoutComponents();
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentHidden(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentShown(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentShown(ComponentEvent e) {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentMoved(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentShown(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentShown(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  }
 }

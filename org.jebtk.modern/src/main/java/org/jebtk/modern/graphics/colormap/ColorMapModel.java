@@ -37,16 +37,16 @@ import org.jebtk.core.model.ItemModel;
  *
  */
 public class ColorMapModel extends ItemModel<ColorMap> {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new color map model.
-	 */
-	public ColorMapModel() {
-		set(ColorMap.createBlueWhiteRedMap());
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new color map model.
+   */
+  public ColorMapModel() {
+    set(ColorMap.createBlueWhiteRedMap());
+  }
 }

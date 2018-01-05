@@ -34,20 +34,23 @@ package org.jebtk.modern.graphics.shapes;
  * @author Antony Holmes Holmes
  */
 public class ShapeCenteredTrapezoid extends ShapeParallelogram {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new shape centered diamond.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param size the size
-	 */
-	public ShapeCenteredTrapezoid(int x, int y, int size) {
-		super(x - size / 2, y - size / 2, size);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new shape centered diamond.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param size
+   *          the size
+   */
+  public ShapeCenteredTrapezoid(int x, int y, int size) {
+    super(x - size / 2, y - size / 2, size);
+  }
 }

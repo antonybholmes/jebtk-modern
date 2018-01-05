@@ -32,58 +32,61 @@ package org.jebtk.modern.dataview;
  * The class ModernDataSelection.
  */
 public class ModernDataSelection extends ModernDataRowSelection {
-	
-	/**
-	 * The member start col.
-	 */
-	private int mStartCol;
-	
-	/**
-	 * The member end col.
-	 */
-	private int mEndCol;
 
-	/**
-	 * Instantiates a new modern data selection.
-	 *
-	 * @param startRow the start row
-	 * @param endRow the end row
-	 * @param startCol the start col
-	 * @param endCol the end col
-	 */
-	public ModernDataSelection(int startRow, 
-			int endRow,
-			int startCol,
-			int endCol) {
-		super(startRow, endRow);
-		
-		mStartCol = startCol;
-		mEndCol = endCol;
-	}
-	
-	/**
-	 * Gets the start col.
-	 *
-	 * @return the start col
-	 */
-	public int getStartCol() {
-		return mStartCol;
-	}
-	
-	/**
-	 * Gets the end col.
-	 *
-	 * @return the end col
-	 */
-	public int getEndCol() {
-		return mEndCol;
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "[" + mStartRow + "," + mEndRow + "," + mStartCol + "," + mEndCol + "]";
-	}
+  /**
+   * The member start col.
+   */
+  private int mStartCol;
+
+  /**
+   * The member end col.
+   */
+  private int mEndCol;
+
+  /**
+   * Instantiates a new modern data selection.
+   *
+   * @param startRow
+   *          the start row
+   * @param endRow
+   *          the end row
+   * @param startCol
+   *          the start col
+   * @param endCol
+   *          the end col
+   */
+  public ModernDataSelection(int startRow, int endRow, int startCol, int endCol) {
+    super(startRow, endRow);
+
+    mStartCol = startCol;
+    mEndCol = endCol;
+  }
+
+  /**
+   * Gets the start col.
+   *
+   * @return the start col
+   */
+  public int getStartCol() {
+    return mStartCol;
+  }
+
+  /**
+   * Gets the end col.
+   *
+   * @return the end col
+   */
+  public int getEndCol() {
+    return mEndCol;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#toString()
+   */
+  @Override
+  public String toString() {
+    return "[" + mStartRow + "," + mEndRow + "," + mStartCol + "," + mEndCol + "]";
+  }
 }

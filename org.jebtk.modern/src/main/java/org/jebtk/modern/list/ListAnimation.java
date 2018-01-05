@@ -31,87 +31,87 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class ListAnimation extends WidgetAnimation {
 
-	private ModernList<?> mList;
+  private ModernList<?> mList;
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public ListAnimation(ModernWidget list) {
-		super(list);
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public ListAnimation(ModernWidget list) {
+    super(list);
 
-		mList = (ModernList<?>)list;
-	}
+    mList = (ModernList<?>) list;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		if (mList.mListModel == null) {
-			return;
-		}
+    if (mList.mListModel == null) {
+      return;
+    }
 
-		if (mList.mListModel.getItemCount() == 0) {
-			return;
-		}
+    if (mList.mListModel.getItemCount() == 0) {
+      return;
+    }
 
-		createImage(g2);
-	}
+    createImage(g2);
+  }
 
-	protected void createImage(Graphics2D g2) {
-		Graphics2D g2Table = (Graphics2D)g2.create();
+  protected void createImage(Graphics2D g2) {
+    Graphics2D g2Table = (Graphics2D) g2.create();
 
-		double maxY = mList.getViewRect().getY() + mList.getInternalRect().getH();
+    double maxY = mList.getViewRect().getY() + mList.getInternalRect().getH();
 
-		int y = mList.getInsets().top; //mRowHeight * mVisibleCells.getStartRow();
+    int y = mList.getInsets().top; // mRowHeight * mVisibleCells.getStartRow();
 
-		try {
-			for (int i = 0; i < mList.getItemCount(); ++i) {
-				if (y > maxY) {
-					break;
-				}
+    try {
+      for (int i = 0; i < mList.getItemCount(); ++i) {
+        if (y > maxY) {
+          break;
+        }
 
-				if (y + mList.mRowHeight >= mList.getViewRect().getY()) {
-					boolean highlighted = i == mList.mHighlightCellIndex;
-					
-					boolean selected = mList.mSelectionModel.contains(i);
-					
-					Component c = mList.mRenderer.getCellRendererComponent(mList, 
-							mList.getValueAt(i), 
-							highlighted,
-							selected,
-							true, 
-							i);
+        if (y + mList.mRowHeight >= mList.getViewRect().getY()) {
+          boolean highlighted = i == mList.mHighlightCellIndex;
 
-					c.setSize(mList.getWidth(), mList.mRowHeight);
+          boolean selected = mList.mSelectionModel.contains(i);
 
-					c.print(g2Table);
-				}
+          Component c = mList.mRenderer.getCellRendererComponent(mList, mList.getValueAt(i), highlighted, selected,
+              true, i);
 
-				// Move to the next cell location.
-				g2Table.translate(0, mList.mRowHeight);
+          c.setSize(mList.getWidth(), mList.mRowHeight);
 
-				y += mList.mRowHeight;
-			}
-		} finally {
-			g2Table.dispose();
-		}
+          c.print(g2Table);
+        }
 
-		createDragImage(g2, mList.mVisibleCells);
-	}
+        // Move to the next cell location.
+        g2Table.translate(0, mList.mRowHeight);
 
-	protected void createDragImage(Graphics2D g2, ModernDataRowSelection visibleCells) {
-		if (!mList.mDragEnabled || mList.mDragCellIndex == -1) {
-			return;
-		}
+        y += mList.mRowHeight;
+      }
+    } finally {
+      g2Table.dispose();
+    }
 
-		g2.setColor(ModernList.DRAG_LINE_COLOR);
+    createDragImage(g2, mList.mVisibleCells);
+  }
 
-		int y = mList.mRowHeight * (Math.min(mList.mDragCellIndex, mList.mListModel.getItemCount()));
+  protected void createDragImage(Graphics2D g2, ModernDataRowSelection visibleCells) {
+    if (!mList.mDragEnabled || mList.mDragCellIndex == -1) {
+      return;
+    }
 
-		g2.drawLine(0, y, mList.getWidth(), y);
-	}
+    g2.setColor(ModernList.DRAG_LINE_COLOR);
+
+    int y = mList.mRowHeight * (Math.min(mList.mDragCellIndex, mList.mListModel.getItemCount()));
+
+    g2.drawLine(0, y, mList.getWidth(), y);
+  }
 }

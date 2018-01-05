@@ -40,36 +40,42 @@ import javax.swing.JComponent;
  *
  */
 public class WindowWidgetFocusEvents extends WindowAdapter {
-	
-	/**
-	 * The member component.
-	 */
-	private JComponent mComponent;
 
-	/**
-	 * Instantiates a new window widget focus events.
-	 *
-	 * @param button the button
-	 */
-	public WindowWidgetFocusEvents(JComponent button) {
-		mComponent = button;
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.WindowAdapter#windowOpened(java.awt.event.WindowEvent)
-	 */
-	@Override
-	public void windowOpened(WindowEvent e) {
-		mComponent.requestFocusInWindow();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.WindowAdapter#windowGainedFocus(java.awt.event.WindowEvent)
-	 */
-	@Override
-	public void windowGainedFocus(WindowEvent e) {
-		mComponent.requestFocusInWindow();
+  /**
+   * The member component.
+   */
+  private JComponent mComponent;
 
-	}
-	
+  /**
+   * Instantiates a new window widget focus events.
+   *
+   * @param button
+   *          the button
+   */
+  public WindowWidgetFocusEvents(JComponent button) {
+    mComponent = button;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.WindowAdapter#windowOpened(java.awt.event.WindowEvent)
+   */
+  @Override
+  public void windowOpened(WindowEvent e) {
+    mComponent.requestFocusInWindow();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * java.awt.event.WindowAdapter#windowGainedFocus(java.awt.event.WindowEvent)
+   */
+  @Override
+  public void windowGainedFocus(WindowEvent e) {
+    mComponent.requestFocusInWindow();
+
+  }
+
 }

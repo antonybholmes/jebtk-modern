@@ -36,84 +36,90 @@ import javax.swing.border.Border;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonMenuPanel.
  */
 public class RibbonMenuPanel extends ModernClickWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant RIBBON_PANEL_COLOR.
-	 */
-	public static final Color RIBBON_PANEL_COLOR = 
-			Color.WHITE; //ThemeService.getInstance().colors().getHighlight(1);
-	
-	/** The border. */
-	public static Border BORDER =
-			BorderService.getInstance().createBorder(40);
-	
-	/**
-	 * The member name.
-	 */
-	private String mName;
-	
-	/**
-	 * Instantiates a new ribbon menu panel.
-	 *
-	 * @param name the name
-	 */
-	public RibbonMenuPanel(String name) {
-		mName = name;
-		
-		setBorder(BORDER);
-	}
-	
-	/**
-	 * Instantiates a new ribbon menu panel.
-	 *
-	 * @param name the name
-	 * @param layout the layout
-	 */
-	public RibbonMenuPanel(String name, BorderLayout layout) {
-		this(name);
-		
-		setLayout(layout);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#getName()
-	 */
-	public String getName() {
-		return mName;
-	}
-	
-	/**
-	 * Refresh.
-	 */
-	public void refresh() {
-		// do nothing
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernClickWidget#setHighlighted(boolean)
-	 */
-	@Override
-	public void setHighlighted(boolean highlight) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fill(g2, RIBBON_PANEL_COLOR);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant RIBBON_PANEL_COLOR.
+   */
+  public static final Color RIBBON_PANEL_COLOR = Color.WHITE; // ThemeService.getInstance().colors().getHighlight(1);
+
+  /** The border. */
+  public static Border BORDER = BorderService.getInstance().createBorder(40);
+
+  /**
+   * The member name.
+   */
+  private String mName;
+
+  /**
+   * Instantiates a new ribbon menu panel.
+   *
+   * @param name
+   *          the name
+   */
+  public RibbonMenuPanel(String name) {
+    mName = name;
+
+    setBorder(BORDER);
+  }
+
+  /**
+   * Instantiates a new ribbon menu panel.
+   *
+   * @param name
+   *          the name
+   * @param layout
+   *          the layout
+   */
+  public RibbonMenuPanel(String name, BorderLayout layout) {
+    this(name);
+
+    setLayout(layout);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#getName()
+   */
+  public String getName() {
+    return mName;
+  }
+
+  /**
+   * Refresh.
+   */
+  public void refresh() {
+    // do nothing
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernClickWidget#setHighlighted(boolean)
+   */
+  @Override
+  public void setHighlighted(boolean highlight) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fill(g2, RIBBON_PANEL_COLOR);
+  }
 }

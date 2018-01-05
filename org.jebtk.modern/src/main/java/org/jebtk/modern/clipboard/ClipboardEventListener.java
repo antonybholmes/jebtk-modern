@@ -31,7 +31,6 @@ import java.util.EventListener;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Modern UI controls such as buttons should fire ModernClickEvents.
@@ -40,11 +39,12 @@ import org.jebtk.core.event.ChangeEvent;
  *
  */
 public interface ClipboardEventListener extends EventListener {
-	
-	/**
-	 * Clipboard changed.
-	 *
-	 * @param e the e
-	 */
-	public void clipboardChanged(ChangeEvent e);
+
+  /**
+   * Clipboard changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void clipboardChanged(ChangeEvent e);
 }

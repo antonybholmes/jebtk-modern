@@ -34,19 +34,19 @@ import java.io.File;
  * The class ListFile.
  */
 public class ListFile {
-	
-	/**
-	 * The file.
-	 */
-	public File file;
-	
-	/**
-	 * The text.
-	 */
-	public String text;
-	
-	/**
-	 * The show as directory.
-	 */
-	public boolean showAsDirectory;
+
+  /**
+   * The file.
+   */
+  public File file;
+
+  /**
+   * The text.
+   */
+  public String text;
+
+  /**
+   * The show as directory.
+   */
+  public boolean showAsDirectory;
 }

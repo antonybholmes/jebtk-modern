@@ -33,89 +33,82 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class TreeHighlightAnimation extends HighlightAnimation {
 
-	private ModernTree<?> mTree;
+  private ModernTree<?> mTree;
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public TreeHighlightAnimation(ModernWidget tree) {
-		super((ModernTree<?>)tree);
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public TreeHighlightAnimation(ModernWidget tree) {
+    super((ModernTree<?>) tree);
 
-		mTree = (ModernTree<?>)tree;
-		
-		getFade().setFadeColor("highlight", 
-				ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
-	}
+    mTree = (ModernTree<?>) tree;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    getFade().setFadeColor("highlight", ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
+  }
 
-		if (mTree.mSelectionModel == null || 
-				mTree.mNodeIndexMap == null || 
-				mTree.mNodeDepthMap == null ||
-				mTree.mNodeRenderer == null) {
-			return;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		ModernTreeNodeRenderer renderer;
+    if (mTree.mSelectionModel == null || mTree.mNodeIndexMap == null || mTree.mNodeDepthMap == null
+        || mTree.mNodeRenderer == null) {
+      return;
+    }
 
-		Graphics2D g2Temp = ImageUtils.clone(g2);
+    ModernTreeNodeRenderer renderer;
 
-		// account for insets etc
-		//g2Temp.translate(mInternalRect.getX(), mInternalRect.getY());
+    Graphics2D g2Temp = ImageUtils.clone(g2);
 
-		int y = 0;
-		int h = 0;
+    // account for insets etc
+    // g2Temp.translate(mInternalRect.getX(), mInternalRect.getY());
 
-		int y1 = mTree.getVisibleRect().y;
-		int maxY = y1 + mTree.getInternalRect().getH();
+    int y = 0;
+    int h = 0;
 
-		int c = 0;
+    int y1 = mTree.getVisibleRect().y;
+    int maxY = y1 + mTree.getInternalRect().getH();
 
-		try {
-			for (TreeNode<?> node : mTree.mFlatNodeList) {
-				// Speed up so we don't plot more nodes than can
-				// be seen on screen
-				if (y > maxY) {
-					break;
-				}
+    int c = 0;
 
-				boolean isDragToNode = mTree.mDragTo != null && 
-						mTree.mDragTo.index == c && 
-						!mTree.mDragTo.insertBetween;
+    try {
+      for (TreeNode<?> node : mTree.mFlatNodeList) {
+        // Speed up so we don't plot more nodes than can
+        // be seen on screen
+        if (y > maxY) {
+          break;
+        }
 
-				renderer = mTree.mNodeRenderer.getRenderer(mTree,
-						node,
-						node.equals(mTree.mHighlightNode) || isDragToNode,
-						mTree.mSelectionModel.contains(mTree.mNodeIndexMap.get(node)),
-						mTree.isFocusOwner(),
-						isDragToNode,
-						mTree.mNodeDepthMap.get(node),
-						c);
+        boolean isDragToNode = mTree.mDragTo != null && mTree.mDragTo.index == c && !mTree.mDragTo.insertBetween;
 
-				h = renderer.getHeight();	
+        renderer = mTree.mNodeRenderer.getRenderer(mTree, node, node.equals(mTree.mHighlightNode) || isDragToNode,
+            mTree.mSelectionModel.contains(mTree.mNodeIndexMap.get(node)), mTree.isFocusOwner(), isDragToNode,
+            mTree.mNodeDepthMap.get(node), c);
 
-				// Skip nodes until we encounter one in the
-				// view space
-				if (y >= y1 || y + h >= y1) {
-					renderer.print(g2Temp);
-				}
+        h = renderer.getHeight();
 
-				g2Temp.translate(0, h);
+        // Skip nodes until we encounter one in the
+        // view space
+        if (y >= y1 || y + h >= y1) {
+          renderer.print(g2Temp);
+        }
 
-				y += h;
+        g2Temp.translate(0, h);
 
-				++c;
-			}
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+        y += h;
 
-	
+        ++c;
+      }
+    } finally {
+      g2Temp.dispose();
+    }
+  }
+
 }

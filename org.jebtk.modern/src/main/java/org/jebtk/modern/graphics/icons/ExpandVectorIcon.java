@@ -33,7 +33,6 @@ import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.settings.SettingsService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Down arrow vector icon for combobox buttons etc.
@@ -42,69 +41,68 @@ import org.jebtk.core.settings.SettingsService;
  *
  */
 public class ExpandVectorIcon extends ModernVectorIcon {
-	
-	
 
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR = 
-			SettingsService.getInstance().getAsColor("theme.icons.expand-icon.colors.foreground");
-	
-	/**
-	 * The constant SCALE.
-	 */
-	private static final double SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.expand-icon.width-scale");
-	
-	/**
-	 * The constant HEIGHT_SCALE.
-	 */
-	private static final double HEIGHT_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.expand-icon.height-scale");
-	
-	/**
-	 * The constant OFFSET.
-	 */
-	private static final double OFFSET =
-			SettingsService.getInstance().getAsDouble("theme.icons.expand-icon.offset");
-	
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		
-		double wf = w * SCALE;
-		double w2 = wf / 2.0;
-		double offset = w * OFFSET;
-		double hf = wf * HEIGHT_SCALE;
-		double xf = x + (w - wf) / 2.0;
-		double yf = h / 2.0;
-		
-		g2.setColor(COLOR);
-		GeneralPath gp;
-		
-		// upper triangle
-		
-		gp = new GeneralPath();
-		
-		gp.moveTo(xf, yf - offset);
-		gp.lineTo(xf + wf, yf - offset);
-		gp.lineTo(xf + w2, yf - offset - h);
-		gp.closePath();
-		g2.fill(gp);
-		
-		// Lower triangle
-		
-		gp = new GeneralPath();
-		
-		gp.moveTo(xf, yf + offset);
-		gp.lineTo(xf + wf, yf + offset);
-		gp.lineTo(xf + w2, yf + offset + hf);
-		gp.closePath();
-		g2.fill(gp);
-	}
-	
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = SettingsService.getInstance()
+      .getAsColor("theme.icons.expand-icon.colors.foreground");
+
+  /**
+   * The constant SCALE.
+   */
+  private static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.expand-icon.width-scale");
+
+  /**
+   * The constant HEIGHT_SCALE.
+   */
+  private static final double HEIGHT_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.expand-icon.height-scale");
+
+  /**
+   * The constant OFFSET.
+   */
+  private static final double OFFSET = SettingsService.getInstance().getAsDouble("theme.icons.expand-icon.offset");
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+    double wf = w * SCALE;
+    double w2 = wf / 2.0;
+    double offset = w * OFFSET;
+    double hf = wf * HEIGHT_SCALE;
+    double xf = x + (w - wf) / 2.0;
+    double yf = h / 2.0;
+
+    g2.setColor(COLOR);
+    GeneralPath gp;
+
+    // upper triangle
+
+    gp = new GeneralPath();
+
+    gp.moveTo(xf, yf - offset);
+    gp.lineTo(xf + wf, yf - offset);
+    gp.lineTo(xf + w2, yf - offset - h);
+    gp.closePath();
+    g2.fill(gp);
+
+    // Lower triangle
+
+    gp = new GeneralPath();
+
+    gp.moveTo(xf, yf + offset);
+    gp.lineTo(xf + wf, yf + offset);
+    gp.lineTo(xf + w2, yf + offset + hf);
+    gp.closePath();
+    g2.fill(gp);
+  }
+
 }

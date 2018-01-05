@@ -39,200 +39,193 @@ import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.scrollpane.ScrollBarPolicy;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernScrollPopupMenu.
  */
 public class ModernScrollPopupMenu extends ModernPopupMenu {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member menu panel.
-	 */
-	protected ModernComponent mScrollMenuPanel = 
-			new ModernScrollMenuPanel();
-	
-	/**
-	 * The member scroll pane.
-	 */
-	protected ModernScrollPane mScrollPane = null;
-	
-	/**
-	 * The member max height.
-	 */
-	protected int mMaxHeight;
+  /**
+   * The member menu panel.
+   */
+  protected ModernComponent mScrollMenuPanel = new ModernScrollMenuPanel();
 
-	/**
-	 * Instantiates a new modern scroll popup menu.
-	 */
-	public ModernScrollPopupMenu() {
-		this(260);
-	}
-	
-	/**
-	 * Instantiates a new modern scroll popup menu.
-	 *
-	 * @param maxHeight the max height
-	 */
-	public ModernScrollPopupMenu(int maxHeight) {
-		mMaxHeight = maxHeight;
+  /**
+   * The member scroll pane.
+   */
+  protected ModernScrollPane mScrollPane = null;
 
-		setup();
-	}
+  /**
+   * The member max height.
+   */
+  protected int mMaxHeight;
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		
-		setOpaque(true);
-		setBackground(Color.WHITE);
+  /**
+   * Instantiates a new modern scroll popup menu.
+   */
+  public ModernScrollPopupMenu() {
+    this(260);
+  }
 
-		mScrollPane = new ModernScrollPane(mScrollMenuPanel);
-		//scrollPane.setScrollbarMarginWidth(Resources.ICON_SIZE_16);
-		
-		//scrollPane.getViewport().setBackground(Color.WHITE);
-		//scrollPane.getViewport().setBorder(BorderFactory.createEmptyBorder());
+  /**
+   * Instantiates a new modern scroll popup menu.
+   *
+   * @param maxHeight
+   *          the max height
+   */
+  public ModernScrollPopupMenu(int maxHeight) {
+    mMaxHeight = maxHeight;
 
-		//Dimension size = new Dimension(menuItemSize.width * columns, menuItemSize.height * maxRows);
-		//
-		//scrollPane.setCanvasSize(size);
-		mScrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
-		//scrollPane.setBorder(BorderService.getInstance().createLineBorder(Color.red));
+    setup();
+  }
 
-		add(mScrollPane);
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
 
-	/**
-	 * Gets the scroll panel.
-	 *
-	 * @return the scroll panel
-	 */
-	public ModernComponent getScrollPanel() {
-		return mScrollMenuPanel;
-	}
+    setOpaque(true);
+    setBackground(Color.WHITE);
 
+    mScrollPane = new ModernScrollPane(mScrollMenuPanel);
+    // scrollPane.setScrollbarMarginWidth(Resources.ICON_SIZE_16);
 
-	/**
-	 * Adds the scroll menu items.
-	 *
-	 * @param items the items
-	 */
-	public final void addScrollMenuItems(List<ModernMenuItem> items) {
-		for (ModernMenuItem item : items) {
-			addScrollMenuItem(item);
+    // scrollPane.getViewport().setBackground(Color.WHITE);
+    // scrollPane.getViewport().setBorder(BorderFactory.createEmptyBorder());
 
-			for (ModernMenuItem subItem : item.getSubMenuItems()) {
-				addScrollMenuItem(subItem);
-			}
-		}
-	}
+    // Dimension size = new Dimension(menuItemSize.width * columns,
+    // menuItemSize.height * maxRows);
+    //
+    // scrollPane.setCanvasSize(size);
+    mScrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
+    // scrollPane.setBorder(BorderService.getInstance().createLineBorder(Color.red));
 
-	/**
-	 * Adds the scroll menu item.
-	 *
-	 * @param menuItem the menu item
-	 */
-	public void addScrollMenuItem(Component menuItem) {
-		mScrollMenuPanel.add(menuItem);
-	}
-	
-	public void addScrollMenuItem(ModernClickWidget menuItem) {
+    add(mScrollPane);
+  }
 
-		mItems.add(menuItem);
-		
-		menuItem.addClickListener(this);
+  /**
+   * Gets the scroll panel.
+   *
+   * @return the scroll panel
+   */
+  public ModernComponent getScrollPanel() {
+    return mScrollMenuPanel;
+  }
 
-		//menuItem.setCanvasSize(menuItemSize);
-		//menuItem.setMaximumSize(menuItemSize);
+  /**
+   * Adds the scroll menu items.
+   *
+   * @param items
+   *          the items
+   */
+  public final void addScrollMenuItems(List<ModernMenuItem> items) {
+    for (ModernMenuItem item : items) {
+      addScrollMenuItem(item);
 
-		mScrollMenuPanel.add(menuItem);
-	}
-	
-	/**
-	 * Clear scroll menu items.
-	 */
-	public void clearScrollMenuItems() {
+      for (ModernMenuItem subItem : item.getSubMenuItems()) {
+        addScrollMenuItem(subItem);
+      }
+    }
+  }
 
-		mItems.clear();
-		
-		mScrollMenuPanel.removeAll();
-		
-		revalidate();
-		repaint();
-	}
+  /**
+   * Adds the scroll menu item.
+   *
+   * @param menuItem
+   *          the menu item
+   */
+  public void addScrollMenuItem(Component menuItem) {
+    mScrollMenuPanel.add(menuItem);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernPopup#showPopup(javax.swing.JComponent)
-	 */
-	@Override
-	public void showPopup(JComponent component) {
+  public void addScrollMenuItem(ModernClickWidget menuItem) {
 
-		int h = 0;
-		int w = 0;
+    mItems.add(menuItem);
 
-		for (int i = 0; i < mScrollMenuPanel.getComponentCount(); ++i) {
-			w = Math.max(w, mScrollMenuPanel.getComponent(i).getPreferredSize().width);
+    menuItem.addClickListener(this);
 
-			h += mScrollMenuPanel.getComponent(i).getPreferredSize().height;
-		}
-		
-		w = Math.max(w, component.getWidth());
+    // menuItem.setCanvasSize(menuItemSize);
+    // menuItem.setMaximumSize(menuItemSize);
 
-		mScrollMenuPanel.setPreferredSize(new Dimension(w, h));
-		
-		//w += scrollPane.getScrollbarMarginWidth();
-		
-		mScrollPane.setPreferredSize(new Dimension(w, Math.min(h, mMaxHeight)));
+    mScrollMenuPanel.add(menuItem);
+  }
 
-		/*
-		int border = 0;
+  /**
+   * Clear scroll menu items.
+   */
+  public void clearScrollMenuItems() {
 
-		if (this.menuPanel.getComponentCount() > maxRows) {
-			// the scroll bar will be displayed so adjust the border
-			border += ModernScrollPane.SCROLLBAR_WIDTH; //scrollPane.getVerticalScrollBar().getMaximumSize().width;
-			//w -= 2;
-		}
-		menuPanel.setBorder(BorderService.getInstance().createRightBorder(border));
-		*/
+    mItems.clear();
 
-		
+    mScrollMenuPanel.removeAll();
 
+    revalidate();
+    repaint();
+  }
 
-		// window size
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.menu.ModernPopup#showPopup(javax.swing.JComponent)
+   */
+  @Override
+  public void showPopup(JComponent component) {
 
-		h = 0;
+    int h = 0;
+    int w = 0;
 
-		for (int i = 0; i < this.getComponentCount(); ++i) {
-			h += this.getComponent(i).getPreferredSize().height;
-		}
+    for (int i = 0; i < mScrollMenuPanel.getComponentCount(); ++i) {
+      w = Math.max(w, mScrollMenuPanel.getComponent(i).getPreferredSize().width);
 
+      h += mScrollMenuPanel.getComponent(i).getPreferredSize().height;
+    }
 
-		w += 2;
-		h += 2;
+    w = Math.max(w, component.getWidth());
 
-		setSize(w, h);
+    mScrollMenuPanel.setPreferredSize(new Dimension(w, h));
 
-		super.showPopup(component);
-	}
+    // w += scrollPane.getScrollbarMarginWidth();
 
-	/**
-	 * Clear the scroll menu items.
-	 */
-	public void clear() {
-		mScrollMenuPanel.removeAll();
-		
-		super.clear();
-		
-		add(mScrollPane);
-	}
+    mScrollPane.setPreferredSize(new Dimension(w, Math.min(h, mMaxHeight)));
+
+    /*
+     * int border = 0;
+     * 
+     * if (this.menuPanel.getComponentCount() > maxRows) { // the scroll bar will be
+     * displayed so adjust the border border += ModernScrollPane.SCROLLBAR_WIDTH;
+     * //scrollPane.getVerticalScrollBar().getMaximumSize().width; //w -= 2; }
+     * menuPanel.setBorder(BorderService.getInstance().createRightBorder(border));
+     */
+
+    // window size
+
+    h = 0;
+
+    for (int i = 0; i < this.getComponentCount(); ++i) {
+      h += this.getComponent(i).getPreferredSize().height;
+    }
+
+    w += 2;
+    h += 2;
+
+    setSize(w, h);
+
+    super.showPopup(component);
+  }
+
+  /**
+   * Clear the scroll menu items.
+   */
+  public void clear() {
+    mScrollMenuPanel.removeAll();
+
+    super.clear();
+
+    add(mScrollPane);
+  }
 }

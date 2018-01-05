@@ -31,7 +31,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Simple pane icon.
@@ -40,25 +39,28 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class LeftPane32VectorIcon extends Window32VectorIcon {
-	
-	/**
-	 * The constant PANE_WIDTH.
-	 */
-	protected static final int PANE_WIDTH = 12;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.Window32VectorIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		super.drawIcon(g2, x, y, w, h, params);
-		
-		x = x + (w - WIDTH) / 2;
-		y = y + (h - HEIGHT) / 2;
-		
-		g2.setColor(ModernWidget.LINE_COLOR);
-		
-		g2.drawLine(x + PANE_WIDTH, y + BAR_HEIGHT, x + PANE_WIDTH, y + HEIGHT);
-	}
+  /**
+   * The constant PANE_WIDTH.
+   */
+  protected static final int PANE_WIDTH = 12;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.Window32VectorIcon#drawForeground(java.awt.
+   * Graphics2D, java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    super.drawIcon(g2, x, y, w, h, params);
+
+    x = x + (w - WIDTH) / 2;
+    y = y + (h - HEIGHT) / 2;
+
+    g2.setColor(ModernWidget.LINE_COLOR);
+
+    g2.drawLine(x + PANE_WIDTH, y + BAR_HEIGHT, x + PANE_WIDTH, y + HEIGHT);
+  }
 
 }

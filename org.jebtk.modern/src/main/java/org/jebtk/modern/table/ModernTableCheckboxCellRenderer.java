@@ -39,141 +39,148 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.graphics.icons.CheckedVectorIcon;
 import org.jebtk.modern.graphics.icons.UnCheckedVectorIcon;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTableCheckboxCellRenderer.
  */
 public class ModernTableCheckboxCellRenderer extends ModernDataCellRenderer implements MouseListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant CHECKBOX_CHANGED.
-	 */
-	public static final String CHECKBOX_CHANGED = "checkbox_changed";
-	
-	/**
-	 * The selected.
-	 */
-	protected boolean selected = false;
-	
-	/**
-	 * Instantiates a new modern table checkbox cell renderer.
-	 */
-	public ModernTableCheckboxCellRenderer() {
-		addMouseListener(this);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		
-		int iconX = (getWidth() - UIService.ICON_SIZE_16) / 2;
-		int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
-	
-		//g2.setColor(Color.WHITE);
-		//g2.fillRect(0, 0, getWidth(), getHeight());
-	
-		if (selected) {
-			UIService.getInstance().loadIcon(CheckedVectorIcon.class, 16).drawIcon(g2,
-					iconX,
-					iconY,
-					UIService.ICON_SIZE_16);
-		} else {
-			UIService.getInstance().loadIcon(UnCheckedVectorIcon.class, 16).drawIcon(g2,
-					iconX,
-					iconY,
-					UIService.ICON_SIZE_16);
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	public final Component getCellRendererComponent(ModernData table,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
-		
-		selected = (Boolean)value;
-		
-		//return renderer;
-		
-		//this.selected = (Boolean)value;
+  /**
+   * The constant CHECKBOX_CHANGED.
+   */
+  public static final String CHECKBOX_CHANGED = "checkbox_changed";
 
-		//repaint();
-		
-		return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
-	}
+  /**
+   * The selected.
+   */
+  protected boolean selected = false;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernClickWidget#isSelected()
-	 */
-	public boolean isSelected() {
-		return selected;
-	}
+  /**
+   * Instantiates a new modern table checkbox cell renderer.
+   */
+  public ModernTableCheckboxCellRenderer() {
+    addMouseListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernClickWidget#setSelected(boolean)
-	 */
-	public void setSelected(boolean selected) {
-		this.selected = selected;
-		
-		repaint();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mousePressed(MouseEvent e) {
-		fireClicked(new ModernClickEvent(this, CHECKBOX_CHANGED));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    int iconX = (getWidth() - UIService.ICON_SIZE_16) / 2;
+    int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    // g2.setColor(Color.WHITE);
+    // g2.fillRect(0, 0, getWidth(), getHeight());
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    if (selected) {
+      UIService.getInstance().loadIcon(CheckedVectorIcon.class, 16).drawIcon(g2, iconX, iconY, UIService.ICON_SIZE_16);
+    } else {
+      UIService.getInstance().loadIcon(UnCheckedVectorIcon.class, 16).drawIcon(g2, iconX, iconY,
+          UIService.ICON_SIZE_16);
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
+   * java.lang.Object, boolean, boolean, boolean, int, int)
+   */
+  public final Component getCellRendererComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+
+    selected = (Boolean) value;
+
+    // return renderer;
+
+    // this.selected = (Boolean)value;
+
+    // repaint();
+
+    return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernClickWidget#isSelected()
+   */
+  public boolean isSelected() {
+    return selected;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernClickWidget#setSelected(boolean)
+   */
+  public void setSelected(boolean selected) {
+    this.selected = selected;
+
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mousePressed(MouseEvent e) {
+    fireClicked(new ModernClickEvent(this, CHECKBOX_CHANGED));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseEntered(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseExited(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseReleased(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

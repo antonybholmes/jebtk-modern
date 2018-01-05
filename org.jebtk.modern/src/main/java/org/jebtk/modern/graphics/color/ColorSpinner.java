@@ -32,83 +32,91 @@ import org.jebtk.core.event.ChangeListener;
 
 import org.jebtk.modern.spinner.ModernCompactSpinner;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ColorSpinner.
  */
 public class ColorSpinner extends ModernCompactSpinner {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member model.
-	 */
-	private ColorSelectionModel mModel;
-	
-	/**
-	 * The member channel.
-	 */
-	private ColorChannel mChannel;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The class ClickEvents.
-	 */
-	private class ChangeEvents implements ChangeListener {
-		
-		/* (non-Javadoc)
-		 * @see org.abh.common.event.ChangeListener#changed(org.abh.common.event.ChangeEvent)
-		 */
-		@Override
-		public void changed(ChangeEvent e) {
-			mModel.updateColor(mChannel, (int)mValue);
-		}
-	}
-	
-	/**
-	 * The class ModelEvents.
-	 */
-	private class ModelEvents implements ChangeListener {
-		
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void changed(ChangeEvent e) {
-			switch (mChannel) {
-			case RED:
-				updateValue(mModel.getNewColor().mRed);
-				break;
-			case GREEN:
-				updateValue(mModel.getNewColor().mGreen);
-				break;
-			case BLUE:
-				updateValue(mModel.getNewColor().mBlue);
-				break;
-			default:
-				updateValue(mModel.getNewColor().mAlpha);
-				break;
-			}
-		}
-	}
-	
-	/**
-	 * Instantiates a new color spinner.
-	 *
-	 * @param model the model
-	 * @param channel the channel
-	 */
-	public ColorSpinner(ColorSelectionModel model, ColorChannel channel) {
-		super(0, 0, 127, 255);
-		
-		mModel = model;
-		mChannel = channel;
-		
-		model.addChangeListener(new ModelEvents());
-		
-		addChangeListener(new ChangeEvents());
-	}
+  /**
+   * The member model.
+   */
+  private ColorSelectionModel mModel;
+
+  /**
+   * The member channel.
+   */
+  private ColorChannel mChannel;
+
+  /**
+   * The class ClickEvents.
+   */
+  private class ChangeEvents implements ChangeListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.common.event.ChangeListener#changed(org.abh.common.event.ChangeEvent)
+     */
+    @Override
+    public void changed(ChangeEvent e) {
+      mModel.updateColor(mChannel, (int) mValue);
+    }
+  }
+
+  /**
+   * The class ModelEvents.
+   */
+  private class ModelEvents implements ChangeListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void changed(ChangeEvent e) {
+      switch (mChannel) {
+      case RED:
+        updateValue(mModel.getNewColor().mRed);
+        break;
+      case GREEN:
+        updateValue(mModel.getNewColor().mGreen);
+        break;
+      case BLUE:
+        updateValue(mModel.getNewColor().mBlue);
+        break;
+      default:
+        updateValue(mModel.getNewColor().mAlpha);
+        break;
+      }
+    }
+  }
+
+  /**
+   * Instantiates a new color spinner.
+   *
+   * @param model
+   *          the model
+   * @param channel
+   *          the channel
+   */
+  public ColorSpinner(ColorSelectionModel model, ColorChannel channel) {
+    super(0, 0, 127, 255);
+
+    mModel = model;
+    mChannel = channel;
+
+    model.addChangeListener(new ModelEvents());
+
+    addChangeListener(new ChangeEvents());
+  }
 }

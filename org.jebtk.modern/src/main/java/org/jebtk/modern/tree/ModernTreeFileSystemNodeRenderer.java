@@ -33,7 +33,6 @@ import org.jebtk.core.tree.TreeNode;
 
 import org.jebtk.core.io.FileUtils;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Basic renderer for displaying directories and files.
@@ -42,34 +41,33 @@ import org.jebtk.core.io.FileUtils;
  *
  */
 public class ModernTreeFileSystemNodeRenderer extends TreeNodeFileCountRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tree.TreeIconNodeCountRenderer#getRenderer(org.abh.lib.ui.modern.tree.Tree, org.abh.lib.tree.TreeNode, boolean, boolean, boolean, boolean, int, int)
-	 */
-	@Override
-	public ModernTreeNodeRenderer getRenderer(Tree<?> tree,
-			TreeNode<?> node,
-			boolean nodeIsHighlighted,
-			boolean nodeIsSelected,
-			boolean hasFocus,
-			boolean isDragToNode,
-			int depth,
-			int row) {
-		super.getRenderer(tree, node, nodeIsHighlighted, nodeIsSelected, hasFocus, isDragToNode, depth, row);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		if (node.isParent() || FileUtils.isDirectory((Path)node.getValue())) {
-			// we renderer as a parent if the node is classified as a parent {
-			// or it is an empty directory.
-			mIcon = mParentIcon;
-		} else {
-			mIcon = mLeafIcon;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tree.TreeIconNodeCountRenderer#getRenderer(org.abh.lib.
+   * ui.modern.tree.Tree, org.abh.lib.tree.TreeNode, boolean, boolean, boolean,
+   * boolean, int, int)
+   */
+  @Override
+  public ModernTreeNodeRenderer getRenderer(Tree<?> tree, TreeNode<?> node, boolean nodeIsHighlighted,
+      boolean nodeIsSelected, boolean hasFocus, boolean isDragToNode, int depth, int row) {
+    super.getRenderer(tree, node, nodeIsHighlighted, nodeIsSelected, hasFocus, isDragToNode, depth, row);
 
-		return this;
-	}
+    if (node.isParent() || FileUtils.isDirectory((Path) node.getValue())) {
+      // we renderer as a parent if the node is classified as a parent {
+      // or it is an empty directory.
+      mIcon = mParentIcon;
+    } else {
+      mIcon = mLeafIcon;
+    }
+
+    return this;
+  }
 }

@@ -41,103 +41,112 @@ import org.jebtk.modern.menu.ModernMenuSeparator;
 import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.menu.ModernTitleMenuItem;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class FillColorButton.
  */
 public class FillColorButton extends ModernOptionalDropDownMenuButton implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The color picker.
-	 */
-	private MultiColorPicker colorPicker = new MultiColorPicker();
 
-	/**
-	 * Instantiates a new fill color button.
-	 *
-	 * @param name the name
-	 */
-	public FillColorButton(String name) {
-		this(name, UIService.getInstance().loadIcon("paint", 16));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new fill color button.
-	 *
-	 * @param name the name
-	 * @param icon the icon
-	 */
-	public FillColorButton(String name, ModernIcon icon) {
-		super(name, icon, new ModernPopupMenu());
+  /**
+   * The color picker.
+   */
+  private MultiColorPicker colorPicker = new MultiColorPicker();
 
-		setup();
-	}
+  /**
+   * Instantiates a new fill color button.
+   *
+   * @param name
+   *          the name
+   */
+  public FillColorButton(String name) {
+    this(name, UIService.getInstance().loadIcon("paint", 16));
+  }
 
-	/**
-	 * Instantiates a new fill color button.
-	 *
-	 * @param icon the icon
-	 */
-	public FillColorButton(ModernIcon icon) {
-		super(icon, new ModernPopupMenu());
+  /**
+   * Instantiates a new fill color button.
+   *
+   * @param name
+   *          the name
+   * @param icon
+   *          the icon
+   */
+  public FillColorButton(String name, ModernIcon icon) {
+    super(name, icon, new ModernPopupMenu());
 
-		setup();
+    setup();
+  }
 
-		UI.setSize(this, 40, WIDGET_HEIGHT);
-	}
+  /**
+   * Instantiates a new fill color button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public FillColorButton(ModernIcon icon) {
+    super(icon, new ModernPopupMenu());
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		UI.setSize(this, 120, WIDGET_HEIGHT);
+    setup();
 
-		mMenu.add(new ModernTitleMenuItem("Colors"));
-		mMenu.add(colorPicker);
+    UI.setSize(this, 40, WIDGET_HEIGHT);
+  }
 
-		mMenu.add(new ModernMenuSeparator());
-		mMenu.add(new ModernIconMenuItem("More colors...", UIService.getInstance().loadIcon("palette", UIService.ICON_SIZE_16)));
+  /**
+   * Setup.
+   */
+  private void setup() {
+    UI.setSize(this, 120, WIDGET_HEIGHT);
 
-		colorPicker.addClickListener(this);
-	}
+    mMenu.add(new ModernTitleMenuItem("Colors"));
+    mMenu.add(colorPicker);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		mMenu.setVisible(false);
+    mMenu.add(new ModernMenuSeparator());
+    mMenu.add(
+        new ModernIconMenuItem("More colors...", UIService.getInstance().loadIcon("palette", UIService.ICON_SIZE_16)));
 
-		fireClicked(new ModernClickEvent(this, e.getMessage()));
+    colorPicker.addClickListener(this);
+  }
 
-		mHighlight = false;
-		setSelected(false);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    mMenu.setVisible(false);
 
-		repaint();
-	}
+    fireClicked(new ModernClickEvent(this, e.getMessage()));
 
-	/**
-	 * Gets the selected color.
-	 *
-	 * @return the selected color
-	 */
-	public Color getSelectedColor() {
-		return colorPicker.getSelectedColor();
-	}
+    mHighlight = false;
+    setSelected(false);
 
-	/**
-	 * Sets the selected color.
-	 *
-	 * @param color the new selected color
-	 */
-	public void setSelectedColor(Color color) {
-		colorPicker.setSelectedColor(color);
-	}
+    repaint();
+  }
+
+  /**
+   * Gets the selected color.
+   *
+   * @return the selected color
+   */
+  public Color getSelectedColor() {
+    return colorPicker.getSelectedColor();
+  }
+
+  /**
+   * Sets the selected color.
+   *
+   * @param color
+   *          the new selected color
+   */
+  public void setSelectedColor(Color color) {
+    colorPicker.setSelectedColor(color);
+  }
 
 }

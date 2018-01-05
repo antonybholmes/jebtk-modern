@@ -19,7 +19,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Displays a color bar.
@@ -28,51 +27,51 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ColorMapPanel extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member color map.
-	 */
-	private ColorMap mColorMap;
 
-	/**
-	 * Instantiates a new color map panel.
-	 *
-	 * @param colorMap the color map
-	 */
-	public ColorMapPanel(ColorMap colorMap) {
-		mColorMap = colorMap;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = getInsets().left;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		int w = mInternalRect.getW();
-		
-		double c = 0;
-		double inc = (mColorMap.getColorCount() - 1) / (double)w;
-		
-		for (int i = 0; i < w; ++i) {
-			g2.setColor(mColorMap.getColorByIndex((int)c));
-			
-			g2.drawLine(x, 
-					mInternalRect.getY(), 
-					x, 
-					mInternalRect.getY() + mInternalRect.getH() - 1);
-			
-			++x;
-			
-			c += inc;
-		}
-		
-		paintDarkOutline(g2, getInternalRect());
-	}
+  /**
+   * The member color map.
+   */
+  private ColorMap mColorMap;
+
+  /**
+   * Instantiates a new color map panel.
+   *
+   * @param colorMap
+   *          the color map
+   */
+  public ColorMapPanel(ColorMap colorMap) {
+    mColorMap = colorMap;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = getInsets().left;
+
+    int w = mInternalRect.getW();
+
+    double c = 0;
+    double inc = (mColorMap.getColorCount() - 1) / (double) w;
+
+    for (int i = 0; i < w; ++i) {
+      g2.setColor(mColorMap.getColorByIndex((int) c));
+
+      g2.drawLine(x, mInternalRect.getY(), x, mInternalRect.getY() + mInternalRect.getH() - 1);
+
+      ++x;
+
+      c += inc;
+    }
+
+    paintDarkOutline(g2, getInternalRect());
+  }
 }

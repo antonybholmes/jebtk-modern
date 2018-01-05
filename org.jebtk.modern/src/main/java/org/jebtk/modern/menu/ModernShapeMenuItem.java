@@ -36,8 +36,6 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.shapes.ShapeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Draws a shape outline rather than an icon.
@@ -47,66 +45,71 @@ import org.jebtk.modern.graphics.shapes.ShapeService;
  */
 public class ModernShapeMenuItem extends ModernIconMenuItem {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * The shape.
+   */
+  private Shape shape;
 
-	/**
-	 * The shape.
-	 */
-	private Shape shape;
+  /**
+   * Instantiates a new modern shape menu item.
+   *
+   * @param name
+   *          the name
+   */
+  public ModernShapeMenuItem(String name) {
+    this(ShapeService.getInstance().loadShape(name), name);
+  }
 
-	/**
-	 * Instantiates a new modern shape menu item.
-	 *
-	 * @param name the name
-	 */
-	public ModernShapeMenuItem(String name) {
-		this(ShapeService.getInstance().loadShape(name), name);
-	}
-	
-	/**
-	 * Instantiates a new modern shape menu item.
-	 *
-	 * @param shape the shape
-	 * @param name the name
-	 */
-	public ModernShapeMenuItem(Shape shape, String name) {
-		super(name);
+  /**
+   * Instantiates a new modern shape menu item.
+   *
+   * @param shape
+   *          the shape
+   * @param name
+   *          the name
+   */
+  public ModernShapeMenuItem(Shape shape, String name) {
+    super(name);
 
-		this.shape = shape;
-	}
+    this.shape = shape;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {		
-		int d = 0;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int d = 0;
 
-		if (this.getIcon() != null) {
-			d = UIService.ICON_SIZE_16 + DOUBLE_PADDING;
-		}
+    if (this.getIcon() != null) {
+      d = UIService.ICON_SIZE_16 + DOUBLE_PADDING;
+    }
 
-		int x = Math.max(UIService.ICON_SIZE_32, d);
+    int x = Math.max(UIService.ICON_SIZE_32, d);
 
-		Point p = getStringCenterPlotCoordinates(g2, getRect(), mText1);
+    Point p = getStringCenterPlotCoordinates(g2, getRect(), mText1);
 
-		g2.setColor(getForeground());
-		g2.drawString(mText1, x, p.y);
+    g2.setColor(getForeground());
+    g2.drawString(mText1, x, p.y);
 
-		Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
 
-		try {
-			g2Temp.translate(PADDING, PADDING);
+    try {
+      g2Temp.translate(PADDING, PADDING);
 
-			g2Temp.setColor(Color.BLACK);
+      g2Temp.setColor(Color.BLACK);
 
-			g2Temp.draw(shape);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+      g2Temp.draw(shape);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 }

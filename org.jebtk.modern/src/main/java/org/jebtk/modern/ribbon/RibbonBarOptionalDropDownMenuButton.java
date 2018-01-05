@@ -35,80 +35,86 @@ import org.jebtk.modern.button.ModernOptionalDropDownMenuButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonBarOptionalDropDownMenuButton.
  */
 public class RibbonBarOptionalDropDownMenuButton extends ModernOptionalDropDownMenuButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new ribbon bar optional drop down menu button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public RibbonBarOptionalDropDownMenuButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
-		super(text1, icon, menu);
-		
-		setup();
-	}
 
-	/**
-	 * Instantiates a new ribbon bar optional drop down menu button.
-	 *
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public RibbonBarOptionalDropDownMenuButton(ModernIcon icon, ModernPopupMenu menu) {
-		super(icon, menu);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setBackground(SettingsService.getInstance().getAsColor("ribbon-bar.color"));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernOptionalDropDownMenuButton#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fill(g2, getBackground(), getRect());
+  /**
+   * Instantiates a new ribbon bar optional drop down menu button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public RibbonBarOptionalDropDownMenuButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
+    super(text1, icon, menu);
 
-		Rectangle subRect = new Rectangle();
+    setup();
+  }
 
-		subRect.y = mRect.getY();
-		subRect.height = mRect.getH();
+  /**
+   * Instantiates a new ribbon bar optional drop down menu button.
+   *
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public RibbonBarOptionalDropDownMenuButton(ModernIcon icon, ModernPopupMenu menu) {
+    super(icon, menu);
 
-		if (mPrimaryButton) {
-			subRect.x = mRect.getX();
-			subRect.width = mDividerLocation - mRect.getX();
-		} else {
-			subRect.x = mDividerLocation;
-			subRect.width = mRect.getW() - mDividerLocation;
-		}
+    setup();
+  }
 
-		if (isSelected()) {
-			paintHighlightedOutlined(g2, getRect());
-		} else if (mPopupShown || mHighlight) {
-			drawHighlightedOutline(g2, getRect());
-			
-			paintHighlightedOutlined(g2, subRect);
-		} else {
-			// do nothing
-		}
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setBackground(SettingsService.getInstance().getAsColor("ribbon-bar.color"));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernOptionalDropDownMenuButton#drawBackground(
+   * java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fill(g2, getBackground(), getRect());
+
+    Rectangle subRect = new Rectangle();
+
+    subRect.y = mRect.getY();
+    subRect.height = mRect.getH();
+
+    if (mPrimaryButton) {
+      subRect.x = mRect.getX();
+      subRect.width = mDividerLocation - mRect.getX();
+    } else {
+      subRect.x = mDividerLocation;
+      subRect.width = mRect.getW() - mDividerLocation;
+    }
+
+    if (isSelected()) {
+      paintHighlightedOutlined(g2, getRect());
+    } else if (mPopupShown || mHighlight) {
+      drawHighlightedOutline(g2, getRect());
+
+      paintHighlightedOutlined(g2, subRect);
+    } else {
+      // do nothing
+    }
+  }
 }

@@ -32,172 +32,180 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class MouseAnimation extends WidgetAnimation {
 
-	/** The m mouse over timer. */
-	private Timer mMouseOverTimer;
-	
-	/** The m mouse clicked timer. */
-	//private Timer mMouseClickedTimer;
-	
+  /** The m mouse over timer. */
+  private Timer mMouseOverTimer;
 
-	/** The m entry mode. */
-	private boolean mEntryMode = true;
-	
-	/** The m pressed. */
-	protected boolean mPressed = false;
-	
-	/**
-	 * The Class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
+  /** The m mouse clicked timer. */
+  // private Timer mMouseClickedTimer;
 
+  /** The m entry mode. */
+  private boolean mEntryMode = true;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			mEntryMode = true;
-			
-			startMouseOverTimer();
-		}
+  /** The m pressed. */
+  protected boolean mPressed = false;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseExited(MouseEvent e) {
-			//System.err.println("mouse exit " + e.getSource());
-			
-			mEntryMode = false;
-			
-			//if (!mPressed) {
-			pseudoMouseExited();
-			//}
-		}
+  /**
+   * The Class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			if (e.getButton() == MouseEvent.BUTTON1) {
-				mPressed = true;
-			}
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseEntered(MouseEvent e) {
+      mEntryMode = true;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			mPressed = false;
-			
-			if (!mEntryMode) {
-				pseudoMouseExited();
-			}
-		}
-		
-	}
-	
-	/**
-	 * The Class HoverEvents.
-	 */
-	private class HoverEvents implements ActionListener {
+      startMouseOverTimer();
+    }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			if (mEntryMode) {
-				animateMouseEntered();
-			} else {
-				animateMouseExited();
-			}
-		}
-	}
-	
-	/**
-	 * Instantiates a new mouse animation.
-	 *
-	 * @param widget the widget
-	 */
-	public MouseAnimation(ModernWidget widget) {
-		super(widget);
-		
-		mMouseOverTimer = new Timer(0, new HoverEvents());
-		mMouseOverTimer.setDelay(TimerAnimation.DELAY_MS);
-		//mMouseClickedTimer = new Timer(0, new ClickedEvents());
-		//mMouseClickedTimer.setDelay(DELAY_MS);
-		
-		bind(widget);
-	}
-	
-	/**
-	 * Bind the widget so it can respond with an animation. This widget can
-	 * be auxiliary to the primary widget whose animation is being controlled.
-	 * 
-	 * @param widget
-	 * @return 
-	 */
-	public MouseAnimation bind(Component c) {
-		c.addMouseListener(new MouseEvents());
-		
-		return this;
-	}
-	
-	public void startMouseOverTimer() {
-		if (!mMouseOverTimer.isRunning()) {
-			mMouseOverTimer.start();
-		}
-	}
-	
-	/**
-	 * Stop mouse over timer.
-	 */
-	public void stopMouseOverTimer() {
-		mMouseOverTimer.stop();
-	}
-	
-	
-	
-	/**
-	 * Animate mouse entered.
-	 */
-	public void animateMouseEntered() {
-		
-	}
-	
-	/**
-	 * Animate mouse exited.
-	 */
-	public void animateMouseExited() {
-		
-	}
-	
-	/**
-	 * Animate mouse clicked.
-	 */
-	public void animateMouseClicked() {
-		
-	}
-	
-	/**
-	 * Gets the pressed.
-	 *
-	 * @return the pressed
-	 */
-	public boolean getPressed() {
-		return mPressed;
-	}
-	
-	/**
-	 * Triggers the events an animation that a mouse exit event would, but
-	 * without requiring an actual mouse event
-	 */
-	public void pseudoMouseExited() {
-		mEntryMode = false;
-		
-		startMouseOverTimer();
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseExited(MouseEvent e) {
+      // System.err.println("mouse exit " + e.getSource());
+
+      mEntryMode = false;
+
+      // if (!mPressed) {
+      pseudoMouseExited();
+      // }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      if (e.getButton() == MouseEvent.BUTTON1) {
+        mPressed = true;
+      }
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseReleased(MouseEvent e) {
+      mPressed = false;
+
+      if (!mEntryMode) {
+        pseudoMouseExited();
+      }
+    }
+
+  }
+
+  /**
+   * The Class HoverEvents.
+   */
+  private class HoverEvents implements ActionListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      if (mEntryMode) {
+        animateMouseEntered();
+      } else {
+        animateMouseExited();
+      }
+    }
+  }
+
+  /**
+   * Instantiates a new mouse animation.
+   *
+   * @param widget
+   *          the widget
+   */
+  public MouseAnimation(ModernWidget widget) {
+    super(widget);
+
+    mMouseOverTimer = new Timer(0, new HoverEvents());
+    mMouseOverTimer.setDelay(TimerAnimation.DELAY_MS);
+    // mMouseClickedTimer = new Timer(0, new ClickedEvents());
+    // mMouseClickedTimer.setDelay(DELAY_MS);
+
+    bind(widget);
+  }
+
+  /**
+   * Bind the widget so it can respond with an animation. This widget can be
+   * auxiliary to the primary widget whose animation is being controlled.
+   * 
+   * @param widget
+   * @return
+   */
+  public MouseAnimation bind(Component c) {
+    c.addMouseListener(new MouseEvents());
+
+    return this;
+  }
+
+  public void startMouseOverTimer() {
+    if (!mMouseOverTimer.isRunning()) {
+      mMouseOverTimer.start();
+    }
+  }
+
+  /**
+   * Stop mouse over timer.
+   */
+  public void stopMouseOverTimer() {
+    mMouseOverTimer.stop();
+  }
+
+  /**
+   * Animate mouse entered.
+   */
+  public void animateMouseEntered() {
+
+  }
+
+  /**
+   * Animate mouse exited.
+   */
+  public void animateMouseExited() {
+
+  }
+
+  /**
+   * Animate mouse clicked.
+   */
+  public void animateMouseClicked() {
+
+  }
+
+  /**
+   * Gets the pressed.
+   *
+   * @return the pressed
+   */
+  public boolean getPressed() {
+    return mPressed;
+  }
+
+  /**
+   * Triggers the events an animation that a mouse exit event would, but without
+   * requiring an actual mouse event
+   */
+  public void pseudoMouseExited() {
+    mEntryMode = false;
+
+    startMouseOverTimer();
+  }
 }

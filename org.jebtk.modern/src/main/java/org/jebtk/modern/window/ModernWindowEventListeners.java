@@ -31,8 +31,6 @@ import org.jebtk.core.event.ChangeEvent;
 
 import org.jebtk.core.event.EventProducer;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
@@ -40,42 +38,59 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernWindowEventListeners extends EventProducer<ModernWindowListener> implements ModernWindowEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+public class ModernWindowEventListeners extends EventProducer<ModernWindowListener>
+    implements ModernWindowEventProducer {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.window.ModernWindowEventProducer#addWindowListener(org.abh.lib.ui.modern.window.ModernWindowListener)
-	 */
-	public void addWindowListener(ModernWindowListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.window.ModernWindowEventProducer#removeWindowListener(org.abh.lib.ui.modern.window.ModernWindowListener)
-	 */
-	public void removeWindowListener(ModernWindowListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.window.ModernWindowEventProducer#fireWindowAdded(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireWindowAdded(ChangeEvent e) {
-		for (ModernWindowListener l : mListeners) {
-			l.windowAdded(e);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.window.ModernWindowEventProducer#fireWindowRemoved(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireWindowRemoved(ChangeEvent e) {
-		for (ModernWindowListener l : mListeners) {
-			l.windowRemoved(e);
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.window.ModernWindowEventProducer#addWindowListener(org.
+   * abh.lib.ui.modern.window.ModernWindowListener)
+   */
+  public void addWindowListener(ModernWindowListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.window.ModernWindowEventProducer#removeWindowListener(
+   * org.abh.lib.ui.modern.window.ModernWindowListener)
+   */
+  public void removeWindowListener(ModernWindowListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.window.ModernWindowEventProducer#fireWindowAdded(org.
+   * abh.lib.event.ChangeEvent)
+   */
+  public void fireWindowAdded(ChangeEvent e) {
+    for (ModernWindowListener l : mListeners) {
+      l.windowAdded(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.window.ModernWindowEventProducer#fireWindowRemoved(org.
+   * abh.lib.event.ChangeEvent)
+   */
+  public void fireWindowRemoved(ChangeEvent e) {
+    for (ModernWindowListener l : mListeners) {
+      l.windowRemoved(e);
+    }
+  }
 }

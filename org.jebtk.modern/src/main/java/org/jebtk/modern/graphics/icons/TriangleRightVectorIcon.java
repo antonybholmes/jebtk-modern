@@ -39,41 +39,45 @@ import java.awt.geom.GeneralPath;
  *
  */
 public class TriangleRightVectorIcon extends TriangleVectorIcon {
-	
-	/**
-	 * Instantiates a new triangle right vector icon.
-	 */
-	public TriangleRightVectorIcon() {
-		this(COLOR);
-	}
-	
-	/**
-	 * Instantiates a new triangle right vector icon.
-	 *
-	 * @param color1 the color 1
-	 */
-	public TriangleRightVectorIcon(Color color1) {
-		super(color1);
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.icons.TriangleVectorIcon#drawIcon(java.awt.Graphics2D, int, int, int, int)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		super.drawIcon(g2, x, y, w, h, params);
+  /**
+   * Instantiates a new triangle right vector icon.
+   */
+  public TriangleRightVectorIcon() {
+    this(COLOR);
+  }
 
-		mXf = x + (w - mHf) / 2.0;
-		mYf = y + (h - mWf) / 2.0;
-		
-		GeneralPath gp = new GeneralPath();	
-		gp.moveTo(mXf, mYf);
-		gp.lineTo(mXf + mHf, mYf + mW2);
-		gp.lineTo(mXf, mYf + mWf);
-		gp.closePath();
-		
-		g2.setColor(COLOR);
-		g2.fill(gp);
-	}
-	
+  /**
+   * Instantiates a new triangle right vector icon.
+   *
+   * @param color1
+   *          the color 1
+   */
+  public TriangleRightVectorIcon(Color color1) {
+    super(color1);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.icons.TriangleVectorIcon#drawIcon(java.awt.
+   * Graphics2D, int, int, int, int)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    super.drawIcon(g2, x, y, w, h, params);
+
+    mXf = x + (w - mHf) / 2.0;
+    mYf = y + (h - mWf) / 2.0;
+
+    GeneralPath gp = new GeneralPath();
+    gp.moveTo(mXf, mYf);
+    gp.lineTo(mXf + mHf, mYf + mW2);
+    gp.lineTo(mXf, mYf + mWf);
+    gp.closePath();
+
+    g2.setColor(COLOR);
+    g2.fill(gp);
+  }
+
 }

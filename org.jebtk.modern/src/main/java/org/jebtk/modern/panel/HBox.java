@@ -42,71 +42,74 @@ import org.jebtk.modern.text.ModernLabel;
  */
 public class HBox extends GenericBox {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new h box panel.
-	 */
-	public HBox() {
-		super(BoxLayout.LINE_AXIS);
-	}
+  /**
+   * Instantiates a new h box panel.
+   */
+  public HBox() {
+    super(BoxLayout.LINE_AXIS);
+  }
 
-	/**
-	 * Instantiates a new h box.
-	 *
-	 * @param components the components
-	 */
-	public HBox(Component... components) {
-		this();
-		
-		for (Component c : components) {
-			add(c);
-		}
-	}
+  /**
+   * Instantiates a new h box.
+   *
+   * @param components
+   *          the components
+   */
+  public HBox(Component... components) {
+    this();
 
-	/**
-	 * Instantiates a new h box.
-	 *
-	 * @param border the border
-	 */
-	public HBox(Border border) {
-		this();
-		
-		setBorder(border);
-	}
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param name the name
-	 */
-	public void add(String name) {
-		add(new ModernLabel(name));
-	}
-	
-	/**
-	 * Adds the glue.
-	 */
-	public void addGlue() {
-		add(Box.createHorizontalGlue());
-	}
-	
-	/**
-	 * Adds the gap.
-	 */
-	public void addGap() {
-		add(UI.createHGap(5));
-	}
-	
-	/**
-	 * Create a new HBox.
-	 *
-	 * @return the h box
-	 */
-	public static HBox create() {
-		return new HBox();
-	}
+    for (Component c : components) {
+      add(c);
+    }
+  }
+
+  /**
+   * Instantiates a new h box.
+   *
+   * @param border
+   *          the border
+   */
+  public HBox(Border border) {
+    this();
+
+    setBorder(border);
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param name
+   *          the name
+   */
+  public void add(String name) {
+    add(new ModernLabel(name));
+  }
+
+  /**
+   * Adds the glue.
+   */
+  public void addGlue() {
+    add(Box.createHorizontalGlue());
+  }
+
+  /**
+   * Adds the gap.
+   */
+  public void addGap() {
+    add(UI.createHGap(5));
+  }
+
+  /**
+   * Create a new HBox.
+   *
+   * @return the h box
+   */
+  public static HBox create() {
+    return new HBox();
+  }
 }

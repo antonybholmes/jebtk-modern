@@ -29,37 +29,40 @@ package org.jebtk.modern.io;
 
 import java.io.File;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class PsGuiFileFilter.
  */
 public class PsGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new ps gui file filter.
-	 */
-	public PsGuiFileFilter() {
-		super("ps");
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#accept(java.io.File)
-	 */
-	@Override
-	public final boolean accept(File f) {
-		if (f.isDirectory()) {
-            return true;
-        }
 
-        return f.getName().toLowerCase().endsWith("ps");
-	}
+  /**
+   * Instantiates a new ps gui file filter.
+   */
+  public PsGuiFileFilter() {
+    super("ps");
+  }
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return "Postscript (*.ps)";
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#accept(java.io.File)
+   */
+  @Override
+  public final boolean accept(File f) {
+    if (f.isDirectory()) {
+      return true;
+    }
+
+    return f.getName().toLowerCase().endsWith("ps");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return "Postscript (*.ps)";
+  }
 }

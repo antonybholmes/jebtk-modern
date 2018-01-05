@@ -24,37 +24,37 @@ import org.jebtk.modern.widget.ModernWidget;
  * The Class TextTabsPanel.
  */
 public class TextTabsPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new text tabs panel.
-	 *
-	 * @param model the model
-	 */
-	public TextTabsPanel(TabsModel model) {
-		this(model, 0);
-	}
-	
-	/**
-	 * Instantiates a new text tabs panel.
-	 *
-	 * @param model the model
-	 * @param pagePadding the page padding
-	 */
-	public TextTabsPanel(TabsModel model,
-			int pagePadding) {
-		TextTabsCentered tabs = new TextTabsCentered(model);
-		UI.setSize(tabs, 
-				ModernWidget.MAX_SIZE, 
-				UI.createTopBottomBorder(pagePadding));
-		
-		setHeader(tabs); //new TextTabsTriangle(model, centered));
-		
-		TabsViewPanel panel = new TabsViewPanel(model);
-		//panel.setBorder(TOP_BORDER);
-		
-		setBody(panel);
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new text tabs panel.
+   *
+   * @param model
+   *          the model
+   */
+  public TextTabsPanel(TabsModel model) {
+    this(model, 0);
+  }
+
+  /**
+   * Instantiates a new text tabs panel.
+   *
+   * @param model
+   *          the model
+   * @param pagePadding
+   *          the page padding
+   */
+  public TextTabsPanel(TabsModel model, int pagePadding) {
+    TextTabsCentered tabs = new TextTabsCentered(model);
+    UI.setSize(tabs, ModernWidget.MAX_SIZE, UI.createTopBottomBorder(pagePadding));
+
+    setHeader(tabs); // new TextTabsTriangle(model, centered));
+
+    TabsViewPanel panel = new TabsViewPanel(model);
+    // panel.setBorder(TOP_BORDER);
+
+    setBody(panel);
+  }
 }

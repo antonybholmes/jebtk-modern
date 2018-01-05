@@ -36,8 +36,6 @@ import java.awt.event.MouseMotionListener;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides horizontal tabs along the top or bottom of the control.
@@ -46,172 +44,193 @@ import org.jebtk.modern.theme.ThemeService;
  *
  */
 public class ModernHTabBar extends TabsController implements MouseMotionListener, MouseListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The tab start x.
-	 */
-	protected static final int TAB_START_X = 8;
-	
-	/**
-	 * The constant TAB_HEIGHT.
-	 */
-	protected static final int TAB_HEIGHT = 30;
-	
-	/**
-	 * The constant CROSS_WIDTH.
-	 */
-	protected static final int CROSS_WIDTH = 6;
 
-	/** The Constant SIZE. */
-	private static final Dimension SIZE = 
-			new Dimension(Short.MAX_VALUE, TAB_HEIGHT);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	//protected List<ModernHTab> tabButtons = new ArrayList<ModernHTab>();
-	//protected List<Integer> tabWidths = new ArrayList<Integer>();
-	//protected List<Integer> tabStarts = new ArrayList<Integer>();
-	
-	//protected Map<ModernHTab, Integer> tabIndexMap = new HashMap<ModernHTab, Integer>();
-	//private Map<Integer, ModernHTab> indexTabMap = new HashMap<Integer, ModernHTab>();
-	
-	/** The Constant TAB_HIGHLIGHT_COLOR. */
-	protected static final Color TAB_HIGHLIGHT_COLOR =
-			ThemeService.getInstance().colors().getColorHighlight(4);
-	
-	/**
-	 * The tab width.
-	 */
-	protected static int TAB_WIDTH = 80;
-	
-	/**
-	 * Determines which tabs to display.
-	 */
-	protected int tabOffsetIndex = 0;
+  /**
+   * The tab start x.
+   */
+  protected static final int TAB_START_X = 8;
 
-	/**
-	 * The tab.
-	 */
-	protected int tab = -1;
+  /**
+   * The constant TAB_HEIGHT.
+   */
+  protected static final int TAB_HEIGHT = 30;
 
-	/**
-	 * Instantiates a new modern h tab bar.
-	 *
-	 * @param model the model
-	 */
-	public ModernHTabBar(TabsModel model) {
-		super(model);
-		
-		UI.setSize(this, SIZE);
+  /**
+   * The constant CROSS_WIDTH.
+   */
+  protected static final int CROSS_WIDTH = 6;
 
-		addMouseMotionListener(this);
-		addMouseListener(this);
-	}
+  /** The Constant SIZE. */
+  private static final Dimension SIZE = new Dimension(Short.MAX_VALUE, TAB_HEIGHT);
 
-	/**
-	 * Clear.
-	 */
-	public void clear() {
+  // protected List<ModernHTab> tabButtons = new ArrayList<ModernHTab>();
+  // protected List<Integer> tabWidths = new ArrayList<Integer>();
+  // protected List<Integer> tabStarts = new ArrayList<Integer>();
 
-		//getTabsModel().removeAllTabs();
-		//tabIndexMap.clear();
-		//indexTabMap.clear();
+  // protected Map<ModernHTab, Integer> tabIndexMap = new HashMap<ModernHTab,
+  // Integer>();
+  // private Map<Integer, ModernHTab> indexTabMap = new HashMap<Integer,
+  // ModernHTab>();
 
-		revalidate();
-		repaint();
-	}
+  /** The Constant TAB_HIGHLIGHT_COLOR. */
+  protected static final Color TAB_HIGHLIGHT_COLOR = ThemeService.getInstance().colors().getColorHighlight(4);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabsController#tabChanged(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public final void tabChanged(TabEvent e) {
-		repaint();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mousePressed(MouseEvent e) {
-		changeTab(tab);
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		int i = (e.getX() - TAB_START_X) / TAB_WIDTH - tabOffsetIndex;
-		
-		if (i < 0 || i > getTabsModel().getTabCount() - 1) {
-			i = -1;
-		}
-		
-		if (i == -1 || i == tab) {
-			return;
-		}
-		
-		tab = i;
-		
-		repaint();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseExited(MouseEvent e) {
-		tab = -1;
-		
-		repaint();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	/**
-	 * Change tab.
-	 *
-	 * @param index the index
-	 */
-	private void changeTab(int index) {
-		getTabsModel().changeTab(index);
-	}
+  /**
+   * The tab width.
+   */
+  protected static int TAB_WIDTH = 80;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * Determines which tabs to display.
+   */
+  protected int tabOffsetIndex = 0;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * The tab.
+   */
+  protected int tab = -1;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * Instantiates a new modern h tab bar.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernHTabBar(TabsModel model) {
+    super(model);
+
+    UI.setSize(this, SIZE);
+
+    addMouseMotionListener(this);
+    addMouseListener(this);
+  }
+
+  /**
+   * Clear.
+   */
+  public void clear() {
+
+    // getTabsModel().removeAllTabs();
+    // tabIndexMap.clear();
+    // indexTabMap.clear();
+
+    revalidate();
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabsController#tabChanged(org.abh.lib.ui.modern.
+   * tabs.TabEvent)
+   */
+  @Override
+  public final void tabChanged(TabEvent e) {
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mousePressed(MouseEvent e) {
+    changeTab(tab);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseMoved(MouseEvent e) {
+    int i = (e.getX() - TAB_START_X) / TAB_WIDTH - tabOffsetIndex;
+
+    if (i < 0 || i > getTabsModel().getTabCount() - 1) {
+      i = -1;
+    }
+
+    if (i == -1 || i == tab) {
+      return;
+    }
+
+    tab = i;
+
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseExited(MouseEvent e) {
+    tab = -1;
+
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseDragged(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /**
+   * Change tab.
+   *
+   * @param index
+   *          the index
+   */
+  private void changeTab(int index) {
+    getTabsModel().changeTab(index);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseEntered(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseReleased(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

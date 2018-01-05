@@ -39,8 +39,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.list.ModernList;
 import org.jebtk.modern.list.ModernListIconCellRenderer;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Renders a file as a list item.
@@ -49,90 +47,90 @@ import org.jebtk.modern.list.ModernListIconCellRenderer;
  *
  */
 public class ModernListFileRenderer extends ModernListIconCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member file.
-	 */
-	private Path mFile;
 
-	/**
-	 * Instantiates a new modern list file renderer.
-	 */
-	public ModernListFileRenderer() {
-		this(UIService.getInstance().loadIcon(FileVectorIcon.class, 32));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern list file renderer.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernListFileRenderer(ModernIcon icon) {
-		super(icon);
-	}
+  /**
+   * The member file.
+   */
+  private Path mFile;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.list.ModernListIconCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList, java.lang.Object, boolean, boolean, boolean, int)
-	 */
-	@Override
-	public Component getCellRendererComponent(ModernList<?> list,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row) {
+  /**
+   * Instantiates a new modern list file renderer.
+   */
+  public ModernListFileRenderer() {
+    this(UIService.getInstance().loadIcon(FileVectorIcon.class, 32));
+  }
 
-		// setup
-		super.getCellRendererComponent(list, 
-				value, 
-				highlight, 
-				isSelected, 
-				hasFocus, 
-				row);
+  /**
+   * Instantiates a new modern list file renderer.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernListFileRenderer(ModernIcon icon) {
+    super(icon);
+  }
 
-		mFile = (Path)value;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.list.ModernListIconCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList,
+   * java.lang.Object, boolean, boolean, boolean, int)
+   */
+  @Override
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
 
-		return this;
-	}
+    // setup
+    super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.list.ModernListIconCellRenderer#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int iconX =  PADDING;
+    mFile = (Path) value;
 
-		int h2 = getHeight() / 2;
+    return this;
+  }
 
-		int y = (h2 + g2.getFontMetrics().getAscent()) / 2;
-		int x;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.list.ModernListIconCellRenderer#drawForegroundAA(java.
+   * awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int iconX = PADDING;
 
-		if (mIcon != null) {
-			x = iconX + mIcon.getWidth() + PADDING;
-		} else {
-			x = PADDING;
-		}
+    int h2 = getHeight() / 2;
 
-		g2.setColor(TEXT_COLOR);
+    int y = (h2 + g2.getFontMetrics().getAscent()) / 2;
+    int x;
 
-		g2.drawString(mFile.getFileName().toString(), x, y);
+    if (mIcon != null) {
+      x = iconX + mIcon.getWidth() + PADDING;
+    } else {
+      x = PADDING;
+    }
 
-		y += h2;
+    g2.setColor(TEXT_COLOR);
 
-		String text = TextUtils.truncateCenter(mFile.getParent() != null ? PathUtils.toString(mFile.getParent()) : "", 60);
+    g2.drawString(mFile.getFileName().toString(), x, y);
 
-		g2.drawString(text, x, y);
+    y += h2;
 
-		x = getWidth() - g2.getFontMetrics().stringWidth(text) - DOUBLE_PADDING;
+    String text = TextUtils.truncateCenter(mFile.getParent() != null ? PathUtils.toString(mFile.getParent()) : "", 60);
 
-		int iconY = (getHeight() - 32) / 2;
+    g2.drawString(text, x, y);
 
-		mIcon.drawIcon(g2, iconX, iconY, 32);
+    x = getWidth() - g2.getFontMetrics().stringWidth(text) - DOUBLE_PADDING;
 
-	}
+    int iconY = (getHeight() - 32) / 2;
+
+    mIcon.drawIcon(g2, iconX, iconY, 32);
+
+  }
 }

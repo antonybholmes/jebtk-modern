@@ -41,100 +41,114 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernLayerPanel.
  */
 public class ModernLayerPanel extends ModernWidget implements LayerEventListener, ModernStateListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant SIZE.
-	 */
-	private static final int SIZE = 32; //ModernTheme.getInstance().getClass("widget").getInt("height");
-	
-	/**
-	 * The check visible.
-	 */
-	private ModernCheckBox checkVisible = new ModernLayersCheckBox(true); //ModernLayersCheckBox(true);
 
-	/**
-	 * The layer model.
-	 */
-	private LayerModel layerModel;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The name.
-	 */
-	private String name;
+  /**
+   * The constant SIZE.
+   */
+  private static final int SIZE = 32; // ModernTheme.getInstance().getClass("widget").getInt("height");
 
-	/**
-	 * Instantiates a new modern layer panel.
-	 *
-	 * @param name the name
-	 * @param layerModel the layer model
-	 */
-	public ModernLayerPanel(String name, LayerModel layerModel) {
-		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-		
-		this.name = name;
-		this.layerModel = layerModel;
-		
-		setOpaque(false);
-		
-		add(checkVisible);
-		add(createHGap());
-		add(new ModernAutoSizeLabel(name));
-		
-		UI.setSize(this, new Dimension(400, SIZE));
-		
-		layerModel.addLayerListener(this);
-		
-		
-		checkVisible.setSelected(layerModel.isVisible(name));
-		checkVisible.addStateListener(this);
-		
-		setAlignmentX(LEFT_ALIGNMENT);
-		
-		setBorder(BORDER);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(ThemeService.getInstance().colors().getHighlight(1));
-		
-		g2.drawLine(0, mRect.getH() - 1, mRect.getW(), mRect.getH() - 1);
-	}
+  /**
+   * The check visible.
+   */
+  private ModernCheckBox checkVisible = new ModernLayersCheckBox(true); // ModernLayersCheckBox(true);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.layers.LayerEventListener#layerChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void layerChanged(ChangeEvent e) {
-		//this.checkVisible.setSelected(layerModel.isVisible(name));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.event.ChangeEvent)
-	 */
-	@Override
-	public void layerUpdated(ChangeEvent e) {
-		//this.checkVisible.setSelected(layerModel.isVisible(name));
-	}
+  /**
+   * The layer model.
+   */
+  private LayerModel layerModel;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib.ui.modern.event.ModernStateEvent)
-	 */
-	@Override
-	public void stateChanged(ModernStateEvent e) {
-		layerModel.setVisible(name, this.checkVisible.isSelected());
-	}
+  /**
+   * The name.
+   */
+  private String name;
+
+  /**
+   * Instantiates a new modern layer panel.
+   *
+   * @param name
+   *          the name
+   * @param layerModel
+   *          the layer model
+   */
+  public ModernLayerPanel(String name, LayerModel layerModel) {
+    setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+
+    this.name = name;
+    this.layerModel = layerModel;
+
+    setOpaque(false);
+
+    add(checkVisible);
+    add(createHGap());
+    add(new ModernAutoSizeLabel(name));
+
+    UI.setSize(this, new Dimension(400, SIZE));
+
+    layerModel.addLayerListener(this);
+
+    checkVisible.setSelected(layerModel.isVisible(name));
+    checkVisible.addStateListener(this);
+
+    setAlignmentX(LEFT_ALIGNMENT);
+
+    setBorder(BORDER);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(ThemeService.getInstance().colors().getHighlight(1));
+
+    g2.drawLine(0, mRect.getH() - 1, mRect.getW(), mRect.getH() - 1);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.layers.LayerEventListener#layerChanged(org.abh.lib.
+   * event.ChangeEvent)
+   */
+  @Override
+  public void layerChanged(ChangeEvent e) {
+    // this.checkVisible.setSelected(layerModel.isVisible(name));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.event
+   * .ChangeEvent)
+   */
+  @Override
+  public void layerUpdated(ChangeEvent e) {
+    // this.checkVisible.setSelected(layerModel.isVisible(name));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib.ui.
+   * modern.event.ModernStateEvent)
+   */
+  @Override
+  public void stateChanged(ModernStateEvent e) {
+    layerModel.setVisible(name, this.checkVisible.isSelected());
+  }
 }

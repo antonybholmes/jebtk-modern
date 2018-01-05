@@ -29,50 +29,53 @@ package org.jebtk.modern.widget.tooltip;
 
 import java.awt.Dimension;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Extension of the basic tooltip that also suggests
- * the user presses F1 to get more help.
+ * Extension of the basic tooltip that also suggests the user presses F1 to get
+ * more help.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernToolTipSuggestHelpPanel extends ModernBasicToolTipPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SIZE.
-	 */
-	public static final Dimension SIZE = new Dimension(240, 90);
-	
-	/**
-	 * Instantiates a new modern tool tip suggest help panel.
-	 *
-	 * @param tooltip the tooltip
-	 */
-	public ModernToolTipSuggestHelpPanel(ModernToolTip tooltip) {
-		super(tooltip);
-		
-		//add(new ModernMenuDivider());
-		//add(ModernTheme.createVerticalGap());
-		//Box box = new HBoxPanel();
-		//box.setAlignmentX(LEFT_ALIGNMENT);
-		//box.add(new ModernImagePanel(ModernVectorIcon.HELP_ICON, 16)); //(Resources.getInstance().loadIcon("help", Resources.ICON_SIZE_16)));
-		//box.add(Ui.createHorizontalGap(10));
-		//box.add(new ModernBoldLabel("Press F1 for more help."));
-		//Ui.setSize(box, new Dimension(400, 24));
-		//add(box);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tooltip.ModernBasicToolTipPanel#getToolTipSize()
-	 */
-	public Dimension getToolTipSize() {
-		return SIZE;
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant SIZE.
+   */
+  public static final Dimension SIZE = new Dimension(240, 90);
+
+  /**
+   * Instantiates a new modern tool tip suggest help panel.
+   *
+   * @param tooltip
+   *          the tooltip
+   */
+  public ModernToolTipSuggestHelpPanel(ModernToolTip tooltip) {
+    super(tooltip);
+
+    // add(new ModernMenuDivider());
+    // add(ModernTheme.createVerticalGap());
+    // Box box = new HBoxPanel();
+    // box.setAlignmentX(LEFT_ALIGNMENT);
+    // box.add(new ModernImagePanel(ModernVectorIcon.HELP_ICON, 16));
+    // //(Resources.getInstance().loadIcon("help", Resources.ICON_SIZE_16)));
+    // box.add(Ui.createHorizontalGap(10));
+    // box.add(new ModernBoldLabel("Press F1 for more help."));
+    // Ui.setSize(box, new Dimension(400, 24));
+    // add(box);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.tooltip.ModernBasicToolTipPanel#getToolTipSize()
+   */
+  public Dimension getToolTipSize() {
+    return SIZE;
+  }
 }

@@ -10,64 +10,55 @@ import org.jebtk.modern.widget.ModernWidget;
 
 public class RadioSelectedAnimation extends SelectedFadeAnimation {
 
-	private ModernClickWidget mRadio;
+  private ModernClickWidget mRadio;
 
-	public RadioSelectedAnimation(ModernWidget widget) {
-		super((ModernClickWidget)widget);
+  public RadioSelectedAnimation(ModernWidget widget) {
+    super((ModernClickWidget) widget);
 
-		mRadio = (ModernClickWidget)widget;
+    mRadio = (ModernClickWidget) widget;
 
-		setFadeColor("fill", ModernWidgetRenderer.SELECTED_FILL_COLOR);
-	}
+    setFadeColor("fill", ModernWidgetRenderer.SELECTED_FILL_COLOR);
+  }
 
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		if (widget.isEnabled() && mRadio.isSelected()) {
-			int x = widget.getInsets().left;
-			int y = (widget.getHeight() - RadioAnimation.RADIO_SIZE) / 2;
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    if (widget.isEnabled() && mRadio.isSelected()) {
+      int x = widget.getInsets().left;
+      int y = (widget.getHeight() - RadioAnimation.RADIO_SIZE) / 2;
 
-			Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+      Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
-			try {
-				drawOutline(g2Temp, 
-						x,
-						y,
-						RadioAnimation.RADIO_SIZE,
-						RadioAnimation.RADIO_SIZE);
-			} finally {
-				g2Temp.dispose();
-			}
-		}
-	}
+      try {
+        drawOutline(g2Temp, x, y, RadioAnimation.RADIO_SIZE, RadioAnimation.RADIO_SIZE);
+      } finally {
+        g2Temp.dispose();
+      }
+    }
+  }
 
-	public void drawOutline(Graphics2D g2,
-			int x, 
-			int y, 
-			int w, 
-			int h) {
-		// Do nothing
+  public void drawOutline(Graphics2D g2, int x, int y, int w, int h) {
+    // Do nothing
 
-		//int wf = (int)(w * ModernWidgetRenderer.RADIO_SCALE / 2) * 2;
-		//int i = Math.max(2, (int)(w * ModernWidgetRenderer.RADIO_BUTTON_SCALE));
-		int w2 = w - 8;
+    // int wf = (int)(w * ModernWidgetRenderer.RADIO_SCALE / 2) * 2;
+    // int i = Math.max(2, (int)(w * ModernWidgetRenderer.RADIO_BUTTON_SCALE));
+    int w2 = w - 8;
 
-		//x += (w - wf) / 2;
-		//y += (h - wf) / 2;
+    // x += (w - wf) / 2;
+    // y += (h - wf) / 2;
 
-		//g2.setColor(Color.WHITE);
-		//g2.fillOval(x, y, w, w);
-		
-		g2.setColor(getFadeColor("fill"));
-		
-		
-		//g2.drawOval(x, y, wf, wf);
-		
-		//g2.setColor(Color.WHITE);
-		g2.fillOval(x + 4, y + 4, w2, w2);
-		//g2.drawOval(x, y, w2, wf);
+    // g2.setColor(Color.WHITE);
+    // g2.fillOval(x, y, w, w);
 
-		w2 = w - 2;
-		//g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-		g2.drawOval(x + 1, y + 1, w2, w2);
-	}
+    g2.setColor(getFadeColor("fill"));
+
+    // g2.drawOval(x, y, wf, wf);
+
+    // g2.setColor(Color.WHITE);
+    g2.fillOval(x + 4, y + 4, w2, w2);
+    // g2.drawOval(x, y, w2, wf);
+
+    w2 = w - 2;
+    // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+    g2.drawOval(x + 1, y + 1, w2, w2);
+  }
 }

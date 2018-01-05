@@ -31,76 +31,76 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class SegmentHighlightAnimation extends HighlightAnimation {
 
-	private SegmentTabs mTabs;
-	
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public SegmentHighlightAnimation(ModernWidget w) {
-		super((SegmentTabs)w);
+  private SegmentTabs mTabs;
 
-		mTabs = (SegmentTabs)w;
-		
-		getFade().setFadeColor("highlight", RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
-	}
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public SegmentHighlightAnimation(ModernWidget w) {
+    super((SegmentTabs) w);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    mTabs = (SegmentTabs) w;
 
-		int x = mTabs.mLeftOffset;
-		int h = mTabs.getInternalRect().getH();
-		int n = mTabs.getTabsModel().getTabCount();
+    getFade().setFadeColor("highlight", RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
+  }
 
-		int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		int highlighted = mTabs.mHighlight;
-		
-		//
-		// Draw if highlighted
-		//
+    int x = mTabs.mLeftOffset;
+    int h = mTabs.getInternalRect().getH();
+    int n = mTabs.getTabsModel().getTabCount();
 
-		if (highlighted != selectedIndex && highlighted > -1 && highlighted < n) {
-			x = mTabs.mLeftOffset + mTabs.mHighlight * mTabs.mTabSize;
-			
-			g2.setColor(getFade().getFadeColor("highlight"));
-			
-			//g2.drawRect(x, mSegments.getInsets().top, mSegments.mTabSize, h - 1);
-			//g2.fillRect(x, mSegments.getInsets().top, mSegments.mTabSize, h);
-			
-			g2.fillRect(x, 
-					mTabs.getInsets().top + h - RibbonChangeAnimation.BAR_HEIGHT, 
-					mTabs.mTabSize, 
-					RibbonChangeAnimation.BAR_HEIGHT);
-			
-		}
+    int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
 
-		//
-		// Draw the outlines
-		//
+    int highlighted = mTabs.mHighlight;
 
-		//getRenderer().buttonOutlinePaint(g2, selectedIndex, y, w, h);
-		
-		
-		
-		//
-		// Draw the selected tab
-		//
-		
-//		x = mSegments.mLeftOffset + selectedIndex * mSegments.mTabSize;
-//		
-//		mSegments.getWidgetRenderer().primaryDialogButtonFillPaint(g2, 
-//				x, 
-//				mSegments.getInsets().top, 
-//				mSegments.mTabSize, 
-//				h,
-//				RenderMode.NONE,
-//				false);
-//		
-//		g2.fillRect(x, mSegments.getInsets().top, mSegments.mTabSize, h);
-	}	
+    //
+    // Draw if highlighted
+    //
+
+    if (highlighted != selectedIndex && highlighted > -1 && highlighted < n) {
+      x = mTabs.mLeftOffset + mTabs.mHighlight * mTabs.mTabSize;
+
+      g2.setColor(getFade().getFadeColor("highlight"));
+
+      // g2.drawRect(x, mSegments.getInsets().top, mSegments.mTabSize, h - 1);
+      // g2.fillRect(x, mSegments.getInsets().top, mSegments.mTabSize, h);
+
+      g2.fillRect(x, mTabs.getInsets().top + h - RibbonChangeAnimation.BAR_HEIGHT, mTabs.mTabSize,
+          RibbonChangeAnimation.BAR_HEIGHT);
+
+    }
+
+    //
+    // Draw the outlines
+    //
+
+    // getRenderer().buttonOutlinePaint(g2, selectedIndex, y, w, h);
+
+    //
+    // Draw the selected tab
+    //
+
+    // x = mSegments.mLeftOffset + selectedIndex * mSegments.mTabSize;
+    //
+    // mSegments.getWidgetRenderer().primaryDialogButtonFillPaint(g2,
+    // x,
+    // mSegments.getInsets().top,
+    // mSegments.mTabSize,
+    // h,
+    // RenderMode.NONE,
+    // false);
+    //
+    // g2.fillRect(x, mSegments.getInsets().top, mSegments.mTabSize, h);
+  }
 }

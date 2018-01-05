@@ -56,257 +56,287 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernSearchPanel.
  */
-public class ModernSearchExtPanel extends ModernLineBorderPanel implements ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+public class ModernSearchExtPanel extends ModernLineBorderPanel
+    implements ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member search button.
-	 */
-	private ModernButton mSearchButton =
-			new ModernButton(UIService.getInstance().loadIcon(SearchVectorIcon.class, 16));
-	
-	/** The m search 2 button. */
-	private ModernButton mSearch2Button =
-			new ModernButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16)); //UIResources.getInstance().loadIcon("binoculars", 16));
+  /**
+   * The member search button.
+   */
+  private ModernButton mSearchButton = new ModernButton(UIService.getInstance().loadIcon(SearchVectorIcon.class, 16));
 
-	/**
-	 * The member search field.
-	 */
-	private ModernTextField mSearchField = new ModernClipboardTextField();
+  /** The m search 2 button. */
+  private ModernButton mSearch2Button = new ModernButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
+                                                                                                                      // 16));
 
-	/**
-	 * The member listeners.
-	 */
-	private ModernClickListeners mListeners = new ModernClickListeners();
+  /**
+   * The member search field.
+   */
+  private ModernTextField mSearchField = new ModernClipboardTextField();
 
+  /**
+   * The member listeners.
+   */
+  private ModernClickListeners mListeners = new ModernClickListeners();
 
-	/**
-	 * The member model.
-	 */
-	private SearchModel mModel;
+  /**
+   * The member model.
+   */
+  private SearchModel mModel;
 
+  /** The m delimiter. */
+  private String mDelimiter;
 
-	/** The m delimiter. */
-	private String mDelimiter;
+  /** The m window. */
+  private ModernWindow mWindow;
 
+  /**
+   * Instantiates a new modern search panel.
+   *
+   * @param window
+   *          the window
+   */
+  public ModernSearchExtPanel(ModernWindow window) {
+    this(window, new SearchModel(), TextUtils.COMMA_DELIMITER);
+  }
 
-	/** The m window. */
-	private ModernWindow mWindow;
-	
-	/**
-	 * Instantiates a new modern search panel.
-	 *
-	 * @param window the window
-	 */
-	public ModernSearchExtPanel(ModernWindow window) {
-		this(window, new SearchModel(), TextUtils.COMMA_DELIMITER);
-	}
-	
-	/**
-	 * Instantiates a new modern search ext panel.
-	 *
-	 * @param window the window
-	 * @param delimiter the delimiter
-	 */
-	public ModernSearchExtPanel(ModernWindow window, String delimiter) {
-		this(window, new SearchModel(), delimiter);
-	}
-	
-	/**
-	 * Instantiates a new modern search panel.
-	 *
-	 * @param window the window
-	 * @param model the model
-	 * @param delimiter the delimiter
-	 */
-	public ModernSearchExtPanel(ModernWindow window, SearchModel model, String delimiter) {
-		mWindow = window;
-		mModel = model;
-		mDelimiter = delimiter;
-		
-		mSearchField.setBorder(LEFT_BORDER);
-		add(mSearchField);
-		
-		Box box = HBox.create();
-		
-		box.add(mSearchButton);
-		box.add(mSearch2Button);
-		
-		add(box, BorderLayout.LINE_END);
+  /**
+   * Instantiates a new modern search ext panel.
+   *
+   * @param window
+   *          the window
+   * @param delimiter
+   *          the delimiter
+   */
+  public ModernSearchExtPanel(ModernWindow window, String delimiter) {
+    this(window, new SearchModel(), delimiter);
+  }
 
-		mSearchField.addKeyListener(this);
-		
-		mSearchButton.addClickListener(new ModernClickListener() {
-			@Override
-			public void clicked(ModernClickEvent e) {
-				search();
-			}});
-		
-		
-		mSearch2Button.addClickListener(new ModernClickListener() {
+  /**
+   * Instantiates a new modern search panel.
+   *
+   * @param window
+   *          the window
+   * @param model
+   *          the model
+   * @param delimiter
+   *          the delimiter
+   */
+  public ModernSearchExtPanel(ModernWindow window, SearchModel model, String delimiter) {
+    mWindow = window;
+    mModel = model;
+    mDelimiter = delimiter;
 
-			@Override
-			public void clicked(ModernClickEvent e) {
-				search2();
-			}});
-		
-		mSearchField.setText(mModel.get());
-	}
-	
-	/**
-	 * Search.
-	 */
-	private void search() {
-		mModel.updateCaseSensitive(false);
-		mModel.updateInList(true);
-		mModel.updateExactMatch(false);
-		
-		fireClicked();
-	}
-	
-	/**
-	 * Search 2.
-	 */
-	private void search2() {
-		SearchDialog dialog = new SearchDialog(mWindow, mSearchField.getText(), mDelimiter);
-		
-		dialog.setVisible(true);
-		
-		if (dialog.isCancelled()) {
-			return;
-		}
-		
-		mModel.updateCaseSensitive(dialog.caseSensitive());
-		mModel.updateInList(dialog.getInList());
-		mModel.updateExactMatch(dialog.getExact());
-		
-		search(dialog.getLines());
-	}
-	
-	/**
-	 * Search.
-	 *
-	 * @param items the items
-	 */
-	public void search(Collection<String> items) {
-		mSearchField.setText(Join.on(mDelimiter).values(items).toString());
-		
-		search();
-	}
+    mSearchField.setBorder(LEFT_BORDER);
+    add(mSearchField);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	@Override
-	public void addClickListener(ModernClickListener l) {
-		mListeners.addClickListener(l);
-	}
+    Box box = HBox.create();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	@Override
-	public void removeClickListener(ModernClickListener l) {
-		mListeners.removeClickListener(l);
-	}
+    box.add(mSearchButton);
+    box.add(mSearch2Button);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void fireClicked(ModernClickEvent e) {
-		mListeners.fireClicked(e);
-	}
-	
-	/**
-	 * Fire clicked.
-	 */
-	public void fireClicked() {
-		mModel.set(getText());
-		
-		fireClicked((new ModernClickEvent(this, UI.MENU_SEARCH)));
-	}
+    add(box, BorderLayout.LINE_END);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public final void clicked(ModernClickEvent e) {
-		fireClicked();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			search();
-		}
-	}
+    mSearchField.addKeyListener(this);
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    mSearchButton.addClickListener(new ModernClickListener() {
+      @Override
+      public void clicked(ModernClickEvent e) {
+        search();
+      }
+    });
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#getText()
-	 */
-	public String getText() {
-		return mSearchField.getText();
-	}
+    mSearch2Button.addClickListener(new ModernClickListener() {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		mSearchField.setText(text);
-	}
+      @Override
+      public void clicked(ModernClickEvent e) {
+        search2();
+      }
+    });
 
-	/**
-	 * Gets the in list.
-	 *
-	 * @return the in list
-	 */
-	public boolean getInList() {
-		return mModel.getInList();
-	}
-	
-	/**
-	 * Gets the exact.
-	 *
-	 * @return the exact
-	 */
-	public boolean getExact() {
-		return mModel.getExact();
-	}
-	
-	/**
-	 * Gets the case sensitive.
-	 *
-	 * @return the case sensitive
-	 */
-	public boolean getCaseSensitive() {
-		return mModel.getCaseSensitive();
-	}
+    mSearchField.setText(mModel.get());
+  }
+
+  /**
+   * Search.
+   */
+  private void search() {
+    mModel.updateCaseSensitive(false);
+    mModel.updateInList(true);
+    mModel.updateExactMatch(false);
+
+    fireClicked();
+  }
+
+  /**
+   * Search 2.
+   */
+  private void search2() {
+    SearchDialog dialog = new SearchDialog(mWindow, mSearchField.getText(), mDelimiter);
+
+    dialog.setVisible(true);
+
+    if (dialog.isCancelled()) {
+      return;
+    }
+
+    mModel.updateCaseSensitive(dialog.caseSensitive());
+    mModel.updateInList(dialog.getInList());
+    mModel.updateExactMatch(dialog.getExact());
+
+    search(dialog.getLines());
+  }
+
+  /**
+   * Search.
+   *
+   * @param items
+   *          the items
+   */
+  public void search(Collection<String> items) {
+    mSearchField.setText(Join.on(mDelimiter).values(items).toString());
+
+    search();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh
+   * .lib.ui.modern.event.ModernClickListener)
+   */
+  @Override
+  public void addClickListener(ModernClickListener l) {
+    mListeners.addClickListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.
+   * abh.lib.ui.modern.event.ModernClickListener)
+   */
+  @Override
+  public void removeClickListener(ModernClickListener l) {
+    mListeners.removeClickListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.
+   * ui.modern.event.ModernClickEvent)
+   */
+  @Override
+  public void fireClicked(ModernClickEvent e) {
+    mListeners.fireClicked(e);
+  }
+
+  /**
+   * Fire clicked.
+   */
+  public void fireClicked() {
+    mModel.set(getText());
+
+    fireClicked((new ModernClickEvent(this, UI.MENU_SEARCH)));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public final void clicked(ModernClickEvent e) {
+    fireClicked();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+   */
+  @Override
+  public void keyPressed(KeyEvent e) {
+    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+      search();
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+   */
+  @Override
+  public void keyReleased(KeyEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+   */
+  @Override
+  public void keyTyped(KeyEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#getText()
+   */
+  public String getText() {
+    return mSearchField.getText();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    mSearchField.setText(text);
+  }
+
+  /**
+   * Gets the in list.
+   *
+   * @return the in list
+   */
+  public boolean getInList() {
+    return mModel.getInList();
+  }
+
+  /**
+   * Gets the exact.
+   *
+   * @return the exact
+   */
+  public boolean getExact() {
+    return mModel.getExact();
+  }
+
+  /**
+   * Gets the case sensitive.
+   *
+   * @return the case sensitive
+   */
+  public boolean getCaseSensitive() {
+    return mModel.getCaseSensitive();
+  }
 }

@@ -36,136 +36,150 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernTwoStateWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernCheckBox.
  */
 public abstract class CheckBox extends ModernTwoStateWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
 
-	/**
-	 * The member text1.
-	 */
-	protected String mText1 = null;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern check box.
-	 */
-	public CheckBox() {
-		this(TextUtils.EMPTY_STRING);
-	}
-	
-	/**
-	 * Instantiates a new modern check box.
-	 *
-	 * @param text the text
-	 */
-	public CheckBox(String text) {
-		this(text, false);
-	}
-	
-	/**
-	 * Instantiates a new modern check box.
-	 *
-	 * @param selected the selected
-	 */
-	public CheckBox(boolean selected) {
-		this(TextUtils.EMPTY_STRING, selected, ModernButton.getIconButtonSize());
-	}
+  /**
+   * The member text1.
+   */
+  protected String mText1 = null;
 
-	/**
-	 * Instantiates a new modern check box.
-	 *
-	 * @param text the text
-	 * @param selected the selected
-	 */
-	public CheckBox(String text, boolean selected) {
-		this(text, selected, ModernButton.getIconButtonSize(text));
-	}
-	
-	/**
-	 * Instantiates a new check box.
-	 *
-	 * @param text the text
-	 * @param width the width
-	 */
-	public CheckBox(String text, int width) {
-		this(text, new Dimension(width, ModernWidget.WIDGET_HEIGHT));
-	}
-	
-	/**
-	 * Instantiates a new modern check box.
-	 *
-	 * @param text the text
-	 * @param size the size
-	 */
-	public CheckBox(String text, Dimension size) {
-		this(text, false, size);
-	}
+  /**
+   * Instantiates a new modern check box.
+   */
+  public CheckBox() {
+    this(TextUtils.EMPTY_STRING);
+  }
 
-	/**
-	 * Instantiates a new modern check box.
-	 *
-	 * @param text the text
-	 * @param selected the selected
-	 * @param size the size
-	 */
-	public CheckBox(String text, boolean selected, Dimension size) {
-		setText(text);
-		
-		setSelected(selected);
-		
-		UI.setSize(this, size);
-	}
+  /**
+   * Instantiates a new modern check box.
+   *
+   * @param text
+   *          the text
+   */
+  public CheckBox(String text) {
+    this(text, false);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#setFont(java.awt.Font)
-	 */
-	@Override
-	public void setFont(Font font) {
-		super.setFont(font);
-		
-		UI.setSize(this, ModernButton.getIconButtonSize(getFont(), mText1));
-	}
-	
-	/**
-	 * Gets the text.
-	 *
-	 * @return the text
-	 */
-	public String getText() {
-		return mText1;
-	}
-	
-	/**
-	 * Sets the text.
-	 *
-	 * @param text the new text
-	 */
-	public void setText(String text) {
-		mText1 = text;
-		
-		UI.setSize(this, ModernButton.getIconButtonSize(getFont(), mText1));
-		
-		setClickMessage(text);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (mText1 != null) {
-			int x = mInternalRect.getX() + 16 + PADDING;
-			
-			g2.setColor(isEnabled() ? TEXT_COLOR : ALT_TEXT_COLOR);
-			g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
-		}
-	}
+  /**
+   * Instantiates a new modern check box.
+   *
+   * @param selected
+   *          the selected
+   */
+  public CheckBox(boolean selected) {
+    this(TextUtils.EMPTY_STRING, selected, ModernButton.getIconButtonSize());
+  }
+
+  /**
+   * Instantiates a new modern check box.
+   *
+   * @param text
+   *          the text
+   * @param selected
+   *          the selected
+   */
+  public CheckBox(String text, boolean selected) {
+    this(text, selected, ModernButton.getIconButtonSize(text));
+  }
+
+  /**
+   * Instantiates a new check box.
+   *
+   * @param text
+   *          the text
+   * @param width
+   *          the width
+   */
+  public CheckBox(String text, int width) {
+    this(text, new Dimension(width, ModernWidget.WIDGET_HEIGHT));
+  }
+
+  /**
+   * Instantiates a new modern check box.
+   *
+   * @param text
+   *          the text
+   * @param size
+   *          the size
+   */
+  public CheckBox(String text, Dimension size) {
+    this(text, false, size);
+  }
+
+  /**
+   * Instantiates a new modern check box.
+   *
+   * @param text
+   *          the text
+   * @param selected
+   *          the selected
+   * @param size
+   *          the size
+   */
+  public CheckBox(String text, boolean selected, Dimension size) {
+    setText(text);
+
+    setSelected(selected);
+
+    UI.setSize(this, size);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernWidget#setFont(java.awt.Font)
+   */
+  @Override
+  public void setFont(Font font) {
+    super.setFont(font);
+
+    UI.setSize(this, ModernButton.getIconButtonSize(getFont(), mText1));
+  }
+
+  /**
+   * Gets the text.
+   *
+   * @return the text
+   */
+  public String getText() {
+    return mText1;
+  }
+
+  /**
+   * Sets the text.
+   *
+   * @param text
+   *          the new text
+   */
+  public void setText(String text) {
+    mText1 = text;
+
+    UI.setSize(this, ModernButton.getIconButtonSize(getFont(), mText1));
+
+    setClickMessage(text);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mText1 != null) {
+      int x = mInternalRect.getX() + 16 + PADDING;
+
+      g2.setColor(isEnabled() ? TEXT_COLOR : ALT_TEXT_COLOR);
+      g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
+    }
+  }
 }

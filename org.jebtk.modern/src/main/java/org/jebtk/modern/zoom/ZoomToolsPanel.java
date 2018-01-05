@@ -45,184 +45,198 @@ import org.jebtk.modern.graphics.icons.PlusVectorIcon;
 import org.jebtk.modern.ribbon.RibbonBarButton;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Standardized ribbon menu section for providing basic cut, copy and paste
- * functionality to the currently highlighted control that supports
- * clipboard operations.
+ * functionality to the currently highlighted control that supports clipboard
+ * operations.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ZoomToolsPanel extends ModernWidget implements Zoom, ModernClickListener, ChangeListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member zoom out button.
-	 */
-	private ModernButton mZoomOutButton =
-			new RibbonBarButton(UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member zoom in button.
-	 */
-	private ModernButton mZoomInButton =
-			new RibbonBarButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+  /**
+   * The member zoom out button.
+   */
+  private ModernButton mZoomOutButton = new RibbonBarButton(
+      UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
 
-	/**
-	 * The member zoom combo.
-	 */
-	private ModernComboBox mZoomCombo = new ZoomComboBox();
+  /**
+   * The member zoom in button.
+   */
+  private ModernButton mZoomInButton = new RibbonBarButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
-	/**
-	 * The member zoom.
-	 */
-	private double mZoom = 1.0;
+  /**
+   * The member zoom combo.
+   */
+  private ModernComboBox mZoomCombo = new ZoomComboBox();
 
-	/**
-	 * The member min zoom.
-	 */
-	private double mMinZoom = 0.1;
-	
-	/**
-	 * The member max zoom.
-	 */
-	private double mMaxZoom = 4;
+  /**
+   * The member zoom.
+   */
+  private double mZoom = 1.0;
 
-	/**
-	 * The member model.
-	 */
-	private ZoomModel mModel;
+  /**
+   * The member min zoom.
+   */
+  private double mMinZoom = 0.1;
 
-	/**
-	 * Instantiates a new zoom tools panel.
-	 *
-	 * @param model the model
-	 */
-	public ZoomToolsPanel(ZoomModel model) {
-		this.mModel = model;
-		
-		model.addChangeListener(this);
+  /**
+   * The member max zoom.
+   */
+  private double mMaxZoom = 4;
 
-		add(mZoomOutButton, BorderLayout.LINE_START);
-		add(mZoomCombo, BorderLayout.CENTER);
-		add(mZoomInButton, BorderLayout.LINE_END);
+  /**
+   * The member model.
+   */
+  private ZoomModel mModel;
 
-		
+  /**
+   * Instantiates a new zoom tools panel.
+   *
+   * @param model
+   *          the model
+   */
+  public ZoomToolsPanel(ZoomModel model) {
+    this.mModel = model;
 
-		mZoomOutButton.addClickListener(this);
-		mZoomInButton.addClickListener(this);
+    model.addChangeListener(this);
 
-		mZoomCombo.addClickListener(this);
+    add(mZoomOutButton, BorderLayout.LINE_START);
+    add(mZoomCombo, BorderLayout.CENTER);
+    add(mZoomInButton, BorderLayout.LINE_END);
 
-		setMaximumSize(new Dimension(Short.MAX_VALUE, WIDGET_HEIGHT));
-		
-		updateZoom();
-	}
+    mZoomOutButton.addClickListener(this);
+    mZoomInButton.addClickListener(this);
 
-	/**
-	 * Enabled or disable all the controls on the panel.
-	 *
-	 * @param enabled the enabled
-	 */
-	public final void enableControls(boolean enabled) {
-		mZoomOutButton.setEnabled(enabled);
-		mZoomInButton.setEnabled(enabled);
-		mZoomCombo.setEnabled(enabled);
-	}
+    mZoomCombo.addClickListener(this);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void clicked(ModernClickEvent e) {
-		if (e.getSource().equals(mZoomOutButton)) {
-			setZoom(mZoom - 0.25);
-		} else if (e.getSource().equals(mZoomInButton)) {
-			setZoom(mZoom + 0.25);
-		} else if (e.getSource().equals(mZoomCombo)) {
-			try {
-				parseZoom();
-			} catch (ParseException e1) {
-				e1.printStackTrace();
-			}
-		} else {
-			// do nothing
-		}
-	}
-	
+    setMaximumSize(new Dimension(Short.MAX_VALUE, WIDGET_HEIGHT));
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
-	 */
-	public void changed(ChangeEvent e) {
-		updateZoom();
-	}
+    updateZoom();
+  }
 
-	/**
-	 * Parses the zoom.
-	 *
-	 * @throws ParseException the parse exception
-	 */
-	private void parseZoom() throws ParseException {
-		setZoom(TextUtils.parseDouble(mZoomCombo.getText()) / 100.0);
-	}
+  /**
+   * Enabled or disable all the controls on the panel.
+   *
+   * @param enabled
+   *          the enabled
+   */
+  public final void enableControls(boolean enabled) {
+    mZoomOutButton.setEnabled(enabled);
+    mZoomInButton.setEnabled(enabled);
+    mZoomCombo.setEnabled(enabled);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#setZoom(double)
-	 */
-	public void setZoom(double zoom) {
-		mModel.setZoom(zoom);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public void clicked(ModernClickEvent e) {
+    if (e.getSource().equals(mZoomOutButton)) {
+      setZoom(mZoom - 0.25);
+    } else if (e.getSource().equals(mZoomInButton)) {
+      setZoom(mZoom + 0.25);
+    } else if (e.getSource().equals(mZoomCombo)) {
+      try {
+        parseZoom();
+      } catch (ParseException e1) {
+        e1.printStackTrace();
+      }
+    } else {
+      // do nothing
+    }
+  }
 
-	/**
-	 * Update zoom.
-	 */
-	public void updateZoom() {
-		mZoom = mModel.getZoom();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+   */
+  public void changed(ChangeEvent e) {
+    updateZoom();
+  }
 
-		mZoomCombo.setText(Integer.toString((int)(this.mZoom * 100)) + " %");
-	}
+  /**
+   * Parses the zoom.
+   *
+   * @throws ParseException
+   *           the parse exception
+   */
+  private void parseZoom() throws ParseException {
+    setZoom(TextUtils.parseDouble(mZoomCombo.getText()) / 100.0);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#getZoom()
-	 */
-	public double getZoom() {
-		return mZoom;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#setZoom(double)
+   */
+  public void setZoom(double zoom) {
+    mModel.setZoom(zoom);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#getMinZoom()
-	 */
-	public double getMinZoom() {
-		return mMinZoom;
-	}
+  /**
+   * Update zoom.
+   */
+  public void updateZoom() {
+    mZoom = mModel.getZoom();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#setMinZoom(double)
-	 */
-	public void setMinZoom(double zoom) {
-		mMinZoom = zoom;
-	}
+    mZoomCombo.setText(Integer.toString((int) (this.mZoom * 100)) + " %");
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#getMaxZoom()
-	 */
-	public double getMaxZoom() {
-		return mMaxZoom;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#getZoom()
+   */
+  public double getZoom() {
+    return mZoom;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#setMaxZoom(double)
-	 */
-	public void setMaxZoom(double zoom) {
-		mMaxZoom = zoom;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#getMinZoom()
+   */
+  public double getMinZoom() {
+    return mMinZoom;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#setMinZoom(double)
+   */
+  public void setMinZoom(double zoom) {
+    mMinZoom = zoom;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#getMaxZoom()
+   */
+  public double getMaxZoom() {
+    return mMaxZoom;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#setMaxZoom(double)
+   */
+  public void setMaxZoom(double zoom) {
+    mMaxZoom = zoom;
+  }
 
 }

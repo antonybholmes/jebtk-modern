@@ -35,13 +35,14 @@ import java.awt.Component;
  */
 public abstract class ModernTreeScroller extends Scroller {
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.Scroller#keyScroll(boolean, java.awt.Component, org.abh.common.ui.scrollpane.ModernScrollBar)
-	 */
-	@Override
-	public void keyScroll(boolean up, 
-			Component c,
-			ModernScrollBar scrollbar) {
-		// Do nothing
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.scrollpane.Scroller#keyScroll(boolean,
+   * java.awt.Component, org.abh.common.ui.scrollpane.ModernScrollBar)
+   */
+  @Override
+  public void keyScroll(boolean up, Component c, ModernScrollBar scrollbar) {
+    // Do nothing
+  }
 }

@@ -34,132 +34,135 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernMenuSeparator;
 import org.jebtk.modern.menu.ModernPopupMenu;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Allows multiple controls to share an instance of a clipboard
- * menu so it is not duplicated on a per control basis.
+ * Allows multiple controls to share an instance of a clipboard menu so it is
+ * not duplicated on a per control basis.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ClipboardSharedMenu implements ModernClickListener {
-	
-	/**
-	 * The Class ClipboardSharedMenuLoader.
-	 */
-	private static class ClipboardSharedMenuLoader {
-		
-		/** The Constant INSTANCE. */
-		private static final ClipboardSharedMenu INSTANCE = new ClipboardSharedMenu();
-	}
 
-	/**
-	 * Gets the single instance of SettingsService.
-	 *
-	 * @return single instance of SettingsService
-	 */
-	public static ClipboardSharedMenu getInstance() {
-		return ClipboardSharedMenuLoader.INSTANCE;
-	}
+  /**
+   * The Class ClipboardSharedMenuLoader.
+   */
+  private static class ClipboardSharedMenuLoader {
 
-	/**
-	 * The cut modern menu item.
-	 */
-	private ModernIconMenuItem mCutMenuItem;
+    /** The Constant INSTANCE. */
+    private static final ClipboardSharedMenu INSTANCE = new ClipboardSharedMenu();
+  }
 
-	/**
-	 * The copy modern menu item.
-	 */
-	private ModernIconMenuItem mCopyMenuItem;
+  /**
+   * Gets the single instance of SettingsService.
+   *
+   * @return single instance of SettingsService
+   */
+  public static ClipboardSharedMenu getInstance() {
+    return ClipboardSharedMenuLoader.INSTANCE;
+  }
 
-	/**
-	 * The paste modern menu item.
-	 */
-	private ModernIconMenuItem mPasteMenuItem;
+  /**
+   * The cut modern menu item.
+   */
+  private ModernIconMenuItem mCutMenuItem;
 
+  /**
+   * The copy modern menu item.
+   */
+  private ModernIconMenuItem mCopyMenuItem;
 
-	/**
-	 * The popup.
-	 */
-	private ModernPopupMenu mPopup;
+  /**
+   * The paste modern menu item.
+   */
+  private ModernIconMenuItem mPasteMenuItem;
 
-	/**
-	 * The l.
-	 */
-	private ModernClickListener lmL;
+  /**
+   * The popup.
+   */
+  private ModernPopupMenu mPopup;
 
+  /**
+   * The l.
+   */
+  private ModernClickListener lmL;
 
-	/**
-	 * Instantiates a new clipboard shared menu.
-	 */
-	private ClipboardSharedMenu() {
-		mPopup = new ModernPopupMenu();
+  /**
+   * Instantiates a new clipboard shared menu.
+   */
+  private ClipboardSharedMenu() {
+    mPopup = new ModernPopupMenu();
 
-		mCutMenuItem = new ModernIconMenuItem(UI.MENU_CUT, UI.CUT_ICON);
+    mCutMenuItem = new ModernIconMenuItem(UI.MENU_CUT, UI.CUT_ICON);
 
-		mCopyMenuItem = new ModernIconMenuItem(UI.MENU_COPY, UI.COPY_ICON);
+    mCopyMenuItem = new ModernIconMenuItem(UI.MENU_COPY, UI.COPY_ICON);
 
-		mPasteMenuItem = new ModernIconMenuItem(UI.MENU_PASTE, UI.PASTE_ICON);
+    mPasteMenuItem = new ModernIconMenuItem(UI.MENU_PASTE, UI.PASTE_ICON);
 
-		//PopupContainer menuContainer = new PopupContainer();
+    // PopupContainer menuContainer = new PopupContainer();
 
-		mCutMenuItem.addClickListener(this);
-		mPopup.add(mCutMenuItem);
-	
-	    mCopyMenuItem.addClickListener(this);
-	    mPopup.add(mCopyMenuItem);
-	
-	    mPasteMenuItem.addClickListener(this);
-	    mPopup.add(mPasteMenuItem);
-	
-	    mPopup.add(new ModernMenuSeparator());
-	
-	    ModernIconMenuItem menuItem = new ModernIconMenuItem(UI.MENU_SELECT_ALL);
-	    menuItem.addClickListener(this);
-	    mPopup.add(menuItem);
-	}
+    mCutMenuItem.addClickListener(this);
+    mPopup.add(mCutMenuItem);
 
-	/**
-	 * Returns the cut/copy/paste menu. The control will be
-	 * registered to recieve menu events so one need only
-	 * modify their clicked method to listen for
-	 * cut/copy/paste commands and respond accordingly.
-	 *
-	 * @param l the l
-	 * @param cutEnabled the cut enabled
-	 * @param copyEnabled the copy enabled
-	 * @param pasteEnabled the paste enabled
-	 * @return the menu
-	 */
-	public final ModernPopupMenu getMenu(ModernClickListener l, 
-			boolean cutEnabled, 
-			boolean copyEnabled, 
-			boolean pasteEnabled) {
-		register(l);
+    mCopyMenuItem.addClickListener(this);
+    mPopup.add(mCopyMenuItem);
 
-		mCutMenuItem.setEnabled(cutEnabled);
-		mCopyMenuItem.setEnabled(copyEnabled);
-		mPasteMenuItem.setEnabled(pasteEnabled);
+    mPasteMenuItem.addClickListener(this);
+    mPopup.add(mPasteMenuItem);
 
-		return mPopup;
-	}
+    mPopup.add(new ModernMenuSeparator());
 
-	/**
-	 * Register.
-	 *
-	 * @param l the l
-	 */
-	public void register(ModernClickListener l) {
-		lmL = l;
-	}
+    ModernIconMenuItem menuItem = new ModernIconMenuItem(UI.MENU_SELECT_ALL);
+    menuItem.addClickListener(this);
+    mPopup.add(menuItem);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void clicked(ModernClickEvent e) {
-		mPopup.setVisible(false);
+  /**
+   * Returns the cut/copy/paste menu. The control will be registered to recieve
+   * menu events so one need only modify their clicked method to listen for
+   * cut/copy/paste commands and respond accordingly.
+   *
+   * @param l
+   *          the l
+   * @param cutEnabled
+   *          the cut enabled
+   * @param copyEnabled
+   *          the copy enabled
+   * @param pasteEnabled
+   *          the paste enabled
+   * @return the menu
+   */
+  public final ModernPopupMenu getMenu(ModernClickListener l, boolean cutEnabled, boolean copyEnabled,
+      boolean pasteEnabled) {
+    register(l);
 
-		lmL.clicked(e);
-	}
+    mCutMenuItem.setEnabled(cutEnabled);
+    mCopyMenuItem.setEnabled(copyEnabled);
+    mPasteMenuItem.setEnabled(pasteEnabled);
+
+    return mPopup;
+  }
+
+  /**
+   * Register.
+   *
+   * @param l
+   *          the l
+   */
+  public void register(ModernClickListener l) {
+    lmL = l;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public void clicked(ModernClickEvent e) {
+    mPopup.setVisible(false);
+
+    lmL.clicked(e);
+  }
 }

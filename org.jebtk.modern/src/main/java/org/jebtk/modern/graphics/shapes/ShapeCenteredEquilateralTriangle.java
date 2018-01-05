@@ -36,29 +36,32 @@ import java.awt.Polygon;
  * @author Antony Holmes Holmes
  */
 public class ShapeCenteredEquilateralTriangle extends Polygon {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new shape centered equilateral triangle.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param size the size
-	 */
-	public ShapeCenteredEquilateralTriangle(int x, int y, int size) {
-		int s2 = size / 2;
-		
-		int h = (int)(size * Math.sin(Math.PI / 3.0));
-		
-		int y1 = y - h / 2;
-		int y2 = y + h / 2;
-		
-		addPoint(x - s2, y2);
-		addPoint(x + s2, y2);
-		addPoint(0, y1);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new shape centered equilateral triangle.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param size
+   *          the size
+   */
+  public ShapeCenteredEquilateralTriangle(int x, int y, int size) {
+    int s2 = size / 2;
+
+    int h = (int) (size * Math.sin(Math.PI / 3.0));
+
+    int y1 = y - h / 2;
+    int y2 = y + h / 2;
+
+    addPoint(x - s2, y2);
+    addPoint(x + s2, y2);
+    addPoint(0, y1);
+  }
 }

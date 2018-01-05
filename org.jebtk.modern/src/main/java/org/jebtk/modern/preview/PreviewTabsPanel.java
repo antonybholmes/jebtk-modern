@@ -37,90 +37,93 @@ import org.jebtk.modern.tabs.ModernHTabBarBottom;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.tabs.TabsViewPanel;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class PreviewTabsPanel.
  */
 public class PreviewTabsPanel extends PreviewPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The model.
-	 */
-	private TabsModel model = new TabsModel();
-	
-	/**
-	 * The tabs view.
-	 */
-	private TabsViewPanel tabsView = new TabsViewPanel(model);
-	
-	/**
-	 * The preview tabs panel.
-	 */
-	private ModernHTabBar previewTabsPanel = new ModernHTabBarBottom(model);
-	
-	/**
-	 * The previews.
-	 */
-	private List<ModernPanel> previews = new ArrayList<ModernPanel>();
 
-	/**
-	 * Instantiates a new preview tabs panel.
-	 */
-	public PreviewTabsPanel() {
-		add(tabsView, BorderLayout.CENTER);
-		add(previewTabsPanel, BorderLayout.PAGE_END);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.preview.PreviewPanel#addPreview(java.lang.String, org.abh.lib.ui.modern.panel.ModernPanel)
-	 */
-	@Override
-	public void addPreview(String name, ModernPanel previewTablePanel) {
-		System.err.println("adding preview");
-		
-		model.addTab(name, previewTablePanel, false);
-		
-		previews.add(previewTablePanel);
-		
-		model.changeTab(model.getTabCount() - 1);
-	}
-	
-	
-	/**
-	 * Return the currently selected preview, or null if
-	 * nothing is selected.
-	 *
-	 * @return the selected preview
-	 */
-	@Override
-	public ModernPanel getSelectedPreview() {
-		if (model.getSelectedIndex() == -1) {
-			return null;
-		}
-		
-		return previews.get(model.getSelectedIndex());
-	}
+  /**
+   * The model.
+   */
+  private TabsModel model = new TabsModel();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.preview.PreviewPanel#clear()
-	 */
-	public void clear() {
-		previews.clear();
-		model.removeAllTabs();
-	}
+  /**
+   * The tabs view.
+   */
+  private TabsViewPanel tabsView = new TabsViewPanel(model);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.preview.PreviewPanel#getPreview(int)
-	 */
-	@Override
-	public ModernPanel getPreview(int index) {
-		return previews.get(index);
-	}
+  /**
+   * The preview tabs panel.
+   */
+  private ModernHTabBar previewTabsPanel = new ModernHTabBarBottom(model);
+
+  /**
+   * The previews.
+   */
+  private List<ModernPanel> previews = new ArrayList<ModernPanel>();
+
+  /**
+   * Instantiates a new preview tabs panel.
+   */
+  public PreviewTabsPanel() {
+    add(tabsView, BorderLayout.CENTER);
+    add(previewTabsPanel, BorderLayout.PAGE_END);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.preview.PreviewPanel#addPreview(java.lang.String,
+   * org.abh.lib.ui.modern.panel.ModernPanel)
+   */
+  @Override
+  public void addPreview(String name, ModernPanel previewTablePanel) {
+    System.err.println("adding preview");
+
+    model.addTab(name, previewTablePanel, false);
+
+    previews.add(previewTablePanel);
+
+    model.changeTab(model.getTabCount() - 1);
+  }
+
+  /**
+   * Return the currently selected preview, or null if nothing is selected.
+   *
+   * @return the selected preview
+   */
+  @Override
+  public ModernPanel getSelectedPreview() {
+    if (model.getSelectedIndex() == -1) {
+      return null;
+    }
+
+    return previews.get(model.getSelectedIndex());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.preview.PreviewPanel#clear()
+   */
+  public void clear() {
+    previews.clear();
+    model.removeAllTabs();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.preview.PreviewPanel#getPreview(int)
+   */
+  @Override
+  public ModernPanel getPreview(int index) {
+    return previews.get(index);
+  }
 }

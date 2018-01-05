@@ -42,90 +42,100 @@ import org.jebtk.modern.text.ModernTextBorderPanel;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class HtmlColorPanel.
  */
 public class HtmlColorPanel extends ModernWidget implements KeyListener, ChangeListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member color field.
-	 */
-	private ModernTextField mColorField = new ModernTextField();
-	
-	/**
-	 * The member model.
-	 */
-	private ColorSelectionModel mModel;
-	
-	/**
-	 * Instantiates a new html color panel.
-	 *
-	 * @param model the model
-	 */
-	public HtmlColorPanel(ColorSelectionModel model) {
-		mModel = model;
-		
-		model.addChangeListener(this);
-		
-		mColorField.addKeyListener(this);
-		
-		ModernAutoSizeLabel label = new ModernAutoSizeLabel("Hex");
-		
-		label.setBorder(RIGHT_BORDER);
-		
-		add(label, BorderLayout.LINE_START);
-		add(new ModernTextBorderPanel(mColorField), BorderLayout.CENTER);
-		
-		UI.setSize(this, 200, ModernWidget.WIDGET_HEIGHT);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void changed(ChangeEvent e) {
-		mColorField.setText(ColorUtils.toHtml(ColorValue.convert(mModel.getNewColor())).substring(1));
-	}
+  /**
+   * The member color field.
+   */
+  private ModernTextField mColorField = new ModernTextField();
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			mModel.setNewColor(getColor());
-		}
-	}
+  /**
+   * The member model.
+   */
+  private ColorSelectionModel mModel;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
-	 */
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * Instantiates a new html color panel.
+   *
+   * @param model
+   *          the model
+   */
+  public HtmlColorPanel(ColorSelectionModel model) {
+    mModel = model;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
-	 */
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    model.addChangeListener(this);
 
-	/**
-	 * Gets the color.
-	 *
-	 * @return the color
-	 */
-	public ColorValue getColor() {
-		return ColorValue.convert(ColorUtils.decodeHtmlColor(mColorField.getText()));
-	}
+    mColorField.addKeyListener(this);
+
+    ModernAutoSizeLabel label = new ModernAutoSizeLabel("Hex");
+
+    label.setBorder(RIGHT_BORDER);
+
+    add(label, BorderLayout.LINE_START);
+    add(new ModernTextBorderPanel(mColorField), BorderLayout.CENTER);
+
+    UI.setSize(this, 200, ModernWidget.WIDGET_HEIGHT);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void changed(ChangeEvent e) {
+    mColorField.setText(ColorUtils.toHtml(ColorValue.convert(mModel.getNewColor())).substring(1));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+   */
+  @Override
+  public void keyPressed(KeyEvent e) {
+    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+      mModel.setNewColor(getColor());
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+   */
+  public void keyReleased(KeyEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+   */
+  public void keyTyped(KeyEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /**
+   * Gets the color.
+   *
+   * @return the color
+   */
+  public ColorValue getColor() {
+    return ColorValue.convert(ColorUtils.decodeHtmlColor(mColorField.getText()));
+  }
 }

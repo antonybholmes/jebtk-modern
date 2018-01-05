@@ -40,45 +40,48 @@ import org.jebtk.core.event.ChangeListeners;
  *
  */
 public class ColumnHeaderSortModel extends ChangeListeners {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The indices.
-	 */
-	private List<Integer> indices = new ArrayList<Integer>();
-	
-	/**
-	 * Instantiates a new column header sort model.
-	 *
-	 * @param columnCount the column count
-	 */
-	public ColumnHeaderSortModel(int columnCount) {
-		for (int i = 0; i < columnCount; ++i) {
-			indices.add(i);
-		}
-	}
 
-	/**
-	 * Swap.
-	 *
-	 * @param oldIndex the old index
-	 * @param newIndex the new index
-	 */
-	public void swap(int oldIndex, int newIndex) {
-		
-		if (newIndex > oldIndex) {
-			indices.add(newIndex, indices.get(oldIndex));
-			indices.remove(oldIndex);
-		} else {
-			int index = indices.get(oldIndex);
-			indices.remove(oldIndex);
-			indices.add(newIndex, index);
-		}
-		
-		fireChanged();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The indices.
+   */
+  private List<Integer> indices = new ArrayList<Integer>();
+
+  /**
+   * Instantiates a new column header sort model.
+   *
+   * @param columnCount
+   *          the column count
+   */
+  public ColumnHeaderSortModel(int columnCount) {
+    for (int i = 0; i < columnCount; ++i) {
+      indices.add(i);
+    }
+  }
+
+  /**
+   * Swap.
+   *
+   * @param oldIndex
+   *          the old index
+   * @param newIndex
+   *          the new index
+   */
+  public void swap(int oldIndex, int newIndex) {
+
+    if (newIndex > oldIndex) {
+      indices.add(newIndex, indices.get(oldIndex));
+      indices.remove(oldIndex);
+    } else {
+      int index = indices.get(oldIndex);
+      indices.remove(oldIndex);
+      indices.add(newIndex, index);
+    }
+
+    fireChanged();
+  }
 }

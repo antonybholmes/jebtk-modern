@@ -33,7 +33,6 @@ import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.Mathematics;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Download arrow vector icon.
@@ -42,62 +41,65 @@ import org.jebtk.core.Mathematics;
  *
  */
 public class DownloadVectorIcon extends ModernVectorColorIcon {
-	
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR = 
-			Color.BLACK; //SettingsService.getInstance().getAsColor("theme.icons.download-icon.colors.foreground");
-	
 
-	/**
-	 * Instantiates a new download vector icon.
-	 */
-	public DownloadVectorIcon() {
-		this(COLOR);
-	}
-	
-	/**
-	 * Instantiates a new download vector icon.
-	 *
-	 * @param color the color
-	 */
-	public DownloadVectorIcon(Color color) {
-		super(color);
-	}
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = Color.BLACK; // SettingsService.getInstance().getAsColor("theme.icons.download-icon.colors.foreground");
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		
-		double wf = Mathematics.makeMult2(Math.min(w, h) * 0.75);
-		double w2 = wf * 0.5;
-		double w4 = wf * 0.25;
-		double w34 = wf * 0.75;
-		
-		double xf = x + (w - wf) / 2;
-		double yf = y; // + (w - wf) / 2;
-		
-		GeneralPath gp = new GeneralPath();
-		
-		gp.moveTo(xf + w4, yf);
-		
-		gp.lineTo(xf + w34, yf);
-		gp.lineTo(xf + w34, yf + w2);
-		gp.lineTo(xf + wf, yf + w2);
-		gp.lineTo(xf + w2, yf + wf);
-		gp.lineTo(xf, yf + w2);
-		gp.lineTo(xf + w4, yf + w2);
-		
-		gp.closePath();
-		
-		g2.setColor(mColor);
-		g2.fill(gp);
-		
-		double w5 = Math.max(1, wf * 0.25);
-		
-		g2.fillRect((int)xf, (int)(yf + w - w5), (int)wf, (int)w5);
-	}
+  /**
+   * Instantiates a new download vector icon.
+   */
+  public DownloadVectorIcon() {
+    this(COLOR);
+  }
+
+  /**
+   * Instantiates a new download vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public DownloadVectorIcon(Color color) {
+    super(color);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+    double wf = Mathematics.makeMult2(Math.min(w, h) * 0.75);
+    double w2 = wf * 0.5;
+    double w4 = wf * 0.25;
+    double w34 = wf * 0.75;
+
+    double xf = x + (w - wf) / 2;
+    double yf = y; // + (w - wf) / 2;
+
+    GeneralPath gp = new GeneralPath();
+
+    gp.moveTo(xf + w4, yf);
+
+    gp.lineTo(xf + w34, yf);
+    gp.lineTo(xf + w34, yf + w2);
+    gp.lineTo(xf + wf, yf + w2);
+    gp.lineTo(xf + w2, yf + wf);
+    gp.lineTo(xf, yf + w2);
+    gp.lineTo(xf + w4, yf + w2);
+
+    gp.closePath();
+
+    g2.setColor(mColor);
+    g2.fill(gp);
+
+    double w5 = Math.max(1, wf * 0.25);
+
+    g2.fillRect((int) xf, (int) (yf + w - w5), (int) wf, (int) w5);
+  }
 }

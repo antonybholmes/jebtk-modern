@@ -41,7 +41,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.text.TextProperty;
 import org.jebtk.modern.widget.ModernTwoStateWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Low height button for small form factor toolbar buttons.
@@ -50,307 +49,338 @@ import org.jebtk.modern.widget.ModernTwoStateWidget;
  */
 public class ModernCheckButton extends ModernTwoStateWidget implements TextProperty {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Deals with mouse events specifically for buttons.
-	 * 
-	 * @author Antony Holmes Holmes
-	 *
-	 */
-	private class MouseEvents extends MouseAdapter {
+  /**
+   * Deals with mouse events specifically for buttons.
+   * 
+   * @author Antony Holmes Holmes
+   *
+   */
+  private class MouseEvents extends MouseAdapter {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseExited(MouseEvent e) {
-			setHighlighted(false);
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseExited(MouseEvent e) {
+      setHighlighted(false);
+    }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			setHighlighted(true);
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseEntered(MouseEvent e) {
+      setHighlighted(true);
+    }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			if (!isEnabled()) {
-				return;
-			}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      if (!isEnabled()) {
+        return;
+      }
 
-			repaint();
-		}	
-	}
+      repaint();
+    }
+  }
 
-	/**
-	 * The class FocusEvents.
-	 */
-	private class FocusEvents implements FocusListener {
+  /**
+   * The class FocusEvents.
+   */
+  private class FocusEvents implements FocusListener {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusGained(FocusEvent e) {
-			// TODO Auto-generated method stub
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusGained(FocusEvent e) {
+      // TODO Auto-generated method stub
 
-		}
+    }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusLost(FocusEvent e) {
-			setHighlighted(false);
-		}
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusLost(FocusEvent e) {
+      setHighlighted(false);
+    }
+  }
 
-	/**
-	 * The class ModernClickEvents.
-	 */
-	private class ModernClickEvents implements ModernClickListener {
+  /**
+   * The class ModernClickEvents.
+   */
+  private class ModernClickEvents implements ModernClickListener {
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			setHighlighted(false);
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      setHighlighted(false);
+    }
 
-	}
+  }
 
-	/**
-	 * The member text1.
-	 */
-	//protected JLabel label1 = new JLabel();
-	protected String mText1 = null;
+  /**
+   * The member text1.
+   */
+  // protected JLabel label1 = new JLabel();
+  protected String mText1 = null;
 
-	/**
-	 * The member icon.
-	 */
-	protected ModernIcon mIcon = null;
+  /**
+   * The member icon.
+   */
+  protected ModernIcon mIcon = null;
 
-	//protected boolean pressed = false;
-	//protected boolean selected = false;
+  // protected boolean pressed = false;
+  // protected boolean selected = false;
 
+  /**
+   * Instantiates a new modern check button.
+   */
+  public ModernCheckButton() {
+    setup();
+  }
 
-	/**
-	 * Instantiates a new modern check button.
-	 */
-	public ModernCheckButton() {
-		setup();
-	}
+  /**
+   * Instantiates a new modern check button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernCheckButton(String text1) {
+    this(text1, false);
+  }
 
-	/**
-	 * Instantiates a new modern check button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernCheckButton(String text1) {
-		this(text1, false);
-	}
+  /**
+   * Instantiates a new modern check button.
+   *
+   * @param text1
+   *          the text1
+   * @param selected
+   *          the selected
+   */
+  public ModernCheckButton(String text1, boolean selected) {
+    setText(text1);
 
-	/**
-	 * Instantiates a new modern check button.
-	 *
-	 * @param text1 the text1
-	 * @param selected the selected
-	 */
-	public ModernCheckButton(String text1, boolean selected) {
-		setText(text1);
+    setup();
 
-		setup();
+    UI.setSize(this, ModernButton.getButtonSize(text1));
 
-		UI.setSize(this, ModernButton.getButtonSize(text1));
+    setSelected(selected);
+  }
 
-		setSelected(selected);
-	}
+  /**
+   * Instantiates a new modern check button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernCheckButton(ModernIcon icon) {
+    setIcon(icon);
 
-	/**
-	 * Instantiates a new modern check button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernCheckButton(ModernIcon icon) {
-		setIcon(icon);
+    setup();
 
-		setup();
+    UI.setSize(this, ModernButton.ICON_ONLY_SIZE);
+  }
 
-		UI.setSize(this, ModernButton.ICON_ONLY_SIZE);
-	}
+  /**
+   * Instantiates a new modern check button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   */
+  public ModernCheckButton(String text1, ModernIcon icon) {
+    this(text1, icon, false);
+  }
 
-	/**
-	 * Instantiates a new modern check button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 */
-	public ModernCheckButton(String text1, ModernIcon icon) {
-		this(text1, icon, false);
-	}
+  /**
+   * Instantiates a new modern check button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   * @param selected
+   *          the selected
+   */
+  public ModernCheckButton(String text1, ModernIcon icon, boolean selected) {
+    setText(text1);
+    setIcon(icon);
 
-	/**
-	 * Instantiates a new modern check button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 * @param selected the selected
-	 */
-	public ModernCheckButton(String text1, ModernIcon icon, boolean selected) {
-		setText(text1);
-		setIcon(icon);
+    setup();
 
-		setup();
+    UI.setSize(this, ModernButton.getIconButtonSize(text1));
 
-		UI.setSize(this, ModernButton.getIconButtonSize(text1));
+    setSelected(selected);
+  }
 
-		setSelected(selected);
-	}
+  /**
+   * Instantiates a new modern check button.
+   *
+   * @param text
+   *          the text
+   * @param size
+   *          the size
+   */
+  public ModernCheckButton(String text, Dimension size) {
+    this(text);
 
-	/**
-	 * Instantiates a new modern check button.
-	 *
-	 * @param text the text
-	 * @param size the size
-	 */
-	public ModernCheckButton(String text, Dimension size) {
-		this(text);
+    UI.setSize(this, size);
+  }
 
-		UI.setSize(this, size);
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    addMouseListener(new MouseEvents());
+    addFocusListener(new FocusEvents());
+    addClickListener(new ModernClickEvents());
+  }
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		addMouseListener(new MouseEvents());
-		addFocusListener(new FocusEvents());
-		addClickListener(new ModernClickEvents());
-	}
+  /**
+   * Sets the icon.
+   *
+   * @param icon
+   *          the new icon
+   */
+  public void setIcon(ModernIcon icon) {
+    mIcon = icon;
+  }
 
+  /**
+   * Gets the icon.
+   *
+   * @return the icon
+   */
+  public ModernIcon getIcon() {
+    return mIcon;
+  }
 
+  /**
+   * Gets the disabled icon.
+   *
+   * @return the disabled icon
+   */
+  public ModernIcon getDisabledIcon() {
+    return mIcon.getDisabledIcon();
+  }
 
-	/**
-	 * Sets the icon.
-	 *
-	 * @param icon the new icon
-	 */
-	public void setIcon(ModernIcon icon) {
-		mIcon = icon;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#getText()
+   */
+  @Override
+  public String getText() {
+    return mText1;
+  }
 
-	/**
-	 * Gets the icon.
-	 *
-	 * @return the icon
-	 */
-	public ModernIcon getIcon() {
-		return mIcon;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    mText1 = text;
 
-	/**
-	 * Gets the disabled icon.
-	 *
-	 * @return the disabled icon
-	 */
-	public ModernIcon getDisabledIcon() {
-		return mIcon.getDisabledIcon();
-	}
+    setClickMessage(text);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#getText()
-	 */
-	@Override
-	public String getText() {
-		return mText1;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    // Rectangle rect = new Rectangle(0, 0, getWidth(), getHeight());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		mText1 = text;
+    int iconX = PADDING;
 
-		setClickMessage(text);
-	}
+    if (mText1 != null) {
+      int x;
 
+      if (getIcon() != null) {
+        x = iconX + getIcon().getWidth() + PADDING;
+      } else {
+        x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
+      }
 
+      g2.setColor(getForeground());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		//Rectangle rect = new Rectangle(0, 0, getWidth(), getHeight());
+      g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
+    }
 
-		int iconX = PADDING;
+    if (getIcon() != null) {
+      if (mText1 == null || mText1.length() == 0) {
+        iconX = (getWidth() - getIcon().getWidth()) / 2;
+      }
 
-		if (mText1 != null) {
-			int x;
+      int iconY = (getHeight() - getIcon().getWidth()) / 2;
 
-			if (getIcon() != null) {
-				x = iconX + getIcon().getWidth() + PADDING;
-			} else {
-				x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
-			}
+      if (isEnabled()) {
+        getIcon().drawIcon(g2, iconX, iconY, getIcon().getWidth());
+      } else {
+        getDisabledIcon().drawIcon(g2, iconX, iconY, getIcon().getWidth());
+      }
+    }
+  }
 
-			g2.setColor(getForeground());
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernClickWidget#setHighlighted(boolean)
+   */
+  @Override
+  public void setHighlighted(boolean highlight) {
+    if (!isEnabled()) {
+      return;
+    }
 
-			g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
-		}
+    mHighlight = highlight;
 
-		if (getIcon() != null) {
-			if (mText1 == null || mText1.length() == 0) {
-				iconX = (getWidth() - getIcon().getWidth()) / 2;
-			}
+    repaint();
+  }
 
-			int iconY = (getHeight() - getIcon().getWidth()) / 2;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.JComponent#setEnabled(boolean)
+   */
+  public void setEnabled(boolean enabled) {
 
-			if (isEnabled()) {
-				getIcon().drawIcon(g2, iconX, iconY, getIcon().getWidth());
-			} else {
-				getDisabledIcon().drawIcon(g2, iconX, iconY, getIcon().getWidth());
-			}
-		}
-	}
+    super.setEnabled(enabled);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernClickWidget#setHighlighted(boolean)
-	 */
-	@Override
-	public void setHighlighted(boolean highlight) {
-		if (!isEnabled()) {
-			return;
-		}
-
-		mHighlight = highlight;
-
-		repaint();
-	}
-
-	/* (non-Javadoc)
-	 * @see javax.swing.JComponent#setEnabled(boolean)
-	 */
-	public void setEnabled(boolean enabled) {
-
-		super.setEnabled(enabled);
-
-		if (this.isEnabled()) {
-			setForeground(TEXT_COLOR);
-		} else {
-			setForeground(ALT_TEXT_COLOR);
-		}
-	}
+    if (this.isEnabled()) {
+      setForeground(TEXT_COLOR);
+    } else {
+      setForeground(ALT_TEXT_COLOR);
+    }
+  }
 }

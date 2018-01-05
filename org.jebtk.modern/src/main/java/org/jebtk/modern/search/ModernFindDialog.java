@@ -55,117 +55,120 @@ import org.jebtk.modern.window.WindowWidgetFocusEvents;
  *
  */
 public class ModernFindDialog extends ModernDialogTaskWindow implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member find next.
-	 */
-	private ModernButton mFindNext = 
-			new ModernDialogButton("Find Next");
-	
-	/**
-	 * The member text.
-	 */
-	private ModernTextField mText = new ModernTextField();
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern find dialog.
-	 *
-	 * @param parent the parent
-	 */
-	public ModernFindDialog(ModernWindow parent) {
-		super(parent, false);
-		
-		setTitle("Find");
-	
-		setup();
+  /**
+   * The member find next.
+   */
+  private ModernButton mFindNext = new ModernDialogButton("Find Next");
 
-		createUi();
+  /**
+   * The member text.
+   */
+  private ModernTextField mText = new ModernTextField();
 
-	}
+  /**
+   * Instantiates a new modern find dialog.
+   *
+   * @param parent
+   *          the parent
+   */
+  public ModernFindDialog(ModernWindow parent) {
+    super(parent, false);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		mFindNext.addClickListener(this);
+    setTitle("Find");
 
-		setSize(480, 240);
-		
-		setResizable(true);
-		
-		UI.centerWindowToScreen(this);
-		
-		addWindowFocusListener(new WindowWidgetFocusEvents(mText));
-	}
-	
-	/**
-	 * Creates the ui.
-	 */
-	public final void createUi() {
-		Box box = VBox.create();
-		
-		Box box2 = HBox.create();
-		
-		box2.add(new ModernAutoSizeLabel("Find what:"));
-		box2.add(UI.createHGap(20));
-		
-		ModernTextBorderPanel panel = new ModernTextBorderPanel(mText);
-		
-		panel.setMaximumSize(ModernWidget.MAX_SIZE);
-		
-		box2.add(panel);
-		
-		box.add(box2);
-		
-		//ModernComponent panel = new ModernComponent(new GridBagLayout());
-		
-		//panel.add(new ModernTextBorderPanel(mText, ModernWidget.EXTRA_LARGE_SIZE));
-		
-		setContent(box);
+    setup();
 
-		Box buttonPanel = new ButtonsBox();
-		
-		buttonPanel.add(mFindNext);
-		buttonPanel.add(ModernPanel.createHGap());
-		buttonPanel.add(mCancelButton);
-	
-		setButtons(buttonPanel);
-	}
+    createUi();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public final void clicked(ModernClickEvent e) {
-		if (e.getSource().equals(mFindNext)) {
-			setStatus(ModernDialogStatus.OK);
-		} else {
-			
-		}
-		
-		close();
-	}
+  }
 
-	/**
-	 * Gets the text.
-	 *
-	 * @return the text
-	 */
-	public String getText() {
-		return mText.getText();
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    mFindNext.addClickListener(this);
 
-	/**
-	 * Gets the case sensitive.
-	 *
-	 * @return the case sensitive
-	 */
-	public boolean getCaseSensitive() {
-		return false;
-	}
+    setSize(480, 240);
+
+    setResizable(true);
+
+    UI.centerWindowToScreen(this);
+
+    addWindowFocusListener(new WindowWidgetFocusEvents(mText));
+  }
+
+  /**
+   * Creates the ui.
+   */
+  public final void createUi() {
+    Box box = VBox.create();
+
+    Box box2 = HBox.create();
+
+    box2.add(new ModernAutoSizeLabel("Find what:"));
+    box2.add(UI.createHGap(20));
+
+    ModernTextBorderPanel panel = new ModernTextBorderPanel(mText);
+
+    panel.setMaximumSize(ModernWidget.MAX_SIZE);
+
+    box2.add(panel);
+
+    box.add(box2);
+
+    // ModernComponent panel = new ModernComponent(new GridBagLayout());
+
+    // panel.add(new ModernTextBorderPanel(mText, ModernWidget.EXTRA_LARGE_SIZE));
+
+    setContent(box);
+
+    Box buttonPanel = new ButtonsBox();
+
+    buttonPanel.add(mFindNext);
+    buttonPanel.add(ModernPanel.createHGap());
+    buttonPanel.add(mCancelButton);
+
+    setButtons(buttonPanel);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public final void clicked(ModernClickEvent e) {
+    if (e.getSource().equals(mFindNext)) {
+      setStatus(ModernDialogStatus.OK);
+    } else {
+
+    }
+
+    close();
+  }
+
+  /**
+   * Gets the text.
+   *
+   * @return the text
+   */
+  public String getText() {
+    return mText.getText();
+  }
+
+  /**
+   * Gets the case sensitive.
+   *
+   * @return the case sensitive
+   */
+  public boolean getCaseSensitive() {
+    return false;
+  }
 }

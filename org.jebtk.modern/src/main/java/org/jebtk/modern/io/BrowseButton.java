@@ -27,21 +27,21 @@ import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
  * The Class BrowseButton.
  */
 public class BrowseButton extends ModernButton {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant SIZE. */
-	private static final Dimension SIZE = new Dimension(300, 48);
 
-	/**
-	 * Instantiates a new browse button.
-	 */
-	public BrowseButton() {
-		super("Browse", UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
-		
-		setFont(SUB_HEADING_FONT);
-		
-		UI.setSize(this, SIZE);
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /** The Constant SIZE. */
+  private static final Dimension SIZE = new Dimension(300, 48);
+
+  /**
+   * Instantiates a new browse button.
+   */
+  public BrowseButton() {
+    super("Browse", UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+
+    setFont(SUB_HEADING_FONT);
+
+    UI.setSize(this, SIZE);
+  }
 }

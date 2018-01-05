@@ -39,132 +39,147 @@ import org.jebtk.modern.progress.ProgressEvent;
 import org.jebtk.modern.progress.ProgressModel;
 import org.jebtk.modern.theme.ThemeService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernStatusAnimatedProgressBar.
  */
 public class ModernStatusAnimatedProgressBar extends ModernStatusProgressBar implements ActionListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The timer.
-	 */
-	private Timer timer;
-	
-	/**
-	 * The s1.
-	 */
-	private int s1 = -20;
-	
-	/**
-	 * The s2.
-	 */
-	private int s2 = 0;
+  /**
+   * The timer.
+   */
+  private Timer timer;
 
-	/**
-	 * The min s1.
-	 */
-	private int minS1;
+  /**
+   * The s1.
+   */
+  private int s1 = -20;
 
-	/**
-	 * Instantiates a new modern status animated progress bar.
-	 *
-	 * @param model the model
-	 */
-	public ModernStatusAnimatedProgressBar(ProgressModel model) {
-		super(model);
-		
-		setup();
-	}
+  /**
+   * The s2.
+   */
+  private int s2 = 0;
 
-	/**
-	 * Instantiates a new modern status animated progress bar.
-	 */
-	public ModernStatusAnimatedProgressBar() {
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		timer = new Timer(30, this);
-	}
-	
-	/**
-	 * Start.
-	 */
-	public void start() {
-		s1 = -20;
-		s2 = 0;
-		minS1 = 0;
-		
-		timer.start();
-	}
-	
-	/**
-	 * Stop.
-	 */
-	public void stop() {
-		timer.stop();
-	}
+  /**
+   * The min s1.
+   */
+  private int minS1;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.status.ModernStatusProgressBar#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fill(g2, ThemeService.getInstance().colors().getColorHighlight(5), getRect());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.status.ModernStatusProgressBar#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	public void drawForegroundAAText(Graphics2D g2) {
-		int y1 = getHeight() - this.getInsets().top;
+  /**
+   * Instantiates a new modern status animated progress bar.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernStatusAnimatedProgressBar(ProgressModel model) {
+    super(model);
 
-		int h = y1 - this.getInsets().bottom;
+    setup();
+  }
 
-		fill(g2, Color.WHITE, getInternalRect());
+  /**
+   * Instantiates a new modern status animated progress bar.
+   */
+  public ModernStatusAnimatedProgressBar() {
+    setup();
+  }
 
-		Rectangle r = new Rectangle(this.getInsets().left + (int)(minS1 * mInternalRect.getW() / 100.0), this.getInsets().top, (int)((s2 - minS1) * mInternalRect.getW() / 100.0), h);
+  /**
+   * Setup.
+   */
+  private void setup() {
+    timer = new Timer(30, this);
+  }
 
-		fill(g2, ThemeService.getInstance().colors().getColorHighlight(1), r);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.progress.ModernProgressBar#progressUpdated(org.abh.lib.ui.modern.progress.ProgressEvent)
-	 */
-	public void progressUpdated(ProgressEvent e) {
-		stop();
-			
-		s1 = 0;
-		minS1 = 0;
-		s2 = progressModel.getPercentComplete();
-			
-		super.progressUpdated(e);
-	}
+  /**
+   * Start.
+   */
+  public void start() {
+    s1 = -20;
+    s2 = 0;
+    minS1 = 0;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 */
-	public void actionPerformed(ActionEvent e) {
-		repaint();
-		
-		s2 = Math.min(100, s2 + 1);
-		s1 = Math.min(100, s1 + 1);
-		
-		minS1 = Math.max(s1, 0);
-		
-		if (s1 == s2) {
-			s1 = -20;
-			s2 = 0;
-		}
-	}
+    timer.start();
+  }
+
+  /**
+   * Stop.
+   */
+  public void stop() {
+    timer.stop();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.status.ModernStatusProgressBar#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fill(g2, ThemeService.getInstance().colors().getColorHighlight(5), getRect());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.status.ModernStatusProgressBar#drawForegroundAA(java.
+   * awt.Graphics2D)
+   */
+  public void drawForegroundAAText(Graphics2D g2) {
+    int y1 = getHeight() - this.getInsets().top;
+
+    int h = y1 - this.getInsets().bottom;
+
+    fill(g2, Color.WHITE, getInternalRect());
+
+    Rectangle r = new Rectangle(this.getInsets().left + (int) (minS1 * mInternalRect.getW() / 100.0),
+        this.getInsets().top, (int) ((s2 - minS1) * mInternalRect.getW() / 100.0), h);
+
+    fill(g2, ThemeService.getInstance().colors().getColorHighlight(1), r);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.progress.ModernProgressBar#progressUpdated(org.abh.lib.
+   * ui.modern.progress.ProgressEvent)
+   */
+  public void progressUpdated(ProgressEvent e) {
+    stop();
+
+    s1 = 0;
+    minS1 = 0;
+    s2 = progressModel.getPercentComplete();
+
+    super.progressUpdated(e);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+   */
+  public void actionPerformed(ActionEvent e) {
+    repaint();
+
+    s2 = Math.min(100, s2 + 1);
+    s1 = Math.min(100, s1 + 1);
+
+    minS1 = Math.max(s1, 0);
+
+    if (s1 == s2) {
+      s1 = -20;
+      s2 = 0;
+    }
+  }
 }

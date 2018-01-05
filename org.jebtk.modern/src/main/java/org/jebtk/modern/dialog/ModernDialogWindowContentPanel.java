@@ -29,8 +29,6 @@ package org.jebtk.modern.dialog;
 
 import org.jebtk.modern.panel.ModernPanel;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The default background look of a dialog.
@@ -39,17 +37,16 @@ import org.jebtk.modern.panel.ModernPanel;
  *
  */
 public class ModernDialogWindowContentPanel extends ModernPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new modern dialog window content panel.
-	 */
-	public ModernDialogWindowContentPanel() {
-		super(ModernDialogWindow.DIALOG_BACKGROUND); //, ModernDialogWindow.DIALOG_BACKGROUND);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern dialog window content panel.
+   */
+  public ModernDialogWindowContentPanel() {
+    super(ModernDialogWindow.DIALOG_BACKGROUND); // , ModernDialogWindow.DIALOG_BACKGROUND);
+  }
 }

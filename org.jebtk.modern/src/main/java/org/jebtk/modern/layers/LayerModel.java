@@ -40,153 +40,166 @@ import java.util.Map;
  * @author Antony Holmes Holmes
  */
 public class LayerModel extends LayerEventListeners implements Iterable<String> {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant LAYER_CHANGED.
-	 */
-	public static final String LAYER_CHANGED = "layer_changed";
-	//public static final String SELECTION_CLEARED = "selection_cleared";
-	//public static final String SELECTION_ADDED = "selection_added";
-	
-	/**
-	 * The layers.
-	 */
-	private List<String> mLayers = new ArrayList<String>();
-	
-	/**
-	 * The index map.
-	 */
-	private Map<String, Integer> mIndexMap = new HashMap<String, Integer>();
-	
-	/**
-	 * The visibles.
-	 */
-	private List<Boolean> mVisibles = new ArrayList<Boolean>();
 
-	/**
-	 * Adds the layer.
-	 *
-	 * @param layer the layer
-	 */
-	public final void addLayer(String layer) {
-		mIndexMap.put(layer, mLayers.size());
-		mLayers.add(layer);
-		mVisibles.add(true);
-		
-		fireLayerChanged();
-	}
-	
-	/**
-	 * Remove a selected node.
-	 *
-	 * @param index the index
-	 */
-	public void removeLayer(int index) {
-		mIndexMap.remove(mLayers.get(index));
-		mLayers.remove(index);
-		mVisibles.remove(index);
-		
-		fireLayerChanged();
-	}
-	
-	/**
-	 * Sets the visible.
-	 *
-	 * @param name the name
-	 * @param visible the visible
-	 */
-	public void setVisible(String name, boolean visible) {
-		if (mIndexMap.containsKey(name)) {
-			setVisible(mIndexMap.get(name), visible);
-		}
-	}
-	
-	/**
-	 * Sets the visible.
-	 *
-	 * @param index the index
-	 * @param visible the visible
-	 */
-	public void setVisible(int index, boolean visible) {
-		if (index < 0 || index >= mLayers.size()) {
-			return;
-		}
-		
-		System.err.println("layer " + index + " " + visible);
-		
-		mVisibles.set(index, visible);
-		
-		fireLayerUpdated();
-	}
-	
-	/**
-	 * Checks if is visible.
-	 *
-	 * @param name the name
-	 * @return true, if is visible
-	 */
-	public boolean isVisible(String name) {
-		if (mIndexMap.containsKey(name)) {
-			return false;
-		}
-		
-		return isVisible(mIndexMap.get(name));
-	}
-	
-	/**
-	 * Checks if is visible.
-	 *
-	 * @param index the index
-	 * @return true, if is visible
-	 */
-	public boolean isVisible(int index) {
-		if (index < 0 || index >= mLayers.size()) {
-			return false;
-		}
-		
-		return mVisibles.get(index);
-	}
-	
-	/**
-	 * Size.
-	 *
-	 * @return the int
-	 */
-	public int size() {
-		return mLayers.size();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Gets the.
-	 *
-	 * @param i the i
-	 * @return the string
-	 */
-	public String get(int i) {
-		return mLayers.get(i);
-	}
+  /**
+   * The constant LAYER_CHANGED.
+   */
+  public static final String LAYER_CHANGED = "layer_changed";
+  // public static final String SELECTION_CLEARED = "selection_cleared";
+  // public static final String SELECTION_ADDED = "selection_added";
 
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	@Override
-	public Iterator<String> iterator() {
-		return mLayers.iterator();
-	}
+  /**
+   * The layers.
+   */
+  private List<String> mLayers = new ArrayList<String>();
 
-	/**
-	 * Adds the layer.
-	 *
-	 * @param name the name
-	 * @param visible the visible
-	 */
-	public void addLayer(String name, boolean visible) {
-		addLayer(name);
-		setVisible(name, visible);
-	}
+  /**
+   * The index map.
+   */
+  private Map<String, Integer> mIndexMap = new HashMap<String, Integer>();
+
+  /**
+   * The visibles.
+   */
+  private List<Boolean> mVisibles = new ArrayList<Boolean>();
+
+  /**
+   * Adds the layer.
+   *
+   * @param layer
+   *          the layer
+   */
+  public final void addLayer(String layer) {
+    mIndexMap.put(layer, mLayers.size());
+    mLayers.add(layer);
+    mVisibles.add(true);
+
+    fireLayerChanged();
+  }
+
+  /**
+   * Remove a selected node.
+   *
+   * @param index
+   *          the index
+   */
+  public void removeLayer(int index) {
+    mIndexMap.remove(mLayers.get(index));
+    mLayers.remove(index);
+    mVisibles.remove(index);
+
+    fireLayerChanged();
+  }
+
+  /**
+   * Sets the visible.
+   *
+   * @param name
+   *          the name
+   * @param visible
+   *          the visible
+   */
+  public void setVisible(String name, boolean visible) {
+    if (mIndexMap.containsKey(name)) {
+      setVisible(mIndexMap.get(name), visible);
+    }
+  }
+
+  /**
+   * Sets the visible.
+   *
+   * @param index
+   *          the index
+   * @param visible
+   *          the visible
+   */
+  public void setVisible(int index, boolean visible) {
+    if (index < 0 || index >= mLayers.size()) {
+      return;
+    }
+
+    System.err.println("layer " + index + " " + visible);
+
+    mVisibles.set(index, visible);
+
+    fireLayerUpdated();
+  }
+
+  /**
+   * Checks if is visible.
+   *
+   * @param name
+   *          the name
+   * @return true, if is visible
+   */
+  public boolean isVisible(String name) {
+    if (mIndexMap.containsKey(name)) {
+      return false;
+    }
+
+    return isVisible(mIndexMap.get(name));
+  }
+
+  /**
+   * Checks if is visible.
+   *
+   * @param index
+   *          the index
+   * @return true, if is visible
+   */
+  public boolean isVisible(int index) {
+    if (index < 0 || index >= mLayers.size()) {
+      return false;
+    }
+
+    return mVisibles.get(index);
+  }
+
+  /**
+   * Size.
+   *
+   * @return the int
+   */
+  public int size() {
+    return mLayers.size();
+  }
+
+  /**
+   * Gets the.
+   *
+   * @param i
+   *          the i
+   * @return the string
+   */
+  public String get(int i) {
+    return mLayers.get(i);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  @Override
+  public Iterator<String> iterator() {
+    return mLayers.iterator();
+  }
+
+  /**
+   * Adds the layer.
+   *
+   * @param name
+   *          the name
+   * @param visible
+   *          the visible
+   */
+  public void addLayer(String name, boolean visible) {
+    addLayer(name);
+    setVisible(name, visible);
+  }
 }

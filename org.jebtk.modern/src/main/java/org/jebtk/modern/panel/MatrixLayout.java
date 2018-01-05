@@ -33,133 +33,134 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.LayoutManager;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class SimpleMatrixPanel.
  */
 public class MatrixLayout implements LayoutManager {
-	
-	/**
-	 * The row heights.
-	 */
-	private int[] mRowHeights = null;
-	
-	/**
-	 * The column width.
-	 */
-	private int[] mColumnWidths;
 
-	/**
-	 * The x sep.
-	 */
-	private int mXSep; // = new CopyOnWriteArrayList<Integer>();
-	
-	/**
-	 * The y sep.
-	 */
-	private int mYSep; // = new CopyOnWriteArrayList<Integer>();
+  /**
+   * The row heights.
+   */
+  private int[] mRowHeights = null;
 
-	public MatrixLayout(int[] rowHeights, int[] columnWidths) {
-		this(rowHeights, columnWidths, 0, 0);
-	}
-	
-	/**
-	 * Instantiates a new simple matrix panel.
-	 *
-	 * @param rowHeights the row heights
-	 * @param columnWidth the column width
-	 * @param xSep the x sep
-	 * @param ySep the y sep
-	 */
-	public MatrixLayout(int[] rowHeights, int[] columnWidths, int xSep, int ySep) {
-		mRowHeights = rowHeights;
-		mColumnWidths = columnWidths;
+  /**
+   * The column width.
+   */
+  private int[] mColumnWidths;
 
-		mXSep = xSep;
-		mYSep = ySep;
-	}
+  /**
+   * The x sep.
+   */
+  private int mXSep; // = new CopyOnWriteArrayList<Integer>();
 
-	@Override
-	public void addLayoutComponent(String name, Component comp) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * The y sep.
+   */
+  private int mYSep; // = new CopyOnWriteArrayList<Integer>();
 
-	@Override
-	public void layoutContainer(Container parent) {
-		Insets insets = parent.getInsets();
-		int nComps = parent.getComponentCount();
-		int x = insets.left;
-		int y = insets.top;
-		
-		int r = 0;
-		int c = 0;
-		
-		int h = mRowHeights[r];
-		
-		Component comp;
-		
-		for (int i = 0 ; i < nComps ; i++) {
-			int w = mColumnWidths[c];
+  public MatrixLayout(int[] rowHeights, int[] columnWidths) {
+    this(rowHeights, columnWidths, 0, 0);
+  }
 
-			comp = parent.getComponent(i);
-			
-			comp.setBounds(x, y, w, h);
+  /**
+   * Instantiates a new simple matrix panel.
+   *
+   * @param rowHeights
+   *          the row heights
+   * @param columnWidth
+   *          the column width
+   * @param xSep
+   *          the x sep
+   * @param ySep
+   *          the y sep
+   */
+  public MatrixLayout(int[] rowHeights, int[] columnWidths, int xSep, int ySep) {
+    mRowHeights = rowHeights;
+    mColumnWidths = columnWidths;
 
-			++c;
-			
-			if (c == mColumnWidths.length) {
-				c = 0;
-				++r;
-				x = insets.left;
-				y += h + mYSep;
-				h = mRowHeights[r % mRowHeights.length];
-			} else {
-				x += w + mXSep;
-			}
-		}
-	}
+    mXSep = xSep;
+    mYSep = ySep;
+  }
 
-	@Override
-	public Dimension minimumLayoutSize(Container parent) {
-		return size(parent);
-	}
+  @Override
+  public void addLayoutComponent(String name, Component comp) {
+    // TODO Auto-generated method stub
 
-	@Override
-	public Dimension preferredLayoutSize(Container parent) {
-		return size(parent);
-	}
-	
-	private Dimension size(Container parent) {
-		int w = 0;
-		
-		for (int i = 0; i < mColumnWidths.length; ++i) {
-			w += mColumnWidths[i];
-		}
-		
-		w += mXSep * (mColumnWidths.length - 1);
-		
-		int nComps = parent.getComponentCount();
-		
-		int rows = nComps / mColumnWidths.length + 1;
-		
-		int h = 0;
-		
-		for (int i = 0; i < rows; ++i) {
-			h += mRowHeights[i % mRowHeights.length];
-		}
-		
-		h += mYSep * (rows - 1);
-		
-		return new Dimension(w, h);
-	}
+  }
 
-	@Override
-	public void removeLayoutComponent(Component comp) {
-		// TODO Auto-generated method stub
-		
-	}
+  @Override
+  public void layoutContainer(Container parent) {
+    Insets insets = parent.getInsets();
+    int nComps = parent.getComponentCount();
+    int x = insets.left;
+    int y = insets.top;
+
+    int r = 0;
+    int c = 0;
+
+    int h = mRowHeights[r];
+
+    Component comp;
+
+    for (int i = 0; i < nComps; i++) {
+      int w = mColumnWidths[c];
+
+      comp = parent.getComponent(i);
+
+      comp.setBounds(x, y, w, h);
+
+      ++c;
+
+      if (c == mColumnWidths.length) {
+        c = 0;
+        ++r;
+        x = insets.left;
+        y += h + mYSep;
+        h = mRowHeights[r % mRowHeights.length];
+      } else {
+        x += w + mXSep;
+      }
+    }
+  }
+
+  @Override
+  public Dimension minimumLayoutSize(Container parent) {
+    return size(parent);
+  }
+
+  @Override
+  public Dimension preferredLayoutSize(Container parent) {
+    return size(parent);
+  }
+
+  private Dimension size(Container parent) {
+    int w = 0;
+
+    for (int i = 0; i < mColumnWidths.length; ++i) {
+      w += mColumnWidths[i];
+    }
+
+    w += mXSep * (mColumnWidths.length - 1);
+
+    int nComps = parent.getComponentCount();
+
+    int rows = nComps / mColumnWidths.length + 1;
+
+    int h = 0;
+
+    for (int i = 0; i < rows; ++i) {
+      h += mRowHeights[i % mRowHeights.length];
+    }
+
+    h += mYSep * (rows - 1);
+
+    return new Dimension(w, h);
+  }
+
+  @Override
+  public void removeLayoutComponent(Component comp) {
+    // TODO Auto-generated method stub
+
+  }
 }

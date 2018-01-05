@@ -31,31 +31,34 @@ import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc
 /**
- * Dialog box that does not auto dispose so it can be set to invisible and
- * made visible later.
+ * Dialog box that does not auto dispose so it can be set to invisible and made
+ * visible later.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDialogPersistentWindow extends ModernDialogWindow {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog persistent window.
-	 *
-	 * @param parent the parent
-	 */
-	public ModernDialogPersistentWindow(ModernWindow parent) {
-		super(parent);
-	}
+  /**
+   * Instantiates a new modern dialog persistent window.
+   *
+   * @param parent
+   *          the parent
+   */
+  public ModernDialogPersistentWindow(ModernWindow parent) {
+    super(parent);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.window.ModernDialogWindow#close()
-	 */
-	@Override
-	protected void close() {
-		setVisible(false);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.window.ModernDialogWindow#close()
+   */
+  @Override
+  protected void close() {
+    setVisible(false);
+  }
 }

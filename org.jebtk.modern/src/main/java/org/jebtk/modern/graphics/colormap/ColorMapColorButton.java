@@ -24,7 +24,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.color.ColorSwatchButton;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Allow users to select a color for an object etc.
@@ -33,58 +32,68 @@ import org.jebtk.modern.window.ModernWindow;
  *
  */
 public class ColorMapColorButton extends ColorSwatchButton {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant SIZE. */
-	private static final Dimension SIZE = new Dimension(15, 15);
 
-	/**
-	 * Instantiates a new color swatch button.
-	 *
-	 * @param parent the parent
-	 * @param color the color
-	 */
-	public ColorMapColorButton(ModernWindow parent, Color color) {
-		super(parent, color);
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-		UI.setSize(this, SIZE);
-	}
+  /** The Constant SIZE. */
+  private static final Dimension SIZE = new Dimension(15, 15);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		GeneralPath s = new GeneralPath();
-		
-		int w = getWidth() - 1;
-		int h = getHeight() - 1;
-		
-		s.moveTo(7, 0);
-		s.lineTo(w, 7);
-		s.lineTo(w, h);
-		s.lineTo(0, h);
-		s.lineTo(0, 7);
-		s.closePath();
-		
-		Color color = mPopup.getSelectedColor();
+  /**
+   * Instantiates a new color swatch button.
+   *
+   * @param parent
+   *          the parent
+   * @param color
+   *          the color
+   */
+  public ColorMapColorButton(ModernWindow parent, Color color) {
+    super(parent, color);
 
-		g2.setColor(color);
-		g2.fill(s);
-		
-		if (isSelected() || mHighlight || mPopupShown) {
-			g2.setColor(Color.BLACK);
-			g2.draw(s);
-		}
-	}
+    UI.setSize(this, SIZE);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForeground(Graphics2D g2) {
-		// Do nothing
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+    GeneralPath s = new GeneralPath();
+
+    int w = getWidth() - 1;
+    int h = getHeight() - 1;
+
+    s.moveTo(7, 0);
+    s.lineTo(w, 7);
+    s.lineTo(w, h);
+    s.lineTo(0, h);
+    s.lineTo(0, 7);
+    s.closePath();
+
+    Color color = mPopup.getSelectedColor();
+
+    g2.setColor(color);
+    g2.fill(s);
+
+    if (isSelected() || mHighlight || mPopupShown) {
+      g2.setColor(Color.BLACK);
+      g2.draw(s);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForeground(Graphics2D g2) {
+    // Do nothing
+  }
 }

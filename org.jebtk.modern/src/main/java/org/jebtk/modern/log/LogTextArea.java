@@ -35,26 +35,29 @@ import org.jebtk.core.log.LogEventListener;
  * The class LogTextArea.
  */
 public class LogTextArea implements LogEventListener {
-	
-	/**
-	 * The log panel.
-	 */
-	private LogTextAreaPanel logPanel;
 
-	/**
-	 * Instantiates a new log text area.
-	 *
-	 * @param logPanel the log panel
-	 */
-	public LogTextArea(LogTextAreaPanel logPanel) {
-		this.logPanel = logPanel;
-	}
+  /**
+   * The log panel.
+   */
+  private LogTextAreaPanel logPanel;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
-	 */
-	@Override
-	public void logEvent(LogEvent e) {
-		logPanel.addEvent(e);
-	}
+  /**
+   * Instantiates a new log text area.
+   *
+   * @param logPanel
+   *          the log panel
+   */
+  public LogTextArea(LogTextAreaPanel logPanel) {
+    this.logPanel = logPanel;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
+   */
+  @Override
+  public void logEvent(LogEvent e) {
+    logPanel.addEvent(e);
+  }
 }

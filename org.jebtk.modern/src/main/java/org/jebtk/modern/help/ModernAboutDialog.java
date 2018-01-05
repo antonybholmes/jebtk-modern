@@ -52,168 +52,161 @@ import org.jebtk.modern.text.ModernTextArea;
 import org.jebtk.modern.text.ModernTitleLabel;
 import org.jebtk.modern.window.ModernWindow;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernAboutDialog.
  */
 public class ModernAboutDialog extends ModernDialogMultiCardWindow {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The m help button. */
-	private ModernButton mHelpButton;
+  /** The m help button. */
+  private ModernButton mHelpButton;
 
-	/** The m license button. */
-	private ModernButton mLicenseButton = 
-			new ModernDialogFlatButton("License");
+  /** The m license button. */
+  private ModernButton mLicenseButton = new ModernDialogFlatButton("License");
 
-	/** The m changes button. */
-	private ModernButton mChangesButton = 
-			new ModernDialogFlatButton("Changes");
+  /** The m changes button. */
+  private ModernButton mChangesButton = new ModernDialogFlatButton("Changes");
 
-	/**
-	 * Instantiates a new modern about dialog.
-	 *
-	 * @param parent the parent
-	 * @param product the product
-	 */
-	public ModernAboutDialog(ModernWindow parent, 
-			final GuiAppInfo product) {
-		super(parent, 
-				"About " + product.getName(), 
-				ModernDialogTaskType.CLOSE);
-		
-		//setBackground(ModernDialogWindow.DIALOG_BACKGROUND_1);
+  /**
+   * Instantiates a new modern about dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param product
+   *          the product
+   */
+  public ModernAboutDialog(ModernWindow parent, final GuiAppInfo product) {
+    super(parent, "About " + product.getName(), ModernDialogTaskType.CLOSE);
 
-		//setTitle("About " + product.getName());
+    // setBackground(ModernDialogWindow.DIALOG_BACKGROUND_1);
 
-		//Box content = VBox.create();
+    // setTitle("About " + product.getName());
 
-		Box box = HBox.create();
+    // Box content = VBox.create();
 
-		ModernImagePanel image = new ModernImagePanel(product.getIcon128(), 128);
+    Box box = HBox.create();
 
-		image.setAlignmentY(TOP_ALIGNMENT);
-		box.add(image);
+    ModernImagePanel image = new ModernImagePanel(product.getIcon128(), 128);
 
-		box.add(UI.createHGap(20));
+    image.setAlignmentY(TOP_ALIGNMENT);
+    box.add(image);
 
-		Box box2 = VBox.create();
-		box2.setAlignmentY(TOP_ALIGNMENT);
+    box.add(UI.createHGap(20));
 
-		box2.add(new ModernTitleLabel(product.getName()));
+    Box box2 = VBox.create();
+    box2.setAlignmentY(TOP_ALIGNMENT);
 
-		if (product.getDescription() != null) {
-			box2.add(UI.createVGap(5));
-			box2.add(new ModernSubTitleLabel(product.getDescription().replaceFirst("\\.$", "")));
-		}
+    box2.add(new ModernTitleLabel(product.getName()));
 
-		box2.add(UI.createVGap(10));
-		box2.add(new ModernAutoSizeLabel(product.getCopyright()));
-		box2.add(UI.createVGap(10));
-		box2.add(new ModernAutoSizeLabel("Version " + product.getVersion().toString()));
-		box2.add(UI.createVGap(50));
+    if (product.getDescription() != null) {
+      box2.add(UI.createVGap(5));
+      box2.add(new ModernSubTitleLabel(product.getDescription().replaceFirst("\\.$", "")));
+    }
 
-		Box box3 = HBox.create();
+    box2.add(UI.createVGap(10));
+    box2.add(new ModernAutoSizeLabel(product.getCopyright()));
+    box2.add(UI.createVGap(10));
+    box2.add(new ModernAutoSizeLabel("Version " + product.getVersion().toString()));
+    box2.add(UI.createVGap(50));
 
-		mHelpButton = new RibbonHelpLinkButton(product);
+    Box box3 = HBox.create();
 
-		box3.add(mHelpButton);
-		//box3.add(UI.createHGap(5));
-		//box3.add(mLicenseButton);
-		//box3.add(UI.createHGap(5));
-		//box3.add(mChangesButton);
+    mHelpButton = new RibbonHelpLinkButton(product);
 
-		box2.add(box3);
+    box3.add(mHelpButton);
+    // box3.add(UI.createHGap(5));
+    // box3.add(mLicenseButton);
+    // box3.add(UI.createHGap(5));
+    // box3.add(mChangesButton);
 
-		box.add(box2);
+    box2.add(box3);
 
-		//content.add(box);
+    box.add(box2);
 
-		//content.setBorder(BorderService.getInstance().createBorder(20));
+    // content.add(box);
 
-		//setContent(content);
+    // content.setBorder(BorderService.getInstance().createBorder(20));
 
-		addTab(UI.MENU_ABOUT, box);
+    // setContent(content);
 
-		try {
-			String text = Resources.loadText("res/license.txt");
-			
-			ModernScrollPane scrollPane = new ModernScrollPane(new ModernTextArea(text));
+    addTab(UI.MENU_ABOUT, box);
 
-			scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
+    try {
+      String text = Resources.loadText("res/license.txt");
 
-			addTab(UI.MENU_LICENSE, scrollPane);
-		} catch (IOException e2) {
-			e2.printStackTrace();
-		}
+      ModernScrollPane scrollPane = new ModernScrollPane(new ModernTextArea(text));
 
-		//
-		// Buttons
-		//
+      scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
 
-		mLicenseButton.addClickListener(new ModernClickListener() {
+      addTab(UI.MENU_LICENSE, scrollPane);
+    } catch (IOException e2) {
+      e2.printStackTrace();
+    }
 
-			@Override
-			public void clicked(ModernClickEvent e) {
+    //
+    // Buttons
+    //
 
-				try {
-					ModernTextDialog dialog = new ModernTextDialog(mParent,
-							"License",
-							Resources.loadText("res/license.txt"));
+    mLicenseButton.addClickListener(new ModernClickListener() {
 
-					dialog.setVisible(true);
+      @Override
+      public void clicked(ModernClickEvent e) {
 
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+        try {
+          ModernTextDialog dialog = new ModernTextDialog(mParent, "License", Resources.loadText("res/license.txt"));
 
+          dialog.setVisible(true);
 
-			}});
+        } catch (IOException e1) {
+          e1.printStackTrace();
+        }
 
-		mChangesButton.addClickListener(new ModernClickListener() {
+      }
+    });
 
-			@Override
-			public void clicked(ModernClickEvent e) {
+    mChangesButton.addClickListener(new ModernClickListener() {
 
-				try {
-					ModernTextDialog dialog = new ModernTextDialog(mParent,
-							"Changes",
-							Resources.loadText(new StringBuilder("res/").append(product.getHelpName()).append(".changes.txt").toString()));
+      @Override
+      public void clicked(ModernClickEvent e) {
 
-					dialog.setVisible(true);
+        try {
+          ModernTextDialog dialog = new ModernTextDialog(mParent, "Changes", Resources
+              .loadText(new StringBuilder("res/").append(product.getHelpName()).append(".changes.txt").toString()));
 
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
+          dialog.setVisible(true);
 
+        } catch (IOException e1) {
+          e1.printStackTrace();
+        }
 
-			}});
-		
-		getTabsModel().changeTab(0);
+      }
+    });
 
-		setSize(800, 500);
+    getTabsModel().changeTab(0);
 
-		UI.centerWindowToScreen(this);
-	}
+    setSize(800, 500);
 
-	/**
-	 * Create a default centered about dialog.
-	 *
-	 * @param parent the parent
-	 * @param productDetails the product details
-	 */
-	public static void show(ModernWindow parent, GuiAppInfo productDetails) {
-		ModernDialogWindow dialog = 
-				new ModernAboutDialog(parent, productDetails);
+    UI.centerWindowToScreen(this);
+  }
 
-		UI.centerWindowToScreen(dialog);
+  /**
+   * Create a default centered about dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param productDetails
+   *          the product details
+   */
+  public static void show(ModernWindow parent, GuiAppInfo productDetails) {
+    ModernDialogWindow dialog = new ModernAboutDialog(parent, productDetails);
 
-		dialog.setVisible(true);
-	}
+    UI.centerWindowToScreen(dialog);
+
+    dialog.setVisible(true);
+  }
 }

@@ -34,76 +34,77 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * thin.
  */
 public class AutoHidePanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m min width. */
-	private int mMinWidth;
-	
-	/** The m hidden. */
-	private boolean mHidden = false;
-	
-	/** The m C. */
-	private Component mC;
-	
-	/** The icon. */
-	private ModernIcon ICON =
-			UIService.getInstance().loadIcon(CheveronRightVectorIcon.class, 12);
-	
-	/**
-	 * Instantiates a new auto hide panel.
-	 *
-	 * @param c the c
-	 * @param minWidth the min width
-	 */
-	public AutoHidePanel(Component c, int minWidth) {
-		mC = c;
-		mMinWidth = minWidth;
 
-		setBody(c);
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-		addComponentListener(new ComponentAdapter() {
-			@Override
-			public void componentResized(ComponentEvent e) {
-				autoHide();
-			}});
-	}
+  /** The m min width. */
+  private int mMinWidth;
 
+  /** The m hidden. */
+  private boolean mHidden = false;
 
-	public AutoHidePanel(Component c, int minWidth, Border border) {
-		this(c, minWidth);
-		
-		setBorder(border);
-	}
+  /** The m C. */
+  private Component mC;
 
+  /** The icon. */
+  private ModernIcon ICON = UIService.getInstance().loadIcon(CheveronRightVectorIcon.class, 12);
 
-	/**
-	 * Auto hide.
-	 */
-	private void autoHide() {
-		boolean hidden = getWidth() < mMinWidth;
+  /**
+   * Instantiates a new auto hide panel.
+   *
+   * @param c
+   *          the c
+   * @param minWidth
+   *          the min width
+   */
+  public AutoHidePanel(Component c, int minWidth) {
+    mC = c;
+    mMinWidth = minWidth;
 
-		if (hidden != mHidden) {
-			mHidden = hidden;
+    setBody(c);
 
-			mC.setVisible(!hidden);
+    addComponentListener(new ComponentAdapter() {
+      @Override
+      public void componentResized(ComponentEvent e) {
+        autoHide();
+      }
+    });
+  }
 
-			revalidate();
-			repaint();
-		}
-	}
+  public AutoHidePanel(Component c, int minWidth, Border border) {
+    this(c, minWidth);
 
-	/* (non-Javadoc)
-	 * @see org.jebtk.modern.ModernComponent#drawForeground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForeground(Graphics2D g2) {
-		if (mHidden) {
-			int x = (getWidth() - ICON.getWidth()) / 2;
-			ICON.drawIcon(g2, x, DOUBLE_PADDING, 12);
-		}
-	}
+    setBorder(border);
+  }
 
+  /**
+   * Auto hide.
+   */
+  private void autoHide() {
+    boolean hidden = getWidth() < mMinWidth;
+
+    if (hidden != mHidden) {
+      mHidden = hidden;
+
+      mC.setVisible(!hidden);
+
+      revalidate();
+      repaint();
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.jebtk.modern.ModernComponent#drawForeground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForeground(Graphics2D g2) {
+    if (mHidden) {
+      int x = (getWidth() - ICON.getWidth()) / 2;
+      ICON.drawIcon(g2, x, DOUBLE_PADDING, 12);
+    }
+  }
 
 }

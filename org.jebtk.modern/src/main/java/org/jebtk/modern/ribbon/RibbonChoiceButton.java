@@ -35,72 +35,78 @@ import org.jebtk.modern.button.ModernRadioButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.RenderMode;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Large radio button for selecting from options.
- * Designed to be more graphical than a radio button.
+ * Large radio button for selecting from options. Designed to be more graphical
+ * than a radio button.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class RibbonChoiceButton extends ModernRadioButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SIZE.
-	 */
-	private static final Dimension SIZE = 
-			new Dimension(Ribbon.LARGE_BUTTON_HEIGHT, Ribbon.LARGE_BUTTON_HEIGHT);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member icon.
-	 */
-	private ModernIcon mIcon;
+  /**
+   * The constant SIZE.
+   */
+  private static final Dimension SIZE = new Dimension(Ribbon.LARGE_BUTTON_HEIGHT, Ribbon.LARGE_BUTTON_HEIGHT);
 
-	/**
-	 * Instantiates a new ribbon choice button2.
-	 *
-	 * @param icon the icon
-	 * @param clickMessage the click message
-	 */
-	public RibbonChoiceButton(ModernIcon icon, String clickMessage) {
-		mIcon = icon;
-		
-		setClickMessage(clickMessage);
+  /**
+   * The member icon.
+   */
+  private ModernIcon mIcon;
 
-		UI.setSize(this, SIZE);
-	}
+  /**
+   * Instantiates a new ribbon choice button2.
+   *
+   * @param icon
+   *          the icon
+   * @param clickMessage
+   *          the click message
+   */
+  public RibbonChoiceButton(ModernIcon icon, String clickMessage) {
+    mIcon = icon;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.button.ModernRadioButton#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			if (isSelected() || mHighlight) {
-				getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
-			}
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernRadioButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = (mRect.getW() - Ribbon.COMPACT_ICON_SIZE) / 2;
-		int y = (mRect.getH() - Ribbon.COMPACT_ICON_SIZE) / 2;
+    setClickMessage(clickMessage);
 
-		if (isEnabled()) {
-			mIcon.drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
-		} else {
-			mIcon.getDisabledIcon().drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
-		}
-	}
+    UI.setSize(this, SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.button.ModernRadioButton#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+    if (isEnabled()) {
+      if (isSelected() || mHighlight) {
+        getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+      }
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernRadioButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = (mRect.getW() - Ribbon.COMPACT_ICON_SIZE) / 2;
+    int y = (mRect.getH() - Ribbon.COMPACT_ICON_SIZE) / 2;
+
+    if (isEnabled()) {
+      mIcon.drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
+    } else {
+      mIcon.getDisabledIcon().drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
+    }
+  }
 }

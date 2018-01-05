@@ -27,49 +27,55 @@ import org.jebtk.modern.graphics.ImageUtils;
  * The Class TopShadowPanel.
  */
 public class TopShadowPanel extends ShadowPanel {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The Class TopShadow.
-	 */
-	private static class TopShadow extends RibbonShadow {
-		
-		/** The Constant serialVersionUID. */
-		private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-		/* (non-Javadoc)
-		 * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
-		 */
-		@Override
-		public void drawBackground(Graphics2D g2) {
-			Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
-			
-			try {
-				MaterialUtils.drawDropShadow(g2Temp, 0, 0, getWidth(), 0);
-			} finally {
-				g2Temp.dispose();
-			}
-		}
-	}
-	
-	/**
-	 * Instantiates a new top shadow panel.
-	 *
-	 * @param c the c
-	 */
-	public TopShadowPanel(Component c) {
-		super(c, new TopShadow());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.shadow.ShadowPanel#componentResized(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentResized(ComponentEvent e) {
-		mShadow.setBounds(0, 0, getWidth(), MaterialUtils.SHADOW_HEIGHT);
-		
-		super.componentResized(e);
-	}
+  /**
+   * The Class TopShadow.
+   */
+  private static class TopShadow extends RibbonShadow {
+
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 1L;
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
+     */
+    @Override
+    public void drawBackground(Graphics2D g2) {
+      Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+
+      try {
+        MaterialUtils.drawDropShadow(g2Temp, 0, 0, getWidth(), 0);
+      } finally {
+        g2Temp.dispose();
+      }
+    }
+  }
+
+  /**
+   * Instantiates a new top shadow panel.
+   *
+   * @param c
+   *          the c
+   */
+  public TopShadowPanel(Component c) {
+    super(c, new TopShadow());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.shadow.ShadowPanel#componentResized(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentResized(ComponentEvent e) {
+    mShadow.setBounds(0, 0, getWidth(), MaterialUtils.SHADOW_HEIGHT);
+
+    super.componentResized(e);
+  }
 }

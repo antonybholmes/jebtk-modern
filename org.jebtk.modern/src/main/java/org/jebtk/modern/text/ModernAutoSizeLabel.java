@@ -47,151 +47,166 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class ModernAutoSizeLabel extends ModernLabel {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern auto size label.
-	 */
-	public ModernAutoSizeLabel() {
-		this(TextUtils.EMPTY_STRING);
-	}
-	
-	/**
-	 * Instantiates a new modern label.
-	 *
-	 * @param text the text
-	 */
-	public ModernAutoSizeLabel(String text) {
-		super(text, TEXT_COLOR);
-	}
-	
-	/**
-	 * Instantiates a new modern auto size label.
-	 *
-	 * @param text the text
-	 * @param font the font
-	 */
-	public ModernAutoSizeLabel(String text, Font font) {
-		super(text, font);
-	}
+  /**
+   * Instantiates a new modern auto size label.
+   */
+  public ModernAutoSizeLabel() {
+    this(TextUtils.EMPTY_STRING);
+  }
 
-	/**
-	 * Instantiates a new modern label.
-	 *
-	 * @param text the text
-	 * @param color the color
-	 */
-	public ModernAutoSizeLabel(String text, Color color) {
-		super(text, color);
-	}
+  /**
+   * Instantiates a new modern label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernAutoSizeLabel(String text) {
+    super(text, TEXT_COLOR);
+  }
 
-	/**
-	 * Instantiates a new modern label.
-	 *
-	 * @param text the text
-	 * @param size the size
-	 */
-	public ModernAutoSizeLabel(String text, Dimension size) {
-		super(text, size);
-	}
+  /**
+   * Instantiates a new modern auto size label.
+   *
+   * @param text
+   *          the text
+   * @param font
+   *          the font
+   */
+  public ModernAutoSizeLabel(String text, Font font) {
+    super(text, font);
+  }
 
-	/**
-	 * Instantiates a new modern label.
-	 *
-	 * @param text the text
-	 * @param width the width
-	 */
-	public ModernAutoSizeLabel(String text, int width) {
-		super(text, width);
-	}
+  /**
+   * Instantiates a new modern label.
+   *
+   * @param text
+   *          the text
+   * @param color
+   *          the color
+   */
+  public ModernAutoSizeLabel(String text, Color color) {
+    super(text, color);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#setFont(java.awt.Font)
-	 */
-	@Override 
-	public void setFont(Font font) {
-		super.setFont(font);
+  /**
+   * Instantiates a new modern label.
+   *
+   * @param text
+   *          the text
+   * @param size
+   *          the size
+   */
+  public ModernAutoSizeLabel(String text, Dimension size) {
+    super(text, size);
+  }
 
-		update();
-	}
+  /**
+   * Instantiates a new modern label.
+   *
+   * @param text
+   *          the text
+   * @param width
+   *          the width
+   */
+  public ModernAutoSizeLabel(String text, int width) {
+    super(text, width);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.ModernLabelPanel#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		super.setText(text);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#setFont(java.awt.Font)
+   */
+  @Override
+  public void setFont(Font font) {
+    super.setFont(font);
 
-		update();
-	}
+    update();
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.ModernLabelPanel#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    super.setText(text);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernComponent#setBorder(javax.swing.border.Border)
-	 */
-	@Override 
-	public void setBorder(Border border) {
-		super.setBorder(border);
+    update();
+  }
 
-		update();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernComponent#setBorder(javax.swing.border.Border)
+   */
+  @Override
+  public void setBorder(Border border) {
+    super.setBorder(border);
 
-	/**
-	 * Update.
-	 */
-	private void update() {
-		if (mText != null) {
-			UI.setSize(this, 
-					ModernWidget.getStringWidth(getFont(), mText), 
-					ModernWidget.getStringHeight(getFont()));
+    update();
+  }
 
-			repaint();
-		}
-	}
-	
-	/**
-	 * Creates the.
-	 *
-	 * @param text the text
-	 * @return the modern auto size label
-	 */
-	public static ModernAutoSizeLabel create(String text) {
-		return new ModernAutoSizeLabel(text);
-	}
-	
-	/**
-	 * Creates the.
-	 *
-	 * @param text the text
-	 * @param family the family
-	 * @param size the size
-	 * @return the modern auto size label
-	 */
-	public static ModernAutoSizeLabel create(String text,
-			String family,
-			int size) {
-		return create(text, family, size, false, false);
-	}
+  /**
+   * Update.
+   */
+  private void update() {
+    if (mText != null) {
+      UI.setSize(this, ModernWidget.getStringWidth(getFont(), mText), ModernWidget.getStringHeight(getFont()));
 
-	/**
-	 * Creates the.
-	 *
-	 * @param text the text
-	 * @param family the family
-	 * @param size the size
-	 * @param bold the bold
-	 * @param italic the italic
-	 * @return the modern auto size label
-	 */
-	public static ModernAutoSizeLabel create(String text,
-			String family,
-			int size,
-			boolean bold,
-			boolean italic) {
-		return new ModernAutoSizeLabel(text,
-				FontService.getInstance().loadFont(family, size, bold, italic));
-	}
+      repaint();
+    }
+  }
+
+  /**
+   * Creates the.
+   *
+   * @param text
+   *          the text
+   * @return the modern auto size label
+   */
+  public static ModernAutoSizeLabel create(String text) {
+    return new ModernAutoSizeLabel(text);
+  }
+
+  /**
+   * Creates the.
+   *
+   * @param text
+   *          the text
+   * @param family
+   *          the family
+   * @param size
+   *          the size
+   * @return the modern auto size label
+   */
+  public static ModernAutoSizeLabel create(String text, String family, int size) {
+    return create(text, family, size, false, false);
+  }
+
+  /**
+   * Creates the.
+   *
+   * @param text
+   *          the text
+   * @param family
+   *          the family
+   * @param size
+   *          the size
+   * @param bold
+   *          the bold
+   * @param italic
+   *          the italic
+   * @return the modern auto size label
+   */
+  public static ModernAutoSizeLabel create(String text, String family, int size, boolean bold, boolean italic) {
+    return new ModernAutoSizeLabel(text, FontService.getInstance().loadFont(family, size, bold, italic));
+  }
 }

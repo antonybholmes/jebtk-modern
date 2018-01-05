@@ -36,86 +36,86 @@ import org.jebtk.core.stream.Stream;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTextArea.
  */
 public class ModernTextArea extends JTextArea {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern text area.
-	 */
-	public ModernTextArea() {
-		this("");
-	}
+  /**
+   * Instantiates a new modern text area.
+   */
+  public ModernTextArea() {
+    this("");
+  }
 
-	/**
-	 * Instantiates a new modern text area.
-	 *
-	 * @param text the text
-	 */
-	public ModernTextArea(String text) {
-		super(text);
+  /**
+   * Instantiates a new modern text area.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernTextArea(String text) {
+    super(text);
 
-		setFont(ModernWidget.FONT);
-	
-		//setBackground(ModernTheme.getInstance().getClass("widget").getColor("background"));
-		
-		setSelectedTextColor(ModernWidget.TEXT_COLOR);
-		setSelectionColor(ModernTextField.SELECTION_COLOR);
-	
-	    setBorder(BorderFactory.createEmptyBorder());
-	    
-	    setAlignmentX(LEFT_ALIGNMENT);
-	}
+    setFont(ModernWidget.FONT);
 
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.text.JTextComponent#setEditable(boolean)
-	 */
-	public final void setEditable(boolean editable) {
+    // setBackground(ModernTheme.getInstance().getClass("widget").getColor("background"));
 
-		super.setEditable(editable);
+    setSelectedTextColor(ModernWidget.TEXT_COLOR);
+    setSelectionColor(ModernTextField.SELECTION_COLOR);
 
-		if (editable) {
-			setForeground(ModernTextField.ENABLED_COLOR);
-		} else {
-			setForeground(ModernTextField.DISABLED_COLOR);
-		}
-	}
+    setBorder(BorderFactory.createEmptyBorder());
 
-	/**
-	 * Returns the lines from a text field.
-	 *
-	 * @return the lines
-	 */
-	public List<String> getLines() {
-		return TextUtils.fastSplit(getText().trim(), TextUtils.NEW_LINE_DELIMITER);
-	}
+    setAlignmentX(LEFT_ALIGNMENT);
+  }
 
-	/**
-	 * Sets the text.
-	 *
-	 * @param <T> the generic type
-	 * @param items the new text
-	 */
-	public <T> void setText(List<T> items) {
-		setText(Stream.of(items).asString().join(TextUtils.NEW_LINE_DELIMITER));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.text.JTextComponent#setEditable(boolean)
+   */
+  public final void setEditable(boolean editable) {
 
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		setText(TextUtils.EMPTY_STRING);
-	}
+    super.setEditable(editable);
+
+    if (editable) {
+      setForeground(ModernTextField.ENABLED_COLOR);
+    } else {
+      setForeground(ModernTextField.DISABLED_COLOR);
+    }
+  }
+
+  /**
+   * Returns the lines from a text field.
+   *
+   * @return the lines
+   */
+  public List<String> getLines() {
+    return TextUtils.fastSplit(getText().trim(), TextUtils.NEW_LINE_DELIMITER);
+  }
+
+  /**
+   * Sets the text.
+   *
+   * @param <T>
+   *          the generic type
+   * @param items
+   *          the new text
+   */
+  public <T> void setText(List<T> items) {
+    setText(Stream.of(items).asString().join(TextUtils.NEW_LINE_DELIMITER));
+  }
+
+  /**
+   * Clear.
+   */
+  public void clear() {
+    setText(TextUtils.EMPTY_STRING);
+  }
 }

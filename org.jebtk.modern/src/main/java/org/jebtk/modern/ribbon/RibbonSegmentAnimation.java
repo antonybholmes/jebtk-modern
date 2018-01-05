@@ -28,56 +28,59 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RibbonSegmentAnimation extends WidgetAnimation {
 
-	private RibbonSegmentVertTabs mSegments;
+  private RibbonSegmentVertTabs mSegments;
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public RibbonSegmentAnimation(ModernWidget w) {
-		super(w);
-		
-		mSegments = (RibbonSegmentVertTabs)w;
-	}
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public RibbonSegmentAnimation(ModernWidget w) {
+    super(w);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    mSegments = (RibbonSegmentVertTabs) w;
+  }
 
-		int n = mSegments.getTabsModel().getTabCount();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		int selectedIndex = mSegments.getTabsModel().getSelectedIndex();
+    int n = mSegments.getTabsModel().getTabCount();
 
-		//
-		// Draw the labels
-		//
+    int selectedIndex = mSegments.getTabsModel().getSelectedIndex();
 
+    //
+    // Draw the labels
+    //
 
-		int textY = ModernWidget.getTextYPosCenter(g2, RibbonSegmentVertTabs.TAB_SIZE);
-		int iconY = (RibbonSegmentVertTabs.TAB_SIZE - RibbonSegmentVertTabs.ICON_SIZE) / 2;
-		int tabX = RibbonSegmentVertTabs.TAB_SIZE / 2;
-		int textX = tabX + RibbonSegmentVertTabs.ICON_SIZE + RibbonSegmentVertTabs.ICON_SIZE / 2;
-		
-		for (int i = 0; i < n; ++i) {
-			boolean selected = i == selectedIndex;
+    int textY = ModernWidget.getTextYPosCenter(g2, RibbonSegmentVertTabs.TAB_SIZE);
+    int iconY = (RibbonSegmentVertTabs.TAB_SIZE - RibbonSegmentVertTabs.ICON_SIZE) / 2;
+    int tabX = RibbonSegmentVertTabs.TAB_SIZE / 2;
+    int textX = tabX + RibbonSegmentVertTabs.ICON_SIZE + RibbonSegmentVertTabs.ICON_SIZE / 2;
 
-			//g2.setColor(ModernWidget.TEXT_COLOR);
-			g2.setColor(selected ? Ribbon.BAR_BACKGROUND : ModernWidget.TEXT_COLOR);
-			//g2.setFont(selected ? BOLD_FONT : FONT);
-			
-			String s = mSegments.getTabsModel().getTab(i).getName();
-			
-			if (mSegments.getTabsModel().getTab(i).getIcon() != null) {
-				mSegments.getTabsModel().getTab(i).getIcon().drawIcon(g2, tabX, iconY, RibbonSegmentVertTabs.TAB_SIZE);
-			}
+    for (int i = 0; i < n; ++i) {
+      boolean selected = i == selectedIndex;
 
-			g2.drawString(s, textX, textY);
+      // g2.setColor(ModernWidget.TEXT_COLOR);
+      g2.setColor(selected ? Ribbon.BAR_BACKGROUND : ModernWidget.TEXT_COLOR);
+      // g2.setFont(selected ? BOLD_FONT : FONT);
 
-			iconY += RibbonSegmentVertTabs.TAB_SIZE;
-			textY += RibbonSegmentVertTabs.TAB_SIZE;
-		}
-	}	
+      String s = mSegments.getTabsModel().getTab(i).getName();
+
+      if (mSegments.getTabsModel().getTab(i).getIcon() != null) {
+        mSegments.getTabsModel().getTab(i).getIcon().drawIcon(g2, tabX, iconY, RibbonSegmentVertTabs.TAB_SIZE);
+      }
+
+      g2.drawString(s, textX, textY);
+
+      iconY += RibbonSegmentVertTabs.TAB_SIZE;
+      textY += RibbonSegmentVertTabs.TAB_SIZE;
+    }
+  }
 }

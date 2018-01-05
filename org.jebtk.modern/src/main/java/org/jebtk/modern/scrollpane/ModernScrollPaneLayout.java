@@ -8,326 +8,313 @@ import java.awt.Rectangle;
 
 public class ModernScrollPaneLayout implements LayoutManager {
 
-	@Override
-	public void addLayoutComponent(String name, Component comp) {
-		// TODO Auto-generated method stub
-		
-	}
+  @Override
+  public void addLayoutComponent(String name, Component comp) {
+    // TODO Auto-generated method stub
 
-	@Override
-	public void layoutContainer(Container parent) {
-		
-		ModernScrollPane scrollPane = (ModernScrollPane)parent;
-		
-		showScrollbars(scrollPane);
+  }
 
-		adjustComponentSize(scrollPane);
+  @Override
+  public void layoutContainer(Container parent) {
 
-		setupScrollBars(scrollPane);
-	}
+    ModernScrollPane scrollPane = (ModernScrollPane) parent;
 
-	@Override
-	public Dimension minimumLayoutSize(Container parent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    showScrollbars(scrollPane);
 
-	@Override
-	public Dimension preferredLayoutSize(Container parent) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    adjustComponentSize(scrollPane);
 
-	@Override
-	public void removeLayoutComponent(Component comp) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	private void showScrollbars(ModernScrollPane scrollPane) {
-		if (scrollPane.mComponent == null) {
-			return;
-		}
+    setupScrollBars(scrollPane);
+  }
 
-		//
-		// Vertical bars
-		//
+  @Override
+  public Dimension minimumLayoutSize(Container parent) {
+    // TODO Auto-generated method stub
+    return null;
+  }
 
-		switch (scrollPane.mVScrollBarPolicy) {
-		case AUTO:
-			scrollPane.mVScrollBarNeeded = scrollPane.vScrollbarNeeded();
-			scrollPane.mVScrollBar.setVisible(scrollPane.mVScrollBarNeeded);
-			break;
-		case AUTO_SHOW:
-			scrollPane.mVScrollBarNeeded = scrollPane.vScrollbarNeeded();
-			scrollPane.mVScrollBar.setVisible(scrollPane.mVScrollBarNeeded && scrollPane.mHover);
-			break;
-		case ALWAYS:
-			scrollPane.mVScrollBarNeeded = true;
-			scrollPane.mVScrollBar.setVisible(true);
-			break;
-		default:
-			scrollPane.mVScrollBarNeeded = false;
-			scrollPane.mVScrollBar.setVisible(false);
-			break;
-		}
+  @Override
+  public Dimension preferredLayoutSize(Container parent) {
+    // TODO Auto-generated method stub
+    return null;
+  }
 
+  @Override
+  public void removeLayoutComponent(Component comp) {
+    // TODO Auto-generated method stub
 
-		//
-		// Horizontal bars
-		//
+  }
 
-		switch (scrollPane.mHScrollBarPolicy) {
-		case AUTO:
-			scrollPane.mHScrollBarNeeded = hScrollbarNeeded(scrollPane);
-			scrollPane.mHScrollBar.setVisible(scrollPane.mHScrollBarNeeded);
-			break;
-		case AUTO_SHOW:
-			scrollPane.mHScrollBarNeeded = hScrollbarNeeded(scrollPane);
-			scrollPane.mHScrollBar.setVisible(scrollPane.mHScrollBarNeeded && scrollPane.mHover);
-			break;
-		case ALWAYS:
-			scrollPane.mHScrollBarNeeded = true;
-			scrollPane.mHScrollBar.setVisible(true);
-			break;
-		default:
-			scrollPane.mHScrollBarNeeded = false;
-			scrollPane.mHScrollBar.setVisible(false);
-			break;
-		}
-	}
-	
-	private void adjustComponentSize(ModernScrollPane scrollPane) {
-		if (scrollPane.mComponent == null) {
-			return;
-		}
+  private void showScrollbars(ModernScrollPane scrollPane) {
+    if (scrollPane.mComponent == null) {
+      return;
+    }
 
-		int h = scrollPane.mInternalRect.getH();
+    //
+    // Vertical bars
+    //
 
-		int border = (scrollPane.mShowClipBorder ? 1 : 0);
+    switch (scrollPane.mVScrollBarPolicy) {
+    case AUTO:
+      scrollPane.mVScrollBarNeeded = scrollPane.vScrollbarNeeded();
+      scrollPane.mVScrollBar.setVisible(scrollPane.mVScrollBarNeeded);
+      break;
+    case AUTO_SHOW:
+      scrollPane.mVScrollBarNeeded = scrollPane.vScrollbarNeeded();
+      scrollPane.mVScrollBar.setVisible(scrollPane.mVScrollBarNeeded && scrollPane.mHover);
+      break;
+    case ALWAYS:
+      scrollPane.mVScrollBarNeeded = true;
+      scrollPane.mVScrollBar.setVisible(true);
+      break;
+    default:
+      scrollPane.mVScrollBarNeeded = false;
+      scrollPane.mVScrollBar.setVisible(false);
+      break;
+    }
 
-		if (scrollPane.mTopHeader != null) {
-			Rectangle b = new Rectangle(scrollPane.mLeftHeaderOffset + border,
-					border,
-					scrollPane.mInternalRect.getW() - scrollPane.mLeftHeaderOffset - (scrollPane.mShowClipBorder ? 3 : 0),
-					scrollPane.mTopHeaderOffset);
+    //
+    // Horizontal bars
+    //
 
-			// If the scroll bars are visible or auto show is true then resize
-			// the components to allow for this
-			if (scrollPane.mVScrollBarLocation == ScrollBarLocation.SIDE) {
-				if (scrollPane.mVScrollBar.isVisible() || scrollPane.mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-					b.width -= scrollPane.mVScrollBar.getFixedDimension();
-				}
-			}
+    switch (scrollPane.mHScrollBarPolicy) {
+    case AUTO:
+      scrollPane.mHScrollBarNeeded = hScrollbarNeeded(scrollPane);
+      scrollPane.mHScrollBar.setVisible(scrollPane.mHScrollBarNeeded);
+      break;
+    case AUTO_SHOW:
+      scrollPane.mHScrollBarNeeded = hScrollbarNeeded(scrollPane);
+      scrollPane.mHScrollBar.setVisible(scrollPane.mHScrollBarNeeded && scrollPane.mHover);
+      break;
+    case ALWAYS:
+      scrollPane.mHScrollBarNeeded = true;
+      scrollPane.mHScrollBar.setVisible(true);
+      break;
+    default:
+      scrollPane.mHScrollBarNeeded = false;
+      scrollPane.mHScrollBar.setVisible(false);
+      break;
+    }
+  }
 
-			scrollPane.mTopHeader.setBounds(b);
-		}
+  private void adjustComponentSize(ModernScrollPane scrollPane) {
+    if (scrollPane.mComponent == null) {
+      return;
+    }
 
-		if (scrollPane.mLeftHeader != null) {
-			Rectangle b = new Rectangle(border,
-					scrollPane.mTopHeaderOffset + border,
-					scrollPane.mLeftHeaderOffset,
-					h - scrollPane.mTopHeaderOffset - (scrollPane.mShowClipBorder ? 3 : 0));
+    int h = scrollPane.mInternalRect.getH();
 
-			if (scrollPane.mHScrollBarPosition == ScrollBarLocation.SIDE) {
-				if (scrollPane.mHScrollBar.isVisible() || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-					b.height -= scrollPane.mHScrollBar.getFixedDimension();
-				}
+    int border = (scrollPane.mShowClipBorder ? 1 : 0);
 
-				if (scrollPane.mFooter != null) {
-					b.height -= scrollPane.mFooterOffset;
-				}
-			}
+    if (scrollPane.mTopHeader != null) {
+      Rectangle b = new Rectangle(scrollPane.mLeftHeaderOffset + border, border,
+          scrollPane.mInternalRect.getW() - scrollPane.mLeftHeaderOffset - (scrollPane.mShowClipBorder ? 3 : 0),
+          scrollPane.mTopHeaderOffset);
 
-			scrollPane.mLeftHeader.setBounds(b);
-		}
+      // If the scroll bars are visible or auto show is true then resize
+      // the components to allow for this
+      if (scrollPane.mVScrollBarLocation == ScrollBarLocation.SIDE) {
+        if (scrollPane.mVScrollBar.isVisible() || scrollPane.mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+          b.width -= scrollPane.mVScrollBar.getFixedDimension();
+        }
+      }
 
-		if (scrollPane.mFooter != null) {
-			Rectangle b = new Rectangle(scrollPane.mLeftHeaderOffset + border,
-					h - scrollPane.mFooterOffset + border,
-					scrollPane.mInternalRect.getW() - scrollPane.mLeftHeaderOffset - border,
-					scrollPane.mFooterOffset);
+      scrollPane.mTopHeader.setBounds(b);
+    }
 
-			if (scrollPane.mVScrollBarLocation == ScrollBarLocation.SIDE) {
-				if (scrollPane.mVScrollBar.isVisible() || scrollPane.mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-					b.width -= scrollPane.mVScrollBar.getFixedDimension();
-				}
+    if (scrollPane.mLeftHeader != null) {
+      Rectangle b = new Rectangle(border, scrollPane.mTopHeaderOffset + border, scrollPane.mLeftHeaderOffset,
+          h - scrollPane.mTopHeaderOffset - (scrollPane.mShowClipBorder ? 3 : 0));
 
-				if (scrollPane.mHScrollBar.isVisible() || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-					b.y -= scrollPane.mHScrollBar.getFixedDimension();
-				}
-			}
+      if (scrollPane.mHScrollBarPosition == ScrollBarLocation.SIDE) {
+        if (scrollPane.mHScrollBar.isVisible() || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+          b.height -= scrollPane.mHScrollBar.getFixedDimension();
+        }
 
-			scrollPane.mFooter.setBounds(b);
-		}
+        if (scrollPane.mFooter != null) {
+          b.height -= scrollPane.mFooterOffset;
+        }
+      }
 
-		if (scrollPane.mLeftHeader != null && scrollPane.mTopHeader != null && scrollPane.mTopLeftHeader != null) {
-			Rectangle b = new Rectangle(border,
-					border,
-					scrollPane.mLeftHeaderOffset,
-					scrollPane.mTopHeaderOffset);
+      scrollPane.mLeftHeader.setBounds(b);
+    }
 
-			scrollPane.mTopLeftHeader.setBounds(b);
-		}
+    if (scrollPane.mFooter != null) {
+      Rectangle b = new Rectangle(scrollPane.mLeftHeaderOffset + border, h - scrollPane.mFooterOffset + border,
+          scrollPane.mInternalRect.getW() - scrollPane.mLeftHeaderOffset - border, scrollPane.mFooterOffset);
 
-		if (scrollPane.mLeftHeader != null && scrollPane.mFooter != null && scrollPane.mBottomLeftFooter != null) {
-			Rectangle b = new Rectangle(border,
-					h - scrollPane.mFooterOffset + border,
-					scrollPane.mLeftHeaderOffset,
-					scrollPane.mFooterOffset);
+      if (scrollPane.mVScrollBarLocation == ScrollBarLocation.SIDE) {
+        if (scrollPane.mVScrollBar.isVisible() || scrollPane.mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+          b.width -= scrollPane.mVScrollBar.getFixedDimension();
+        }
 
-			if (scrollPane.mHScrollBarPosition == ScrollBarLocation.SIDE) {
-				if (scrollPane.mHScrollBar.isVisible() || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-					b.y -= scrollPane.mHScrollBar.getFixedDimension();
-				}
-			}
+        if (scrollPane.mHScrollBar.isVisible() || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+          b.y -= scrollPane.mHScrollBar.getFixedDimension();
+        }
+      }
 
-			scrollPane.mBottomLeftFooter.setBounds(b);
-		}
+      scrollPane.mFooter.setBounds(b);
+    }
 
+    if (scrollPane.mLeftHeader != null && scrollPane.mTopHeader != null && scrollPane.mTopLeftHeader != null) {
+      Rectangle b = new Rectangle(border, border, scrollPane.mLeftHeaderOffset, scrollPane.mTopHeaderOffset);
 
-		Rectangle b = new Rectangle((scrollPane.mLeftHeader != null ? scrollPane.mLeftHeaderOffset : 0) + border,
-				(scrollPane.mTopHeader != null ? scrollPane.mTopHeaderOffset : 0) + border,
-				scrollPane.mInternalRect.getW() - (scrollPane.mLeftHeader != null ? scrollPane.mLeftHeaderOffset : 0) - (scrollPane.mShowClipBorder ? 2 : 0) - border,
-				h - (scrollPane.mTopHeader != null ? scrollPane.mTopHeaderOffset : 0) - (scrollPane.mFooter != null ? scrollPane.mFooterOffset : 0) - (scrollPane.mShowClipBorder ? 2 : 0) - border);
+      scrollPane.mTopLeftHeader.setBounds(b);
+    }
 
-		if (scrollPane.mVScrollBarLocation == ScrollBarLocation.SIDE) {
-			if (scrollPane.mVScrollBar.isVisible() || scrollPane.mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-				b.width -= scrollPane.mVScrollBar.getFixedDimension() + scrollPane.mVScrollSep;
-			}
-		}
+    if (scrollPane.mLeftHeader != null && scrollPane.mFooter != null && scrollPane.mBottomLeftFooter != null) {
+      Rectangle b = new Rectangle(border, h - scrollPane.mFooterOffset + border, scrollPane.mLeftHeaderOffset,
+          scrollPane.mFooterOffset);
 
-		if (scrollPane.mHScrollBarPosition == ScrollBarLocation.SIDE) {
-			if (scrollPane.mHScrollBar.isVisible() || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-				b.height -= scrollPane.mHScrollBar.getFixedDimension() + scrollPane.mHScrollSep;
-			}
-		}
+      if (scrollPane.mHScrollBarPosition == ScrollBarLocation.SIDE) {
+        if (scrollPane.mHScrollBar.isVisible() || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+          b.y -= scrollPane.mHScrollBar.getFixedDimension();
+        }
+      }
 
-		// Causes rendering errors
-		//mComponent.setBounds(b);
-		
-		scrollPane.mViewport.setBounds(b);
-	}
-	
-	private void setupScrollBars(ModernScrollPane scrollPane) {
-		vScrollBarSetup(scrollPane);
+      scrollPane.mBottomLeftFooter.setBounds(b);
+    }
 
-		hScrollBarSetup(scrollPane);
-	}
-	
-	private void vScrollBarSetup(ModernScrollPane scrollPane) {
+    Rectangle b = new Rectangle((scrollPane.mLeftHeader != null ? scrollPane.mLeftHeaderOffset : 0) + border,
+        (scrollPane.mTopHeader != null ? scrollPane.mTopHeaderOffset : 0) + border,
+        scrollPane.mInternalRect.getW() - (scrollPane.mLeftHeader != null ? scrollPane.mLeftHeaderOffset : 0)
+            - (scrollPane.mShowClipBorder ? 2 : 0) - border,
+        h - (scrollPane.mTopHeader != null ? scrollPane.mTopHeaderOffset : 0)
+            - (scrollPane.mFooter != null ? scrollPane.mFooterOffset : 0) - (scrollPane.mShowClipBorder ? 2 : 0)
+            - border);
 
+    if (scrollPane.mVScrollBarLocation == ScrollBarLocation.SIDE) {
+      if (scrollPane.mVScrollBar.isVisible() || scrollPane.mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        b.width -= scrollPane.mVScrollBar.getFixedDimension() + scrollPane.mVScrollSep;
+      }
+    }
 
-		//if (mVScrollBar.isVisible()) {
-		Rectangle r = new Rectangle(scrollPane.mInternalRect.getW() - scrollPane.mVScrollBar.getFixedDimension(), 
-				0, 
-				scrollPane.mVScrollBar.getFixedDimension(),
-				scrollPane.mInternalRect.getH() - (scrollPane.mHScrollBar.isVisible() ? scrollPane.mHScrollBar.getFixedDimension() : 0));
+    if (scrollPane.mHScrollBarPosition == ScrollBarLocation.SIDE) {
+      if (scrollPane.mHScrollBar.isVisible() || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        b.height -= scrollPane.mHScrollBar.getFixedDimension() + scrollPane.mHScrollSep;
+      }
+    }
 
-		//if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
-		//	r.height -= (mHScrollBar.isVisible() ? mHScrollBar.getFixedDimension() : 0);
-		//}
+    // Causes rendering errors
+    // mComponent.setBounds(b);
 
-		scrollPane.mVScrollBar.setBounds(r);
+    scrollPane.mViewport.setBounds(b);
+  }
 
-		//}
+  private void setupScrollBars(ModernScrollPane scrollPane) {
+    vScrollBarSetup(scrollPane);
 
-		int scrollDistance = 0;
+    hScrollBarSetup(scrollPane);
+  }
 
-		if (scrollPane.mVScrollBarNeeded) {
-			// the actual amount of movable space available
-			scrollPane.mIntH = scrollPane.getInternalHeight();
+  private void vScrollBarSetup(ModernScrollPane scrollPane) {
 
-			if (scrollPane.mHScrollBarNeeded) {
-				scrollPane.mIntH -= scrollPane.mHScrollBar.getFixedDimension();
-			}
+    // if (mVScrollBar.isVisible()) {
+    Rectangle r = new Rectangle(scrollPane.mInternalRect.getW() - scrollPane.mVScrollBar.getFixedDimension(), 0,
+        scrollPane.mVScrollBar.getFixedDimension(), scrollPane.mInternalRect.getH()
+            - (scrollPane.mHScrollBar.isVisible() ? scrollPane.mHScrollBar.getFixedDimension() : 0));
 
-			// How much space we need to scroll through
-			//if (mCanvas != null) {
-			//	scrollDistance = Math.max(0, 
-			//			mCanvas.getCanvasSize().getH() - mIntH);
-			//} else {
-			//	scrollDistance = Math.max(0, 
-			//			mComponent.getPreferredSize().height - mInternalRect.getH());
-			//}
+    // if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
+    // r.height -= (mHScrollBar.isVisible() ? mHScrollBar.getFixedDimension() : 0);
+    // }
 
-			scrollDistance = Math.max(0, 
-					scrollPane.mComponent.getPreferredSize().height -scrollPane. mInternalRect.getH());
-		}
+    scrollPane.mVScrollBar.setBounds(r);
 
-		scrollPane.mVScrollBar.setScrollDistance(scrollDistance);
+    // }
 
-		if (!scrollPane.mVScrollBarNeeded) {
-			scrollPane.mVScrollBar.updateNormalizedScrollPosition(0);
-			scrollPane.setComponentVOffset();
-		}
+    int scrollDistance = 0;
 
-		//mVScrollBar.setVisible(mVScrollBar.isVisible());
-	}
-	
-	private void hScrollBarSetup(ModernScrollPane scrollPane) {
+    if (scrollPane.mVScrollBarNeeded) {
+      // the actual amount of movable space available
+      scrollPane.mIntH = scrollPane.getInternalHeight();
 
-		//if (mHScrollBar.isVisible()) {
-		Rectangle r = new Rectangle(0, 
-				scrollPane.mInternalRect.getH() - scrollPane.mHScrollBar.getFixedDimension(), 
-				scrollPane.mInternalRect.getW() -(scrollPane.mVScrollBar.isVisible() ? scrollPane.mVScrollBar.getFixedDimension() : 0),
-				scrollPane.mHScrollBar.getFixedDimension());
+      if (scrollPane.mHScrollBarNeeded) {
+        scrollPane.mIntH -= scrollPane.mHScrollBar.getFixedDimension();
+      }
 
-		//if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
-		//	r.width -= (mVScrollBar.isVisible() ? mVScrollBar.getFixedDimension() : 0);
-		//}
+      // How much space we need to scroll through
+      // if (mCanvas != null) {
+      // scrollDistance = Math.max(0,
+      // mCanvas.getCanvasSize().getH() - mIntH);
+      // } else {
+      // scrollDistance = Math.max(0,
+      // mComponent.getPreferredSize().height - mInternalRect.getH());
+      // }
 
-		scrollPane.mHScrollBar.setBounds(r);
+      scrollDistance = Math.max(0, scrollPane.mComponent.getPreferredSize().height - scrollPane.mInternalRect.getH());
+    }
 
-		int hScrollDistance = 0;
+    scrollPane.mVScrollBar.setScrollDistance(scrollDistance);
 
-		if (scrollPane.mHScrollBarNeeded) {
-			// the width
-			scrollPane.mIntW = scrollPane.getInternalWidth();
+    if (!scrollPane.mVScrollBarNeeded) {
+      scrollPane.mVScrollBar.updateNormalizedScrollPosition(0);
+      scrollPane.setComponentVOffset();
+    }
 
-			if (scrollPane.mVScrollBarNeeded) {
-				// Subtract the fixed dimension if the v scroll bar is visible
-				scrollPane.mIntW -= scrollPane.mVScrollBar.getFixedDimension();
-			}
+    // mVScrollBar.setVisible(mVScrollBar.isVisible());
+  }
 
-			//if (mCanvas != null) {
-			// The difference between the screen estate and the width
-			// of the canvas is the scrollable distance
-			//hScrollDistance = Math.max(0, 
-			//	//		mCanvas.getCanvasSize().getW() - mIntW);
-			//} else {
-			//	hScrollDistance = Math.max(0, 
-			///			mComponent.getPreferredSize().width - mInternalRect.getW());
-			//}
+  private void hScrollBarSetup(ModernScrollPane scrollPane) {
 
-			hScrollDistance = Math.max(0, 
-					scrollPane.mComponent.getPreferredSize().width - scrollPane.mInternalRect.getW());
-		}
+    // if (mHScrollBar.isVisible()) {
+    Rectangle r = new Rectangle(0, scrollPane.mInternalRect.getH() - scrollPane.mHScrollBar.getFixedDimension(),
+        scrollPane.mInternalRect.getW()
+            - (scrollPane.mVScrollBar.isVisible() ? scrollPane.mVScrollBar.getFixedDimension() : 0),
+        scrollPane.mHScrollBar.getFixedDimension());
 
-		scrollPane.mHScrollBar.setScrollDistance(hScrollDistance);
+    // if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
+    // r.width -= (mVScrollBar.isVisible() ? mVScrollBar.getFixedDimension() : 0);
+    // }
 
-		if (!scrollPane.mHScrollBarNeeded) {
-			scrollPane.mHScrollBar.updateNormalizedScrollPosition(0);
-			scrollPane.setComponentHOffset();
-		}
+    scrollPane.mHScrollBar.setBounds(r);
 
-		//mHScrollBar.setVisible(mHScrollBar.isVisible());
-	}
+    int hScrollDistance = 0;
 
-	/**
-	 * H scrollbar needed.
-	 *
-	 * @return true, if successful
-	 */
-	private boolean hScrollbarNeeded(ModernScrollPane scrollPane) {
-		int w = scrollPane.mInternalRect.getW() - scrollPane.mLeftHeaderOffset;
+    if (scrollPane.mHScrollBarNeeded) {
+      // the width
+      scrollPane.mIntW = scrollPane.getInternalWidth();
 
-		//if (mCanvas != null) {
-		//	return mCanvas.getCanvasSize().getW() > w;
-		//} else {
-		//	return mComponent.getPreferredSize().width > w;
-		//}
-		
-		return scrollPane.mComponent.getPreferredSize().width > w;
-	}
+      if (scrollPane.mVScrollBarNeeded) {
+        // Subtract the fixed dimension if the v scroll bar is visible
+        scrollPane.mIntW -= scrollPane.mVScrollBar.getFixedDimension();
+      }
+
+      // if (mCanvas != null) {
+      // The difference between the screen estate and the width
+      // of the canvas is the scrollable distance
+      // hScrollDistance = Math.max(0,
+      // // mCanvas.getCanvasSize().getW() - mIntW);
+      // } else {
+      // hScrollDistance = Math.max(0,
+      /// mComponent.getPreferredSize().width - mInternalRect.getW());
+      // }
+
+      hScrollDistance = Math.max(0, scrollPane.mComponent.getPreferredSize().width - scrollPane.mInternalRect.getW());
+    }
+
+    scrollPane.mHScrollBar.setScrollDistance(hScrollDistance);
+
+    if (!scrollPane.mHScrollBarNeeded) {
+      scrollPane.mHScrollBar.updateNormalizedScrollPosition(0);
+      scrollPane.setComponentHOffset();
+    }
+
+    // mHScrollBar.setVisible(mHScrollBar.isVisible());
+  }
+
+  /**
+   * H scrollbar needed.
+   *
+   * @return true, if successful
+   */
+  private boolean hScrollbarNeeded(ModernScrollPane scrollPane) {
+    int w = scrollPane.mInternalRect.getW() - scrollPane.mLeftHeaderOffset;
+
+    // if (mCanvas != null) {
+    // return mCanvas.getCanvasSize().getW() > w;
+    // } else {
+    // return mComponent.getPreferredSize().width > w;
+    // }
+
+    return scrollPane.mComponent.getPreferredSize().width > w;
+  }
 }

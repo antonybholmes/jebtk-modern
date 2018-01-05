@@ -32,27 +32,28 @@ package org.jebtk.modern.text;
  * The class ModernLabelBold.
  */
 public class ModernLabelBold extends ModernAutoSizeLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern label bold.
-	 *
-	 * @param text the text
-	 */
-	public ModernLabelBold(String text) {
-		super(text);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setFont(BOLD_FONT);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern label bold.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernLabelBold(String text) {
+    super(text);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setFont(BOLD_FONT);
+  }
 }

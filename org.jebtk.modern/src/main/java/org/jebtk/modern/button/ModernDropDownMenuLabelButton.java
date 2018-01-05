@@ -39,117 +39,127 @@ import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Drop down without highlighting; just shows the 
- * selection text and the drop down arrow.
+ * Drop down without highlighting; just shows the selection text and the drop
+ * down arrow.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDropDownMenuLabelButton extends ModernDropDownWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant SIZE.
-	 */
-	private static final Dimension SIZE = 
-			new Dimension(150, ModernWidget.WIDGET_HEIGHT);
 
-	/**
-	 * The member prefix.
-	 */
-	private String mPrefix = TextUtils.EMPTY_STRING;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The m trunc text. */
-	private String mTruncText;
-	
-	/**
-	 * The class ModernClickEvents.
-	 */
-	private class ModernClickEvents implements ModernClickListener {
+  /**
+   * The constant SIZE.
+   */
+  private static final Dimension SIZE = new Dimension(150, ModernWidget.WIDGET_HEIGHT);
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			setText(mPrefix + e.getMessage());
-		}
-		
-	}
-	
-	/**
-	 * Instantiates a new modern drop down menu label button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernDropDownMenuLabelButton(String text1) {
-		super(text1);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern drop down menu label button.
-	 *
-	 * @param text1 the text1
-	 * @param menu the menu
-	 */
-	public ModernDropDownMenuLabelButton(String text1, 
-			ModernPopupMenu menu) {
-		super(text1, menu);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		//mPrefix = mText1;
-		
-		addClickListener(new ModernClickEvents());
-		
-		UI.setSize(this, SIZE);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.button.ModernButtonWidget#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		super.setText(text);
-		
-		mTruncText = TextUtils.truncate(mText1, 24);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		// Do nothing
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = PADDING;
-		
-		g2.drawString(mTruncText, x, getTextYPosCenter(g2, getHeight()));
-		
-		x = getWidth() - PADDING - 16;
-		
-		// Draw arrow at end of component
-		UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, x, (getHeight() - 16) / 2, 16);
-	}
+  /**
+   * The member prefix.
+   */
+  private String mPrefix = TextUtils.EMPTY_STRING;
+
+  /** The m trunc text. */
+  private String mTruncText;
+
+  /**
+   * The class ModernClickEvents.
+   */
+  private class ModernClickEvents implements ModernClickListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      setText(mPrefix + e.getMessage());
+    }
+
+  }
+
+  /**
+   * Instantiates a new modern drop down menu label button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernDropDownMenuLabelButton(String text1) {
+    super(text1);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern drop down menu label button.
+   *
+   * @param text1
+   *          the text1
+   * @param menu
+   *          the menu
+   */
+  public ModernDropDownMenuLabelButton(String text1, ModernPopupMenu menu) {
+    super(text1, menu);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    // mPrefix = mText1;
+
+    addClickListener(new ModernClickEvents());
+
+    UI.setSize(this, SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.button.ModernButtonWidget#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    super.setText(text);
+
+    mTruncText = TextUtils.truncate(mText1, 24);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    // Do nothing
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = PADDING;
+
+    g2.drawString(mTruncText, x, getTextYPosCenter(g2, getHeight()));
+
+    x = getWidth() - PADDING - 16;
+
+    // Draw arrow at end of component
+    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, x, (getHeight() - 16) / 2, 16);
+  }
 }

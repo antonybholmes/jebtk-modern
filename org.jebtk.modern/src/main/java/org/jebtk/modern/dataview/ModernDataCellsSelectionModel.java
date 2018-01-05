@@ -36,7 +36,6 @@ import org.jebtk.modern.SelectionRangeModel;
 import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.event.ModernSelectionListeners;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * A 2D selection model for coping with row and column selections.
@@ -45,205 +44,214 @@ import org.jebtk.modern.event.ModernSelectionListeners;
  *
  */
 public class ModernDataCellsSelectionModel extends ModernSelectionListeners implements ModernSelectionListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The rows selection model.
-	 */
-	private SelectionRangeModel mRowsSelectionModel = 
-			new SelectionRangeModel();
-	
-	/**
-	 * The columns selection model.
-	 */
-	private SelectionRangeModel mColumnsSelectionModel = 
-			new SelectionRangeModel();
-	
-	
-	/**
-	 * Instantiates a new modern data cells selection model.
-	 */
-	public ModernDataCellsSelectionModel() {
-		mRowsSelectionModel.addSelectionListener(this);
-		mColumnsSelectionModel.addSelectionListener(this);
-	}
-	
-	/**
-	 * Gets the row selection model.
-	 *
-	 * @return the row selection model
-	 */
-	public SelectionRangeModel getRowSelectionModel() {
-		return mRowsSelectionModel;
-	}
-	
-	/**
-	 * Gets the column selection model.
-	 *
-	 * @return the column selection model
-	 */
-	public SelectionRangeModel getColumnSelectionModel() {
-		return mColumnsSelectionModel;
-	}
-	
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		mRowsSelectionModel.clear();
-		mColumnsSelectionModel.clear();
-	}
-	
-	/**
-	 * First.
-	 *
-	 * @return the modern data cell
-	 */
-	public ModernDataCell first() {
-		if (mRowsSelectionModel.size() == 0 || mColumnsSelectionModel.size() == 0) {
-			return null;
-		}
-		
-		return new ModernDataCell(mRowsSelectionModel.first(), mColumnsSelectionModel.first());
-	}
-	
-	/**
-	 * Last.
-	 *
-	 * @return the modern data cell
-	 */
-	public ModernDataCell last() {
-		//System.err.println("last " + rowsSelectionModel.size() + " " + columnsSelectionModel.size());
-		
-		if (mRowsSelectionModel.size() == 0 || mColumnsSelectionModel.size() == 0) {
-			return null;
-		}
-		
-		return new ModernDataCell(mRowsSelectionModel.last(), mColumnsSelectionModel.last());
-	}
-	
-	/**
-	 * Returns a list of row column order cells that are
-	 * selected in the table.
-	 *
-	 * @return the selected cells
-	 */
-	public List<ModernDataCell> getSelectedCells() {
-		List<ModernDataCell> cells = new ArrayList<ModernDataCell>();
-		
-		if (mRowsSelectionModel.size() == 0 || mColumnsSelectionModel.size() == 0) {
-			return cells;
-		}
-		
-		for (int i : mRowsSelectionModel) {
-			for (int j : mColumnsSelectionModel) {
-				cells.add(new ModernDataCell(i, j));
-			}
-		}
-		
-		return cells;
-	}
-	
 
-	/**
-	 * Size.
-	 *
-	 * @return the int
-	 */
-	public int size() {
-		return mRowsSelectionModel.size() * mColumnsSelectionModel.size();
-	}
-	
-	/**
-	 * Gets the selected col.
-	 *
-	 * @return the selected col
-	 */
-	public int getSelectedCol() {
-		if (mColumnsSelectionModel.size() == 0) {
-			return -1;
-		}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		return mColumnsSelectionModel.last();
-	}
+  /**
+   * The rows selection model.
+   */
+  private SelectionRangeModel mRowsSelectionModel = new SelectionRangeModel();
 
-	/**
-	 * Gets the selected row.
-	 *
-	 * @return the selected row
-	 */
-	public int getSelectedRow() {
-		if (mRowsSelectionModel.size() == 0) {
-			return -1;
-		}
+  /**
+   * The columns selection model.
+   */
+  private SelectionRangeModel mColumnsSelectionModel = new SelectionRangeModel();
 
-		return mRowsSelectionModel.last();
-	}
-	
-	/**
-	 * Returns true if the cell at the row and column
-	 * is within the selection.
-	 *
-	 * @param row the row
-	 * @param column the column
-	 * @return true, if successful
-	 */
-	public boolean contains(int row, int column) {
-		return mRowsSelectionModel.contains(row) && mColumnsSelectionModel.contains(column);
-	}
+  /**
+   * Instantiates a new modern data cells selection model.
+   */
+  public ModernDataCellsSelectionModel() {
+    mRowsSelectionModel.addSelectionListener(this);
+    mColumnsSelectionModel.addSelectionListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void selectionChanged(ChangeEvent e) {
-		fireSelectionChanged(new ChangeEvent(this));
-	}
+  /**
+   * Gets the row selection model.
+   *
+   * @return the row selection model
+   */
+  public SelectionRangeModel getRowSelectionModel() {
+    return mRowsSelectionModel;
+  }
 
-	/**
-	 * Sets the modern selection.
-	 *
-	 * @param rs the rs
-	 * @param re the re
-	 * @param cs the cs
-	 * @param ce the ce
-	 */
-	public void setSelection(int rs, int re, int cs, int ce) {
-		mRowsSelectionModel.setSelectionInterval(rs, re);
-		mColumnsSelectionModel.setSelectionInterval(cs, ce);
-	}
-	
-	/**
-	 * Sets the modern selection.
-	 *
-	 * @param r the r
-	 * @param c the c
-	 */
-	public void setSelection(int r, int c) {
-		mRowsSelectionModel.setSelection(r);
-		mColumnsSelectionModel.setSelection(c);
-	}
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param r the r
-	 * @param c the c
-	 */
-	public void add(int r, int c) {
-		mRowsSelectionModel.add(r);
-		mColumnsSelectionModel.add(c);
-	}
+  /**
+   * Gets the column selection model.
+   *
+   * @return the column selection model
+   */
+  public SelectionRangeModel getColumnSelectionModel() {
+    return mColumnsSelectionModel;
+  }
 
-	/**
-	 * Fire selection changed.
-	 */
-	public void fireSelectionChanged() {
-		fireSelectionChanged(new ChangeEvent(this));
-	}
+  /**
+   * Clear.
+   */
+  public void clear() {
+    mRowsSelectionModel.clear();
+    mColumnsSelectionModel.clear();
+  }
+
+  /**
+   * First.
+   *
+   * @return the modern data cell
+   */
+  public ModernDataCell first() {
+    if (mRowsSelectionModel.size() == 0 || mColumnsSelectionModel.size() == 0) {
+      return null;
+    }
+
+    return new ModernDataCell(mRowsSelectionModel.first(), mColumnsSelectionModel.first());
+  }
+
+  /**
+   * Last.
+   *
+   * @return the modern data cell
+   */
+  public ModernDataCell last() {
+    // System.err.println("last " + rowsSelectionModel.size() + " " +
+    // columnsSelectionModel.size());
+
+    if (mRowsSelectionModel.size() == 0 || mColumnsSelectionModel.size() == 0) {
+      return null;
+    }
+
+    return new ModernDataCell(mRowsSelectionModel.last(), mColumnsSelectionModel.last());
+  }
+
+  /**
+   * Returns a list of row column order cells that are selected in the table.
+   *
+   * @return the selected cells
+   */
+  public List<ModernDataCell> getSelectedCells() {
+    List<ModernDataCell> cells = new ArrayList<ModernDataCell>();
+
+    if (mRowsSelectionModel.size() == 0 || mColumnsSelectionModel.size() == 0) {
+      return cells;
+    }
+
+    for (int i : mRowsSelectionModel) {
+      for (int j : mColumnsSelectionModel) {
+        cells.add(new ModernDataCell(i, j));
+      }
+    }
+
+    return cells;
+  }
+
+  /**
+   * Size.
+   *
+   * @return the int
+   */
+  public int size() {
+    return mRowsSelectionModel.size() * mColumnsSelectionModel.size();
+  }
+
+  /**
+   * Gets the selected col.
+   *
+   * @return the selected col
+   */
+  public int getSelectedCol() {
+    if (mColumnsSelectionModel.size() == 0) {
+      return -1;
+    }
+
+    return mColumnsSelectionModel.last();
+  }
+
+  /**
+   * Gets the selected row.
+   *
+   * @return the selected row
+   */
+  public int getSelectedRow() {
+    if (mRowsSelectionModel.size() == 0) {
+      return -1;
+    }
+
+    return mRowsSelectionModel.last();
+  }
+
+  /**
+   * Returns true if the cell at the row and column is within the selection.
+   *
+   * @param row
+   *          the row
+   * @param column
+   *          the column
+   * @return true, if successful
+   */
+  public boolean contains(int row, int column) {
+    return mRowsSelectionModel.contains(row) && mColumnsSelectionModel.contains(column);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
+   * lib.event.ChangeEvent)
+   */
+  @Override
+  public void selectionChanged(ChangeEvent e) {
+    fireSelectionChanged(new ChangeEvent(this));
+  }
+
+  /**
+   * Sets the modern selection.
+   *
+   * @param rs
+   *          the rs
+   * @param re
+   *          the re
+   * @param cs
+   *          the cs
+   * @param ce
+   *          the ce
+   */
+  public void setSelection(int rs, int re, int cs, int ce) {
+    mRowsSelectionModel.setSelectionInterval(rs, re);
+    mColumnsSelectionModel.setSelectionInterval(cs, ce);
+  }
+
+  /**
+   * Sets the modern selection.
+   *
+   * @param r
+   *          the r
+   * @param c
+   *          the c
+   */
+  public void setSelection(int r, int c) {
+    mRowsSelectionModel.setSelection(r);
+    mColumnsSelectionModel.setSelection(c);
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param r
+   *          the r
+   * @param c
+   *          the c
+   */
+  public void add(int r, int c) {
+    mRowsSelectionModel.add(r);
+    mColumnsSelectionModel.add(c);
+  }
+
+  /**
+   * Fire selection changed.
+   */
+  public void fireSelectionChanged() {
+    fireSelectionChanged(new ChangeEvent(this));
+  }
 
 }

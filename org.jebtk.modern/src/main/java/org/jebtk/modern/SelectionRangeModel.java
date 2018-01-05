@@ -40,330 +40,344 @@ import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.event.ModernSelectionListeners;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * ModernSelection model to determine which rows are selected in a list, table, tree etc.
+ * ModernSelection model to determine which rows are selected in a list, table,
+ * tree etc.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class SelectionRangeModel extends ModernSelectionListeners implements Iterable<Integer> {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant SELECTION_CHANGED.
-	 */
-	public static final String SELECTION_CHANGED = "selection_changed";
-	//public static final String SELECTION_CLEARED = "selection_cleared";
-	//public static final String SELECTION_ADDED = "selection_added";
-	
-	/**
-	 * The member selection set.
-	 */
-	private Set<Integer> mSelectionSet = new HashSet<Integer>(100);
-	
-	/**
-	 * The member selection.
-	 */
-	private List<Integer> mSelection = new ArrayList<Integer>(100);
 
-	/**
-	 * The member fire.
-	 */
-	private boolean mFire = true;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The m enabled. */
-	private boolean mEnabled = true;
+  /**
+   * The constant SELECTION_CHANGED.
+   */
+  public static final String SELECTION_CHANGED = "selection_changed";
+  // public static final String SELECTION_CLEARED = "selection_cleared";
+  // public static final String SELECTION_ADDED = "selection_added";
 
-	/** The m current. */
-	private int mCurrent = -1;
+  /**
+   * The member selection set.
+   */
+  private Set<Integer> mSelectionSet = new HashSet<Integer>(100);
 
-	private int mPrevious = -1;
+  /**
+   * The member selection.
+   */
+  private List<Integer> mSelection = new ArrayList<Integer>(100);
 
-	/**
-	 * Sets the selection interval.
-	 *
-	 * @param s the s
-	 * @param e the e
-	 */
-	public void setSelectionInterval(int s, int e) {
-		int min = Math.min(s, e);
-		
-		int max = Math.max(s, e);
-		
-		removeAll();
-		
-		addSelectionInterval(min, max);
-	}
-	
-	/**
-	 * Adds the selection interval.
-	 *
-	 * @param s the s
-	 * @param e the e
-	 */
-	public void addSelectionInterval(int s, int e) {
-		if (!mEnabled) {
-			return;
-		}
-		
-		for (int i = s; i <= e; ++i) {
-			mSelectionSet.add(i);
-		}
-		
-		mCurrent = e;
+  /**
+   * The member fire.
+   */
+  private boolean mFire = true;
 
-		update();
-	}
-	
-	/**
-	 * Remove a selected node.
-	 *
-	 * @param index the index
-	 */
-	public void remove(int index) {
-		if (mCurrent == index) {
-			mCurrent = -1;
-		}
-		
-		mSelectionSet.remove(index);
-		
-		update();
-	}
+  /** The m enabled. */
+  private boolean mEnabled = true;
 
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		removeAll();
+  /** The m current. */
+  private int mCurrent = -1;
 
-		update();
-	}
-	
-	/**
-	 * Removes the all.
-	 */
-	public void removeAll() {
-		//mPrevious = -1;
-		//mCurrent = -1;
-		mSelectionSet.clear();
-	}
-	
-	/**
-	 * Update.
-	 */
-	public void update() {
-		mSelection = CollectionUtils.sort(mSelectionSet);
-		
-		if (mFire) {
-			//System.err.println("ModernSelection changed " + selection.toString());
-			
-			fireSelectionChanged();
-		}
-	}
+  private int mPrevious = -1;
 
+  /**
+   * Sets the selection interval.
+   *
+   * @param s
+   *          the s
+   * @param e
+   *          the e
+   */
+  public void setSelectionInterval(int s, int e) {
+    int min = Math.min(s, e);
 
-	/**
-	 * Fire selection changed.
-	 */
-	public void fireSelectionChanged() {
-		fireSelectionChanged(new ChangeEvent(this));
-	}
+    int max = Math.max(s, e);
 
-	/**
-	 * Add a row to the selection.
-	 *
-	 * @param index the row
-	 */
-	public void add(int index) {
-		update(index);
+    removeAll();
 
-		update();
-	}
-	
-	/**
-	 * Add a new item to the selection model.
-	 *
-	 * @param index the index
-	 */
-	public void update(int index) {
-		if (!mEnabled) {
-			return;
-		}
-		
-		mSelectionSet.add(index);
-		
-		mPrevious = mCurrent;
-		mCurrent = index;
-	}
-	
-	/**
-	 * Returns true if an index exists in the selection.
-	 *
-	 * @param i the i
-	 * @return Returns true if an i exists in the selection, false otherwise.
-	 */
-	public boolean contains(int i) {
-		return mSelectionSet.contains(i);
-	}
-	
-	/**
-	 * Return the first selectable index.
-	 *
-	 * @return the int
-	 */
-	public int first() {
-		if (mSelection.size() == 0) {
-			return -1;
-		}
-		
-		return mSelection.get(0);
-	}
-	
-	/**
-	 * Return the currently selected item (the last item that was added
-	 * even if the sorted order of items means this index appears in the
-	 * middle).
-	 *
-	 * @return the current
-	 */
-	public int getCurrent() {
-		return mCurrent;
-	}
-	
-	/**
-	 * Return the last previously selected item or -1 otherwise.
-	 *
-	 * @return the current
-	 */
-	public int getPrevious() {
-		return mPrevious;
-	}
-	
+    addSelectionInterval(min, max);
+  }
 
-	/**
-	 * Last.
-	 *
-	 * @return the int
-	 */
-	public int last() {
-		if (mSelection.size() == 0) {
-			return -1;
-		}
-		
-		return mSelection.get(mSelection.size() - 1);
-	}
-	
-	/**
-	 * Gets the.
-	 *
-	 * @param index the index
-	 * @return the int
-	 */
-	public int get(int index) {
-		if (index < 0 || index >= mSelection.size()) {
-			return -1;
-		}
-		
-		return mSelection.get(index);
-	}
-	
-	/**
-	 * Size.
-	 *
-	 * @return the int
-	 */
-	public int size() {
-		return mSelectionSet.size();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	public Iterator<Integer> iterator() {
-		return mSelection.iterator();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	public String toString() {
-		return TextUtils.join(mSelection, TextUtils.COMMA_DELIMITER);
-	}
+  /**
+   * Adds the selection interval.
+   *
+   * @param s
+   *          the s
+   * @param e
+   *          the e
+   */
+  public void addSelectionInterval(int s, int e) {
+    if (!mEnabled) {
+      return;
+    }
 
-	/**
-	 * Sets the selection.
-	 *
-	 * @param indices the new selection
-	 */
-	public void setSelection(List<Integer> indices) {
-		removeAll();
-		
-		addSelection(indices);
-	}
-	
-	/**
-	 * Sets the selection.
-	 *
-	 * @param i the new selection
-	 */
-	public void setSelection(int i) {
-		removeAll();
-			
-		add(i);
-	}
+    for (int i = s; i <= e; ++i) {
+      mSelectionSet.add(i);
+    }
 
-	/**
-	 * Add multiple indices to the selection.
-	 *
-	 * @param indices the indices
-	 */
-	public void addSelection(List<Integer> indices) {
-		if (!mEnabled) {
-			return;
-		}
-		
-		for (int i : indices) {
-			mSelectionSet.add(i);
-		}
+    mCurrent = e;
 
-		update();
-	}
+    update();
+  }
 
-	/**
-	 * Sets whether the selection model reports changes
-	 * or not.
-	 *
-	 * @param fire the new fire changes
-	 */
-	public void setFireChanges(boolean fire) {
-		mFire = fire;
-	}
+  /**
+   * Remove a selected node.
+   *
+   * @param index
+   *          the index
+   */
+  public void remove(int index) {
+    if (mCurrent == index) {
+      mCurrent = -1;
+    }
 
-	/**
-	 * Sets the enabled.
-	 *
-	 * @param enabled the new enabled
-	 */
-	public void setEnabled(boolean enabled) {
-		mEnabled = enabled;
-	}
+    mSelectionSet.remove(index);
 
-	/**
-	 * Returns a list of the indices.
-	 *
-	 * @return the selected indices
-	 */
-	public List<Integer> getSelectedIndices() {
-		List<Integer> ret = new ArrayList<Integer>(mSelection);
+    update();
+  }
 
-		Collections.sort(ret);
+  /**
+   * Clear.
+   */
+  public void clear() {
+    removeAll();
 
-		return ret;
-	}
+    update();
+  }
+
+  /**
+   * Removes the all.
+   */
+  public void removeAll() {
+    // mPrevious = -1;
+    // mCurrent = -1;
+    mSelectionSet.clear();
+  }
+
+  /**
+   * Update.
+   */
+  public void update() {
+    mSelection = CollectionUtils.sort(mSelectionSet);
+
+    if (mFire) {
+      // System.err.println("ModernSelection changed " + selection.toString());
+
+      fireSelectionChanged();
+    }
+  }
+
+  /**
+   * Fire selection changed.
+   */
+  public void fireSelectionChanged() {
+    fireSelectionChanged(new ChangeEvent(this));
+  }
+
+  /**
+   * Add a row to the selection.
+   *
+   * @param index
+   *          the row
+   */
+  public void add(int index) {
+    update(index);
+
+    update();
+  }
+
+  /**
+   * Add a new item to the selection model.
+   *
+   * @param index
+   *          the index
+   */
+  public void update(int index) {
+    if (!mEnabled) {
+      return;
+    }
+
+    mSelectionSet.add(index);
+
+    mPrevious = mCurrent;
+    mCurrent = index;
+  }
+
+  /**
+   * Returns true if an index exists in the selection.
+   *
+   * @param i
+   *          the i
+   * @return Returns true if an i exists in the selection, false otherwise.
+   */
+  public boolean contains(int i) {
+    return mSelectionSet.contains(i);
+  }
+
+  /**
+   * Return the first selectable index.
+   *
+   * @return the int
+   */
+  public int first() {
+    if (mSelection.size() == 0) {
+      return -1;
+    }
+
+    return mSelection.get(0);
+  }
+
+  /**
+   * Return the currently selected item (the last item that was added even if the
+   * sorted order of items means this index appears in the middle).
+   *
+   * @return the current
+   */
+  public int getCurrent() {
+    return mCurrent;
+  }
+
+  /**
+   * Return the last previously selected item or -1 otherwise.
+   *
+   * @return the current
+   */
+  public int getPrevious() {
+    return mPrevious;
+  }
+
+  /**
+   * Last.
+   *
+   * @return the int
+   */
+  public int last() {
+    if (mSelection.size() == 0) {
+      return -1;
+    }
+
+    return mSelection.get(mSelection.size() - 1);
+  }
+
+  /**
+   * Gets the.
+   *
+   * @param index
+   *          the index
+   * @return the int
+   */
+  public int get(int index) {
+    if (index < 0 || index >= mSelection.size()) {
+      return -1;
+    }
+
+    return mSelection.get(index);
+  }
+
+  /**
+   * Size.
+   *
+   * @return the int
+   */
+  public int size() {
+    return mSelectionSet.size();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  public Iterator<Integer> iterator() {
+    return mSelection.iterator();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#toString()
+   */
+  public String toString() {
+    return TextUtils.join(mSelection, TextUtils.COMMA_DELIMITER);
+  }
+
+  /**
+   * Sets the selection.
+   *
+   * @param indices
+   *          the new selection
+   */
+  public void setSelection(List<Integer> indices) {
+    removeAll();
+
+    addSelection(indices);
+  }
+
+  /**
+   * Sets the selection.
+   *
+   * @param i
+   *          the new selection
+   */
+  public void setSelection(int i) {
+    removeAll();
+
+    add(i);
+  }
+
+  /**
+   * Add multiple indices to the selection.
+   *
+   * @param indices
+   *          the indices
+   */
+  public void addSelection(List<Integer> indices) {
+    if (!mEnabled) {
+      return;
+    }
+
+    for (int i : indices) {
+      mSelectionSet.add(i);
+    }
+
+    update();
+  }
+
+  /**
+   * Sets whether the selection model reports changes or not.
+   *
+   * @param fire
+   *          the new fire changes
+   */
+  public void setFireChanges(boolean fire) {
+    mFire = fire;
+  }
+
+  /**
+   * Sets the enabled.
+   *
+   * @param enabled
+   *          the new enabled
+   */
+  public void setEnabled(boolean enabled) {
+    mEnabled = enabled;
+  }
+
+  /**
+   * Returns a list of the indices.
+   *
+   * @return the selected indices
+   */
+  public List<Integer> getSelectedIndices() {
+    List<Integer> ret = new ArrayList<Integer>(mSelection);
+
+    Collections.sort(ret);
+
+    return ret;
+  }
 }

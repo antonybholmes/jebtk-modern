@@ -38,30 +38,33 @@ import org.jebtk.modern.table.ModernTable;
  */
 public class ModernTableScrollerH extends ModernTableScroller {
 
-	/**
-	 * Instantiates a new modern table scroller H.
-	 *
-	 * @param table the table
-	 */
-	public ModernTableScrollerH(ModernTable table) {
-		super(table);
-	}
+  /**
+   * Instantiates a new modern table scroller H.
+   *
+   * @param table
+   *          the table
+   */
+  public ModernTableScrollerH(ModernTable table) {
+    super(table);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.ComponentScroller#wheelScroll(int, org.abh.common.ui.graphics.ModernCanvas, org.abh.common.ui.scrollpane.ModernScrollBar)
-	 */
-	@Override
-	public void wheelScroll(int notches, 
-			Component c,
-			ModernScrollBar scrollBar) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.scrollpane.ComponentScroller#wheelScroll(int,
+   * org.abh.common.ui.graphics.ModernCanvas,
+   * org.abh.common.ui.scrollpane.ModernScrollBar)
+   */
+  @Override
+  public void wheelScroll(int notches, Component c, ModernScrollBar scrollBar) {
 
-		ModernDataSelection range = mTable.calculateVisibleCells();
+    ModernDataSelection range = mTable.calculateVisibleCells();
 
-		int width = mTable.getColumnModel().getWidth(range.getStartCol());
+    int width = mTable.getColumnModel().getWidth(range.getStartCol());
 
-		double p = scrollBar.normalize(width) * Math.signum(notches); // * notches;
+    double p = scrollBar.normalize(width) * Math.signum(notches); // * notches;
 
-		scrollBar.incrementNormalizedScrollPosition(p);
+    scrollBar.incrementNormalizedScrollPosition(p);
 
-	}
+  }
 }

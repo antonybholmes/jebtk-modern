@@ -35,107 +35,114 @@ import java.util.Map;
  * The class StatusService.
  */
 public class StatusService {
-	/**
-	 * The constant DEFAULT_CHANNEL.
-	 */
-	private static final String DEFAULT_CHANNEL = "default";
+  /**
+   * The constant DEFAULT_CHANNEL.
+   */
+  private static final String DEFAULT_CHANNEL = "default";
 
-	/**
-	 * The Class StatusServiceHelper.
-	 */
-	private static class StatusServiceHelper{
-		
-		/** The Constant INSTANCE. */
-		private static final StatusService INSTANCE = new StatusService();
-	}
+  /**
+   * The Class StatusServiceHelper.
+   */
+  private static class StatusServiceHelper {
 
-	/**
-	 * Gets the single instance of StatusService.
-	 *
-	 * @return single instance of StatusService
-	 */
-	public static StatusService getInstance(){
-		return StatusServiceHelper.INSTANCE;
-	}
+    /** The Constant INSTANCE. */
+    private static final StatusService INSTANCE = new StatusService();
+  }
 
-	/**
-	 * The member models.
-	 */
-	private Map<String, StatusModel> mModels = 
-			new HashMap<String, StatusModel>();
+  /**
+   * Gets the single instance of StatusService.
+   *
+   * @return single instance of StatusService
+   */
+  public static StatusService getInstance() {
+    return StatusServiceHelper.INSTANCE;
+  }
 
-	/**
-	 * Instantiates a new status service.
-	 */
-	private StatusService() {
-		// Do nothing
-	}
+  /**
+   * The member models.
+   */
+  private Map<String, StatusModel> mModels = new HashMap<String, StatusModel>();
 
-	/**
-	 * Register.
-	 *
-	 * @param l the l
-	 */
-	public void register(StatusEventListener l) {
-		register(DEFAULT_CHANNEL, l);
-	}
+  /**
+   * Instantiates a new status service.
+   */
+  private StatusService() {
+    // Do nothing
+  }
 
-	/**
-	 * Register.
-	 *
-	 * @param channel the channel
-	 * @param l the l
-	 */
-	public void register(String channel, StatusEventListener l) {
-		getModel(channel).addStatusListener(l);
-	}
+  /**
+   * Register.
+   *
+   * @param l
+   *          the l
+   */
+  public void register(StatusEventListener l) {
+    register(DEFAULT_CHANNEL, l);
+  }
 
-	/**
-	 * Gets the model.
-	 *
-	 * @param channel the channel
-	 * @return the model
-	 */
-	private synchronized StatusModel getModel(String channel) {
-		if (!mModels.containsKey(channel)) {
-			mModels.put(channel, new StatusModel());
-		}
+  /**
+   * Register.
+   *
+   * @param channel
+   *          the channel
+   * @param l
+   *          the l
+   */
+  public void register(String channel, StatusEventListener l) {
+    getModel(channel).addStatusListener(l);
+  }
 
-		return mModels.get(channel);
-	}
+  /**
+   * Gets the model.
+   *
+   * @param channel
+   *          the channel
+   * @return the model
+   */
+  private synchronized StatusModel getModel(String channel) {
+    if (!mModels.containsKey(channel)) {
+      mModels.put(channel, new StatusModel());
+    }
 
-	/**
-	 * Sets the status.
-	 *
-	 * @param status the new status
-	 */
-	public void setStatus(String status) {
-		setStatus(DEFAULT_CHANNEL, status);
-	}
+    return mModels.get(channel);
+  }
 
-	/**
-	 * Sets the status.
-	 *
-	 * @param channel the channel
-	 * @param status the status
-	 */
-	public void setStatus(String channel, String status) {
-		getModel(channel).setStatus(status);
-	}
+  /**
+   * Sets the status.
+   *
+   * @param status
+   *          the new status
+   */
+  public void setStatus(String status) {
+    setStatus(DEFAULT_CHANNEL, status);
+  }
 
-	/**
-	 * Sets the ready.
-	 */
-	public void setReady() {
-		setReady(DEFAULT_CHANNEL);
-	}
+  /**
+   * Sets the status.
+   *
+   * @param channel
+   *          the channel
+   * @param status
+   *          the status
+   */
+  public void setStatus(String channel, String status) {
+    getModel(channel).setStatus(status);
+  }
 
-	/**
-	 * Sets the ready.
-	 *
-	 * @param channel the new ready
-	 */
-	public void setReady(String channel) {
-		getModel(channel).setReady();
-	}
+  /**
+   * Sets the ready.
+   */
+  public void setReady() {
+    setReady(DEFAULT_CHANNEL);
+  }
+
+  /**
+   * Sets the ready.
+   *
+   * @param channel
+   *          the new ready
+   */
+  public void setReady(String channel) {
+    getModel(channel).setReady();
+  }
 }

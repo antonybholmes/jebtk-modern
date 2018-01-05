@@ -29,15 +29,14 @@ package org.jebtk.modern.ribbon;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonFileMenuContentPanel.
  */
 public class RibbonFileMenuContentPanel extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 }

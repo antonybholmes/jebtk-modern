@@ -29,21 +29,20 @@ package org.jebtk.modern.splitpane;
 
 // TODO: Auto-generated Javadoc
 /**
- * Represents a horizontal split pane that uses a solid line to separate
- * two components.
+ * Represents a horizontal split pane that uses a solid line to separate two
+ * components.
  */
 public class ModernHSplitPaneLine extends HSplitPane {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern H split pane line.
-	 */
-	public ModernHSplitPaneLine() {
-		setDividerWidth(0);
-		
-		setBackgroundAnimations("splitpane-hoz-line");
-	}
+  /**
+   * Instantiates a new modern H split pane line.
+   */
+  public ModernHSplitPaneLine() {
+    setDividerWidth(0);
+
+    setBackgroundAnimations("splitpane-hoz-line");
+  }
 }

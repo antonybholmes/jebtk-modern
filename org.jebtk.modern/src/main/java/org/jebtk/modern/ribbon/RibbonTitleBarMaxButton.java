@@ -41,36 +41,41 @@ import org.jebtk.modern.window.WindowService;
  */
 public class RibbonTitleBarMaxButton extends RibbonTitleBarButton implements ModernClickListener {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m window. */
-	private ModernWindow mWindow;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon title bar max button.
-	 *
-	 * @param window the window
-	 */
-	public RibbonTitleBarMaxButton(ModernWindow window) {
-		super(new Raster16Icon(new WindowMaxVectorIcon(DARK_LINE_COLOR)));
+  /** The m window. */
+  private ModernWindow mWindow;
 
-		mWindow = window;
+  /**
+   * Instantiates a new ribbon title bar max button.
+   *
+   * @param window
+   *          the window
+   */
+  public RibbonTitleBarMaxButton(ModernWindow window) {
+    super(new Raster16Icon(new WindowMaxVectorIcon(DARK_LINE_COLOR)));
 
-		setClickMessage(UI.MENU_MAXIMIZE);
+    mWindow = window;
 
-		addClickListener(this);
-		
-		setToolTip("Maximize", "Maximize the window.");
-	}
+    setClickMessage(UI.MENU_MAXIMIZE);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		WindowService.getInstance().autoMaximize(mWindow);
-	}
+    addClickListener(this);
+
+    setToolTip("Maximize", "Maximize the window.");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
+   * ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    WindowService.getInstance().autoMaximize(mWindow);
+  }
 }

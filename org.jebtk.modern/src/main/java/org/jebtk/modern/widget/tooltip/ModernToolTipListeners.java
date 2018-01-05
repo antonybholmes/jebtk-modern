@@ -37,32 +37,43 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class ModernToolTipListeners extends EventProducer<ModernToolTipListener> implements ModernToolTipEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tooltip.ModernToolTipEventProducer#addToolTipListener(org.abh.lib.ui.modern.tooltip.ModernToolTipListener)
-	 */
-	public void addToolTipListener(ModernToolTipListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tooltip.ModernToolTipEventProducer#removeToolTipListener(org.abh.lib.ui.modern.tooltip.ModernToolTipListener)
-	 */
-	public void removeToolTipListener(ModernToolTipListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tooltip.ModernToolTipEventProducer#fireToolTipChanged(org.abh.lib.ui.modern.tooltip.ModernToolTipEvent)
-	 */
-	public void fireToolTipChanged(ModernToolTipEvent e) {
-		for (ModernToolTipListener l : mListeners) {
-			l.tooltipChanged(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipEventProducer#addToolTipListener(
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipListener)
+   */
+  public void addToolTipListener(ModernToolTipListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.tooltip.ModernToolTipEventProducer#
+   * removeToolTipListener(org.abh.lib.ui.modern.tooltip.ModernToolTipListener)
+   */
+  public void removeToolTipListener(ModernToolTipListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipEventProducer#fireToolTipChanged(
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipEvent)
+   */
+  public void fireToolTipChanged(ModernToolTipEvent e) {
+    for (ModernToolTipListener l : mListeners) {
+      l.tooltipChanged(e);
+    }
+  }
 }

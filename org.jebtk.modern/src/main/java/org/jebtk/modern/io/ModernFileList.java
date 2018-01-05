@@ -40,16 +40,16 @@ import org.jebtk.modern.list.ModernList;
  */
 public class ModernFileList extends ModernList<Path> {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new modern file list.
-	 */
-	public ModernFileList() {
-		setCellRenderer(new ModernListFileRenderer());
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern file list.
+   */
+  public ModernFileList() {
+    setCellRenderer(new ModernListFileRenderer());
+  }
 
 }

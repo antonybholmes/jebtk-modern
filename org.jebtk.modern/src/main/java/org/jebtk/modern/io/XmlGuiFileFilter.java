@@ -32,19 +32,21 @@ package org.jebtk.modern.io;
  * The class JpgGuiFileFilter.
  */
 public class XmlGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new jpg gui file filter.
-	 */
-	public XmlGuiFileFilter() {
-		super("xml");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return "XML (*.xml)";
-	}
+  /**
+   * Instantiates a new jpg gui file filter.
+   */
+  public XmlGuiFileFilter() {
+    super("xml");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return "XML (*.xml)";
+  }
 }

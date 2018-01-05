@@ -31,58 +31,71 @@ import org.jebtk.core.event.ChangeEvent;
 
 import org.jebtk.core.event.EventProducer;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides the ability to register and unregister ModernClickEventListeners
- * for controls and provides standard functions to interface with {
+ * Provides the ability to register and unregister ModernClickEventListeners for
+ * controls and provides standard functions to interface with {
  * EventListenerList by taking care of casting etc.
  *
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDataViewListeners extends EventProducer<ModernDataViewListener> implements ModernDataViewEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant DATA_CHANGED.
-	 */
-	public static final String DATA_CHANGED = "data_changed";
+public class ModernDataViewListeners extends EventProducer<ModernDataViewListener>
+    implements ModernDataViewEventProducer {
 
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#addDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
-	 */
-	public void addDataViewListener(ModernDataViewListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#removeDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
-	 */
-	public void removeDataViewListener(ModernDataViewListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#fireDataChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireDataChanged(ChangeEvent e) {
-		for (ModernDataViewListener l : mListeners) {
-			l.dataChanged(e);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#fireDataUpdated(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireDataUpdated(ChangeEvent e) {
-		for (ModernDataViewListener l : mListeners) {
-			l.dataUpdated(e);
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant DATA_CHANGED.
+   */
+  public static final String DATA_CHANGED = "data_changed";
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#
+   * addDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
+   */
+  public void addDataViewListener(ModernDataViewListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#
+   * removeDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
+   */
+  public void removeDataViewListener(ModernDataViewListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#fireDataChanged(
+   * org.abh.lib.event.ChangeEvent)
+   */
+  public void fireDataChanged(ChangeEvent e) {
+    for (ModernDataViewListener l : mListeners) {
+      l.dataChanged(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#fireDataUpdated(
+   * org.abh.lib.event.ChangeEvent)
+   */
+  public void fireDataUpdated(ChangeEvent e) {
+    for (ModernDataViewListener l : mListeners) {
+      l.dataUpdated(e);
+    }
+  }
 }

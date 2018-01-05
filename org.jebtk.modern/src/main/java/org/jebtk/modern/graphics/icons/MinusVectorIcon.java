@@ -32,54 +32,57 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.settings.SettingsService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class MinusVectorIcon.
  */
 public class MinusVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant SCALE.
-	 */
-	protected static final double SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.plus-icon.width-scale");
-	
-	/**
-	 * The color.
-	 */
-	private Color mColor;
-	
-	/**
-	 * Instantiates a new minus vector icon.
-	 */
-	public MinusVectorIcon() {
-		this(SettingsService.getInstance().getAsColor("theme.icons.plus-icon.colors.foreground"));
-	}
-	
-	/**
-	 * Instantiates a new minus vector icon.
-	 *
-	 * @param color the color
-	 */
-	public MinusVectorIcon( Color color) {
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		//g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-		g2.setColor(mColor);
-		
-		double wf = w * SCALE;
-		double w2 = wf / 2.0;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - wf) / 2.0;
-		
-		g2.drawLine((int)Math.round(xf), (int)Math.round(yf + w2), (int)Math.round(xf + wf), (int)Math.round(yf + w2));
-	}
+
+  /**
+   * The constant SCALE.
+   */
+  protected static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.plus-icon.width-scale");
+
+  /**
+   * The color.
+   */
+  private Color mColor;
+
+  /**
+   * Instantiates a new minus vector icon.
+   */
+  public MinusVectorIcon() {
+    this(SettingsService.getInstance().getAsColor("theme.icons.plus-icon.colors.foreground"));
+  }
+
+  /**
+   * Instantiates a new minus vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public MinusVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+    g2.setColor(mColor);
+
+    double wf = w * SCALE;
+    double w2 = wf / 2.0;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - wf) / 2.0;
+
+    g2.drawLine((int) Math.round(xf), (int) Math.round(yf + w2), (int) Math.round(xf + wf), (int) Math.round(yf + w2));
+  }
 }

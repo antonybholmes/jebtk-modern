@@ -40,7 +40,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Status bar for updating users.
@@ -49,140 +48,139 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernStatusBar extends ModernComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/** The Constant STATUS_BORDER. */
-	private static final Border STATUS_BORDER = 
-			BorderService.getInstance().createBorder(1);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member status label.
-	 */
-	private ModernStatusLabel mStatusLabel = 
-			new ModernStatusLabel(UI.STATUS_READY);
-	
-	/**
-	 * The member model.
-	 */
-	private StatusModel mModel = new StatusModel();
-	
-	/** The m L box. */
-	private Box mLBox = HBox.create();
-	
-	/** The m C box. */
-	private Box mCBox = HBox.create();
-	
-	/** The m R box. */
-	private Box mRBox = HBox.create();
-	
-	/**
-	 * Instantiates a new modern status bar.
-	 */
-	public ModernStatusBar() {
-		setLayout(null);
+  /** The Constant STATUS_BORDER. */
+  private static final Border STATUS_BORDER = BorderService.getInstance().createBorder(1);
 
-		super.add(mLBox);
-		super.add(mCBox);
-		super.add(mRBox);
-	
-		addLeft(createHGap());
-		addLeft(mStatusLabel);
-		
-		UI.setSize(mStatusLabel, ModernWidget.EXTRA_LARGE_SIZE);
-		UI.setSize(this, 200, 32);
-		
-		
-		
-		mModel.addStatusListener(mStatusLabel);
-		
-		addComponentListener(new ComponentAdapter() {
+  /**
+   * The member status label.
+   */
+  private ModernStatusLabel mStatusLabel = new ModernStatusLabel(UI.STATUS_READY);
 
-			@Override
-			public void componentResized(ComponentEvent arg0) {
-				alterLayout();
-			}});
-	}
+  /**
+   * The member model.
+   */
+  private StatusModel mModel = new StatusModel();
 
-	/**
-	 * Layout each box.
-	 */
-	private void alterLayout() {
-		int cw = getWidth();
-		int ch = getHeight();
-		
-		mLBox.setBounds(0, 0, mLBox.getPreferredSize().width, ch);
-		
-		int w = mCBox.getPreferredSize().width;
-		mCBox.setBounds((cw - w) / 2, 0, w, ch);
-		
-		w = mRBox.getPreferredSize().width;
-		mRBox.setBounds(cw - w, 0, w, ch);
-	}
+  /** The m L box. */
+  private Box mLBox = HBox.create();
 
-	/*
-	@Override
-	public final void drawBackground(Graphics2D g2) {
-		//fill(g2, Ribbon.TAB_COLOR, mRect);
-		
-		g2.setColor(LIGHT_LINE_COLOR);
-		g2.drawLine(0, 0, getWidth(), 0);
-	}
-	*/
+  /** The m C box. */
+  private Box mCBox = HBox.create();
 
-	/**
-	 * Adds the space.
-	 */
-	public final void addSpace() {
-		addLeft(Box.createHorizontalGlue());
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component c) {
-		addLeft(c);
-		
-		return c;
-	}
+  /** The m R box. */
+  private Box mRBox = HBox.create();
 
-	/**
-	 * Adds the left.
-	 *
-	 * @param c the c
-	 */
-	public void addLeft(Component c) {
-		mLBox.add(c);
-	}
-	
-	/**
-	 * Adds the center.
-	 *
-	 * @param c the c
-	 */
-	public void addCenter(Component c) {
-		mCBox.add(c);
-	}
-	
-	/**
-	 * Adds the right.
-	 *
-	 * @param c the c
-	 */
-	public void addRight(Component c) {
-		mRBox.add(c);
-	}
+  /**
+   * Instantiates a new modern status bar.
+   */
+  public ModernStatusBar() {
+    setLayout(null);
 
-	/**
-	 * Gets the status model.
-	 *
-	 * @return the status model
-	 */
-	public StatusModel getStatusModel() {
-		return mModel;
-	}
+    super.add(mLBox);
+    super.add(mCBox);
+    super.add(mRBox);
+
+    addLeft(createHGap());
+    addLeft(mStatusLabel);
+
+    UI.setSize(mStatusLabel, ModernWidget.EXTRA_LARGE_SIZE);
+    UI.setSize(this, 200, 32);
+
+    mModel.addStatusListener(mStatusLabel);
+
+    addComponentListener(new ComponentAdapter() {
+
+      @Override
+      public void componentResized(ComponentEvent arg0) {
+        alterLayout();
+      }
+    });
+  }
+
+  /**
+   * Layout each box.
+   */
+  private void alterLayout() {
+    int cw = getWidth();
+    int ch = getHeight();
+
+    mLBox.setBounds(0, 0, mLBox.getPreferredSize().width, ch);
+
+    int w = mCBox.getPreferredSize().width;
+    mCBox.setBounds((cw - w) / 2, 0, w, ch);
+
+    w = mRBox.getPreferredSize().width;
+    mRBox.setBounds(cw - w, 0, w, ch);
+  }
+
+  /*
+   * @Override public final void drawBackground(Graphics2D g2) { //fill(g2,
+   * Ribbon.TAB_COLOR, mRect);
+   * 
+   * g2.setColor(LIGHT_LINE_COLOR); g2.drawLine(0, 0, getWidth(), 0); }
+   */
+
+  /**
+   * Adds the space.
+   */
+  public final void addSpace() {
+    addLeft(Box.createHorizontalGlue());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component c) {
+    addLeft(c);
+
+    return c;
+  }
+
+  /**
+   * Adds the left.
+   *
+   * @param c
+   *          the c
+   */
+  public void addLeft(Component c) {
+    mLBox.add(c);
+  }
+
+  /**
+   * Adds the center.
+   *
+   * @param c
+   *          the c
+   */
+  public void addCenter(Component c) {
+    mCBox.add(c);
+  }
+
+  /**
+   * Adds the right.
+   *
+   * @param c
+   *          the c
+   */
+  public void addRight(Component c) {
+    mRBox.add(c);
+  }
+
+  /**
+   * Gets the status model.
+   *
+   * @return the status model
+   */
+  public StatusModel getStatusModel() {
+    return mModel;
+  }
 }

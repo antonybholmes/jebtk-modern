@@ -28,80 +28,92 @@ import org.jebtk.modern.text.ModernTextBorderPanel;
  */
 public class InputNumericalFieldBox extends HBox {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/** The m field. */
-	private ModernNumericalTextField mField = new ModernNumericalTextField();
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new input numerical field box.
-	 *
-	 * @param name the name
-	 * @param lw the lw
-	 * @param fw the fw
-	 */
-	public InputNumericalFieldBox(String name, int lw, int fw) {
-		add(new ModernAutoSizeLabel(name, lw));
-		add(new ModernTextBorderPanel(mField, fw));
-	}
-	
-	/**
-	 * Instantiates a new input numerical field box.
-	 *
-	 * @param name the name
-	 * @param value the value
-	 * @param lw the lw
-	 * @param fw the fw
-	 */
-	public InputNumericalFieldBox(String name, double value, int lw, int fw) {
-		this(name, lw, fw);
-		
-		mField.setText(value);
-	}
-	
-	/**
-	 * Instantiates a new input numerical field box.
-	 *
-	 * @param name the name
-	 * @param value the value
-	 * @param lw the lw
-	 * @param fw the fw
-	 */
-	public InputNumericalFieldBox(String name, int value, int lw, int fw) {
-		this(name, lw, fw);
-		
-		mField.setText(value);
-	}
-	
-	/**
-	 * Gets the text.
-	 *
-	 * @return the text
-	 */
-	public String getText() {
-		return mField.getText();
-	}
-	
-	/**
-	 * Gets the as double.
-	 *
-	 * @return the as double
-	 * @throws ParseException the parse exception
-	 */
-	public double getAsDouble() throws ParseException {
-		return mField.getAsDouble();
-	}
+  /** The m field. */
+  private ModernNumericalTextField mField = new ModernNumericalTextField();
 
-	/**
-	 * Gets the as int.
-	 *
-	 * @return the as int
-	 * @throws ParseException the parse exception
-	 */
-	public int getAsInt() throws ParseException {
-		return mField.getAsInt();
-	}
+  /**
+   * Instantiates a new input numerical field box.
+   *
+   * @param name
+   *          the name
+   * @param lw
+   *          the lw
+   * @param fw
+   *          the fw
+   */
+  public InputNumericalFieldBox(String name, int lw, int fw) {
+    add(new ModernAutoSizeLabel(name, lw));
+    add(new ModernTextBorderPanel(mField, fw));
+  }
+
+  /**
+   * Instantiates a new input numerical field box.
+   *
+   * @param name
+   *          the name
+   * @param value
+   *          the value
+   * @param lw
+   *          the lw
+   * @param fw
+   *          the fw
+   */
+  public InputNumericalFieldBox(String name, double value, int lw, int fw) {
+    this(name, lw, fw);
+
+    mField.setText(value);
+  }
+
+  /**
+   * Instantiates a new input numerical field box.
+   *
+   * @param name
+   *          the name
+   * @param value
+   *          the value
+   * @param lw
+   *          the lw
+   * @param fw
+   *          the fw
+   */
+  public InputNumericalFieldBox(String name, int value, int lw, int fw) {
+    this(name, lw, fw);
+
+    mField.setText(value);
+  }
+
+  /**
+   * Gets the text.
+   *
+   * @return the text
+   */
+  public String getText() {
+    return mField.getText();
+  }
+
+  /**
+   * Gets the as double.
+   *
+   * @return the as double
+   * @throws ParseException
+   *           the parse exception
+   */
+  public double getAsDouble() throws ParseException {
+    return mField.getAsDouble();
+  }
+
+  /**
+   * Gets the as int.
+   *
+   * @return the as int
+   * @throws ParseException
+   *           the parse exception
+   */
+  public int getAsInt() throws ParseException {
+    return mField.getAsInt();
+  }
 
 }

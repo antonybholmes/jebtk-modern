@@ -20,19 +20,19 @@ package org.jebtk.modern.dialog;
  * The Enum ModernDialogTaskType.
  */
 public enum ModernDialogTaskType {
-	
-	/** The ok. */
-	OK,
-	
-	/** The cancel. */
-	CANCEL,
-	
-	/** The close. */
-	CLOSE,
-	
-	/** The ok cancel. */
-	OK_CANCEL, 
-	
-	/** The none. */
-	NONE
+
+  /** The ok. */
+  OK,
+
+  /** The cancel. */
+  CANCEL,
+
+  /** The close. */
+  CLOSE,
+
+  /** The ok cancel. */
+  OK_CANCEL,
+
+  /** The none. */
+  NONE
 }

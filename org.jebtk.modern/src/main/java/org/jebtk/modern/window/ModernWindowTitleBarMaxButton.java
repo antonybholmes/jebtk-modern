@@ -42,46 +42,53 @@ import org.jebtk.modern.graphics.icons.WindowMaxVectorIcon;
  */
 public class ModernWindowTitleBarMaxButton extends ModernWindowTitleBarWinButton implements ModernClickListener {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m window. */
-	private ModernWindow mWindow;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern window title bar max button.
-	 *
-	 * @param window the window
-	 */
-	public ModernWindowTitleBarMaxButton(ModernWindow window) {
-		this(window, new Raster16Icon(new WindowMaxVectorIcon(Color.WHITE)));
-	}
-	
-	/**
-	 * Instantiates a new modern window title bar max button.
-	 *
-	 * @param window the window
-	 * @param icon the icon
-	 */
-	public ModernWindowTitleBarMaxButton(ModernWindow window, ModernIcon icon) {
-		super(icon);
+  /** The m window. */
+  private ModernWindow mWindow;
 
-		mWindow = window;
+  /**
+   * Instantiates a new modern window title bar max button.
+   *
+   * @param window
+   *          the window
+   */
+  public ModernWindowTitleBarMaxButton(ModernWindow window) {
+    this(window, new Raster16Icon(new WindowMaxVectorIcon(Color.WHITE)));
+  }
 
-		setClickMessage(UI.MENU_MAXIMIZE);
+  /**
+   * Instantiates a new modern window title bar max button.
+   *
+   * @param window
+   *          the window
+   * @param icon
+   *          the icon
+   */
+  public ModernWindowTitleBarMaxButton(ModernWindow window, ModernIcon icon) {
+    super(icon);
 
-		addClickListener(this);
-		
-		setToolTip("Maximize", "Maximize the window.");
-	}
+    mWindow = window;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		WindowService.getInstance().autoMaximize(mWindow);
-	}
+    setClickMessage(UI.MENU_MAXIMIZE);
+
+    addClickListener(this);
+
+    setToolTip("Maximize", "Maximize the window.");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
+   * ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    WindowService.getInstance().autoMaximize(mWindow);
+  }
 }

@@ -32,67 +32,61 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RibbonChangeAnimation extends TranslateXAnimation {
 
-	public static final int BAR_HEIGHT = 2;
-	private Ribbon mTabs;
-		
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public RibbonChangeAnimation(ModernWidget tabs) {
-		super(tabs);
+  public static final int BAR_HEIGHT = 2;
+  private Ribbon mTabs;
 
-		mTabs = (Ribbon)tabs;
-		
-		mTabs.getTabsModel().addTabListener(new TabEventAdapter() {
-			@Override
-			public void tabChanged(TabEvent e) {
-				restart();
-			}
-		});
-	}
-	
-	public void restart() {
-		int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
-		int previousIndex = mTabs.getTabsModel().getPreviousIndex();
-		
-		
-		
-		// Lets fix the animation so it only moves one tab regardless of
-		// the number of tabs skipped, so set the previous to either the
-		// one before or the one after depending on where the previous
-		// tab was
-		
-		if (previousIndex > selectedIndex) {
-			previousIndex = selectedIndex + 1;
-		} else if (previousIndex < selectedIndex) {
-			previousIndex = selectedIndex - 1;
-		} else {
-			previousIndex = selectedIndex;
-		}
-		
-		if (previousIndex == selectedIndex) {
-			return;
-		}
-		
-		previousIndex = 
-				Mathematics.bound(previousIndex, 0, mTabs.mTabStarts.size() - 1);
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public RibbonChangeAnimation(ModernWidget tabs) {
+    super(tabs);
 
-		int x1 = mTabs.mTabStartX + mTabs.mTabStarts.get(previousIndex); 
-		int x2 = mTabs.mTabStartX + mTabs.mTabStarts.get(selectedIndex); 
-		
-		restart(x1, x2);
-	}
-	
-	@Override
-	public void drawTranslation(ModernWidget widget, 
-			Graphics2D g2, 
-			Object... params) {
-		g2.setColor(Ribbon.BAR_BACKGROUND);
-		g2.fillRect(0, 
-				Ribbon.Y_OFFSET + Ribbon.TAB_HEIGHT - BAR_HEIGHT, 
-				mTabs.mTabWidths.get(mTabs.getTabsModel().getSelectedIndex()), 
-				BAR_HEIGHT);
-	}	
+    mTabs = (Ribbon) tabs;
+
+    mTabs.getTabsModel().addTabListener(new TabEventAdapter() {
+      @Override
+      public void tabChanged(TabEvent e) {
+        restart();
+      }
+    });
+  }
+
+  public void restart() {
+    int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
+    int previousIndex = mTabs.getTabsModel().getPreviousIndex();
+
+    // Lets fix the animation so it only moves one tab regardless of
+    // the number of tabs skipped, so set the previous to either the
+    // one before or the one after depending on where the previous
+    // tab was
+
+    if (previousIndex > selectedIndex) {
+      previousIndex = selectedIndex + 1;
+    } else if (previousIndex < selectedIndex) {
+      previousIndex = selectedIndex - 1;
+    } else {
+      previousIndex = selectedIndex;
+    }
+
+    if (previousIndex == selectedIndex) {
+      return;
+    }
+
+    previousIndex = Mathematics.bound(previousIndex, 0, mTabs.mTabStarts.size() - 1);
+
+    int x1 = mTabs.mTabStartX + mTabs.mTabStarts.get(previousIndex);
+    int x2 = mTabs.mTabStartX + mTabs.mTabStarts.get(selectedIndex);
+
+    restart(x1, x2);
+  }
+
+  @Override
+  public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
+    g2.setColor(Ribbon.BAR_BACKGROUND);
+    g2.fillRect(0, Ribbon.Y_OFFSET + Ribbon.TAB_HEIGHT - BAR_HEIGHT,
+        mTabs.mTabWidths.get(mTabs.getTabsModel().getSelectedIndex()), BAR_HEIGHT);
+  }
 }

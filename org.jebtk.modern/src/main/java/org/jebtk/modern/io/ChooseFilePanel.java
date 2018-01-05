@@ -42,171 +42,157 @@ import org.jebtk.modern.window.ModernWindow;
  */
 public class ChooseFilePanel extends ModernComponent {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	private static List<GuiFileExtFilter> EMPTY_FILTERS = 
-			Collections.emptyList();
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/** The m file field. */
-	private ModernTextField mFileField = new ModernTextField();
+  private static List<GuiFileExtFilter> EMPTY_FILTERS = Collections.emptyList();
 
-	/** The m choose button. */
-	private ModernButton mChooseButton = 
-			new ModernButton(UIService.getInstance().loadIcon(FolderVectorIcon.class, 16));
+  /** The m file field. */
+  private ModernTextField mFileField = new ModernTextField();
 
-	//private ModernButton mDeleteButton = 
-	//		new ModernButton(UIService.getInstance().loadIcon(DeleteVectorIcon.class, 16));
+  /** The m choose button. */
+  private ModernButton mChooseButton = new ModernButton(UIService.getInstance().loadIcon(FolderVectorIcon.class, 16));
 
-	/** The m parent. */
-	private ModernWindow mParent;
+  // private ModernButton mDeleteButton =
+  // new ModernButton(UIService.getInstance().loadIcon(DeleteVectorIcon.class,
+  // 16));
 
-	/** The m dir mode. */
-	private boolean mDirMode;
+  /** The m parent. */
+  private ModernWindow mParent;
 
-	/** The m file. */
-	private Path mFile;
+  /** The m dir mode. */
+  private boolean mDirMode;
 
-	/** The m filters. */
-	private List<GuiFileExtFilter> mFilters;
+  /** The m file. */
+  private Path mFile;
 
-	/**
-	 * Instantiates a new choose file panel.
-	 *
-	 * @param parent the parent
-	 * @param filters the filters
-	 */
-	public ChooseFilePanel(ModernWindow parent,
-			GuiFileExtFilter filter,
-			GuiFileExtFilter... filters) {
-		this(parent, false, filter, filters);
-	}
+  /** The m filters. */
+  private List<GuiFileExtFilter> mFilters;
 
-	public ChooseFilePanel(ModernWindow parent, 
-			boolean dirMode, 
-			GuiFileExtFilter filter,
-			GuiFileExtFilter... filters) {
-		this(parent, dirMode, CollectionUtils.toList(filter, filters));
-	}
-	
-	public ChooseFilePanel(ModernWindow parent, 
-			boolean dirMode) {
-		this(parent, dirMode, EMPTY_FILTERS);
-	}
-	
-	/**
-	 * Instantiates a new choose file panel.
-	 *
-	 * @param parent the parent
-	 * @param dirMode the dir mode
-	 * @param filters the filters
-	 */
-	public ChooseFilePanel(ModernWindow parent, 
-			boolean dirMode,
-			List<GuiFileExtFilter> filters) {
-		mParent = parent;
-		mDirMode = dirMode;
-		mFilters = filters;
+  /**
+   * Instantiates a new choose file panel.
+   *
+   * @param parent
+   *          the parent
+   * @param filters
+   *          the filters
+   */
+  public ChooseFilePanel(ModernWindow parent, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+    this(parent, false, filter, filters);
+  }
 
-		setBody(new ModernTextBorderPanel(mFileField));
+  public ChooseFilePanel(ModernWindow parent, boolean dirMode, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+    this(parent, dirMode, CollectionUtils.toList(filter, filters));
+  }
 
-		Box box = HBox.create();
-		box.add(UI.createHGap(5));
-		box.add(mChooseButton);
-		//box.add(UI.createHGap(5));
-		//box.add(mDeleteButton);
+  public ChooseFilePanel(ModernWindow parent, boolean dirMode) {
+    this(parent, dirMode, EMPTY_FILTERS);
+  }
 
-		setRight(box);
+  /**
+   * Instantiates a new choose file panel.
+   *
+   * @param parent
+   *          the parent
+   * @param dirMode
+   *          the dir mode
+   * @param filters
+   *          the filters
+   */
+  public ChooseFilePanel(ModernWindow parent, boolean dirMode, List<GuiFileExtFilter> filters) {
+    mParent = parent;
+    mDirMode = dirMode;
+    mFilters = filters;
 
-		mChooseButton.addClickListener(new ModernClickListener() {
+    setBody(new ModernTextBorderPanel(mFileField));
 
-			@Override
-			public void clicked(ModernClickEvent e) {
-				Path pwd = RecentFilesService.getInstance().getPwd();
+    Box box = HBox.create();
+    box.add(UI.createHGap(5));
+    box.add(mChooseButton);
+    // box.add(UI.createHGap(5));
+    // box.add(mDeleteButton);
 
-				Path file = null;
+    setRight(box);
 
-				if (mDirMode) {
-					file = FileDialog
-							.open(mParent)
-							.dirs()
-							.getFile(pwd);
-				} else {
-					file = FileDialog
-							.open(mParent)
-							.filter(mFilters)
-							.multiSelect(false)
-							.getFile(pwd);
-				}
+    mChooseButton.addClickListener(new ModernClickListener() {
 
-				if (file != null) {
-					setFile(file);
+      @Override
+      public void clicked(ModernClickEvent e) {
+        Path pwd = RecentFilesService.getInstance().getPwd();
 
-					RecentFilesService.getInstance().setPwd(file.getParent());
-				}
-			}});
+        Path file = null;
 
-		/*
-		mDeleteButton.addClickListener(new ModernClickListener() {
+        if (mDirMode) {
+          file = FileDialog.open(mParent).dirs().getFile(pwd);
+        } else {
+          file = FileDialog.open(mParent).filter(mFilters).multiSelect(false).getFile(pwd);
+        }
 
-			@Override
-			public void clicked(ModernClickEvent e) {
-				mFile = null;
-				mFileField.setText(TextUtils.EMPTY_STRING);
-			}});
-		*/
-		
-		mFileField.setEditable(false);
+        if (file != null) {
+          setFile(file);
 
-		UI.setSize(this, ModernWidget.MAX_SIZE);
-	}
-	
-	/**
-	 * Instantiates a new choose file panel.
-	 *
-	 * @param parent the parent
-	 * @param dirMode the dir mode
-	 * @param file the file
-	 * @param filters the filters
-	 */
-	public ChooseFilePanel(ModernWindow parent, 
-			boolean dirMode,
-			Path file,
-			GuiFileExtFilter filter,
-			GuiFileExtFilter... filters) {
-		this(parent, dirMode, filter, filters);
-		
-		setFile(file);
-	}
-	
-	public ChooseFilePanel(ModernWindow parent, 
-			boolean dirMode,
-			Path file,
-			List<GuiFileExtFilter> filters) {
-		this(parent, dirMode, filters);
-		
-		setFile(file);
-	}
+          RecentFilesService.getInstance().setPwd(file.getParent());
+        }
+      }
+    });
 
-	/**
-	 * Gets the file.
-	 *
-	 * @return the file
-	 */
-	public Path getFile() {
-		return mFile;
-	}
+    /*
+     * mDeleteButton.addClickListener(new ModernClickListener() {
+     * 
+     * @Override public void clicked(ModernClickEvent e) { mFile = null;
+     * mFileField.setText(TextUtils.EMPTY_STRING); }});
+     */
 
-	/**
-	 * Sets the file.
-	 *
-	 * @param file the new file
-	 */
-	public void setFile(Path file) {
-		if (file != null) {
-			mFile = file;
+    mFileField.setEditable(false);
 
-			mFileField.setText(PathUtils.toString(file));
-		}
-	}
+    UI.setSize(this, ModernWidget.MAX_SIZE);
+  }
+
+  /**
+   * Instantiates a new choose file panel.
+   *
+   * @param parent
+   *          the parent
+   * @param dirMode
+   *          the dir mode
+   * @param file
+   *          the file
+   * @param filters
+   *          the filters
+   */
+  public ChooseFilePanel(ModernWindow parent, boolean dirMode, Path file, GuiFileExtFilter filter,
+      GuiFileExtFilter... filters) {
+    this(parent, dirMode, filter, filters);
+
+    setFile(file);
+  }
+
+  public ChooseFilePanel(ModernWindow parent, boolean dirMode, Path file, List<GuiFileExtFilter> filters) {
+    this(parent, dirMode, filters);
+
+    setFile(file);
+  }
+
+  /**
+   * Gets the file.
+   *
+   * @return the file
+   */
+  public Path getFile() {
+    return mFile;
+  }
+
+  /**
+   * Sets the file.
+   *
+   * @param file
+   *          the new file
+   */
+  public void setFile(Path file) {
+    if (file != null) {
+      mFile = file;
+
+      mFileField.setText(PathUtils.toString(file));
+    }
+  }
 }

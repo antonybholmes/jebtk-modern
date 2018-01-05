@@ -29,8 +29,6 @@ package org.jebtk.modern.tabs;
 
 import java.awt.Graphics2D;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Simple horizontal tabs using labels as buttons.
@@ -40,91 +38,95 @@ import java.awt.Graphics2D;
  *
  */
 public class TextTabsTriangle extends TextTabs {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant SIZE. */
-	private static final int SIZE = 15;
-	
-	/** The Constant HALF_SIZE. */
-	private static final int HALF_SIZE = SIZE / 2;
-	
-	/** The Constant OFFSET. */
-	private static final int OFFSET = 1;
 
-	/**
-	 * Instantiates a new text tabs triangle.
-	 *
-	 * @param model the model
-	 */
-	public TextTabsTriangle(TabsModel model) {
-		this(model, false);
-	}
-	
-	/**
-	 * Instantiates a new text tabs.
-	 *
-	 * @param model the model
-	 * @param center the center
-	 */
-	public TextTabsTriangle(TabsModel model, boolean center) {
-		super(model, center);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		super.drawForegroundAAText(g2);
-		
-		g2.setColor(LIGHT_LINE_COLOR);
-		
-		int x1 = getInsets().left;
-		int x2 = x1 + mOffset;
-		
-		for (int i = 0; i < getTabsModel().getSelectedIndex(); ++i) {
-			x2 += mTabWidths.get(i);
-		}
-		
-		int cumWidth = getTabsModel().getSelectedIndex() * GAP_WIDTH;
-		
-		x2 += cumWidth;
-		
-		int y = getHeight() - OFFSET;
-		
-		g2.drawLine(x1, y, x2, y);
-		
-		
-		x1 = x2;
-		
-		int w = mTabWidths.get(getTabsModel().getSelectedIndex());
-		
-		int w2 = w / 2;
-		
-		x2 = x1 + w;
-		
-		// draw line from edge of tab to center less the triangle width
-		g2.drawLine(x1, y, x1 + w2 - HALF_SIZE, y);	
-		
-		// draw line from edge of triangle to edge of tab
-		g2.drawLine(x2 - w2 + HALF_SIZE, y, x2, y);
-		
-		// draw the inverted triangle/arrow
-		g2.drawLine(x1 + w2 - HALF_SIZE, y, x1 + w2, y - HALF_SIZE);
-		g2.drawLine(x1 + w2, y - HALF_SIZE, x1 + w2 + HALF_SIZE, y);
-		
-		x1 = getInsets().left + mOffset;
-		
-		for (int i = 0; i <= getTabsModel().getSelectedIndex(); ++i) {
-			x1 += mTabWidths.get(i);
-		}
-		
-		x1 += cumWidth;
-		
-		x2 = getWidth() - getInsets().right;
-		
-		g2.drawLine(x1, y, x2, y);
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /** The Constant SIZE. */
+  private static final int SIZE = 15;
+
+  /** The Constant HALF_SIZE. */
+  private static final int HALF_SIZE = SIZE / 2;
+
+  /** The Constant OFFSET. */
+  private static final int OFFSET = 1;
+
+  /**
+   * Instantiates a new text tabs triangle.
+   *
+   * @param model
+   *          the model
+   */
+  public TextTabsTriangle(TabsModel model) {
+    this(model, false);
+  }
+
+  /**
+   * Instantiates a new text tabs.
+   *
+   * @param model
+   *          the model
+   * @param center
+   *          the center
+   */
+  public TextTabsTriangle(TabsModel model, boolean center) {
+    super(model, center);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    super.drawForegroundAAText(g2);
+
+    g2.setColor(LIGHT_LINE_COLOR);
+
+    int x1 = getInsets().left;
+    int x2 = x1 + mOffset;
+
+    for (int i = 0; i < getTabsModel().getSelectedIndex(); ++i) {
+      x2 += mTabWidths.get(i);
+    }
+
+    int cumWidth = getTabsModel().getSelectedIndex() * GAP_WIDTH;
+
+    x2 += cumWidth;
+
+    int y = getHeight() - OFFSET;
+
+    g2.drawLine(x1, y, x2, y);
+
+    x1 = x2;
+
+    int w = mTabWidths.get(getTabsModel().getSelectedIndex());
+
+    int w2 = w / 2;
+
+    x2 = x1 + w;
+
+    // draw line from edge of tab to center less the triangle width
+    g2.drawLine(x1, y, x1 + w2 - HALF_SIZE, y);
+
+    // draw line from edge of triangle to edge of tab
+    g2.drawLine(x2 - w2 + HALF_SIZE, y, x2, y);
+
+    // draw the inverted triangle/arrow
+    g2.drawLine(x1 + w2 - HALF_SIZE, y, x1 + w2, y - HALF_SIZE);
+    g2.drawLine(x1 + w2, y - HALF_SIZE, x1 + w2 + HALF_SIZE, y);
+
+    x1 = getInsets().left + mOffset;
+
+    for (int i = 0; i <= getTabsModel().getSelectedIndex(); ++i) {
+      x1 += mTabWidths.get(i);
+    }
+
+    x1 += cumWidth;
+
+    x2 = getWidth() - getInsets().right;
+
+    g2.drawLine(x1, y, x2, y);
+  }
 }

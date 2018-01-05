@@ -35,39 +35,43 @@ import java.awt.Graphics2D;
  * The class HideDownVectorIcon.
  */
 public class HideDownVectorIcon extends HideVectorIcon {
-	
-	/**
-	 * Instantiates a new hide down vector icon.
-	 */
-	public HideDownVectorIcon() {
-		
-	}
-	
-	/**
-	 * Instantiates a new hide down vector icon.
-	 *
-	 * @param color the color
-	 */
-	public HideDownVectorIcon(Color color) {
-		super(color);
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.HideVectorIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		super.drawIcon(g2, x, y, w, h, params);
-		
-		double wf = w * WIDTH_SCALE;
-		double w2 = w / 2.0;
-		double hf = w * HEIGHT_SCALE;
-		
-		double xf = x + (w - w) / 2.0;
-		double yf = y + (h - h) / 2.0;
+  /**
+   * Instantiates a new hide down vector icon.
+   */
+  public HideDownVectorIcon() {
 
-		g2.drawLine((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(xf + w2), (int)Math.round(yf + h));
-		g2.drawLine((int)Math.round(xf + w2), (int)Math.round(yf + hf), (int)Math.round(xf + wf), (int)Math.round(yf));
-		
-	}
+  }
+
+  /**
+   * Instantiates a new hide down vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public HideDownVectorIcon(Color color) {
+    super(color);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.HideVectorIcon#drawForeground(java.awt.
+   * Graphics2D, java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    super.drawIcon(g2, x, y, w, h, params);
+
+    double wf = w * WIDTH_SCALE;
+    double w2 = w / 2.0;
+    double hf = w * HEIGHT_SCALE;
+
+    double xf = x + (w - w) / 2.0;
+    double yf = y + (h - h) / 2.0;
+
+    g2.drawLine((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(xf + w2), (int) Math.round(yf + h));
+    g2.drawLine((int) Math.round(xf + w2), (int) Math.round(yf + hf), (int) Math.round(xf + wf), (int) Math.round(yf));
+
+  }
 }

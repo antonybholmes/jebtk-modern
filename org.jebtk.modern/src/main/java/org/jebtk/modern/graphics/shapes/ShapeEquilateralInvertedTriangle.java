@@ -37,35 +37,38 @@ import java.awt.Polygon;
  *
  */
 public class ShapeEquilateralInvertedTriangle extends Polygon {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant ANGLE.
-	 */
-	private static final double ANGLE = Math.sin(Math.PI / 3.0);
-	
-	/**
-	 * Instantiates a new shape equilateral inverted triangle.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param size the size
-	 */
-	public ShapeEquilateralInvertedTriangle(int x, int y, int size) {
-		int s2 = size / 2;
-		
-		// opposite (i.e. height of triangle)
-		int h = (int)(size * ANGLE);
-		
-		//int y2 = y + (size - h) / 2;
-		int y1 = y + (size - h) / 2 + h;
-		
-		addPoint(x, y);
-		addPoint(x + size, y);
-		addPoint(x + s2, y1);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant ANGLE.
+   */
+  private static final double ANGLE = Math.sin(Math.PI / 3.0);
+
+  /**
+   * Instantiates a new shape equilateral inverted triangle.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param size
+   *          the size
+   */
+  public ShapeEquilateralInvertedTriangle(int x, int y, int size) {
+    int s2 = size / 2;
+
+    // opposite (i.e. height of triangle)
+    int h = (int) (size * ANGLE);
+
+    // int y2 = y + (size - h) / 2;
+    int y1 = y + (size - h) / 2 + h;
+
+    addPoint(x, y);
+    addPoint(x + size, y);
+    addPoint(x + s2, y1);
+  }
 }

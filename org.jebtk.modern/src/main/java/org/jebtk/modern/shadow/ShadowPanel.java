@@ -29,114 +29,133 @@ import org.jebtk.modern.ModernComponent;
  * The Class ShadowPanel.
  */
 public class ShadowPanel extends JLayeredPane implements ComponentListener {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
 
-	
-	/** The Constant COMPONENT_Z. */
-	private static final Integer COMPONENT_Z = new Integer(0);
-	
-	/** The Constant SHADOW_Z. */
-	private static final Integer SHADOW_Z = new Integer(100);
-	
-	/**
-	 * The Class RibbonShadow.
-	 */
-	protected static class RibbonShadow extends ModernComponent {
-		
-		/** The Constant serialVersionUID. */
-		private static final long serialVersionUID = 1L;
-	}
-	
-	
-	/** The m C. */
-	protected Component mC;
-	
-	/** The m shadow. */
-	protected RibbonShadow mShadow;
-	
-	/**
-	 * Instantiates a new shadow panel.
-	 *
-	 * @param c the c
-	 * @param shadow the shadow
-	 */
-	public ShadowPanel(Component c, RibbonShadow shadow) {
-		mC = c;
-		mShadow = shadow;
-		
-		add(c, COMPONENT_Z);
-		add(shadow, SHADOW_Z);
-		
-		addComponentListener(this);
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentHidden(ComponentEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+  /** The Constant COMPONENT_Z. */
+  private static final Integer COMPONENT_Z = new Integer(0);
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentMoved(ComponentEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+  /** The Constant SHADOW_Z. */
+  private static final Integer SHADOW_Z = new Integer(100);
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentResized(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentResized(ComponentEvent arg0) {
-		mC.setBounds(0, 0, getWidth(), getHeight());
-	}
+  /**
+   * The Class RibbonShadow.
+   */
+  protected static class RibbonShadow extends ModernComponent {
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentShown(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentShown(ComponentEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Component#getSize()
-	 */
-	@Override
-	public Dimension getSize() {
-		return mC.getSize();
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.JComponent#getPreferredSize()
-	 */
-	@Override
-	public Dimension getPreferredSize() {
-		return mC.getPreferredSize();
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.JComponent#getMinimumSize()
-	 */
-	@Override
-	public Dimension getMinimumSize() {
-		return mC.getMinimumSize();
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.JComponent#getMaximumSize()
-	 */
-	@Override
-	public Dimension getMaximumSize() {
-		return mC.getMaximumSize();
-	}
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 1L;
+  }
+
+  /** The m C. */
+  protected Component mC;
+
+  /** The m shadow. */
+  protected RibbonShadow mShadow;
+
+  /**
+   * Instantiates a new shadow panel.
+   *
+   * @param c
+   *          the c
+   * @param shadow
+   *          the shadow
+   */
+  public ShadowPanel(Component c, RibbonShadow shadow) {
+    mC = c;
+    mShadow = shadow;
+
+    add(c, COMPONENT_Z);
+    add(shadow, SHADOW_Z);
+
+    addComponentListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentHidden(ComponentEvent arg0) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentMoved(ComponentEvent arg0) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentResized(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentResized(ComponentEvent arg0) {
+    mC.setBounds(0, 0, getWidth(), getHeight());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentShown(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentShown(ComponentEvent arg0) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Component#getSize()
+   */
+  @Override
+  public Dimension getSize() {
+    return mC.getSize();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.JComponent#getPreferredSize()
+   */
+  @Override
+  public Dimension getPreferredSize() {
+    return mC.getPreferredSize();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.JComponent#getMinimumSize()
+   */
+  @Override
+  public Dimension getMinimumSize() {
+    return mC.getMinimumSize();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.JComponent#getMaximumSize()
+   */
+  @Override
+  public Dimension getMaximumSize() {
+    return mC.getMaximumSize();
+  }
 }

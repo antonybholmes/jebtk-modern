@@ -37,33 +37,45 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class HighlightListeners extends EventProducer<HighlightListener> implements HighlightEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernStateEventProducer#addStateListener(org.abh.lib.ui.modern.event.ModernStateListener)
-	 */
-	public void addHighlightListener(HighlightListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernStateEventProducer#removeStateListener(org.abh.lib.ui.modern.event.ModernStateListener)
-	 */
-	public void removeHighlightListener(HighlightListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernStateEventProducer#fireStateChanged(org.abh.lib.ui.modern.event.ModernStateEvent)
-	 */
-	@Override
-	public void fireHighlighted(HighlightEvent e) {
-		for (HighlightListener l : mListeners) {
-			l.highlighted(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#addStateListener(org.abh
+   * .lib.ui.modern.event.ModernStateListener)
+   */
+  public void addHighlightListener(HighlightListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#removeStateListener(org.
+   * abh.lib.ui.modern.event.ModernStateListener)
+   */
+  public void removeHighlightListener(HighlightListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#fireStateChanged(org.abh
+   * .lib.ui.modern.event.ModernStateEvent)
+   */
+  @Override
+  public void fireHighlighted(HighlightEvent e) {
+    for (HighlightListener l : mListeners) {
+      l.highlighted(e);
+    }
+  }
 }

@@ -25,46 +25,49 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class MousePressReleaseStepAnimation extends MousePressReleaseAnimation {
 
-	protected int mStep = -1;
+  protected int mStep = -1;
 
-	/**
-	 * Instantiates a new hover fade animation.
-	 *
-	 * @param widget the widget
-	 */
-	public MousePressReleaseStepAnimation(ModernWidget widget) {
-		super(widget);
-	}
+  /**
+   * Instantiates a new hover fade animation.
+   *
+   * @param widget
+   *          the widget
+   */
+  public MousePressReleaseStepAnimation(ModernWidget widget) {
+    super(widget);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.MouseAnimation#animateMouseEntered()
-	 */
-	@Override
-	public void animateMousePressed() {
-		getWidget().repaint();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.MouseAnimation#animateMouseEntered()
+   */
+  @Override
+  public void animateMousePressed() {
+    getWidget().repaint();
 
-		if (mPressed) {
-			if (mStep == TimerAnimation.MAX_STEP_INDEX) {
-				stopTimer();
-			} else {
-				++mStep;
-			}
-		} else {
-			if (mStep == 0) {
-				stopTimer();
-			} else {
-				--mStep;
-			}
-		}
-	}
+    if (mPressed) {
+      if (mStep == TimerAnimation.MAX_STEP_INDEX) {
+        stopTimer();
+      } else {
+        ++mStep;
+      }
+    } else {
+      if (mStep == 0) {
+        stopTimer();
+      } else {
+        --mStep;
+      }
+    }
+  }
 
-	public int getStep() {
-		return mStep;
-	}
-	
-	public void reset() {
-		mStep = -1;
-		
-		super.reset();
-	}
+  public int getStep() {
+    return mStep;
+  }
+
+  public void reset() {
+    mStep = -1;
+
+    super.reset();
+  }
 }

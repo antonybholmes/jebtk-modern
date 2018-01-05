@@ -39,76 +39,84 @@ import org.jebtk.modern.panel.VBox;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.scrollpane.ScrollBarPolicy;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class LayersPanel.
  */
 public class LayersPanel2 extends ModernComponent implements LayerEventListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m layer model. */
-	private LayerModel mLayerModel;
-	
-	/**
-	 * Instantiates a new layers panel.
-	 *
-	 * @param layerModel the layer model
-	 */
-	public LayersPanel2(LayerModel layerModel) {
-		mLayerModel = layerModel;
-		
-		layerModel.addLayerListener(this);
-		
-		update();
-	}
-	
-	/**
-	 * Update.
-	 */
-	private void update() {
-		Box box = VBox.create();
-		
-		for (String name : mLayerModel) {
-			ModernCheckSwitch button = new ModernCheckSwitch(name, 
-					mLayerModel.isVisible(name));
-			
-			box.add(button);
-			box.add(UI.createVGap(5));
-			
-			button.addClickListener(new ModernClickListener(){
 
-				@Override
-				public void clicked(ModernClickEvent e) {
-					ModernCheckSwitch button = (ModernCheckSwitch)e.getSource();
-					
-					mLayerModel.setVisible(button.getText(), button.isSelected());
-				}});
-		}
-		
-		ModernScrollPane scrollPane = new ModernScrollPane(box);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
-		
-		setBody(scrollPane);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.layers.LayerEventListener#layerChanged(org.abh.common.event.ChangeEvent)
-	 */
-	@Override
-	public void layerChanged(ChangeEvent e) {
-		update();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.event.ChangeEvent)
-	 */
-	@Override
-	public void layerUpdated(ChangeEvent e) {
-		// Do nothing
-	}
+  /** The m layer model. */
+  private LayerModel mLayerModel;
+
+  /**
+   * Instantiates a new layers panel.
+   *
+   * @param layerModel
+   *          the layer model
+   */
+  public LayersPanel2(LayerModel layerModel) {
+    mLayerModel = layerModel;
+
+    layerModel.addLayerListener(this);
+
+    update();
+  }
+
+  /**
+   * Update.
+   */
+  private void update() {
+    Box box = VBox.create();
+
+    for (String name : mLayerModel) {
+      ModernCheckSwitch button = new ModernCheckSwitch(name, mLayerModel.isVisible(name));
+
+      box.add(button);
+      box.add(UI.createVGap(5));
+
+      button.addClickListener(new ModernClickListener() {
+
+        @Override
+        public void clicked(ModernClickEvent e) {
+          ModernCheckSwitch button = (ModernCheckSwitch) e.getSource();
+
+          mLayerModel.setVisible(button.getText(), button.isSelected());
+        }
+      });
+    }
+
+    ModernScrollPane scrollPane = new ModernScrollPane(box);
+    scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
+
+    setBody(scrollPane);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.layers.LayerEventListener#layerChanged(org.abh.common.event
+   * .ChangeEvent)
+   */
+  @Override
+  public void layerChanged(ChangeEvent e) {
+    update();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.event
+   * .ChangeEvent)
+   */
+  @Override
+  public void layerUpdated(ChangeEvent e) {
+    // Do nothing
+  }
 }

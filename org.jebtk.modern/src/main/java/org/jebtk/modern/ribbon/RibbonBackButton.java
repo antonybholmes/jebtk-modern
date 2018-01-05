@@ -34,77 +34,65 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonBackMenuItem.
  */
 public class RibbonBackButton extends ModernButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon back menu item.
-	 */
-	public RibbonBackButton() {
-		super(UI.MENU_BACK);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new ribbon back menu item.
+   */
+  public RibbonBackButton() {
+    super(UI.MENU_BACK);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		UI.setSize(this, RibbonBackAnimation.HEIGHT * 3, RibbonBackAnimation.HEIGHT);
+    setup();
+  }
 
-		setBackgroundAnimations("ribbon-back-button");
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    UI.setSize(this, RibbonBackAnimation.HEIGHT * 3, RibbonBackAnimation.HEIGHT);
 
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
+    setBackgroundAnimations("ribbon-back-button");
+  }
 
-	}
-	*/
+  /*
+   * @Override public void drawBackground(Graphics2D g2) {
+   * 
+   * }
+   */
 
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		
-		int x = RibbonBackAnimation.HEIGHT + ModernWidget.QUAD_PADDING;
-		
-		g2.setFont(MaterialUtils.FONT);
-		
-		int y = getTextYPosCenter(g2, getHeight());
-		
-		g2.setColor(TEXT_COLOR); //Color.WHITE);
-		
-		g2.drawString("Back", x, y);
-		
-		/*
-		Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
 
-		try {
-			g2Temp.setStroke(new BasicStroke(2));
+    int x = RibbonBackAnimation.HEIGHT + ModernWidget.QUAD_PADDING;
 
-			if (mHighlight) {
-				g2Temp.setColor(Color.WHITE);
-			} else {
-				g2Temp.setPaint(BASE_COLOR);
-			}
+    g2.setFont(MaterialUtils.FONT);
 
-			int x = (mRect.getW() - HEIGHT) / 2;
-			int y = (mRect.getH() - HEIGHT) / 2;
+    int y = getTextYPosCenter(g2, getHeight());
 
-			drawIcon(g2Temp, x, y);
-		} finally {
-			g2Temp.dispose();
-		}
-		*/
-	}
+    g2.setColor(TEXT_COLOR); // Color.WHITE);
+
+    g2.drawString("Back", x, y);
+
+    /*
+     * Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+     * 
+     * try { g2Temp.setStroke(new BasicStroke(2));
+     * 
+     * if (mHighlight) { g2Temp.setColor(Color.WHITE); } else {
+     * g2Temp.setPaint(BASE_COLOR); }
+     * 
+     * int x = (mRect.getW() - HEIGHT) / 2; int y = (mRect.getH() - HEIGHT) / 2;
+     * 
+     * drawIcon(g2Temp, x, y); } finally { g2Temp.dispose(); }
+     */
+  }
 }

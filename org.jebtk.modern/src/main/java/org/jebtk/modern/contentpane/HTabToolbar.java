@@ -36,61 +36,61 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.text.ModernSubHeadingLabel;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class HTabToolbar2.
  */
 public class HTabToolbar extends HBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	//private Box mBox = HBox.create();
-	
-	/**
-	 * Instantiates a new h tab toolbar2.
-	 *
-	 * @param title the title
-	 */
-	public HTabToolbar(String title) {
-		this(title, null);
-	}
-	
-	/**
-	 * Instantiates a new h tab toolbar2.
-	 *
-	 * @param title the title
-	 * @param c the c
-	 */
-	public HTabToolbar(String title, Component c) {
-		ModernAutoSizeLabel label = new ModernSubHeadingLabel(title);
-		
-		add(label);
-		
-		add(Box.createHorizontalGlue());
-		
-		if (c != null) {
-			add(c);
-		}
-		
-		//setBody(mBox);
-		
-		setBorder(ModernWidget.BORDER);
-	}
-	
-	
-	//@Override
-	//public void drawBackground(Graphics2D g2) {
-		//g2.setColor(LINE_COLOR);
-		
-		//int y = getHeight() - 1;
-		
-		//g2.drawLine(0, y, getWidth(), y);
-		
-	//	fill(g2, LINE_COLOR);
-	//}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  // private Box mBox = HBox.create();
+
+  /**
+   * Instantiates a new h tab toolbar2.
+   *
+   * @param title
+   *          the title
+   */
+  public HTabToolbar(String title) {
+    this(title, null);
+  }
+
+  /**
+   * Instantiates a new h tab toolbar2.
+   *
+   * @param title
+   *          the title
+   * @param c
+   *          the c
+   */
+  public HTabToolbar(String title, Component c) {
+    ModernAutoSizeLabel label = new ModernSubHeadingLabel(title);
+
+    add(label);
+
+    add(Box.createHorizontalGlue());
+
+    if (c != null) {
+      add(c);
+    }
+
+    // setBody(mBox);
+
+    setBorder(ModernWidget.BORDER);
+  }
+
+  // @Override
+  // public void drawBackground(Graphics2D g2) {
+  // g2.setColor(LINE_COLOR);
+
+  // int y = getHeight() - 1;
+
+  // g2.drawLine(0, y, getWidth(), y);
+
+  // fill(g2, LINE_COLOR);
+  // }
 }

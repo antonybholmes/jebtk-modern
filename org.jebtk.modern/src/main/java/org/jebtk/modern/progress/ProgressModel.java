@@ -35,39 +35,40 @@ package org.jebtk.modern.progress;
  *
  */
 public class ProgressModel extends ProgressEventListeners {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant PROGRESS_CHANGED_EVENT.
-	 */
-	public static final String PROGRESS_CHANGED_EVENT = "progress_changed";
-	
-	/**
-	 * The percent.
-	 */
-	private int percent = 0;
-	
-	/**
-	 * Gets the percent complete.
-	 *
-	 * @return the percent complete
-	 */
-	public int getPercentComplete() {
-		return percent;
-	}
 
-	/**
-	 * Sets the percent complete.
-	 *
-	 * @param percent the new percent complete
-	 */
-	public void setPercentComplete(int percent) {
-		this.percent = Math.min(100, Math.max(0, percent));
-		
-		fireProgressChanged(new ProgressEvent(this, PROGRESS_CHANGED_EVENT, percent));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant PROGRESS_CHANGED_EVENT.
+   */
+  public static final String PROGRESS_CHANGED_EVENT = "progress_changed";
+
+  /**
+   * The percent.
+   */
+  private int percent = 0;
+
+  /**
+   * Gets the percent complete.
+   *
+   * @return the percent complete
+   */
+  public int getPercentComplete() {
+    return percent;
+  }
+
+  /**
+   * Sets the percent complete.
+   *
+   * @param percent
+   *          the new percent complete
+   */
+  public void setPercentComplete(int percent) {
+    this.percent = Math.min(100, Math.max(0, percent));
+
+    fireProgressChanged(new ProgressEvent(this, PROGRESS_CHANGED_EVENT, percent));
+  }
 }

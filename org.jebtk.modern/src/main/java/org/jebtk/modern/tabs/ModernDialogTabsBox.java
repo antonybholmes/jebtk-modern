@@ -35,8 +35,6 @@ import org.jebtk.modern.dialog.ModernDialogWindow;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernDialogTabsBox.
@@ -44,31 +42,32 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  */
 public class ModernDialogTabsBox extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog tabs box.
-	 */
-	public ModernDialogTabsBox() {
-		
-		setBackground(ModernDialogWindow.DIALOG_BACKGROUND);
-		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
-		int x = getWidth() - 1;
-		int y = getHeight() - 1;
-		
-		g2.drawLine(0, y, x, y);
-	}
+  /**
+   * Instantiates a new modern dialog tabs box.
+   */
+  public ModernDialogTabsBox() {
+
+    setBackground(ModernDialogWindow.DIALOG_BACKGROUND);
+    setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
+    int x = getWidth() - 1;
+    int y = getHeight() - 1;
+
+    g2.drawLine(0, y, x, y);
+  }
 }

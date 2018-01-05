@@ -37,11 +37,12 @@ import java.util.EventListener;
  *
  */
 public interface HighlightListener extends EventListener {
-	
-	/**
-	 * State changed.
-	 *
-	 * @param e the e
-	 */
-	public void highlighted(HighlightEvent e);
+
+  /**
+   * State changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void highlighted(HighlightEvent e);
 }

@@ -31,7 +31,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Low height button for small form factor toolbar buttons.
@@ -39,57 +38,59 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * @author Antony Holmes Holmes
  */
 public class ModernStatusCheckButton extends ModernCheckButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern status check button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernStatusCheckButton(String text1) {
-		super(text1);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern status check button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernStatusCheckButton(ModernIcon icon) {
-		super(icon);
-		
-		UI.setWidth(this, 42);
-	}
-	
-	/**
-	 * Instantiates a new modern status check button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 */
-	public ModernStatusCheckButton(String text1, ModernIcon icon) {
-		super(text1, icon);
-		
-		UI.setWidth(this, 72);
-	}
+  /**
+   * Instantiates a new modern status check button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernStatusCheckButton(String text1) {
+    super(text1);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.Graphics2D)
-	 */
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (isSelected()) {
-			fill(g2, ThemeService.getInstance().getThemeColor(7), getRect());
-		} else if (mHighlight) {
-			fill(g2, ThemeService.getInstance().getThemeColor(4), getRect());
-		} else {
-			fill(g2, ThemeService.getInstance().getThemeColor(5), getRect());
-		}
-	}
-	*/
+  /**
+   * Instantiates a new modern status check button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernStatusCheckButton(ModernIcon icon) {
+    super(icon);
+
+    UI.setWidth(this, 42);
+  }
+
+  /**
+   * Instantiates a new modern status check button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   */
+  public ModernStatusCheckButton(String text1, ModernIcon icon) {
+    super(text1, icon);
+
+    UI.setWidth(this, 72);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  /*
+   * @Override public void drawBackground(Graphics2D g2) { if (isSelected()) {
+   * fill(g2, ThemeService.getInstance().getThemeColor(7), getRect()); } else if
+   * (mHighlight) { fill(g2, ThemeService.getInstance().getThemeColor(4),
+   * getRect()); } else { fill(g2, ThemeService.getInstance().getThemeColor(5),
+   * getRect()); } }
+   */
 }

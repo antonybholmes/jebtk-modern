@@ -36,83 +36,77 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class SegmentChangeAnimation extends TranslateXAnimation {
 
-	private SegmentTabs mTabs;
-	
-	//protected static final int HEIGHT = 2;
+  private SegmentTabs mTabs;
 
-	public static final Color COLOR = Ribbon.BAR_BACKGROUND; // Color.BLACK
+  // protected static final int HEIGHT = 2;
 
-	
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public SegmentChangeAnimation(ModernWidget tabs) {
-		super(tabs);
+  public static final Color COLOR = Ribbon.BAR_BACKGROUND; // Color.BLACK
 
-		mTabs = (SegmentTabs)tabs;
-		
-		mTabs.getTabsModel().addTabListener(new TabEventAdapter() {
-			@Override
-			public void tabChanged(TabEvent e) {
-				restart();
-			}
-		});
-		
-		mTabs.addComponentListener(new ComponentAdapter() {
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public SegmentChangeAnimation(ModernWidget tabs) {
+    super(tabs);
 
-			@Override
-			public void componentResized(ComponentEvent arg0) {
-				restart();
-			}});
-	}
-	
-	public void restart() {
-		int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
-		int previousIndex = mTabs.getTabsModel().getPreviousIndex();
-		
-		if (previousIndex > selectedIndex) {
-			previousIndex = selectedIndex + 1;
-		} else {
-			previousIndex = Mathematics.bound(selectedIndex - 1, 0, mTabs.getTabsModel().getTabCount() - 1);
-		}
-		
-		int leftOffset = 0;
-		
-		if (mTabs.mCenter) {
-			leftOffset = mTabs.getInsets().left + (mTabs.getRect().getW() - mTabs.mTabSize * mTabs.getTabsModel().getTabCount()) / 2;
-		} else {
-			leftOffset = mTabs.getInsets().left;
-		}
-		
-		int x1 = leftOffset + previousIndex * mTabs.mTabSize;
-		int x2 = leftOffset + selectedIndex * mTabs.mTabSize;
+    mTabs = (SegmentTabs) tabs;
 
-		restart(x1, x2);
-	}
-	
-	@Override
-	public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
-		int h = mTabs.getInternalRect().getH();
-		
-		/*
-		mTabs.getWidgetRenderer().primaryDialogButtonFillPaint(g2, 
-				0, 
-				0, 
-				mTabs.mTabSize, 
-				h,
-				RenderMode.NONE,
-				false);
-		*/
-		
-		//g2.setColor(COLOR);
-		//mTabs.getWidgetRenderer().drawPillButtonFill(g2, 0, 0, mTabs.mTabSize, h);
-		
-		g2.setColor(COLOR);
-		g2.fillRect(0, 
-				h - RibbonChangeAnimation.BAR_HEIGHT, 
-				mTabs.mTabSize, 
-				RibbonChangeAnimation.BAR_HEIGHT);
-	}	
+    mTabs.getTabsModel().addTabListener(new TabEventAdapter() {
+      @Override
+      public void tabChanged(TabEvent e) {
+        restart();
+      }
+    });
+
+    mTabs.addComponentListener(new ComponentAdapter() {
+
+      @Override
+      public void componentResized(ComponentEvent arg0) {
+        restart();
+      }
+    });
+  }
+
+  public void restart() {
+    int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
+    int previousIndex = mTabs.getTabsModel().getPreviousIndex();
+
+    if (previousIndex > selectedIndex) {
+      previousIndex = selectedIndex + 1;
+    } else {
+      previousIndex = Mathematics.bound(selectedIndex - 1, 0, mTabs.getTabsModel().getTabCount() - 1);
+    }
+
+    int leftOffset = 0;
+
+    if (mTabs.mCenter) {
+      leftOffset = mTabs.getInsets().left
+          + (mTabs.getRect().getW() - mTabs.mTabSize * mTabs.getTabsModel().getTabCount()) / 2;
+    } else {
+      leftOffset = mTabs.getInsets().left;
+    }
+
+    int x1 = leftOffset + previousIndex * mTabs.mTabSize;
+    int x2 = leftOffset + selectedIndex * mTabs.mTabSize;
+
+    restart(x1, x2);
+  }
+
+  @Override
+  public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
+    int h = mTabs.getInternalRect().getH();
+
+    /*
+     * mTabs.getWidgetRenderer().primaryDialogButtonFillPaint(g2, 0, 0,
+     * mTabs.mTabSize, h, RenderMode.NONE, false);
+     */
+
+    // g2.setColor(COLOR);
+    // mTabs.getWidgetRenderer().drawPillButtonFill(g2, 0, 0, mTabs.mTabSize, h);
+
+    g2.setColor(COLOR);
+    g2.fillRect(0, h - RibbonChangeAnimation.BAR_HEIGHT, mTabs.mTabSize, RibbonChangeAnimation.BAR_HEIGHT);
+  }
 }

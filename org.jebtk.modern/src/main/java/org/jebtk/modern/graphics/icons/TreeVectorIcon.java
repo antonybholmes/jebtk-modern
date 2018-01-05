@@ -39,27 +39,32 @@ import java.awt.Graphics2D;
  */
 public class TreeVectorIcon extends ModernVectorIcon {
 
-	/**
-	 * The constant SCALE.
-	 */
-	private static final double SCALE = 0.4;
+  /**
+   * The constant SCALE.
+   */
+  private static final double SCALE = 0.4;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		double wf = w * SCALE;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    double wf = w * SCALE;
 
-		double xf = x + (w - wf) / 2.0;
-		double yf = xf;
-		
-		g2.setColor(Color.BLACK);
-		
-		g2.drawLine((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(xf), (int)Math.round(yf + wf));
-		
-		g2.drawLine((int)Math.round(xf), (int)Math.round(yf + wf / 2.0), (int)Math.round(xf + wf), (int)Math.round(yf + wf / 2.0));
-		
-		g2.drawLine((int)Math.round(xf), (int)Math.round(yf + wf), (int)Math.round(xf + wf), (int)Math.round(yf + wf));
-	}
+    double xf = x + (w - wf) / 2.0;
+    double yf = xf;
+
+    g2.setColor(Color.BLACK);
+
+    g2.drawLine((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(xf), (int) Math.round(yf + wf));
+
+    g2.drawLine((int) Math.round(xf), (int) Math.round(yf + wf / 2.0), (int) Math.round(xf + wf),
+        (int) Math.round(yf + wf / 2.0));
+
+    g2.drawLine((int) Math.round(xf), (int) Math.round(yf + wf), (int) Math.round(xf + wf), (int) Math.round(yf + wf));
+  }
 }

@@ -10,59 +10,46 @@ import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class ButtonFillAnimation extends HoverFadeAnimation {
-	private ModernClickWidget mButton;
+  private ModernClickWidget mButton;
 
-	public ButtonFillAnimation(ModernClickWidget button) {
-		super(button);
-		
-		mButton = button;
-		
-		setFadeColor("fill", ModernWidgetRenderer.SELECTED_OUTLINE_COLOR);
-	}
+  public ButtonFillAnimation(ModernClickWidget button) {
+    super(button);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		if (widget.isEnabled()) {
-			IntRect rect = widget.getInternalRect();
-			
-			drawButtonFill(g2, 
-					rect.getX(),
-					rect.getY(),
-					rect.getW(),
-					rect.getH(),
-					mButton.getRenderMode(),
-					false);
-		}
-	}
+    mButton = button;
 
-	public void drawButtonFill(Graphics2D g2, 
-			int x,
-			int y, 
-			int w, 
-			int h,
-			RenderMode mode,
-			boolean hasFocus) {
-		//if (mode == RenderMode.NONE && !hasFocus) {
-		//	return;
-		//}
+    setFadeColor("fill", ModernWidgetRenderer.SELECTED_OUTLINE_COLOR);
+  }
 
-		g2.setColor(getFadeColor("fill"));
-		
-		fill(g2, x, y, w, h);
-	}
-	
-	public void fill(Graphics2D g2, 
-			int x, 
-			int y, 
-			int w, 
-			int h) {
-		getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
-	}
-	
-	public ModernClickWidget getButton() {
-		return mButton;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    if (widget.isEnabled()) {
+      IntRect rect = widget.getInternalRect();
+
+      drawButtonFill(g2, rect.getX(), rect.getY(), rect.getW(), rect.getH(), mButton.getRenderMode(), false);
+    }
+  }
+
+  public void drawButtonFill(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+    // if (mode == RenderMode.NONE && !hasFocus) {
+    // return;
+    // }
+
+    g2.setColor(getFadeColor("fill"));
+
+    fill(g2, x, y, w, h);
+  }
+
+  public void fill(Graphics2D g2, int x, int y, int w, int h) {
+    getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
+  }
+
+  public ModernClickWidget getButton() {
+    return mButton;
+  }
 }

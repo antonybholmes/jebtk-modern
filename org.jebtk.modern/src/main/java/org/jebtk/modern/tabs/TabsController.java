@@ -34,7 +34,6 @@ import javax.swing.KeyStroke;
 
 import org.jebtk.modern.widget.ModernFocusableWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * A controller view of the tabs i.e. handles user input.
@@ -43,99 +42,118 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  *
  */
 public class TabsController extends ModernFocusableWidget implements TabEventListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member model.
-	 */
-	private TabsModel mModel;
-	
-	/**
-	 * Instantiates a new tabs controller.
-	 *
-	 * @param model the model
-	 */
-	public TabsController(TabsModel model) {
-		mModel = model;
-		
-		model.addTabListener(this);
-		
-		getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("DOWN"), "down");
-		getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("RIGHT"), "down");
-		
-		getActionMap().put("down", new AbstractAction() {
 
-			private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mModel.changeTab(mModel.getSelectedIndex() + 1);
-			}});
-		
-		getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("UP"), "up");
-		getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("LEFT"), "up");
-		getActionMap().put("up", new AbstractAction() {
+  /**
+   * The member model.
+   */
+  private TabsModel mModel;
 
-			private static final long serialVersionUID = 1L;
+  /**
+   * Instantiates a new tabs controller.
+   *
+   * @param model
+   *          the model
+   */
+  public TabsController(TabsModel model) {
+    mModel = model;
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				mModel.changeTab(mModel.getSelectedIndex() - 1);
-			}});
-	}
-	
-	/**
-	 * Return the model associated with this controller.
-	 *
-	 * @return the tabs model
-	 */
-	public TabsModel getTabsModel() {
-		return mModel;
-	}
+    model.addTabListener(this);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void tabChanged(TabEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("DOWN"), "down");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("RIGHT"), "down");
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void tabAdded(TabEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    getActionMap().put("down", new AbstractAction() {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void tabRemoved(TabEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+      private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void tabResized(TabEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        mModel.changeTab(mModel.getSelectedIndex() + 1);
+      }
+    });
 
-	@Override
-	public void tabHighlighted(TabEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("UP"), "up");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("LEFT"), "up");
+    getActionMap().put("up", new AbstractAction() {
+
+      private static final long serialVersionUID = 1L;
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        mModel.changeTab(mModel.getSelectedIndex() - 1);
+      }
+    });
+  }
+
+  /**
+   * Return the model associated with this controller.
+   *
+   * @return the tabs model
+   */
+  public TabsModel getTabsModel() {
+    return mModel;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.modern.
+   * tabs.TabEvent)
+   */
+  @Override
+  public void tabChanged(TabEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.modern.
+   * tabs.TabEvent)
+   */
+  @Override
+  public void tabAdded(TabEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.modern.
+   * tabs.TabEvent)
+   */
+  @Override
+  public void tabRemoved(TabEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.modern.
+   * tabs.TabEvent)
+   */
+  @Override
+  public void tabResized(TabEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  @Override
+  public void tabHighlighted(TabEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

@@ -32,7 +32,6 @@ import javax.swing.BoxLayout;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.panel.ModernPanel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides Excel like bar for the top of a page.
@@ -41,28 +40,26 @@ import org.jebtk.modern.panel.ModernPanel;
  *
  */
 public class RibbonBarPanel extends ModernPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new ribbon bar panel.
-	 */
-	public RibbonBarPanel() {
-		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-		setBorder(BORDER);
-		setBackground(SettingsService.getInstance().getAsColor("ribbon-bar.color"));
-	}
-	
-	/*
-	public void drawForeground(Graphics2D g2) {
-		g2.setColor(LINE_COLOR);
-		
-		int y = getHeight() - 1;
-		
-		g2.drawLine(0, y, getWidth(), y);
-	}
-	*/
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new ribbon bar panel.
+   */
+  public RibbonBarPanel() {
+    setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+    setBorder(BORDER);
+    setBackground(SettingsService.getInstance().getAsColor("ribbon-bar.color"));
+  }
+
+  /*
+   * public void drawForeground(Graphics2D g2) { g2.setColor(LINE_COLOR);
+   * 
+   * int y = getHeight() - 1;
+   * 
+   * g2.drawLine(0, y, getWidth(), y); }
+   */
 }

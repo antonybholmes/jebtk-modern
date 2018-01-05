@@ -32,24 +32,24 @@ package org.jebtk.modern.graphics.color;
  * The enum ColorChannel.
  */
 public enum ColorChannel {
-	
-	/**
-	 * The red.
-	 */
-	RED,
-	
-	/**
-	 * The green.
-	 */
-	GREEN,
-	
-	/**
-	 * The blue.
-	 */
-	BLUE,
-	
-	/**
-	 * The alpha.
-	 */
-	ALPHA
+
+  /**
+   * The red.
+   */
+  RED,
+
+  /**
+   * The green.
+   */
+  GREEN,
+
+  /**
+   * The blue.
+   */
+  BLUE,
+
+  /**
+   * The alpha.
+   */
+  ALPHA
 }

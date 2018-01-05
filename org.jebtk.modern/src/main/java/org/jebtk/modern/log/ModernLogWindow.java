@@ -45,7 +45,6 @@ import org.jebtk.modern.window.ModernRibbonWindow;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.ModernWindowConstructor;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Window for viewing the event log.
@@ -54,154 +53,159 @@ import org.jebtk.modern.window.ModernWindowConstructor;
  *
  */
 public class ModernLogWindow extends ModernRibbonWindow implements ModernWindowConstructor, ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The ribbon.
-	 */
-	private Ribbon ribbon = null;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The status bar.
-	 */
-	private ModernStatusBar statusBar = new ModernStatusBar();
+  /**
+   * The ribbon.
+   */
+  private Ribbon ribbon = null;
 
-	/**
-	 * The log table.
-	 */
-	private LogTable logTable;
+  /**
+   * The status bar.
+   */
+  private ModernStatusBar statusBar = new ModernStatusBar();
 
-	/**
-	 * The member log.
-	 */
-	private Log mLog;
+  /**
+   * The log table.
+   */
+  private LogTable logTable;
 
+  /**
+   * The member log.
+   */
+  private Log mLog;
 
-	/**
-	 * Instantiates a new modern log window.
-	 *
-	 * @param information the information
-	 * @param log the log
-	 */
-	public ModernLogWindow(GuiAppInfo information, Log log) {
-		super(information);
-		
-		mLog = log;
-		
-		setSubTitle("Log");
+  /**
+   * Instantiates a new modern log window.
+   *
+   * @param information
+   *          the information
+   * @param log
+   *          the log
+   */
+  public ModernLogWindow(GuiAppInfo information, Log log) {
+    super(information);
 
-		createRibbon();
+    mLog = log;
 
-		createUi();
+    setSubTitle("Log");
 
-		setup();
-	}
+    createRibbon();
 
-	/**
-	 * Setup.
-	 */
-	public final void setup() {
-		
-		
-		
-		setSize(640, 480);
+    createUi();
 
-		UI.centerWindowToScreen(this);
-	}
+    setup();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.window.ModernWindowConstructor#createRibbon()
-	 */
-	public void createRibbon() {
-		//RibbongetRibbonMenu() getRibbonMenu() = new RibbongetRibbonMenu()(0);
-		RibbonMenuItem menuItem;
-		
-		menuItem = new RibbonMenuItem(UI.MENU_CLOSE);
-		getRibbonMenu().addTabbedMenuItem(menuItem);
-		
-		getRibbonMenu().addSeparator();
+  /**
+   * Setup.
+   */
+  public final void setup() {
 
-		menuItem = new RibbonMenuItem(UI.MENU_INFO);
-		getRibbonMenu().addTabbedMenuItem(menuItem, 
-				new RibbonPanelProductInfo(getAppInfo()));
-		//getRibbonMenu().addTabbedMenuItem(menuItem);
-		
-		menuItem = new RibbonMenuItem(UI.MENU_OPTIONS);
-		getRibbonMenu().addTabbedMenuItem(menuItem, new ModernOptionsRibbonPanel(getAppInfo()));
-		
-		
-		getRibbonMenu().addClickListener(this);
+    setSize(640, 480);
 
-		
-		//ribbon = new Ribbon();
-		
-		getRibbon().setHelpButtonEnabled(getAppInfo());
+    UI.centerWindowToScreen(this);
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.window.ModernWindowConstructor#createRibbon()
+   */
+  public void createRibbon() {
+    // RibbongetRibbonMenu() getRibbonMenu() = new RibbongetRibbonMenu()(0);
+    RibbonMenuItem menuItem;
 
+    menuItem = new RibbonMenuItem(UI.MENU_CLOSE);
+    getRibbonMenu().addTabbedMenuItem(menuItem);
 
-		// export
+    getRibbonMenu().addSeparator();
 
-		getRibbon().getHomeToolbar().addSection(new ClipboardRibbonSection(getRibbon()));
+    menuItem = new RibbonMenuItem(UI.MENU_INFO);
+    getRibbonMenu().addTabbedMenuItem(menuItem, new RibbonPanelProductInfo(getAppInfo()));
+    // getRibbonMenu().addTabbedMenuItem(menuItem);
 
-    	getRibbon().setSelectedIndex(1);
+    menuItem = new RibbonMenuItem(UI.MENU_OPTIONS);
+    getRibbonMenu().addTabbedMenuItem(menuItem, new ModernOptionsRibbonPanel(getAppInfo()));
 
-    	//setRibbon(ribbon, getRibbonMenu());
-	}
+    getRibbonMenu().addClickListener(this);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.window.ModernWindow#createUi()
-	 */
-	public void createUi() {
-		LogTablePanel logPanel = new LogTablePanel(mLog);
-		
-		logTable = new LogTable(logPanel);
-		
-		mLog.addLogListener(logTable);
-		
-		
-		setBody(new ModernPanel(new ModernPaddedPanel(logPanel)));
-		setFooter(statusBar);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public final void clicked(ModernClickEvent e) {
-		if (e.getMessage().equals(UI.MENU_ABOUT)) {
-			ModernAboutDialog.show(this, getAppInfo());
-		} else if (e.getMessage().equals(UI.MENU_EXIT)) {
-			close();
-		} else {
-			// Do nothing
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.window.ModernWindow#close()
-	 */
-	@Override
-	public void close() {
-		mLog.removeLogListener(logTable);
-	
-		super.close();
-	}
-	
-	/**
-	 * Create a default centered about dialog.
-	 *
-	 * @param productDetails the product details
-	 * @param log the log
-	 */
-	public static void createAndShow(GuiAppInfo productDetails, Log log) {
-		ModernWindow dialog = new ModernLogWindow(productDetails, log);
+    // ribbon = new Ribbon();
 
-		UI.centerWindowToScreen(dialog);
+    getRibbon().setHelpButtonEnabled(getAppInfo());
 
-		dialog.setVisible(true);
-	}
+    // export
+
+    getRibbon().getHomeToolbar().addSection(new ClipboardRibbonSection(getRibbon()));
+
+    getRibbon().setSelectedIndex(1);
+
+    // setRibbon(ribbon, getRibbonMenu());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.window.ModernWindow#createUi()
+   */
+  public void createUi() {
+    LogTablePanel logPanel = new LogTablePanel(mLog);
+
+    logTable = new LogTable(logPanel);
+
+    mLog.addLogListener(logTable);
+
+    setBody(new ModernPanel(new ModernPaddedPanel(logPanel)));
+    setFooter(statusBar);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public final void clicked(ModernClickEvent e) {
+    if (e.getMessage().equals(UI.MENU_ABOUT)) {
+      ModernAboutDialog.show(this, getAppInfo());
+    } else if (e.getMessage().equals(UI.MENU_EXIT)) {
+      close();
+    } else {
+      // Do nothing
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.window.ModernWindow#close()
+   */
+  @Override
+  public void close() {
+    mLog.removeLogListener(logTable);
+
+    super.close();
+  }
+
+  /**
+   * Create a default centered about dialog.
+   *
+   * @param productDetails
+   *          the product details
+   * @param log
+   *          the log
+   */
+  public static void createAndShow(GuiAppInfo productDetails, Log log) {
+    ModernWindow dialog = new ModernLogWindow(productDetails, log);
+
+    UI.centerWindowToScreen(dialog);
+
+    dialog.setVisible(true);
+  }
 }

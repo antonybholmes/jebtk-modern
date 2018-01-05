@@ -33,63 +33,57 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Concrete implementation of a button which
- * responds to click events.
+ * Concrete implementation of a button which responds to click events.
  *
  * @author Antony Holmes Holmes
  */
 public class ToolbarButton extends ModernButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant HEIGHT.
-	 */
-	private static final int HEIGHT = 30;
-	
-	/**
-	 * The constant ICON_SIZE.
-	 */
-	private static final Dimension ICON_SIZE = new Dimension(HEIGHT, HEIGHT);
 
-	/**
-	 * Instantiates a new toolbar button2.
-	 *
-	 * @param text the text
-	 */
-	public ToolbarButton(String text) {
-		super(text);
-		
-		UI.setSize(this, getButtonWidth(text), HEIGHT);
-	}
-	
-	/**
-	 * Instantiates a new toolbar button2.
-	 *
-	 * @param icon the icon
-	 */
-	public ToolbarButton(ModernIcon icon) {
-		super(icon);
-		
-		UI.setSize(this, ICON_SIZE);
-	}
-	
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (mHighlight) {
-			paintHighlightedOutlined(g2, getRect());
-		} else if(hasFocus()) {
-			paintOutlinedFocused(g2, getRect());
-		} else {
-			paintOutlined(g2, getRect());
-		}
-	}
-	*/
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant HEIGHT.
+   */
+  private static final int HEIGHT = 30;
+
+  /**
+   * The constant ICON_SIZE.
+   */
+  private static final Dimension ICON_SIZE = new Dimension(HEIGHT, HEIGHT);
+
+  /**
+   * Instantiates a new toolbar button2.
+   *
+   * @param text
+   *          the text
+   */
+  public ToolbarButton(String text) {
+    super(text);
+
+    UI.setSize(this, getButtonWidth(text), HEIGHT);
+  }
+
+  /**
+   * Instantiates a new toolbar button2.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ToolbarButton(ModernIcon icon) {
+    super(icon);
+
+    UI.setSize(this, ICON_SIZE);
+  }
+
+  /*
+   * @Override public void drawBackground(Graphics2D g2) { if (mHighlight) {
+   * paintHighlightedOutlined(g2, getRect()); } else if(hasFocus()) {
+   * paintOutlinedFocused(g2, getRect()); } else { paintOutlined(g2, getRect()); }
+   * }
+   */
 }

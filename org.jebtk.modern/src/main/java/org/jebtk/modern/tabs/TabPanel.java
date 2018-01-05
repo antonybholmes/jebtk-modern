@@ -32,14 +32,13 @@ import java.awt.Component;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.text.ModernSubHeadingLabel;
 
-
 public class TabPanel extends ModernComponent {
-	
-	private static final long serialVersionUID = 1L;
 
-	public TabPanel(String name, Component c) {
-		setHeader(new ModernSubHeadingLabel(name, BOTTOM_BORDER));
-		setBody(c);
-		setBorder(BORDER);
-	}
+  private static final long serialVersionUID = 1L;
+
+  public TabPanel(String name, Component c) {
+    setHeader(new ModernSubHeadingLabel(name, BOTTOM_BORDER));
+    setBody(c);
+    setBorder(BORDER);
+  }
 }

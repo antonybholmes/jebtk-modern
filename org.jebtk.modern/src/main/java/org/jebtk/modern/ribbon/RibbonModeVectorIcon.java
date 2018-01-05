@@ -40,22 +40,25 @@ import org.jebtk.modern.graphics.icons.ModernVectorScalableIcon;
  *
  */
 public class RibbonModeVectorIcon extends ModernVectorScalableIcon {
-	private Color mColor;
+  private Color mColor;
 
-	public RibbonModeVectorIcon() {
-		this(Ribbon.BAR_BACKGROUND);
-	}
-	
-	public RibbonModeVectorIcon(Color color) {
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.CheveronVectorIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		g2.setColor(mColor);
-		g2.drawRect(x + 2, y + 5, w - 4, h - 10);
-	}
+  public RibbonModeVectorIcon() {
+    this(Ribbon.BAR_BACKGROUND);
+  }
+
+  public RibbonModeVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.CheveronVectorIcon#drawForeground(java.awt.
+   * Graphics2D, java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    g2.setColor(mColor);
+    g2.drawRect(x + 2, y + 5, w - 4, h - 10);
+  }
 }

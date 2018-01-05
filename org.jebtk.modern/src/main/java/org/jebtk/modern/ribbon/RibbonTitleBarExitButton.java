@@ -41,36 +41,39 @@ import org.jebtk.modern.window.ModernWindowTitleBarExitButton;
  */
 public class RibbonTitleBarExitButton extends ModernWindowTitleBarExitButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant ICON. */
-	private static final ModernIcon ICON =
-			new Raster16Icon(new CrossVectorIcon(DARK_LINE_COLOR));
-	
-	/**
-	 * Instantiates a new ribbon title bar exit button.
-	 *
-	 * @param window the window
-	 */
-	public RibbonTitleBarExitButton(ModernWindow window) {
-		super(window);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2) {
-		int x = (getWidth() - 16) / 2;
-		int y = (getHeight() - 16) / 2;
-		
-		if (mHighlight) {
-			mIcon.drawIcon(g2, x, y, 16);
-		} else {
-			ICON.drawIcon(g2, x, y, 16);
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /** The Constant ICON. */
+  private static final ModernIcon ICON = new Raster16Icon(new CrossVectorIcon(DARK_LINE_COLOR));
+
+  /**
+   * Instantiates a new ribbon title bar exit button.
+   *
+   * @param window
+   *          the window
+   */
+  public RibbonTitleBarExitButton(ModernWindow window) {
+    super(window);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2) {
+    int x = (getWidth() - 16) / 2;
+    int y = (getHeight() - 16) / 2;
+
+    if (mHighlight) {
+      mIcon.drawIcon(g2, x, y, 16);
+    } else {
+      ICON.drawIcon(g2, x, y, 16);
+    }
+  }
 }

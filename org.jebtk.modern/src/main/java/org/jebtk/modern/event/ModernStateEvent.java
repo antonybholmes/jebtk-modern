@@ -29,8 +29,6 @@ package org.jebtk.modern.event;
 
 import org.jebtk.core.event.Event;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Modern UI controls such as buttons should fire ModernClickEvents.
@@ -39,33 +37,36 @@ import org.jebtk.core.event.Event;
  *
  */
 public class ModernStateEvent extends Event {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant EVENT_STATE_CHANGED.
-	 */
-	public static final String EVENT_STATE_CHANGED = "state_changed";
-	
-	/**
-	 * Instantiates a new modern state event.
-	 *
-	 * @param source the source
-	 */
-	public ModernStateEvent(Object source) {
-		this(source, EVENT_STATE_CHANGED);
-	}
-	
-	/**
-	 * Instantiates a new modern state event.
-	 *
-	 * @param source the source
-	 * @param message the message
-	 */
-	public ModernStateEvent(Object source, String message) {
-		super(source, message);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant EVENT_STATE_CHANGED.
+   */
+  public static final String EVENT_STATE_CHANGED = "state_changed";
+
+  /**
+   * Instantiates a new modern state event.
+   *
+   * @param source
+   *          the source
+   */
+  public ModernStateEvent(Object source) {
+    this(source, EVENT_STATE_CHANGED);
+  }
+
+  /**
+   * Instantiates a new modern state event.
+   *
+   * @param source
+   *          the source
+   * @param message
+   *          the message
+   */
+  public ModernStateEvent(Object source, String message) {
+    super(source, message);
+  }
 }

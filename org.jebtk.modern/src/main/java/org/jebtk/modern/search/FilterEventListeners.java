@@ -31,7 +31,6 @@ import org.jebtk.core.event.ChangeEvent;
 
 import org.jebtk.core.event.EventProducer;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
@@ -40,55 +39,71 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class FilterEventListeners extends EventProducer<FilterEventListener> implements FilterEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.search.FilterEventProducer#addFilterListener(org.abh.lib.ui.modern.search.FilterEventListener)
-	 */
-	public void addFilterListener(FilterEventListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.search.FilterEventProducer#removeFilterListener(org.abh.lib.ui.modern.search.FilterEventListener)
-	 */
-	public void removeFilterListener(FilterEventListener l) {
-		mListeners.remove(l);
-	}
-	
-	/**
-	 * Fire filter changed.
-	 */
-	public void fireFiltersUpdated() {
-		fireFiltersUpdated(new ChangeEvent(this));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.search.FilterEventProducer#fireFilterChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireFiltersUpdated(ChangeEvent e) {
-		for (FilterEventListener l : mListeners) {
-			l.filtersUpdated(e);
-		}
-	}
-	
-	/**
-	 * Fire filters updated.
-	 */
-	public void fireFiltersChanged() {
-		fireFiltersChanged(new ChangeEvent(this));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.search.FilterEventProducer#fireFiltersUpdated(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireFiltersChanged(ChangeEvent e) {
-		for (FilterEventListener l : mListeners) {
-			l.filtersChanged(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.search.FilterEventProducer#addFilterListener(org.abh.
+   * lib.ui.modern.search.FilterEventListener)
+   */
+  public void addFilterListener(FilterEventListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.search.FilterEventProducer#removeFilterListener(org.abh
+   * .lib.ui.modern.search.FilterEventListener)
+   */
+  public void removeFilterListener(FilterEventListener l) {
+    mListeners.remove(l);
+  }
+
+  /**
+   * Fire filter changed.
+   */
+  public void fireFiltersUpdated() {
+    fireFiltersUpdated(new ChangeEvent(this));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.search.FilterEventProducer#fireFilterChanged(org.abh.
+   * lib.event.ChangeEvent)
+   */
+  public void fireFiltersUpdated(ChangeEvent e) {
+    for (FilterEventListener l : mListeners) {
+      l.filtersUpdated(e);
+    }
+  }
+
+  /**
+   * Fire filters updated.
+   */
+  public void fireFiltersChanged() {
+    fireFiltersChanged(new ChangeEvent(this));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.search.FilterEventProducer#fireFiltersUpdated(org.abh.
+   * lib.event.ChangeEvent)
+   */
+  public void fireFiltersChanged(ChangeEvent e) {
+    for (FilterEventListener l : mListeners) {
+      l.filtersChanged(e);
+    }
+  }
 }

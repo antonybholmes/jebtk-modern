@@ -35,7 +35,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Drop down button that displays a menu.
@@ -44,46 +43,53 @@ import org.jebtk.modern.menu.ModernPopupMenu;
  *
  */
 public class ModernDropDownIconButton extends ModernDropDownButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * Instantiates a new modern drop down button icon only.
-	 *
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public ModernDropDownIconButton(ModernIcon icon, ModernPopupMenu menu) {
-		super(icon, menu);
-	}
 
-	/**
-	 * Instantiates a new modern drop down button icon only.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernDropDownIconButton(ModernIcon icon) {
-		super(icon);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int iconX = PADDING;
-		
-		g2.setColor(getForeground());
-		
-		int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
-		
-		mIcon.drawIcon(g2, new Rectangle(iconX, iconY, UIService.ICON_SIZE_16, UIService.ICON_SIZE_16));
-			
-		UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, mRect.getW() - 16, (getHeight() - 16) / 2, 16);
-	}
-	
+  /**
+   * Instantiates a new modern drop down button icon only.
+   *
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public ModernDropDownIconButton(ModernIcon icon, ModernPopupMenu menu) {
+    super(icon, menu);
+  }
+
+  /**
+   * Instantiates a new modern drop down button icon only.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernDropDownIconButton(ModernIcon icon) {
+    super(icon);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int iconX = PADDING;
+
+    g2.setColor(getForeground());
+
+    int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
+
+    mIcon.drawIcon(g2, new Rectangle(iconX, iconY, UIService.ICON_SIZE_16, UIService.ICON_SIZE_16));
+
+    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, mRect.getW() - 16,
+        (getHeight() - 16) / 2, 16);
+  }
+
 }

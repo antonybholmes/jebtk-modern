@@ -34,122 +34,117 @@ import org.jebtk.core.settings.SettingsService;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernDataGridCellRenderer.
  */
 public class ModernDataGridCellRenderer extends ModernDataCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/** The Constant MAX_CHARS. */
-	private static final int MAX_CHARS = 
-			SettingsService.getInstance().getAsInt("ui.dataview.grid.cell.max-display-chars");
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member default value.
-	 */
-	protected String mDefaultValue = TextUtils.EMPTY_STRING;
+  /** The Constant MAX_CHARS. */
+  private static final int MAX_CHARS = SettingsService.getInstance()
+      .getAsInt("ui.dataview.grid.cell.max-display-chars");
 
-	/**
-	 * The member text.
-	 */
-	protected String mText = TextUtils.EMPTY_STRING;
+  /**
+   * The member default value.
+   */
+  protected String mDefaultValue = TextUtils.EMPTY_STRING;
 
-	/**
-	 * The member is number.
-	 */
-	private boolean mIsNumber;
+  /**
+   * The member text.
+   */
+  protected String mText = TextUtils.EMPTY_STRING;
 
-	/**
-	 * Instantiates a new modern data grid cell renderer.
-	 *
-	 * @param defaultValue the default value
-	 */
-	public ModernDataGridCellRenderer(String defaultValue) {
-		mDefaultValue = defaultValue;
-	}
+  /**
+   * The member is number.
+   */
+  private boolean mIsNumber;
 
-	/**
-	 * Instantiates a new modern data grid cell renderer.
-	 */
-	public ModernDataGridCellRenderer() {
-		this(TextUtils.EMPTY_STRING);
-	}
+  /**
+   * Instantiates a new modern data grid cell renderer.
+   *
+   * @param defaultValue
+   *          the default value
+   */
+  public ModernDataGridCellRenderer(String defaultValue) {
+    mDefaultValue = defaultValue;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (mText == null) {
-			return;
-		}
-		
-		String text = getTruncatedText(g2, mText, mRect.getW() - DOUBLE_PADDING);
-		
-		g2.setColor(getForeground());
-		
-		int x;
-		
-		if (mIsNumber) {
-			x = mRect.getW() - PADDING - g2.getFontMetrics().stringWidth(text);
-		} else {
-			x = PADDING;
-		}
-		
-		g2.drawString(text, x, getTextYPosCenter(g2, getHeight()));
-	}
+  /**
+   * Instantiates a new modern data grid cell renderer.
+   */
+  public ModernDataGridCellRenderer() {
+    this(TextUtils.EMPTY_STRING);
+  }
 
-	/**
-	 * Sets the text.
-	 *
-	 * @param text the new text
-	 */
-	public final void setText(String text) {
-		mText = text;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mText == null) {
+      return;
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	@Override
-	public Component getCellRendererComponent(ModernData dataView,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
-		if (value != null) {
-			setForeground(dataView.getModel().getCellStyle(row, column).getColor());
-			setBackground(dataView.getModel().getCellStyle(row, column).getBackground());
-			
-			mIsNumber = (value instanceof Number);
-			
-			// For rendering purposes, truncate long strings
-			String v = TextUtils.truncate(value.toString(), MAX_CHARS);
-					
-			setText(v);
-			
-			//setText(value.toString());
-		} else {
-			setForeground(ModernWidget.TEXT_COLOR);
-			
-			setText(mDefaultValue);
-		}
+    String text = getTruncatedText(g2, mText, mRect.getW() - DOUBLE_PADDING);
 
-		return super.getCellRendererComponent(dataView, 
-				value, 
-				highlight, 
-				isSelected, 
-				hasFocus, 
-				row, 
-				column);
-	}
+    g2.setColor(getForeground());
+
+    int x;
+
+    if (mIsNumber) {
+      x = mRect.getW() - PADDING - g2.getFontMetrics().stringWidth(text);
+    } else {
+      x = PADDING;
+    }
+
+    g2.drawString(text, x, getTextYPosCenter(g2, getHeight()));
+  }
+
+  /**
+   * Sets the text.
+   *
+   * @param text
+   *          the new text
+   */
+  public final void setText(String text) {
+    mText = text;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
+   * java.lang.Object, boolean, boolean, boolean, int, int)
+   */
+  @Override
+  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+    if (value != null) {
+      setForeground(dataView.getModel().getCellStyle(row, column).getColor());
+      setBackground(dataView.getModel().getCellStyle(row, column).getBackground());
+
+      mIsNumber = (value instanceof Number);
+
+      // For rendering purposes, truncate long strings
+      String v = TextUtils.truncate(value.toString(), MAX_CHARS);
+
+      setText(v);
+
+      // setText(value.toString());
+    } else {
+      setForeground(ModernWidget.TEXT_COLOR);
+
+      setText(mDefaultValue);
+    }
+
+    return super.getCellRendererComponent(dataView, value, highlight, isSelected, hasFocus, row, column);
+  }
 }

@@ -25,74 +25,73 @@ import java.util.Map;
  * The Class FontUtils.
  */
 public class FontUtils {
-	
-	/** The Constant FONT_UNDERLINE_MAP. */
-	private static final Map<TextAttribute, Integer> FONT_UNDERLINE_MAP = 
-			new HashMap<TextAttribute, Integer>();
-	
-	/** The Constant FONT_STRIKE_MAP. */
-	private static final Map<TextAttribute, Boolean> FONT_STRIKE_MAP = 
-			new HashMap<TextAttribute, Boolean>();
-	
-	static {
-		FONT_UNDERLINE_MAP.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-		
-		FONT_STRIKE_MAP.put(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
-	}
-	
-	/**
-	 * Instantiates a new font utils.
-	 */
-	private FontUtils() {
-		// Do nothing
-	}
-	
-	/**
-	 * Create a bold version of a font.
-	 *
-	 * @param font the font
-	 * @return the font
-	 */
-	public static Font bold(final Font font) {
-		return new Font(font.getFamily(),
-				Font.BOLD,
-				font.getSize());
-	}
 
-	/**
-	 * Create an underlined version of a font.
-	 *
-	 * @param font the font
-	 * @return the font
-	 */
-	public static Font underline(Font font) {
-		return font.deriveFont(FONT_UNDERLINE_MAP);
-	}
-	
-	/**
-	 * Strikethrough.
-	 *
-	 * @param font the font
-	 * @return the font
-	 */
-	public static Font strikethrough(Font font) {
-		return font.deriveFont(FONT_STRIKE_MAP);
-	}
+  /** The Constant FONT_UNDERLINE_MAP. */
+  private static final Map<TextAttribute, Integer> FONT_UNDERLINE_MAP = new HashMap<TextAttribute, Integer>();
 
-	/**
-	 * Returns a scaled version of a font.
-	 * 
-	 * @param font		A font.
-	 * @param zoom		A zoom factor. 1 = no scaling, 2 = 200 %, 1.5 = 150%.
-	 * @return			A scaled font.
-	 */
-	public static Font scale(Font font, double zoom) {
-		return font.deriveFont((float)(font.getSize() * zoom));
-	}
+  /** The Constant FONT_STRIKE_MAP. */
+  private static final Map<TextAttribute, Boolean> FONT_STRIKE_MAP = new HashMap<TextAttribute, Boolean>();
 
-	public static Font size(Font font, int size) {
-		return new Font(font.getFamily(),
-				font.getSize(),
-				size);
-	}
+  static {
+    FONT_UNDERLINE_MAP.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+
+    FONT_STRIKE_MAP.put(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
+  }
+
+  /**
+   * Instantiates a new font utils.
+   */
+  private FontUtils() {
+    // Do nothing
+  }
+
+  /**
+   * Create a bold version of a font.
+   *
+   * @param font
+   *          the font
+   * @return the font
+   */
+  public static Font bold(final Font font) {
+    return new Font(font.getFamily(), Font.BOLD, font.getSize());
+  }
+
+  /**
+   * Create an underlined version of a font.
+   *
+   * @param font
+   *          the font
+   * @return the font
+   */
+  public static Font underline(Font font) {
+    return font.deriveFont(FONT_UNDERLINE_MAP);
+  }
+
+  /**
+   * Strikethrough.
+   *
+   * @param font
+   *          the font
+   * @return the font
+   */
+  public static Font strikethrough(Font font) {
+    return font.deriveFont(FONT_STRIKE_MAP);
+  }
+
+  /**
+   * Returns a scaled version of a font.
+   * 
+   * @param font
+   *          A font.
+   * @param zoom
+   *          A zoom factor. 1 = no scaling, 2 = 200 %, 1.5 = 150%.
+   * @return A scaled font.
+   */
+  public static Font scale(Font font, double zoom) {
+    return font.deriveFont((float) (font.getSize() * zoom));
+  }
+
+  public static Font size(Font font, int size) {
+    return new Font(font.getFamily(), font.getSize(), size);
+  }
 }

@@ -37,28 +37,32 @@ import java.awt.Polygon;
  *
  */
 public class ShapeInvertedTriangle extends Polygon {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new shape inverted triangle.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param width the width
-	 * @param height the height
-	 */
-	public ShapeInvertedTriangle(int x, int y, int width, int height) {
-		int s2 = width / 2;
-		
-		//int y2 = y + (size - h) / 2;
-		int y1 = y + height;
-		
-		addPoint(x, y);
-		addPoint(x + width, y);
-		addPoint(x + s2, y1);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new shape inverted triangle.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param width
+   *          the width
+   * @param height
+   *          the height
+   */
+  public ShapeInvertedTriangle(int x, int y, int width, int height) {
+    int s2 = width / 2;
+
+    // int y2 = y + (size - h) / 2;
+    int y1 = y + height;
+
+    addPoint(x, y);
+    addPoint(x + width, y);
+    addPoint(x + s2, y1);
+  }
 }

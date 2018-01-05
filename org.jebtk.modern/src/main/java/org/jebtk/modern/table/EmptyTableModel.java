@@ -35,68 +35,75 @@ package org.jebtk.modern.table;
  *
  */
 public class EmptyTableModel extends ModernTableModel {
-	
-	/**
-	 * The member rows.
-	 */
-	private int mRows = 50;
-	
-	/**
-	 * The member cols.
-	 */
-	private int mCols = 50;
 
-	/**
-	 * Creates an empty table that reports a certain
-	 * size, but displays nothing. Useful for scenarios
-	 * where the ui is initialised to a blank table.
-	 *
-	 * @param rows the rows
-	 * @param columns the columns
-	 */
-	public EmptyTableModel(int rows, int columns) {
-		mRows = rows;
-		mCols = columns;
-	}
+  /**
+   * The member rows.
+   */
+  private int mRows = 50;
 
+  /**
+   * The member cols.
+   */
+  private int mCols = 50;
 
-	/**
-	 * Instantiates a new empty table model.
-	 */
-	public EmptyTableModel() {
-		// do nothing
-	}
+  /**
+   * Creates an empty table that reports a certain size, but displays nothing.
+   * Useful for scenarios where the ui is initialised to a blank table.
+   *
+   * @param rows
+   *          the rows
+   * @param columns
+   *          the columns
+   */
+  public EmptyTableModel(int rows, int columns) {
+    mRows = rows;
+    mCols = columns;
+  }
 
+  /**
+   * Instantiates a new empty table model.
+   */
+  public EmptyTableModel() {
+    // do nothing
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
-	 */
-	public int getColumnCount() {
-		return mCols;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
+   */
+  public int getColumnCount() {
+    return mCols;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
-	 */
-	public int getRowCount() {
-		return mRows;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
+   */
+  public int getRowCount() {
+    return mRows;
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
+   */
+  @Override
+  public Object getValueAt(int row, int column) {
+    return null;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
-	 */
-	@Override
-	public Object getValueAt(int row, int column) {
-		return null;
-	}
-
-
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int, int)
-	 */
-	@Override
-	public boolean getIsCellEditable(int row, int column) {
-		return false;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * int)
+   */
+  @Override
+  public boolean getIsCellEditable(int row, int column) {
+    return false;
+  }
 }

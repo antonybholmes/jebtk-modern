@@ -39,51 +39,57 @@ import org.jebtk.modern.tree.ModernTree;
  */
 public class ModernTreeSelectionScrollV implements ModernSelectionListener {
 
-	/** The m tree. */
-	private ModernTree<?> mTree;
-	
-	/** The m scrollbar. */
-	private ModernScrollBar mScrollbar;
+  /** The m tree. */
+  private ModernTree<?> mTree;
 
-	/**
-	 * Instantiates a new modern tree selection scroll V.
-	 *
-	 * @param tree the tree
-	 * @param scrollbar the scrollbar
-	 */
-	public ModernTreeSelectionScrollV(ModernTree<?> tree, 
-			ModernScrollBar scrollbar) {
-		mTree = tree;
-		mScrollbar = scrollbar;
-	}
+  /** The m scrollbar. */
+  private ModernScrollBar mScrollbar;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.event.ModernSelectionListener#selectionChanged(org.abh.common.event.ChangeEvent)
-	 */
-	@Override
-	public void selectionChanged(ChangeEvent e) {
-		int row = mTree.getSelectedIndex();
+  /**
+   * Instantiates a new modern tree selection scroll V.
+   *
+   * @param tree
+   *          the tree
+   * @param scrollbar
+   *          the scrollbar
+   */
+  public ModernTreeSelectionScrollV(ModernTree<?> tree, ModernScrollBar scrollbar) {
+    mTree = tree;
+    mScrollbar = scrollbar;
+  }
 
-		if (row == -1) {
-			return;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.event.ModernSelectionListener#selectionChanged(org.abh.
+   * common.event.ChangeEvent)
+   */
+  @Override
+  public void selectionChanged(ChangeEvent e) {
+    int row = mTree.getSelectedIndex();
 
-		IntRect viewRect = mTree.getViewRect();
+    if (row == -1) {
+      return;
+    }
 
-		int y = mTree.getCumOffset(row);
+    IntRect viewRect = mTree.getViewRect();
 
-		int height = mTree.getNodeRenderer(row).getHeight();
+    int y = mTree.getCumOffset(row);
 
-		//System.err.println("tree scroll " + y + " " + viewRect.getY() + " " + height + " " + (viewRect.getY() + viewRect.getH()));
+    int height = mTree.getNodeRenderer(row).getHeight();
 
-		if (y < viewRect.getY()) {
-			double p = -mScrollbar.normalize(height);
-			mScrollbar.incrementNormalizedScrollPosition(p);
-		} else if (y + height >= viewRect.getY() + viewRect.getH()) {
-			double p = mScrollbar.normalize(height);
-			mScrollbar.incrementNormalizedScrollPosition(p);
-		} else {
-			// Do nothing
-		}
-	}
+    // System.err.println("tree scroll " + y + " " + viewRect.getY() + " " + height
+    // + " " + (viewRect.getY() + viewRect.getH()));
+
+    if (y < viewRect.getY()) {
+      double p = -mScrollbar.normalize(height);
+      mScrollbar.incrementNormalizedScrollPosition(p);
+    } else if (y + height >= viewRect.getY() + viewRect.getH()) {
+      double p = mScrollbar.normalize(height);
+      mScrollbar.incrementNormalizedScrollPosition(p);
+    } else {
+      // Do nothing
+    }
+  }
 }

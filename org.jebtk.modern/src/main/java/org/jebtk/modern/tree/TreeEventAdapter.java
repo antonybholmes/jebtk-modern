@@ -33,31 +33,43 @@ package org.jebtk.modern.tree;
  */
 public class TreeEventAdapter implements TreeEventListener {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tree.TreeEventListener#treeNodeDragged(org.abh.lib.ui.modern.tree.ModernTreeEvent)
-	 */
-	@Override
-	public void treeNodeDragged(ModernTreeEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tree.TreeEventListener#treeNodeDragged(org.abh.lib.ui.
+   * modern.tree.ModernTreeEvent)
+   */
+  @Override
+  public void treeNodeDragged(ModernTreeEvent e) {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tree.TreeEventListener#treeNodeClicked(org.abh.lib.ui.modern.tree.ModernTreeEvent)
-	 */
-	@Override
-	public void treeNodeClicked(ModernTreeEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tree.TreeEventListener#treeNodeDoubleClicked(org.abh.lib.ui.modern.tree.ModernTreeEvent)
-	 */
-	@Override
-	public void treeNodeDoubleClicked(ModernTreeEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tree.TreeEventListener#treeNodeClicked(org.abh.lib.ui.
+   * modern.tree.ModernTreeEvent)
+   */
+  @Override
+  public void treeNodeClicked(ModernTreeEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tree.TreeEventListener#treeNodeDoubleClicked(org.abh.
+   * lib.ui.modern.tree.ModernTreeEvent)
+   */
+  @Override
+  public void treeNodeDoubleClicked(ModernTreeEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 
 }

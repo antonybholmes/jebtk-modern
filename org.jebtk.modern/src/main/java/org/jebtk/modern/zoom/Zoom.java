@@ -29,53 +29,55 @@ package org.jebtk.modern.zoom;
 
 // TODO: Auto-generated Javadoc
 /**
- * Standard methods that controls supporting zoom
- * should implement.
+ * Standard methods that controls supporting zoom should implement.
  *
  * @author Antony Holmes Holmes
  *
  */
 public interface Zoom {
-	
-	/**
-	 * Returns the zoom level.
-	 *
-	 * @return the zoom
-	 */
-	public double getZoom();
 
-	/**
-	 * Set the zoom level.
-	 *
-	 * @param zoom the new zoom
-	 */
-	public void setZoom(double zoom);
+  /**
+   * Returns the zoom level.
+   *
+   * @return the zoom
+   */
+  public double getZoom();
 
-	/**
-	 * Return the minimum zoom level.
-	 *
-	 * @return the min zoom
-	 */
-	public double getMinZoom();
+  /**
+   * Set the zoom level.
+   *
+   * @param zoom
+   *          the new zoom
+   */
+  public void setZoom(double zoom);
 
-	/**
-	 * Set the minimum zoom level.
-	 *
-	 * @param zoom the new min zoom
-	 */
-	public void setMinZoom(double zoom);
+  /**
+   * Return the minimum zoom level.
+   *
+   * @return the min zoom
+   */
+  public double getMinZoom();
 
-	/**
-	 * Returns the maximum zoom level allowed.
-	 *
-	 * @return the max zoom
-	 */
-	public double getMaxZoom();
+  /**
+   * Set the minimum zoom level.
+   *
+   * @param zoom
+   *          the new min zoom
+   */
+  public void setMinZoom(double zoom);
 
-	/**
-	 * Sets the maximum zoom level allowed.
-	 *
-	 * @param zoom the new max zoom
-	 */
-	public void setMaxZoom(double zoom);
+  /**
+   * Returns the maximum zoom level allowed.
+   *
+   * @return the max zoom
+   */
+  public double getMaxZoom();
+
+  /**
+   * Sets the maximum zoom level allowed.
+   *
+   * @param zoom
+   *          the new max zoom
+   */
+  public void setMaxZoom(double zoom);
 }

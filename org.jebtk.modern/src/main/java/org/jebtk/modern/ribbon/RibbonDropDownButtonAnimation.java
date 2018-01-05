@@ -26,35 +26,38 @@ import org.jebtk.modern.widget.ModernWidget;
  * The Class RibbonDropDownButtonAnimation.
  */
 public class RibbonDropDownButtonAnimation extends RibbonButtonHighlightAnimation implements ChangeListener {
-	
-	/**
-	 * Instantiates a new ribbon drop down button animation.
-	 *
-	 * @param button the button
-	 */
-	public RibbonDropDownButtonAnimation(ModernWidget button) {
-		super(button);
-		
-		((ModernDropDownWidget)button).addPopupClosedListener(this);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.HoverFadeAnimation#animateMouseExited()
-	 */
-	@Override
-	public void animateMouseExited() {
-		// If the popup is show, force the animation to display the button
-		// by making it opaque and stopping the timer
-		if (getButton().getPopupShown()) {
-			opaque();
-			stopMouseOverTimer();
-		} else {
-			super.animateMouseExited();
-		}
-	}
 
-	@Override
-	public void changed(ChangeEvent e) {
-		pseudoMouseExited();
-	}
+  /**
+   * Instantiates a new ribbon drop down button animation.
+   *
+   * @param button
+   *          the button
+   */
+  public RibbonDropDownButtonAnimation(ModernWidget button) {
+    super(button);
+
+    ((ModernDropDownWidget) button).addPopupClosedListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.HoverFadeAnimation#animateMouseExited()
+   */
+  @Override
+  public void animateMouseExited() {
+    // If the popup is show, force the animation to display the button
+    // by making it opaque and stopping the timer
+    if (getButton().getPopupShown()) {
+      opaque();
+      stopMouseOverTimer();
+    } else {
+      super.animateMouseExited();
+    }
+  }
+
+  @Override
+  public void changed(ChangeEvent e) {
+    pseudoMouseExited();
+  }
 }

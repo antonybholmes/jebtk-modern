@@ -28,16 +28,16 @@ import org.jebtk.modern.graphics.icons.CheveronUpVectorIcon;
  */
 public class RibbonHideButton extends RibbonButton {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon hide button.
-	 */
-	public RibbonHideButton() {
-		super(UIService.getInstance().loadIcon(CheveronUpVectorIcon.class, 12));
-		
-		UI.setSize(this, 20);
-	}
+  /**
+   * Instantiates a new ribbon hide button.
+   */
+  public RibbonHideButton() {
+    super(UIService.getInstance().loadIcon(CheveronUpVectorIcon.class, 12));
+
+    UI.setSize(this, 20);
+  }
 
 }

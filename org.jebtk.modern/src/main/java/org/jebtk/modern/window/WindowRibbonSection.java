@@ -47,145 +47,151 @@ import org.jebtk.modern.ribbon.RibbonLargeButton;
 import org.jebtk.modern.ribbon.RibbonLargeDropDownButton;
 import org.jebtk.modern.ribbon.RibbonSection;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Standardized ribbon menu section for providing basic cut, copy and paste
- * functionality to the currently highlighted control that supports
- * clipboard operations.
+ * functionality to the currently highlighted control that supports clipboard
+ * operations.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class WindowRibbonSection extends RibbonSection implements ModernWindowListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant MAX_CHARS.
-	 */
-	private static final int MAX_CHARS = 30;
-	
-	/**
-	 * The constant MENU_WIDTH.
-	 */
-	private static final int MENU_WIDTH = 300;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member window menu.
-	 */
-	private ModernScrollPopupMenu mWindowMenu = 
-			new ModernScrollPopupMenu();
+  /**
+   * The constant MAX_CHARS.
+   */
+  private static final int MAX_CHARS = 30;
 
-	/**
-	 * The member arrange window button.
-	 */
-	private RibbonLargeButton mArrangeWindowButton = 
-			new RibbonLargeButton("Arrange All", 
-					UIService.getInstance().loadIcon(ArrangeWindows32VectorIcon.class, 32));
+  /**
+   * The constant MENU_WIDTH.
+   */
+  private static final int MENU_WIDTH = 300;
 
-	
-	/**
-	 * The member switch window button.
-	 */
-	private RibbonLargeDropDownButton mSwitchWindowButton = 
-			new RibbonLargeDropDownButton(UIService.getInstance().loadIcon(SwitchWindows32VectorIcon.class, 32), mWindowMenu);
+  /**
+   * The member window menu.
+   */
+  private ModernScrollPopupMenu mWindowMenu = new ModernScrollPopupMenu();
 
-	/**
-	 * The member current window.
-	 */
-	private ModernWindow mCurrentWindow;
-	
-	/**
-	 * The class ArrangeEvents.
-	 */
-	private class ArrangeEvents implements ModernClickListener {
+  /**
+   * The member arrange window button.
+   */
+  private RibbonLargeButton mArrangeWindowButton = new RibbonLargeButton("Arrange All",
+      UIService.getInstance().loadIcon(ArrangeWindows32VectorIcon.class, 32));
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			ArrangeWindowsDialog window = 
-					new ArrangeWindowsDialog(mCurrentWindow);
-			
-			window.setVisible(true);
-		}
-	}
-	
-	/**
-	 * Instantiates a new window ribbon section2.
-	 *
-	 * @param currentWindow the current window
-	 * @param ribbon the ribbon
-	 */
-	public WindowRibbonSection(ModernWindow currentWindow, Ribbon ribbon) {
-		super(ribbon, "Window");
+  /**
+   * The member switch window button.
+   */
+  private RibbonLargeDropDownButton mSwitchWindowButton = new RibbonLargeDropDownButton(
+      UIService.getInstance().loadIcon(SwitchWindows32VectorIcon.class, 32), mWindowMenu);
 
-		mCurrentWindow = currentWindow;
+  /**
+   * The member current window.
+   */
+  private ModernWindow mCurrentWindow;
 
-		mArrangeWindowButton.setToolTip("Arrange All", 
-				"Arrange all the windows.");
-		
-		mSwitchWindowButton.setToolTip("Switch Window", 
-				"Switch between the different windows of the application.");
-		
-		add(mArrangeWindowButton);
-		add(mSwitchWindowButton);
+  /**
+   * The class ArrangeEvents.
+   */
+  private class ArrangeEvents implements ModernClickListener {
 
-		mArrangeWindowButton.addClickListener(new ArrangeEvents());
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      ArrangeWindowsDialog window = new ArrangeWindowsDialog(mCurrentWindow);
 
-		WindowService.getInstance().addWindowListener(this);
-		
-		windowChanged();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.window.ModernWindowListener#windowAdded(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void windowAdded(ChangeEvent e) {
-		windowChanged();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.window.ModernWindowListener#windowRemoved(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void windowRemoved(ChangeEvent e) {
-		windowChanged();
-	}
+      window.setVisible(true);
+    }
+  }
 
-	/**
-	 * Window changed.
-	 */
-	private void windowChanged() {
-		mWindowMenu.clear();
+  /**
+   * Instantiates a new window ribbon section2.
+   *
+   * @param currentWindow
+   *          the current window
+   * @param ribbon
+   *          the ribbon
+   */
+  public WindowRibbonSection(ModernWindow currentWindow, Ribbon ribbon) {
+    super(ribbon, "Window");
 
-		String name;
+    mCurrentWindow = currentWindow;
 
-		ModernCheckBoxMenuItem menuItem;
+    mArrangeWindowButton.setToolTip("Arrange All", "Arrange all the windows.");
 
-		int counter = 1;
+    mSwitchWindowButton.setToolTip("Switch Window", "Switch between the different windows of the application.");
 
-		ModernButtonGroup group = new ModernButtonGroup();
+    add(mArrangeWindowButton);
+    add(mSwitchWindowButton);
 
-		for (ModernWindow window : WindowService.getInstance()) {
-			name = TextUtils.truncateCenter(window.getTitle(), MAX_CHARS);
+    mArrangeWindowButton.addClickListener(new ArrangeEvents());
 
-			menuItem = new SwitchWindowMenuItem(counter, name, window.equals(mCurrentWindow));
-			menuItem.addClickListener(new WindowRegistryListener(window));
+    WindowService.getInstance().addWindowListener(this);
 
-			UI.setSize(menuItem, new Dimension(MENU_WIDTH, WIDGET_HEIGHT));
+    windowChanged();
+  }
 
-			mWindowMenu.addScrollMenuItem(menuItem);
-			group.add(menuItem);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.window.ModernWindowListener#windowAdded(org.abh.lib.
+   * event.ChangeEvent)
+   */
+  @Override
+  public void windowAdded(ChangeEvent e) {
+    windowChanged();
+  }
 
-			++counter;
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.window.ModernWindowListener#windowRemoved(org.abh.lib.
+   * event.ChangeEvent)
+   */
+  @Override
+  public void windowRemoved(ChangeEvent e) {
+    windowChanged();
+  }
+
+  /**
+   * Window changed.
+   */
+  private void windowChanged() {
+    mWindowMenu.clear();
+
+    String name;
+
+    ModernCheckBoxMenuItem menuItem;
+
+    int counter = 1;
+
+    ModernButtonGroup group = new ModernButtonGroup();
+
+    for (ModernWindow window : WindowService.getInstance()) {
+      name = TextUtils.truncateCenter(window.getTitle(), MAX_CHARS);
+
+      menuItem = new SwitchWindowMenuItem(counter, name, window.equals(mCurrentWindow));
+      menuItem.addClickListener(new WindowRegistryListener(window));
+
+      UI.setSize(menuItem, new Dimension(MENU_WIDTH, WIDGET_HEIGHT));
+
+      mWindowMenu.addScrollMenuItem(menuItem);
+      group.add(menuItem);
+
+      ++counter;
+    }
+  }
 }

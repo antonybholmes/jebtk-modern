@@ -24,76 +24,70 @@ import org.jebtk.modern.widget.ModernWidget;
  * Provides the fade animation content panes
  */
 public class ModernHContentPaneAnimation extends HoverFadeAnimation {
-	
-	private ModernHContentPane mPane;
 
-	/**
-	 * Instantiates a content pane animation
-	 *
-	 * @param button the button
-	 */
-	public ModernHContentPaneAnimation(ModernWidget pane) {
-		super(pane);
-		
-		mPane = (ModernHContentPane)pane;
-		
-		//setFadeColor("highlight", ModernWidget.LIGHT_LINE_COLOR, ModernWidget.LINE_COLOR);
-		setFadeColor("highlight", ModernWidget.LINE_COLOR);
-	}
+  private ModernHContentPane mPane;
 
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		if (mPane.mDividerLocations.size() == 0) {
-			return;
-		}
-		
-		//int w = 8;
-		
-		
-		g2.setColor(getFadeColor("highlight"));
+  /**
+   * Instantiates a content pane animation
+   *
+   * @param button
+   *          the button
+   */
+  public ModernHContentPaneAnimation(ModernWidget pane) {
+    super(pane);
 
-		// Draw divider lines
-		//g2.setColor(ModernWidget.LINE_COLOR);
-		for (int divider : mPane.mDividerLocations) {
+    mPane = (ModernHContentPane) pane;
 
-			/*
-			GradientPaint paint = new GradientPaint(divider - w, 
-					0, 
-					ColorUtils.getTransparentColor100(Color.BLACK), 
-					divider, 
-					0, 
-					ColorUtils.getTransparentColor80(Color.BLACK));
-			
-			g2.setPaint(paint);
-			g2.fillRect(divider - w, getInsets().top, w, mInternalRect.getH());
-			
-			paint = new GradientPaint(divider, 
-					0, 
-					ColorUtils.getTransparentColor100(Color.BLACK), 
-					divider + w, 
-					0, 
-					ColorUtils.getTransparentColor90(Color.BLACK));
-			
-			g2.setPaint(paint);
-			g2.fillRect(divider, getInsets().top, w, mInternalRect.getH());
+    // setFadeColor("highlight", ModernWidget.LIGHT_LINE_COLOR,
+    // ModernWidget.LINE_COLOR);
+    setFadeColor("highlight", ModernWidget.LINE_COLOR);
+  }
 
-			*/
-			
-			g2.drawLine(divider, mPane.getInsets().top, divider, mPane.getInternalRect().getH());
-		}
-		
-		/*
-		System.err.println("divider " + mSelectedDivider);
-		
-		if (mSelectedDivider != -1) {
-			int divider = dividerLocations.get(mSelectedDivider);
-			
-			
-			
-			g2.setColor(ModernWidget.LINE_COLOR);
-			g2.drawLine(divider, getInsets().top, divider, mInternalRect.getH());
-		}
-		*/
-	}
-	
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    if (mPane.mDividerLocations.size() == 0) {
+      return;
+    }
+
+    // int w = 8;
+
+    g2.setColor(getFadeColor("highlight"));
+
+    // Draw divider lines
+    // g2.setColor(ModernWidget.LINE_COLOR);
+    for (int divider : mPane.mDividerLocations) {
+
+      /*
+       * GradientPaint paint = new GradientPaint(divider - w, 0,
+       * ColorUtils.getTransparentColor100(Color.BLACK), divider, 0,
+       * ColorUtils.getTransparentColor80(Color.BLACK));
+       * 
+       * g2.setPaint(paint); g2.fillRect(divider - w, getInsets().top, w,
+       * mInternalRect.getH());
+       * 
+       * paint = new GradientPaint(divider, 0,
+       * ColorUtils.getTransparentColor100(Color.BLACK), divider + w, 0,
+       * ColorUtils.getTransparentColor90(Color.BLACK));
+       * 
+       * g2.setPaint(paint); g2.fillRect(divider, getInsets().top, w,
+       * mInternalRect.getH());
+       * 
+       */
+
+      g2.drawLine(divider, mPane.getInsets().top, divider, mPane.getInternalRect().getH());
+    }
+
+    /*
+     * System.err.println("divider " + mSelectedDivider);
+     * 
+     * if (mSelectedDivider != -1) { int divider =
+     * dividerLocations.get(mSelectedDivider);
+     * 
+     * 
+     * 
+     * g2.setColor(ModernWidget.LINE_COLOR); g2.drawLine(divider, getInsets().top,
+     * divider, mInternalRect.getH()); }
+     */
+  }
+
 }

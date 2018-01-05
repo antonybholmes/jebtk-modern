@@ -28,119 +28,120 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class HoverFadeAnimation extends MouseAnimation {
 
-	private FadeAnimation mFade;
-	
-	/**
-	 * Instantiates a new hover fade animation.
-	 *
-	 * @param widget the widget
-	 */
-	public HoverFadeAnimation(ModernWidget widget) {
-		super(widget);
-		
-		mFade = new FadeAnimation(widget);
-		
-		/*
-		widget.addFocusListener(new FocusListener() {
+  private FadeAnimation mFade;
 
-			@Override
-			public void focusGained(FocusEvent e) {
-				// If the button regains focus, it means a dialog etc was
-				mPressed = false;
-				//pseudoMouseExited();
-			}
+  /**
+   * Instantiates a new hover fade animation.
+   *
+   * @param widget
+   *          the widget
+   */
+  public HoverFadeAnimation(ModernWidget widget) {
+    super(widget);
 
-			@Override
-			public void focusLost(FocusEvent e) {
-				//System.err.println("f loss ");
-			}});
-		*/
-	}
-	
-	/**
-	 * Set a fade in color.
-	 *
-	 * @param name the name
-	 * @param color the color
-	 */
-	public void setFadeColor(String name, Color color) {
-		mFade.setFadeColor(name, color);
-	}
-	
-	public void setFadeColor(String name, Color color1, Color color2) {
-		mFade.setFadeColor(name, color1, color2);
-	}
-	
-	public Color getFadeColor(String name) {
-		return mFade.getFadeColor(name);
-	}
-	
-	/**
-	 * Gets the fade color map.
-	 *
-	 * @return the fade color map
-	 */
-	public Map<String, Color> getFadeColorMap() {
-		return mFade.getFadeColorMap();
-	}
-	
-	/**
-	 * Gets the fade color map.
-	 *
-	 * @param step the step
-	 * @return the fade color map
-	 */
-	public Map<String, Color> getFadeColorMap(int step) {
-		return mFade.getFadeColorMap(step);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.MouseAnimation#animateMouseEntered()
-	 */
-	@Override
-	public void animateMouseEntered() {
-		getWidget().repaint();
-		
-		
-		if (mFade.getTrans() <= 0) {
-			stopMouseOverTimer();
-		} else {
-			mFade.fadeIn();
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.MouseAnimation#animateMouseExited()
-	 */
-	@Override
-	public void animateMouseExited() {
-		getWidget().repaint();
-		
-		if (mFade.getTrans() >= 1) {
-			stopMouseOverTimer();
-		} else {
-			mFade.fadeOut();
-		}
-	}
-	
-	/**
-	 * Gets the trans.
-	 *
-	 * @return the trans
-	 */
-	public double getTrans() {
-		return mFade.getTrans();
-	}
-	
-	public void setStep(int step) {
-		mFade.setStep(step);
-	}
-	
-	public void reset() {
-		mFade.reset();
-	}
-	
-	public void opaque() {
-		mFade.opaque();
-	}
+    mFade = new FadeAnimation(widget);
+
+    /*
+     * widget.addFocusListener(new FocusListener() {
+     * 
+     * @Override public void focusGained(FocusEvent e) { // If the button regains
+     * focus, it means a dialog etc was mPressed = false; //pseudoMouseExited(); }
+     * 
+     * @Override public void focusLost(FocusEvent e) {
+     * //System.err.println("f loss "); }});
+     */
+  }
+
+  /**
+   * Set a fade in color.
+   *
+   * @param name
+   *          the name
+   * @param color
+   *          the color
+   */
+  public void setFadeColor(String name, Color color) {
+    mFade.setFadeColor(name, color);
+  }
+
+  public void setFadeColor(String name, Color color1, Color color2) {
+    mFade.setFadeColor(name, color1, color2);
+  }
+
+  public Color getFadeColor(String name) {
+    return mFade.getFadeColor(name);
+  }
+
+  /**
+   * Gets the fade color map.
+   *
+   * @return the fade color map
+   */
+  public Map<String, Color> getFadeColorMap() {
+    return mFade.getFadeColorMap();
+  }
+
+  /**
+   * Gets the fade color map.
+   *
+   * @param step
+   *          the step
+   * @return the fade color map
+   */
+  public Map<String, Color> getFadeColorMap(int step) {
+    return mFade.getFadeColorMap(step);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.MouseAnimation#animateMouseEntered()
+   */
+  @Override
+  public void animateMouseEntered() {
+    getWidget().repaint();
+
+    if (mFade.getTrans() <= 0) {
+      stopMouseOverTimer();
+    } else {
+      mFade.fadeIn();
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.MouseAnimation#animateMouseExited()
+   */
+  @Override
+  public void animateMouseExited() {
+    getWidget().repaint();
+
+    if (mFade.getTrans() >= 1) {
+      stopMouseOverTimer();
+    } else {
+      mFade.fadeOut();
+    }
+  }
+
+  /**
+   * Gets the trans.
+   *
+   * @return the trans
+   */
+  public double getTrans() {
+    return mFade.getTrans();
+  }
+
+  public void setStep(int step) {
+    mFade.setStep(step);
+  }
+
+  public void reset() {
+    mFade.reset();
+  }
+
+  public void opaque() {
+    mFade.opaque();
+  }
 }

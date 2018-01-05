@@ -31,7 +31,6 @@ import java.util.EventListener;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Modern UI controls such as buttons should fire ModernClickEvents.
@@ -40,27 +39,29 @@ import org.jebtk.core.event.ChangeEvent;
  *
  */
 public interface ModernDataViewListener extends EventListener {
-	
-	/**
-	 * Triggered when the underlying structure of the data changes.
-	 *
-	 * @param e the e
-	 */
-	public void dataChanged(ChangeEvent e);
-	
-	/**
-	 * Should be called if the data is reordered, but the record count
-	 * remains the same.
-	 *
-	 * @param e the e
-	 */
-	public void dataUpdated(ChangeEvent e);
-	
-	/**
-	 * Should be called if the data is reordered, but the record count
-	 * remains the same.
-	 * 
-	 * @param e
-	 */
-	//public void dataReordered(ChangeEvent e);
+
+  /**
+   * Triggered when the underlying structure of the data changes.
+   *
+   * @param e
+   *          the e
+   */
+  public void dataChanged(ChangeEvent e);
+
+  /**
+   * Should be called if the data is reordered, but the record count remains the
+   * same.
+   *
+   * @param e
+   *          the e
+   */
+  public void dataUpdated(ChangeEvent e);
+
+  /**
+   * Should be called if the data is reordered, but the record count remains the
+   * same.
+   * 
+   * @param e
+   */
+  // public void dataReordered(ChangeEvent e);
 }

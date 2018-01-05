@@ -37,93 +37,102 @@ import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.ribbon.RibbonLargeButton;
 import org.jebtk.modern.ribbon.RibbonSection;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Standardized ribbon menu section for providing basic cut, copy and paste
- * functionality to the currently highlighted control that supports
- * clipboard operations.
+ * functionality to the currently highlighted control that supports clipboard
+ * operations.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ClipboardRibbonSection extends RibbonSection implements ModernClickListener, ClipboardEventListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member paste button.
-	 */
-	private ModernButtonWidget mPasteButton =
-			new RibbonLargeButton("Paste", UIService.getInstance().loadIcon("paste", 24)); 
-	
-	/**
-	 * The member cut button.
-	 */
-	private ModernButtonWidget mCutButton =
-			new RibbonLargeButton("Cut", UIService.getInstance().loadIcon("cut", 24));
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member copy button.
-	 */
-	private ModernButtonWidget mCopyButton =
-			new RibbonLargeButton("Copy", UIService.getInstance().loadIcon("copy", 24));
+  /**
+   * The member paste button.
+   */
+  private ModernButtonWidget mPasteButton = new RibbonLargeButton("Paste",
+      UIService.getInstance().loadIcon("paste", 24));
 
-	/**
-	 * Instantiates a new clipboard ribbon section2.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public ClipboardRibbonSection(Ribbon ribbon) {
-		super(ribbon, "Clipboard");
+  /**
+   * The member cut button.
+   */
+  private ModernButtonWidget mCutButton = new RibbonLargeButton("Cut", UIService.getInstance().loadIcon("cut", 24));
 
-		
-		mPasteButton.addClickListener(this);
-		mPasteButton.setToolTip("Paste", "Paste data from the clipboard.");
-		
-		mCutButton.addClickListener(this);
-		mCutButton.setToolTip("Cut", "Cut the currently selected text.");
-		
-		mCopyButton.addClickListener(this);
-		mCopyButton.setToolTip("Copy", "Copy the currently selected data to the clipboard.");
-		
-		mPasteButton.setEnabled(false);
-		mCutButton.setEnabled(false);
-		mCopyButton.setEnabled(false);
-		
-		add(mPasteButton);
-		add(mCutButton);
-		add(mCopyButton);
+  /**
+   * The member copy button.
+   */
+  private ModernButtonWidget mCopyButton = new RibbonLargeButton("Copy", UIService.getInstance().loadIcon("copy", 24));
 
+  /**
+   * Instantiates a new clipboard ribbon section2.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public ClipboardRibbonSection(Ribbon ribbon) {
+    super(ribbon, "Clipboard");
 
-		ClipboardService.getInstance().addClipboardListener(this);
-	}
+    mPasteButton.addClickListener(this);
+    mPasteButton.setToolTip("Paste", "Paste data from the clipboard.");
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.ClipboardEventListener#clipboardChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void clipboardChanged(ChangeEvent e) {
-		mPasteButton.setEnabled(ClipboardService.getInstance().getControl() != null ? ClipboardService.getInstance().getControl().pasteEnabled() : false);
-		mCutButton.setEnabled(ClipboardService.getInstance().getControl() != null ? ClipboardService.getInstance().getControl().cutEnabled() : false);
-		mCopyButton.setEnabled(ClipboardService.getInstance().getControl() != null ? ClipboardService.getInstance().getControl().copyEnabled() : false);
-	}
+    mCutButton.addClickListener(this);
+    mCutButton.setToolTip("Cut", "Cut the currently selected text.");
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		if (e.getSource().equals(mPasteButton)) {
-			ClipboardService.getInstance().paste();
-		} else if (e.getSource().equals(mCutButton)) {
-			ClipboardService.getInstance().cut();
-		} else if (e.getSource().equals(mCopyButton)) {
-			ClipboardService.getInstance().copy();
-		}
-	}
+    mCopyButton.addClickListener(this);
+    mCopyButton.setToolTip("Copy", "Copy the currently selected data to the clipboard.");
+
+    mPasteButton.setEnabled(false);
+    mCutButton.setEnabled(false);
+    mCopyButton.setEnabled(false);
+
+    add(mPasteButton);
+    add(mCutButton);
+    add(mCopyButton);
+
+    ClipboardService.getInstance().addClipboardListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.clipboard.ClipboardEventListener#clipboardChanged(org.
+   * abh.lib.event.ChangeEvent)
+   */
+  @Override
+  public void clipboardChanged(ChangeEvent e) {
+    mPasteButton.setEnabled(
+        ClipboardService.getInstance().getControl() != null ? ClipboardService.getInstance().getControl().pasteEnabled()
+            : false);
+    mCutButton.setEnabled(
+        ClipboardService.getInstance().getControl() != null ? ClipboardService.getInstance().getControl().cutEnabled()
+            : false);
+    mCopyButton.setEnabled(
+        ClipboardService.getInstance().getControl() != null ? ClipboardService.getInstance().getControl().copyEnabled()
+            : false);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    if (e.getSource().equals(mPasteButton)) {
+      ClipboardService.getInstance().paste();
+    } else if (e.getSource().equals(mCutButton)) {
+      ClipboardService.getInstance().cut();
+    } else if (e.getSource().equals(mCopyButton)) {
+      ClipboardService.getInstance().copy();
+    }
+  }
 }

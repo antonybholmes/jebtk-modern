@@ -27,41 +27,45 @@ import org.jebtk.modern.widget.ModernWidget;
  * The Class RibbonMenuAnimation.
  */
 public class ButtonPressedAnimation extends MousePressedStepAnimation {
-	
-	protected Color mColor;
 
-	/**
-	 * Instantiates a new ribbon menu animation.
-	 *
-	 * @param button the button
-	 */
-	public ButtonPressedAnimation(ModernWidget button, Color color) {
-		super(button);
-		
-		mColor = color;
-	}
+  protected Color mColor;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		//System.err.println("hmm " + isRunning() + " " + isPressed());
-		
-		if (getStep() == -1) {
-			return;
-		}
-		
-		double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
-		
-		int w = widget.getWidth();
-		
-		int d = (int)(w * r);
-		
-		int x = (w - d) / 2;
-		
-		g2.setColor(mColor);
-		
-		g2.fillRect(x, 0, d, widget.getHeight());
-	}
+  /**
+   * Instantiates a new ribbon menu animation.
+   *
+   * @param button
+   *          the button
+   */
+  public ButtonPressedAnimation(ModernWidget button, Color color) {
+    super(button);
+
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    // System.err.println("hmm " + isRunning() + " " + isPressed());
+
+    if (getStep() == -1) {
+      return;
+    }
+
+    double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
+
+    int w = widget.getWidth();
+
+    int d = (int) (w * r);
+
+    int x = (w - d) / 2;
+
+    g2.setColor(mColor);
+
+    g2.fillRect(x, 0, d, widget.getHeight());
+  }
 }

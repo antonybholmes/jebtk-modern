@@ -39,45 +39,48 @@ import javax.swing.Box;
  *
  */
 public class VCenterBox extends VBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member box.
-	 */
-	private VBox mBox = VBox.create();
-	
-	/**
-	 * Instantiates a new v center box panel.
-	 */
-	public VCenterBox() {
-		super.add(Box.createVerticalGlue());
-		super.add(mBox);
-		super.add(Box.createVerticalGlue());
-	}
-	
-	/**
-	 * Instantiates a new v center box panel.
-	 *
-	 * @param c the c
-	 */
-	public VCenterBox(Component c) {
-		this();
-		
-		add(c);
-	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component c) {
-		mBox.add(c);
-		
-		return c;
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member box.
+   */
+  private VBox mBox = VBox.create();
+
+  /**
+   * Instantiates a new v center box panel.
+   */
+  public VCenterBox() {
+    super.add(Box.createVerticalGlue());
+    super.add(mBox);
+    super.add(Box.createVerticalGlue());
+  }
+
+  /**
+   * Instantiates a new v center box panel.
+   *
+   * @param c
+   *          the c
+   */
+  public VCenterBox(Component c) {
+    this();
+
+    add(c);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component c) {
+    mBox.add(c);
+
+    return c;
+  }
 
 }

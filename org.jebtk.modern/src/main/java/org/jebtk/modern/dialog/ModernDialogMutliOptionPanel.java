@@ -33,9 +33,6 @@ import java.awt.Component;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.theme.ThemeService;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Replacement ModernButton with a common skin.
@@ -44,32 +41,34 @@ import org.jebtk.modern.theme.ThemeService;
  *
  */
 public class ModernDialogMutliOptionPanel extends ModernPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant COLOR. */
-	private static final Color COLOR = 
-			ThemeService.getInstance().colors().getHighlight32(1); //ColorUtils.getTransparentColor50(Color.WHITE);
-	
-	/**
-	 * Instantiates a new modern dialog border panel.
-	 *
-	 * @param c the c
-	 */
-	public ModernDialogMutliOptionPanel(Component c) {
-		super(c, COLOR);
-	}
 
-	/**
-	 * Instantiates a new modern dialog mutli option panel.
-	 *
-	 * @param c the c
-	 * @param padding the padding
-	 */
-	public ModernDialogMutliOptionPanel(Component c, int padding) {
-		super(c, COLOR, padding);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /** The Constant COLOR. */
+  private static final Color COLOR = ThemeService.getInstance().colors().getHighlight32(1); // ColorUtils.getTransparentColor50(Color.WHITE);
+
+  /**
+   * Instantiates a new modern dialog border panel.
+   *
+   * @param c
+   *          the c
+   */
+  public ModernDialogMutliOptionPanel(Component c) {
+    super(c, COLOR);
+  }
+
+  /**
+   * Instantiates a new modern dialog mutli option panel.
+   *
+   * @param c
+   *          the c
+   * @param padding
+   *          the padding
+   */
+  public ModernDialogMutliOptionPanel(Component c, int padding) {
+    super(c, COLOR, padding);
+  }
 }

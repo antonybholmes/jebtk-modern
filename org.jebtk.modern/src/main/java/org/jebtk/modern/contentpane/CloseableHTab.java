@@ -37,7 +37,6 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.tabs.CloseButton;
 import org.jebtk.modern.tabs.TabsModel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * All content panes.
@@ -46,90 +45,87 @@ import org.jebtk.modern.tabs.TabsModel;
  *
  */
 public class CloseableHTab extends HTab {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member model.
-	 */
-	private TabsModel mModel;
 
-	/** The m title. */
-	private String mTitle;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * The member model.
+   */
+  private TabsModel mModel;
 
-	/**
-	 * The class ClickEvents.
-	 */
-	private class ClickEvents implements ModernClickListener {
+  /** The m title. */
+  private String mTitle;
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			mModel.removeTab(mTitle);
-		}
-		
-	}
-	
-	/**
-	 * Instantiates a new closeable h tab2.
-	 *
-	 * @param title the title
-	 * @param content the content
-	 * @param viewer the viewer
-	 */
-	public CloseableHTab(String title,
-			Component content,
-			ModernHContentPane viewer) {
-		this(title, content, viewer.getModel());
-	}
-	
-	public CloseableHTab(String title,
-			Component content,
-			ModernHContentPane viewer,
-			Border border) {
-		this(title, content, viewer.getModel(), border);
-	}
-	
-	/**
-	 * Instantiates a new closeable h tab2.
-	 *
-	 * @param title the title
-	 * @param content the content
-	 * @param model the model
-	 */
-	public CloseableHTab(String title,
-			Component content,
-			TabsModel model) {
-		super(title, content);
-		
-		setup(title, content, model);
-	}
-	
-	public CloseableHTab(String title,
-			Component content,
-			TabsModel model,
-			Border border) {
-		super(title, content, border);
-		
-		setup(title, content, model);
-	}
-	
-	private void setup(String title,
-			Component content,
-			TabsModel model) {
-		mTitle = title;
-		mModel = model;
-		
-		ModernButton button = new CloseButton();
-		
-		button.addClickListener(new ClickEvents());
-		
-		addToToolbar(button);
-	}
+  /**
+   * The class ClickEvents.
+   */
+  private class ClickEvents implements ModernClickListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      mModel.removeTab(mTitle);
+    }
+
+  }
+
+  /**
+   * Instantiates a new closeable h tab2.
+   *
+   * @param title
+   *          the title
+   * @param content
+   *          the content
+   * @param viewer
+   *          the viewer
+   */
+  public CloseableHTab(String title, Component content, ModernHContentPane viewer) {
+    this(title, content, viewer.getModel());
+  }
+
+  public CloseableHTab(String title, Component content, ModernHContentPane viewer, Border border) {
+    this(title, content, viewer.getModel(), border);
+  }
+
+  /**
+   * Instantiates a new closeable h tab2.
+   *
+   * @param title
+   *          the title
+   * @param content
+   *          the content
+   * @param model
+   *          the model
+   */
+  public CloseableHTab(String title, Component content, TabsModel model) {
+    super(title, content);
+
+    setup(title, content, model);
+  }
+
+  public CloseableHTab(String title, Component content, TabsModel model, Border border) {
+    super(title, content, border);
+
+    setup(title, content, model);
+  }
+
+  private void setup(String title, Component content, TabsModel model) {
+    mTitle = title;
+    mModel = model;
+
+    ModernButton button = new CloseButton();
+
+    button.addClickListener(new ClickEvents());
+
+    addToToolbar(button);
+  }
 }

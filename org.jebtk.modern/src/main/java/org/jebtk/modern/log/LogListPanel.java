@@ -46,159 +46,174 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class LogListPanel.
  */
 public class LogListPanel extends ModernWidget implements MouseListener, ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The model.
-	 */
-	private ModernListModel<LogEvent> model = new ModernListModel<LogEvent>();
-	
-	/**
-	 * The list.
-	 */
-	private ModernList<LogEvent> list = new ModernList<LogEvent>(new LogEventListItemRenderer());
-	
-	/**
-	 * The log popup.
-	 */
-	private ModernPopupMenu logPopup = new ModernPopupMenu();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant MENU_CLEAR.
-	 */
-	private static final String MENU_CLEAR = "Clear Log";
+  /**
+   * The model.
+   */
+  private ModernListModel<LogEvent> model = new ModernListModel<LogEvent>();
 
-	/**
-	 * Instantiates a new log list panel.
-	 */
-	public LogListPanel() {
-		list.setModel(model);
-		
-		setBorder(DOUBLE_BORDER);
+  /**
+   * The list.
+   */
+  private ModernList<LogEvent> list = new ModernList<LogEvent>(new LogEventListItemRenderer());
 
-		ModernScrollPane scrollPane = new ModernScrollPane(list);
-		//scrollPane.setBorder(lineBorder);
+  /**
+   * The log popup.
+   */
+  private ModernPopupMenu logPopup = new ModernPopupMenu();
 
-		add(scrollPane, BorderLayout.CENTER);
+  /**
+   * The constant MENU_CLEAR.
+   */
+  private static final String MENU_CLEAR = "Clear Log";
 
-		ModernIconMenuItem menuItem = new ModernIconMenuItem(MENU_CLEAR, UIService.getInstance().loadIcon("clear_log", UIService.ICON_SIZE_16));
-		menuItem.addClickListener(this);
-		logPopup.add(menuItem);
+  /**
+   * Instantiates a new log list panel.
+   */
+  public LogListPanel() {
+    list.setModel(model);
 
-		logPopup.add(new ModernMenuSeparator());
+    setBorder(DOUBLE_BORDER);
 
-		menuItem = new ModernIconMenuItem(UI.MENU_COPY, UIService.getInstance().loadIcon("copy", UIService.ICON_SIZE_16));
-		menuItem.addClickListener(this);
-		logPopup.add(menuItem);
+    ModernScrollPane scrollPane = new ModernScrollPane(list);
+    // scrollPane.setBorder(lineBorder);
 
-		logPopup.add(new ModernMenuSeparator());
+    add(scrollPane, BorderLayout.CENTER);
 
-		menuItem = new ModernIconMenuItem(UI.MENU_SELECT_ALL);
-		menuItem.addClickListener(this);
-		logPopup.add(menuItem);
-	}
+    ModernIconMenuItem menuItem = new ModernIconMenuItem(MENU_CLEAR,
+        UIService.getInstance().loadIcon("clear_log", UIService.ICON_SIZE_16));
+    menuItem.addClickListener(this);
+    logPopup.add(menuItem);
 
-	/**
-	 * Adds the event.
-	 *
-	 * @param event the event
-	 */
-	public final void addEvent(LogEvent event) {
-		model.addValue(event);
-	}
+    logPopup.add(new ModernMenuSeparator());
 
-	/**
-	 * Show log popup.
-	 *
-	 * @param e the e
-	 */
-	private void showLogPopup(MouseEvent e) {
-		logPopup.showPopup(e.getComponent(), e.getX(), e.getY());
-	}
+    menuItem = new ModernIconMenuItem(UI.MENU_COPY, UIService.getInstance().loadIcon("copy", UIService.ICON_SIZE_16));
+    menuItem.addClickListener(this);
+    logPopup.add(menuItem);
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-	 */
-	public final void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+    logPopup.add(new ModernMenuSeparator());
 
-	}
+    menuItem = new ModernIconMenuItem(UI.MENU_SELECT_ALL);
+    menuItem.addClickListener(this);
+    logPopup.add(menuItem);
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-	 */
-	public final void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+  /**
+   * Adds the event.
+   *
+   * @param event
+   *          the event
+   */
+  public final void addEvent(LogEvent event) {
+    model.addValue(event);
+  }
 
-	}
+  /**
+   * Show log popup.
+   *
+   * @param e
+   *          the e
+   */
+  private void showLogPopup(MouseEvent e) {
+    logPopup.showPopup(e.getComponent(), e.getX(), e.getY());
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-	 */
-	public final void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+   */
+  public final void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
 
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-	 */
-	public final void mousePressed(MouseEvent e) {
-		if (e.isPopupTrigger()) {
-			showLogPopup(e);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+   */
+  public final void mouseEntered(MouseEvent e) {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-	 */
-	public final void mouseReleased(MouseEvent e) {
-		if (e.isPopupTrigger()) {
-			showLogPopup(e);
-		}
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public final void clicked(ModernClickEvent e) {
-		if (e.getMessage().equals(MENU_CLEAR)) {
-			model.clear();
-		} else if (e.getMessage().equals(UI.MENU_COPY)) {
-			copy();
-		} else {
-			// do nothing
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+   */
+  public final void mouseExited(MouseEvent e) {
+    // TODO Auto-generated method stub
 
-	/**
-	 * Copy selected rows to the clipboard as text.
-	 */
-	private void copy() {
-		StringBuilder buffer = new StringBuilder();
+  }
 
-		for (int i : list.getSelectionModel()) {
-			LogEvent logEvent = (LogEvent)model.getValueAt(i);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+   */
+  public final void mousePressed(MouseEvent e) {
+    if (e.isPopupTrigger()) {
+      showLogPopup(e);
+    }
+  }
 
-			buffer.append("[");
-			buffer.append(logEvent.getFormattedDate());
-			buffer.append("] ");
-			buffer.append(" ");
-			buffer.append(logEvent.getMessage());
-			buffer.append(TextUtils.NEW_LINE);
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+   */
+  public final void mouseReleased(MouseEvent e) {
+    if (e.isPopupTrigger()) {
+      showLogPopup(e);
+    }
+  }
 
-		ClipboardService.copyToClipboard(buffer.toString());
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public final void clicked(ModernClickEvent e) {
+    if (e.getMessage().equals(MENU_CLEAR)) {
+      model.clear();
+    } else if (e.getMessage().equals(UI.MENU_COPY)) {
+      copy();
+    } else {
+      // do nothing
+    }
+  }
+
+  /**
+   * Copy selected rows to the clipboard as text.
+   */
+  private void copy() {
+    StringBuilder buffer = new StringBuilder();
+
+    for (int i : list.getSelectionModel()) {
+      LogEvent logEvent = (LogEvent) model.getValueAt(i);
+
+      buffer.append("[");
+      buffer.append(logEvent.getFormattedDate());
+      buffer.append("] ");
+      buffer.append(" ");
+      buffer.append(logEvent.getMessage());
+      buffer.append(TextUtils.NEW_LINE);
+    }
+
+    ClipboardService.copyToClipboard(buffer.toString());
+  }
 }

@@ -38,109 +38,117 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.table.AbstractModernTableCellEditor;
 import org.jebtk.modern.window.ModernWindow;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTableColorCellEditor.
  */
-public class ModernTableColorCellEditor extends AbstractModernTableCellEditor implements ModernClickListener  {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The renderer.
-	 */
-	protected ModernTableColorCellRenderer mRenderer;
-	
-	/**
-	 * The menu.
-	 */
-	private ColorPopupMenu mMenu;
+public class ModernTableColorCellEditor extends AbstractModernTableCellEditor implements ModernClickListener {
 
-	/**
-	 * Instantiates a new modern table color cell editor.
-	 *
-	 * @param parent the parent
-	 */
-	public ModernTableColorCellEditor(ModernWindow parent) {
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		mMenu = new ColorPopupMenu(parent);
-		
-		mMenu.addClickListener(this);
-		
-		mRenderer = new ModernTableColorCellRenderer();
-		
-		mRenderer.addClickListener(this);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
-	 */
-	@Override
-	public final Object getCellEditorValue() {
-		return mRenderer.getColor();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.dataview.ModernDataCellEditor#setFocus()
-	 */
-	@Override
-	public void setFocus() {
-		mMenu.showPopup(mRenderer);
-	}
+  /**
+   * The renderer.
+   */
+  protected ModernTableColorCellRenderer mRenderer;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public final void clicked(ModernClickEvent e) {
-		if (e.getMessage().equals(ColorSelectionModel.COLOR_CHANGED)) {
-			setColor(mMenu.getSelectedColor());
-		} else {
-			mMenu.showPopup(mRenderer);
-		}
-	}
+  /**
+   * The menu.
+   */
+  private ColorPopupMenu mMenu;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	public final Component getCellEditorComponent(ModernData table,
-            Object value,
-            boolean highlight,
-            boolean isSelected,
-            boolean hasFocus,
-            int row,
-            int column) {
-		
-		Color color = (Color)value;
-		
-		mMenu.setSelectedColor(color);
+  /**
+   * Instantiates a new modern table color cell editor.
+   *
+   * @param parent
+   *          the parent
+   */
+  public ModernTableColorCellEditor(ModernWindow parent) {
 
-		return mRenderer.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
-	}
+    mMenu = new ColorPopupMenu(parent);
 
-	/**
-	 * Sets the color.
-	 *
-	 * @param color the new color
-	 */
-	public void setColor(Color color) {
-		mRenderer.setColor(color);
-		mMenu.setSelectedColor(color);
-		
-		fireChanged(new ChangeEvent(this));
-	}
+    mMenu.addClickListener(this);
 
-	/**
-	 * Gets the color.
-	 *
-	 * @return the color
-	 */
-	public Color getColor() {
-		return mRenderer.getColor();
-	}
+    mRenderer = new ModernTableColorCellRenderer();
+
+    mRenderer.addClickListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   */
+  @Override
+  public final Object getCellEditorValue() {
+    return mRenderer.getColor();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.dataview.ModernDataCellEditor#setFocus()
+   */
+  @Override
+  public void setFocus() {
+    mMenu.showPopup(mRenderer);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public final void clicked(ModernClickEvent e) {
+    if (e.getMessage().equals(ColorSelectionModel.COLOR_CHANGED)) {
+      setColor(mMenu.getSelectedColor());
+    } else {
+      mMenu.showPopup(mRenderer);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorComponent(
+   * org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean,
+   * boolean, boolean, int, int)
+   */
+  public final Component getCellEditorComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+
+    Color color = (Color) value;
+
+    mMenu.setSelectedColor(color);
+
+    return mRenderer.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
+  }
+
+  /**
+   * Sets the color.
+   *
+   * @param color
+   *          the new color
+   */
+  public void setColor(Color color) {
+    mRenderer.setColor(color);
+    mMenu.setSelectedColor(color);
+
+    fireChanged(new ChangeEvent(this));
+  }
+
+  /**
+   * Gets the color.
+   *
+   * @return the color
+   */
+  public Color getColor() {
+    return mRenderer.getColor();
+  }
 }

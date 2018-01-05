@@ -37,119 +37,116 @@ import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
- * Represents a vector icon that can have its color and size specified.
- * These types of vector icons are designed to be scale invariant.
+ * Represents a vector icon that can have its color and size specified. These
+ * types of vector icons are designed to be scale invariant.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public abstract class ModernMessageIcon extends ModernVectorScalableIcon {
 
-	/** The Constant FONT_SCALE. */
-	private static final double FONT_SCALE = 0.9;
+  /** The Constant FONT_SCALE. */
+  private static final double FONT_SCALE = 0.9;
 
-	/** The Constant FONT. */
-	private static final Font FONT = ModernWidget.TITLE_FONT_BOLD;
+  /** The Constant FONT. */
+  private static final Font FONT = ModernWidget.TITLE_FONT_BOLD;
 
-	/**
-	 * Instantiates a new modern message icon.
-	 */
-	public ModernMessageIcon() {
-		
-	}
+  /**
+   * Instantiates a new modern message icon.
+   */
+  public ModernMessageIcon() {
 
-	/**
-	 * Instantiates a new modern message icon.
-	 *
-	 * @param color the color
-	 */
-	public ModernMessageIcon(Color color) {
-		super(color);
-	}
-	
-	/**
-	 * Instantiates a new modern message icon.
-	 *
-	 * @param color1 the color 1
-	 * @param color2 the color 2
-	 */
-	public ModernMessageIcon(Color color1, Color color2) {
-		super(color1, color2);
-	}
+  }
 
-	//
-	// Static methods
-	//
-	
-	/**
-	 * Draws a scaled version of some text in the center of an icon.
-	 *
-	 * @param g2 the g 2
-	 * @param size the size
-	 * @param rect the rect
-	 * @param text the text
-	 * @param color the color
-	 */
-	public static void drawScaledText(Graphics2D g2, 
-			int size,
-			final Rectangle rect,
-			String text,
-			Color color) {
-		
-		drawScaledText(g2, 
-				size,
-				rect.x,
-				rect.y,
-				rect.width,
-				rect.height,
-				text,
-				color);
-	}
-	
-	/**
-	 * Draw scaled text.
-	 *
-	 * @param g2 the g 2
-	 * @param size the size
-	 * @param x the x
-	 * @param y the y
-	 * @param w the w
-	 * @param h the h
-	 * @param text the text
-	 * @param color the color
-	 */
-	public static void drawScaledText(Graphics2D g2, 
-			int size,
-			int x,
-			int y,
-			int w,
-			int h,
-			String text,
-			Color color) {
-		
-		Graphics2D g2Temp = ImageUtils.clone(g2);
+  /**
+   * Instantiates a new modern message icon.
+   *
+   * @param color
+   *          the color
+   */
+  public ModernMessageIcon(Color color) {
+    super(color);
+  }
 
-		try {
-			g2Temp.setFont(FONT);
+  /**
+   * Instantiates a new modern message icon.
+   *
+   * @param color1
+   *          the color 1
+   * @param color2
+   *          the color 2
+   */
+  public ModernMessageIcon(Color color1, Color color2) {
+    super(color1, color2);
+  }
 
-			int fontHeight = ImageUtils.getFontHeight(g2Temp);
+  //
+  // Static methods
+  //
 
-			// Scale factor
-			double factor = size / (double)fontHeight * FONT_SCALE;
+  /**
+   * Draws a scaled version of some text in the center of an icon.
+   *
+   * @param g2
+   *          the g 2
+   * @param size
+   *          the size
+   * @param rect
+   *          the rect
+   * @param text
+   *          the text
+   * @param color
+   *          the color
+   */
+  public static void drawScaledText(Graphics2D g2, int size, final Rectangle rect, String text, Color color) {
 
-			x = x + (int)((w - g2Temp.getFontMetrics().stringWidth(text) * factor) / 2);
-			y = y + ModernWidget.getTextYPosCenter(h, 
-					g2Temp.getFontMetrics().getAscent() * factor, 
-					g2Temp.getFontMetrics().getDescent() * factor); //h - (int)((h - fontHeight * factor) / 2);
+    drawScaledText(g2, size, rect.x, rect.y, rect.width, rect.height, text, color);
+  }
 
-			g2Temp.translate(x, y);
-			g2Temp.scale(factor, factor);
+  /**
+   * Draw scaled text.
+   *
+   * @param g2
+   *          the g 2
+   * @param size
+   *          the size
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param w
+   *          the w
+   * @param h
+   *          the h
+   * @param text
+   *          the text
+   * @param color
+   *          the color
+   */
+  public static void drawScaledText(Graphics2D g2, int size, int x, int y, int w, int h, String text, Color color) {
 
-			g2Temp.setColor(color);
+    Graphics2D g2Temp = ImageUtils.clone(g2);
 
-			g2Temp.drawString(text, 0, 0);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+    try {
+      g2Temp.setFont(FONT);
+
+      int fontHeight = ImageUtils.getFontHeight(g2Temp);
+
+      // Scale factor
+      double factor = size / (double) fontHeight * FONT_SCALE;
+
+      x = x + (int) ((w - g2Temp.getFontMetrics().stringWidth(text) * factor) / 2);
+      y = y + ModernWidget.getTextYPosCenter(h, g2Temp.getFontMetrics().getAscent() * factor,
+          g2Temp.getFontMetrics().getDescent() * factor); // h - (int)((h - fontHeight * factor) / 2);
+
+      g2Temp.translate(x, y);
+      g2Temp.scale(factor, factor);
+
+      g2Temp.setColor(color);
+
+      g2Temp.drawString(text, 0, 0);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 }

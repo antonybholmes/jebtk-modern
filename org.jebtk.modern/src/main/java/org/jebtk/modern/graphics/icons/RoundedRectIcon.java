@@ -33,7 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.theme.ModernRoundedWidgetRenderer;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Check vector icon optimized for 16 pixel icons.
@@ -42,38 +41,43 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class RoundedRectIcon extends ModernVectorScalableIcon {
-	
-	/** The Constant ROUNDING. */
-	private static final int ROUNDING = ModernRoundedWidgetRenderer.ROUNDING;
-	
-	/**
-	 * Instantiates a new rounded rect icon.
-	 */
-	public RoundedRectIcon() {
-		this(Color.WHITE, ModernWidget.LINE_COLOR);
-	}
-	
-	/**
-	 * Instantiates a new rounded rect icon.
-	 *
-	 * @param color1 the color 1
-	 * @param color2 the color 2
-	 */
-	public RoundedRectIcon(Color color1, Color color2) {
-		super(color1 != null ? color1 : Color.WHITE, color2 != null ? color2 : ModernWidget.LINE_COLOR);
 
-	}
-	
+  /** The Constant ROUNDING. */
+  private static final int ROUNDING = ModernRoundedWidgetRenderer.ROUNDING;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		g2.setColor(mColor1);
-		g2.fillRoundRect(x, y, w, h, ROUNDING, ROUNDING);
-		
-		g2.setColor(mColor2);
-		g2.drawRoundRect(x, y, w - 1, h - 1, ROUNDING, ROUNDING);
-	}
+  /**
+   * Instantiates a new rounded rect icon.
+   */
+  public RoundedRectIcon() {
+    this(Color.WHITE, ModernWidget.LINE_COLOR);
+  }
+
+  /**
+   * Instantiates a new rounded rect icon.
+   *
+   * @param color1
+   *          the color 1
+   * @param color2
+   *          the color 2
+   */
+  public RoundedRectIcon(Color color1, Color color2) {
+    super(color1 != null ? color1 : Color.WHITE, color2 != null ? color2 : ModernWidget.LINE_COLOR);
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    g2.setColor(mColor1);
+    g2.fillRoundRect(x, y, w, h, ROUNDING, ROUNDING);
+
+    g2.setColor(mColor2);
+    g2.drawRoundRect(x, y, w - 1, h - 1, ROUNDING, ROUNDING);
+  }
 }

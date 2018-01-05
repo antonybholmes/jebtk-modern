@@ -26,38 +26,38 @@ import org.jebtk.modern.widget.ModernWidget;
  * The Class RibbonMenuAnimation.
  */
 public class RibbonMenuHighlightAnimation extends HoverFadeAnimation {
-	
-	/** The m button. */
-	private RibbonMenuItem mButton;
 
-	/**
-	 * Instantiates a new ribbon menu animation.
-	 *
-	 * @param button the button
-	 */
-	public RibbonMenuHighlightAnimation(ModernWidget button) {
-		super((RibbonMenuItem)button);
-		
-		mButton = (RibbonMenuItem)button;
-		
-		//setFadeColor("selected", MaterialService.getInstance().color("ribbon-theme-selected"));
-		setFadeColor("highlight", 
-				MaterialService.getInstance().color("gray-highlighted"));
-	}
+  /** The m button. */
+  private RibbonMenuItem mButton;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		if (mButton.isSelected()) {
-			ModernWidget.fill(g2, 
-					MaterialService.getInstance().color("gray-selected"),
-					getWidget().getRect());
-		} else {
-			ModernWidget.fill(g2, 
-					getFadeColor("highlight"), 
-					getWidget().getRect());
-		}
-	}
+  /**
+   * Instantiates a new ribbon menu animation.
+   *
+   * @param button
+   *          the button
+   */
+  public RibbonMenuHighlightAnimation(ModernWidget button) {
+    super((RibbonMenuItem) button);
+
+    mButton = (RibbonMenuItem) button;
+
+    // setFadeColor("selected",
+    // MaterialService.getInstance().color("ribbon-theme-selected"));
+    setFadeColor("highlight", MaterialService.getInstance().color("gray-highlighted"));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    if (mButton.isSelected()) {
+      ModernWidget.fill(g2, MaterialService.getInstance().color("gray-selected"), getWidget().getRect());
+    } else {
+      ModernWidget.fill(g2, getFadeColor("highlight"), getWidget().getRect());
+    }
+  }
 }

@@ -37,32 +37,44 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class ModernStateListeners extends EventProducer<ModernStateListener> implements ModernStateEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernStateEventProducer#addStateListener(org.abh.lib.ui.modern.event.ModernStateListener)
-	 */
-	public void addStateListener(ModernStateListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernStateEventProducer#removeStateListener(org.abh.lib.ui.modern.event.ModernStateListener)
-	 */
-	public void removeStateListener(ModernStateListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernStateEventProducer#fireStateChanged(org.abh.lib.ui.modern.event.ModernStateEvent)
-	 */
-	public void fireStateChanged(ModernStateEvent e) {
-		for (ModernStateListener l : mListeners) {
-			l.stateChanged(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#addStateListener(org.abh
+   * .lib.ui.modern.event.ModernStateListener)
+   */
+  public void addStateListener(ModernStateListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#removeStateListener(org.
+   * abh.lib.ui.modern.event.ModernStateListener)
+   */
+  public void removeStateListener(ModernStateListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#fireStateChanged(org.abh
+   * .lib.ui.modern.event.ModernStateEvent)
+   */
+  public void fireStateChanged(ModernStateEvent e) {
+    for (ModernStateListener l : mListeners) {
+      l.stateChanged(e);
+    }
+  }
 }

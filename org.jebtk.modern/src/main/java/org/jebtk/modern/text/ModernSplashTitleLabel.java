@@ -29,24 +29,24 @@ package org.jebtk.modern.text;
 
 import java.awt.Color;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernSplashTitleLabel.
  */
 public class ModernSplashTitleLabel extends ModernTitleLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern splash title label.
-	 *
-	 * @param text the text
-	 */
-	public ModernSplashTitleLabel(String text) {
-		super(text, Color.WHITE);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern splash title label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernSplashTitleLabel(String text) {
+    super(text, Color.WHITE);
+  }
 }

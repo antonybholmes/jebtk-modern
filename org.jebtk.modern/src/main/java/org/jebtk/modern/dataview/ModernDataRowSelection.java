@@ -32,44 +32,45 @@ package org.jebtk.modern.dataview;
  * The class ModernDataRowSelection.
  */
 public class ModernDataRowSelection {
-	
-	/**
-	 * The member start row.
-	 */
-	protected int mStartRow = -1;
-	
-	/**
-	 * The member end row.
-	 */
-	protected int mEndRow = -1;
-	
-	/**
-	 * Instantiates a new modern data row selection.
-	 *
-	 * @param startRow the start row
-	 * @param endRow the end row
-	 */
-	public ModernDataRowSelection(int startRow, 
-			int endRow) {
-		mStartRow = startRow;
-		mEndRow = endRow;
-	}
 
-	/**
-	 * Gets the start row.
-	 *
-	 * @return the start row
-	 */
-	public int getStartRow() {
-		return mStartRow;
-	}
-	
-	/**
-	 * Gets the end row.
-	 *
-	 * @return the end row
-	 */
-	public int getEndRow() {
-		return mEndRow;
-	}
+  /**
+   * The member start row.
+   */
+  protected int mStartRow = -1;
+
+  /**
+   * The member end row.
+   */
+  protected int mEndRow = -1;
+
+  /**
+   * Instantiates a new modern data row selection.
+   *
+   * @param startRow
+   *          the start row
+   * @param endRow
+   *          the end row
+   */
+  public ModernDataRowSelection(int startRow, int endRow) {
+    mStartRow = startRow;
+    mEndRow = endRow;
+  }
+
+  /**
+   * Gets the start row.
+   *
+   * @return the start row
+   */
+  public int getStartRow() {
+    return mStartRow;
+  }
+
+  /**
+   * Gets the end row.
+   *
+   * @return the end row
+   */
+  public int getEndRow() {
+    return mEndRow;
+  }
 }

@@ -43,43 +43,48 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  */
 public class RibbonPanelSideTabsButton extends ModernCheckButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SIZE.
-	 */
-	private static final Dimension SIZE = new Dimension(300, 48);
+  /**
+   * The constant SIZE.
+   */
+  private static final Dimension SIZE = new Dimension(300, 48);
 
-	/**
-	 * Instantiates a new ribbon panel side tabs button.
-	 *
-	 * @param name the name
-	 * @param icon the icon
-	 */
-	public RibbonPanelSideTabsButton(String name, ModernIcon icon) {
-		super(name, icon);
+  /**
+   * Instantiates a new ribbon panel side tabs button.
+   *
+   * @param name
+   *          the name
+   * @param icon
+   *          the icon
+   */
+  public RibbonPanelSideTabsButton(String name, ModernIcon icon) {
+    super(name, icon);
 
-		UI.setSize(this, SIZE);
+    UI.setSize(this, SIZE);
 
-		setFont(SUB_HEADING_FONT);
-	}
+    setFont(SUB_HEADING_FONT);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (isEnabled()) {
-			if (isSelected()) {
-				paintThemeSelected(g2, getRect());
-			} else if (mHighlight) {
-				paintThemeHighlighted(g2, getRect());
-			} else {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    if (isEnabled()) {
+      if (isSelected()) {
+        paintThemeSelected(g2, getRect());
+      } else if (mHighlight) {
+        paintThemeHighlighted(g2, getRect());
+      } else {
 
-			}
-		}
-	}
+      }
+    }
+  }
 }

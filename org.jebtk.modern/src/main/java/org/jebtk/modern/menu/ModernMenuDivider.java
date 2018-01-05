@@ -29,9 +29,6 @@ package org.jebtk.modern.menu;
 
 import java.awt.Graphics2D;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a full line separator for menus with a theme consistent with
@@ -40,21 +37,24 @@ import java.awt.Graphics2D;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernMenuDivider extends ModernMenuSeparator  {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+public class ModernMenuDivider extends ModernMenuSeparator {
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernMenuSeparator#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(LINE_COLOR);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.menu.ModernMenuSeparator#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(LINE_COLOR);
 
-		g2.drawLine(getInsets().left + ModernMenuItem.HEIGHT, y, getWidth() - getInsets().left - getInsets().right, y);
-	}
+    g2.drawLine(getInsets().left + ModernMenuItem.HEIGHT, y, getWidth() - getInsets().left - getInsets().right, y);
+  }
 }

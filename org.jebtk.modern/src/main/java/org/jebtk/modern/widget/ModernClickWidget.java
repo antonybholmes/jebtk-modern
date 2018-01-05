@@ -52,329 +52,349 @@ import org.jebtk.modern.event.ModernStateListeners;
 import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.widget.tooltip.ModernToolTipWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides the foundation for all UI widgets but does not implement
- * responses.
+ * Provides the foundation for all UI widgets but does not implement responses.
  * 
  * @author Antony Holmes Holmes
  */
-public abstract class ModernClickWidget extends ModernToolTipWidget implements ModernClickEventProducer, ModernStateEventProducer, ModernSelectedEventProducer, HighlightEventProducer {
+public abstract class ModernClickWidget extends ModernToolTipWidget
+    implements ModernClickEventProducer, ModernStateEventProducer, ModernSelectedEventProducer, HighlightEventProducer {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member message.
-	 */
-	private String mMessage;
+  /**
+   * The member message.
+   */
+  private String mMessage;
 
-	/**
-	 * The member action listeners.
-	 */
-	private ModernClickListeners mActionListeners = 
-			new ModernClickListeners();
+  /**
+   * The member action listeners.
+   */
+  private ModernClickListeners mActionListeners = new ModernClickListeners();
 
-	/**
-	 * The member state listeners.
-	 */
-	private ModernStateListeners mStateListeners = 
-			new ModernStateListeners();
-	
-	private ModernSelectedListeners mSelectedListeners = 
-			new ModernSelectedListeners();
+  /**
+   * The member state listeners.
+   */
+  private ModernStateListeners mStateListeners = new ModernStateListeners();
 
-	private HighlightListeners mHighlightListeners =
-			new HighlightListeners();
-	
-	/**
-	 * The member highlight.
-	 */
-	protected boolean mHighlight = false;
+  private ModernSelectedListeners mSelectedListeners = new ModernSelectedListeners();
 
+  private HighlightListeners mHighlightListeners = new HighlightListeners();
 
-	/**
-	 * The class FocusEvents.
-	 */
-	private class FocusEvents extends FocusAdapter {
+  /**
+   * The member highlight.
+   */
+  protected boolean mHighlight = false;
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.FocusAdapter#focusLost(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusLost(FocusEvent e) {
-			setHighlighted(false);
-		}
-	}
+  /**
+   * The class FocusEvents.
+   */
+  private class FocusEvents extends FocusAdapter {
 
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.abh.lib.ui.modern.FocusAdapter#focusLost(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusLost(FocusEvent e) {
+      setHighlighted(false);
+    }
+  }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseEntered(MouseEvent e) {
-			setHighlighted(true);
-		}
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseExited(MouseEvent e) {
-			setHighlighted(false);
-		}
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseEntered(MouseEvent e) {
+      setHighlighted(true);
+    }
 
-	/**
-	 * Instantiates a new modern click widget.
-	 */
-	public ModernClickWidget() {
-		setup();
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseExited(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseExited(MouseEvent e) {
+      setHighlighted(false);
+    }
+  }
 
-	/**
-	 * Instantiates a new modern click widget.
-	 *
-	 * @param manager the manager
-	 */
-	public ModernClickWidget(LayoutManager manager) {
-		super(manager);
+  /**
+   * Instantiates a new modern click widget.
+   */
+  public ModernClickWidget() {
+    setup();
+  }
 
-		setup();
-	}
+  /**
+   * Instantiates a new modern click widget.
+   *
+   * @param manager
+   *          the manager
+   */
+  public ModernClickWidget(LayoutManager manager) {
+    super(manager);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		addMouseListener(new MouseEvents());
-		addFocusListener(new FocusEvents());
-		//addMouseMotionListener(new MouseMotionEvents());
-		
-		setBackgroundAnimations("button"); //new ButtonHighlightAnimation(this)); //SimpleButtonAnimation.BUTTON_ANIMATION);
-	}
+    setup();
+  }
 
+  /**
+   * Setup.
+   */
+  private void setup() {
+    addMouseListener(new MouseEvents());
+    addFocusListener(new FocusEvents());
+    // addMouseMotionListener(new MouseMotionEvents());
 
-	
-	/**
-	 * Returns the render mode of the button indicating whether it should
-	 * be rendered as selected, highlighted or nothing.
-	 *
-	 * @return the render mode
-	 */
-	public RenderMode getRenderMode() { 
-		if (isSelected()) {
-			return RenderMode.SELECTED;
-		} else if (mHighlight) {
-			return RenderMode.HIGHLIGHT;
-		} else {
-			return RenderMode.NONE;
-		}
-	}
+    setBackgroundAnimations("button"); // new ButtonHighlightAnimation(this));
+                                       // //SimpleButtonAnimation.BUTTON_ANIMATION);
+  }
 
-	/**
-	 * Sets the highlighted.
-	 *
-	 * @param highlight the new highlighted
-	 */
-	public void setHighlighted(boolean highlight) {
-		mHighlight = highlight;
+  /**
+   * Returns the render mode of the button indicating whether it should be
+   * rendered as selected, highlighted or nothing.
+   *
+   * @return the render mode
+   */
+  public RenderMode getRenderMode() {
+    if (isSelected()) {
+      return RenderMode.SELECTED;
+    } else if (mHighlight) {
+      return RenderMode.HIGHLIGHT;
+    } else {
+      return RenderMode.NONE;
+    }
+  }
 
-		repaint();
-		
-		fireHighlighted();
-	}
+  /**
+   * Sets the highlighted.
+   *
+   * @param highlight
+   *          the new highlighted
+   */
+  public void setHighlighted(boolean highlight) {
+    mHighlight = highlight;
 
-	private void fireHighlighted() {
-		fireHighlighted(new HighlightEvent(this, -1));
-	}
+    repaint();
 
-	/**
-	 * Gets the hightlighted.
-	 *
-	 * @return the hightlighted
-	 */
-	public boolean getHightlighted() {
-		return mHighlight;
-	}
-	
-	/**
-	 * Should return true of the click widget supports popup functions
-	 * and the popup is visible.
-	 * 
-	 * @return
-	 */
-	public boolean getPopupShown() {
-		return false;
-	}
+    fireHighlighted();
+  }
 
-	/**
-	 * Returns the message that will be sent when the
-	 * item is clicked.
-	 *
-	 * @return the click message
-	 */
-	public String getClickMessage() {
-		return mMessage;
-	}
+  private void fireHighlighted() {
+    fireHighlighted(new HighlightEvent(this, -1));
+  }
 
-	/**
-	 * Sets the message that will be sent when the
-	 * item is clicked.
-	 *
-	 * @param clickMessage the new click message
-	 */
-	public void setClickMessage(String clickMessage) {
-		mMessage = clickMessage;
-	}
+  /**
+   * Gets the hightlighted.
+   *
+   * @return the hightlighted
+   */
+  public boolean getHightlighted() {
+    return mHighlight;
+  }
 
-	/**
-	 * Sets the selected.
-	 *
-	 * @param selected the new selected
-	 */
-	public void setSelected(boolean selected) {
-		repaint();
-	}
+  /**
+   * Should return true of the click widget supports popup functions and the popup
+   * is visible.
+   * 
+   * @return
+   */
+  public boolean getPopupShown() {
+    return false;
+  }
 
-	/**
-	 * Checks if is selected.
-	 *
-	 * @return true, if is selected
-	 */
-	public boolean isSelected() {
-		return false;
-	}
+  /**
+   * Returns the message that will be sent when the item is clicked.
+   *
+   * @return the click message
+   */
+  public String getClickMessage() {
+    return mMessage;
+  }
 
-	/**
-	 * Simulate a button click. Should be overridden.
-	 */
-	public void doClick() {
-		fireClicked();
-	}
+  /**
+   * Sets the message that will be sent when the item is clicked.
+   *
+   * @param clickMessage
+   *          the new click message
+   */
+  public void setClickMessage(String clickMessage) {
+    mMessage = clickMessage;
+  }
 
-	/**
-	 * Fires a default click event to all listeners using
-	 * the click message.
-	 */
-	public void fireClicked() {
-		//setHighlighted(false);
+  /**
+   * Sets the selected.
+   *
+   * @param selected
+   *          the new selected
+   */
+  public void setSelected(boolean selected) {
+    repaint();
+  }
 
-		fireClicked(mMessage);
-	}
+  /**
+   * Checks if is selected.
+   *
+   * @return true, if is selected
+   */
+  public boolean isSelected() {
+    return false;
+  }
 
-	/**
-	 * Sends a message.
-	 *
-	 * @param clickMessage the click message
-	 */
-	public void fireClicked(String clickMessage) {
-		fireClicked(new ModernClickEvent(this, clickMessage));
-	}
+  /**
+   * Simulate a button click. Should be overridden.
+   */
+  public void doClick() {
+    fireClicked();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	@Override
-	public void addClickListener(ModernClickListener l) {
-		mActionListeners.addClickListener(l);
-	}
+  /**
+   * Fires a default click event to all listeners using the click message.
+   */
+  public void fireClicked() {
+    // setHighlighted(false);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	@Override
-	public void removeClickListener(ModernClickListener l) {
-		mActionListeners.removeClickListener(l);
-	}
+    fireClicked(mMessage);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void fireClicked(final ModernClickEvent e) {
-		mActionListeners.fireClicked(e);
-		
-		/*
-		EventQueue.invokeLater(new Runnable() {
-	        public void run() {
-	        	mActionListeners.fireClicked(e);
-	        }
-	    });
-	    */
-	}
+  /**
+   * Sends a message.
+   *
+   * @param clickMessage
+   *          the click message
+   */
+  public void fireClicked(String clickMessage) {
+    fireClicked(new ModernClickEvent(this, clickMessage));
+  }
 
-	/**
-	 * Fires a default state change event to all listeners.
-	 */
-	public void fireStateChanged() {
-		fireStateChanged(new ModernStateEvent(this));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh
+   * .lib.ui.modern.event.ModernClickListener)
+   */
+  @Override
+  public void addClickListener(ModernClickListener l) {
+    mActionListeners.addClickListener(l);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernStateEventProducer#addStateListener(org.abh.lib.ui.modern.event.ModernStateListener)
-	 */
-	@Override
-	public void addStateListener(ModernStateListener l) {
-		mStateListeners.addStateListener(l);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.
+   * abh.lib.ui.modern.event.ModernClickListener)
+   */
+  @Override
+  public void removeClickListener(ModernClickListener l) {
+    mActionListeners.removeClickListener(l);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernStateEventProducer#removeStateListener(org.abh.lib.ui.modern.event.ModernStateListener)
-	 */
-	@Override
-	public void removeStateListener(ModernStateListener l) {
-		mStateListeners.removeStateListener(l);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.
+   * ui.modern.event.ModernClickEvent)
+   */
+  @Override
+  public void fireClicked(final ModernClickEvent e) {
+    mActionListeners.fireClicked(e);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernStateEventProducer#fireStateChanged(org.abh.lib.ui.modern.event.ModernStateEvent)
-	 */
-	@Override
-	public void fireStateChanged(ModernStateEvent event) {
-		mStateListeners.fireStateChanged(event);
-	}
-	
-	
-	public void fireSelected() {
-		fireSelected(new ModernSelectedEvent(this));
-	}
+    /*
+     * EventQueue.invokeLater(new Runnable() { public void run() {
+     * mActionListeners.fireClicked(e); } });
+     */
+  }
 
-	@Override
-	public void addSelectedListener(ModernSelectedListener l) {
-		mSelectedListeners.addSelectedListener(l);
-	}
+  /**
+   * Fires a default state change event to all listeners.
+   */
+  public void fireStateChanged() {
+    fireStateChanged(new ModernStateEvent(this));
+  }
 
-	@Override
-	public void removeSelectedListener(ModernSelectedListener l) {
-		mSelectedListeners.removeSelectedListener(l);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#addStateListener(org.abh
+   * .lib.ui.modern.event.ModernStateListener)
+   */
+  @Override
+  public void addStateListener(ModernStateListener l) {
+    mStateListeners.addStateListener(l);
+  }
 
-	@Override
-	public void fireSelected(ModernSelectedEvent event) {
-		mSelectedListeners.fireSelected(event);
-	}
-	
-	
-	@Override
-	public void addHighlightListener(HighlightListener l) {
-		mHighlightListeners.addHighlightListener(l);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#removeStateListener(org.
+   * abh.lib.ui.modern.event.ModernStateListener)
+   */
+  @Override
+  public void removeStateListener(ModernStateListener l) {
+    mStateListeners.removeStateListener(l);
+  }
 
-	@Override
-	public void removeHighlightListener(HighlightListener l) {
-		mHighlightListeners.removeHighlightListener(l);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#fireStateChanged(org.abh
+   * .lib.ui.modern.event.ModernStateEvent)
+   */
+  @Override
+  public void fireStateChanged(ModernStateEvent event) {
+    mStateListeners.fireStateChanged(event);
+  }
 
-	@Override
-	public void fireHighlighted(HighlightEvent e) {
-		mHighlightListeners.fireHighlighted(e);
-	}
+  public void fireSelected() {
+    fireSelected(new ModernSelectedEvent(this));
+  }
+
+  @Override
+  public void addSelectedListener(ModernSelectedListener l) {
+    mSelectedListeners.addSelectedListener(l);
+  }
+
+  @Override
+  public void removeSelectedListener(ModernSelectedListener l) {
+    mSelectedListeners.removeSelectedListener(l);
+  }
+
+  @Override
+  public void fireSelected(ModernSelectedEvent event) {
+    mSelectedListeners.fireSelected(event);
+  }
+
+  @Override
+  public void addHighlightListener(HighlightListener l) {
+    mHighlightListeners.addHighlightListener(l);
+  }
+
+  @Override
+  public void removeHighlightListener(HighlightListener l) {
+    mHighlightListeners.removeHighlightListener(l);
+  }
+
+  @Override
+  public void fireHighlighted(HighlightEvent e) {
+    mHighlightListeners.fireHighlighted(e);
+  }
 }

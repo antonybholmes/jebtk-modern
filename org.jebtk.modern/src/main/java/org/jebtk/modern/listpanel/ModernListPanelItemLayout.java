@@ -15,59 +15,59 @@ import java.awt.LayoutManager;
  */
 public class ModernListPanelItemLayout implements LayoutManager {
 
-	@Override
-	public void addLayoutComponent(String s, Component c) {
-		// TODO Auto-generated method stub
+  @Override
+  public void addLayoutComponent(String s, Component c) {
+    // TODO Auto-generated method stub
 
-	}
+  }
 
-	@Override
-	public void layoutContainer(Container parent) {
+  @Override
+  public void layoutContainer(Container parent) {
 
-		Insets insets = parent.getInsets();
-		int maxWidth = parent.getWidth() - insets.left - insets.right - ModernListPanelItem.HANDLE_SIZE;
-		int x = insets.left;
-		int y = insets.top;
+    Insets insets = parent.getInsets();
+    int maxWidth = parent.getWidth() - insets.left - insets.right - ModernListPanelItem.HANDLE_SIZE;
+    int x = insets.left;
+    int y = insets.top;
 
-		Component c = parent.getComponent(0);
+    Component c = parent.getComponent(0);
 
-		c.setBounds(x, y, maxWidth, c.getPreferredSize().height);
-	}
+    c.setBounds(x, y, maxWidth, c.getPreferredSize().height);
+  }
 
-	@Override
-	public Dimension minimumLayoutSize(Container parent) {
-		return preferredLayoutSize(parent);
-	}
+  @Override
+  public Dimension minimumLayoutSize(Container parent) {
+    return preferredLayoutSize(parent);
+  }
 
-	@Override
-	public Dimension preferredLayoutSize(Container parent) {
-		return size(parent);
-	}
+  @Override
+  public Dimension preferredLayoutSize(Container parent) {
+    return size(parent);
+  }
 
-	@Override
-	public void removeLayoutComponent(Component comp) {
-		// TODO Auto-generated method stub
-	}
+  @Override
+  public void removeLayoutComponent(Component comp) {
+    // TODO Auto-generated method stub
+  }
 
-	private Dimension size(Container parent) {
-		int nComps = parent.getComponentCount();
-		Dimension dim = new Dimension(0, 0);
+  private Dimension size(Container parent) {
+    int nComps = parent.getComponentCount();
+    Dimension dim = new Dimension(0, 0);
 
-		Dimension d;
+    Dimension d;
 
-		for (int i = 0; i < nComps; i++) {
-			Component c = parent.getComponent(i);
-			
-			d = c.getPreferredSize();
+    for (int i = 0; i < nComps; i++) {
+      Component c = parent.getComponent(i);
 
-			dim.height += d.height;
-		}
+      d = c.getPreferredSize();
 
-		Insets insets = parent.getInsets();
+      dim.height += d.height;
+    }
 
-		dim.width = parent.getWidth() + insets.left + insets.right;
-		dim.height += insets.top + insets.bottom;
+    Insets insets = parent.getInsets();
 
-		return dim;
-	}
+    dim.width = parent.getWidth() + insets.left + insets.right;
+    dim.height += insets.top + insets.bottom;
+
+    return dim;
+  }
 }

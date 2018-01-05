@@ -31,8 +31,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Simulates a hyperlink using a button.
@@ -41,50 +39,54 @@ import org.jebtk.modern.theme.ThemeService;
  *
  */
 public class ModernCheckLinkButton extends ModernCheckButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new modern check link button.
-	 *
-	 * @param title the title
-	 */
-	public ModernCheckLinkButton(String title) {
-		super(title);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		//fill(g2, getRect(), getBackground());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (mText1 == null) {
-			return;
-		}
-		
-		boolean underline = mHighlight || isSelected();
+  /**
+   * Instantiates a new modern check link button.
+   *
+   * @param title
+   *          the title
+   */
+  public ModernCheckLinkButton(String title) {
+    super(title);
+  }
 
-		
-		g2.setColor(underline ? ThemeService.getInstance().colors().getColorHighlight(4) : TEXT_COLOR);
-		//g2.setFont(underline ? BOLD_FONT : FONT);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    // fill(g2, getRect(), getBackground());
+  }
 
-		int x = PADDING;
-		int y = getTextYPosCenter(g2, getHeight());
-		
-		
-		g2.drawString(mText1, x, y);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernCheckButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mText1 == null) {
+      return;
+    }
+
+    boolean underline = mHighlight || isSelected();
+
+    g2.setColor(underline ? ThemeService.getInstance().colors().getColorHighlight(4) : TEXT_COLOR);
+    // g2.setFont(underline ? BOLD_FONT : FONT);
+
+    int x = PADDING;
+    int y = getTextYPosCenter(g2, getHeight());
+
+    g2.drawString(mText1, x, y);
+  }
 }

@@ -42,240 +42,241 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonMenuItem.
  */
 public class RibbonMenuItem extends ModernCheckButton implements ComponentListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	//public static final Color HIGHLIGHT_COLOR = new Color(0x2c5aa8);
-	//public static final Color SELECTED_COLOR = new Color(0x5f8dd3);
-	
-	//private static final int ICON_OFFSET = 10;
-	/**
-	 * The constant TEXT_OFFSET.
-	 */
-	//private static final int ICON_WIDTH = 16;
-	protected static final int TEXT_OFFSET = 
-			2 * PADDING + UIService.ICON_SIZE_16;
+  // public static final Color HIGHLIGHT_COLOR = new Color(0x2c5aa8);
+  // public static final Color SELECTED_COLOR = new Color(0x5f8dd3);
 
-	/**
-	 * The constant SIZE.
-	 */
-	public static final Dimension RIBBON_MENU_ITEM_SIZE = 
-			new Dimension(RibbonFileMenuPanel.RIBBON_MENU_WIDTH, RibbonFileMenuPanel.RIBBON_MENU_WIDTH / 5); //* 4 / 5);
-	
-	/** The Constant RIBBON_MENU_ITEM_SIZE_2. */
-	public static final Dimension RIBBON_MENU_ITEM_SIZE_2 = 
-			RIBBON_MENU_ITEM_SIZE; //new Dimension(RibbonFileMenuPanel.RIBBON_MENU_WIDTH, RibbonFileMenuPanel.RIBBON_MENU_WIDTH * 3 / 5);
+  // private static final int ICON_OFFSET = 10;
+  /**
+   * The constant TEXT_OFFSET.
+   */
+  // private static final int ICON_WIDTH = 16;
+  protected static final int TEXT_OFFSET = 2 * PADDING + UIService.ICON_SIZE_16;
 
+  /**
+   * The constant SIZE.
+   */
+  public static final Dimension RIBBON_MENU_ITEM_SIZE = new Dimension(RibbonFileMenuPanel.RIBBON_MENU_WIDTH,
+      RibbonFileMenuPanel.RIBBON_MENU_WIDTH / 5); // * 4 / 5);
 
-	
-	/**
-	 * The constant MENU_SELECTED_COLOR.
-	 */
-	public static final Color MENU_SELECTED_COLOR = 
-			MaterialService.getInstance().color("gray-selected"); //ColorUtils.getTransparentColor60(Color.WHITE);
+  /** The Constant RIBBON_MENU_ITEM_SIZE_2. */
+  public static final Dimension RIBBON_MENU_ITEM_SIZE_2 = RIBBON_MENU_ITEM_SIZE; // new
+                                                                                 // Dimension(RibbonFileMenuPanel.RIBBON_MENU_WIDTH,
+                                                                                 // RibbonFileMenuPanel.RIBBON_MENU_WIDTH
+                                                                                 // * 3 / 5);
 
-	/**
-	 * The constant MENU_HIGHLIGHT_COLOR.
-	 */
-	public static final Color MENU_HIGHLIGHT_COLOR = 
-			MaterialService.getInstance().color("gray-highlighted");
+  /**
+   * The constant MENU_SELECTED_COLOR.
+   */
+  public static final Color MENU_SELECTED_COLOR = MaterialService.getInstance().color("gray-selected"); // ColorUtils.getTransparentColor60(Color.WHITE);
 
+  /**
+   * The constant MENU_HIGHLIGHT_COLOR.
+   */
+  public static final Color MENU_HIGHLIGHT_COLOR = MaterialService.getInstance().color("gray-highlighted");
 
-	/** The Constant ROUNDING. */
-	public static final int ROUNDING = 10;
+  /** The Constant ROUNDING. */
+  public static final int ROUNDING = 10;
 
+  /** The Constant OFFSET. */
+  public static final int OFFSET = 4;
 
-	/** The Constant OFFSET. */
-	public static final int OFFSET = 4;
+  /** The m P. */
+  private GeneralPath mP;
 
+  // private JLabel label = new JLabel();
 
-	/** The m P. */
-	private GeneralPath mP;
-	
-	//private JLabel label = new JLabel();
+  // private int iconY;
 
-	//private int iconY;
+  /**
+   * Instantiates a new ribbon menu item.
+   *
+   * @param title
+   *          the title
+   */
+  public RibbonMenuItem(String title) {
+    super(title);
 
-	/**
-	 * Instantiates a new ribbon menu item.
-	 *
-	 * @param title the title
-	 */
-	public RibbonMenuItem(String title) {
-		super(title);
-		
-		setup();
-		
-		UI.setSize(this, RIBBON_MENU_ITEM_SIZE_2);
-	}
-	
-	/**
-	 * Instantiates a new ribbon menu item.
-	 *
-	 * @param title the title
-	 * @param icon the icon
-	 */
-	public RibbonMenuItem(String title, ModernIcon icon) {
-		super(title, icon);
-		
-		setup();
-		
-		UI.setSize(this, RIBBON_MENU_ITEM_SIZE);
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
+    setup();
 
-		//setLayout(new BorderLayout());
+    UI.setSize(this, RIBBON_MENU_ITEM_SIZE_2);
+  }
 
-		//label.setText(title);
-		//label.setForeground(Color.WHITE);
+  /**
+   * Instantiates a new ribbon menu item.
+   *
+   * @param title
+   *          the title
+   * @param icon
+   *          the icon
+   */
+  public RibbonMenuItem(String title, ModernIcon icon) {
+    super(title, icon);
 
-		//int offset = TEXT_OFFSET;
+    setup();
 
-		/*
-		if (icon != null) {
-			offset += ICON_OFFSET + icon.getIconWidth();
-		}
-		 */
+    UI.setSize(this, RIBBON_MENU_ITEM_SIZE);
+  }
 
-		//label.setBorder(BorderService.getInstance().createLeftBorder(offset));
+  /**
+   * Setup.
+   */
+  private void setup() {
 
+    // setLayout(new BorderLayout());
 
-		//add(label, BorderLayout.CENTER);
+    // label.setText(title);
+    // label.setForeground(Color.WHITE);
 
-		//this.addMouseListener(this);
-		addComponentListener(this);
+    // int offset = TEXT_OFFSET;
 
-		UI.setSize(this, RIBBON_MENU_ITEM_SIZE);
-		
-		setBackgroundAnimations("ribbon-menu");
+    /*
+     * if (icon != null) { offset += ICON_OFFSET + icon.getIconWidth(); }
+     */
 
-		//g2.drawString(this.getText(), ICON_OFFSET + Resources.ICON_SIZE_16 + TEXT_OFFSET, y);
-	}
+    // label.setBorder(BorderService.getInstance().createLeftBorder(offset));
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.Graphics2D)
-	 */
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isSelected()) {
-			fill(g2, MENU_SELECTED_COLOR, mRect);
-		} else if (mHighlight) {
-			fill(g2, MENU_HIGHLIGHT_COLOR, mRect);
-		} else {
-			// Do nothing
-		}
-	}
-	*/
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (getIcon() != null) {
-			int x = (getWidth() - getIcon().getWidth()) / 2;
-			int y = getHeight() * 2 / 10;
-			
-			getIcon().drawIcon(g2, x, y, getIcon().getWidth());
-		}
-		
-		g2.setFont(MaterialUtils.FONT);
-		//g2.setColor(TEXT_COLOR); //Color.WHITE);
-		
-		if (isSelected()) {
-			g2.setColor(MaterialService.getInstance().color("ribbon-menu-font-selected"));
-		} else if (getHightlighted()) {
-			g2.setColor(MaterialService.getInstance().color("ribbon-menu-font-highlighted"));
-		} else {
-			g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
-		}
-		
-		int x = getWidth() / 5; //getTextXPosCenter(g2, mText1, getWidth());
-		int y;
-		
-		y = getTextYPosCenter(g2, getHeight());
-		
-		g2.drawString(mText1, x, y);
-	}
+    // add(label, BorderLayout.CENTER);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernTwoStateWidget#setSelected(boolean)
-	 */
-	public void setSelected(boolean selected) {
+    // this.addMouseListener(this);
+    addComponentListener(this);
 
-		//System.out.println(getText() + " " + selected);
+    UI.setSize(this, RIBBON_MENU_ITEM_SIZE);
 
-		super.setSelected(selected);
+    setBackgroundAnimations("ribbon-menu");
 
-		if (!selected) {
-			//label.setForeground(Color.BLACK);
+    // g2.drawString(this.getText(), ICON_OFFSET + Resources.ICON_SIZE_16 +
+    // TEXT_OFFSET, y);
+  }
 
-			setHighlighted(false);
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isSelected()) {
+   * fill(g2, MENU_SELECTED_COLOR, mRect); } else if (mHighlight) { fill(g2,
+   * MENU_HIGHLIGHT_COLOR, mRect); } else { // Do nothing } }
+   */
 
-	/**
-	 * Component resized.
-	 *
-	 * @param e the e
-	 */
-	public final void componentResized(ComponentEvent e) {
-		int h = getHeight() - 1;
-		
-		mP = new GeneralPath();
-		mP.moveTo(OFFSET, ROUNDING);
-		mP.append(new Arc2D.Float(OFFSET, 0, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN), true);
-		mP.lineTo(getWidth(), 0);
-		mP.lineTo(getWidth(), h);
-		mP.lineTo(OFFSET + ROUNDING, h);
-		mP.append(new Arc2D.Float(OFFSET, h - ROUNDING, ROUNDING, ROUNDING, 270, -90, Arc2D.OPEN), true);
-		mP.closePath();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernCheckButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (getIcon() != null) {
+      int x = (getWidth() - getIcon().getWidth()) / 2;
+      int y = getHeight() * 2 / 10;
 
-		repaint();
-	}
+      getIcon().drawIcon(g2, x, y, getIcon().getWidth());
+    }
 
-	/**
-	 * Component shown.
-	 *
-	 * @param e the e
-	 */
-	public final void componentShown(ComponentEvent e) {
-		// TODO Auto-generated method stub
+    g2.setFont(MaterialUtils.FONT);
+    // g2.setColor(TEXT_COLOR); //Color.WHITE);
 
-	}
+    if (isSelected()) {
+      g2.setColor(MaterialService.getInstance().color("ribbon-menu-font-selected"));
+    } else if (getHightlighted()) {
+      g2.setColor(MaterialService.getInstance().color("ribbon-menu-font-highlighted"));
+    } else {
+      g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
+    }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentHidden(ComponentEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+    int x = getWidth() / 5; // getTextXPosCenter(g2, mText1, getWidth());
+    int y;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentMoved(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    y = getTextYPosCenter(g2, getHeight());
+
+    g2.drawString(mText1, x, y);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernTwoStateWidget#setSelected(boolean)
+   */
+  public void setSelected(boolean selected) {
+
+    // System.out.println(getText() + " " + selected);
+
+    super.setSelected(selected);
+
+    if (!selected) {
+      // label.setForeground(Color.BLACK);
+
+      setHighlighted(false);
+    }
+  }
+
+  /**
+   * Component resized.
+   *
+   * @param e
+   *          the e
+   */
+  public final void componentResized(ComponentEvent e) {
+    int h = getHeight() - 1;
+
+    mP = new GeneralPath();
+    mP.moveTo(OFFSET, ROUNDING);
+    mP.append(new Arc2D.Float(OFFSET, 0, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN), true);
+    mP.lineTo(getWidth(), 0);
+    mP.lineTo(getWidth(), h);
+    mP.lineTo(OFFSET + ROUNDING, h);
+    mP.append(new Arc2D.Float(OFFSET, h - ROUNDING, ROUNDING, ROUNDING, 270, -90, Arc2D.OPEN), true);
+    mP.closePath();
+
+    repaint();
+  }
+
+  /**
+   * Component shown.
+   *
+   * @param e
+   *          the e
+   */
+  public final void componentShown(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentHidden(ComponentEvent arg0) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentMoved(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

@@ -27,41 +27,44 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes
  */
 public abstract class ClickAnimation extends TimerAnimation {
-	
-	/**
-	 * The listener interface for receiving click events.
-	 * The class that is interested in processing a click
-	 * event implements this interface, and the object created
-	 * with that class is registered with a component using the
-	 * component's <code>addClickListener<code> method. When
-	 * the click event occurs, that object's appropriate
-	 * method is invoked.
-	 *
-	 * @see ClickEvent
-	 */
-	private class ClickListener implements ModernClickListener {
-		
-		/* (non-Javadoc)
-		 * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			animateClick();
-		}
-	}
-	
-	/**
-	 * Instantiates a new click animation.
-	 *
-	 * @param widget the widget
-	 */
-	public ClickAnimation(ModernWidget widget) {
-		super(widget);
-		
-		((ModernClickWidget)widget).addClickListener(new ClickListener());
-	}
-	
-	public void animateClick() {
-		start();
-	}
+
+  /**
+   * The listener interface for receiving click events. The class that is
+   * interested in processing a click event implements this interface, and the
+   * object created with that class is registered with a component using the
+   * component's <code>addClickListener<code> method. When the click event occurs,
+   * that object's appropriate method is invoked.
+   *
+   * @see ClickEvent
+   */
+  private class ClickListener implements ModernClickListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
+     * ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      animateClick();
+    }
+  }
+
+  /**
+   * Instantiates a new click animation.
+   *
+   * @param widget
+   *          the widget
+   */
+  public ClickAnimation(ModernWidget widget) {
+    super(widget);
+
+    ((ModernClickWidget) widget).addClickListener(new ClickListener());
+  }
+
+  public void animateClick() {
+    start();
+  }
 }

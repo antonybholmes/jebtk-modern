@@ -29,48 +29,50 @@ import org.jebtk.modern.window.ModernWindow;
  * The Class ThemeSelectionPanel.
  */
 public class ThemeSelectionPanel extends HBox {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m restart button. */
-	private ModernButton mRestartButton = new ModernDialogButton("Restart...");
-	
-	/** The m combo. */
-	private ThemeSelectionCombo mCombo = new ThemeSelectionCombo();
-	
-	
-	/**
-	 * Instantiates a new theme selection panel.
-	 *
-	 * @param window the window
-	 */
-	public ThemeSelectionPanel(final ModernWindow window) {
-		
-		add(new ModernAutoSizeLabel("Theme"));
-		
-		add(UI.createHGap(5));
-		
-		add(mCombo);
-		
-		add(UI.createHGap(10));
 
-		add(mRestartButton);
-		
-		mRestartButton.setVisible(false);
-		
-		mRestartButton.addClickListener(new ModernClickListener() {
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-			@Override
-			public void clicked(ModernClickEvent e) {
-				window.restart();
-			}});
-		
-		mCombo.addClickListener(new ModernClickListener() {
+  /** The m restart button. */
+  private ModernButton mRestartButton = new ModernDialogButton("Restart...");
 
-			@Override
-			public void clicked(ModernClickEvent e) {
-				mRestartButton.setVisible(true);
-			}});
-	}
+  /** The m combo. */
+  private ThemeSelectionCombo mCombo = new ThemeSelectionCombo();
+
+  /**
+   * Instantiates a new theme selection panel.
+   *
+   * @param window
+   *          the window
+   */
+  public ThemeSelectionPanel(final ModernWindow window) {
+
+    add(new ModernAutoSizeLabel("Theme"));
+
+    add(UI.createHGap(5));
+
+    add(mCombo);
+
+    add(UI.createHGap(10));
+
+    add(mRestartButton);
+
+    mRestartButton.setVisible(false);
+
+    mRestartButton.addClickListener(new ModernClickListener() {
+
+      @Override
+      public void clicked(ModernClickEvent e) {
+        window.restart();
+      }
+    });
+
+    mCombo.addClickListener(new ModernClickListener() {
+
+      @Override
+      public void clicked(ModernClickEvent e) {
+        mRestartButton.setVisible(true);
+      }
+    });
+  }
 }

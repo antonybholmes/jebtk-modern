@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.settings.SettingsService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Run arrow icon, like the standard play button.
@@ -41,31 +40,34 @@ import org.jebtk.core.settings.SettingsService;
  *
  */
 public class StopVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant SCALE.
-	 */
-	private static final double SCALE = 
-			SettingsService.getInstance().getAsDouble("theme.icons.run-icon.width-scale");
-	
-	/**
-	 * The constant BACKGROUND.
-	 */
-	private static final Color BACKGROUND = 
-			SettingsService.getInstance().getAsColor("theme.icons.run-icon.colors.foreground");
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		
-		double wf = w * SCALE;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - wf) / 2.0;
-		
-		g2.setColor(BACKGROUND);
-		g2.fillRect((int)xf, (int)yf, (int)wf, (int)wf);
-	}
+
+  /**
+   * The constant SCALE.
+   */
+  private static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.run-icon.width-scale");
+
+  /**
+   * The constant BACKGROUND.
+   */
+  private static final Color BACKGROUND = SettingsService.getInstance()
+      .getAsColor("theme.icons.run-icon.colors.foreground");
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+    double wf = w * SCALE;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - wf) / 2.0;
+
+    g2.setColor(BACKGROUND);
+    g2.fillRect((int) xf, (int) yf, (int) wf, (int) wf);
+  }
 }

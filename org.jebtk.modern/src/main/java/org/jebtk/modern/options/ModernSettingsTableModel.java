@@ -39,7 +39,6 @@ import org.jebtk.core.settings.SettingsService;
 import org.jebtk.core.tree.TreeNode;
 import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Displays key/value settings pairs and allows users to edit them.
@@ -49,111 +48,127 @@ import org.jebtk.modern.table.ModernColumnHeaderTableModel;
  */
 public class ModernSettingsTableModel extends ModernColumnHeaderTableModel {
 
-	/**
-	 * The constant HEADER.
-	 */
-	private static final String[] HEADER = {"Name", "Value"};
+  /**
+   * The constant HEADER.
+   */
+  private static final String[] HEADER = { "Name", "Value" };
 
-	/**
-	 * The member settings keys.
-	 */
-	private List<Path> mPaths = new ArrayList<Path>();
+  /**
+   * The member settings keys.
+   */
+  private List<Path> mPaths = new ArrayList<Path>();
 
-	/**
-	 * The member values.
-	 */
-	private List<Setting> mValues = new ArrayList<Setting>();
+  /**
+   * The member values.
+   */
+  private List<Setting> mValues = new ArrayList<Setting>();
 
-	/**
-	 * Instantiates a new modern settings table model.
-	 *
-	 * @param node the node
-	 */
-	public ModernSettingsTableModel(TreeNode<List<Path>> node) {
-		if (node == null || node.getValue() == null) {
-			return;
-		}
+  /**
+   * Instantiates a new modern settings table model.
+   *
+   * @param node
+   *          the node
+   */
+  public ModernSettingsTableModel(TreeNode<List<Path>> node) {
+    if (node == null || node.getValue() == null) {
+      return;
+    }
 
-		for (Path path : CollectionUtils.sort(node.getValue())) {
-			Setting settings = SettingsService.getInstance().getSetting(path);
+    for (Path path : CollectionUtils.sort(node.getValue())) {
+      Setting settings = SettingsService.getInstance().getSetting(path);
 
-			if (settings != null) {
-				mPaths.add(path);
-				mValues.add(settings);
-			}
-		}
+      if (settings != null) {
+        mPaths.add(path);
+        mValues.add(settings);
+      }
+    }
 
-		//Collections.sort(settingsKeys);
-	}
+    // Collections.sort(settingsKeys);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
-	 */
-	@Override
-	public final int getColumnCount() {
-		return HEADER.length;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
+   */
+  @Override
+  public final int getColumnCount() {
+    return HEADER.length;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
-	 */
-	@Override
-	public final int getRowCount() {
-		return mPaths.size();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
+   */
+  @Override
+  public final int getRowCount() {
+    return mPaths.size();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
-	 */
-	@Override
-	public final Object getValueAt(int row, int col) {
-		switch (col) {
-		case 0:
-			return mPaths.get(row);
-		case 1:
-			return mValues.get(row).getAsString();
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
+   */
+  @Override
+  public final Object getValueAt(int row, int col) {
+    switch (col) {
+    case 0:
+      return mPaths.get(row);
+    case 1:
+      return mValues.get(row).getAsString();
+    }
 
-		return null;
-	}
+    return null;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
-	 */
-	@Override
-	public final List<String> getColumnAnnotationText(int column) {
-		if (Mathematics.inBound(column, 0, HEADER.length)) {
-			return CollectionUtils.asList(HEADER[column]);
-		} else {
-			return Collections.emptyList();
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   */
+  @Override
+  public final List<String> getColumnAnnotationText(int column) {
+    if (Mathematics.inBound(column, 0, HEADER.length)) {
+      return CollectionUtils.asList(HEADER[column]);
+    } else {
+      return Collections.emptyList();
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int, int)
-	 */
-	@Override
-	public final boolean getIsCellEditable(int rowIndex, int column) {
-		return column == 1;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * int)
+   */
+  @Override
+  public final boolean getIsCellEditable(int rowIndex, int column) {
+    return column == 1;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setValueAt(int, int, java.lang.Object)
-	 */
-	@Override
-	public final void setValueAt(int row, int column, Object value) {
-		if (column == 1) {
-			Path path = mValues.get(0).getPath();
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setValueAt(int, int,
+   * java.lang.Object)
+   */
+  @Override
+  public final void setValueAt(int row, int column, Object value) {
+    if (column == 1) {
+      Path path = mValues.get(0).getPath();
 
-			String s = value.toString();
+      String s = value.toString();
 
-			// Update with a new setting
-			mValues.set(row, Setting.parse(path, s));
+      // Update with a new setting
+      mValues.set(row, Setting.parse(path, s));
 
-			SettingsService.getInstance().update(path, s);
-		}
+      SettingsService.getInstance().update(path, s);
+    }
 
-		SettingsService.getInstance().save();
-	}
+    SettingsService.getInstance().save();
+  }
 
 }

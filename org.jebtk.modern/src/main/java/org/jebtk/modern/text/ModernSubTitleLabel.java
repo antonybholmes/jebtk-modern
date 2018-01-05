@@ -31,44 +31,43 @@ import javax.swing.border.Border;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernSubTitleLabel.
  */
 public class ModernSubTitleLabel extends ModernAutoSizeLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern sub title label.
-	 *
-	 * @param text the text
-	 */
-	public ModernSubTitleLabel(String text) {
-		super(text);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		setFont(ThemeService.loadFont("theme.widget.fonts.heading"));
-		//setForeground(ThemeService.getInstance().getThemeColor(3));
+  /**
+   * Instantiates a new modern sub title label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernSubTitleLabel(String text) {
+    super(text);
 
-		//setBorder(BORDER);
-	}
+    setFont(ThemeService.loadFont("theme.widget.fonts.heading"));
+    // setForeground(ThemeService.getInstance().getThemeColor(3));
 
-	/**
-	 * Instantiates a new modern sub title label.
-	 *
-	 * @param text the text
-	 * @param border the border
-	 */
-	public ModernSubTitleLabel(String text, Border border) {
-		this(text);
-		
-		setBorder(border);
-	}
+    // setBorder(BORDER);
+  }
+
+  /**
+   * Instantiates a new modern sub title label.
+   *
+   * @param text
+   *          the text
+   * @param border
+   *          the border
+   */
+  public ModernSubTitleLabel(String text, Border border) {
+    this(text);
+
+    setBorder(border);
+  }
 }

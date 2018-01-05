@@ -12,56 +12,38 @@ import org.jebtk.modern.widget.ModernWidget;
 
 public class HelpButtonHighlightAnimation extends ButtonHighlightAnimation {
 
+  public HelpButtonHighlightAnimation(ModernWidget widget) {
+    super(widget);
 
-	public HelpButtonHighlightAnimation(ModernWidget widget) {
-		super(widget);
+    setFadeColor("highlight", RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
+  }
 
-		setFadeColor("highlight", RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
-	}
+  @Override
+  public void drawButton(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
 
-	@Override
-	public void drawButton(Graphics2D g2, 
-			int x,
-			int y, 
-			int w, 
-			int h,
-			RenderMode mode,
-			boolean hasFocus) {
+    int size = 20; // h - 2;
 
-		int size = 20; //h - 2;
+    int xf = ModernWidget.PADDING;
+    int yf = y + (h - size) / 2;
 
-		int xf = ModernWidget.PADDING;
-		int yf = y + (h - size) / 2;
+    Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
-		Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+    try {
+      /*
+       * GradientPaint paint = new GradientPaint(0, yf, mColor1, 0, yf + size,
+       * mColor2);
+       * 
+       * //g2Temp.setPaint(paint);
+       */
 
-		try {
-			/*
-			GradientPaint paint = new GradientPaint(0,
-		             yf,
-		             mColor1,
-		             0,
-		             yf + size,
-		             mColor2);
+      g2Temp.setColor(getFadeColor("highlight"));
+      g2Temp.fillOval(xf, yf, size, size);
+      g2Temp.setColor(Ribbon.BAR_BACKGROUND);
+      g2Temp.drawOval(xf, yf, size, size);
 
-			//g2Temp.setPaint(paint);
-			 */
-
-			g2Temp.setColor(getFadeColor("highlight"));
-			g2Temp.fillOval(xf, yf, size, size);
-			g2Temp.setColor(Ribbon.BAR_BACKGROUND);
-			g2Temp.drawOval(xf, yf, size, size);
-
-			ModernMessageIcon.drawScaledText(g2Temp, 
-					size,
-					xf,
-					yf,
-					size,
-					size,
-					"?",
-					Ribbon.BAR_BACKGROUND);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+      ModernMessageIcon.drawScaledText(g2Temp, size, xf, yf, size, size, "?", Ribbon.BAR_BACKGROUND);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 }

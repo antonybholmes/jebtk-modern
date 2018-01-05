@@ -37,21 +37,21 @@ import java.awt.Font;
  *
  */
 public class HeadingCheckBox extends ModernCheckBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * Instantiates a new heading check box.
-	 *
-	 * @param text the text
-	 */
-	public HeadingCheckBox(String text) {
-		super(text);
 
-		setFont(new Font(getFont().getFamily(), Font.BOLD, getFont().getSize()));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new heading check box.
+   *
+   * @param text
+   *          the text
+   */
+  public HeadingCheckBox(String text) {
+    super(text);
+
+    setFont(new Font(getFont().getFamily(), Font.BOLD, getFont().getSize()));
+  }
 }

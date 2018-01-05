@@ -29,8 +29,6 @@ package org.jebtk.modern.tabs;
 
 import java.awt.Graphics2D;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Simple horizontal tabs using labels as buttons.
@@ -40,121 +38,128 @@ import java.awt.Graphics2D;
  *
  */
 public class TextTabsCentered extends TextTabs {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member width.
-	 */
-	private int mWidth;
-	
-	/**
-	 * Instantiates a new text tabs centered.
-	 *
-	 * @param model the model
-	 */
-	public TextTabsCentered(TabsModel model) {
-		super(model);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TextTabs#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (mTabWidths.size() == 0) {
-			g2.setFont(BOLD_FONT);
-			
-			// Account for the gaps between tabs
-			mWidth = GAP_WIDTH * (getTabsModel().getTabCount() - 1);
-			
-			for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
-				String s = getTabsModel().getTab(i).getName(); //.toUpperCase();
-				
-				int w = g2.getFontMetrics().stringWidth(s);
-				
-				mTabWidths.add(w);
-				
-				mWidth += w;
-			}
-		}
-		
-		g2.setFont(FONT);
-		
-		int x = (getWidth() - mWidth) / 2;
 
-		int textY = getInsets().top + getTextYPosCenter(g2, mInternalRect.getH());
-			
-		
-		for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
-			boolean selected = i == getTabsModel().getSelectedIndex();
-			boolean highlight = i == mHighlight;
-			
-			g2.setColor(selected || highlight ? THEME_SELECTED_BORDER_COLOR : TEXT_COLOR);
-			
-			g2.setFont(selected ? BOLD_FONT : FONT);
-			
-			String s = getTabsModel().getTab(i).getName(); //.toUpperCase();
-			
-			g2.drawString(s, x + (mTabWidths.get(i) - g2.getFontMetrics().stringWidth(s)) / 2, textY);
-	
-			x += mTabWidths.get(i) + GAP_WIDTH;
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TextTabs#changeTab(int)
-	 */
-	@Override
-	protected void changeTab(int x, int y) {
-		int tab = -1;
-		
-		int x1 = (getWidth() - mWidth) / 2;
-		int x2;
-		
-		for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
-			x2 = x1 + mTabWidths.get(i);
-			
-			if (x >= x1 && x <= x2) {
-				tab = i;
-				break;
-			}
-			
-			x1 = x2 + GAP_WIDTH;
-		}
-		
-		if (tab == -1) {
-			return;
-		}
-		
-		getTabsModel().changeTab(tab);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TextTabs#highlight(int)
-	 */
-	@Override
-	protected void highlightTab(int x, int y) {
-		mHighlight = -1;
-		
-		int x1 = (getWidth() - mWidth) / 2;
-		int x2;
-		
-		for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
-			x2 = x1 + mTabWidths.get(i);
-			
-			if (x >= x1 && x <= x2) {
-				mHighlight = i;
-				
-				break;
-			}
-			
-			x1 = x2 + GAP_WIDTH;
-		}
-		
-		repaint();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member width.
+   */
+  private int mWidth;
+
+  /**
+   * Instantiates a new text tabs centered.
+   *
+   * @param model
+   *          the model
+   */
+  public TextTabsCentered(TabsModel model) {
+    super(model);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TextTabs#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mTabWidths.size() == 0) {
+      g2.setFont(BOLD_FONT);
+
+      // Account for the gaps between tabs
+      mWidth = GAP_WIDTH * (getTabsModel().getTabCount() - 1);
+
+      for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+        String s = getTabsModel().getTab(i).getName(); // .toUpperCase();
+
+        int w = g2.getFontMetrics().stringWidth(s);
+
+        mTabWidths.add(w);
+
+        mWidth += w;
+      }
+    }
+
+    g2.setFont(FONT);
+
+    int x = (getWidth() - mWidth) / 2;
+
+    int textY = getInsets().top + getTextYPosCenter(g2, mInternalRect.getH());
+
+    for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+      boolean selected = i == getTabsModel().getSelectedIndex();
+      boolean highlight = i == mHighlight;
+
+      g2.setColor(selected || highlight ? THEME_SELECTED_BORDER_COLOR : TEXT_COLOR);
+
+      g2.setFont(selected ? BOLD_FONT : FONT);
+
+      String s = getTabsModel().getTab(i).getName(); // .toUpperCase();
+
+      g2.drawString(s, x + (mTabWidths.get(i) - g2.getFontMetrics().stringWidth(s)) / 2, textY);
+
+      x += mTabWidths.get(i) + GAP_WIDTH;
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.tabs.TextTabs#changeTab(int)
+   */
+  @Override
+  protected void changeTab(int x, int y) {
+    int tab = -1;
+
+    int x1 = (getWidth() - mWidth) / 2;
+    int x2;
+
+    for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+      x2 = x1 + mTabWidths.get(i);
+
+      if (x >= x1 && x <= x2) {
+        tab = i;
+        break;
+      }
+
+      x1 = x2 + GAP_WIDTH;
+    }
+
+    if (tab == -1) {
+      return;
+    }
+
+    getTabsModel().changeTab(tab);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.tabs.TextTabs#highlight(int)
+   */
+  @Override
+  protected void highlightTab(int x, int y) {
+    mHighlight = -1;
+
+    int x1 = (getWidth() - mWidth) / 2;
+    int x2;
+
+    for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+      x2 = x1 + mTabWidths.get(i);
+
+      if (x >= x1 && x <= x2) {
+        mHighlight = i;
+
+        break;
+      }
+
+      x1 = x2 + GAP_WIDTH;
+    }
+
+    repaint();
+  }
 }

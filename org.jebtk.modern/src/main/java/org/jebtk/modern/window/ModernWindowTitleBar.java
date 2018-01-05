@@ -35,74 +35,77 @@ import org.jebtk.modern.UI;
  */
 public class ModernWindowTitleBar extends ModernTitleBar {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern window title bar.
-	 *
-	 * @param window the window
-	 */
-	public ModernWindowTitleBar(ModernWindow window) {
-		this(window, UI.TITLE_BUTTONS_ON_LEFT, UI.WINDOW_TITLE_STYLE);
-	}
-	
-	/**
-	 * Instantiates a new modern window title bar.
-	 *
-	 * @param window the window
-	 * @param style the style
-	 */
-	public ModernWindowTitleBar(ModernWindow window,
-			ModernWindowTitleBarStyle style) {
-		this(window, UI.TITLE_BUTTONS_ON_LEFT, style);
-	}
-	
-	/**
-	 * Instantiates a new modern window title bar.
-	 *
-	 * @param window the window
-	 * @param onLeft the on left
-	 */
-	public ModernWindowTitleBar(ModernWindow window,
-			boolean onLeft) {
-		this(window, onLeft, UI.WINDOW_TITLE_STYLE);
-	}
+  /**
+   * Instantiates a new modern window title bar.
+   *
+   * @param window
+   *          the window
+   */
+  public ModernWindowTitleBar(ModernWindow window) {
+    this(window, UI.TITLE_BUTTONS_ON_LEFT, UI.WINDOW_TITLE_STYLE);
+  }
 
-	/**
-	 * Creates a new title bar.
-	 *
-	 * @param window 	Parent window.
-	 * @param onLeft the on left
-	 * @param style 		The button style.
-	 */
-	public ModernWindowTitleBar(ModernWindow window, 
-			boolean onLeft,
-			ModernWindowTitleBarStyle style) {
-		if (onLeft) {
-			if (style == ModernWindowTitleBarStyle.MAC) {
-				_addLeft(new ModernWindowTitleBarExitRoundButton(window));
-				_addLeft(new ModernWindowTitleBarMinRoundButton(window));
-				_addLeft(new ModernWindowTitleBarMaxRoundButton(window));
-			} else {
-				_addLeft(new ModernWindowTitleBarExitButton(window));
-				_addLeft(new ModernWindowTitleBarMinButton(window));
-				_addLeft(new ModernWindowTitleBarMaxButton(window));
-			}
-		} else {
-			if (style == ModernWindowTitleBarStyle.MAC) {
-				_addRight(new ModernWindowTitleBarMinRoundButton(window));
-				_addRight(new ModernWindowTitleBarMaxRoundButton(window));
-				_addRight(new ModernWindowTitleBarExitRoundButton(window));
-			} else {
-				_addRight(new ModernWindowTitleBarMinButton(window));
-				_addRight(new ModernWindowTitleBarMaxButton(window));
-				_addRight(new ModernWindowTitleBarExitButton(window));
-			}
-		}
-	}
+  /**
+   * Instantiates a new modern window title bar.
+   *
+   * @param window
+   *          the window
+   * @param style
+   *          the style
+   */
+  public ModernWindowTitleBar(ModernWindow window, ModernWindowTitleBarStyle style) {
+    this(window, UI.TITLE_BUTTONS_ON_LEFT, style);
+  }
 
-	
+  /**
+   * Instantiates a new modern window title bar.
+   *
+   * @param window
+   *          the window
+   * @param onLeft
+   *          the on left
+   */
+  public ModernWindowTitleBar(ModernWindow window, boolean onLeft) {
+    this(window, onLeft, UI.WINDOW_TITLE_STYLE);
+  }
+
+  /**
+   * Creates a new title bar.
+   *
+   * @param window
+   *          Parent window.
+   * @param onLeft
+   *          the on left
+   * @param style
+   *          The button style.
+   */
+  public ModernWindowTitleBar(ModernWindow window, boolean onLeft, ModernWindowTitleBarStyle style) {
+    if (onLeft) {
+      if (style == ModernWindowTitleBarStyle.MAC) {
+        _addLeft(new ModernWindowTitleBarExitRoundButton(window));
+        _addLeft(new ModernWindowTitleBarMinRoundButton(window));
+        _addLeft(new ModernWindowTitleBarMaxRoundButton(window));
+      } else {
+        _addLeft(new ModernWindowTitleBarExitButton(window));
+        _addLeft(new ModernWindowTitleBarMinButton(window));
+        _addLeft(new ModernWindowTitleBarMaxButton(window));
+      }
+    } else {
+      if (style == ModernWindowTitleBarStyle.MAC) {
+        _addRight(new ModernWindowTitleBarMinRoundButton(window));
+        _addRight(new ModernWindowTitleBarMaxRoundButton(window));
+        _addRight(new ModernWindowTitleBarExitRoundButton(window));
+      } else {
+        _addRight(new ModernWindowTitleBarMinButton(window));
+        _addRight(new ModernWindowTitleBarMaxButton(window));
+        _addRight(new ModernWindowTitleBarExitButton(window));
+      }
+    }
+  }
+
 }

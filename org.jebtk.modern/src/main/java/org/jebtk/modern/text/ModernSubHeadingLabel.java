@@ -34,65 +34,66 @@ import javax.swing.border.Border;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernSubHeadingLabel.
  */
 public class ModernSubHeadingLabel extends ModernAutoSizeLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant SUB_HEADING_FONT.
-	 */
-	private static final Font SUB_HEADING_FONT = 
-			ThemeService.loadFont("theme.widget.fonts.sub-heading");
 
-	/**
-	 * Instantiates a new modern sub heading label.
-	 *
-	 * @param text the text
-	 */
-	public ModernSubHeadingLabel(String text) {
-		super(text);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern sub heading label.
-	 *
-	 * @param text the text
-	 * @param color the color
-	 */
-	public ModernSubHeadingLabel(String text, Color color) {
-		super(text, color);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern sub heading label.
-	 *
-	 * @param text the text
-	 * @param border the border
-	 */
-	public ModernSubHeadingLabel(String text, Border border) {
-		this(text);
-		
-		setBorder(border);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setFont(SUB_HEADING_FONT);
-	}
+  /**
+   * The constant SUB_HEADING_FONT.
+   */
+  private static final Font SUB_HEADING_FONT = ThemeService.loadFont("theme.widget.fonts.sub-heading");
+
+  /**
+   * Instantiates a new modern sub heading label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernSubHeadingLabel(String text) {
+    super(text);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern sub heading label.
+   *
+   * @param text
+   *          the text
+   * @param color
+   *          the color
+   */
+  public ModernSubHeadingLabel(String text, Color color) {
+    super(text, color);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern sub heading label.
+   *
+   * @param text
+   *          the text
+   * @param border
+   *          the border
+   */
+  public ModernSubHeadingLabel(String text, Border border) {
+    this(text);
+
+    setBorder(border);
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setFont(SUB_HEADING_FONT);
+  }
 }

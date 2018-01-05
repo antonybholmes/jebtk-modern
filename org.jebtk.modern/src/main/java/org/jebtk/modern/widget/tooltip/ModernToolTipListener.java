@@ -31,22 +31,21 @@ import java.util.EventListener;
 
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving modernToolTip events.
- * The class that is interested in processing a modernToolTip
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addModernToolTipListener<code> method. When
- * the modernToolTip event occurs, that object's appropriate
- * method is invoked.
+ * The listener interface for receiving modernToolTip events. The class that is
+ * interested in processing a modernToolTip event implements this interface, and
+ * the object created with that class is registered with a component using the
+ * component's <code>addModernToolTipListener<code> method. When the
+ * modernToolTip event occurs, that object's appropriate method is invoked.
  *
  * @see ModernToolTipEvent
  */
 public interface ModernToolTipListener extends EventListener {
 
-	/**
-	 * Tooltip changed.
-	 *
-	 * @param e the e
-	 */
-	public void tooltipChanged(ModernToolTipEvent e);
+  /**
+   * Tooltip changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void tooltipChanged(ModernToolTipEvent e);
 }

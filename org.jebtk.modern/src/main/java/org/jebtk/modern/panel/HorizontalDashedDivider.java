@@ -35,8 +35,6 @@ import java.awt.event.ComponentListener;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a full line separator for menus with a theme consistent with
@@ -45,108 +43,112 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class HorizontalDashedDivider extends ModernWidget implements ComponentListener  {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant DASH.
-	 */
-	private final static float[] DASH = {4.0f};
-	
-	/**
-	 * The constant HEIGHT.
-	 */
-	private static final int HEIGHT = PADDING;
-	
-	/**
-	 * The constant STROKE.
-	 */
-	private final static BasicStroke STROKE = new BasicStroke(1.0f,
-	                        BasicStroke.CAP_BUTT,
-	                        BasicStroke.JOIN_MITER,
-	                        1.0f, DASH, 0.0f);
-	
-	
-	/**
-	 * The constant MIN_SIZE.
-	 */
-	private static final Dimension MIN_SIZE =
-			new Dimension(1, HEIGHT);
+public class HorizontalDashedDivider extends ModernWidget implements ComponentListener {
 
-	/**
-	 * The constant MAX_SIZE.
-	 */
-	private static final Dimension MAX_SIZE =
-		new Dimension(Short.MAX_VALUE, HEIGHT);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant DASH.
+   */
+  private final static float[] DASH = { 4.0f };
 
-	/**
-	 * The y.
-	 */
-	protected int y = 0;
-	
-	/**
-	 * Instantiates a new horizontal dashed divider.
-	 */
-	public HorizontalDashedDivider() {
-		setMinimumSize(MIN_SIZE);
-		setPreferredSize(MIN_SIZE);
-		setMaximumSize(MAX_SIZE);
+  /**
+   * The constant HEIGHT.
+   */
+  private static final int HEIGHT = PADDING;
 
-		addComponentListener(this);
-	}
+  /**
+   * The constant STROKE.
+   */
+  private final static BasicStroke STROKE = new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f,
+      DASH, 0.0f);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(LINE_COLOR);
+  /**
+   * The constant MIN_SIZE.
+   */
+  private static final Dimension MIN_SIZE = new Dimension(1, HEIGHT);
 
-		g2.setStroke(STROKE);
-		g2.drawLine(getInsets().left, y, getWidth() - getInsets().left - getInsets().right, y);
-	}
+  /**
+   * The constant MAX_SIZE.
+   */
+  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
 
+  /**
+   * The y.
+   */
+  protected int y = 0;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentHidden(ComponentEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * Instantiates a new horizontal dashed divider.
+   */
+  public HorizontalDashedDivider() {
+    setMinimumSize(MIN_SIZE);
+    setPreferredSize(MIN_SIZE);
+    setMaximumSize(MAX_SIZE);
 
+    addComponentListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentMoved(ComponentEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(LINE_COLOR);
 
+    g2.setStroke(STROKE);
+    g2.drawLine(getInsets().left, y, getWidth() - getInsets().left - getInsets().right, y);
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentResized(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentResized(ComponentEvent arg0) {
-		y = getHeight() / 2;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentHidden(ComponentEvent arg0) {
+    // TODO Auto-generated method stub
 
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentShown(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentShown(ComponentEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentMoved(ComponentEvent arg0) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentResized(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentResized(ComponentEvent arg0) {
+    y = getHeight() / 2;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentShown(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentShown(ComponentEvent arg0) {
+    // TODO Auto-generated method stub
+
+  }
 }

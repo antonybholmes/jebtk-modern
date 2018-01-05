@@ -32,62 +32,57 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.graphics.icons.FileVectorIcon;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernDataListCellRenderer.
  */
 public class ModernDataListCellRenderer extends ModernDataGridIconTextCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern data list cell renderer.
-	 */
-	public ModernDataListCellRenderer() {
-		setIcon(new FileVectorIcon());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = getHeight();
-		
-		int w = mRect.getW() - x;
-		
-		if (this.mIcon != null) {
-			this.mIcon.drawIcon(g2, 0, (x - 32) / 2, 32);
-		}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		
-		
-		String t = getTruncatedText(g2, mText, 0, w);
-		
-		
+  /**
+   * Instantiates a new modern data list cell renderer.
+   */
+  public ModernDataListCellRenderer() {
+    setIcon(new FileVectorIcon());
+  }
 
-		g2.setColor(TEXT_COLOR);
-		g2.drawString(t, x, getTextYPosCenter(g2, x));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = getHeight();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	public Component getCellRendererComponent(ModernData dataView,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
-		
-		setText(value.toString());
+    int w = mRect.getW() - x;
 
-		return super.getCellRendererComponent(dataView, value, highlight, isSelected, hasFocus, row, column);
-	}
+    if (this.mIcon != null) {
+      this.mIcon.drawIcon(g2, 0, (x - 32) / 2, 32);
+    }
+
+    String t = getTruncatedText(g2, mText, 0, w);
+
+    g2.setColor(TEXT_COLOR);
+    g2.drawString(t, x, getTextYPosCenter(g2, x));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
+   * java.lang.Object, boolean, boolean, boolean, int, int)
+   */
+  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+
+    setText(value.toString());
+
+    return super.getCellRendererComponent(dataView, value, highlight, isSelected, hasFocus, row, column);
+  }
 }

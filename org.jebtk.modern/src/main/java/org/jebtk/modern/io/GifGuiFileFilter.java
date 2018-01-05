@@ -35,19 +35,21 @@ package org.jebtk.modern.io;
  *
  */
 public class GifGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new gif gui file filter.
-	 */
-	public GifGuiFileFilter() {
-		super("gif");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return "Graphics Interchange Format (*.gif)";
-	}
+  /**
+   * Instantiates a new gif gui file filter.
+   */
+  public GifGuiFileFilter() {
+    super("gif");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return "Graphics Interchange Format (*.gif)";
+  }
 }

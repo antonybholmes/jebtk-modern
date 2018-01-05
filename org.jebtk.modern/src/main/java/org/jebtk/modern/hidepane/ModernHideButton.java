@@ -38,58 +38,65 @@ import org.jebtk.modern.ribbon.QuickAccessButton;
  */
 public class ModernHideButton extends QuickAccessButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member hidden.
-	 */
-	protected boolean mHidden = false;
+  /**
+   * The member hidden.
+   */
+  protected boolean mHidden = false;
 
-	/**
-	 * The member icon2.
-	 */
-	private ModernIcon mIcon2;
-	
-	/**
-	 * Instantiates a new modern hide button.
-	 *
-	 * @param icon1 the icon1
-	 * @param icon2 the icon2
-	 */
-	public ModernHideButton(ModernIcon icon1, ModernIcon icon2) {
-		super(icon1);
-		
-		mIcon2 = icon2;
-		
-		//Ui.setSize(this, ModernTheme.getInstance().getClass("button").getDimension("icon-only"));
-	}
-	
-	/**
-	 * Set whether the button is in hidden mode or not.
-	 *
-	 * @param hidden the new hidden
-	 */
-	public void setHidden(boolean hidden) {
-		mHidden = hidden;
-		
-		repaint();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = (getWidth() - 16) / 2;
-		int y = (getHeight() - 16) / 2;
-		
-		if (!mHidden) {
-			mIcon.drawIcon(g2, x, y, 16);
-		} else {
-			mIcon2.drawIcon(g2, x, y, 16);
-		}
-	}
+  /**
+   * The member icon2.
+   */
+  private ModernIcon mIcon2;
+
+  /**
+   * Instantiates a new modern hide button.
+   *
+   * @param icon1
+   *          the icon1
+   * @param icon2
+   *          the icon2
+   */
+  public ModernHideButton(ModernIcon icon1, ModernIcon icon2) {
+    super(icon1);
+
+    mIcon2 = icon2;
+
+    // Ui.setSize(this,
+    // ModernTheme.getInstance().getClass("button").getDimension("icon-only"));
+  }
+
+  /**
+   * Set whether the button is in hidden mode or not.
+   *
+   * @param hidden
+   *          the new hidden
+   */
+  public void setHidden(boolean hidden) {
+    mHidden = hidden;
+
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = (getWidth() - 16) / 2;
+    int y = (getHeight() - 16) / 2;
+
+    if (!mHidden) {
+      mIcon.drawIcon(g2, x, y, 16);
+    } else {
+      mIcon2.drawIcon(g2, x, y, 16);
+    }
+  }
 }

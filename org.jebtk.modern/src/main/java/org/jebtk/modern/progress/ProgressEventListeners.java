@@ -37,32 +37,44 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class ProgressEventListeners extends EventProducer<ProgressEventListener> implements ProgressEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.progress.ProgressEventProducer#addProgressListener(org.abh.lib.ui.modern.progress.ProgressEventListener)
-	 */
-	public void addProgressListener(ProgressEventListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.progress.ProgressEventProducer#removeProgressListener(org.abh.lib.ui.modern.progress.ProgressEventListener)
-	 */
-	public void removeProgressListener(ProgressEventListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.progress.ProgressEventProducer#fireProgressChanged(org.abh.lib.ui.modern.progress.ProgressEvent)
-	 */
-	public void fireProgressChanged(ProgressEvent e) {
-		for (ProgressEventListener l : mListeners) {
-			l.progressUpdated(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.progress.ProgressEventProducer#addProgressListener(org.
+   * abh.lib.ui.modern.progress.ProgressEventListener)
+   */
+  public void addProgressListener(ProgressEventListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.progress.ProgressEventProducer#removeProgressListener(
+   * org.abh.lib.ui.modern.progress.ProgressEventListener)
+   */
+  public void removeProgressListener(ProgressEventListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.progress.ProgressEventProducer#fireProgressChanged(org.
+   * abh.lib.ui.modern.progress.ProgressEvent)
+   */
+  public void fireProgressChanged(ProgressEvent e) {
+    for (ProgressEventListener l : mListeners) {
+      l.progressUpdated(e);
+    }
+  }
 }

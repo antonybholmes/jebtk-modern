@@ -31,47 +31,47 @@ import org.jebtk.modern.widget.ModernWidget;
  * @param <T>
  */
 public class IconTabsChangeAnimation extends HighlightBaseAnimation {
-	
-	private IconTabs mTabs;
-	
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public IconTabsChangeAnimation(ModernWidget tabs) {
-		super((IconTabs)tabs);
 
-		mTabs = (IconTabs)tabs;
-		
-		mTabs.getTabsModel().addTabListener(new TabEventAdapter() {
-			@Override
-			public void tabChanged(TabEvent e) {
-				restart();
-			}
-		});
-		
-		getFade().setFadeColor("fill", 
-				IconTabsIconAnimation.ICON_COLOR, Ribbon.BAR_BACKGROUND);
-	}
-	
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		int x = mTabs.getInsets().left;
-	
-		int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
-		
-		if (selectedIndex == -1) {
-			return;
-		}
-		
-		ModernIcon icon = mTabs.getTabsModel().getSelectedTab().getIcon();
-		
-		int offset = (mTabs.mTabSize - mTabs.mIconSize) / 2;
-		int yoffset = (mTabs.getInternalRect().getH() - mTabs.mIconSize) / 2; 
+  private IconTabs mTabs;
 
-		Color color = getFadeColor("fill");
-			
-		icon.drawIcon(g2, x + mTabs.mTabSize * selectedIndex + offset, yoffset, mTabs.mIconSize, mTabs.mIconSize, color);
-	}	
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public IconTabsChangeAnimation(ModernWidget tabs) {
+    super((IconTabs) tabs);
+
+    mTabs = (IconTabs) tabs;
+
+    mTabs.getTabsModel().addTabListener(new TabEventAdapter() {
+      @Override
+      public void tabChanged(TabEvent e) {
+        restart();
+      }
+    });
+
+    getFade().setFadeColor("fill", IconTabsIconAnimation.ICON_COLOR, Ribbon.BAR_BACKGROUND);
+  }
+
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    int x = mTabs.getInsets().left;
+
+    int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
+
+    if (selectedIndex == -1) {
+      return;
+    }
+
+    ModernIcon icon = mTabs.getTabsModel().getSelectedTab().getIcon();
+
+    int offset = (mTabs.mTabSize - mTabs.mIconSize) / 2;
+    int yoffset = (mTabs.getInternalRect().getH() - mTabs.mIconSize) / 2;
+
+    Color color = getFadeColor("fill");
+
+    icon.drawIcon(g2, x + mTabs.mTabSize * selectedIndex + offset, yoffset, mTabs.mIconSize, mTabs.mIconSize, color);
+  }
 }

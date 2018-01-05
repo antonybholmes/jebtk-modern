@@ -30,32 +30,33 @@ package org.jebtk.modern.widget;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * The basis for rendering a component as an
- * image so it does not waste time rendering
- * drawing primitives on each refresh.
+ * The basis for rendering a component as an image so it does not waste time
+ * rendering drawing primitives on each refresh.
  *
  * @author Antony Holmes Holmes
  */
 public class ModernWidgetBufferedImageHighlighted extends ModernWidgetBufferedImage {
-	
-	/**
-	 * Instantiates a new modern widget buffered image highlighted.
-	 *
-	 * @param size the size
-	 */
-	public ModernWidgetBufferedImageHighlighted(Dimension size) {
-		super(size);
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidgetBufferedImage#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		ModernWidget.paintHighlighted(g2, size);
-	}
+  /**
+   * Instantiates a new modern widget buffered image highlighted.
+   *
+   * @param size
+   *          the size
+   */
+  public ModernWidgetBufferedImageHighlighted(Dimension size) {
+    super(size);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidgetBufferedImage#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    ModernWidget.paintHighlighted(g2, size);
+  }
 }

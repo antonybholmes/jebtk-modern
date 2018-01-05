@@ -24,48 +24,41 @@ import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
- * Close button for side panels. The cross icon changes color rather than 
- * using a highlighted background. This makes it a less obtrusive UI element.
+ * Close button for side panels. The cross icon changes color rather than using
+ * a highlighted background. This makes it a less obtrusive UI element.
+ * 
  * @author Antony Holmes Holmes
  *
  */
 public class CloseButton extends ModernButton {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant ICON. */
-	private static final ModernIcon ICON = 
-			new Raster16Icon(new CloseVectorIcon(TEXT_COLOR));
-	
-	// private static final ModernIcon HIGHLIGHT_ICON = 
-	//		new Raster16Icon(new CloseVectorIcon(ModernWidget.THEME_SELECTED_BORDER_COLOR));
-	
-	/**
-	 * Instantiates a new close button.
-	 */
-	public CloseButton() {
-		super(ICON);
-		
-		setBackgroundAnimations("circular-button");
-		
-		UI.setSize(this, ModernWidget.WIDGET_HEIGHT - 2);
-	}
-	
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		// do nothing
-	}
-	
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		
-		if (mHighlight) {
-			drawIconCentered(g2, HIGHLIGHT_ICON, this);
-		} else {
-			drawIconCentered(g2, ICON, this);
-		}
-	}
-	*/
+  /** The Constant ICON. */
+  private static final ModernIcon ICON = new Raster16Icon(new CloseVectorIcon(TEXT_COLOR));
+
+  // private static final ModernIcon HIGHLIGHT_ICON =
+  // new Raster16Icon(new
+  // CloseVectorIcon(ModernWidget.THEME_SELECTED_BORDER_COLOR));
+
+  /**
+   * Instantiates a new close button.
+   */
+  public CloseButton() {
+    super(ICON);
+
+    setBackgroundAnimations("circular-button");
+
+    UI.setSize(this, ModernWidget.WIDGET_HEIGHT - 2);
+  }
+
+  /*
+   * @Override public void drawBackground(Graphics2D g2) { // do nothing }
+   * 
+   * @Override public void drawForegroundAAText(Graphics2D g2) {
+   * 
+   * if (mHighlight) { drawIconCentered(g2, HIGHLIGHT_ICON, this); } else {
+   * drawIconCentered(g2, ICON, this); } }
+   */
 }

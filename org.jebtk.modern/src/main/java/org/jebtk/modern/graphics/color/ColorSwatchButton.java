@@ -37,7 +37,6 @@ import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Allow users to select a color for an object etc.
@@ -47,121 +46,120 @@ import org.jebtk.modern.window.ModernWindow;
  */
 public class ColorSwatchButton extends ModernDialogFlatDropDownButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member popup.
-	 */
-	protected ColorPopupMenu mPopup;
+  /**
+   * The member popup.
+   */
+  protected ColorPopupMenu mPopup;
 
+  /**
+   * Instantiates a new color swatch button.
+   *
+   * @param parent
+   *          the parent
+   */
+  public ColorSwatchButton(ModernWindow parent) {
+    this(parent, Color.BLACK);
+  }
 
-	/**
-	 * Instantiates a new color swatch button.
-	 *
-	 * @param parent the parent
-	 */
-	public ColorSwatchButton(ModernWindow parent) {
-		this(parent, Color.BLACK);
-	}
+  /**
+   * Instantiates a new color swatch button.
+   *
+   * @param parent
+   *          the parent
+   * @param color
+   *          the color
+   */
+  public ColorSwatchButton(ModernWindow parent, Color color) {
+    super("Color Swatch");
 
-	/**
-	 * Instantiates a new color swatch button.
-	 *
-	 * @param parent the parent
-	 * @param color the color
-	 */
-	public ColorSwatchButton(ModernWindow parent, Color color) {
-		super("Color Swatch");
+    mPopup = new ColorPopupMenu(parent, color);
 
-		mPopup = new ColorPopupMenu(parent, color);
+    /*
+     * mPopup.addClickListener(new ModernClickListener(){
+     * 
+     * @Override public void clicked(ModernClickEvent e) { pressed = false;
+     * mHighlight = false;
+     * 
+     * repaint();
+     * 
+     * if (e.getMessage().equals(ColorSelectionModel.COLOR_CHANGED)) {
+     * fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED)); }
+     * }});
+     */
 
-		/*
-		mPopup.addClickListener(new ModernClickListener(){
+    setMenu(mPopup);
 
-			@Override
-			public void clicked(ModernClickEvent e) {
-				pressed = false;
-				mHighlight = false;
+    UI.setSize(this, ModernWidget.SIZE_48);
+  }
 
-				repaint();
+  /*
+   * @Override public void drawBackground(Graphics2D g2) { if(mHighlight ||
+   * mPopupShown) { //paintHighlightedOutlined(g2, getRect());
+   * 
+   * HIGHLIGHT_ICON.drawIcon(g2, SIZE);
+   * 
+   * 
+   * } else { //paintOutlined(g2, getRect());
+   * 
+   * 
+   * OUTLINE_ICON.drawIcon(g2, SIZE); }
+   * 
+   * //} else if(hasFocus()) { //paintOutlinedFocused(g2, getRect()); }
+   */
 
-				if (e.getMessage().equals(ColorSelectionModel.COLOR_CHANGED)) {
-					fireClicked(new ModernClickEvent(this,  ColorSelectionModel.COLOR_CHANGED));
-				}
-			}});
-		*/
-		
-		setMenu(mPopup);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = PADDING;
 
-		UI.setSize(this, ModernWidget.SIZE_48);
-	}
+    int y = (getHeight() - 6) / 2;
 
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if(mHighlight || mPopupShown) {
-			//paintHighlightedOutlined(g2, getRect());
-			
-			HIGHLIGHT_ICON.drawIcon(g2, SIZE);
-			
-		
-		} else {
-			//paintOutlined(g2, getRect());
-			
-			
-			OUTLINE_ICON.drawIcon(g2, SIZE);
-		}
-		
-		//} else if(hasFocus()) {
-		//paintOutlinedFocused(g2, getRect());
-	}
-	*/
+    Color color = mPopup.getSelectedColor();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = PADDING;
+    if (color != null) {
+      g2.setColor(mPopup.getSelectedColor());
+      g2.fillRect(x, y, 16, 6);
 
-		int y = (getHeight() - 6) / 2;
+      g2.setColor(Color.BLACK);
+      g2.drawRect(x, y, 16, 6);
+    }
 
-		Color color = mPopup.getSelectedColor();
+    // g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
+    // g2.drawRect(x, y, 32, Resources.ICON_SIZE_16);
 
-		if (color != null) {
-			g2.setColor(mPopup.getSelectedColor());
-			g2.fillRect(x, y, 16, 6);
+    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, getWidth() - 16,
+        (getHeight() - 16) / 2, 16);
+  }
 
-			g2.setColor(Color.BLACK);
-			g2.drawRect(x, y, 16, 6);
-		}
+  /**
+   * Gets the selected color.
+   *
+   * @return the selected color
+   */
+  public Color getSelectedColor() {
+    return mPopup.getSelectedColor();
+  }
 
-		//g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
-		//g2.drawRect(x, y, 32, Resources.ICON_SIZE_16);
+  /**
+   * Sets the selected color.
+   *
+   * @param color
+   *          the new selected color
+   */
+  public void setSelectedColor(Color color) {
+    mPopup.setSelectedColor(color);
 
-		UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, getWidth() - 16, (getHeight() - 16) / 2, 16);
-	}
-
-	/**
-	 * Gets the selected color.
-	 *
-	 * @return the selected color
-	 */
-	public Color getSelectedColor() {
-		return mPopup.getSelectedColor();
-	}
-
-	/**
-	 * Sets the selected color.
-	 *
-	 * @param color the new selected color
-	 */
-	public void setSelectedColor(Color color) {
-		mPopup.setSelectedColor(color);
-
-		repaint();
-	}
+    repaint();
+  }
 }

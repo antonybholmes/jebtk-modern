@@ -36,116 +36,117 @@ import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
- * Shows animated balls to indicate something
- * is happening.
+ * Shows animated balls to indicate something is happening.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernActivityBar extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant BAR_WIDTH.
-	 */
-	private static final int BAR_WIDTH = 100;
-	
-	/**
-	 * The xpos.
-	 */
-	private int xpos = -BAR_WIDTH;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The increment.
-	 */
-	private int increment = 5;
-	
-	/**
-	 * The w.
-	 */
-	private int w = 2;
+  /**
+   * The constant BAR_WIDTH.
+   */
+  private static final int BAR_WIDTH = 100;
 
-	/**
-	 * The timer.
-	 */
-	private ProgressWorker timer;
+  /**
+   * The xpos.
+   */
+  private int xpos = -BAR_WIDTH;
 
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR = ModernWidget.SELECTED_COLOR;
+  /**
+   * The increment.
+   */
+  private int increment = 5;
 
-	/**
-	 * The class ProgressWorker.
-	 */
-	private class ProgressWorker extends SwingWorker<Void, Void> {
+  /**
+   * The w.
+   */
+  private int w = 2;
 
-		/* (non-Javadoc)
-		 * @see javax.swing.SwingWorker#doInBackground()
-		 */
-		@Override
-		public Void doInBackground() throws InterruptedException {
-			while (!isCancelled()) {
+  /**
+   * The timer.
+   */
+  private ProgressWorker timer;
 
-				xpos += increment;	
-				
-				if (xpos > getWidth()) {
-					xpos = -BAR_WIDTH;
-				}
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = ModernWidget.SELECTED_COLOR;
 
-				repaint();
-				
-				Thread.sleep(20);
-			}
-			
-			return null;
-		}
+  /**
+   * The class ProgressWorker.
+   */
+  private class ProgressWorker extends SwingWorker<Void, Void> {
 
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see javax.swing.SwingWorker#doInBackground()
+     */
+    @Override
+    public Void doInBackground() throws InterruptedException {
+      while (!isCancelled()) {
 
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		int y = (getHeight() - w) / 2;
+        xpos += increment;
 
-		g2.setColor(BACKGROUND);
-		
-		g2.fillRect(0, y, getWidth(), w);
-	}
-	*/
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int y = (getHeight() - w) / 2;
-		
-		g2.setColor(COLOR);
+        if (xpos > getWidth()) {
+          xpos = -BAR_WIDTH;
+        }
 
-		g2.fillRect(xpos, y, BAR_WIDTH, w);
-	}
+        repaint();
 
-	/**
-	 * Start.
-	 */
-	public void start() {
-		if (timer != null) {
-			stop();
-		}
-		
-		timer = new ProgressWorker();
-		timer.execute();
-	}
+        Thread.sleep(20);
+      }
 
-	/**
-	 * Stop.
-	 */
-	public void stop() {
-		timer.cancel(true);
-	}
+      return null;
+    }
+
+  }
+
+  /*
+   * @Override public void drawBackground(Graphics2D g2) { int y = (getHeight() -
+   * w) / 2;
+   * 
+   * g2.setColor(BACKGROUND);
+   * 
+   * g2.fillRect(0, y, getWidth(), w); }
+   */
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int y = (getHeight() - w) / 2;
+
+    g2.setColor(COLOR);
+
+    g2.fillRect(xpos, y, BAR_WIDTH, w);
+  }
+
+  /**
+   * Start.
+   */
+  public void start() {
+    if (timer != null) {
+      stop();
+    }
+
+    timer = new ProgressWorker();
+    timer.execute();
+  }
+
+  /**
+   * Stop.
+   */
+  public void stop() {
+    timer.cancel(true);
+  }
 }

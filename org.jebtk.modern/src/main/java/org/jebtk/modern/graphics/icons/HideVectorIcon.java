@@ -32,57 +32,61 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.settings.SettingsService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class HideVectorIcon.
  */
 public abstract class HideVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant COLOR.
-	 */
-	protected static final Color COLOR = 
-			SettingsService.getInstance().getAsColor("theme.icons.hide-icon.colors.foreground");
-	
-	/**
-	 * The constant WIDTH_SCALE.
-	 */
-	protected static final double WIDTH_SCALE = 
-			SettingsService.getInstance().getAsDouble("theme.icons.hide-icon.width-scale");
-	
-	/**
-	 * The constant HEIGHT_SCALE.
-	 */
-	protected static final double HEIGHT_SCALE = 
-			SettingsService.getInstance().getAsDouble("theme.icons.hide-icon.height-scale");
 
-	/**
-	 * The member color.
-	 */
-	private Color mColor;
+  /**
+   * The constant COLOR.
+   */
+  protected static final Color COLOR = SettingsService.getInstance()
+      .getAsColor("theme.icons.hide-icon.colors.foreground");
 
-	/**
-	 * Instantiates a new hide vector icon.
-	 */
-	public HideVectorIcon() {
-		this(COLOR);
-	}
-	
-	/**
-	 * Instantiates a new hide vector icon.
-	 *
-	 * @param color the color
-	 */
-	public HideVectorIcon(Color color) {
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		g2.setColor(mColor);
-	}
+  /**
+   * The constant WIDTH_SCALE.
+   */
+  protected static final double WIDTH_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.hide-icon.width-scale");
+
+  /**
+   * The constant HEIGHT_SCALE.
+   */
+  protected static final double HEIGHT_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.hide-icon.height-scale");
+
+  /**
+   * The member color.
+   */
+  private Color mColor;
+
+  /**
+   * Instantiates a new hide vector icon.
+   */
+  public HideVectorIcon() {
+    this(COLOR);
+  }
+
+  /**
+   * Instantiates a new hide vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public HideVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    g2.setColor(mColor);
+  }
 }

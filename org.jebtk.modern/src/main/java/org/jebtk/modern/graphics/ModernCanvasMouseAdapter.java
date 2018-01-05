@@ -33,66 +33,94 @@ package org.jebtk.modern.graphics;
  */
 public class ModernCanvasMouseAdapter implements ModernCanvasMouseListener {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseClicked(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseClicked(CanvasMouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseClicked(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseClicked(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseEntered(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseEntered(CanvasMouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseExited(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseExited(CanvasMouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseEntered(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseEntered(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMousePressed(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMousePressed(CanvasMouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseReleased(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseReleased(CanvasMouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseExited(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseExited(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseDragged(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseDragged(CanvasMouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseMoved(CanvasMouseEvent e) {
-		// TODO Auto-generated method stub
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMousePressed(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMousePressed(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseReleased(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseReleased(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseDragged(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseDragged(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(org
+   * .abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseMoved(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
+  }
 
 }

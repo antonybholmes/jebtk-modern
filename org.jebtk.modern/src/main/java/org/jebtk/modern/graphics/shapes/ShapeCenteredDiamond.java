@@ -36,25 +36,28 @@ import java.awt.Polygon;
  * @author Antony Holmes Holmes
  */
 public class ShapeCenteredDiamond extends Polygon {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new shape centered diamond.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param size the size
-	 */
-	public ShapeCenteredDiamond(int x, int y, int size) {
-		int s2 = size / 2;
-		
-		addPoint(x - s2, y);
-		addPoint(x, y + s2);
-		addPoint(x + s2, 0);
-		addPoint(x, y - s2);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new shape centered diamond.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param size
+   *          the size
+   */
+  public ShapeCenteredDiamond(int x, int y, int size) {
+    int s2 = size / 2;
+
+    addPoint(x - s2, y);
+    addPoint(x, y + s2);
+    addPoint(x + s2, 0);
+    addPoint(x, y - s2);
+  }
 }

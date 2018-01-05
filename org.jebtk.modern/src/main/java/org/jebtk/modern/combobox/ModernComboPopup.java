@@ -33,95 +33,89 @@ import javax.swing.JComponent;
 
 import org.jebtk.modern.menu.ModernScrollPopupMenu;
 
-
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernComboPopup.
  */
 public class ModernComboPopup extends ModernScrollPopupMenu {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern combo popup.
-	 */
-	public ModernComboPopup() {
-		
-	}
-	
-	/**
-	 * Instantiates a new modern combo popup.
-	 *
-	 * @param maxHeight the max height
-	 */
-	public ModernComboPopup(int maxHeight) {
-		super(maxHeight);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernScrollPopupMenu#showPopup(javax.swing.JComponent)
-	 */
-	@Override
-	public void showPopup(JComponent component) {
+  /**
+   * Instantiates a new modern combo popup.
+   */
+  public ModernComboPopup() {
 
-		
-		
-		int h = 0;
-		int w = component.getWidth() - 2;
+  }
 
-		for (int i = 0; i < this.mScrollMenuPanel.getComponentCount(); ++i) {
-			w = Math.max(w, this.mScrollMenuPanel.getComponent(i).getPreferredSize().width);
+  /**
+   * Instantiates a new modern combo popup.
+   *
+   * @param maxHeight
+   *          the max height
+   */
+  public ModernComboPopup(int maxHeight) {
+    super(maxHeight);
+  }
 
-			h += this.mScrollMenuPanel.getComponent(i).getPreferredSize().height;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.menu.ModernScrollPopupMenu#showPopup(javax.swing.
+   * JComponent)
+   */
+  @Override
+  public void showPopup(JComponent component) {
 
-		mScrollPane.setPreferredSize(new Dimension(w, Math.min(h, mMaxHeight)));
+    int h = 0;
+    int w = component.getWidth() - 2;
 
-		/*
-		int border = 0;
+    for (int i = 0; i < this.mScrollMenuPanel.getComponentCount(); ++i) {
+      w = Math.max(w, this.mScrollMenuPanel.getComponent(i).getPreferredSize().width);
 
-		if (this.menuPanel.getComponentCount() > maxRows) {
-			// the scroll bar will be displayed so adjust the border
-			border += ModernScrollPane.SCROLLBAR_WIDTH; //scrollPane.getVerticalScrollBar().getMaximumSize().width;
-			//w -= 2;
-		}
-		menuPanel.setBorder(BorderService.getInstance().createRightBorder(border));
-		*/
+      h += this.mScrollMenuPanel.getComponent(i).getPreferredSize().height;
+    }
 
-		mScrollMenuPanel.setPreferredSize(new Dimension(w, h));
+    mScrollPane.setPreferredSize(new Dimension(w, Math.min(h, mMaxHeight)));
 
+    /*
+     * int border = 0;
+     * 
+     * if (this.menuPanel.getComponentCount() > maxRows) { // the scroll bar will be
+     * displayed so adjust the border border += ModernScrollPane.SCROLLBAR_WIDTH;
+     * //scrollPane.getVerticalScrollBar().getMaximumSize().width; //w -= 2; }
+     * menuPanel.setBorder(BorderService.getInstance().createRightBorder(border));
+     */
 
-		// window size
+    mScrollMenuPanel.setPreferredSize(new Dimension(w, h));
 
-		h = 0;
+    // window size
 
-		for (int i = 0; i < this.getComponentCount(); ++i) {
-			h += this.getComponent(i).getPreferredSize().height;
-		}
+    h = 0;
 
+    for (int i = 0; i < this.getComponentCount(); ++i) {
+      h += this.getComponent(i).getPreferredSize().height;
+    }
 
-		//w += 2;
-		h += 2;
+    // w += 2;
+    h += 2;
 
-		setSize(w, h);
+    setSize(w, h);
 
-		showPopup(component, component.getInsets().left, component.getHeight());
-	}
+    showPopup(component, component.getInsets().left, component.getHeight());
+  }
 
-	/**
-	 * Clear the scroll menu items.
-	 */
-	public void clear() {
-		mScrollMenuPanel.removeAll();
-		
-		super.clear();
-		
-		add(mScrollPane);
-	}
+  /**
+   * Clear the scroll menu items.
+   */
+  public void clear() {
+    mScrollMenuPanel.removeAll();
+
+    super.clear();
+
+    add(mScrollPane);
+  }
 }

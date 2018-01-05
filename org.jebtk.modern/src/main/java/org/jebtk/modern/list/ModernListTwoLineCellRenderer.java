@@ -33,121 +33,120 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a flat look table renderer for the flat table
- * although it can be used with standard JTables as well.
+ * Provides a flat look table renderer for the flat table although it can be
+ * used with standard JTables as well.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernListTwoLineCellRenderer extends ModernListIconCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member text2.
-	 */
-	private String mText2 = "";
-	
-	/**
-	 * The color2.
-	 */
-	protected Color color2;
+  /**
+   * The member text2.
+   */
+  private String mText2 = "";
 
-	/**
-	 * Instantiates a new modern list two line cell renderer.
-	 */
-	public ModernListTwoLineCellRenderer() {
-		// Do nothing
-	}
-	
-	/**
-	 * Instantiates a new modern list two line cell renderer.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernListTwoLineCellRenderer(ModernIcon icon) {
-		super(icon);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.list.ModernListIconCellRenderer#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int iconX =  PADDING;
-		
-		int h2 = getHeight() / 2;
-		
-		int y = (h2 + g2.getFontMetrics().getAscent()) / 2;
-		int x;
-		
-		if (mIcon != null) {
-			x = iconX + mIcon.getWidth() + PADDING;
-		} else {
-			x = PADDING;
-		}
-		
-		g2.setColor(TEXT_COLOR);
-		
-		g2.drawString(mText, x, y);
-		
-		y += h2;
-		
-		g2.drawString(mText2, x, y);
-		
-		
-		if (mIcon != null) {
-			if (mText == null || mText.length() == 0) {
-				iconX = (getWidth() - 16) / 2;
-			}
-			
-			int iconY = (getHeight() - 16) / 2;
-			
-			mIcon.drawIcon(g2, iconX, iconY, 16);
-		}
-	}
+  /**
+   * The color2.
+   */
+  protected Color color2;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.list.ModernListIconCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList, java.lang.Object, boolean, boolean, boolean, int)
-	 */
-	public Component getCellRendererComponent(ModernList<?> list,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row) {
-		
-		if (isSelected) {
-			color2 = TEXT_COLOR;
-		} else {
-			color2 = ALT_TEXT_COLOR;
-		}
+  /**
+   * Instantiates a new modern list two line cell renderer.
+   */
+  public ModernListTwoLineCellRenderer() {
+    // Do nothing
+  }
 
-		return super.getCellRendererComponent(list, 
-				value, 
-				highlight, 
-				isSelected, 
-				hasFocus, 
-				row);
-	}
+  /**
+   * Instantiates a new modern list two line cell renderer.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernListTwoLineCellRenderer(ModernIcon icon) {
+    super(icon);
+  }
 
-	/**
-	 * Sets the text.
-	 *
-	 * @param text the text
-	 * @param text2 the text2
-	 */
-	protected void setText(String text, String text2) {
-		setText(text);
-		
-		mText2  = text2;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.list.ModernListIconCellRenderer#drawForegroundAA(java.
+   * awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int iconX = PADDING;
+
+    int h2 = getHeight() / 2;
+
+    int y = (h2 + g2.getFontMetrics().getAscent()) / 2;
+    int x;
+
+    if (mIcon != null) {
+      x = iconX + mIcon.getWidth() + PADDING;
+    } else {
+      x = PADDING;
+    }
+
+    g2.setColor(TEXT_COLOR);
+
+    g2.drawString(mText, x, y);
+
+    y += h2;
+
+    g2.drawString(mText2, x, y);
+
+    if (mIcon != null) {
+      if (mText == null || mText.length() == 0) {
+        iconX = (getWidth() - 16) / 2;
+      }
+
+      int iconY = (getHeight() - 16) / 2;
+
+      mIcon.drawIcon(g2, iconX, iconY, 16);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.list.ModernListIconCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList,
+   * java.lang.Object, boolean, boolean, boolean, int)
+   */
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
+
+    if (isSelected) {
+      color2 = TEXT_COLOR;
+    } else {
+      color2 = ALT_TEXT_COLOR;
+    }
+
+    return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
+  }
+
+  /**
+   * Sets the text.
+   *
+   * @param text
+   *          the text
+   * @param text2
+   *          the text2
+   */
+  protected void setText(String text, String text2) {
+    setText(text);
+
+    mText2 = text2;
+  }
 }

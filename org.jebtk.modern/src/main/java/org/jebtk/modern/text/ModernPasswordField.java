@@ -38,83 +38,84 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernPasswordField.
  */
-public class ModernPasswordField extends JPasswordField  {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+public class ModernPasswordField extends JPasswordField {
 
-	/**
-	 * The constant DISABLED_COLOR.
-	 */
-	public static final Color DISABLED_COLOR = ModernWidget.ALT_TEXT_COLOR;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant ENABLED_COLOR.
-	 */
-	public static final Color ENABLED_COLOR = ModernWidget.TEXT_COLOR;
+  /**
+   * The constant DISABLED_COLOR.
+   */
+  public static final Color DISABLED_COLOR = ModernWidget.ALT_TEXT_COLOR;
 
-	
-	/**
-	 * Instantiates a new modern password field.
-	 */
-	public ModernPasswordField() {
+  /**
+   * The constant ENABLED_COLOR.
+   */
+  public static final Color ENABLED_COLOR = ModernWidget.TEXT_COLOR;
 
-		setup();
-	}
+  /**
+   * Instantiates a new modern password field.
+   */
+  public ModernPasswordField() {
 
-	/**
-	 * Instantiates a new modern password field.
-	 *
-	 * @param text the text
-	 */
-	public ModernPasswordField(String text) {
+    setup();
+  }
 
-		super(text);
+  /**
+   * Instantiates a new modern password field.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernPasswordField(String text) {
 
-		setup();
-	}
+    super(text);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
+    setup();
+  }
 
-		this.setFocusable(true);
-	
-	    //this.setHighlighter(new DefaultHighlighter.DefaultHighlightPainter(ModernMenuItem.HIGHLIGHT_COLOR));
-	
-	    //popup.add(menuContainer);
-	
-	    //popup.pack();
-	
-		setFont(ThemeService.loadFont("widget.text"));
-			
-		setBackground(SettingsService.getInstance().getAsColor("theme.background"));
-	    setForeground(ModernWidget.TEXT_COLOR);
-		setSelectedTextColor(Color.WHITE);
-		setSelectionColor(ThemeService.getInstance().colors().getColorHighlight(2));
-	
-		setBorder(BorderFactory.createEmptyBorder());
-			
-		setMinimumSize(new Dimension(UIService.ICON_SIZE_24, UIService.ICON_SIZE_24));
-		setMaximumSize(new Dimension(Short.MAX_VALUE, UIService.ICON_SIZE_24));
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
 
-	/* (non-Javadoc)
-	 * @see javax.swing.text.JTextComponent#setEditable(boolean)
-	 */
-	public final void setEditable(boolean editable) {
+    this.setFocusable(true);
 
-		super.setEditable(editable);
+    // this.setHighlighter(new
+    // DefaultHighlighter.DefaultHighlightPainter(ModernMenuItem.HIGHLIGHT_COLOR));
 
-		this.setForeground(editable ? ENABLED_COLOR : DISABLED_COLOR);
-	}
+    // popup.add(menuContainer);
+
+    // popup.pack();
+
+    setFont(ThemeService.loadFont("widget.text"));
+
+    setBackground(SettingsService.getInstance().getAsColor("theme.background"));
+    setForeground(ModernWidget.TEXT_COLOR);
+    setSelectedTextColor(Color.WHITE);
+    setSelectionColor(ThemeService.getInstance().colors().getColorHighlight(2));
+
+    setBorder(BorderFactory.createEmptyBorder());
+
+    setMinimumSize(new Dimension(UIService.ICON_SIZE_24, UIService.ICON_SIZE_24));
+    setMaximumSize(new Dimension(Short.MAX_VALUE, UIService.ICON_SIZE_24));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.text.JTextComponent#setEditable(boolean)
+   */
+  public final void setEditable(boolean editable) {
+
+    super.setEditable(editable);
+
+    this.setForeground(editable ? ENABLED_COLOR : DISABLED_COLOR);
+  }
 }

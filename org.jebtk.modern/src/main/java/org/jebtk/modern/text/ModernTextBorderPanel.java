@@ -36,8 +36,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Adds a border around text boxes so they are more visible to the user.
@@ -45,195 +43,205 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  */
 public class ModernTextBorderPanel extends ModernWidget implements TextProperty {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member component.
-	 */
-	private JComponent mComponent;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant STANDARD_SIZE.
-	 */
-	public static final Dimension STANDARD_SIZE = 
-			new Dimension(100, ModernWidget.WIDGET_HEIGHT);
+  /**
+   * The member component.
+   */
+  private JComponent mComponent;
 
-	
-	/**
-	 * Instantiates a new modern text border panel.
-	 *
-	 * @param textField the text field
-	 * @param color the color
-	 */
-	public ModernTextBorderPanel(ModernTextField textField) {
-		mComponent = textField;
+  /**
+   * The constant STANDARD_SIZE.
+   */
+  public static final Dimension STANDARD_SIZE = new Dimension(100, ModernWidget.WIDGET_HEIGHT);
 
-		setBody(textField);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern text border panel.
-	 *
-	 * @param textField the text field
-	 * @param color the color
-	 */
-	public ModernTextBorderPanel(ModernTextBox textField) {
-		mComponent = textField;
+  /**
+   * Instantiates a new modern text border panel.
+   *
+   * @param textField
+   *          the text field
+   * @param color
+   *          the color
+   */
+  public ModernTextBorderPanel(ModernTextField textField) {
+    mComponent = textField;
 
-		setBody(textField);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern text border panel.
-	 *
-	 * @param textField the text field
-	 * @param width the width
-	 */
-	public ModernTextBorderPanel(ModernTextField textField, int width) {
-		this(textField, new Dimension(width, ModernButton.getButtonHeight()));
-	}
-	
-	/**
-	 * Instantiates a new modern text border panel.
-	 *
-	 * @param textField the text field
-	 * @param width the width
-	 */
-	public ModernTextBorderPanel(ModernTextBox textField, int width) {
-		this(textField, new Dimension(width, ModernButton.getButtonHeight()));
-	}
-	
-	/**
-	 * Instantiates a new modern text border panel.
-	 *
-	 * @param textField the text field
-	 * @param color the color
-	 * @param size the size
-	 */
-	public ModernTextBorderPanel(ModernTextField textField, Dimension size) {
+    setBody(textField);
 
-		mComponent = textField;
-		
-		setBody(textField);
-		
-		UI.setSize(this, size);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern text border panel.
-	 *
-	 * @param textField the text field
-	 * @param color the color
-	 * @param size the size
-	 */
-	public ModernTextBorderPanel(ModernTextBox textField, Dimension size) {
-		mComponent = textField;
-		
-		setBody(textField);
-		
-		UI.setSize(this, size);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern text border panel.
-	 *
-	 * @param textArea the text area
-	 */
-	public ModernTextBorderPanel(ModernTextArea textArea) {
+    setup();
+  }
 
-		mComponent = textArea;
+  /**
+   * Instantiates a new modern text border panel.
+   *
+   * @param textField
+   *          the text field
+   * @param color
+   *          the color
+   */
+  public ModernTextBorderPanel(ModernTextBox textField) {
+    mComponent = textField;
 
-		setBody(textArea);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern text border panel.
-	 *
-	 * @param textField the text field
-	 */
-	public ModernTextBorderPanel(ModernPasswordField textField) {
+    setBody(textField);
 
-		mComponent = textField;
+    setup();
+  }
 
-		setBody(textField);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new modern text border panel.
+   *
+   * @param textField
+   *          the text field
+   * @param width
+   *          the width
+   */
+  public ModernTextBorderPanel(ModernTextField textField, int width) {
+    this(textField, new Dimension(width, ModernButton.getButtonHeight()));
+  }
 
-	
+  /**
+   * Instantiates a new modern text border panel.
+   *
+   * @param textField
+   *          the text field
+   * @param width
+   *          the width
+   */
+  public ModernTextBorderPanel(ModernTextBox textField, int width) {
+    this(textField, new Dimension(width, ModernButton.getButtonHeight()));
+  }
 
-	/**
-	 * Setup.
-	 */
-	private final void setup() {
-		//mComponent.setBorder(SMALL_BORDER);
-		
-		
-		
-		//setMinimumSize(mComponent.getMinimumSize());
-		//setMaximumSize(mComponent.getMaximumSize());
-		
-		//UI.setSize(this, ModernWidget.STANDARD_SIZE);
-		
-		setBorder(SMALL_BORDER);
-		
-		setBackgroundAnimations("text-border");
-	}
-	
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		getWidgetRenderer().drawContentBox(g2, mRect);
-		
-		//fill(g2, Color.RED);
-	}
-	*/
-	
-	
-	@Override
-	public void drawAnimatedBackground(Graphics2D g2) {
-		getWidgetRenderer().drawContentBox(g2, mRect);
-		
-		super.drawAnimatedBackground(g2);
-	}
-	
+  /**
+   * Instantiates a new modern text border panel.
+   *
+   * @param textField
+   *          the text field
+   * @param color
+   *          the color
+   * @param size
+   *          the size
+   */
+  public ModernTextBorderPanel(ModernTextField textField, Dimension size) {
 
-	/**
-	 * Gets the text component.
-	 *
-	 * @return the text component
-	 */
-	public JComponent getTextComponent() {
-		return mComponent;
-	}
+    mComponent = textField;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#getText()
-	 */
-	@Override
-	public String getText() {
-		return ((TextProperty)mComponent).getText();
-	}
+    setBody(textField);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		((TextProperty)mComponent).setText(text);
-	}
+    UI.setSize(this, size);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern text border panel.
+   *
+   * @param textField
+   *          the text field
+   * @param color
+   *          the color
+   * @param size
+   *          the size
+   */
+  public ModernTextBorderPanel(ModernTextBox textField, Dimension size) {
+    mComponent = textField;
+
+    setBody(textField);
+
+    UI.setSize(this, size);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern text border panel.
+   *
+   * @param textArea
+   *          the text area
+   */
+  public ModernTextBorderPanel(ModernTextArea textArea) {
+
+    mComponent = textArea;
+
+    setBody(textArea);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern text border panel.
+   *
+   * @param textField
+   *          the text field
+   */
+  public ModernTextBorderPanel(ModernPasswordField textField) {
+
+    mComponent = textField;
+
+    setBody(textField);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private final void setup() {
+    // mComponent.setBorder(SMALL_BORDER);
+
+    // setMinimumSize(mComponent.getMinimumSize());
+    // setMaximumSize(mComponent.getMaximumSize());
+
+    // UI.setSize(this, ModernWidget.STANDARD_SIZE);
+
+    setBorder(SMALL_BORDER);
+
+    setBackgroundAnimations("text-border");
+  }
+
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) {
+   * getWidgetRenderer().drawContentBox(g2, mRect);
+   * 
+   * //fill(g2, Color.RED); }
+   */
+
+  @Override
+  public void drawAnimatedBackground(Graphics2D g2) {
+    getWidgetRenderer().drawContentBox(g2, mRect);
+
+    super.drawAnimatedBackground(g2);
+  }
+
+  /**
+   * Gets the text component.
+   *
+   * @return the text component
+   */
+  public JComponent getTextComponent() {
+    return mComponent;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#getText()
+   */
+  @Override
+  public String getText() {
+    return ((TextProperty) mComponent).getText();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    ((TextProperty) mComponent).setText(text);
+  }
 }

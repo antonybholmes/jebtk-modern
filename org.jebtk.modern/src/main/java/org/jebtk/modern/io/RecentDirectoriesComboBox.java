@@ -34,28 +34,31 @@ import org.jebtk.modern.UIService;
  * The class RecentDirectoriesComboBox.
  */
 public class RecentDirectoriesComboBox extends RecentFilesComboBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new recent directories combo box.
-	 *
-	 * @param recentFiles the recent files
-	 */
-	public RecentDirectoriesComboBox(RecentFilesService recentFiles) {
-		super(recentFiles, UIService.getInstance().loadIcon("folder", UIService.ICON_SIZE_32));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new recent directories combo box.
-	 *
-	 * @param recentFiles the recent files
-	 * @param max the max
-	 */
-	public RecentDirectoriesComboBox(RecentFilesService recentFiles, int max) {
-		super(recentFiles, UIService.getInstance().loadIcon("folder", UIService.ICON_SIZE_32), max);
-	}
+  /**
+   * Instantiates a new recent directories combo box.
+   *
+   * @param recentFiles
+   *          the recent files
+   */
+  public RecentDirectoriesComboBox(RecentFilesService recentFiles) {
+    super(recentFiles, UIService.getInstance().loadIcon("folder", UIService.ICON_SIZE_32));
+  }
+
+  /**
+   * Instantiates a new recent directories combo box.
+   *
+   * @param recentFiles
+   *          the recent files
+   * @param max
+   *          the max
+   */
+  public RecentDirectoriesComboBox(RecentFilesService recentFiles, int max) {
+    super(recentFiles, UIService.getInstance().loadIcon("folder", UIService.ICON_SIZE_32), max);
+  }
 }

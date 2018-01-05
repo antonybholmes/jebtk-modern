@@ -43,46 +43,50 @@ import org.jebtk.modern.ribbon.Ribbon;
  *
  */
 public class QuickSaveVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant CORNER.
-	 */
-	private static final int CORNER = 3;
-	private Color mColor;
-	
-	public QuickSaveVectorIcon() {
-		this(Ribbon.BAR_BACKGROUND);
-	}
-	
-	public QuickSaveVectorIcon(Color color) {
-		mColor = color;
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		
-		GeneralPath gp = new GeneralPath();
-		
-		gp.moveTo(x, y);
-		gp.lineTo(x + w, y);
-		gp.lineTo(x + w, y + h);
-		gp.lineTo(x + CORNER, y + h);
-		gp.lineTo(x, y + h - CORNER);
-		gp.closePath();
-		
-		Area s1 = new Area(gp);
-		
-		Area s2 = new Area(new Rectangle2D.Double(x + 1, y + 1, 14, 8));
-		s1.exclusiveOr(s2);
-		
-		s2 = new Area(new Rectangle2D.Double(x + 5, y + h - 5, 7, 4));
-		s1.exclusiveOr(s2);
-		
-		g2.setColor(mColor);
-		
-		g2.fill(s1);
-	}
+  /**
+   * The constant CORNER.
+   */
+  private static final int CORNER = 3;
+  private Color mColor;
+
+  public QuickSaveVectorIcon() {
+    this(Ribbon.BAR_BACKGROUND);
+  }
+
+  public QuickSaveVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+    GeneralPath gp = new GeneralPath();
+
+    gp.moveTo(x, y);
+    gp.lineTo(x + w, y);
+    gp.lineTo(x + w, y + h);
+    gp.lineTo(x + CORNER, y + h);
+    gp.lineTo(x, y + h - CORNER);
+    gp.closePath();
+
+    Area s1 = new Area(gp);
+
+    Area s2 = new Area(new Rectangle2D.Double(x + 1, y + 1, 14, 8));
+    s1.exclusiveOr(s2);
+
+    s2 = new Area(new Rectangle2D.Double(x + 5, y + h - 5, 7, 4));
+    s1.exclusiveOr(s2);
+
+    g2.setColor(mColor);
+
+    g2.fill(s1);
+  }
 }

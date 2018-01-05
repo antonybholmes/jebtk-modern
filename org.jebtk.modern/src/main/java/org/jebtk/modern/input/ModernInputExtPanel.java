@@ -50,96 +50,102 @@ import org.jebtk.modern.window.ModernWindow;
  * The class ModernSearchPanel.
  */
 public class ModernInputExtPanel extends ModernLineBorderPanel implements TextProperty {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/** The m ext button. */
-	private ModernButton mExtButton =
-			new ModernButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16)); //UIResources.getInstance().loadIcon("binoculars", 16));
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member search field.
-	 */
-	private ModernTextField mTextField = new ModernClipboardTextField();
+  /** The m ext button. */
+  private ModernButton mExtButton = new ModernButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
+                                                                                                                  // 16));
 
-	/** The m delimiter. */
-	private String mDelimiter;
+  /**
+   * The member search field.
+   */
+  private ModernTextField mTextField = new ModernClipboardTextField();
 
+  /** The m delimiter. */
+  private String mDelimiter;
 
-	/** The m window. */
-	private ModernWindow mWindow;
-	
-	/**
-	 * Instantiates a new modern search panel.
-	 *
-	 * @param window the window
-	 * @param text the text
-	 * @param delimiter the delimiter
-	 */
-	public ModernInputExtPanel(ModernWindow window, 
-			String text,
-			String delimiter) {
-		mWindow = window;
-		mDelimiter = delimiter;
-		
-		mTextField.setBorder(LEFT_BORDER);
-		add(mTextField);
-		
-		Box box = HBox.create();
-		
-		box.add(mExtButton);
-		
-		add(box, BorderLayout.LINE_END);
+  /** The m window. */
+  private ModernWindow mWindow;
 
-		mExtButton.addClickListener(new ModernClickListener() {
+  /**
+   * Instantiates a new modern search panel.
+   *
+   * @param window
+   *          the window
+   * @param text
+   *          the text
+   * @param delimiter
+   *          the delimiter
+   */
+  public ModernInputExtPanel(ModernWindow window, String text, String delimiter) {
+    mWindow = window;
+    mDelimiter = delimiter;
 
-			@Override
-			public void clicked(ModernClickEvent e) {
-				inputExt();
-			}});
-		
-		mTextField.setText(text);
-	}
-	
-	/**
-	 * Input ext.
-	 */
-	private void inputExt() {
-		InputExtDialog dialog = new InputExtDialog(mWindow, mTextField.getText(), mDelimiter);
-		
-		dialog.setVisible(true);
-		
-		if (dialog.isCancelled()) {
-			return;
-		}
-		
-		inputExt(dialog.getLines());
-	}
-	
-	/**
-	 * Input ext.
-	 *
-	 * @param items the items
-	 */
-	public void inputExt(Collection<String> items) {
-		mTextField.setText(Join.on(mDelimiter).values(items).toString());
-	}
+    mTextField.setBorder(LEFT_BORDER);
+    add(mTextField);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#getText()
-	 */
-	public String getText() {
-		return mTextField.getText();
-	}
+    Box box = HBox.create();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		mTextField.setText(text);
-	}
+    box.add(mExtButton);
+
+    add(box, BorderLayout.LINE_END);
+
+    mExtButton.addClickListener(new ModernClickListener() {
+
+      @Override
+      public void clicked(ModernClickEvent e) {
+        inputExt();
+      }
+    });
+
+    mTextField.setText(text);
+  }
+
+  /**
+   * Input ext.
+   */
+  private void inputExt() {
+    InputExtDialog dialog = new InputExtDialog(mWindow, mTextField.getText(), mDelimiter);
+
+    dialog.setVisible(true);
+
+    if (dialog.isCancelled()) {
+      return;
+    }
+
+    inputExt(dialog.getLines());
+  }
+
+  /**
+   * Input ext.
+   *
+   * @param items
+   *          the items
+   */
+  public void inputExt(Collection<String> items) {
+    mTextField.setText(Join.on(mDelimiter).values(items).toString());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#getText()
+   */
+  public String getText() {
+    return mTextField.getText();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    mTextField.setText(text);
+  }
 }

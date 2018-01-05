@@ -33,9 +33,6 @@ import java.awt.LayoutManager;
 
 import org.jebtk.modern.panel.ModernBorderPanel;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Replacement ModernButton with a common skin.
@@ -44,43 +41,47 @@ import org.jebtk.modern.panel.ModernBorderPanel;
  *
  */
 public class ModernDialogBorderPanel extends ModernBorderPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new modern dialog border panel.
-	 */
-	public ModernDialogBorderPanel() {
-		
-	}
-	
-	/**
-	 * Instantiates a new modern dialog border panel.
-	 *
-	 * @param layout the layout
-	 */
-	public ModernDialogBorderPanel(LayoutManager layout) {
-		super(layout);
-	}
 
-	/**
-	 * Instantiates a new modern dialog border panel.
-	 *
-	 * @param component the component
-	 */
-	public ModernDialogBorderPanel(Component component) {
-		super(component);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.panel.ModernBorderPanel#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		getWidgetRenderer().drawDialogContentBox(g2, mRect);
-	}
+  /**
+   * Instantiates a new modern dialog border panel.
+   */
+  public ModernDialogBorderPanel() {
+
+  }
+
+  /**
+   * Instantiates a new modern dialog border panel.
+   *
+   * @param layout
+   *          the layout
+   */
+  public ModernDialogBorderPanel(LayoutManager layout) {
+    super(layout);
+  }
+
+  /**
+   * Instantiates a new modern dialog border panel.
+   *
+   * @param component
+   *          the component
+   */
+  public ModernDialogBorderPanel(Component component) {
+    super(component);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.panel.ModernBorderPanel#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+    getWidgetRenderer().drawDialogContentBox(g2, mRect);
+  }
 }

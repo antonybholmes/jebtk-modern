@@ -41,199 +41,210 @@ import org.jebtk.modern.graphics.icons.Raster32Icon;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.panel.ModernPanel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Window that is always floating.
  *
  */
 public class ModernFloatingWindow extends JFrame {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member content panel.
-	 */
-	private ModernPanel mContentPanel = new ModernWindowContentPanel();
-	
-	/**
-	 * The member status.
-	 */
-	private ModernDialogStatus mStatus = ModernDialogStatus.CANCEL;
 
-	/**
-	 * The member app info.
-	 */
-	private GuiAppInfo mAppInfo;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member sub title.
-	 */
-	private String mSubTitle;
-	
-	/**
-	 * Instantiates a new modern floating window.
-	 *
-	 * @param appInfo the app info
-	 */
-	public ModernFloatingWindow(GuiAppInfo appInfo) {
-		mAppInfo = appInfo;
+  /**
+   * The member content panel.
+   */
+  private ModernPanel mContentPanel = new ModernWindowContentPanel();
 
-		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		
-		setAlwaysOnTop(true);
-		
-		super.getContentPane().add(mContentPanel, BorderLayout.CENTER);
+  /**
+   * The member status.
+   */
+  private ModernDialogStatus mStatus = ModernDialogStatus.CANCEL;
 
-		setIconImage(new Raster32Icon(appInfo.getIcon()).getImage());
-		setTitle(appInfo.getName());
-	}
-	
-	/**
-	 * Gets the app info.
-	 *
-	 * @return the app info
-	 */
-	public GuiAppInfo getAppInfo() {
-		return mAppInfo;
-	}
-	
-	/**
-	 * Sets the header.
-	 *
-	 * @param c the new header
-	 */
-	protected void setHeader(Component c) {
-		getContentPane().add(c, BorderLayout.PAGE_START);
-	}
-	
-	/**
-	 * Sets the body.
-	 *
-	 * @param c the new body
-	 */
-	public void setBody(Component c) {
-		getContentPane().add(c, BorderLayout.CENTER);
-	}
-	
-	/**
-	 * Sets the footer.
-	 *
-	 * @param c the new footer
-	 */
-	public void setFooter(Component c) {
-		getContentPane().add(c, BorderLayout.PAGE_END);
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.JFrame#getContentPane()
-	 */
-	@Override
-	public Container getContentPane() {
-		return getContentPanel();
-	}
-	
-	/**
-	 * Returns the panel.
-	 *
-	 * @return the content panel
-	 */
-	public ModernPanel getContentPanel() {
-		return mContentPanel;
-	}
-	
-	/**
-	 * Sets the content.
-	 *
-	 * @param c the new content
-	 */
-	public void setContent(JComponent c) {
-		setBody(new ModernDialogContentPanel(c));
-	}
-	
-	/**
-	 * Sets the buttons.
-	 *
-	 * @param c the new buttons
-	 */
-	public void setButtons(JComponent c) {
-		setFooter(new ModernDialogButtonBox(c));
-	}
-	
-	/**
-	 * Sets the status.
-	 *
-	 * @param status the new status
-	 */
-	public final void setStatus(ModernDialogStatus status) {
-		mStatus = status;
-	}
-	
-	/**
-	 * Gets the status.
-	 *
-	 * @return the status
-	 */
-	public final ModernDialogStatus getStatus() {
-		return mStatus;
-	}
-	
-	/**
-	 * Set the window title but include the main app title.
-	 *
-	 * @param subTitle the new sub title
-	 */
-	public void setSubTitle(String subTitle) {
-		setTitle(subTitle + " - " + getAppInfo().getName());
-		
-		mSubTitle = subTitle;
-	}
-	
-	/**
-	 * Gets the sub title.
-	 *
-	 * @return the sub title
-	 */
-	public String getSubTitle() {
-		return mSubTitle;
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Frame#setTitle(java.lang.String)
-	 */
-	@Override
-	public void setTitle(String title) {
-		mSubTitle = title;
-		
-		super.setTitle(title);
-	}
-	
-	/**
-	 * Terminates the application normally.
-	 */
-	public void exit() {
-		exit(0);
-	}
-	
-	/**
-	 * Terminate application with a given
-	 * status code (non zero implies error).
-	 *
-	 * @param status the status
-	 */
-	public void exit(int status) {
-		System.exit(status);
-	}
-	
-	/**
-	 * Close the window. If this is the last windows,
-	 * it causes the VM to stop as well.
-	 */
-	public void close() {
-		setVisible(false);
-		dispose();
-	}
+  /**
+   * The member app info.
+   */
+  private GuiAppInfo mAppInfo;
+
+  /**
+   * The member sub title.
+   */
+  private String mSubTitle;
+
+  /**
+   * Instantiates a new modern floating window.
+   *
+   * @param appInfo
+   *          the app info
+   */
+  public ModernFloatingWindow(GuiAppInfo appInfo) {
+    mAppInfo = appInfo;
+
+    setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+
+    setAlwaysOnTop(true);
+
+    super.getContentPane().add(mContentPanel, BorderLayout.CENTER);
+
+    setIconImage(new Raster32Icon(appInfo.getIcon()).getImage());
+    setTitle(appInfo.getName());
+  }
+
+  /**
+   * Gets the app info.
+   *
+   * @return the app info
+   */
+  public GuiAppInfo getAppInfo() {
+    return mAppInfo;
+  }
+
+  /**
+   * Sets the header.
+   *
+   * @param c
+   *          the new header
+   */
+  protected void setHeader(Component c) {
+    getContentPane().add(c, BorderLayout.PAGE_START);
+  }
+
+  /**
+   * Sets the body.
+   *
+   * @param c
+   *          the new body
+   */
+  public void setBody(Component c) {
+    getContentPane().add(c, BorderLayout.CENTER);
+  }
+
+  /**
+   * Sets the footer.
+   *
+   * @param c
+   *          the new footer
+   */
+  public void setFooter(Component c) {
+    getContentPane().add(c, BorderLayout.PAGE_END);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.JFrame#getContentPane()
+   */
+  @Override
+  public Container getContentPane() {
+    return getContentPanel();
+  }
+
+  /**
+   * Returns the panel.
+   *
+   * @return the content panel
+   */
+  public ModernPanel getContentPanel() {
+    return mContentPanel;
+  }
+
+  /**
+   * Sets the content.
+   *
+   * @param c
+   *          the new content
+   */
+  public void setContent(JComponent c) {
+    setBody(new ModernDialogContentPanel(c));
+  }
+
+  /**
+   * Sets the buttons.
+   *
+   * @param c
+   *          the new buttons
+   */
+  public void setButtons(JComponent c) {
+    setFooter(new ModernDialogButtonBox(c));
+  }
+
+  /**
+   * Sets the status.
+   *
+   * @param status
+   *          the new status
+   */
+  public final void setStatus(ModernDialogStatus status) {
+    mStatus = status;
+  }
+
+  /**
+   * Gets the status.
+   *
+   * @return the status
+   */
+  public final ModernDialogStatus getStatus() {
+    return mStatus;
+  }
+
+  /**
+   * Set the window title but include the main app title.
+   *
+   * @param subTitle
+   *          the new sub title
+   */
+  public void setSubTitle(String subTitle) {
+    setTitle(subTitle + " - " + getAppInfo().getName());
+
+    mSubTitle = subTitle;
+  }
+
+  /**
+   * Gets the sub title.
+   *
+   * @return the sub title
+   */
+  public String getSubTitle() {
+    return mSubTitle;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Frame#setTitle(java.lang.String)
+   */
+  @Override
+  public void setTitle(String title) {
+    mSubTitle = title;
+
+    super.setTitle(title);
+  }
+
+  /**
+   * Terminates the application normally.
+   */
+  public void exit() {
+    exit(0);
+  }
+
+  /**
+   * Terminate application with a given status code (non zero implies error).
+   *
+   * @param status
+   *          the status
+   */
+  public void exit(int status) {
+    System.exit(status);
+  }
+
+  /**
+   * Close the window. If this is the last windows, it causes the VM to stop as
+   * well.
+   */
+  public void close() {
+    setVisible(false);
+    dispose();
+  }
 }

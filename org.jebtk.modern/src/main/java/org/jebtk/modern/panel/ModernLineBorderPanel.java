@@ -36,8 +36,6 @@ import java.awt.LayoutManager;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Replacement ModernButton with a common skin.
@@ -46,82 +44,88 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernLineBorderPanel extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern line border panel.
-	 */
-	public ModernLineBorderPanel() {
-		init();
-	}
-	
-	/**
-	 * Instantiates a new modern line border panel.
-	 *
-	 * @param color the color
-	 */
-	public ModernLineBorderPanel(Color color) {
-		setBackground(color);
-		
-		init();
-	}
-	
-	/**
-	 * Instantiates a new modern line border panel.
-	 *
-	 * @param layout the layout
-	 */
-	public ModernLineBorderPanel(LayoutManager layout) {
-		super(layout);
-		
-		init();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern line border panel.
-	 *
-	 * @param component the component
-	 */
-	public ModernLineBorderPanel(Component component) {
-		add(component, BorderLayout.CENTER);
-		
-		init();
-	}
-	
+  /**
+   * Instantiates a new modern line border panel.
+   */
+  public ModernLineBorderPanel() {
+    init();
+  }
 
-	/**
-	 * Instantiates a new modern line border panel.
-	 *
-	 * @param component the component
-	 * @param dimension the dimension
-	 */
-	public ModernLineBorderPanel(Component component, Dimension dimension) {
-		this(component);
-		
-		UI.setSize(this, dimension);
-		
-		init();
-	}
-	
-	/**
-	 * Inits the.
-	 */
-	private void init() {
-		setBorder(ModernWidget.TWO_PIXEL_BORDER); //BorderService.getInstance().createBorder(2));
-	
-		setBackgroundAnimations("text-border");
-	}
+  /**
+   * Instantiates a new modern line border panel.
+   *
+   * @param color
+   *          the color
+   */
+  public ModernLineBorderPanel(Color color) {
+    setBackground(color);
 
+    init();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	//@Override
-	//public void drawBackgroundAA(Graphics2D g2) {
-	//	getWidgetRenderer().drawContentBox(g2, getRect());
-	//}
+  /**
+   * Instantiates a new modern line border panel.
+   *
+   * @param layout
+   *          the layout
+   */
+  public ModernLineBorderPanel(LayoutManager layout) {
+    super(layout);
+
+    init();
+  }
+
+  /**
+   * Instantiates a new modern line border panel.
+   *
+   * @param component
+   *          the component
+   */
+  public ModernLineBorderPanel(Component component) {
+    add(component, BorderLayout.CENTER);
+
+    init();
+  }
+
+  /**
+   * Instantiates a new modern line border panel.
+   *
+   * @param component
+   *          the component
+   * @param dimension
+   *          the dimension
+   */
+  public ModernLineBorderPanel(Component component, Dimension dimension) {
+    this(component);
+
+    UI.setSize(this, dimension);
+
+    init();
+  }
+
+  /**
+   * Inits the.
+   */
+  private void init() {
+    setBorder(ModernWidget.TWO_PIXEL_BORDER); // BorderService.getInstance().createBorder(2));
+
+    setBackgroundAnimations("text-border");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.widget.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
+   */
+  // @Override
+  // public void drawBackgroundAA(Graphics2D g2) {
+  // getWidgetRenderer().drawContentBox(g2, getRect());
+  // }
 }

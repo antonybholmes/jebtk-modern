@@ -26,76 +26,79 @@ import org.jebtk.modern.widget.ModernWidget;
  * The Class RibbonMenuAnimation.
  */
 public class RibbonPressedAnimation extends ButtonPressedAnimation {
-	
-	private Ribbon mRibbon;
-	private int mHighlight = -1;
 
-	/**
-	 * Instantiates a new ribbon menu animation.
-	 *
-	 * @param button the button
-	 */
-	public RibbonPressedAnimation(ModernWidget w) {
-		super(w, RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
-		
-		mRibbon = (Ribbon)w;
-	}
-	
-	@Override
-	public void startTimer() {
-		// We only want the tab highlighted at the time the mouse is pressed
-		// to be animated.
-		mHighlight = mRibbon.mHighlightedTab;
-		
-		super.startTimer();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		//System.err.println("hmm " + isRunning() + " " + isPressed());
-		
-		if (getStep() == -1) {
-			return;
-		}
-		
-		int x;
-		int tabWidth;
+  private Ribbon mRibbon;
+  private int mHighlight = -1;
 
-		for (int i = 0; i < mRibbon.mTitles.size(); ++i) {
-			x = mRibbon.mTabStartX + mRibbon.mTabStarts.get(i);
-			tabWidth = mRibbon.mTabWidths.get(i);
+  /**
+   * Instantiates a new ribbon menu animation.
+   *
+   * @param button
+   *          the button
+   */
+  public RibbonPressedAnimation(ModernWidget w) {
+    super(w, RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
 
-			// the file tab
-			//GeneralPath tabShape = mRibbon.createTab(x, 
-			//		Ribbon.Y_OFFSET, 
-			//		tabWidth, 
-			//		Ribbon.TAB_HEIGHT);
+    mRibbon = (Ribbon) w;
+  }
 
-			if (i == mHighlight) {
-				g2.setColor(mColor);
+  @Override
+  public void startTimer() {
+    // We only want the tab highlighted at the time the mouse is pressed
+    // to be animated.
+    mHighlight = mRibbon.mHighlightedTab;
 
-				//g2.fill(tabShape);
-				
-				g2.fillRect(x, Ribbon.Y_OFFSET, tabWidth, Ribbon.TAB_HEIGHT);
-				
-				
-				double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
-				
-				int w = tabWidth;
-				
-				int d = (int)(w * r);
-				
-				x += (w - d) / 2;
-				
-				g2.setColor(mColor);
-				
-				g2.fillRect(x, Ribbon.Y_OFFSET, d, Ribbon.TAB_HEIGHT);
-				
-				break;
-			} 
-		}
-	}
+    super.startTimer();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    // System.err.println("hmm " + isRunning() + " " + isPressed());
+
+    if (getStep() == -1) {
+      return;
+    }
+
+    int x;
+    int tabWidth;
+
+    for (int i = 0; i < mRibbon.mTitles.size(); ++i) {
+      x = mRibbon.mTabStartX + mRibbon.mTabStarts.get(i);
+      tabWidth = mRibbon.mTabWidths.get(i);
+
+      // the file tab
+      // GeneralPath tabShape = mRibbon.createTab(x,
+      // Ribbon.Y_OFFSET,
+      // tabWidth,
+      // Ribbon.TAB_HEIGHT);
+
+      if (i == mHighlight) {
+        g2.setColor(mColor);
+
+        // g2.fill(tabShape);
+
+        g2.fillRect(x, Ribbon.Y_OFFSET, tabWidth, Ribbon.TAB_HEIGHT);
+
+        double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
+
+        int w = tabWidth;
+
+        int d = (int) (w * r);
+
+        x += (w - d) / 2;
+
+        g2.setColor(mColor);
+
+        g2.fillRect(x, Ribbon.Y_OFFSET, d, Ribbon.TAB_HEIGHT);
+
+        break;
+      }
+    }
+  }
 }

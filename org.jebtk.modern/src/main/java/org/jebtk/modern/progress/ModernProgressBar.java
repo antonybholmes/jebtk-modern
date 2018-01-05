@@ -36,90 +36,96 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernProgressBar.
  */
 public class ModernProgressBar extends ModernWidget implements ProgressEventListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The progress model.
-	 */
-	protected ProgressModel progressModel = new ProgressModel();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern progress bar.
-	 */
-	public ModernProgressBar() {
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern progress bar.
-	 *
-	 * @param model the model
-	 */
-	public ModernProgressBar(ProgressModel model) {
-		this.progressModel = model;
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		progressModel.addProgressListener(this);
-		
-		UI.setSize(this, new Dimension(200, WIDGET_HEIGHT), BORDER);
-	}
-	
-	/**
-	 * Gets the model.
-	 *
-	 * @return the model
-	 */
-	public ProgressModel getModel() {
-		return progressModel;
-	}
+  /**
+   * The progress model.
+   */
+  protected ProgressModel progressModel = new ProgressModel();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	public void drawForegroundAAText(Graphics2D g2) {
-		int w = getWidth() - this.getInsets().left - this.getInsets().right;
+  /**
+   * Instantiates a new modern progress bar.
+   */
+  public ModernProgressBar() {
+    setup();
+  }
 
-		int y1 = getHeight() - this.getInsets().top;
+  /**
+   * Instantiates a new modern progress bar.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernProgressBar(ProgressModel model) {
+    this.progressModel = model;
 
-		int h = y1 - this.getInsets().bottom;
+    setup();
+  }
 
-		g2.setColor(Color.WHITE);
-		g2.fillRect(this.getInsets().left, this.getInsets().top, w - 1, h - 1);
+  /**
+   * Setup.
+   */
+  private void setup() {
+    progressModel.addProgressListener(this);
 
-		g2.setColor(ThemeService.getInstance().colors().getHighlight(1));
-		g2.drawRect(this.getInsets().left, this.getInsets().top, w - 1, h - 1);
+    UI.setSize(this, new Dimension(200, WIDGET_HEIGHT), BORDER);
+  }
 
-		int width = (int)(w * progressModel.getPercentComplete());
+  /**
+   * Gets the model.
+   *
+   * @return the model
+   */
+  public ProgressModel getModel() {
+    return progressModel;
+  }
 
-		if (width < 2) {
-			return;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  public void drawForegroundAAText(Graphics2D g2) {
+    int w = getWidth() - this.getInsets().left - this.getInsets().right;
 
-		Rectangle rect = new Rectangle(this.getInsets().left, this.getInsets().top, width, h);
+    int y1 = getHeight() - this.getInsets().top;
 
-		paintSelected(g2, rect);
-	}
+    int h = y1 - this.getInsets().bottom;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.progress.ProgressEventListener#progressUpdated(org.abh.lib.ui.modern.progress.ProgressEvent)
-	 */
-	public void progressUpdated(ProgressEvent e) {
-		repaint();
-	}
+    g2.setColor(Color.WHITE);
+    g2.fillRect(this.getInsets().left, this.getInsets().top, w - 1, h - 1);
+
+    g2.setColor(ThemeService.getInstance().colors().getHighlight(1));
+    g2.drawRect(this.getInsets().left, this.getInsets().top, w - 1, h - 1);
+
+    int width = (int) (w * progressModel.getPercentComplete());
+
+    if (width < 2) {
+      return;
+    }
+
+    Rectangle rect = new Rectangle(this.getInsets().left, this.getInsets().top, width, h);
+
+    paintSelected(g2, rect);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.progress.ProgressEventListener#progressUpdated(org.abh.
+   * lib.ui.modern.progress.ProgressEvent)
+   */
+  public void progressUpdated(ProgressEvent e) {
+    repaint();
+  }
 }

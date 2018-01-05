@@ -46,7 +46,6 @@ import org.jebtk.modern.ribbon.RibbonButton;
 import org.jebtk.modern.slider.ContinuousMacOrbSlider;
 import org.jebtk.modern.slider.Slider;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Zoom slider for status bar.
@@ -54,325 +53,335 @@ import org.jebtk.modern.slider.Slider;
  * @author Antony Holmes Holmes
  */
 public class ModernZoomSlider extends HBox implements Zoom {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant LEVELS.
-	 */
-	private static final int LEVELS = 21;
-	
-	/**
-	 * The constant HALF_LEVEL.
-	 */
-	private static final int HALF_LEVEL = LEVELS / 2;
-	
-	/**
-	 * The constant MID_LEVEL.
-	 */
-	private static final int MID_LEVEL = HALF_LEVEL + 1;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member slider.
-	 */
-	private Slider mSlider = 
-			new ContinuousMacOrbSlider(1, 0.1, 1, 5); // new MacOrbSlider(1, LEVELS, MID_LEVEL);
-	
-	/**
-	 * The constant TIMER_DELAY.
-	 */
-	private static final int TIMER_DELAY = 50;
+  /**
+   * The constant LEVELS.
+   */
+  private static final int LEVELS = 21;
 
-	/**
-	 * The member model.
-	 */
-	private ZoomModel mModel;
+  /**
+   * The constant HALF_LEVEL.
+   */
+  private static final int HALF_LEVEL = LEVELS / 2;
 
-	/**
-	 * The member min zoom.
-	 */
-	//private double mMinZoom;
+  /**
+   * The constant MID_LEVEL.
+   */
+  private static final int MID_LEVEL = HALF_LEVEL + 1;
 
-	/**
-	 * The member max zoom.
-	 */
-	//private double mMaxZoom;
+  /**
+   * The member slider.
+   */
+  private Slider mSlider = new ContinuousMacOrbSlider(1, 0.1, 1, 5); // new MacOrbSlider(1, LEVELS, MID_LEVEL);
 
-	/**
-	 * The member p inc.
-	 */
-	private double mPInc;
+  /**
+   * The constant TIMER_DELAY.
+   */
+  private static final int TIMER_DELAY = 50;
 
-	/**
-	 * The member p dec.
-	 */
-	private double mPDec;
+  /**
+   * The member model.
+   */
+  private ZoomModel mModel;
 
-	/**
-	 * The member zoom in button.
-	 */
-	private ModernButton mZoomInButton = 
-			new RibbonButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+  /**
+   * The member min zoom.
+   */
+  // private double mMinZoom;
 
-	/**
-	 * The member zoom out button.
-	 */
-	private ModernButton mZoomOutButton = 
-			new RibbonButton(UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+  /**
+   * The member max zoom.
+   */
+  // private double mMaxZoom;
 
-	//private double[] mZooms;
+  /**
+   * The member p inc.
+   */
+  private double mPInc;
 
+  /**
+   * The member p dec.
+   */
+  private double mPDec;
 
-	/**
-	 * The class ZoomEvents.
-	 */
-	private class ZoomEvents implements ChangeListener {
+  /**
+   * The member zoom in button.
+   */
+  private ModernButton mZoomInButton = new RibbonButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
-		 */
-		@Override
-		public void changed(ChangeEvent e) {
-			updateZoom();
-		}
-	}
-	
-	/**
-	 * The class ZoomInEvents.
-	 */
-	private class ZoomInEvents extends MouseAdapter implements ActionListener {
-		
-		/**
-		 * The member timer.
-		 */
-		private Timer mTimer;
+  /**
+   * The member zoom out button.
+   */
+  private ModernButton mZoomOutButton = new RibbonButton(UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
 
-		/**
-		 * Instantiates a new zoom in events.
-		 */
-		public ZoomInEvents() {
-			mTimer = new Timer(TIMER_DELAY, this);
-			mTimer.setInitialDelay(0);
-			mTimer.setRepeats(true);
-		}
+  // private double[] mZooms;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			mTimer.start();
-		}
+  /**
+   * The class ZoomEvents.
+   */
+  private class ZoomEvents implements ChangeListener {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			mTimer.stop();
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     */
+    @Override
+    public void changed(ChangeEvent e) {
+      updateZoom();
+    }
+  }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			mSlider.increment();
-		}
-	}
-	
-	/**
-	 * The class ZoomOutEvents.
-	 */
-	private class ZoomOutEvents extends MouseAdapter implements ActionListener {
-		
-		/**
-		 * The member timer.
-		 */
-		private Timer mTimer;
+  /**
+   * The class ZoomInEvents.
+   */
+  private class ZoomInEvents extends MouseAdapter implements ActionListener {
 
-		/**
-		 * Instantiates a new zoom out events.
-		 */
-		public ZoomOutEvents() {
-			mTimer = new Timer(TIMER_DELAY, this);
-			mTimer.setInitialDelay(0);
-			mTimer.setRepeats(true);
-		}
+    /**
+     * The member timer.
+     */
+    private Timer mTimer;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			mTimer.start();
-		}
+    /**
+     * Instantiates a new zoom in events.
+     */
+    public ZoomInEvents() {
+      mTimer = new Timer(TIMER_DELAY, this);
+      mTimer.setInitialDelay(0);
+      mTimer.setRepeats(true);
+    }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseReleased(MouseEvent e) {
-			mTimer.stop();
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      mTimer.start();
+    }
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			mSlider.decrement();
-		}
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseReleased(MouseEvent e) {
+      mTimer.stop();
+    }
 
-	/**
-	 * Instantiates a new modern zoom slider2.
-	 *
-	 * @param model the model
-	 */
-	public ModernZoomSlider(ZoomModel model) {
-		mModel = model;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      mSlider.increment();
+    }
+  }
 
-		setup();
-	}
+  /**
+   * The class ZoomOutEvents.
+   */
+  private class ZoomOutEvents extends MouseAdapter implements ActionListener {
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		UI.setSize(mZoomOutButton, ModernButton.SMALL_BUTTON_SIZE);
-		add(mZoomOutButton);
-		add(UI.createHGap(5));
-		add(mSlider);
-		add(UI.createHGap(5));
-		UI.setSize(mZoomInButton, ModernButton.SMALL_BUTTON_SIZE);
-		add(mZoomInButton);
-		
+    /**
+     * The member timer.
+     */
+    private Timer mTimer;
 
-		mZoomOutButton.addMouseListener(new ZoomOutEvents());
-		mZoomInButton.addMouseListener(new ZoomInEvents());
+    /**
+     * Instantiates a new zoom out events.
+     */
+    public ZoomOutEvents() {
+      mTimer = new Timer(TIMER_DELAY, this);
+      mTimer.setInitialDelay(0);
+      mTimer.setRepeats(true);
+    }
 
-		mModel.addChangeListener(new ZoomEvents());
-		
-	
-		mSlider.addChangeListener(new ChangeListener() {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      mTimer.start();
+    }
 
-			@Override
-			public void changed(ChangeEvent e) {
-				mModel.setZoom(mSlider.getValue()); //getZ((int)mSlider.getValue()));
-			}});
-		
-		updateZoom();
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mouseReleased(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseReleased(MouseEvent e) {
+      mTimer.stop();
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#setZoom(double)
-	 */
-	@Override
-	public void setZoom(double zoom) {
-		mModel.setZoom(zoom);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      mSlider.decrement();
+    }
+  }
 
-	/**
-	 * Update zoom.
-	 */
-	private void updateZoom() {
-		mSlider.updateValue(mModel.getZoom()); //getP(mModel.getZoom()));
-	}
+  /**
+   * Instantiates a new modern zoom slider2.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernZoomSlider(ZoomModel model) {
+    mModel = model;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#getZoom()
-	 */
-	@Override
-	public double getZoom() {
-		return mSlider.getValue();
-	}
+    setup();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#getMinZoom()
-	 */
-	@Override
-	public double getMinZoom() {
-		return mSlider.getMinValue();
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    UI.setSize(mZoomOutButton, ModernButton.SMALL_BUTTON_SIZE);
+    add(mZoomOutButton);
+    add(UI.createHGap(5));
+    add(mSlider);
+    add(UI.createHGap(5));
+    UI.setSize(mZoomInButton, ModernButton.SMALL_BUTTON_SIZE);
+    add(mZoomInButton);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#setMinZoom(double)
-	 */
-	@Override
-	public void setMinZoom(double zoom) {
-		
+    mZoomOutButton.addMouseListener(new ZoomOutEvents());
+    mZoomInButton.addMouseListener(new ZoomInEvents());
 
-		//update();
+    mModel.addChangeListener(new ZoomEvents());
 
-		//mSlider.setMinValue(getP(zoom));
-	}
+    mSlider.addChangeListener(new ChangeListener() {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#getMaxZoom()
-	 */
-	@Override
-	public double getMaxZoom() {
-		return mSlider.getMaxValue();
-	}
+      @Override
+      public void changed(ChangeEvent e) {
+        mModel.setZoom(mSlider.getValue()); // getZ((int)mSlider.getValue()));
+      }
+    });
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.zoom.Zoom#setMaxZoom(double)
-	 */
-	@Override
-	public void setMaxZoom(double zoom) {
-		
-		//update();
+    updateZoom();
+  }
 
-		//mSlider.setMaxValue(getP(zoom));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#setZoom(double)
+   */
+  @Override
+  public void setZoom(double zoom) {
+    mModel.setZoom(zoom);
+  }
 
-	/*
-	private void update() {
-		mPInc = (mMaxZoom - 1) / HALF_LEVEL;
-		mPDec = (1 - mMinZoom) / HALF_LEVEL;
-		
-		mZooms = new double[LEVELS];
-		//mPMap = new HashMap<Double,>
-		
-		mZooms[0] = mMinZoom;
-		
-		for (int i = 1; i < HALF_LEVEL; ++i) {
-			mZooms[i] = mZooms[i - 1] + mPDec;
-		}
-		
-		mZooms[HALF_LEVEL] = 1;
-		
-		mZooms[mZooms.length - 1] = mMaxZoom;
-		
-		for (int i = mZooms.length - 2; i > HALF_LEVEL; --i) {
-			mZooms[i] = mZooms[i + 1] - mPInc;
-		}
-	}
-	*/
+  /**
+   * Update zoom.
+   */
+  private void updateZoom() {
+    mSlider.updateValue(mModel.getZoom()); // getP(mModel.getZoom()));
+  }
 
-	/*
-	private double getZ(int p) {
-		return mZooms[p];
-	}
-	 */
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#getZoom()
+   */
+  @Override
+  public double getZoom() {
+    return mSlider.getValue();
+  }
 
-	/*
-	private int getP(double zoom) {
-		int p;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#getMinZoom()
+   */
+  @Override
+  public double getMinZoom() {
+    return mSlider.getMinValue();
+  }
 
-		if (zoom > 1.0) {
-			p = MID_LEVEL + (int)Math.round((zoom - 1.0) / mPInc); //(int)zoom + MID_LEVEL - 1;
-		} else if (zoom < 1.0) {
-			p = MID_LEVEL - (int)Math.round((1.0 - zoom) / mPDec); //MID_LEVEL - (int)(1 / zoom) + 1;
-		} else {
-			p = MID_LEVEL;
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#setMinZoom(double)
+   */
+  @Override
+  public void setMinZoom(double zoom) {
 
-		return p;
-	}
-	*/
+    // update();
+
+    // mSlider.setMinValue(getP(zoom));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#getMaxZoom()
+   */
+  @Override
+  public double getMaxZoom() {
+    return mSlider.getMaxValue();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.zoom.Zoom#setMaxZoom(double)
+   */
+  @Override
+  public void setMaxZoom(double zoom) {
+
+    // update();
+
+    // mSlider.setMaxValue(getP(zoom));
+  }
+
+  /*
+   * private void update() { mPInc = (mMaxZoom - 1) / HALF_LEVEL; mPDec = (1 -
+   * mMinZoom) / HALF_LEVEL;
+   * 
+   * mZooms = new double[LEVELS]; //mPMap = new HashMap<Double,>
+   * 
+   * mZooms[0] = mMinZoom;
+   * 
+   * for (int i = 1; i < HALF_LEVEL; ++i) { mZooms[i] = mZooms[i - 1] + mPDec; }
+   * 
+   * mZooms[HALF_LEVEL] = 1;
+   * 
+   * mZooms[mZooms.length - 1] = mMaxZoom;
+   * 
+   * for (int i = mZooms.length - 2; i > HALF_LEVEL; --i) { mZooms[i] = mZooms[i +
+   * 1] - mPInc; } }
+   */
+
+  /*
+   * private double getZ(int p) { return mZooms[p]; }
+   */
+
+  /*
+   * private int getP(double zoom) { int p;
+   * 
+   * if (zoom > 1.0) { p = MID_LEVEL + (int)Math.round((zoom - 1.0) / mPInc);
+   * //(int)zoom + MID_LEVEL - 1; } else if (zoom < 1.0) { p = MID_LEVEL -
+   * (int)Math.round((1.0 - zoom) / mPDec); //MID_LEVEL - (int)(1 / zoom) + 1; }
+   * else { p = MID_LEVEL; }
+   * 
+   * return p; }
+   */
 }

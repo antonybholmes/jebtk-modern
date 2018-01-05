@@ -33,59 +33,53 @@ import java.util.List;
 
 import org.jebtk.core.collections.CollectionUtils;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class StandardColorPicker.
  */
 public class StandardColorPicker extends ColorPicker {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/** The colors. */
-	private static List<List<Color>> COLORS = 
-			new ArrayList<List<Color>>();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /** The colors. */
+  private static List<List<Color>> COLORS = new ArrayList<List<Color>>();
 
-	static {
-		// No color
-		COLORS.add(CollectionUtils.toList((Color)null));
-		
-		// Dark red
-		COLORS.add(CollectionUtils.toList(new Color(153, 0, 0)));
-		
-		// Red
-		COLORS.add(CollectionUtils.toList(new Color(255, 0, 0)));
-		
-		// orange
-		COLORS.add(CollectionUtils.toList(new Color(255, 153, 51)));
-		// yellow
-		COLORS.add(CollectionUtils.toList(new Color(255, 255, 51)));
-		
-		COLORS.add(CollectionUtils.toList(new Color(0, 204, 0)));
-		
-		COLORS.add(CollectionUtils.toList(new Color(51, 153, 255)));
-		
-		
-		
-		COLORS.add(CollectionUtils.toList(new Color(153, 51, 255)));
-		
-		COLORS.add(CollectionUtils.toList(new Color(51, 0, 102)));
-		
-		COLORS.add(CollectionUtils.toList(new Color(128, 128, 128)));
-		
-		COLORS.add(CollectionUtils.toList(new Color(0, 0, 0)));
+  static {
+    // No color
+    COLORS.add(CollectionUtils.toList((Color) null));
 
-	}
+    // Dark red
+    COLORS.add(CollectionUtils.toList(new Color(153, 0, 0)));
 
-	/**
-	 * Instantiates a new standard color picker.
-	 */
-	public StandardColorPicker() {
-		setColors(COLORS);
-	}
+    // Red
+    COLORS.add(CollectionUtils.toList(new Color(255, 0, 0)));
+
+    // orange
+    COLORS.add(CollectionUtils.toList(new Color(255, 153, 51)));
+    // yellow
+    COLORS.add(CollectionUtils.toList(new Color(255, 255, 51)));
+
+    COLORS.add(CollectionUtils.toList(new Color(0, 204, 0)));
+
+    COLORS.add(CollectionUtils.toList(new Color(51, 153, 255)));
+
+    COLORS.add(CollectionUtils.toList(new Color(153, 51, 255)));
+
+    COLORS.add(CollectionUtils.toList(new Color(51, 0, 102)));
+
+    COLORS.add(CollectionUtils.toList(new Color(128, 128, 128)));
+
+    COLORS.add(CollectionUtils.toList(new Color(0, 0, 0)));
+
+  }
+
+  /**
+   * Instantiates a new standard color picker.
+   */
+  public StandardColorPicker() {
+    setColors(COLORS);
+  }
 }

@@ -38,37 +38,40 @@ import java.awt.Graphics2D;
  *
  */
 public class CheveronLeftVectorIcon extends CheveronVectorIcon {
-	
-	/**
-	 * Instantiates a new cheveron left vector icon.
-	 */
-	public CheveronLeftVectorIcon() {
-		// do nothing
-	}
-	
-	/**
-	 * Instantiates a new cheveron left vector icon.
-	 *
-	 * @param color the color
-	 */
-	public CheveronLeftVectorIcon(Color color) {
-		super(color);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.CheveronVectorIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		super.drawIcon(g2, x, y, w, h, params);
-		
-		x += (w - mH) / 2;
-		y += (h - mW) / 2;
-		
-		g2.drawLine(x + mH, y, x, y + mH);
-		
-		g2.drawLine(x, y + mH, x + mH, y + mW);
-	}
-	
-	
+
+  /**
+   * Instantiates a new cheveron left vector icon.
+   */
+  public CheveronLeftVectorIcon() {
+    // do nothing
+  }
+
+  /**
+   * Instantiates a new cheveron left vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public CheveronLeftVectorIcon(Color color) {
+    super(color);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.CheveronVectorIcon#drawForeground(java.awt.
+   * Graphics2D, java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    super.drawIcon(g2, x, y, w, h, params);
+
+    x += (w - mH) / 2;
+    y += (h - mW) / 2;
+
+    g2.drawLine(x + mH, y, x, y + mH);
+
+    g2.drawLine(x, y + mH, x + mH, y + mW);
+  }
+
 }

@@ -34,8 +34,6 @@ import org.jebtk.modern.button.ModernTextLink;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Launches a web browser to a particular web page.
@@ -44,41 +42,45 @@ import org.jebtk.modern.event.ModernClickListener;
  *
  */
 public class RibbonHelpLinkButton extends ModernTextLink implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member product.
-	 */
-	private GuiAppInfo mProduct;
-	
-	/**
-	 * Instantiates a new ribbon help button.
-	 */
-	public RibbonHelpLinkButton(GuiAppInfo product) {
-		super("Get help with using " + product.getName() + "...");
-		
-		mProduct = product;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		addClickListener(this);
-	}
+  /**
+   * The member product.
+   */
+  private GuiAppInfo mProduct;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		if (e.getSource().equals(this)) {
-			try {
-				HelpManager.launchHelp(mProduct);
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			} catch (URISyntaxException e1) {
-				e1.printStackTrace();
-			}
-		}
-	}
+  /**
+   * Instantiates a new ribbon help button.
+   */
+  public RibbonHelpLinkButton(GuiAppInfo product) {
+    super("Get help with using " + product.getName() + "...");
+
+    mProduct = product;
+
+    addClickListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    if (e.getSource().equals(this)) {
+      try {
+        HelpManager.launchHelp(mProduct);
+      } catch (IOException e1) {
+        e1.printStackTrace();
+      } catch (URISyntaxException e1) {
+        e1.printStackTrace();
+      }
+    }
+  }
 }

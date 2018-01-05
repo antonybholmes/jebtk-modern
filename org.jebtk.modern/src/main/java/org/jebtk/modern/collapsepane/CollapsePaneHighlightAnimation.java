@@ -31,54 +31,51 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class CollapsePaneHighlightAnimation extends HighlightAnimation {
 
-	private ModernSubCollapsePane mPane;
+  private ModernSubCollapsePane mPane;
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public CollapsePaneHighlightAnimation(ModernWidget w) {
-		super((ModernSubCollapsePane)w);
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public CollapsePaneHighlightAnimation(ModernWidget w) {
+    super((ModernSubCollapsePane) w);
 
-		mPane = (ModernSubCollapsePane)w;
-	}
+    mPane = (ModernSubCollapsePane) w;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-		Rectangle r = new Rectangle(widget.getInsets().left, 
-				widget.getInsets().top, 
-				widget.getWidth() - widget.getInsets().left - widget.getInsets().right, 
-				ModernWidget.WIDGET_HEIGHT);
+    Rectangle r = new Rectangle(widget.getInsets().left, widget.getInsets().top,
+        widget.getWidth() - widget.getInsets().left - widget.getInsets().right, ModernWidget.WIDGET_HEIGHT);
 
-		Graphics2D g2Temp = ImageUtils.clone(g2);
+    Graphics2D g2Temp = ImageUtils.clone(g2);
 
-		try {
-			g2Temp.translate(mPane.getInternalRect().getX(), r.y);
+    try {
+      g2Temp.translate(mPane.getInternalRect().getX(), r.y);
 
-			for (int i = 0; i < mPane.mTabNames.size(); ++i) {
-				mPane.mNodeRenderer.getRenderer(mPane,
-						mPane.mTabNames.get(i),
-						i,
-						mPane.mHighlightIndex == i,
-						false,
-						false,
-						mPane.mExpanded.get(i));
+      for (int i = 0; i < mPane.mTabNames.size(); ++i) {
+        mPane.mNodeRenderer.getRenderer(mPane, mPane.mTabNames.get(i), i, mPane.mHighlightIndex == i, false, false,
+            mPane.mExpanded.get(i));
 
-				mPane.mNodeRenderer.setSize(mPane.getInternalRect().getW(), mPane.mHeaderHeight);
+        mPane.mNodeRenderer.setSize(mPane.getInternalRect().getW(), mPane.mHeaderHeight);
 
-				mPane.mNodeRenderer.print(g2Temp);
+        mPane.mNodeRenderer.print(g2Temp);
 
-				g2Temp.translate(0, mPane.mHeaderHeight  + (mPane.mExpanded.get(i) ? mPane.mComponents.get(i).getPreferredSize().height : 0));
-			}
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+        g2Temp.translate(0,
+            mPane.mHeaderHeight + (mPane.mExpanded.get(i) ? mPane.mComponents.get(i).getPreferredSize().height : 0));
+      }
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 
-	
 }

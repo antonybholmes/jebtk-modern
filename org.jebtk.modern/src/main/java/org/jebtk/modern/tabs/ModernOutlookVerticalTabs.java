@@ -46,7 +46,6 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Create tabs similar to Outlook 2007.
@@ -55,292 +54,319 @@ import org.jebtk.modern.widget.ModernClickWidget;
  *
  */
 public class ModernOutlookVerticalTabs extends TabsController implements ModernClickListener, ComponentListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	
-	//private Map<ModernCheckButton, Integer> buttonMap = new HashMap<ModernCheckButton, Integer>();
-	//private List<Component> components = new CopyOnWriteArrayList<Component>();
-	//List<Boolean> atBottom = new CopyOnWriteArrayList<Boolean>();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant VERTICAL_GAP.
-	 */
-	private static final int VERTICAL_GAP = 0;
-	
-	/**
-	 * The constant TAB_HEIGHT.
-	 */
-	private static final int TAB_HEIGHT = 32;
-	
-	/**
-	 * The constant GAP.
-	 */
-	private static final int GAP = UIService.ICON_SIZE_24;
-	
-	/**
-	 * The constant HALF_GAP.
-	 */
-	private static final int HALF_GAP = GAP / 2;
-	
-	/**
-	 * The constant TOTAL_TAB_HEIGHT.
-	 */
-	private static final int TOTAL_TAB_HEIGHT = VERTICAL_GAP + TAB_HEIGHT;
-	
-	/**
-	 * The group.
-	 */
-	private ModernButtonGroup group = new ModernButtonGroup();
-	
-	/**
-	 * The buttons.
-	 */
-	private List<ModernClickWidget> buttons = new ArrayList<ModernClickWidget>();
-	
-	/**
-	 * The button map.
-	 */
-	private Map<ModernClickWidget, Integer> buttonMap = 
-			new HashMap<ModernClickWidget, Integer>();
-	
-	/**
-	 * The view panel.
-	 */
-	private TabsViewPanel viewPanel = null;
+  // private Map<ModernCheckButton, Integer> buttonMap = new
+  // HashMap<ModernCheckButton, Integer>();
+  // private List<Component> components = new CopyOnWriteArrayList<Component>();
+  // List<Boolean> atBottom = new CopyOnWriteArrayList<Boolean>();
 
-	/**
-	 * Instantiates a new modern outlook vertical tabs.
-	 *
-	 * @param model the model
-	 */
-	public ModernOutlookVerticalTabs(TabsModel model) {
-		super(model);
-		
-		setLayout(null);
-		
-		addComponentListener(this);
+  /**
+   * The constant VERTICAL_GAP.
+   */
+  private static final int VERTICAL_GAP = 0;
 
-		viewPanel = new TabsViewPanel(model);
-		
-		add(viewPanel);
+  /**
+   * The constant TAB_HEIGHT.
+   */
+  private static final int TAB_HEIGHT = 32;
 
-		refresh();
-		
-		changeTab(0);
-	}
+  /**
+   * The constant GAP.
+   */
+  private static final int GAP = UIService.ICON_SIZE_24;
 
-	/**
-	 * Adds the tab.
-	 *
-	 * @param name the name
-	 */
-	private final void addTab(String name) {
-		addTab(name, UIService.getInstance().loadIcon("blank", UIService.ICON_SIZE_16));
-	}
+  /**
+   * The constant HALF_GAP.
+   */
+  private static final int HALF_GAP = GAP / 2;
 
-	/**
-	 * Adds the tab.
-	 *
-	 * @param name the name
-	 * @param icon the icon
-	 */
-	private final void addTab(String name, ModernIcon icon) {
-		ModernClickWidget button = new TabButton(name, icon); //VerticalTabsModernCheckButton(name, JLabel.LEFT);
+  /**
+   * The constant TOTAL_TAB_HEIGHT.
+   */
+  private static final int TOTAL_TAB_HEIGHT = VERTICAL_GAP + TAB_HEIGHT;
 
-		addTab(button);
-	}
+  /**
+   * The group.
+   */
+  private ModernButtonGroup group = new ModernButtonGroup();
 
-	/**
-	 * Adds the tab.
-	 *
-	 * @param button the button
-	 */
-	private final void addTab(ModernClickWidget button) {
-		button.setBounds(0, 0, 0, TAB_HEIGHT);
-		button.addClickListener(this);
+  /**
+   * The buttons.
+   */
+  private List<ModernClickWidget> buttons = new ArrayList<ModernClickWidget>();
 
-		buttonMap.put(button, buttons.size());
-		buttons.add(button);
-		group.add(button);
-		
-		add(button);
-		
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernComponent#setBorder(javax.swing.border.Border)
-	 */
-	public void setBorder(Border border) {
-		super.setBorder(border);
-		
-		resize();
-	}
+  /**
+   * The button map.
+   */
+  private Map<ModernClickWidget, Integer> buttonMap = new HashMap<ModernClickWidget, Integer>();
 
-	/**
-	 * Resize.
-	 */
-	private final void resize() {
-		if (getInternalRect() == null) {
-			return;
-		}
-		
-		if (viewPanel == null) {
-			return;
-		}
-		
-		Rectangle bounds;
-	
-		// resize all buttons
-		
-		int buttonHeight = TOTAL_TAB_HEIGHT * buttons.size();
+  /**
+   * The view panel.
+   */
+  private TabsViewPanel viewPanel = null;
 
-		for (int i = 0; i < buttons.size(); ++i) {
-			bounds = buttons.get(i).getBounds();
+  /**
+   * Instantiates a new modern outlook vertical tabs.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernOutlookVerticalTabs(TabsModel model) {
+    super(model);
 
-			bounds.y = getInsets().top + mInternalRect.getH() - buttonHeight + TOTAL_TAB_HEIGHT * i;
-			bounds.width = mInternalRect.getW();
-			bounds.x = getInsets().left;
+    setLayout(null);
 
-			buttons.get(i).setBounds(bounds);
-		}
+    addComponentListener(this);
 
-		// move the component
-		bounds = viewPanel.getBounds();
+    viewPanel = new TabsViewPanel(model);
 
-		bounds.x = getInsets().left;
-		bounds.y = getInsets().top;
-		bounds.width = mInternalRect.getW();
-		bounds.height = mInternalRect.getH() - buttonHeight - GAP;
+    add(viewPanel);
 
-		viewPanel.setBounds(bounds);
+    refresh();
 
-		revalidate();
+    changeTab(0);
+  }
 
-		repaint();
-	}
+  /**
+   * Adds the tab.
+   *
+   * @param name
+   *          the name
+   */
+  private final void addTab(String name) {
+    addTab(name, UIService.getInstance().loadIcon("blank", UIService.ICON_SIZE_16));
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		Rectangle r = new Rectangle(mInternalRect.getX(),
-				getInsets().top + mInternalRect.getH() - TOTAL_TAB_HEIGHT * buttons.size() - HALF_GAP,
-				mInternalRect.getW() - 1,
-				1);
+  /**
+   * Adds the tab.
+   *
+   * @param name
+   *          the name
+   * @param icon
+   *          the icon
+   */
+  private final void addTab(String name, ModernIcon icon) {
+    ModernClickWidget button = new TabButton(name, icon); // VerticalTabsModernCheckButton(name, JLabel.LEFT);
 
-		g2.setColor(LINE_COLOR);
+    addTab(button);
+  }
 
-		g2.drawLine(r.x, r.y, r.x + r.width, r.y);
+  /**
+   * Adds the tab.
+   *
+   * @param button
+   *          the button
+   */
+  private final void addTab(ModernClickWidget button) {
+    button.setBounds(0, 0, 0, TAB_HEIGHT);
+    button.addClickListener(this);
 
-	}
+    buttonMap.put(button, buttons.size());
+    buttons.add(button);
+    group.add(button);
 
-	/**
-	 * Change tab.
-	 *
-	 * @param button the button
-	 */
-	private final void changeTab(ModernCheckButton button) {
-		changeTab(buttonMap.get(button));
-	}
-	
-	/**
-	 * Change tab.
-	 *
-	 * @param index the index
-	 */
-	private final void changeTab(int index) {
-		getTabsModel().changeTab(index);
+    add(button);
 
-		resize();
-	}
+  }
 
-	
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernComponent#setBorder(javax.swing.border.Border)
+   */
+  public void setBorder(Border border) {
+    super.setBorder(border);
 
+    resize();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void clicked(ModernClickEvent e) {
-		//System.out.println("what " + e.getMessage());
-		
-		changeTab((ModernCheckButton)e.getSource());
-	}
-	
-	/**
-	 * Refresh.
-	 */
-	public void refresh() {
-		clear();
-		
-		add(viewPanel);
-		
-		for (Tab tab : getTabsModel()) {
-			addTab(tab.getName());
-		}
-		
-		getTabsModel().changeTab(0);
-	}
+  /**
+   * Resize.
+   */
+  private final void resize() {
+    if (getInternalRect() == null) {
+      return;
+    }
 
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		buttons.clear();
+    if (viewPanel == null) {
+      return;
+    }
 
-		removeAll();
+    Rectangle bounds;
 
-		resize();
-	}
+    // resize all buttons
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tabs.TabsController#tabChanged(org.abh.lib.ui.modern.tabs.TabEvent)
-	 */
-	@Override
-	public void tabChanged(TabEvent e) {
-		if (getTabsModel().getSelectedIndex() != -1) {
-			if (!this.buttons.get(getTabsModel().getSelectedIndex()).isSelected()) {
-				buttons.get(getTabsModel().getSelectedIndex()).doClick();
-			}
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentResized(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentResized(ComponentEvent e) {
-		resize();
-	}
+    int buttonHeight = TOTAL_TAB_HEIGHT * buttons.size();
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentHidden(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    for (int i = 0; i < buttons.size(); ++i) {
+      bounds = buttons.get(i).getBounds();
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentMoved(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+      bounds.y = getInsets().top + mInternalRect.getH() - buttonHeight + TOTAL_TAB_HEIGHT * i;
+      bounds.width = mInternalRect.getW();
+      bounds.x = getInsets().left;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentShown(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentShown(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+      buttons.get(i).setBounds(bounds);
+    }
+
+    // move the component
+    bounds = viewPanel.getBounds();
+
+    bounds.x = getInsets().left;
+    bounds.y = getInsets().top;
+    bounds.width = mInternalRect.getW();
+    bounds.height = mInternalRect.getH() - buttonHeight - GAP;
+
+    viewPanel.setBounds(bounds);
+
+    revalidate();
+
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    Rectangle r = new Rectangle(mInternalRect.getX(),
+        getInsets().top + mInternalRect.getH() - TOTAL_TAB_HEIGHT * buttons.size() - HALF_GAP, mInternalRect.getW() - 1,
+        1);
+
+    g2.setColor(LINE_COLOR);
+
+    g2.drawLine(r.x, r.y, r.x + r.width, r.y);
+
+  }
+
+  /**
+   * Change tab.
+   *
+   * @param button
+   *          the button
+   */
+  private final void changeTab(ModernCheckButton button) {
+    changeTab(buttonMap.get(button));
+  }
+
+  /**
+   * Change tab.
+   *
+   * @param index
+   *          the index
+   */
+  private final void changeTab(int index) {
+    getTabsModel().changeTab(index);
+
+    resize();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public void clicked(ModernClickEvent e) {
+    // System.out.println("what " + e.getMessage());
+
+    changeTab((ModernCheckButton) e.getSource());
+  }
+
+  /**
+   * Refresh.
+   */
+  public void refresh() {
+    clear();
+
+    add(viewPanel);
+
+    for (Tab tab : getTabsModel()) {
+      addTab(tab.getName());
+    }
+
+    getTabsModel().changeTab(0);
+  }
+
+  /**
+   * Clear.
+   */
+  public void clear() {
+    buttons.clear();
+
+    removeAll();
+
+    resize();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabsController#tabChanged(org.abh.lib.ui.modern.
+   * tabs.TabEvent)
+   */
+  @Override
+  public void tabChanged(TabEvent e) {
+    if (getTabsModel().getSelectedIndex() != -1) {
+      if (!this.buttons.get(getTabsModel().getSelectedIndex()).isSelected()) {
+        buttons.get(getTabsModel().getSelectedIndex()).doClick();
+      }
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentResized(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentResized(ComponentEvent e) {
+    resize();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentHidden(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentMoved(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentShown(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentShown(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

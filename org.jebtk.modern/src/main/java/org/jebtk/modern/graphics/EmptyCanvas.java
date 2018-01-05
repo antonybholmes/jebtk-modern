@@ -30,7 +30,6 @@ package org.jebtk.modern.graphics;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Allow empty space to be inserted into figures.
@@ -39,33 +38,38 @@ import java.awt.Graphics2D;
  *
  */
 public class EmptyCanvas extends ModernCanvas {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new empty canvas.
-	 */
-	public EmptyCanvas() {
-		// do nothing
-	}
-	
-	/**
-	 * Instantiates a new empty canvas.
-	 *
-	 * @param dimension the dimension
-	 */
-	public EmptyCanvas(Dimension dimension) {
-		setCanvasSize(dimension);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvas#drawCanvasForeground(java.awt.Graphics2D)
-	 */
-	@Override
-	public final void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
-		// do nothing
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new empty canvas.
+   */
+  public EmptyCanvas() {
+    // do nothing
+  }
+
+  /**
+   * Instantiates a new empty canvas.
+   *
+   * @param dimension
+   *          the dimension
+   */
+  public EmptyCanvas(Dimension dimension) {
+    setCanvasSize(dimension);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvas#drawCanvasForeground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public final void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
+    // do nothing
+  }
 }

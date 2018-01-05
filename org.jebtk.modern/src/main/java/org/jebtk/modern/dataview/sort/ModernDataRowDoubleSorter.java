@@ -40,33 +40,36 @@ import org.jebtk.modern.dataview.ModernData;
  * The class ModernDataRowDoubleSorter.
  */
 public class ModernDataRowDoubleSorter extends ModernDataIndexMapSorter {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.sort.ModernDataIndexMapSorter#sort(org.abh.lib.ui.modern.dataview.ModernData, int, boolean)
-	 */
-	@Override
-	public void sort(ModernData data, int column, boolean sortAscending) {
-		super.sort(data, column, sortAscending);
-		
-		List<Indexed<Integer, Double>> values = 
-				new ArrayList<Indexed<Integer, Double>>();
-			
-		for (int i = 0; i < data.getRowCount(); ++i) {
-			double v;
-			
-			try {
-				v = Parser.toDouble(data.getModel().getValueAt(i, column).toString());
-			} catch (ParseException e) {
-				v = data.getRowCount();
-				//e.printStackTrace();
-			}
-			
-			values.add(new Indexed<Integer, Double>(i, v));
-		}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-		sort(values);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexMapSorter#sort(org.abh.lib
+   * .ui.modern.dataview.ModernData, int, boolean)
+   */
+  @Override
+  public void sort(ModernData data, int column, boolean sortAscending) {
+    super.sort(data, column, sortAscending);
+
+    List<Indexed<Integer, Double>> values = new ArrayList<Indexed<Integer, Double>>();
+
+    for (int i = 0; i < data.getRowCount(); ++i) {
+      double v;
+
+      try {
+        v = Parser.toDouble(data.getModel().getValueAt(i, column).toString());
+      } catch (ParseException e) {
+        v = data.getRowCount();
+        // e.printStackTrace();
+      }
+
+      values.add(new Indexed<Integer, Double>(i, v));
+    }
+
+    sort(values);
+  }
 }

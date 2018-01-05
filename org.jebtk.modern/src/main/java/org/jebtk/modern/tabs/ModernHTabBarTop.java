@@ -32,8 +32,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Horizontal tab control for top.
@@ -42,94 +40,80 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernHTabBarTop extends ModernHTabBar {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new modern h tab bar top.
-	 *
-	 * @param model the model
-	 */
-	public ModernHTabBarTop(TabsModel model) {
-		super(model);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int tabX = TAB_START_X;
-		//int x;
-		int y;
-		
-		int h = getHeight() - 1;
-		
-		//int textY = getHeight() - DOUBLE_PADDING;
-		
-		// bottom line
-		g2.setColor(LINE_COLOR);
-		
-		y = getHeight() - 1;
-			
-		g2.drawLine(0, y, getWidth() - 1, y);
-		
-		int textY = ModernWidget.getTextYPosCenter(g2, TAB_HEIGHT);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		for (int i = tabOffsetIndex; i < getTabsModel().getTabCount(); ++i) {
-			if (i == getTabsModel().getSelectedIndex()) {
-				y = getHeight() - TAB_HEIGHT;
-				
-				g2.setColor(Color.WHITE);
+  /**
+   * Instantiates a new modern h tab bar top.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernHTabBarTop(TabsModel model) {
+    super(model);
+  }
 
-				g2.fillRect(tabX,
-						y,
-						TAB_WIDTH,
-						h + 1);
-				
-				
-				g2.setColor(TAB_HIGHLIGHT_COLOR);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int tabX = TAB_START_X;
+    // int x;
+    int y;
 
-			 	g2.fillRect(tabX,
-			 			y,
-						TAB_WIDTH,
-						2);
-			 	
-			 	
-				// Grey lines
-				
-				g2.setColor(LINE_COLOR);
-				
-			 	// left line
-			 	g2.drawLine(tabX,
-			 			y,
-						tabX,
-						h);
-			 	
-			 	// right line
-			 	g2.drawLine(tabX + TAB_WIDTH,
-			 			y,
-			 			tabX + TAB_WIDTH,
-						h);
-			 	
-				
-				//g2.drawLine(tabX + 1,
-			 	//		y,
-				//		tabX + TAB_WIDTH - 1,
-				//		y);
+    int h = getHeight() - 1;
 
-			}
-			
-			g2.setColor(TEXT_COLOR);
-			g2.drawString(getTabsModel().getTab(i).getName(), 
-					tabX + (TAB_WIDTH - ModernWidget.getStringWidth(g2, getTabsModel().getTab(i).getName())) / 2,
-					textY);
-			
-			tabX += TAB_WIDTH;
-		}
-	}
+    // int textY = getHeight() - DOUBLE_PADDING;
+
+    // bottom line
+    g2.setColor(LINE_COLOR);
+
+    y = getHeight() - 1;
+
+    g2.drawLine(0, y, getWidth() - 1, y);
+
+    int textY = ModernWidget.getTextYPosCenter(g2, TAB_HEIGHT);
+
+    for (int i = tabOffsetIndex; i < getTabsModel().getTabCount(); ++i) {
+      if (i == getTabsModel().getSelectedIndex()) {
+        y = getHeight() - TAB_HEIGHT;
+
+        g2.setColor(Color.WHITE);
+
+        g2.fillRect(tabX, y, TAB_WIDTH, h + 1);
+
+        g2.setColor(TAB_HIGHLIGHT_COLOR);
+
+        g2.fillRect(tabX, y, TAB_WIDTH, 2);
+
+        // Grey lines
+
+        g2.setColor(LINE_COLOR);
+
+        // left line
+        g2.drawLine(tabX, y, tabX, h);
+
+        // right line
+        g2.drawLine(tabX + TAB_WIDTH, y, tabX + TAB_WIDTH, h);
+
+        // g2.drawLine(tabX + 1,
+        // y,
+        // tabX + TAB_WIDTH - 1,
+        // y);
+
+      }
+
+      g2.setColor(TEXT_COLOR);
+      g2.drawString(getTabsModel().getTab(i).getName(),
+          tabX + (TAB_WIDTH - ModernWidget.getStringWidth(g2, getTabsModel().getTab(i).getName())) / 2, textY);
+
+      tabX += TAB_WIDTH;
+    }
+  }
 }

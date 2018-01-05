@@ -20,10 +20,10 @@ package org.jebtk.modern.window;
  * The Enum ModernWindowTitleBarStyle.
  */
 public enum ModernWindowTitleBarStyle {
-	
-	/** The windows. */
-	WINDOWS,
-	
-	/** The mac. */
-	MAC
+
+  /** The windows. */
+  WINDOWS,
+
+  /** The mac. */
+  MAC
 }

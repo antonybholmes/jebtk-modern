@@ -38,281 +38,262 @@ import org.jebtk.core.event.ChangeEvent;
 
 import org.jebtk.core.text.TextUtils;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a centralised mechanism for registering controls to send
- * and receive data from the clipboard.
+ * Provides a centralised mechanism for registering controls to send and receive
+ * data from the clipboard.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ClipboardService extends ClipboardEventListeners implements Clipboard {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The Class ClipboardServiceLoader.
-	 */
-	private static class ClipboardServiceLoader {
-		
-		/** The Constant INSTANCE. */
-		private static final ClipboardService INSTANCE = new ClipboardService();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Gets the single instance of SettingsService.
-	 *
-	 * @return single instance of SettingsService
-	 */
-	public static ClipboardService getInstance() {
-		return ClipboardServiceLoader.INSTANCE;
-	}
+  /**
+   * The Class ClipboardServiceLoader.
+   */
+  private static class ClipboardServiceLoader {
 
-	//public static final String CLIPBOARD_EVENT = "clipboard";
+    /** The Constant INSTANCE. */
+    private static final ClipboardService INSTANCE = new ClipboardService();
+  }
 
-	/**
-	 * Sent when a new control activates.
-	 */
-	//public static final String CONTROL_ACTIVATE = "clipboard_control_activate";
+  /**
+   * Gets the single instance of SettingsService.
+   *
+   * @return single instance of SettingsService
+   */
+  public static ClipboardService getInstance() {
+    return ClipboardServiceLoader.INSTANCE;
+  }
 
-	/**
-	 * Sent when a control deactivates.
-	 */
-	//public static final String CONTROL_DEACTIVATE = "clipboard_control_deactivate";
+  // public static final String CLIPBOARD_EVENT = "clipboard";
 
-	public static final String CLIPBOARD_CONTROL_CHANGED = "clipboard_control_changed";
+  /**
+   * Sent when a new control activates.
+   */
+  // public static final String CONTROL_ACTIVATE = "clipboard_control_activate";
 
+  /**
+   * Sent when a control deactivates.
+   */
+  // public static final String CONTROL_DEACTIVATE =
+  // "clipboard_control_deactivate";
 
-	/**
-	 * The member control.
-	 */
-	private ClipboardUiControl mControl;
+  public static final String CLIPBOARD_CONTROL_CHANGED = "clipboard_control_changed";
 
-	/**
-	 * Instantiates a new clipboard service.
-	 */
-	private ClipboardService() {
-		// do nothing
-	}
+  /**
+   * The member control.
+   */
+  private ClipboardUiControl mControl;
 
-	/**
-	 * Register.
-	 *
-	 * @param control the control
-	 */
-	public synchronized void register(ClipboardUiControl control) {
-		mControl = control;
+  /**
+   * Instantiates a new clipboard service.
+   */
+  private ClipboardService() {
+    // do nothing
+  }
 
-		fireClipboardChanged(new ChangeEvent(this, CLIPBOARD_CONTROL_CHANGED));
-	}
-	
-	/**
-	 * Unregister.
-	 *
-	 * @param control the control
-	 */
-	public synchronized void unregister(ClipboardUiControl control) {
-		if (!control.equals(mControl)) {
-			return;
-		}
-		
-		mControl = null;
+  /**
+   * Register.
+   *
+   * @param control
+   *          the control
+   */
+  public synchronized void register(ClipboardUiControl control) {
+    mControl = control;
 
-		fireClipboardChanged(new ChangeEvent(this, CLIPBOARD_CONTROL_CHANGED));
-	}
+    fireClipboardChanged(new ChangeEvent(this, CLIPBOARD_CONTROL_CHANGED));
+  }
 
+  /**
+   * Unregister.
+   *
+   * @param control
+   *          the control
+   */
+  public synchronized void unregister(ClipboardUiControl control) {
+    if (!control.equals(mControl)) {
+      return;
+    }
 
-	/**
-	 * Copies the current control contents to the clipboard.
-	 * Same as calling getControl().copy().
-	 */
-	public synchronized void copy() {
-		if (mControl != null) {
+    mControl = null;
 
-			mControl.copy();
-		}
-	}
+    fireClipboardChanged(new ChangeEvent(this, CLIPBOARD_CONTROL_CHANGED));
+  }
 
-	/**
-	 * Pastes the clipboard to the current control.
-	 * Same as calling getControl().paste().
-	 */
-	public synchronized void paste() {
-		if (mControl != null) {
-			mControl.paste();
-		}
-	}
+  /**
+   * Copies the current control contents to the clipboard. Same as calling
+   * getControl().copy().
+   */
+  public synchronized void copy() {
+    if (mControl != null) {
 
-	/**
-	 * Cuts the current text from the control.
-	 * Same as calling getControl().cut().
-	 */
-	public void cut() {
-		if (mControl != null) {
-			mControl.cut();
-		}
-	}
+      mControl.copy();
+    }
+  }
 
-	/**
-	 * Returns the current clipboard control, which can be null.
-	 *
-	 * @return the control
-	 */
-	public synchronized ClipboardUiControl getControl() {
-		return mControl;
-	}
+  /**
+   * Pastes the clipboard to the current control. Same as calling
+   * getControl().paste().
+   */
+  public synchronized void paste() {
+    if (mControl != null) {
+      mControl.paste();
+    }
+  }
 
-	/**
-	 * Copies a table model to the clipboard.
-	 *
-	 * @param table the table
-	 */
-	public static final void copy(JTable table) {
-		if (table.getModel() == null) {
-			return;
-		}
+  /**
+   * Cuts the current text from the control. Same as calling getControl().cut().
+   */
+  public void cut() {
+    if (mControl != null) {
+      mControl.cut();
+    }
+  }
 
-		StringBuilder builder = new StringBuilder();
+  /**
+   * Returns the current clipboard control, which can be null.
+   *
+   * @return the control
+   */
+  public synchronized ClipboardUiControl getControl() {
+    return mControl;
+  }
 
-		for (int i = 0; i < table.getModel().getColumnCount(); ++i) {
-			builder.append(table.getModel().getColumnName(i));
+  /**
+   * Copies a table model to the clipboard.
+   *
+   * @param table
+   *          the table
+   */
+  public static final void copy(JTable table) {
+    if (table.getModel() == null) {
+      return;
+    }
 
-			if (i < table.getModel().getColumnCount() - 1) {
-				builder.append(TextUtils.TAB_DELIMITER);
-			}
-		}
+    StringBuilder builder = new StringBuilder();
 
-		builder.append(TextUtils.NEW_LINE);
+    for (int i = 0; i < table.getModel().getColumnCount(); ++i) {
+      builder.append(table.getModel().getColumnName(i));
 
-		for (int i = 0; i < table.getModel().getRowCount(); ++i) {
-			for (int j = 0; j < table.getModel().getColumnCount(); ++j) {
-				builder.append(table.getModel().getValueAt(i, j).toString());
+      if (i < table.getModel().getColumnCount() - 1) {
+        builder.append(TextUtils.TAB_DELIMITER);
+      }
+    }
 
-				if (j < table.getModel().getColumnCount() - 1) {
-					builder.append(TextUtils.TAB_DELIMITER);
-				}
-			}
+    builder.append(TextUtils.NEW_LINE);
 
-			builder.append(TextUtils.NEW_LINE);
-		}
+    for (int i = 0; i < table.getModel().getRowCount(); ++i) {
+      for (int j = 0; j < table.getModel().getColumnCount(); ++j) {
+        builder.append(table.getModel().getValueAt(i, j).toString());
 
-		/*
-		 if (table.getSelectedRowCount() == 0) {
-			 // copy all rows
-			 for (int i = 0; i < table.getModel().getRowCount(); ++i) {
-				 for (int j = 0; j < table.getModel().getColumnCount(); ++j) {
-					 builder.append(table.getModel().getValueAt(i, j).toString());
+        if (j < table.getModel().getColumnCount() - 1) {
+          builder.append(TextUtils.TAB_DELIMITER);
+        }
+      }
 
-					 if (j < table.getModel().getColumnCount() - 1) {
-						 builder.append(Text.TAB_DELIMITER);
-					 }
-				 }
+      builder.append(TextUtils.NEW_LINE);
+    }
 
-				 builder.append(Text.NEWLINE);
-			 }
-		 }
-		 else {
-			 for (int i : table.getSelectedRows()) {
-				 for (int j = 0; j < table.getModel().getColumnCount(); ++j) {
-					 builder.append(table.getModel().getValueAt(i, j).toString());
+    /*
+     * if (table.getSelectedRowCount() == 0) { // copy all rows for (int i = 0; i <
+     * table.getModel().getRowCount(); ++i) { for (int j = 0; j <
+     * table.getModel().getColumnCount(); ++j) {
+     * builder.append(table.getModel().getValueAt(i, j).toString());
+     * 
+     * if (j < table.getModel().getColumnCount() - 1) {
+     * builder.append(Text.TAB_DELIMITER); } }
+     * 
+     * builder.append(Text.NEWLINE); } } else { for (int i :
+     * table.getSelectedRows()) { for (int j = 0; j <
+     * table.getModel().getColumnCount(); ++j) {
+     * builder.append(table.getModel().getValueAt(i, j).toString());
+     * 
+     * if (j < table.getModel().getColumnCount() - 1) {
+     * builder.append(Text.TAB_DELIMITER); } }
+     * 
+     * builder.append(Text.NEWLINE); } }
+     */
 
-					 if (j < table.getModel().getColumnCount() - 1) {
-						 builder.append(Text.TAB_DELIMITER);
-					 }
-				 }
+    copyToClipboard(builder.toString());
+  }
 
-				 builder.append(Text.NEWLINE);
-			 }
-		 }
-		 */
+  /**
+   * Copy.
+   *
+   * @param list
+   *          the list
+   */
+  public static final void copy(JList list) {
+    StringBuilder builder = new StringBuilder();
 
-		copyToClipboard(builder.toString());
-	}
+    for (int i = 0; i < list.getModel().getSize(); ++i) {
+      builder.append(list.getModel().getElementAt(i));
+      builder.append(TextUtils.NEW_LINE);
+    }
 
-	/**
-	 * Copy.
-	 *
-	 * @param list the list
-	 */
-	public static final void copy(JList list) {
-		StringBuilder builder = new StringBuilder();
+    /*
+     * if (list.getSelectedIndices().length == 0) { // copy all rows for (int i = 0;
+     * i < list.getModel().getSize(); ++i) {
+     * builder.append(list.getModel().getElementAt(i));
+     * builder.append(Text.NEWLINE); } } else { for (int i :
+     * list.getSelectedIndices()) { builder.append(list.getModel().getElementAt(i));
+     * builder.append(Text.NEWLINE); } }
+     */
 
-		for (int i = 0; i < list.getModel().getSize(); ++i) {
-			builder.append(list.getModel().getElementAt(i));
-			builder.append(TextUtils.NEW_LINE);
-		}
+    copyToClipboard(builder.toString());
+  }
 
-		/*
-		 if (list.getSelectedIndices().length == 0) {
-			 // copy all rows
-			 for (int i = 0; i < list.getModel().getSize(); ++i) {
-				 builder.append(list.getModel().getElementAt(i));
-				 builder.append(Text.NEWLINE);
-			 }
-		 }
-		 else {
-			 for (int i : list.getSelectedIndices()) {
-				 builder.append(list.getModel().getElementAt(i));
-				 builder.append(Text.NEWLINE);
-			 }
-		 }
-		 */
+  /**
+   * Copy to clipboard.
+   *
+   * @param text
+   *          the text
+   */
+  public static final void copyToClipboard(StringBuilder text) {
+    copyToClipboard(text.toString());
+  }
 
-		copyToClipboard(builder.toString());
-	}
+  /**
+   * Copy to the clipboard.
+   *
+   * @param text
+   *          the text
+   */
+  public static final void copyToClipboard(String text) {
+    StringSelection stringModernSelection = new StringSelection(text);
+    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringModernSelection, null);
+  }
 
-	/**
-	 * Copy to clipboard.
-	 *
-	 * @param text the text
-	 */
-	public static final void copyToClipboard(StringBuilder text) {
-		copyToClipboard(text.toString());
-	}
+  /**
+   * Gets the clipboard contents.
+   *
+   * @return the clipboard contents
+   */
+  public static final String getClipboardContents() {
 
-	/**
-	 * Copy to the clipboard.
-	 *
-	 * @param text the text
-	 */
-	public static final void copyToClipboard(String text) {
-		StringSelection stringModernSelection = new StringSelection(text);
-		Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringModernSelection, null);
-	}
+    java.awt.datatransfer.Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
-	/**
-	 * Gets the clipboard contents.
-	 *
-	 * @return the clipboard contents
-	 */
-	public static final String getClipboardContents() {
+    // odd: the Object param of getContents is not currently used
+    Transferable contents = clipboard.getContents(null);
 
+    boolean hasTransferableText = (contents != null) && contents.isDataFlavorSupported(DataFlavor.stringFlavor);
 
-		java.awt.datatransfer.Clipboard clipboard = 
-				Toolkit.getDefaultToolkit().getSystemClipboard();
+    String result = "";
 
-		//odd: the Object param of getContents is not currently used
-		Transferable contents = clipboard.getContents(null);
+    if (hasTransferableText) {
+      try {
+        result = (String) contents.getTransferData(DataFlavor.stringFlavor);
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
 
-		boolean hasTransferableText = (contents != null) &&
-				contents.isDataFlavorSupported(DataFlavor.stringFlavor);
-
-		String result = "";
-
-		if (hasTransferableText) {
-			try {
-				result = (String)contents.getTransferData(DataFlavor.stringFlavor);
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-
-		return result;
-	}
+    return result;
+  }
 }

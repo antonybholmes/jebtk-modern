@@ -23,19 +23,18 @@ import org.jebtk.modern.combobox.ModernComboBox;
  */
 public class ThemeSelectionCombo extends ModernComboBox {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * Instantiates a new theme selection combo.
-	 */
-	public ThemeSelectionCombo() {
-		addMenuItem("Red");
-		addMenuItem("Green");
-		addMenuItem("Blue");
-		addMenuItem("Orange");
-		addMenuItem("Purple");
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new theme selection combo.
+   */
+  public ThemeSelectionCombo() {
+    addMenuItem("Red");
+    addMenuItem("Green");
+    addMenuItem("Blue");
+    addMenuItem("Orange");
+    addMenuItem("Purple");
+  }
 
 }

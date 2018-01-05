@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Drawing panel that allows frames a drawing.
@@ -41,58 +40,67 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class FrameCanvas extends ContainerCanvas {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m color. */
-	private Color mColor;
 
-	/**
-	 * Instantiates a new frame canvas.
-	 *
-	 * @param canvas the canvas
-	 */
-	public FrameCanvas(ModernCanvas canvas) {
-		this(canvas, Color.WHITE, ModernWidget.DARK_LINE_COLOR);
-	}
-	
-	
-	/**
-	 * Instantiates a new frame canvas.
-	 *
-	 * @param canvas the canvas
-	 * @param background the background
-	 * @param color the color
-	 */
-	public FrameCanvas(ModernCanvas canvas, Color background, Color color) {
-		super(canvas);
-		
-		mColor = color;
-		
-		setBackground(background);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		g2.setColor(getBackground());
-		g2.fillRect(0, 0, getWidth(), getHeight());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ContainerCanvas#drawCanvasForeground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(mColor);
-		
-		g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
-		
-		super.drawForegroundAAText(g2);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /** The m color. */
+  private Color mColor;
+
+  /**
+   * Instantiates a new frame canvas.
+   *
+   * @param canvas
+   *          the canvas
+   */
+  public FrameCanvas(ModernCanvas canvas) {
+    this(canvas, Color.WHITE, ModernWidget.DARK_LINE_COLOR);
+  }
+
+  /**
+   * Instantiates a new frame canvas.
+   *
+   * @param canvas
+   *          the canvas
+   * @param background
+   *          the background
+   * @param color
+   *          the color
+   */
+  public FrameCanvas(ModernCanvas canvas, Color background, Color color) {
+    super(canvas);
+
+    mColor = color;
+
+    setBackground(background);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    g2.setColor(getBackground());
+    g2.fillRect(0, 0, getWidth(), getHeight());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ContainerCanvas#drawCanvasForeground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(mColor);
+
+    g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+
+    super.drawForegroundAAText(g2);
+  }
 }

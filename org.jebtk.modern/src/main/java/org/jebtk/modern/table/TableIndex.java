@@ -37,144 +37,146 @@ import org.jebtk.core.event.ChangeListeners;
  *
  */
 public class TableIndex extends ChangeListeners implements Comparable<TableIndex> {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant DEFAULT_CELL_HEIGHT.
-	 */
-	public static final int DEFAULT_CELL_HEIGHT = 26;
-	
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant DEFAULT_CELL_HEIGHT.
+   */
+  public static final int DEFAULT_CELL_HEIGHT = 26;
 
-	/**
-	 * The member width.
-	 */
-	private int mWidth = -1;
+  /**
+   * The member width.
+   */
+  private int mWidth = -1;
 
-	/**
-	 * The min width.
-	 */
-	private int mMinWidth = DEFAULT_CELL_HEIGHT;
-	
+  /**
+   * The min width.
+   */
+  private int mMinWidth = DEFAULT_CELL_HEIGHT;
 
-	/**
-	 * The member index.
-	 */
-	private int mIndex;
+  /**
+   * The member index.
+   */
+  private int mIndex;
 
+  /**
+   * Instantiates a new table index.
+   *
+   * @param width
+   *          the width
+   */
+  public TableIndex(int width) {
+    setWidth(width);
+  }
 
+  /**
+   * Copy constructor.
+   *
+   * @param index
+   *          the index
+   */
+  public TableIndex(TableIndex index) {
+    this(index.getWidth());
 
-	/**
-	 * Instantiates a new table index.
-	 *
-	 * @param width the width
-	 */
-	public TableIndex(int width) {
-		setWidth(width);
-	}
-	
-	/**
-	 * Copy constructor.
-	 *
-	 * @param index the index
-	 */
-	public TableIndex(TableIndex index) {
-		this(index.getWidth());
-		
-		//mRenderer = index.mRenderer;
-		//mHeadingRenderer = index.mHeadingRenderer;
-		//mEditor = index.mEditor;
-	}
+    // mRenderer = index.mRenderer;
+    // mHeadingRenderer = index.mHeadingRenderer;
+    // mEditor = index.mEditor;
+  }
 
-	//public ModernDataCellRenderer getCellRenderer() {
-	//	return mRenderer;
-	//}
+  // public ModernDataCellRenderer getCellRenderer() {
+  // return mRenderer;
+  // }
 
-	//public void setCellRenderer(ModernDataCellRenderer renderer) {
-	//	mRenderer = renderer;
-	//}
+  // public void setCellRenderer(ModernDataCellRenderer renderer) {
+  // mRenderer = renderer;
+  // }
 
-	/**
-	 * Sets the cell heading renderer.
-	 *
-	 * @param width the new width
-	 */
-	//public void setCellHeadingRenderer(ModernDataCellRenderer headingRenderer) {
-	//	mHeadingRenderer = headingRenderer;
-	//}
+  /**
+   * Sets the cell heading renderer.
+   *
+   * @param width
+   *          the new width
+   */
+  // public void setCellHeadingRenderer(ModernDataCellRenderer headingRenderer) {
+  // mHeadingRenderer = headingRenderer;
+  // }
 
-	//public ModernDataViewCellEditor getEditor() {
-	////	return mEditor;
-	//}
+  // public ModernDataViewCellEditor getEditor() {
+  //// return mEditor;
+  // }
 
-	//public void setCellEditor(ModernDataViewCellEditor editor) {
-	//	mEditor = editor;
-	//}
+  // public void setCellEditor(ModernDataViewCellEditor editor) {
+  // mEditor = editor;
+  // }
 
-	/**
-	 * Sets the width.
-	 *
-	 * @param width the new width
-	 */
-	public void setWidth(int width) {
-		mWidth = Math.max(width, mMinWidth);
-		
-		fireChanged();
-	}
+  /**
+   * Sets the width.
+   *
+   * @param width
+   *          the new width
+   */
+  public void setWidth(int width) {
+    mWidth = Math.max(width, mMinWidth);
 
-	/**
-	 * Gets the width.
-	 *
-	 * @return the width
-	 */
-	public int getWidth() {
-		return mWidth;
-	}
+    fireChanged();
+  }
 
-	/**
-	 * Gets the heading renderer.
-	 *
-	 * @return the heading renderer
-	 */
-	//public ModernDataCellRenderer getHeadingRenderer() {
-	//	return mHeadingRenderer;
-	//}
+  /**
+   * Gets the width.
+   *
+   * @return the width
+   */
+  public int getWidth() {
+    return mWidth;
+  }
 
-	/**
-	 * Gets the index.
-	 *
-	 * @return the index
-	 */
-	public int getIndex() {
-		return mIndex;
-	}
-	
+  /**
+   * Gets the heading renderer.
+   *
+   * @return the heading renderer
+   */
+  // public ModernDataCellRenderer getHeadingRenderer() {
+  // return mHeadingRenderer;
+  // }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
-	@Override
-	public int compareTo(TableIndex tableIndex) {
-		if (mIndex < tableIndex.getIndex()) {
-			return -1;
-		} else if (mIndex > tableIndex.getIndex()) {
-			return 1;
-		} else {
-			return 0;
-		}	
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object o) {
-		if (!(o instanceof TableIndex)) {
-			return false;
-		}
-		
-		return compareTo((TableIndex)o) == 0;
-	}
+  /**
+   * Gets the index.
+   *
+   * @return the index
+   */
+  public int getIndex() {
+    return mIndex;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Comparable#compareTo(java.lang.Object)
+   */
+  @Override
+  public int compareTo(TableIndex tableIndex) {
+    if (mIndex < tableIndex.getIndex()) {
+      return -1;
+    } else if (mIndex > tableIndex.getIndex()) {
+      return 1;
+    } else {
+      return 0;
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#equals(java.lang.Object)
+   */
+  @Override
+  public boolean equals(Object o) {
+    if (!(o instanceof TableIndex)) {
+      return false;
+    }
+
+    return compareTo((TableIndex) o) == 0;
+  }
 }

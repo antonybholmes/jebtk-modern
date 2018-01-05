@@ -33,8 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Simple pane icon.
@@ -43,78 +41,86 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class SwitchWindows32VectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant WIDTH.
-	 */
-	protected static final int WIDTH = 14;
-	
-	/**
-	 * The constant HEIGHT.
-	 */
-	protected static final int HEIGHT = 12;
-	
-	/**
-	 * The constant BAR_HEIGHT.
-	 */
-	protected static final int BAR_HEIGHT = 4;
-	
-	/**
-	 * The member bar color.
-	 */
-	protected Color mBarColor;
-	
-	/**
-	 * Instantiates a new switch windows32 vector icon.
-	 */
-	public SwitchWindows32VectorIcon() {
-		this(ThemeService.getInstance().colors().getColorHighlight(4));
-	}
-	
-	/**
-	 * Instantiates a new switch windows32 vector icon.
-	 *
-	 * @param barColor the bar color
-	 */
-	public SwitchWindows32VectorIcon(Color barColor) {
-		mBarColor = barColor;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		x = x + 2;
-		y = y + 2;
 
-		drawWindow(g2, x, y, ModernWidget.LINE_COLOR);
-		
-		drawWindow(g2, x + WIDTH + 1, y, ModernWidget.LINE_COLOR);
-		
-		drawWindow(g2, x, y + HEIGHT + 2, ModernWidget.LINE_COLOR);
-		
-		drawWindow(g2, x + WIDTH * 3 / 5 + 1, y + HEIGHT * 3 / 5 + 2, mBarColor);
-	}
-	
-	/**
-	 * Draw window.
-	 *
-	 * @param g2 the g2
-	 * @param x the x
-	 * @param y the y
-	 * @param barColor the bar color
-	 */
-	private void drawWindow(Graphics2D g2, int x, int y, Color barColor) {
-		g2.setColor(Color.WHITE);
-		g2.fillRect(x, y, WIDTH, HEIGHT);
-		
-	
-		g2.setColor(ModernWidget.LINE_COLOR);
-		g2.drawRect(x, y, WIDTH - 1, HEIGHT);
-		
-		g2.setColor(barColor);
-		g2.fillRect(x, y, WIDTH, BAR_HEIGHT);
-	}
+  /**
+   * The constant WIDTH.
+   */
+  protected static final int WIDTH = 14;
+
+  /**
+   * The constant HEIGHT.
+   */
+  protected static final int HEIGHT = 12;
+
+  /**
+   * The constant BAR_HEIGHT.
+   */
+  protected static final int BAR_HEIGHT = 4;
+
+  /**
+   * The member bar color.
+   */
+  protected Color mBarColor;
+
+  /**
+   * Instantiates a new switch windows32 vector icon.
+   */
+  public SwitchWindows32VectorIcon() {
+    this(ThemeService.getInstance().colors().getColorHighlight(4));
+  }
+
+  /**
+   * Instantiates a new switch windows32 vector icon.
+   *
+   * @param barColor
+   *          the bar color
+   */
+  public SwitchWindows32VectorIcon(Color barColor) {
+    mBarColor = barColor;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    x = x + 2;
+    y = y + 2;
+
+    drawWindow(g2, x, y, ModernWidget.LINE_COLOR);
+
+    drawWindow(g2, x + WIDTH + 1, y, ModernWidget.LINE_COLOR);
+
+    drawWindow(g2, x, y + HEIGHT + 2, ModernWidget.LINE_COLOR);
+
+    drawWindow(g2, x + WIDTH * 3 / 5 + 1, y + HEIGHT * 3 / 5 + 2, mBarColor);
+  }
+
+  /**
+   * Draw window.
+   *
+   * @param g2
+   *          the g2
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param barColor
+   *          the bar color
+   */
+  private void drawWindow(Graphics2D g2, int x, int y, Color barColor) {
+    g2.setColor(Color.WHITE);
+    g2.fillRect(x, y, WIDTH, HEIGHT);
+
+    g2.setColor(ModernWidget.LINE_COLOR);
+    g2.drawRect(x, y, WIDTH - 1, HEIGHT);
+
+    g2.setColor(barColor);
+    g2.fillRect(x, y, WIDTH, BAR_HEIGHT);
+  }
 
 }

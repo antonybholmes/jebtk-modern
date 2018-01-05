@@ -42,64 +42,65 @@ import org.jebtk.core.stream.Stream;
  *
  */
 public class GuiFileFilterGroup extends GuiFileExtFilter implements Iterable<GuiFileExtFilter> {
-	
-	/** The m name. */
-	private String mName;
-	
-	/** The m filters. */
-	private List<GuiFileExtFilter> mFilters;
 
-	/**
-	 * Instantiates a new gif gui file filter.
-	 *
-	 * @param name the name
-	 * @param filters the filters
-	 */
-	public GuiFileFilterGroup(String name, 
-			GuiFileExtFilter filter,
-			GuiFileExtFilter... filters) {
-		super(getExtensions(filters));
-		
-		mName= name + " (" + Stream.of(getExtension()).join(";") + ")";
-		
-		mFilters = CollectionUtils.toList(filter, filters);
-	}
+  /** The m name. */
+  private String mName;
 
+  /** The m filters. */
+  private List<GuiFileExtFilter> mFilters;
 
+  /**
+   * Instantiates a new gif gui file filter.
+   *
+   * @param name
+   *          the name
+   * @param filters
+   *          the filters
+   */
+  public GuiFileFilterGroup(String name, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+    super(getExtensions(filters));
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return mName;
-	}
-	
-	/**
-	 * Return all the extensions of a file.
-	 *
-	 * @param filters the filters
-	 * @return the extensions
-	 */
-	private static List<String> getExtensions(GuiFileExtFilter... filters) {
-		List<String> exts = new UniqueArrayList<String>(filters.length);
-		
-		for (GuiFileExtFilter filter : filters) {
-			for (String ext : filter.getExtensions()) {
-				exts.add(ext);
-			}
-		}
-		
-		return exts;
-	}
+    mName = name + " (" + Stream.of(getExtension()).join(";") + ")";
 
+    mFilters = CollectionUtils.toList(filter, filters);
+  }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return mName;
+  }
 
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	@Override
-	public Iterator<GuiFileExtFilter> iterator() {
-		return mFilters.iterator();
-	}
+  /**
+   * Return all the extensions of a file.
+   *
+   * @param filters
+   *          the filters
+   * @return the extensions
+   */
+  private static List<String> getExtensions(GuiFileExtFilter... filters) {
+    List<String> exts = new UniqueArrayList<String>(filters.length);
+
+    for (GuiFileExtFilter filter : filters) {
+      for (String ext : filter.getExtensions()) {
+        exts.add(ext);
+      }
+    }
+
+    return exts;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  @Override
+  public Iterator<GuiFileExtFilter> iterator() {
+    return mFilters.iterator();
+  }
 }

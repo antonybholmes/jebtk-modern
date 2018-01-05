@@ -35,77 +35,78 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.text.ModernLabelBold;
 import org.jebtk.modern.text.ModernTextArea;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The default tooltip panel provides a simple titled
- * tooltip that appears below the ribbon.
+ * The default tooltip panel provides a simple titled tooltip that appears below
+ * the ribbon.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernBasicToolTipPanel extends ModernToolTipPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * The constant SIZE.
-	 */
-	public static final Dimension SIZE = new Dimension(200, 80);
-	
-	/**
-	 * The member title.
-	 */
-	private ModernAutoSizeLabel mTitle = new ModernLabelBold("");
-	
-	/**
-	 * The member text.
-	 */
-	private ModernTextArea mText = new ModernTextArea("");
-	
-	
-	/**
-	 * Instantiates a new modern basic tool tip panel.
-	 *
-	 * @param tooltip the tooltip
-	 */
-	public ModernBasicToolTipPanel(ModernToolTip tooltip) {
-		setToolTip(tooltip);
-		
-		ModernComponent panel = new ModernComponent();
-		
-		mTitle.setBorder(BOTTOM_BORDER);
-		panel.add(mTitle, BorderLayout.PAGE_START);
-		
-		mText.setEditable(false);
-		mText.setLineWrap(true);
-		mText.setWrapStyleWord(true);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		panel.add(mText, BorderLayout.CENTER);
-		
-		panel.setBorder(DOUBLE_BORDER);
-		
-		add(panel);
-	}
+  /**
+   * The constant SIZE.
+   */
+  public static final Dimension SIZE = new Dimension(200, 80);
 
-	/**
-	 * Sets the tool tip.
-	 *
-	 * @param tooltip the new tool tip
-	 */
-	public void setToolTip(ModernToolTip tooltip) {
-		mTitle.setText(tooltip.getTitle());
-		mText.setText(tooltip.getText());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.tooltip.ModernToolTipPanel#getToolTipSize()
-	 */
-	public Dimension getToolTipSize() {
-		return SIZE;
-	}
+  /**
+   * The member title.
+   */
+  private ModernAutoSizeLabel mTitle = new ModernLabelBold("");
+
+  /**
+   * The member text.
+   */
+  private ModernTextArea mText = new ModernTextArea("");
+
+  /**
+   * Instantiates a new modern basic tool tip panel.
+   *
+   * @param tooltip
+   *          the tooltip
+   */
+  public ModernBasicToolTipPanel(ModernToolTip tooltip) {
+    setToolTip(tooltip);
+
+    ModernComponent panel = new ModernComponent();
+
+    mTitle.setBorder(BOTTOM_BORDER);
+    panel.add(mTitle, BorderLayout.PAGE_START);
+
+    mText.setEditable(false);
+    mText.setLineWrap(true);
+    mText.setWrapStyleWord(true);
+
+    panel.add(mText, BorderLayout.CENTER);
+
+    panel.setBorder(DOUBLE_BORDER);
+
+    add(panel);
+  }
+
+  /**
+   * Sets the tool tip.
+   *
+   * @param tooltip
+   *          the new tool tip
+   */
+  public void setToolTip(ModernToolTip tooltip) {
+    mTitle.setText(tooltip.getTitle());
+    mText.setText(tooltip.getText());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.tooltip.ModernToolTipPanel#getToolTipSize()
+   */
+  public Dimension getToolTipSize() {
+    return SIZE;
+  }
 }

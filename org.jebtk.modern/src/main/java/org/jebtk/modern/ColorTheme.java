@@ -29,35 +29,35 @@ package org.jebtk.modern;
 
 // TODO: Auto-generated Javadoc
 /**
- * The theme engine provides some predefined theming elements
- * to give the UI a distinctive look.
+ * The theme engine provides some predefined theming elements to give the UI a
+ * distinctive look.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public enum ColorTheme {
-	
-	/**
-	 * The blue.
-	 */
-	BLUE,
-	
-	/**
-	 * The green.
-	 */
-	GREEN,
-	
-	/**
-	 * The orange.
-	 */
-	ORANGE, 
-	
-	/** The purple. */
-	PURPLE,
-	
-	/** The red. */
-	RED, 
-	
-	/** The gray. */
-	GRAY
+
+  /**
+   * The blue.
+   */
+  BLUE,
+
+  /**
+   * The green.
+   */
+  GREEN,
+
+  /**
+   * The orange.
+   */
+  ORANGE,
+
+  /** The purple. */
+  PURPLE,
+
+  /** The red. */
+  RED,
+
+  /** The gray. */
+  GRAY
 }

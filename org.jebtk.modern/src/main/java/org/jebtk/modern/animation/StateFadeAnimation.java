@@ -28,105 +28,103 @@ import org.jebtk.modern.widget.ModernClickWidget;
  */
 public abstract class StateFadeAnimation extends StateAnimation {
 
-	
+  private FadeAnimation mFade;
+  protected ModernClickWidget mButton;
+  private boolean mSelected;
 
-	private FadeAnimation mFade;
-	protected ModernClickWidget mButton;
-	private boolean mSelected;
+  /**
+   * Instantiates a new state fade animation.
+   *
+   * @param widget
+   *          the widget
+   */
+  public StateFadeAnimation(ModernClickWidget widget) {
+    super(widget);
 
-	
-	
-	
-	/**
-	 * Instantiates a new state fade animation.
-	 *
-	 * @param widget the widget
-	 */
-	public StateFadeAnimation(ModernClickWidget widget) {
-		super(widget);
-		
-		mFade = new FadeAnimation(widget);
-		
-		mButton = widget;
-		
-		if (mButton.isSelected()) {
-			opaque();
-		} else {
-			reset();
-		}
-	}
-	
-	@Override
-	public void animateState() {
-		if (mButton.isSelected()) {
-			reset();
-			mSelected = true;
-		} else {
-			opaque();
-			mSelected = false;
-		}
-		
-		start();
-	}
-	
-	@Override
-	public void animate() {
-		getWidget().repaint();
-		
-		if ((mSelected && mFade.getTrans() <= 0) || (!mSelected && mFade.getTrans() >= 1)) {
-			stop();
-		} else {
-			if (mSelected) {
-				mFade.fadeIn();
-			} else {
-				mFade.fadeOut();
-			}
-		}
-	}
-	
-	
-	public void opaque() {
-		mFade.opaque();
-	}
-	
-	public void reset() {
-		mFade.reset();
-	}
+    mFade = new FadeAnimation(widget);
 
-	/**
-	 * Adds the fade color.
-	 *
-	 * @param name the name
-	 * @param color the color
-	 */
-	public void setFadeColor(String name, Color color) {
-		mFade.setFadeColor(name, color);
-	}
-	
-	public void setFadeColor(String name, Color color1, Color color2) {
-		mFade.setFadeColor(name, color1, color2);
-	}
-	
-	public Color getFadeColor(String name) {
-		return mFade.getFadeColor(name);
-	}
-	
-	/**
-	 * Gets the fade color map.
-	 *
-	 * @return the fade color map
-	 */
-	public Map<String, Color> getFadeColorMap() {
-		return mFade.getFadeColorMap();
-	}
-	
-	/**
-	 * Gets the fade color map.
-	 *
-	 * @param step the step
-	 * @return the fade color map
-	 */
-	public Map<String, Color> getFadeColorMap(int step) {
-		return mFade.getFadeColorMap(step);
-	}
+    mButton = widget;
+
+    if (mButton.isSelected()) {
+      opaque();
+    } else {
+      reset();
+    }
+  }
+
+  @Override
+  public void animateState() {
+    if (mButton.isSelected()) {
+      reset();
+      mSelected = true;
+    } else {
+      opaque();
+      mSelected = false;
+    }
+
+    start();
+  }
+
+  @Override
+  public void animate() {
+    getWidget().repaint();
+
+    if ((mSelected && mFade.getTrans() <= 0) || (!mSelected && mFade.getTrans() >= 1)) {
+      stop();
+    } else {
+      if (mSelected) {
+        mFade.fadeIn();
+      } else {
+        mFade.fadeOut();
+      }
+    }
+  }
+
+  public void opaque() {
+    mFade.opaque();
+  }
+
+  public void reset() {
+    mFade.reset();
+  }
+
+  /**
+   * Adds the fade color.
+   *
+   * @param name
+   *          the name
+   * @param color
+   *          the color
+   */
+  public void setFadeColor(String name, Color color) {
+    mFade.setFadeColor(name, color);
+  }
+
+  public void setFadeColor(String name, Color color1, Color color2) {
+    mFade.setFadeColor(name, color1, color2);
+  }
+
+  public Color getFadeColor(String name) {
+    return mFade.getFadeColor(name);
+  }
+
+  /**
+   * Gets the fade color map.
+   *
+   * @return the fade color map
+   */
+  public Map<String, Color> getFadeColorMap() {
+    return mFade.getFadeColorMap();
+  }
+
+  /**
+   * Gets the fade color map.
+   *
+   * @param step
+   *          the step
+   * @return the fade color map
+   */
+  public Map<String, Color> getFadeColorMap(int step) {
+    return mFade.getFadeColorMap(step);
+  }
 }

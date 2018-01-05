@@ -36,7 +36,6 @@ import java.util.Map;
 
 import org.jebtk.core.collections.UniqueArrayList;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Model to determine which items to display.
@@ -45,114 +44,121 @@ import org.jebtk.core.collections.UniqueArrayList;
  *
  */
 public class FilterModel extends FilterEventListeners implements Iterable<String> {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member filter map.
-	 */
-	private Map<String, Boolean> mFilterMap = new HashMap<String, Boolean>();
-	
-	/**
-	 * The member filters.
-	 */
-	private List<String> mFilters = new UniqueArrayList<String>(100);
 
-	/**
-	 * Returns true if the item should be kept.
-	 *
-	 * @param name the name
-	 * @return the filter
-	 */
-	public boolean keep(String name) {
-		if (!mFilterMap.containsKey(name)) {
-			return true;
-		}
-		
-		return mFilterMap.get(name);
-	}
-	
-	/**
-	 * Sets which filter names are selected.
-	 *
-	 * @param names the names
-	 * @param filter the filter
-	 */
-	public void setSelected(Collection<String> names, boolean filter) {
-		clear();
-		
-		for (String name : names) {
-			mFilters.add(name);
-			mFilterMap.put(name, filter);
-		}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		fireFiltersChanged();
-	}
-	
-	/**
-	 * Sets the filters.
-	 *
-	 * @param updates the updates
-	 */
-	public void setSelected(Map<String, Boolean> updates) {
-		for (String name : updates.keySet()) {
-			mFilterMap.put(name, updates.get(name));
-		}
-		
-		fireFiltersUpdated();
-	}
-	
-	/**
-	 * Sets the filters.
-	 *
-	 * @param selected the new filters
-	 */
-	public void setFilters(boolean selected) {
-		for (String name : new HashSet<String>(mFilterMap.keySet())) {
-			mFilterMap.put(name, selected);
-		}
-		
-		fireFiltersUpdated();
-	}
-	
-	/**
-	 * Sets the filter.
-	 *
-	 * @param name the name
-	 * @param filter the filter
-	 */
-	public void setFilter(String name, boolean filter) {
-		updateFilter(name, filter);
-		
-		fireFiltersUpdated();
-	}
-	
-	public void updateFilter(String name, boolean filter) {
-		mFilters.add(name);
-		
-		mFilterMap.put(name, filter);
-	}
+  /**
+   * The member filter map.
+   */
+  private Map<String, Boolean> mFilterMap = new HashMap<String, Boolean>();
 
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	@Override
-	public Iterator<String> iterator() {
-		return mFilters.iterator();
-	}
+  /**
+   * The member filters.
+   */
+  private List<String> mFilters = new UniqueArrayList<String>(100);
 
-	
+  /**
+   * Returns true if the item should be kept.
+   *
+   * @param name
+   *          the name
+   * @return the filter
+   */
+  public boolean keep(String name) {
+    if (!mFilterMap.containsKey(name)) {
+      return true;
+    }
 
-	/**
-	 * Clear.
-	 */
-	public void clear() {
-		mFilterMap.clear();
-		mFilters.clear();
-	
-		//fireFiltersUpdated();
-	}
+    return mFilterMap.get(name);
+  }
+
+  /**
+   * Sets which filter names are selected.
+   *
+   * @param names
+   *          the names
+   * @param filter
+   *          the filter
+   */
+  public void setSelected(Collection<String> names, boolean filter) {
+    clear();
+
+    for (String name : names) {
+      mFilters.add(name);
+      mFilterMap.put(name, filter);
+    }
+
+    fireFiltersChanged();
+  }
+
+  /**
+   * Sets the filters.
+   *
+   * @param updates
+   *          the updates
+   */
+  public void setSelected(Map<String, Boolean> updates) {
+    for (String name : updates.keySet()) {
+      mFilterMap.put(name, updates.get(name));
+    }
+
+    fireFiltersUpdated();
+  }
+
+  /**
+   * Sets the filters.
+   *
+   * @param selected
+   *          the new filters
+   */
+  public void setFilters(boolean selected) {
+    for (String name : new HashSet<String>(mFilterMap.keySet())) {
+      mFilterMap.put(name, selected);
+    }
+
+    fireFiltersUpdated();
+  }
+
+  /**
+   * Sets the filter.
+   *
+   * @param name
+   *          the name
+   * @param filter
+   *          the filter
+   */
+  public void setFilter(String name, boolean filter) {
+    updateFilter(name, filter);
+
+    fireFiltersUpdated();
+  }
+
+  public void updateFilter(String name, boolean filter) {
+    mFilters.add(name);
+
+    mFilterMap.put(name, filter);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  @Override
+  public Iterator<String> iterator() {
+    return mFilters.iterator();
+  }
+
+  /**
+   * Clear.
+   */
+  public void clear() {
+    mFilterMap.clear();
+    mFilters.clear();
+
+    // fireFiltersUpdated();
+  }
 }

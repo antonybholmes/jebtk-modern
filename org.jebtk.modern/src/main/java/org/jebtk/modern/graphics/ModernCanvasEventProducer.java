@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Generate canvas events.
@@ -38,48 +37,53 @@ import org.jebtk.core.event.ChangeEvent;
  *
  */
 public interface ModernCanvasEventProducer {
-	
-	/**
-	 * Add an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void addCanvasListener(ModernCanvasListener l);
-	
-	/**
-	 * Remove an action listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeCanvasListener(ModernCanvasListener l);
-	
-	/**
-	 * Indicate that the canvas needs to be layed out again (this
-	 * may require recalculating positions etc and is considered the
-	 * more expensive option).
-	 *
-	 * @param e the e
-	 */
-	public void fireCanvasChanged(ChangeEvent e);
-	
-	/**
-	 * Indicate that the canvas needs to be redrawn.
-	 *
-	 * @param e the e
-	 */
-	public void fireCanvasRedraw(ChangeEvent e);
-	
-	/**
-	 * Indicate the canvas has been scrolled.
-	 *
-	 * @param e the e
-	 */
-	public void fireCanvasScrolled(ChangeEvent e);
-	
-	/**
-	 * Fire canvas resized.
-	 *
-	 * @param e the e
-	 */
-	public void fireCanvasResized(ChangeEvent e);
+
+  /**
+   * Add an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addCanvasListener(ModernCanvasListener l);
+
+  /**
+   * Remove an action listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeCanvasListener(ModernCanvasListener l);
+
+  /**
+   * Indicate that the canvas needs to be layed out again (this may require
+   * recalculating positions etc and is considered the more expensive option).
+   *
+   * @param e
+   *          the e
+   */
+  public void fireCanvasChanged(ChangeEvent e);
+
+  /**
+   * Indicate that the canvas needs to be redrawn.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireCanvasRedraw(ChangeEvent e);
+
+  /**
+   * Indicate the canvas has been scrolled.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireCanvasScrolled(ChangeEvent e);
+
+  /**
+   * Fire canvas resized.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireCanvasResized(ChangeEvent e);
 }

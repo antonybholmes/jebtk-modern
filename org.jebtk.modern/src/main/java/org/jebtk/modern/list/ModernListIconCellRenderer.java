@@ -36,119 +36,126 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.text.TextProperty;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a flat look table renderer for the flat table
- * although it can be used with standard JTables as well.
+ * Provides a flat look table renderer for the flat table although it can be
+ * used with standard JTables as well.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernListIconCellRenderer extends ModernListCellRenderer implements TextProperty {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member icon.
-	 */
-	protected ModernIcon mIcon = null;
-	
-	/**
-	 * The member text.
-	 */
-	protected String mText = "";
+  /**
+   * The member icon.
+   */
+  protected ModernIcon mIcon = null;
 
-	/**
-	 * Instantiates a new modern list icon cell renderer.
-	 */
-	public ModernListIconCellRenderer() {
-		// Do nothing
-	}
-	
-	/**
-	 * Instantiates a new modern list icon cell renderer.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernListIconCellRenderer(ModernIcon icon) {
-		setIcon(icon);
-	}
-	
-	/**
-	 * Sets the icon.
-	 *
-	 * @param icon the new icon
-	 */
-	public void setIcon(ModernIcon icon) {
-		mIcon = icon;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int iconX = PADDING;
-		
-		int x;
-		
-		if (mIcon != null) {
-			x = iconX + UIService.ICON_SIZE_16 + PADDING;
-		} else {
-			x = PADDING;
-		}
-		
-		int y = UIService.ICON_SIZE_16;
-		
-		g2.setFont(ModernWidget.FONT);
-		g2.setColor(TEXT_COLOR);
-		g2.drawString(mText, x, y);
-		
-		if (mIcon != null) {
-			if (mText == null || mText.length() == 0) {
-				iconX = (getWidth() - UIService.ICON_SIZE_16) / 2;
-			}
-			
-			int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
-			
-			mIcon.drawIcon(g2, new Rectangle(iconX, iconY, 16, 16));
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.list.ModernListCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList, java.lang.Object, boolean, boolean, boolean, int)
-	 */
-	@Override
-	public Component getCellRendererComponent(ModernList<?> list,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row) {
-		setText(value.toString());
+  /**
+   * The member text.
+   */
+  protected String mText = "";
 
-		return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
-	}
+  /**
+   * Instantiates a new modern list icon cell renderer.
+   */
+  public ModernListIconCellRenderer() {
+    // Do nothing
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		mText = text;
-	}
+  /**
+   * Instantiates a new modern list icon cell renderer.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernListIconCellRenderer(ModernIcon icon) {
+    setIcon(icon);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#getText()
-	 */
-	@Override
-	public String getText() {
-		return mText;
-	}
+  /**
+   * Sets the icon.
+   *
+   * @param icon
+   *          the new icon
+   */
+  public void setIcon(ModernIcon icon) {
+    mIcon = icon;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int iconX = PADDING;
+
+    int x;
+
+    if (mIcon != null) {
+      x = iconX + UIService.ICON_SIZE_16 + PADDING;
+    } else {
+      x = PADDING;
+    }
+
+    int y = UIService.ICON_SIZE_16;
+
+    g2.setFont(ModernWidget.FONT);
+    g2.setColor(TEXT_COLOR);
+    g2.drawString(mText, x, y);
+
+    if (mIcon != null) {
+      if (mText == null || mText.length() == 0) {
+        iconX = (getWidth() - UIService.ICON_SIZE_16) / 2;
+      }
+
+      int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
+
+      mIcon.drawIcon(g2, new Rectangle(iconX, iconY, 16, 16));
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.list.ModernListCellRenderer#getCellRendererComponent(
+   * org.abh.lib.ui.modern.list.ModernList, java.lang.Object, boolean, boolean,
+   * boolean, int)
+   */
+  @Override
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
+    setText(value.toString());
+
+    return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    mText = text;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#getText()
+   */
+  @Override
+  public String getText() {
+    return mText;
+  }
 }

@@ -35,61 +35,66 @@ import org.jebtk.modern.progress.ModernProgressBar;
 import org.jebtk.modern.progress.ProgressModel;
 import org.jebtk.modern.theme.ThemeService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernStatusProgressBar.
  */
 public class ModernStatusProgressBar extends ModernProgressBar {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern status progress bar.
-	 *
-	 * @param model the model
-	 */
-	public ModernStatusProgressBar(ProgressModel model) {
-		super(model);
-	}
+  /**
+   * Instantiates a new modern status progress bar.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernStatusProgressBar(ProgressModel model) {
+    super(model);
+  }
 
-	/**
-	 * Instantiates a new modern status progress bar.
-	 */
-	public ModernStatusProgressBar() {
-		
-	}
+  /**
+   * Instantiates a new modern status progress bar.
+   */
+  public ModernStatusProgressBar() {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fill(g2, ThemeService.getInstance().colors().getColorHighlight(5), getRect());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.progress.ModernProgressBar#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	public void drawForegroundAAText(Graphics2D g2) {
-		int y1 = getHeight() - this.getInsets().top;
+  }
 
-		int h = y1 - this.getInsets().bottom;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    fill(g2, ThemeService.getInstance().colors().getColorHighlight(5), getRect());
+  }
 
-		fill(g2, Color.WHITE, getInternalRect());
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.progress.ModernProgressBar#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  public void drawForegroundAAText(Graphics2D g2) {
+    int y1 = getHeight() - this.getInsets().top;
 
-		int width = (int)(mInternalRect.getW() * progressModel.getPercentComplete());
+    int h = y1 - this.getInsets().bottom;
 
-		if (width < 2) {
-			return;
-		}
+    fill(g2, Color.WHITE, getInternalRect());
 
-		Rectangle r = new Rectangle(this.getInsets().left, this.getInsets().top, width, h);
+    int width = (int) (mInternalRect.getW() * progressModel.getPercentComplete());
 
-		fill(g2, ThemeService.getInstance().colors().getColorHighlight(1), r);
-	}
+    if (width < 2) {
+      return;
+    }
+
+    Rectangle r = new Rectangle(this.getInsets().left, this.getInsets().top, width, h);
+
+    fill(g2, ThemeService.getInstance().colors().getColorHighlight(1), r);
+  }
 }

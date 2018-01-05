@@ -27,60 +27,66 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RightLineBorderComponent extends ModernComponent {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m color. */
-	private Color mColor;
-	
-	/**
-	 * Instantiates a new right line border component.
-	 */
-	public RightLineBorderComponent() {
-		this(ModernWidget.LINE_COLOR);
-	}
-	
-	/**
-	 * Instantiates a new right line border component.
-	 *
-	 * @param c the c
-	 */
-	public RightLineBorderComponent(Component c) {
-		this();
-		
-		setBody(c);
-	}
-	
-	/**
-	 * Instantiates a new right line border component.
-	 *
-	 * @param color the color
-	 */
-	public RightLineBorderComponent(Color color) {
-		mColor = color;
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new right line border component.
-	 *
-	 * @param c the c
-	 * @param color the color
-	 */
-	public RightLineBorderComponent(Component c, Color color) {
-		this(color);
-		
-		setBody(c);
-	}
+  /** The m color. */
+  private Color mColor;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		g2.setColor(mColor);
-		
-		int x = getWidth() - 1;
-		
-		g2.drawLine(x, 0, x, getHeight());
-	}
+  /**
+   * Instantiates a new right line border component.
+   */
+  public RightLineBorderComponent() {
+    this(ModernWidget.LINE_COLOR);
+  }
+
+  /**
+   * Instantiates a new right line border component.
+   *
+   * @param c
+   *          the c
+   */
+  public RightLineBorderComponent(Component c) {
+    this();
+
+    setBody(c);
+  }
+
+  /**
+   * Instantiates a new right line border component.
+   *
+   * @param color
+   *          the color
+   */
+  public RightLineBorderComponent(Color color) {
+    mColor = color;
+  }
+
+  /**
+   * Instantiates a new right line border component.
+   *
+   * @param c
+   *          the c
+   * @param color
+   *          the color
+   */
+  public RightLineBorderComponent(Component c, Color color) {
+    this(color);
+
+    setBody(c);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    g2.setColor(mColor);
+
+    int x = getWidth() - 1;
+
+    g2.drawLine(x, 0, x, getHeight());
+  }
 }

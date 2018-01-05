@@ -25,25 +25,25 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class WidgetAnimation implements Animation {
 
-	/** The m widget. */
-	private ModernWidget mWidget;
-	
-	/**
-	 * Instantiates a new widget animation.
-	 *
-	 * @param widget the widget
-	 */
-	public WidgetAnimation(ModernWidget widget) {
-		mWidget = widget;
-	}
-	
+  /** The m widget. */
+  private ModernWidget mWidget;
 
-	/**
-	 * Gets the widget.
-	 *
-	 * @return the widget
-	 */
-	public ModernWidget getWidget() {
-		return mWidget;
-	}
+  /**
+   * Instantiates a new widget animation.
+   *
+   * @param widget
+   *          the widget
+   */
+  public WidgetAnimation(ModernWidget widget) {
+    mWidget = widget;
+  }
+
+  /**
+   * Gets the widget.
+   *
+   * @return the widget
+   */
+  public ModernWidget getWidget() {
+    return mWidget;
+  }
 }

@@ -34,21 +34,25 @@ import java.awt.geom.Rectangle2D;
  * The class ShapeRectangle.
  */
 public class ShapeRectangle extends Rectangle2D.Double {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new shape rectangle.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param width the width
-	 * @param height the height
-	 */
-	public ShapeRectangle(int x, int y, int width, int height) {
-		super(x, y, width, height);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new shape rectangle.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param width
+   *          the width
+   * @param height
+   *          the height
+   */
+  public ShapeRectangle(int x, int y, int width, int height) {
+    super(x, y, width, height);
+  }
 }

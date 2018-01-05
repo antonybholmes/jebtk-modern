@@ -32,52 +32,56 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.Mathematics;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class MaxVectorIcon.
  */
 public class WindowMaxVectorIcon extends ModernVectorScalableIcon {
-	
-	/**
-	 * The constant SCALE.
-	 */
-	protected static final double SCALE = 0.6;
-	
-	/**
-	 * The member color.
-	 */
-	private Color mColor;
-	
-	/**
-	 * Instantiates a new max vector icon.
-	 */
-	public WindowMaxVectorIcon() {
-		this(Color.WHITE);
-	}
-	
-	/**
-	 * Instantiates a new max vector icon.
-	 *
-	 * @param color the color
-	 */
-	public WindowMaxVectorIcon(Color color) {
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		//g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-		g2.setColor(mColor);
-		
-		int w2 = Mathematics.makeMult2(h * SCALE); 
-	
-		x = x + (w - w2) / 2;
-		y = y + (h - w2) / 2;
-		
-		g2.drawRect(x, y, w2, w2);
-	}
+
+  /**
+   * The constant SCALE.
+   */
+  protected static final double SCALE = 0.6;
+
+  /**
+   * The member color.
+   */
+  private Color mColor;
+
+  /**
+   * Instantiates a new max vector icon.
+   */
+  public WindowMaxVectorIcon() {
+    this(Color.WHITE);
+  }
+
+  /**
+   * Instantiates a new max vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public WindowMaxVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+    g2.setColor(mColor);
+
+    int w2 = Mathematics.makeMult2(h * SCALE);
+
+    x = x + (w - w2) / 2;
+    y = y + (h - w2) / 2;
+
+    g2.drawRect(x, y, w2, w2);
+  }
 }

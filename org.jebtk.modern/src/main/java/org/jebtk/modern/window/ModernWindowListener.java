@@ -31,34 +31,33 @@ import java.util.EventListener;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving modernWindow events.
- * The class that is interested in processing a modernWindow
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addModernWindowListener<code> method. When
- * the modernWindow event occurs, that object's appropriate
- * method is invoked.
+ * The listener interface for receiving modernWindow events. The class that is
+ * interested in processing a modernWindow event implements this interface, and
+ * the object created with that class is registered with a component using the
+ * component's <code>addModernWindowListener<code> method. When the modernWindow
+ * event occurs, that object's appropriate method is invoked.
  *
  * @see ModernWindowEvent
  */
 public interface ModernWindowListener extends EventListener {
 
-	//public void windowChanged(ChangeEvent e);
-	
-	/**
-	 * Window added.
-	 *
-	 * @param e the e
-	 */
-	public void windowAdded(ChangeEvent e);
-	
-	/**
-	 * Window removed.
-	 *
-	 * @param e the e
-	 */
-	public void windowRemoved(ChangeEvent e);
+  // public void windowChanged(ChangeEvent e);
+
+  /**
+   * Window added.
+   *
+   * @param e
+   *          the e
+   */
+  public void windowAdded(ChangeEvent e);
+
+  /**
+   * Window removed.
+   *
+   * @param e
+   *          the e
+   */
+  public void windowRemoved(ChangeEvent e);
 }

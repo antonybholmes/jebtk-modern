@@ -35,72 +35,72 @@ import java.beans.PropertyChangeListener;
 
 import org.jebtk.modern.ModernComponent;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Lay components out in a vertical box and auto size their width so they
- * are always the same width as the box itself.
+ * Lay components out in a vertical box and auto size their width so they are
+ * always the same width as the box itself.
  */
 public class VBoxAutoWidth extends ModernComponent {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	private class ComponentEvents implements ComponentListener {
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		@Override
-		public void componentHidden(ComponentEvent arg0) {
-			refresh();
-		}
+  private class ComponentEvents implements ComponentListener {
 
-		@Override
-		public void componentMoved(ComponentEvent arg0) {
-			refresh();
-		}
+    @Override
+    public void componentHidden(ComponentEvent arg0) {
+      refresh();
+    }
 
-		@Override
-		public void componentResized(ComponentEvent arg0) {
-			refresh();
-		}
+    @Override
+    public void componentMoved(ComponentEvent arg0) {
+      refresh();
+    }
 
-		@Override
-		public void componentShown(ComponentEvent arg0) {
-			refresh();
-		}
-	}
-	
-	/**
-	 * Instantiates a new v box auto width panel.
-	 */
-	public VBoxAutoWidth() {
-		setLayout(new VBoxAutoWidthLayout()); //new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		
-		//addComponentListener(new ComponentEvents());
-	}
-	
-	public VBoxAutoWidth(Component c) {
-		this(); //new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		
-		setBody(c);
-		
-		c.addComponentListener(new ComponentEvents());
-		
-		c.addPropertyChangeListener("preferredSize", new PropertyChangeListener() {
+    @Override
+    public void componentResized(ComponentEvent arg0) {
+      refresh();
+    }
 
-			@Override
-			public void propertyChange(PropertyChangeEvent e) {
-				refresh();
-			}});
-	}
-	
-	private void refresh() {
-		revalidate();
-		repaint();
-	}
+    @Override
+    public void componentShown(ComponentEvent arg0) {
+      refresh();
+    }
+  }
 
-	public static ModernComponent create() {
-		return new VBoxAutoWidth();
-	}
+  /**
+   * Instantiates a new v box auto width panel.
+   */
+  public VBoxAutoWidth() {
+    setLayout(new VBoxAutoWidthLayout()); // new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
+    // addComponentListener(new ComponentEvents());
+  }
+
+  public VBoxAutoWidth(Component c) {
+    this(); // new BoxLayout(this, BoxLayout.PAGE_AXIS));
+
+    setBody(c);
+
+    c.addComponentListener(new ComponentEvents());
+
+    c.addPropertyChangeListener("preferredSize", new PropertyChangeListener() {
+
+      @Override
+      public void propertyChange(PropertyChangeEvent e) {
+        refresh();
+      }
+    });
+  }
+
+  private void refresh() {
+    revalidate();
+    repaint();
+  }
+
+  public static ModernComponent create() {
+    return new VBoxAutoWidth();
+  }
 }

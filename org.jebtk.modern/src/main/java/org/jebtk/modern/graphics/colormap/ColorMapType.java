@@ -20,13 +20,13 @@ package org.jebtk.modern.graphics.colormap;
  * The Enum ColorMapType.
  */
 public enum ColorMapType {
-	
-	/** The two color. */
-	TWO_COLOR,
-	
-	/** The three color. */
-	THREE_COLOR,
-	
-	/** The five color. */
-	FIVE_COLOR
+
+  /** The two color. */
+  TWO_COLOR,
+
+  /** The three color. */
+  THREE_COLOR,
+
+  /** The five color. */
+  FIVE_COLOR
 }

@@ -48,144 +48,168 @@ import org.jebtk.modern.text.TextProperty;
 /**
  * The class ModernSearchPanel.
  */
-public class ModernSearchPanel extends ModernLineBorderPanel implements ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+public class ModernSearchPanel extends ModernLineBorderPanel
+    implements ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member search button.
-	 */
-	private ModernButton mSearchButton =
-			new ModernButton(UIService.getInstance().loadIcon(SearchVectorIcon.class, 16));
+  /**
+   * The member search button.
+   */
+  private ModernButton mSearchButton = new ModernButton(UIService.getInstance().loadIcon(SearchVectorIcon.class, 16));
 
-	/**
-	 * The member search field.
-	 */
-	private ModernTextField mSearchField = new ModernClipboardTextField();
+  /**
+   * The member search field.
+   */
+  private ModernTextField mSearchField = new ModernClipboardTextField();
 
-	/**
-	 * The member listeners.
-	 */
-	private ModernClickListeners mListeners = new ModernClickListeners();
+  /**
+   * The member listeners.
+   */
+  private ModernClickListeners mListeners = new ModernClickListeners();
 
+  /**
+   * The member model.
+   */
+  private SearchModel mModel;
 
-	/**
-	 * The member model.
-	 */
-	private SearchModel mModel;
-	
-	/**
-	 * Instantiates a new modern search panel.
-	 */
-	public ModernSearchPanel() {
-		this(new SearchModel());
-	}
-	
-	/**
-	 * Instantiates a new modern search panel.
-	 *
-	 * @param model the model
-	 */
-	public ModernSearchPanel(SearchModel model) {
-		mModel = model;
-		
-		mSearchField.setBorder(LEFT_BORDER);
-		add(mSearchField);
-		add(mSearchButton, BorderLayout.LINE_END);
+  /**
+   * Instantiates a new modern search panel.
+   */
+  public ModernSearchPanel() {
+    this(new SearchModel());
+  }
 
-		mSearchField.addKeyListener(this);
-		mSearchButton.addClickListener(this);
-		
-		mSearchField.setText(mModel.get());
-		
-		
-	}
+  /**
+   * Instantiates a new modern search panel.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernSearchPanel(SearchModel model) {
+    mModel = model;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	@Override
-	public void addClickListener(ModernClickListener l) {
-		mListeners.addClickListener(l);
-	}
+    mSearchField.setBorder(LEFT_BORDER);
+    add(mSearchField);
+    add(mSearchButton, BorderLayout.LINE_END);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.abh.lib.ui.modern.event.ModernClickListener)
-	 */
-	@Override
-	public void removeClickListener(ModernClickListener l) {
-		mListeners.removeClickListener(l);
-	}
+    mSearchField.addKeyListener(this);
+    mSearchButton.addClickListener(this);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void fireClicked(ModernClickEvent e) {
-		mListeners.fireClicked(e);
-	}
-	
-	/**
-	 * Fire clicked.
-	 */
-	public void fireClicked() {
-		mModel.set(getText());
-		
-		fireClicked((new ModernClickEvent(this, UI.MENU_SEARCH)));
-	}
+    mSearchField.setText(mModel.get());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public final void clicked(ModernClickEvent e) {
-		fireClicked();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-			fireClicked();
-		}
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh
+   * .lib.ui.modern.event.ModernClickListener)
+   */
+  @Override
+  public void addClickListener(ModernClickListener l) {
+    mListeners.addClickListener(l);
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#getText()
-	 */
-	public String getText() {
-		return mSearchField.getText();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.
+   * abh.lib.ui.modern.event.ModernClickListener)
+   */
+  @Override
+  public void removeClickListener(ModernClickListener l) {
+    mListeners.removeClickListener(l);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		mSearchField.setText(text);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.
+   * ui.modern.event.ModernClickEvent)
+   */
+  @Override
+  public void fireClicked(ModernClickEvent e) {
+    mListeners.fireClicked(e);
+  }
+
+  /**
+   * Fire clicked.
+   */
+  public void fireClicked() {
+    mModel.set(getText());
+
+    fireClicked((new ModernClickEvent(this, UI.MENU_SEARCH)));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public final void clicked(ModernClickEvent e) {
+    fireClicked();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
+   */
+  @Override
+  public void keyPressed(KeyEvent e) {
+    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+      fireClicked();
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.KeyListener#keyReleased(java.awt.event.KeyEvent)
+   */
+  @Override
+  public void keyReleased(KeyEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
+   */
+  @Override
+  public void keyTyped(KeyEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#getText()
+   */
+  public String getText() {
+    return mSearchField.getText();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    mSearchField.setText(text);
+  }
 }

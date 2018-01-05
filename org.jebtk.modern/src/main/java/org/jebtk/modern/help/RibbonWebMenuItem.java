@@ -43,41 +43,46 @@ import org.jebtk.modern.ribbon.RibbonMenuItem;
  *
  */
 public class RibbonWebMenuItem extends RibbonMenuItem implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The file.
-	 */
-	private File file;
+  /**
+   * The file.
+   */
+  private File file;
 
-	/**
-	 * Instantiates a new ribbon web menu item.
-	 *
-	 * @param title the title
-	 * @param file the file
-	 */
-	public RibbonWebMenuItem(String title, File file) {
-		super(title);
-		
-		this.file = file;
-		
-		this.addClickListener(this);
-	}
+  /**
+   * Instantiates a new ribbon web menu item.
+   *
+   * @param title
+   *          the title
+   * @param file
+   *          the file
+   */
+  public RibbonWebMenuItem(String title, File file) {
+    super(title);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void clicked(ModernClickEvent e) {
-		try {
-			Desktop.getDesktop().browse(file.toURI());
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-	}
+    this.file = file;
+
+    this.addClickListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public void clicked(ModernClickEvent e) {
+    try {
+      Desktop.getDesktop().browse(file.toURI());
+    } catch (IOException ex) {
+      ex.printStackTrace();
+    }
+  }
 
 }

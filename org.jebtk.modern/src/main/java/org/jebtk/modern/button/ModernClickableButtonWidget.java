@@ -36,105 +36,113 @@ import javax.swing.KeyStroke;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a clickable button widget with highlighting
- * but does not provide the rest of the gui.
+ * Provides a clickable button widget with highlighting but does not provide the
+ * rest of the gui.
  *
  * @author Antony Holmes Holmes
  */
 public abstract class ModernClickableButtonWidget extends ModernButtonWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			if (!e.isPopupTrigger() && isEnabled()) {
-				fireClicked();
-			}
-		}
-	}
-	
-	/**
-	 * The class ActionEvents.
-	 */
-	private class ActionEvents extends AbstractAction {
 
-		/**
-		 * The constant serialVersionUID.
-		 */
-		private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			fireClicked();
-		}
-	}
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
 
-	/**
-	 * Instantiates a new modern clickable button widget.
-	 */
-	public ModernClickableButtonWidget() {
-		setup();
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      if (!e.isPopupTrigger() && isEnabled()) {
+        fireClicked();
+      }
+    }
+  }
 
-	/**
-	 * Instantiates a new modern clickable button widget.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernClickableButtonWidget(String text1) {
-		super(text1);
-		
-		setup();
-	}
+  /**
+   * The class ActionEvents.
+   */
+  private class ActionEvents extends AbstractAction {
 
-	/**
-	 * Instantiates a new modern clickable button widget.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernClickableButtonWidget(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern clickable button widget.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 */
-	public ModernClickableButtonWidget(String text1, ModernIcon icon) {
-		super(text1, icon);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		addMouseListener(new MouseEvents());
-		
-		// respond to enter key
-		getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"), "enter_pressed");
-	    getActionMap().put("enter_pressed", new ActionEvents());
-	}
+    /**
+     * The constant serialVersionUID.
+     */
+    private static final long serialVersionUID = 1L;
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+     */
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      fireClicked();
+    }
+  }
+
+  /**
+   * Instantiates a new modern clickable button widget.
+   */
+  public ModernClickableButtonWidget() {
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern clickable button widget.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernClickableButtonWidget(String text1) {
+    super(text1);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern clickable button widget.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernClickableButtonWidget(ModernIcon icon) {
+    super(icon);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern clickable button widget.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   */
+  public ModernClickableButtonWidget(String text1, ModernIcon icon) {
+    super(text1, icon);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    addMouseListener(new MouseEvents());
+
+    // respond to enter key
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"), "enter_pressed");
+    getActionMap().put("enter_pressed", new ActionEvents());
+  }
 }

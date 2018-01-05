@@ -29,35 +29,35 @@ package org.jebtk.modern.dialog;
 
 import org.jebtk.modern.window.FrostedGlassPane;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Used as a glass pane to present messages to the user in the 
- * current window rather than a popup dialog.
+ * Used as a glass pane to present messages to the user in the current window
+ * rather than a popup dialog.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class MessageDialogStatusGlassPane extends FrostedGlassPane {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member listeners.
-	 */
-	protected DialogEventListeners mListeners = new DialogEventListeners();
-	
-	/**
-	 * Show message.
-	 *
-	 * @param message the message
-	 * @param l the l
-	 */
-	public void showMessage(String message, 
-			DialogEventListener l) {
-		mListeners.addDialogListener(l);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member listeners.
+   */
+  protected DialogEventListeners mListeners = new DialogEventListeners();
+
+  /**
+   * Show message.
+   *
+   * @param message
+   *          the message
+   * @param l
+   *          the l
+   */
+  public void showMessage(String message, DialogEventListener l) {
+    mListeners.addDialogListener(l);
+  }
 }

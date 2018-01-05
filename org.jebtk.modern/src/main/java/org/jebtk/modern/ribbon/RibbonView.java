@@ -32,51 +32,49 @@ import java.util.List;
 
 import org.jebtk.modern.tabs.TabsModel;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * The ribbon consists of one or more views. Each view
- * contains the toolbars associated with that view.
+ * The ribbon consists of one or more views. Each view contains the toolbars
+ * associated with that view.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class RibbonView extends TabsModel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The titles.
-	 */
-	public List<String> titles = new ArrayList<String>();
-	
-	/**
-	 * The tab widths.
-	 */
-	public List<Integer> tabWidths = new ArrayList<Integer>();
-	
-	/**
-	 * The tab starts.
-	 */
-	public List<Integer> tabStarts = new ArrayList<Integer>();
 
-	/**
-	 * The member name.
-	 */
-	public String mName;
-	
-	/**
-	 * Instantiates a new ribbon view.
-	 *
-	 * @param name the name
-	 */
-	public RibbonView(String name) {
-		mName = name;
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	
+  /**
+   * The titles.
+   */
+  public List<String> titles = new ArrayList<String>();
+
+  /**
+   * The tab widths.
+   */
+  public List<Integer> tabWidths = new ArrayList<Integer>();
+
+  /**
+   * The tab starts.
+   */
+  public List<Integer> tabStarts = new ArrayList<Integer>();
+
+  /**
+   * The member name.
+   */
+  public String mName;
+
+  /**
+   * Instantiates a new ribbon view.
+   *
+   * @param name
+   *          the name
+   */
+  public RibbonView(String name) {
+    mName = name;
+  }
+
 }

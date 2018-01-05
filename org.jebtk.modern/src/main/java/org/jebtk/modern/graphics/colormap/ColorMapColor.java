@@ -42,94 +42,113 @@ import org.w3c.dom.Element;
  */
 public class ColorMapColor extends Color implements XmlRepresentation, JsonRepresentation {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new color map color.
-	 *
-	 * @param r the r
-	 * @param g the g
-	 * @param b the b
-	 */
-	public ColorMapColor(int r, int g, int b) {
-		super(r, g, b);
-	}
+  /**
+   * Instantiates a new color map color.
+   *
+   * @param r
+   *          the r
+   * @param g
+   *          the g
+   * @param b
+   *          the b
+   */
+  public ColorMapColor(int r, int g, int b) {
+    super(r, g, b);
+  }
 
-	/**
-	 * Instantiates a new color map color.
-	 *
-	 * @param r the r
-	 * @param g the g
-	 * @param b the b
-	 * @param a the a
-	 */
-	public ColorMapColor(int r, int g, int b, int a) {
-		super(r, g, b, a);
-	}
+  /**
+   * Instantiates a new color map color.
+   *
+   * @param r
+   *          the r
+   * @param g
+   *          the g
+   * @param b
+   *          the b
+   * @param a
+   *          the a
+   */
+  public ColorMapColor(int r, int g, int b, int a) {
+    super(r, g, b, a);
+  }
 
-	/**
-	 * Instantiates a new color map color.
-	 *
-	 * @param r the r
-	 * @param g the g
-	 * @param b the b
-	 */
-	public ColorMapColor(float r, float g, float b) {
-		super(r, g, b);
-	}
-	
-	/**
-	 * Instantiates a new color map color.
-	 *
-	 * @param r the r
-	 * @param g the g
-	 * @param b the b
-	 * @param a the a
-	 */
-	public ColorMapColor(float r, float g, float b, float a) {
-		super(r, g, b, a);
-	}
+  /**
+   * Instantiates a new color map color.
+   *
+   * @param r
+   *          the r
+   * @param g
+   *          the g
+   * @param b
+   *          the b
+   */
+  public ColorMapColor(float r, float g, float b) {
+    super(r, g, b);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.xml.XmlRepresentation#toXml()
-	 */
-	@Override
-	public Element toXml(Document doc) {
-		Element element = doc.createElement("color");
-		
-		element.setAttribute("r", Integer.toString(getRed()));
-		element.setAttribute("g", Integer.toString(getGreen()));
-		element.setAttribute("b", Integer.toString(getBlue()));
-		element.setAttribute("a", Integer.toString(getAlpha()));
-		
-		return element;
-	}
+  /**
+   * Instantiates a new color map color.
+   *
+   * @param r
+   *          the r
+   * @param g
+   *          the g
+   * @param b
+   *          the b
+   * @param a
+   *          the a
+   */
+  public ColorMapColor(float r, float g, float b, float a) {
+    super(r, g, b, a);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.json.JsonRepresentation#toJson()
-	 */
-	@Override
-	public Json toJson() {
-		Json element = new JsonObject();
-		
-		element.add("r", getRed());
-		element.add("g", getGreen());
-		element.add("b", getBlue());
-		element.add("a", getAlpha());
-		
-		return element;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.xml.XmlRepresentation#toXml()
+   */
+  @Override
+  public Element toXml(Document doc) {
+    Element element = doc.createElement("color");
 
-	/**
-	 * Creates the.
-	 *
-	 * @param c the c
-	 * @return the color map color
-	 */
-	public static ColorMapColor create(Color c) {
-		return new ColorMapColor(c.getRed(), c.getGreen(), c.getBlue(), c.getAlpha());
-	}
+    element.setAttribute("r", Integer.toString(getRed()));
+    element.setAttribute("g", Integer.toString(getGreen()));
+    element.setAttribute("b", Integer.toString(getBlue()));
+    element.setAttribute("a", Integer.toString(getAlpha()));
+
+    return element;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.json.JsonRepresentation#toJson()
+   */
+  @Override
+  public Json toJson() {
+    Json element = new JsonObject();
+
+    element.add("r", getRed());
+    element.add("g", getGreen());
+    element.add("b", getBlue());
+    element.add("a", getAlpha());
+
+    return element;
+  }
+
+  /**
+   * Creates the.
+   *
+   * @param c
+   *          the c
+   * @return the color map color
+   */
+  public static ColorMapColor create(Color c) {
+    return new ColorMapColor(c.getRed(), c.getGreen(), c.getBlue(), c.getAlpha());
+  }
 }

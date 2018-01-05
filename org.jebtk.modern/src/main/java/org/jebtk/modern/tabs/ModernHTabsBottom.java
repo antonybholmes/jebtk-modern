@@ -31,8 +31,6 @@ import java.awt.BorderLayout;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides horizontal tabs along the bottom of the control.
@@ -41,25 +39,26 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernHTabsBottom extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new modern h tabs bottom.
-	 *
-	 * @param model the model
-	 */
-	public ModernHTabsBottom(TabsModel model) {
-		TabsViewPanel viewPanel = new TabsViewPanel(model);
-		
-		ModernHTabBar tabsBar = new ModernHTabBarBottom(model);
-		
-		//viewPanel.setBorder(BOTTOM_BORDER);
-		
-		add(viewPanel, BorderLayout.CENTER);
-		add(tabsBar, BorderLayout.PAGE_END);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern h tabs bottom.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernHTabsBottom(TabsModel model) {
+    TabsViewPanel viewPanel = new TabsViewPanel(model);
+
+    ModernHTabBar tabsBar = new ModernHTabBarBottom(model);
+
+    // viewPanel.setBorder(BOTTOM_BORDER);
+
+    add(viewPanel, BorderLayout.CENTER);
+    add(tabsBar, BorderLayout.PAGE_END);
+  }
 }

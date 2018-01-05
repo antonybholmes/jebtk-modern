@@ -29,37 +29,37 @@ import org.jebtk.modern.widget.ModernWidget;
  * Provides the fade animation for quick access buttons
  */
 public class RibbonBackMenuAnimation extends HoverFadeAnimation {
-	
-	private static final Color MENU_SELECTED_COLOR_2 = 
-			ThemeService.getInstance().colors().getHighlight32(12);
 
-	/**
-	 * Instantiates a new quick access animation.
-	 *
-	 * @param button the button
-	 */
-	public RibbonBackMenuAnimation(ModernClickWidget button) {
-		super(button);
-		
-		//setFadeColor("fill", RibbonBackMenuItem.BASE_COLOR, Color.WHITE);
-		setFadeColor("fill", RibbonMenuItem.MENU_SELECTED_COLOR, MENU_SELECTED_COLOR_2);
-	}
-	
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+  private static final Color MENU_SELECTED_COLOR_2 = ThemeService.getInstance().colors().getHighlight32(12);
 
-		try {
-			g2Temp.setStroke(new BasicStroke(2));
+  /**
+   * Instantiates a new quick access animation.
+   *
+   * @param button
+   *          the button
+   */
+  public RibbonBackMenuAnimation(ModernClickWidget button) {
+    super(button);
 
-			g2Temp.setColor(getFadeColor("fill"));
+    // setFadeColor("fill", RibbonBackMenuItem.BASE_COLOR, Color.WHITE);
+    setFadeColor("fill", RibbonMenuItem.MENU_SELECTED_COLOR, MENU_SELECTED_COLOR_2);
+  }
 
-			int x = (widget.getWidth() - RibbonBackMenuItem.HEIGHT) / 2;
-			int y = (widget.getHeight() - RibbonBackMenuItem.HEIGHT) / 2;
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
-			RibbonBackMenuItem.drawIcon(g2Temp, x, y);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+    try {
+      g2Temp.setStroke(new BasicStroke(2));
+
+      g2Temp.setColor(getFadeColor("fill"));
+
+      int x = (widget.getWidth() - RibbonBackMenuItem.HEIGHT) / 2;
+      int y = (widget.getHeight() - RibbonBackMenuItem.HEIGHT) / 2;
+
+      RibbonBackMenuItem.drawIcon(g2Temp, x, y);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 }

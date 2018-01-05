@@ -34,71 +34,63 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class ListChangeAnimation extends TranslateYAnimation {
 
-	private ModernList<?> mTabs;
+  private ModernList<?> mTabs;
 
-	
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public ListChangeAnimation(ModernWidget tabs) {
-		super((ModernList<?>)tabs);
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public ListChangeAnimation(ModernWidget tabs) {
+    super((ModernList<?>) tabs);
 
-		mTabs = (ModernList<?>)tabs;
-		
-		mTabs.getSelectionModel().addSelectionListener(new ModernSelectionListener() {
-			@Override
-			public void selectionChanged(ChangeEvent e) {
-				restart();
-			}
-		});
-		
-		/*
-		mTabs.addComponentListener(new ComponentAdapter() {
+    mTabs = (ModernList<?>) tabs;
 
-			@Override
-			public void componentResized(ComponentEvent arg0) {
-				restart();
-			}});
-		*/
-	}
-	
-	public void restart() {
-		int selectedIndex = mTabs.getSelectionModel().getCurrent();
-		int previousIndex = mTabs.getSelectionModel().getPrevious();
-		
-		if (previousIndex > selectedIndex) {
-			previousIndex = selectedIndex + 1;
-		}
-		
-		if (previousIndex < selectedIndex) {
-			previousIndex = selectedIndex - 1;
-		}
-		
-		previousIndex = 
-				Mathematics.bound(previousIndex, 0, mTabs.getItemCount() - 1);
-		
-		selectedIndex = 
-				Mathematics.bound(selectedIndex, 0, mTabs.getItemCount() - 1);
-			
-		
-		int y1 = mTabs.getInsets().top + 
-				previousIndex * mTabs.mRowHeight;
-		
-		int y2 = mTabs.getInsets().top + 
-				selectedIndex * mTabs.mRowHeight;
-		
-		restart(y1, y2);
-	}
-	
-	@Override
-	public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
-		//g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR);
-		//g2.fill(mTabs.mP);
-		//g2.fillRect(0, 0, widget.getWidth(), mTabs.mRowHeight);
-		
-		widget.getWidgetRenderer().drawMenu(g2, 0, 0, widget.getWidth(), mTabs.mRowHeight, RenderMode.SELECTED, false);
-		
-	}	
+    mTabs.getSelectionModel().addSelectionListener(new ModernSelectionListener() {
+      @Override
+      public void selectionChanged(ChangeEvent e) {
+        restart();
+      }
+    });
+
+    /*
+     * mTabs.addComponentListener(new ComponentAdapter() {
+     * 
+     * @Override public void componentResized(ComponentEvent arg0) { restart(); }});
+     */
+  }
+
+  public void restart() {
+    int selectedIndex = mTabs.getSelectionModel().getCurrent();
+    int previousIndex = mTabs.getSelectionModel().getPrevious();
+
+    if (previousIndex > selectedIndex) {
+      previousIndex = selectedIndex + 1;
+    }
+
+    if (previousIndex < selectedIndex) {
+      previousIndex = selectedIndex - 1;
+    }
+
+    previousIndex = Mathematics.bound(previousIndex, 0, mTabs.getItemCount() - 1);
+
+    selectedIndex = Mathematics.bound(selectedIndex, 0, mTabs.getItemCount() - 1);
+
+    int y1 = mTabs.getInsets().top + previousIndex * mTabs.mRowHeight;
+
+    int y2 = mTabs.getInsets().top + selectedIndex * mTabs.mRowHeight;
+
+    restart(y1, y2);
+  }
+
+  @Override
+  public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
+    // g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR);
+    // g2.fill(mTabs.mP);
+    // g2.fillRect(0, 0, widget.getWidth(), mTabs.mRowHeight);
+
+    widget.getWidgetRenderer().drawMenu(g2, 0, 0, widget.getWidth(), mTabs.mRowHeight, RenderMode.SELECTED, false);
+
+  }
 }

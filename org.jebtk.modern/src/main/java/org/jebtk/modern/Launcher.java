@@ -36,11 +36,10 @@ package org.jebtk.modern;
  */
 public interface Launcher {
 
-	/**
-	 * Should start the application in its default state with no
-	 * arguments.
-	 * 
-	 */
-	public void main();
+  /**
+   * Should start the application in its default state with no arguments.
+   * 
+   */
+  public void main();
 
 }

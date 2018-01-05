@@ -22,72 +22,78 @@ import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
- * A horizontal box that automatically adds a space between components. 
- * Can be used to quickly create simple tool bars.
+ * A horizontal box that automatically adds a space between components. Can be
+ * used to quickly create simple tool bars.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class HSpacedBox extends HBox {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m space. */
-	private int mSpace = ModernWidget.PADDING;
-	
-	/**
-	 * Instantiates a new h spaced box.
-	 */
-	public HSpacedBox() {
-		this(ModernWidget.PADDING);
-	}
-	
-	/**
-	 * Instantiates a new h spaced box.
-	 *
-	 * @param space the space
-	 */
-	public HSpacedBox(int space) {
-		mSpace = space;
-	}
-	
-	/**
-	 * Create a horizontal box containing some components with the default
-	 * amount of space between each.
-	 *
-	 * @param components the components
-	 */
-	public HSpacedBox(Component... components) {
-		this(ModernWidget.PADDING, components);
-	}
-	
-	/**
-	 * Instantiates a new h spaced box.
-	 *
-	 * @param space the space
-	 * @param components the components
-	 */
-	public HSpacedBox(int space, Component... components) {
-		this(space);
-		
-		for (Component c : components) {
-			add(c);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component c) {
-		if (getComponentCount() > 0) {
-			super.add(UI.createHGap(mSpace));
-		}
-		
-		super.add(c);
-		
-		return this;
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /** The m space. */
+  private int mSpace = ModernWidget.PADDING;
+
+  /**
+   * Instantiates a new h spaced box.
+   */
+  public HSpacedBox() {
+    this(ModernWidget.PADDING);
+  }
+
+  /**
+   * Instantiates a new h spaced box.
+   *
+   * @param space
+   *          the space
+   */
+  public HSpacedBox(int space) {
+    mSpace = space;
+  }
+
+  /**
+   * Create a horizontal box containing some components with the default amount of
+   * space between each.
+   *
+   * @param components
+   *          the components
+   */
+  public HSpacedBox(Component... components) {
+    this(ModernWidget.PADDING, components);
+  }
+
+  /**
+   * Instantiates a new h spaced box.
+   *
+   * @param space
+   *          the space
+   * @param components
+   *          the components
+   */
+  public HSpacedBox(int space, Component... components) {
+    this(space);
+
+    for (Component c : components) {
+      add(c);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component c) {
+    if (getComponentCount() > 0) {
+      super.add(UI.createHGap(mSpace));
+    }
+
+    super.add(c);
+
+    return this;
+  }
 
 }

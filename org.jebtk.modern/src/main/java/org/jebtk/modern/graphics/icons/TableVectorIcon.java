@@ -33,78 +33,81 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class TableVectorIcon.
  */
 public class TableVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The member color.
-	 */
-	//private String text;
-	protected Color mColor;
 
-	/**
-	 * The constant WIDTH_SCALE.
-	 */
-	protected static final double WIDTH_SCALE = 0.9;
-	
-	/**
-	 * The constant HEIGHT_SCALE.
-	 */
-	protected static final double HEIGHT_SCALE = 0.8;
-	
-	/**
-	 * Instantiates a new table vector icon.
-	 */
-	public TableVectorIcon() {
-		this(ThemeService.getInstance().colors().getColorHighlight(4));
-	}
-	
-	/**
-	 * Instantiates a new table vector icon.
-	 *
-	 * @param color the color
-	 */
-	public TableVectorIcon(Color color) {
-		mColor = color;
-	}
+  /**
+   * The member color.
+   */
+  // private String text;
+  protected Color mColor;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		double wf = w * WIDTH_SCALE;
-		double hf = w * HEIGHT_SCALE;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - hf) / 2.0;
-		
-	
-		double barH = hf * 0.25;
-		
-		g2.setColor(ModernWidget.BACKGROUND_COLOR);
-		g2.fillRect((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(wf), (int)Math.round(hf));
-		
-		g2.setColor(ModernWidget.DARK_LINE_COLOR);
-		g2.drawRect((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(wf), (int)Math.round(hf));
-		
-		g2.setColor(mColor);
-		g2.fillRect((int)Math.round(xf), (int)Math.round(yf), (int)(Math.round(wf) + 1), (int)Math.round(barH));
-		
-		/*
-		g2.setColor(ModernTheme.getInstance().getClass("widget").getColor("text"));
-		
-		g2.setFont(ThemeService.loadFont("widget.text"));
-		
-		double x = x + (w - g2.getFontMetrics().stringWidth(text)) / 2.0;
-		double y = y + h * 0.75;
-		
-		g2.drawString(text, (int)x, (int)y);
-		*/
-	}
+  /**
+   * The constant WIDTH_SCALE.
+   */
+  protected static final double WIDTH_SCALE = 0.9;
+
+  /**
+   * The constant HEIGHT_SCALE.
+   */
+  protected static final double HEIGHT_SCALE = 0.8;
+
+  /**
+   * Instantiates a new table vector icon.
+   */
+  public TableVectorIcon() {
+    this(ThemeService.getInstance().colors().getColorHighlight(4));
+  }
+
+  /**
+   * Instantiates a new table vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public TableVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    double wf = w * WIDTH_SCALE;
+    double hf = w * HEIGHT_SCALE;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - hf) / 2.0;
+
+    double barH = hf * 0.25;
+
+    g2.setColor(ModernWidget.BACKGROUND_COLOR);
+    g2.fillRect((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(hf));
+
+    g2.setColor(ModernWidget.DARK_LINE_COLOR);
+    g2.drawRect((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(hf));
+
+    g2.setColor(mColor);
+    g2.fillRect((int) Math.round(xf), (int) Math.round(yf), (int) (Math.round(wf) + 1), (int) Math.round(barH));
+
+    /*
+     * g2.setColor(ModernTheme.getInstance().getClass("widget").getColor("text"));
+     * 
+     * g2.setFont(ThemeService.loadFont("widget.text"));
+     * 
+     * double x = x + (w - g2.getFontMetrics().stringWidth(text)) / 2.0; double y =
+     * y + h * 0.75;
+     * 
+     * g2.drawString(text, (int)x, (int)y);
+     */
+  }
 
 }

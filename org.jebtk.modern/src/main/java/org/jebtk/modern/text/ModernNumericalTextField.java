@@ -31,72 +31,71 @@ import javax.swing.JTextField;
 
 import org.jebtk.modern.UI;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernNumericalTextField.
  */
 public class ModernNumericalTextField extends ModernTextField {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern numerical text field.
-	 */
-	public ModernNumericalTextField() {
+  /**
+   * Instantiates a new modern numerical text field.
+   */
+  public ModernNumericalTextField() {
 
-		setHorizontalAlignment(JTextField.RIGHT);
+    setHorizontalAlignment(JTextField.RIGHT);
 
-	    UI.setSize(this, TEXT_BOX_SIZE);
-	}
+    UI.setSize(this, TEXT_BOX_SIZE);
+  }
 
-	/**
-	 * Instantiates a new modern numerical text field.
-	 *
-	 * @param text the text
-	 */
-	public ModernNumericalTextField(String text) {
+  /**
+   * Instantiates a new modern numerical text field.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernNumericalTextField(String text) {
 
-		super(text);
+    super(text);
 
-		setHorizontalAlignment(JTextField.RIGHT);
+    setHorizontalAlignment(JTextField.RIGHT);
 
-	    UI.setSize(this, TEXT_BOX_SIZE);
-	}
-	
-	/**
-	 * Instantiates a new modern numerical text field.
-	 *
-	 * @param value the value
-	 */
-	public ModernNumericalTextField(int value) {
-		this(Integer.toString(value));
-	}
-	
-	public ModernNumericalTextField(int v, boolean enabled) {
-		this(v);
+    UI.setSize(this, TEXT_BOX_SIZE);
+  }
 
-		setEnabled(enabled);
-	}
-	
-	/**
-	 * Instantiates a new modern numerical text field.
-	 *
-	 * @param value the value
-	 */
-	public ModernNumericalTextField(double value) {
-		this(Double.toString(value));
-	}
-	
-	public ModernNumericalTextField(double v, boolean enabled) {
-		this(v);
+  /**
+   * Instantiates a new modern numerical text field.
+   *
+   * @param value
+   *          the value
+   */
+  public ModernNumericalTextField(int value) {
+    this(Integer.toString(value));
+  }
 
-		setEnabled(enabled);
-	}
+  public ModernNumericalTextField(int v, boolean enabled) {
+    this(v);
+
+    setEnabled(enabled);
+  }
+
+  /**
+   * Instantiates a new modern numerical text field.
+   *
+   * @param value
+   *          the value
+   */
+  public ModernNumericalTextField(double value) {
+    this(Double.toString(value));
+  }
+
+  public ModernNumericalTextField(double v, boolean enabled) {
+    this(v);
+
+    setEnabled(enabled);
+  }
 }

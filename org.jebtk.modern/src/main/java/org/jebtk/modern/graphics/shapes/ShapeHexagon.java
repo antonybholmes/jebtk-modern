@@ -38,35 +38,38 @@ import org.jebtk.core.Mathematics;
  * @author Antony Holmes Holmes
  */
 public class ShapeHexagon extends Polygon {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The t angle. */
-	public static double T_ANGLE = Math.tan(Mathematics.HALF_PI / 3);
 
-	/**
-	 * Instantiates a new shape diamond.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param size the size
-	 */
-	public ShapeHexagon(int x, int y, int size) {
-		int h2 = size / 2;
-		int h = h2 * 2;
-		int l = (int)(T_ANGLE * h2) - 1;
-		
-		--h;
-		--h2;
-		
-		addPoint(x, y + h2);
-		addPoint(x + l, y);
-		addPoint(x + size - l - 1, y);
-		addPoint(x + size - 1, y + h2);
-		addPoint(x + size - l - 1, y + h);
-		addPoint(x + l, y + h);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /** The t angle. */
+  public static double T_ANGLE = Math.tan(Mathematics.HALF_PI / 3);
+
+  /**
+   * Instantiates a new shape diamond.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param size
+   *          the size
+   */
+  public ShapeHexagon(int x, int y, int size) {
+    int h2 = size / 2;
+    int h = h2 * 2;
+    int l = (int) (T_ANGLE * h2) - 1;
+
+    --h;
+    --h2;
+
+    addPoint(x, y + h2);
+    addPoint(x + l, y);
+    addPoint(x + size - l - 1, y);
+    addPoint(x + size - 1, y + h2);
+    addPoint(x + size - l - 1, y + h);
+    addPoint(x + l, y + h);
+  }
 }

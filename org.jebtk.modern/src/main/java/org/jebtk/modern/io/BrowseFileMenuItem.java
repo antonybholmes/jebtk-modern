@@ -38,18 +38,18 @@ import org.jebtk.modern.menu.ModernLargeIconMenuItem;
  */
 public class BrowseFileMenuItem extends ModernLargeIconMenuItem {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new browse file menu item.
-	 */
-	public BrowseFileMenuItem() {
-		super(UI.MENU_BROWSE, UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
-		
-		setFont(SUB_HEADING_FONT);
-	}
+  /**
+   * Instantiates a new browse file menu item.
+   */
+  public BrowseFileMenuItem() {
+    super(UI.MENU_BROWSE, UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+
+    setFont(SUB_HEADING_FONT);
+  }
 
 }

@@ -37,285 +37,303 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ModernTheme;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Concrete implementation of a button which
- * responds to click events.
+ * Concrete implementation of a button which responds to click events.
  *
  * @author Antony Holmes Holmes
  */
 public class ModernButton extends ModernClickableButtonWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant DEFAULT_SIZE.
-	 */
-	public static final Dimension DEFAULT_SIZE =
-			ModernTheme.loadDimension("theme.button.dimensions.default");
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant ICON_TEXT_SIZE.
-	 */
-	public static final Dimension ICON_TEXT_SIZE = 
-			ModernTheme.loadDimension("theme.button.dimensions.icon-text");
+  /**
+   * The constant DEFAULT_SIZE.
+   */
+  public static final Dimension DEFAULT_SIZE = ModernTheme.loadDimension("theme.button.dimensions.default");
 
-	/**
-	 * The constant ICON_ONLY_SIZE.
-	 */
-	public static final Dimension ICON_ONLY_SIZE = 
-			new Dimension(getButtonHeight(), getButtonHeight());
+  /**
+   * The constant ICON_TEXT_SIZE.
+   */
+  public static final Dimension ICON_TEXT_SIZE = ModernTheme.loadDimension("theme.button.dimensions.icon-text");
 
-	/** The Constant SMALL_BUTTON_HEIGHT. */
-	public static final int SMALL_BUTTON_HEIGHT = 			
-			SettingsService.getInstance().getAsInt("theme.button.small-button.height");
-	
-	/** The Constant SMALL_BUTTON_SIZE. */
-	public static final Dimension SMALL_BUTTON_SIZE = 			
-			new Dimension(SMALL_BUTTON_HEIGHT, SMALL_BUTTON_HEIGHT);
+  /**
+   * The constant ICON_ONLY_SIZE.
+   */
+  public static final Dimension ICON_ONLY_SIZE = new Dimension(getButtonHeight(), getButtonHeight());
 
-	/** The Constant MIN_BUTTON_WIDTH. */
-	private static final int MIN_BUTTON_WIDTH = 80;
+  /** The Constant SMALL_BUTTON_HEIGHT. */
+  public static final int SMALL_BUTTON_HEIGHT = SettingsService.getInstance()
+      .getAsInt("theme.button.small-button.height");
 
-	/**
-	 * Instantiates a new modern button.
-	 */
-	public ModernButton() {
-		UI.setSize(this, ICON_ONLY_SIZE);
-	}
-	
-	/**
-	 * Instantiates a new modern button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernButton(String text1) {
-		super(text1);
-		
-		//UI.setSize(this, getButtonWidth(text1), getButtonHeight()); //UI.setSize(this, getButtonSize(text1)); //DEFAULT_SIZE);
-	}
+  /** The Constant SMALL_BUTTON_SIZE. */
+  public static final Dimension SMALL_BUTTON_SIZE = new Dimension(SMALL_BUTTON_HEIGHT, SMALL_BUTTON_HEIGHT);
 
-	/**
-	 * Instantiates a new modern button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernButton(ModernIcon icon) {
-		super(icon);
-		
-		//UI.setSize(this, ICON_ONLY_SIZE);
-	}
-	
-	/**
-	 * Instantiates a new modern button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 */
-	public ModernButton(String text1, ModernIcon icon) {
-		super(text1); //ICON_TEXT_SIZE);
-		
-		setIcon(icon);
-		
-		// The width of the button is at least the text width plus the
-		// icon width plus padding
-		//int w = getButtonWidth(text1) + icon.getWidth();
-		
-		//UI.setSize(this, Math.max(MIN_BUTTON_WIDTH, w), getButtonHeight());
-	}
-	
-	
-	
-	/**
-	 * Instantiates a new modern button.
-	 *
-	 * @param text1 the text 1
-	 * @param icon the icon
-	 * @param width the width
-	 */
-	public ModernButton(String text1, ModernIcon icon, int width) {
-		super(text1, icon);
-		
-		UI.setSize(this, new Dimension(width, getButtonHeight()));
-	}
-	
-	/**
-	 * Instantiates a new modern button.
-	 *
-	 * @param text1 the text 1
-	 * @param icon the icon
-	 * @param size the size
-	 */
-	public ModernButton(String text1, ModernIcon icon, Dimension size) {
-		super(text1, icon);
-		
-		UI.setSize(this, size); //ICON_TEXT_SIZE);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#autoSize()
-	 */
-	@Override
-	public void autoSize() {
-		if (mText1 != null && mIcon != null) {
-			UI.setSize(this, Math.max(MIN_BUTTON_WIDTH, getButtonWidth(mText1) + mIcon.getWidth()), getButtonHeight());
-		} else if (mText1 != null) {
-			UI.setSize(this, getButtonWidth(mText1), getButtonHeight());
-		} else {
-			UI.setSize(this, ICON_ONLY_SIZE);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		drawIcon(g2);
-		drawText(g2);
-	}
-	
-	/**
-	 * Draw text.
-	 *
-	 * @param g2 the g 2
-	 */
-	public void drawText(Graphics2D g2) {
-		if (mText1 != null) {
-			int x;
-			
-			if (mIcon != null) {
-				x = mIcon.getWidth() + DOUBLE_PADDING;
-			} else {
-				x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
-			}
-			
-			g2.setColor(getForeground());
-			g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
-		}
-	}
-	
-	/**
-	 * Draw icon.
-	 *
-	 * @param g2 the g 2
-	 */
-	public void drawIcon(Graphics2D g2) {
-		if (mIcon != null) {
-			int iconX;
-			
-			if (TextUtils.isNullOrEmpty(mText1)) {
-				iconX = (getWidth() - mIcon.getWidth()) / 2;
-			} else {
-				iconX = PADDING;
-			}
-			
-			int iconY = (getHeight() - mIcon.getWidth()) / 2;
-			
-			if (isEnabled()) {
-				mIcon.drawIcon(g2, iconX, iconY, mIcon.getWidth());
-			} else {
-				getDisabledIcon().drawIcon(g2, iconX, iconY, mIcon.getWidth());
-			}
-		}
-	}
-	
-	/**
-	 * Gets the button size.
-	 *
-	 * @param text the text
-	 * @return the button size
-	 */
-	public static Dimension getButtonSize(String text) {
-		return new Dimension(getButtonWidth(text), getButtonHeight());
-	}
-	
-	/**
-	 * Gets the icon button size based on the text that will appear in the
-	 * button.
-	 *
-	 * @param text the text
-	 * @return the icon button size
-	 */
-	public static Dimension getIconButtonSize(String text) {
-		return getIconButtonSize(FONT, text);
-	}
-	
-	/**
-	 * Gets the icon button size.
-	 *
-	 * @param font the font
-	 * @param text the text
-	 * @return the icon button size
-	 */
-	public static Dimension getIconButtonSize(Font font, String text) {
-		return new Dimension(getButtonWidth(font, text) + WIDGET_HEIGHT, getButtonHeight());
-	}
-	
-	/**
-	 * Gets the icon button size.
-	 *
-	 * @return the icon button size
-	 */
-	public static Dimension getIconButtonSize() {
-		int h = getButtonHeight();
-		
-		return new Dimension(h, h);
-	}
-	
-	/**
-	 * Returns a reasonable width to use for a text only button, based
-	 * on the standard graphics context.
-	 *
-	 * @param text the text
-	 * @return the button width
-	 */
-	public static int getButtonWidth(String text) {
-		return getButtonWidth(FONT, text);
-	}
-	
-	/**
-	 * Gets the button width.
-	 *
-	 * @param g2 the g2
-	 * @param text the text
-	 * @return the button width
-	 */
-	public static int getButtonWidth(Graphics2D g2, String text) {
-		return getButtonWidth(g2.getFont(), text);
-	}
-	
-	/**
-	 * Gets the button width.
-	 *
-	 * @param font the font
-	 * @param text the text
-	 * @return the button width
-	 */
-	public static int getButtonWidth(Font font, String text) {
-		return Math.max(MIN_BUTTON_WIDTH, getStringWidth(font, text) + DOUBLE_PADDING); //QUAD_PADDING;
-	}
-	
-	/**
-	 * Returns the default height for a button given the current font.
-	 *
-	 * @return the button height
-	 */
-	public static int getButtonHeight() {
-		return getButtonHeight(getDefaultGraphics());
-	}
-	
-	/**
-	 * Gets the button height.
-	 *
-	 * @param g2 the g2
-	 * @return the button height
-	 */
-	public static int getButtonHeight(Graphics2D g2) {
-		return getWidgetHeight(g2);
-	}
+  /** The Constant MIN_BUTTON_WIDTH. */
+  private static final int MIN_BUTTON_WIDTH = 80;
+
+  /**
+   * Instantiates a new modern button.
+   */
+  public ModernButton() {
+    UI.setSize(this, ICON_ONLY_SIZE);
+  }
+
+  /**
+   * Instantiates a new modern button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernButton(String text1) {
+    super(text1);
+
+    // UI.setSize(this, getButtonWidth(text1), getButtonHeight());
+    // //UI.setSize(this, getButtonSize(text1)); //DEFAULT_SIZE);
+  }
+
+  /**
+   * Instantiates a new modern button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernButton(ModernIcon icon) {
+    super(icon);
+
+    // UI.setSize(this, ICON_ONLY_SIZE);
+  }
+
+  /**
+   * Instantiates a new modern button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   */
+  public ModernButton(String text1, ModernIcon icon) {
+    super(text1); // ICON_TEXT_SIZE);
+
+    setIcon(icon);
+
+    // The width of the button is at least the text width plus the
+    // icon width plus padding
+    // int w = getButtonWidth(text1) + icon.getWidth();
+
+    // UI.setSize(this, Math.max(MIN_BUTTON_WIDTH, w), getButtonHeight());
+  }
+
+  /**
+   * Instantiates a new modern button.
+   *
+   * @param text1
+   *          the text 1
+   * @param icon
+   *          the icon
+   * @param width
+   *          the width
+   */
+  public ModernButton(String text1, ModernIcon icon, int width) {
+    super(text1, icon);
+
+    UI.setSize(this, new Dimension(width, getButtonHeight()));
+  }
+
+  /**
+   * Instantiates a new modern button.
+   *
+   * @param text1
+   *          the text 1
+   * @param icon
+   *          the icon
+   * @param size
+   *          the size
+   */
+  public ModernButton(String text1, ModernIcon icon, Dimension size) {
+    super(text1, icon);
+
+    UI.setSize(this, size); // ICON_TEXT_SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernWidget#autoSize()
+   */
+  @Override
+  public void autoSize() {
+    if (mText1 != null && mIcon != null) {
+      UI.setSize(this, Math.max(MIN_BUTTON_WIDTH, getButtonWidth(mText1) + mIcon.getWidth()), getButtonHeight());
+    } else if (mText1 != null) {
+      UI.setSize(this, getButtonWidth(mText1), getButtonHeight());
+    } else {
+      UI.setSize(this, ICON_ONLY_SIZE);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    drawIcon(g2);
+    drawText(g2);
+  }
+
+  /**
+   * Draw text.
+   *
+   * @param g2
+   *          the g 2
+   */
+  public void drawText(Graphics2D g2) {
+    if (mText1 != null) {
+      int x;
+
+      if (mIcon != null) {
+        x = mIcon.getWidth() + DOUBLE_PADDING;
+      } else {
+        x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
+      }
+
+      g2.setColor(getForeground());
+      g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
+    }
+  }
+
+  /**
+   * Draw icon.
+   *
+   * @param g2
+   *          the g 2
+   */
+  public void drawIcon(Graphics2D g2) {
+    if (mIcon != null) {
+      int iconX;
+
+      if (TextUtils.isNullOrEmpty(mText1)) {
+        iconX = (getWidth() - mIcon.getWidth()) / 2;
+      } else {
+        iconX = PADDING;
+      }
+
+      int iconY = (getHeight() - mIcon.getWidth()) / 2;
+
+      if (isEnabled()) {
+        mIcon.drawIcon(g2, iconX, iconY, mIcon.getWidth());
+      } else {
+        getDisabledIcon().drawIcon(g2, iconX, iconY, mIcon.getWidth());
+      }
+    }
+  }
+
+  /**
+   * Gets the button size.
+   *
+   * @param text
+   *          the text
+   * @return the button size
+   */
+  public static Dimension getButtonSize(String text) {
+    return new Dimension(getButtonWidth(text), getButtonHeight());
+  }
+
+  /**
+   * Gets the icon button size based on the text that will appear in the button.
+   *
+   * @param text
+   *          the text
+   * @return the icon button size
+   */
+  public static Dimension getIconButtonSize(String text) {
+    return getIconButtonSize(FONT, text);
+  }
+
+  /**
+   * Gets the icon button size.
+   *
+   * @param font
+   *          the font
+   * @param text
+   *          the text
+   * @return the icon button size
+   */
+  public static Dimension getIconButtonSize(Font font, String text) {
+    return new Dimension(getButtonWidth(font, text) + WIDGET_HEIGHT, getButtonHeight());
+  }
+
+  /**
+   * Gets the icon button size.
+   *
+   * @return the icon button size
+   */
+  public static Dimension getIconButtonSize() {
+    int h = getButtonHeight();
+
+    return new Dimension(h, h);
+  }
+
+  /**
+   * Returns a reasonable width to use for a text only button, based on the
+   * standard graphics context.
+   *
+   * @param text
+   *          the text
+   * @return the button width
+   */
+  public static int getButtonWidth(String text) {
+    return getButtonWidth(FONT, text);
+  }
+
+  /**
+   * Gets the button width.
+   *
+   * @param g2
+   *          the g2
+   * @param text
+   *          the text
+   * @return the button width
+   */
+  public static int getButtonWidth(Graphics2D g2, String text) {
+    return getButtonWidth(g2.getFont(), text);
+  }
+
+  /**
+   * Gets the button width.
+   *
+   * @param font
+   *          the font
+   * @param text
+   *          the text
+   * @return the button width
+   */
+  public static int getButtonWidth(Font font, String text) {
+    return Math.max(MIN_BUTTON_WIDTH, getStringWidth(font, text) + DOUBLE_PADDING); // QUAD_PADDING;
+  }
+
+  /**
+   * Returns the default height for a button given the current font.
+   *
+   * @return the button height
+   */
+  public static int getButtonHeight() {
+    return getButtonHeight(getDefaultGraphics());
+  }
+
+  /**
+   * Gets the button height.
+   *
+   * @param g2
+   *          the g2
+   * @return the button height
+   */
+  public static int getButtonHeight(Graphics2D g2) {
+    return getWidgetHeight(g2);
+  }
 }

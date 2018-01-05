@@ -35,137 +35,134 @@ import org.jebtk.modern.table.ModernTable;
 
 // TODO: Auto-generated Javadoc
 /**
- * A specialized scroller for responding to vertical scroll keys. 
- * This only instigates scrolling when the selection rectangle moves 
- * outside the view window.
+ * A specialized scroller for responding to vertical scroll keys. This only
+ * instigates scrolling when the selection rectangle moves outside the view
+ * window.
  *
  * @see ModernTableSelectionScrollEvent
  */
 public class ModernTableSelectionScrollListener implements ModernSelectionListener {
 
-	/** The m table. */
-	private ModernTable mTable;
-	
-	/** The m V scrollbar. */
-	private ModernScrollBar mVScrollbar;
-	
-	/** The m H scrollbar. */
-	private ModernScrollBar mHScrollbar;
+  /** The m table. */
+  private ModernTable mTable;
 
-	/**
-	 * Instantiates a new modern table selection scroll listener.
-	 *
-	 * @param table the table
-	 * @param vScrollbar the v scrollbar
-	 * @param hScrollbar the h scrollbar
-	 */
-	public ModernTableSelectionScrollListener(ModernTable table, 
-			ModernScrollBar vScrollbar, 
-			ModernScrollBar hScrollbar) {
-		mTable = table;
-		mVScrollbar = vScrollbar;
-		mHScrollbar = hScrollbar;
-	}
+  /** The m V scrollbar. */
+  private ModernScrollBar mVScrollbar;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.event.ModernSelectionListener#selectionChanged(org.abh.common.event.ChangeEvent)
-	 */
-	@Override
-	public void selectionChanged(ChangeEvent e) {
-		IntRect viewRect = mTable.getViewRect();
+  /** The m H scrollbar. */
+  private ModernScrollBar mHScrollbar;
 
-		int row = mTable.getSelectedRow();
+  /**
+   * Instantiates a new modern table selection scroll listener.
+   *
+   * @param table
+   *          the table
+   * @param vScrollbar
+   *          the v scrollbar
+   * @param hScrollbar
+   *          the h scrollbar
+   */
+  public ModernTableSelectionScrollListener(ModernTable table, ModernScrollBar vScrollbar, ModernScrollBar hScrollbar) {
+    mTable = table;
+    mVScrollbar = vScrollbar;
+    mHScrollbar = hScrollbar;
+  }
 
-		if (row != -1) {
-			/*
-			int y = mTable.getRowModel().getCumOffset(row);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.event.ModernSelectionListener#selectionChanged(org.abh.
+   * common.event.ChangeEvent)
+   */
+  @Override
+  public void selectionChanged(ChangeEvent e) {
+    IntRect viewRect = mTable.getViewRect();
 
-			int height = mTable.getRowModel().getWidth(row);
+    int row = mTable.getSelectedRow();
 
-			if (y < viewRect.getY()) {
-				double p = -mVScrollbar.normalize(height); // * notches;
-				mVScrollbar.incrementNormalizedScrollPosition(p);
-			} else if (y + height >= viewRect.getY() + viewRect.getH()) {
-				double p = mVScrollbar.normalize(height); // * Math.signum(notches); // * notches;
-				mVScrollbar.incrementNormalizedScrollPosition(p);
-			} else {
-				// Do nothing
-			}
-			*/
-			
-			int y1 = mTable.getRowModel().getCumOffset(row);
+    if (row != -1) {
+      /*
+       * int y = mTable.getRowModel().getCumOffset(row);
+       * 
+       * int height = mTable.getRowModel().getWidth(row);
+       * 
+       * if (y < viewRect.getY()) { double p = -mVScrollbar.normalize(height); // *
+       * notches; mVScrollbar.incrementNormalizedScrollPosition(p); } else if (y +
+       * height >= viewRect.getY() + viewRect.getH()) { double p =
+       * mVScrollbar.normalize(height); // * Math.signum(notches); // * notches;
+       * mVScrollbar.incrementNormalizedScrollPosition(p); } else { // Do nothing }
+       */
 
-			int height = mTable.getRowModel().getWidth(row);
+      int y1 = mTable.getRowModel().getCumOffset(row);
 
-			int y2 = y1 + height;
-			
-			int y = viewRect.getY();
-			
-			int h = viewRect.getH();
-			
-			int yb = y + h;
-			
-			if (mTable.getShowHeader()) {
-				y1 += mTable.getColumnModel().getHeaderSize();
-				y2 += mTable.getColumnModel().getHeaderSize();
-			}
-			
-			//System.err.println("scroll h " + x1 + " " + x2 + " " + xr + " " + col + " " + viewRect);
+      int height = mTable.getRowModel().getWidth(row);
 
-			
-			if (y1 < h) {
-				mVScrollbar.setNormalizedScrollPosition(mVScrollbar.normalize(y1));
-			} else if (y2 > yb) {
-				mVScrollbar.setNormalizedScrollPosition(mVScrollbar.normalize(y2));
-			}
-		}
+      int y2 = y1 + height;
 
-		int col = mTable.getSelectedCol();
+      int y = viewRect.getY();
 
-		if (col != -1) {
-			/*
-			int x = mTable.getColumnModel().getCumOffset(col);
+      int h = viewRect.getH();
 
-			int width = mTable.getColumnModel().getWidth(col);
+      int yb = y + h;
 
-			//System.err.println("scroll h " + x + " " + viewRect);
+      if (mTable.getShowHeader()) {
+        y1 += mTable.getColumnModel().getHeaderSize();
+        y2 += mTable.getColumnModel().getHeaderSize();
+      }
 
-			if (x < viewRect.getX()) {
-				double p = -mHScrollbar.normalize(width); // * notches;
-				mHScrollbar.incrementNormalizedScrollPosition(p);
-			} else if (x + width >= viewRect.getX() + viewRect.getW()) {
-				double p = mHScrollbar.normalize(width); // * Math.signum(notches); // * notches;
-				mHScrollbar.incrementNormalizedScrollPosition(p);
-			} else {
-				// Do nothing
-			}
-			*/
-			
-			int x1 = mTable.getColumnModel().getCumOffset(col);
+      // System.err.println("scroll h " + x1 + " " + x2 + " " + xr + " " + col + " " +
+      // viewRect);
 
-			int width = mTable.getColumnModel().getWidth(col);
+      if (y1 < h) {
+        mVScrollbar.setNormalizedScrollPosition(mVScrollbar.normalize(y1));
+      } else if (y2 > yb) {
+        mVScrollbar.setNormalizedScrollPosition(mVScrollbar.normalize(y2));
+      }
+    }
 
-			int x2 = x1 + width;
-			
-			int x = viewRect.getX();
-			
-			int w = viewRect.getW();
-			
-			int xr = x + w;
-			
-			if (mTable.getShowRowHeader()) {
-				x1 += mTable.getRowModel().getHeaderSize();
-				x2 += mTable.getRowModel().getHeaderSize();
-			}
-			
-			//System.err.println("scroll h " + x1 + " " + x2 + " " + xr + " " + col + " " + viewRect);
+    int col = mTable.getSelectedCol();
 
-			
-			if (x1 < w) {
-				mHScrollbar.setNormalizedScrollPosition(mHScrollbar.normalize(x1));
-			} else if (x2 > xr) {
-				mHScrollbar.setNormalizedScrollPosition(mHScrollbar.normalize(x2));
-			}
-		}	
-	}
+    if (col != -1) {
+      /*
+       * int x = mTable.getColumnModel().getCumOffset(col);
+       * 
+       * int width = mTable.getColumnModel().getWidth(col);
+       * 
+       * //System.err.println("scroll h " + x + " " + viewRect);
+       * 
+       * if (x < viewRect.getX()) { double p = -mHScrollbar.normalize(width); // *
+       * notches; mHScrollbar.incrementNormalizedScrollPosition(p); } else if (x +
+       * width >= viewRect.getX() + viewRect.getW()) { double p =
+       * mHScrollbar.normalize(width); // * Math.signum(notches); // * notches;
+       * mHScrollbar.incrementNormalizedScrollPosition(p); } else { // Do nothing }
+       */
+
+      int x1 = mTable.getColumnModel().getCumOffset(col);
+
+      int width = mTable.getColumnModel().getWidth(col);
+
+      int x2 = x1 + width;
+
+      int x = viewRect.getX();
+
+      int w = viewRect.getW();
+
+      int xr = x + w;
+
+      if (mTable.getShowRowHeader()) {
+        x1 += mTable.getRowModel().getHeaderSize();
+        x2 += mTable.getRowModel().getHeaderSize();
+      }
+
+      // System.err.println("scroll h " + x1 + " " + x2 + " " + xr + " " + col + " " +
+      // viewRect);
+
+      if (x1 < w) {
+        mHScrollbar.setNormalizedScrollPosition(mHScrollbar.normalize(x1));
+      } else if (x2 > xr) {
+        mHScrollbar.setNormalizedScrollPosition(mHScrollbar.normalize(x2));
+      }
+    }
+  }
 }

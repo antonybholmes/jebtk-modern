@@ -32,8 +32,6 @@ import java.awt.event.ComponentListener;
 
 import org.jebtk.core.event.EventProducer;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
@@ -42,59 +40,83 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class ModernComponentListeners extends EventProducer<ComponentListener> implements ModernComponentEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernComponentEventProducer#addComponentListener(java.awt.event.ComponentListener)
-	 */
-	public void addComponentListener(ComponentListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernComponentEventProducer#removeComponentListener(java.awt.event.ComponentListener)
-	 */
-	public void removeComponentListener(ComponentListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentHidden(java.awt.event.ComponentEvent)
-	 */
-	public void fireComponentHidden(ComponentEvent e) {
-		for (ComponentListener l : mListeners) {
-			l.componentHidden(e);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentMoved(java.awt.event.ComponentEvent)
-	 */
-	public void fireComponentMoved(ComponentEvent e) {
-		for (ComponentListener l : mListeners) {
-			l.componentMoved(e);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentResized(java.awt.event.ComponentEvent)
-	 */
-	public void fireComponentResized(ComponentEvent e) {
-		for (ComponentListener l : mListeners) {
-			l.componentResized(e);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentShown(java.awt.event.ComponentEvent)
-	 */
-	public void fireComponentShown(ComponentEvent e) {
-		for (ComponentListener l : mListeners) {
-			l.componentShown(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernComponentEventProducer#addComponentListener(java.
+   * awt.event.ComponentListener)
+   */
+  public void addComponentListener(ComponentListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernComponentEventProducer#removeComponentListener(
+   * java.awt.event.ComponentListener)
+   */
+  public void removeComponentListener(ComponentListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentHidden(java.
+   * awt.event.ComponentEvent)
+   */
+  public void fireComponentHidden(ComponentEvent e) {
+    for (ComponentListener l : mListeners) {
+      l.componentHidden(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentMoved(java.
+   * awt.event.ComponentEvent)
+   */
+  public void fireComponentMoved(ComponentEvent e) {
+    for (ComponentListener l : mListeners) {
+      l.componentMoved(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentResized(java.
+   * awt.event.ComponentEvent)
+   */
+  public void fireComponentResized(ComponentEvent e) {
+    for (ComponentListener l : mListeners) {
+      l.componentResized(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentShown(java.
+   * awt.event.ComponentEvent)
+   */
+  public void fireComponentShown(ComponentEvent e) {
+    for (ComponentListener l : mListeners) {
+      l.componentShown(e);
+    }
+  }
 }

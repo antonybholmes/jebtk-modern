@@ -28,57 +28,61 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class BlockVertPressedAnimation extends ButtonPressedAnimation {
 
-	private BlockVertTabs mTabs;
-	private int mHighlight;
+  private BlockVertTabs mTabs;
+  private int mHighlight;
 
-	/**
-	 * Instantiates a new ribbon menu animation.
-	 *
-	 * @param button the button
-	 */
-	public BlockVertPressedAnimation(ModernWidget w) {
-		super(w, MaterialService.getInstance().color("gray-pressed"));
+  /**
+   * Instantiates a new ribbon menu animation.
+   *
+   * @param button
+   *          the button
+   */
+  public BlockVertPressedAnimation(ModernWidget w) {
+    super(w, MaterialService.getInstance().color("gray-pressed"));
 
-		mTabs = (BlockVertTabs)w;
-	}
+    mTabs = (BlockVertTabs) w;
+  }
 
-	@Override
-	public void startTimer() {
-		// We only want the tab highlighted at the time the mouse is pressed
-		// to be animated.
-		mHighlight = mTabs.mHighlight;
+  @Override
+  public void startTimer() {
+    // We only want the tab highlighted at the time the mouse is pressed
+    // to be animated.
+    mHighlight = mTabs.mHighlight;
 
-		super.startTimer();
-	}
+    super.startTimer();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		//System.err.println("hmm " + isRunning() + " " + isPressed());
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    // System.err.println("hmm " + isRunning() + " " + isPressed());
 
-		if (getStep() == -1) {
-			return;
-		}
+    if (getStep() == -1) {
+      return;
+    }
 
-		int x = mTabs.getInsets().left; // + widget.getWidth() - SegmentChangeAnimation.HEIGHT;
-		int y = mTabs.getInsets().top + mTabs.mOffset;
-		int tabWidth = mTabs.getInternalRect().getW();
+    int x = mTabs.getInsets().left; // + widget.getWidth() - SegmentChangeAnimation.HEIGHT;
+    int y = mTabs.getInsets().top + mTabs.mOffset;
+    int tabWidth = mTabs.getInternalRect().getW();
 
-		if (mHighlight != -1) {
+    if (mHighlight != -1) {
 
-			g2.setColor(mColor);
+      g2.setColor(mColor);
 
-			double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
+      double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
 
-			int d = (int)(tabWidth * r);
+      int d = (int) (tabWidth * r);
 
-			x += (tabWidth - d) / 2;
+      x += (tabWidth - d) / 2;
 
-			g2.setColor(mColor);
+      g2.setColor(mColor);
 
-			g2.fillRect(x, y + mHighlight * mTabs.mTabSize, d, mTabs.mTabSize);
-		} 
-	}
+      g2.fillRect(x, y + mHighlight * mTabs.mTabSize, d, mTabs.mTabSize);
+    }
+  }
 }

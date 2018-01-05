@@ -34,7 +34,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Draws a title separator for dialog sections.
@@ -43,56 +42,60 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernDialogSectionSeparator extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant OFFSET.
-	 */
-	private static final int OFFSET = DOUBLE_PADDING;
-	
-	/**
-	 * The constant BACKGROUND.
-	 */
-	private static final Color BACKGROUND = 
-			ThemeService.getInstance().colors().getHighlight(3);
 
-	/**
-	 * The member text.
-	 */
-	private String mText;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog section separator.
-	 *
-	 * @param text the text
-	 */
-	public ModernDialogSectionSeparator(String text) {
-		mText = text;
-		
-		setFont(BOLD_FONT);
-		
-		UI.setSize(this, ModernWidget.MAX_SIZE_24);
-	}
+  /**
+   * The constant OFFSET.
+   */
+  private static final int OFFSET = DOUBLE_PADDING;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		getWidgetRenderer().fill(g2, BACKGROUND, getRect());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(TEXT_COLOR);
-		
-		g2.drawString(mText, OFFSET, getTextYPosCenter(g2, getHeight()));
-	}
+  /**
+   * The constant BACKGROUND.
+   */
+  private static final Color BACKGROUND = ThemeService.getInstance().colors().getHighlight(3);
+
+  /**
+   * The member text.
+   */
+  private String mText;
+
+  /**
+   * Instantiates a new modern dialog section separator.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernDialogSectionSeparator(String text) {
+    mText = text;
+
+    setFont(BOLD_FONT);
+
+    UI.setSize(this, ModernWidget.MAX_SIZE_24);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+    getWidgetRenderer().fill(g2, BACKGROUND, getRect());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(TEXT_COLOR);
+
+    g2.drawString(mText, OFFSET, getTextYPosCenter(g2, getHeight()));
+  }
 }

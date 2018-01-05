@@ -36,50 +36,52 @@ import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.table.ModernRowTable;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class LogTablePanel.
  */
 public class LogTablePanel extends ModernWidget implements LogEventListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The table.
-	 */
-	private ModernRowTable table = new ModernRowTable();
-	
-	/**
-	 * The model.
-	 */
-	private LogTableModel model;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new log table panel.
-	 *
-	 * @param log the log
-	 */
-	public LogTablePanel(Log log) {
-		model = new LogTableModel();
-		
-		table.setModel(model);
-		//table.getColumnModel().getDefaultIndex().setCellEditor(new ModernTableTextCellEditor(false));
+  /**
+   * The table.
+   */
+  private ModernRowTable table = new ModernRowTable();
 
-		ModernScrollPane scrollPane = new ModernScrollPane(table);
-		
-		add(scrollPane, BorderLayout.CENTER);
-	}
+  /**
+   * The model.
+   */
+  private LogTableModel model;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
-	 */
-	@Override
-	public void logEvent(LogEvent e) {
-		model.logEvent(e);
-	}
+  /**
+   * Instantiates a new log table panel.
+   *
+   * @param log
+   *          the log
+   */
+  public LogTablePanel(Log log) {
+    model = new LogTableModel();
+
+    table.setModel(model);
+    // table.getColumnModel().getDefaultIndex().setCellEditor(new
+    // ModernTableTextCellEditor(false));
+
+    ModernScrollPane scrollPane = new ModernScrollPane(table);
+
+    add(scrollPane, BorderLayout.CENTER);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
+   */
+  @Override
+  public void logEvent(LogEvent e) {
+    model.logEvent(e);
+  }
 }

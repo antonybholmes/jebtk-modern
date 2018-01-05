@@ -29,30 +29,32 @@ package org.jebtk.modern.menu;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Special instance of a menu item to indicate that the ui should not respond to it normally
- * but instead pass on the action rather than setting text etc directly.
+ * Special instance of a menu item to indicate that the ui should not respond to
+ * it normally but instead pass on the action rather than setting text etc
+ * directly.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ForwardRequestMenuItem extends ModernIconMenuItem {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new forward request menu item.
-	 *
-	 * @param title the title
-	 * @param icon the icon
-	 */
-	public ForwardRequestMenuItem(String title, ModernIcon icon) {
-		super(title, icon);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new forward request menu item.
+   *
+   * @param title
+   *          the title
+   * @param icon
+   *          the icon
+   */
+  public ForwardRequestMenuItem(String title, ModernIcon icon) {
+    super(title, icon);
+  }
 
 }

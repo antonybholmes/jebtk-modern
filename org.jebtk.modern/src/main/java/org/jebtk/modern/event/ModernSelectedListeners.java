@@ -36,33 +36,45 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernSelectedListeners extends EventProducer<ModernSelectedListener> implements ModernSelectedEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernSelectedEventProducer#addSelectedListener(org.abh.lib.ui.modern.event.ModernSelectedListener)
-	 */
-	public void addSelectedListener(ModernSelectedListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernSelectedEventProducer#removeSelectedListener(org.abh.lib.ui.modern.event.ModernSelectedListener)
-	 */
-	public void removeSelectedListener(ModernSelectedListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernSelectedEventProducer#fireSelectedChanged(org.abh.lib.ui.modern.event.ModernSelectedEvent)
-	 */
-	public void fireSelected(ModernSelectedEvent e) {
-		for (ModernSelectedListener l : mListeners) {
-			l.selected(e);
-		}
-	}
+public class ModernSelectedListeners extends EventProducer<ModernSelectedListener>
+    implements ModernSelectedEventProducer {
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernSelectedEventProducer#addSelectedListener(
+   * org.abh.lib.ui.modern.event.ModernSelectedListener)
+   */
+  public void addSelectedListener(ModernSelectedListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.event.ModernSelectedEventProducer#
+   * removeSelectedListener(org.abh.lib.ui.modern.event.ModernSelectedListener)
+   */
+  public void removeSelectedListener(ModernSelectedListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernSelectedEventProducer#fireSelectedChanged(
+   * org.abh.lib.ui.modern.event.ModernSelectedEvent)
+   */
+  public void fireSelected(ModernSelectedEvent e) {
+    for (ModernSelectedListener l : mListeners) {
+      l.selected(e);
+    }
+  }
 }

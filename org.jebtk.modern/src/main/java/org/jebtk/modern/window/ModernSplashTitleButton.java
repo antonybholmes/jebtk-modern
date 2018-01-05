@@ -31,35 +31,35 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 
 // TODO: Auto-generated Javadoc
 /**
- * Outline button with white background for more
- * contract on off-white panels.
+ * Outline button with white background for more contract on off-white panels.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernSplashTitleButton extends ModernSplashButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * Instantiates a new modern splash button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernSplashTitleButton(String text1) {
-		super(text1);
-	}
 
-	/**
-	 * Instantiates a new modern splash button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernSplashTitleButton(ModernIcon icon) {
-		super(icon);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern splash button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernSplashTitleButton(String text1) {
+    super(text1);
+  }
+
+  /**
+   * Instantiates a new modern splash button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernSplashTitleButton(ModernIcon icon) {
+    super(icon);
+  }
 }

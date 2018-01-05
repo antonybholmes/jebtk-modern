@@ -32,36 +32,33 @@ import java.awt.Color;
 import org.jebtk.modern.dataview.ModernDataCellRenderer;
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTableHeaderCellRenderer.
  */
 public abstract class ModernTableHeaderCellRenderer extends ModernDataCellRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant SEL_LINE_COLOR. */
-	public static final Color SEL_LINE_COLOR =
-			ThemeService.getInstance().colors().getColorHighlight(5);
-	
-	/** The Constant SEL_BACK_COLOR. */
-	public static final Color SEL_BACK_COLOR =
-			ThemeService.getInstance().colors().getHighlight(3);
-	
-	/** The m text. */
-	protected String mText;
 
-	/**
-	 * Sets the text.
-	 *
-	 * @param text the new text
-	 */
-	public final void setText(String text) {
-		mText = text;
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /** The Constant SEL_LINE_COLOR. */
+  public static final Color SEL_LINE_COLOR = ThemeService.getInstance().colors().getColorHighlight(5);
+
+  /** The Constant SEL_BACK_COLOR. */
+  public static final Color SEL_BACK_COLOR = ThemeService.getInstance().colors().getHighlight(3);
+
+  /** The m text. */
+  protected String mText;
+
+  /**
+   * Sets the text.
+   *
+   * @param text
+   *          the new text
+   */
+  public final void setText(String text) {
+    mText = text;
+  }
 }

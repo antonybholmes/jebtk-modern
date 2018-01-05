@@ -39,144 +39,162 @@ import org.jebtk.core.io.Io;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * A concrete implementation of a table model for displaying
- * text.
+ * A concrete implementation of a table model for displaying text.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class PreviewTableModel extends ModernColumnHeaderTableModel {
-	
-	/**
-	 * The header.
-	 */
-	// icon, enabled, description, name
-	private List<String> header;
 
-	/**
-	 * The data.
-	 */
-	private List<List<String>> data = new ArrayList<List<String>>();
+  /**
+   * The header.
+   */
+  // icon, enabled, description, name
+  private List<String> header;
 
-	/**
-	 * Instantiates a new preview table model.
-	 *
-	 * @param file the file
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public PreviewTableModel(final Path file) throws IOException {
-		setup(file, -1);
-	}
+  /**
+   * The data.
+   */
+  private List<List<String>> data = new ArrayList<List<String>>();
 
-	/**
-	 * Instantiates a new preview table model.
-	 *
-	 * @param file the file
-	 * @param rows the rows
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public PreviewTableModel(final Path file, int rows) throws IOException {
-		setup(file, rows);
-	}
+  /**
+   * Instantiates a new preview table model.
+   *
+   * @param file
+   *          the file
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public PreviewTableModel(final Path file) throws IOException {
+    setup(file, -1);
+  }
 
-	/**
-	 * Setup.
-	 *
-	 * @param file the file
-	 * @param rows the rows
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	private void setup(final Path file, int rows) throws IOException {
-		BufferedReader reader = FileUtils.newBufferedReader(file);
+  /**
+   * Instantiates a new preview table model.
+   *
+   * @param file
+   *          the file
+   * @param rows
+   *          the rows
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public PreviewTableModel(final Path file, int rows) throws IOException {
+    setup(file, rows);
+  }
 
-		int c = 0;
+  /**
+   * Setup.
+   *
+   * @param file
+   *          the file
+   * @param rows
+   *          the rows
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  private void setup(final Path file, int rows) throws IOException {
+    BufferedReader reader = FileUtils.newBufferedReader(file);
 
-		try {
-			String line = reader.readLine();
+    int c = 0;
 
-			if (Io.isEmptyLine(line)) {
-				return;
-			}
+    try {
+      String line = reader.readLine();
 
-			header = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+      if (Io.isEmptyLine(line)) {
+        return;
+      }
 
-			int maxColumns = -1;
+      header = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
 
-			while((line = reader.readLine()) != null) {
-				if (Io.isEmptyLine(line)) {
-					continue;
-				}
-				
-				if (rows > 0 && c == rows) {
-					break;
-				}
+      int maxColumns = -1;
 
-				List<String> values = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+      while ((line = reader.readLine()) != null) {
+        if (Io.isEmptyLine(line)) {
+          continue;
+        }
 
-				data.add(values);
+        if (rows > 0 && c == rows) {
+          break;
+        }
 
-				if (values.size() > maxColumns) {
-					maxColumns = values.size();
-				}
+        List<String> values = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
 
-				++c;
-			}
+        data.add(values);
 
-			// expand the header if necessary
+        if (values.size() > maxColumns) {
+          maxColumns = values.size();
+        }
 
-			// Account for the existing header in the length
-			maxColumns -= header.size();
+        ++c;
+      }
 
-			header.addAll(CollectionUtils.replicate("", maxColumns));
-		} finally {
-			reader.close();
-		}
-	}
+      // expand the header if necessary
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
-	 */
-	@Override
-	public final int getColumnCount() {
-		return header.size();
-	}
+      // Account for the existing header in the length
+      maxColumns -= header.size();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
-	 */
-	@Override
-	public final int getRowCount() {
-		return data.size();
-	}
+      header.addAll(CollectionUtils.replicate("", maxColumns));
+    } finally {
+      reader.close();
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
-	 */
-	@Override
-	public final Object getValueAt(int row, int col) {
-		if (col >= data.get(row).size()) {
-			return "";
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
+   */
+  @Override
+  public final int getColumnCount() {
+    return header.size();
+  }
 
-		return data.get(row).get(col);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
+   */
+  @Override
+  public final int getRowCount() {
+    return data.size();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
-	 */
-	@Override
-	public final List<String> getColumnAnnotationText(int columnIndex) {
-		return CollectionUtils.asList(header.get(columnIndex));
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
+   */
+  @Override
+  public final Object getValueAt(int row, int col) {
+    if (col >= data.get(row).size()) {
+      return "";
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int, int)
-	 */
-	@Override
-	public final boolean getIsCellEditable(int row, int column) {
-		return false; //true;
-	}
+    return data.get(row).get(col);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   */
+  @Override
+  public final List<String> getColumnAnnotationText(int columnIndex) {
+    return CollectionUtils.asList(header.get(columnIndex));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * int)
+   */
+  @Override
+  public final boolean getIsCellEditable(int row, int column) {
+    return false; // true;
+  }
 }

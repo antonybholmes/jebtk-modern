@@ -26,18 +26,19 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class TranslateXAnimation extends TranslateAnimation {
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public TranslateXAnimation(ModernWidget widget) {
-		super(widget);
-	}
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public TranslateXAnimation(ModernWidget widget) {
+    super(widget);
+  }
 
-	@Override
-	public void translate(Graphics2D g2) {
-		g2.translate(getWidget().getInsets().left + getX(), getWidget().getInsets().top);
-	}
+  @Override
+  public void translate(Graphics2D g2) {
+    g2.translate(getWidget().getInsets().left + getX(), getWidget().getInsets().top);
+  }
 
 }

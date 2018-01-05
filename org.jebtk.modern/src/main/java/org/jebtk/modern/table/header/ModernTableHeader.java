@@ -41,153 +41,189 @@ import org.jebtk.modern.table.ModernTable;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.window.ModernWindowContentPanel;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTableHeader.
  */
-public class ModernTableHeader extends ModernScrollPaneHeader implements ModernSelectionListener, ModernDataViewListener, ModernCanvasMouseListener, ModernCanvasKeyListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+public class ModernTableHeader extends ModernScrollPaneHeader
+    implements ModernSelectionListener, ModernDataViewListener, ModernCanvasMouseListener, ModernCanvasKeyListener {
 
-	/**
-	 * The constant MAX_ANNOTATIONS.
-	 */
-	protected static final int MAX_ANNOTATIONS = 10;
-	
-	/**
-	 * The constant HEADER_BACKGROUND.
-	 */
-	public static final Color HEADER_BACKGROUND =
-			ModernWindowContentPanel.COLOR; //ThemeService.getInstance().colors().getHighlight(1);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant HEADER_SELECTED_COLOR. */
-	public static final Color HEADER_SELECTED_COLOR =
-			ThemeService.getInstance().colors().getColorHighlight(5);
-	
+  /**
+   * The constant MAX_ANNOTATIONS.
+   */
+  protected static final int MAX_ANNOTATIONS = 10;
 
-	
-	/** The m table. */
-	protected ModernTable mTable;
-	
-	/**
-	 * Instantiates a new modern table header.
-	 *
-	 * @param table the table
-	 */
-	public ModernTableHeader(ModernTable table) {
-		setLayout(null);
-		
-		mTable = table;
-		
-		table.addCanvasMouseListener(this);
-		table.addCanvasKeyListener(this);
-		//addMouseMotionListener(this);
-		
-		table.getCellSelectionModel().addSelectionListener(this);
-		//table.addComponentListener(this);
-		table.addDataViewListener(this);
-	}
-	
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		//fill(g2, getRect(), ThemeService.getInstance().colors().getHighlight(1));
-		
-		fillBackground(g2);
-	}
-	*/
+  /**
+   * The constant HEADER_BACKGROUND.
+   */
+  public static final Color HEADER_BACKGROUND = ModernWindowContentPanel.COLOR; // ThemeService.getInstance().colors().getHighlight(1);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void selectionChanged(ChangeEvent e) {
-		repaint();
-	}
+  /** The Constant HEADER_SELECTED_COLOR. */
+  public static final Color HEADER_SELECTED_COLOR = ThemeService.getInstance().colors().getColorHighlight(5);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void dataChanged(ChangeEvent e) {
-		repaint();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void dataUpdated(ChangeEvent e) {
-		repaint();
-	}
+  /** The m table. */
+  protected ModernTable mTable;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.ModernScrollPaneHeader#getFixedDimension()
-	 */
-	@Override
-	public int getFixedDimension() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseClicked(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseClicked(CanvasMouseEvent e) {
-		fireCanvasMouseClicked(e);
-	}
+  /**
+   * Instantiates a new modern table header.
+   *
+   * @param table
+   *          the table
+   */
+  public ModernTableHeader(ModernTable table) {
+    setLayout(null);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseEntered(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseEntered(CanvasMouseEvent e) {
-		fireCanvasMouseEntered(e);
-	}
+    mTable = table;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseExited(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseExited(CanvasMouseEvent e) {
-		fireCanvasMouseExited(e);
-	}
+    table.addCanvasMouseListener(this);
+    table.addCanvasKeyListener(this);
+    // addMouseMotionListener(this);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMousePressed(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMousePressed(CanvasMouseEvent e) {
-		fireCanvasMousePressed(e);
-	}
+    table.getCellSelectionModel().addSelectionListener(this);
+    // table.addComponentListener(this);
+    table.addDataViewListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseReleased(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseReleased(CanvasMouseEvent e) {
-		fireCanvasMouseReleased(e);
-	}
+  /*
+   * @Override public void drawBackground(Graphics2D g2) { //fill(g2, getRect(),
+   * ThemeService.getInstance().colors().getHighlight(1));
+   * 
+   * fillBackground(g2); }
+   */
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseDragged(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseDragged(CanvasMouseEvent e) {
-		fireCanvasMouseDragged(e);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
+   * lib.event.ChangeEvent)
+   */
+  @Override
+  public void selectionChanged(ChangeEvent e) {
+    repaint();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-	 */
-	@Override
-	public void canvasMouseMoved(CanvasMouseEvent e) {
-		fireCanvasMouseMoved(e);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.lib
+   * .event.ChangeEvent)
+   */
+  @Override
+  public void dataChanged(ChangeEvent e) {
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.lib
+   * .event.ChangeEvent)
+   */
+  @Override
+  public void dataUpdated(ChangeEvent e) {
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.scrollpane.ModernScrollPaneHeader#getFixedDimension()
+   */
+  @Override
+  public int getFixedDimension() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseClicked(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseClicked(CanvasMouseEvent e) {
+    fireCanvasMouseClicked(e);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseEntered(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseEntered(CanvasMouseEvent e) {
+    fireCanvasMouseEntered(e);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseExited(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseExited(CanvasMouseEvent e) {
+    fireCanvasMouseExited(e);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMousePressed(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMousePressed(CanvasMouseEvent e) {
+    fireCanvasMousePressed(e);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseReleased(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseReleased(CanvasMouseEvent e) {
+    fireCanvasMouseReleased(e);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseDragged(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseDragged(CanvasMouseEvent e) {
+    fireCanvasMouseDragged(e);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(org
+   * .abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseMoved(CanvasMouseEvent e) {
+    fireCanvasMouseMoved(e);
+  }
 }

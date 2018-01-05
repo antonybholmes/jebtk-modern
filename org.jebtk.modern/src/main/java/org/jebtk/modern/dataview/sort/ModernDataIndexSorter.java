@@ -30,92 +30,92 @@ package org.jebtk.modern.dataview.sort;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.dataview.ModernData;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
- * The data sorter provides a mapping between an index and
- * a sorted index so that a dataview can arbitrary reorder
- * a data model (e.g. sort all columns)
+ * The data sorter provides a mapping between an index and a sorted index so
+ * that a dataview can arbitrary reorder a data model (e.g. sort all columns)
  *
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDataIndexSorter extends ChangeListeners  {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+public class ModernDataIndexSorter extends ChangeListeners {
 
-	/**
-	 * The sort ascending.
-	 */
-	protected boolean mSortAscending = true;
-	
-	/** The m enabled. */
-	private boolean mEnabled = false;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Sort the given index so that calls to getOriginalIndex or
-	 * getSortedIndex will allow the data model to be sorted.
-	 *
-	 * @param data the data
-	 * @param index the index
-	 * @param sortAscending the sort ascending
-	 */
-	public void sort(ModernData data, int index, boolean sortAscending) {
-		mSortAscending = sortAscending;
-	}
-	
-	/**
-	 * Returns the original index of an item in a data model
-	 * so that we can correctly retrieve it from the unsorted
-	 * model.
-	 *
-	 * @param sortedIndex the sorted index
-	 * @return the model index
-	 */
-	public int getModelIndex(int sortedIndex) {
-		return sortedIndex;
-	}
+  /**
+   * The sort ascending.
+   */
+  protected boolean mSortAscending = true;
 
-	/**
-	 * Given an original index, returns its sorted
-	 * index in the sort model.
-	 *
-	 * @param originalIndex the original index
-	 * @return the sorted index
-	 */
-	public int getSortedIndex(int originalIndex) {
-		return originalIndex;
-	}
+  /** The m enabled. */
+  private boolean mEnabled = false;
 
-	/**
-	 * Gets the sort ascending.
-	 *
-	 * @return the sort ascending
-	 */
-	public boolean getSortAscending() {
-		return mSortAscending;
-	}
+  /**
+   * Sort the given index so that calls to getOriginalIndex or getSortedIndex will
+   * allow the data model to be sorted.
+   *
+   * @param data
+   *          the data
+   * @param index
+   *          the index
+   * @param sortAscending
+   *          the sort ascending
+   */
+  public void sort(ModernData data, int index, boolean sortAscending) {
+    mSortAscending = sortAscending;
+  }
 
-	/**
-	 * Sets the enabled.
-	 *
-	 * @param enabled the new enabled
-	 */
-	public void setEnabled(boolean enabled) {
-		mEnabled = enabled;
-		
-		fireChanged();
-	}
-	
-	/**
-	 * Returns true if the sorter is enabled and should be used.
-	 *
-	 * @return the enabled
-	 */
-	public boolean getEnabled() {
-		return mEnabled;
-	}
+  /**
+   * Returns the original index of an item in a data model so that we can
+   * correctly retrieve it from the unsorted model.
+   *
+   * @param sortedIndex
+   *          the sorted index
+   * @return the model index
+   */
+  public int getModelIndex(int sortedIndex) {
+    return sortedIndex;
+  }
+
+  /**
+   * Given an original index, returns its sorted index in the sort model.
+   *
+   * @param originalIndex
+   *          the original index
+   * @return the sorted index
+   */
+  public int getSortedIndex(int originalIndex) {
+    return originalIndex;
+  }
+
+  /**
+   * Gets the sort ascending.
+   *
+   * @return the sort ascending
+   */
+  public boolean getSortAscending() {
+    return mSortAscending;
+  }
+
+  /**
+   * Sets the enabled.
+   *
+   * @param enabled
+   *          the new enabled
+   */
+  public void setEnabled(boolean enabled) {
+    mEnabled = enabled;
+
+    fireChanged();
+  }
+
+  /**
+   * Returns true if the sorter is enabled and should be used.
+   *
+   * @return the enabled
+   */
+  public boolean getEnabled() {
+    return mEnabled;
+  }
 }

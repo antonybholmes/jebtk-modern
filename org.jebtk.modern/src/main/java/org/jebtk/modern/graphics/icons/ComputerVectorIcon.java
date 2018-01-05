@@ -33,136 +33,114 @@ import java.awt.Graphics2D;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ModernTheme;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ComputerVectorIcon.
  */
 public class ComputerVectorIcon extends ModernVectorScalableIcon {
-	
-	
 
-	/**
-	 * The constant SCALE.
-	 */
-	private static final double SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.computer-icon.width-scale");
-	
-	/**
-	 * The constant TOWER_SCALE.
-	 */
-	private static final double TOWER_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.computer-icon.tower-scale");
-	
-	/**
-	 * The constant MONITOR_WIDTH_SCALE.
-	 */
-	private static final double MONITOR_WIDTH_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.computer-icon.monitor-width-scale");
-	
-	/**
-	 * The constant MONITOR_HEIGHT_SCALE.
-	 */
-	private static final double MONITOR_HEIGHT_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.computer-icon.monitor-height-scale");
-	
-	/**
-	 * The constant MONITOR_BASE_WIDTH_SCALE.
-	 */
-	private static final double MONITOR_BASE_WIDTH_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.computer-icon.monitor-base-width-scale");
-	
-	
-	/**
-	 * The constant TOWER_COLOR.
-	 */
-	private static final Color TOWER_COLOR =
-			SettingsService.getInstance().getAsColor("theme.icons.computer-icon.colors.tower");
-	
-	/**
-	 * The constant BACKGROUND.
-	 */
-	private static final Color BACKGROUND =
-			SettingsService.getInstance().getAsColor("theme.icons.computer-icon.colors.background");
-	
-	
-	/**
-	 * The constant MONITOR_OUTLINE.
-	 */
-	private static final Color MONITOR_OUTLINE =
-			SettingsService.getInstance().getAsColor("theme.icons.computer-icon.colors.monitor-outline");
-	
-	/**
-	 * The constant MONITOR_BACKGROUND.
-	 */
-	private static final Color MONITOR_BACKGROUND =
-			SettingsService.getInstance().getAsColor("theme.icons.computer-icon.colors.monitor-background");
-	
-	
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		double wf = w * SCALE;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - wf) / 2.0;
-		double towerWidth = wf * TOWER_SCALE;
-		double bw = wf * MONITOR_BASE_WIDTH_SCALE;
-		
-		g2.setColor(BACKGROUND);
-		
-		g2.fillRect((int)Math.round(xf), 
-				(int)Math.round(yf), 
-				(int)Math.round(towerWidth), 
-				(int)Math.round(wf));
-		
-		
-		g2.setColor(TOWER_COLOR);
-		
-		g2.drawRect((int)Math.round(xf), 
-				(int)Math.round(yf), 
-				(int)Math.round(towerWidth), 
-				(int)Math.round(wf));
-		
-		g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-		
-		double monitorWidth = wf * MONITOR_WIDTH_SCALE;
-		double monitorHeight = wf * MONITOR_HEIGHT_SCALE;
-		
-		
-		// base
-		
-		g2.setColor(MONITOR_OUTLINE);
-		
-		g2.drawLine((int)Math.round(xf + wf - monitorWidth + monitorWidth / 2.0), 
-				(int)Math.round(yf + wf / 2.0), 
-				(int)Math.round(xf + wf - monitorWidth + monitorWidth / 2.0), 
-				(int)Math.round(yf + wf));
-		
-		g2.drawLine((int)Math.round(xf + wf - monitorWidth + (monitorWidth - bw) / 2.0), 
-				(int)Math.round(yf + wf), 
-				(int)Math.round(xf + wf - monitorWidth + (monitorWidth - bw) / 2.0 + bw), 
-				(int)Math.round(yf + wf));
-		
-				
-				
-		g2.setColor(MONITOR_BACKGROUND);
-		
-		g2.fillRect((int)Math.round(xf + wf - monitorWidth), 
-				(int)Math.round(yf + (wf - monitorHeight) / 2.0), 
-				(int)Math.round(monitorWidth), 
-				(int)Math.round(monitorHeight));
-		
-		g2.setColor(MONITOR_OUTLINE);
-		
-		g2.drawRect((int)Math.round(xf + wf - monitorWidth), 
-				(int)Math.round(yf + (wf - monitorHeight) / 2.0), 
-				(int)Math.round(monitorWidth), 
-				(int)Math.round(monitorHeight));
-		
-		
-	}
+  /**
+   * The constant SCALE.
+   */
+  private static final double SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.computer-icon.width-scale");
+
+  /**
+   * The constant TOWER_SCALE.
+   */
+  private static final double TOWER_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.computer-icon.tower-scale");
+
+  /**
+   * The constant MONITOR_WIDTH_SCALE.
+   */
+  private static final double MONITOR_WIDTH_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.computer-icon.monitor-width-scale");
+
+  /**
+   * The constant MONITOR_HEIGHT_SCALE.
+   */
+  private static final double MONITOR_HEIGHT_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.computer-icon.monitor-height-scale");
+
+  /**
+   * The constant MONITOR_BASE_WIDTH_SCALE.
+   */
+  private static final double MONITOR_BASE_WIDTH_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.computer-icon.monitor-base-width-scale");
+
+  /**
+   * The constant TOWER_COLOR.
+   */
+  private static final Color TOWER_COLOR = SettingsService.getInstance()
+      .getAsColor("theme.icons.computer-icon.colors.tower");
+
+  /**
+   * The constant BACKGROUND.
+   */
+  private static final Color BACKGROUND = SettingsService.getInstance()
+      .getAsColor("theme.icons.computer-icon.colors.background");
+
+  /**
+   * The constant MONITOR_OUTLINE.
+   */
+  private static final Color MONITOR_OUTLINE = SettingsService.getInstance()
+      .getAsColor("theme.icons.computer-icon.colors.monitor-outline");
+
+  /**
+   * The constant MONITOR_BACKGROUND.
+   */
+  private static final Color MONITOR_BACKGROUND = SettingsService.getInstance()
+      .getAsColor("theme.icons.computer-icon.colors.monitor-background");
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    double wf = w * SCALE;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - wf) / 2.0;
+    double towerWidth = wf * TOWER_SCALE;
+    double bw = wf * MONITOR_BASE_WIDTH_SCALE;
+
+    g2.setColor(BACKGROUND);
+
+    g2.fillRect((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(towerWidth), (int) Math.round(wf));
+
+    g2.setColor(TOWER_COLOR);
+
+    g2.drawRect((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(towerWidth), (int) Math.round(wf));
+
+    g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+
+    double monitorWidth = wf * MONITOR_WIDTH_SCALE;
+    double monitorHeight = wf * MONITOR_HEIGHT_SCALE;
+
+    // base
+
+    g2.setColor(MONITOR_OUTLINE);
+
+    g2.drawLine((int) Math.round(xf + wf - monitorWidth + monitorWidth / 2.0), (int) Math.round(yf + wf / 2.0),
+        (int) Math.round(xf + wf - monitorWidth + monitorWidth / 2.0), (int) Math.round(yf + wf));
+
+    g2.drawLine((int) Math.round(xf + wf - monitorWidth + (monitorWidth - bw) / 2.0), (int) Math.round(yf + wf),
+        (int) Math.round(xf + wf - monitorWidth + (monitorWidth - bw) / 2.0 + bw), (int) Math.round(yf + wf));
+
+    g2.setColor(MONITOR_BACKGROUND);
+
+    g2.fillRect((int) Math.round(xf + wf - monitorWidth), (int) Math.round(yf + (wf - monitorHeight) / 2.0),
+        (int) Math.round(monitorWidth), (int) Math.round(monitorHeight));
+
+    g2.setColor(MONITOR_OUTLINE);
+
+    g2.drawRect((int) Math.round(xf + wf - monitorWidth), (int) Math.round(yf + (wf - monitorHeight) / 2.0),
+        (int) Math.round(monitorWidth), (int) Math.round(monitorHeight));
+
+  }
 }

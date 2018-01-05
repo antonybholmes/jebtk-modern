@@ -36,9 +36,9 @@ import org.jebtk.modern.button.ButtonsBox;
  * @author Antony Holmes Holmes
  */
 public class ModernDialogButtonsBox extends ButtonsBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 }

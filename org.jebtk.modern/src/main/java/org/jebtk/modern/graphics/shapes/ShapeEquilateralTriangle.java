@@ -36,29 +36,32 @@ import java.awt.Polygon;
  * @author Antony Holmes Holmes
  */
 public class ShapeEquilateralTriangle extends Polygon {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new shape equilateral triangle.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @param size the size
-	 */
-	public ShapeEquilateralTriangle(int x, int y, int size) {
-		int s2 = size / 2;
-		
-		int h = (int)(size * Math.sin(Math.PI / 3.0));
-		
-		int y1 = y + (size - h) / 2;
-		int y2 = y1 + h;
-		
-		addPoint(x, y2);
-		addPoint(x + size, y2);
-		addPoint(x + s2, y1);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new shape equilateral triangle.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param size
+   *          the size
+   */
+  public ShapeEquilateralTriangle(int x, int y, int size) {
+    int s2 = size / 2;
+
+    int h = (int) (size * Math.sin(Math.PI / 3.0));
+
+    int y1 = y + (size - h) / 2;
+    int y2 = y1 + h;
+
+    addPoint(x, y2);
+    addPoint(x + size, y2);
+    addPoint(x + s2, y1);
+  }
 }

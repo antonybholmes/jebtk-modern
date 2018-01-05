@@ -33,43 +33,43 @@ import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.panel.VBoxAutoWidthLayout;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonFileMenuPanel.
  */
 public class RibbonFileMenuPanel extends ModernComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant RIBBON_MENU_WIDTH. */
-	public static final int RIBBON_MENU_WIDTH = 200;
-	
-	/**
-	 * The constant SIZE.
-	 */
-	public static final Dimension SIZE = 
-			new Dimension(RIBBON_MENU_WIDTH, Short.MAX_VALUE);
 
-	/**
-	 * Instantiates a new ribbon file menu panel.
-	 */
-	public RibbonFileMenuPanel() {
-		//super(Ribbon.BAR_BACKGROUND);
-		
-		setLayout(new VBoxAutoWidthLayout());
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		UI.setSize(this, SIZE);
-	}
+  /** The Constant RIBBON_MENU_WIDTH. */
+  public static final int RIBBON_MENU_WIDTH = 200;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	//@Override
-	//public void drawBackground(Graphics2D g2) {
-	//	fill(g2, Ribbon.BAR_BACKGROUND);
-	//}
+  /**
+   * The constant SIZE.
+   */
+  public static final Dimension SIZE = new Dimension(RIBBON_MENU_WIDTH, Short.MAX_VALUE);
+
+  /**
+   * Instantiates a new ribbon file menu panel.
+   */
+  public RibbonFileMenuPanel() {
+    // super(Ribbon.BAR_BACKGROUND);
+
+    setLayout(new VBoxAutoWidthLayout());
+
+    UI.setSize(this, SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  // @Override
+  // public void drawBackground(Graphics2D g2) {
+  // fill(g2, Ribbon.BAR_BACKGROUND);
+  // }
 }

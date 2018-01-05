@@ -31,8 +31,6 @@ import org.jebtk.core.event.ChangeEvent;
 
 import org.jebtk.core.event.EventProducer;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
@@ -40,33 +38,45 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernSelectionListeners extends EventProducer<ModernSelectionListener> implements ModernSelectionEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#addSelectionListener(org.abh.lib.ui.modern.event.ModernSelectionListener)
-	 */
-	public void addSelectionListener(ModernSelectionListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#removeSelectionListener(org.abh.lib.ui.modern.event.ModernSelectionListener)
-	 */
-	public void removeSelectionListener(ModernSelectionListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#fireSelectionChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireSelectionChanged(ChangeEvent e) {
-		for (ModernSelectionListener l : mListeners) {
-			l.selectionChanged(e);
-		}
-	}
+public class ModernSelectionListeners extends EventProducer<ModernSelectionListener>
+    implements ModernSelectionEventProducer {
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernSelectionEventProducer#addSelectionListener
+   * (org.abh.lib.ui.modern.event.ModernSelectionListener)
+   */
+  public void addSelectionListener(ModernSelectionListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
+   * removeSelectionListener(org.abh.lib.ui.modern.event.ModernSelectionListener)
+   */
+  public void removeSelectionListener(ModernSelectionListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernSelectionEventProducer#fireSelectionChanged
+   * (org.abh.lib.event.ChangeEvent)
+   */
+  public void fireSelectionChanged(ChangeEvent e) {
+    for (ModernSelectionListener l : mListeners) {
+      l.selectionChanged(e);
+    }
+  }
 }

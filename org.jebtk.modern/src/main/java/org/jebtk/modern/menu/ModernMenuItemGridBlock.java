@@ -40,132 +40,148 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Allows multiple menu items to be added to a grid that
- * behaves like a single menu item.
+ * Allows multiple menu items to be added to a grid that behaves like a single
+ * menu item.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernMenuItemGridBlock extends ModernMenuItem implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member panel.
-	 */
-	private ModernPanel mPanel = new ModernPanel();
-	
-	/**
-	 * The member width.
-	 */
-	private int mWidth = -1;
-	
-	/**
-	 * The member items.
-	 */
-	private List<ModernComponent> mItems = 
-			new ArrayList<ModernComponent>();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member columns.
-	 */
-	private int mColumns;
-	
-	/**
-	 * Instantiates a new modern menu item grid block.
-	 *
-	 * @param title the title
-	 * @param menuItemWidth the menu item width
-	 * @param columns the columns
-	 */
-	public ModernMenuItemGridBlock(String title, int menuItemWidth, int columns) {
-		super("Grid Block");
-		
-		//removeAll();
-		
-		add(new ModernTitleMenuItem(title), BorderLayout.PAGE_START);
-		
-		add(mPanel, BorderLayout.CENTER);
-		
-		setWidth(menuItemWidth, columns);
-	}
-	
-	/**
-	 * Sets the width.
-	 *
-	 * @param width the width
-	 * @param columns the columns
-	 */
-	private void setWidth(int width, int columns) {
-		mColumns = columns;
-		mWidth = width * columns;
-		
-		mPanel.setLayout(new GridLayout(0, columns, 0, 0));
-		
-		setSize();
-	}
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param item the item
-	 */
-	public void add(ModernClickWidget item) {
-		addMenuItem(item);
-	}
-	
-	/**
-	 * Adds the menu item.
-	 *
-	 * @param item the item
-	 */
-	public void addMenuItem(ModernClickWidget item) {
-		mPanel.add(item);
-		mItems.add(item);
+  /**
+   * The member panel.
+   */
+  private ModernPanel mPanel = new ModernPanel();
 
-		item.addClickListener(this);
-		
-		setSize();
-	}
-	
-	/**
-	 * Sets the size.
-	 */
-	private void setSize() {
-		UI.setSize(mPanel, mWidth, (mItems.size() / mColumns + (mItems.size() % mColumns > 0 ? 1 : 0)) * ModernIconMenuItem.HEIGHT);
-		
-		// The size of the menu is the size of the grid plus the title height
-		UI.setSize(this, mWidth, mPanel.getPreferredSize().height + ModernTitleMenuItem.HEIGHT);
-	}
+  /**
+   * The member width.
+   */
+  private int mWidth = -1;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		// Forward the message
-		fireClicked(e.getMessage());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#drawForeground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForeground(Graphics2D g2) {
-		// Do nothing
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.menu.ModernMenuItem#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		// Do nothing
-	}
+  /**
+   * The member items.
+   */
+  private List<ModernComponent> mItems = new ArrayList<ModernComponent>();
+
+  /**
+   * The member columns.
+   */
+  private int mColumns;
+
+  /**
+   * Instantiates a new modern menu item grid block.
+   *
+   * @param title
+   *          the title
+   * @param menuItemWidth
+   *          the menu item width
+   * @param columns
+   *          the columns
+   */
+  public ModernMenuItemGridBlock(String title, int menuItemWidth, int columns) {
+    super("Grid Block");
+
+    // removeAll();
+
+    add(new ModernTitleMenuItem(title), BorderLayout.PAGE_START);
+
+    add(mPanel, BorderLayout.CENTER);
+
+    setWidth(menuItemWidth, columns);
+  }
+
+  /**
+   * Sets the width.
+   *
+   * @param width
+   *          the width
+   * @param columns
+   *          the columns
+   */
+  private void setWidth(int width, int columns) {
+    mColumns = columns;
+    mWidth = width * columns;
+
+    mPanel.setLayout(new GridLayout(0, columns, 0, 0));
+
+    setSize();
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param item
+   *          the item
+   */
+  public void add(ModernClickWidget item) {
+    addMenuItem(item);
+  }
+
+  /**
+   * Adds the menu item.
+   *
+   * @param item
+   *          the item
+   */
+  public void addMenuItem(ModernClickWidget item) {
+    mPanel.add(item);
+    mItems.add(item);
+
+    item.addClickListener(this);
+
+    setSize();
+  }
+
+  /**
+   * Sets the size.
+   */
+  private void setSize() {
+    UI.setSize(mPanel, mWidth,
+        (mItems.size() / mColumns + (mItems.size() % mColumns > 0 ? 1 : 0)) * ModernIconMenuItem.HEIGHT);
+
+    // The size of the menu is the size of the grid plus the title height
+    UI.setSize(this, mWidth, mPanel.getPreferredSize().height + ModernTitleMenuItem.HEIGHT);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    // Forward the message
+    fireClicked(e.getMessage());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.widget.ModernWidget#drawForeground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForeground(Graphics2D g2) {
+    // Do nothing
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.menu.ModernMenuItem#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    // Do nothing
+  }
 }

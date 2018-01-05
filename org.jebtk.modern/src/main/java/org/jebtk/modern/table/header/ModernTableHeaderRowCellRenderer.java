@@ -36,166 +36,155 @@ import org.jebtk.modern.font.FontUtils;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.zoom.ZoomCanvas;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTableHeaderRowCellRenderer.
  */
 public class ModernTableHeaderRowCellRenderer extends ModernTableHeaderCellRenderer {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * The mode.
+   */
+  protected CellSelectionType mMode = CellSelectionType.NONE;
 
-	/**
-	 * The mode.
-	 */
-	protected CellSelectionType mMode = CellSelectionType.NONE;
+  /**
+   * The end.
+   */
+  protected int end = 0;
 
-	/**
-	 * The end.
-	 */
-	protected int end = 0;
+  private double mZoom;
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#drawBackground(java.awt
+   * .Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    // g2.setColor(ModernWidget.LINE_COLOR);
+    // g2.drawLine(mRect.getW() - 1, 0, mRect.getW() - 1, mRect.getH() - 1);
 
-	private double mZoom;
+    // GradientPaint gradient;
 
+    int h = mRect.getH();
+    int w = mRect.getW();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		//g2.setColor(ModernWidget.LINE_COLOR);
-		//g2.drawLine(mRect.getW() - 1, 0, mRect.getW() - 1, mRect.getH() - 1);
+    switch (mMode) {
+    case HAS_FOCUS:
+    case SELECTED:
+      g2.setColor(SEL_BACK_COLOR);
 
-		//GradientPaint gradient;
+      g2.fillRect(mRect.getX(), mRect.getY(), w - 1, h - 1);
 
-		int h = mRect.getH();
-		int w = mRect.getW();
-		
-		switch (mMode) {
-		case HAS_FOCUS:
-		case SELECTED:
-			g2.setColor(SEL_BACK_COLOR);
+      // g2.setColor(ThemeService.getInstance().getThemeColor(5));
 
-			g2.fillRect(mRect.getX(), mRect.getY(), w - 1, h - 1);
+      // g2.fillRect(mRect.getW() - 2,
+      // 0,
+      // 2,
+      // mRect.getH());
 
-			//g2.setColor(ThemeService.getInstance().getThemeColor(5));
+      break;
+    default:
+      fill(g2, ModernTableHeader.HEADER_BACKGROUND, getRect());
+      break;
+    }
 
-			//g2.fillRect(mRect.getW() - 2,
-			//		0,
-			//		2,
-			//		mRect.getH());
+    /*
+     * gradient = new GradientPaint(0, 0,
+     * ThemeService.getInstance().colors().getHighlight(1), mRect.getW() - 1, 0,
+     * LINE_COLOR, false);
+     * 
+     * g2.setPaint(gradient);
+     */
 
-			break;
-		default:
-			fill(g2, ModernTableHeader.HEADER_BACKGROUND, getRect());
-			break;
-		}
+    g2.setColor(ModernWidget.LINE_COLOR);
 
-		/*
-		gradient = new GradientPaint(0,
-				0,
-				ThemeService.getInstance().colors().getHighlight(1),
-				mRect.getW() - 1,
-				0,
-				LINE_COLOR,
-				false);
+    int p = h - 1;
+    g2.drawLine(0, p, w - 1, p);
 
-		g2.setPaint(gradient);
-		 */
+    if (mMode == CellSelectionType.SELECTED) {
+      // g2.drawImage(cacheSelectionLine(mRect.getW()), 0, mRect.getH() - 3, null);
 
-		
-		
-		g2.setColor(ModernWidget.LINE_COLOR);
-		
-		int p = h - 1;
-		g2.drawLine(0, p, w - 1, p);
-		
-		if (mMode == CellSelectionType.SELECTED) {
-			//g2.drawImage(cacheSelectionLine(mRect.getW()), 0, mRect.getH() - 3, null);
+      g2.setColor(SEL_LINE_COLOR);
+      g2.fillRect(w - 2, 0, 2, h);
+    } else {
+      p = w - 1;
+      g2.drawLine(p, 0, p, h - 1);
+    }
 
-			g2.setColor(SEL_LINE_COLOR);
-			g2.fillRect(w - 2, 0, 2, h);
-		} else {
-			p = w - 1;
-			g2.drawLine(p, 0, p, h - 1);
-		}
+    // g2.drawRect(0, 0, mRect.getW() - 1, mRect.getH() - 1);
 
-		//g2.drawRect(0, 0, mRect.getW() - 1, mRect.getH() - 1);
+    /*
+     * if (isFirst) { g2.drawLine(0, 0, mRect.getW() - 1, 0); }
+     */
+  }
 
-		/*
-		if (isFirst) {
-			g2.drawLine(0, 0, mRect.getW() - 1, 0);
-		}
-		 */
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(TEXT_COLOR);
+    // g2.setFont(ModernWidget.FONT);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(TEXT_COLOR);
-		//g2.setFont(ModernWidget.FONT);
+    /*
+     * int x = 0; int w = mRect.getW() / Math.max(1, mNames.size()); int y =
+     * getTextYPosCenter(g2, mRect.getH());
+     * 
+     * for (String name : mNames) { String text = getTruncatedText(g2, name, 0, w);
+     * 
+     * int p = x + (w - g2.getFontMetrics().stringWidth(text)) / 2;
+     * 
+     * g2.drawString(text, p, y);
+     * 
+     * x += w; }
+     */
 
-		/*
-		int x = 0;
-		int w = mRect.getW() / Math.max(1, mNames.size());
-		int y = getTextYPosCenter(g2, mRect.getH());
+    int y = getTextYPosCenter(g2, mRect.getH());
 
-		for (String name : mNames) {
-			String text = getTruncatedText(g2, name, 0, w);
+    String text = getTruncatedText(g2, mText, 0, mRect.getW());
 
-			int p = x + (w - g2.getFontMetrics().stringWidth(text)) / 2;
+    int x = (mRect.getW() - g2.getFontMetrics().stringWidth(text)) / 2;
 
-			g2.drawString(text, p, y);
+    g2.drawString(text, x, y);
+  }
 
-			x += w;
-		}
-		 */
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#
+   * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
+   * java.lang.Object, boolean, boolean, boolean, int, int)
+   */
+  @Override
+  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
 
-		int y = getTextYPosCenter(g2, mRect.getH());
+    if (value != null) {
+      setText(value.toString());
+    }
 
-		String text = getTruncatedText(g2, mText, 0, mRect.getW());
+    mZoom = ((ZoomCanvas) dataView).getZoomModel().getZoom();
 
-		int x = (mRect.getW() - g2.getFontMetrics().stringWidth(text)) / 2;
+    setFont(FontUtils.scale(FONT, mZoom));
 
-		g2.drawString(text, x, y);	
-	}
+    if (isSelected) {
+      mMode = CellSelectionType.SELECTED;
+    } else if (hasFocus) {
+      mMode = CellSelectionType.HAS_FOCUS;
+    } else {
+      mMode = CellSelectionType.NONE;
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	@Override
-	public Component getCellRendererComponent(ModernData dataView,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
-
-		if (value != null) {
-			setText(value.toString());
-		}
-		
-		mZoom = ((ZoomCanvas)dataView).getZoomModel().getZoom();
-		
-		setFont(FontUtils.scale(FONT, mZoom));
-
-		if (isSelected) {
-			mMode = CellSelectionType.SELECTED;
-		} else if (hasFocus) {
-			mMode = CellSelectionType.HAS_FOCUS;
-		} else {
-			mMode = CellSelectionType.NONE;
-		}
-
-		return this;
-	}
+    return this;
+  }
 }

@@ -42,223 +42,224 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernMenuItem.
  */
 public class ModernMenuItem extends ModernButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant HEIGHT.
-	 */
-	public static final int HEIGHT = 
-			SettingsService.getInstance().getAsInt("theme.menu.height");
-	
-	/**
-	 * The constant WIDTH.
-	 */
-	public static final int WIDTH = 
-			SettingsService.getInstance().getAsInt("theme.menu.width");
-	
-	/**
-	 * The constant MIN_SIZE.
-	 */
-	public static final Dimension MIN_SIZE = 
-			new Dimension(0, HEIGHT);
-	
-	/**
-	 * The constant PREFERRED_SIZE.
-	 */
-	public static final Dimension PREFERRED_SIZE = 
-			new Dimension(WIDTH, HEIGHT);
-	
-	/**
-	 * The constant MAX_SIZE.
-	 */
-	public static final Dimension MAX_SIZE = 
-			new Dimension(Short.MAX_VALUE, HEIGHT);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	//public static final Color ICON_BACKGROUND = DialogButton.LIGHT_COLOR;
-	//public static final Color ICON_BACKGROUND_SEPARATOR = DialogButton.DARK_COLOR;
+  /**
+   * The constant HEIGHT.
+   */
+  public static final int HEIGHT = SettingsService.getInstance().getAsInt("theme.menu.height");
 
-	
-	// orange
-	//public static final Color HIGHLIGHT_COLOR = new Color(253, 238, 179); //new Color(202, 225, 255);
-	//public static final Color BORDER_COLOR = new Color(242, 202, 88); //new Color(100, 149, 237);
-	//public static final Color DARK_BORDER_COLOR = new Color(50, 100, 175);
+  /**
+   * The constant WIDTH.
+   */
+  public static final int WIDTH = SettingsService.getInstance().getAsInt("theme.menu.width");
 
+  /**
+   * The constant MIN_SIZE.
+   */
+  public static final Dimension MIN_SIZE = new Dimension(0, HEIGHT);
 
-	//public static final Color COLOR_1 = new Color(220, 230, 250); //Color.WHITE;
+  /**
+   * The constant PREFERRED_SIZE.
+   */
+  public static final Dimension PREFERRED_SIZE = new Dimension(WIDTH, HEIGHT);
 
-	/**
-	 * Allows a menu hierarchy.
-	 */
-	private List<ModernMenuItem> mSubMenuItems = 
-			new ArrayList<ModernMenuItem>();
+  /**
+   * The constant MAX_SIZE.
+   */
+  public static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
 
-	/**
-	 * The text (possibly truncated) that is displayed in the UI element.
-	 */
-	protected String mDisplayText;
+  // public static final Color ICON_BACKGROUND = DialogButton.LIGHT_COLOR;
+  // public static final Color ICON_BACKGROUND_SEPARATOR =
+  // DialogButton.DARK_COLOR;
 
-	
-	/**
-	 * The class ClickEvents.
-	 */
-	private class ClickEvents implements ModernClickListener {
+  // orange
+  // public static final Color HIGHLIGHT_COLOR = new Color(253, 238, 179); //new
+  // Color(202, 225, 255);
+  // public static final Color BORDER_COLOR = new Color(242, 202, 88); //new
+  // Color(100, 149, 237);
+  // public static final Color DARK_BORDER_COLOR = new Color(50, 100, 175);
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			setHighlighted(false);
-			setSelected(false);
-		}
-	}
-	
-	/**
-	 * The Class ComponentEvents.
-	 */
-	private class ComponentEvents extends ComponentAdapter {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.ComponentAdapter#componentResized(java.awt.event.ComponentEvent)
-		 */
-		@Override
-		public void componentResized(ComponentEvent e) {
-			setDisplayText();
-		}
-	}
-	
-	/**
-	 * Instantiates a new modern menu item.
-	 *
-	 * @param text the text
-	 */
-	public ModernMenuItem(String text) {
-		super(text);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern menu item.
-	 *
-	 * @param text the text
-	 * @param icon the icon
-	 */
-	public ModernMenuItem(String text, ModernIcon icon) {
-		super(text, icon);
-		
-		setup();
-	}
+  // public static final Color COLOR_1 = new Color(220, 230, 250); //Color.WHITE;
 
-	/**
-	 * Instantiates a new modern menu item.
-	 *
-	 * @param text the text
-	 * @param icon the icon
-	 * @param size the size
-	 */
-	public ModernMenuItem(String text, ModernIcon icon, Dimension size) {
-		this(text, icon);
-		
-		UI.setSize(this, size);
-	}
+  /**
+   * Allows a menu hierarchy.
+   */
+  private List<ModernMenuItem> mSubMenuItems = new ArrayList<ModernMenuItem>();
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		addClickListener(new ClickEvents());
-		addComponentListener(new ComponentEvents());
+  /**
+   * The text (possibly truncated) that is displayed in the UI element.
+   */
+  protected String mDisplayText;
 
-		UI.setSize(this, PREFERRED_SIZE);
-		
-		setBackgroundAnimations("menu");
-	}
-	
-	/**
-	 * Returns the sub menu items associated with this menu item.
-	 *
-	 * @return the sub menu items
-	 */
-	public final List<ModernMenuItem> getSubMenuItems() {
-		return mSubMenuItems;
-	}
-	
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fillBackground(g2);
-		
-		if (isEnabled() && (highlight || isSelected())) {
-			//paintHighlighted(g2, getRect());
-			//paintHighlightedBorder(g2, getRect());
-			
-			g2.setColor(HIGHLIGHT);
-			g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-			g2.drawRect(mInternalRect.getX() + 1, mInternalRect.getY() + 1, mInternalRect.getW() - 2, mInternalRect.getH() - 2);
-		}
-	}
-	*/
-	
-	/**
-	 * Gets the display text.
-	 *
-	 * @return the display text
-	 */
-	public String getDisplayText() {
-		return mDisplayText;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (isEnabled()) {
-			if (isSelected() || mHighlight) {
-				getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
-			}
-		}
-	}
-	*/
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (mDisplayText != null) {
-			g2.setColor(getForeground());
-			g2.drawString(mDisplayText, PADDING, getTextYPosCenter(g2, getHeight()));
-		}
-	}
+  /**
+   * The class ClickEvents.
+   */
+  private class ClickEvents implements ModernClickListener {
 
-	
-	/**
-	 * Adds a new menu item.
-	 *
-	 * @param item the item
-	 */
-	public void add(ModernMenuItem item) {
-		getSubMenuItems().add(item);
-	}
-	
-	/**
-	 * Determines what text should be displayed (truncating if necessary).
-	 */
-	public void setDisplayText() {
-		mDisplayText = ModernWidget.truncate(getText(), getWidth());
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      setHighlighted(false);
+      setSelected(false);
+    }
+  }
+
+  /**
+   * The Class ComponentEvents.
+   */
+  private class ComponentEvents extends ComponentAdapter {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.ComponentAdapter#componentResized(java.awt.event.
+     * ComponentEvent)
+     */
+    @Override
+    public void componentResized(ComponentEvent e) {
+      setDisplayText();
+    }
+  }
+
+  /**
+   * Instantiates a new modern menu item.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernMenuItem(String text) {
+    super(text);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern menu item.
+   *
+   * @param text
+   *          the text
+   * @param icon
+   *          the icon
+   */
+  public ModernMenuItem(String text, ModernIcon icon) {
+    super(text, icon);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern menu item.
+   *
+   * @param text
+   *          the text
+   * @param icon
+   *          the icon
+   * @param size
+   *          the size
+   */
+  public ModernMenuItem(String text, ModernIcon icon, Dimension size) {
+    this(text, icon);
+
+    UI.setSize(this, size);
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    addClickListener(new ClickEvents());
+    addComponentListener(new ComponentEvents());
+
+    UI.setSize(this, PREFERRED_SIZE);
+
+    setBackgroundAnimations("menu");
+  }
+
+  /**
+   * Returns the sub menu items associated with this menu item.
+   *
+   * @return the sub menu items
+   */
+  public final List<ModernMenuItem> getSubMenuItems() {
+    return mSubMenuItems;
+  }
+
+  /*
+   * @Override public void drawBackground(Graphics2D g2) { fillBackground(g2);
+   * 
+   * if (isEnabled() && (highlight || isSelected())) { //paintHighlighted(g2,
+   * getRect()); //paintHighlightedBorder(g2, getRect());
+   * 
+   * g2.setColor(HIGHLIGHT); g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+   * g2.drawRect(mInternalRect.getX() + 1, mInternalRect.getY() + 1,
+   * mInternalRect.getW() - 2, mInternalRect.getH() - 2); } }
+   */
+
+  /**
+   * Gets the display text.
+   *
+   * @return the display text
+   */
+  public String getDisplayText() {
+    return mDisplayText;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.widget.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  /*
+   * @Override public void drawBackground(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight) { getWidgetRenderer().drawMenu(g2,
+   * mInternalRect, RenderMode.SELECTED); } } }
+   */
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mDisplayText != null) {
+      g2.setColor(getForeground());
+      g2.drawString(mDisplayText, PADDING, getTextYPosCenter(g2, getHeight()));
+    }
+  }
+
+  /**
+   * Adds a new menu item.
+   *
+   * @param item
+   *          the item
+   */
+  public void add(ModernMenuItem item) {
+    getSubMenuItems().add(item);
+  }
+
+  /**
+   * Determines what text should be displayed (truncating if necessary).
+   */
+  public void setDisplayText() {
+    mDisplayText = ModernWidget.truncate(getText(), getWidth());
+  }
 }

@@ -34,8 +34,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Display current zoom settings.
@@ -44,61 +42,66 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernZoomLabel extends ModernAutoSizeLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member model.
-	 */
-	private ZoomModel mModel;
 
-	/**
-	 * The class ZoomEvents.
-	 */
-	private class ZoomEvents implements ChangeListener {
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
-		 */
-		@Override
-		public void changed(ChangeEvent e) {
-			updateZoom();
-		}
-		
-	}
+  /**
+   * The member model.
+   */
+  private ZoomModel mModel;
 
-	/**
-	 * Instantiates a new modern zoom label.
-	 *
-	 * @param model the model
-	 */
-	public ModernZoomLabel(ZoomModel model) {
-		super("100%");
-		
-		mModel = model;
-		
-		mModel.addChangeListener(new ZoomEvents());
-		
-		updateZoom();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.text.ModernAutoSizeLabel#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		super.setText(text);
-		
-		UI.setSize(this, ModernWidget.TINY_SIZE);
-	}
-	
-	/**
-	 * Update zoom.
-	 */
-	private void updateZoom() {
-		setText(Integer.toString((int)(mModel.getZoom() * 100)) + "%");
-	}
+  /**
+   * The class ZoomEvents.
+   */
+  private class ZoomEvents implements ChangeListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     */
+    @Override
+    public void changed(ChangeEvent e) {
+      updateZoom();
+    }
+
+  }
+
+  /**
+   * Instantiates a new modern zoom label.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernZoomLabel(ZoomModel model) {
+    super("100%");
+
+    mModel = model;
+
+    mModel.addChangeListener(new ZoomEvents());
+
+    updateZoom();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.text.ModernAutoSizeLabel#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    super.setText(text);
+
+    UI.setSize(this, ModernWidget.TINY_SIZE);
+  }
+
+  /**
+   * Update zoom.
+   */
+  private void updateZoom() {
+    setText(Integer.toString((int) (mModel.getZoom() * 100)) + "%");
+  }
 }

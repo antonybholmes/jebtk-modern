@@ -34,11 +34,11 @@ import java.awt.Color;
  * The class FolderBwVectorIcon.
  */
 public class FolderBwVectorIcon extends OpenFolderVectorIcon {
-	
-	/**
-	 * Instantiates a new folder bw vector icon.
-	 */
-	public FolderBwVectorIcon() {
-		super(Color.BLACK);
-	}
+
+  /**
+   * Instantiates a new folder bw vector icon.
+   */
+  public FolderBwVectorIcon() {
+    super(Color.BLACK);
+  }
 }

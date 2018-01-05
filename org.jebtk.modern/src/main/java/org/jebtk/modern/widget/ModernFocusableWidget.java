@@ -33,8 +33,6 @@ import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The basis for all controls. Implements basic message handling.
@@ -43,102 +41,110 @@ import java.awt.event.MouseEvent;
  *
  */
 public abstract class ModernFocusableWidget extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The class MouseEvents.
-	 */
-	private class MouseEvents extends MouseAdapter {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mousePressed(MouseEvent e) {
-			if (e.isPopupTrigger()) {
-				return;
-			}
-			
-			if (!isFocusable()) {
-				return;
-			}
-			
-			if (!mAutoFocus) {
-				return;
-			}
-			
-			requestFocus();
-		}
-	}
-	
-	/**
-	 * The class FocusEvents.
-	 */
-	private class FocusEvents implements FocusListener {
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusGained(FocusEvent e) {
-			//System.err.println("focus " + getName());
-			
-			repaint();
-		}
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusLost(FocusEvent e) {
-			repaint();
-		}
-	}
-	
-	/**
-	 * The member auto focus.
-	 */
-	private boolean mAutoFocus = true;
-	
-	/**
-	 * Instantiates a new modern focusable widget.
-	 */
-	public ModernFocusableWidget() {
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern focusable widget.
-	 *
-	 * @param manager the manager
-	 */
-	public ModernFocusableWidget(LayoutManager manager) {
-		super(manager);
-		
-		setup();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {	
-		setFocusable(true);
-		
-		addFocusListener(new FocusEvents());
-		addMouseListener(new MouseEvents());
-	}
-	
-	/**
-	 * Sets whether the widget will automatically
-	 * try to become focused when clicked.
-	 *
-	 * @param autoFocus the new auto focus
-	 */
-	protected final void setAutoFocus(boolean autoFocus) {
-		mAutoFocus = autoFocus;
-	}
+  /**
+   * The class MouseEvents.
+   */
+  private class MouseEvents extends MouseAdapter {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mousePressed(MouseEvent e) {
+      if (e.isPopupTrigger()) {
+        return;
+      }
+
+      if (!isFocusable()) {
+        return;
+      }
+
+      if (!mAutoFocus) {
+        return;
+      }
+
+      requestFocus();
+    }
+  }
+
+  /**
+   * The class FocusEvents.
+   */
+  private class FocusEvents implements FocusListener {
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusGained(FocusEvent e) {
+      // System.err.println("focus " + getName());
+
+      repaint();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusLost(FocusEvent e) {
+      repaint();
+    }
+  }
+
+  /**
+   * The member auto focus.
+   */
+  private boolean mAutoFocus = true;
+
+  /**
+   * Instantiates a new modern focusable widget.
+   */
+  public ModernFocusableWidget() {
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern focusable widget.
+   *
+   * @param manager
+   *          the manager
+   */
+  public ModernFocusableWidget(LayoutManager manager) {
+    super(manager);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setFocusable(true);
+
+    addFocusListener(new FocusEvents());
+    addMouseListener(new MouseEvents());
+  }
+
+  /**
+   * Sets whether the widget will automatically try to become focused when
+   * clicked.
+   *
+   * @param autoFocus
+   *          the new auto focus
+   */
+  protected final void setAutoFocus(boolean autoFocus) {
+    mAutoFocus = autoFocus;
+  }
 }

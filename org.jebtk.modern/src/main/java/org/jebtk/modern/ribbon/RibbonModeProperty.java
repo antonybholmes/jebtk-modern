@@ -20,11 +20,12 @@ package org.jebtk.modern.ribbon;
  * The Interface RibbonModeProperty.
  */
 public interface RibbonModeProperty {
-	
-	/**
-	 * Sets the size.
-	 *
-	 * @param mode the new size
-	 */
-	void setSize(RibbonSize mode);
+
+  /**
+   * Sets the size.
+   *
+   * @param mode
+   *          the new size
+   */
+  void setSize(RibbonSize mode);
 }

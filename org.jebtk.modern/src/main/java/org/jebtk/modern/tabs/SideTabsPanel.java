@@ -24,21 +24,22 @@ import org.jebtk.modern.ModernComponent;
  * The Class SideTabsPanel.
  */
 public class SideTabsPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new side tabs panel.
-	 *
-	 * @param model the model
-	 */
-	public SideTabsPanel(TabsModel model) {
-		add(new SideTabs(model), BorderLayout.LINE_START);
-		
-		TabsViewPanel panel = new TabsViewPanel(model);
-		panel.setBorder(LEFT_BORDER);
-		
-		setBody(panel);
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new side tabs panel.
+   *
+   * @param model
+   *          the model
+   */
+  public SideTabsPanel(TabsModel model) {
+    add(new SideTabs(model), BorderLayout.LINE_START);
+
+    TabsViewPanel panel = new TabsViewPanel(model);
+    panel.setBorder(LEFT_BORDER);
+
+    setBody(panel);
+  }
 }

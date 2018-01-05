@@ -29,7 +29,6 @@ package org.jebtk.modern.dialog;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Flat button for dialogs.
@@ -39,68 +38,63 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  */
 public class ModernDialogFlatButton extends ModernDialogButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new modern dialog flat button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernDialogFlatButton(String text1) {
-		super(text1);
-		
-		setup();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog flat button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernDialogFlatButton(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new modern dialog flat button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernDialogFlatButton(String text1) {
+    super(text1);
 
-	/**
-	 * Instantiates a new modern dialog flat button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 */
-	public ModernDialogFlatButton(String text1, ModernIcon icon) {
-		super(text1, icon);
-		
-		setup();
-	}
-	
-	public ModernDialogFlatButton(String text1, ModernIcon icon, int width) {
-		super(text1, icon, width);
-		
-		setup();
-	}
-	
-	private void setup() {
-		setBackgroundAnimations("dialog-flat-button");
-	}
+    setup();
+  }
 
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		if (isEnabled()) {
-			if (isSelected() || mHighlight) {
-				getWidgetRenderer().drawButton(g2, 
-						mInternalRect,
-						RenderMode.SELECTED,
-						hasFocus());
-			} else {
-				getWidgetRenderer().drawContentBox(g2, mInternalRect);
-			}
-		}
-	}
-	*/
+  /**
+   * Instantiates a new modern dialog flat button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernDialogFlatButton(ModernIcon icon) {
+    super(icon);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern dialog flat button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   */
+  public ModernDialogFlatButton(String text1, ModernIcon icon) {
+    super(text1, icon);
+
+    setup();
+  }
+
+  public ModernDialogFlatButton(String text1, ModernIcon icon, int width) {
+    super(text1, icon, width);
+
+    setup();
+  }
+
+  private void setup() {
+    setBackgroundAnimations("dialog-flat-button");
+  }
+
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight) { getWidgetRenderer().drawButton(g2,
+   * mInternalRect, RenderMode.SELECTED, hasFocus()); } else {
+   * getWidgetRenderer().drawContentBox(g2, mInternalRect); } } }
+   */
 }

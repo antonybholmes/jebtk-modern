@@ -24,182 +24,176 @@ import javax.swing.border.Border;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * The Class ModernCheckSwitch offers a sliding on/off switch similar to
- * what you might find in Android or iOS.
+ * The Class ModernCheckSwitch offers a sliding on/off switch similar to what
+ * you might find in Android or iOS.
  */
 public class ModernCheckSwitch extends CheckBox {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant SWITCH_ICON_WIDTH. */
-	//protected static final int SWITCH_ICON_WIDTH = 32;
+  /** The Constant SWITCH_ICON_WIDTH. */
+  // protected static final int SWITCH_ICON_WIDTH = 32;
 
-	// How many pixels we offset the slider to account for rendering going
-	/** The Constant SWITCH_ICON_OFFSET. */
-	// outside the boundary from antialiasing etc.
-	protected static final int SWITCH_ICON_OFFSET = 1;
+  // How many pixels we offset the slider to account for rendering going
+  /** The Constant SWITCH_ICON_OFFSET. */
+  // outside the boundary from antialiasing etc.
+  protected static final int SWITCH_ICON_OFFSET = 1;
 
+  /** The Constant SLIDER_OFFSET. */
+  protected static final int SLIDER_OFFSET = 2;
 
-	/** The Constant SLIDER_OFFSET. */
-	protected static final int SLIDER_OFFSET = 2;
+  /** The Constant ORB_HEIGHT. */
+  protected static final int ORB_HEIGHT = 20;
 
-	/** The Constant ORB_HEIGHT. */
-	protected static final int ORB_HEIGHT = 20;
+  protected static final int SLIDER_HEIGHT = ORB_HEIGHT - 4;
 
-	protected static final int SLIDER_HEIGHT = ORB_HEIGHT - 4;
+  /** The Constant SLIDER_WIDTH. */
+  protected static final int SLIDER_WIDTH = ORB_HEIGHT * 3 / 2;
 
-	/** The Constant SLIDER_WIDTH. */
-	protected static final int SLIDER_WIDTH = ORB_HEIGHT * 3 / 2;
+  /** The Constant SWITCH_ON_OFFSET. */
+  protected static final int SWITCH_ON_OFFSET = SLIDER_WIDTH - ORB_HEIGHT - SWITCH_ICON_OFFSET;
 
+  private Color mTextColor;
 
-	/** The Constant SWITCH_ON_OFFSET. */
-	protected static final int SWITCH_ON_OFFSET = 
-			SLIDER_WIDTH - ORB_HEIGHT - SWITCH_ICON_OFFSET;
+  public ModernCheckSwitch() {
+    this(TextUtils.EMPTY_STRING);
+  }
 
-	private Color mTextColor;
+  /**
+   * Instantiates a new modern check box.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernCheckSwitch(String text) {
+    this(text, false);
+  }
 
+  public ModernCheckSwitch(String text, int width) {
+    this(text);
 
-	public ModernCheckSwitch() {
-		this(TextUtils.EMPTY_STRING);
-	}
+    setSize(width);
+  }
 
-	/**
-	 * Instantiates a new modern check box.
-	 *
-	 * @param text the text
-	 */
-	public ModernCheckSwitch(String text) {
-		this(text, false);
-	}
+  /**
+   * Instantiates a new modern check box.
+   *
+   * @param selected
+   *          the selected
+   */
+  public ModernCheckSwitch(boolean selected) {
+    this(TextUtils.EMPTY_STRING, selected);
+  }
 
-	public ModernCheckSwitch(String text, int width) {
-		this(text);
+  /**
+   * Instantiates a new modern check box.
+   *
+   * @param text
+   *          the text
+   * @param selected
+   *          the selected
+   */
+  public ModernCheckSwitch(String text, boolean selected) {
+    setText(text);
 
-		setSize(width);
-	}
+    setBackgroundAnimations("check-switch");
 
-	/**
-	 * Instantiates a new modern check box.
-	 *
-	 * @param selected the selected
-	 */
-	public ModernCheckSwitch(boolean selected) {
-		this(TextUtils.EMPTY_STRING, selected);
-	}
+    setSelected(selected);
+  }
 
-	/**
-	 * Instantiates a new modern check box.
-	 *
-	 * @param text the text
-	 * @param selected the selected
-	 */
-	public ModernCheckSwitch(String text, boolean selected) {
-		setText(text);
+  public ModernCheckSwitch(String text, boolean selected, Color color) {
+    this(text, selected, color, TEXT_COLOR);
+  }
 
-		setBackgroundAnimations("check-switch");
-		
-		setSelected(selected);
-	}
+  public ModernCheckSwitch(String text, boolean selected, Color color, Color textColor) {
+    this(text, selected);
 
-	public ModernCheckSwitch(String text, boolean selected, Color color) {
-		this(text, selected, color, TEXT_COLOR);
-	}
-	
-	public ModernCheckSwitch(String text, 
-			boolean selected, 
-			Color color,
-			Color textColor) {
-		this(text, selected);
+    mTextColor = textColor;
 
-		mTextColor = textColor;
-		
-		getBackgroundAnimations()
-			.clear()
-			.add(new CheckSwitchAnimation(this, color))
-			.add(new CheckSwitchChangeAnimation(this, color));
-		
-		setSelected(selected);
-	}
+    getBackgroundAnimations().clear().add(new CheckSwitchAnimation(this, color))
+        .add(new CheckSwitchChangeAnimation(this, color));
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ModernWidget#setFont(java.awt.Font)
-	 */
-	@Override
-	public void setFont(Font font) {
-		super.setFont(font);
+    setSelected(selected);
+  }
 
-		setSize();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ModernWidget#setFont(java.awt.Font)
+   */
+  @Override
+  public void setFont(Font font) {
+    super.setFont(font);
 
-	/**
-	 * Gets the text.
-	 *
-	 * @return the text
-	 */
-	public String getText() {
-		return mText1;
-	}
+    setSize();
+  }
 
-	/**
-	 * Sets the text.
-	 *
-	 * @param text the new text
-	 */
-	public void setText(String text) {
-		mText1 = text;
+  /**
+   * Gets the text.
+   *
+   * @return the text
+   */
+  public String getText() {
+    return mText1;
+  }
 
-		setSize();
+  /**
+   * Sets the text.
+   *
+   * @param text
+   *          the new text
+   */
+  public void setText(String text) {
+    mText1 = text;
 
-		setClickMessage(text);
-	}
+    setSize();
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ModernComponent#setBorder(javax.swing.border.Border)
-	 */
-	@Override
-	public void setBorder(Border border) {
-		super.setBorder(border);
+    setClickMessage(text);
+  }
 
-		setSize();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ModernComponent#setBorder(javax.swing.border.Border)
+   */
+  @Override
+  public void setBorder(Border border) {
+    super.setBorder(border);
 
-	/**
-	 * Sets the size.
-	 */
-	private void setSize() {
-		setSize(getInsets().left + ModernButton.getStringWidth(mText1) + SLIDER_WIDTH + QUAD_PADDING);
+    setSize();
+  }
 
-	}
+  /**
+   * Sets the size.
+   */
+  private void setSize() {
+    setSize(getInsets().left + ModernButton.getStringWidth(mText1) + SLIDER_WIDTH + QUAD_PADDING);
 
-	private void setSize(int width) {
-		UI.setSize(this, 
-				width, 
-				ModernButton.getButtonHeight());
+  }
 
-	}
+  private void setSize(int width) {
+    UI.setSize(this, width, ModernButton.getButtonHeight());
 
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		drawSlider(g2);
-	}
-	 */
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.button.ModernCheckBox#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(mTextColor); //isSelected() ? TEXT_COLOR : TEXT_DISABLED_COLOR);
-		g2.drawString(mText1, 
-				getInsets().left + SLIDER_WIDTH + PADDING, 
-				getTextYPosCenter(g2, getHeight()));
-	}
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { drawSlider(g2); }
+   */
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.button.ModernCheckBox#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(mTextColor); // isSelected() ? TEXT_COLOR : TEXT_DISABLED_COLOR);
+    g2.drawString(mText1, getInsets().left + SLIDER_WIDTH + PADDING, getTextYPosCenter(g2, getHeight()));
+  }
 }

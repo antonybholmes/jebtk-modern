@@ -34,25 +34,28 @@ package org.jebtk.modern.event;
  * @author Antony Holmes Holmes
  */
 public interface HighlightEventProducer {
-	
-	/**
-	 * Add a State listener.
-	 *
-	 * @param l the l
-	 */
-	public void addHighlightListener(HighlightListener l);
-	
-	/**
-	 * Remove a State listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeHighlightListener(HighlightListener l);
-	
-	/**
-	 * fire an event.
-	 *
-	 * @param event the event
-	 */
-	public void fireHighlighted(HighlightEvent e);
+
+  /**
+   * Add a State listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addHighlightListener(HighlightListener l);
+
+  /**
+   * Remove a State listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeHighlightListener(HighlightListener l);
+
+  /**
+   * fire an event.
+   *
+   * @param event
+   *          the event
+   */
+  public void fireHighlighted(HighlightEvent e);
 }

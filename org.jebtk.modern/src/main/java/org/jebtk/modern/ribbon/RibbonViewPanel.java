@@ -32,61 +32,58 @@ import org.jebtk.modern.widget.tooltip.ModernToolTip;
  * The Class RibbonViewPanel.
  */
 public class RibbonViewPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/** The m hide button. */
-	protected ModernButton mHideButton = new RibbonHideButton();
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/** The m view panel. */
-	private ViewPanel mViewPanel = new ViewPanel();
-	
-	/**
-	 * Instantiates a new ribbon view panel.
-	 */
-	public RibbonViewPanel() {
-		setBorder(BorderService.getInstance().createBorder(2));
-		
-		setBody(mViewPanel);
-		
-		Box box = HBox.create();
-		box.add(UI.createHGap(5));
-		box.add(mHideButton);
-		box.add(UI.createHGap(5));
-		setRight(box);
-		
-		mHideButton.setToolTip(new ModernBasicToolTipPanel(new ModernToolTip("Minimize Ribbon", 
-				"Minimize the ribbon so it takes up less space.")));
-	}
-	
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		fill(g2, Ribbon.TAB_COLOR);
-		
-		
-		//int y = getHeight() - 1;
-		//g2.setColor(Ribbon.BORDER_COLOR);		
-		//g2.drawLine(0, y, getWidth(), y);
-	}
-	*/
+  /** The m hide button. */
+  protected ModernButton mHideButton = new RibbonHideButton();
 
-	/**
-	 * Gets the view panel.
-	 *
-	 * @return the view panel
-	 */
-	public ViewPanel getViewPanel() {
-		return mViewPanel;
-	}
+  /** The m view panel. */
+  private ViewPanel mViewPanel = new ViewPanel();
 
-	/**
-	 * Gets the hide button.
-	 *
-	 * @return the hide button
-	 */
-	public ModernClickWidget getHideButton() {
-		return mHideButton;
-	}
+  /**
+   * Instantiates a new ribbon view panel.
+   */
+  public RibbonViewPanel() {
+    setBorder(BorderService.getInstance().createBorder(2));
+
+    setBody(mViewPanel);
+
+    Box box = HBox.create();
+    box.add(UI.createHGap(5));
+    box.add(mHideButton);
+    box.add(UI.createHGap(5));
+    setRight(box);
+
+    mHideButton.setToolTip(new ModernBasicToolTipPanel(
+        new ModernToolTip("Minimize Ribbon", "Minimize the ribbon so it takes up less space.")));
+  }
+
+  /*
+   * @Override public void drawBackground(Graphics2D g2) { fill(g2,
+   * Ribbon.TAB_COLOR);
+   * 
+   * 
+   * //int y = getHeight() - 1; //g2.setColor(Ribbon.BORDER_COLOR);
+   * //g2.drawLine(0, y, getWidth(), y); }
+   */
+
+  /**
+   * Gets the view panel.
+   *
+   * @return the view panel
+   */
+  public ViewPanel getViewPanel() {
+    return mViewPanel;
+  }
+
+  /**
+   * Gets the hide button.
+   *
+   * @return the hide button
+   */
+  public ModernClickWidget getHideButton() {
+    return mHideButton;
+  }
 }

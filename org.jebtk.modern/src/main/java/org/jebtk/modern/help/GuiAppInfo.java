@@ -39,148 +39,131 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  *
  */
 public class GuiAppInfo extends AppInfo {
-	
-	/**
-	 * The member icon.
-	 */
-	private ModernIcon mIcon;
-	
-	/**
-	 * The member large icon.
-	 */
-	private ModernIcon mIcon128;
-	
-	
-	/**
-	 * Instantiates a new application information.
-	 *
-	 * @param name the name
-	 * @param version the version
-	 * @param copyright the copyright
-	 * @param icon the icon
-	 */
-	public GuiAppInfo(String name, 
-			AppVersion version, 
-			String copyright, 
-			ModernIcon icon) {
-		this(name, 
-				version, 
-				copyright, 
-				icon, 
-				icon, 
-				name.toLowerCase().replaceAll("\\s", "_"), 
-				null);
-	}
-	
-	/**
-	 * Instantiates a new application information.
-	 *
-	 * @param name the name
-	 * @param version the version
-	 * @param copyright the copyright
-	 * @param icon the icon
-	 * @param largeIcon the large icon
-	 */
-	public GuiAppInfo(String name, 
-			AppVersion version, 
-			String copyright, 
-			ModernIcon icon,
-			ModernIcon largeIcon) {
-		this(name, 
-				version, 
-				copyright, 
-				icon, 
-				largeIcon, 
-				name.toLowerCase().replaceAll("\\s", ""), 
-				null);
-	}
-	
-	/**
-	 * Instantiates a new application information.
-	 *
-	 * @param name the name
-	 * @param version the version
-	 * @param copyright the copyright
-	 * @param icon the icon
-	 * @param description the description
-	 */
-	public GuiAppInfo(String name, 
-			AppVersion version, 
-			String copyright, 
-			ModernIcon icon,
-			String description) {
-		this(name, 
-				version, 
-				copyright, 
-				icon, 
-				icon,
-				description);
-	}
-	
-	/**
-	 * Instantiates a new application information.
-	 *
-	 * @param name the name
-	 * @param version the version
-	 * @param copyright the copyright
-	 * @param icon the icon
-	 * @param largeIcon the large icon
-	 * @param description the description
-	 */
-	public GuiAppInfo(String name, 
-			AppVersion version, 
-			String copyright, 
-			ModernIcon icon,
-			ModernIcon largeIcon,
-			String description) {
-		this(name, 
-				version, 
-				copyright, 
-				icon, 
-				largeIcon, 
-				name.toLowerCase().replaceAll("[\\.\\s]", ""), 
-				description);
-	}
-	
-	/**
-	 * Instantiates a new application information.
-	 *
-	 * @param name the name
-	 * @param version the version
-	 * @param copyright the copyright
-	 * @param icon the icon
-	 * @param icon128 the large icon
-	 * @param helpName the help name
-	 * @param description the description
-	 */
-	public GuiAppInfo(String name, 
-			AppVersion version, 
-			String copyright, 
-			ModernIcon icon,
-			ModernIcon icon128, 
-			String helpName,
-			String description) {
-		super(name, version, copyright, helpName, description);
-		
-		mIcon = icon;
-		mIcon128 = icon128;
-	}
-	
-	/**
-	 * Gets the icon.
-	 *
-	 * @return the icon
-	 */
-	public ModernIcon getIcon() {
-		return mIcon;
-	}
-	
-	/**
-	 * Gets the large icon.
-	 *
-	 * @return the large icon
-	 */
-	public ModernIcon getIcon128() {
-		return mIcon128;
-	}
+
+  /**
+   * The member icon.
+   */
+  private ModernIcon mIcon;
+
+  /**
+   * The member large icon.
+   */
+  private ModernIcon mIcon128;
+
+  /**
+   * Instantiates a new application information.
+   *
+   * @param name
+   *          the name
+   * @param version
+   *          the version
+   * @param copyright
+   *          the copyright
+   * @param icon
+   *          the icon
+   */
+  public GuiAppInfo(String name, AppVersion version, String copyright, ModernIcon icon) {
+    this(name, version, copyright, icon, icon, name.toLowerCase().replaceAll("\\s", "_"), null);
+  }
+
+  /**
+   * Instantiates a new application information.
+   *
+   * @param name
+   *          the name
+   * @param version
+   *          the version
+   * @param copyright
+   *          the copyright
+   * @param icon
+   *          the icon
+   * @param largeIcon
+   *          the large icon
+   */
+  public GuiAppInfo(String name, AppVersion version, String copyright, ModernIcon icon, ModernIcon largeIcon) {
+    this(name, version, copyright, icon, largeIcon, name.toLowerCase().replaceAll("\\s", ""), null);
+  }
+
+  /**
+   * Instantiates a new application information.
+   *
+   * @param name
+   *          the name
+   * @param version
+   *          the version
+   * @param copyright
+   *          the copyright
+   * @param icon
+   *          the icon
+   * @param description
+   *          the description
+   */
+  public GuiAppInfo(String name, AppVersion version, String copyright, ModernIcon icon, String description) {
+    this(name, version, copyright, icon, icon, description);
+  }
+
+  /**
+   * Instantiates a new application information.
+   *
+   * @param name
+   *          the name
+   * @param version
+   *          the version
+   * @param copyright
+   *          the copyright
+   * @param icon
+   *          the icon
+   * @param largeIcon
+   *          the large icon
+   * @param description
+   *          the description
+   */
+  public GuiAppInfo(String name, AppVersion version, String copyright, ModernIcon icon, ModernIcon largeIcon,
+      String description) {
+    this(name, version, copyright, icon, largeIcon, name.toLowerCase().replaceAll("[\\.\\s]", ""), description);
+  }
+
+  /**
+   * Instantiates a new application information.
+   *
+   * @param name
+   *          the name
+   * @param version
+   *          the version
+   * @param copyright
+   *          the copyright
+   * @param icon
+   *          the icon
+   * @param icon128
+   *          the large icon
+   * @param helpName
+   *          the help name
+   * @param description
+   *          the description
+   */
+  public GuiAppInfo(String name, AppVersion version, String copyright, ModernIcon icon, ModernIcon icon128,
+      String helpName, String description) {
+    super(name, version, copyright, helpName, description);
+
+    mIcon = icon;
+    mIcon128 = icon128;
+  }
+
+  /**
+   * Gets the icon.
+   *
+   * @return the icon
+   */
+  public ModernIcon getIcon() {
+    return mIcon;
+  }
+
+  /**
+   * Gets the large icon.
+   *
+   * @return the large icon
+   */
+  public ModernIcon getIcon128() {
+    return mIcon128;
+  }
 }

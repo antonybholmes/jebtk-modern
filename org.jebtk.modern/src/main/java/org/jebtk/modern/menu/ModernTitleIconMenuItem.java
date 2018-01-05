@@ -33,8 +33,6 @@ import java.awt.Rectangle;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Title menu item offset for icon.
@@ -43,53 +41,59 @@ import org.jebtk.modern.theme.ThemeService;
  *
  */
 public class ModernTitleIconMenuItem extends ModernMenuItem {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant OFFSET.
-	 */
-	private static final int OFFSET = DOUBLE_PADDING;
-	
-	/**
-	 * The constant BACKGROUND.
-	 */
-	private static final Color BACKGROUND = 
-			ThemeService.getInstance().colors().getHighlight(2);
 
-	/**
-	 * Instantiates a new modern title icon menu item.
-	 *
-	 * @param text the text
-	 */
-	public ModernTitleIconMenuItem(String text) {
-		super(text);
-		
-		setEnabled(false);
-		
-		setFont(BOLD_FONT);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		Rectangle rect = new Rectangle(getHeight(), 0, getWidth() - getHeight(), getHeight());
-		
-		fill(g2, BACKGROUND, rect);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(TEXT_COLOR);
-		
-		g2.drawString(mDisplayText, OFFSET + getHeight(), getTextYPosCenter(g2, getHeight()));
-	}
+  /**
+   * The constant OFFSET.
+   */
+  private static final int OFFSET = DOUBLE_PADDING;
+
+  /**
+   * The constant BACKGROUND.
+   */
+  private static final Color BACKGROUND = ThemeService.getInstance().colors().getHighlight(2);
+
+  /**
+   * Instantiates a new modern title icon menu item.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernTitleIconMenuItem(String text) {
+    super(text);
+
+    setEnabled(false);
+
+    setFont(BOLD_FONT);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    Rectangle rect = new Rectangle(getHeight(), 0, getWidth() - getHeight(), getHeight());
+
+    fill(g2, BACKGROUND, rect);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.menu.ModernMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(TEXT_COLOR);
+
+    g2.drawString(mDisplayText, OFFSET + getHeight(), getTextYPosCenter(g2, getHeight()));
+  }
 }

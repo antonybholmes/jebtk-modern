@@ -34,47 +34,51 @@ import org.jebtk.core.event.Event;
  * The class ModernToolTipEvent.
  */
 public class ModernToolTipEvent extends Event {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The tooltip.
-	 */
-	private ModernBasicToolTipPanel tooltip;
+  /**
+   * The tooltip.
+   */
+  private ModernBasicToolTipPanel tooltip;
 
-	/**
-	 * Instantiates a new modern tool tip event.
-	 *
-	 * @param source the source
-	 * @param message the message
-	 */
-	public ModernToolTipEvent(Object source, String message) {
-		super(source, message);
-	}
-	
-	/**
-	 * Instantiates a new modern tool tip event.
-	 *
-	 * @param source the source
-	 * @param message the message
-	 * @param tooltip the tooltip
-	 */
-	public ModernToolTipEvent(Object source, String message, ModernBasicToolTipPanel tooltip) {
-		super(source, message);
-		
-		this.tooltip = tooltip;
-	}
-	
-	/**
-	 * Gets the tool tip panel.
-	 *
-	 * @return the tool tip panel
-	 */
-	public ModernBasicToolTipPanel getToolTipPanel() {
-		return tooltip;
-	}
+  /**
+   * Instantiates a new modern tool tip event.
+   *
+   * @param source
+   *          the source
+   * @param message
+   *          the message
+   */
+  public ModernToolTipEvent(Object source, String message) {
+    super(source, message);
+  }
+
+  /**
+   * Instantiates a new modern tool tip event.
+   *
+   * @param source
+   *          the source
+   * @param message
+   *          the message
+   * @param tooltip
+   *          the tooltip
+   */
+  public ModernToolTipEvent(Object source, String message, ModernBasicToolTipPanel tooltip) {
+    super(source, message);
+
+    this.tooltip = tooltip;
+  }
+
+  /**
+   * Gets the tool tip panel.
+   *
+   * @return the tool tip panel
+   */
+  public ModernBasicToolTipPanel getToolTipPanel() {
+    return tooltip;
+  }
 }

@@ -45,37 +45,39 @@ import org.jebtk.modern.graphics.ImageUtils;
  */
 public class CardPanel extends ModernPanel {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	public static final Border CARD_BORDER = 
-			BorderService.getInstance().createBorder(1, 1, MaterialUtils.SHADOW_BORDER_HEIGHT, 1);
+  public static final Border CARD_BORDER = BorderService.getInstance().createBorder(1, 1,
+      MaterialUtils.SHADOW_BORDER_HEIGHT, 1);
 
-	/**
-	 * Instantiates a new card panel.
-	 *
-	 * @param title the title
-	 * @param content the content
-	 */
-	public CardPanel(Component content) {
-		//ModernPanel panel = new ModernPaddedPanel(10);
+  /**
+   * Instantiates a new card panel.
+   *
+   * @param title
+   *          the title
+   * @param content
+   *          the content
+   */
+  public CardPanel(Component content) {
+    // ModernPanel panel = new ModernPaddedPanel(10);
 
-		setBody(content);
+    setBody(content);
 
-		setBorder(CARD_BORDER);
-	}
+    setBorder(CARD_BORDER);
+  }
 
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
 
-		try {
-			MaterialUtils.drawCard(g2Temp, 0, 0, getWidth(), getHeight());
-		} finally {
-			g2Temp.dispose();
-		}
-	}
+    try {
+      MaterialUtils.drawCard(g2Temp, 0, 0, getWidth(), getHeight());
+    } finally {
+      g2Temp.dispose();
+    }
+  }
 
 }

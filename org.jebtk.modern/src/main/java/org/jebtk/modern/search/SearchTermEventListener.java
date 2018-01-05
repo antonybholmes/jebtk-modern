@@ -31,25 +31,24 @@ import java.util.EventListener;
 
 import org.jebtk.core.event.ChangeEvent;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving searchTermEvent events.
- * The class that is interested in processing a searchTermEvent
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addSearchTermEventListener<code> method. When
- * the searchTermEvent event occurs, that object's appropriate
+ * The listener interface for receiving searchTermEvent events. The class that
+ * is interested in processing a searchTermEvent event implements this
+ * interface, and the object created with that class is registered with a
+ * component using the component's <code>addSearchTermEventListener<code>
+ * method. When the searchTermEvent event occurs, that object's appropriate
  * method is invoked.
  *
  * @see SearchTermEventEvent
  */
 public interface SearchTermEventListener extends EventListener {
 
-	/**
-	 * Search terms changed.
-	 *
-	 * @param e the e
-	 */
-	public void searchTermsChanged(ChangeEvent e);
+  /**
+   * Search terms changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void searchTermsChanged(ChangeEvent e);
 }

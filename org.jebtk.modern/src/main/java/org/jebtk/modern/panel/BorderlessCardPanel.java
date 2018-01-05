@@ -42,26 +42,28 @@ import org.jebtk.modern.ModernComponent;
  */
 public class BorderlessCardPanel extends ModernPanel {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new card panel.
-	 *
-	 * @param title the title
-	 * @param content the content
-	 */
-	public BorderlessCardPanel(Component content) {
-		super(new ModernComponent(content, QUAD_BORDER));
-		
-		setBorder(CardPanel.CARD_BORDER);
-	}
-	
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		MaterialUtils.drawBorderlessCard(g2, 0, 0, getWidth(), getHeight() - MaterialUtils.SHADOW_BORDER_HEIGHT);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new card panel.
+   *
+   * @param title
+   *          the title
+   * @param content
+   *          the content
+   */
+  public BorderlessCardPanel(Component content) {
+    super(new ModernComponent(content, QUAD_BORDER));
+
+    setBorder(CardPanel.CARD_BORDER);
+  }
+
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    MaterialUtils.drawBorderlessCard(g2, 0, 0, getWidth(), getHeight() - MaterialUtils.SHADOW_BORDER_HEIGHT);
+  }
 
 }

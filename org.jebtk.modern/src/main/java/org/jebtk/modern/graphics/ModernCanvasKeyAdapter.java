@@ -35,31 +35,43 @@ import java.awt.event.KeyEvent;
  */
 public class ModernCanvasKeyAdapter implements ModernCanvasKeyListener {
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyTyped(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void canvasKeyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyTyped(java.awt.
+   * event.KeyEvent)
+   */
+  @Override
+  public void canvasKeyTyped(KeyEvent e) {
+    // TODO Auto-generated method stub
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyPressed(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void canvasKeyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyReleased(java.awt.event.KeyEvent)
-	 */
-	@Override
-	public void canvasKeyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyPressed(java.awt.
+   * event.KeyEvent)
+   */
+  @Override
+  public void canvasKeyPressed(KeyEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyReleased(java.awt
+   * .event.KeyEvent)
+   */
+  @Override
+  public void canvasKeyReleased(KeyEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 
 }

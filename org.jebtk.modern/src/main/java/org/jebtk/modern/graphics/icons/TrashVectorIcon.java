@@ -33,89 +33,87 @@ import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.Mathematics;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class FolderVectorIcon.
  */
 public class TrashVectorIcon extends ModernVectorScalableIcon {
-	
-	
 
-	/**
-	 * The constant WIDTH_SCALE.
-	 */
-	protected static final double WIDTH_SCALE = 0.9;
-	
-	/**
-	 * The constant CORNER_SCALE.
-	 */
-	//private static final double CORNER_SCALE_TAB = 0.1;
-	
-	private static final double TAPER_SCALE = 0.2;
-	
-	/** The Constant LID_GAP. */
-	private static final double LID_GAP = 0.1;
-	
+  /**
+   * The constant WIDTH_SCALE.
+   */
+  protected static final double WIDTH_SCALE = 0.9;
 
-	/** The Constant HANDLE_SIZE. */
-	private static final double HANDLE_SIZE = TAPER_SCALE;
-	
-	/** The Constant HANDLE_WIDTH. */
-	private static final double HANDLE_WIDTH = 0.5;
-	
-	/** The Constant LID_SIZE. */
-	private static final double LID_SIZE = TAPER_SCALE;
-	
-	
-	/**
-	 * Instantiates a new trash vector icon.
-	 */
-	public TrashVectorIcon() {
-		super(Color.BLACK);
-	}
-	
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		int w1 = Mathematics.makeMult2(w * WIDTH_SCALE);
-	
-		x = x + (w - w1) / 2;
-		y = y + (h - w1) / 2;
-		
-		// Rear
-		
-		g2.setColor(mColor1);
-		
-		int width = Mathematics.makeMult2(w1 * HANDLE_WIDTH);
-		int height = (int)Math.max(1, HANDLE_SIZE * w1);
-		
-		int x1 = x + (w1 - width) / 2;
-		int y1 = 0;
-		g2.fillRect(x1, y1, width, height);
-		
-		y1 += height;
-		
-		height = Math.max(1, (int)(LID_SIZE * w1));
-		g2.fillRect(x, y1, w1, height);
-		
-		y1 += height + Math.max(1, (int)(w1 * LID_GAP));
-		
-		width = Math.max(1, (int)(w1 * TAPER_SCALE));
-		
-		x1 = x + (w - width) / 2;
-		
-		GeneralPath path = new GeneralPath();
-		
-		path.moveTo(x, y1);
-		path.lineTo(x + w1, y1);
-		path.lineTo(x + w1 - width, y + w1);
-		path.lineTo(x + width, y + w1);
-		path.closePath();
-		
-		g2.fill(path);
-	}
+  /**
+   * The constant CORNER_SCALE.
+   */
+  // private static final double CORNER_SCALE_TAB = 0.1;
+
+  private static final double TAPER_SCALE = 0.2;
+
+  /** The Constant LID_GAP. */
+  private static final double LID_GAP = 0.1;
+
+  /** The Constant HANDLE_SIZE. */
+  private static final double HANDLE_SIZE = TAPER_SCALE;
+
+  /** The Constant HANDLE_WIDTH. */
+  private static final double HANDLE_WIDTH = 0.5;
+
+  /** The Constant LID_SIZE. */
+  private static final double LID_SIZE = TAPER_SCALE;
+
+  /**
+   * Instantiates a new trash vector icon.
+   */
+  public TrashVectorIcon() {
+    super(Color.BLACK);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    int w1 = Mathematics.makeMult2(w * WIDTH_SCALE);
+
+    x = x + (w - w1) / 2;
+    y = y + (h - w1) / 2;
+
+    // Rear
+
+    g2.setColor(mColor1);
+
+    int width = Mathematics.makeMult2(w1 * HANDLE_WIDTH);
+    int height = (int) Math.max(1, HANDLE_SIZE * w1);
+
+    int x1 = x + (w1 - width) / 2;
+    int y1 = 0;
+    g2.fillRect(x1, y1, width, height);
+
+    y1 += height;
+
+    height = Math.max(1, (int) (LID_SIZE * w1));
+    g2.fillRect(x, y1, w1, height);
+
+    y1 += height + Math.max(1, (int) (w1 * LID_GAP));
+
+    width = Math.max(1, (int) (w1 * TAPER_SCALE));
+
+    x1 = x + (w - width) / 2;
+
+    GeneralPath path = new GeneralPath();
+
+    path.moveTo(x, y1);
+    path.lineTo(x + w1, y1);
+    path.lineTo(x + w1 - width, y + w1);
+    path.lineTo(x + width, y + w1);
+    path.closePath();
+
+    g2.fill(path);
+  }
 }

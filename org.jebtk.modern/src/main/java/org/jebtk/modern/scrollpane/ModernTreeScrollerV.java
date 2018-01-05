@@ -38,26 +38,27 @@ import org.jebtk.modern.tree.ModernTreeNodeRenderer;
  */
 public class ModernTreeScrollerV extends ModernTreeScroller {
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.scrollpane.Scroller#wheelScroll(int, java.awt.Component, org.abh.common.ui.scrollpane.ModernScrollBar)
-	 */
-	@Override
-	public void wheelScroll(int notches, 
-			Component c,
-			ModernScrollBar scrollBar) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.scrollpane.Scroller#wheelScroll(int,
+   * java.awt.Component, org.abh.common.ui.scrollpane.ModernScrollBar)
+   */
+  @Override
+  public void wheelScroll(int notches, Component c, ModernScrollBar scrollBar) {
 
-		ModernTree<?> tree = (ModernTree<?>)c;
+    ModernTree<?> tree = (ModernTree<?>) c;
 
-		ModernTreeNodeRenderer renderer = tree.getNodeRenderer(0);
+    ModernTreeNodeRenderer renderer = tree.getNodeRenderer(0);
 
-		// The height of a table row
-		int h = renderer.getHeight();
-		
-		//System.err.println("tree scroll " + h + " " + scrollBar.normalize(h));
+    // The height of a table row
+    int h = renderer.getHeight();
 
-		// Normalize the height of the table row
-		double p = scrollBar.normalize(h, notches); // * notches;
+    // System.err.println("tree scroll " + h + " " + scrollBar.normalize(h));
 
-		scrollBar.incrementNormalizedScrollPosition(p); //.setNormalizedScrollPosition(p);
-	}
+    // Normalize the height of the table row
+    double p = scrollBar.normalize(h, notches); // * notches;
+
+    scrollBar.incrementNormalizedScrollPosition(p); // .setNormalizedScrollPosition(p);
+  }
 }

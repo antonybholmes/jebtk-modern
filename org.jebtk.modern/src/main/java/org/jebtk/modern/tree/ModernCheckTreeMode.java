@@ -20,16 +20,16 @@ package org.jebtk.modern.tree;
  * The Enum ModernCheckTreeMode.
  */
 public enum ModernCheckTreeMode {
-	
-	/** Zero or one item can be checked. */
-	SINGLE,
-	
-	/** At least one item must be checked. */
-	MIN_ONE,
-	
-	/** Zero or more items can be checked. */
-	MULTI,
-	
-	/** Only one item can be checked. */
-	RADIO
+
+  /** Zero or one item can be checked. */
+  SINGLE,
+
+  /** At least one item must be checked. */
+  MIN_ONE,
+
+  /** Zero or more items can be checked. */
+  MULTI,
+
+  /** Only one item can be checked. */
+  RADIO
 }

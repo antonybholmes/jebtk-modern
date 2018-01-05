@@ -35,8 +35,6 @@ import javax.swing.JLabel;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a line separator for menus with a theme consistent with
@@ -46,78 +44,73 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernDialogTabSeparator extends ModernWidget {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant HEIGHT.
-	 */
-	private static final int HEIGHT = WIDGET_HEIGHT;
+  /**
+   * The constant HEIGHT.
+   */
+  private static final int HEIGHT = WIDGET_HEIGHT;
 
-	/**
-	 * The constant MIN_SIZE.
-	 */
-	private static final Dimension MIN_SIZE =
-			new Dimension(1, HEIGHT);
+  /**
+   * The constant MIN_SIZE.
+   */
+  private static final Dimension MIN_SIZE = new Dimension(1, HEIGHT);
 
-	/**
-	 * The constant MAX_SIZE.
-	 */
-	private static final Dimension MAX_SIZE =
-		new Dimension(Short.MAX_VALUE, HEIGHT);
+  /**
+   * The constant MAX_SIZE.
+   */
+  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
 
-	/**
-	 * The label.
-	 */
-	private JLabel label = new JLabel();
+  /**
+   * The label.
+   */
+  private JLabel label = new JLabel();
 
-	/*
-	public static final BasicStroke DASH_STROKE = new BasicStroke(1,
-    		BasicStroke.CAP_BUTT,
-    		BasicStroke.JOIN_BEVEL,
-            10,
-            DASH_PATTERN, 0);
-*/
-	
-	/**
-	 * Instantiates a new modern dialog tab separator.
-	 *
-	 * @param name the name
-	 */
-	public ModernDialogTabSeparator(String name) {
-		super(new BorderLayout());
-		
-		setMinimumSize(MIN_SIZE);
-		setPreferredSize(MIN_SIZE);
-		setMaximumSize(MAX_SIZE);
-		setAlignmentX(LEFT_ALIGNMENT);
-		setBorder(BORDER);
+  /*
+   * public static final BasicStroke DASH_STROKE = new BasicStroke(1,
+   * BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL, 10, DASH_PATTERN, 0);
+   */
 
-		label.setText(name);
-		
-		add(label, BorderLayout.LINE_START);
-	}
+  /**
+   * Instantiates a new modern dialog tab separator.
+   *
+   * @param name
+   *          the name
+   */
+  public ModernDialogTabSeparator(String name) {
+    super(new BorderLayout());
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
+    setMinimumSize(MIN_SIZE);
+    setPreferredSize(MIN_SIZE);
+    setMaximumSize(MAX_SIZE);
+    setAlignmentX(LEFT_ALIGNMENT);
+    setBorder(BORDER);
 
-		//g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-		//		RenderingHints.VALUE_ANTIALIAS_ON);
+    label.setText(name);
 
-		g2.setColor(LINE_COLOR);
+    add(label, BorderLayout.LINE_START);
+  }
 
-		int x = getInsets().left + label.getWidth() + PADDING;
-		int y = getHeight() / 2;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
 
-		
-		
-		g2.drawLine(x, y, getWidth() - getInsets().right, y);
-	}
+    // g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+    // RenderingHints.VALUE_ANTIALIAS_ON);
+
+    g2.setColor(LINE_COLOR);
+
+    int x = getInsets().left + label.getWidth() + PADDING;
+    int y = getHeight() / 2;
+
+    g2.drawLine(x, y, getWidth() - getInsets().right, y);
+  }
 }

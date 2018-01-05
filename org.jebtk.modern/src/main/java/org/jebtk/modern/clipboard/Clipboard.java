@@ -29,26 +29,25 @@ package org.jebtk.modern.clipboard;
 
 // TODO: Auto-generated Javadoc
 /**
- * Controls that want to hook into the clipboard system
- * must implement this.
+ * Controls that want to hook into the clipboard system must implement this.
  *
  * @author Antony Holmes Holmes
  *
  */
 public interface Clipboard {
-	
-	/**
-	 * Copy.
-	 */
-	public void copy();
 
-	/**
-	 * Paste.
-	 */
-	public void paste();
+  /**
+   * Copy.
+   */
+  public void copy();
 
-	/**
-	 * Cut.
-	 */
-	public void cut();
+  /**
+   * Paste.
+   */
+  public void paste();
+
+  /**
+   * Cut.
+   */
+  public void cut();
 }

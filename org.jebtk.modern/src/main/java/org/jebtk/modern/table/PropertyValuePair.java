@@ -32,26 +32,28 @@ package org.jebtk.modern.table;
  * The class PropertyValuePair.
  */
 public class PropertyValuePair {
-	
-	/**
-	 * The property.
-	 */
-	public String property;
-	
-	/**
-	 * The value.
-	 */
-	public String value;
 
-	/**
-	 * Instantiates a new property value pair.
-	 *
-	 * @param property the property
-	 * @param value the value
-	 */
-	public PropertyValuePair(String property, String value) {
-		this.property = property;
-		this.value = value;
-	}
+  /**
+   * The property.
+   */
+  public String property;
+
+  /**
+   * The value.
+   */
+  public String value;
+
+  /**
+   * Instantiates a new property value pair.
+   *
+   * @param property
+   *          the property
+   * @param value
+   *          the value
+   */
+  public PropertyValuePair(String property, String value) {
+    this.property = property;
+    this.value = value;
+  }
 
 }

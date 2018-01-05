@@ -28,108 +28,109 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class RotationAnimation extends TimerAnimation {
 
-	// Lets define a material design bezier curve to animate transitions
-	public final static CubicBezier BEZIER = 
-			CubicBezier.normCubicBezier(0.4, 0.0, 0.2, 1);
-	
-	private static final int MAX_INDEX = STEPS - 1;
-	private double[] mAngle = new double[STEPS];
-	private int mStep = 0;
-	private boolean mForwardDir = false;
+  // Lets define a material design bezier curve to animate transitions
+  public final static CubicBezier BEZIER = CubicBezier.normCubicBezier(0.4, 0.0, 0.2, 1);
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public RotationAnimation(ModernWidget widget, int a1, int a2) {
-		super(widget);
-		
-		setup(a1, a2);
-	}
-	
-	public synchronized void setup(int a1, int a2) {
-		double mD = Math.toRadians(a2 - a1); // / MAX_INDEX;
-		
-		mStep = 0;
-		
-		mAngle[0] = Math.toRadians(a1);
-		mAngle[mAngle.length - 1] = Math.toRadians(a2);
-		
-		for (int i = 1; i < MAX_INDEX; ++i) {
-			mAngle[i] = mAngle[0] + TranslateAnimation.BEZ_T[i] * mD; //BEZIER.eval(t)   mXPos[i - 1] + mD;
-		}
-	}
-	
-	public synchronized void restart(int a1, int a2) {
-		setup(a1, a2);
-		
-		start();
-	}
-	
-	public synchronized void restart() {
-		restart(!mForwardDir);
-	}
-	
-	public synchronized void restart(boolean forward) {
-		mForwardDir = forward;
-		
-		if (mForwardDir) {
-			mStep = 0;
-		} else {
-			mStep = MAX_INDEX;
-		}
-		
-		start();
-	}
-	
-	@Override
-	public synchronized void animate() {
-		super.animate();
-		
-		//System.err.println("translate " + mStep);
+  private static final int MAX_INDEX = STEPS - 1;
+  private double[] mAngle = new double[STEPS];
+  private int mStep = 0;
+  private boolean mForwardDir = false;
 
-		if (mForwardDir) {
-			mStep = Math.min(mStep + 1, MAX_INDEX);
-			
-			if (mStep >= MAX_INDEX) {
-				stop();
-			}
-		} else {
-			mStep = Math.max(mStep - 1, 0);
-			
-			if (mStep <= 0) {
-				stop();
-			}
-		}
-	}
-	
-	public double getAngle() {
-		return mAngle[mStep];
-	}
-	
-	public double getEndAngle() {
-		return mAngle[MAX_INDEX];
-	}
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public RotationAnimation(ModernWidget widget, int a1, int a2) {
+    super(widget);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    setup(a1, a2);
+  }
 
-		Graphics2D g2Temp = ImageUtils.clone(g2);
-		
-		try {
-			g2.rotate(getAngle());
-			
-			drawRotation(widget, g2Temp, params);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
-	
-	public abstract void drawRotation(ModernWidget widget, 
-			Graphics2D g2, 
-			Object... params);
+  public synchronized void setup(int a1, int a2) {
+    double mD = Math.toRadians(a2 - a1); // / MAX_INDEX;
+
+    mStep = 0;
+
+    mAngle[0] = Math.toRadians(a1);
+    mAngle[mAngle.length - 1] = Math.toRadians(a2);
+
+    for (int i = 1; i < MAX_INDEX; ++i) {
+      mAngle[i] = mAngle[0] + TranslateAnimation.BEZ_T[i] * mD; // BEZIER.eval(t) mXPos[i - 1] + mD;
+    }
+  }
+
+  public synchronized void restart(int a1, int a2) {
+    setup(a1, a2);
+
+    start();
+  }
+
+  public synchronized void restart() {
+    restart(!mForwardDir);
+  }
+
+  public synchronized void restart(boolean forward) {
+    mForwardDir = forward;
+
+    if (mForwardDir) {
+      mStep = 0;
+    } else {
+      mStep = MAX_INDEX;
+    }
+
+    start();
+  }
+
+  @Override
+  public synchronized void animate() {
+    super.animate();
+
+    // System.err.println("translate " + mStep);
+
+    if (mForwardDir) {
+      mStep = Math.min(mStep + 1, MAX_INDEX);
+
+      if (mStep >= MAX_INDEX) {
+        stop();
+      }
+    } else {
+      mStep = Math.max(mStep - 1, 0);
+
+      if (mStep <= 0) {
+        stop();
+      }
+    }
+  }
+
+  public double getAngle() {
+    return mAngle[mStep];
+  }
+
+  public double getEndAngle() {
+    return mAngle[MAX_INDEX];
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+
+    Graphics2D g2Temp = ImageUtils.clone(g2);
+
+    try {
+      g2.rotate(getAngle());
+
+      drawRotation(widget, g2Temp, params);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
+
+  public abstract void drawRotation(ModernWidget widget, Graphics2D g2, Object... params);
 }

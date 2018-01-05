@@ -36,107 +36,112 @@ import org.jebtk.modern.ribbon.RibbonLargeRadioButton;
 import org.jebtk.modern.ribbon.RibbonSection;
 import org.jebtk.modern.view.ViewModel;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Standardized ribbon menu section for providing basic cut, copy and paste
- * functionality to the currently highlighted control that supports
- * clipboard operations.
+ * functionality to the currently highlighted control that supports clipboard
+ * operations.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class RibbonViewSection extends RibbonSection implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The list button.
-	 */
-	private RibbonLargeRadioButton mListButton =
-			new RibbonLargeRadioButton("List", UIService.getInstance().loadIcon("view_list", UIService.ICON_SIZE_32));
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The tiles button.
-	 */
-	private RibbonLargeRadioButton mTilesButton =
-			new RibbonLargeRadioButton("Tiles", UIService.getInstance().loadIcon("view_tiles", UIService.ICON_SIZE_32));
-	
-	/**
-	 * The details button.
-	 */
-	private RibbonLargeRadioButton mDetailsButton =
-			new RibbonLargeRadioButton("Details", UIService.getInstance().loadIcon("view_details", UIService.ICON_SIZE_32));
-	
-	/**
-	 * The member model.
-	 */
-	private ViewModel mModel;
+  /**
+   * The list button.
+   */
+  private RibbonLargeRadioButton mListButton = new RibbonLargeRadioButton("List",
+      UIService.getInstance().loadIcon("view_list", UIService.ICON_SIZE_32));
 
-	/**
-	 * Instantiates a new ribbon view section.
-	 *
-	 * @param ribbon the ribbon
-	 * @param model the model
-	 */
-	public RibbonViewSection(Ribbon ribbon, ViewModel model) {
-		super(ribbon, "View");
+  /**
+   * The tiles button.
+   */
+  private RibbonLargeRadioButton mTilesButton = new RibbonLargeRadioButton("Tiles",
+      UIService.getInstance().loadIcon("view_tiles", UIService.ICON_SIZE_32));
 
-		mModel = model;
-		
-		mListButton.setToolTip("List", "Display items in a list.");
-		mListButton.addClickListener(this);
-		
-		mTilesButton.setToolTip("Tiles", "Display items as tiles.");
-		mTilesButton.addClickListener(this);
-		
-		mDetailsButton.setToolTip("Details", "Display items in a detailed list.");
-		mDetailsButton.addClickListener(this);
-		
-		add(mDetailsButton);
-		add(mListButton);
-		add(mTilesButton);
-		
-		ModernButtonGroup group = new ModernButtonGroup();
-		
-		group.add(mListButton);
-		group.add(mDetailsButton);
-		group.add(mTilesButton);
-		
-		mDetailsButton.doClick();
-	}
+  /**
+   * The details button.
+   */
+  private RibbonLargeRadioButton mDetailsButton = new RibbonLargeRadioButton("Details",
+      UIService.getInstance().loadIcon("view_details", UIService.ICON_SIZE_32));
 
-	/**
-	 * Enabled or disable all the controls on the panel.
-	 *
-	 * @param enabled the new enabled
-	 */
-	public final void setEnabled(boolean enabled) {
-		mDetailsButton.setEnabled(enabled);
-		mTilesButton.setEnabled(enabled);
-		mListButton.setEnabled(enabled);
-	}
+  /**
+   * The member model.
+   */
+  private ViewModel mModel;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void clicked(ModernClickEvent e) {
-		if (mModel == null) {
-			return;
-		}
-		
-		if (e.getSource().equals(mDetailsButton)) {
-			mModel.setView("Details");
-		} else if (e.getSource().equals(mTilesButton)) {
-			mModel.setView("Tiles");
-		} else if (e.getSource().equals(mListButton)) {
-			mModel.setView("List");
-		} else {
-			// do nothing
-		}
-	}
+  /**
+   * Instantiates a new ribbon view section.
+   *
+   * @param ribbon
+   *          the ribbon
+   * @param model
+   *          the model
+   */
+  public RibbonViewSection(Ribbon ribbon, ViewModel model) {
+    super(ribbon, "View");
+
+    mModel = model;
+
+    mListButton.setToolTip("List", "Display items in a list.");
+    mListButton.addClickListener(this);
+
+    mTilesButton.setToolTip("Tiles", "Display items as tiles.");
+    mTilesButton.addClickListener(this);
+
+    mDetailsButton.setToolTip("Details", "Display items in a detailed list.");
+    mDetailsButton.addClickListener(this);
+
+    add(mDetailsButton);
+    add(mListButton);
+    add(mTilesButton);
+
+    ModernButtonGroup group = new ModernButtonGroup();
+
+    group.add(mListButton);
+    group.add(mDetailsButton);
+    group.add(mTilesButton);
+
+    mDetailsButton.doClick();
+  }
+
+  /**
+   * Enabled or disable all the controls on the panel.
+   *
+   * @param enabled
+   *          the new enabled
+   */
+  public final void setEnabled(boolean enabled) {
+    mDetailsButton.setEnabled(enabled);
+    mTilesButton.setEnabled(enabled);
+    mListButton.setEnabled(enabled);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public void clicked(ModernClickEvent e) {
+    if (mModel == null) {
+      return;
+    }
+
+    if (e.getSource().equals(mDetailsButton)) {
+      mModel.setView("Details");
+    } else if (e.getSource().equals(mTilesButton)) {
+      mModel.setView("Tiles");
+    } else if (e.getSource().equals(mListButton)) {
+      mModel.setView("List");
+    } else {
+      // do nothing
+    }
+  }
 }

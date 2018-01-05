@@ -31,8 +31,6 @@ import java.awt.Color;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Mac Style tabs.
@@ -41,71 +39,71 @@ import org.jebtk.modern.theme.ThemeService;
  */
 public class OrbTabs extends TabsPanel {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant TEXT_TAB_SELECTED_COLOR_1. */
-	public static final Color TEXT_TAB_SELECTED_COLOR_1 = 
-			ThemeService.getInstance().colors().getColorHighlight(3);
+  /** The Constant TEXT_TAB_SELECTED_COLOR_1. */
+  public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService.getInstance().colors().getColorHighlight(3);
 
-	/** The Constant TEXT_TAB_SELECTED_COLOR_2. */
-	protected static final Color TEXT_TAB_SELECTED_COLOR_2 = 
-			ThemeService.getInstance().colors().getColorHighlight(4);
-	
-	/** The Constant TEXT_TAB_SELECTED_OUTLINE_COLOR. */
-	protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = 
-			ThemeService.getInstance().colors().getColorHighlight(5);
+  /** The Constant TEXT_TAB_SELECTED_COLOR_2. */
+  protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService.getInstance().colors().getColorHighlight(4);
 
+  /** The Constant TEXT_TAB_SELECTED_OUTLINE_COLOR. */
+  protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService.getInstance().colors()
+      .getColorHighlight(5);
 
-	/** The m tab size. */
-	protected int mTabSize = -1;
+  /** The m tab size. */
+  protected int mTabSize = -1;
 
-	
+  /**
+   * Instantiates a new segment tabs.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param centered
+   *          the centered
+   */
+  public OrbTabs(TabsModel model, int tabSize) {
+    super(model);
 
-	/**
-	 * Instantiates a new segment tabs.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param centered the centered
-	 */
-	public OrbTabs(TabsModel model, int tabSize) {
-		super(model);
-		
-		mTabSize = tabSize;
+    mTabSize = tabSize;
 
-		createTabs();
-		
-		setBackgroundAnimations("orb-tabs");
-		
-		
-	}
-	
-	private void createTabs() {
-		mTabWidths.clear();
-		
-		for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
-			mTabWidths.add(mTabSize);
-		}
-	}
+    createTabs();
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.tabs.TextTabs#changeTab(int, int)
-	 */
-	@Override
-	protected void changeTab(int x, int y) {
-		getTabsModel().changeTab(getTab(x, y));
-	}
+    setBackgroundAnimations("orb-tabs");
 
+  }
 
-	/**
-	 * Gets the tab.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @return the tab
-	 */
-	protected int getTab(int x, int y) {
-		return (x - getInsets().left) / mTabSize;
-	}
+  private void createTabs() {
+    mTabWidths.clear();
+
+    for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+      mTabWidths.add(mTabSize);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.tabs.TextTabs#changeTab(int, int)
+   */
+  @Override
+  protected void changeTab(int x, int y) {
+    getTabsModel().changeTab(getTab(x, y));
+  }
+
+  /**
+   * Gets the tab.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @return the tab
+   */
+  protected int getTab(int x, int y) {
+    return (x - getInsets().left) / mTabSize;
+  }
 }

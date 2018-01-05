@@ -45,217 +45,200 @@ import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabEventAdapter;
 import org.jebtk.modern.tabs.TabsModel;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class SaveAsRibbonPanel.
  */
 public class SaveAsRibbonPanel extends RibbonMenuPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant DIRECTORY_SELECTED.
-	 */
-	public static final String DIRECTORY_SELECTED = 
-			"save_as_panel_directory_selected";
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant THIS_PC_ICON. */
-	private static final ModernIcon THIS_PC_ICON = 
-			UIService.getInstance().loadIcon(ComputerVectorIcon.class, 24);
+  /**
+   * The constant DIRECTORY_SELECTED.
+   */
+  public static final String DIRECTORY_SELECTED = "save_as_panel_directory_selected";
 
+  /** The Constant THIS_PC_ICON. */
+  private static final ModernIcon THIS_PC_ICON = UIService.getInstance().loadIcon(ComputerVectorIcon.class, 24);
 
-	/**
-	 * The tabs model.
-	 */
-	private TabsModel mTabsModel = new TabsModel();
-	
-	/**
-	 * The side tabs.
-	 */
-	//private RibbonPanelSideTabs sideTabs = new RibbonPanelSideTabs(tabsModel);
-	
-	/**
-	 * The view panel.
-	 */
-	//private TabsViewPanel viewPanel = new TabsViewPanel(tabsModel);
+  /**
+   * The tabs model.
+   */
+  private TabsModel mTabsModel = new TabsModel();
 
+  /**
+   * The side tabs.
+   */
+  // private RibbonPanelSideTabs sideTabs = new RibbonPanelSideTabs(tabsModel);
 
-	/**
-	 * The member recent directory list.
-	 */
-	private RecentDirectoriesMenuBox mRecentDirectoryList = 
-			new RecentDirectoriesMenuBox();
+  /**
+   * The view panel.
+   */
+  // private TabsViewPanel viewPanel = new TabsViewPanel(tabsModel);
 
+  /**
+   * The member recent directory list.
+   */
+  private RecentDirectoriesMenuBox mRecentDirectoryList = new RecentDirectoriesMenuBox();
 
-	/**
-	 * The member selected directory.
-	 */
-	private Path mSelectedDirectory = 
-			RecentFilesService.getInstance().getPwd();
+  /**
+   * The member selected directory.
+   */
+  private Path mSelectedDirectory = RecentFilesService.getInstance().getPwd();
 
-	/**
-	 * The class DirectoryEvents.
-	 */
-	private class DirectoryEvents implements ModernClickListener {
+  /**
+   * The class DirectoryEvents.
+   */
+  private class DirectoryEvents implements ModernClickListener {
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			if (e.getSource() instanceof DirectoryMenuItem) {
-				mSelectedDirectory = ((DirectoryMenuItem)e.getSource()).getFile();
-			} else {
-				mSelectedDirectory = RecentFilesService.getInstance().getPwd();
-			}
-			
-			fireClicked(DIRECTORY_SELECTED);
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      if (e.getSource() instanceof DirectoryMenuItem) {
+        mSelectedDirectory = ((DirectoryMenuItem) e.getSource()).getFile();
+      } else {
+        mSelectedDirectory = RecentFilesService.getInstance().getPwd();
+      }
 
-	}
-	
-	/**
-	 * Instantiates a new save as ribbon panel.
-	 */
-	public SaveAsRibbonPanel() {
-		super("Save As");
-		
-		setup();
-	}
+      fireClicked(DIRECTORY_SELECTED);
+    }
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		//ModernLabel label = new ModernTitleLabel("Save As");
-		//label.setBorder(BorderService.getInstance().createBottomBorder(OpenRibbonPanel.GAP));
-		//setHeader(label);
-			
-		//sideTabs.addTab("This PC", THIS_PC_ICON);
-		
-		
-		//sideTabs.add(UI.createVGap(20));
-		//sideTabs.add(new ModernHDivider(20));
-		//sideTabs.add(UI.createVGap(20));
-		
-		/*
-		ModernClickWidget button = new BrowseButton();
-		
-		sideTabs.add(button);
-		
-		button.addClickListener(new ModernClickListener() {
-			@Override
-			public void clicked(ModernClickEvent e) {
-				mSelectedDirectory = RecentFilesService.getInstance().getPwd();
-				fireClicked(DIRECTORY_SELECTED);
-			}});
-		
-		UI.setSize(sideTabs, 300, Short.MAX_VALUE);
-		*/
+  }
 
-		//add(sideTabs, BorderLayout.LINE_START);
+  /**
+   * Instantiates a new save as ribbon panel.
+   */
+  public SaveAsRibbonPanel() {
+    super("Save As");
 
-		mRecentDirectoryList.setBorder(RIGHT_BORDER);
-		ModernScrollPane scrollPane = new ModernScrollPane(mRecentDirectoryList);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
-		
+    setup();
+  }
 
-		mTabsModel.addTab(UI.ASSET_THIS_PC, THIS_PC_ICON, scrollPane);
-		
-		
-		mTabsModel.addTab(UI.ASSET_BROWSE,
-				UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 24),
-				null);
+  /**
+   * Setup.
+   */
+  private void setup() {
+    // ModernLabel label = new ModernTitleLabel("Save As");
+    // label.setBorder(BorderService.getInstance().createBottomBorder(OpenRibbonPanel.GAP));
+    // setHeader(label);
 
-		mTabsModel.addTabListener(new TabEventAdapter() {
+    // sideTabs.addTab("This PC", THIS_PC_ICON);
 
-			@Override
-			public void tabChanged(TabEvent e) {
-				if (mTabsModel.getSelectedTab().getName().equals(UI.ASSET_BROWSE)) {
-					mSelectedDirectory = RecentFilesService.getInstance().getPwd();
-					fireClicked(DIRECTORY_SELECTED);
-				}
-			}});
-		
+    // sideTabs.add(UI.createVGap(20));
+    // sideTabs.add(new ModernHDivider(20));
+    // sideTabs.add(UI.createVGap(20));
 
-		//viewPanel.setBorder(BorderService.getInstance().createLeftBorder(20));
-		
-		setBody(new RibbonVertTabsPanel(mTabsModel, 250, OpenRibbonPanel.GAP, true));
-	
-		mTabsModel.changeTab(0);
-		
-		mRecentDirectoryList.addClickListener(new DirectoryEvents());
-	}
+    /*
+     * ModernClickWidget button = new BrowseButton();
+     * 
+     * sideTabs.add(button);
+     * 
+     * button.addClickListener(new ModernClickListener() {
+     * 
+     * @Override public void clicked(ModernClickEvent e) { mSelectedDirectory =
+     * RecentFilesService.getInstance().getPwd(); fireClicked(DIRECTORY_SELECTED);
+     * }});
+     * 
+     * UI.setSize(sideTabs, 300, Short.MAX_VALUE);
+     */
 
-	/*
-	public final Table getTable() {
+    // add(sideTabs, BorderLayout.LINE_START);
 
-		return table;
-	}
-	*/
+    mRecentDirectoryList.setBorder(RIGHT_BORDER);
+    ModernScrollPane scrollPane = new ModernScrollPane(mRecentDirectoryList);
+    scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ribbon.RibbonMenuPanel#refresh()
-	 */
-	@Override
-	public final void refresh() {
-		try {
-			reload();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		mTabsModel.changeTab(0);
-	}
-	
-	/**
-	 * Reload.
-	 *
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 */
-	public final void reload() throws IOException {
+    mTabsModel.addTab(UI.ASSET_THIS_PC, THIS_PC_ICON, scrollPane);
 
-		// current dir
-		
-		mRecentDirectoryList.reload();
-	}
-	
-	/**
-	 * Gets the selected directory.
-	 *
-	 * @return the selected directory
-	 */
-	public final Path getSelectedDirectory() {
-		return mSelectedDirectory;
-	}
+    mTabsModel.addTab(UI.ASSET_BROWSE, UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 24), null);
 
-	/*
-	@Override
-	public void selectionChanged(ChangeEvent e) {
-		if (e.getSource().equals(mCurrentDirectoryList)) {
-			int i = mCurrentDirectoryList.getSelectedIndex();
-			
-			if (i != -1) {
-				selectedDirectory = mRecentDirectoriesList.getValueAt(i);
-				
-				fireClicked(new ModernClickEvent(this, DIRECTORY_SELECTED));
-			}
-		} else if (e.getSource().equals(mRecentDirectoriesList)) {
-			int i = mRecentDirectoriesList.getSelectedIndex();
-			
-			if (i != -1) {
-				selectedDirectory = mRecentDirectoriesList.getValueAt(i);
-				
-				fireClicked(new ModernClickEvent(this, DIRECTORY_SELECTED));
-			}
-		} else {
-			// do nothing
-		}
-	}
-	*/
+    mTabsModel.addTabListener(new TabEventAdapter() {
+
+      @Override
+      public void tabChanged(TabEvent e) {
+        if (mTabsModel.getSelectedTab().getName().equals(UI.ASSET_BROWSE)) {
+          mSelectedDirectory = RecentFilesService.getInstance().getPwd();
+          fireClicked(DIRECTORY_SELECTED);
+        }
+      }
+    });
+
+    // viewPanel.setBorder(BorderService.getInstance().createLeftBorder(20));
+
+    setBody(new RibbonVertTabsPanel(mTabsModel, 250, OpenRibbonPanel.GAP, true));
+
+    mTabsModel.changeTab(0);
+
+    mRecentDirectoryList.addClickListener(new DirectoryEvents());
+  }
+
+  /*
+   * public final Table getTable() {
+   * 
+   * return table; }
+   */
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ribbon.RibbonMenuPanel#refresh()
+   */
+  @Override
+  public final void refresh() {
+    try {
+      reload();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+    mTabsModel.changeTab(0);
+  }
+
+  /**
+   * Reload.
+   *
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   */
+  public final void reload() throws IOException {
+
+    // current dir
+
+    mRecentDirectoryList.reload();
+  }
+
+  /**
+   * Gets the selected directory.
+   *
+   * @return the selected directory
+   */
+  public final Path getSelectedDirectory() {
+    return mSelectedDirectory;
+  }
+
+  /*
+   * @Override public void selectionChanged(ChangeEvent e) { if
+   * (e.getSource().equals(mCurrentDirectoryList)) { int i =
+   * mCurrentDirectoryList.getSelectedIndex();
+   * 
+   * if (i != -1) { selectedDirectory = mRecentDirectoriesList.getValueAt(i);
+   * 
+   * fireClicked(new ModernClickEvent(this, DIRECTORY_SELECTED)); } } else if
+   * (e.getSource().equals(mRecentDirectoriesList)) { int i =
+   * mRecentDirectoriesList.getSelectedIndex();
+   * 
+   * if (i != -1) { selectedDirectory = mRecentDirectoriesList.getValueAt(i);
+   * 
+   * fireClicked(new ModernClickEvent(this, DIRECTORY_SELECTED)); } } else { // do
+   * nothing } }
+   */
 }

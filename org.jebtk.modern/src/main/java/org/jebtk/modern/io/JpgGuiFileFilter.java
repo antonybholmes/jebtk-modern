@@ -32,19 +32,21 @@ package org.jebtk.modern.io;
  * The class JpgGuiFileFilter.
  */
 public class JpgGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new jpg gui file filter.
-	 */
-	public JpgGuiFileFilter() {
-		super("jpg");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return "JPEG (*.jpg)";
-	}
+  /**
+   * Instantiates a new jpg gui file filter.
+   */
+  public JpgGuiFileFilter() {
+    super("jpg");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return "JPEG (*.jpg)";
+  }
 }

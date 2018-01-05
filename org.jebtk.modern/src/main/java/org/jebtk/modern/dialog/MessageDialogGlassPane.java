@@ -47,172 +47,183 @@ import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.text.ModernCenteredHeadingPanel;
 import org.jebtk.modern.window.FrostedGlassPane;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Used as a glass pane to present messages to the user in the 
- * current window rather than a popup dialog.
+ * Used as a glass pane to present messages to the user in the current window
+ * rather than a popup dialog.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class MessageDialogGlassPane extends FrostedGlassPane implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
 
-	/**
-	 * Used as a glass pane to present messages to the user in the 
-	 * current window rather than a popup dialog.
-	 * 
-	 * @author Antony Holmes Holmes
-	 *
-	 */
-	private class MessageDialogPanel extends ModernPanel implements ModernClickListener, FocusListener {
-		
-		/**
-		 * The height.
-		 */
-		private int HEIGHT = 120;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		/**
-		 * The constant serialVersionUID.
-		 */
-		private static final long serialVersionUID = 1L;
-		
-		/**
-		 * The member ok button.
-		 */
-		private ModernButton mOkButton = new MessageButton(UI.BUTTON_OK);
+  /**
+   * Used as a glass pane to present messages to the user in the current window
+   * rather than a popup dialog.
+   * 
+   * @author Antony Holmes Holmes
+   *
+   */
+  private class MessageDialogPanel extends ModernPanel implements ModernClickListener, FocusListener {
 
-		/**
-		 * The member message label.
-		 */
-		private ModernCenteredHeadingPanel mMessageLabel = 
-				new ModernCenteredHeadingPanel("Heading", Color.WHITE);
-		
-		/**
-		 * The member listeners.
-		 */
-		private ModernClickListeners mListeners = new ModernClickListeners();
-		
-		/**
-		 * Instantiates a new message dialog panel.
-		 */
-		public MessageDialogPanel() {
-			super(Ribbon.BAR_BACKGROUND);
-			
-			UI.setSize(this, new Dimension(Short.MAX_VALUE, HEIGHT));
-			
-			
-			//add(mMessageLabel, BorderLayout.PAGE_START);
-			
-			Box box = new VCenterBox();
-			
-			Box box2 = new HCenterBox();
-			
-			//box3.add(mMessageLabel);
-			//box3.add(ModernPanel.createVGap());
-			//box3.add(new ModernSubHeadingLabel("Something or other", Color.WHITE));
-			
-			UI.setSize(mMessageLabel, new Dimension(1200, 50));
-			
-			box2.add(mMessageLabel);
-			box.add(box2);
-			box.add(UI.createVGap(20));
-			
-			box2 = new HCenterBox();
-			box2.add(mOkButton);
-			box.add(box2);
-			
-			add(box);
-			
-			mOkButton.addClickListener(this);
-			
-			addFocusListener(this);
-			
-			setFocusable(true);
-		}
-		
-		/**
-		 * Show message.
-		 *
-		 * @param message the message
-		 */
-		public void showMessage(String message) {
-			mMessageLabel.setText(message);
-		}
-		
-		/**
-		 * Adds the click listener.
-		 *
-		 * @param l the l
-		 */
-		public void addClickListener(ModernClickListener l) {
-			mListeners.addClickListener(l);
-		}
+    /**
+     * The height.
+     */
+    private int HEIGHT = 120;
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			mListeners.fireClicked(e);
-		}
+    /**
+     * The constant serialVersionUID.
+     */
+    private static final long serialVersionUID = 1L;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusGained(FocusEvent arg0) {
-			mOkButton.requestFocusInWindow();
-		}
+    /**
+     * The member ok button.
+     */
+    private ModernButton mOkButton = new MessageButton(UI.BUTTON_OK);
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusLost(FocusEvent arg0) {
-			// TODO Auto-generated method stub
-			
-		}
-	}
-	
-	/**
-	 * The member panel.
-	 */
-	private MessageDialogPanel mPanel = new MessageDialogPanel();
-	
-	/**
-	 * Instantiates a new message dialog glass pane.
-	 */
-	public MessageDialogGlassPane() {
-		add(mPanel);
-	
-		mPanel.addClickListener(this);
-	}
-	
-	/**
-	 * Show message.
-	 *
-	 * @param message the message
-	 */
-	public void showMessage(String message) {
-		mPanel.showMessage(message);
-		
-		setVisible(true);
-		
-		mPanel.requestFocusInWindow();
-	}
+    /**
+     * The member message label.
+     */
+    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel("Heading", Color.WHITE);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		setVisible(false);
-	}
+    /**
+     * The member listeners.
+     */
+    private ModernClickListeners mListeners = new ModernClickListeners();
+
+    /**
+     * Instantiates a new message dialog panel.
+     */
+    public MessageDialogPanel() {
+      super(Ribbon.BAR_BACKGROUND);
+
+      UI.setSize(this, new Dimension(Short.MAX_VALUE, HEIGHT));
+
+      // add(mMessageLabel, BorderLayout.PAGE_START);
+
+      Box box = new VCenterBox();
+
+      Box box2 = new HCenterBox();
+
+      // box3.add(mMessageLabel);
+      // box3.add(ModernPanel.createVGap());
+      // box3.add(new ModernSubHeadingLabel("Something or other", Color.WHITE));
+
+      UI.setSize(mMessageLabel, new Dimension(1200, 50));
+
+      box2.add(mMessageLabel);
+      box.add(box2);
+      box.add(UI.createVGap(20));
+
+      box2 = new HCenterBox();
+      box2.add(mOkButton);
+      box.add(box2);
+
+      add(box);
+
+      mOkButton.addClickListener(this);
+
+      addFocusListener(this);
+
+      setFocusable(true);
+    }
+
+    /**
+     * Show message.
+     *
+     * @param message
+     *          the message
+     */
+    public void showMessage(String message) {
+      mMessageLabel.setText(message);
+    }
+
+    /**
+     * Adds the click listener.
+     *
+     * @param l
+     *          the l
+     */
+    public void addClickListener(ModernClickListener l) {
+      mListeners.addClickListener(l);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      mListeners.fireClicked(e);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusGained(FocusEvent arg0) {
+      mOkButton.requestFocusInWindow();
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusLost(FocusEvent arg0) {
+      // TODO Auto-generated method stub
+
+    }
+  }
+
+  /**
+   * The member panel.
+   */
+  private MessageDialogPanel mPanel = new MessageDialogPanel();
+
+  /**
+   * Instantiates a new message dialog glass pane.
+   */
+  public MessageDialogGlassPane() {
+    add(mPanel);
+
+    mPanel.addClickListener(this);
+  }
+
+  /**
+   * Show message.
+   *
+   * @param message
+   *          the message
+   */
+  public void showMessage(String message) {
+    mPanel.showMessage(message);
+
+    setVisible(true);
+
+    mPanel.requestFocusInWindow();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    setVisible(false);
+  }
 }

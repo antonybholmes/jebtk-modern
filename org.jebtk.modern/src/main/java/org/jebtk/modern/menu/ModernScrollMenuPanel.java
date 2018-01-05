@@ -23,14 +23,13 @@ import org.jebtk.modern.panel.VBoxAutoWidth;
  */
 public class ModernScrollMenuPanel extends VBoxAutoWidth {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * Instantiates a new modern scroll menu panel.
-	 */
-	public ModernScrollMenuPanel() {
-		//setBorder(ModernWidget.RIGHT_BORDER);
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern scroll menu panel.
+   */
+  public ModernScrollMenuPanel() {
+    // setBorder(ModernWidget.RIGHT_BORDER);
+  }
 }

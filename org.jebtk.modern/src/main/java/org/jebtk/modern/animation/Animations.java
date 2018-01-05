@@ -28,140 +28,152 @@ import org.jebtk.modern.widget.ModernWidget;
  * The Class Animations.
  */
 public class Animations extends ChangeListeners implements Animation, Iterable<Animation> {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	
-	
-	/** The m animations. */
-	private List<Animation> mAnimations = new ArrayList<Animation>();
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param animation the animation
-	 * @return 
-	 */
-	public Animations add(Animation animation) {
-		update(animation);
-		
-		fireChanged();
-		
-		return this;
-	}
-	
-	public Animations add(Animations animations) {
-		update(animations);
-		
-		fireChanged();
-		
-		return this;
-	}
-	
-	/**
-	 * Update.
-	 *
-	 * @param animation the animation
-	 */
-	public void update(Animation animation) {
-		mAnimations.add(animation);
-	}
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param animation the animation
-	 * @param animations the animations
-	 * @return 
-	 */
-	public Animations add(Animation animation, Animation... animations) {
-		update(animation, animations);
-		
-		fireChanged();
-		
-		return this;
-	}
-	
-	/**
-	 * Update.
-	 *
-	 * @param animation the animation
-	 * @param animations the animations
-	 */
-	public void update(Animation animation, Animation... animations) {
-		update(animation);
-		
-		for (Animation a : animations) {
-			update(a);
-		}
-	}
-	
-	public void update(Animations animations) {
-		for (Animation a : animations) {
-			update(a);
-		}
-	}
-	
-	/**
-	 * Sets the.
-	 *
-	 * @param animation the animation
-	 * @param animations the animations
-	 * @return 
-	 */
-	public Animations set(Animation animation, Animation... animations) {
-		clear();
-		
-		add(animation, animations);
-		
-		return this;
-	}
-	
-	public Animations set(Animations animations) {
-		clear();
-		
-		add(animations);
-		
-		return this;
-	}
-	
-	/**
-	 * Clear.
-	 * @return 
-	 */
-	public Animations clear() {
-		mAnimations.clear();
-		
-		return this;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		for (Animation a : mAnimations) {
-			a.draw(widget, g2, params);
-		}
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see java.lang.Iterable#iterator()
-	 */
-	@Override
-	public Iterator<Animation> iterator() {
-		return mAnimations.iterator();
-	}
+  /** The m animations. */
+  private List<Animation> mAnimations = new ArrayList<Animation>();
 
-	/**
-	 * Get a particular animation by index.
-	 * 
-	 * @param index
-	 * @return
-	 */
-	public Animation get(int index) {
-		return mAnimations.get(index);
-	}
+  /**
+   * Adds the.
+   *
+   * @param animation
+   *          the animation
+   * @return
+   */
+  public Animations add(Animation animation) {
+    update(animation);
+
+    fireChanged();
+
+    return this;
+  }
+
+  public Animations add(Animations animations) {
+    update(animations);
+
+    fireChanged();
+
+    return this;
+  }
+
+  /**
+   * Update.
+   *
+   * @param animation
+   *          the animation
+   */
+  public void update(Animation animation) {
+    mAnimations.add(animation);
+  }
+
+  /**
+   * Adds the.
+   *
+   * @param animation
+   *          the animation
+   * @param animations
+   *          the animations
+   * @return
+   */
+  public Animations add(Animation animation, Animation... animations) {
+    update(animation, animations);
+
+    fireChanged();
+
+    return this;
+  }
+
+  /**
+   * Update.
+   *
+   * @param animation
+   *          the animation
+   * @param animations
+   *          the animations
+   */
+  public void update(Animation animation, Animation... animations) {
+    update(animation);
+
+    for (Animation a : animations) {
+      update(a);
+    }
+  }
+
+  public void update(Animations animations) {
+    for (Animation a : animations) {
+      update(a);
+    }
+  }
+
+  /**
+   * Sets the.
+   *
+   * @param animation
+   *          the animation
+   * @param animations
+   *          the animations
+   * @return
+   */
+  public Animations set(Animation animation, Animation... animations) {
+    clear();
+
+    add(animation, animations);
+
+    return this;
+  }
+
+  public Animations set(Animations animations) {
+    clear();
+
+    add(animations);
+
+    return this;
+  }
+
+  /**
+   * Clear.
+   * 
+   * @return
+   */
+  public Animations clear() {
+    mAnimations.clear();
+
+    return this;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    for (Animation a : mAnimations) {
+      a.draw(widget, g2, params);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Iterable#iterator()
+   */
+  @Override
+  public Iterator<Animation> iterator() {
+    return mAnimations.iterator();
+  }
+
+  /**
+   * Get a particular animation by index.
+   * 
+   * @param index
+   * @return
+   */
+  public Animation get(int index) {
+    return mAnimations.get(index);
+  }
 
 }

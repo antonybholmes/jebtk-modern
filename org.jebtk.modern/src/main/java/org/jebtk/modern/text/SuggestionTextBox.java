@@ -22,68 +22,74 @@ import org.jebtk.core.text.TextUtils;
 
 // TODO: Auto-generated Javadoc
 /**
- * Shows a suggestion of what to type before deleting it as the user
- * selects it.
+ * Shows a suggestion of what to type before deleting it as the user selects it.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class SuggestionTextBox extends ModernClipboardTextField implements FocusListener {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The text to show as a suggestion. */
-	private String mSuggetion;
-	
-	/**
-	 * Instantiates a new suggestion text box.
-	 *
-	 * @param suggestion the suggestion
-	 */
-	public SuggestionTextBox(String suggestion) {
-		super(suggestion);
-		
-		mSuggetion = suggestion;
-		
-		setForeground(DISABLED_COLOR);
-		
-		addFocusListener(this);
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.text.JTextComponent#getText()
-	 */
-	@Override
-	public String getText() {
-		if (super.getText().equals(mSuggetion)) {
-			return TextUtils.EMPTY_STRING;
-		} else {
-			return super.getText();
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
-	 */
-	@Override
-	public void focusGained(FocusEvent e) {
-		if (super.getText().equals(mSuggetion)) {
-			setForeground(ENABLED_COLOR);
-			
-			setText(TextUtils.EMPTY_STRING);
-		}
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
-	 */
-	@Override
-	public void focusLost(FocusEvent e) {
-		if (getText().length() == 0) {
-			setForeground(DISABLED_COLOR);
-		
-			setText(mSuggetion);
-		}
-	}
+  /** The text to show as a suggestion. */
+  private String mSuggetion;
+
+  /**
+   * Instantiates a new suggestion text box.
+   *
+   * @param suggestion
+   *          the suggestion
+   */
+  public SuggestionTextBox(String suggestion) {
+    super(suggestion);
+
+    mSuggetion = suggestion;
+
+    setForeground(DISABLED_COLOR);
+
+    addFocusListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.text.JTextComponent#getText()
+   */
+  @Override
+  public String getText() {
+    if (super.getText().equals(mSuggetion)) {
+      return TextUtils.EMPTY_STRING;
+    } else {
+      return super.getText();
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+   */
+  @Override
+  public void focusGained(FocusEvent e) {
+    if (super.getText().equals(mSuggetion)) {
+      setForeground(ENABLED_COLOR);
+
+      setText(TextUtils.EMPTY_STRING);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
+   */
+  @Override
+  public void focusLost(FocusEvent e) {
+    if (getText().length() == 0) {
+      setForeground(DISABLED_COLOR);
+
+      setText(mSuggetion);
+    }
+  }
 }

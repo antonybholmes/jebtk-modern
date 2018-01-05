@@ -32,40 +32,44 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.settings.SettingsService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class CloseVectorIcon.
  */
 public class CloseVectorIcon extends CrossVectorIcon {
-	/**
-	 * The member color.
-	 */
-	private Color mColor;
-	
-	/**
-	 * Instantiates a new close vector icon.
-	 */
-	public CloseVectorIcon() {
-		this(SettingsService.getInstance().getAsColor("theme.icons.close-icon.colors.foreground"));
-	}
-	
-	/**
-	 * Instantiates a new close vector icon.
-	 *
-	 * @param color the color
-	 */
-	public CloseVectorIcon(Color color) {
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		g2.setColor(mColor);
-		
-		super.drawIcon(g2, x, y, w, h, params);
-	}
+  /**
+   * The member color.
+   */
+  private Color mColor;
+
+  /**
+   * Instantiates a new close vector icon.
+   */
+  public CloseVectorIcon() {
+    this(SettingsService.getInstance().getAsColor("theme.icons.close-icon.colors.foreground"));
+  }
+
+  /**
+   * Instantiates a new close vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public CloseVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    g2.setColor(mColor);
+
+    super.drawIcon(g2, x, y, w, h, params);
+  }
 }

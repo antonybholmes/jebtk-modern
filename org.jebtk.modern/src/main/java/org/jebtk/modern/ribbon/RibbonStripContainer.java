@@ -42,44 +42,47 @@ import org.jebtk.modern.panel.VCenterBox;
  */
 public class RibbonStripContainer extends VCenterBox {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member hbox.
-	 */
-	private Box mHbox = HBox.create();
-	
-	/**
-	 * Instantiates a new ribbon strip container2.
-	 */
-	public RibbonStripContainer() {
-		super.add(mHbox);
-	}
-	
-	/**
-	 * Instantiates a new ribbon strip container.
-	 *
-	 * @param components the components
-	 */
-	public RibbonStripContainer(Component... components) {
-		this();
-		
-		for (Component c : components) {
-			add(c);
-		}
-	}
+  /**
+   * The member hbox.
+   */
+  private Box mHbox = HBox.create();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.panel.VCenterBoxPanel#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component c) {
-		mHbox.add(c);
-		
-		return c;
-	}
+  /**
+   * Instantiates a new ribbon strip container2.
+   */
+  public RibbonStripContainer() {
+    super.add(mHbox);
+  }
+
+  /**
+   * Instantiates a new ribbon strip container.
+   *
+   * @param components
+   *          the components
+   */
+  public RibbonStripContainer(Component... components) {
+    this();
+
+    for (Component c : components) {
+      add(c);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.panel.VCenterBoxPanel#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component c) {
+    mHbox.add(c);
+
+    return c;
+  }
 
 }

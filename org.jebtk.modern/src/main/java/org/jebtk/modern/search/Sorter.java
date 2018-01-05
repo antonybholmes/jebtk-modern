@@ -48,195 +48,204 @@ import org.jebtk.modern.tree.ModernTree;
 
 // TODO: Auto-generated Javadoc
 /**
- * The experiment tree can be sorted in multiple ways. Given a list
- * of experiments and a tree, generate a custom sorted tree of experiments.
+ * The experiment tree can be sorted in multiple ways. Given a list of
+ * experiments and a tree, generate a custom sorted tree of experiments.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public abstract class Sorter<T extends NameProperty> implements Comparable<Sorter<T>>, NameProperty {
-	
-	public static final Comparator<String> STRING_NAT_SORTER = 
-			new NaturalComparator<String>();
 
-	/**
-	 * Gets the type.
-	 *
-	 * @return the type
-	 */
-	public abstract String getType();
-	
-	/**
-	 * Arrange.
-	 *
-	 * @param items the items
-	 * @param tree the tree
-	 * @param ascending the ascending
-	 * @param filterModel the filter model
-	 */
-	public abstract void arrange(Collection<T> items, 
-			ModernTree<T> tree, 
-			boolean ascending,
-			FilterModel filterModel);
-	
-	
-	/**
-	 * Filter.
-	 *
-	 * @param items the items
-	 * @param filterModel the filter model
-	 */
-	public void filter(Collection<T> items, 
-			FilterModel filterModel) {
-		filterModel.clear();
-	}
-	
-	/**
-	 * Adds the filter names.
-	 *
-	 * @param names the names
-	 * @param filterModel the filter model
-	 */
-	public static void addFilterNames(Collection<String> names, 
-			FilterModel filterModel) {
-		filterModel.setSelected(names, true);
-	}
-	
-	/**
-	 * Add the names to the filter using natural sorting.
-	 * 
-	 * @param names
-	 * @param filterModel
-	 */
-	public static void addSortedFilterNames(Collection<String> names, 
-			FilterModel filterModel) {
-		addFilterNames(CollectionUtils.sort(names, STRING_NAT_SORTER), filterModel);
-	}
-	
+  public static final Comparator<String> STRING_NAT_SORTER = new NaturalComparator<String>();
 
-	/* (non-Javadoc)
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
-	public int compareTo(Sorter<T> s) {
-		return getName().compareTo(s.getName());
-	}
+  /**
+   * Gets the type.
+   *
+   * @return the type
+   */
+  public abstract String getType();
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@SuppressWarnings("unchecked")
-	public boolean equals(Object o) {
-		if (o instanceof Sorter) {
-			return false;
-		}
-		
-		return compareTo((Sorter<T>)o) == 0;
-	}
+  /**
+   * Arrange.
+   *
+   * @param items
+   *          the items
+   * @param tree
+   *          the tree
+   * @param ascending
+   *          the ascending
+   * @param filterModel
+   *          the filter model
+   */
+  public abstract void arrange(Collection<T> items, ModernTree<T> tree, boolean ascending, FilterModel filterModel);
 
-	/**
-	 * Sort a set of ChipSeqSamples by name.
-	 *
-	 * @param <X> the generic type
-	 * @param items the items
-	 * @param ascending the ascending
-	 * @return the list
-	 */
-	public static <X extends NameProperty> List<X> sortByName(Iterable<X> items, 
-			boolean ascending) {
-		Map<String, List<X>> itemMap = 
-				DefaultHashMap.create(new ArrayListCreator<X>());
+  /**
+   * Filter.
+   *
+   * @param items
+   *          the items
+   * @param filterModel
+   *          the filter model
+   */
+  public void filter(Collection<T> items, FilterModel filterModel) {
+    filterModel.clear();
+  }
 
-		for (X item : items) {
-			String name = item.getName();
+  /**
+   * Adds the filter names.
+   *
+   * @param names
+   *          the names
+   * @param filterModel
+   *          the filter model
+   */
+  public static void addFilterNames(Collection<String> names, FilterModel filterModel) {
+    filterModel.setSelected(names, true);
+  }
 
-			itemMap.get(name).add(item);
-		}
+  /**
+   * Add the names to the filter using natural sorting.
+   * 
+   * @param names
+   * @param filterModel
+   */
+  public static void addSortedFilterNames(Collection<String> names, FilterModel filterModel) {
+    addFilterNames(CollectionUtils.sort(names, STRING_NAT_SORTER), filterModel);
+  }
 
-		List<String> names = CollectionUtils.sort(itemMap.keySet(), STRING_NAT_SORTER);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Comparable#compareTo(java.lang.Object)
+   */
+  public int compareTo(Sorter<T> s) {
+    return getName().compareTo(s.getName());
+  }
 
-		if (!ascending) {
-			Collections.reverse(names);
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#equals(java.lang.Object)
+   */
+  @SuppressWarnings("unchecked")
+  public boolean equals(Object o) {
+    if (o instanceof Sorter) {
+      return false;
+    }
 
-		List<X> sortedItems = new ArrayList<X>(names.size());
+    return compareTo((Sorter<T>) o) == 0;
+  }
 
-		for (String name : names) {
-			for (X item : itemMap.get(name)) {
-				sortedItems.add(item);
-			}
-		}
+  /**
+   * Sort a set of ChipSeqSamples by name.
+   *
+   * @param <X>
+   *          the generic type
+   * @param items
+   *          the items
+   * @param ascending
+   *          the ascending
+   * @return the list
+   */
+  public static <X extends NameProperty> List<X> sortByName(Iterable<X> items, boolean ascending) {
+    Map<String, List<X>> itemMap = DefaultHashMap.create(new ArrayListCreator<X>());
 
-		return sortedItems;
-	}
-	
-	/**
-	 * Arrange.
-	 *
-	 * @param <X> the generic type
-	 * @param map the map
-	 * @param ascending the ascending
-	 * @param tree the tree
-	 */
-	protected <X extends Comparable<? super X>> void arrange(Map<X, ? extends Iterable<T>> map,
-			boolean ascending,
-			ModernTree<T> tree) {
-		List<X> sortedNames = CollectionUtils.sortKeys(map, 
-				new NaturalComparator<X>(), 
-				ascending);
-		
-		tree.clear();
+    for (X item : items) {
+      String name = item.getName();
 
-		TreeRootNode<T> root = new TreeRootNode<T>();
-		
-		for (X name : sortedNames) {
-			TreeNode<T> node = new TreeNode<T>(name.toString());
+      itemMap.get(name).add(item);
+    }
 
-			List<T> sortedValues = sortByName(map.get(name), ascending);
+    List<String> names = CollectionUtils.sort(itemMap.keySet(), STRING_NAT_SORTER);
 
-			for (T sample : sortedValues) {
-				node.addChild(new TreeNode<T>(sample.getName(), sample));
-			}
+    if (!ascending) {
+      Collections.reverse(names);
+    }
 
-			root.addChild(node);
-		}
-		
-		tree.setRoot(root);
-		
-		//tree.getSelectionModel().setSelection(1);
-	}
-	
-	/**
-	 * Create a tree from a date map. Dates will sorted in order and formatted
-	 * according the format provided.
-	 *
-	 * @param <X> the generic type
-	 * @param map the map
-	 * @param format the format
-	 * @param ascending the ascending
-	 * @param tree the tree
-	 */
-	protected <X extends Comparable<? super X>> void arrange(Map<Date, ? extends Iterable<T>> map,
-			DateFormat format,
-			boolean ascending,
-			ModernTree<T> tree) {
-		List<Date> sortedDates = CollectionUtils.sortKeys(map, ascending);
-		
-		tree.clear();
+    List<X> sortedItems = new ArrayList<X>(names.size());
 
-		TreeRootNode<T> root = new TreeRootNode<T>();
-		
-		for (Date date : sortedDates) {
-			TreeNode<T> node = new TreeNode<T>(format.format(date));
+    for (String name : names) {
+      for (X item : itemMap.get(name)) {
+        sortedItems.add(item);
+      }
+    }
 
-			List<T> sortedValues = sortByName(map.get(date), ascending);
+    return sortedItems;
+  }
 
-			for (T sample : sortedValues) {
-				node.addChild(new TreeNode<T>(sample.getName(), sample));
-			}
+  /**
+   * Arrange.
+   *
+   * @param <X>
+   *          the generic type
+   * @param map
+   *          the map
+   * @param ascending
+   *          the ascending
+   * @param tree
+   *          the tree
+   */
+  protected <X extends Comparable<? super X>> void arrange(Map<X, ? extends Iterable<T>> map, boolean ascending,
+      ModernTree<T> tree) {
+    List<X> sortedNames = CollectionUtils.sortKeys(map, new NaturalComparator<X>(), ascending);
 
-			root.addChild(node);
-		}
-		
-		tree.setRoot(root);
-	}
+    tree.clear();
+
+    TreeRootNode<T> root = new TreeRootNode<T>();
+
+    for (X name : sortedNames) {
+      TreeNode<T> node = new TreeNode<T>(name.toString());
+
+      List<T> sortedValues = sortByName(map.get(name), ascending);
+
+      for (T sample : sortedValues) {
+        node.addChild(new TreeNode<T>(sample.getName(), sample));
+      }
+
+      root.addChild(node);
+    }
+
+    tree.setRoot(root);
+
+    // tree.getSelectionModel().setSelection(1);
+  }
+
+  /**
+   * Create a tree from a date map. Dates will sorted in order and formatted
+   * according the format provided.
+   *
+   * @param <X>
+   *          the generic type
+   * @param map
+   *          the map
+   * @param format
+   *          the format
+   * @param ascending
+   *          the ascending
+   * @param tree
+   *          the tree
+   */
+  protected <X extends Comparable<? super X>> void arrange(Map<Date, ? extends Iterable<T>> map, DateFormat format,
+      boolean ascending, ModernTree<T> tree) {
+    List<Date> sortedDates = CollectionUtils.sortKeys(map, ascending);
+
+    tree.clear();
+
+    TreeRootNode<T> root = new TreeRootNode<T>();
+
+    for (Date date : sortedDates) {
+      TreeNode<T> node = new TreeNode<T>(format.format(date));
+
+      List<T> sortedValues = sortByName(map.get(date), ascending);
+
+      for (T sample : sortedValues) {
+        node.addChild(new TreeNode<T>(sample.getName(), sample));
+      }
+
+      root.addChild(node);
+    }
+
+    tree.setRoot(root);
+  }
 }

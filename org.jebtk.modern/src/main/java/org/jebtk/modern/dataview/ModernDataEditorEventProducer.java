@@ -36,32 +36,35 @@ import org.jebtk.core.event.ChangeEvent;
  * @author Antony Holmes Holmes
  */
 public interface ModernDataEditorEventProducer {
-	
-	/**
-	 * Adds the editor listener.
-	 *
-	 * @param l the l
-	 */
-	public void addEditorListener(ModernDataEditorListener l);
-	
-	/**
-	 * Removes the editor listener.
-	 *
-	 * @param l the l
-	 */
-	public void removeEditorListener(ModernDataEditorListener l);
-	
-	/**
-	 * Fire changed.
-	 *
-	 * @param e the e
-	 */
-	public void fireChanged(ChangeEvent e);
-	
-	/**
-	 * Fire editing stopped.
-	 */
-	public void fireEditingStopped();
-	
-	//public void fireDataChanged();
+
+  /**
+   * Adds the editor listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void addEditorListener(ModernDataEditorListener l);
+
+  /**
+   * Removes the editor listener.
+   *
+   * @param l
+   *          the l
+   */
+  public void removeEditorListener(ModernDataEditorListener l);
+
+  /**
+   * Fire changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireChanged(ChangeEvent e);
+
+  /**
+   * Fire editing stopped.
+   */
+  public void fireEditingStopped();
+
+  // public void fireDataChanged();
 }

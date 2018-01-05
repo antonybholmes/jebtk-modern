@@ -44,252 +44,255 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.theme.ModernTheme;
 import org.jebtk.modern.theme.RenderMode;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Represents a button with a click action and an optional
- * drop down menu component.
+ * Represents a button with a click action and an optional drop down menu
+ * component.
  * 
  * @author Antony Holmes Holmes
  *
  */
-public class ModernOptionalDropDownMenuButton extends ModernDropDownWidget  {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant TRIANGLE_ICON. */
-	protected static final ModernIcon TRIANGLE_ICON = 
-			UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16);
+public class ModernOptionalDropDownMenuButton extends ModernDropDownWidget {
 
-	
-	/**
-	 * The primary button.
-	 */
-	public boolean mPrimaryButton = false;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SECONDARY_BUTTON_WIDTH.
-	 */
-	public static final int SECONDARY_BUTTON_WIDTH = 16;
-	
-	/**
-	 * The constant PRIMARY_BUTTON.
-	 */
-	public static final String PRIMARY_BUTTON = "primary_button";
+  /** The Constant TRIANGLE_ICON. */
+  protected static final ModernIcon TRIANGLE_ICON = UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16);
 
-	/**
-	 * The constant SIZE.
-	 */
-	private static final Dimension SIZE = 
-			ModernTheme.loadDimension("theme.button.dimensions.dropdown-icon-only");
-	
-	/**
-	 * The divider location.
-	 */
-	public int mDividerLocation = -1;
+  /**
+   * The primary button.
+   */
+  public boolean mPrimaryButton = false;
 
+  /**
+   * The constant SECONDARY_BUTTON_WIDTH.
+   */
+  public static final int SECONDARY_BUTTON_WIDTH = 16;
 
-	/** The m secondary button width. */
-	protected int mSecondaryButtonWidth;
-	
-	/**
-	 * The class MouseMotionEvents.
-	 */
-	private class MouseMotionEvents implements MouseMotionListener {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseMoved(MouseEvent e) {
-			if (!isEnabled()) {
-				return;
-			}
-			
-			mHighlight = true;
+  /**
+   * The constant PRIMARY_BUTTON.
+   */
+  public static final String PRIMARY_BUTTON = "primary_button";
 
-			mPrimaryButton = e.getX() < mDividerLocation;
+  /**
+   * The constant SIZE.
+   */
+  private static final Dimension SIZE = ModernTheme.loadDimension("theme.button.dimensions.dropdown-icon-only");
 
-			repaint();
-		}
+  /**
+   * The divider location.
+   */
+  public int mDividerLocation = -1;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
-		 */
-		@Override
-		public void mouseDragged(MouseEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-	}
-	
-	/**
-	 * The class ComponentEvents.
-	 */
-	private class ComponentEvents extends ComponentAdapter {
-		
-		/* (non-Javadoc)
-		 * @see java.awt.event.ComponentAdapter#componentResized(java.awt.event.ComponentEvent)
-		 */
-		@Override
-		public void componentResized(ComponentEvent e) {
-			mDividerLocation = getWidth() - mSecondaryButtonWidth;
-		}
-	}
+  /** The m secondary button width. */
+  protected int mSecondaryButtonWidth;
 
-	/**
-	 * Instantiates a new modern optional drop down menu button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public ModernOptionalDropDownMenuButton(String text1, 
-			ModernIcon icon, 
-			ModernPopupMenu menu) {
-		super(text1, icon);
+  /**
+   * The class MouseMotionEvents.
+   */
+  private class MouseMotionEvents implements MouseMotionListener {
 
-		setMenu(menu);
-		
-		setup();
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseMoved(MouseEvent e) {
+      if (!isEnabled()) {
+        return;
+      }
 
-	/**
-	 * Instantiates a new modern optional drop down menu button.
-	 *
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public ModernOptionalDropDownMenuButton(ModernIcon icon, 
-			ModernPopupMenu menu) {
-		super(icon);
-		
-		setMenu(menu);
-		
-		setClickMessage(PRIMARY_BUTTON);
-		
-		UI.setSize(this, SIZE);
-		
-		setup();
-	}
-	
-	public ModernOptionalDropDownMenuButton(String text1, 
-			ModernPopupMenu menu) {
-		super(text1);
-		
-		setMenu(menu);
-		
-		setClickMessage(PRIMARY_BUTTON);
-		
-		setup();
-	}
+      mHighlight = true;
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setSecondaryButtonWidth(SECONDARY_BUTTON_WIDTH);
-		//addMouseListener(new MouseEvents());
-		addMouseMotionListener(new MouseMotionEvents());
-		addComponentListener(new ComponentEvents());
-	}
+      mPrimaryButton = e.getX() < mDividerLocation;
 
-	/**
-	 * Sets the secondary button width.
-	 *
-	 * @param secondaryButtonWidth the new secondary button width
-	 */
-	public void setSecondaryButtonWidth(int secondaryButtonWidth) {
-		mSecondaryButtonWidth = secondaryButtonWidth;
-	}
-	
+      repaint();
+    }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		IntRect rect = new IntRect(0, 0, getWidth(), getHeight());
-		
-		int x = 0;
-		int y = mRect.getY();
-		int h = mRect.getH();
-		int w = 0;
-		
-		if (mPrimaryButton || mPopupShown) {
-			x = mRect.getX();
-			w = mDividerLocation - mRect.getX();
-		}  else if (mHighlight) {
-			x = mDividerLocation;
-			w = mRect.getW() - mDividerLocation;
-		} else {
-			// do nothing
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     */
+    @Override
+    public void mouseDragged(MouseEvent e) {
+      // TODO Auto-generated method stub
 
-		if (isSelected() || mPopupShown) {
-			//paintHighlighted(g2, rect);
-			
-			getWidgetRenderer().drawButton(g2, rect, RenderMode.SELECTED);
-			
-		} else if (mHighlight) {
-			getWidgetRenderer().drawContentBox(g2, rect);
-			getWidgetRenderer().drawButtonOutline(g2, rect, RenderMode.SELECTED);
-			getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
-			
-			//paintHighlightedBorder(g2, rect);
-			//paintHighlighted(g2, x, y, w, h);
-		} else {
-			// do nothing
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (mText1 != null) {
-			int x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
-			int y = UIService.ICON_SIZE_16;
-			g2.setColor(getForeground());
-			g2.drawString(mText1, x, y);
-		}
-		
-		if (this.getIcon() != null) {
-			int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
-			
-			getIcon().drawIcon(g2,
-					PADDING,
-					iconY,
-					16);
-		}
+    }
+  }
 
-		Rectangle subRect = new Rectangle(getWidth() - getInsets().right - UIService.ICON_SIZE_16,
-				0,
-				16,
-				getHeight());
+  /**
+   * The class ComponentEvents.
+   */
+  private class ComponentEvents extends ComponentAdapter {
 
-		//UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, subRect.x, (subRect.height - 16) / 2, 16);
-		
-		TRIANGLE_ICON.drawIcon(g2, subRect.x, (subRect.height - 16) / 2, 16);
-	}
-	
-	@Override
-	protected void dropButtonClicked(MouseEvent e) {
-		if (e.isPopupTrigger()) {
-			return;
-		}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.ComponentAdapter#componentResized(java.awt.event.
+     * ComponentEvent)
+     */
+    @Override
+    public void componentResized(ComponentEvent e) {
+      mDividerLocation = getWidth() - mSecondaryButtonWidth;
+    }
+  }
 
-		if (mPrimaryButton) {
-			setHighlighted(false);
-			
-			fireClicked();
-		} else {
-			showMenu();
-		}
-	}
+  /**
+   * Instantiates a new modern optional drop down menu button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public ModernOptionalDropDownMenuButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
+    super(text1, icon);
+
+    setMenu(menu);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern optional drop down menu button.
+   *
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public ModernOptionalDropDownMenuButton(ModernIcon icon, ModernPopupMenu menu) {
+    super(icon);
+
+    setMenu(menu);
+
+    setClickMessage(PRIMARY_BUTTON);
+
+    UI.setSize(this, SIZE);
+
+    setup();
+  }
+
+  public ModernOptionalDropDownMenuButton(String text1, ModernPopupMenu menu) {
+    super(text1);
+
+    setMenu(menu);
+
+    setClickMessage(PRIMARY_BUTTON);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setSecondaryButtonWidth(SECONDARY_BUTTON_WIDTH);
+    // addMouseListener(new MouseEvents());
+    addMouseMotionListener(new MouseMotionEvents());
+    addComponentListener(new ComponentEvents());
+  }
+
+  /**
+   * Sets the secondary button width.
+   *
+   * @param secondaryButtonWidth
+   *          the new secondary button width
+   */
+  public void setSecondaryButtonWidth(int secondaryButtonWidth) {
+    mSecondaryButtonWidth = secondaryButtonWidth;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackgroundAA(Graphics2D g2) {
+    IntRect rect = new IntRect(0, 0, getWidth(), getHeight());
+
+    int x = 0;
+    int y = mRect.getY();
+    int h = mRect.getH();
+    int w = 0;
+
+    if (mPrimaryButton || mPopupShown) {
+      x = mRect.getX();
+      w = mDividerLocation - mRect.getX();
+    } else if (mHighlight) {
+      x = mDividerLocation;
+      w = mRect.getW() - mDividerLocation;
+    } else {
+      // do nothing
+    }
+
+    if (isSelected() || mPopupShown) {
+      // paintHighlighted(g2, rect);
+
+      getWidgetRenderer().drawButton(g2, rect, RenderMode.SELECTED);
+
+    } else if (mHighlight) {
+      getWidgetRenderer().drawContentBox(g2, rect);
+      getWidgetRenderer().drawButtonOutline(g2, rect, RenderMode.SELECTED);
+      getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
+
+      // paintHighlightedBorder(g2, rect);
+      // paintHighlighted(g2, x, y, w, h);
+    } else {
+      // do nothing
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mText1 != null) {
+      int x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
+      int y = UIService.ICON_SIZE_16;
+      g2.setColor(getForeground());
+      g2.drawString(mText1, x, y);
+    }
+
+    if (this.getIcon() != null) {
+      int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
+
+      getIcon().drawIcon(g2, PADDING, iconY, 16);
+    }
+
+    Rectangle subRect = new Rectangle(getWidth() - getInsets().right - UIService.ICON_SIZE_16, 0, 16, getHeight());
+
+    // UIService.getInstance().loadIcon(TriangleDownVectorIcon.class,
+    // 16).drawIcon(g2, subRect.x, (subRect.height - 16) / 2, 16);
+
+    TRIANGLE_ICON.drawIcon(g2, subRect.x, (subRect.height - 16) / 2, 16);
+  }
+
+  @Override
+  protected void dropButtonClicked(MouseEvent e) {
+    if (e.isPopupTrigger()) {
+      return;
+    }
+
+    if (mPrimaryButton) {
+      setHighlighted(false);
+
+      fireClicked();
+    } else {
+      showMenu();
+    }
+  }
 }

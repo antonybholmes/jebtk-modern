@@ -34,107 +34,128 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class LayersTableModel.
  */
 public class LayersTableModel extends ModernColumnHeaderTableModel implements LayerEventListener {
-	
-	/**
-	 * The constant HEADER.
-	 */
-	private static final String[] HEADER = {"Visible", "Name"};
-	
-	/**
-	 * The member layer model.
-	 */
-	private LayerModel mLayerModel;
 
-	/**
-	 * Instantiates a new layers table model.
-	 *
-	 * @param layerModel the layer model
-	 */
-	public LayersTableModel(LayerModel layerModel) {
-		mLayerModel = layerModel;
-		
-		layerModel.addLayerListener(this);
-	}
+  /**
+   * The constant HEADER.
+   */
+  private static final String[] HEADER = { "Visible", "Name" };
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
-	 */
-	@Override
-	public final int getColumnCount() {
-		return HEADER.length;
-	}
+  /**
+   * The member layer model.
+   */
+  private LayerModel mLayerModel;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
-	 */
-	@Override
-	public final int getRowCount() {
-		return mLayerModel.size();
-	}
+  /**
+   * Instantiates a new layers table model.
+   *
+   * @param layerModel
+   *          the layer model
+   */
+  public LayersTableModel(LayerModel layerModel) {
+    mLayerModel = layerModel;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
-	 */
-	@Override
-	public final Object getValueAt(int row, int col) {
-		switch (col) {
-		case 0:
-			return mLayerModel.isVisible(row);
-		default:
-			return mLayerModel.get(row);
-		}
-	}
+    layerModel.addLayerListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
-	 */
-	@Override
-	public final List<String> getColumnAnnotationText(int column) {
-		return CollectionUtils.asList(HEADER[column]);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
+   */
+  @Override
+  public final int getColumnCount() {
+    return HEADER.length;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int, int)
-	 */
-	@Override
-	public final boolean getIsCellEditable(int rowIndex, int column) {
-		return column == 0;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
+   */
+  @Override
+  public final int getRowCount() {
+    return mLayerModel.size();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setValueAt(int, int, java.lang.Object)
-	 */
-	@Override
-	public final void setValueAt(int row, int column, Object value) {
-		if (column != 0) {
-			return;
-		}
-		
-		mLayerModel.setVisible(row, (boolean)value);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
+   */
+  @Override
+  public final Object getValueAt(int row, int col) {
+    switch (col) {
+    case 0:
+      return mLayerModel.isVisible(row);
+    default:
+      return mLayerModel.get(row);
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.layers.LayerEventListener#layerChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void layerChanged(ChangeEvent e) {
-		fireDataChanged();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.event.ChangeEvent)
-	 */
-	@Override
-	public void layerUpdated(ChangeEvent e) {
-		fireDataChanged();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   */
+  @Override
+  public final List<String> getColumnAnnotationText(int column) {
+    return CollectionUtils.asList(HEADER[column]);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * int)
+   */
+  @Override
+  public final boolean getIsCellEditable(int rowIndex, int column) {
+    return column == 0;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#setValueAt(int, int,
+   * java.lang.Object)
+   */
+  @Override
+  public final void setValueAt(int row, int column, Object value) {
+    if (column != 0) {
+      return;
+    }
+
+    mLayerModel.setVisible(row, (boolean) value);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.layers.LayerEventListener#layerChanged(org.abh.lib.
+   * event.ChangeEvent)
+   */
+  @Override
+  public void layerChanged(ChangeEvent e) {
+    fireDataChanged();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.event
+   * .ChangeEvent)
+   */
+  @Override
+  public void layerUpdated(ChangeEvent e) {
+    fireDataChanged();
+  }
 
 }

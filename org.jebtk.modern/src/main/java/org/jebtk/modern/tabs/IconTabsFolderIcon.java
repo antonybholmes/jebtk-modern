@@ -33,70 +33,68 @@ import java.awt.Graphics2D;
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.graphics.icons.ModernVectorScalableIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class FolderVectorIcon.
  */
 public class IconTabsFolderIcon extends ModernVectorScalableIcon {
-	
-	
 
-	/**
-	 * The constant WIDTH_SCALE.
-	 */
-	private static final double WIDTH_SCALE = 1;
-	
-	/**
-	 * The constant CORNER_SCALE.
-	 */
-	//private static final double CORNER_SCALE_TAB = 0.1;
-	
-	private static final double CORNER_SCALE = 0.2;
-	
-	/** The Constant TAB_HEIGHT. */
-	private static final double TAB_HEIGHT = 0.09;
-	
-	/** The Constant TAB_WIDTH. */
-	private static final double TAB_WIDTH = 0.5;
-	
-	/** The Constant HEIGHT_SCALE. */
-	protected static final double HEIGHT_SCALE = 0.9;
-	
-	/** The Constant MIN_SIZE. */
-	private static final int MIN_SIZE = 2;
+  /**
+   * The constant WIDTH_SCALE.
+   */
+  private static final double WIDTH_SCALE = 1;
 
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		Color c = (Color)params[0];
-		
-		int wf = Mathematics.makeMult2(w * WIDTH_SCALE);
-		int hf = Mathematics.makeMult2(w * HEIGHT_SCALE);
-		
-		int tabHeight = Math.max(MIN_SIZE, Mathematics.makeMult2(hf * TAB_HEIGHT));
-		int tabWidth = Math.max(MIN_SIZE, Mathematics.makeMult2(wf * TAB_WIDTH));
-		
-		
-		
-		x = x + (w - wf) / 2;
-		y = y + (h - hf) / 2;
-		
-		// Rear
-		
-		g2.setColor(c);
-		
-		int corner = Math.max(MIN_SIZE, (int)(wf * CORNER_SCALE));
-		
-		g2.fillRoundRect(x, y, tabWidth, hf, corner, corner);
-		
-		//corner = (int)(w * CORNER_SCALE);
-		
-		int rh = hf - tabHeight;
-		
-		g2.fillRoundRect(x, y + tabHeight, wf, rh, corner, corner);
-	}
+  /**
+   * The constant CORNER_SCALE.
+   */
+  // private static final double CORNER_SCALE_TAB = 0.1;
+
+  private static final double CORNER_SCALE = 0.2;
+
+  /** The Constant TAB_HEIGHT. */
+  private static final double TAB_HEIGHT = 0.09;
+
+  /** The Constant TAB_WIDTH. */
+  private static final double TAB_WIDTH = 0.5;
+
+  /** The Constant HEIGHT_SCALE. */
+  protected static final double HEIGHT_SCALE = 0.9;
+
+  /** The Constant MIN_SIZE. */
+  private static final int MIN_SIZE = 2;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    Color c = (Color) params[0];
+
+    int wf = Mathematics.makeMult2(w * WIDTH_SCALE);
+    int hf = Mathematics.makeMult2(w * HEIGHT_SCALE);
+
+    int tabHeight = Math.max(MIN_SIZE, Mathematics.makeMult2(hf * TAB_HEIGHT));
+    int tabWidth = Math.max(MIN_SIZE, Mathematics.makeMult2(wf * TAB_WIDTH));
+
+    x = x + (w - wf) / 2;
+    y = y + (h - hf) / 2;
+
+    // Rear
+
+    g2.setColor(c);
+
+    int corner = Math.max(MIN_SIZE, (int) (wf * CORNER_SCALE));
+
+    g2.fillRoundRect(x, y, tabWidth, hf, corner, corner);
+
+    // corner = (int)(w * CORNER_SCALE);
+
+    int rh = hf - tabHeight;
+
+    g2.fillRoundRect(x, y + tabHeight, wf, rh, corner, corner);
+  }
 }

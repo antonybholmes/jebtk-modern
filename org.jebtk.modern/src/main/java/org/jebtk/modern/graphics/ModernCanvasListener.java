@@ -33,47 +33,49 @@ import org.jebtk.core.event.ChangeEvent;
 
 // TODO: Auto-generated Javadoc
 /**
- * Notifies listeners that the canvas has changed (e.g. size)
- * so should be redrawn or the container control adjusted accordingly.
+ * Notifies listeners that the canvas has changed (e.g. size) so should be
+ * redrawn or the container control adjusted accordingly.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public interface ModernCanvasListener extends EventListener {
 
-	/**
-	 * Notify parents to revalidate as the canvas has
-	 * changed. This implies the whole underlying structure and or size
-	 * has changed so it should be completely re-rendered.
-	 *
-	 * @param e the e
-	 */
-	public void canvasChanged(ChangeEvent e);
-	
-	/**
-	 * When the canvas has repainted but the content has
-	 * not changed. This is used in a canvas hierarchy
-	 * to notify parents to repaint the children. It is
-	 * designed to be less intensive than canvasChanged
-	 * which will cause revalidation of components.
-	 *
-	 * @param e the e
-	 */
-	public void redrawCanvas(ChangeEvent e);
-	
-	/**
-	 * Notify listeners that they should ensure the scroll point
-	 * is visible.
-	 *
-	 * @param e the e
-	 */
-	public void canvasScrolled(ChangeEvent e);
-	
-	/**
-	 * Notify the parents that the canvas has changed size, but the content
-	 * is the same. This is designed to be less intensive than canvas changed.
-	 *
-	 * @param e the e
-	 */
-	public void canvasResized(ChangeEvent e);
+  /**
+   * Notify parents to revalidate as the canvas has changed. This implies the
+   * whole underlying structure and or size has changed so it should be completely
+   * re-rendered.
+   *
+   * @param e
+   *          the e
+   */
+  public void canvasChanged(ChangeEvent e);
+
+  /**
+   * When the canvas has repainted but the content has not changed. This is used
+   * in a canvas hierarchy to notify parents to repaint the children. It is
+   * designed to be less intensive than canvasChanged which will cause
+   * revalidation of components.
+   *
+   * @param e
+   *          the e
+   */
+  public void redrawCanvas(ChangeEvent e);
+
+  /**
+   * Notify listeners that they should ensure the scroll point is visible.
+   *
+   * @param e
+   *          the e
+   */
+  public void canvasScrolled(ChangeEvent e);
+
+  /**
+   * Notify the parents that the canvas has changed size, but the content is the
+   * same. This is designed to be less intensive than canvas changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void canvasResized(ChangeEvent e);
 }

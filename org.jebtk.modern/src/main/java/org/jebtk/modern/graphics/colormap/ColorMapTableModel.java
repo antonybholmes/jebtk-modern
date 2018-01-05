@@ -35,85 +35,96 @@ import org.jebtk.modern.table.ModernColumnHeaderTableModel;
  */
 public class ColorMapTableModel extends ModernColumnHeaderTableModel implements ChangeListener {
 
-	/**
-	 * The constant HEADER.
-	 */
-	private static final String[] HEADER = {TextUtils.EMPTY_STRING, "Name"};
-	
-	/** The m names. */
-	private List<String> mNames;
-	
-	/**
-	 * Instantiates a new bed table model.
-	 */
-	public ColorMapTableModel() {
-		ColorMapService.getInstance().addChangeListener(this);
-		
-		update();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
-	 */
-	@Override
-	public List<String> getColumnAnnotationText(int column) {
-		if (Mathematics.inBound(column, 0, HEADER.length)) {
-			return CollectionUtils.toList(HEADER[column]);
-		} else {
-			return Collections.emptyList();
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnCount()
-	 */
-	@Override
-	public final int getColumnCount() {
-		return HEADER.length;
-	}
+  /**
+   * The constant HEADER.
+   */
+  private static final String[] HEADER = { TextUtils.EMPTY_STRING, "Name" };
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getRowCount()
-	 */
-	@Override
-	public final int getRowCount() {
-		return mNames == null ? 0 : mNames.size();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ui.dataview.ModernDataModel#getValueAt(int, int)
-	 */
-	@Override
-	public Object getValueAt(int row, int column) {
-		switch (column) {
-		case 0:
-			return ColorMapService.getInstance().get(mNames.get(row));
-		default:
-			return mNames.get(row);
-		}
-	}
+  /** The m names. */
+  private List<String> mNames;
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.event.ChangeListener#changed(org.abh.common.event.ChangeEvent)
-	 */
-	@Override
-	public void changed(ChangeEvent e) {
-		change();
-	}
-	
-	/**
-	 * Change.
-	 */
-	private void change() {
-		update();
-		
-		fireDataChanged();
-	}
-	
-	/**
-	 * Update.
-	 */
-	private void update() {
-		mNames = CollectionUtils.toList(ColorMapService.getInstance());
-	}
+  /**
+   * Instantiates a new bed table model.
+   */
+  public ColorMapTableModel() {
+    ColorMapService.getInstance().addChangeListener(this);
+
+    update();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
+   */
+  @Override
+  public List<String> getColumnAnnotationText(int column) {
+    if (Mathematics.inBound(column, 0, HEADER.length)) {
+      return CollectionUtils.toList(HEADER[column]);
+    } else {
+      return Collections.emptyList();
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnCount()
+   */
+  @Override
+  public final int getColumnCount() {
+    return HEADER.length;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getRowCount()
+   */
+  @Override
+  public final int getRowCount() {
+    return mNames == null ? 0 : mNames.size();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getValueAt(int, int)
+   */
+  @Override
+  public Object getValueAt(int row, int column) {
+    switch (column) {
+    case 0:
+      return ColorMapService.getInstance().get(mNames.get(row));
+    default:
+      return mNames.get(row);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.event.ChangeListener#changed(org.abh.common.event.ChangeEvent)
+   */
+  @Override
+  public void changed(ChangeEvent e) {
+    change();
+  }
+
+  /**
+   * Change.
+   */
+  private void change() {
+    update();
+
+    fireDataChanged();
+  }
+
+  /**
+   * Update.
+   */
+  private void update() {
+    mNames = CollectionUtils.toList(ColorMapService.getInstance());
+  }
 }

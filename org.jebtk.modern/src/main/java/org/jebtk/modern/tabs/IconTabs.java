@@ -31,8 +31,6 @@ import java.awt.Color;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Mac Style tabs.
@@ -41,87 +39,89 @@ import org.jebtk.modern.theme.ThemeService;
  */
 public class IconTabs extends TabsPanel {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant TEXT_TAB_SELECTED_COLOR_1. */
-	public static final Color TEXT_TAB_SELECTED_COLOR_1 = 
-			ThemeService.getInstance().colors().getColorHighlight(3);
+  /** The Constant TEXT_TAB_SELECTED_COLOR_1. */
+  public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService.getInstance().colors().getColorHighlight(3);
 
-	/** The Constant TEXT_TAB_SELECTED_COLOR_2. */
-	protected static final Color TEXT_TAB_SELECTED_COLOR_2 = 
-			ThemeService.getInstance().colors().getColorHighlight(4);
-	
-	/** The Constant TEXT_TAB_SELECTED_OUTLINE_COLOR. */
-	protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = 
-			ThemeService.getInstance().colors().getColorHighlight(5);
+  /** The Constant TEXT_TAB_SELECTED_COLOR_2. */
+  protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService.getInstance().colors().getColorHighlight(4);
 
+  /** The Constant TEXT_TAB_SELECTED_OUTLINE_COLOR. */
+  protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService.getInstance().colors()
+      .getColorHighlight(5);
 
-	/** The m tab size. */
-	protected int mTabSize = -1;
+  /** The m tab size. */
+  protected int mTabSize = -1;
 
-	public int mIconSize = -1;
+  public int mIconSize = -1;
 
-	
+  /**
+   * Instantiates a new segment tabs.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param centered
+   *          the centered
+   */
+  public IconTabs(TabsModel model, int tabSize, int iconSize) {
+    super(model);
 
-	/**
-	 * Instantiates a new segment tabs.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param centered the centered
-	 */
-	public IconTabs(TabsModel model, int tabSize, int iconSize) {
-		super(model);
-		
-		mTabSize = tabSize;
-		mIconSize = iconSize;
+    mTabSize = tabSize;
+    mIconSize = iconSize;
 
-		setBackgroundAnimations("icon-tabs");
-		
-		model.addTabListener(new TabEventAdapter() {
+    setBackgroundAnimations("icon-tabs");
 
-			@Override
-			public void tabAdded(TabEvent e) {
-				createTabs();
-			}
+    model.addTabListener(new TabEventAdapter() {
 
-			@Override
-			public void tabRemoved(TabEvent e) {
-				createTabs();
-			}});
-		
-		createTabs();
-	}
-	
-	private void createTabs() {
-		mTabWidths.clear();
-		
-		for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
-			mTabWidths.add(mTabSize);
-		}
-		
-		// Change to the tab just added
-		getTabsModel().changeTab(getTabsModel().getTabCount() - 1);
-	}
+      @Override
+      public void tabAdded(TabEvent e) {
+        createTabs();
+      }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.tabs.TextTabs#changeTab(int, int)
-	 */
-	@Override
-	protected void changeTab(int x, int y) {
-		getTabsModel().changeTab(getTab(x, y));
-	}
+      @Override
+      public void tabRemoved(TabEvent e) {
+        createTabs();
+      }
+    });
 
+    createTabs();
+  }
 
-	/**
-	 * Gets the tab.
-	 *
-	 * @param x the x
-	 * @param y the y
-	 * @return the tab
-	 */
-	protected int getTab(int x, int y) {
-		return (x - getInsets().left) / mTabSize;
-	}
+  private void createTabs() {
+    mTabWidths.clear();
+
+    for (int i = 0; i < getTabsModel().getTabCount(); ++i) {
+      mTabWidths.add(mTabSize);
+    }
+
+    // Change to the tab just added
+    getTabsModel().changeTab(getTabsModel().getTabCount() - 1);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.tabs.TextTabs#changeTab(int, int)
+   */
+  @Override
+  protected void changeTab(int x, int y) {
+    getTabsModel().changeTab(getTab(x, y));
+  }
+
+  /**
+   * Gets the tab.
+   *
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @return the tab
+   */
+  protected int getTab(int x, int y) {
+    return (x - getInsets().left) / mTabSize;
+  }
 }

@@ -34,41 +34,43 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class DirectoryMenuItem.
  */
 public class DirectoryMenuItem extends RecentFileMenuItem {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new directory menu item.
-	 *
-	 * @param file the file
-	 * @param date the date
-	 */
-	public DirectoryMenuItem(Path file, Date date) {
-		this(file, date, UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+  /**
+   * Instantiates a new directory menu item.
+   *
+   * @param file
+   *          the file
+   * @param date
+   *          the date
+   */
+  public DirectoryMenuItem(Path file, Date date) {
+    this(file, date, UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
 
+  }
 
-	}
+  /**
+   * Instantiates a new directory menu item.
+   *
+   * @param file
+   *          the file
+   * @param date
+   *          the date
+   * @param icon
+   *          the icon
+   */
+  public DirectoryMenuItem(Path file, Date date, ModernIcon icon) {
+    super(file, date, icon);
 
-	/**
-	 * Instantiates a new directory menu item.
-	 *
-	 * @param file the file
-	 * @param date the date
-	 * @param icon the icon
-	 */
-	public DirectoryMenuItem(Path file, Date date, ModernIcon icon) {		
-		super(file, date, icon);
-
-		setClickMessage(getText2());
-	}
+    setClickMessage(getText2());
+  }
 }

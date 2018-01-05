@@ -32,62 +32,68 @@ package org.jebtk.modern.dataview;
  * The class ModernDataCell.
  */
 public class ModernDataCell implements Comparable<ModernDataCell> {
-	
-	/**
-	 * The row.
-	 */
-	public int row = -1;
-	
-	/**
-	 * The col.
-	 */
-	public int col = -1;
-	
-	/**
-	 * Instantiates a new modern data cell.
-	 *
-	 * @param row the row
-	 * @param col the col
-	 */
-	public ModernDataCell(int row, int col) {
-		this.row = row;
-		this.col = col;
-	}
 
-	/**
-	 * Instantiates a new modern data cell.
-	 */
-	public ModernDataCell() {
+  /**
+   * The row.
+   */
+  public int row = -1;
 
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	public String toString() {
-		return Integer.toString(row) + " " + Integer.toString(col);
-	}
+  /**
+   * The col.
+   */
+  public int col = -1;
 
-	/* (non-Javadoc)
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
-	public int compareTo(ModernDataCell o) {
-		if (row != o.row) {
-			if (col == o.col) {
-				return 0;
-			} else if (col < o.col) {
-				return -1;
-			} else {
-				return 1;
-			}
-		}
-		
-		if (row == o.row) {
-			return 0;
-		} else if (row < o.row) {
-			return -1;
-		} else {
-			return 1;
-		}
-	}
+  /**
+   * Instantiates a new modern data cell.
+   *
+   * @param row
+   *          the row
+   * @param col
+   *          the col
+   */
+  public ModernDataCell(int row, int col) {
+    this.row = row;
+    this.col = col;
+  }
+
+  /**
+   * Instantiates a new modern data cell.
+   */
+  public ModernDataCell() {
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Object#toString()
+   */
+  public String toString() {
+    return Integer.toString(row) + " " + Integer.toString(col);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.lang.Comparable#compareTo(java.lang.Object)
+   */
+  public int compareTo(ModernDataCell o) {
+    if (row != o.row) {
+      if (col == o.col) {
+        return 0;
+      } else if (col < o.col) {
+        return -1;
+      } else {
+        return 1;
+      }
+    }
+
+    if (row == o.row) {
+      return 0;
+    } else if (row < o.row) {
+      return -1;
+    } else {
+      return 1;
+    }
+  }
 }

@@ -45,90 +45,98 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  */
 public class ModernUrlLinkButton extends ModernLinkButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member url.
-	 */
-	private URL mUrl;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The m email. */
-	private String mEmail;
+  /**
+   * The member url.
+   */
+  private URL mUrl;
 
-	
-	/**
-	 * Instantiates a new modern url link button.
-	 *
-	 * @param title the title
-	 * @param url the url
-	 */
-	public ModernUrlLinkButton(String title, URL url) {
-		super(title);
-		
-		init(url);
-	}
-	
-	/**
-	 * Instantiates a new modern url link button.
-	 *
-	 * @param title the title
-	 * @param url the url
-	 * @param icon the icon
-	 */
-	public ModernUrlLinkButton(String title, URL url, ModernIcon icon) {
-		super(title, icon);
-		
-		init(url);
-	}
-	
-	/**
-	 * Inits the.
-	 *
-	 * @param url the url
-	 */
-	private void init(URL url) {
-		mUrl = url;
-		
-		addClickListener(new ModernClickListener(){
+  /** The m email. */
+  private String mEmail;
 
-			@Override
-			public void clicked(ModernClickEvent e) {
-				try {
-					UrlUtils.launch(mUrl);
-				} catch (URISyntaxException e1) {
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-			}});
-	}
+  /**
+   * Instantiates a new modern url link button.
+   *
+   * @param title
+   *          the title
+   * @param url
+   *          the url
+   */
+  public ModernUrlLinkButton(String title, URL url) {
+    super(title);
 
-	
-	/**
-	 * Instantiates a new modern url link button.
-	 *
-	 * @param title the title
-	 * @param email the email
-	 */
-	public ModernUrlLinkButton(String title, String email) {
-		super(title);
-		
-		mEmail = email;
-		
-		addClickListener(new ModernClickListener(){
+    init(url);
+  }
 
-			@Override
-			public void clicked(ModernClickEvent e) {
-				try {
-					UrlUtils.mailto(mEmail);
-				} catch (URISyntaxException e1) {
-					e1.printStackTrace();
-				} catch (IOException e1) {
-					e1.printStackTrace();
-				}
-			}});
-	}
+  /**
+   * Instantiates a new modern url link button.
+   *
+   * @param title
+   *          the title
+   * @param url
+   *          the url
+   * @param icon
+   *          the icon
+   */
+  public ModernUrlLinkButton(String title, URL url, ModernIcon icon) {
+    super(title, icon);
+
+    init(url);
+  }
+
+  /**
+   * Inits the.
+   *
+   * @param url
+   *          the url
+   */
+  private void init(URL url) {
+    mUrl = url;
+
+    addClickListener(new ModernClickListener() {
+
+      @Override
+      public void clicked(ModernClickEvent e) {
+        try {
+          UrlUtils.launch(mUrl);
+        } catch (URISyntaxException e1) {
+          e1.printStackTrace();
+        } catch (IOException e1) {
+          e1.printStackTrace();
+        }
+      }
+    });
+  }
+
+  /**
+   * Instantiates a new modern url link button.
+   *
+   * @param title
+   *          the title
+   * @param email
+   *          the email
+   */
+  public ModernUrlLinkButton(String title, String email) {
+    super(title);
+
+    mEmail = email;
+
+    addClickListener(new ModernClickListener() {
+
+      @Override
+      public void clicked(ModernClickEvent e) {
+        try {
+          UrlUtils.mailto(mEmail);
+        } catch (URISyntaxException e1) {
+          e1.printStackTrace();
+        } catch (IOException e1) {
+          e1.printStackTrace();
+        }
+      }
+    });
+  }
 }

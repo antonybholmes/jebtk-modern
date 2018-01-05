@@ -39,32 +39,44 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class ClipboardEventListeners extends EventProducer<ClipboardEventListener> implements ClipboardEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.ClipboardEventProducer#addClipboardListener(org.abh.lib.ui.modern.clipboard.ClipboardEventListener)
-	 */
-	public void addClipboardListener(ClipboardEventListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.ClipboardEventProducer#removeClipboardListener(org.abh.lib.ui.modern.clipboard.ClipboardEventListener)
-	 */
-	public void removeClipboardListener(ClipboardEventListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.clipboard.ClipboardEventProducer#fireClipboardChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireClipboardChanged(ChangeEvent e) {
-		for (ClipboardEventListener l : mListeners) {
-			l.clipboardChanged(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.clipboard.ClipboardEventProducer#addClipboardListener(
+   * org.abh.lib.ui.modern.clipboard.ClipboardEventListener)
+   */
+  public void addClipboardListener(ClipboardEventListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.clipboard.ClipboardEventProducer#
+   * removeClipboardListener(org.abh.lib.ui.modern.clipboard.
+   * ClipboardEventListener)
+   */
+  public void removeClipboardListener(ClipboardEventListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.clipboard.ClipboardEventProducer#fireClipboardChanged(
+   * org.abh.lib.event.ChangeEvent)
+   */
+  public void fireClipboardChanged(ChangeEvent e) {
+    for (ClipboardEventListener l : mListeners) {
+      l.clipboardChanged(e);
+    }
+  }
 }

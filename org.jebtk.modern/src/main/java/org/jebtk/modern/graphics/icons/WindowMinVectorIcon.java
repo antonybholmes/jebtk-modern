@@ -32,51 +32,55 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.Mathematics;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class MinVectorIcon.
  */
 public class WindowMinVectorIcon extends ModernVectorScalableIcon {
-	
-	/**
-	 * The constant SCALE.
-	 */
-	protected static final double SCALE = 0.6;
-	
-	/**
-	 * The member color.
-	 */
-	private Color mColor;
-	
-	/**
-	 * Instantiates a new min vector icon.
-	 */
-	public WindowMinVectorIcon() {
-		this(Color.WHITE);
-	}
-	
-	/**
-	 * Instantiates a new min vector icon.
-	 *
-	 * @param color the color
-	 */
-	public WindowMinVectorIcon(Color color) {
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		//g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-		g2.setColor(mColor);
-		
-		int w2 = Mathematics.makeMult2(h * SCALE); 
-		x = x + (w - w2) / 2;
-		y = y + h / 2;
-		
-		g2.drawLine(x, y, x + w2, y);
-	}
+
+  /**
+   * The constant SCALE.
+   */
+  protected static final double SCALE = 0.6;
+
+  /**
+   * The member color.
+   */
+  private Color mColor;
+
+  /**
+   * Instantiates a new min vector icon.
+   */
+  public WindowMinVectorIcon() {
+    this(Color.WHITE);
+  }
+
+  /**
+   * Instantiates a new min vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public WindowMinVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+    g2.setColor(mColor);
+
+    int w2 = Mathematics.makeMult2(h * SCALE);
+    x = x + (w - w2) / 2;
+    y = y + h / 2;
+
+    g2.drawLine(x, y, x + w2, y);
+  }
 }

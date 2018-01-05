@@ -21,19 +21,21 @@ package org.jebtk.modern.io;
  */
 public class TxtTsvGuiFileFilter extends GuiFileExtFilter {
 
-	/**
-	 * Instantiates a new tsv csv gui file filter.
-	 */
-	public TxtTsvGuiFileFilter() {
-		super("txt", "tsv");
-	}
+  /**
+   * Instantiates a new tsv csv gui file filter.
+   */
+  public TxtTsvGuiFileFilter() {
+    super("txt", "tsv");
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.io.GuiFileExtFilter#getDescription()
-	 */
-	@Override
-	public String getDescription() {
-		return "All Table Files (*.txt;*.tsv)";
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.io.GuiFileExtFilter#getDescription()
+   */
+  @Override
+  public String getDescription() {
+    return "All Table Files (*.txt;*.tsv)";
+  }
 
 }

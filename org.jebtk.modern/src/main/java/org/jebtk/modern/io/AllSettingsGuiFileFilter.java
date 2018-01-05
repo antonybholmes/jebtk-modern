@@ -35,19 +35,21 @@ package org.jebtk.modern.io;
  *
  */
 public class AllSettingsGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new gif gui file filter.
-	 */
-	public AllSettingsGuiFileFilter() {
-		super("json", "xml");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return "Settings Files (*.json;*.xml)";
-	}
+  /**
+   * Instantiates a new gif gui file filter.
+   */
+  public AllSettingsGuiFileFilter() {
+    super("json", "xml");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return "Settings Files (*.json;*.xml)";
+  }
 }

@@ -35,50 +35,57 @@ import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
- * Label for status bars, defaulting to upper case, white
- * text.
+ * Label for status bars, defaulting to upper case, white text.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernStatusLabel extends ModernAutoSizeLabel implements StatusEventListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern status label.
-	 *
-	 * @param text the text
-	 */
-	public ModernStatusLabel(String text) {
-		super(text);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		StatusService.getInstance().register(this);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.ModernLabel#setText(java.lang.String)
-	 */
-	@Override
-	public void setText(String text) {
-		super.setText(text);
-		
-		UI.setSize(this, ModernWidget.EXTRA_LARGE_SIZE);
-	}
+  /**
+   * Instantiates a new modern status label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernStatusLabel(String text) {
+    super(text);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.status.StatusEventListener#statusChanged(org.abh.lib.ui.modern.status.StatusEvent)
-	 */
-	@Override
-	public void statusChanged(final StatusEvent e) {
-		SwingUtilities.invokeLater(new Runnable() {
+    StatusService.getInstance().register(this);
+  }
 
-			@Override
-			public void run() {
-				setText(e.getMessage());
-			}});
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.ModernLabel#setText(java.lang.String)
+   */
+  @Override
+  public void setText(String text) {
+    super.setText(text);
+
+    UI.setSize(this, ModernWidget.EXTRA_LARGE_SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.status.StatusEventListener#statusChanged(org.abh.lib.ui
+   * .modern.status.StatusEvent)
+   */
+  @Override
+  public void statusChanged(final StatusEvent e) {
+    SwingUtilities.invokeLater(new Runnable() {
+
+      @Override
+      public void run() {
+        setText(e.getMessage());
+      }
+    });
+  }
 }

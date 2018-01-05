@@ -48,7 +48,6 @@ import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.panel.VBox;
 import org.jebtk.modern.theme.ThemeService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * For displaying a splash screen.
@@ -57,132 +56,144 @@ import org.jebtk.modern.theme.ThemeService;
  *
  */
 public class ModernSplashScreen extends ModernDialogWindow {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/** The Constant COLOR. */
-	public static final Color COLOR = 
-			ThemeService.getInstance().colors().getColorHighlight32(24); //new Color(appInfo.getIcon().getImage().getRGB(1, 1));
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member close button.
-	 */
-	private ModernButton mCloseButton;
-	
-	/**
-	 * The member help button.
-	 */
-	private ModernButton mHelpButton;
+  /** The Constant COLOR. */
+  public static final Color COLOR = ThemeService.getInstance().colors().getColorHighlight32(24); // new
+                                                                                                 // Color(appInfo.getIcon().getImage().getRGB(1,
+                                                                                                 // 1));
 
-	/**
-	 * The class CloseEvents.
-	 */
-	private class CloseEvents implements ModernClickListener {
+  /**
+   * The member close button.
+   */
+  private ModernButton mCloseButton;
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			close();
-		}
-		
-	}
-	
-	/**
-	 * The class HelpEvents.
-	 */
-	private class HelpEvents implements ModernClickListener {
+  /**
+   * The member help button.
+   */
+  private ModernButton mHelpButton;
 
-		/* (non-Javadoc)
-		 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-		 */
-		@Override
-		public void clicked(ModernClickEvent e) {
-			try {
-				HelpManager.launchHelp(mAppInfo);
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			} catch (URISyntaxException e1) {
-				e1.printStackTrace();
-			}
-		}
-	}
-	
-	/**
-	 * Instantiates a new modern splash screen.
-	 *
-	 * @param window the window
-	 * @param appInfo the app info
-	 */
-	public ModernSplashScreen(ModernWindow window, GuiAppInfo appInfo) {
-		super(window, appInfo);
-		
-		init();
-	}
-	
-	/**
-	 * Instantiates a new modern splash screen2.
-	 *
-	 * @param appInfo the app info
-	 */
-	public ModernSplashScreen(GuiAppInfo appInfo) {
-		super(appInfo);
-		
-		init();
-	}
-	
-	/**
-	 * Inits the.
-	 */
-	private void init() {
+  /**
+   * The class CloseEvents.
+   */
+  private class CloseEvents implements ModernClickListener {
 
-		setUndecorated(true);
-		setIconImage(new Raster32Icon(getAppInfo().getIcon()).getImage());
-		setTitle(getAppInfo().getName());
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      close();
+    }
 
-		// determine the color of the icon
-		
-		
-		Box topPanel = VBox.create(); //ModernTheme.getInstance().getClass("ribbon-menu").getColor("background"));
+  }
 
-		Box box2 = HBox.create();
-		
-		box2.add(Box.createHorizontalGlue());
-		
-		mHelpButton = new ModernSplashHelpButton();
-		mHelpButton.setClickMessage(UI.MENU_HELP);
-		mHelpButton.addClickListener(new HelpEvents());
-		box2.add(mHelpButton);
-		
-		box2.add(ModernPanel.createHGap());
-		
-		mCloseButton = new ModernSplashTitleButton(new Raster24Icon(new CrossVectorIcon(Color.WHITE)));
-		mCloseButton.setClickMessage(UI.MENU_CLOSE);
-		mCloseButton.addClickListener(new CloseEvents());
-		box2.add(mCloseButton);
-		
-		topPanel.add(box2);
-		
-		topPanel.setBorder(ModernPanel.BOTTOM_BORDER);
-		
-		setHeader(new ModernPanel(topPanel, COLOR));
-		
-		setSize(600, 300);
+  /**
+   * The class HelpEvents.
+   */
+  private class HelpEvents implements ModernClickListener {
 
-		UI.centerWindowToScreen(this);
-	}
-	
-	/**
-	 * Sets the buttons enabled.
-	 *
-	 * @param enabled the new buttons enabled
-	 */
-	protected void setButtonsEnabled(boolean enabled) {
-		mCloseButton.setEnabled(enabled);
-		mHelpButton.setEnabled(enabled);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+     * .event.ModernClickEvent)
+     */
+    @Override
+    public void clicked(ModernClickEvent e) {
+      try {
+        HelpManager.launchHelp(mAppInfo);
+      } catch (IOException e1) {
+        e1.printStackTrace();
+      } catch (URISyntaxException e1) {
+        e1.printStackTrace();
+      }
+    }
+  }
+
+  /**
+   * Instantiates a new modern splash screen.
+   *
+   * @param window
+   *          the window
+   * @param appInfo
+   *          the app info
+   */
+  public ModernSplashScreen(ModernWindow window, GuiAppInfo appInfo) {
+    super(window, appInfo);
+
+    init();
+  }
+
+  /**
+   * Instantiates a new modern splash screen2.
+   *
+   * @param appInfo
+   *          the app info
+   */
+  public ModernSplashScreen(GuiAppInfo appInfo) {
+    super(appInfo);
+
+    init();
+  }
+
+  /**
+   * Inits the.
+   */
+  private void init() {
+
+    setUndecorated(true);
+    setIconImage(new Raster32Icon(getAppInfo().getIcon()).getImage());
+    setTitle(getAppInfo().getName());
+
+    // determine the color of the icon
+
+    Box topPanel = VBox.create(); // ModernTheme.getInstance().getClass("ribbon-menu").getColor("background"));
+
+    Box box2 = HBox.create();
+
+    box2.add(Box.createHorizontalGlue());
+
+    mHelpButton = new ModernSplashHelpButton();
+    mHelpButton.setClickMessage(UI.MENU_HELP);
+    mHelpButton.addClickListener(new HelpEvents());
+    box2.add(mHelpButton);
+
+    box2.add(ModernPanel.createHGap());
+
+    mCloseButton = new ModernSplashTitleButton(new Raster24Icon(new CrossVectorIcon(Color.WHITE)));
+    mCloseButton.setClickMessage(UI.MENU_CLOSE);
+    mCloseButton.addClickListener(new CloseEvents());
+    box2.add(mCloseButton);
+
+    topPanel.add(box2);
+
+    topPanel.setBorder(ModernPanel.BOTTOM_BORDER);
+
+    setHeader(new ModernPanel(topPanel, COLOR));
+
+    setSize(600, 300);
+
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Sets the buttons enabled.
+   *
+   * @param enabled
+   *          the new buttons enabled
+   */
+  protected void setButtonsEnabled(boolean enabled) {
+    mCloseButton.setEnabled(enabled);
+    mHelpButton.setEnabled(enabled);
+  }
 }

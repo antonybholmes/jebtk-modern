@@ -32,18 +32,20 @@ package org.jebtk.modern.io;
  * The class PngGuiFileFilter.
  */
 public class PngGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new png gui file filter.
-	 */
-	public PngGuiFileFilter() {
-		super("png");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	public final String getDescription() {
-		return "Portable Network Graphics (*.png)";
-	}
+  /**
+   * Instantiates a new png gui file filter.
+   */
+  public PngGuiFileFilter() {
+    super("png");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  public final String getDescription() {
+    return "Portable Network Graphics (*.png)";
+  }
 }

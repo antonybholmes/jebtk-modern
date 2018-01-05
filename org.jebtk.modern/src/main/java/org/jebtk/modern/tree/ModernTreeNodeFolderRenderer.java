@@ -35,22 +35,22 @@ import org.jebtk.modern.graphics.icons.FolderVectorIcon;
  * Renders both leaves and parents as folder icons.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernTreeNodeFolderRenderer extends TreeIconNodeCountRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern tree node folder renderer.
-	 */
-	public ModernTreeNodeFolderRenderer() {
-		super(UIService.getInstance().loadIcon(FolderVectorIcon.class, 16), 
-				UIService.getInstance().loadIcon(FolderVectorIcon.class, 16));
-	}
+  /**
+   * Instantiates a new modern tree node folder renderer.
+   */
+  public ModernTreeNodeFolderRenderer() {
+    super(UIService.getInstance().loadIcon(FolderVectorIcon.class, 16),
+        UIService.getInstance().loadIcon(FolderVectorIcon.class, 16));
+  }
 
 }

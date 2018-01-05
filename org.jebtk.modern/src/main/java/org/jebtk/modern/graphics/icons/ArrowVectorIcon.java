@@ -32,7 +32,6 @@ import java.awt.Color;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ThemeService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Left arrow vector icon.
@@ -41,31 +40,31 @@ import org.jebtk.modern.theme.ThemeService;
  *
  */
 public abstract class ArrowVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant SCALE.
-	 */
-	protected static final double SCALE = 
-			SettingsService.getInstance().getAsDouble("theme.icons.arrow-icon.width-scale");
-	
-	/**
-	 * The color.
-	 */
-	protected Color mColor;
-	
-	/**
-	 * Instantiates a new arrow vector icon.
-	 */
-	public ArrowVectorIcon() {
-		this(ThemeService.getInstance().colors().getColorHighlight(6));
-	}
-	
-	/**
-	 * Instantiates a new arrow vector icon.
-	 *
-	 * @param color the color
-	 */
-	public ArrowVectorIcon(Color color) {
-		mColor = color;
-	}
+
+  /**
+   * The constant SCALE.
+   */
+  protected static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.arrow-icon.width-scale");
+
+  /**
+   * The color.
+   */
+  protected Color mColor;
+
+  /**
+   * Instantiates a new arrow vector icon.
+   */
+  public ArrowVectorIcon() {
+    this(ThemeService.getInstance().colors().getColorHighlight(6));
+  }
+
+  /**
+   * Instantiates a new arrow vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public ArrowVectorIcon(Color color) {
+    mColor = color;
+  }
 }

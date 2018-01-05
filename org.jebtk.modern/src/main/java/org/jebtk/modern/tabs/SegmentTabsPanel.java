@@ -26,72 +26,74 @@ import org.jebtk.modern.widget.ModernWidget;
  * The Class SegmentTabsPanel.
  */
 public class SegmentTabsPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	private static final Dimension MAX_SIZE = 
-			new Dimension(Short.MAX_VALUE, ModernWidget.WIDGET_HEIGHT + 2);
 
-	/**
-	 * Instantiates a new segment tabs panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 */
-	public SegmentTabsPanel(TabsModel model, int tabSize) {
-		this(model, tabSize, 0, true);
-	}
-	
-	/**
-	 * Instantiates a new segment tabs panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param centered the centered
-	 */
-	public SegmentTabsPanel(TabsModel model, 
-			int tabSize,
-			boolean centered) {
-		this(model, tabSize, 0, centered);
-	}
-	
-	/**
-	 * Instantiates a new segment tabs panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param pagePadding the page padding
-	 */
-	public SegmentTabsPanel(TabsModel model, 
-			int tabSize,
-			int pagePadding) {
-		this(model, tabSize, pagePadding, true);
-	}
-	
-	/**
-	 * Instantiates a new segment tabs panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param pagePadding the page padding
-	 * @param centered the centered
-	 */
-	public SegmentTabsPanel(TabsModel model, 
-			int tabSize,
-			int pagePadding,
-			boolean centered) {
-		SegmentTabs tabs = new SegmentTabs(model, tabSize);
-		
-		UI.setSize(tabs, 
-				MAX_SIZE, 
-				UI.createTopBottomBorder(pagePadding));
-		
-		setHeader(tabs); //new TextTabsTriangle(model, centered));
-		
-		TabsViewPanel panel = new TabsViewPanel(model);
-		//panel.setBorder(0);
-		
-		setBody(panel);
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, ModernWidget.WIDGET_HEIGHT + 2);
+
+  /**
+   * Instantiates a new segment tabs panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   */
+  public SegmentTabsPanel(TabsModel model, int tabSize) {
+    this(model, tabSize, 0, true);
+  }
+
+  /**
+   * Instantiates a new segment tabs panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param centered
+   *          the centered
+   */
+  public SegmentTabsPanel(TabsModel model, int tabSize, boolean centered) {
+    this(model, tabSize, 0, centered);
+  }
+
+  /**
+   * Instantiates a new segment tabs panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param pagePadding
+   *          the page padding
+   */
+  public SegmentTabsPanel(TabsModel model, int tabSize, int pagePadding) {
+    this(model, tabSize, pagePadding, true);
+  }
+
+  /**
+   * Instantiates a new segment tabs panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param pagePadding
+   *          the page padding
+   * @param centered
+   *          the centered
+   */
+  public SegmentTabsPanel(TabsModel model, int tabSize, int pagePadding, boolean centered) {
+    SegmentTabs tabs = new SegmentTabs(model, tabSize);
+
+    UI.setSize(tabs, MAX_SIZE, UI.createTopBottomBorder(pagePadding));
+
+    setHeader(tabs); // new TextTabsTriangle(model, centered));
+
+    TabsViewPanel panel = new TabsViewPanel(model);
+    // panel.setBorder(0);
+
+    setBody(panel);
+  }
 }

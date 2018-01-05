@@ -42,239 +42,230 @@ import org.jebtk.modern.text.ModernLabel;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.tooltip.ModernToolTipWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Standard section that appears within a RibbonToolbar.
- * It consists of the delineated region containing buttons
- * with a title displayed at the bottom to indicate what
- * the buttons in the section are for.
+ * Standard section that appears within a RibbonToolbar. It consists of the
+ * delineated region containing buttons with a title displayed at the bottom to
+ * indicate what the buttons in the section are for.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class RibbonSection extends ModernClickWidget implements RibbonModeProperty, NameProperty {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  // public static final Color HIGHLIGHT_COLOR = new Color(0xf2f2f2);
 
-	//public static final Color HIGHLIGHT_COLOR = new Color(0xf2f2f2);
+  // public static final Color LINE_COLOR = new Color(0xe6e6e6);
 
-	//public static final Color LINE_COLOR = new Color(0xe6e6e6);
+  /**
+   * The member title.
+   */
+  private String mTitle;
 
-	/**
-	 * The member title.
-	 */
-	private String mTitle;
+  /**
+   * The height.
+   */
+  private int HEIGHT = 16;
 
-	/**
-	 * The height.
-	 */
-	private int HEIGHT = 16;
+  /** The large border. */
+  private Border LARGE_BORDER = BorderService.getInstance().createBorder(2, 0, HEIGHT, 1);
 
-	/** The large border. */
-	private Border LARGE_BORDER = 
-			BorderService.getInstance().createBorder(2, 0, HEIGHT, 1);
-	
-	/** The small border. */
-	private Border SMALL_BORDER = 
-			BorderService.getInstance().createBorder(0, PADDING, 0, PADDING);
-	
-	/** The Constant SEPARATOR_PADDING. */
-	private static final int SEPARATOR_PADDING = 2;
-	//private static final int SEPARATOR_PADDING = 2;
+  /** The small border. */
+  private Border SMALL_BORDER = BorderService.getInstance().createBorder(0, PADDING, 0, PADDING);
 
+  /** The Constant SEPARATOR_PADDING. */
+  private static final int SEPARATOR_PADDING = 2;
+  // private static final int SEPARATOR_PADDING = 2;
 
-	/** The m mode. */
-	private RibbonSize mMode;
+  /** The m mode. */
+  private RibbonSize mMode;
 
-	/** The m buttons. */
-	private List<RibbonModeProperty> mButtons = 
-			new ArrayList<RibbonModeProperty>();
+  /** The m buttons. */
+  private List<RibbonModeProperty> mButtons = new ArrayList<RibbonModeProperty>();
 
+  /** The m ribbon. */
+  protected Ribbon mRibbon;
 
-	/** The m ribbon. */
-	protected Ribbon mRibbon;
-	
-	private ModernLabel mLabel = new RibbonSectionLabel("");
-	private Component mGap = UI.createHGap(10);
-	
-	/**
-	 * Instantiates a new ribbon section.
-	 *
-	 * @param ribbon the ribbon
-	 * @param title the title
-	 */
-	public RibbonSection(Ribbon ribbon, String title) {
-		this(ribbon, title, ribbon.getRibbonSize());
-	}
-	
-	/**
-	 * Instantiates a new ribbon section.
-	 *
-	 * @param ribbon the ribbon
-	 * @param title the title
-	 * @param mode the mode
-	 */
-	public RibbonSection(Ribbon ribbon, String title, RibbonSize mode) {
-		mRibbon = ribbon;
-		mTitle = title;
+  private ModernLabel mLabel = new RibbonSectionLabel("");
+  private Component mGap = UI.createHGap(10);
 
-		setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-		
-		add(mLabel);
-		add(mGap);
-		
-		mLabel.setText(getName());
-		
-		setSize(mode);
-	}
-	
-	/**
-	 * Adds the.
-	 *
-	 * @param components the components
-	 */
-	public void add(Component... components) {
-		for (Component c : components) {
-			add(c);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component c) {
-		if (c instanceof RibbonModeProperty) {
-			RibbonModeProperty b = (RibbonModeProperty)c;
-			
-			b.setSize(mMode);
-			
-			mButtons.add(b);
-		}
-		
-		if (c instanceof ModernToolTipWidget) {
-			((ModernToolTipWidget)c).setToolTipModel(mRibbon);
-		}
-		
-		return super.add(c);
-	}
+  /**
+   * Instantiates a new ribbon section.
+   *
+   * @param ribbon
+   *          the ribbon
+   * @param title
+   *          the title
+   */
+  public RibbonSection(Ribbon ribbon, String title) {
+    this(ribbon, title, ribbon.getRibbonSize());
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.ribbon.RibbonSize)
-	 */
-	public void setSize(RibbonSize mode) {
-		mMode = mode;
-		
-		if (mode == RibbonSize.LARGE) {
-			setBorder(LARGE_BORDER);
-		} else {
-			setBorder(SMALL_BORDER);
-		}
-		
-		mLabel.setVisible(mode == RibbonSize.COMPACT);
-		mGap.setVisible(mode == RibbonSize.COMPACT);
-		
-		for (RibbonModeProperty c : mButtons) {
-			c.setSize(mode);
-		}
-		
-		revalidate();
-		repaint();
-	}
+  /**
+   * Instantiates a new ribbon section.
+   *
+   * @param ribbon
+   *          the ribbon
+   * @param title
+   *          the title
+   * @param mode
+   *          the mode
+   */
+  public RibbonSection(Ribbon ribbon, String title, RibbonSize mode) {
+    mRibbon = ribbon;
+    mTitle = title;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#getName()
-	 */
-	@Override
-	public String getName() {
-		return mTitle;
-	}
+    setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 
-	/*
-	@Override
-	public final Component add(Component c) {
-		add(c);
+    add(mLabel);
+    add(mGap);
 
-		return c;
-	}
+    mLabel.setText(getName());
 
-	public final void setContent(Component component) {
-		setBody(component);
+    setSize(mode);
+  }
 
-		Ui.setSize(this, new Dimension(component.getPreferredSize().width, Ribbon.CONTENT_HEIGHT));
-	}
-	 */
-	
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		g2.setColor(Ribbon.SEPARATOR_COLOR);
-		g2.drawLine(mRect.getW() - 1, 
-				SEPARATOR_PADDING, 
-				mRect.getW() - 1, 
-				mRect.getH() - SEPARATOR_PADDING);
-	}
+  /**
+   * Adds the.
+   *
+   * @param components
+   *          the components
+   */
+  public void add(Component... components) {
+    for (Component c : components) {
+      add(c);
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		/*
-		GradientPaint gradient;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component c) {
+    if (c instanceof RibbonModeProperty) {
+      RibbonModeProperty b = (RibbonModeProperty) c;
 
-		if (over) {
-			int y = mRect.getH() - HEIGHT / 2;
+      b.setSize(mMode);
 
-			gradient = new GradientPaint(0,
-					y,
-					Color.WHITE,
-					0,
-					mRect.getH(),
-					HIGHLIGHT_COLOR,
-					false);
+      mButtons.add(b);
+    }
 
-			g2.setPaint(gradient);
+    if (c instanceof ModernToolTipWidget) {
+      ((ModernToolTipWidget) c).setToolTipModel(mRibbon);
+    }
 
-			g2.fillRect(0, y, getWidth(), HEIGHT);
-		}
-		 */
+    return super.add(c);
+  }
 
-		/*
-		gradient = new GradientPaint(0,
-				0,
-				Color.WHITE,
-				0,
-				mRect.getH(),
-				LINE_COLOR,
-				false);
-		 */
-		
-		if (mMode == RibbonSize.LARGE) {
-			g2.setColor(ALT_TEXT_COLOR);
-			
-			String text = getTruncatedText(g2, mTitle, 0, mRect.getW());
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.ribbon.
+   * RibbonSize)
+   */
+  public void setSize(RibbonSize mode) {
+    mMode = mode;
 
-			int x = (mRect.getW() - g2.getFontMetrics().stringWidth(text)) / 2;
+    if (mode == RibbonSize.LARGE) {
+      setBorder(LARGE_BORDER);
+    } else {
+      setBorder(SMALL_BORDER);
+    }
 
-			int y = mRect.getH() - PADDING;
+    mLabel.setVisible(mode == RibbonSize.COMPACT);
+    mGap.setVisible(mode == RibbonSize.COMPACT);
 
-			g2.drawString(text, x, y);
-		}
-	}
+    for (RibbonModeProperty c : mButtons) {
+      c.setSize(mode);
+    }
 
-	/**
-	 * Add a separator between subsections.
-	 */
-	public void addSeparator() {
-		add(new RibbonSubSectionSeparator());
-	}
+    revalidate();
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#getName()
+   */
+  @Override
+  public String getName() {
+    return mTitle;
+  }
+
+  /*
+   * @Override public final Component add(Component c) { add(c);
+   * 
+   * return c; }
+   * 
+   * public final void setContent(Component component) { setBody(component);
+   * 
+   * Ui.setSize(this, new Dimension(component.getPreferredSize().width,
+   * Ribbon.CONTENT_HEIGHT)); }
+   */
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.widget.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    g2.setColor(Ribbon.SEPARATOR_COLOR);
+    g2.drawLine(mRect.getW() - 1, SEPARATOR_PADDING, mRect.getW() - 1, mRect.getH() - SEPARATOR_PADDING);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    /*
+     * GradientPaint gradient;
+     * 
+     * if (over) { int y = mRect.getH() - HEIGHT / 2;
+     * 
+     * gradient = new GradientPaint(0, y, Color.WHITE, 0, mRect.getH(),
+     * HIGHLIGHT_COLOR, false);
+     * 
+     * g2.setPaint(gradient);
+     * 
+     * g2.fillRect(0, y, getWidth(), HEIGHT); }
+     */
+
+    /*
+     * gradient = new GradientPaint(0, 0, Color.WHITE, 0, mRect.getH(), LINE_COLOR,
+     * false);
+     */
+
+    if (mMode == RibbonSize.LARGE) {
+      g2.setColor(ALT_TEXT_COLOR);
+
+      String text = getTruncatedText(g2, mTitle, 0, mRect.getW());
+
+      int x = (mRect.getW() - g2.getFontMetrics().stringWidth(text)) / 2;
+
+      int y = mRect.getH() - PADDING;
+
+      g2.drawString(text, x, y);
+    }
+  }
+
+  /**
+   * Add a separator between subsections.
+   */
+  public void addSeparator() {
+    add(new RibbonSubSectionSeparator());
+  }
 }

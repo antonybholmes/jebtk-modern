@@ -35,7 +35,6 @@ import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.settings.SettingsService;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Warning icon.
@@ -45,66 +44,57 @@ import org.jebtk.core.settings.SettingsService;
  */
 public class WarningVectorIcon extends ModernMessageIcon {
 
-	/** The Constant COLOR. */
-	private static final Color COLOR = 
-			SettingsService.getInstance().getAsColor("theme.icons.warning-icon.colors.background");
-	
-	/** The Constant BORDER_COLOR. */
-	private static final Color BORDER_COLOR = 
-			SettingsService.getInstance().getAsColor("theme.icons.warning-icon.colors.border");
+  /** The Constant COLOR. */
+  private static final Color COLOR = SettingsService.getInstance()
+      .getAsColor("theme.icons.warning-icon.colors.background");
 
+  /** The Constant BORDER_COLOR. */
+  private static final Color BORDER_COLOR = SettingsService.getInstance()
+      .getAsColor("theme.icons.warning-icon.colors.border");
 
-	/** The Constant TEXT. */
-	private static final String TEXT = "!";
-	
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		
-		int height = (int)(Math.sin(Math.PI / 3.0) * w);
-		
-		y = y + (h - height) / 2;
-		int w2 = w / 2;
-		
-		GeneralPath gp = new GeneralPath();
-		gp.moveTo(x + w2, y);
-		gp.lineTo(x, y + height);
-		gp.lineTo(x + w, y + height);
-		gp.closePath();
-		
-		GradientPaint paint = new GradientPaint(0,
-	             y,
-	             COLOR,
-	             0,
-	             y + height,
-	             BORDER_COLOR);
-		
-		//g2.setColor(COLOR);
-		g2.setPaint(paint);
-		g2.fill(gp);
-		
-		g2.setColor(BORDER_COLOR);
-		g2.draw(gp);
-		
-		Rectangle smallRect = new Rectangle(x, w - height, w, height);
+  /** The Constant TEXT. */
+  private static final String TEXT = "!";
 
-		//System.err.println(smallRect + " " + rect);
-		
-		drawScaledText(g2, 
-				w,
-				smallRect,
-				TEXT,
-				Color.BLACK);
-		
-		
-		
-		//g2.setColor(ModernWidget.TEXT_COLOR);
-		
-		//g2.drawString("!", 
-		//		x + (w - g2.getFontMetrics().stringWidth("!")) / 2, 
-		//		y + mHeight - ModernWidget.PADDING);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+    int height = (int) (Math.sin(Math.PI / 3.0) * w);
+
+    y = y + (h - height) / 2;
+    int w2 = w / 2;
+
+    GeneralPath gp = new GeneralPath();
+    gp.moveTo(x + w2, y);
+    gp.lineTo(x, y + height);
+    gp.lineTo(x + w, y + height);
+    gp.closePath();
+
+    GradientPaint paint = new GradientPaint(0, y, COLOR, 0, y + height, BORDER_COLOR);
+
+    // g2.setColor(COLOR);
+    g2.setPaint(paint);
+    g2.fill(gp);
+
+    g2.setColor(BORDER_COLOR);
+    g2.draw(gp);
+
+    Rectangle smallRect = new Rectangle(x, w - height, w, height);
+
+    // System.err.println(smallRect + " " + rect);
+
+    drawScaledText(g2, w, smallRect, TEXT, Color.BLACK);
+
+    // g2.setColor(ModernWidget.TEXT_COLOR);
+
+    // g2.drawString("!",
+    // x + (w - g2.getFontMetrics().stringWidth("!")) / 2,
+    // y + mHeight - ModernWidget.PADDING);
+  }
 }

@@ -30,48 +30,54 @@ import org.jebtk.modern.MaterialUtils;
  *
  */
 public class LeftShadowPanel extends ShadowPanel {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The Class TopShadow.
-	 */
-	private static class TopShadow extends RibbonShadow {
-		
-		/** The Constant serialVersionUID. */
-		private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-		/* (non-Javadoc)
-		 * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
-		 */
-		@Override
-		public void drawBackground(Graphics2D g2) {
-			GradientPaint paint = 
-					new GradientPaint(0, 0, MaterialUtils.SHADOW_COLOR_1, getWidth(), 0, MaterialUtils.SHADOW_COLOR_2);
-			
-			g2.setPaint(paint);
-			
-			g2.fillRect(0, 0, getWidth(), getHeight());
-		}
-	}
-	
-	/**
-	 * Instantiates a new left shadow panel.
-	 *
-	 * @param c the c
-	 */
-	public LeftShadowPanel(Component c) {
-		super(c, new TopShadow());
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.shadow.ShadowPanel#componentResized(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentResized(ComponentEvent e) {
-		mShadow.setBounds(getWidth() - MaterialUtils.SHADOW_HEIGHT, 0, MaterialUtils.SHADOW_HEIGHT, getHeight());
-		
-		super.componentResized(e);
-	}
+  /**
+   * The Class TopShadow.
+   */
+  private static class TopShadow extends RibbonShadow {
+
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 1L;
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
+     */
+    @Override
+    public void drawBackground(Graphics2D g2) {
+      GradientPaint paint = new GradientPaint(0, 0, MaterialUtils.SHADOW_COLOR_1, getWidth(), 0,
+          MaterialUtils.SHADOW_COLOR_2);
+
+      g2.setPaint(paint);
+
+      g2.fillRect(0, 0, getWidth(), getHeight());
+    }
+  }
+
+  /**
+   * Instantiates a new left shadow panel.
+   *
+   * @param c
+   *          the c
+   */
+  public LeftShadowPanel(Component c) {
+    super(c, new TopShadow());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.shadow.ShadowPanel#componentResized(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentResized(ComponentEvent e) {
+    mShadow.setBounds(getWidth() - MaterialUtils.SHADOW_HEIGHT, 0, MaterialUtils.SHADOW_HEIGHT, getHeight());
+
+    super.componentResized(e);
+  }
 }

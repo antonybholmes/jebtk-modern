@@ -28,8 +28,8 @@
 package org.jebtk.modern.graphics;
 
 /**
- * Should be implement by canvases that which
- * to mark themselves as being editable.
+ * Should be implement by canvases that which to mark themselves as being
+ * editable.
  *
  * @author Antony Holmes Holmes
  */

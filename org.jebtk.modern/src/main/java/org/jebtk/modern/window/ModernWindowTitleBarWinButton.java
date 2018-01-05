@@ -38,25 +38,25 @@ import org.jebtk.modern.ribbon.Ribbon;
  */
 public class ModernWindowTitleBarWinButton extends ModernWindowTitleBarButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant SIZE.
-	 */
-	private static final IntDim SIZE = 
-			new IntDim(Ribbon.TAB_HEIGHT * 3 / 2, Ribbon.TAB_HEIGHT);
-	
-	/**
-	 * Instantiates a new modern window title bar button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernWindowTitleBarWinButton(ModernIcon icon) {
-		super(icon);
-		
-		UI.setSize(this, SIZE);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant SIZE.
+   */
+  private static final IntDim SIZE = new IntDim(Ribbon.TAB_HEIGHT * 3 / 2, Ribbon.TAB_HEIGHT);
+
+  /**
+   * Instantiates a new modern window title bar button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernWindowTitleBarWinButton(ModernIcon icon) {
+    super(icon);
+
+    UI.setSize(this, SIZE);
+  }
 }

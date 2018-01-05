@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package org.jebtk.modern;
+
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 
@@ -21,36 +22,36 @@ import java.awt.GraphicsDevice;
 /**
  * The Class DeviceConfig.
  */
-public class DeviceConfig
-{
-	
-	/** The device index. */
-	public int deviceIndex = 0;
-	
-	/** The config index. */
-	public int configIndex = 0;
-	
-	/** The device. */
-	public GraphicsDevice device = null;
-	
-	/** The config. */
-	public GraphicsConfiguration config = null;
+public class DeviceConfig {
 
-	/**
-	 * Instantiates a new device config.
-	 *
-	 * @param i the i
-	 * @param j the j
-	 * @param graphicsDevice the graphics device
-	 * @param graphicsConfiguration the graphics configuration
-	 */
-	public DeviceConfig(int i, 
-			int j,
-			GraphicsDevice graphicsDevice,
-			GraphicsConfiguration graphicsConfiguration) {
-		deviceIndex = i;
-		configIndex = j;
-		device = graphicsDevice;
-		config = graphicsConfiguration;
-	}
+  /** The device index. */
+  public int deviceIndex = 0;
+
+  /** The config index. */
+  public int configIndex = 0;
+
+  /** The device. */
+  public GraphicsDevice device = null;
+
+  /** The config. */
+  public GraphicsConfiguration config = null;
+
+  /**
+   * Instantiates a new device config.
+   *
+   * @param i
+   *          the i
+   * @param j
+   *          the j
+   * @param graphicsDevice
+   *          the graphics device
+   * @param graphicsConfiguration
+   *          the graphics configuration
+   */
+  public DeviceConfig(int i, int j, GraphicsDevice graphicsDevice, GraphicsConfiguration graphicsConfiguration) {
+    deviceIndex = i;
+    configIndex = j;
+    device = graphicsDevice;
+    config = graphicsConfiguration;
+  }
 }

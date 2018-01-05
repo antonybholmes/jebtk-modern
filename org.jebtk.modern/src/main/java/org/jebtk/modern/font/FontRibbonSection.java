@@ -43,182 +43,190 @@ import org.jebtk.modern.ribbon.RibbonCheckButton;
 import org.jebtk.modern.ribbon.RibbonSection;
 import org.jebtk.modern.window.ModernRibbonWindow;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Standardized ribbon menu section for providing basic cut, copy and paste
- * functionality to the currently highlighted control that supports
- * clipboard operations.
+ * functionality to the currently highlighted control that supports clipboard
+ * operations.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class FontRibbonSection extends RibbonSection implements ModernClickListener, ChangeEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The fonts combo.
-	 */
-	private FontsComboBox mFontsCombo = new FontsComboBox();
-	
-	/**
-	 * The font size combo.
-	 */
-	private FontSizesComboBox mFontSizeCombo = new FontSizesComboBox();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The bold button.
-	 */
-	private ModernCheckButton mBoldButton = 
-			new RibbonCheckButton(UIService.getInstance().loadIcon("font_bold", 16));
-	
-	/**
-	 * The italic button.
-	 */
-	private ModernCheckButton mItalicButton = 
-			new RibbonCheckButton(UIService.getInstance().loadIcon("font_italic", 16));
-	
-	/**
-	 * The underline button.
-	 */
-	private ModernCheckButton mUnderlineButton = 
-			new RibbonCheckButton(UIService.getInstance().loadIcon("font_underline", 16));
-	
-	/** The m strikethrough button. */
-	private ModernCheckButton mStrikethroughButton = 
-			new RibbonCheckButton(UIService.getInstance().loadIcon("font_strikethrough", 16));
-	
-	/**
-	 * The font color button.
-	 */
-	private FontSwatchButton mFontColorButton = null;
-	
-	/** The m listeners. */
-	private ChangeListeners mListeners = new ChangeListeners();
+  /**
+   * The fonts combo.
+   */
+  private FontsComboBox mFontsCombo = new FontsComboBox();
 
-	/**
-	 * Instantiates a new font ribbon section.
-	 *
-	 * @param parent the parent
-	 */
-	public FontRibbonSection(ModernRibbonWindow parent) {
-		super(parent.getRibbon(), "Font");
+  /**
+   * The font size combo.
+   */
+  private FontSizesComboBox mFontSizeCombo = new FontSizesComboBox();
 
-		mFontColorButton = new FontSwatchButton(parent);
+  /**
+   * The bold button.
+   */
+  private ModernCheckButton mBoldButton = new RibbonCheckButton(UIService.getInstance().loadIcon("font_bold", 16));
 
-		add(mFontsCombo);
-		add(createHGap());
-		add(mFontSizeCombo);
-		add(createHGap());
-		add(mFontColorButton);
-		add(mBoldButton);
-		add(mItalicButton);
-		add(mUnderlineButton);
-		add(mStrikethroughButton);
-		
-		mBoldButton.setToolTip("Bold", 
-				"Make your text bold.");
-		mItalicButton.setToolTip("Italic", 
-				"Italicize your text.");
-		mUnderlineButton.setToolTip("Underline", 
-				"Underline your text.");
-		mStrikethroughButton.setToolTip("Strikethough", 
-				"Cross something out by drawing a line through it.");
+  /**
+   * The italic button.
+   */
+  private ModernCheckButton mItalicButton = new RibbonCheckButton(UIService.getInstance().loadIcon("font_italic", 16));
 
-		//mUnderlineButton.setEnabled(false);
+  /**
+   * The underline button.
+   */
+  private ModernCheckButton mUnderlineButton = new RibbonCheckButton(
+      UIService.getInstance().loadIcon("font_underline", 16));
 
-		mFontsCombo.addClickListener(this);
-		mFontSizeCombo.addClickListener(this);
-		mBoldButton.addClickListener(this);
-		mItalicButton.addClickListener(this);
-		mUnderlineButton.addClickListener(this);
-		mFontColorButton.addClickListener(this);
-		mStrikethroughButton.addClickListener(this);
-	}
+  /** The m strikethrough button. */
+  private ModernCheckButton mStrikethroughButton = new RibbonCheckButton(
+      UIService.getInstance().loadIcon("font_strikethrough", 16));
 
-	/**
-	 * Setup.
-	 *
-	 * @param font the font
-	 * @param fontColor the font color
-	 */
-	public void setup(Font font, Color fontColor) {
-		if (font == null) {
-			return;
-		}
+  /**
+   * The font color button.
+   */
+  private FontSwatchButton mFontColorButton = null;
 
-		mFontsCombo.setText(font.getFamily());
-		mFontSizeCombo.setText(Integer.toString(font.getSize()));
+  /** The m listeners. */
+  private ChangeListeners mListeners = new ChangeListeners();
 
-		mBoldButton.setSelected(font.isBold());
-		mItalicButton.setSelected(font.isItalic());
+  /**
+   * Instantiates a new font ribbon section.
+   *
+   * @param parent
+   *          the parent
+   */
+  public FontRibbonSection(ModernRibbonWindow parent) {
+    super(parent.getRibbon(), "Font");
 
-		mFontColorButton.setSelectedColor(fontColor);
-	}
+    mFontColorButton = new FontSwatchButton(parent);
 
-	/**
-	 * Gets the user font.
-	 *
-	 * @return the user font
-	 */
-	public Font getUserFont() {
-		return FontService.getInstance().loadFont(mFontsCombo.getText(), 
-				Integer.parseInt(mFontSizeCombo.getText()),
-				mBoldButton.isSelected(),
-				mItalicButton.isSelected(),
-				mUnderlineButton.isSelected(),
-				mStrikethroughButton.isSelected());
-	}
+    add(mFontsCombo);
+    add(createHGap());
+    add(mFontSizeCombo);
+    add(createHGap());
+    add(mFontColorButton);
+    add(mBoldButton);
+    add(mItalicButton);
+    add(mUnderlineButton);
+    add(mStrikethroughButton);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void clicked(ModernClickEvent e) {
-		fireChanged();
-	}
+    mBoldButton.setToolTip("Bold", "Make your text bold.");
+    mItalicButton.setToolTip("Italic", "Italicize your text.");
+    mUnderlineButton.setToolTip("Underline", "Underline your text.");
+    mStrikethroughButton.setToolTip("Strikethough", "Cross something out by drawing a line through it.");
 
-	/**
-	 * Gets the font color.
-	 *
-	 * @return the font color
-	 */
-	public Color getFontColor() {
-		return mFontColorButton.getSelectedColor();
-	}
+    // mUnderlineButton.setEnabled(false);
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.event.ChangeEventProducer#addChangeListener(org.abh.common.event.ChangeListener)
-	 */
-	@Override
-	public void addChangeListener(ChangeListener l) {
-		mListeners.addChangeListener(l);
-	}
+    mFontsCombo.addClickListener(this);
+    mFontSizeCombo.addClickListener(this);
+    mBoldButton.addClickListener(this);
+    mItalicButton.addClickListener(this);
+    mUnderlineButton.addClickListener(this);
+    mFontColorButton.addClickListener(this);
+    mStrikethroughButton.addClickListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.event.ChangeEventProducer#removeChangeListener(org.abh.common.event.ChangeListener)
-	 */
-	@Override
-	public void removeChangeListener(ChangeListener l) {
-		mListeners.removeChangeListener(l);
-	}
+  /**
+   * Setup.
+   *
+   * @param font
+   *          the font
+   * @param fontColor
+   *          the font color
+   */
+  public void setup(Font font, Color fontColor) {
+    if (font == null) {
+      return;
+    }
 
-	/**
-	 * Fire changed.
-	 */
-	public void fireChanged() {
-		fireChanged(new ChangeEvent(this));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.event.ChangeEventProducer#fireChanged(org.abh.common.event.ChangeEvent)
-	 */
-	@Override
-	public void fireChanged(ChangeEvent e) {
-		mListeners.fireChanged(e);
-	}
+    mFontsCombo.setText(font.getFamily());
+    mFontSizeCombo.setText(Integer.toString(font.getSize()));
+
+    mBoldButton.setSelected(font.isBold());
+    mItalicButton.setSelected(font.isItalic());
+
+    mFontColorButton.setSelectedColor(fontColor);
+  }
+
+  /**
+   * Gets the user font.
+   *
+   * @return the user font
+   */
+  public Font getUserFont() {
+    return FontService.getInstance().loadFont(mFontsCombo.getText(), Integer.parseInt(mFontSizeCombo.getText()),
+        mBoldButton.isSelected(), mItalicButton.isSelected(), mUnderlineButton.isSelected(),
+        mStrikethroughButton.isSelected());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public void clicked(ModernClickEvent e) {
+    fireChanged();
+  }
+
+  /**
+   * Gets the font color.
+   *
+   * @return the font color
+   */
+  public Color getFontColor() {
+    return mFontColorButton.getSelectedColor();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.event.ChangeEventProducer#addChangeListener(org.abh.common.
+   * event.ChangeListener)
+   */
+  @Override
+  public void addChangeListener(ChangeListener l) {
+    mListeners.addChangeListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.event.ChangeEventProducer#removeChangeListener(org.abh.common.
+   * event.ChangeListener)
+   */
+  @Override
+  public void removeChangeListener(ChangeListener l) {
+    mListeners.removeChangeListener(l);
+  }
+
+  /**
+   * Fire changed.
+   */
+  public void fireChanged() {
+    fireChanged(new ChangeEvent(this));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.event.ChangeEventProducer#fireChanged(org.abh.common.event.
+   * ChangeEvent)
+   */
+  @Override
+  public void fireChanged(ChangeEvent e) {
+    mListeners.fireChanged(e);
+  }
 }

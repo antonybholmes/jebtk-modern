@@ -33,79 +33,85 @@ import java.awt.Graphics2D;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ModernTheme;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RoundelVectorIcon.
  */
 public class RoundelVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant WIDTH_SCALE.
-	 */
-	private static final double WIDTH_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.roundel-icon.width-scale");
-	
-	/**
-	 * The constant LINE_SCALE.
-	 */
-	private static final double LINE_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.roundel-icon.line-scale");
-	
-	/**
-	 * The constant ARROW_SCALE.
-	 */
-	private static final double ARROW_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.roundel-icon.arrow-scale");
 
-	/**
-	 * The member color.
-	 */
-	private Color mColor;
-	
-	/**
-	 * Instantiates a new roundel vector icon.
-	 */
-	public RoundelVectorIcon() {
-		this(SettingsService.getInstance().getAsColor("theme.icons.roundel-icon.colors.foreground"));
-	}
-	
-	/**
-	 * Instantiates a new roundel vector icon.
-	 *
-	 * @param color the color
-	 */
-	public RoundelVectorIcon(Color color) {
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		
-		g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-		
-		double wf = w * WIDTH_SCALE;
-		double lw = wf * LINE_SCALE;
-		double aw = lw * ARROW_SCALE;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - wf) / 2.0;
-		
-		g2.setColor(Color.WHITE);
-		g2.fillOval((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(wf), (int)Math.round(wf));
-		
-		g2.setColor(mColor);
-		g2.drawOval((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(wf), (int)Math.round(wf));
-		
-		xf = xf + (wf - lw) / 2.0;
-		yf = yf + h / 2.0;
-		
-		g2.drawLine((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(xf + lw), (int)Math.round(yf));
-		
-		g2.drawLine((int)Math.round(xf + lw), (int)Math.round(yf), (int)Math.round(xf + lw - aw), (int)Math.round(yf - aw));
-		g2.drawLine((int)Math.round(xf + lw), (int)Math.round(yf), (int)Math.round(xf + lw - aw), (int)Math.round(yf + aw));
-	}
+  /**
+   * The constant WIDTH_SCALE.
+   */
+  private static final double WIDTH_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.roundel-icon.width-scale");
+
+  /**
+   * The constant LINE_SCALE.
+   */
+  private static final double LINE_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.roundel-icon.line-scale");
+
+  /**
+   * The constant ARROW_SCALE.
+   */
+  private static final double ARROW_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.roundel-icon.arrow-scale");
+
+  /**
+   * The member color.
+   */
+  private Color mColor;
+
+  /**
+   * Instantiates a new roundel vector icon.
+   */
+  public RoundelVectorIcon() {
+    this(SettingsService.getInstance().getAsColor("theme.icons.roundel-icon.colors.foreground"));
+  }
+
+  /**
+   * Instantiates a new roundel vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public RoundelVectorIcon(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+    g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+
+    double wf = w * WIDTH_SCALE;
+    double lw = wf * LINE_SCALE;
+    double aw = lw * ARROW_SCALE;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - wf) / 2.0;
+
+    g2.setColor(Color.WHITE);
+    g2.fillOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(wf));
+
+    g2.setColor(mColor);
+    g2.drawOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(wf));
+
+    xf = xf + (wf - lw) / 2.0;
+    yf = yf + h / 2.0;
+
+    g2.drawLine((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(xf + lw), (int) Math.round(yf));
+
+    g2.drawLine((int) Math.round(xf + lw), (int) Math.round(yf), (int) Math.round(xf + lw - aw),
+        (int) Math.round(yf - aw));
+    g2.drawLine((int) Math.round(xf + lw), (int) Math.round(yf), (int) Math.round(xf + lw - aw),
+        (int) Math.round(yf + aw));
+  }
 }

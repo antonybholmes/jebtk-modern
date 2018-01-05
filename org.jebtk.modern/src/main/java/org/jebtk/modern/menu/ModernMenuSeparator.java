@@ -32,9 +32,6 @@ import java.awt.Graphics2D;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a line separator for menus with a theme consistent with
@@ -44,92 +41,103 @@ import java.awt.event.ComponentListener;
  *
  */
 public class ModernMenuSeparator extends ModernIconMenuItem implements ComponentListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant HEIGHT.
-	 */
-	private static final int HEIGHT = 1;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant MIN_SIZE.
-	 */
-	private static final Dimension MIN_SIZE =
-			new Dimension(1, HEIGHT);
+  /**
+   * The constant HEIGHT.
+   */
+  private static final int HEIGHT = 1;
 
-	/**
-	 * The constant MAX_SIZE.
-	 */
-	private static final Dimension MAX_SIZE =
-		new Dimension(Short.MAX_VALUE, HEIGHT);
+  /**
+   * The constant MIN_SIZE.
+   */
+  private static final Dimension MIN_SIZE = new Dimension(1, HEIGHT);
 
+  /**
+   * The constant MAX_SIZE.
+   */
+  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
 
-	/**
-	 * The y.
-	 */
-	protected int y = 0;
-	
-	/**
-	 * Instantiates a new modern menu separator.
-	 */
-	public ModernMenuSeparator() {
-		super("Separator");
+  /**
+   * The y.
+   */
+  protected int y = 0;
 
-		setMinimumSize(MIN_SIZE);
-		setPreferredSize(MIN_SIZE);
-		setMaximumSize(MAX_SIZE);
+  /**
+   * Instantiates a new modern menu separator.
+   */
+  public ModernMenuSeparator() {
+    super("Separator");
 
-		setEnabled(false);
+    setMinimumSize(MIN_SIZE);
+    setPreferredSize(MIN_SIZE);
+    setMaximumSize(MAX_SIZE);
 
-	
-		addComponentListener(this);
-	}
+    setEnabled(false);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForeground(Graphics2D g2) {
-		g2.setColor(LINE_COLOR);
+    addComponentListener(this);
+  }
 
-		g2.drawLine(0, y, getWidth(), y);
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentResized(java.awt.event.ComponentEvent)
-	 */
-	public void componentResized(ComponentEvent e) {
-		y = getHeight() / 2;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForeground(Graphics2D g2) {
+    g2.setColor(LINE_COLOR);
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentHidden(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    g2.drawLine(0, y, getWidth(), y);
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentMoved(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentResized(java.awt.event.
+   * ComponentEvent)
+   */
+  public void componentResized(ComponentEvent e) {
+    y = getHeight() / 2;
+  }
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.ComponentListener#componentShown(java.awt.event.ComponentEvent)
-	 */
-	@Override
-	public void componentShown(ComponentEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentHidden(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentMoved(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.ComponentListener#componentShown(java.awt.event.
+   * ComponentEvent)
+   */
+  @Override
+  public void componentShown(ComponentEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

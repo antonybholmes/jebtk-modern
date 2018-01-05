@@ -32,53 +32,52 @@ import java.awt.Font;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernSubHeadingBoldLabel.
  */
 public class ModernSubHeadingBoldLabel extends ModernAutoSizeLabel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant SUB_HEADING_BOLD_FONT.
-	 */
-	private static final Font SUB_HEADING_BOLD_FONT = 
-			ThemeService.loadFont("theme.widget.fonts.sub-heading-bold");
-	
-	/**
-	 * Instantiates a new modern sub heading bold label.
-	 *
-	 * @param text the text
-	 */
-	public ModernSubHeadingBoldLabel(String text) {
-		super(text);
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern sub heading bold label.
-	 *
-	 * @param text the text
-	 * @param color the color
-	 */
-	public ModernSubHeadingBoldLabel(String text, Color color) {
-		super(text, color);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-	    setFont(SUB_HEADING_BOLD_FONT);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant SUB_HEADING_BOLD_FONT.
+   */
+  private static final Font SUB_HEADING_BOLD_FONT = ThemeService.loadFont("theme.widget.fonts.sub-heading-bold");
+
+  /**
+   * Instantiates a new modern sub heading bold label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernSubHeadingBoldLabel(String text) {
+    super(text);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern sub heading bold label.
+   *
+   * @param text
+   *          the text
+   * @param color
+   *          the color
+   */
+  public ModernSubHeadingBoldLabel(String text, Color color) {
+    super(text, color);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setFont(SUB_HEADING_BOLD_FONT);
+  }
 }

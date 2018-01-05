@@ -37,7 +37,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.UnCheckedVectorIcon;
 import org.jebtk.modern.theme.RenderMode;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Check box menu item.
@@ -45,75 +44,83 @@ import org.jebtk.modern.theme.RenderMode;
  * @author Antony Holmes Holmes
  */
 public class ModernCheckBoxMenuItem extends ModernCheckButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant ICON_SIZE. */
-	private static final int ICON_SIZE = 16;
 
-	/**
-	 * The constant ICON.
-	 */
-	private static final ModernIcon CHECK_ICON = 
-			UIService.getInstance().loadIcon(UnCheckedVectorIcon.class, ICON_SIZE);
-	
-	/** The Constant CHECKED_ICON. */
-	private static final ModernIcon CHECKED_ICON = 
-			UIService.getInstance().loadIcon(CheckedVectorIcon.class, ICON_SIZE);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern check box menu item.
-	 *
-	 * @param text the text
-	 */
-	public ModernCheckBoxMenuItem(String text) {
-		this(text, false);
-	}
-	
-	/**
-	 * Instantiates a new modern check box menu item.
-	 *
-	 * @param text the text
-	 * @param selected the selected
-	 */
-	public ModernCheckBoxMenuItem(String text, boolean selected) {
-		super(text);
-		
-		setSelected(selected);
-		
-		UI.setSize(this, ModernMenuItem.PREFERRED_SIZE);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (isEnabled() && mHighlight) {
-			getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.HIGHLIGHT);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (mText1 != null) {
-			g2.setColor(getForeground());
-			g2.drawString(mText1, getHeight(), getTextYPosCenter(g2, getHeight()));
-		}
+  /** The Constant ICON_SIZE. */
+  private static final int ICON_SIZE = 16;
 
-		int x = (getHeight() - ICON_SIZE) / 2;
-		int y = x;
-		
-		if (isSelected()) {
-			CHECKED_ICON.drawIcon(g2, x, y, ICON_SIZE);
-		} else {
-			CHECK_ICON.drawIcon(g2, x, y, ICON_SIZE);
-		}
-	}
+  /**
+   * The constant ICON.
+   */
+  private static final ModernIcon CHECK_ICON = UIService.getInstance().loadIcon(UnCheckedVectorIcon.class, ICON_SIZE);
+
+  /** The Constant CHECKED_ICON. */
+  private static final ModernIcon CHECKED_ICON = UIService.getInstance().loadIcon(CheckedVectorIcon.class, ICON_SIZE);
+
+  /**
+   * Instantiates a new modern check box menu item.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernCheckBoxMenuItem(String text) {
+    this(text, false);
+  }
+
+  /**
+   * Instantiates a new modern check box menu item.
+   *
+   * @param text
+   *          the text
+   * @param selected
+   *          the selected
+   */
+  public ModernCheckBoxMenuItem(String text, boolean selected) {
+    super(text);
+
+    setSelected(selected);
+
+    UI.setSize(this, ModernMenuItem.PREFERRED_SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.widget.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    if (isEnabled() && mHighlight) {
+      getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.HIGHLIGHT);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernCheckButton#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mText1 != null) {
+      g2.setColor(getForeground());
+      g2.drawString(mText1, getHeight(), getTextYPosCenter(g2, getHeight()));
+    }
+
+    int x = (getHeight() - ICON_SIZE) / 2;
+    int y = x;
+
+    if (isSelected()) {
+      CHECKED_ICON.drawIcon(g2, x, y, ICON_SIZE);
+    } else {
+      CHECK_ICON.drawIcon(g2, x, y, ICON_SIZE);
+    }
+  }
 }

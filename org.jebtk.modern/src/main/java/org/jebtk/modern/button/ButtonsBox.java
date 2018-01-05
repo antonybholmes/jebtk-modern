@@ -36,7 +36,6 @@ import org.jebtk.modern.BorderService;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Default layout for buttons in a dialog box.
@@ -44,58 +43,62 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  */
 public class ButtonsBox extends HBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m left box. */
-	private HBox mLeftBox = HBox.create();
-	
-	/** The m right box. */
-	private HBox mRightBox = HBox.create();
-	
-	/** The Constant BORDER. */
-	private static final Border BORDER = 
-			BorderService.getInstance().createBorder(ModernWidget.PADDING, ModernWidget.DOUBLE_PADDING, ModernWidget.DOUBLE_PADDING, ModernWidget.DOUBLE_PADDING); // ModernWidget.LARGE_BORDER
 
-	/**
-	 * Instantiates a new buttons box2.
-	 */
-	public ButtonsBox() {
-		setBorder(BORDER);
-		
-		super.add(mLeftBox);
-		super.add(Box.createHorizontalGlue());
-		super.add(mRightBox);
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component c) {
-		addRight(c);
-		
-		return c;
-	}
-	
-	/**
-	 * Adds the left.
-	 *
-	 * @param c the c
-	 */
-	public void addLeft(Component c) {
-		mLeftBox.add(c);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Adds the right.
-	 *
-	 * @param c the c
-	 */
-	public void addRight(Component c) {
-		mRightBox.add(c);
-	}
+  /** The m left box. */
+  private HBox mLeftBox = HBox.create();
+
+  /** The m right box. */
+  private HBox mRightBox = HBox.create();
+
+  /** The Constant BORDER. */
+  private static final Border BORDER = BorderService.getInstance().createBorder(ModernWidget.PADDING,
+      ModernWidget.DOUBLE_PADDING, ModernWidget.DOUBLE_PADDING, ModernWidget.DOUBLE_PADDING); // ModernWidget.LARGE_BORDER
+
+  /**
+   * Instantiates a new buttons box2.
+   */
+  public ButtonsBox() {
+    setBorder(BORDER);
+
+    super.add(mLeftBox);
+    super.add(Box.createHorizontalGlue());
+    super.add(mRightBox);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component c) {
+    addRight(c);
+
+    return c;
+  }
+
+  /**
+   * Adds the left.
+   *
+   * @param c
+   *          the c
+   */
+  public void addLeft(Component c) {
+    mLeftBox.add(c);
+  }
+
+  /**
+   * Adds the right.
+   *
+   * @param c
+   *          the c
+   */
+  public void addRight(Component c) {
+    mRightBox.add(c);
+  }
 }

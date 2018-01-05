@@ -34,46 +34,50 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.ribbon.RibbonMenuItem;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class RibbonHelpMenuItem.
  */
 public class RibbonHelpMenuItem extends RibbonMenuItem implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member product.
-	 */
-	private GuiAppInfo mProduct;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new ribbon help menu item.
-	 *
-	 * @param product the product
-	 */
-	public RibbonHelpMenuItem(GuiAppInfo product) {
-		super("Help");
-		
-		mProduct = product;
-		
-		addClickListener(this);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void clicked(ModernClickEvent e) {
-		try {
-			HelpManager.launchHelp(mProduct);
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		} catch (URISyntaxException e1) {
-			e1.printStackTrace();
-		}
-	}
+  /**
+   * The member product.
+   */
+  private GuiAppInfo mProduct;
+
+  /**
+   * Instantiates a new ribbon help menu item.
+   *
+   * @param product
+   *          the product
+   */
+  public RibbonHelpMenuItem(GuiAppInfo product) {
+    super("Help");
+
+    mProduct = product;
+
+    addClickListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public void clicked(ModernClickEvent e) {
+    try {
+      HelpManager.launchHelp(mProduct);
+    } catch (IOException e1) {
+      e1.printStackTrace();
+    } catch (URISyntaxException e1) {
+      e1.printStackTrace();
+    }
+  }
 }

@@ -31,47 +31,49 @@ import java.awt.Color;
 
 // TODO: Auto-generated Javadoc
 /**
- * This class should be sub-classed by icons that can be scaled to any size.
- * It is not strictly necessary to do this, but it indicates your intent to
- * the icon rendering sub-system.
+ * This class should be sub-classed by icons that can be scaled to any size. It
+ * is not strictly necessary to do this, but it indicates your intent to the
+ * icon rendering sub-system.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public abstract class ModernVectorScalableIcon extends ModernVectorIcon {
 
-	/** The m color 1. */
-	protected Color mColor1 = null;
-	
-	/** The m color 2. */
-	protected Color mColor2 = null;
+  /** The m color 1. */
+  protected Color mColor1 = null;
 
-	/**
-	 * Instantiates a new modern vector scalable icon.
-	 */
-	public ModernVectorScalableIcon() {
-		// Do nothing
-	}
+  /** The m color 2. */
+  protected Color mColor2 = null;
 
-	/**
-	 * Instantiates a new modern vector scalable icon.
-	 *
-	 * @param color1 the color 1
-	 */
-	public ModernVectorScalableIcon(Color color1) {
-		mColor1 = color1;
-	}
-	
-	/**
-	 * Instantiates a new modern vector scalable icon.
-	 *
-	 * @param color1 the color 1
-	 * @param color2 the color 2
-	 */
-	public ModernVectorScalableIcon(Color color1, Color color2) {
-		mColor1 = color1;
-		mColor2 = color2;
-	}
+  /**
+   * Instantiates a new modern vector scalable icon.
+   */
+  public ModernVectorScalableIcon() {
+    // Do nothing
+  }
 
-	
+  /**
+   * Instantiates a new modern vector scalable icon.
+   *
+   * @param color1
+   *          the color 1
+   */
+  public ModernVectorScalableIcon(Color color1) {
+    mColor1 = color1;
+  }
+
+  /**
+   * Instantiates a new modern vector scalable icon.
+   *
+   * @param color1
+   *          the color 1
+   * @param color2
+   *          the color 2
+   */
+  public ModernVectorScalableIcon(Color color1, Color color2) {
+    mColor1 = color1;
+    mColor2 = color2;
+  }
+
 }

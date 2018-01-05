@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Color;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Vector based save icon.
@@ -38,11 +37,11 @@ import java.awt.Color;
  *
  */
 public class SaveBwVectorIcon extends SaveVectorIcon {
-	
-	/**
-	 * Instantiates a new save bw vector icon.
-	 */
-	public SaveBwVectorIcon() {
-		super(Color.BLACK);
-	}
+
+  /**
+   * Instantiates a new save bw vector icon.
+   */
+  public SaveBwVectorIcon() {
+    super(Color.BLACK);
+  }
 }

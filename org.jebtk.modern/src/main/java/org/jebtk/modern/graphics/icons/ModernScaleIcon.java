@@ -39,111 +39,135 @@ import org.jebtk.modern.graphics.ImageUtils;
  */
 public class ModernScaleIcon extends ModernIcon {
 
-	/**
-	 * The member buffered image.
-	 */
-	private BufferedImage mBufferedImage;
+  /**
+   * The member buffered image.
+   */
+  private BufferedImage mBufferedImage;
 
-	/**
-	 * Instantiates a new modern scale icon.
-	 *
-	 * @param icon the icon
-	 * @param w the w
-	 */
-	public ModernScaleIcon(ModernIcon icon, int w) {
-		this(icon, w, w);
-	}
-	
-	/**
-	 * Instantiates a new modern scale icon.
-	 *
-	 * @param icon the icon
-	 * @param w the w
-	 * @param h the h
-	 */
-	public ModernScaleIcon(ModernIcon icon, int w, int h) {
-		this(icon.getImage(), w, h);
-	}
-	
-	/**
-	 * Instantiates a new modern scale icon.
-	 *
-	 * @param image the image
-	 * @param w the w
-	 * @param h the h
-	 */
-	public ModernScaleIcon(Image image, int w, int h) {
-		cache(image, w, h);
-	}
+  /**
+   * Instantiates a new modern scale icon.
+   *
+   * @param icon
+   *          the icon
+   * @param w
+   *          the w
+   */
+  public ModernScaleIcon(ModernIcon icon, int w) {
+    this(icon, w, w);
+  }
 
-	/**
-	 * Cache.
-	 *
-	 * @param image the image
-	 * @param w the w
-	 * @param h the h
-	 */
-	private void cache(Image image, int w, int h) {
-		mBufferedImage = scale(image, w, h);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#getWidth()
-	 */
-	@Override
-	public int getWidth() {
-		return mBufferedImage.getWidth();
-	}
+  /**
+   * Instantiates a new modern scale icon.
+   *
+   * @param icon
+   *          the icon
+   * @param w
+   *          the w
+   * @param h
+   *          the h
+   */
+  public ModernScaleIcon(ModernIcon icon, int w, int h) {
+    this(icon.getImage(), w, h);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#getHeight()
-	 */
-	@Override
-	public int getHeight() {
-		return mBufferedImage.getHeight();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		x = x + (w - getWidth()) / 2;
-		y = y + (h - getHeight()) / 2;
-		
-		g2.drawImage(mBufferedImage, x, y, null);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
-	 */
-	@Override
-	public BufferedImage getImage() {
-		return mBufferedImage;
-	}
+  /**
+   * Instantiates a new modern scale icon.
+   *
+   * @param image
+   *          the image
+   * @param w
+   *          the w
+   * @param h
+   *          the h
+   */
+  public ModernScaleIcon(Image image, int w, int h) {
+    cache(image, w, h);
+  }
 
-	/**
-	 * Scale.
-	 *
-	 * @param image the image
-	 * @param w the w
-	 * @param h the h
-	 * @return the buffered image
-	 */
-	public static BufferedImage scale(Image image, int w, int h) {
-		BufferedImage resizedImage = ImageUtils.createImage(w, h); //new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
-		
-		Graphics2D g2 = resizedImage.createGraphics();
-		
-		Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+  /**
+   * Cache.
+   *
+   * @param image
+   *          the image
+   * @param w
+   *          the w
+   * @param h
+   *          the h
+   */
+  private void cache(Image image, int w, int h) {
+    mBufferedImage = scale(image, w, h);
+  }
 
-		try {
-			g2Temp.drawImage(image, 0, 0, w, h, null);
-		} finally {
-			g2Temp.dispose();
-			g2.dispose();
-		}
-		
-		return resizedImage;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getWidth()
+   */
+  @Override
+  public int getWidth() {
+    return mBufferedImage.getWidth();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getHeight()
+   */
+  @Override
+  public int getHeight() {
+    return mBufferedImage.getHeight();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    x = x + (w - getWidth()) / 2;
+    y = y + (h - getHeight()) / 2;
+
+    g2.drawImage(mBufferedImage, x, y, null);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
+   */
+  @Override
+  public BufferedImage getImage() {
+    return mBufferedImage;
+  }
+
+  /**
+   * Scale.
+   *
+   * @param image
+   *          the image
+   * @param w
+   *          the w
+   * @param h
+   *          the h
+   * @return the buffered image
+   */
+  public static BufferedImage scale(Image image, int w, int h) {
+    BufferedImage resizedImage = ImageUtils.createImage(w, h); // new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+
+    Graphics2D g2 = resizedImage.createGraphics();
+
+    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+
+    try {
+      g2Temp.drawImage(image, 0, 0, w, h, null);
+    } finally {
+      g2Temp.dispose();
+      g2.dispose();
+    }
+
+    return resizedImage;
+  }
 }

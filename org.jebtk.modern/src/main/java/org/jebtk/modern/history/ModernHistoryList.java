@@ -31,98 +31,89 @@ import org.jebtk.modern.event.ModernSelectionEventProducer;
 import org.jebtk.modern.list.ModernList;
 import org.jebtk.modern.list.ModernListModel;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * A flowchart style control similar to a modern list, but
- * indicates stages etc.
+ * A flowchart style control similar to a modern list, but indicates stages etc.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernHistoryList<T> extends ModernList<T> implements ModernSelectionEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern history list.
-	 */
-	public ModernHistoryList() {
-		super();
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern history list.
-	 *
-	 * @param renderer the renderer
-	 */
-	public ModernHistoryList(ModernHistoryListCellRenderer renderer) {
-		setup();
-		
-		setCellRenderer(renderer);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern history list.
-	 *
-	 * @param model the model
-	 */
-	public ModernHistoryList(ModernListModel<T> model) {
-		setModel(model);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setRowHeight(48);
-		
-		setCellRenderer(new ModernHistoryListBasicCellRenderer());
-	}
+  /**
+   * Instantiates a new modern history list.
+   */
+  public ModernHistoryList() {
+    super();
 
-	/*
-	@Override
-	protected final void createImage(Graphics2D g2) {
+    setup();
+  }
 
-		ModernDataRowSelection visibleCells = calculateVisibleCells();
-		
-		Graphics2D g2Table = (Graphics2D)g2.create();
-		
-		//int counter = 0;
+  /**
+   * Instantiates a new modern history list.
+   *
+   * @param renderer
+   *          the renderer
+   */
+  public ModernHistoryList(ModernHistoryListCellRenderer renderer) {
+    setup();
 
-		for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i) {
-			if (i == getItemCount()) {
-				break;
-			}
-			
-			//System.err.println("get row " + i);
-			
-			Component c = mRenderer.getCellRendererComponent(this, 
-					getValueAt(i), 
-					i == mHighlightCellIndex,
-					mSelectionModel.contains(i),
-					this.isFocusOwner(), 
-					i);
+    setCellRenderer(renderer);
+  }
 
-			c.setSize(getWidth(), mRowHeight);
+  /**
+   * Instantiates a new modern history list.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernHistoryList(ModernListModel<T> model) {
+    setModel(model);
 
-			c.print(g2Table);
+    setup();
+  }
 
-			// Move to the next cell location.
-			g2Table.translate(0, mRowHeight);
-			
-			//++counter;
-		}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setRowHeight(48);
 
-		g2Table.dispose();
-	}
-*/
-	
+    setCellRenderer(new ModernHistoryListBasicCellRenderer());
+  }
+
+  /*
+   * @Override protected final void createImage(Graphics2D g2) {
+   * 
+   * ModernDataRowSelection visibleCells = calculateVisibleCells();
+   * 
+   * Graphics2D g2Table = (Graphics2D)g2.create();
+   * 
+   * //int counter = 0;
+   * 
+   * for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i)
+   * { if (i == getItemCount()) { break; }
+   * 
+   * //System.err.println("get row " + i);
+   * 
+   * Component c = mRenderer.getCellRendererComponent(this, getValueAt(i), i ==
+   * mHighlightCellIndex, mSelectionModel.contains(i), this.isFocusOwner(), i);
+   * 
+   * c.setSize(getWidth(), mRowHeight);
+   * 
+   * c.print(g2Table);
+   * 
+   * // Move to the next cell location. g2Table.translate(0, mRowHeight);
+   * 
+   * //++counter; }
+   * 
+   * g2Table.dispose(); }
+   */
+
 }

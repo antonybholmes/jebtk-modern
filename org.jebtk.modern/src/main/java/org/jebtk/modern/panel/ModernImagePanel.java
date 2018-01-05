@@ -35,7 +35,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RasterIcon;
 import org.jebtk.modern.graphics.icons.ScaledRasterIcon;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Displays an image.
@@ -44,75 +43,85 @@ import org.jebtk.modern.graphics.icons.ScaledRasterIcon;
  *
  */
 public class ModernImagePanel extends ModernComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member image.
-	 */
-	private ModernIcon mImage;
 
-	/** The m size. */
-	private int mSize;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * The member image.
+   */
+  private ModernIcon mImage;
 
-	/**
-	 * Instantiates a new modern image panel.
-	 *
-	 * @param image the image
-	 */
-	public ModernImagePanel(ModernIcon image) {
-		this(image, image.getWidth());
-	}
-	
-	/**
-	 * Instantiates a new modern image panel.
-	 *
-	 * @param image the image
-	 * @param size the size
-	 */
-	public ModernImagePanel(ModernIcon image, int size) {
-		setImage(image, size, size);
-	}
-	
-	/**
-	 * Instantiates a new modern image panel.
-	 *
-	 * @param image the image
-	 * @param iconSize the icon size
-	 * @param size the size
-	 */
-	public ModernImagePanel(ModernIcon image, int iconSize, int size) {
-		setImage(image, iconSize, size);
-	}
-	
-	/**
-	 * Sets the image.
-	 *
-	 * @param image the image
-	 * @param iconSize the icon size
-	 * @param size the size
-	 */
-	public void setImage(ModernIcon image, int iconSize, int size) {
-		mImage = new ScaledRasterIcon(new RasterIcon(image, iconSize), size);
-		mSize = size;
-		
-		UI.setSize(this, size, size);
-		
-		repaint();
-	}
+  /** The m size. */
+  private int mSize;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForeground(Graphics2D g2) {
-		int x = (getWidth() - mSize) / 2;
-		int y = (getHeight() - mSize) / 2;
-				
-		mImage.drawIcon(g2, x, y, mSize, mSize);
-	}
+  /**
+   * Instantiates a new modern image panel.
+   *
+   * @param image
+   *          the image
+   */
+  public ModernImagePanel(ModernIcon image) {
+    this(image, image.getWidth());
+  }
+
+  /**
+   * Instantiates a new modern image panel.
+   *
+   * @param image
+   *          the image
+   * @param size
+   *          the size
+   */
+  public ModernImagePanel(ModernIcon image, int size) {
+    setImage(image, size, size);
+  }
+
+  /**
+   * Instantiates a new modern image panel.
+   *
+   * @param image
+   *          the image
+   * @param iconSize
+   *          the icon size
+   * @param size
+   *          the size
+   */
+  public ModernImagePanel(ModernIcon image, int iconSize, int size) {
+    setImage(image, iconSize, size);
+  }
+
+  /**
+   * Sets the image.
+   *
+   * @param image
+   *          the image
+   * @param iconSize
+   *          the icon size
+   * @param size
+   *          the size
+   */
+  public void setImage(ModernIcon image, int iconSize, int size) {
+    mImage = new ScaledRasterIcon(new RasterIcon(image, iconSize), size);
+    mSize = size;
+
+    UI.setSize(this, size, size);
+
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForeground(Graphics2D g2) {
+    int x = (getWidth() - mSize) / 2;
+    int y = (getHeight() - mSize) / 2;
+
+    mImage.drawIcon(g2, x, y, mSize, mSize);
+  }
 }

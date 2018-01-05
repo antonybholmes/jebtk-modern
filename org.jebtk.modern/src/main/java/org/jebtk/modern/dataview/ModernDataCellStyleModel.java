@@ -29,24 +29,23 @@ package org.jebtk.modern.dataview;
 
 // TODO: Auto-generated Javadoc
 /**
- * Model for controlling the appearance of cells such as the font and
- * color. It is up to the renderer to use these cues to present the cell
- * properly.
+ * Model for controlling the appearance of cells such as the font and color. It
+ * is up to the renderer to use these cues to present the cell properly.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class ModernDataCellStyleModel extends ModernDataCellModel<ModernDataCellStyle> {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new modern data cell style model.
-	 */
-	public ModernDataCellStyleModel() {
-		super(ModernDataCellStyle.DEFAULT_STYLE);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern data cell style model.
+   */
+  public ModernDataCellStyleModel() {
+    super(ModernDataCellStyle.DEFAULT_STYLE);
+  }
 }

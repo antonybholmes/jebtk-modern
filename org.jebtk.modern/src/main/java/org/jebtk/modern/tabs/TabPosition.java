@@ -32,19 +32,19 @@ package org.jebtk.modern.tabs;
  * The enum TabPosition.
  */
 public enum TabPosition {
-	
-	/**
-	 * The left.
-	 */
-	LEFT,
-	
-	/**
-	 * The center.
-	 */
-	CENTER,
-	
-	/**
-	 * The right.
-	 */
-	RIGHT
+
+  /**
+   * The left.
+   */
+  LEFT,
+
+  /**
+   * The center.
+   */
+  CENTER,
+
+  /**
+   * The right.
+   */
+  RIGHT
 }

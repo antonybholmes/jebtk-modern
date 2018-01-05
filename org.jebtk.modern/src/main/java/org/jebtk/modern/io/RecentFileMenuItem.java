@@ -39,131 +39,134 @@ import org.jebtk.modern.graphics.icons.FileVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernTwoLineMenuItem;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class FileMenuItem.
  */
 public class RecentFileMenuItem extends ModernTwoLineMenuItem {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant SDF.
-	 */
-	private static final String SDF = "MM/dd/yyyy HH:mm";
-	
-	/**
-	 * The member file.
-	 */
-	protected Path mFile;
 
-	/** The m date. */
-	private Date mDate;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new file menu item.
-	 *
-	 * @param file the file
-	 * @param date the date
-	 */
-	public RecentFileMenuItem(Path file, Date date) {
-		this(file, 
-				date, 
-				UIService.getInstance().loadIcon(FileVectorIcon.class, 32));
+  /**
+   * The constant SDF.
+   */
+  private static final String SDF = "MM/dd/yyyy HH:mm";
 
-		
-	}
+  /**
+   * The member file.
+   */
+  protected Path mFile;
 
-	/**
-	 * Instantiates a new file menu item.
-	 *
-	 * @param file the file
-	 * @param date the date
-	 * @param icon the icon
-	 */
-	public RecentFileMenuItem(Path file, Date date, ModernIcon icon) {		
-		super(PathUtils.toString(file.getFileName()), 
-				PathUtils.toString(file.getParent()), 
-				icon);
+  /** The m date. */
+  private Date mDate;
 
-		mFile = file;
-		mDate = date;
-		
-		setClickMessage(PathUtils.toString(file));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernTwoLineMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int iconX = PADDING;
+  /**
+   * Instantiates a new file menu item.
+   *
+   * @param file
+   *          the file
+   * @param date
+   *          the date
+   */
+  public RecentFileMenuItem(Path file, Date date) {
+    this(file, date, UIService.getInstance().loadIcon(FileVectorIcon.class, 32));
 
-		int h2 = getHeight() / 2;
+  }
 
-		int y = (h2 + g2.getFontMetrics().getAscent()) / 2;
-		int x;
-		
-		String dateText = new SimpleDateFormat(SDF).format(mDate);
-		int rightOffset = getWidth() - getStringWidth(FONT, dateText) - DOUBLE_PADDING;
+  /**
+   * Instantiates a new file menu item.
+   *
+   * @param file
+   *          the file
+   * @param date
+   *          the date
+   * @param icon
+   *          the icon
+   */
+  public RecentFileMenuItem(Path file, Date date, ModernIcon icon) {
+    super(PathUtils.toString(file.getFileName()), PathUtils.toString(file.getParent()), icon);
 
-		if (mIcon != null) {
-			x = iconX + mIcon.getWidth() + PADDING;
-		} else {
-			x = PADDING;
-		}
-		
-		g2.setColor(TEXT_COLOR);
-		g2.setFont(MaterialService.getInstance().font("text"));
-		
-		int maxTextWidth = rightOffset - DOUBLE_PADDING - x;
+    mFile = file;
+    mDate = date;
 
-		String text = truncate(g2, PathUtils.getName(mFile), maxTextWidth);
+    setClickMessage(PathUtils.toString(file));
+  }
 
-		g2.drawString(text, x, y);
-		
-		g2.setColor(ALT_TEXT_COLOR);
-		g2.setFont(MaterialService.getInstance().font("subtext"));
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.menu.ModernTwoLineMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int iconX = PADDING;
 
-		y = h2 + (h2 + g2.getFontMetrics().getAscent()) / 2;
+    int h2 = getHeight() / 2;
 
-		text = truncate(g2, PathUtils.toString(mFile.getParent()), maxTextWidth);
+    int y = (h2 + g2.getFontMetrics().getAscent()) / 2;
+    int x;
 
-		g2.drawString(text, x, y);
+    String dateText = new SimpleDateFormat(SDF).format(mDate);
+    int rightOffset = getWidth() - getStringWidth(FONT, dateText) - DOUBLE_PADDING;
 
-		x = rightOffset;
-		y = getTextYPosCenter(g2, getHeight());
-		
-		g2.drawString(dateText, x, y);
-		
+    if (mIcon != null) {
+      x = iconX + mIcon.getWidth() + PADDING;
+    } else {
+      x = PADDING;
+    }
 
-		int iconY = (getHeight() - 32) / 2;
+    g2.setColor(TEXT_COLOR);
+    g2.setFont(MaterialService.getInstance().font("text"));
 
-		mIcon.drawIcon(g2, iconX, iconY, 32);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#getText()
-	 */
-	@Override
-	public String getText() {
-		// The two line file menu item should return the full
-		// file name as its string, which is what the
-		// action command is
-		return getClickMessage();
-	}
+    int maxTextWidth = rightOffset - DOUBLE_PADDING - x;
 
-	/**
-	 * Gets the file.
-	 *
-	 * @return the file
-	 */
-	public Path getFile() {
-		return mFile;
-	}
+    String text = truncate(g2, PathUtils.getName(mFile), maxTextWidth);
+
+    g2.drawString(text, x, y);
+
+    g2.setColor(ALT_TEXT_COLOR);
+    g2.setFont(MaterialService.getInstance().font("subtext"));
+
+    y = h2 + (h2 + g2.getFontMetrics().getAscent()) / 2;
+
+    text = truncate(g2, PathUtils.toString(mFile.getParent()), maxTextWidth);
+
+    g2.drawString(text, x, y);
+
+    x = rightOffset;
+    y = getTextYPosCenter(g2, getHeight());
+
+    g2.drawString(dateText, x, y);
+
+    int iconY = (getHeight() - 32) / 2;
+
+    mIcon.drawIcon(g2, iconX, iconY, 32);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#getText()
+   */
+  @Override
+  public String getText() {
+    // The two line file menu item should return the full
+    // file name as its string, which is what the
+    // action command is
+    return getClickMessage();
+  }
+
+  /**
+   * Gets the file.
+   *
+   * @return the file
+   */
+  public Path getFile() {
+    return mFile;
+  }
 }

@@ -37,32 +37,44 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class StatusEventListeners extends EventProducer<StatusEventListener> implements StatusEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.status.StatusEventProducer#addStatusListener(org.abh.lib.ui.modern.status.StatusEventListener)
-	 */
-	public void addStatusListener(StatusEventListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.status.StatusEventProducer#removeStatusListener(org.abh.lib.ui.modern.status.StatusEventListener)
-	 */
-	public void removeStatusListener(StatusEventListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.status.StatusEventProducer#fireStatusChanged(org.abh.lib.ui.modern.status.StatusEvent)
-	 */
-	public void fireStatusChanged(StatusEvent e) {
-		for (StatusEventListener l : mListeners) {
-			l.statusChanged(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.status.StatusEventProducer#addStatusListener(org.abh.
+   * lib.ui.modern.status.StatusEventListener)
+   */
+  public void addStatusListener(StatusEventListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.status.StatusEventProducer#removeStatusListener(org.abh
+   * .lib.ui.modern.status.StatusEventListener)
+   */
+  public void removeStatusListener(StatusEventListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.status.StatusEventProducer#fireStatusChanged(org.abh.
+   * lib.ui.modern.status.StatusEvent)
+   */
+  public void fireStatusChanged(StatusEvent e) {
+    for (StatusEventListener l : mListeners) {
+      l.statusChanged(e);
+    }
+  }
 }

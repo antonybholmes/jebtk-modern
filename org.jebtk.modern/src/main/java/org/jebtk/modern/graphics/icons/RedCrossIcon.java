@@ -30,19 +30,22 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class CloseVectorIcon.
  */
 public class RedCrossIcon extends CrossVectorIcon {
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		g2.setColor(Color.RED);
-		
-		super.drawIcon(g2, x, y, w, h, params);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    g2.setColor(Color.RED);
+
+    super.drawIcon(g2, x, y, w, h, params);
+  }
 }

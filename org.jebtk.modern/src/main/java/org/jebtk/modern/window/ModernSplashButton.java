@@ -38,72 +38,76 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 
 // TODO: Auto-generated Javadoc
 /**
- * Outline button with white background for more
- * contract on off-white panels.
+ * Outline button with white background for more contract on off-white panels.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class ModernSplashButton extends ModernButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant BACKGROUND. */
-	private static final Color BACKGROUND = 
-			ColorUtils.getTransparentColor90(Color.WHITE);
 
-	/** The Constant SIZE. */
-	private static final Dimension SIZE = new Dimension(48, 32);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new modern splash button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernSplashButton(String text1) {
-		super(text1);
-		
-		setup();
-	}
+  /** The Constant BACKGROUND. */
+  private static final Color BACKGROUND = ColorUtils.getTransparentColor90(Color.WHITE);
 
-	/**
-	 * Instantiates a new modern splash button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernSplashButton(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setBackground(BACKGROUND);
-		setForeground(Color.WHITE);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (mHighlight) {
-			fillBackground(g2);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.button.ModernButton#autoSize()
-	 */
-	@Override
-	public void autoSize() {
-		UI.setSize(this, SIZE);
-	}
+  /** The Constant SIZE. */
+  private static final Dimension SIZE = new Dimension(48, 32);
+
+  /**
+   * Instantiates a new modern splash button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernSplashButton(String text1) {
+    super(text1);
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern splash button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernSplashButton(ModernIcon icon) {
+    super(icon);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setBackground(BACKGROUND);
+    setForeground(Color.WHITE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    if (mHighlight) {
+      fillBackground(g2);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.button.ModernButton#autoSize()
+   */
+  @Override
+  public void autoSize() {
+    UI.setSize(this, SIZE);
+  }
 }

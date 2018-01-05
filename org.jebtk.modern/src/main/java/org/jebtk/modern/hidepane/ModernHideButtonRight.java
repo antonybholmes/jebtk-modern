@@ -34,17 +34,16 @@ import org.jebtk.modern.graphics.icons.ModernVectorIcon;
  * The class ModernHideButtonRight.
  */
 public class ModernHideButtonRight extends ModernHideButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * Instantiates a new modern hide button right.
-	 */
-	public ModernHideButtonRight() {
-		super(ModernVectorIcon.HIDE_RIGHT_ICON, ModernVectorIcon.HIDE_LEFT_ICON);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern hide button right.
+   */
+  public ModernHideButtonRight() {
+    super(ModernVectorIcon.HIDE_RIGHT_ICON, ModernVectorIcon.HIDE_LEFT_ICON);
+  }
 }

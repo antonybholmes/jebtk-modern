@@ -37,67 +37,79 @@ import java.util.List;
  * The class MultiIcon.
  */
 public class MultiIcon extends ModernIcon {
-	
-	/**
-	 * The member icons.
-	 */
-	private List<ModernIcon> mIcons = new ArrayList<ModernIcon>();
-	
-	/**
-	 * The member icon.
-	 */
-	private ModernIcon mIcon;
-	
-	/**
-	 * Adds the icon.
-	 *
-	 * @param icon the icon
-	 */
-	public void addIcon(ModernIcon icon) {
-		mIcons.add(icon);
-		
-		setIcon(mIcons.size() - 1);
-	}
-	
-	/**
-	 * Sets the icon.
-	 *
-	 * @param index the new icon
-	 */
-	public void setIcon(int index) {
-		mIcon = mIcons.get(index);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		mIcon.drawIcon(g2, x, y, w, h);
-	}
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#getWidth()
-	 */
-	@Override
-	public int getWidth() {
-		return mIcon.getWidth();
-	}
+  /**
+   * The member icons.
+   */
+  private List<ModernIcon> mIcons = new ArrayList<ModernIcon>();
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#getHeight()
-	 */
-	@Override
-	public int getHeight() {
-		return mIcon.getHeight();
-	}
+  /**
+   * The member icon.
+   */
+  private ModernIcon mIcon;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
-	 */
-	@Override
-	public BufferedImage getImage() {
-		return mIcon.getImage();
-	}
+  /**
+   * Adds the icon.
+   *
+   * @param icon
+   *          the icon
+   */
+  public void addIcon(ModernIcon icon) {
+    mIcons.add(icon);
+
+    setIcon(mIcons.size() - 1);
+  }
+
+  /**
+   * Sets the icon.
+   *
+   * @param index
+   *          the new icon
+   */
+  public void setIcon(int index) {
+    mIcon = mIcons.get(index);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    mIcon.drawIcon(g2, x, y, w, h);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getWidth()
+   */
+  @Override
+  public int getWidth() {
+    return mIcon.getWidth();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getHeight()
+   */
+  @Override
+  public int getHeight() {
+    return mIcon.getHeight();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
+   */
+  @Override
+  public BufferedImage getImage() {
+    return mIcon.getImage();
+  }
 
 }

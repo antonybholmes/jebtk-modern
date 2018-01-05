@@ -34,8 +34,6 @@ import java.util.List;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Slider with an orb button and plus minus controls.
@@ -44,158 +42,155 @@ import org.jebtk.modern.theme.ThemeService;
  *
  */
 public class MacOrbSlider extends OrbSlider {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant HIGHLIGHT. */
-	protected static final Color HIGHLIGHT = 
-			ThemeService.getInstance().colors().getColorHighlight32(16);
 
-	/** The m bar height. */
-	protected int mBarHeight = 4;
-	
-	/**
-	 * Instantiates a new modern orb slider.
-	 *
-	 * @param min the min
-	 * @param max the max
-	 * @param value the value
-	 */
-	public MacOrbSlider(double min, double max, double value) {
-		super(min, max, value);
-		
-		init();
-	}
-	
-	/**
-	 * Instantiates a new mac orb slider.
-	 *
-	 * @param value the value
-	 * @param values the values
-	 */
-	public MacOrbSlider(double value, double... values) {
-		super(value, values);
-		
-		init();
-	}
-	
-	/**
-	 * Instantiates a new mac orb slider.
-	 *
-	 * @param value the value
-	 * @param values the values
-	 */
-	public MacOrbSlider(double value, List<Double> values) {
-		super(value, values);
-		
-		init();
-	}
-	
-	/**
-	 * Inits the.
-	 */
-	private void init() {
-		setRadius(6);
-		
-		setBorder(BorderService.getInstance().createLeftRightBorder(1));
-		
-		setBackgroundAnimation(new MacOrbAnimation(this));
-	}
-	
-	/**
-	 * Sets the bar height.
-	 *
-	 * @param h the new bar height
-	 */
-	public void setBarHeight(int h) {
-		mBarHeight = h;
-		
-		repaint();
-	}
-	
-	/*
-	@Override
-	public void drawBackgroundAA(Graphics2D g2) {
-		int p = (int)(getInsets().left + mSliderDiameter % 2 + mPc * mGap);
-		
-		drawBar(g2, p);
-	}
-	*/
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	/*
-	@Override
-	public void drawForegroundAA(Graphics2D g2) {
-		int p = (int)(getInsets().left + mSliderDiameter % 2 + mPc * mGap);
-		
-		drawOrb(g2, p);
-	}
-	*/
-	
-	/**
-	 * Draw bar base.
-	 *
-	 * @param g2 the g 2
-	 * @param p the p
-	 */
-	protected void drawBarBase(Graphics2D g2, int p) {
-		g2.setColor(LINE_COLOR);
+  /** The Constant HIGHLIGHT. */
+  protected static final Color HIGHLIGHT = ThemeService.getInstance().colors().getColorHighlight32(16);
 
-		int x = getInsets().left + mSliderRadius;
-		int y = (getHeight() -  mBarHeight) / 2;
+  /** The m bar height. */
+  protected int mBarHeight = 4;
 
-		g2.fillRoundRect(x, 
-				y, 
-				mInternalRect.getW() - mSliderDiameter, 
-				mBarHeight,
-				mBarHeight,
-				mBarHeight);
-	}
-	
-	/**
-	 * Draw bar.
-	 *
-	 * @param g2 the g 2
-	 * @param p the p
-	 */
-	protected void drawBar(Graphics2D g2, int p) {
-		drawBarBase(g2, p);
+  /**
+   * Instantiates a new modern orb slider.
+   *
+   * @param min
+   *          the min
+   * @param max
+   *          the max
+   * @param value
+   *          the value
+   */
+  public MacOrbSlider(double min, double max, double value) {
+    super(min, max, value);
 
-		int x = getInsets().left + mSliderRadius;
-		int y = (getHeight() -  mBarHeight) / 2;
-	
-		g2.setColor(HIGHLIGHT);
-		
-		g2.fillRoundRect(x, 
-				y, 
-				p - x + mSliderRadius, 
-				mBarHeight,
-				mBarHeight,
-				mBarHeight);
-	}
-	
-	/**
-	 * Draw orb.
-	 *
-	 * @param g2 the g 2
-	 * @param p the p
-	 */
-	protected void drawOrb(Graphics2D g2, int p) {
-		int y = getHeight() / 2;
-		
-		g2.setColor(Color.WHITE);
-		g2.fillOval(p, y - mSliderRadius, 
-				mSliderDiameter, 
-				mSliderDiameter);
-		
-		g2.setColor(LINE_COLOR);
-		g2.drawOval(p, y - mSliderRadius, 
-				mSliderDiameter, 
-				mSliderDiameter);
-	}
+    init();
+  }
+
+  /**
+   * Instantiates a new mac orb slider.
+   *
+   * @param value
+   *          the value
+   * @param values
+   *          the values
+   */
+  public MacOrbSlider(double value, double... values) {
+    super(value, values);
+
+    init();
+  }
+
+  /**
+   * Instantiates a new mac orb slider.
+   *
+   * @param value
+   *          the value
+   * @param values
+   *          the values
+   */
+  public MacOrbSlider(double value, List<Double> values) {
+    super(value, values);
+
+    init();
+  }
+
+  /**
+   * Inits the.
+   */
+  private void init() {
+    setRadius(6);
+
+    setBorder(BorderService.getInstance().createLeftRightBorder(1));
+
+    setBackgroundAnimation(new MacOrbAnimation(this));
+  }
+
+  /**
+   * Sets the bar height.
+   *
+   * @param h
+   *          the new bar height
+   */
+  public void setBarHeight(int h) {
+    mBarHeight = h;
+
+    repaint();
+  }
+
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { int p =
+   * (int)(getInsets().left + mSliderDiameter % 2 + mPc * mGap);
+   * 
+   * drawBar(g2, p); }
+   */
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  /*
+   * @Override public void drawForegroundAA(Graphics2D g2) { int p =
+   * (int)(getInsets().left + mSliderDiameter % 2 + mPc * mGap);
+   * 
+   * drawOrb(g2, p); }
+   */
+
+  /**
+   * Draw bar base.
+   *
+   * @param g2
+   *          the g 2
+   * @param p
+   *          the p
+   */
+  protected void drawBarBase(Graphics2D g2, int p) {
+    g2.setColor(LINE_COLOR);
+
+    int x = getInsets().left + mSliderRadius;
+    int y = (getHeight() - mBarHeight) / 2;
+
+    g2.fillRoundRect(x, y, mInternalRect.getW() - mSliderDiameter, mBarHeight, mBarHeight, mBarHeight);
+  }
+
+  /**
+   * Draw bar.
+   *
+   * @param g2
+   *          the g 2
+   * @param p
+   *          the p
+   */
+  protected void drawBar(Graphics2D g2, int p) {
+    drawBarBase(g2, p);
+
+    int x = getInsets().left + mSliderRadius;
+    int y = (getHeight() - mBarHeight) / 2;
+
+    g2.setColor(HIGHLIGHT);
+
+    g2.fillRoundRect(x, y, p - x + mSliderRadius, mBarHeight, mBarHeight, mBarHeight);
+  }
+
+  /**
+   * Draw orb.
+   *
+   * @param g2
+   *          the g 2
+   * @param p
+   *          the p
+   */
+  protected void drawOrb(Graphics2D g2, int p) {
+    int y = getHeight() / 2;
+
+    g2.setColor(Color.WHITE);
+    g2.fillOval(p, y - mSliderRadius, mSliderDiameter, mSliderDiameter);
+
+    g2.setColor(LINE_COLOR);
+    g2.drawOval(p, y - mSliderRadius, mSliderDiameter, mSliderDiameter);
+  }
 }

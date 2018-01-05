@@ -36,7 +36,6 @@ import org.jebtk.modern.BorderService;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Default layout for buttons in a dialog box.
@@ -44,43 +43,43 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  */
 public class ModernCenterButtonsBox extends Box {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member box.
-	 */
-	private Box mBox = HBox.create();
-	
-	/**
-	 * Instantiates a new modern center buttons box.
-	 */
-	public ModernCenterButtonsBox() {
-		super(BoxLayout.LINE_AXIS);
-		
-		setBorder(BorderService.getInstance().createBorder(0, 
-				ModernWidget.DOUBLE_PADDING,
-				ModernWidget.DOUBLE_PADDING,
-				ModernWidget.DOUBLE_PADDING));
-		
-		setAlignmentX(LEFT_ALIGNMENT);
-		
-		super.add(Box.createHorizontalGlue());
-		super.add(mBox);
-		super.add(Box.createHorizontalGlue());
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component c) {
-		mBox.add(c);
-		
-		return c;
-	}
-	
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member box.
+   */
+  private Box mBox = HBox.create();
+
+  /**
+   * Instantiates a new modern center buttons box.
+   */
+  public ModernCenterButtonsBox() {
+    super(BoxLayout.LINE_AXIS);
+
+    setBorder(BorderService.getInstance().createBorder(0, ModernWidget.DOUBLE_PADDING, ModernWidget.DOUBLE_PADDING,
+        ModernWidget.DOUBLE_PADDING));
+
+    setAlignmentX(LEFT_ALIGNMENT);
+
+    super.add(Box.createHorizontalGlue());
+    super.add(mBox);
+    super.add(Box.createHorizontalGlue());
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component c) {
+    mBox.add(c);
+
+    return c;
+  }
+
 }

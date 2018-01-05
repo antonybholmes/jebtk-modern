@@ -39,73 +39,78 @@ import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.PathUtils;
 import org.xml.sax.SAXException;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Maintains a list of recently opened files as well as the
- * currently directory, allowing the lists to be shared
- * amongst multiple windows/apps in the same process.
+ * Maintains a list of recently opened files as well as the currently directory,
+ * allowing the lists to be shared amongst multiple windows/apps in the same
+ * process.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class PwdModel extends ChangeListeners {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member pwd.
-	 */
-	protected Path mPwd = PathUtils.getPwd();
+  /**
+   * The member pwd.
+   */
+  protected Path mPwd = PathUtils.getPwd();
 
-	/**
-	 * Gets the pwd.
-	 *
-	 * @return the pwd
-	 */
-	public Path getPwd() {
-		return mPwd;
-	}
+  /**
+   * Gets the pwd.
+   *
+   * @return the pwd
+   */
+  public Path getPwd() {
+    return mPwd;
+  }
 
-	/**
-	 * Set the present working directory.
-	 *
-	 * @param pwd the new pwd
-	 * @return 
-	 * @throws IOException Signals that an I/O exception has occurred.
-	 * @throws SAXException the SAX exception
-	 * @throws ParserConfigurationException the parser configuration exception
-	 * @throws TransformerException the transformer exception
-	 */
-	public synchronized boolean setPwd(File pwd) {
-		return setPwd(pwd.toPath());
-	}
+  /**
+   * Set the present working directory.
+   *
+   * @param pwd
+   *          the new pwd
+   * @return
+   * @throws IOException
+   *           Signals that an I/O exception has occurred.
+   * @throws SAXException
+   *           the SAX exception
+   * @throws ParserConfigurationException
+   *           the parser configuration exception
+   * @throws TransformerException
+   *           the transformer exception
+   */
+  public synchronized boolean setPwd(File pwd) {
+    return setPwd(pwd.toPath());
+  }
 
-	/**
-	 * Sets the pwd.
-	 *
-	 * @param pwd the new pwd
-	 * @return 
-	 */
-	public synchronized boolean setPwd(Path pwd) {
-		boolean ret = updatePwd(pwd);
-		
-		if (ret) {
-			fireChanged();
-		}
-		
-		return ret;
-	}
-	
-	public synchronized boolean updatePwd(Path pwd) {
-		pwd = pwd.toAbsolutePath();
+  /**
+   * Sets the pwd.
+   *
+   * @param pwd
+   *          the new pwd
+   * @return
+   */
+  public synchronized boolean setPwd(Path pwd) {
+    boolean ret = updatePwd(pwd);
 
-		if (FileUtils.isDirectory(pwd)) { //if (FileUtils.isDirectory(pwd) && !pwd.equals(mPwd)) {
-			mPwd = pwd;
-			return true;
-		} else {
-			return false;
-		}
-	}
+    if (ret) {
+      fireChanged();
+    }
+
+    return ret;
+  }
+
+  public synchronized boolean updatePwd(Path pwd) {
+    pwd = pwd.toAbsolutePath();
+
+    if (FileUtils.isDirectory(pwd)) { // if (FileUtils.isDirectory(pwd) && !pwd.equals(mPwd)) {
+      mPwd = pwd;
+      return true;
+    } else {
+      return false;
+    }
+  }
 }

@@ -20,30 +20,32 @@ import org.jebtk.modern.UI;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class ModernDialogSegmentsPanel provides a segments widget for
- * dialogs where the segments hovers above.
+ * The Class ModernDialogSegmentsPanel provides a segments widget for dialogs
+ * where the segments hovers above.
  */
 public class ModernDialogBlocksVertPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new modern dialog segments panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 */
-	public ModernDialogBlocksVertPanel(TabsModel model, int tabSize) {
-		BlockVertTabs tabs = new BlockVertTabs(model, tabSize * 3 / 4);
-		
-		UI.setSize(tabs, tabSize, Short.MAX_VALUE);
-		
-		setLeft(tabs); //new TextTabsTriangle(model, centered));
-		
-		TabsViewPanel panel = new TabsViewPanel(model);
-		//panel.setBorder(TOP_BORDER);
-		
-		setBody(panel); //new ModernLineBorderPanel(new ModernComponent(panel, LARGE_BORDER)));
-	}
+
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern dialog segments panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   */
+  public ModernDialogBlocksVertPanel(TabsModel model, int tabSize) {
+    BlockVertTabs tabs = new BlockVertTabs(model, tabSize * 3 / 4);
+
+    UI.setSize(tabs, tabSize, Short.MAX_VALUE);
+
+    setLeft(tabs); // new TextTabsTriangle(model, centered));
+
+    TabsViewPanel panel = new TabsViewPanel(model);
+    // panel.setBorder(TOP_BORDER);
+
+    setBody(panel); // new ModernLineBorderPanel(new ModernComponent(panel, LARGE_BORDER)));
+  }
 }

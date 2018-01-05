@@ -38,26 +38,26 @@ import org.jebtk.modern.theme.ModernTheme;
  * The class ModernSideButton.
  */
 public class ModernSideButton extends ModernButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant SIZE.
-	 */
-	private static final Dimension SIZE = 
-			ModernTheme.loadDimension("theme/button/dimensions/side-button");
 
-	/**
-	 * Instantiates a new modern side button.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernSideButton(ModernIcon icon) {
-		super(icon);
-		
-		UI.setSize(this, SIZE);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant SIZE.
+   */
+  private static final Dimension SIZE = ModernTheme.loadDimension("theme/button/dimensions/side-button");
+
+  /**
+   * Instantiates a new modern side button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernSideButton(ModernIcon icon) {
+    super(icon);
+
+    UI.setSize(this, SIZE);
+  }
 }

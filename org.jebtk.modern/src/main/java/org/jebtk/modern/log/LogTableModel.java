@@ -35,90 +35,103 @@ import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.log.LogEventListener;
 import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class LogTableModel.
  */
 public class LogTableModel extends ModernColumnHeaderTableModel implements LogEventListener {
-	
-	/**
-	 * The constant HEADER.
-	 */
-	private static final String[] HEADER = {"Type", "Date", "Source", "Message", "ID"};
-	
-	/**
-	 * The member events.
-	 */
-	private CircularArray<LogEvent> mEvents = new CircularArray<LogEvent>(1000);
 
-	/**
-	 * Instantiates a new log table model.
-	 */
-	public LogTableModel() {
-		fireDataChanged();
-	}
+  /**
+   * The constant HEADER.
+   */
+  private static final String[] HEADER = { "Type", "Date", "Source", "Message", "ID" };
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
-	 */
-	public final int getColumnCount() {
-		return HEADER.length;
-	}
+  /**
+   * The member events.
+   */
+  private CircularArray<LogEvent> mEvents = new CircularArray<LogEvent>(1000);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
-	 */
-	public final int getRowCount() {
-		return mEvents.size();
-	}
+  /**
+   * Instantiates a new log table model.
+   */
+  public LogTableModel() {
+    fireDataChanged();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
-	 */
-	@Override
-	public final Object getValueAt(int row, int col) {
-		switch (col) {
-		case 0:
-			return mEvents.get(row).getType();
-		case 1:
-			return mEvents.get(row).getFormattedDate();
-		case 2:
-			return mEvents.get(row).getSource();
-		case 3:
-			return mEvents.get(row).getMessage();
-		case 4:
-			return mEvents.get(row).getId();
-		}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
+   */
+  public final int getColumnCount() {
+    return HEADER.length;
+  }
 
-		return null;
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
+   */
+  public final int getRowCount() {
+    return mEvents.size();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int, int)
-	 */
-	public final boolean getIsCellEditable(int row, int col) {
-        //Note that the data/cell address is constant,
-        //no matter where the cell appears onscreen.
-
-		return false;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getValueAt(int, int)
+   */
+  @Override
+  public final Object getValueAt(int row, int col) {
+    switch (col) {
+    case 0:
+      return mEvents.get(row).getType();
+    case 1:
+      return mEvents.get(row).getFormattedDate();
+    case 2:
+      return mEvents.get(row).getSource();
+    case 3:
+      return mEvents.get(row).getMessage();
+    case 4:
+      return mEvents.get(row).getId();
     }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
-	 */
-	@Override
-	public final List<String> getColumnAnnotationText(int column) {
-		return CollectionUtils.asList(HEADER[column]);
-	}
+    return null;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
-	 */
-	@Override
-	public final void logEvent(LogEvent event) {
-		mEvents.add(event);
-		
-		fireDataChanged();
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataGridModel#getIsCellEditable(int,
+   * int)
+   */
+  public final boolean getIsCellEditable(int row, int col) {
+    // Note that the data/cell address is constant,
+    // no matter where the cell appears onscreen.
+
+    return false;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   */
+  @Override
+  public final List<String> getColumnAnnotationText(int column) {
+    return CollectionUtils.asList(HEADER[column]);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.log.LogEventListener#logEvent(org.abh.lib.log.LogEvent)
+   */
+  @Override
+  public final void logEvent(LogEvent event) {
+    mEvents.add(event);
+
+    fireDataChanged();
+  }
 }

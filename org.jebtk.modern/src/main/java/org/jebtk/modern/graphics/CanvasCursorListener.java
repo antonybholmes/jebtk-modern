@@ -37,11 +37,12 @@ import java.util.EventListener;
  *
  */
 public interface CanvasCursorListener extends EventListener {
-	
-	/**
-	 * Cursor changed.
-	 *
-	 * @param e the e
-	 */
-	public void cursorChanged(CanvasCursorEvent e);
+
+  /**
+   * Cursor changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void cursorChanged(CanvasCursorEvent e);
 }

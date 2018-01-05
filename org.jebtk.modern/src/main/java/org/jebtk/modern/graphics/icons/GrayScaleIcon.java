@@ -35,47 +35,49 @@ import java.awt.image.ColorConvertOp;
 
 // TODO: Auto-generated Javadoc
 /**
- * Rastorizes an icon (for example a vector based on) to reduce
- * drawing overhead.
+ * Rastorizes an icon (for example a vector based on) to reduce drawing
+ * overhead.
  * 
  * @author Antony Holmes Holmes
  */
 public class GrayScaleIcon {
-	
-	/**
-	 * Convert.
-	 *
-	 * @param icon the icon
-	 * @return the modern icon
-	 */
-	public static ModernIcon convert(ModernIcon icon) {
-		Image image = convert(icon.getImage());
-		
-		if (image == null) {
-			return null;
-		}
-		
-		return new ModernImageIcon(image);
-	}
-	
-	/**
-	 * Convert.
-	 *
-	 * @param image the image
-	 * @return the image
-	 */
-	public static Image convert(BufferedImage image) {
-		if (image == null) {
-			return null;
-		}
-		
-		//ImageFilter filter = new GrayFilter(true, 50);  
-		//ImageProducer producer = new FilteredImageSource(image.getSource(), filter);  
-		//Image grayImg = Toolkit.getDefaultToolkit().createImage(producer);
-		
-		BufferedImageOp op = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null); 
-		Image grayImage = op.filter(image, null);
-		
-		return grayImage;
-	}
+
+  /**
+   * Convert.
+   *
+   * @param icon
+   *          the icon
+   * @return the modern icon
+   */
+  public static ModernIcon convert(ModernIcon icon) {
+    Image image = convert(icon.getImage());
+
+    if (image == null) {
+      return null;
+    }
+
+    return new ModernImageIcon(image);
+  }
+
+  /**
+   * Convert.
+   *
+   * @param image
+   *          the image
+   * @return the image
+   */
+  public static Image convert(BufferedImage image) {
+    if (image == null) {
+      return null;
+    }
+
+    // ImageFilter filter = new GrayFilter(true, 50);
+    // ImageProducer producer = new FilteredImageSource(image.getSource(), filter);
+    // Image grayImg = Toolkit.getDefaultToolkit().createImage(producer);
+
+    BufferedImageOp op = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
+    Image grayImage = op.filter(image, null);
+
+    return grayImage;
+  }
 }

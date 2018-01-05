@@ -31,7 +31,6 @@ import java.awt.Color;
 
 import org.jebtk.modern.help.GuiAppInfo;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * For displaying a splash screen.
@@ -40,28 +39,29 @@ import org.jebtk.modern.help.GuiAppInfo;
  *
  */
 public class ModernSplashWindow2 extends ModernWindow {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new modern splash window2.
-	 *
-	 * @param appInfo the app info
-	 */
-	public ModernSplashWindow2(GuiAppInfo appInfo) {
-		super(appInfo);
-		
-		// determine the color of the icon
-		
-		Color color = new Color(appInfo.getIcon().getImage().getRGB(1, 1));
-		
-		getWindowContentPanel().setBackground(color);
-		
-		//mContentPanel = new ModernPanel(color);
-		
-		//super.getContentPane().add(mContentPanel, BorderLayout.CENTER);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern splash window2.
+   *
+   * @param appInfo
+   *          the app info
+   */
+  public ModernSplashWindow2(GuiAppInfo appInfo) {
+    super(appInfo);
+
+    // determine the color of the icon
+
+    Color color = new Color(appInfo.getIcon().getImage().getRGB(1, 1));
+
+    getWindowContentPanel().setBackground(color);
+
+    // mContentPanel = new ModernPanel(color);
+
+    // super.getContentPane().add(mContentPanel, BorderLayout.CENTER);
+  }
 }

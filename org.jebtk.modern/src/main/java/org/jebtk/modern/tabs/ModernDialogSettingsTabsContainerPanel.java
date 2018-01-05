@@ -29,9 +29,6 @@ package org.jebtk.modern.tabs;
 
 import org.jebtk.modern.dialog.ModernDialogWindow;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a sidebar with clickable tabs.
@@ -40,23 +37,24 @@ import org.jebtk.modern.dialog.ModernDialogWindow;
  *
  */
 public class ModernDialogSettingsTabsContainerPanel extends TabsViewPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog settings tabs container panel.
-	 *
-	 * @param model the model
-	 */
-	public ModernDialogSettingsTabsContainerPanel(TabsModel model) {
-		super(model);
-		
-		setBackground(ModernDialogWindow.DIALOG_BACKGROUND);
-		
-		//setBorder(BorderFactory.createCompoundBorder(BORDER, 
-		//		BORDER));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern dialog settings tabs container panel.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernDialogSettingsTabsContainerPanel(TabsModel model) {
+    super(model);
+
+    setBackground(ModernDialogWindow.DIALOG_BACKGROUND);
+
+    // setBorder(BorderFactory.createCompoundBorder(BORDER,
+    // BORDER));
+  }
 }

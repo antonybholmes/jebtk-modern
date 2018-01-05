@@ -41,159 +41,164 @@ import org.jebtk.modern.progress.ModernActivityBar2;
 import org.jebtk.modern.text.ModernCenteredHeadingPanel;
 import org.jebtk.modern.window.FrostedGlassPane;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Search dialog to notify users that a search is underway and to make
- * it obvious they should wait for the search to finish.
+ * Search dialog to notify users that a search is underway and to make it
+ * obvious they should wait for the search to finish.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class MessageDialogTaskGlassPane extends FrostedGlassPane {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member activity bar.
-	 */
-	private ModernActivityBar2 mActivityBar = new ModernActivityBar2();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member panel.
-	 */
-	private TaskPanel mPanel = new TaskPanel();
-	
-	/**
-	 * The class TaskPaneRunnable.
-	 */
-	private class TaskPaneRunnable implements Runnable {
+  /**
+   * The member activity bar.
+   */
+  private ModernActivityBar2 mActivityBar = new ModernActivityBar2();
 
-		/**
-		 * The member message.
-		 */
-		private String mMessage;
+  /**
+   * The member panel.
+   */
+  private TaskPanel mPanel = new TaskPanel();
 
-		/**
-		 * Instantiates a new task pane runnable.
-		 *
-		 * @param message the message
-		 */
-		public TaskPaneRunnable(String message) {
-			mMessage = message;
-		}
-		
-		/* (non-Javadoc)
-		 * @see java.lang.Runnable#run()
-		 */
-		@Override
-		public void run() {
-			mPanel.showMessage(mMessage);
-			
-			requestFocusInWindow();
-		}
-		
-	}
-	
-	/**
-	 * The class TaskPanel.
-	 */
-	private class TaskPanel extends MessageDialogPanel implements FocusListener {
-		
-		/**
-		 * The constant serialVersionUID.
-		 */
-		private static final long serialVersionUID = 1L;
+  /**
+   * The class TaskPaneRunnable.
+   */
+  private class TaskPaneRunnable implements Runnable {
 
-		/**
-		 * The constant WIDTH.
-		 */
-		private static final int WIDTH = 500;
-	
-		/**
-		 * The member message label.
-		 */
-		private ModernCenteredHeadingPanel mMessageLabel = 
-				new ModernCenteredHeadingPanel("Task", Color.WHITE);
+    /**
+     * The member message.
+     */
+    private String mMessage;
 
-		/**
-		 * Instantiates a new task panel.
-		 */
-		public TaskPanel() {
-			Box box2 = new HCenterBox();
+    /**
+     * Instantiates a new task pane runnable.
+     *
+     * @param message
+     *          the message
+     */
+    public TaskPaneRunnable(String message) {
+      mMessage = message;
+    }
 
-			//box3.add(mMessageLabel);
-			//box3.add(ModernPanel.createVGap());
-			//box3.add(new ModernSubHeadingLabel("Something or other", Color.WHITE));
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.lang.Runnable#run()
+     */
+    @Override
+    public void run() {
+      mPanel.showMessage(mMessage);
 
-			UI.setSize(mMessageLabel, new Dimension(WIDTH, 50));
+      requestFocusInWindow();
+    }
 
-			box2.add(mMessageLabel);
-			add(box2);
-			add(UI.createVGap(10));
+  }
 
-			box2 = new HCenterBox();
-			UI.setSize(mActivityBar, new Dimension(WIDTH, 10));
-			box2.add(mActivityBar);
-			add(box2);
+  /**
+   * The class TaskPanel.
+   */
+  private class TaskPanel extends MessageDialogPanel implements FocusListener {
 
-			addFocusListener(this);
-		}
+    /**
+     * The constant serialVersionUID.
+     */
+    private static final long serialVersionUID = 1L;
 
-		/**
-		 * Show message.
-		 *
-		 * @param message the message
-		 */
-		public void showMessage(String message) {
-			mMessageLabel.setText(message);
-		}
+    /**
+     * The constant WIDTH.
+     */
+    private static final int WIDTH = 500;
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusGained(FocusEvent e) {
-			mActivityBar.start();
-			
-		}
+    /**
+     * The member message label.
+     */
+    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel("Task", Color.WHITE);
 
-		/* (non-Javadoc)
-		 * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
-		 */
-		@Override
-		public void focusLost(FocusEvent e) {
-			System.err.println("Activty stop");
-			mActivityBar.stop();
-		}
-	}
+    /**
+     * Instantiates a new task panel.
+     */
+    public TaskPanel() {
+      Box box2 = new HCenterBox();
 
-	
+      // box3.add(mMessageLabel);
+      // box3.add(ModernPanel.createVGap());
+      // box3.add(new ModernSubHeadingLabel("Something or other", Color.WHITE));
 
-	/**
-	 * Instantiates a new message dialog task glass pane.
-	 */
-	public MessageDialogTaskGlassPane() {
-		add(mPanel);
-	}
+      UI.setSize(mMessageLabel, new Dimension(WIDTH, 50));
 
-	/**
-	 * Show message.
-	 *
-	 * @param message the message
-	 */
-	public void showMessage(String message) {
-		SwingUtilities.invokeLater(new TaskPaneRunnable(message));
-	}
+      box2.add(mMessageLabel);
+      add(box2);
+      add(UI.createVGap(10));
 
-	/**
-	 * Close.
-	 */
-	public void close() {
-		mActivityBar.stop();
-		setVisible(false);
-	}
+      box2 = new HCenterBox();
+      UI.setSize(mActivityBar, new Dimension(WIDTH, 10));
+      box2.add(mActivityBar);
+      add(box2);
+
+      addFocusListener(this);
+    }
+
+    /**
+     * Show message.
+     *
+     * @param message
+     *          the message
+     */
+    public void showMessage(String message) {
+      mMessageLabel.setText(message);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusGained(FocusEvent e) {
+      mActivityBar.start();
+
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
+     */
+    @Override
+    public void focusLost(FocusEvent e) {
+      System.err.println("Activty stop");
+      mActivityBar.stop();
+    }
+  }
+
+  /**
+   * Instantiates a new message dialog task glass pane.
+   */
+  public MessageDialogTaskGlassPane() {
+    add(mPanel);
+  }
+
+  /**
+   * Show message.
+   *
+   * @param message
+   *          the message
+   */
+  public void showMessage(String message) {
+    SwingUtilities.invokeLater(new TaskPaneRunnable(message));
+  }
+
+  /**
+   * Close.
+   */
+  public void close() {
+    mActivityBar.stop();
+    setVisible(false);
+  }
 }

@@ -30,9 +30,6 @@ package org.jebtk.modern;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a line separator for menus with a theme consistent with
@@ -42,57 +39,60 @@ import java.awt.Graphics2D;
  *
  */
 public class ModernHDivider extends ModernComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant MAX_SIZE.
-	 */
-	private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, 3);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant MAX_SIZE.
+   */
+  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, 3);
 
-	/**
-	 * The y.
-	 */
-	protected int y = 0;
+  /**
+   * The y.
+   */
+  protected int y = 0;
 
-	/** The m offset. */
-	private int mOffset = 0;
+  /** The m offset. */
+  private int mOffset = 0;
 
-	/** The m double offset. */
-	private int mDoubleOffset;
-	
-	/**
-	 * Instantiates a new modern menu separator.
-	 */
-	public ModernHDivider() {
-		this(0);
-	}
-	
-	/**
-	 * Instantiates a new modern H divider.
-	 *
-	 * @param padding the padding
-	 */
-	public ModernHDivider(int padding) {
-		mOffset = padding;
-		mDoubleOffset = mOffset * 2;
-		
-		UI.setSize(this, MAX_SIZE);
-	}
+  /** The m double offset. */
+  private int mDoubleOffset;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForeground(Graphics2D g2) {
-		g2.setColor(LINE_COLOR);
+  /**
+   * Instantiates a new modern menu separator.
+   */
+  public ModernHDivider() {
+    this(0);
+  }
 
-		int y = getHeight() / 2;
-		
-		g2.drawLine(mOffset, y, getWidth() - mDoubleOffset, y);
-	}
+  /**
+   * Instantiates a new modern H divider.
+   *
+   * @param padding
+   *          the padding
+   */
+  public ModernHDivider(int padding) {
+    mOffset = padding;
+    mDoubleOffset = mOffset * 2;
+
+    UI.setSize(this, MAX_SIZE);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForeground(Graphics2D g2) {
+    g2.setColor(LINE_COLOR);
+
+    int y = getHeight() / 2;
+
+    g2.drawLine(mOffset, y, getWidth() - mDoubleOffset, y);
+  }
 }

@@ -29,17 +29,16 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Color;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class WhiteCrossVectorIcon.
  */
 public class WhiteCrossVectorIcon extends CloseVectorIcon {
-	
-	/**
-	 * Instantiates a new white cross vector icon.
-	 */
-	public WhiteCrossVectorIcon() {
-		super(Color.WHITE);
-	}
+
+  /**
+   * Instantiates a new white cross vector icon.
+   */
+  public WhiteCrossVectorIcon() {
+    super(Color.WHITE);
+  }
 }

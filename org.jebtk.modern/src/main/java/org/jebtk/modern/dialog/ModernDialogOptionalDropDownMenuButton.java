@@ -34,7 +34,6 @@ import org.jebtk.modern.button.ModernOptionalDropDownMenuButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Replacement ModernButton with a common skin.
@@ -43,61 +42,64 @@ import org.jebtk.modern.menu.ModernPopupMenu;
  *
  */
 public class ModernDialogOptionalDropDownMenuButton extends ModernOptionalDropDownMenuButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog optional drop down menu button.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public ModernDialogOptionalDropDownMenuButton(String text1, 
-			ModernIcon icon, 
-			ModernPopupMenu menu) {
-		super(text1, icon, menu);
-	}
-	
+  /**
+   * Instantiates a new modern dialog optional drop down menu button.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public ModernDialogOptionalDropDownMenuButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
+    super(text1, icon, menu);
+  }
 
-	/**
-	 * Instantiates a new modern dialog optional drop down menu button.
-	 *
-	 * @param icon the icon
-	 * @param menu the menu
-	 */
-	public ModernDialogOptionalDropDownMenuButton(ModernIcon icon, 
-			ModernPopupMenu menu) {
-		super(icon, menu);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernOptionalDropDownMenuButton#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		Rectangle rect = new Rectangle(0, 0, getWidth(), getHeight());
-		
-		Rectangle subRect = new Rectangle();
+  /**
+   * Instantiates a new modern dialog optional drop down menu button.
+   *
+   * @param icon
+   *          the icon
+   * @param menu
+   *          the menu
+   */
+  public ModernDialogOptionalDropDownMenuButton(ModernIcon icon, ModernPopupMenu menu) {
+    super(icon, menu);
+  }
 
-		subRect.y = mRect.getY();
-		subRect.height = mRect.getH();
-		subRect.x = mDividerLocation;
-		subRect.width = mRect.getW() - mDividerLocation;
-		
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernOptionalDropDownMenuButton#drawBackground(
+   * java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    Rectangle rect = new Rectangle(0, 0, getWidth(), getHeight());
 
-		if (isSelected() || mPopupShown) {
-			//UiGraphics.paintBorder(g2, rect);
-			paintHighlightedOutlined(g2, rect);
-		} else if (mHighlight) {
-			paintHighlightedOutlined(g2, rect);
-			paintHighlightedOutlined(g2, subRect);
-		} else {
-			paintDialogButton(g2, rect);
-		}
-	}
+    Rectangle subRect = new Rectangle();
+
+    subRect.y = mRect.getY();
+    subRect.height = mRect.getH();
+    subRect.x = mDividerLocation;
+    subRect.width = mRect.getW() - mDividerLocation;
+
+    if (isSelected() || mPopupShown) {
+      // UiGraphics.paintBorder(g2, rect);
+      paintHighlightedOutlined(g2, rect);
+    } else if (mHighlight) {
+      paintHighlightedOutlined(g2, rect);
+      paintHighlightedOutlined(g2, subRect);
+    } else {
+      paintDialogButton(g2, rect);
+    }
+  }
 }

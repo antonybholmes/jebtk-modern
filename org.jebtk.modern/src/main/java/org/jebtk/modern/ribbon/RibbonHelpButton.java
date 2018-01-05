@@ -37,8 +37,6 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.help.HelpManager;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Launches a web browser to a particular web page.
@@ -47,52 +45,57 @@ import org.jebtk.modern.help.HelpManager;
  *
  */
 public class RibbonHelpButton extends QuickAccessButton implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member product.
-	 */
-	private GuiAppInfo mProduct;
-	
-	/**
-	 * Instantiates a new ribbon help button2.
-	 */
-	public RibbonHelpButton() {
-		super("?");
-		
-		setForeground(Ribbon.BAR_BACKGROUND); //Color.WHITE);
-		setFont(BOLD_FONT);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		addClickListener(this);
-		
-		UI.setSize(this, ModernButton.ICON_ONLY_SIZE);
-	}
-	
-	/**
-	 * Sets the help product name.
-	 *
-	 * @param product the new help product name
-	 */
-	public void setHelpProductName(GuiAppInfo product) {
-		mProduct = product;
-	}
+  /**
+   * The member product.
+   */
+  private GuiAppInfo mProduct;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	public void clicked(ModernClickEvent e) {
-		if (e.getSource().equals(this)) {
-			try {
-				HelpManager.launchHelp(mProduct);
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			} catch (URISyntaxException e1) {
-				e1.printStackTrace();
-			}
-		}
-	}
+  /**
+   * Instantiates a new ribbon help button2.
+   */
+  public RibbonHelpButton() {
+    super("?");
+
+    setForeground(Ribbon.BAR_BACKGROUND); // Color.WHITE);
+    setFont(BOLD_FONT);
+
+    addClickListener(this);
+
+    UI.setSize(this, ModernButton.ICON_ONLY_SIZE);
+  }
+
+  /**
+   * Sets the help product name.
+   *
+   * @param product
+   *          the new help product name
+   */
+  public void setHelpProductName(GuiAppInfo product) {
+    mProduct = product;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  public void clicked(ModernClickEvent e) {
+    if (e.getSource().equals(this)) {
+      try {
+        HelpManager.launchHelp(mProduct);
+      } catch (IOException e1) {
+        e1.printStackTrace();
+      } catch (URISyntaxException e1) {
+        e1.printStackTrace();
+      }
+    }
+  }
 }

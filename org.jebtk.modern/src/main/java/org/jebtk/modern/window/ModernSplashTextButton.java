@@ -43,48 +43,54 @@ import org.jebtk.modern.button.ModernButton;
  *
  */
 public class ModernSplashTextButton extends ModernButton {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant COLOR1. */
-	private static final Color COLOR1 = 
-			ColorUtils.getTransparentColor40(Color.WHITE);
-	
-	/** The Constant COLOR2. */
-	private static final Color COLOR2 = Color.WHITE;
 
-	/**
-	 * Instantiates a new modern splash button.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernSplashTextButton(String text1) {
-		super(text1);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.widget.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	public void drawBackground(Graphics2D g2) {
-		// Do nothing
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		if (mHighlight) {
-			g2.setColor(COLOR2);
-		} else {
-			g2.setColor(COLOR1);
-		}
-		
-		Point p = centerText(g2, mText1, getWidth() / 2, getHeight() / 2);
-		
-		g2.drawString(mText1, p.x, p.y);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /** The Constant COLOR1. */
+  private static final Color COLOR1 = ColorUtils.getTransparentColor40(Color.WHITE);
+
+  /** The Constant COLOR2. */
+  private static final Color COLOR2 = Color.WHITE;
+
+  /**
+   * Instantiates a new modern splash button.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernSplashTextButton(String text1) {
+    super(text1);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.widget.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  public void drawBackground(Graphics2D g2) {
+    // Do nothing
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mHighlight) {
+      g2.setColor(COLOR2);
+    } else {
+      g2.setColor(COLOR1);
+    }
+
+    Point p = centerText(g2, mText1, getWidth() / 2, getHeight() / 2);
+
+    g2.drawString(mText1, p.x, p.y);
+  }
 }

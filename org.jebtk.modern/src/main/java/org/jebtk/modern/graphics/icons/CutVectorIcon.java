@@ -33,70 +33,72 @@ import java.awt.Graphics2D;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ModernTheme;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class CutVectorIcon.
  */
 public class CutVectorIcon extends ModernVectorIcon {
-	
-	/**
-	 * The constant SCALE.
-	 */
-	private static final double SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.cut-icon.width-scale");
-	
-	/**
-	 * The constant HANDLE_SCALE.
-	 */
-	private static final double HANDLE_SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.cut-icon.handle-scale");
-	
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR =
-			SettingsService.getInstance().getAsColor("theme.icons.cut-icon.colors.foreground");
-	
-	/**
-	 * The constant BACKGROUND.
-	 */
-	private static final Color BACKGROUND =
-			SettingsService.getInstance().getAsColor("theme.icons.cut-icon.colors.background");
-	
-	/**
-	 * The constant HANDLE.
-	 */
-	private static final Color HANDLE =
-			SettingsService.getInstance().getAsColor("theme.icons.cut-icon.colors.handle");
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		double wf = w * SCALE;
-		
-		double xf = x + (w - w) / 2.0;
-		double yf = y + (h - w) / 2.0;
-		double hw = w * HANDLE_SCALE;
-		
-		g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-		g2.setColor(COLOR);
-		
-		g2.drawLine((int)Math.round(xf + hw / 2.0), (int)Math.round(yf), (int)Math.round(x + wf - hw / 2.0), (int)Math.round(yf + wf - hw / 2.0));
-		g2.drawLine((int)Math.round(xf + hw / 2.0), (int)Math.round(yf + wf - hw / 2.0), (int)Math.round(xf + wf - hw / 2.0), (int)Math.round(yf));
-	
-		
-		
-		g2.setStroke(ModernTheme.SINGLE_LINE_STROKE);
-		
-		g2.setColor(BACKGROUND);
-		g2.fillOval((int)Math.round(xf), (int)Math.round(y + w - hw), (int)Math.round(hw), (int)Math.round(hw));
-		g2.fillOval((int)Math.round(xf + wf - hw), (int)Math.round(yf + wf - hw), (int)Math.round(hw), (int)Math.round(hw));
-		
-		g2.setColor(HANDLE);
-		g2.drawOval((int)Math.round(xf), (int)Math.round(y + w - hw), (int)Math.round(hw), (int)Math.round(hw));
-		g2.drawOval((int)Math.round(xf + wf - hw), (int)Math.round(y + wf - hw), (int)Math.round(hw), (int)Math.round(hw));
-	}
+
+  /**
+   * The constant SCALE.
+   */
+  private static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.cut-icon.width-scale");
+
+  /**
+   * The constant HANDLE_SCALE.
+   */
+  private static final double HANDLE_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.cut-icon.handle-scale");
+
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = SettingsService.getInstance().getAsColor("theme.icons.cut-icon.colors.foreground");
+
+  /**
+   * The constant BACKGROUND.
+   */
+  private static final Color BACKGROUND = SettingsService.getInstance()
+      .getAsColor("theme.icons.cut-icon.colors.background");
+
+  /**
+   * The constant HANDLE.
+   */
+  private static final Color HANDLE = SettingsService.getInstance().getAsColor("theme.icons.cut-icon.colors.handle");
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    double wf = w * SCALE;
+
+    double xf = x + (w - w) / 2.0;
+    double yf = y + (h - w) / 2.0;
+    double hw = w * HANDLE_SCALE;
+
+    g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+    g2.setColor(COLOR);
+
+    g2.drawLine((int) Math.round(xf + hw / 2.0), (int) Math.round(yf), (int) Math.round(x + wf - hw / 2.0),
+        (int) Math.round(yf + wf - hw / 2.0));
+    g2.drawLine((int) Math.round(xf + hw / 2.0), (int) Math.round(yf + wf - hw / 2.0),
+        (int) Math.round(xf + wf - hw / 2.0), (int) Math.round(yf));
+
+    g2.setStroke(ModernTheme.SINGLE_LINE_STROKE);
+
+    g2.setColor(BACKGROUND);
+    g2.fillOval((int) Math.round(xf), (int) Math.round(y + w - hw), (int) Math.round(hw), (int) Math.round(hw));
+    g2.fillOval((int) Math.round(xf + wf - hw), (int) Math.round(yf + wf - hw), (int) Math.round(hw),
+        (int) Math.round(hw));
+
+    g2.setColor(HANDLE);
+    g2.drawOval((int) Math.round(xf), (int) Math.round(y + w - hw), (int) Math.round(hw), (int) Math.round(hw));
+    g2.drawOval((int) Math.round(xf + wf - hw), (int) Math.round(y + wf - hw), (int) Math.round(hw),
+        (int) Math.round(hw));
+  }
 }

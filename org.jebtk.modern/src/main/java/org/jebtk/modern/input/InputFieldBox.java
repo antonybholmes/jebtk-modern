@@ -26,45 +26,52 @@ import org.jebtk.modern.text.ModernTextField;
  */
 public class InputFieldBox extends HBox {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	/** The m field. */
-	private ModernTextField mField = new ModernTextField();
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new input field box.
-	 *
-	 * @param name the name
-	 * @param lw the lw
-	 * @param fw the fw
-	 */
-	public InputFieldBox(String name, int lw, int fw) {
-		add(new ModernAutoSizeLabel(name, lw));
-		add(new ModernTextBorderPanel(mField, fw));
-	}
-	
-	/**
-	 * Instantiates a new input field box.
-	 *
-	 * @param name the name
-	 * @param value the value
-	 * @param lw the lw
-	 * @param fw the fw
-	 */
-	public InputFieldBox(String name, String value, int lw, int fw) {
-		this(name, lw, fw);
-		
-		mField.setText(value);
-	}
-	
-	/**
-	 * Gets the text.
-	 *
-	 * @return the text
-	 */
-	public String getText() {
-		return mField.getText();
-	}
+  /** The m field. */
+  private ModernTextField mField = new ModernTextField();
+
+  /**
+   * Instantiates a new input field box.
+   *
+   * @param name
+   *          the name
+   * @param lw
+   *          the lw
+   * @param fw
+   *          the fw
+   */
+  public InputFieldBox(String name, int lw, int fw) {
+    add(new ModernAutoSizeLabel(name, lw));
+    add(new ModernTextBorderPanel(mField, fw));
+  }
+
+  /**
+   * Instantiates a new input field box.
+   *
+   * @param name
+   *          the name
+   * @param value
+   *          the value
+   * @param lw
+   *          the lw
+   * @param fw
+   *          the fw
+   */
+  public InputFieldBox(String name, String value, int lw, int fw) {
+    this(name, lw, fw);
+
+    mField.setText(value);
+  }
+
+  /**
+   * Gets the text.
+   *
+   * @return the text
+   */
+  public String getText() {
+    return mField.getText();
+  }
 
 }

@@ -43,73 +43,71 @@ import org.jebtk.modern.window.ModernWindow;
  *
  */
 public class ModernTextDialog extends ModernDialogTaskWindow implements ModernClickListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member text.
-	 */
-	private ModernTextArea mText = new ModernTextArea();
 
-	
-	/**
-	 * Instantiates a new modern text dialog.
-	 *
-	 * @param parent the parent
-	 * @param title the title
-	 * @param text the text
-	 */
-	public ModernTextDialog(ModernWindow parent, 
-			String title,
-			String text) {
-		super(parent, ModernDialogTaskType.CLOSE);
-		
-		setTitle(title);
-	
-		setup();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		createUi();
+  /**
+   * The member text.
+   */
+  private ModernTextArea mText = new ModernTextArea();
 
-		mText.setEditable(false);
-		
-		mText.setText(text);
-	}
+  /**
+   * Instantiates a new modern text dialog.
+   *
+   * @param parent
+   *          the parent
+   * @param title
+   *          the title
+   * @param text
+   *          the text
+   */
+  public ModernTextDialog(ModernWindow parent, String title, String text) {
+    super(parent, ModernDialogTaskType.CLOSE);
 
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		mOkButton.addClickListener(this);
+    setTitle(title);
 
-		setSize(640, 480);
-		
-		setResizable(true);
-		
-		UI.centerWindowToScreen(this);
-	}
-	
-	
+    setup();
 
-	/**
-	 * Creates the ui.
-	 */
-	private final void createUi() {
-		ModernScrollPane scrollPane = new ModernScrollPane(mText);
-		
-		scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
+    createUi();
 
-		setInternalContent(new ModernContentPanel(scrollPane));
-	}
+    mText.setEditable(false);
 
-	/**
-	 * Gets the text.
-	 *
-	 * @return the text
-	 */
-	public String getText() {
-		return mText.getText();
-	}
+    mText.setText(text);
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    mOkButton.addClickListener(this);
+
+    setSize(640, 480);
+
+    setResizable(true);
+
+    UI.centerWindowToScreen(this);
+  }
+
+  /**
+   * Creates the ui.
+   */
+  private final void createUi() {
+    ModernScrollPane scrollPane = new ModernScrollPane(mText);
+
+    scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
+
+    setInternalContent(new ModernContentPanel(scrollPane));
+  }
+
+  /**
+   * Gets the text.
+   *
+   * @return the text
+   */
+  public String getText() {
+    return mText.getText();
+  }
 }

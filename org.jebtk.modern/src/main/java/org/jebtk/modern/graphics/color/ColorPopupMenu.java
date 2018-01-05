@@ -42,155 +42,157 @@ import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ColorPopupMenu.
  */
 public class ColorPopupMenu extends ModernPopupMenu {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/** The Constant COLOR_PICKER_BACKGROUND. */
-	public static final Color COLOR_PICKER_BACKGROUND = 
-			ThemeService.getInstance().colors().getHighlight(1);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member color picker.
-	 */
-	private MultiColorPicker mColorPicker = new MultiColorPicker();
-	
-	/**
-	 * The member standard color picker.
-	 */
-	private StandardColorPicker mStandardColorPicker = 
-			new StandardColorPicker();
-	
-	/**
-	 * The member parent.
-	 */
-	private ModernWindow mParent;
-	
-	/**
-	 * The member color.
-	 */
-	private Color mColor = Color.BLACK;
-	
-	/**
-	 * Instantiates a new color popup menu.
-	 *
-	 * @param parent the parent
-	 * @param color the color
-	 */
-	public ColorPopupMenu(ModernWindow parent, Color color) {
-		mParent = parent;
-		
-		mColor = color;
-		
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new color popup menu.
-	 *
-	 * @param parent the parent
-	 */
-	public ColorPopupMenu(ModernWindow parent) {
-		mParent = parent;
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setBackground(COLOR_PICKER_BACKGROUND);
-		
-		setBorder(BorderFactory.createCompoundBorder(ModernWidget.LINE_BORDER, 
-				BorderService.getInstance().createBorder(4)));
-		
-		//Dimension size = new Dimension(mColorPicker.getPreferredSize().width, 
-		//		ModernWidget.WIDGET_HEIGHT);
-		
-		
-		add(new ModernDialogHeadingLabel("Theme Colors"));
-		
-		add(mColorPicker);
-		
-		add(new ModernDialogHeadingLabel("Standard Colors"));
-		
-		add(mStandardColorPicker);
+  /** The Constant COLOR_PICKER_BACKGROUND. */
+  public static final Color COLOR_PICKER_BACKGROUND = ThemeService.getInstance().colors().getHighlight(1);
 
-		//add(new ModernIconMenuItem("No Color", 
-		//		UIService.getInstance().loadIcon("blank", 16), 
-		//		size));
-		
-		//add(new ModernMenuDivider());
-		
-		add(new ModernIconMenuItem("More Colors...", 
-				UIService.getInstance().loadIcon("color_wheel", 16))
-				.setBackgroundAnimations("color-menu-fade"));
-		
-		mColorPicker.addClickListener(this);
-		mStandardColorPicker.addClickListener(this);
-		
-		//addClickListener(this);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.menu.ModernPopup#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void clicked(ModernClickEvent e) {
-		setVisible(false);
-		
-		if (e.getSource().equals(mColorPicker)) {
-			mColor = mColorPicker.getSelectedColor();
-			
-			fireClicked(new ModernClickEvent(this,  ColorSelectionModel.COLOR_CHANGED));
-		} else if (e.getSource().equals(mStandardColorPicker)) {
-			mColor = mStandardColorPicker.getSelectedColor();
-				
-			fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
-		} else if (e.getMessage().equals("No Color")) {
-			mColor = null;
-				
-			fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
-		} else if (e.getMessage().equals("More Colors...")) {
-			ColorDialog dialog = new ColorDialog(mParent, mColor);
-			
-			dialog.setVisible(true);
-			
-			if (dialog.getStatus() == ModernDialogStatus.OK) {
-				mColor = dialog.getColor();
-				
-				fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
-			}
-		} else {
-			// do nothing
-		}
-	}
-	
-	/**
-	 * Gets the selected color.
-	 *
-	 * @return the selected color
-	 */
-	public Color getSelectedColor() {
-		return mColor;
-	}
-	
-	/**
-	 * Sets the selected color.
-	 *
-	 * @param color the new selected color
-	 */
-	public void setSelectedColor(Color color) {
-		mColor = color;
-	}
+  /**
+   * The member color picker.
+   */
+  private MultiColorPicker mColorPicker = new MultiColorPicker();
+
+  /**
+   * The member standard color picker.
+   */
+  private StandardColorPicker mStandardColorPicker = new StandardColorPicker();
+
+  /**
+   * The member parent.
+   */
+  private ModernWindow mParent;
+
+  /**
+   * The member color.
+   */
+  private Color mColor = Color.BLACK;
+
+  /**
+   * Instantiates a new color popup menu.
+   *
+   * @param parent
+   *          the parent
+   * @param color
+   *          the color
+   */
+  public ColorPopupMenu(ModernWindow parent, Color color) {
+    mParent = parent;
+
+    mColor = color;
+
+    setup();
+  }
+
+  /**
+   * Instantiates a new color popup menu.
+   *
+   * @param parent
+   *          the parent
+   */
+  public ColorPopupMenu(ModernWindow parent) {
+    mParent = parent;
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setBackground(COLOR_PICKER_BACKGROUND);
+
+    setBorder(
+        BorderFactory.createCompoundBorder(ModernWidget.LINE_BORDER, BorderService.getInstance().createBorder(4)));
+
+    // Dimension size = new Dimension(mColorPicker.getPreferredSize().width,
+    // ModernWidget.WIDGET_HEIGHT);
+
+    add(new ModernDialogHeadingLabel("Theme Colors"));
+
+    add(mColorPicker);
+
+    add(new ModernDialogHeadingLabel("Standard Colors"));
+
+    add(mStandardColorPicker);
+
+    // add(new ModernIconMenuItem("No Color",
+    // UIService.getInstance().loadIcon("blank", 16),
+    // size));
+
+    // add(new ModernMenuDivider());
+
+    add(new ModernIconMenuItem("More Colors...", UIService.getInstance().loadIcon("color_wheel", 16))
+        .setBackgroundAnimations("color-menu-fade"));
+
+    mColorPicker.addClickListener(this);
+    mStandardColorPicker.addClickListener(this);
+
+    // addClickListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.menu.ModernPopup#clicked(org.abh.lib.ui.modern.event.
+   * ModernClickEvent)
+   */
+  @Override
+  public void clicked(ModernClickEvent e) {
+    setVisible(false);
+
+    if (e.getSource().equals(mColorPicker)) {
+      mColor = mColorPicker.getSelectedColor();
+
+      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+    } else if (e.getSource().equals(mStandardColorPicker)) {
+      mColor = mStandardColorPicker.getSelectedColor();
+
+      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+    } else if (e.getMessage().equals("No Color")) {
+      mColor = null;
+
+      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+    } else if (e.getMessage().equals("More Colors...")) {
+      ColorDialog dialog = new ColorDialog(mParent, mColor);
+
+      dialog.setVisible(true);
+
+      if (dialog.getStatus() == ModernDialogStatus.OK) {
+        mColor = dialog.getColor();
+
+        fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+      }
+    } else {
+      // do nothing
+    }
+  }
+
+  /**
+   * Gets the selected color.
+   *
+   * @return the selected color
+   */
+  public Color getSelectedColor() {
+    return mColor;
+  }
+
+  /**
+   * Sets the selected color.
+   *
+   * @param color
+   *          the new selected color
+   */
+  public void setSelectedColor(Color color) {
+    mColor = color;
+  }
 }

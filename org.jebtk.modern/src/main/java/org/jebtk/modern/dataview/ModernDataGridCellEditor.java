@@ -37,161 +37,163 @@ import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.text.ModernNumericalTextField;
 import org.jebtk.modern.text.ModernTextField;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernDataGridCellEditor.
  */
 public class ModernDataGridCellEditor extends ModernDataCellEditor implements DocumentListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member text field.
-	 */
-	private ModernTextField mTextField = new ModernTextField();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member number field.
-	 */
-	private ModernNumericalTextField mNumberField = 
-			new ModernNumericalTextField();
+  /**
+   * The member text field.
+   */
+  private ModernTextField mTextField = new ModernTextField();
 
-	/**
-	 * The member text panel.
-	 */
-	private ModernPanel mTextPanel = 
-			new ModernPanel(mTextField, ModernPanel.SMALL_BORDER);
+  /**
+   * The member number field.
+   */
+  private ModernNumericalTextField mNumberField = new ModernNumericalTextField();
 
-	/**
-	 * The member number panel.
-	 */
-	private ModernPanel mNumberPanel = 
-			new ModernPanel(mNumberField, ModernPanel.SMALL_BORDER);
+  /**
+   * The member text panel.
+   */
+  private ModernPanel mTextPanel = new ModernPanel(mTextField, ModernPanel.SMALL_BORDER);
 
-	/**
-	 * The member is number.
-	 */
-	private boolean mIsNumber;
+  /**
+   * The member number panel.
+   */
+  private ModernPanel mNumberPanel = new ModernPanel(mNumberField, ModernPanel.SMALL_BORDER);
 
-	/*
-	private final class TextHighlightWorker implements Runnable {
+  /**
+   * The member is number.
+   */
+  private boolean mIsNumber;
 
-		public void run() {
-			if (mIsNumber) {
-				mNumberField.requestFocusInWindow();
-				mNumberField.selectAll();
-			} else {
-				mTextField.requestFocusInWindow();
-				mTextField.selectAll();
-			}
-		}
-	}
-	*/
+  /*
+   * private final class TextHighlightWorker implements Runnable {
+   * 
+   * public void run() { if (mIsNumber) { mNumberField.requestFocusInWindow();
+   * mNumberField.selectAll(); } else { mTextField.requestFocusInWindow();
+   * mTextField.selectAll(); } } }
+   */
 
-	/**
-	 * Instantiates a new modern data grid cell editor.
-	 */
-	public ModernDataGridCellEditor() {
-		this(true);
-	}
+  /**
+   * Instantiates a new modern data grid cell editor.
+   */
+  public ModernDataGridCellEditor() {
+    this(true);
+  }
 
-	/**
-	 * Instantiates a new modern data grid cell editor.
-	 *
-	 * @param editable the editable
-	 */
-	public ModernDataGridCellEditor(boolean editable) {
-		mTextField.setEditable(editable);
-		mTextField.getDocument().addDocumentListener(this);
+  /**
+   * Instantiates a new modern data grid cell editor.
+   *
+   * @param editable
+   *          the editable
+   */
+  public ModernDataGridCellEditor(boolean editable) {
+    mTextField.setEditable(editable);
+    mTextField.getDocument().addDocumentListener(this);
 
-		mNumberField.setEditable(editable);
-		mNumberField.getDocument().addDocumentListener(this);
-	}
+    mNumberField.setEditable(editable);
+    mNumberField.getDocument().addDocumentListener(this);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
-	 */
-	@Override
-	public final Object getCellEditorValue() {
-		if (mIsNumber) {
-			return mNumberField.getAsDouble();
-		} else {
-			return mTextField.getText();
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	@Override
-	public Component getCellEditorComponent(ModernData view,
-			Object value,
-			boolean highlight,
-			boolean isSelected,
-			boolean hasFocus,
-			int row,
-			int column) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   */
+  @Override
+  public final Object getCellEditorValue() {
+    if (mIsNumber) {
+      return mNumberField.getAsDouble();
+    } else {
+      return mTextField.getText();
+    }
+  }
 
-		mIsNumber = false;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorComponent(
+   * org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean,
+   * boolean, boolean, int, int)
+   */
+  @Override
+  public Component getCellEditorComponent(ModernData view, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
 
-		if (value != null) {
-			if (value instanceof Double) {
-				mIsNumber = true;
-				mNumberField.setText((Double)value);
-				return mNumberPanel;
-			} else if (value instanceof Integer) {
-				mIsNumber = true;
-				mNumberField.setText((Integer)value);
-				return mNumberPanel;
-			} else {
-				mTextField.setText(value.toString());
-				return mTextPanel;
-			}
-		} else {
-			return mTextPanel;
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#setFocus()
-	 */
-	@Override
-	public void setFocus() {
-		if (mIsNumber) {
-			mNumberField.requestFocusInWindow();
-			mNumberField.selectAll();
-		} else {
-			mTextField.requestFocusInWindow();
-			mTextField.selectAll();
-		}
-	}
+    mIsNumber = false;
 
-	/* (non-Javadoc)
-	 * @see javax.swing.event.DocumentListener#changedUpdate(javax.swing.event.DocumentEvent)
-	 */
-	@Override
-	public void changedUpdate(DocumentEvent e) {
-		fireChanged(new ChangeEvent(this));
-	}
+    if (value != null) {
+      if (value instanceof Double) {
+        mIsNumber = true;
+        mNumberField.setText((Double) value);
+        return mNumberPanel;
+      } else if (value instanceof Integer) {
+        mIsNumber = true;
+        mNumberField.setText((Integer) value);
+        return mNumberPanel;
+      } else {
+        mTextField.setText(value.toString());
+        return mTextPanel;
+      }
+    } else {
+      return mTextPanel;
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see javax.swing.event.DocumentListener#insertUpdate(javax.swing.event.DocumentEvent)
-	 */
-	@Override
-	public void insertUpdate(DocumentEvent e) {
-		changedUpdate(e);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#setFocus()
+   */
+  @Override
+  public void setFocus() {
+    if (mIsNumber) {
+      mNumberField.requestFocusInWindow();
+      mNumberField.selectAll();
+    } else {
+      mTextField.requestFocusInWindow();
+      mTextField.selectAll();
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see javax.swing.event.DocumentListener#removeUpdate(javax.swing.event.DocumentEvent)
-	 */
-	@Override
-	public void removeUpdate(DocumentEvent e) {
-		changedUpdate(e);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.event.DocumentListener#changedUpdate(javax.swing.event.
+   * DocumentEvent)
+   */
+  @Override
+  public void changedUpdate(DocumentEvent e) {
+    fireChanged(new ChangeEvent(this));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.event.DocumentListener#insertUpdate(javax.swing.event.
+   * DocumentEvent)
+   */
+  @Override
+  public void insertUpdate(DocumentEvent e) {
+    changedUpdate(e);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.event.DocumentListener#removeUpdate(javax.swing.event.
+   * DocumentEvent)
+   */
+  @Override
+  public void removeUpdate(DocumentEvent e) {
+    changedUpdate(e);
+  }
 }

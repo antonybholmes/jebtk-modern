@@ -31,175 +31,185 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.text.TextProperty;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides the basic functionality of a button and
- * some rendering, but does not provide a concrete
- * implementation of the button.
+ * Provides the basic functionality of a button and some rendering, but does not
+ * provide a concrete implementation of the button.
  *
  * @author Antony Holmes Holmes
  *
  */
 public abstract class ModernButtonWidget extends ModernClickWidget implements TextProperty {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
 
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member text1.
-	 */
-	//protected JLabel label1 = new JLabel();
-	protected String mText1 = null;
+  /**
+   * The member text1.
+   */
+  // protected JLabel label1 = new JLabel();
+  protected String mText1 = null;
 
-	/**
-	 * The member icon.
-	 */
-	protected ModernIcon mIcon = null;
+  /**
+   * The member icon.
+   */
+  protected ModernIcon mIcon = null;
 
-	//protected Image buttonImage = null;
-	//protected Image disabledButtonImage = null;
-	//protected Image backgroundButtonImage = null;
+  // protected Image buttonImage = null;
+  // protected Image disabledButtonImage = null;
+  // protected Image backgroundButtonImage = null;
 
+  /**
+   * Instantiates a new modern button widget.
+   */
+  public ModernButtonWidget() {
+    // Do nothing
+  }
 
+  /**
+   * Instantiates a new modern button widget.
+   *
+   * @param text1
+   *          the text1
+   */
+  public ModernButtonWidget(String text1) {
+    setText(text1);
 
-	
+    // Ui.setSize(this,
+    // ModernTheme.getInstance().getClass("button").getDimension("default"));
+  }
 
-	/**
-	 * Instantiates a new modern button widget.
-	 */
-	public ModernButtonWidget() {
-		// Do nothing
-	}
+  /**
+   * Instantiates a new modern button widget.
+   *
+   * @param icon
+   *          the icon
+   */
+  public ModernButtonWidget(ModernIcon icon) {
+    setIcon(icon);
 
-	/**
-	 * Instantiates a new modern button widget.
-	 *
-	 * @param text1 the text1
-	 */
-	public ModernButtonWidget(String text1) {
-		setText(text1);
+    // Ui.setSize(this,
+    // ModernTheme.getInstance().getClass("button").getDimension("icon-only"));
+  }
 
-		//Ui.setSize(this, ModernTheme.getInstance().getClass("button").getDimension("default"));
-	}
+  /**
+   * Instantiates a new modern button widget.
+   *
+   * @param text1
+   *          the text1
+   * @param icon
+   *          the icon
+   */
+  public ModernButtonWidget(String text1, ModernIcon icon) {
+    setText(text1);
+    setIcon(icon);
 
-	/**
-	 * Instantiates a new modern button widget.
-	 *
-	 * @param icon the icon
-	 */
-	public ModernButtonWidget(ModernIcon icon) {
-		setIcon(icon);
+    // Ui.setSize(this,
+    // ModernTheme.getInstance().getClass("button").getDimension("icon-text"));
+  }
 
-		//Ui.setSize(this, ModernTheme.getInstance().getClass("button").getDimension("icon-only"));
-	}
-	
-	/**
-	 * Instantiates a new modern button widget.
-	 *
-	 * @param text1 the text1
-	 * @param icon the icon
-	 */
-	public ModernButtonWidget(String text1, ModernIcon icon) {
-		setText(text1);
-		setIcon(icon);
+  /**
+   * Sets the icon.
+   *
+   * @param icon
+   *          the new icon
+   */
+  public void setIcon(ModernIcon icon) {
+    mIcon = icon;
 
-		//Ui.setSize(this, ModernTheme.getInstance().getClass("button").getDimension("icon-text"));
-	}
-	
-	/**
-	 * Sets the icon.
-	 *
-	 * @param icon the new icon
-	 */
-	public void setIcon(ModernIcon icon) {
-		mIcon = icon;
-		
-		autoSize();
-	}
-	
-	/**
-	 * Gets the icon.
-	 *
-	 * @return the icon
-	 */
-	public ModernIcon getIcon() {
-		return mIcon;
-	}
-	
-	/**
-	 * Gets the disabled icon.
-	 *
-	 * @return the disabled icon
-	 */
-	public ModernIcon getDisabledIcon() {
-		return mIcon.getDisabledIcon();
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#getText()
-	 */
-	public String getText() {
-		return mText1;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
-	 */
-	public void setText(String text) {
-		mText1 = text;
-		
-		setClickMessage(text);
-		
-		autoSize();
-	}
-	
-	/**
-	 * Sets whether the button text is visible or not.
-	 * 
-	 * @param show
-	 */
-	public void setShowText(boolean show) {
-		// Do nothing
-	}
+    autoSize();
+  }
 
-	/**
-	 * Returns whether the button text should be visible or not.
-	 *
-	 * @return the show text
-	 */
-	public boolean getShowText() {
-		return true;
-	}
+  /**
+   * Gets the icon.
+   *
+   * @return the icon
+   */
+  public ModernIcon getIcon() {
+    return mIcon;
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernClickWidget#setHighlighted(boolean)
-	 */
-	@Override
-	public void setHighlighted(boolean highlight) {
-		if (isEnabled()) {
-			mHighlight = highlight;
+  /**
+   * Gets the disabled icon.
+   *
+   * @return the disabled icon
+   */
+  public ModernIcon getDisabledIcon() {
+    return mIcon.getDisabledIcon();
+  }
 
-			repaint();
-		}
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#getText()
+   */
+  public String getText() {
+    return mText1;
+  }
 
-	/* (non-Javadoc)
-	 * @see javax.swing.JComponent#setEnabled(boolean)
-	 */
-	@Override
-	public void setEnabled(boolean enabled) {
-		super.setEnabled(enabled);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.text.TextProperty#setText(java.lang.String)
+   */
+  public void setText(String text) {
+    mText1 = text;
 
-		setForeground(isEnabled() ? TEXT_COLOR : ALT_TEXT_COLOR);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	
+    setClickMessage(text);
+
+    autoSize();
+  }
+
+  /**
+   * Sets whether the button text is visible or not.
+   * 
+   * @param show
+   */
+  public void setShowText(boolean show) {
+    // Do nothing
+  }
+
+  /**
+   * Returns whether the button text should be visible or not.
+   *
+   * @return the show text
+   */
+  public boolean getShowText() {
+    return true;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernClickWidget#setHighlighted(boolean)
+   */
+  @Override
+  public void setHighlighted(boolean highlight) {
+    if (isEnabled()) {
+      mHighlight = highlight;
+
+      repaint();
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.JComponent#setEnabled(boolean)
+   */
+  @Override
+  public void setEnabled(boolean enabled) {
+    super.setEnabled(enabled);
+
+    setForeground(isEnabled() ? TEXT_COLOR : ALT_TEXT_COLOR);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+
 }

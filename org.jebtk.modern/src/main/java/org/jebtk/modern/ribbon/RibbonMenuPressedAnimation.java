@@ -24,13 +24,14 @@ import org.jebtk.modern.widget.ModernWidget;
  * The Class RibbonMenuAnimation.
  */
 public class RibbonMenuPressedAnimation extends ButtonPressedAnimation {
-	
-	/**
-	 * Instantiates a new ribbon menu animation.
-	 *
-	 * @param button the button
-	 */
-	public RibbonMenuPressedAnimation(ModernWidget button) {
-		super(button, MaterialService.getInstance().color("gray-pressed"));
-	}
+
+  /**
+   * Instantiates a new ribbon menu animation.
+   *
+   * @param button
+   *          the button
+   */
+  public RibbonMenuPressedAnimation(ModernWidget button) {
+    super(button, MaterialService.getInstance().color("gray-pressed"));
+  }
 }

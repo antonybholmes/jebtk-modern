@@ -32,39 +32,39 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.theme.ThemeService;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a rudimentary implementation of a node renderer that
- * detects if is selected and what the tree branching depth is.
- * This forms the basis of concrete implementations of renderers.
+ * Provides a rudimentary implementation of a node renderer that detects if is
+ * selected and what the tree branching depth is. This forms the basis of
+ * concrete implementations of renderers.
  *
  * @author Antony Holmes Holmes
- * @param <T> the generic type
+ * @param <T>
+ *          the generic type
  */
 public class ModernTreeNodeInsertLineRenderer extends ModernTreeNodeInsertRenderer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant COLOR.
-	 */
-	private static final Color COLOR = 
-			ThemeService.getInstance().colors().getColorHighlight(9);
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = getCumulativeXDepthOffset();
 
-		g2.setColor(COLOR);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		g2.drawLine(x, 0, getWidth(), 0);
-	}
+  /**
+   * The constant COLOR.
+   */
+  private static final Color COLOR = ThemeService.getInstance().colors().getColorHighlight(9);
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = getCumulativeXDepthOffset();
+
+    g2.setColor(COLOR);
+
+    g2.drawLine(x, 0, getWidth(), 0);
+  }
 }

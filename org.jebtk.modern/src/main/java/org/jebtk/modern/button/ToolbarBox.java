@@ -41,41 +41,42 @@ import org.jebtk.modern.theme.ThemeService;
  * The class ToolbarBox.
  */
 public class ToolbarBox extends Box {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The constant LINE_COLOR.
-	 */
-	private static final Color LINE_COLOR =
-			ThemeService.getInstance().colors().getHighlight(3);
-	
-	/**
-	 * Instantiates a new toolbar box.
-	 */
-	public ToolbarBox() {
-		super(BoxLayout.LINE_AXIS);
-		
-		setBorder(BorderService.getInstance().createTopBottomBorder(10));
-		
-		setAlignmentX(LEFT_ALIGNMENT);
-	}
-	
-	/* (non-Javadoc)
-	 * @see javax.swing.Box#paintComponent(java.awt.Graphics)
-	 */
-	@Override
-	public void paintComponent(Graphics g) {
-		g.setColor(LINE_COLOR);
-		
-		g.drawLine(0, 0, getWidth(), 0);
-		
-		int y = getHeight() - 1;
-		
-		g.drawLine(0, y, getWidth(), y);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The constant LINE_COLOR.
+   */
+  private static final Color LINE_COLOR = ThemeService.getInstance().colors().getHighlight(3);
+
+  /**
+   * Instantiates a new toolbar box.
+   */
+  public ToolbarBox() {
+    super(BoxLayout.LINE_AXIS);
+
+    setBorder(BorderService.getInstance().createTopBottomBorder(10));
+
+    setAlignmentX(LEFT_ALIGNMENT);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.Box#paintComponent(java.awt.Graphics)
+   */
+  @Override
+  public void paintComponent(Graphics g) {
+    g.setColor(LINE_COLOR);
+
+    g.drawLine(0, 0, getWidth(), 0);
+
+    int y = getHeight() - 1;
+
+    g.drawLine(0, y, getWidth(), y);
+  }
 
 }

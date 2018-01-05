@@ -33,8 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ModernTheme;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Help icon.
@@ -43,72 +41,74 @@ import org.jebtk.modern.theme.ModernTheme;
  *
  */
 public class ClockVectorIcon extends ModernVectorScalableIcon {
-	
-	
 
-	/**
-	 * The constant SCALE.
-	 */
-	private static final double SCALE =
-			SettingsService.getInstance().getAsDouble("theme.icons.clock-icon.width-scale");
-	
-	/**
-	 * The constant HAND_SCALE_1.
-	 */
-	private static final double HAND_SCALE_1 =
-			SettingsService.getInstance().getAsDouble("theme.icons.clock-icon.hand-scale-1");
-	
-	/**
-	 * The constant HAND_SCALE_2.
-	 */
-	private static final double HAND_SCALE_2 =
-			SettingsService.getInstance().getAsDouble("theme.icons.clock-icon.hand-scale-2");
-		
-	/**
-	 * The constant OUTLINE_COLOR.
-	 */
-	private static final Color OUTLINE_COLOR =
-			SettingsService.getInstance().getAsColor("theme.icons.clock-icon.colors.outline");
-	
-	/**
-	 * The constant BACKGROUND.
-	 */
-	private static final Color BACKGROUND =
-			SettingsService.getInstance().getAsColor("theme.icons.clock-icon.colors.background");
-	
-	/**
-	 * The constant HAND_COLOR.
-	 */
-	private static final Color HAND_COLOR =
-			SettingsService.getInstance().getAsColor("theme.icons.clock-icon.colors.hand");
-	
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		double wf = w * SCALE;
+  /**
+   * The constant SCALE.
+   */
+  private static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.clock-icon.width-scale");
 
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - wf) / 2.0;
-		double w2 = wf / 2.0;
-		double h1 = wf * HAND_SCALE_1;
-		double h2 = wf * HAND_SCALE_2;
-		
-		g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-		g2.setColor(BACKGROUND);
-		
-		g2.fillOval((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(wf), (int)Math.round(wf));
-		
-		g2.setColor(OUTLINE_COLOR);
-		
-		g2.drawOval((int)Math.round(xf), (int)Math.round(yf), (int)Math.round(wf), (int)Math.round(wf));
-		
-		g2.setColor(HAND_COLOR);
-		
-		g2.drawLine((int)Math.round(xf + w2), (int)Math.round(yf + w2), (int)Math.round(xf + w2), (int)Math.round(yf + w2 - h1));
-		
-		g2.drawLine((int)Math.round(xf + w2), (int)Math.round(yf + w2), (int)Math.round(xf + w2 + h2), (int)Math.round(yf + w2));
-	}
+  /**
+   * The constant HAND_SCALE_1.
+   */
+  private static final double HAND_SCALE_1 = SettingsService.getInstance()
+      .getAsDouble("theme.icons.clock-icon.hand-scale-1");
+
+  /**
+   * The constant HAND_SCALE_2.
+   */
+  private static final double HAND_SCALE_2 = SettingsService.getInstance()
+      .getAsDouble("theme.icons.clock-icon.hand-scale-2");
+
+  /**
+   * The constant OUTLINE_COLOR.
+   */
+  private static final Color OUTLINE_COLOR = SettingsService.getInstance()
+      .getAsColor("theme.icons.clock-icon.colors.outline");
+
+  /**
+   * The constant BACKGROUND.
+   */
+  private static final Color BACKGROUND = SettingsService.getInstance()
+      .getAsColor("theme.icons.clock-icon.colors.background");
+
+  /**
+   * The constant HAND_COLOR.
+   */
+  private static final Color HAND_COLOR = SettingsService.getInstance()
+      .getAsColor("theme.icons.clock-icon.colors.hand");
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    double wf = w * SCALE;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - wf) / 2.0;
+    double w2 = wf / 2.0;
+    double h1 = wf * HAND_SCALE_1;
+    double h2 = wf * HAND_SCALE_2;
+
+    g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+    g2.setColor(BACKGROUND);
+
+    g2.fillOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(wf));
+
+    g2.setColor(OUTLINE_COLOR);
+
+    g2.drawOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(wf));
+
+    g2.setColor(HAND_COLOR);
+
+    g2.drawLine((int) Math.round(xf + w2), (int) Math.round(yf + w2), (int) Math.round(xf + w2),
+        (int) Math.round(yf + w2 - h1));
+
+    g2.drawLine((int) Math.round(xf + w2), (int) Math.round(yf + w2), (int) Math.round(xf + w2 + h2),
+        (int) Math.round(yf + w2));
+  }
 }

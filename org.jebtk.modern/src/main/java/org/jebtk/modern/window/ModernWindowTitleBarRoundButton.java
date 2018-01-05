@@ -39,47 +39,50 @@ import org.jebtk.modern.graphics.ImageUtils;
  */
 public abstract class ModernWindowTitleBarRoundButton extends ModernWindowTitleBarButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/** The Constant OUTLINE_COLOR. */
-	protected static final Color OUTLINE_COLOR = 
-			ColorUtils.getTransparentColor70(Color.BLACK);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The Constant SIZE. */
-	private static final int SIZE = 14;
-	
-	/** The m color. */
-	private Color mColor;
-	
-	/**
-	 * Instantiates a new modern window title bar round button.
-	 *
-	 * @param color the color
-	 */
-	public ModernWindowTitleBarRoundButton(Color color) {
-		mColor = color;
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ribbon.QuickAccessButton#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
-		
-		int x = (getWidth() - SIZE) / 2;
-		
-		try {
-			g2Temp.setColor(mColor);
-			g2Temp.fillOval(x, x, SIZE, SIZE);
-			g2Temp.setColor(OUTLINE_COLOR);
-			g2Temp.drawOval(x, x, SIZE, SIZE);
-		} finally {
-			g2Temp.dispose();
-		}
+  /** The Constant OUTLINE_COLOR. */
+  protected static final Color OUTLINE_COLOR = ColorUtils.getTransparentColor70(Color.BLACK);
 
-	}
+  /** The Constant SIZE. */
+  private static final int SIZE = 14;
+
+  /** The m color. */
+  private Color mColor;
+
+  /**
+   * Instantiates a new modern window title bar round button.
+   *
+   * @param color
+   *          the color
+   */
+  public ModernWindowTitleBarRoundButton(Color color) {
+    mColor = color;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ribbon.QuickAccessButton#drawBackground(java.awt.
+   * Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+
+    int x = (getWidth() - SIZE) / 2;
+
+    try {
+      g2Temp.setColor(mColor);
+      g2Temp.fillOval(x, x, SIZE, SIZE);
+      g2Temp.setColor(OUTLINE_COLOR);
+      g2Temp.drawOval(x, x, SIZE, SIZE);
+    } finally {
+      g2Temp.dispose();
+    }
+
+  }
 }

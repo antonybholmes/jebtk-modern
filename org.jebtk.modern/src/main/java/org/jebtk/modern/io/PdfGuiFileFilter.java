@@ -32,19 +32,21 @@ package org.jebtk.modern.io;
  * The class PdfGuiFileFilter.
  */
 public class PdfGuiFileFilter extends GuiFileExtFilter {
-	
-	/**
-	 * Instantiates a new pdf gui file filter.
-	 */
-	public PdfGuiFileFilter() {
-		super("pdf");
-	}
 
-	/* (non-Javadoc)
-	 * @see javax.swing.filechooser.FileFilter#getDescription()
-	 */
-	@Override
-	public final String getDescription() {
-		return "Portable Document Format (*.pdf)";
-	}
+  /**
+   * Instantiates a new pdf gui file filter.
+   */
+  public PdfGuiFileFilter() {
+    super("pdf");
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return "Portable Document Format (*.pdf)";
+  }
 }

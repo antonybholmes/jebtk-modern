@@ -20,10 +20,10 @@ package org.jebtk.modern.ribbon;
  * The Enum RibbonSize.
  */
 public enum RibbonSize {
-	
-	/** The compact. */
-	COMPACT,
-	
-	/** The large. */
-	LARGE
+
+  /** The compact. */
+  COMPACT,
+
+  /** The large. */
+  LARGE
 }

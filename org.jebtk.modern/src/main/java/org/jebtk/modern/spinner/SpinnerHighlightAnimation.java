@@ -8,36 +8,31 @@ import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class SpinnerHighlightAnimation extends HoverFadeAnimation {
-	private ModernCompactSpinner mSpinner;
+  private ModernCompactSpinner mSpinner;
 
-	public SpinnerHighlightAnimation(ModernWidget widget) {
-		super(widget);
-		
-		mSpinner = (ModernCompactSpinner)widget;
+  public SpinnerHighlightAnimation(ModernWidget widget) {
+    super(widget);
 
-		bind(mSpinner.mField);
+    mSpinner = (ModernCompactSpinner) widget;
 
-		setFadeColor("outline", 
-				ModernWidget.LINE_COLOR, 
-				ModernWidgetRenderer.SELECTED_FILL_COLOR);
-	}
+    bind(mSpinner.mField);
 
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-		IntRect r = widget.getInternalRect();
-		
-		int x = r.getX();
-		int y = r.getY();
-		
-		IntRect intRect = new IntRect(x, 
-				y, 
-				mSpinner.mMinButtonX - x - ModernCompactSpinner.BORDER, 
-				r.getH());
-		
-		widget.getWidgetRenderer().drawBackground(g2, intRect);
-		
-		g2.setColor(getFadeColor("outline"));
-		widget.getWidgetRenderer().outline(g2, intRect);
-		
-	}
+    setFadeColor("outline", ModernWidget.LINE_COLOR, ModernWidgetRenderer.SELECTED_FILL_COLOR);
+  }
+
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    IntRect r = widget.getInternalRect();
+
+    int x = r.getX();
+    int y = r.getY();
+
+    IntRect intRect = new IntRect(x, y, mSpinner.mMinButtonX - x - ModernCompactSpinner.BORDER, r.getH());
+
+    widget.getWidgetRenderer().drawBackground(g2, intRect);
+
+    g2.setColor(getFadeColor("outline"));
+    widget.getWidgetRenderer().outline(g2, intRect);
+
+  }
 }

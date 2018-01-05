@@ -31,7 +31,6 @@ import org.jebtk.core.event.ChangeEvent;
 
 import org.jebtk.core.event.EventProducer;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
@@ -40,32 +39,44 @@ import org.jebtk.core.event.EventProducer;
  *
  */
 public class ViewEventListeners extends EventProducer<ViewEventListener> implements ViewEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.view.ViewEventProducer#addViewListener(org.abh.lib.ui.modern.view.ViewEventListener)
-	 */
-	public void addViewListener(ViewEventListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.view.ViewEventProducer#removeViewListener(org.abh.lib.ui.modern.view.ViewEventListener)
-	 */
-	public void removeViewListener(ViewEventListener l) {
-		mListeners.remove(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.view.ViewEventProducer#fireViewChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireViewChanged(ChangeEvent e) {
-		for (ViewEventListener l : mListeners) {
-			l.viewChanged(e);
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.view.ViewEventProducer#addViewListener(org.abh.lib.ui.
+   * modern.view.ViewEventListener)
+   */
+  public void addViewListener(ViewEventListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.view.ViewEventProducer#removeViewListener(org.abh.lib.
+   * ui.modern.view.ViewEventListener)
+   */
+  public void removeViewListener(ViewEventListener l) {
+    mListeners.remove(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.view.ViewEventProducer#fireViewChanged(org.abh.lib.
+   * event.ChangeEvent)
+   */
+  public void fireViewChanged(ChangeEvent e) {
+    for (ViewEventListener l : mListeners) {
+      l.viewChanged(e);
+    }
+  }
 }

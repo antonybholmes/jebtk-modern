@@ -37,8 +37,6 @@ import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Replacement ModernButton with a common skin.
@@ -47,88 +45,93 @@ import org.jebtk.modern.UI;
  *
  */
 public class ModernLineBottomBorderPanel extends ModernComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern line bottom border panel.
-	 */
-	public ModernLineBottomBorderPanel() {
-		this(LINE_COLOR);
-	}
-	
-	/**
-	 * Instantiates a new modern line border panel.
-	 *
-	 * @param color the color
-	 */
-	public ModernLineBottomBorderPanel(Color color) {
-		setBackground(color);
-		
-		init();
-	}
-	
-	/**
-	 * Instantiates a new modern line border panel.
-	 *
-	 * @param layout the layout
-	 */
-	public ModernLineBottomBorderPanel(LayoutManager layout) {
-		super(layout);
-		
-		init();
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern line border panel.
-	 *
-	 * @param component the component
-	 */
-	public ModernLineBottomBorderPanel(Component component) {
-		super(component);
-		
-		init();
-	}
-	
+  /**
+   * Instantiates a new modern line bottom border panel.
+   */
+  public ModernLineBottomBorderPanel() {
+    this(LINE_COLOR);
+  }
 
-	/**
-	 * Instantiates a new modern line bottom border panel.
-	 *
-	 * @param component the component
-	 * @param dimension the dimension
-	 */
-	public ModernLineBottomBorderPanel(Component component, Dimension dimension) {
-		this(component);
-		
-		UI.setSize(this, dimension);
-	}
-	
-	public ModernLineBottomBorderPanel(Component component, Color color) {
-		this(color);
-		
-		setBody(component);
-	}
-	
-	/**
-	 * Inits the.
-	 */
-	private void init() {
-		setBorder(BorderService.getInstance().createBottomBorder(1));
-	}
+  /**
+   * Instantiates a new modern line border panel.
+   *
+   * @param color
+   *          the color
+   */
+  public ModernLineBottomBorderPanel(Color color) {
+    setBackground(color);
 
+    init();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		g2.setColor(getBackground());
-		
-		int y = getHeight() - 1;
-		
-		g2.drawLine(0, y, getWidth(), y);
-	}
+  /**
+   * Instantiates a new modern line border panel.
+   *
+   * @param layout
+   *          the layout
+   */
+  public ModernLineBottomBorderPanel(LayoutManager layout) {
+    super(layout);
+
+    init();
+  }
+
+  /**
+   * Instantiates a new modern line border panel.
+   *
+   * @param component
+   *          the component
+   */
+  public ModernLineBottomBorderPanel(Component component) {
+    super(component);
+
+    init();
+  }
+
+  /**
+   * Instantiates a new modern line bottom border panel.
+   *
+   * @param component
+   *          the component
+   * @param dimension
+   *          the dimension
+   */
+  public ModernLineBottomBorderPanel(Component component, Dimension dimension) {
+    this(component);
+
+    UI.setSize(this, dimension);
+  }
+
+  public ModernLineBottomBorderPanel(Component component, Color color) {
+    this(color);
+
+    setBody(component);
+  }
+
+  /**
+   * Inits the.
+   */
+  private void init() {
+    setBorder(BorderService.getInstance().createBottomBorder(1));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    g2.setColor(getBackground());
+
+    int y = getHeight() - 1;
+
+    g2.drawLine(0, y, getWidth(), y);
+  }
 }

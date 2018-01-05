@@ -29,55 +29,55 @@ package org.jebtk.modern.dataview;
 
 import java.awt.Component;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
- * Provides a flat look table renderer for the flat table
- * although it can be used with standard JTables as well.
+ * Provides a flat look table renderer for the flat table although it can be
+ * used with standard JTables as well.
  *
  * @author Antony Holmes Holmes
  *
  */
 public abstract class ModernDataCellEditor extends ModernDataEditorListeners {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Returns the editor component.
-	 *
-	 * @param view the view
-	 * @param value the value
-	 * @param highlight the highlight
-	 * @param isSelected the is selected
-	 * @param hasFocus the has focus
-	 * @param row the row
-	 * @param column the column
-	 * @return the cell editor component
-	 */
-	public abstract Component getCellEditorComponent(ModernData view,
-            Object value,
-            boolean highlight,
-            boolean isSelected,
-            boolean hasFocus,
-            int row,
-            int column);
 
-	/**
-	 * Gets the cell editor value.
-	 *
-	 * @return the cell editor value
-	 */
-	public abstract Object getCellEditorValue();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Triggered when the editor cell gets the focus, e.g. when a user clicks
-	 * on a cell.
-	 */
-	public void setFocus() {
-		// Do nothing
-	}
+  /**
+   * Returns the editor component.
+   *
+   * @param view
+   *          the view
+   * @param value
+   *          the value
+   * @param highlight
+   *          the highlight
+   * @param isSelected
+   *          the is selected
+   * @param hasFocus
+   *          the has focus
+   * @param row
+   *          the row
+   * @param column
+   *          the column
+   * @return the cell editor component
+   */
+  public abstract Component getCellEditorComponent(ModernData view, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column);
+
+  /**
+   * Gets the cell editor value.
+   *
+   * @return the cell editor value
+   */
+  public abstract Object getCellEditorValue();
+
+  /**
+   * Triggered when the editor cell gets the focus, e.g. when a user clicks on a
+   * cell.
+   */
+  public void setFocus() {
+    // Do nothing
+  }
 }

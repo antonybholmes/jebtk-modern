@@ -38,23 +38,27 @@ import java.awt.event.FocusListener;
  *
  */
 public class FocusAdapter implements FocusListener {
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
-	 */
-	@Override
-	public void focusGained(FocusEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
-	 */
-	@Override
-	public void focusLost(FocusEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+   */
+  @Override
+  public void focusGained(FocusEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
+   */
+  @Override
+  public void focusLost(FocusEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 
 }

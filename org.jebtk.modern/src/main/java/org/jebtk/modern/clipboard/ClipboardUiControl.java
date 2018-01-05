@@ -29,39 +29,38 @@ package org.jebtk.modern.clipboard;
 
 // TODO: Auto-generated Javadoc
 /**
- * Controls that want to hook into the clipboard system
- * must implement this.
+ * Controls that want to hook into the clipboard system must implement this.
  *
  * @author Antony Holmes Holmes
  *
  */
 public interface ClipboardUiControl extends Clipboard {
-	
-	/**
-	 * Returns true if the control is editable, false otherwise.
-	 *
-	 * @return true, if successful
-	 */
-	//public boolean isEditable();
 
-	/**
-	 * Returns true if cut operations are enabled, false otherwise.
-	 *
-	 * @return
-	 */
-	public boolean cutEnabled();
+  /**
+   * Returns true if the control is editable, false otherwise.
+   *
+   * @return true, if successful
+   */
+  // public boolean isEditable();
 
-	/**
-	 * Returns true if copy operations are enabled, false otherwise.
-	 *
-	 * @return true, if successful
-	 */
-	public boolean copyEnabled();
+  /**
+   * Returns true if cut operations are enabled, false otherwise.
+   *
+   * @return
+   */
+  public boolean cutEnabled();
 
-	/**
-	 * Returns true if paste operations are enabled, false otherwise.
-	 *
-	 * @return true, if successful
-	 */
-	public boolean pasteEnabled();
+  /**
+   * Returns true if copy operations are enabled, false otherwise.
+   *
+   * @return true, if successful
+   */
+  public boolean copyEnabled();
+
+  /**
+   * Returns true if paste operations are enabled, false otherwise.
+   *
+   * @return true, if successful
+   */
+  public boolean pasteEnabled();
 }

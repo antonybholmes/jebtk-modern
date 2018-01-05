@@ -22,56 +22,60 @@ import org.jebtk.modern.UI;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class ModernDialogSegmentsPanel provides a segments widget for
- * dialogs where the segments hovers above.
+ * The Class ModernDialogSegmentsPanel provides a segments widget for dialogs
+ * where the segments hovers above.
  */
 public class ModernDialogSegmentsVertPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern dialog segments panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 */
-	public ModernDialogSegmentsVertPanel(TabsModel model, int tabSize) {
-		this(model, tabSize, false);
-	}
-	
-	/**
-	 * Instantiates a new modern dialog segments panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param centered the centered
-	 */
-	public ModernDialogSegmentsVertPanel(TabsModel model, int tabSize, boolean centered) {
-		this(model, tabSize, 0);
-	}
-	
-	/**
-	 * Instantiates a new modern dialog segments panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param pagePadding the page padding
-	 */
-	public ModernDialogSegmentsVertPanel(TabsModel model, 
-			int tabSize,
-			int pagePadding) {
-		SegmentTabs tabs = new SegmentVertTabs(model, tabSize);
-		
-		UI.setSize(tabs, 
-				new Dimension(tabSize, Short.MAX_VALUE), 
-				UI.createRightBorder(pagePadding));
-		
-		setLeft(tabs); //new TextTabsTriangle(model, centered));
-		
-		TabsViewPanel panel = new TabsViewPanel(model);
-		//panel.setBorder(TOP_BORDER);
-		
-		setBody(panel); //new ModernLineBorderPanel(new ModernComponent(panel, LARGE_BORDER)));
-	}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new modern dialog segments panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   */
+  public ModernDialogSegmentsVertPanel(TabsModel model, int tabSize) {
+    this(model, tabSize, false);
+  }
+
+  /**
+   * Instantiates a new modern dialog segments panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param centered
+   *          the centered
+   */
+  public ModernDialogSegmentsVertPanel(TabsModel model, int tabSize, boolean centered) {
+    this(model, tabSize, 0);
+  }
+
+  /**
+   * Instantiates a new modern dialog segments panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param pagePadding
+   *          the page padding
+   */
+  public ModernDialogSegmentsVertPanel(TabsModel model, int tabSize, int pagePadding) {
+    SegmentTabs tabs = new SegmentVertTabs(model, tabSize);
+
+    UI.setSize(tabs, new Dimension(tabSize, Short.MAX_VALUE), UI.createRightBorder(pagePadding));
+
+    setLeft(tabs); // new TextTabsTriangle(model, centered));
+
+    TabsViewPanel panel = new TabsViewPanel(model);
+    // panel.setBorder(TOP_BORDER);
+
+    setBody(panel); // new ModernLineBorderPanel(new ModernComponent(panel, LARGE_BORDER)));
+  }
 }

@@ -29,38 +29,42 @@ package org.jebtk.modern.progress;
 
 import java.awt.Graphics2D;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class LabelledProgressBar.
  */
 public class LabelledProgressBar extends ModernProgressBar {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new labelled progress bar.
-	 *
-	 * @param model the model
-	 */
-	public LabelledProgressBar(ProgressModel model) {
-		super(model);
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.progress.ModernProgressBar#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	public void drawForegroundAAText(Graphics2D g2) {
-		super.drawForegroundAAText(g2);
-		
-		String text = Integer.toString((int)(progressModel.getPercentComplete() * 100));
-		
-		int x = (mRect.getW() - g2.getFontMetrics().stringWidth(text)) / 2;
-	
-		g2.setColor(TEXT_COLOR);
-		g2.drawString(text, x, getTextYPosCenter(g2, getHeight()));
-	}
+  /**
+   * Instantiates a new labelled progress bar.
+   *
+   * @param model
+   *          the model
+   */
+  public LabelledProgressBar(ProgressModel model) {
+    super(model);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.progress.ModernProgressBar#drawForegroundAA(java.awt.
+   * Graphics2D)
+   */
+  public void drawForegroundAAText(Graphics2D g2) {
+    super.drawForegroundAAText(g2);
+
+    String text = Integer.toString((int) (progressModel.getPercentComplete() * 100));
+
+    int x = (mRect.getW() - g2.getFontMetrics().stringWidth(text)) / 2;
+
+    g2.setColor(TEXT_COLOR);
+    g2.drawString(text, x, getTextYPosCenter(g2, getHeight()));
+  }
 }

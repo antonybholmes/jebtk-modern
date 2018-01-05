@@ -32,10 +32,10 @@ package org.jebtk.modern.scrollpane;
  * The enum ScrollBarPolicy.
  */
 public enum ScrollBarLocation {
-	
-	/** The side. */
-	SIDE,
-	
-	/** The floating. */
-	FLOATING
+
+  /** The side. */
+  SIDE,
+
+  /** The floating. */
+  FLOATING
 }

@@ -34,8 +34,6 @@ import java.awt.Point;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Group vector icon showing 3 colored balls spaced equally around a circle.
@@ -45,53 +43,51 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class IconTabsVectorIcon extends ModernVectorIcon {
 
+  private String mLetter;
 
-	private String mLetter;
+  public IconTabsVectorIcon(char c) {
+    mLetter = Character.toString(c);
+  }
 
-	public IconTabsVectorIcon(char c) {
-		mLetter = Character.toString(c);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
 
-		Color color = (Color)params[0];
+    Color color = (Color) params[0];
 
-		g2.setColor(color);
-		g2.fillOval(x, y, w, w);
+    g2.setColor(color);
+    g2.fillOval(x, y, w, w);
 
-		g2.setColor(Color.WHITE);
-		g2.setFont(ModernWidget.FONT);
+    g2.setColor(Color.WHITE);
+    g2.setFont(ModernWidget.FONT);
 
-		Point p = ModernWidget.getStringCenterPlotCoordinates(g2, w, h, mLetter);
+    Point p = ModernWidget.getStringCenterPlotCoordinates(g2, w, h, mLetter);
 
-		g2.drawString(mLetter, x + p.x, y + p.y);
+    g2.drawString(mLetter, x + p.x, y + p.y);
 
-		/*
-		Color color = (Color)params[0];
-
-		int blockSize = (w - 2) / 3;
-
-		g2.setColor(color);
-
-		x += (w - blockSize * 3 - 2) / 2;
-		y = x;
-
-		for (int i = 0; i < 3; ++i) {
-			int x1 = x;
-
-			for (int j = 0; j < 3; ++j) {
-				g2.fillRect(x1, y, blockSize, blockSize);
-
-				x1 += blockSize + 1;
-			}
-
-			y += blockSize + 1;
-		}
-		 */
-	}
+    /*
+     * Color color = (Color)params[0];
+     * 
+     * int blockSize = (w - 2) / 3;
+     * 
+     * g2.setColor(color);
+     * 
+     * x += (w - blockSize * 3 - 2) / 2; y = x;
+     * 
+     * for (int i = 0; i < 3; ++i) { int x1 = x;
+     * 
+     * for (int j = 0; j < 3; ++j) { g2.fillRect(x1, y, blockSize, blockSize);
+     * 
+     * x1 += blockSize + 1; }
+     * 
+     * y += blockSize + 1; }
+     */
+  }
 
 }

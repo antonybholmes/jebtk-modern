@@ -41,25 +41,26 @@ import org.jebtk.modern.tabs.TabsModel;
  *
  */
 public class CenterTab extends Tab {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * Instantiates a new center tab.
-	 */
-	public CenterTab() {
-		this(new ModernPanel());
-	}
-	
-	/**
-	 * Instantiates a new center tab.
-	 *
-	 * @param c the c
-	 */
-	public CenterTab(JComponent c) {
-		super(TabsModel.CENTER_PANE, c);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new center tab.
+   */
+  public CenterTab() {
+    this(new ModernPanel());
+  }
+
+  /**
+   * Instantiates a new center tab.
+   *
+   * @param c
+   *          the c
+   */
+  public CenterTab(JComponent c) {
+    super(TabsModel.CENTER_PANE, c);
+  }
 }

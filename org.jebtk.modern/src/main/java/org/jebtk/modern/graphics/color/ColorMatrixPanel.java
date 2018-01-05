@@ -41,246 +41,270 @@ import org.jebtk.core.ColorValue;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ColorMatrixPanel.
  */
 public class ColorMatrixPanel extends ModernWidget implements MouseMotionListener, MouseListener, ChangeListener {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The channel.
-	 */
-	private ColorChannel mChannel = ColorChannel.RED;
-	
-	/**
-	 * The v.
-	 */
-	private int v = 0;
-	
-	/**
-	 * The size.
-	 */
-	private int size = 128;
-	
-	/**
-	 * The ratio.
-	 */
-	private double ratio = 256.0 / (double)size;
-	
-	/**
-	 * The member model.
-	 */
-	private ColorSelectionModel mModel;
-	
-	/**
-	 * Instantiates a new color matrix panel.
-	 *
-	 * @param model the model
-	 */
-	public ColorMatrixPanel(ColorSelectionModel model) {
-		mModel = model;
-		
-		model.addChangeListener(this);
-		addMouseMotionListener(this);
-		addMouseListener(this);
-		
-		UI.setSize(this, new Dimension(size, size));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		Color color;
-		int hc;
-		int vc;
-		
-		for (int i = 0; i < size; ++i) {
-			for (int j = 0; j < size; ++j) {
-				hc = (int)(i * ratio);
-				vc = (int)((size - j - 1) * ratio);
-				
-				switch (mChannel) {
-				case RED:
-					color = new Color(v, vc, hc);
-					break;
-				case GREEN:
-					color = new Color(vc, v, hc);
-					break;
-				default:
-					color = new Color(vc, hc, v);
-					break;
-				}
-				
-				g2.setColor(color);
-				g2.drawRect(i, j, 1, 1);
-			}
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		g2.setColor(Color.BLACK);
-		
-		int i;
-		
-		switch (mChannel) {
-		case RED:
-			// green y
-			i = (int)((255 - mModel.getNewColor().mGreen) / ratio);
-			
-			g2.drawLine(0, i, getWidth(),i);
-			
-			// blue x
-			i = (int)(mModel.getNewColor().mBlue / ratio);
-			
-			g2.drawLine(i, 0, i, getHeight());
-			break;
-		case GREEN:
-			// green y
-			i = (int)((255 - mModel.getNewColor().mRed) / ratio);
-			
-			g2.drawLine(0, i, getWidth(),i);
-			
-			// blue x
-			i = (int)(mModel.getNewColor().mBlue / ratio);
-			
-			g2.drawLine(i, 0, i, getHeight());
-			break;
-		default:
-			// green y
-			i = (int)((255 - mModel.getNewColor().mRed) / ratio);
-			
-			g2.drawLine(0, i, getWidth(),i);
-			
-			// blue x
-			i = (int)(mModel.getNewColor().mGreen / ratio);
-			
-			g2.drawLine(i, 0, i, getHeight());
-			break;
-		}
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public void changed(ChangeEvent e) {
-		mChannel = mModel.getChannel();
-		
-		switch (mChannel) {
-		case RED:
-			v = mModel.getNewColor().mRed;
-			break;
-		case GREEN:
-			v = mModel.getNewColor().mGreen;
-			break;
-		default:
-			v = mModel.getNewColor().mBlue;
-			break;
-		}
-		
-		repaint();
-	}
-	
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mousePressed(MouseEvent e) {
-		changeColor(e);
-	}
-	
-	/**
-	 * Change color.
-	 *
-	 * @param e the e
-	 */
-	private void changeColor(MouseEvent e) {
-		ColorValue color;
-		
-		int c1 = (int)((size - e.getY() - 1) * ratio);
-		
-		int c2 = (int)((e.getX() - 1) * ratio);
-		
-		c1 = Math.max(0, Math.min(c1, 255));
-		c2 = Math.max(0, Math.min(c2, 255));
-		
-		switch (mChannel) {
-		case RED:
-			color = new ColorValue(v, c1, c2);
-			break;
-		case GREEN:
-			color = new ColorValue(c1, v, c2);
-			break;
-		default:
-			color = new ColorValue(c1, c2, v);
-			break;
-		}
-		
-		mModel.setNewColor(color);
-	}
+  /**
+   * The channel.
+   */
+  private ColorChannel mChannel = ColorChannel.RED;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseDragged(MouseEvent e) {
-		changeColor(e);
-	}
+  /**
+   * The v.
+   */
+  private int v = 0;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * The size.
+   */
+  private int size = 128;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * The ratio.
+   */
+  private double ratio = 256.0 / (double) size;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * The member model.
+   */
+  private ColorSelectionModel mModel;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /**
+   * Instantiates a new color matrix panel.
+   *
+   * @param model
+   *          the model
+   */
+  public ColorMatrixPanel(ColorSelectionModel model) {
+    mModel = model;
 
-	/* (non-Javadoc)
-	 * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-	 */
-	@Override
-	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+    model.addChangeListener(this);
+    addMouseMotionListener(this);
+    addMouseListener(this);
+
+    UI.setSize(this, new Dimension(size, size));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    Color color;
+    int hc;
+    int vc;
+
+    for (int i = 0; i < size; ++i) {
+      for (int j = 0; j < size; ++j) {
+        hc = (int) (i * ratio);
+        vc = (int) ((size - j - 1) * ratio);
+
+        switch (mChannel) {
+        case RED:
+          color = new Color(v, vc, hc);
+          break;
+        case GREEN:
+          color = new Color(vc, v, hc);
+          break;
+        default:
+          color = new Color(vc, hc, v);
+          break;
+        }
+
+        g2.setColor(color);
+        g2.drawRect(i, j, 1, 1);
+      }
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    g2.setColor(Color.BLACK);
+
+    int i;
+
+    switch (mChannel) {
+    case RED:
+      // green y
+      i = (int) ((255 - mModel.getNewColor().mGreen) / ratio);
+
+      g2.drawLine(0, i, getWidth(), i);
+
+      // blue x
+      i = (int) (mModel.getNewColor().mBlue / ratio);
+
+      g2.drawLine(i, 0, i, getHeight());
+      break;
+    case GREEN:
+      // green y
+      i = (int) ((255 - mModel.getNewColor().mRed) / ratio);
+
+      g2.drawLine(0, i, getWidth(), i);
+
+      // blue x
+      i = (int) (mModel.getNewColor().mBlue / ratio);
+
+      g2.drawLine(i, 0, i, getHeight());
+      break;
+    default:
+      // green y
+      i = (int) ((255 - mModel.getNewColor().mRed) / ratio);
+
+      g2.drawLine(0, i, getWidth(), i);
+
+      // blue x
+      i = (int) (mModel.getNewColor().mGreen / ratio);
+
+      g2.drawLine(i, 0, i, getHeight());
+      break;
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public void changed(ChangeEvent e) {
+    mChannel = mModel.getChannel();
+
+    switch (mChannel) {
+    case RED:
+      v = mModel.getNewColor().mRed;
+      break;
+    case GREEN:
+      v = mModel.getNewColor().mGreen;
+      break;
+    default:
+      v = mModel.getNewColor().mBlue;
+      break;
+    }
+
+    repaint();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mousePressed(MouseEvent e) {
+    changeColor(e);
+  }
+
+  /**
+   * Change color.
+   *
+   * @param e
+   *          the e
+   */
+  private void changeColor(MouseEvent e) {
+    ColorValue color;
+
+    int c1 = (int) ((size - e.getY() - 1) * ratio);
+
+    int c2 = (int) ((e.getX() - 1) * ratio);
+
+    c1 = Math.max(0, Math.min(c1, 255));
+    c2 = Math.max(0, Math.min(c2, 255));
+
+    switch (mChannel) {
+    case RED:
+      color = new ColorValue(v, c1, c2);
+      break;
+    case GREEN:
+      color = new ColorValue(c1, v, c2);
+      break;
+    default:
+      color = new ColorValue(c1, c2, v);
+      break;
+    }
+
+    mModel.setNewColor(color);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseDragged(MouseEvent e) {
+    changeColor(e);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseMoved(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseClicked(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseEntered(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseExited(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+   */
+  @Override
+  public void mouseReleased(MouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

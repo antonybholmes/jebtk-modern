@@ -29,7 +29,6 @@ package org.jebtk.modern.dataview;
 
 import org.jebtk.core.event.ChangeListener;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Modern UI controls such as buttons should fire ModernClickEvents.
@@ -38,11 +37,11 @@ import org.jebtk.core.event.ChangeListener;
  *
  */
 public interface ModernDataEditorListener extends ChangeListener {
-	
-	/**
-	 * Should be called if the data is reordered, but the record count
-	 * remains the same.
-	 */
-	public void editingStopped();
-	
+
+  /**
+   * Should be called if the data is reordered, but the record count remains the
+   * same.
+   */
+  public void editingStopped();
+
 }

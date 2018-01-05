@@ -28,85 +28,83 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class TranslateAnimation extends TimerAnimation {
 
-	// Lets define a material design bezier curve to animate transitions
-	public final static CubicBezier BEZIER = 
-			CubicBezier.normCubicBezier(0.4, 0.0, 0.2, 1);
-	
-	
-	
-	private int[] mXPos = new int[STEPS];
-	private int mStep = 0;
-	public static final double[] BEZ_T = new double[STEPS];
+  // Lets define a material design bezier curve to animate transitions
+  public final static CubicBezier BEZIER = CubicBezier.normCubicBezier(0.4, 0.0, 0.2, 1);
 
-	
-	static {
-		BEZ_T[0] = 0; //BEZIER.eval(0).getY();
-		BEZ_T[MAX_STEP_INDEX] = 1; //BEZIER.eval(1).getY();
-		
-		for (int i = 1; i < MAX_STEP_INDEX; ++i) {
-			BEZ_T[i] = BEZIER.eval((double)i / MAX_STEP_INDEX).getY();
-		}
-	}
+  private int[] mXPos = new int[STEPS];
+  private int mStep = 0;
+  public static final double[] BEZ_T = new double[STEPS];
 
-	/**
-	 * Instantiates a new state animation.
-	 *
-	 * @param ribbon the ribbon
-	 */
-	public TranslateAnimation(ModernWidget widget) {
-		super(widget);
-	}
-	
-	public synchronized void restart(int x1, int x2) {
-		int mD = (x2 - x1); // / MAX_INDEX;
-		
-		mStep = 0;
-		
-		mXPos[0] = x1;
-		mXPos[mXPos.length - 1] = x2;
-		
-		for (int i = 1; i < MAX_STEP_INDEX; ++i) {
-			mXPos[i] = x1 + (int)(BEZ_T[i] * mD); //BEZIER.eval(t)   mXPos[i - 1] + mD;
-		}
-		
-		start();
-	}
-	
-	@Override
-	public synchronized void animate() {
-		super.animate();
-		
-		//System.err.println("translate " + mStep);
+  static {
+    BEZ_T[0] = 0; // BEZIER.eval(0).getY();
+    BEZ_T[MAX_STEP_INDEX] = 1; // BEZIER.eval(1).getY();
 
-		if (++mStep == MAX_STEP_INDEX) {
-			stop();
-		}
-	}
-	
-	public int getX() {
-		return mXPos[mStep];
-	}
+    for (int i = 1; i < MAX_STEP_INDEX; ++i) {
+      BEZ_T[i] = BEZIER.eval((double) i / MAX_STEP_INDEX).getY();
+    }
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.ModernWidget, java.awt.Graphics2D, java.lang.Object[])
-	 */
-	@Override
-	public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon
+   *          the ribbon
+   */
+  public TranslateAnimation(ModernWidget widget) {
+    super(widget);
+  }
 
-		Graphics2D g2Temp = ImageUtils.clone(g2);
-		
-		try {
-			translate(g2Temp);
-			
-			drawTranslation(widget, g2Temp, params);
-		} finally {
-			g2Temp.dispose();
-		}
-	}
-	
-	public abstract void translate(Graphics2D g2);
-	
-	public abstract void drawTranslation(ModernWidget widget, 
-			Graphics2D g2, 
-			Object... params);
+  public synchronized void restart(int x1, int x2) {
+    int mD = (x2 - x1); // / MAX_INDEX;
+
+    mStep = 0;
+
+    mXPos[0] = x1;
+    mXPos[mXPos.length - 1] = x2;
+
+    for (int i = 1; i < MAX_STEP_INDEX; ++i) {
+      mXPos[i] = x1 + (int) (BEZ_T[i] * mD); // BEZIER.eval(t) mXPos[i - 1] + mD;
+    }
+
+    start();
+  }
+
+  @Override
+  public synchronized void animate() {
+    super.animate();
+
+    // System.err.println("translate " + mStep);
+
+    if (++mStep == MAX_STEP_INDEX) {
+      stop();
+    }
+  }
+
+  public int getX() {
+    return mXPos[mStep];
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.Animation#draw(org.abh.common.ui.widget.
+   * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
+   */
+  @Override
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+
+    Graphics2D g2Temp = ImageUtils.clone(g2);
+
+    try {
+      translate(g2Temp);
+
+      drawTranslation(widget, g2Temp, params);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
+
+  public abstract void translate(Graphics2D g2);
+
+  public abstract void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params);
 }

@@ -23,31 +23,32 @@ import org.jebtk.modern.UI;
  * The Class SegmentTabsPanel.
  */
 public class OrbTabsPanel extends ModernComponent {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-	
-	
-	/**
-	 * Instantiates a new segment tabs panel.
-	 *
-	 * @param model the model
-	 * @param tabSize the tab size
-	 * @param pagePadding the page padding
-	 * @param centered the centered
-	 */
-	public OrbTabsPanel(TabsModel model, 
-			int tabSize,
-			int height) {
-		OrbTabs tabs = new OrbTabs(model, tabSize);
-		
-		UI.setSize(tabs, Short.MAX_VALUE, height);
-		
-		setFooter(tabs); //new TextTabsTriangle(model, centered));
-		
-		TabsViewPanel panel = new TabsViewPanel(model);
-		//panel.setBorder(0);
-		
-		setBody(panel);
-	}
+
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Instantiates a new segment tabs panel.
+   *
+   * @param model
+   *          the model
+   * @param tabSize
+   *          the tab size
+   * @param pagePadding
+   *          the page padding
+   * @param centered
+   *          the centered
+   */
+  public OrbTabsPanel(TabsModel model, int tabSize, int height) {
+    OrbTabs tabs = new OrbTabs(model, tabSize);
+
+    UI.setSize(tabs, Short.MAX_VALUE, height);
+
+    setFooter(tabs); // new TextTabsTriangle(model, centered));
+
+    TabsViewPanel panel = new TabsViewPanel(model);
+    // panel.setBorder(0);
+
+    setBody(panel);
+  }
 }

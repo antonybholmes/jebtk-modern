@@ -29,25 +29,23 @@ package org.jebtk.modern.dialog;
 
 import java.util.EventListener;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving dialogEvent events.
- * The class that is interested in processing a dialogEvent
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addDialogEventListener<code> method. When
- * the dialogEvent event occurs, that object's appropriate
- * method is invoked.
+ * The listener interface for receiving dialogEvent events. The class that is
+ * interested in processing a dialogEvent event implements this interface, and
+ * the object created with that class is registered with a component using the
+ * component's <code>addDialogEventListener<code> method. When the dialogEvent
+ * event occurs, that object's appropriate method is invoked.
  *
  * @see DialogEventEvent
  */
 public interface DialogEventListener extends EventListener {
 
-	/**
-	 * Status changed.
-	 *
-	 * @param e the e
-	 */
-	public void statusChanged(DialogEvent e);
+  /**
+   * Status changed.
+   *
+   * @param e
+   *          the e
+   */
+  public void statusChanged(DialogEvent e);
 }

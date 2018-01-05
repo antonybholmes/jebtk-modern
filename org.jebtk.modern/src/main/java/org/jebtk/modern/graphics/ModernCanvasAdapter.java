@@ -35,36 +35,52 @@ import org.jebtk.core.event.ChangeEvent;
  */
 public class ModernCanvasAdapter implements ModernCanvasListener {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void canvasChanged(ChangeEvent e) {
-		// Do nothing
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasChanged(org.abh.lib
+   * .event.ChangeEvent)
+   */
+  @Override
+  public void canvasChanged(ChangeEvent e) {
+    // Do nothing
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasListener#redrawCanvas(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void redrawCanvas(ChangeEvent e) {
-		// Do nothing
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#redrawCanvas(org.abh.lib.
+   * event.ChangeEvent)
+   */
+  @Override
+  public void redrawCanvas(ChangeEvent e) {
+    // Do nothing
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasScrolled(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void canvasScrolled(ChangeEvent e) {
-		// Do nothing
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasScrolled(org.abh.
+   * lib.event.ChangeEvent)
+   */
+  @Override
+  public void canvasScrolled(ChangeEvent e) {
+    // Do nothing
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.common.event.ChangeEvent)
-	 */
-	@Override
-	public void canvasResized(ChangeEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.common.
+   * event.ChangeEvent)
+   */
+  @Override
+  public void canvasResized(ChangeEvent e) {
+    // TODO Auto-generated method stub
+
+  }
 }

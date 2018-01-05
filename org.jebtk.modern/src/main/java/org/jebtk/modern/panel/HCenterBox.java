@@ -39,45 +39,48 @@ import javax.swing.Box;
  *
  */
 public class HCenterBox extends HBox {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member box.
-	 */
-	private HBox mBox = HBox.create();
-	
-	/**
-	 * Instantiates a new h center box panel.
-	 */
-	public HCenterBox() {
-		super.add(Box.createHorizontalGlue());
-		super.add(mBox);
-		super.add(Box.createHorizontalGlue());
-	}
-	
-	/**
-	 * Instantiates a new h center box panel.
-	 *
-	 * @param c the c
-	 */
-	public HCenterBox(Component c) {
-		this();
-		
-		add(c);
-	}
 
-	/* (non-Javadoc)
-	 * @see java.awt.Container#add(java.awt.Component)
-	 */
-	@Override
-	public Component add(Component c) {
-		mBox.add(c);
-		
-		return c;
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member box.
+   */
+  private HBox mBox = HBox.create();
+
+  /**
+   * Instantiates a new h center box panel.
+   */
+  public HCenterBox() {
+    super.add(Box.createHorizontalGlue());
+    super.add(mBox);
+    super.add(Box.createHorizontalGlue());
+  }
+
+  /**
+   * Instantiates a new h center box panel.
+   *
+   * @param c
+   *          the c
+   */
+  public HCenterBox(Component c) {
+    this();
+
+    add(c);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see java.awt.Container#add(java.awt.Component)
+   */
+  @Override
+  public Component add(Component c) {
+    mBox.add(c);
+
+    return c;
+  }
 
 }

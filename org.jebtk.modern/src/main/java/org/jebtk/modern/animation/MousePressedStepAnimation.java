@@ -25,47 +25,49 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class MousePressedStepAnimation extends MousePressedAnimation {
 
-	private int mStep = -1;
-	
-	/**
-	 * Instantiates a new hover fade animation.
-	 *
-	 * @param widget the widget
-	 */
-	public MousePressedStepAnimation(ModernWidget widget) {
-		super(widget);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.common.ui.animation.MouseAnimation#animateMouseEntered()
-	 */
-	@Override
-	public void animateMousePressed() {
-		getWidget().repaint();
-		
-		if (mStep == TimerAnimation.MAX_STEP_INDEX) {
-			stopTimer();
-		} else {
-			++mStep;
-		}
-	}
-	
-	public int getStep() {
-		return mStep;
-	}
-	
-	@Override
-	public void startTimer() {
-		mStep = 0;
-		
-		super.startTimer();
-	}
-	
-	@Override
-	public void reset() {
-		mStep = -1;
-		
-		
-		super.reset();
-	}
+  private int mStep = -1;
+
+  /**
+   * Instantiates a new hover fade animation.
+   *
+   * @param widget
+   *          the widget
+   */
+  public MousePressedStepAnimation(ModernWidget widget) {
+    super(widget);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.MouseAnimation#animateMouseEntered()
+   */
+  @Override
+  public void animateMousePressed() {
+    getWidget().repaint();
+
+    if (mStep == TimerAnimation.MAX_STEP_INDEX) {
+      stopTimer();
+    } else {
+      ++mStep;
+    }
+  }
+
+  public int getStep() {
+    return mStep;
+  }
+
+  @Override
+  public void startTimer() {
+    mStep = 0;
+
+    super.startTimer();
+  }
+
+  @Override
+  public void reset() {
+    mStep = -1;
+
+    super.reset();
+  }
 }

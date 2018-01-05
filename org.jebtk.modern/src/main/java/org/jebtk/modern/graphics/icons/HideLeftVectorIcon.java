@@ -34,22 +34,25 @@ import java.awt.Graphics2D;
  * The class HideLeftVectorIcon.
  */
 public class HideLeftVectorIcon extends HideVectorIcon {
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.HideVectorIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		super.drawIcon(g2, x, y, w, h, params);
-		
-		double wf = w * WIDTH_SCALE;
-		double w2 = w / 2.0;
-		double hf = w * HEIGHT_SCALE;
-		
-		double xf = x + (wf - hf) / 2.0;
-		double yf = y + (hf - wf) / 2.0;
-	
-		g2.drawLine((int)Math.round(xf), (int)Math.round(yf + w2), (int)Math.round(xf + hf), (int)Math.round(yf));
-		g2.drawLine((int)Math.round(xf), (int)Math.round(yf + w2), (int)Math.round(xf + hf), (int)Math.round(yf + wf));
-	}
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.HideVectorIcon#drawForeground(java.awt.
+   * Graphics2D, java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+    super.drawIcon(g2, x, y, w, h, params);
+
+    double wf = w * WIDTH_SCALE;
+    double w2 = w / 2.0;
+    double hf = w * HEIGHT_SCALE;
+
+    double xf = x + (wf - hf) / 2.0;
+    double yf = y + (hf - wf) / 2.0;
+
+    g2.drawLine((int) Math.round(xf), (int) Math.round(yf + w2), (int) Math.round(xf + hf), (int) Math.round(yf));
+    g2.drawLine((int) Math.round(xf), (int) Math.round(yf + w2), (int) Math.round(xf + hf), (int) Math.round(yf + wf));
+  }
 }

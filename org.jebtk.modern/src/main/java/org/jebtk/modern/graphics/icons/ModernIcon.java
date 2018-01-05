@@ -34,143 +34,153 @@ import java.awt.image.BufferedImage;
 import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntRect;
 
-
 // TODO: Auto-generated Javadoc
 /**
- * Abstraction for icon rendering so icons can either be
- * bitmaps or vectors.
+ * Abstraction for icon rendering so icons can either be bitmaps or vectors.
  *
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernIcon  {
-	
-	/**
-	 * The member disabled icon.
-	 */
-	private ModernIcon mDisabledIcon;
-	
-	
-	/**
-	 * Draw icon.
-	 *
-	 * @param g2 the g 2
-	 * @param rect the rect
-	 */
-	public void drawIcon(Graphics2D g2, IntRect rect) {
-		drawIcon(g2, rect.getX(), rect.getY(), rect.getW(), rect.getH());
-	}
-	
-	/**
-	 * Draw icon.
-	 *
-	 * @param g2 the g 2
-	 * @param rect the rect
-	 */
-	public void drawIcon(Graphics2D g2, Rectangle rect) {
-		drawIcon(g2, rect.x, rect.y, rect.width, rect.height);
-	}
-	
-	/**
-	 * Draw the icon in a space wxw at (0, 0).
-	 *
-	 * @param g2 the g 2
-	 * @param w the w
-	 */
-	public void drawIcon(Graphics2D g2, int w) {
-		drawIcon(g2, 0, 0, w, w);
-	}
-	
-	/**
-	 * Draw icon.
-	 *
-	 * @param g2 the g 2
-	 * @param x the x
-	 * @param y the y
-	 * @param w the w
-	 */
-	public void drawIcon(Graphics2D g2, int x, int y, int w) {
-		drawIcon(g2, x, y, w, w);
-	}
-	
-	/**
-	 * Draw icon.
-	 *
-	 * @param g2 the g 2
-	 * @param dim the dim
-	 */
-	public void drawIcon(Graphics2D g2, IntDim dim) {
-		drawIcon(g2, 0, 0, dim);
-	}
-	
-	/**
-	 * Draw the icon at position x, y in a space dim.
-	 *
-	 * @param g2 the g 2
-	 * @param x the x
-	 * @param y the y
-	 * @param dim the dim
-	 */
-	public void drawIcon(Graphics2D g2, int x, int y, IntDim dim) {
-		drawIcon(g2, x, y, dim.getW(), dim.getH());
-	}
-	
-	/**
-	 * Draw the icon on the graphics context at the position
-	 * and size specified by the rectangle.
-	 *
-	 * @param g2 the g2
-	 * @param x the x
-	 * @param y the y
-	 * @param w the w
-	 * @param h the h
-	 */
-	public abstract void drawIcon(Graphics2D g2, 
-			int x, 
-			int y, 
-			int w, 
-			int h,
-			Object... params);
+public abstract class ModernIcon {
 
-	/**
-	 * Returns the width of the icon.
-	 *
-	 * @return 	The width.
-	 */
-	public abstract int getWidth();
+  /**
+   * The member disabled icon.
+   */
+  private ModernIcon mDisabledIcon;
 
-	/**
-	 * Returns the height of the icon.
-	 *
-	 * @return 	The height.
-	 */
-	public abstract int getHeight();
+  /**
+   * Draw icon.
+   *
+   * @param g2
+   *          the g 2
+   * @param rect
+   *          the rect
+   */
+  public void drawIcon(Graphics2D g2, IntRect rect) {
+    drawIcon(g2, rect.getX(), rect.getY(), rect.getW(), rect.getH());
+  }
 
-	/**
-	 * Should return a buffered image of the icon. Note
-	 * that vector icons will return null, unless they
-	 * have been rastorized.
-	 *
-	 * @return the image
-	 */
-	public BufferedImage getImage() {
-		return null;
-	}
+  /**
+   * Draw icon.
+   *
+   * @param g2
+   *          the g 2
+   * @param rect
+   *          the rect
+   */
+  public void drawIcon(Graphics2D g2, Rectangle rect) {
+    drawIcon(g2, rect.x, rect.y, rect.width, rect.height);
+  }
 
-	/**
-	 * Returns a disabled form of the icon. This is stored
-	 * along with the regular icon so that the disabled
-	 * icon is cached for use on other widgets.
-	 *
-	 * @return the disabled icon
-	 */
-	public ModernIcon getDisabledIcon() {
-		if (mDisabledIcon == null) {
-			mDisabledIcon = GrayScaleIcon.convert(this);
-		}
-		
-		return mDisabledIcon;
-	}
+  /**
+   * Draw the icon in a space wxw at (0, 0).
+   *
+   * @param g2
+   *          the g 2
+   * @param w
+   *          the w
+   */
+  public void drawIcon(Graphics2D g2, int w) {
+    drawIcon(g2, 0, 0, w, w);
+  }
 
-	
+  /**
+   * Draw icon.
+   *
+   * @param g2
+   *          the g 2
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param w
+   *          the w
+   */
+  public void drawIcon(Graphics2D g2, int x, int y, int w) {
+    drawIcon(g2, x, y, w, w);
+  }
+
+  /**
+   * Draw icon.
+   *
+   * @param g2
+   *          the g 2
+   * @param dim
+   *          the dim
+   */
+  public void drawIcon(Graphics2D g2, IntDim dim) {
+    drawIcon(g2, 0, 0, dim);
+  }
+
+  /**
+   * Draw the icon at position x, y in a space dim.
+   *
+   * @param g2
+   *          the g 2
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param dim
+   *          the dim
+   */
+  public void drawIcon(Graphics2D g2, int x, int y, IntDim dim) {
+    drawIcon(g2, x, y, dim.getW(), dim.getH());
+  }
+
+  /**
+   * Draw the icon on the graphics context at the position and size specified by
+   * the rectangle.
+   *
+   * @param g2
+   *          the g2
+   * @param x
+   *          the x
+   * @param y
+   *          the y
+   * @param w
+   *          the w
+   * @param h
+   *          the h
+   */
+  public abstract void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params);
+
+  /**
+   * Returns the width of the icon.
+   *
+   * @return The width.
+   */
+  public abstract int getWidth();
+
+  /**
+   * Returns the height of the icon.
+   *
+   * @return The height.
+   */
+  public abstract int getHeight();
+
+  /**
+   * Should return a buffered image of the icon. Note that vector icons will
+   * return null, unless they have been rastorized.
+   *
+   * @return the image
+   */
+  public BufferedImage getImage() {
+    return null;
+  }
+
+  /**
+   * Returns a disabled form of the icon. This is stored along with the regular
+   * icon so that the disabled icon is cached for use on other widgets.
+   *
+   * @return the disabled icon
+   */
+  public ModernIcon getDisabledIcon() {
+    if (mDisabledIcon == null) {
+      mDisabledIcon = GrayScaleIcon.convert(this);
+    }
+
+    return mDisabledIcon;
+  }
+
 }

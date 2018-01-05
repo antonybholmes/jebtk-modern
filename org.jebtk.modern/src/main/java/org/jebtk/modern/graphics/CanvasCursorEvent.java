@@ -38,34 +38,35 @@ import org.jebtk.core.event.ChangeEvent;
  */
 public class CanvasCursorEvent extends ChangeEvent {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/** The m cursor. */
-	private Cursor mCursor;
+  /** The m cursor. */
+  private Cursor mCursor;
 
-	/**
-	 * Instantiates a new canvas cursor event.
-	 *
-	 * @param source the source
-	 * @param cursor the cursor
-	 */
-	public CanvasCursorEvent(Component source, 
-			Cursor cursor) {
-		super(source);
+  /**
+   * Instantiates a new canvas cursor event.
+   *
+   * @param source
+   *          the source
+   * @param cursor
+   *          the cursor
+   */
+  public CanvasCursorEvent(Component source, Cursor cursor) {
+    super(source);
 
-		mCursor = cursor;
-	}
+    mCursor = cursor;
+  }
 
-	/**
-	 * Gets the cursor.
-	 *
-	 * @return the cursor
-	 */
-	public Cursor getCursor() {
-		return mCursor;
-	}
+  /**
+   * Gets the cursor.
+   *
+   * @return the cursor
+   */
+  public Cursor getCursor() {
+    return mCursor;
+  }
 
 }

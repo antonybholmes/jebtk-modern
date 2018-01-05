@@ -39,51 +39,56 @@ import java.awt.geom.GeneralPath;
  *
  */
 public class ArrowRightVectorIcon extends ArrowVectorIcon {
-	
-	/**
-	 * Instantiates a new arrow right vector icon.
-	 */
-	public ArrowRightVectorIcon() {
-		// do nothing
-	}
-	
-	/**
-	 * Instantiates a new arrow right vector icon.
-	 *
-	 * @param color the color
-	 */
-	public ArrowRightVectorIcon(Color color) {
-		super(color);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D, java.awt.Rectangle)
-	 */
-	@Override
-	public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-		
-		double wf = w * SCALE;
-		double w2 = wf * 0.5;
-		double w4 = wf * 0.25;
-		double w34 = wf * 0.75;
-		
-		double xf = x + (w - wf) / 2.0;
-		double yf = y + (h - wf) / 2.0;
-		
-		GeneralPath gp = new GeneralPath();
-		
-		gp.moveTo(xf, yf + w4);
-		
-		gp.lineTo(xf + w2, yf + w4);
-		gp.lineTo(xf + w2, yf);
-		gp.lineTo(xf + w, yf + w2);
-		gp.lineTo(xf + w2, yf + w);
-		gp.lineTo(xf + w2, yf + w34);
-		gp.lineTo(xf, yf + w34);
-		
-		gp.closePath();
-		
-		g2.setColor(mColor);
-		g2.fill(gp);
-	}
+
+  /**
+   * Instantiates a new arrow right vector icon.
+   */
+  public ArrowRightVectorIcon() {
+    // do nothing
+  }
+
+  /**
+   * Instantiates a new arrow right vector icon.
+   *
+   * @param color
+   *          the color
+   */
+  public ArrowRightVectorIcon(Color color) {
+    super(color);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
+   */
+  @Override
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+
+    double wf = w * SCALE;
+    double w2 = wf * 0.5;
+    double w4 = wf * 0.25;
+    double w34 = wf * 0.75;
+
+    double xf = x + (w - wf) / 2.0;
+    double yf = y + (h - wf) / 2.0;
+
+    GeneralPath gp = new GeneralPath();
+
+    gp.moveTo(xf, yf + w4);
+
+    gp.lineTo(xf + w2, yf + w4);
+    gp.lineTo(xf + w2, yf);
+    gp.lineTo(xf + w, yf + w2);
+    gp.lineTo(xf + w2, yf + w);
+    gp.lineTo(xf + w2, yf + w34);
+    gp.lineTo(xf, yf + w34);
+
+    gp.closePath();
+
+    g2.setColor(mColor);
+    g2.fill(gp);
+  }
 }

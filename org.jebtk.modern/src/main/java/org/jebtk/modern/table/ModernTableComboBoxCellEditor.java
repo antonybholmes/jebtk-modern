@@ -37,104 +37,113 @@ import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTableComboBoxCellEditor.
  */
-public class ModernTableComboBoxCellEditor extends AbstractModernTableCellEditor implements ModernClickListener, ChangeListener  {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member combo.
-	 */
-	protected ModernComboBox mCombo;
-	
-	/**
-	 * The member default value.
-	 */
-	private String mDefaultValue = "";
+public class ModernTableComboBoxCellEditor extends AbstractModernTableCellEditor
+    implements ModernClickListener, ChangeListener {
 
-	/**
-	 * Instantiates a new modern table combo box cell editor.
-	 *
-	 * @param combo the combo
-	 */
-	public ModernTableComboBoxCellEditor(ModernComboBox combo) {
-		mCombo = combo;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		setup();
-	}
+  /**
+   * The member combo.
+   */
+  protected ModernComboBox mCombo;
 
-	/**
-	 * Instantiates a new modern table combo box cell editor.
-	 *
-	 * @param combo the combo
-	 * @param defaultValue the default value
-	 */
-	public ModernTableComboBoxCellEditor(ModernComboBox combo, String defaultValue) {
+  /**
+   * The member default value.
+   */
+  private String mDefaultValue = "";
 
-		mCombo = combo;
-		mDefaultValue = defaultValue;
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		mCombo.addClickListener(this);
-		mCombo.addTextChangedListener(this);
-	}
+  /**
+   * Instantiates a new modern table combo box cell editor.
+   *
+   * @param combo
+   *          the combo
+   */
+  public ModernTableComboBoxCellEditor(ModernComboBox combo) {
+    mCombo = combo;
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
-	 */
-	@Override
-	public final Object getCellEditorValue() {
-		return mCombo.getSelectedItem();
-	}
+    setup();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern.event.ModernClickEvent)
-	 */
-	@Override
-	public final void clicked(ModernClickEvent e) {
-		fireChanged(new ChangeEvent(this));
-	}
+  /**
+   * Instantiates a new modern table combo box cell editor.
+   *
+   * @param combo
+   *          the combo
+   * @param defaultValue
+   *          the default value
+   */
+  public ModernTableComboBoxCellEditor(ModernComboBox combo, String defaultValue) {
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorComponent(org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean, boolean, boolean, int, int)
-	 */
-	@Override
-	public Component getCellEditorComponent(ModernData table,
-            Object value,
-            boolean highlight,
-            boolean isSelected,
-            boolean hasFocus,
-            int row,
-            int column) {
-		if (value != null && !value.toString().equals("")) {
-			mCombo.setText(value.toString());
-		} else {
-			mCombo.setText(mDefaultValue);
-		}
+    mCombo = combo;
+    mDefaultValue = defaultValue;
 
-		return mCombo;
-	}
+    setup();
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
-	 */
-	@Override
-	public void changed(ChangeEvent e) {
-		fireChanged(e);
-	}
+  /**
+   * Setup.
+   */
+  private void setup() {
+    mCombo.addClickListener(this);
+    mCombo.addTextChangedListener(this);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   */
+  @Override
+  public final Object getCellEditorValue() {
+    return mCombo.getSelectedItem();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
+   * .event.ModernClickEvent)
+   */
+  @Override
+  public final void clicked(ModernClickEvent e) {
+    fireChanged(new ChangeEvent(this));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorComponent(
+   * org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean,
+   * boolean, boolean, int, int)
+   */
+  @Override
+  public Component getCellEditorComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+    if (value != null && !value.toString().equals("")) {
+      mCombo.setText(value.toString());
+    } else {
+      mCombo.setText(mDefaultValue);
+    }
+
+    return mCombo;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+   */
+  @Override
+  public void changed(ChangeEvent e) {
+    fireChanged(e);
+  }
 }

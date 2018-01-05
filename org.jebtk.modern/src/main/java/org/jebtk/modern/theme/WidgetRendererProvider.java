@@ -30,41 +30,46 @@ package org.jebtk.modern.theme;
 // TODO: Auto-generated Javadoc
 /**
  * Provides the shared renderer to components. This is the default way to
- * control component look and feel and to ensure they share renderers as
- * much as possible.
+ * control component look and feel and to ensure they share renderers as much as
+ * possible.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class WidgetRendererProvider {
-	
-	/** The m renderer. */
-	private WidgetRenderer mRenderer = new ModernWidgetRenderer();
 
-	/**
-	 * Sets the.
-	 *
-	 * @param renderer the renderer
-	 * @return the widget renderer provider
-	 */
-	/* (non-Javadoc)
-	 * @see org.abh.common.GetSet#set(java.lang.Object)
-	 */
-	public WidgetRendererProvider set(WidgetRenderer renderer) {
-		mRenderer = renderer;
-		
-		return this;
-	}
-	
-	/**
-	 * Gets the renderer.
-	 *
-	 * @return the renderer
-	 */
-	/* (non-Javadoc)
-	 * @see org.abh.common.GetSet#get()
-	 */
-	public WidgetRenderer getRenderer() {
-		return mRenderer;
-	}
+  /** The m renderer. */
+  private WidgetRenderer mRenderer = new ModernWidgetRenderer();
+
+  /**
+   * Sets the.
+   *
+   * @param renderer
+   *          the renderer
+   * @return the widget renderer provider
+   */
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.GetSet#set(java.lang.Object)
+   */
+  public WidgetRendererProvider set(WidgetRenderer renderer) {
+    mRenderer = renderer;
+
+    return this;
+  }
+
+  /**
+   * Gets the renderer.
+   *
+   * @return the renderer
+   */
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.GetSet#get()
+   */
+  public WidgetRenderer getRenderer() {
+    return mRenderer;
+  }
 }

@@ -39,96 +39,91 @@ import org.jebtk.core.tree.TreeRootNode;
 
 // TODO: Auto-generated Javadoc
 /**
- * Specialized tree that renderer paths
- * as a hieraracy.
+ * Specialized tree that renderer paths as a hieraracy.
  * 
  * @author Antony Holmes Holmes
  *
  */
 public class PathTree extends ModernTree<List<Path>> {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Construct a new path tree.
-	 * 
-	 * @param paths				The paths to construct the tree.
-	 * @param showLeaves		If set to true, will show leaf nodes.
-	 * 							In a settings dialog etc, it may be
-	 * 							desirable to not show the leafs for
-	 * 							aesthetic reasons.
-	 */
-	public PathTree(Collection<Path> paths, boolean showLeaves) {
-		ModernTreeNodeFolderRenderer renderer = 
-				new ModernTreeNodeFolderRenderer();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		setNodeRenderer(renderer);
-		
-		
-		TreeRootNode<List<Path>> root = new TreeRootNode<List<Path>>();
+  /**
+   * Construct a new path tree.
+   * 
+   * @param paths
+   *          The paths to construct the tree.
+   * @param showLeaves
+   *          If set to true, will show leaf nodes. In a settings dialog etc, it
+   *          may be desirable to not show the leafs for aesthetic reasons.
+   */
+  public PathTree(Collection<Path> paths, boolean showLeaves) {
+    ModernTreeNodeFolderRenderer renderer = new ModernTreeNodeFolderRenderer();
 
-		for (Path path : paths) {
-			//List<String> parts = TextUtils.periodSplit(path);
+    setNodeRenderer(renderer);
 
-			TreeNode<List<Path>> node = root;
+    TreeRootNode<List<Path>> root = new TreeRootNode<List<Path>>();
 
-			for (String part : path) {
-				TreeNode<List<Path>> newNode = node.getChild(part);
+    for (Path path : paths) {
+      // List<String> parts = TextUtils.periodSplit(path);
 
-				if (newNode == null) {
-					newNode = new TreeNode<List<Path>>(part, new ArrayList<Path>());
-					node.addChild(newNode);
-				}
+      TreeNode<List<Path>> node = root;
 
-				node = newNode;
-				
-				node.getValue().add(path);
-			}
-		}
+      for (String part : path) {
+        TreeNode<List<Path>> newNode = node.getChild(part);
 
-		// Remove leaves
-		Deque<TreeNode<List<Path>>> nodeStack = 
-				new ArrayDeque<TreeNode<List<Path>>>();
+        if (newNode == null) {
+          newNode = new TreeNode<List<Path>>(part, new ArrayList<Path>());
+          node.addChild(newNode);
+        }
 
-		nodeStack.push(root);
+        node = newNode;
 
-		while (!nodeStack.isEmpty()) {
-			TreeNode<List<Path>> node = nodeStack.pop();
+        node.getValue().add(path);
+      }
+    }
 
-			List<TreeNode<List<Path>>> toRemove = 
-					new ArrayList<TreeNode<List<Path>>>();
-			
-			for (TreeNode<List<Path>> child : node) {
-				if (child.isParent() || showLeaves) {
-					nodeStack.push(child);
-				} else {
-					toRemove.add(child);
-				}
-			}
-			
-			for (TreeNode<List<Path>> child : toRemove) {
-				node.removeChild(child);
-			}
-		}
+    // Remove leaves
+    Deque<TreeNode<List<Path>>> nodeStack = new ArrayDeque<TreeNode<List<Path>>>();
 
-		// Once the tree is built, sort it
-		nodeStack = new ArrayDeque<TreeNode<List<Path>>>();
+    nodeStack.push(root);
 
-		nodeStack.push(root);
+    while (!nodeStack.isEmpty()) {
+      TreeNode<List<Path>> node = nodeStack.pop();
 
-		while (!nodeStack.isEmpty()) {
-			TreeNode<List<Path>> node = nodeStack.pop();
+      List<TreeNode<List<Path>>> toRemove = new ArrayList<TreeNode<List<Path>>>();
 
-			node.sortChildren();
+      for (TreeNode<List<Path>> child : node) {
+        if (child.isParent() || showLeaves) {
+          nodeStack.push(child);
+        } else {
+          toRemove.add(child);
+        }
+      }
 
-			for (TreeNode<List<Path>> child : node) {
-				nodeStack.push(child);
-			}
-		}
+      for (TreeNode<List<Path>> child : toRemove) {
+        node.removeChild(child);
+      }
+    }
 
-		setRoot(root);
-	}
+    // Once the tree is built, sort it
+    nodeStack = new ArrayDeque<TreeNode<List<Path>>>();
+
+    nodeStack.push(root);
+
+    while (!nodeStack.isEmpty()) {
+      TreeNode<List<Path>> node = nodeStack.pop();
+
+      node.sortChildren();
+
+      for (TreeNode<List<Path>> child : node) {
+        nodeStack.push(child);
+      }
+    }
+
+    setRoot(root);
+  }
 }

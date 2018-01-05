@@ -38,7 +38,6 @@ import javax.swing.border.Border;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.UI;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Replacement ModernButton with a common skin.
@@ -47,97 +46,105 @@ import org.jebtk.modern.UI;
  *
  */
 public class ModernGradientPanel extends ModernPanel {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member colour1.
-	 */
-	private Color mColor1;
-	
-	/**
-	 * The member colour2.
-	 */
-	private Color mColor2;
 
-	/**
-	 * Instantiates a new modern gradient panel.
-	 */
-	public ModernGradientPanel() {
-		this(SettingsService.getInstance().getAsColor("gradient-panel.color-1"),
-				SettingsService.getInstance().getAsColor("gradient-panel.color-2"));
-	}
-	
-	/**
-	 * Instantiates a new modern gradient panel.
-	 *
-	 * @param colour1 the colour1
-	 * @param colour2 the colour2
-	 */
-	public ModernGradientPanel(Color colour1, Color colour2) {
-		mColor1 = colour1;
-		mColor2 = colour2;
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern gradient panel.
-	 *
-	 * @param manager the manager
-	 * @param colour1 the colour1
-	 * @param colour2 the colour2
-	 */
-	public ModernGradientPanel(LayoutManager manager,
-			Color colour1, 
-			Color colour2) {
+  /**
+   * The member colour1.
+   */
+  private Color mColor1;
 
-		super(manager);
+  /**
+   * The member colour2.
+   */
+  private Color mColor2;
 
-		mColor1 = colour1;
-		mColor2 = colour2;
-	}
-	
-	/**
-	 * Instantiates a new modern gradient panel.
-	 *
-	 * @param c the c
-	 * @param colour1 the colour 1
-	 * @param colour2 the colour 2
-	 */
-	public ModernGradientPanel(Component c,
-			Color colour1, 
-			Color colour2) {
+  /**
+   * Instantiates a new modern gradient panel.
+   */
+  public ModernGradientPanel() {
+    this(SettingsService.getInstance().getAsColor("gradient-panel.color-1"),
+        SettingsService.getInstance().getAsColor("gradient-panel.color-2"));
+  }
 
-		setBody(c);
+  /**
+   * Instantiates a new modern gradient panel.
+   *
+   * @param colour1
+   *          the colour1
+   * @param colour2
+   *          the colour2
+   */
+  public ModernGradientPanel(Color colour1, Color colour2) {
+    mColor1 = colour1;
+    mColor2 = colour2;
+  }
 
-		mColor1 = colour1;
-		mColor2 = colour2;
-	}
+  /**
+   * Instantiates a new modern gradient panel.
+   *
+   * @param manager
+   *          the manager
+   * @param colour1
+   *          the colour1
+   * @param colour2
+   *          the colour2
+   */
+  public ModernGradientPanel(LayoutManager manager, Color colour1, Color colour2) {
 
-	/**
-	 * Instantiates a new modern gradient panel.
-	 *
-	 * @param c the c
-	 * @param c1 the c 1
-	 * @param c2 the c 2
-	 * @param border the border
-	 */
-	public ModernGradientPanel(JComponent c, 
-			Color c1, 
-			Color c2, 
-			Border border) {
-		this(c, c1, c2);
-		
-		setBorder(border);
-	}
+    super(manager);
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.panel.ModernPanel#drawBackground(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		UI.drawGradient(g2, getWidth(), getHeight(), mColor1, mColor2);	
-	}
+    mColor1 = colour1;
+    mColor2 = colour2;
+  }
+
+  /**
+   * Instantiates a new modern gradient panel.
+   *
+   * @param c
+   *          the c
+   * @param colour1
+   *          the colour 1
+   * @param colour2
+   *          the colour 2
+   */
+  public ModernGradientPanel(Component c, Color colour1, Color colour2) {
+
+    setBody(c);
+
+    mColor1 = colour1;
+    mColor2 = colour2;
+  }
+
+  /**
+   * Instantiates a new modern gradient panel.
+   *
+   * @param c
+   *          the c
+   * @param c1
+   *          the c 1
+   * @param c2
+   *          the c 2
+   * @param border
+   *          the border
+   */
+  public ModernGradientPanel(JComponent c, Color c1, Color c2, Border border) {
+    this(c, c1, c2);
+
+    setBorder(border);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.panel.ModernPanel#drawBackground(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    UI.drawGradient(g2, getWidth(), getHeight(), mColor1, mColor2);
+  }
 }

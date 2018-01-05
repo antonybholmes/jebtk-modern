@@ -31,7 +31,6 @@ import org.jebtk.core.event.ChangeEvent;
 
 import org.jebtk.core.event.EventProducer;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
@@ -39,57 +38,70 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  */
 public class LayerEventListeners extends EventProducer<LayerEventListener> implements LayerEventProducer {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.layers.LayerEventProducer#addLayerListener(org.abh.lib.ui.modern.layers.LayerEventListener)
-	 */
-	public void addLayerListener(LayerEventListener l) {
-		mListeners.add(l);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.layers.LayerEventProducer#removeLayerListener(org.abh.lib.ui.modern.layers.LayerEventListener)
-	 */
-	public void removeLayerListener(LayerEventListener l) {
-		mListeners.remove(l);
-	}
-	
-	/**
-	 * Fire layer changed.
-	 */
-	public void fireLayerChanged() {
-		fireLayerChanged(new ChangeEvent(this, LAYER_CHANGED));
-	}
-	
-	/**
-	 * Fire layer updated.
-	 */
-	public void fireLayerUpdated() {
-		fireLayerUpdated(new ChangeEvent(this, LAYER_CHANGED));
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.layers.LayerEventProducer#fireLayerChanged(org.abh.lib.event.ChangeEvent)
-	 */
-	public void fireLayerChanged(ChangeEvent e) {
-		for (LayerEventListener l : mListeners) {
-			l.layerChanged(e);
-		}
-	}
-	
-	/**
-	 * Fire layer updated.
-	 *
-	 * @param e the e
-	 */
-	public void fireLayerUpdated(ChangeEvent e) {
-		for (LayerEventListener l : mListeners) {
-			l.layerUpdated(e);
-		}
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.layers.LayerEventProducer#addLayerListener(org.abh.lib.
+   * ui.modern.layers.LayerEventListener)
+   */
+  public void addLayerListener(LayerEventListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.layers.LayerEventProducer#removeLayerListener(org.abh.
+   * lib.ui.modern.layers.LayerEventListener)
+   */
+  public void removeLayerListener(LayerEventListener l) {
+    mListeners.remove(l);
+  }
+
+  /**
+   * Fire layer changed.
+   */
+  public void fireLayerChanged() {
+    fireLayerChanged(new ChangeEvent(this, LAYER_CHANGED));
+  }
+
+  /**
+   * Fire layer updated.
+   */
+  public void fireLayerUpdated() {
+    fireLayerUpdated(new ChangeEvent(this, LAYER_CHANGED));
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.layers.LayerEventProducer#fireLayerChanged(org.abh.lib.
+   * event.ChangeEvent)
+   */
+  public void fireLayerChanged(ChangeEvent e) {
+    for (LayerEventListener l : mListeners) {
+      l.layerChanged(e);
+    }
+  }
+
+  /**
+   * Fire layer updated.
+   *
+   * @param e
+   *          the e
+   */
+  public void fireLayerUpdated(ChangeEvent e) {
+    for (LayerEventListener l : mListeners) {
+      l.layerUpdated(e);
+    }
+  }
 }

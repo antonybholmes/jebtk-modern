@@ -36,8 +36,6 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.text.ModernColoredHeadingLabel;
 import org.jebtk.modern.text.ModernHeading;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Provides a line separator for menus with a theme consistent with
@@ -47,48 +45,54 @@ import org.jebtk.modern.text.ModernHeading;
  *
  */
 public class ModernSidePanel extends JComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern side panel.
-	 *
-	 * @param title the title
-	 * @param content the content
-	 */
-	public ModernSidePanel(String title, JComponent content) {
-		ModernAutoSizeLabel label = new ModernColoredHeadingLabel(title);
-		label.setBorder(BorderService.getInstance().createBorder(10));
-		
-		add(label, BorderLayout.PAGE_START);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-		add(content, BorderLayout.CENTER);
-	}
-	
-	/**
-	 * Instantiates a new modern side panel.
-	 *
-	 * @param title the title
-	 * @param top the top
-	 * @param content the content
-	 */
-	public ModernSidePanel(String title, JComponent top, JComponent content) {
-		add(new ModernHeading(title, top), BorderLayout.PAGE_START);
+  /**
+   * Instantiates a new modern side panel.
+   *
+   * @param title
+   *          the title
+   * @param content
+   *          the content
+   */
+  public ModernSidePanel(String title, JComponent content) {
+    ModernAutoSizeLabel label = new ModernColoredHeadingLabel(title);
+    label.setBorder(BorderService.getInstance().createBorder(10));
 
-		add(content, BorderLayout.CENTER);
-	}
+    add(label, BorderLayout.PAGE_START);
 
-	/**
-	 * Instantiates a new modern side panel.
-	 *
-	 * @param title the title
-	 */
-	public ModernSidePanel(String title) {
-		ModernAutoSizeLabel label = new ModernColoredHeadingLabel(title);
+    add(content, BorderLayout.CENTER);
+  }
 
-		add(label, BorderLayout.PAGE_START);
-	}
+  /**
+   * Instantiates a new modern side panel.
+   *
+   * @param title
+   *          the title
+   * @param top
+   *          the top
+   * @param content
+   *          the content
+   */
+  public ModernSidePanel(String title, JComponent top, JComponent content) {
+    add(new ModernHeading(title, top), BorderLayout.PAGE_START);
+
+    add(content, BorderLayout.CENTER);
+  }
+
+  /**
+   * Instantiates a new modern side panel.
+   *
+   * @param title
+   *          the title
+   */
+  public ModernSidePanel(String title) {
+    ModernAutoSizeLabel label = new ModernColoredHeadingLabel(title);
+
+    add(label, BorderLayout.PAGE_START);
+  }
 }

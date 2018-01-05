@@ -34,7 +34,6 @@ import javax.swing.border.Border;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * Represents a non closable tab.
@@ -42,43 +41,46 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  */
 public class HTab extends ModernComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * The member toolbar.
-	 */
-	protected HTabToolbar mToolbar;
-	
-	/**
-	 * Instantiates a new h tab2.
-	 *
-	 * @param title the title
-	 * @param content the content
-	 */
-	public HTab(String title, Component content) {
-		mToolbar = new HTabToolbar(title);
-		mToolbar.setBorder(BORDER);
-		setHeader(mToolbar);
-		
-		setBody(content);
-	}
-	
-	public HTab(String title, Component content, Border border) {
-		this(title, content);
-		
-		setBorder(border);
-	}
-	
-	/**
-	 * Adds the button.
-	 *
-	 * @param widget the widget
-	 */
-	public void addToToolbar(ModernWidget widget) {
-		mToolbar.add(widget);
-	}
+
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * The member toolbar.
+   */
+  protected HTabToolbar mToolbar;
+
+  /**
+   * Instantiates a new h tab2.
+   *
+   * @param title
+   *          the title
+   * @param content
+   *          the content
+   */
+  public HTab(String title, Component content) {
+    mToolbar = new HTabToolbar(title);
+    mToolbar.setBorder(BORDER);
+    setHeader(mToolbar);
+
+    setBody(content);
+  }
+
+  public HTab(String title, Component content, Border border) {
+    this(title, content);
+
+    setBorder(border);
+  }
+
+  /**
+   * Adds the button.
+   *
+   * @param widget
+   *          the widget
+   */
+  public void addToToolbar(ModernWidget widget) {
+    mToolbar.add(widget);
+  }
 }

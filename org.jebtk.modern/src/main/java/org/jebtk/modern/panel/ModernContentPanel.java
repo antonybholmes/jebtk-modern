@@ -34,8 +34,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The default look of the background.
@@ -43,31 +41,35 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  */
 public class ModernContentPanel extends ModernComponent {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern content panel.
-	 *
-	 * @param c the c
-	 */
-	public ModernContentPanel(Component c) {
-		super(new ModernBorderPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)));
-	}
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern content panel.
-	 *
-	 * @param c the c
-	 * @param w the w
-	 * @param h the h
-	 */
-	public ModernContentPanel(ModernScrollPane c, int w, int h) {
-		this(c);
-		
-		UI.setSize(this, w, h);
-	}
+  /**
+   * Instantiates a new modern content panel.
+   *
+   * @param c
+   *          the c
+   */
+  public ModernContentPanel(Component c) {
+    super(new ModernBorderPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)));
+  }
+
+  /**
+   * Instantiates a new modern content panel.
+   *
+   * @param c
+   *          the c
+   * @param w
+   *          the w
+   * @param h
+   *          the h
+   */
+  public ModernContentPanel(ModernScrollPane c, int w, int h) {
+    this(c);
+
+    UI.setSize(this, w, h);
+  }
 }

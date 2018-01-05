@@ -24,17 +24,17 @@ package org.jebtk.modern.table;
  */
 public class ModernSelectionTable extends ModernRowTable {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern selection table.
-	 */
-	public ModernSelectionTable() {
-		getRendererModel().setCol(0, new ModernTableCheckboxCellRenderer());
-		getEditorModel().setCol(0, new ModernTableCheckboxCellEditor());
-		
-		getColumnModel().setWidth(0, 40);
-		getColumnModel().setWidth(1, 500);
-	}
+  /**
+   * Instantiates a new modern selection table.
+   */
+  public ModernSelectionTable() {
+    getRendererModel().setCol(0, new ModernTableCheckboxCellRenderer());
+    getEditorModel().setCol(0, new ModernTableCheckboxCellEditor());
+
+    getColumnModel().setWidth(0, 40);
+    getColumnModel().setWidth(1, 500);
+  }
 }

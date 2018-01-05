@@ -30,8 +30,6 @@ package org.jebtk.modern.zoom;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.panel.HBox;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Zoom slider for status bar.
@@ -39,32 +37,32 @@ import org.jebtk.modern.panel.HBox;
  * @author Antony Holmes Holmes
  */
 public class ModernStatusZoomSlider extends HBox {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The member slider.
-	 */
-	private ModernZoomSlider mSlider;
-	
-	/**
-	 * The label.
-	 */
-	private ModernZoomLabel mLabel;
-	
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern status zoom slider.
-	 *
-	 * @param model the model
-	 */
-	public ModernStatusZoomSlider(ZoomModel model) {
-		mSlider = new ModernZoomSlider(model);
-		mLabel = new ModernZoomLabel(model);
-		
-		add(mSlider);
-		add(UI.createHGap(20));
-		add(mLabel);
-	}
+  /**
+   * The member slider.
+   */
+  private ModernZoomSlider mSlider;
+
+  /**
+   * The label.
+   */
+  private ModernZoomLabel mLabel;
+
+  /**
+   * Instantiates a new modern status zoom slider.
+   *
+   * @param model
+   *          the model
+   */
+  public ModernStatusZoomSlider(ZoomModel model) {
+    mSlider = new ModernZoomSlider(model);
+    mLabel = new ModernZoomLabel(model);
+
+    add(mSlider);
+    add(UI.createHGap(20));
+    add(mLabel);
+  }
 }

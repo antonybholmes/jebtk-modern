@@ -39,39 +39,41 @@ import org.jebtk.modern.dataview.ModernData;
  * The class ModernDataRowTextSorter.
  */
 public class ModernDataRowDateSorter extends ModernDataIndexMapSorter {
-	
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	
-	/**
-	 * Instantiates a new modern data row date sorter.
-	 */
-	public ModernDataRowDateSorter() {
-		setEnabled(true);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.dataview.sort.ModernDataIndexMapSorter#sort(org.abh.lib.ui.modern.dataview.ModernData, int, boolean)
-	 */
-	@Override
-	public void sort(ModernData data, int column, boolean sortAscending) {
-		super.sort(data, column, sortAscending);
-		
-		List<Indexed<Integer, Date>> values = 
-				new ArrayList<Indexed<Integer, Date>>();
-			
-		for (int i = 0; i < data.getRowCount(); ++i) {
-			
-			Date v = null;
-			
-			if (data.getModel().getValueAt(i, column) != null) {
-				v = (Date)data.getModel().getValueAt(i, column);
-			}
-			
-			values.add(new Indexed<Integer, Date>(i, v));
-		}
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
-		sort(values);
-	}
+  /**
+   * Instantiates a new modern data row date sorter.
+   */
+  public ModernDataRowDateSorter() {
+    setEnabled(true);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexMapSorter#sort(org.abh.lib
+   * .ui.modern.dataview.ModernData, int, boolean)
+   */
+  @Override
+  public void sort(ModernData data, int column, boolean sortAscending) {
+    super.sort(data, column, sortAscending);
+
+    List<Indexed<Integer, Date>> values = new ArrayList<Indexed<Integer, Date>>();
+
+    for (int i = 0; i < data.getRowCount(); ++i) {
+
+      Date v = null;
+
+      if (data.getModel().getValueAt(i, column) != null) {
+        v = (Date) data.getModel().getValueAt(i, column);
+      }
+
+      values.add(new Indexed<Integer, Date>(i, v));
+    }
+
+    sort(values);
+  }
 }

@@ -33,63 +33,63 @@ import java.awt.Font;
 import org.jebtk.core.text.SentenceCaseType;
 import org.jebtk.modern.window.ModernRibbonWindow;
 
-
-
 // TODO: Auto-generated Javadoc
 /**
  * Standardized ribbon menu section for providing basic cut, copy and paste
- * functionality to the currently highlighted control that supports
- * clipboard operations.
+ * functionality to the currently highlighted control that supports clipboard
+ * operations.
  *
  * @author Antony Holmes Holmes
  *
  */
 public class FontExtRibbonSection extends FontRibbonSection {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The font case button.
-	 */
-	private SentenceCaseButton mFontCaseButton = new SentenceCaseButton();
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new font ribbon section.
-	 *
-	 * @param parent the parent
-	 */
-	public FontExtRibbonSection(ModernRibbonWindow parent) {
-		super(parent);
+  /**
+   * The font case button.
+   */
+  private SentenceCaseButton mFontCaseButton = new SentenceCaseButton();
 
-		add(mFontCaseButton);
+  /**
+   * Instantiates a new font ribbon section.
+   *
+   * @param parent
+   *          the parent
+   */
+  public FontExtRibbonSection(ModernRibbonWindow parent) {
+    super(parent);
 
-		mFontCaseButton.addClickListener(this);
-	}
+    add(mFontCaseButton);
 
-	/**
-	 * Setup.
-	 *
-	 * @param font the font
-	 * @param fontColor the font color
-	 * @param sentenceCase the sentence case
-	 */
-	public void setup(Font font, 
-			Color fontColor, 
-			SentenceCaseType sentenceCase) {
-		super.setup(font, fontColor);
+    mFontCaseButton.addClickListener(this);
+  }
 
-		mFontCaseButton.setSentenceCase(sentenceCase);
-	}
+  /**
+   * Setup.
+   *
+   * @param font
+   *          the font
+   * @param fontColor
+   *          the font color
+   * @param sentenceCase
+   *          the sentence case
+   */
+  public void setup(Font font, Color fontColor, SentenceCaseType sentenceCase) {
+    super.setup(font, fontColor);
 
-	/**
-	 * Gets the sentence case.
-	 *
-	 * @return the sentence case
-	 */
-	public SentenceCaseType getSentenceCase() {
-		return mFontCaseButton.getSentenceCase();
-	}
+    mFontCaseButton.setSentenceCase(sentenceCase);
+  }
+
+  /**
+   * Gets the sentence case.
+   *
+   * @return the sentence case
+   */
+  public SentenceCaseType getSentenceCase() {
+    return mFontCaseButton.getSentenceCase();
+  }
 }

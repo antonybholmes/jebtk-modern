@@ -35,18 +35,19 @@ package org.jebtk.modern;
  *
  */
 public interface Selectable {
-	
-	/**
-	 * Should ensure the component is selected.
-	 *
-	 * @param selected the new selected
-	 */
-	public void setSelected(boolean selected);
-	
-	/**
-	 * Returns whether the component is selected or not.
-	 *
-	 * @return true, if is selected
-	 */
-	public boolean isSelected();
+
+  /**
+   * Should ensure the component is selected.
+   *
+   * @param selected
+   *          the new selected
+   */
+  public void setSelected(boolean selected);
+
+  /**
+   * Returns whether the component is selected or not.
+   *
+   * @return true, if is selected
+   */
+  public boolean isSelected();
 }

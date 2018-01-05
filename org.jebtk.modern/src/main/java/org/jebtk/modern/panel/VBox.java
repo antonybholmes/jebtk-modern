@@ -38,48 +38,50 @@ import javax.swing.border.Border;
  */
 public class VBox extends GenericBox {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new v box panel.
-	 */
-	public VBox() {
-		super(BoxLayout.PAGE_AXIS);
-	}
+  /**
+   * Instantiates a new v box panel.
+   */
+  public VBox() {
+    super(BoxLayout.PAGE_AXIS);
+  }
 
-	/**
-	 * Instantiates a new v box.
-	 *
-	 * @param components the components
-	 */
-	public VBox(Component... components) {
-		this();
-		
-		for (Component c : components) {
-			add(c);
-		}
-	}
+  /**
+   * Instantiates a new v box.
+   *
+   * @param components
+   *          the components
+   */
+  public VBox(Component... components) {
+    this();
 
-	/**
-	 * Instantiates a new v box.
-	 *
-	 * @param border the border
-	 */
-	public VBox(Border border) {
-		this();
-		
-		setBorder(border);
-	}
+    for (Component c : components) {
+      add(c);
+    }
+  }
 
-	/**
-	 * Create a new VBox().
-	 *
-	 * @return the v box
-	 */
-	public static VBox create() {
-		return new VBox();
-	}
+  /**
+   * Instantiates a new v box.
+   *
+   * @param border
+   *          the border
+   */
+  public VBox(Border border) {
+    this();
+
+    setBorder(border);
+  }
+
+  /**
+   * Create a new VBox().
+   *
+   * @return the v box
+   */
+  public static VBox create() {
+    return new VBox();
+  }
 }

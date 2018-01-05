@@ -39,129 +39,130 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-
-
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernTextField.
  */
 public class ModernTextField extends JTextField implements TextProperty {
-	
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant TEXT_BOX_SIZE.
-	 */
-	public static final Dimension TEXT_BOX_SIZE = 
-			new Dimension(100, ModernWidget.WIDGET_HEIGHT);
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * The constant DISABLED_COLOR.
-	 */
-	public static final Color DISABLED_COLOR = ModernWidget.ALT_TEXT_COLOR; //DialogButton.BORDER_COLOR;
+  /**
+   * The constant TEXT_BOX_SIZE.
+   */
+  public static final Dimension TEXT_BOX_SIZE = new Dimension(100, ModernWidget.WIDGET_HEIGHT);
 
-	/**
-	 * The constant ENABLED_COLOR.
-	 */
-	public static final Color ENABLED_COLOR = ModernWidget.TEXT_COLOR;
+  /**
+   * The constant DISABLED_COLOR.
+   */
+  public static final Color DISABLED_COLOR = ModernWidget.ALT_TEXT_COLOR; // DialogButton.BORDER_COLOR;
 
-	/** The Constant SELECTION_COLOR. */
-	public static final Color SELECTION_COLOR = 
-			ThemeService.getInstance().colors().getColorHighlight32(12);
-	
-	
-	/**
-	 * Instantiates a new modern text field.
-	 */
-	public ModernTextField() {
-		setup();
-	}
+  /**
+   * The constant ENABLED_COLOR.
+   */
+  public static final Color ENABLED_COLOR = ModernWidget.TEXT_COLOR;
 
-	/**
-	 * Instantiates a new modern text field.
-	 *
-	 * @param text the text
-	 */
-	public ModernTextField(String text) {
+  /** The Constant SELECTION_COLOR. */
+  public static final Color SELECTION_COLOR = ThemeService.getInstance().colors().getColorHighlight32(12);
 
-		super(text);
+  /**
+   * Instantiates a new modern text field.
+   */
+  public ModernTextField() {
+    setup();
+  }
 
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new modern text field.
-	 *
-	 * @param text the text
-	 * @param editable the editable
-	 */
-	public ModernTextField(String text, boolean editable) {
-		this(text);
-		
-		setEditable(editable);
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		
-		setAlignmentX(LEFT_ALIGNMENT);
-	
-	    setFont(ModernWidget.FONT);
-	
-	    setBackground(SettingsService.getInstance().getAsColor("theme.background"));
-	    setForeground(ENABLED_COLOR);
-		setSelectedTextColor(Color.WHITE);
-		setSelectionColor(SELECTION_COLOR);
-	
-	    setBorder(BorderFactory.createEmptyBorder());
-	
-	    setMinimumSize(new Dimension(UIService.ICON_SIZE_24, ModernWidget.WIDGET_HEIGHT));
-	    setMaximumSize(new Dimension(Short.MAX_VALUE, ModernWidget.WIDGET_HEIGHT));
-	    
-	    //Ui.setSize(this, TEXT_BOX_SIZE);
-	}
+  /**
+   * Instantiates a new modern text field.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernTextField(String text) {
 
-	/**
-	 * Sets the text.
-	 *
-	 * @param value the new text
-	 */
-	public void setText(double value) {
-		setText(Double.toString(value));
-	}
-	
-	/**
-	 * Sets the text.
-	 *
-	 * @param value the new text
-	 */
-	public void setText(int value) {
-		setText(Integer.toString(value));
-	}
+    super(text);
 
-	/**
-	 * Gets the as double.
-	 *
-	 * @return the as double
-	 * @throws ParseException the parse exception
-	 */
-	public double getAsDouble() {
-		return Double.parseDouble(getText());
-	}
-	
-	/**
-	 * Gets the as int.
-	 *
-	 * @return the as int
-	 * @throws ParseException the parse exception
-	 */
-	public int getAsInt() {
-		return Integer.parseInt(getText());
-	}
+    setup();
+  }
+
+  /**
+   * Instantiates a new modern text field.
+   *
+   * @param text
+   *          the text
+   * @param editable
+   *          the editable
+   */
+  public ModernTextField(String text, boolean editable) {
+    this(text);
+
+    setEditable(editable);
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+
+    setAlignmentX(LEFT_ALIGNMENT);
+
+    setFont(ModernWidget.FONT);
+
+    setBackground(SettingsService.getInstance().getAsColor("theme.background"));
+    setForeground(ENABLED_COLOR);
+    setSelectedTextColor(Color.WHITE);
+    setSelectionColor(SELECTION_COLOR);
+
+    setBorder(BorderFactory.createEmptyBorder());
+
+    setMinimumSize(new Dimension(UIService.ICON_SIZE_24, ModernWidget.WIDGET_HEIGHT));
+    setMaximumSize(new Dimension(Short.MAX_VALUE, ModernWidget.WIDGET_HEIGHT));
+
+    // Ui.setSize(this, TEXT_BOX_SIZE);
+  }
+
+  /**
+   * Sets the text.
+   *
+   * @param value
+   *          the new text
+   */
+  public void setText(double value) {
+    setText(Double.toString(value));
+  }
+
+  /**
+   * Sets the text.
+   *
+   * @param value
+   *          the new text
+   */
+  public void setText(int value) {
+    setText(Integer.toString(value));
+  }
+
+  /**
+   * Gets the as double.
+   *
+   * @return the as double
+   * @throws ParseException
+   *           the parse exception
+   */
+  public double getAsDouble() {
+    return Double.parseDouble(getText());
+  }
+
+  /**
+   * Gets the as int.
+   *
+   * @return the as int
+   * @throws ParseException
+   *           the parse exception
+   */
+  public int getAsInt() {
+    return Integer.parseInt(getText());
+  }
 }

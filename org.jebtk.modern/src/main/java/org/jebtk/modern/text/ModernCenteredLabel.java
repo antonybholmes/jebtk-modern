@@ -36,40 +36,46 @@ import java.awt.Graphics2D;
  */
 public class ModernCenteredLabel extends ModernAutoSizeLabel {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new modern centered label.
-	 *
-	 * @param text the text
-	 */
-	public ModernCenteredLabel(String text) {
-		super(text);
-	}
+  /**
+   * Instantiates a new modern centered label.
+   *
+   * @param text
+   *          the text
+   */
+  public ModernCenteredLabel(String text) {
+    super(text);
+  }
 
-	/**
-	 * Instantiates a new modern centered label.
-	 *
-	 * @param text the text
-	 * @param color the color
-	 */
-	public ModernCenteredLabel(String text, Color color) {
-		super(text, color);
-	}
+  /**
+   * Instantiates a new modern centered label.
+   *
+   * @param text
+   *          the text
+   * @param color
+   *          the color
+   */
+  public ModernCenteredLabel(String text, Color color) {
+    super(text, color);
+  }
 
-	/* (non-Javadoc)
-	 * @see org.abh.lib.ui.modern.text.ModernLabel#drawForegroundAA(java.awt.Graphics2D)
-	 */
-	@Override
-	public void drawForegroundAAText(Graphics2D g2) {
-		int x = (getWidth() - g2.getFontMetrics().stringWidth(mText)) / 2;
-		int y = getTextYPosCenter(g2, getHeight());
-		
-		System.err.println("get width " + x);
-		
-		g2.drawString(mText, x, y);
-	}
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.text.ModernLabel#drawForegroundAA(java.awt.Graphics2D)
+   */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int x = (getWidth() - g2.getFontMetrics().stringWidth(mText)) / 2;
+    int y = getTextYPosCenter(g2, getHeight());
+
+    System.err.println("get width " + x);
+
+    g2.drawString(mText, x, y);
+  }
 }

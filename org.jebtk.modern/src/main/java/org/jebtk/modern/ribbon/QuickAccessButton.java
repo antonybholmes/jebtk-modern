@@ -39,56 +39,52 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  */
 public class QuickAccessButton extends ModernButton {
 
-	/**
-	 * The constant serialVersionUID.
-	 */
-	private static final long serialVersionUID = 1L;
+  /**
+   * The constant serialVersionUID.
+   */
+  private static final long serialVersionUID = 1L;
 
-	/**
-	 * Instantiates a new quick access button.
-	 */
-	public QuickAccessButton() {
-		setup();
-	}
-	
-	/**
-	 * Instantiates a new quick access button.
-	 *
-	 * @param icon the icon
-	 */
-	public QuickAccessButton(ModernIcon icon) {
-		super(icon);
-		
-		setup();
-	}
+  /**
+   * Instantiates a new quick access button.
+   */
+  public QuickAccessButton() {
+    setup();
+  }
 
-	/**
-	 * Instantiates a new quick access button.
-	 *
-	 * @param text the text
-	 */
-	public QuickAccessButton(String text) {
-		super(text);
-		
-		setup();
-	}
-	
-	/**
-	 * Setup.
-	 */
-	private void setup() {
-		setBackgroundAnimation(new QuickAccessAnimation(this));
-	}
+  /**
+   * Instantiates a new quick access button.
+   *
+   * @param icon
+   *          the icon
+   */
+  public QuickAccessButton(ModernIcon icon) {
+    super(icon);
 
-	/*
-	@Override
-	public void drawBackground(Graphics2D g2) {
-		if (isEnabled()) {
-			if (mHighlight) {
-				fill(g2, RibbonMenuItem.MENU_SELECTED_COLOR);
-			}
-		}
-	}
-	*/
+    setup();
+  }
+
+  /**
+   * Instantiates a new quick access button.
+   *
+   * @param text
+   *          the text
+   */
+  public QuickAccessButton(String text) {
+    super(text);
+
+    setup();
+  }
+
+  /**
+   * Setup.
+   */
+  private void setup() {
+    setBackgroundAnimation(new QuickAccessAnimation(this));
+  }
+
+  /*
+   * @Override public void drawBackground(Graphics2D g2) { if (isEnabled()) { if
+   * (mHighlight) { fill(g2, RibbonMenuItem.MENU_SELECTED_COLOR); } } }
+   */
 
 }
