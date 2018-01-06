@@ -185,9 +185,15 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
       Point p = convert(e);
 
       mStartY = p.y;
-      mCY = ((Component) e.getSource()).getY();
-      mSelectedC = (Component) e.getSource();
+      
+      mSelectedC = (Component)e.getSource();
 
+      // Try to move above others for drawing
+      //setComponentZOrder(mSelectedC, 1000);
+      
+
+      mCY = mSelectedC.getY();
+      
       mPressBlockY = getBlockY(p);
 
       mSelectedCellIndex = getIndex(e, null);
@@ -256,7 +262,7 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
 
       int y = Mathematics.bound(mCY + yDiff, 0, mMaxY);
 
-      Component c = (Component) e.getSource();
+      Component c = (Component)e.getSource();
 
       mDragCellIndex = getIndex(e, mSelectedC);
 
@@ -472,6 +478,7 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
 
     new AnimateMovement(mDragCellIndex, mPressBlockY).start();
 
+    // Once we are in a new block, make this block the starting block
     mPressBlockY = mDragBlockY;
     mDraggedC = mDragC;
     mDir = dir;

@@ -162,22 +162,32 @@ public class AnimationService {
 
     getCreator("dialog-flat-button").add(FlatButtonAnimation.class);
 
-    getCreator("ribbon").add(RibbonAnimation.class).add(RibbonPressedAnimation.class).add(RibbonChangeAnimation.class)
-        .add(RibbonHighlightTextAnimation.class);
+    getCreator("ribbon").add(RibbonAnimation.class)
+      .add(RibbonPressedAnimation.class)
+      .add(RibbonChangeAnimation.class)
+      .add(RibbonHighlightTextAnimation.class);
 
     getCreator("segment-tabs")
-        // .add(SegmentHighlightAnimation.class)
-        // .add(SegmentPressedAnimation.class)
-        .add(SegmentChangeAnimation.class).add(SegmentAnimation.class);
+       // .add(SegmentHighlightAnimation.class)
+       // .add(SegmentPressedAnimation.class)
+       .add(SegmentChangeAnimation.class)
+       .add(SegmentAnimation.class);
 
-    getCreator("orb-tabs").add(OrbTabsHighlightAnimation.class).add(OrbTabsChangeAnimation.class)
-        .add(OrbTabsAnimation.class);
+    getCreator("orb-tabs")
+      .add(OrbTabsHighlightAnimation.class)
+      .add(OrbTabsChangeAnimation.class)
+      .add(OrbTabsAnimation.class);
 
-    getCreator("icon-tabs").add(IconTabsAnimation.class).add(IconTabsHighlightAnimation.class)
-        .add(IconTabsIconAnimation.class).add(IconTabsChangeAnimation.class);
+    getCreator("icon-tabs") 
+        //.add(IconTabsAnimation.class)
+        .add(IconTabsHighlightAnimation.class)
+        .add(IconTabsIconAnimation.class)
+        .add(IconTabsChangeAnimation.class);
 
-    getCreator("block-vert-tabs").add(BlockVertHighlightAnimation.class).add(BlockVertSelectedAnimation.class)
-        .add(BlockVertPressedAnimation.class); // .add(BlockVertChangeAnimation.class);
+    getCreator("block-vert-tabs")
+      .add(BlockVertHighlightAnimation.class)
+      .add(BlockVertSelectedAnimation.class)
+      .add(BlockVertPressedAnimation.class); // .add(BlockVertChangeAnimation.class);
 
     getCreator("spinner").add(SpinnerAnimation.class).add(SpinnerHighlightAnimation.class);
 
