@@ -52,8 +52,7 @@ public class SearchModel extends ItemModel<String> {
   /**
    * Sets the case sensitive.
    *
-   * @param caseSensitive
-   *          the new case sensitive
+   * @param caseSensitive the new case sensitive
    */
   public void setCaseSensitive(boolean caseSensitive) {
     updateCaseSensitive(caseSensitive);
@@ -64,8 +63,7 @@ public class SearchModel extends ItemModel<String> {
   /**
    * Update case sensitive.
    *
-   * @param caseSensitive
-   *          the case sensitive
+   * @param caseSensitive the case sensitive
    */
   public void updateCaseSensitive(boolean caseSensitive) {
     mCaseSensitive = caseSensitive;
@@ -74,8 +72,7 @@ public class SearchModel extends ItemModel<String> {
   /**
    * Sets the in list.
    *
-   * @param inList
-   *          the new in list
+   * @param inList the new in list
    */
   public void setInList(boolean inList) {
     updateInList(inList);
@@ -86,8 +83,7 @@ public class SearchModel extends ItemModel<String> {
   /**
    * Update in list.
    *
-   * @param inList
-   *          the in list
+   * @param inList the in list
    */
   public void updateInList(boolean inList) {
     mInList = inList;
@@ -96,8 +92,7 @@ public class SearchModel extends ItemModel<String> {
   /**
    * Sets the exact match.
    *
-   * @param exact
-   *          the new exact match
+   * @param exact the new exact match
    */
   public void setExactMatch(boolean exact) {
     setExactMatch(exact);
@@ -108,8 +103,7 @@ public class SearchModel extends ItemModel<String> {
   /**
    * Update exact match.
    *
-   * @param exact
-   *          the exact
+   * @param exact the exact
    */
   public void updateExactMatch(boolean exact) {
     mExact = exact;

@@ -46,8 +46,7 @@ public class ProductInfoTitleLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new product info title label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ProductInfoTitleLabel(String text) {
     super(text);
@@ -60,7 +59,8 @@ public class ProductInfoTitleLabel extends ModernAutoSizeLabel {
    */
   private void setup() {
 
-    setBorder(BorderService.getInstance().createTopBottomBorder(ModernPanel.DOUBLE_PADDING));
+    setBorder(BorderService.getInstance()
+        .createTopBottomBorder(ModernPanel.DOUBLE_PADDING));
 
     setFont(ThemeService.loadFont("widget.title"));
   }

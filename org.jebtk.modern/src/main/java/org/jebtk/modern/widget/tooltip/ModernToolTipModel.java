@@ -27,9 +27,8 @@
  */
 package org.jebtk.modern.widget.tooltip;
 
+import java.awt.Component;
 import java.awt.Point;
-
-import org.jebtk.modern.ModernComponent;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -43,30 +42,27 @@ public interface ModernToolTipModel {
   /**
    * Show tool tip.
    *
-   * @param source
-   *          the source
-   * @param toolTipPanel
-   *          the tool tip panel
+   * @param source the source
+   * @param toolTipPanel the tool tip panel
    */
-  public void showToolTip(ModernComponent source, ModernToolTipPanel toolTipPanel);
+  public void showToolTip(Component source,
+      Component toolTipPanel);
 
   /**
    * Show tool tip.
    *
-   * @param source
-   *          the source
-   * @param tooltipPanel
-   *          the tooltip panel
-   * @param location
-   *          the location
+   * @param source the source
+   * @param tooltipPanel the tooltip panel
+   * @param location the location
    */
-  void showToolTip(ModernComponent source, ModernToolTipPanel tooltipPanel, Point location);
+  void showToolTip(Component source,
+      Component tooltipPanel,
+      Point location);
 
   /**
    * Hide tool tips.
    *
-   * @param source
-   *          the source
+   * @param source the source
    */
-  void hideToolTips(ModernComponent source);
+  void hideToolTips(Component source);
 }

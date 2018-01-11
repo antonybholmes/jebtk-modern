@@ -47,13 +47,12 @@ public class ModernToolTipSuggestHelpPanel extends ModernBasicToolTipPanel {
   /**
    * The constant SIZE.
    */
-  public static final Dimension SIZE = new Dimension(240, 90);
+  private static final Dimension SIZE = new Dimension(240, 90);
 
   /**
    * Instantiates a new modern tool tip suggest help panel.
    *
-   * @param tooltip
-   *          the tooltip
+   * @param tooltip the tooltip
    */
   public ModernToolTipSuggestHelpPanel(ModernToolTip tooltip) {
     super(tooltip);
@@ -68,14 +67,7 @@ public class ModernToolTipSuggestHelpPanel extends ModernBasicToolTipPanel {
     // box.add(new ModernBoldLabel("Press F1 for more help."));
     // Ui.setSize(box, new Dimension(400, 24));
     // add(box);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.tooltip.ModernBasicToolTipPanel#getToolTipSize()
-   */
-  public Dimension getToolTipSize() {
-    return SIZE;
+    
+    setPreferredSize(SIZE);
   }
 }

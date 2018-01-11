@@ -36,7 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class TabEventListeners extends EventProducer<TabEventListener> implements TabEventProducer {
+public class TabEventListeners extends EventProducer<TabEventListener>
+    implements TabEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -58,8 +59,8 @@ public class TabEventListeners extends EventProducer<TabEventListener> implement
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tabs.TabEventProducer#removeTabListener(org.abh.lib.ui.
-   * modern.tabs.TabEventListener)
+   * org.abh.lib.ui.modern.tabs.TabEventProducer#removeTabListener(org.abh.lib.
+   * ui. modern.tabs.TabEventListener)
    */
   public void removeTabListener(TabEventListener l) {
     mListeners.remove(l);
@@ -68,7 +69,8 @@ public class TabEventListeners extends EventProducer<TabEventListener> implement
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.tabs.TabEventProducer#fireTabAdded(org.abh.lib.ui.
+   * @see
+   * org.abh.lib.ui.modern.tabs.TabEventProducer#fireTabAdded(org.abh.lib.ui.
    * modern.tabs.TabEvent)
    */
   @Override

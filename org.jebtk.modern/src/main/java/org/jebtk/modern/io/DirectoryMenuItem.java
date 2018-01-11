@@ -48,25 +48,21 @@ public class DirectoryMenuItem extends RecentFileMenuItem {
   /**
    * Instantiates a new directory menu item.
    *
-   * @param file
-   *          the file
-   * @param date
-   *          the date
+   * @param file the file
+   * @param date the date
    */
   public DirectoryMenuItem(Path file, Date date) {
-    this(file, date, UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+    this(file, date,
+        UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
 
   }
 
   /**
    * Instantiates a new directory menu item.
    *
-   * @param file
-   *          the file
-   * @param date
-   *          the date
-   * @param icon
-   *          the icon
+   * @param file the file
+   * @param date the date
+   * @param icon the icon
    */
   public DirectoryMenuItem(Path file, Date date, ModernIcon icon) {
     super(file, date, icon);

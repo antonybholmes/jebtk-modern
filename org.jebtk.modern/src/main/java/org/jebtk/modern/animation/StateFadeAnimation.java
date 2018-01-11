@@ -35,8 +35,7 @@ public abstract class StateFadeAnimation extends StateAnimation {
   /**
    * Instantiates a new state fade animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public StateFadeAnimation(ModernClickWidget widget) {
     super(widget);
@@ -69,7 +68,8 @@ public abstract class StateFadeAnimation extends StateAnimation {
   public void animate() {
     getWidget().repaint();
 
-    if ((mSelected && mFade.getTrans() <= 0) || (!mSelected && mFade.getTrans() >= 1)) {
+    if ((mSelected && mFade.getTrans() <= 0)
+        || (!mSelected && mFade.getTrans() >= 1)) {
       stop();
     } else {
       if (mSelected) {
@@ -91,10 +91,8 @@ public abstract class StateFadeAnimation extends StateAnimation {
   /**
    * Adds the fade color.
    *
-   * @param name
-   *          the name
-   * @param color
-   *          the color
+   * @param name the name
+   * @param color the color
    */
   public void setFadeColor(String name, Color color) {
     mFade.setFadeColor(name, color);
@@ -120,8 +118,7 @@ public abstract class StateFadeAnimation extends StateAnimation {
   /**
    * Gets the fade color map.
    *
-   * @param step
-   *          the step
+   * @param step the step
    * @return the fade color map
    */
   public Map<String, Color> getFadeColorMap(int step) {

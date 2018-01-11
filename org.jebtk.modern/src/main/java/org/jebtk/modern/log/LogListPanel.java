@@ -50,7 +50,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The class LogListPanel.
  */
-public class LogListPanel extends ModernWidget implements MouseListener, ModernClickListener {
+public class LogListPanel extends ModernWidget
+    implements MouseListener, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -65,7 +66,8 @@ public class LogListPanel extends ModernWidget implements MouseListener, ModernC
   /**
    * The list.
    */
-  private ModernList<LogEvent> list = new ModernList<LogEvent>(new LogEventListItemRenderer());
+  private ModernList<LogEvent> list = new ModernList<LogEvent>(
+      new LogEventListItemRenderer());
 
   /**
    * The log popup.
@@ -97,7 +99,8 @@ public class LogListPanel extends ModernWidget implements MouseListener, ModernC
 
     logPopup.add(new ModernMenuSeparator());
 
-    menuItem = new ModernIconMenuItem(UI.MENU_COPY, UIService.getInstance().loadIcon("copy", UIService.ICON_SIZE_16));
+    menuItem = new ModernIconMenuItem(UI.MENU_COPY,
+        UIService.getInstance().loadIcon("copy", UIService.ICON_SIZE_16));
     menuItem.addClickListener(this);
     logPopup.add(menuItem);
 
@@ -111,8 +114,7 @@ public class LogListPanel extends ModernWidget implements MouseListener, ModernC
   /**
    * Adds the event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public final void addEvent(LogEvent event) {
     model.addValue(event);
@@ -121,8 +123,7 @@ public class LogListPanel extends ModernWidget implements MouseListener, ModernC
   /**
    * Show log popup.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   private void showLogPopup(MouseEvent e) {
     logPopup.showPopup(e.getComponent(), e.getX(), e.getY());
@@ -184,8 +185,8 @@ public class LogListPanel extends ModernWidget implements MouseListener, ModernC
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     if (e.getMessage().equals(MENU_CLEAR)) {

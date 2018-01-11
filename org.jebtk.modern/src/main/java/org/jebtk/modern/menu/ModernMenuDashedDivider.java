@@ -53,8 +53,8 @@ public class ModernMenuDashedDivider extends ModernMenuSeparator {
   /**
    * The constant STROKE.
    */
-  private final static BasicStroke STROKE = new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f,
-      DASH, 0.0f);
+  private final static BasicStroke STROKE = new BasicStroke(1.0f,
+      BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f, DASH, 0.0f);
 
   /*
    * (non-Javadoc)
@@ -67,6 +67,9 @@ public class ModernMenuDashedDivider extends ModernMenuSeparator {
     g2.setColor(LINE_COLOR);
 
     g2.setStroke(STROKE);
-    g2.drawLine(getInsets().left, y, getWidth() - getInsets().left - getInsets().right, y);
+    g2.drawLine(getInsets().left,
+        y,
+        getWidth() - getInsets().left - getInsets().right,
+        y);
   }
 }

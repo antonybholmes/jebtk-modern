@@ -44,8 +44,7 @@ public abstract class ModernVectorColorIcon extends ModernVectorIcon {
   /**
    * Instantiates a new modern vector color icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public ModernVectorColorIcon(Color color) {
     mColor = color;

@@ -59,21 +59,22 @@ public class ModernMenuHelpItem extends ModernIconMenuItem {
   private static final int SIZE = 20; // ModernWidget.WIDGET_HEIGHT
 
   /** The Constant ICON. */
-  private static final ModernIcon ICON = ModernVectorScalableIcon.createRastorIcon(HelpVectorIcon.class,
-      ThemeService.getInstance().colors().getColorHighlight(5),
-      ThemeService.getInstance().colors().getColorHighlight(6), SIZE);
+  private static final ModernIcon ICON = ModernVectorScalableIcon
+      .createRastorIcon(HelpVectorIcon.class,
+          ThemeService.getInstance().colors().getColorHighlight(5),
+          ThemeService.getInstance().colors().getColorHighlight(6),
+          SIZE);
 
   /** The m url. */
   private URL mUrl;
 
   /**
    * Creates a new dialog help button, referring to the URL specified by the
-   * settings url string. The parameter must be a setting name that maps to a URL.
-   * It cannot be a URL as a string. To use a URL directory use the URL
+   * settings url string. The parameter must be a setting name that maps to a
+   * URL. It cannot be a URL as a string. To use a URL directory use the URL
    * constructor.
    *
-   * @param settingsUrl
-   *          the settings url
+   * @param settingsUrl the settings url
    */
   public ModernMenuHelpItem(String settingsUrl) {
     this("Help...", SettingsService.getInstance().getAsUrl(settingsUrl));
@@ -82,10 +83,8 @@ public class ModernMenuHelpItem extends ModernIconMenuItem {
   /**
    * Instantiates a new modern menu help item.
    *
-   * @param name
-   *          the name
-   * @param settingsUrl
-   *          the settings url
+   * @param name the name
+   * @param settingsUrl the settings url
    */
   public ModernMenuHelpItem(String name, String settingsUrl) {
     this(name, SettingsService.getInstance().getAsUrl(settingsUrl));
@@ -94,10 +93,8 @@ public class ModernMenuHelpItem extends ModernIconMenuItem {
   /**
    * Instantiates a new modern dialog help button.
    *
-   * @param name
-   *          the name
-   * @param url
-   *          the url
+   * @param name the name
+   * @param url the url
    */
   public ModernMenuHelpItem(String name, URL url) {
     this(name, url, ICON);
@@ -106,12 +103,9 @@ public class ModernMenuHelpItem extends ModernIconMenuItem {
   /**
    * Instantiates a new modern menu help item.
    *
-   * @param title
-   *          the title
-   * @param url
-   *          the url
-   * @param icon
-   *          the icon
+   * @param title the title
+   * @param url the url
+   * @param icon the icon
    */
   public ModernMenuHelpItem(String title, URL url, ModernIcon icon) {
     super(title, icon);
@@ -122,8 +116,7 @@ public class ModernMenuHelpItem extends ModernIconMenuItem {
   /**
    * Inits the.
    *
-   * @param url
-   *          the url
+   * @param url the url
    */
   private void init(URL url) {
     mUrl = url;

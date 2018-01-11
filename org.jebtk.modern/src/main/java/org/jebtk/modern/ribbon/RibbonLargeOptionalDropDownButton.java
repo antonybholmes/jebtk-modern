@@ -43,7 +43,8 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMenuButton implements RibbonModeProperty {
+public class RibbonLargeOptionalDropDownButton
+    extends ModernOptionalDropDownMenuButton implements RibbonModeProperty {
 
   /**
    * The constant serialVersionUID.
@@ -68,12 +69,11 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
   /**
    * Instantiates a new ribbon large drop down menu button2.
    *
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param icon the icon
+   * @param menu the menu
    */
-  public RibbonLargeOptionalDropDownButton(ModernIcon icon, ModernPopupMenu menu) {
+  public RibbonLargeOptionalDropDownButton(ModernIcon icon,
+      ModernPopupMenu menu) {
     super(icon, menu);
 
     setup();
@@ -82,14 +82,12 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
   /**
    * Instantiates a new ribbon large drop down menu button2.
    *
-   * @param text1
-   *          the text 1
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param text1 the text 1
+   * @param icon the icon
+   * @param menu the menu
    */
-  public RibbonLargeOptionalDropDownButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
+  public RibbonLargeOptionalDropDownButton(String text1, ModernIcon icon,
+      ModernPopupMenu menu) {
     super(text1, icon, menu);
 
     mText = text1;
@@ -108,16 +106,13 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
   /**
    * Instantiates a new ribbon large optional drop down button.
    *
-   * @param text1
-   *          the text 1
-   * @param text2
-   *          the text 2
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param text1 the text 1
+   * @param text2 the text 2
+   * @param icon the icon
+   * @param menu the menu
    */
-  public RibbonLargeOptionalDropDownButton(String text1, String text2, ModernIcon icon, ModernPopupMenu menu) {
+  public RibbonLargeOptionalDropDownButton(String text1, String text2,
+      ModernIcon icon, ModernPopupMenu menu) {
     super(text1, icon, menu);
 
     mText2 = text2;
@@ -145,8 +140,7 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
   /**
    * Sets the show text.
    *
-   * @param show
-   *          the new show text
+   * @param show the new show text
    */
   public void setShowText(boolean show) {
     mShowText = show;
@@ -184,9 +178,8 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.ribbon.
-   * RibbonSize)
+   * @see org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.
+   * ribbon. RibbonSize)
    */
   @Override
   public void setSize(RibbonSize mode) {
@@ -237,17 +230,17 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
    * 
    * int x = 0; int y = mRect.getY(); int h = mRect.getH(); int w = 0;
    * 
-   * if (mPrimaryButton || mPopupShown) { x = mRect.getX(); w = mDividerLocation -
-   * mRect.getX(); } else if (mHighlight) { x = mDividerLocation; w = mRect.getW()
-   * - mDividerLocation; } else { // do nothing }
+   * if (mPrimaryButton || mPopupShown) { x = mRect.getX(); w = mDividerLocation
+   * - mRect.getX(); } else if (mHighlight) { x = mDividerLocation; w =
+   * mRect.getW() - mDividerLocation; } else { // do nothing }
    * 
    * if (isSelected() || mPopupShown) { //paintHighlighted(g2, rect);
    * 
    * getWidgetRenderer().drawRibbonButton(g2, rect, RenderMode.SELECTED);
    * 
    * } else if (mHighlight) { getWidgetRenderer().drawRibbonButtonOutline(g2,
-   * rect, RenderMode.SELECTED); getWidgetRenderer().drawRibbonButton(g2, x, y, w,
-   * h, RenderMode.SELECTED);
+   * rect, RenderMode.SELECTED); getWidgetRenderer().drawRibbonButton(g2, x, y,
+   * w, h, RenderMode.SELECTED);
    * 
    * //paintHighlightedBorder(g2, rect); //paintHighlighted(g2, x, y, w, h); }
    * else {
@@ -261,8 +254,8 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -331,7 +324,8 @@ public class RibbonLargeOptionalDropDownButton extends ModernOptionalDropDownMen
       x = (getWidth() - TRIANGLE_ICON.getWidth()) / 2;
       y = getHeight() - TRIANGLE_ICON.getHeight() - PADDING;
     } else {
-      x = getWidth() - (mSecondaryButtonWidth - TRIANGLE_ICON.getWidth()) / 2 - TRIANGLE_ICON.getWidth();
+      x = getWidth() - (mSecondaryButtonWidth - TRIANGLE_ICON.getWidth()) / 2
+          - TRIANGLE_ICON.getWidth();
       y = (getHeight() - TRIANGLE_ICON.getHeight()) / 2;
     }
 

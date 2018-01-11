@@ -21,29 +21,38 @@ public class MaterialUtils {
 
   public static final int PADDING = ModernWidget.QUAD_PADDING;
 
-  public static final Border BORDER = BorderService.getInstance().createBorder(PADDING);
+  public static final Border BORDER = BorderService.getInstance()
+      .createBorder(PADDING);
 
   /** The Constant SHADOW_HEIGHT. */
   public static final int SHADOW_HEIGHT = 3;
 
-  public static final int SHADOW_BORDER_HEIGHT = SHADOW_HEIGHT; // + ModernWidget.PADDING; //2 * SHADOW_HEIGHT;
+  public static final int SHADOW_BORDER_HEIGHT = SHADOW_HEIGHT; // +
+                                                                // ModernWidget.PADDING;
+                                                                // //2 *
+                                                                // SHADOW_HEIGHT;
 
   /** The Constant COLOR. */
   protected static final Color SHADOW_COLOR = Color.BLACK;
 
   /** The Constant COLOR1. */
-  public static final Color SHADOW_COLOR_1 = ColorUtils.getTransparentColor90(SHADOW_COLOR);
+  public static final Color SHADOW_COLOR_1 = ColorUtils
+      .getTransparentColor90(SHADOW_COLOR);
 
   /** The Constant COLOR2. */
-  public static final Color SHADOW_COLOR_2 = ColorUtils.getTransparentColor100(SHADOW_COLOR);
+  public static final Color SHADOW_COLOR_2 = ColorUtils
+      .getTransparentColor100(SHADOW_COLOR);
 
-  public static final Color HIGHLIGHT_COLOR = ColorUtils.getTransparentColor75(Color.WHITE);
+  public static final Color HIGHLIGHT_COLOR = ColorUtils
+      .getTransparentColor75(Color.WHITE);
 
   public static final int SMALL_PADDING = ModernWidget.DOUBLE_PADDING;
 
-  public static final Color BUTTON_COLOR = MaterialService.getInstance().color("button"); // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
+  public static final Color BUTTON_COLOR = MaterialService.getInstance()
+      .color("button"); // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
 
-  public static final Color LINE_COLOR = MaterialService.getInstance().color("card-border"); // ColorUtils.getTransparentColor50(ModernWidget.LIGHT_LINE_COLOR);
+  public static final Color LINE_COLOR = MaterialService.getInstance()
+      .color("card-border"); // ColorUtils.getTransparentColor50(ModernWidget.LIGHT_LINE_COLOR);
 
   public static final Color SELECTED_FONT_COLOR = Color.BLACK;
 
@@ -66,19 +75,26 @@ public class MaterialUtils {
    * @param w
    * @param h
    */
-  public static void drawDropShadow(Graphics2D g2, int x, int y, int w, int h, int shadow) {
+  public static void drawDropShadow(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      int shadow) {
 
     int sh = 2 * shadow;
 
     y += h - shadow;
 
-    GradientPaint paint = new GradientPaint(0, y, SHADOW_COLOR_1, 0, y + sh, SHADOW_COLOR_2);
+    GradientPaint paint = new GradientPaint(0, y, SHADOW_COLOR_1, 0, y + sh,
+        SHADOW_COLOR_2);
 
     g2.setPaint(paint);
 
     // g2.setPaint(Color.RED);
 
-    WidgetRendererService.getInstance().getRenderer().fill(g2, x + 1, y, w - 2, sh);
+    WidgetRendererService.getInstance().getRenderer()
+        .fill(g2, x + 1, y, w - 2, sh);
 
     // int a = Math.max(1, h / 2);
     // g2.fillRoundRect(x, y, w, h, a, a);
@@ -108,7 +124,11 @@ public class MaterialUtils {
     g2.drawLine(1, y, w - 2, y);
   }
 
-  public static void drawBorderlessCard(Graphics2D g2, int x, int y, int w, int h) {
+  public static void drawBorderlessCard(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h) {
 
     h -= MaterialUtils.SHADOW_BORDER_HEIGHT;
 

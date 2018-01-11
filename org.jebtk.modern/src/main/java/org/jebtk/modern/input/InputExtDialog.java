@@ -44,7 +44,8 @@ import org.jebtk.modern.window.WindowWidgetFocusEvents;
 /**
  * The class MatchDialog.
  */
-public class InputExtDialog extends ModernDialogTaskWindow implements ModernClickListener {
+public class InputExtDialog extends ModernDialogTaskWindow
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -60,12 +61,9 @@ public class InputExtDialog extends ModernDialogTaskWindow implements ModernClic
   /**
    * Instantiates a new match dialog.
    *
-   * @param parent
-   *          the parent
-   * @param text
-   *          the text
-   * @param delimiter
-   *          the delimiter
+   * @param parent the parent
+   * @param text the text
+   * @param delimiter the delimiter
    */
   public InputExtDialog(ModernWindow parent, String text, String delimiter) {
     super(parent);
@@ -97,8 +95,7 @@ public class InputExtDialog extends ModernDialogTaskWindow implements ModernClic
   /**
    * Creates the ui.
    *
-   * @param lines
-   *          the lines
+   * @param lines the lines
    */
   private final void createUi(List<String> lines) {
     mText.setText(lines);

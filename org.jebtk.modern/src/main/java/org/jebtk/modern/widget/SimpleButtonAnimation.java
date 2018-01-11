@@ -14,7 +14,10 @@ public class SimpleButtonAnimation implements Animation {
     ModernClickWidget button = (ModernClickWidget) widget;
 
     if (button.isEnabled()) {
-      button.getWidgetRenderer().drawButton(g2, button.getInternalRect(), button.getRenderMode(), button.hasFocus());
+      button.getWidgetRenderer().drawButton(g2,
+          button.getInternalRect(),
+          button.getRenderMode(),
+          button.hasFocus());
     }
   }
 }

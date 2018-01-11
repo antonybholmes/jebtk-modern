@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.modern.graphics.CanvasMouseEvent;
@@ -76,10 +75,8 @@ public class ZoomCanvas extends ModernCanvas {
   /**
    * Instantiates a new zoom canvas.
    *
-   * @param canvas
-   *          the canvas
-   * @param zoom
-   *          the zoom
+   * @param canvas the canvas
+   * @param zoom the zoom
    */
   public ZoomCanvas(double zoom) {
     this(new ZoomModel(), zoom);
@@ -88,10 +85,8 @@ public class ZoomCanvas extends ModernCanvas {
   /**
    * Instantiates a new zoom canvas.
    *
-   * @param canvas
-   *          the canvas
-   * @param model
-   *          the model
+   * @param canvas the canvas
+   * @param model the model
    */
   public ZoomCanvas(ZoomModel model) {
     this(model, 1);
@@ -100,12 +95,9 @@ public class ZoomCanvas extends ModernCanvas {
   /**
    * Instantiates a new zoom canvas.
    *
-   * @param canvas
-   *          the canvas
-   * @param model
-   *          the model
-   * @param zoom
-   *          the zoom
+   * @param canvas the canvas
+   * @param model the model
+   * @param zoom the zoom
    */
   public ZoomCanvas(ZoomModel model, double zoom) {
     setZoomModel(model);
@@ -134,8 +126,7 @@ public class ZoomCanvas extends ModernCanvas {
    * Allows the panel to respond to a zoom model, for example when the user
    * changes a zoom slider.
    *
-   * @param model
-   *          the new zoom model
+   * @param model the new zoom model
    */
   public void setZoomModel(ZoomModel model) {
     // if (model != null) {
@@ -189,8 +180,7 @@ public class ZoomCanvas extends ModernCanvas {
   /**
    * Sets the zoom.
    *
-   * @param zoom
-   *          the new zoom
+   * @param zoom the new zoom
    */
   public void setZoom(double zoom) {
     mZoomModel.setZoom(zoom);
@@ -213,8 +203,8 @@ public class ZoomCanvas extends ModernCanvas {
    * event.ChangeEvent)
    */
   /*
-   * @Override public void canvasChanged(ChangeEvent e) { // since the underlying
-   * canvas changed, adapt to it
+   * @Override public void canvasChanged(ChangeEvent e) { // since the
+   * underlying canvas changed, adapt to it
    * 
    * System.err.println("zoom hmm");
    * 
@@ -262,15 +252,15 @@ public class ZoomCanvas extends ModernCanvas {
       z = mZoomModel.getZoom();
     }
 
-    return new Dimension((int) Math.round(d.width * z), (int) Math.round(d.height * z));
+    return new Dimension((int) Math.round(d.width * z),
+        (int) Math.round(d.height * z));
   }
 
   /**
    * Inline zoom function where d will be modified to reflect the zoomed
    * dimensions.
    * 
-   * @param d
-   *          A dimension that will be updated.
+   * @param d A dimension that will be updated.
    */
   public void zoom2(Dimension d) {
     double z = 1;
@@ -290,7 +280,8 @@ public class ZoomCanvas extends ModernCanvas {
       z = mZoomModel.getZoom();
     }
 
-    return new Dimension((int) Math.round(d.getW() * z), (int) Math.round(d.getH() * z));
+    return new Dimension((int) Math.round(d.getW() * z),
+        (int) Math.round(d.getH() * z));
   }
 
   /*
@@ -312,8 +303,8 @@ public class ZoomCanvas extends ModernCanvas {
    * 
    * //IntDim size = mCanvas.getCanvasSize();
    * 
-   * // As we zoom out, the view rectangle of the zoom canvas represents // a much
-   * larger area on the original canvas
+   * // As we zoom out, the view rectangle of the zoom canvas represents // a
+   * much larger area on the original canvas
    * 
    * IntDim zSize = IntDim.create(Math.round(rect.getW() / z),
    * Math.round(rect.getH() / z));
@@ -358,8 +349,8 @@ public class ZoomCanvas extends ModernCanvas {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.graphics.ModernCanvas#translateCoordinate(org.abh.common.ui
-   * .graphics.CanvasMouseEvent)
+   * org.abh.common.ui.graphics.ModernCanvas#translateCoordinate(org.abh.common.
+   * ui .graphics.CanvasMouseEvent)
    */
   @Override
   public IntPos2D translateCoordinate(CanvasMouseEvent e) {
@@ -369,10 +360,8 @@ public class ZoomCanvas extends ModernCanvas {
   /**
    * Translate the coordinate allowing for the zoom.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    * @return the point
    */
   @Override
@@ -383,7 +372,8 @@ public class ZoomCanvas extends ModernCanvas {
 
     // IntPos2D newP = IntPos2D.create((int)Math.round(p.getX() / z),
     // (int)Math.round(p.getY() / z));
-    IntPos2D newP = IntPos2D.create((int) Math.round(x / z), (int) Math.round(y / z));
+    IntPos2D newP = IntPos2D.create((int) Math.round(x / z),
+        (int) Math.round(y / z));
 
     return newP;
   }

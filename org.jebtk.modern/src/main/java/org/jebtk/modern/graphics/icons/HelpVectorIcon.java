@@ -43,10 +43,12 @@ import org.jebtk.modern.theme.ThemeService;
 public class HelpVectorIcon extends ModernMessageIcon {
 
   /** The Constant COLOR1. */
-  private static final Color COLOR1 = ThemeService.getInstance().colors().getColorHighlight32(14);
+  private static final Color COLOR1 = ThemeService.getInstance().colors()
+      .getColorHighlight32(14);
 
   /** The Constant COLOR2. */
-  private static final Color COLOR2 = ThemeService.getInstance().colors().getColorHighlight32(16);
+  private static final Color COLOR2 = ThemeService.getInstance().colors()
+      .getColorHighlight32(16);
 
   /** The Constant TEXT. */
   private static final String TEXT = "?";
@@ -61,10 +63,8 @@ public class HelpVectorIcon extends ModernMessageIcon {
   /**
    * Instantiates a new help vector icon.
    *
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
+   * @param color1 the color 1
+   * @param color2 the color 2
    */
   public HelpVectorIcon(Color color1, Color color2) {
     super(color1 != null ? color1 : COLOR1, color2 != null ? color2 : COLOR2);
@@ -78,7 +78,12 @@ public class HelpVectorIcon extends ModernMessageIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     int size = w - 2;
 
     int xf = x + (w - size) / 2;

@@ -31,7 +31,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.SelectionRangeModel;
 import org.jebtk.modern.event.ModernSelectionEventProducer;
@@ -45,7 +44,8 @@ import org.jebtk.modern.event.ModernSelectionListener;
  * @author Antony Holmes Holmes
  *
  */
-public class TableIndexModel extends ChangeListeners implements ModernSelectionEventProducer {
+public class TableIndexModel extends ChangeListeners
+    implements ModernSelectionEventProducer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -84,10 +84,8 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Instantiates a new table index model.
    *
-   * @param width
-   *          the width
-   * @param headerSize
-   *          the header size
+   * @param width the width
+   * @param headerSize the header size
    */
   public TableIndexModel(int width, int headerSize) {
     this(new TableIndex(width), headerSize);
@@ -96,10 +94,8 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Instantiates a new table index model.
    *
-   * @param defaultIndex
-   *          the default index
-   * @param headerSize
-   *          the header size
+   * @param defaultIndex the default index
+   * @param headerSize the header size
    */
   public TableIndexModel(TableIndex defaultIndex, int headerSize) {
     setDefaultIndex(defaultIndex);
@@ -110,8 +106,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Sets the size.
    *
-   * @param size
-   *          the new size
+   * @param size the new size
    */
   public void setSize(int size) {
     mSize = size;
@@ -122,8 +117,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Sets the default index.
    *
-   * @param index
-   *          the new default index
+   * @param index the new default index
    */
   public void setDefaultIndex(TableIndex index) {
     mDefaultIndex = index;
@@ -132,8 +126,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Sets the header size.
    *
-   * @param headerSize
-   *          the new header size
+   * @param headerSize the new header size
    */
   public void setHeaderSize(int headerSize) {
     mHeaderSize = headerSize;
@@ -153,10 +146,8 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Sets the width of a row/column.
    *
-   * @param i
-   *          the row/column
-   * @param width
-   *          the width
+   * @param i the row/column
+   * @param width the width
    */
   public void setWidth(int i, int width) {
     TableIndex index = create(i);
@@ -169,8 +160,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Set the default renderer.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the table index
    */
   // public void setCellRenderer(ModernDataCellRenderer renderer) {
@@ -211,8 +201,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Gets the.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the table index
    */
   public final TableIndex get(int i) {
@@ -228,10 +217,8 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Sets the.
    *
-   * @param i
-   *          the i
-   * @param index
-   *          the index
+   * @param i the i
+   * @param index the index
    */
   public void set(int i, TableIndex index) {
     mIndices.put(i, index);
@@ -240,8 +227,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Returns the offset of a particular row (e.g. the X or Y).
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the offset
    */
   public final int getOffset(int index) {
@@ -280,8 +266,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Sets the selected.
    *
-   * @param i
-   *          the new selected
+   * @param i the new selected
    */
   public void setSelected(int i) {
     mSelectionModel.add(i);
@@ -290,8 +275,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Returns true if the column/row is selected.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return true, if is selected
    */
   public boolean isSelected(int i) {
@@ -323,10 +307,10 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
 
   /**
    * Returns the selection model associated with a table index. The selection
-   * model contains the indices of all table indexes (either row or columns) that
-   * are currently selected. This provides a faster method of determining what is
-   * selected rather than iterating over all the indexes to determine if they are
-   * selected or not.
+   * model contains the indices of all table indexes (either row or columns)
+   * that are currently selected. This provides a faster method of determining
+   * what is selected rather than iterating over all the indexes to determine if
+   * they are selected or not.
    *
    * @return the selection model
    */
@@ -337,9 +321,8 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionEventProducer#addSelectionListener
-   * (org.abh.lib.ui.modern.event.ModernSelectionListener)
+   * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
+   * addSelectionListener (org.abh.lib.ui.modern.event.ModernSelectionListener)
    */
   @Override
   public void addSelectionListener(ModernSelectionListener l) {
@@ -350,7 +333,8 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
-   * removeSelectionListener(org.abh.lib.ui.modern.event.ModernSelectionListener)
+   * removeSelectionListener(org.abh.lib.ui.modern.event.
+   * ModernSelectionListener)
    */
   @Override
   public void removeSelectionListener(ModernSelectionListener l) {
@@ -360,9 +344,8 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionEventProducer#fireSelectionChanged
-   * (org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
+   * fireSelectionChanged (org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void fireSelectionChanged(ChangeEvent e) {
@@ -372,8 +355,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Gets the heading renderer.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the heading renderer
    */
   // public ModernDataCellRenderer getHeadingRenderer(int i) {
@@ -387,8 +369,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Gets the width of the row/column.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the width
    */
   public int getWidth(int i) {
@@ -402,8 +383,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Returns the cumulative offset + width of row.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the cum width
    */
   public int getCumWidth(int i) {
@@ -413,8 +393,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Gets the cumulative offset up until the start of the row.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the cum offset
    */
   public int getCumOffset(int index) {
@@ -431,10 +410,8 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
    * Gets the cumulative offset up until the start of the row/column accounting
    * for any zoom.
    *
-   * @param index
-   *          The index.
-   * @param zoom
-   *          The zoom level.
+   * @param index The index.
+   * @param zoom The zoom level.
    * @return The cumulative offset
    */
   public int getCumOffset(int index, double zoom) {
@@ -463,8 +440,7 @@ public class TableIndexModel extends ChangeListeners implements ModernSelectionE
   /**
    * Set the default width of all indices.
    *
-   * @param width
-   *          the new width
+   * @param width the new width
    */
   public void setWidth(int width) {
     mDefaultIndex.setWidth(width);

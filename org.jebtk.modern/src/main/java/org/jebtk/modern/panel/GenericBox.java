@@ -43,8 +43,7 @@ public abstract class GenericBox extends Box {
   /**
    * Instantiates a new box panel.
    *
-   * @param axis
-   *          the axis
+   * @param axis the axis
    */
   public GenericBox(int axis) {
     super(axis);

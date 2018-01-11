@@ -161,7 +161,8 @@ public class BarButtonSlider extends SteppedSlider {
      */
     @Override
     public void componentResized(ComponentEvent e) {
-      mSliderWidth = mInternalRect.getW() - 2 * (BAR_OFFSET + 1) - 2 * BUTTON_WIDTH;
+      mSliderWidth = mInternalRect.getW() - 2 * (BAR_OFFSET + 1)
+          - 2 * BUTTON_WIDTH;
     }
   }
 
@@ -223,8 +224,8 @@ public class BarButtonSlider extends SteppedSlider {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.
+     * MouseEvent)
      */
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -250,12 +251,15 @@ public class BarButtonSlider extends SteppedSlider {
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
-      highlightMinusButton = e.getX() >= getInsets().left && e.getX() < BUTTON_WIDTH + getInsets().left;
-      highlightPlusButton = e.getX() >= mRect.getW() - BUTTON_WIDTH - getInsets().right;
+      highlightMinusButton = e.getX() >= getInsets().left
+          && e.getX() < BUTTON_WIDTH + getInsets().left;
+      highlightPlusButton = e.getX() >= mRect.getW() - BUTTON_WIDTH
+          - getInsets().right;
       highlightSlider = !highlightMinusButton && !highlightPlusButton;
 
       repaint();
@@ -272,12 +276,9 @@ public class BarButtonSlider extends SteppedSlider {
   /**
    * Instantiates a new bar button slider.
    *
-   * @param min
-   *          the min
-   * @param max
-   *          the max
-   * @param value
-   *          the value
+   * @param min the min
+   * @param max the max
+   * @param value the value
    */
   public BarButtonSlider(int min, int max, int value) {
     super(min, max, value);
@@ -290,8 +291,7 @@ public class BarButtonSlider extends SteppedSlider {
   /**
    * Creates the scoll timer.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   private void createScollTimer(ActionListener l) {
     // stop any existing timers

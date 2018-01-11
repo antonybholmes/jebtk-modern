@@ -36,7 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ProgressEventListeners extends EventProducer<ProgressEventListener> implements ProgressEventProducer {
+public class ProgressEventListeners extends EventProducer<ProgressEventListener>
+    implements ProgressEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -47,8 +48,8 @@ public class ProgressEventListeners extends EventProducer<ProgressEventListener>
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.progress.ProgressEventProducer#addProgressListener(org.
-   * abh.lib.ui.modern.progress.ProgressEventListener)
+   * org.abh.lib.ui.modern.progress.ProgressEventProducer#addProgressListener(
+   * org. abh.lib.ui.modern.progress.ProgressEventListener)
    */
   public void addProgressListener(ProgressEventListener l) {
     mListeners.add(l);
@@ -57,8 +58,8 @@ public class ProgressEventListeners extends EventProducer<ProgressEventListener>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.progress.ProgressEventProducer#removeProgressListener(
+   * @see org.abh.lib.ui.modern.progress.ProgressEventProducer#
+   * removeProgressListener(
    * org.abh.lib.ui.modern.progress.ProgressEventListener)
    */
   public void removeProgressListener(ProgressEventListener l) {
@@ -69,8 +70,8 @@ public class ProgressEventListeners extends EventProducer<ProgressEventListener>
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.progress.ProgressEventProducer#fireProgressChanged(org.
-   * abh.lib.ui.modern.progress.ProgressEvent)
+   * org.abh.lib.ui.modern.progress.ProgressEventProducer#fireProgressChanged(
+   * org. abh.lib.ui.modern.progress.ProgressEvent)
    */
   public void fireProgressChanged(ProgressEvent e) {
     for (ProgressEventListener l : mListeners) {

@@ -33,10 +33,10 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
-import org.jebtk.core.event.ChangeListener;
 import javax.swing.event.PopupMenuEvent;
 import javax.swing.event.PopupMenuListener;
 
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -157,8 +157,8 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -178,7 +178,8 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see javax.swing.event.PopupMenuListener#popupMenuCanceled(javax.swing.event.
+     * @see
+     * javax.swing.event.PopupMenuListener#popupMenuCanceled(javax.swing.event.
      * PopupMenuEvent)
      */
     @Override
@@ -190,8 +191,8 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
      * (non-Javadoc)
      * 
      * @see
-     * javax.swing.event.PopupMenuListener#popupMenuWillBecomeInvisible(javax.swing.
-     * event.PopupMenuEvent)
+     * javax.swing.event.PopupMenuListener#popupMenuWillBecomeInvisible(javax.
+     * swing. event.PopupMenuEvent)
      */
     @Override
     public final void popupMenuWillBecomeInvisible(PopupMenuEvent e) {
@@ -202,8 +203,8 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
      * (non-Javadoc)
      * 
      * @see
-     * javax.swing.event.PopupMenuListener#popupMenuWillBecomeVisible(javax.swing.
-     * event.PopupMenuEvent)
+     * javax.swing.event.PopupMenuListener#popupMenuWillBecomeVisible(javax.
+     * swing. event.PopupMenuEvent)
      */
     public final void popupMenuWillBecomeVisible(PopupMenuEvent e) {
       // TODO Auto-generated method stub
@@ -224,14 +225,12 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
   /**
    * Instantiates a new modern drop down widget.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param text1 the text1
+   * @param icon the icon
+   * @param menu the menu
    */
-  public ModernDropDownWidget(String text1, ModernIcon icon, ModernPopupMenu menu) {
+  public ModernDropDownWidget(String text1, ModernIcon icon,
+      ModernPopupMenu menu) {
 
     this(text1, icon);
 
@@ -241,10 +240,8 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
   /**
    * Instantiates a new modern drop down widget.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
+   * @param text1 the text1
+   * @param icon the icon
    */
   public ModernDropDownWidget(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -255,10 +252,8 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
   /**
    * Instantiates a new modern drop down widget.
    *
-   * @param text1
-   *          the text1
-   * @param menu
-   *          the menu
+   * @param text1 the text1
+   * @param menu the menu
    */
   public ModernDropDownWidget(String text1, ModernPopupMenu menu) {
     super(text1);
@@ -271,10 +266,8 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
   /**
    * Instantiates a new modern drop down widget.
    *
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param icon the icon
+   * @param menu the menu
    */
   public ModernDropDownWidget(ModernIcon icon, ModernPopupMenu menu) {
     super(icon);
@@ -287,8 +280,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
   /**
    * Instantiates a new modern drop down widget.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernDropDownWidget(String text1) {
     super(text1);
@@ -299,8 +291,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
   /**
    * Instantiates a new modern drop down widget.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernDropDownWidget(ModernIcon icon) {
     super(icon);
@@ -316,7 +307,8 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
 
     addMouseListener(new MouseEvents());
 
-    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"), "enter_pressed");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"),
+        "enter_pressed");
     getActionMap().put("enter_pressed", new ActionEvents());
 
     setBackgroundAnimations("dropdown-button");
@@ -341,8 +333,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
   /**
    * Get notified when the popup disappears/closes.
    * 
-   * @param l
-   *          A listener.
+   * @param l A listener.
    */
   public void addPopupClosedListener(ChangeListener l) {
     mPopupClosedListeners.addChangeListener(l);
@@ -376,8 +367,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
   /**
    * Sets the menu.
    *
-   * @param menu
-   *          the new menu
+   * @param menu the new menu
    */
   public void setMenu(ModernPopup menu) {
     if (menu == null) {

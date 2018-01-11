@@ -39,8 +39,7 @@ public class Raster48Icon extends RasterIcon {
   /**
    * Instantiates a new raster48 icon.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public Raster48Icon(ModernIcon icon) {
     super(icon, 48);

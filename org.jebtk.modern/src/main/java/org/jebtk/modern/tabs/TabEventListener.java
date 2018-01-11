@@ -44,32 +44,28 @@ public interface TabEventListener extends EventListener {
   /**
    * Tab changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void tabChanged(TabEvent e);
 
   /**
    * Tab added.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void tabAdded(TabEvent e);
 
   /**
    * Tab removed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void tabRemoved(TabEvent e);
 
   /**
    * Tab resized.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void tabResized(TabEvent e);
 

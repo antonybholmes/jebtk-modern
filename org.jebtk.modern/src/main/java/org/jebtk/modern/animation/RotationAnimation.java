@@ -29,7 +29,8 @@ import org.jebtk.modern.widget.ModernWidget;
 public abstract class RotationAnimation extends TimerAnimation {
 
   // Lets define a material design bezier curve to animate transitions
-  public final static CubicBezier BEZIER = CubicBezier.normCubicBezier(0.4, 0.0, 0.2, 1);
+  public final static CubicBezier BEZIER = CubicBezier
+      .normCubicBezier(0.4, 0.0, 0.2, 1);
 
   private static final int MAX_INDEX = STEPS - 1;
   private double[] mAngle = new double[STEPS];
@@ -39,8 +40,7 @@ public abstract class RotationAnimation extends TimerAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public RotationAnimation(ModernWidget widget, int a1, int a2) {
     super(widget);
@@ -57,7 +57,9 @@ public abstract class RotationAnimation extends TimerAnimation {
     mAngle[mAngle.length - 1] = Math.toRadians(a2);
 
     for (int i = 1; i < MAX_INDEX; ++i) {
-      mAngle[i] = mAngle[0] + TranslateAnimation.BEZ_T[i] * mD; // BEZIER.eval(t) mXPos[i - 1] + mD;
+      mAngle[i] = mAngle[0] + TranslateAnimation.BEZ_T[i] * mD; // BEZIER.eval(t)
+                                                                // mXPos[i - 1]
+                                                                // + mD;
     }
   }
 
@@ -132,5 +134,7 @@ public abstract class RotationAnimation extends TimerAnimation {
     }
   }
 
-  public abstract void drawRotation(ModernWidget widget, Graphics2D g2, Object... params);
+  public abstract void drawRotation(ModernWidget widget,
+      Graphics2D g2,
+      Object... params);
 }

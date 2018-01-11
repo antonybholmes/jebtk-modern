@@ -49,8 +49,7 @@ public class RibbonMenuTabsContainerPanel extends TabsViewPanel {
   /**
    * Instantiates a new ribbon menu tabs container panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public RibbonMenuTabsContainerPanel(TabsModel model) {
     super(model);

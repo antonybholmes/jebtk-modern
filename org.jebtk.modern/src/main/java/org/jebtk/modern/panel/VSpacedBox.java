@@ -46,19 +46,17 @@ public class VSpacedBox extends VBox {
   /**
    * Instantiates a new v spaced box.
    *
-   * @param space
-   *          the space
+   * @param space the space
    */
   public VSpacedBox(int space) {
     mSpace = space;
   }
 
   /**
-   * Creates a vertical box containing some components with the default amount of
-   * space between each.
+   * Creates a vertical box containing some components with the default amount
+   * of space between each.
    *
-   * @param components
-   *          the components
+   * @param components the components
    */
   public VSpacedBox(Component... components) {
     this(ModernWidget.PADDING, components);
@@ -67,10 +65,8 @@ public class VSpacedBox extends VBox {
   /**
    * Instantiates a new v spaced box.
    *
-   * @param space
-   *          the space
-   * @param components
-   *          the components
+   * @param space the space
+   * @param components the components
    */
   public VSpacedBox(int space, Component... components) {
     this(space);

@@ -51,8 +51,7 @@ public class ModernDialogTabButton extends ModernCheckButton {
   /**
    * Instantiates a new modern dialog tab button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernDialogTabButton(String text1) {
     super(text1);

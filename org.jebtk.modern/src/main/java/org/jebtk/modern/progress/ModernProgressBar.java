@@ -40,7 +40,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The class ModernProgressBar.
  */
-public class ModernProgressBar extends ModernWidget implements ProgressEventListener {
+public class ModernProgressBar extends ModernWidget
+    implements ProgressEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -62,8 +63,7 @@ public class ModernProgressBar extends ModernWidget implements ProgressEventList
   /**
    * Instantiates a new modern progress bar.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernProgressBar(ProgressModel model) {
     this.progressModel = model;
@@ -92,7 +92,8 @@ public class ModernProgressBar extends ModernWidget implements ProgressEventList
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   public void drawForegroundAAText(Graphics2D g2) {
     int w = getWidth() - this.getInsets().left - this.getInsets().right;
@@ -113,7 +114,8 @@ public class ModernProgressBar extends ModernWidget implements ProgressEventList
       return;
     }
 
-    Rectangle rect = new Rectangle(this.getInsets().left, this.getInsets().top, width, h);
+    Rectangle rect = new Rectangle(this.getInsets().left, this.getInsets().top,
+        width, h);
 
     paintSelected(g2, rect);
   }
@@ -122,8 +124,8 @@ public class ModernProgressBar extends ModernWidget implements ProgressEventList
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.progress.ProgressEventListener#progressUpdated(org.abh.
-   * lib.ui.modern.progress.ProgressEvent)
+   * org.abh.lib.ui.modern.progress.ProgressEventListener#progressUpdated(org.
+   * abh. lib.ui.modern.progress.ProgressEvent)
    */
   public void progressUpdated(ProgressEvent e) {
     repaint();

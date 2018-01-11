@@ -38,10 +38,8 @@ public class ModernSelectionTableModel extends ModernTableModel {
   /**
    * Instantiates a new modern selection table model.
    *
-   * @param heading
-   *          the heading
-   * @param values
-   *          the values
+   * @param heading the heading
+   * @param values the values
    */
   public ModernSelectionTableModel(String heading, List<?> values) {
     mHeading = CollectionUtils.toList(heading);
@@ -126,8 +124,7 @@ public class ModernSelectionTableModel extends ModernTableModel {
   /**
    * Gets the checks if is selected.
    *
-   * @param row
-   *          the row
+   * @param row the row
    * @return the checks if is selected
    */
   public boolean getIsSelected(int row) {

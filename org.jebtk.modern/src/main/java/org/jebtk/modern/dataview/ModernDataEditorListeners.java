@@ -28,7 +28,6 @@
 package org.jebtk.modern.dataview;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.EventListeners;
 import org.jebtk.core.event.EventProducer;
 
@@ -41,7 +40,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDataEditorListeners extends EventProducer<ModernDataEditorListener>
+public class ModernDataEditorListeners
+    extends EventProducer<ModernDataEditorListener>
     implements ModernDataEditorEventProducer {
 
   /**
@@ -63,7 +63,8 @@ public class ModernDataEditorListeners extends EventProducer<ModernDataEditorLis
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.dataview.ModernDataEditorEventProducer#
-   * removeEditorListener(org.abh.lib.ui.modern.dataview.ModernDataEditorListener)
+   * removeEditorListener(org.abh.lib.ui.modern.dataview.
+   * ModernDataEditorListener)
    */
   public void removeEditorListener(ModernDataEditorListener l) {
     mListeners.remove(l);
@@ -73,8 +74,8 @@ public class ModernDataEditorListeners extends EventProducer<ModernDataEditorLis
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataEditorEventProducer#fireChanged(org.
-   * abh.lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.dataview.ModernDataEditorEventProducer#fireChanged(
+   * org. abh.lib.event.ChangeEvent)
    */
   public void fireChanged(ChangeEvent e) {
     for (ModernDataEditorListener l : mListeners) {
@@ -97,7 +98,8 @@ public class ModernDataEditorListeners extends EventProducer<ModernDataEditorLis
     // new editor. We generally dont care if new editors are being
     // added after editing stopped, only that the current list is
     // notified.
-    for (ModernDataEditorListener l : new EventListeners<ModernDataEditorListener>(mListeners)) {
+    for (ModernDataEditorListener l : new EventListeners<ModernDataEditorListener>(
+        mListeners)) {
       // System.err.println("hmm " + l.toString());
 
       l.editingStopped();

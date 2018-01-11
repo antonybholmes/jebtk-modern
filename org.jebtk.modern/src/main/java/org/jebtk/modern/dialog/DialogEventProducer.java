@@ -38,24 +38,21 @@ public interface DialogEventProducer {
   /**
    * Add an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addDialogListener(DialogEventListener l);
 
   /**
    * Remove an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeDialogListener(DialogEventListener l);
 
   /**
    * Fire dialog status changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireDialogStatusChanged(DialogEvent e);
 }

@@ -19,7 +19,13 @@ public class HelpButtonHighlightAnimation extends ButtonHighlightAnimation {
   }
 
   @Override
-  public void drawButton(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawButton(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
 
     int size = 20; // h - 2;
 
@@ -41,7 +47,14 @@ public class HelpButtonHighlightAnimation extends ButtonHighlightAnimation {
       g2Temp.setColor(Ribbon.BAR_BACKGROUND);
       g2Temp.drawOval(xf, yf, size, size);
 
-      ModernMessageIcon.drawScaledText(g2Temp, size, xf, yf, size, size, "?", Ribbon.BAR_BACKGROUND);
+      ModernMessageIcon.drawScaledText(g2Temp,
+          size,
+          xf,
+          yf,
+          size,
+          size,
+          "?",
+          Ribbon.BAR_BACKGROUND);
     } finally {
       g2Temp.dispose();
     }

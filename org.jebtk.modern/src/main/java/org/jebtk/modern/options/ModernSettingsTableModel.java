@@ -66,8 +66,7 @@ public class ModernSettingsTableModel extends ModernColumnHeaderTableModel {
   /**
    * Instantiates a new modern settings table model.
    *
-   * @param node
-   *          the node
+   * @param node the node
    */
   public ModernSettingsTableModel(TreeNode<List<Path>> node) {
     if (node == null || node.getValue() == null) {
@@ -126,7 +125,8 @@ public class ModernSettingsTableModel extends ModernColumnHeaderTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
    */
   @Override
   public final List<String> getColumnAnnotationText(int column) {

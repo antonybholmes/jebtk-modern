@@ -52,8 +52,7 @@ public class FrameCanvas extends ContainerCanvas {
   /**
    * Instantiates a new frame canvas.
    *
-   * @param canvas
-   *          the canvas
+   * @param canvas the canvas
    */
   public FrameCanvas(ModernCanvas canvas) {
     this(canvas, Color.WHITE, ModernWidget.DARK_LINE_COLOR);
@@ -62,12 +61,9 @@ public class FrameCanvas extends ContainerCanvas {
   /**
    * Instantiates a new frame canvas.
    *
-   * @param canvas
-   *          the canvas
-   * @param background
-   *          the background
-   * @param color
-   *          the color
+   * @param canvas the canvas
+   * @param background the background
+   * @param color the color
    */
   public FrameCanvas(ModernCanvas canvas, Color background, Color color) {
     super(canvas);
@@ -92,8 +88,8 @@ public class FrameCanvas extends ContainerCanvas {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ContainerCanvas#drawCanvasForeground(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.graphics.ContainerCanvas#drawCanvasForeground(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

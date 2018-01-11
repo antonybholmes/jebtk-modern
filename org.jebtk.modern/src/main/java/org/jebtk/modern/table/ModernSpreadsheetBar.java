@@ -34,9 +34,8 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
@@ -51,7 +50,8 @@ import org.jebtk.modern.text.ModernTextBox;
 /**
  * The Class ModernSpreadsheetBar allows users to edit table cells.
  */
-public class ModernSpreadsheetBar extends ModernComponent implements ModernSelectionListener {
+public class ModernSpreadsheetBar extends ModernComponent
+    implements ModernSelectionListener {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -73,7 +73,8 @@ public class ModernSpreadsheetBar extends ModernComponent implements ModernSelec
   }
 
   /** The Constant REF_PATTERN. */
-  private static final Pattern REF_PATTERN = Pattern.compile("^([A-Za-z]+)([0-9]+)$");
+  private static final Pattern REF_PATTERN = Pattern
+      .compile("^([A-Za-z]+)([0-9]+)$");
 
   /** The m table. */
   private ModernTable mTable;
@@ -87,8 +88,7 @@ public class ModernSpreadsheetBar extends ModernComponent implements ModernSelec
   /**
    * Instantiates a new modern spreadsheet bar.
    *
-   * @param table
-   *          the table
+   * @param table the table
    */
   public ModernSpreadsheetBar(ModernTable table) {
     mTable = table;
@@ -228,7 +228,8 @@ public class ModernSpreadsheetBar extends ModernComponent implements ModernSelec
         // in the table
         mText.setText(v.toString());
 
-        mLocText.setText(mTable.getModel().getColumnName(cell.col) + mTable.getModel().getRowName(cell.row));
+        mLocText.setText(mTable.getModel().getColumnName(cell.col)
+            + mTable.getModel().getRowName(cell.row));
       }
     }
   }

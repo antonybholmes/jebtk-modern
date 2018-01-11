@@ -30,8 +30,7 @@ public class ModernHSplitPaneLineAnimation extends HoverFadeAnimation {
   /**
    * Instantiates a new quick access animation.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public ModernHSplitPaneLineAnimation(ModernWidget pane) {
     super(pane);

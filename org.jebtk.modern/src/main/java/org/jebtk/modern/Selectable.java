@@ -39,8 +39,7 @@ public interface Selectable {
   /**
    * Should ensure the component is selected.
    *
-   * @param selected
-   *          the new selected
+   * @param selected the new selected
    */
   public void setSelected(boolean selected);
 

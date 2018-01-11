@@ -48,11 +48,17 @@ public class RightPane32VectorIcon extends Window32VectorIcon {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.icons.Window32VectorIcon#drawForeground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.icons.Window32VectorIcon#drawForeground(java.awt.
    * Graphics2D, java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     super.drawIcon(g2, x, y, w, h, params);
 
     x = x + (w - WIDTH) / 2;
@@ -60,7 +66,10 @@ public class RightPane32VectorIcon extends Window32VectorIcon {
 
     g2.setColor(ModernWidget.LINE_COLOR);
 
-    g2.drawLine(x + WIDTH - PANE_WIDTH, y + BAR_HEIGHT, x + WIDTH - PANE_WIDTH, y + HEIGHT);
+    g2.drawLine(x + WIDTH - PANE_WIDTH,
+        y + BAR_HEIGHT,
+        x + WIDTH - PANE_WIDTH,
+        y + HEIGHT);
   }
 
 }

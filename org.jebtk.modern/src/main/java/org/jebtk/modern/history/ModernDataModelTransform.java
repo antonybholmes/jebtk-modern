@@ -56,10 +56,8 @@ public class ModernDataModelTransform {
   /**
    * Instantiates a new modern data model transform.
    *
-   * @param name
-   *          the name
-   * @param model
-   *          the model
+   * @param name the name
+   * @param model the model
    */
   public ModernDataModelTransform(String name, ModernDataModel model) {
     this(name, name, model);
@@ -68,14 +66,12 @@ public class ModernDataModelTransform {
   /**
    * Instantiates a new modern data model transform.
    *
-   * @param name
-   *          the name
-   * @param description
-   *          the description
-   * @param model
-   *          the model
+   * @param name the name
+   * @param description the description
+   * @param model the model
    */
-  public ModernDataModelTransform(String name, String description, ModernDataModel model) {
+  public ModernDataModelTransform(String name, String description,
+      ModernDataModel model) {
     mName = name;
     mDescription = description;
     mModel = model;

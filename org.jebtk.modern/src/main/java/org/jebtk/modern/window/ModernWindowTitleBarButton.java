@@ -51,8 +51,7 @@ public class ModernWindowTitleBarButton extends QuickAccessButton {
   /**
    * Instantiates a new modern window title bar button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernWindowTitleBarButton(ModernIcon icon) {
     super(icon);

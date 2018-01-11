@@ -48,8 +48,7 @@ public class ModernNumericalLabel extends ModernLabel {
   /**
    * Instantiates a new modern label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernNumericalLabel(String text) {
     super(text, TEXT_COLOR);
@@ -58,10 +57,8 @@ public class ModernNumericalLabel extends ModernLabel {
   /**
    * Instantiates a new modern label.
    *
-   * @param text
-   *          the text
-   * @param color
-   *          the color
+   * @param text the text
+   * @param color the color
    */
   public ModernNumericalLabel(String text, Color color) {
     super(text, color);
@@ -70,10 +67,8 @@ public class ModernNumericalLabel extends ModernLabel {
   /**
    * Instantiates a new modern label.
    *
-   * @param text
-   *          the text
-   * @param size
-   *          the size
+   * @param text the text
+   * @param size the size
    */
   public ModernNumericalLabel(String text, Dimension size) {
     super(text, size);
@@ -82,10 +77,8 @@ public class ModernNumericalLabel extends ModernLabel {
   /**
    * Instantiates a new modern label.
    *
-   * @param text
-   *          the text
-   * @param width
-   *          the width
+   * @param text the text
+   * @param width the width
    */
   public ModernNumericalLabel(String text, int width) {
     super(text, width);
@@ -99,9 +92,11 @@ public class ModernNumericalLabel extends ModernLabel {
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
-    // System.err.println("sdf " + getInsets().top + " " + mInternalRect.getH() + "
+    // System.err.println("sdf " + getInsets().top + " " + mInternalRect.getH()
+    // + "
     // " + getTextVCenteredYPos(g2, mInternalRect.getH()));
-    g2.drawString(mText, getWidth() - getInsets().right - getStringWidth(g2, mText),
+    g2.drawString(mText,
+        getWidth() - getInsets().right - getStringWidth(g2, mText),
         getInsets().top + getTextYPosCenter(g2, mInternalRect));
   }
 }

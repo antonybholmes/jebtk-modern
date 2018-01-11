@@ -51,12 +51,9 @@ public class ShapeEquilateralInvertedTriangle extends Polygon {
   /**
    * Instantiates a new shape equilateral inverted triangle.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param size
-   *          the size
+   * @param x the x
+   * @param y the y
+   * @param size the size
    */
   public ShapeEquilateralInvertedTriangle(int x, int y, int size) {
     int s2 = size / 2;

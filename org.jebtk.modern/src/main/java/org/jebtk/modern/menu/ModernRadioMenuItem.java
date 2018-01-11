@@ -54,17 +54,17 @@ public class ModernRadioMenuItem extends ModernRadioButton {
   private static final int ICON_SIZE = 16;
 
   /** The Constant ICON_1. */
-  private static final ModernIcon ICON_1 = UIService.getInstance().loadIcon(RadioButtonVectorIcon.class, ICON_SIZE);
+  private static final ModernIcon ICON_1 = UIService.getInstance()
+      .loadIcon(RadioButtonVectorIcon.class, ICON_SIZE);
 
   /** The Constant ICON_2. */
-  private static final ModernIcon ICON_2 = UIService.getInstance().loadIcon(RadioButtonSelectedVectorIcon.class,
-      ICON_SIZE);
+  private static final ModernIcon ICON_2 = UIService.getInstance()
+      .loadIcon(RadioButtonSelectedVectorIcon.class, ICON_SIZE);
 
   /**
    * Instantiates a new modern check box menu item.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernRadioMenuItem(String text) {
     this(text, false);
@@ -73,10 +73,8 @@ public class ModernRadioMenuItem extends ModernRadioButton {
   /**
    * Instantiates a new modern check box menu item.
    *
-   * @param text
-   *          the text
-   * @param selected
-   *          the selected
+   * @param text the text
+   * @param selected the selected
    */
   public ModernRadioMenuItem(String text, boolean selected) {
     super(text);

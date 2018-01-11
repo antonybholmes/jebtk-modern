@@ -77,8 +77,8 @@ public abstract class ContinuousOrbSlider extends ContinuousSlider {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.
+     * MouseEvent)
      */
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -103,7 +103,8 @@ public abstract class ContinuousOrbSlider extends ContinuousSlider {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-      if (e.getX() >= getInsets().left && e.getX() < getWidth() - getInsets().right) {
+      if (e.getX() >= getInsets().left
+          && e.getX() < getWidth() - getInsets().right) {
         mDrag = true;
 
         // mDragX = e.getX();
@@ -149,10 +150,8 @@ public abstract class ContinuousOrbSlider extends ContinuousSlider {
   /**
    * Instantiates a new orb slider.
    *
-   * @param value
-   *          the value
-   * @param values
-   *          the values
+   * @param value the value
+   * @param values the values
    */
   public ContinuousOrbSlider(double value, double min, double mid, double max) {
     super(value, min, mid, max);
@@ -172,8 +171,7 @@ public abstract class ContinuousOrbSlider extends ContinuousSlider {
   /**
    * Sets the radius.
    *
-   * @param radius
-   *          the new radius
+   * @param radius the new radius
    */
   public void setRadius(int radius) {
     mSliderRadius = radius;
@@ -206,11 +204,11 @@ public abstract class ContinuousOrbSlider extends ContinuousSlider {
   /**
    * Translate X.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the int
    */
   public int translateX(int x) {
-    return Mathematics.bound(x - mSliderRadius - getInsets().left, 0, mSliderWidth);
+    return Mathematics
+        .bound(x - mSliderRadius - getInsets().left, 0, mSliderWidth);
   }
 }

@@ -46,8 +46,7 @@ public interface ViewEventListener extends EventListener {
   /**
    * View changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void viewChanged(ChangeEvent e);
 }

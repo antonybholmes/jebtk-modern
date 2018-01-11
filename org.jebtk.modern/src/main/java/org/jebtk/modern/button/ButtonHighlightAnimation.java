@@ -23,10 +23,17 @@ public class ButtonHighlightAnimation extends GenericButtonAnimation {
    */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-    if (getWidget().isEnabled()) { // && (getButton().getHightlighted() || getButton().getPopupShown())) {
+    if (getWidget().isEnabled()) { // && (getButton().getHightlighted() ||
+                                   // getButton().getPopupShown())) {
       IntRect rect = getWidget().getInternalRect();
 
-      drawButton(g2, rect.getX(), rect.getY(), rect.getW(), rect.getH(), mButton.getRenderMode(), false);
+      drawButton(g2,
+          rect.getX(),
+          rect.getY(),
+          rect.getW(),
+          rect.getH(),
+          mButton.getRenderMode(),
+          false);
     }
 
     // Color c = ColorUtils.getTransparentColor(Color.RED, mTrans);

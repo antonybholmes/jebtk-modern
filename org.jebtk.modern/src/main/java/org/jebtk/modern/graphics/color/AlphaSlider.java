@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.color;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.modern.UI;
 import org.jebtk.modern.slider.ContinuousMacOrbSlider;
 
@@ -58,8 +57,8 @@ public class AlphaSlider extends ContinuousMacOrbSlider {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -75,7 +74,8 @@ public class AlphaSlider extends ContinuousMacOrbSlider {
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see
+     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -86,8 +86,7 @@ public class AlphaSlider extends ContinuousMacOrbSlider {
   /**
    * Instantiates a new alpha slider.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public AlphaSlider(ColorSelectionModel model) {
     super(255, 0, 127, 255);

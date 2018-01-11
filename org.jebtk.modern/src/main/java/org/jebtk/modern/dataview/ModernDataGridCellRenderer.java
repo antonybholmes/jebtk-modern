@@ -67,8 +67,7 @@ public class ModernDataGridCellRenderer extends ModernDataCellRenderer {
   /**
    * Instantiates a new modern data grid cell renderer.
    *
-   * @param defaultValue
-   *          the default value
+   * @param defaultValue the default value
    */
   public ModernDataGridCellRenderer(String defaultValue) {
     mDefaultValue = defaultValue;
@@ -84,7 +83,8 @@ public class ModernDataGridCellRenderer extends ModernDataCellRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -110,8 +110,7 @@ public class ModernDataGridCellRenderer extends ModernDataCellRenderer {
   /**
    * Sets the text.
    *
-   * @param text
-   *          the new text
+   * @param text the new text
    */
   public final void setText(String text) {
     mText = text;
@@ -125,11 +124,17 @@ public class ModernDataGridCellRenderer extends ModernDataCellRenderer {
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public Component getCellRendererComponent(ModernData dataView,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
     if (value != null) {
       setForeground(dataView.getModel().getCellStyle(row, column).getColor());
-      setBackground(dataView.getModel().getCellStyle(row, column).getBackground());
+      setBackground(
+          dataView.getModel().getCellStyle(row, column).getBackground());
 
       mIsNumber = (value instanceof Number);
 
@@ -145,6 +150,12 @@ public class ModernDataGridCellRenderer extends ModernDataCellRenderer {
       setText(mDefaultValue);
     }
 
-    return super.getCellRendererComponent(dataView, value, highlight, isSelected, hasFocus, row, column);
+    return super.getCellRendererComponent(dataView,
+        value,
+        highlight,
+        isSelected,
+        hasFocus,
+        row,
+        column);
   }
 }

@@ -47,7 +47,8 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class RibbonLargeDropDownButton extends ModernDropDownButton implements RibbonModeProperty {
+public class RibbonLargeDropDownButton extends ModernDropDownButton
+    implements RibbonModeProperty {
 
   /**
    * The constant serialVersionUID.
@@ -77,10 +78,8 @@ public class RibbonLargeDropDownButton extends ModernDropDownButton implements R
   /**
    * Instantiates a new ribbon large drop down menu button2.
    *
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param icon the icon
+   * @param menu the menu
    */
   public RibbonLargeDropDownButton(ModernIcon icon, ModernPopupMenu menu) {
     super(icon, menu);
@@ -93,14 +92,12 @@ public class RibbonLargeDropDownButton extends ModernDropDownButton implements R
   /**
    * Instantiates a new ribbon large drop down menu button2.
    *
-   * @param text1
-   *          the text 1
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param text1 the text 1
+   * @param icon the icon
+   * @param menu the menu
    */
-  public RibbonLargeDropDownButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
+  public RibbonLargeDropDownButton(String text1, ModernIcon icon,
+      ModernPopupMenu menu) {
     super(text1, icon, menu);
 
     mText = text1;
@@ -111,16 +108,13 @@ public class RibbonLargeDropDownButton extends ModernDropDownButton implements R
   /**
    * Instantiates a new ribbon large drop down button.
    *
-   * @param text1
-   *          the text 1
-   * @param text2
-   *          the text 2
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param text1 the text 1
+   * @param text2 the text 2
+   * @param icon the icon
+   * @param menu the menu
    */
-  public RibbonLargeDropDownButton(String text1, String text2, ModernIcon icon, ModernPopupMenu menu) {
+  public RibbonLargeDropDownButton(String text1, String text2, ModernIcon icon,
+      ModernPopupMenu menu) {
     super(text1, icon, menu);
 
     mText2 = text2;
@@ -135,10 +129,8 @@ public class RibbonLargeDropDownButton extends ModernDropDownButton implements R
   /**
    * Instantiates a new ribbon large drop down button.
    *
-   * @param text1
-   *          the text 1
-   * @param menu
-   *          the menu
+   * @param text1 the text 1
+   * @param menu the menu
    */
   public RibbonLargeDropDownButton(String text1, ModernPopupMenu menu) {
     super(text1, menu);
@@ -151,8 +143,7 @@ public class RibbonLargeDropDownButton extends ModernDropDownButton implements R
   /**
    * Instantiates a new ribbon large drop down button.
    *
-   * @param menu
-   *          the menu
+   * @param menu the menu
    */
   public RibbonLargeDropDownButton(ModernPopupMenu menu) {
     super(TextUtils.EMPTY_STRING, menu);
@@ -181,8 +172,7 @@ public class RibbonLargeDropDownButton extends ModernDropDownButton implements R
   /**
    * Sets the show text.
    *
-   * @param show
-   *          the new show text
+   * @param show the new show text
    */
   @Override
   public void setShowText(boolean show) {
@@ -292,18 +282,18 @@ public class RibbonLargeDropDownButton extends ModernDropDownButton implements R
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
-   * (isSelected() || mHighlight || mPopupShown) {
-   * getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
-   * } } }
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
+   * if (isSelected() || mHighlight || mPopupShown) {
+   * getWidgetRenderer().drawRibbonButton(g2, mInternalRect,
+   * RenderMode.SELECTED); } } }
    */
 
   /*
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -397,8 +387,8 @@ public class RibbonLargeDropDownButton extends ModernDropDownButton implements R
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.button.ModernDropDownButton#fireClicked(org.abh.common.ui.
-   * event.ModernClickEvent)
+   * org.abh.common.ui.button.ModernDropDownButton#fireClicked(org.abh.common.
+   * ui. event.ModernClickEvent)
    */
   @Override
   public void fireClicked(ModernClickEvent e) {

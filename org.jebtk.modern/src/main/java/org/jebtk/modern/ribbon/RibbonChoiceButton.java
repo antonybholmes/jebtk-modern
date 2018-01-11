@@ -53,7 +53,8 @@ public class RibbonChoiceButton extends ModernRadioButton {
   /**
    * The constant SIZE.
    */
-  private static final Dimension SIZE = new Dimension(Ribbon.LARGE_BUTTON_HEIGHT, Ribbon.LARGE_BUTTON_HEIGHT);
+  private static final Dimension SIZE = new Dimension(
+      Ribbon.LARGE_BUTTON_HEIGHT, Ribbon.LARGE_BUTTON_HEIGHT);
 
   /**
    * The member icon.
@@ -63,10 +64,8 @@ public class RibbonChoiceButton extends ModernRadioButton {
   /**
    * Instantiates a new ribbon choice button2.
    *
-   * @param icon
-   *          the icon
-   * @param clickMessage
-   *          the click message
+   * @param icon the icon
+   * @param clickMessage the click message
    */
   public RibbonChoiceButton(ModernIcon icon, String clickMessage) {
     mIcon = icon;
@@ -86,7 +85,8 @@ public class RibbonChoiceButton extends ModernRadioButton {
   public void drawBackgroundAA(Graphics2D g2) {
     if (isEnabled()) {
       if (isSelected() || mHighlight) {
-        getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+        getWidgetRenderer()
+            .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
       }
     }
   }

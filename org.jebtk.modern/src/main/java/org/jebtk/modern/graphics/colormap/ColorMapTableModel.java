@@ -18,11 +18,10 @@ package org.jebtk.modern.graphics.colormap;
 import java.util.Collections;
 import java.util.List;
 
-import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.core.Mathematics;
 import org.jebtk.core.collections.CollectionUtils;
+import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 
@@ -33,7 +32,8 @@ import org.jebtk.modern.table.ModernColumnHeaderTableModel;
  * @author Antony Holmes Holmes
  *
  */
-public class ColorMapTableModel extends ModernColumnHeaderTableModel implements ChangeListener {
+public class ColorMapTableModel extends ModernColumnHeaderTableModel
+    implements ChangeListener {
 
   /**
    * The constant HEADER.
@@ -55,7 +55,8 @@ public class ColorMapTableModel extends ModernColumnHeaderTableModel implements 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
+   * @see
+   * org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
    */
   @Override
   public List<String> getColumnAnnotationText(int column) {
@@ -104,8 +105,8 @@ public class ColorMapTableModel extends ModernColumnHeaderTableModel implements 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.event.ChangeListener#changed(org.abh.common.event.ChangeEvent)
+   * @see org.abh.common.event.ChangeListener#changed(org.abh.common.event.
+   * ChangeEvent)
    */
   @Override
   public void changed(ChangeEvent e) {

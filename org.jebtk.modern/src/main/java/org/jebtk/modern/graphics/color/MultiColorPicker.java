@@ -52,37 +52,54 @@ public class MultiColorPicker extends ColorPicker {
 
   static {
     /// red
-    COLORS.add(generateColors(new Color(255, 204, 204), new Color(204, 0, 0), STEPS));
+    COLORS.add(
+        generateColors(new Color(255, 204, 204), new Color(204, 0, 0), STEPS));
 
     // orange
-    COLORS.add(generateColors(new Color(255, 229, 204), new Color(204, 102, 0), STEPS));
+    COLORS.add(generateColors(new Color(255, 229, 204),
+        new Color(204, 102, 0),
+        STEPS));
 
     /// yellow
-    COLORS.add(generateColors(new Color(255, 255, 204), new Color(204, 204, 0), STEPS));
+    COLORS.add(generateColors(new Color(255, 255, 204),
+        new Color(204, 204, 0),
+        STEPS));
 
     // green
-    COLORS.add(generateColors(new Color(229, 255, 204), new Color(76, 153, 0), STEPS));
+    COLORS.add(
+        generateColors(new Color(229, 255, 204), new Color(76, 153, 0), STEPS));
 
     // green
-    COLORS.add(generateColors(new Color(204, 255, 204), new Color(0, 153, 0), STEPS));
+    COLORS.add(
+        generateColors(new Color(204, 255, 204), new Color(0, 153, 0), STEPS));
 
-    COLORS.add(generateColors(new Color(204, 255, 229), new Color(0, 153, 76), STEPS));
+    COLORS.add(
+        generateColors(new Color(204, 255, 229), new Color(0, 153, 76), STEPS));
 
     // blue
-    COLORS.add(generateColors(new Color(204, 255, 255), new Color(0, 153, 153), STEPS));
+    COLORS.add(generateColors(new Color(204, 255, 255),
+        new Color(0, 153, 153),
+        STEPS));
 
-    COLORS.add(generateColors(new Color(204, 229, 255), new Color(0, 76, 153), STEPS));
+    COLORS.add(
+        generateColors(new Color(204, 229, 255), new Color(0, 76, 153), STEPS));
 
-    COLORS.add(generateColors(new Color(204, 204, 255), new Color(0, 0, 153), STEPS));
+    COLORS.add(
+        generateColors(new Color(204, 204, 255), new Color(0, 0, 153), STEPS));
 
-    COLORS.add(generateColors(new Color(229, 204, 255), new Color(76, 0, 153), STEPS));
+    COLORS.add(
+        generateColors(new Color(229, 204, 255), new Color(76, 0, 153), STEPS));
 
-    COLORS.add(generateColors(new Color(255, 204, 204), new Color(153, 0, 153), STEPS));
+    COLORS.add(generateColors(new Color(255, 204, 204),
+        new Color(153, 0, 153),
+        STEPS));
 
-    COLORS.add(generateColors(new Color(255, 204, 229), new Color(153, 0, 76), STEPS));
+    COLORS.add(
+        generateColors(new Color(255, 204, 229), new Color(153, 0, 76), STEPS));
 
     // gray values
-    COLORS.add(generateColors(new Color(255, 255, 255), new Color(64, 64, 64), STEPS));
+    COLORS.add(
+        generateColors(new Color(255, 255, 255), new Color(64, 64, 64), STEPS));
 
   }
 
@@ -97,15 +114,14 @@ public class MultiColorPicker extends ColorPicker {
   /**
    * Generate colors.
    *
-   * @param start
-   *          the start
-   * @param end
-   *          the end
-   * @param steps
-   *          the steps
+   * @param start the start
+   * @param end the end
+   * @param steps the steps
    * @return the list
    */
-  protected static List<Color> generateColors(Color start, Color end, double steps) {
+  protected static List<Color> generateColors(Color start,
+      Color end,
+      double steps) {
     List<Color> colors = new ArrayList<Color>();
 
     colors.add(start);

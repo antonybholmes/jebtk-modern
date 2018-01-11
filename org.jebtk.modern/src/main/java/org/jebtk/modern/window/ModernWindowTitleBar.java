@@ -43,8 +43,7 @@ public class ModernWindowTitleBar extends ModernTitleBar {
   /**
    * Instantiates a new modern window title bar.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public ModernWindowTitleBar(ModernWindow window) {
     this(window, UI.TITLE_BUTTONS_ON_LEFT, UI.WINDOW_TITLE_STYLE);
@@ -53,22 +52,19 @@ public class ModernWindowTitleBar extends ModernTitleBar {
   /**
    * Instantiates a new modern window title bar.
    *
-   * @param window
-   *          the window
-   * @param style
-   *          the style
+   * @param window the window
+   * @param style the style
    */
-  public ModernWindowTitleBar(ModernWindow window, ModernWindowTitleBarStyle style) {
+  public ModernWindowTitleBar(ModernWindow window,
+      ModernWindowTitleBarStyle style) {
     this(window, UI.TITLE_BUTTONS_ON_LEFT, style);
   }
 
   /**
    * Instantiates a new modern window title bar.
    *
-   * @param window
-   *          the window
-   * @param onLeft
-   *          the on left
+   * @param window the window
+   * @param onLeft the on left
    */
   public ModernWindowTitleBar(ModernWindow window, boolean onLeft) {
     this(window, onLeft, UI.WINDOW_TITLE_STYLE);
@@ -77,14 +73,12 @@ public class ModernWindowTitleBar extends ModernTitleBar {
   /**
    * Creates a new title bar.
    *
-   * @param window
-   *          Parent window.
-   * @param onLeft
-   *          the on left
-   * @param style
-   *          The button style.
+   * @param window Parent window.
+   * @param onLeft the on left
+   * @param style The button style.
    */
-  public ModernWindowTitleBar(ModernWindow window, boolean onLeft, ModernWindowTitleBarStyle style) {
+  public ModernWindowTitleBar(ModernWindow window, boolean onLeft,
+      ModernWindowTitleBarStyle style) {
     if (onLeft) {
       if (style == ModernWindowTitleBarStyle.MAC) {
         _addLeft(new ModernWindowTitleBarExitRoundButton(window));

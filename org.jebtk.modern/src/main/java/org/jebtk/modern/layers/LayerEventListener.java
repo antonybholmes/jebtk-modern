@@ -46,16 +46,14 @@ public interface LayerEventListener extends EventListener {
   /**
    * Layer changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void layerChanged(ChangeEvent e);
 
   /**
    * Invoked when layer update occurs.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void layerUpdated(ChangeEvent e);
 }

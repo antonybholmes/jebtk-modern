@@ -48,13 +48,13 @@ public class ModernDialogMutliOptionPanel extends ModernPanel {
   private static final long serialVersionUID = 1L;
 
   /** The Constant COLOR. */
-  private static final Color COLOR = ThemeService.getInstance().colors().getHighlight32(1); // ColorUtils.getTransparentColor50(Color.WHITE);
+  private static final Color COLOR = ThemeService.getInstance().colors()
+      .getHighlight32(1); // ColorUtils.getTransparentColor50(Color.WHITE);
 
   /**
    * Instantiates a new modern dialog border panel.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public ModernDialogMutliOptionPanel(Component c) {
     super(c, COLOR);
@@ -63,10 +63,8 @@ public class ModernDialogMutliOptionPanel extends ModernPanel {
   /**
    * Instantiates a new modern dialog mutli option panel.
    *
-   * @param c
-   *          the c
-   * @param padding
-   *          the padding
+   * @param c the c
+   * @param padding the padding
    */
   public ModernDialogMutliOptionPanel(Component c, int padding) {
     super(c, COLOR, padding);

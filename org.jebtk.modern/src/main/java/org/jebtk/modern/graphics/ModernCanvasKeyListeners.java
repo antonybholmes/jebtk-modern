@@ -38,7 +38,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernCanvasKeyListeners extends EventProducer<ModernCanvasKeyListener>
+public class ModernCanvasKeyListeners
+    extends EventProducer<ModernCanvasKeyListener>
     implements ModernCanvasKeyEventProducer {
 
   /**
@@ -49,9 +50,8 @@ public class ModernCanvasKeyListeners extends EventProducer<ModernCanvasKeyListe
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#addCanvasKeyListener(
-   * org.abh.common.ui.graphics.ModernCanvasKeyListener)
+   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
+   * addCanvasKeyListener( org.abh.common.ui.graphics.ModernCanvasKeyListener)
    */
   @Override
   public void addCanvasKeyListener(ModernCanvasKeyListener l) {
@@ -86,9 +86,8 @@ public class ModernCanvasKeyListeners extends EventProducer<ModernCanvasKeyListe
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyPressed(
-   * java.awt.event.KeyEvent)
+   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
+   * fireCanvasKeyPressed( java.awt.event.KeyEvent)
    */
   @Override
   public void fireCanvasKeyPressed(KeyEvent e) {
@@ -100,9 +99,8 @@ public class ModernCanvasKeyListeners extends EventProducer<ModernCanvasKeyListe
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyReleased
-   * (java.awt.event.KeyEvent)
+   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
+   * fireCanvasKeyReleased (java.awt.event.KeyEvent)
    */
   @Override
   public void fireCanvasKeyReleased(KeyEvent e) {

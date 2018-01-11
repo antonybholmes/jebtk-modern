@@ -57,7 +57,8 @@ public class FileMenuItem extends ModernTwoLineMenuItem {
   /**
    * The constant SDF.
    */
-  private static final SimpleDateFormat SDF = new SimpleDateFormat("MM/dd/yyyy HH:mm");
+  private static final SimpleDateFormat SDF = new SimpleDateFormat(
+      "MM/dd/yyyy HH:mm");
 
   /**
    * The member file.
@@ -67,8 +68,7 @@ public class FileMenuItem extends ModernTwoLineMenuItem {
   /**
    * Instantiates a new file menu item.
    *
-   * @param file
-   *          the file
+   * @param file the file
    */
   public FileMenuItem(Path file) {
     this(file, UIService.getInstance().loadIcon(FileVectorIcon.class, 32));
@@ -78,13 +78,12 @@ public class FileMenuItem extends ModernTwoLineMenuItem {
   /**
    * Instantiates a new file menu item.
    *
-   * @param file
-   *          the file
-   * @param icon
-   *          the icon
+   * @param file the file
+   * @param icon the icon
    */
   public FileMenuItem(Path file, ModernIcon icon) {
-    super(PathUtils.toString(file.getFileName()), PathUtils.toString(file.getParent()), icon);
+    super(PathUtils.toString(file.getFileName()),
+        PathUtils.toString(file.getParent()), icon);
 
     mFile = file;
 

@@ -46,8 +46,7 @@ public interface ModernLayoutListener extends EventListener {
   /**
    * Layout changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void layoutChanged(ChangeEvent e);
 }

@@ -101,19 +101,20 @@ public class ModernVContentPaneViewer extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabAdded(TabEvent e) {
       refresh();
 
       /*
-       * if (e.getPane().getName().equals(ContentPaneModel.CENTER_PANE)) { return; }
+       * if (e.getPane().getName().equals(ContentPaneModel.CENTER_PANE)) {
+       * return; }
        * 
        * Timer timer = new Timer(10, null); timer.setRepeats(true);
-       * timer.addClickListener(new AnimatePane(e.getPane(), timer)); timer.start();
+       * timer.addClickListener(new AnimatePane(e.getPane(), timer));
+       * timer.start();
        */
     }
 
@@ -121,8 +122,8 @@ public class ModernVContentPaneViewer extends ModernWidget {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabRemoved(TabEvent e) {
@@ -133,8 +134,8 @@ public class ModernVContentPaneViewer extends ModernWidget {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabResized(TabEvent e) {
@@ -145,8 +146,8 @@ public class ModernVContentPaneViewer extends ModernWidget {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabChanged(TabEvent e) {
@@ -271,7 +272,8 @@ public class ModernVContentPaneViewer extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -287,8 +289,8 @@ public class ModernVContentPaneViewer extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.
+     * MouseEvent)
      */
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -311,13 +313,16 @@ public class ModernVContentPaneViewer extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
       selectedDivider = getClosestDivider(e.getY());
 
-      setCursor(Cursor.getPredefinedCursor(selectedDivider != -1 ? Cursor.N_RESIZE_CURSOR : Cursor.DEFAULT_CURSOR));
+      setCursor(Cursor
+          .getPredefinedCursor(selectedDivider != -1 ? Cursor.N_RESIZE_CURSOR
+              : Cursor.DEFAULT_CURSOR));
 
     }
   }
@@ -337,8 +342,7 @@ public class ModernVContentPaneViewer extends ModernWidget {
   /**
    * Sets the model.
    *
-   * @param model
-   *          the new model
+   * @param model the new model
    */
   public void setModel(TabsModel model) {
     this.model = model;
@@ -358,8 +362,7 @@ public class ModernVContentPaneViewer extends ModernWidget {
   /**
    * Gets the closest divider.
    *
-   * @param y
-   *          the y
+   * @param y the y
    * @return the closest divider
    */
   private int getClosestDivider(int y) {
@@ -455,7 +458,8 @@ public class ModernVContentPaneViewer extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

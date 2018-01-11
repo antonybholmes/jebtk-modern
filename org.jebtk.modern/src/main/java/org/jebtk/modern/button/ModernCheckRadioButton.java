@@ -43,8 +43,7 @@ public class ModernCheckRadioButton extends ModernCheckButton {
   /**
    * Instantiates a new modern check radio button.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   public ModernCheckRadioButton(String name) {
     super(name);
@@ -53,10 +52,8 @@ public class ModernCheckRadioButton extends ModernCheckButton {
   /**
    * Instantiates a new modern check radio button.
    *
-   * @param name
-   *          the name
-   * @param selected
-   *          the selected
+   * @param name the name
+   * @param selected the selected
    */
   public ModernCheckRadioButton(String name, boolean selected) {
     super(name);
@@ -67,8 +64,7 @@ public class ModernCheckRadioButton extends ModernCheckButton {
   /**
    * Instantiates a new modern check radio button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernCheckRadioButton(ModernIcon icon) {
     super(icon);
@@ -77,10 +73,8 @@ public class ModernCheckRadioButton extends ModernCheckButton {
   /**
    * Instantiates a new modern check radio button.
    *
-   * @param name
-   *          the name
-   * @param icon
-   *          the icon
+   * @param name the name
+   * @param icon the icon
    */
   public ModernCheckRadioButton(String name, ModernIcon icon) {
     super(name, icon);
@@ -89,14 +83,12 @@ public class ModernCheckRadioButton extends ModernCheckButton {
   /**
    * Instantiates a new modern check radio button.
    *
-   * @param icon
-   *          the icon
-   * @param tooltipTitle
-   *          the tooltip title
-   * @param toolTipText
-   *          the tool tip text
+   * @param icon the icon
+   * @param tooltipTitle the tooltip title
+   * @param toolTipText the tool tip text
    */
-  public ModernCheckRadioButton(ModernIcon icon, String tooltipTitle, String toolTipText) {
+  public ModernCheckRadioButton(ModernIcon icon, String tooltipTitle,
+      String toolTipText) {
     super(icon);
 
     setToolTip(tooltipTitle, toolTipText);

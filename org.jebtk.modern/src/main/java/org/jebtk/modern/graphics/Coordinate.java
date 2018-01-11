@@ -56,10 +56,8 @@ public class Coordinate {
   /**
    * Instantiates a new coordinate.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   public Coordinate(double x, double y) {
     this.x = x;

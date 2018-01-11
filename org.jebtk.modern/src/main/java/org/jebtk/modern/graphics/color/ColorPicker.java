@@ -71,7 +71,8 @@ public class ColorPicker extends ModernClickWidget {
   private static final int SPACE = GAP + BLOCK_SIZE;
 
   /** The Constant SELECTION_COLOR. */
-  private static final Color SELECTION_COLOR = ThemeService.getInstance().colors().getHighlight(10);
+  private static final Color SELECTION_COLOR = ThemeService.getInstance()
+      .colors().getHighlight(10);
 
   /**
    * The p.
@@ -147,7 +148,8 @@ public class ColorPicker extends ModernClickWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -174,8 +176,8 @@ public class ColorPicker extends ModernClickWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.
+     * MouseEvent)
      */
     @Override
     public void mouseDragged(MouseEvent arg0) {
@@ -195,21 +197,20 @@ public class ColorPicker extends ModernClickWidget {
   /**
    * Sets the colors.
    *
-   * @param colors
-   *          the new colors
+   * @param colors the new colors
    */
   public void setColors(List<List<Color>> colors) {
     mColors = colors;
 
-    setPreferredSize(new Dimension(BLOCK_SIZE * mColors.size() + GAP * (mColors.size() - 1) + QUAD_PADDING,
+    setPreferredSize(new Dimension(
+        BLOCK_SIZE * mColors.size() + GAP * (mColors.size() - 1) + QUAD_PADDING,
         mColors.get(0).size() * BLOCK_SIZE + QUAD_PADDING));
   }
 
   /**
    * Sets the selected color.
    *
-   * @param color
-   *          the new selected color
+   * @param color the new selected color
    */
   public void setSelectedColor(Color color) {
     mSelectedColor = color;
@@ -237,10 +238,8 @@ public class ColorPicker extends ModernClickWidget {
   /**
    * Sets the selected color.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
+   * @param row the row
+   * @param col the col
    */
   public void setSelectedColor(int row, int col) {
     mSelectedRow = row;
@@ -285,7 +284,8 @@ public class ColorPicker extends ModernClickWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

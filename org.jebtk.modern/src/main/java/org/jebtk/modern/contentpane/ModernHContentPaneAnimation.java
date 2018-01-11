@@ -30,8 +30,7 @@ public class ModernHContentPaneAnimation extends HoverFadeAnimation {
   /**
    * Instantiates a content pane animation
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public ModernHContentPaneAnimation(ModernWidget pane) {
     super(pane);
@@ -74,7 +73,10 @@ public class ModernHContentPaneAnimation extends HoverFadeAnimation {
        * 
        */
 
-      g2.drawLine(divider, mPane.getInsets().top, divider, mPane.getInternalRect().getH());
+      g2.drawLine(divider,
+          mPane.getInsets().top,
+          divider,
+          mPane.getInternalRect().getH());
     }
 
     /*
@@ -85,8 +87,8 @@ public class ModernHContentPaneAnimation extends HoverFadeAnimation {
      * 
      * 
      * 
-     * g2.setColor(ModernWidget.LINE_COLOR); g2.drawLine(divider, getInsets().top,
-     * divider, mInternalRect.getH()); }
+     * g2.setColor(ModernWidget.LINE_COLOR); g2.drawLine(divider,
+     * getInsets().top, divider, mInternalRect.getH()); }
      */
   }
 

@@ -122,17 +122,15 @@ public class ClipboardSharedMenu implements ModernClickListener {
    * menu events so one need only modify their clicked method to listen for
    * cut/copy/paste commands and respond accordingly.
    *
-   * @param l
-   *          the l
-   * @param cutEnabled
-   *          the cut enabled
-   * @param copyEnabled
-   *          the copy enabled
-   * @param pasteEnabled
-   *          the paste enabled
+   * @param l the l
+   * @param cutEnabled the cut enabled
+   * @param copyEnabled the copy enabled
+   * @param pasteEnabled the paste enabled
    * @return the menu
    */
-  public final ModernPopupMenu getMenu(ModernClickListener l, boolean cutEnabled, boolean copyEnabled,
+  public final ModernPopupMenu getMenu(ModernClickListener l,
+      boolean cutEnabled,
+      boolean copyEnabled,
       boolean pasteEnabled) {
     register(l);
 
@@ -146,8 +144,7 @@ public class ClipboardSharedMenu implements ModernClickListener {
   /**
    * Register.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void register(ModernClickListener l) {
     lmL = l;
@@ -157,8 +154,8 @@ public class ClipboardSharedMenu implements ModernClickListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     mPopup.setVisible(false);

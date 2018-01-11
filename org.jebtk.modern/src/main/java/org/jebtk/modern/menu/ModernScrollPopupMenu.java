@@ -75,8 +75,7 @@ public class ModernScrollPopupMenu extends ModernPopupMenu {
   /**
    * Instantiates a new modern scroll popup menu.
    *
-   * @param maxHeight
-   *          the max height
+   * @param maxHeight the max height
    */
   public ModernScrollPopupMenu(int maxHeight) {
     mMaxHeight = maxHeight;
@@ -120,8 +119,7 @@ public class ModernScrollPopupMenu extends ModernPopupMenu {
   /**
    * Adds the scroll menu items.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public final void addScrollMenuItems(List<ModernMenuItem> items) {
     for (ModernMenuItem item : items) {
@@ -136,8 +134,7 @@ public class ModernScrollPopupMenu extends ModernPopupMenu {
   /**
    * Adds the scroll menu item.
    *
-   * @param menuItem
-   *          the menu item
+   * @param menuItem the menu item
    */
   public void addScrollMenuItem(Component menuItem) {
     mScrollMenuPanel.add(menuItem);
@@ -171,7 +168,8 @@ public class ModernScrollPopupMenu extends ModernPopupMenu {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.menu.ModernPopup#showPopup(javax.swing.JComponent)
+   * @see
+   * org.abh.lib.ui.modern.menu.ModernPopup#showPopup(javax.swing.JComponent)
    */
   @Override
   public void showPopup(JComponent component) {
@@ -180,7 +178,8 @@ public class ModernScrollPopupMenu extends ModernPopupMenu {
     int w = 0;
 
     for (int i = 0; i < mScrollMenuPanel.getComponentCount(); ++i) {
-      w = Math.max(w, mScrollMenuPanel.getComponent(i).getPreferredSize().width);
+      w = Math.max(w,
+          mScrollMenuPanel.getComponent(i).getPreferredSize().width);
 
       h += mScrollMenuPanel.getComponent(i).getPreferredSize().height;
     }
@@ -196,10 +195,12 @@ public class ModernScrollPopupMenu extends ModernPopupMenu {
     /*
      * int border = 0;
      * 
-     * if (this.menuPanel.getComponentCount() > maxRows) { // the scroll bar will be
-     * displayed so adjust the border border += ModernScrollPane.SCROLLBAR_WIDTH;
+     * if (this.menuPanel.getComponentCount() > maxRows) { // the scroll bar
+     * will be displayed so adjust the border border +=
+     * ModernScrollPane.SCROLLBAR_WIDTH;
      * //scrollPane.getVerticalScrollBar().getMaximumSize().width; //w -= 2; }
-     * menuPanel.setBorder(BorderService.getInstance().createRightBorder(border));
+     * menuPanel.setBorder(BorderService.getInstance().createRightBorder(border)
+     * );
      */
 
     // window size

@@ -29,41 +29,48 @@ public class ModernRoundedWidgetRenderer extends ModernWidgetRenderer {
   public static final int ROUNDING = 6; // 4; //6;
 
   /** The Constant PRIMARY_DIALOG_BUTTON_FILL_COLOR_1. */
-  public static final Color PRIMARY_DIALOG_BUTTON_FILL_COLOR_1 = ThemeService.getInstance().colors()
-      .getColorHighlight32(14);
+  public static final Color PRIMARY_DIALOG_BUTTON_FILL_COLOR_1 = ThemeService
+      .getInstance().colors().getColorHighlight32(14);
 
   /** The Constant PRIMARY_DIALOG_BUTTON_FILL_COLOR_2. */
-  public static final Color PRIMARY_DIALOG_BUTTON_FILL_COLOR_2 = ThemeService.getInstance().colors()
-      .getColorHighlight32(16);
+  public static final Color PRIMARY_DIALOG_BUTTON_FILL_COLOR_2 = ThemeService
+      .getInstance().colors().getColorHighlight32(16);
 
   /** The Constant PRIMARY_DIALOG_BUTTON_SELECTED_FILL_COLOR_1. */
-  public static final Color PRIMARY_DIALOG_BUTTON_SELECTED_FILL_COLOR_1 = ThemeService.getInstance().colors()
-      .getColorHighlight32(16);
+  public static final Color PRIMARY_DIALOG_BUTTON_SELECTED_FILL_COLOR_1 = ThemeService
+      .getInstance().colors().getColorHighlight32(16);
 
   /** The Constant PRIMARY_DIALOG_BUTTON_SELECTED_FILL_COLOR_2. */
-  public static final Color PRIMARY_DIALOG_BUTTON_SELECTED_FILL_COLOR_2 = ThemeService.getInstance().colors()
-      .getColorHighlight32(18);
+  public static final Color PRIMARY_DIALOG_BUTTON_SELECTED_FILL_COLOR_2 = ThemeService
+      .getInstance().colors().getColorHighlight32(18);
 
   /** The Constant DIALOG_BUTTON_FILL_COLOR_1. */
-  public static final Color DIALOG_BUTTON_FILL_COLOR_1 = ThemeService.getInstance().colors().getHighlight32(4);
+  public static final Color DIALOG_BUTTON_FILL_COLOR_1 = ThemeService
+      .getInstance().colors().getHighlight32(4);
 
   /** The Constant DIALOG_BUTTON_FILL_COLOR_2. */
-  public static final Color DIALOG_BUTTON_FILL_COLOR_2 = ThemeService.getInstance().colors().getHighlight32(6);
+  public static final Color DIALOG_BUTTON_FILL_COLOR_2 = ThemeService
+      .getInstance().colors().getHighlight32(6);
 
   /** The Constant DIALOG_BUTTON_SELECTED_FILL_COLOR_1. */
-  public static final Color DIALOG_BUTTON_SELECTED_FILL_COLOR_1 = ThemeService.getInstance().colors().getHighlight32(6);
+  public static final Color DIALOG_BUTTON_SELECTED_FILL_COLOR_1 = ThemeService
+      .getInstance().colors().getHighlight32(6);
 
   /** The Constant DIALOG_BUTTON_SELECTED_FILL_COLOR_2. */
-  public static final Color DIALOG_BUTTON_SELECTED_FILL_COLOR_2 = ThemeService.getInstance().colors().getHighlight32(8);
+  public static final Color DIALOG_BUTTON_SELECTED_FILL_COLOR_2 = ThemeService
+      .getInstance().colors().getHighlight32(8);
 
   /** The Constant HIGHLIGHTED_FILL_COLOR_1. */
-  private static final Color HIGHLIGHTED_FILL_COLOR_1 = ThemeService.getInstance().colors().getColorHighlight32(6);
+  private static final Color HIGHLIGHTED_FILL_COLOR_1 = ThemeService
+      .getInstance().colors().getColorHighlight32(6);
 
   /** The Constant HIGHLIGHTED_FILL_COLOR_2. */
-  private static final Color HIGHLIGHTED_FILL_COLOR_2 = ThemeService.getInstance().colors().getColorHighlight32(8);
+  private static final Color HIGHLIGHTED_FILL_COLOR_2 = ThemeService
+      .getInstance().colors().getColorHighlight32(8);
 
   /** The Constant HIGHLIGHTED_FILL_1. */
-  private static final Color HIGHLIGHTED_FILL_1 = ThemeService.getInstance().colors().getHighlight32(6);
+  private static final Color HIGHLIGHTED_FILL_1 = ThemeService.getInstance()
+      .colors().getHighlight32(6);
 
   private static final double ROUNDING_FACTOR = 0.15;
 
@@ -72,20 +79,13 @@ public class ModernRoundedWidgetRenderer extends ModernWidgetRenderer {
   /**
    * The Constant HIGHLIGHTED_FILL_COLOR_2.
    *
-   * @param g2
-   *          the g 2
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param w
-   *          the w
-   * @param h
-   *          the h
-   * @param mode
-   *          the mode
-   * @param hasFocus
-   *          the has focus
+   * @param g2 the g 2
+   * @param x the x
+   * @param y the y
+   * @param w the w
+   * @param h the h
+   * @param mode the mode
+   * @param hasFocus the has focus
    */
   // private static final Color HIGHLIGHTED_FILL_2 =
   // ThemeService.getInstance().colors().getHighlight32(6);
@@ -97,11 +97,17 @@ public class ModernRoundedWidgetRenderer extends ModernWidgetRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.theme.ModernWidgetRenderer#buttonHighlightedFillPaint(java.
-   * awt.Graphics2D, int, int, int, int)
+   * org.abh.common.ui.theme.ModernWidgetRenderer#buttonHighlightedFillPaint(
+   * java. awt.Graphics2D, int, int, int, int)
    */
   @Override
-  public void buttonFillPaint(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void buttonFillPaint(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     if (mode == RenderMode.NONE) {
       return;
     }
@@ -131,11 +137,16 @@ public class ModernRoundedWidgetRenderer extends ModernWidgetRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.theme.ModernWidgetRenderer#drawPrimaryDialogButtonFill(java
-   * .awt.Graphics2D, int, int, int, int)
+   * org.abh.common.ui.theme.ModernWidgetRenderer#drawPrimaryDialogButtonFill(
+   * java .awt.Graphics2D, int, int, int, int)
    */
   @Override
-  public void drawPrimaryDialogButtonFill(Graphics2D g2, int x, int y, int w, int h, RenderMode mode,
+  public void drawPrimaryDialogButtonFill(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
       boolean hasFocus) {
 
     primaryDialogButtonFillPaint(g2, x, y, w, h, mode, hasFocus);
@@ -150,20 +161,27 @@ public class ModernRoundedWidgetRenderer extends ModernWidgetRenderer {
    * 
    * @see
    * org.abh.common.ui.theme.ModernWidgetRenderer#primaryDialogButtonFillPaint(
-   * java.awt.Graphics2D, int, int, int, int, org.abh.common.ui.theme.RenderMode,
-   * boolean)
+   * java.awt.Graphics2D, int, int, int, int,
+   * org.abh.common.ui.theme.RenderMode, boolean)
    */
   @Override
-  public void primaryDialogButtonFillPaint(Graphics2D g2, int x, int y, int w, int h, RenderMode mode,
+  public void primaryDialogButtonFillPaint(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
       boolean hasFocus) {
 
     GradientPaint paint = null;
 
     if (mode != RenderMode.NONE) {
-      paint = new GradientPaint(0, y, PRIMARY_DIALOG_BUTTON_SELECTED_FILL_COLOR_1, 0, y + h,
+      paint = new GradientPaint(0, y,
+          PRIMARY_DIALOG_BUTTON_SELECTED_FILL_COLOR_1, 0, y + h,
           PRIMARY_DIALOG_BUTTON_SELECTED_FILL_COLOR_2);
     } else {
-      paint = new GradientPaint(0, y, PRIMARY_DIALOG_BUTTON_FILL_COLOR_1, 0, y + h, PRIMARY_DIALOG_BUTTON_FILL_COLOR_2);
+      paint = new GradientPaint(0, y, PRIMARY_DIALOG_BUTTON_FILL_COLOR_1, 0,
+          y + h, PRIMARY_DIALOG_BUTTON_FILL_COLOR_2);
     }
 
     g2.setPaint(paint);
@@ -177,14 +195,21 @@ public class ModernRoundedWidgetRenderer extends ModernWidgetRenderer {
    * Graphics2D, int, int, int, int)
    */
   @Override
-  public void drawDialogButtonFill(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawDialogButtonFill(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     GradientPaint paint;
 
     if (mode != RenderMode.NONE) {
-      paint = new GradientPaint(0, y, DIALOG_BUTTON_SELECTED_FILL_COLOR_1, 0, y + h,
-          DIALOG_BUTTON_SELECTED_FILL_COLOR_2);
+      paint = new GradientPaint(0, y, DIALOG_BUTTON_SELECTED_FILL_COLOR_1, 0,
+          y + h, DIALOG_BUTTON_SELECTED_FILL_COLOR_2);
     } else {
-      paint = new GradientPaint(0, y, DIALOG_BUTTON_FILL_COLOR_1, 0, y + h, DIALOG_BUTTON_FILL_COLOR_2);
+      paint = new GradientPaint(0, y, DIALOG_BUTTON_FILL_COLOR_1, 0, y + h,
+          DIALOG_BUTTON_FILL_COLOR_2);
     }
 
     g2.setPaint(paint);
@@ -200,14 +225,21 @@ public class ModernRoundedWidgetRenderer extends ModernWidgetRenderer {
    * java.awt.Graphics2D, int, int, int, int)
    */
   @Override
-  public void drawRibbonButtonFill(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawRibbonButtonFill(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     if (mode == RenderMode.NONE) {
       return;
     }
 
     /*
-     * GradientPaint paint = new GradientPaint(0, y, RIBBON_HIGHLIGHT_FILL_COLOR, 0,
-     * y + h, RIBBON_SELECTED_FILL_COLOR); g2.setPaint(paint);
+     * GradientPaint paint = new GradientPaint(0, y,
+     * RIBBON_HIGHLIGHT_FILL_COLOR, 0, y + h, RIBBON_SELECTED_FILL_COLOR);
+     * g2.setPaint(paint);
      */
 
     g2.setColor(RIBBON_SELECTED_FILL_COLOR);
@@ -246,6 +278,7 @@ public class ModernRoundedWidgetRenderer extends ModernWidgetRenderer {
   }
 
   public int getRounding(int h) {
-    return ROUNDING; // Math.max(MIN_ROUNDING, (int)Math.round(h * ROUNDING_FACTOR));
+    return ROUNDING; // Math.max(MIN_ROUNDING, (int)Math.round(h *
+                     // ROUNDING_FACTOR));
   }
 }

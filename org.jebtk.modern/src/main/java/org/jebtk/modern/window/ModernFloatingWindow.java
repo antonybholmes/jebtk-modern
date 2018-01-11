@@ -76,8 +76,7 @@ public class ModernFloatingWindow extends JFrame {
   /**
    * Instantiates a new modern floating window.
    *
-   * @param appInfo
-   *          the app info
+   * @param appInfo the app info
    */
   public ModernFloatingWindow(GuiAppInfo appInfo) {
     mAppInfo = appInfo;
@@ -104,8 +103,7 @@ public class ModernFloatingWindow extends JFrame {
   /**
    * Sets the header.
    *
-   * @param c
-   *          the new header
+   * @param c the new header
    */
   protected void setHeader(Component c) {
     getContentPane().add(c, BorderLayout.PAGE_START);
@@ -114,8 +112,7 @@ public class ModernFloatingWindow extends JFrame {
   /**
    * Sets the body.
    *
-   * @param c
-   *          the new body
+   * @param c the new body
    */
   public void setBody(Component c) {
     getContentPane().add(c, BorderLayout.CENTER);
@@ -124,8 +121,7 @@ public class ModernFloatingWindow extends JFrame {
   /**
    * Sets the footer.
    *
-   * @param c
-   *          the new footer
+   * @param c the new footer
    */
   public void setFooter(Component c) {
     getContentPane().add(c, BorderLayout.PAGE_END);
@@ -153,8 +149,7 @@ public class ModernFloatingWindow extends JFrame {
   /**
    * Sets the content.
    *
-   * @param c
-   *          the new content
+   * @param c the new content
    */
   public void setContent(JComponent c) {
     setBody(new ModernDialogContentPanel(c));
@@ -163,8 +158,7 @@ public class ModernFloatingWindow extends JFrame {
   /**
    * Sets the buttons.
    *
-   * @param c
-   *          the new buttons
+   * @param c the new buttons
    */
   public void setButtons(JComponent c) {
     setFooter(new ModernDialogButtonBox(c));
@@ -173,8 +167,7 @@ public class ModernFloatingWindow extends JFrame {
   /**
    * Sets the status.
    *
-   * @param status
-   *          the new status
+   * @param status the new status
    */
   public final void setStatus(ModernDialogStatus status) {
     mStatus = status;
@@ -192,8 +185,7 @@ public class ModernFloatingWindow extends JFrame {
   /**
    * Set the window title but include the main app title.
    *
-   * @param subTitle
-   *          the new sub title
+   * @param subTitle the new sub title
    */
   public void setSubTitle(String subTitle) {
     setTitle(subTitle + " - " + getAppInfo().getName());
@@ -232,8 +224,7 @@ public class ModernFloatingWindow extends JFrame {
   /**
    * Terminate application with a given status code (non zero implies error).
    *
-   * @param status
-   *          the status
+   * @param status the status
    */
   public void exit(int status) {
     System.exit(status);

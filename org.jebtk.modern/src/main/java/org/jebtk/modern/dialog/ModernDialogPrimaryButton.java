@@ -49,8 +49,7 @@ public class ModernDialogPrimaryButton extends ModernDialogButton {
   /**
    * Instantiates a new modern dialog button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernDialogPrimaryButton(String text1) {
     super(text1);
@@ -61,8 +60,7 @@ public class ModernDialogPrimaryButton extends ModernDialogButton {
   /**
    * Instantiates a new modern dialog button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernDialogPrimaryButton(ModernIcon icon) {
     super(icon);
@@ -73,10 +71,8 @@ public class ModernDialogPrimaryButton extends ModernDialogButton {
   /**
    * Instantiates a new modern dialog button.
    *
-   * @param text1
-   *          the text 1
-   * @param icon
-   *          the icon
+   * @param text1 the text 1
+   * @param icon the icon
    */
   public ModernDialogPrimaryButton(String text1, ModernIcon icon) {
     super(text1, icon);

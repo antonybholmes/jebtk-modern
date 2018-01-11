@@ -29,7 +29,6 @@ package org.jebtk.modern.zoom;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.modern.UI;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.widget.ModernWidget;
@@ -61,7 +60,8 @@ public class ModernZoomLabel extends ModernAutoSizeLabel {
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see
+     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -73,8 +73,7 @@ public class ModernZoomLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern zoom label.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernZoomLabel(ZoomModel model) {
     super("100%");

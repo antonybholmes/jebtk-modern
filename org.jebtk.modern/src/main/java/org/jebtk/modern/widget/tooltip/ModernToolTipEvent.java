@@ -48,10 +48,8 @@ public class ModernToolTipEvent extends Event {
   /**
    * Instantiates a new modern tool tip event.
    *
-   * @param source
-   *          the source
-   * @param message
-   *          the message
+   * @param source the source
+   * @param message the message
    */
   public ModernToolTipEvent(Object source, String message) {
     super(source, message);
@@ -60,14 +58,12 @@ public class ModernToolTipEvent extends Event {
   /**
    * Instantiates a new modern tool tip event.
    *
-   * @param source
-   *          the source
-   * @param message
-   *          the message
-   * @param tooltip
-   *          the tooltip
+   * @param source the source
+   * @param message the message
+   * @param tooltip the tooltip
    */
-  public ModernToolTipEvent(Object source, String message, ModernBasicToolTipPanel tooltip) {
+  public ModernToolTipEvent(Object source, String message,
+      ModernBasicToolTipPanel tooltip) {
     super(source, message);
 
     this.tooltip = tooltip;

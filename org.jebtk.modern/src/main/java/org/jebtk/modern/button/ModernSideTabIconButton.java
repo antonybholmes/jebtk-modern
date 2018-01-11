@@ -53,8 +53,7 @@ public class ModernSideTabIconButton extends ModernButton {
   /**
    * Instantiates a new modern side tab icon button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernSideTabIconButton(ModernIcon icon) {
     super(icon);

@@ -56,8 +56,7 @@ public class LogicalComboBox extends ModernComboBox {
   /**
    * Gets the boolean type from index.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the boolean type from index
    */
   public static final BooleanOperator getBooleanTypeFromIndex(int index) {
@@ -80,8 +79,7 @@ public class LogicalComboBox extends ModernComboBox {
   /**
    * Gets the index from type.
    *
-   * @param type
-   *          the type
+   * @param type the type
    * @return the index from type
    */
   public static final int getIndexFromType(BooleanOperator type) {
@@ -111,8 +109,7 @@ public class LogicalComboBox extends ModernComboBox {
   /**
    * Instantiates a new logical combo box.
    *
-   * @param operator
-   *          the operator
+   * @param operator the operator
    */
   public LogicalComboBox(BooleanOperator operator) {
     setup();
@@ -126,25 +123,30 @@ public class LogicalComboBox extends ModernComboBox {
   protected void setup() {
     ModernIconMenuItem item;
 
-    item = new ModernIconMenuItem("AND", UIService.getInstance().loadIcon("and", UIService.ICON_SIZE_48));
+    item = new ModernIconMenuItem("AND",
+        UIService.getInstance().loadIcon("and", UIService.ICON_SIZE_48));
     UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
-    item = new ModernIconMenuItem("OR", UIService.getInstance().loadIcon("or", UIService.ICON_SIZE_48));
+    item = new ModernIconMenuItem("OR",
+        UIService.getInstance().loadIcon("or", UIService.ICON_SIZE_48));
     UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
     addScrollMenuItem(new ModernMenuDivider());
 
-    item = new ModernIconMenuItem("NOR", UIService.getInstance().loadIcon("nor", UIService.ICON_SIZE_48));
+    item = new ModernIconMenuItem("NOR",
+        UIService.getInstance().loadIcon("nor", UIService.ICON_SIZE_48));
     UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
-    item = new ModernIconMenuItem("XOR", UIService.getInstance().loadIcon("xor", UIService.ICON_SIZE_48));
+    item = new ModernIconMenuItem("XOR",
+        UIService.getInstance().loadIcon("xor", UIService.ICON_SIZE_48));
     UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
-    item = new ModernIconMenuItem("NAND", UIService.getInstance().loadIcon("nand", UIService.ICON_SIZE_48));
+    item = new ModernIconMenuItem("NAND",
+        UIService.getInstance().loadIcon("nand", UIService.ICON_SIZE_48));
     UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
     addScrollMenuItem(item);
   }

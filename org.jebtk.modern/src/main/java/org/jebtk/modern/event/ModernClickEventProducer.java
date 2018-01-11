@@ -38,24 +38,21 @@ public interface ModernClickEventProducer {
   /**
    * Add a click listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addClickListener(ModernClickListener l);
 
   /**
    * Remove a click listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeClickListener(ModernClickListener l);
 
   /**
    * fire an event.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireClicked(ModernClickEvent e);
 }

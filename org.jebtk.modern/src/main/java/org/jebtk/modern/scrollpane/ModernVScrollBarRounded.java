@@ -84,7 +84,11 @@ public class ModernVScrollBarRounded extends ModernVScrollBar {
     try {
       g2Temp.setColor(ROUNDED_SCROLLBAR_BACKGROUND_COLOR);
 
-      g2Temp.fillRoundRect(getInsets().left, getInsets().top, mIternalFixedDim, mInternalRect.getH(), rounding,
+      g2Temp.fillRoundRect(getInsets().left,
+          getInsets().top,
+          mIternalFixedDim,
+          mInternalRect.getH(),
+          rounding,
           rounding);
     } finally {
       g2Temp.dispose();

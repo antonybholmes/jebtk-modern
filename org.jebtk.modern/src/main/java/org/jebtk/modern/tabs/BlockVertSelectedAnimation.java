@@ -35,8 +35,7 @@ public class BlockVertSelectedAnimation extends HighlightAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public BlockVertSelectedAnimation(ModernWidget segments) {
     super((BlockVertTabs) segments);
@@ -53,7 +52,8 @@ public class BlockVertSelectedAnimation extends HighlightAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-    int x = mTabs.getInsets().left; // + widget.getWidth() - SegmentChangeAnimation.HEIGHT;
+    int x = mTabs.getInsets().left; // + widget.getWidth() -
+                                    // SegmentChangeAnimation.HEIGHT;
     int y = mTabs.getInsets().top + mTabs.mOffset;
 
     int w = mTabs.getInternalRect().getW();

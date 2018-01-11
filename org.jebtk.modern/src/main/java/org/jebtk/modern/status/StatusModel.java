@@ -72,8 +72,7 @@ public class StatusModel extends StatusEventListeners {
   /**
    * Sets the status.
    *
-   * @param status
-   *          the new status
+   * @param status the new status
    */
   public void setStatus(String status) {
     mStatus = status; // .toUpperCase();

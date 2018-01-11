@@ -50,10 +50,8 @@ public class ScaledRasterIcon extends ModernIcon {
   /**
    * Instantiates a new scaled raster icon.
    *
-   * @param icon
-   *          the icon
-   * @param size
-   *          the size
+   * @param icon the icon
+   * @param size the size
    */
   public ScaledRasterIcon(RasterIcon icon, int size) {
     mSize = size;
@@ -64,10 +62,8 @@ public class ScaledRasterIcon extends ModernIcon {
   /**
    * Cache the image.
    *
-   * @param icon
-   *          the icon
-   * @param size
-   *          the size
+   * @param icon the icon
+   * @param size the size
    */
   private void cache(RasterIcon icon, int size) {
     mBufferedImage = ImageUtils.createImage(size);
@@ -79,7 +75,16 @@ public class ScaledRasterIcon extends ModernIcon {
     int originalSize = icon.getImage().getWidth();
 
     try {
-      g2Temp.drawImage(icon.getImage(), 0, 0, size, size, 0, 0, originalSize, originalSize, null);
+      g2Temp.drawImage(icon.getImage(),
+          0,
+          0,
+          size,
+          size,
+          0,
+          0,
+          originalSize,
+          originalSize,
+          null);
     } finally {
       g2Temp.dispose();
     }
@@ -93,7 +98,12 @@ public class ScaledRasterIcon extends ModernIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     g2.drawImage(mBufferedImage, x, y, null);
   }
 

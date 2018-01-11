@@ -41,7 +41,8 @@ import org.jebtk.modern.graphics.icons.WindowMinVectorIcon;
 /**
  * The class ModernWindowTitleBarMinButton.
  */
-public class ModernWindowTitleBarMinButton extends ModernWindowTitleBarWinButton implements ModernClickListener {
+public class ModernWindowTitleBarMinButton extends ModernWindowTitleBarWinButton
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -54,8 +55,7 @@ public class ModernWindowTitleBarMinButton extends ModernWindowTitleBarWinButton
   /**
    * Instantiates a new modern window title bar min button.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public ModernWindowTitleBarMinButton(ModernWindow window) {
     this(window, new Raster16Icon(new WindowMinVectorIcon(Color.WHITE)));
@@ -64,10 +64,8 @@ public class ModernWindowTitleBarMinButton extends ModernWindowTitleBarWinButton
   /**
    * Instantiates a new modern window title bar min button.
    *
-   * @param window
-   *          the window
-   * @param icon
-   *          the icon
+   * @param window the window
+   * @param icon the icon
    */
   public ModernWindowTitleBarMinButton(ModernWindow window, ModernIcon icon) {
     super(icon);
@@ -84,9 +82,8 @@ public class ModernWindowTitleBarMinButton extends ModernWindowTitleBarWinButton
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
-   * ModernClickEvent)
+   * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+   * event. ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

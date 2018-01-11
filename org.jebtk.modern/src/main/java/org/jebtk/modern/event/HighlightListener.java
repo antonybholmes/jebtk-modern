@@ -41,8 +41,7 @@ public interface HighlightListener extends EventListener {
   /**
    * State changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void highlighted(HighlightEvent e);
 }

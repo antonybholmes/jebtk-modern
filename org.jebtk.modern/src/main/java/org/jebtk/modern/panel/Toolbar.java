@@ -56,10 +56,8 @@ public class Toolbar extends ModernPanel {
   /**
    * Instantiates a new card panel.
    *
-   * @param title
-   *          the title
-   * @param content
-   *          the content
+   * @param title the title
+   * @param content the content
    */
   public Toolbar(Color color) {
     mColor = color;

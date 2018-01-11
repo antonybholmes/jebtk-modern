@@ -59,10 +59,8 @@ public class PreviewTableNoHeaderModel extends ModernTableModel {
   /**
    * Instantiates a new preview table no header model.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public PreviewTableNoHeaderModel(final File file) throws IOException {
     setup(file, -1);
@@ -71,26 +69,21 @@ public class PreviewTableNoHeaderModel extends ModernTableModel {
   /**
    * Instantiates a new preview table no header model.
    *
-   * @param file
-   *          the file
-   * @param rows
-   *          the rows
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @param rows the rows
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public PreviewTableNoHeaderModel(final File file, int rows) throws IOException {
+  public PreviewTableNoHeaderModel(final File file, int rows)
+      throws IOException {
     setup(file, rows);
   }
 
   /**
    * Setup.
    *
-   * @param file
-   *          the file
-   * @param rows
-   *          the rows
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @param rows the rows
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   private void setup(final File file, int rows) throws IOException {
     System.err.println("preview " + file);
@@ -109,7 +102,8 @@ public class PreviewTableNoHeaderModel extends ModernTableModel {
           break;
         }
 
-        List<String> values = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+        List<String> values = TextUtils.fastSplit(line,
+            TextUtils.TAB_DELIMITER);
 
         data.add(values);
 

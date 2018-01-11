@@ -50,7 +50,8 @@ public class ColorMapPicker extends ModernClickWidget {
   public static final IntDim HEAT_MAP_SIZE = new IntDim(80, 20);
 
   /** The Constant OFFSET. */
-  public static final Point OFFSET = new Point((BLOCK_SIZE.getW() - HEAT_MAP_SIZE.getW()) / 2,
+  public static final Point OFFSET = new Point(
+      (BLOCK_SIZE.getW() - HEAT_MAP_SIZE.getW()) / 2,
       (BLOCK_SIZE.getH() - HEAT_MAP_SIZE.getH()) / 2);
 
   /** The Constant BLOCK_OFFSET. */
@@ -141,7 +142,8 @@ public class ColorMapPicker extends ModernClickWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -153,7 +155,8 @@ public class ColorMapPicker extends ModernClickWidget {
         mRow = r;
         mCol = c;
 
-        mP = new IntPos2D(DOUBLE_PADDING + BLOCK_SIZE.getW() * mCol, DOUBLE_PADDING + BLOCK_SIZE.getH() * mRow);
+        mP = new IntPos2D(DOUBLE_PADDING + BLOCK_SIZE.getW() * mCol,
+            DOUBLE_PADDING + BLOCK_SIZE.getH() * mRow);
 
         repaint();
       }
@@ -162,8 +165,8 @@ public class ColorMapPicker extends ModernClickWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.
+     * MouseEvent)
      */
     @Override
     public void mouseDragged(MouseEvent arg0) {
@@ -175,8 +178,7 @@ public class ColorMapPicker extends ModernClickWidget {
   /**
    * Instantiates a new color map picker.
    *
-   * @param cols
-   *          the cols
+   * @param cols the cols
    */
   public ColorMapPicker(int cols) {
     mCols = cols;
@@ -188,24 +190,22 @@ public class ColorMapPicker extends ModernClickWidget {
   /**
    * Update.
    *
-   * @param colorMaps
-   *          the color maps
+   * @param colorMaps the color maps
    */
   public void update(List<ColorMap> colorMaps) {
     mRows = colorMaps.size() / mCols + (colorMaps.size() % mCols == 0 ? 0 : 1);
     mColorMaps = colorMaps;
 
-    setPreferredSize(new Dimension(QUAD_PADDING + BLOCK_SIZE.getW() * mCols - BLOCK_OFFSET,
-        QUAD_PADDING + BLOCK_SIZE.getH() * mRows - BLOCK_OFFSET));
+    setPreferredSize(
+        new Dimension(QUAD_PADDING + BLOCK_SIZE.getW() * mCols - BLOCK_OFFSET,
+            QUAD_PADDING + BLOCK_SIZE.getH() * mRows - BLOCK_OFFSET));
   }
 
   /**
    * Sets the selected color.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
+   * @param row the row
+   * @param col the col
    */
   public void setSelectedColorMap(int row, int col) {
     mSelectedRow = row;
@@ -245,7 +245,8 @@ public class ColorMapPicker extends ModernClickWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForeground(Graphics2D g2) {
@@ -258,17 +259,20 @@ public class ColorMapPicker extends ModernClickWidget {
       y = i / mCols * BLOCK_SIZE.getH() + DOUBLE_PADDING;
       x = (i % mCols) * BLOCK_SIZE.getW() + DOUBLE_PADDING;
 
-      LinearGradientPaint paint = colorMap.getAnchorColors().toGradientPaint(new Point2D.Float(x, 0),
+      LinearGradientPaint paint = colorMap.getAnchorColors().toGradientPaint(
+          new Point2D.Float(x, 0),
           new Point2D.Float(x + HEAT_MAP_SIZE.getW(), 0));
 
       g2.setPaint(paint);
       // g2.fillRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-      // ModernRoundedWidgetRenderer.ROUNDING, ModernRoundedWidgetRenderer.ROUNDING);
+      // ModernRoundedWidgetRenderer.ROUNDING,
+      // ModernRoundedWidgetRenderer.ROUNDING);
       g2.fillRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
 
       g2.setColor(LINE_COLOR);
       // g2.drawRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-      // ModernRoundedWidgetRenderer.ROUNDING, ModernRoundedWidgetRenderer.ROUNDING);
+      // ModernRoundedWidgetRenderer.ROUNDING,
+      // ModernRoundedWidgetRenderer.ROUNDING);
       g2.drawRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
 
       /*
@@ -293,12 +297,16 @@ public class ColorMapPicker extends ModernClickWidget {
       g2.setColor(Color.BLACK);
 
       /*
-       * g2.drawRoundRect(mSelectedP.getX(), mSelectedP.getY(), HEAT_MAP_SIZE.getW(),
-       * HEAT_MAP_SIZE.getH(), ModernRoundedWidgetRenderer.ROUNDING,
+       * g2.drawRoundRect(mSelectedP.getX(), mSelectedP.getY(),
+       * HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
+       * ModernRoundedWidgetRenderer.ROUNDING,
        * ModernRoundedWidgetRenderer.ROUNDING);
        */
 
-      g2.drawRect(mSelectedP.getX(), mSelectedP.getY(), HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
+      g2.drawRect(mSelectedP.getX(),
+          mSelectedP.getY(),
+          HEAT_MAP_SIZE.getW(),
+          HEAT_MAP_SIZE.getH());
     }
 
     if (mRow != -1) {
@@ -310,7 +318,10 @@ public class ColorMapPicker extends ModernClickWidget {
        * ModernRoundedWidgetRenderer.ROUNDING);
        */
 
-      g2.drawRect(mP.getX(), mP.getY(), HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
+      g2.drawRect(mP.getX(),
+          mP.getY(),
+          HEAT_MAP_SIZE.getW(),
+          HEAT_MAP_SIZE.getH());
     }
 
   }

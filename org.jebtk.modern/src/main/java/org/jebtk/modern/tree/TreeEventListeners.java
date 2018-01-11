@@ -36,7 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class TreeEventListeners extends EventProducer<TreeEventListener> implements TreeEventProducer {
+public class TreeEventListeners extends EventProducer<TreeEventListener>
+    implements TreeEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -47,8 +48,8 @@ public class TreeEventListeners extends EventProducer<TreeEventListener> impleme
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.TreeEventProducer#addTreeListener(org.abh.lib.ui.
-   * modern.tree.TreeEventListener)
+   * org.abh.lib.ui.modern.tree.TreeEventProducer#addTreeListener(org.abh.lib.
+   * ui. modern.tree.TreeEventListener)
    */
   @Override
   public void addTreeListener(TreeEventListener l) {
@@ -59,8 +60,8 @@ public class TreeEventListeners extends EventProducer<TreeEventListener> impleme
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.TreeEventProducer#removeTreeListener(org.abh.lib.
-   * ui.modern.tree.TreeEventListener)
+   * org.abh.lib.ui.modern.tree.TreeEventProducer#removeTreeListener(org.abh.
+   * lib. ui.modern.tree.TreeEventListener)
    */
   @Override
   public void removeTreeListener(TreeEventListener l) {
@@ -71,8 +72,8 @@ public class TreeEventListeners extends EventProducer<TreeEventListener> impleme
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.TreeEventProducer#fireTreeNodeDragged(org.abh.lib.
-   * ui.modern.tree.ModernTreeEvent)
+   * org.abh.lib.ui.modern.tree.TreeEventProducer#fireTreeNodeDragged(org.abh.
+   * lib. ui.modern.tree.ModernTreeEvent)
    */
   @Override
   public void fireTreeNodeDragged(ModernTreeEvent e) {
@@ -85,8 +86,8 @@ public class TreeEventListeners extends EventProducer<TreeEventListener> impleme
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.TreeEventProducer#fireTreeNodeClicked(org.abh.lib.
-   * ui.modern.tree.ModernTreeEvent)
+   * org.abh.lib.ui.modern.tree.TreeEventProducer#fireTreeNodeClicked(org.abh.
+   * lib. ui.modern.tree.ModernTreeEvent)
    */
   @Override
   public void fireTreeNodeClicked(ModernTreeEvent e) {

@@ -67,15 +67,16 @@ public class ModernHScrollBarMac extends ModernHScrollBar {
   }
 
   /*
-   * @Override public void paintScrollBarBase(Graphics2D g2) { Graphics2D g2Temp =
-   * ImageUtils.createAAGraphics(g2);
+   * @Override public void paintScrollBarBase(Graphics2D g2) { Graphics2D g2Temp
+   * = ImageUtils.createAAGraphics(g2);
    * 
    * int rounding = getInternalFixedDimension();
    * 
    * try { g2Temp.setColor(ROUNDED_SCROLLBAR_BACKGROUND_COLOR);
    * 
-   * g2Temp.fillRoundRect(getInsets().left, getInsets().top, mInternalRect.getW(),
-   * rounding, rounding, rounding); } finally { g2Temp.dispose(); } }
+   * g2Temp.fillRoundRect(getInsets().left, getInsets().top,
+   * mInternalRect.getW(), rounding, rounding, rounding); } finally {
+   * g2Temp.dispose(); } }
    */
 
   /*

@@ -50,7 +50,8 @@ public class ToolbarBox extends Box {
   /**
    * The constant LINE_COLOR.
    */
-  private static final Color LINE_COLOR = ThemeService.getInstance().colors().getHighlight(3);
+  private static final Color LINE_COLOR = ThemeService.getInstance().colors()
+      .getHighlight(3);
 
   /**
    * Instantiates a new toolbar box.

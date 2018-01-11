@@ -30,7 +30,6 @@ package org.jebtk.modern.table.header;
 import java.awt.Color;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.modern.dataview.ModernDataViewListener;
 import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.graphics.CanvasMouseEvent;
@@ -46,7 +45,8 @@ import org.jebtk.modern.window.ModernWindowContentPanel;
  * The class ModernTableHeader.
  */
 public class ModernTableHeader extends ModernScrollPaneHeader
-    implements ModernSelectionListener, ModernDataViewListener, ModernCanvasMouseListener, ModernCanvasKeyListener {
+    implements ModernSelectionListener, ModernDataViewListener,
+    ModernCanvasMouseListener, ModernCanvasKeyListener {
 
   /**
    * The constant serialVersionUID.
@@ -64,7 +64,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
   public static final Color HEADER_BACKGROUND = ModernWindowContentPanel.COLOR; // ThemeService.getInstance().colors().getHighlight(1);
 
   /** The Constant HEADER_SELECTED_COLOR. */
-  public static final Color HEADER_SELECTED_COLOR = ThemeService.getInstance().colors().getColorHighlight(5);
+  public static final Color HEADER_SELECTED_COLOR = ThemeService.getInstance()
+      .colors().getColorHighlight(5);
 
   /** The m table. */
   protected ModernTable mTable;
@@ -72,8 +73,7 @@ public class ModernTableHeader extends ModernScrollPaneHeader
   /**
    * Instantiates a new modern table header.
    *
-   * @param table
-   *          the table
+   * @param table the table
    */
   public ModernTableHeader(ModernTable table) {
     setLayout(null);
@@ -100,8 +100,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
-   * lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.
+   * abh. lib.event.ChangeEvent)
    */
   @Override
   public void selectionChanged(ChangeEvent e) {
@@ -112,8 +112,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.lib
-   * .event.ChangeEvent)
+   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.
+   * lib .event.ChangeEvent)
    */
   @Override
   public void dataChanged(ChangeEvent e) {
@@ -124,8 +124,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.lib
-   * .event.ChangeEvent)
+   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.
+   * lib .event.ChangeEvent)
    */
   @Override
   public void dataUpdated(ChangeEvent e) {
@@ -135,7 +135,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.scrollpane.ModernScrollPaneHeader#getFixedDimension()
+   * @see
+   * org.abh.common.ui.scrollpane.ModernScrollPaneHeader#getFixedDimension()
    */
   @Override
   public int getFixedDimension() {
@@ -146,9 +147,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseClicked(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseClicked( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseClicked(CanvasMouseEvent e) {
@@ -158,9 +158,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseEntered(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseEntered( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseEntered(CanvasMouseEvent e) {
@@ -182,9 +181,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMousePressed(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMousePressed( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMousePressed(CanvasMouseEvent e) {
@@ -194,9 +192,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseReleased(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseReleased( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseReleased(CanvasMouseEvent e) {
@@ -206,9 +203,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseDragged(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseDragged( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseDragged(CanvasMouseEvent e) {
@@ -219,8 +215,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(org
-   * .abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(
+   * org .abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseMoved(CanvasMouseEvent e) {

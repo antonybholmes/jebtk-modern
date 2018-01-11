@@ -46,7 +46,7 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.help.RibbonPanelProductInfo;
 import org.jebtk.modern.options.ModernOptionsRibbonPanel;
-import org.jebtk.modern.panel.CardPanel;
+import org.jebtk.modern.panel.Card;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.panel.Toolbar;
 import org.jebtk.modern.shadow.TopShadowPanel;
@@ -64,7 +64,8 @@ import org.jebtk.modern.window.WindowMover;
  * @author Antony Holmes Holmes
  *
  */
-public class RibbonFileMenu extends ModernClickWidget implements ModernClickListener {
+public class RibbonFileMenu extends ModernClickWidget
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -117,7 +118,8 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
    */
   private static final String CLOSE_MENU = "close_menu";
 
-  private static final Color RIBBON_FILE_BACKGROUND = ThemeService.getInstance().colors().getHighlight32(1);
+  private static final Color RIBBON_FILE_BACKGROUND = ThemeService.getInstance()
+      .colors().getHighlight32(1);
 
   /**
    * The class CloseAction.
@@ -145,8 +147,7 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
   /**
    * Instantiates a new ribbon file menu.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public RibbonFileMenu(ModernWindow window) {
 
@@ -167,7 +168,8 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
     ModernComponent panel = new ModernComponent();
 
     panel.setLeft(mMenuPanel);
-    panel.setBody(new ModernComponent(new CardPanel(mContentPanels), ModernWidget.QUAD_BORDER));
+    panel.setBody(new ModernComponent(new Card(mContentPanels),
+        ModernWidget.QUAD_BORDER));
 
     // panel.setBorder(BorderService.getInstance().createBorder(20));
 
@@ -186,7 +188,8 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
     mToolbar.add(ribbonBackButton);
 
     // When the menu is visible, make it respond to the escape key
-    getInputMap(WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), CLOSE_MENU);
+    getInputMap(WHEN_IN_FOCUSED_WINDOW)
+        .put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), CLOSE_MENU);
 
     getActionMap().put(CLOSE_MENU, new CloseAction());
   }
@@ -194,8 +197,7 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
   /**
    * Sets the default index.
    *
-   * @param defaultMenuIndex
-   *          the new default index
+   * @param defaultMenuIndex the new default index
    */
   public void setDefaultIndex(int defaultMenuIndex) {
     mDefaultMenuIndex = defaultMenuIndex;
@@ -211,8 +213,7 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
   /**
    * Adds the tabbed menu item.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public final void addTabbedMenuItem(RibbonMenuItem item) {
 
@@ -226,12 +227,11 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
   /**
    * Add a menu item with associated content panel.
    *
-   * @param item
-   *          the item
-   * @param contentPanel
-   *          the content panel
+   * @param item the item
+   * @param contentPanel the content panel
    */
-  public final void addTabbedMenuItem(RibbonMenuItem item, RibbonMenuPanel contentPanel) {
+  public final void addTabbedMenuItem(RibbonMenuItem item,
+      RibbonMenuPanel contentPanel) {
 
     if (contentPanel == null) {
       return;
@@ -252,8 +252,8 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {
@@ -279,8 +279,7 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
   /**
    * Sets the active menu item.
    *
-   * @param index
-   *          the new active menu item
+   * @param index the new active menu item
    */
   public void setActiveMenuItem(int index) {
     if (CollectionUtils.inBounds(index, mMenuItems)) {
@@ -291,11 +290,10 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
   }
 
   /**
-   * Sets an active item which should be an item with an appropriate loadable side
-   * menu.
+   * Sets an active item which should be an item with an appropriate loadable
+   * side menu.
    *
-   * @param item
-   *          the item
+   * @param item the item
    * @return true, if successful
    */
   public final boolean setActiveMenuItem(RibbonMenuItem item) {
@@ -315,8 +313,7 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
   /**
    * Click.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   private void click(RibbonMenuItem item) {
     boolean active = setActiveMenuItem(item);
@@ -340,8 +337,7 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
   /**
    * Adds the default items.
    *
-   * @param appInfo
-   *          the app info
+   * @param appInfo the app info
    */
   public void addDefaultItems(GuiAppInfo appInfo) {
     addDefaultItems(appInfo, true);
@@ -351,13 +347,12 @@ public class RibbonFileMenu extends ModernClickWidget implements ModernClickList
    * Adds default Exit and option buttons to the ribbon since these are fairly
    * boilerplate.
    *
-   * @param appInfo
-   *          the app info
-   * @param exit
-   *          If true adds exit item to menu, otherwise adds close item.
+   * @param appInfo the app info
+   * @param exit If true adds exit item to menu, otherwise adds close item.
    */
   public void addDefaultItems(GuiAppInfo appInfo, boolean exit) {
-    RibbonMenuItem menuItem = new RibbonMenuItem(exit ? UI.MENU_EXIT : UI.MENU_CLOSE);
+    RibbonMenuItem menuItem = new RibbonMenuItem(
+        exit ? UI.MENU_EXIT : UI.MENU_CLOSE);
 
     addTabbedMenuItem(menuItem);
 

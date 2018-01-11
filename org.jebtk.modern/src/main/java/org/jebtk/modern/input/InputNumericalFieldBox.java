@@ -37,12 +37,9 @@ public class InputNumericalFieldBox extends HBox {
   /**
    * Instantiates a new input numerical field box.
    *
-   * @param name
-   *          the name
-   * @param lw
-   *          the lw
-   * @param fw
-   *          the fw
+   * @param name the name
+   * @param lw the lw
+   * @param fw the fw
    */
   public InputNumericalFieldBox(String name, int lw, int fw) {
     add(new ModernAutoSizeLabel(name, lw));
@@ -52,14 +49,10 @@ public class InputNumericalFieldBox extends HBox {
   /**
    * Instantiates a new input numerical field box.
    *
-   * @param name
-   *          the name
-   * @param value
-   *          the value
-   * @param lw
-   *          the lw
-   * @param fw
-   *          the fw
+   * @param name the name
+   * @param value the value
+   * @param lw the lw
+   * @param fw the fw
    */
   public InputNumericalFieldBox(String name, double value, int lw, int fw) {
     this(name, lw, fw);
@@ -70,14 +63,10 @@ public class InputNumericalFieldBox extends HBox {
   /**
    * Instantiates a new input numerical field box.
    *
-   * @param name
-   *          the name
-   * @param value
-   *          the value
-   * @param lw
-   *          the lw
-   * @param fw
-   *          the fw
+   * @param name the name
+   * @param value the value
+   * @param lw the lw
+   * @param fw the fw
    */
   public InputNumericalFieldBox(String name, int value, int lw, int fw) {
     this(name, lw, fw);
@@ -98,8 +87,7 @@ public class InputNumericalFieldBox extends HBox {
    * Gets the as double.
    *
    * @return the as double
-   * @throws ParseException
-   *           the parse exception
+   * @throws ParseException the parse exception
    */
   public double getAsDouble() throws ParseException {
     return mField.getAsDouble();
@@ -109,8 +97,7 @@ public class InputNumericalFieldBox extends HBox {
    * Gets the as int.
    *
    * @return the as int
-   * @throws ParseException
-   *           the parse exception
+   * @throws ParseException the parse exception
    */
   public int getAsInt() throws ParseException {
     return mField.getAsInt();

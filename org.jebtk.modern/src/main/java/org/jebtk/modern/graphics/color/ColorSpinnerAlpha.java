@@ -44,8 +44,7 @@ public class ColorSpinnerAlpha extends ColorSpinner {
   /**
    * Instantiates a new color spinner alpha.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ColorSpinnerAlpha(ColorSelectionModel model) {
     super(model, ColorChannel.ALPHA);

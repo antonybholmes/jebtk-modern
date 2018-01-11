@@ -44,7 +44,8 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * The class ModernClipboardTextField.
  */
-public class ModernClipboardTextField extends ModernTextField implements ClipboardUiControl {
+public class ModernClipboardTextField extends ModernTextField
+    implements ClipboardUiControl {
 
   /**
    * The constant serialVersionUID.
@@ -113,7 +114,8 @@ public class ModernClipboardTextField extends ModernTextField implements Clipboa
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -134,8 +136,7 @@ public class ModernClipboardTextField extends ModernTextField implements Clipboa
     /**
      * Instantiates a new focus events.
      *
-     * @param c
-     *          the c
+     * @param c the c
      */
     public FocusEvents(ClipboardUiControl c) {
       mC = c;
@@ -171,8 +172,8 @@ public class ModernClipboardTextField extends ModernTextField implements Clipboa
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     public final void clicked(ModernClickEvent e) {
       if (e.getMessage().equals(UI.MENU_SELECT_ALL)) {
@@ -202,14 +203,12 @@ public class ModernClipboardTextField extends ModernTextField implements Clipboa
   /**
    * Instantiates a new modern clipboard text field.
    *
-   * @param cutEnabled
-   *          the cut enabled
-   * @param copyEnabled
-   *          the copy enabled
-   * @param pasteEnabled
-   *          the paste enabled
+   * @param cutEnabled the cut enabled
+   * @param copyEnabled the copy enabled
+   * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardTextField(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
+  public ModernClipboardTextField(boolean cutEnabled, boolean copyEnabled,
+      boolean pasteEnabled) {
     mCutEnabled = cutEnabled;
     mPasteEnabled = pasteEnabled;
 
@@ -219,8 +218,7 @@ public class ModernClipboardTextField extends ModernTextField implements Clipboa
   /**
    * Instantiates a new modern clipboard text field.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernClipboardTextField(String text) {
 
@@ -232,10 +230,8 @@ public class ModernClipboardTextField extends ModernTextField implements Clipboa
   /**
    * Instantiates a new modern clipboard text field.
    *
-   * @param text
-   *          the text
-   * @param editable
-   *          the editable
+   * @param text the text
+   * @param editable the editable
    */
   public ModernClipboardTextField(String text, boolean editable) {
     super(text, editable);
@@ -246,16 +242,13 @@ public class ModernClipboardTextField extends ModernTextField implements Clipboa
   /**
    * Instantiates a new modern clipboard text field.
    *
-   * @param text
-   *          the text
-   * @param cutEnabled
-   *          the cut enabled
-   * @param copyEnabled
-   *          the copy enabled
-   * @param pasteEnabled
-   *          the paste enabled
+   * @param text the text
+   * @param cutEnabled the cut enabled
+   * @param copyEnabled the copy enabled
+   * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardTextField(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
+  public ModernClipboardTextField(String text, boolean cutEnabled,
+      boolean copyEnabled, boolean pasteEnabled) {
 
     super(text);
 
@@ -277,8 +270,7 @@ public class ModernClipboardTextField extends ModernTextField implements Clipboa
   /**
    * Show popup.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   private void showPopup(MouseEvent e) {
 
@@ -287,8 +279,11 @@ public class ModernClipboardTextField extends ModernTextField implements Clipboa
       // copyModernMenuItem.setEnabled(copyEnabled);
       // pasteModernMenuItem.setEnabled(pasteEnabled && this.isEditable());
 
-      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(new ModernClickEvents(),
-          mCutEnabled && isEditable(), true, mPasteEnabled && isEditable());
+      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(
+          new ModernClickEvents(),
+          mCutEnabled && isEditable(),
+          true,
+          mPasteEnabled && isEditable());
 
       popup.showPopup(e.getComponent(), e.getX(), e.getY());
     }
@@ -297,8 +292,7 @@ public class ModernClipboardTextField extends ModernTextField implements Clipboa
   /**
    * Clicked.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void clicked(ModernClickEvent e) {
     if (e.getMessage().equals(UI.MENU_SELECT_ALL)) {

@@ -47,13 +47,12 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.panel.BorderlessCardPanel;
-import org.jebtk.modern.panel.CardPanel2;
+import org.jebtk.modern.panel.Card;
 import org.jebtk.modern.panel.ModernLineBottomBorderPanel;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.widget.tooltip.ModernToolTipModel;
-import org.jebtk.modern.widget.tooltip.ModernToolTipPanel;
 import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc
@@ -73,17 +72,21 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * The constant STANDARD_LABEL_SIZE.
    */
-  public static final Dimension STANDARD_LABEL_SIZE = new Dimension(200, ModernWidget.getWidgetHeight());
+  public static final Dimension STANDARD_LABEL_SIZE = new Dimension(200,
+      ModernWidget.getWidgetHeight());
 
   /**
    * The constant STANDARD_INPUT_SIZE.
    */
-  public static final Dimension STANDARD_INPUT_SIZE = new Dimension(80, ModernWidget.getWidgetHeight());
+  public static final Dimension STANDARD_INPUT_SIZE = new Dimension(80,
+      ModernWidget.getWidgetHeight());
 
   /** The Constant DIALOG_BACKGROUND_1. */
-  public static final Color DIALOG_BACKGROUND = ThemeService.getInstance().colors().getHighlight32(1);
+  public static final Color DIALOG_BACKGROUND = ThemeService.getInstance()
+      .colors().getHighlight32(1);
 
-  public static final Border FLAT_BORDER = BorderService.getInstance().createBottomBorder(ModernWidget.DOUBLE_PADDING);
+  public static final Border FLAT_BORDER = BorderService.getInstance()
+      .createBottomBorder(ModernWidget.DOUBLE_PADDING);
 
   /**
    * The member status.
@@ -93,8 +96,9 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * The member content panel.
    */
-  private ModernComponent mContentPanel = new ModernPanel(ModernDialogWindow.DIALOG_BACKGROUND); // new
-                                                                                                 // ModernDialogWindowContentPanel();
+  private ModernComponent mContentPanel = new ModernPanel(
+      ModernDialogWindow.DIALOG_BACKGROUND); // new
+                                             // ModernDialogWindowContentPanel();
 
   /**
    * The member product details.
@@ -115,8 +119,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Instantiates a new modern dialog window.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public ModernDialogWindow(ModernWindow parent) {
     this(parent, true);
@@ -125,10 +128,8 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Instantiates a new modern dialog window.
    *
-   * @param parent
-   *          the parent
-   * @param modal
-   *          the modal
+   * @param parent the parent
+   * @param modal the modal
    */
   public ModernDialogWindow(ModernWindow parent, boolean modal) {
     super(parent, modal);
@@ -143,8 +144,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Instantiates a new modern dialog window.
    *
-   * @param productDetails
-   *          the product details
+   * @param productDetails the product details
    */
   public ModernDialogWindow(GuiAppInfo productDetails) {
     mAppInfo = productDetails;
@@ -155,10 +155,8 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Instantiates a new modern dialog window.
    *
-   * @param parent
-   *          the parent
-   * @param productDetails
-   *          the product details
+   * @param parent the parent
+   * @param productDetails the product details
    */
   public ModernDialogWindow(ModernWindow parent, GuiAppInfo productDetails) {
     this(parent);
@@ -209,8 +207,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Set the window title but include the main app title.
    *
-   * @param subTitle
-   *          the new sub title
+   * @param subTitle the new sub title
    */
   public void setSubTitle(String subTitle) {
     setTitle(subTitle + " - " + getAppInfo().getName());
@@ -242,10 +239,8 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Sets the title.
    *
-   * @param title
-   *          the title
-   * @param subTitle
-   *          the sub title
+   * @param title the title
+   * @param subTitle the sub title
    */
   public void setTitle(String title, String subTitle) {
     setTitle(subTitle + " - " + title);
@@ -256,8 +251,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
    * resources) or be allowed to persist in memory. By default dialogs auto
    * dispose.
    *
-   * @param autoDispose
-   *          the new auto dispose
+   * @param autoDispose the new auto dispose
    */
   public void setAutoDispose(boolean autoDispose) {
     mAutoDispose = autoDispose;
@@ -266,8 +260,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Sets the header.
    *
-   * @param c
-   *          the new header
+   * @param c the new header
    */
   protected void setHeader(Component c) {
     getContentPane().add(c, BorderLayout.PAGE_START);
@@ -276,8 +269,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Sets the body.
    *
-   * @param c
-   *          the new body
+   * @param c the new body
    */
   public void setBody(Component c) {
     if (mCenter != null) {
@@ -293,8 +285,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Sets the left.
    *
-   * @param c
-   *          the new left
+   * @param c the new left
    */
   public void setLeft(Component c) {
     getContentPane().add(c, BorderLayout.LINE_START);
@@ -303,8 +294,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Sets the footer.
    *
-   * @param c
-   *          the new footer
+   * @param c the new footer
    */
   public void setFooter(Component c) {
     getContentPane().add(c, BorderLayout.PAGE_END);
@@ -331,14 +321,16 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
    * @param c
    */
   public void setCardContent(JComponent c) {
-    setInternalContent(new ModernComponent(new CardPanel2(c), ModernWidget.QUAD_BORDER));
+    setInternalContent(
+        new ModernComponent(new Card(c), ModernWidget.QUAD_BORDER));
 
     // Auto set the background to dark so that the card contrasts.
     setDarkBackground();
   }
 
   public void setDialogCardContent(JComponent c) {
-    setInternalContent(new ModernComponent(new CardPanel2(c), ModernWidget.DOUBLE_BORDER));
+    setInternalContent(
+        new ModernComponent(new Card(c), ModernWidget.DOUBLE_BORDER));
 
     // Auto set the background to dark so that the card contrasts.
     setDarkBackground();
@@ -357,42 +349,42 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
    * @param c
    */
   public void setFlatCardContent(JComponent c) {
-    setInternalContent(new ModernComponent(
-        new ModernLineBottomBorderPanel(new ModernPanel(c, ModernWidget.QUAD_BORDER), ModernWidget.LIGHT_LINE_COLOR),
-        FLAT_BORDER));
+    setInternalContent(new ModernComponent(new ModernLineBottomBorderPanel(
+        new ModernPanel(c, ModernWidget.QUAD_BORDER),
+        ModernWidget.LIGHT_LINE_COLOR), FLAT_BORDER));
 
     // Auto set the background to dark so that the card contrasts.
     setDarkBackground();
   }
 
   /**
-   * Adds the component as the central content of the dialog inside a bordered box
-   * with appropriate spacing.
+   * Adds the component as the central content of the dialog inside a bordered
+   * box with appropriate spacing.
    *
-   * @param c
-   *          the new content
+   * @param c the new content
    */
   public void setContent(JComponent c) {
-    setInternalContent(new ModernComponent(c, ModernWidget.QUAD_BORDER)); // c); //new ModernDialogContentPanel(c));
+    setInternalContent(new ModernComponent(c, ModernWidget.QUAD_BORDER)); // c);
+                                                                          // //new
+                                                                          // ModernDialogContentPanel(c));
   }
 
   /**
-   * Sets the content of the dialog with an appropriate amount of space around the
-   * edge.
+   * Sets the content of the dialog with an appropriate amount of space around
+   * the edge.
    *
-   * @param c
-   *          the new internal content
+   * @param c the new internal content
    */
   public void setInternalContent(JComponent c) {
-    setBody(c); // new ModernDialogMutliOptionPanel(c)); //new ModernComponent(c,
+    setBody(c); // new ModernDialogMutliOptionPanel(c)); //new
+                // ModernComponent(c,
                 // ModernWidget.QUAD_BORDER));
   }
 
   /**
    * Sets the buttons.
    *
-   * @param c
-   *          the new buttons
+   * @param c the new buttons
    */
   public void setButtons(ButtonsBox c) {
     setFooter(c);
@@ -401,8 +393,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Sets the buttons.
    *
-   * @param c
-   *          the new buttons
+   * @param c the new buttons
    */
   public void setButtons(JComponent c) {
     setFooter(c); // new ModernDialogButtonBox(c));
@@ -431,23 +422,24 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.ui.
-   * modern.ModernComponent, org.abh.lib.ui.modern.tooltip.ModernToolTipPanel)
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.
+   * ui. modern.ModernComponent,
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel)
    */
   @Override
-  public void showToolTip(ModernComponent source, ModernToolTipPanel tooltip) {
+  public void showToolTip(Component source, Component tooltip) {
     Point p = source.getLocationOnScreen();
 
     Rectangle wb = this.getBounds();
 
-    if (p.x + tooltip.getToolTipSize().width > wb.x + wb.width) {
-      p.x += source.getWidth() - tooltip.getToolTipSize().width;
+    if (p.x + tooltip.getPreferredSize().width > wb.x + wb.width) {
+      p.x += source.getWidth() - tooltip.getPreferredSize().width;
     }
 
     p.y += source.getHeight();
 
-    if (p.y + tooltip.getToolTipSize().height > wb.y + wb.height) {
-      p.y -= source.getHeight() + tooltip.getToolTipSize().height;
+    if (p.y + tooltip.getPreferredSize().height > wb.y + wb.height) {
+      p.y -= source.getHeight() + tooltip.getPreferredSize().height;
     }
 
     showToolTip(source, tooltip, p);
@@ -457,12 +449,14 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.ui.
-   * modern.ModernComponent, org.abh.lib.ui.modern.tooltip.ModernToolTipPanel,
-   * java.awt.Point)
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.
+   * ui. modern.ModernComponent,
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel, java.awt.Point)
    */
   @Override
-  public synchronized void showToolTip(ModernComponent source, ModernToolTipPanel tooltip, Point p) {
+  public synchronized void showToolTip(Component source,
+      Component tooltip,
+      Point p) {
 
     // Hide any current ones
 
@@ -472,13 +466,17 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
       return;
     }
 
-    for (Component c : layeredPane.getComponentsInLayer(JLayeredPane.POPUP_LAYER)) {
+    for (Component c : layeredPane
+        .getComponentsInLayer(JLayeredPane.POPUP_LAYER)) {
       layeredPane.remove(c);
     }
 
     SwingUtilities.convertPointFromScreen(p, layeredPane);
 
-    tooltip.setBounds(p.x, p.y, tooltip.getToolTipSize().width, tooltip.getToolTipSize().height);
+    tooltip.setBounds(p.x,
+        p.y,
+        tooltip.getPreferredSize().width,
+        tooltip.getPreferredSize().height);
 
     layeredPane.add(tooltip, JLayeredPane.POPUP_LAYER);
 
@@ -490,12 +488,13 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#hideToolTips(org.abh.lib.ui.
-   * modern.ModernComponent)
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#hideToolTips(org.abh.lib.
+   * ui. modern.ModernComponent)
    */
   @Override
-  public synchronized void hideToolTips(ModernComponent source) {
-    for (Component c : getLayeredPane().getComponentsInLayer(JLayeredPane.POPUP_LAYER)) {
+  public synchronized void hideToolTips(Component source) {
+    for (Component c : getLayeredPane()
+        .getComponentsInLayer(JLayeredPane.POPUP_LAYER)) {
       getLayeredPane().remove(c);
     }
 
@@ -506,8 +505,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
   /**
    * Sets the status.
    *
-   * @param status
-   *          the new status
+   * @param status the new status
    */
   public final void setStatus(ModernDialogStatus status) {
     mStatus = status;

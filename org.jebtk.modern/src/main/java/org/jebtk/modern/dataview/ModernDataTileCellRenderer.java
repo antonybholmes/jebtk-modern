@@ -38,7 +38,8 @@ import org.jebtk.modern.panel.ModernPanel;
 /**
  * The class ModernDataTileCellRenderer.
  */
-public class ModernDataTileCellRenderer extends ModernDataGridIconTextCellRenderer {
+public class ModernDataTileCellRenderer
+    extends ModernDataGridIconTextCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -55,14 +56,16 @@ public class ModernDataTileCellRenderer extends ModernDataGridIconTextCellRender
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
     if (this.mIcon != null) {
       // this.icon.draw(this,
       // g2,
-      // new Rectangle((this.getWidth() - 64) / 2, (this.getHeight() - 64) / 2, 64,
+      // new Rectangle((this.getWidth() - 64) / 2, (this.getHeight() - 64) / 2,
+      // 64,
       // 64));
 
       this.mIcon.drawIcon(g2, (getWidth() - 64) / 2, (getWidth() - 64) / 2, 64);
@@ -84,11 +87,22 @@ public class ModernDataTileCellRenderer extends ModernDataGridIconTextCellRender
    * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
-  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public Component getCellRendererComponent(ModernData dataView,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
 
     setText(value.toString());
 
-    return super.getCellRendererComponent(dataView, value, highlight, isSelected, hasFocus, row, column);
+    return super.getCellRendererComponent(dataView,
+        value,
+        highlight,
+        isSelected,
+        hasFocus,
+        row,
+        column);
   }
 }

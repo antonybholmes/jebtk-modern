@@ -51,8 +51,7 @@ public class PopupMenuListeners {
   /**
    * Adds the.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void add(PopupMenuListener l) {
     listeners.add(l);
@@ -61,8 +60,7 @@ public class PopupMenuListeners {
   /**
    * Removes the.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void remove(PopupMenuListener l) {
     listeners.remove(l);
@@ -71,8 +69,7 @@ public class PopupMenuListeners {
   /**
    * fires the event to any registered listeners.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public final void fireMenuCanceledEvent(PopupMenuEvent event) {
     for (PopupMenuListener l : listeners) {
@@ -83,8 +80,7 @@ public class PopupMenuListeners {
   /**
    * fires the event to any registered listeners.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public final void fireMenuWillBecomeInvisibleEvent(PopupMenuEvent event) {
     for (PopupMenuListener l : listeners) {
@@ -95,8 +91,7 @@ public class PopupMenuListeners {
   /**
    * fires the event to any registered listeners.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public final void fireMenuWillBecomeVisibleEvent(PopupMenuEvent event) {
     for (PopupMenuListener l : listeners) {

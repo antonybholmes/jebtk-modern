@@ -79,8 +79,7 @@ public class MessageDialogTaskGlassPane extends FrostedGlassPane {
     /**
      * Instantiates a new task pane runnable.
      *
-     * @param message
-     *          the message
+     * @param message the message
      */
     public TaskPaneRunnable(String message) {
       mMessage = message;
@@ -118,7 +117,8 @@ public class MessageDialogTaskGlassPane extends FrostedGlassPane {
     /**
      * The member message label.
      */
-    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel("Task", Color.WHITE);
+    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel(
+        "Task", Color.WHITE);
 
     /**
      * Instantiates a new task panel.
@@ -147,8 +147,7 @@ public class MessageDialogTaskGlassPane extends FrostedGlassPane {
     /**
      * Show message.
      *
-     * @param message
-     *          the message
+     * @param message the message
      */
     public void showMessage(String message) {
       mMessageLabel.setText(message);
@@ -187,8 +186,7 @@ public class MessageDialogTaskGlassPane extends FrostedGlassPane {
   /**
    * Show message.
    *
-   * @param message
-   *          the message
+   * @param message the message
    */
   public void showMessage(String message) {
     SwingUtilities.invokeLater(new TaskPaneRunnable(message));

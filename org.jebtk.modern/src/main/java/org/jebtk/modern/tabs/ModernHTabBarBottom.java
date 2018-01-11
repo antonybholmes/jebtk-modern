@@ -57,8 +57,7 @@ public class ModernHTabBarBottom extends ModernHTabBar {
   /**
    * Instantiates a new modern h tab bar bottom.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernHTabBarBottom(TabsModel model) {
     super(model);
@@ -69,7 +68,8 @@ public class ModernHTabBarBottom extends ModernHTabBar {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -106,7 +106,10 @@ public class ModernHTabBarBottom extends ModernHTabBar {
 
         // draw the selected tab
 
-        g2.setColor(ThemeService.getInstance().colors().getHighlight(4)); // new Color(159, 182, 205));
+        g2.setColor(ThemeService.getInstance().colors().getHighlight(4)); // new
+                                                                          // Color(159,
+                                                                          // 182,
+                                                                          // 205));
 
         // top line
         /*
@@ -131,7 +134,9 @@ public class ModernHTabBarBottom extends ModernHTabBar {
 
       Graphics2D g2Temp = (Graphics2D) g2.create();
 
-      g2Temp.setColor(i == tab && i != getTabsModel().getSelectedIndex() ? highlight : getForeground());
+      g2Temp.setColor(
+          i == tab && i != getTabsModel().getSelectedIndex() ? highlight
+              : getForeground());
 
       String s = getTabsModel().getTab(i).getName();
 
@@ -187,7 +192,8 @@ public class ModernHTabBarBottom extends ModernHTabBar {
   public void mouseMoved(MouseEvent e) {
     super.mouseMoved(e);
 
-    activateCloseButton = TAB_START_X + TAB_WIDTH * (tab + 1) - e.getX() < TAB_HEIGHT;
+    activateCloseButton = TAB_START_X + TAB_WIDTH * (tab + 1)
+        - e.getX() < TAB_HEIGHT;
 
     repaint();
   }
@@ -202,7 +208,8 @@ public class ModernHTabBarBottom extends ModernHTabBar {
   public void mousePressed(MouseEvent e) {
     super.mousePressed(e);
 
-    if (tab != -1 && getTabsModel().getTab(tab).isClosable() && activateCloseButton) {
+    if (tab != -1 && getTabsModel().getTab(tab).isClosable()
+        && activateCloseButton) {
 
       // System.err.println("remove tab " + tab);
 

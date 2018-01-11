@@ -21,7 +21,7 @@ import javax.swing.JComponent;
 
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.panel.CardPanel;
+import org.jebtk.modern.panel.Card;
 import org.jebtk.modern.tabs.BlockVertTabs;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.tabs.TabsViewPanel;
@@ -53,30 +53,25 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
   /**
    * Instantiates a new t test dialog.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
-   * @param help
-   *          the help
+   * @param parent the parent
+   * @param title the title
+   * @param help the help
    */
-  public ModernDialogMultiCardWindow(ModernWindow parent, String title, String help) {
+  public ModernDialogMultiCardWindow(ModernWindow parent, String title,
+      String help) {
     this(parent, title, help, ModernDialogTaskType.CLOSE);
   }
 
   /**
    * Instantiates a new modern dialog multi option window.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
-   * @param help
-   *          the help
-   * @param type
-   *          the type
+   * @param parent the parent
+   * @param title the title
+   * @param help the help
+   * @param type the type
    */
-  public ModernDialogMultiCardWindow(ModernWindow parent, String title, String help, ModernDialogTaskType type) {
+  public ModernDialogMultiCardWindow(ModernWindow parent, String title,
+      String help, ModernDialogTaskType type) {
     super(parent, help, type);
 
     init(title, type);
@@ -85,10 +80,8 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
   /**
    * Instantiates a new modern dialog multi option window.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
+   * @param parent the parent
+   * @param title the title
    */
   public ModernDialogMultiCardWindow(ModernWindow parent, String title) {
     this(parent, title, ModernDialogTaskType.CLOSE);
@@ -97,14 +90,12 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
   /**
    * Instantiates a new modern dialog multi option window.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
-   * @param type
-   *          the type
+   * @param parent the parent
+   * @param title the title
+   * @param type the type
    */
-  public ModernDialogMultiCardWindow(ModernWindow parent, String title, ModernDialogTaskType type) {
+  public ModernDialogMultiCardWindow(ModernWindow parent, String title,
+      ModernDialogTaskType type) {
     super(parent, ModernDialogTaskType.CLOSE);
 
     init(title, type);
@@ -113,10 +104,8 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
   /**
    * Inits the.
    *
-   * @param title
-   *          the title
-   * @param type
-   *          the type
+   * @param title the title
+   * @param type the type
    */
   private void init(String title, ModernDialogTaskType type) {
     setTitle(title);
@@ -135,14 +124,13 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
   /**
    * Adds the tab.
    *
-   * @param name
-   *          the name
-   * @param c
-   *          the c
+   * @param name the name
+   * @param c the c
    */
   public void addTab(String name, JComponent c) {
     // mTabsModel.addTab(name, new ModernDialogPanel(c));
-    mTabsModel.addTab(name, c); // new ModernDialogMutliOptionPanel(c, ModernWidget.QUAD_PADDING));
+    mTabsModel.addTab(name, c); // new ModernDialogMutliOptionPanel(c,
+                                // ModernWidget.QUAD_PADDING));
   }
 
   /**
@@ -157,8 +145,7 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
   /**
    * Creates the ui.
    *
-   * @param type
-   *          the type
+   * @param type the type
    */
   private final void createUi(ModernDialogTaskType type) {
     // this.getContentPane().add(new JLabel("Change " +
@@ -196,7 +183,8 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
     // ModernComponent content = new ModernPanel();
 
     ModernComponent tabsPanel = new ModernComponent(
-        new CardPanel(new ModernComponent(mViewPanel, ModernWidget.QUAD_BORDER)), ModernWidget.DOUBLE_BORDER);
+        new Card(new ModernComponent(mViewPanel, ModernWidget.QUAD_BORDER)),
+        ModernWidget.DOUBLE_BORDER);
 
     // content.setBody(tabsPanel);
 

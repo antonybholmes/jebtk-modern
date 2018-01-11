@@ -50,7 +50,8 @@ public class RibbonPanelButton extends ModernDialogFlatButton {
   /**
    * The constant FONT.
    */
-  protected static final Font FONT = ThemeService.loadFont("theme.ribbon-panel-button.text-font");
+  protected static final Font FONT = ThemeService
+      .loadFont("theme.ribbon-panel-button.text-font");
 
   /** The Constant SIZE. */
   public static final int SIZE = 90;
@@ -58,8 +59,7 @@ public class RibbonPanelButton extends ModernDialogFlatButton {
   /**
    * Instantiates a new ribbon panel button.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public RibbonPanelButton(String text) {
     super(text);
@@ -70,8 +70,7 @@ public class RibbonPanelButton extends ModernDialogFlatButton {
   /**
    * Instantiates a new ribbon panel button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public RibbonPanelButton(ModernIcon icon) {
     super(icon);
@@ -82,10 +81,8 @@ public class RibbonPanelButton extends ModernDialogFlatButton {
   /**
    * Instantiates a new ribbon panel button.
    *
-   * @param text
-   *          the text
-   * @param icon
-   *          the icon
+   * @param text the text
+   * @param icon the icon
    */
   public RibbonPanelButton(String text, ModernIcon icon) {
     super(text, icon);
@@ -115,6 +112,8 @@ public class RibbonPanelButton extends ModernDialogFlatButton {
 
     g2.setColor(TEXT_COLOR);
     g2.setFont(FONT);
-    g2.drawString(getText(), (mRect.getW() - g2.getFontMetrics().stringWidth(getText())) / 2, mRect.getH() - 16);
+    g2.drawString(getText(),
+        (mRect.getW() - g2.getFontMetrics().stringWidth(getText())) / 2,
+        mRect.getH() - 16);
   }
 }

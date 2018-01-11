@@ -44,8 +44,7 @@ public class ColorSpinnerBlue extends ColorSpinner {
   /**
    * Instantiates a new color spinner blue.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ColorSpinnerBlue(ColorSelectionModel model) {
     super(model, ColorChannel.BLUE);

@@ -43,8 +43,7 @@ public class RibbonDropDownButton extends ModernDropDownButton {
   /**
    * Instantiates a new ribbon drop down button.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public RibbonDropDownButton(String text) {
     super(text);
@@ -55,10 +54,8 @@ public class RibbonDropDownButton extends ModernDropDownButton {
   /**
    * Instantiates a new ribbon drop down button.
    *
-   * @param text1
-   *          the text 1
-   * @param menu
-   *          the menu
+   * @param text1 the text 1
+   * @param menu the menu
    */
   public RibbonDropDownButton(String text1, ModernPopupMenu menu) {
     super(text1, menu);
@@ -69,14 +66,12 @@ public class RibbonDropDownButton extends ModernDropDownButton {
   /**
    * Instantiates a new ribbon drop down button.
    *
-   * @param text1
-   *          the text 1
-   * @param text2
-   *          the text 2
-   * @param menu
-   *          the menu
+   * @param text1 the text 1
+   * @param text2 the text 2
+   * @param menu the menu
    */
-  public RibbonDropDownButton(String text1, String text2, ModernPopupMenu menu) {
+  public RibbonDropDownButton(String text1, String text2,
+      ModernPopupMenu menu) {
     super(text1, menu);
 
     setup();
@@ -85,8 +80,7 @@ public class RibbonDropDownButton extends ModernDropDownButton {
   /**
    * Instantiates a new ribbon drop down button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public RibbonDropDownButton(ModernIcon icon) {
     super(icon);

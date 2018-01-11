@@ -50,8 +50,7 @@ public class WindowRegistryListener implements ModernClickListener {
   /**
    * Instantiates a new window registry listener.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public WindowRegistryListener(ModernWindow window) {
 
@@ -62,8 +61,8 @@ public class WindowRegistryListener implements ModernClickListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     SwingUtilities.invokeLater(new Runnable() {

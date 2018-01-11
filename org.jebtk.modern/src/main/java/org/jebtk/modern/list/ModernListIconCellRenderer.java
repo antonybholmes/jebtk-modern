@@ -42,10 +42,10 @@ import org.jebtk.modern.widget.ModernWidget;
  * used with standard JTables as well.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public class ModernListIconCellRenderer extends ModernListCellRenderer implements TextProperty {
+public class ModernListIconCellRenderer extends ModernListCellRenderer
+    implements TextProperty {
 
   /**
    * The constant serialVersionUID.
@@ -72,8 +72,7 @@ public class ModernListIconCellRenderer extends ModernListCellRenderer implement
   /**
    * Instantiates a new modern list icon cell renderer.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernListIconCellRenderer(ModernIcon icon) {
     setIcon(icon);
@@ -82,8 +81,7 @@ public class ModernListIconCellRenderer extends ModernListCellRenderer implement
   /**
    * Sets the icon.
    *
-   * @param icon
-   *          the new icon
+   * @param icon the new icon
    */
   public void setIcon(ModernIcon icon) {
     mIcon = icon;
@@ -92,7 +90,8 @@ public class ModernListIconCellRenderer extends ModernListCellRenderer implement
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -132,11 +131,20 @@ public class ModernListIconCellRenderer extends ModernListCellRenderer implement
    * boolean, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row) {
+  public Component getCellRendererComponent(ModernList<?> list,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row) {
     setText(value.toString());
 
-    return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
+    return super.getCellRendererComponent(list,
+        value,
+        highlight,
+        isSelected,
+        hasFocus,
+        row);
   }
 
   /*

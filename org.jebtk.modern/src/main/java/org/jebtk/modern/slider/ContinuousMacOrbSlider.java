@@ -48,7 +48,8 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
   private static final long serialVersionUID = 1L;
 
   /** The Constant HIGHLIGHT. */
-  protected static final Color HIGHLIGHT = ThemeService.getInstance().colors().getColorHighlight32(16);
+  protected static final Color HIGHLIGHT = ThemeService.getInstance().colors()
+      .getColorHighlight32(16);
 
   /** The m bar height. */
   protected int mBarHeight = 4;
@@ -61,7 +62,8 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
    * @param mid
    * @param max
    */
-  public ContinuousMacOrbSlider(double value, double min, double mid, double max) {
+  public ContinuousMacOrbSlider(double value, double min, double mid,
+      double max) {
     super(value, min, mid, max);
 
     init();
@@ -75,14 +77,14 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
 
     setBorder(BorderService.getInstance().createLeftRightBorder(1));
 
-    setBackgroundAnimations("continuous-orb-slider"); // setBackgroundAnimation(new ContinuousMacOrbAnimation(this));
+    setBackgroundAnimations("continuous-orb-slider"); // setBackgroundAnimation(new
+                                                      // ContinuousMacOrbAnimation(this));
   }
 
   /**
    * Sets the bar height.
    *
-   * @param h
-   *          the new bar height
+   * @param h the new bar height
    */
   public void setBarHeight(int h) {
     mBarHeight = h;
@@ -92,7 +94,8 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
 
   /*
    * @Override public void drawBackgroundAA(Graphics2D g2) {
-   * System.err.println("sdfsdf too much cheese " + getName() + " " + getClass());
+   * System.err.println("sdfsdf too much cheese " + getName() + " " +
+   * getClass());
    * 
    * //int p = (int)(getInsets().left + mSliderDiameter % 2 + vToX());
    * 
@@ -102,7 +105,8 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   /*
    * @Override public void drawForegroundAA(Graphics2D g2) { int p =
@@ -114,10 +118,8 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
   /**
    * Draw bar base.
    *
-   * @param g2
-   *          the g 2
-   * @param p
-   *          the p
+   * @param g2 the g 2
+   * @param p the p
    */
   protected void drawBarBase(Graphics2D g2, int p) {
     g2.setColor(LINE_COLOR);
@@ -125,16 +127,19 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
     int x = getInsets().left + mSliderRadius;
     int y = (getHeight() - mBarHeight) / 2;
 
-    g2.fillRoundRect(x, y, mInternalRect.getW() - mSliderDiameter, mBarHeight, mBarHeight, mBarHeight);
+    g2.fillRoundRect(x,
+        y,
+        mInternalRect.getW() - mSliderDiameter,
+        mBarHeight,
+        mBarHeight,
+        mBarHeight);
   }
 
   /**
    * Draw bar.
    *
-   * @param g2
-   *          the g 2
-   * @param p
-   *          the p
+   * @param g2 the g 2
+   * @param p the p
    */
   protected void drawBar(Graphics2D g2, int p) {
     drawBarBase(g2, p);
@@ -144,16 +149,19 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
 
     g2.setColor(HIGHLIGHT);
 
-    g2.fillRoundRect(x, y, p - x + mSliderRadius, mBarHeight, mBarHeight, mBarHeight);
+    g2.fillRoundRect(x,
+        y,
+        p - x + mSliderRadius,
+        mBarHeight,
+        mBarHeight,
+        mBarHeight);
   }
 
   /**
    * Draw orb.
    *
-   * @param g2
-   *          the g 2
-   * @param p
-   *          the p
+   * @param g2 the g 2
+   * @param p the p
    */
   protected void drawOrb(Graphics2D g2, int p) {
     int y = getHeight() / 2;

@@ -48,7 +48,8 @@ public class ChooseFilesPanel extends ModernComponent {
   private static final long serialVersionUID = 1L;
 
   /** The m add button. */
-  private ModernButton mAddButton = new ModernButton("Add", UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+  private ModernButton mAddButton = new ModernButton("Add",
+      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
   /** The m delete button. */
   private ModernButton mDeleteButton = new ModernButton("Delete",
@@ -69,26 +70,23 @@ public class ChooseFilesPanel extends ModernComponent {
   /**
    * Instantiates a new choose files panel.
    *
-   * @param parent
-   *          the parent
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param filters the filters
    */
-  public ChooseFilesPanel(ModernWindow parent, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+  public ChooseFilesPanel(ModernWindow parent, GuiFileExtFilter filter,
+      GuiFileExtFilter... filters) {
     this(parent, false, filter, filters);
   }
 
   /**
    * Instantiates a new choose files panel.
    *
-   * @param parent
-   *          the parent
-   * @param dirMode
-   *          the dir mode
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param dirMode the dir mode
+   * @param filters the filters
    */
-  public ChooseFilesPanel(ModernWindow parent, boolean dirMode, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+  public ChooseFilesPanel(ModernWindow parent, boolean dirMode,
+      GuiFileExtFilter filter, GuiFileExtFilter... filters) {
     mParent = parent;
     mDirMode = dirMode;
     mFilters = CollectionUtils.toList(filter, filters);
@@ -114,7 +112,8 @@ public class ChooseFilesPanel extends ModernComponent {
         if (mDirMode) {
           files = FileDialog.open(mParent).dirs().getFiles(pwd);
         } else {
-          files = FileDialog.open(mParent).filter(mFilters).multiSelect(true).getFiles(pwd);
+          files = FileDialog.open(mParent).filter(mFilters).multiSelect(true)
+              .getFiles(pwd);
         }
 
         if (files.size() > 0) {
@@ -141,8 +140,7 @@ public class ChooseFilesPanel extends ModernComponent {
   /**
    * Add a file to the file chooser.
    *
-   * @param file
-   *          the file
+   * @param file the file
    */
   public void addFile(Path file) {
     mComponentTable.add(new ChooseFilePanel(mParent, mDirMode, file, mFilters));

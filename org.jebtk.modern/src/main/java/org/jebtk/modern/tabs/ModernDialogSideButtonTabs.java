@@ -53,7 +53,8 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDialogSideButtonTabs extends TabsController implements ModernClickListener {
+public class ModernDialogSideButtonTabs extends TabsController
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -88,8 +89,7 @@ public class ModernDialogSideButtonTabs extends TabsController implements Modern
   /**
    * Instantiates a new modern dialog side button tabs.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernDialogSideButtonTabs(TabsModel model) {
     super(model);
@@ -128,8 +128,8 @@ public class ModernDialogSideButtonTabs extends TabsController implements Modern
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tabs.TabsController#tabAdded(org.abh.lib.ui.modern.tabs
-   * .TabEvent)
+   * org.abh.lib.ui.modern.tabs.TabsController#tabAdded(org.abh.lib.ui.modern.
+   * tabs .TabEvent)
    */
   @Override
   public void tabAdded(TabEvent e) {
@@ -139,8 +139,7 @@ public class ModernDialogSideButtonTabs extends TabsController implements Modern
   /**
    * Adds the tab.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   private final void addTab(String name) {
     ModernCheckButton button = new TabButton(name);
@@ -151,8 +150,7 @@ public class ModernDialogSideButtonTabs extends TabsController implements Modern
   /**
    * Adds the tab.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   private final void addTab(ModernCheckButton button) {
     System.err.println("adding side tab");
@@ -172,8 +170,8 @@ public class ModernDialogSideButtonTabs extends TabsController implements Modern
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     getTabsModel().changeTab(buttonMap.get(e.getSource()));

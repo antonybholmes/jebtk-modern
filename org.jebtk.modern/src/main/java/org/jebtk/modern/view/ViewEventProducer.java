@@ -40,24 +40,21 @@ public interface ViewEventProducer {
   /**
    * Add an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addViewListener(ViewEventListener l);
 
   /**
    * Remove an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeViewListener(ViewEventListener l);
 
   /**
    * fire an event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireViewChanged(ChangeEvent event);
 }

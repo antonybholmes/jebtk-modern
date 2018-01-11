@@ -113,8 +113,7 @@ public class ZoomModel extends ChangeListeners implements Zoom {
   /**
    * Set the minimum zoom level and notify any listeners of changes.
    *
-   * @param zoom
-   *          the new min zoom
+   * @param zoom the new min zoom
    */
   public void setMinZoom(double zoom) {
     mMinZoom = zoom;

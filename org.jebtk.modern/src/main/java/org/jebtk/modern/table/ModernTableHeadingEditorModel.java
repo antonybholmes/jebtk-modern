@@ -22,7 +22,8 @@ import org.jebtk.modern.dataview.ModernDataCellEditor;
 /**
  * The Class ModernTableHeadingEditorModel.
  */
-public class ModernTableHeadingEditorModel extends ModernData1DModel<ModernDataCellEditor> {
+public class ModernTableHeadingEditorModel
+    extends ModernData1DModel<ModernDataCellEditor> {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;

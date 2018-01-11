@@ -79,7 +79,8 @@ public class PreviewTabsPanel extends PreviewPanel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.preview.PreviewPanel#addPreview(java.lang.String,
+   * @see
+   * org.abh.lib.ui.modern.preview.PreviewPanel#addPreview(java.lang.String,
    * org.abh.lib.ui.modern.panel.ModernPanel)
    */
   @Override

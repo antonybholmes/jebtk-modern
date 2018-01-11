@@ -49,7 +49,8 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernPopup extends JPopupMenu implements ModernClickListener, ModernClickEventProducer {
+public class ModernPopup extends JPopupMenu
+    implements ModernClickListener, ModernClickEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -74,8 +75,7 @@ public class ModernPopup extends JPopupMenu implements ModernClickListener, Mode
   /**
    * Show popup.
    *
-   * @param component
-   *          the component
+   * @param component the component
    */
   public void showPopup(JComponent component) {
     showPopup(component, component.getInsets().left, component.getHeight());
@@ -84,30 +84,25 @@ public class ModernPopup extends JPopupMenu implements ModernClickListener, Mode
   /**
    * Show popup.
    *
-   * @param component
-   *          the component
-   * @param offsetX
-   *          the offset x
-   * @param offsetY
-   *          the offset y
+   * @param component the component
+   * @param offsetX the offset x
+   * @param offsetY the offset y
    */
   public void showPopup(Component component, int offsetX, int offsetY) {
     showPopup((JComponent) component, offsetX, offsetY);
   }
 
   /**
-   * Each popup type should override this method to determine how the custom popup
-   * is placed by default.
+   * Each popup type should override this method to determine how the custom
+   * popup is placed by default.
    *
-   * @param component
-   *          the component
-   * @param offsetX
-   *          the offset x
-   * @param offsetY
-   *          the offset y
+   * @param component the component
+   * @param offsetX the offset x
+   * @param offsetY the offset y
    */
   public void showPopup(JComponent component, int offsetX, int offsetY) {
-    // System.err.println("show popup offset " + component.getInsets().left + " " +
+    // System.err.println("show popup offset " + component.getInsets().left + "
+    // " +
     // component.getHeight());
 
     showPopup(component, new Point(offsetX, offsetY));
@@ -116,10 +111,8 @@ public class ModernPopup extends JPopupMenu implements ModernClickListener, Mode
   /**
    * Show popup.
    *
-   * @param component
-   *          the component
-   * @param pt
-   *          the pt
+   * @param component the component
+   * @param pt the pt
    */
   public void showPopup(JComponent component, Point pt) {
     show(component, pt.x, pt.y);
@@ -153,8 +146,8 @@ public class ModernPopup extends JPopupMenu implements ModernClickListener, Mode
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {
@@ -167,8 +160,8 @@ public class ModernPopup extends JPopupMenu implements ModernClickListener, Mode
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh
-   * .lib.ui.modern.event.ModernClickListener)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.
+   * abh .lib.ui.modern.event.ModernClickListener)
    */
   @Override
   public void addClickListener(ModernClickListener l) {
@@ -179,8 +172,8 @@ public class ModernPopup extends JPopupMenu implements ModernClickListener, Mode
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.
-   * abh.lib.ui.modern.event.ModernClickListener)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(
+   * org. abh.lib.ui.modern.event.ModernClickListener)
    */
   @Override
   public void removeClickListener(ModernClickListener l) {
@@ -191,8 +184,8 @@ public class ModernPopup extends JPopupMenu implements ModernClickListener, Mode
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.
-   * ui.modern.event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.
+   * lib. ui.modern.event.ModernClickEvent)
    */
   @Override
   public void fireClicked(ModernClickEvent e) {

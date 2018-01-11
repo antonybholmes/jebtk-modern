@@ -47,14 +47,16 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
 
   public static int ICON_SIZE = 16;
 
-  public static final ModernIcon CHECK_ICON = UIService.getInstance().loadIcon(CheckVectorIcon.class, ICON_SIZE);
+  public static final ModernIcon CHECK_ICON = UIService.getInstance()
+      .loadIcon(CheckVectorIcon.class, ICON_SIZE);
 
   /** The Constant CHECK_ICON. */
-  public static final ModernIcon UNCHECKED_ICON = UIService.getInstance().loadIcon(UnCheckedVectorIcon.class,
-      ICON_SIZE);
+  public static final ModernIcon UNCHECKED_ICON = UIService.getInstance()
+      .loadIcon(UnCheckedVectorIcon.class, ICON_SIZE);
 
   /** The Constant CHECKED_ICON. */
-  public static final ModernIcon CHECKED_ICON = UIService.getInstance().loadIcon(CheckedVectorIcon.class, ICON_SIZE);
+  public static final ModernIcon CHECKED_ICON = UIService.getInstance()
+      .loadIcon(CheckedVectorIcon.class, ICON_SIZE);
 
   /** The Constant DISABLED_CHECKED_ICON. */
   public static final ModernIcon DISABLED_CHECKED_ICON = UIService.getInstance()
@@ -74,8 +76,7 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   /**
    * Instantiates a new modern check box.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernCheckBox(String text) {
     super(text);
@@ -86,8 +87,7 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   /**
    * Instantiates a new modern check box.
    *
-   * @param selected
-   *          the selected
+   * @param selected the selected
    */
   public ModernCheckBox(boolean selected) {
     super(selected);
@@ -98,10 +98,8 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   /**
    * Instantiates a new modern check box.
    *
-   * @param text
-   *          the text
-   * @param selected
-   *          the selected
+   * @param text the text
+   * @param selected the selected
    */
   public ModernCheckBox(String text, boolean selected) {
     super(text, selected);
@@ -112,10 +110,8 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   /**
    * Instantiates a new modern check box.
    *
-   * @param text
-   *          the text
-   * @param width
-   *          the width
+   * @param text the text
+   * @param width the width
    */
   public ModernCheckBox(String text, int width) {
     super(text, width);
@@ -126,10 +122,8 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   /**
    * Instantiates a new modern check box.
    *
-   * @param text
-   *          the text
-   * @param size
-   *          the size
+   * @param text the text
+   * @param size the size
    */
   public ModernCheckBox(String text, Dimension size) {
     super(text, size);
@@ -140,12 +134,9 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   /**
    * Instantiates a new modern check box.
    *
-   * @param text
-   *          the text
-   * @param selected
-   *          the selected
-   * @param size
-   *          the size
+   * @param text the text
+   * @param selected the selected
+   * @param size the size
    */
   public ModernCheckBox(String text, boolean selected, Dimension size) {
     super(text, selected, size);
@@ -167,8 +158,8 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
    * @Override public void drawBackgroundAA(Graphics2D g2) { int x =
    * mInternalRect.getX(); int y = (getHeight() - 16) / 2;
    * 
-   * if (isSelected()) { if (isEnabled()) { CHECKED_ICON.drawIcon(g2, x, y, 20); }
-   * else { DISABLED_CHECKED_ICON.drawIcon(g2, x, y, 20); } } else {
+   * if (isSelected()) { if (isEnabled()) { CHECKED_ICON.drawIcon(g2, x, y, 20);
+   * } else { DISABLED_CHECKED_ICON.drawIcon(g2, x, y, 20); } } else {
    * CHECK_ICON.drawIcon(g2, x, y, 20); } }
    */
 }

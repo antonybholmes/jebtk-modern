@@ -27,7 +27,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The Class Animations.
  */
-public class Animations extends ChangeListeners implements Animation, Iterable<Animation> {
+public class Animations extends ChangeListeners
+    implements Animation, Iterable<Animation> {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -38,8 +39,7 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
   /**
    * Adds the.
    *
-   * @param animation
-   *          the animation
+   * @param animation the animation
    * @return
    */
   public Animations add(Animation animation) {
@@ -61,8 +61,7 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
   /**
    * Update.
    *
-   * @param animation
-   *          the animation
+   * @param animation the animation
    */
   public void update(Animation animation) {
     mAnimations.add(animation);
@@ -71,10 +70,8 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
   /**
    * Adds the.
    *
-   * @param animation
-   *          the animation
-   * @param animations
-   *          the animations
+   * @param animation the animation
+   * @param animations the animations
    * @return
    */
   public Animations add(Animation animation, Animation... animations) {
@@ -88,10 +85,8 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
   /**
    * Update.
    *
-   * @param animation
-   *          the animation
-   * @param animations
-   *          the animations
+   * @param animation the animation
+   * @param animations the animations
    */
   public void update(Animation animation, Animation... animations) {
     update(animation);
@@ -110,10 +105,8 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
   /**
    * Sets the.
    *
-   * @param animation
-   *          the animation
-   * @param animations
-   *          the animations
+   * @param animation the animation
+   * @param animations the animations
    * @return
    */
   public Animations set(Animation animation, Animation... animations) {

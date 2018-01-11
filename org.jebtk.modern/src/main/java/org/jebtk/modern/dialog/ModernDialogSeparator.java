@@ -55,8 +55,7 @@ public class ModernDialogSeparator extends ModernWidget {
   /**
    * Instantiates a new modern dialog separator.
    *
-   * @param title
-   *          the title
+   * @param title the title
    */
   public ModernDialogSeparator(String title) {
     mTitle = title;
@@ -67,7 +66,8 @@ public class ModernDialogSeparator extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

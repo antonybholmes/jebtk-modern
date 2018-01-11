@@ -36,8 +36,7 @@ public abstract class HighlightBaseAnimation extends TimerAnimation {
    * 
    * @param <T>
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public HighlightBaseAnimation(ModernWidget widget) {
     super(widget);

@@ -55,8 +55,7 @@ public class ModernLabel extends ModernWidget implements TextProperty {
   /**
    * Instantiates a new modern label panel.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernLabel(String text) {
     this(text, TEXT_COLOR);
@@ -65,10 +64,8 @@ public class ModernLabel extends ModernWidget implements TextProperty {
   /**
    * Instantiates a new modern label.
    *
-   * @param text
-   *          the text
-   * @param font
-   *          the font
+   * @param text the text
+   * @param font the font
    */
   public ModernLabel(String text, Font font) {
     setText(text);
@@ -79,10 +76,8 @@ public class ModernLabel extends ModernWidget implements TextProperty {
   /**
    * Instantiates a new modern label panel.
    *
-   * @param text
-   *          the text
-   * @param color
-   *          the color
+   * @param text the text
+   * @param color the color
    */
   public ModernLabel(String text, Color color) {
     setText(text);
@@ -95,10 +90,8 @@ public class ModernLabel extends ModernWidget implements TextProperty {
   /**
    * Instantiates a new modern label panel.
    *
-   * @param text
-   *          the text
-   * @param size
-   *          the size
+   * @param text the text
+   * @param size the size
    */
   public ModernLabel(String text, Dimension size) {
     this(text);
@@ -109,10 +102,8 @@ public class ModernLabel extends ModernWidget implements TextProperty {
   /**
    * Instantiates a new modern label panel.
    *
-   * @param text
-   *          the text
-   * @param width
-   *          the width
+   * @param text the text
+   * @param width the width
    */
   public ModernLabel(String text, int width) {
     this(text, new Dimension(width, ModernWidget.WIDGET_HEIGHT));
@@ -133,8 +124,7 @@ public class ModernLabel extends ModernWidget implements TextProperty {
   /**
    * Sets the text.
    *
-   * @param v
-   *          the new text
+   * @param v the new text
    */
   public void setText(int v) {
     setText(Integer.toString(v));
@@ -145,8 +135,7 @@ public class ModernLabel extends ModernWidget implements TextProperty {
   /**
    * Sets the text.
    *
-   * @param v
-   *          the new text
+   * @param v the new text
    */
   public void setText(double v) {
     setText(Double.toString(v));
@@ -172,8 +161,11 @@ public class ModernLabel extends ModernWidget implements TextProperty {
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
-    // System.err.println("sdf " + getInsets().top + " " + mInternalRect.getH() + "
+    // System.err.println("sdf " + getInsets().top + " " + mInternalRect.getH()
+    // + "
     // " + getTextVCenteredYPos(g2, mInternalRect.getH()));
-    g2.drawString(mText, getInsets().left, getInsets().top + getTextYPosCenter(g2, mInternalRect));
+    g2.drawString(mText,
+        getInsets().left,
+        getInsets().top + getTextYPosCenter(g2, mInternalRect));
   }
 }

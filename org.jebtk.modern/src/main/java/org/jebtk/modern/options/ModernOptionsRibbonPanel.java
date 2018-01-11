@@ -56,7 +56,8 @@ import org.jebtk.modern.tree.PathTree;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernOptionsRibbonPanel extends RibbonMenuPanel implements ModernSelectionListener {
+public class ModernOptionsRibbonPanel extends RibbonMenuPanel
+    implements ModernSelectionListener {
 
   /**
    * The constant serialVersionUID.
@@ -86,8 +87,7 @@ public class ModernOptionsRibbonPanel extends RibbonMenuPanel implements ModernS
   /**
    * Instantiates a new modern options ribbon panel.
    *
-   * @param productDetails
-   *          the product details
+   * @param productDetails the product details
    */
   public ModernOptionsRibbonPanel(GuiAppInfo productDetails) {
     super(productDetails.getName() + " Settings");
@@ -98,8 +98,7 @@ public class ModernOptionsRibbonPanel extends RibbonMenuPanel implements ModernS
   /**
    * Sets the up.
    *
-   * @param title
-   *          the new up
+   * @param title the new up
    */
   private void setup(String title) {
     createUi(title);
@@ -124,8 +123,7 @@ public class ModernOptionsRibbonPanel extends RibbonMenuPanel implements ModernS
   /**
    * Creates the ui.
    *
-   * @param title
-   *          the title
+   * @param title the title
    */
   private final void createUi(String title) {
     // ModernLabel heading = new ModernTitleLabel(title);
@@ -140,8 +138,7 @@ public class ModernOptionsRibbonPanel extends RibbonMenuPanel implements ModernS
   /**
    * Creates the tree.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   private void createTree() throws IOException {
     // Copy the existings settings so we can modify
@@ -157,7 +154,8 @@ public class ModernOptionsRibbonPanel extends RibbonMenuPanel implements ModernS
     mTree.addSelectionListener(this);
     mTree.setBorder(RIGHT_BORDER);
 
-    ModernScrollPane scrollPane = new ModernScrollPane(mTree).setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER)
+    ModernScrollPane scrollPane = new ModernScrollPane(mTree)
+        .setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER)
         .setVerticalScrollBarPolicy(ScrollBarPolicy.AUTO_SHOW);
 
     mTable = new ModernRowTable();
@@ -176,14 +174,14 @@ public class ModernOptionsRibbonPanel extends RibbonMenuPanel implements ModernS
   /**
    * Sets the table model.
    *
-   * @param node
-   *          the new table model
+   * @param node the new table model
    */
   private void setTableModel(TreeNode<List<Path>> node) {
     ModernSettingsTableModel tableModel = new ModernSettingsTableModel(node);
 
     mTable.setModel(tableModel);
-    // table.getColumnModel().setCellEditor(1, new ModernTableTextCellEditor(true));
+    // table.getColumnModel().setCellEditor(1, new
+    // ModernTableTextCellEditor(true));
     mTable.getColumnModel().setWidth(0, 200);
     mTable.getColumnModel().setWidth(1, 200);
   }
@@ -192,8 +190,8 @@ public class ModernOptionsRibbonPanel extends RibbonMenuPanel implements ModernS
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
-   * lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.
+   * abh. lib.event.ChangeEvent)
    */
   @Override
   public void selectionChanged(ChangeEvent e) {
@@ -205,7 +203,8 @@ public class ModernOptionsRibbonPanel extends RibbonMenuPanel implements ModernS
 
     TreePath treePath = node.getPath();
 
-    // System.err.println("tp " + node.getName() + " " + node.getParent() + " " +
+    // System.err.println("tp " + node.getName() + " " + node.getParent() + " "
+    // +
     // treePath);
 
     Path path = mTree.convertToPath(treePath);

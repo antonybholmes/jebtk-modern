@@ -45,7 +45,8 @@ import org.jebtk.modern.event.ModernClickListeners;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernMenu extends JMenu implements ModernClickEventProducer, ModernClickListener {
+public class ModernMenu extends JMenu
+    implements ModernClickEventProducer, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -67,8 +68,7 @@ public class ModernMenu extends JMenu implements ModernClickEventProducer, Moder
   /**
    * Instantiates a new modern menu.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernMenu(String text) {
     super(text);
@@ -79,8 +79,7 @@ public class ModernMenu extends JMenu implements ModernClickEventProducer, Moder
   /**
    * Adds the.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public void add(ModernMenuItem item) {
     addMenuItem(item);
@@ -89,8 +88,7 @@ public class ModernMenu extends JMenu implements ModernClickEventProducer, Moder
   /**
    * Adds the menu item.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public void addMenuItem(ModernMenuItem item) {
     super.add(item);
@@ -123,8 +121,8 @@ public class ModernMenu extends JMenu implements ModernClickEventProducer, Moder
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh
-   * .lib.ui.modern.event.ModernClickListener)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.
+   * abh .lib.ui.modern.event.ModernClickListener)
    */
   @Override
   public void addClickListener(ModernClickListener l) {
@@ -135,8 +133,8 @@ public class ModernMenu extends JMenu implements ModernClickEventProducer, Moder
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.
-   * abh.lib.ui.modern.event.ModernClickListener)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(
+   * org. abh.lib.ui.modern.event.ModernClickListener)
    */
   @Override
   public void removeClickListener(ModernClickListener l) {
@@ -147,8 +145,8 @@ public class ModernMenu extends JMenu implements ModernClickEventProducer, Moder
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.
-   * ui.modern.event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.
+   * lib. ui.modern.event.ModernClickEvent)
    */
   @Override
   public void fireClicked(ModernClickEvent e) {
@@ -159,8 +157,8 @@ public class ModernMenu extends JMenu implements ModernClickEventProducer, Moder
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

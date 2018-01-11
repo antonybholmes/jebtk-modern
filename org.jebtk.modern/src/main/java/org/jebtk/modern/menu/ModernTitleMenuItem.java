@@ -46,8 +46,7 @@ public class ModernTitleMenuItem extends ModernMenuItem {
   /**
    * The constant BACKGROUND.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   // private static final Color BACKGROUND =
   // ThemeService.getInstance().colors().getHighlight(3);
@@ -55,8 +54,7 @@ public class ModernTitleMenuItem extends ModernMenuItem {
   /**
    * Instantiates a new modern title menu item.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernTitleMenuItem(String text) {
     super(text);
@@ -69,10 +67,8 @@ public class ModernTitleMenuItem extends ModernMenuItem {
   /**
    * Instantiates a new modern title menu item.
    *
-   * @param text
-   *          the text
-   * @param size
-   *          the size
+   * @param text the text
+   * @param size the size
    */
   public ModernTitleMenuItem(String text, Dimension size) {
     super(text);
@@ -87,7 +83,8 @@ public class ModernTitleMenuItem extends ModernMenuItem {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

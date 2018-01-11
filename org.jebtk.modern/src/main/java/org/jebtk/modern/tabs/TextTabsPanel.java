@@ -31,8 +31,7 @@ public class TextTabsPanel extends ModernComponent {
   /**
    * Instantiates a new text tabs panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public TextTabsPanel(TabsModel model) {
     this(model, 0);
@@ -41,14 +40,14 @@ public class TextTabsPanel extends ModernComponent {
   /**
    * Instantiates a new text tabs panel.
    *
-   * @param model
-   *          the model
-   * @param pagePadding
-   *          the page padding
+   * @param model the model
+   * @param pagePadding the page padding
    */
   public TextTabsPanel(TabsModel model, int pagePadding) {
     TextTabsCentered tabs = new TextTabsCentered(model);
-    UI.setSize(tabs, ModernWidget.MAX_SIZE, UI.createTopBottomBorder(pagePadding));
+    UI.setSize(tabs,
+        ModernWidget.MAX_SIZE,
+        UI.createTopBottomBorder(pagePadding));
 
     setHeader(tabs); // new TextTabsTriangle(model, centered));
 

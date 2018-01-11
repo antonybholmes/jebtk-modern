@@ -51,7 +51,8 @@ import org.jebtk.modern.widget.tooltip.ModernToolTipWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class RibbonSection extends ModernClickWidget implements RibbonModeProperty, NameProperty {
+public class RibbonSection extends ModernClickWidget
+    implements RibbonModeProperty, NameProperty {
 
   /**
    * The constant serialVersionUID.
@@ -73,10 +74,12 @@ public class RibbonSection extends ModernClickWidget implements RibbonModeProper
   private int HEIGHT = 16;
 
   /** The large border. */
-  private Border LARGE_BORDER = BorderService.getInstance().createBorder(2, 0, HEIGHT, 1);
+  private Border LARGE_BORDER = BorderService.getInstance()
+      .createBorder(2, 0, HEIGHT, 1);
 
   /** The small border. */
-  private Border SMALL_BORDER = BorderService.getInstance().createBorder(0, PADDING, 0, PADDING);
+  private Border SMALL_BORDER = BorderService.getInstance()
+      .createBorder(0, PADDING, 0, PADDING);
 
   /** The Constant SEPARATOR_PADDING. */
   private static final int SEPARATOR_PADDING = 2;
@@ -97,10 +100,8 @@ public class RibbonSection extends ModernClickWidget implements RibbonModeProper
   /**
    * Instantiates a new ribbon section.
    *
-   * @param ribbon
-   *          the ribbon
-   * @param title
-   *          the title
+   * @param ribbon the ribbon
+   * @param title the title
    */
   public RibbonSection(Ribbon ribbon, String title) {
     this(ribbon, title, ribbon.getRibbonSize());
@@ -109,12 +110,9 @@ public class RibbonSection extends ModernClickWidget implements RibbonModeProper
   /**
    * Instantiates a new ribbon section.
    *
-   * @param ribbon
-   *          the ribbon
-   * @param title
-   *          the title
-   * @param mode
-   *          the mode
+   * @param ribbon the ribbon
+   * @param title the title
+   * @param mode the mode
    */
   public RibbonSection(Ribbon ribbon, String title, RibbonSize mode) {
     mRibbon = ribbon;
@@ -133,8 +131,7 @@ public class RibbonSection extends ModernClickWidget implements RibbonModeProper
   /**
    * Adds the.
    *
-   * @param components
-   *          the components
+   * @param components the components
    */
   public void add(Component... components) {
     for (Component c : components) {
@@ -167,9 +164,8 @@ public class RibbonSection extends ModernClickWidget implements RibbonModeProper
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.ribbon.
-   * RibbonSize)
+   * @see org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.
+   * ribbon. RibbonSize)
    */
   public void setSize(RibbonSize mode) {
     mMode = mode;
@@ -221,13 +217,17 @@ public class RibbonSection extends ModernClickWidget implements RibbonModeProper
   @Override
   public void drawBackground(Graphics2D g2) {
     g2.setColor(Ribbon.SEPARATOR_COLOR);
-    g2.drawLine(mRect.getW() - 1, SEPARATOR_PADDING, mRect.getW() - 1, mRect.getH() - SEPARATOR_PADDING);
+    g2.drawLine(mRect.getW() - 1,
+        SEPARATOR_PADDING,
+        mRect.getW() - 1,
+        mRect.getH() - SEPARATOR_PADDING);
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -245,8 +245,8 @@ public class RibbonSection extends ModernClickWidget implements RibbonModeProper
      */
 
     /*
-     * gradient = new GradientPaint(0, 0, Color.WHITE, 0, mRect.getH(), LINE_COLOR,
-     * false);
+     * gradient = new GradientPaint(0, 0, Color.WHITE, 0, mRect.getH(),
+     * LINE_COLOR, false);
      */
 
     if (mMode == RibbonSize.LARGE) {

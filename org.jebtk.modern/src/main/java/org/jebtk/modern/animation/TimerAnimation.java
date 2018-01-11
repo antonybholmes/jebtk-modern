@@ -61,8 +61,7 @@ public abstract class TimerAnimation extends WidgetAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public TimerAnimation(ModernWidget w) {
     this(w, DELAY_MS);

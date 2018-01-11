@@ -47,8 +47,7 @@ public class SideTabsButton extends ModernCheckRadioButton {
   /**
    * Instantiates a new side tabs button.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   public SideTabsButton(String name) {
     super(name);
@@ -59,10 +58,8 @@ public class SideTabsButton extends ModernCheckRadioButton {
   /**
    * Instantiates a new side tabs button.
    *
-   * @param name
-   *          the name
-   * @param icon
-   *          the icon
+   * @param name the name
+   * @param icon the icon
    */
   public SideTabsButton(String name, ModernIcon icon) {
     super(name, icon);

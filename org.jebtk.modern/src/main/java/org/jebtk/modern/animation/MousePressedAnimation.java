@@ -80,8 +80,7 @@ public abstract class MousePressedAnimation extends WidgetAnimation {
   /**
    * Instantiates a new mouse animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public MousePressedAnimation(ModernWidget widget) {
     super(widget);

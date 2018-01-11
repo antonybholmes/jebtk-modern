@@ -51,8 +51,7 @@ public class RasterIcon extends ModernIcon {
   /**
    * Instantiates a new raster icon.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public RasterIcon(ModernIcon icon) {
     this(icon, new IntDim(icon.getWidth(), icon.getHeight()));
@@ -61,10 +60,8 @@ public class RasterIcon extends ModernIcon {
   /**
    * Instantiates a new raster icon.
    *
-   * @param icon
-   *          the icon
-   * @param size
-   *          the size
+   * @param icon the icon
+   * @param size the size
    */
   public RasterIcon(ModernIcon icon, int size) {
     this(icon, new IntDim(size, size));
@@ -73,10 +70,8 @@ public class RasterIcon extends ModernIcon {
   /**
    * Instantiates a new raster icon.
    *
-   * @param icon
-   *          the icon
-   * @param size
-   *          the size
+   * @param icon the icon
+   * @param size the size
    */
   public RasterIcon(ModernIcon icon, IntDim size) {
     this(icon, new IntRect(0, 0, size.getW(), size.getH()));
@@ -85,10 +80,8 @@ public class RasterIcon extends ModernIcon {
   /**
    * Instantiates a new raster icon.
    *
-   * @param icon
-   *          the icon
-   * @param rect
-   *          the rect
+   * @param icon the icon
+   * @param rect the rect
    */
   public RasterIcon(ModernIcon icon, IntRect rect) {
     this(icon, rect, new IntDim(rect.getW(), rect.getH()));
@@ -97,27 +90,23 @@ public class RasterIcon extends ModernIcon {
   /**
    * Instantiates a new raster icon.
    *
-   * @param icon
-   *          the icon
-   * @param iconSize
-   *          the icon size
-   * @param imageSize
-   *          the image size
+   * @param icon the icon
+   * @param iconSize the icon size
+   * @param imageSize the image size
    */
   public RasterIcon(ModernIcon icon, int iconSize, int imageSize) {
-    this(icon, new IntRect((imageSize - iconSize) / 2, (imageSize - iconSize) / 2, iconSize, iconSize),
+    this(
+        icon, new IntRect((imageSize - iconSize) / 2,
+            (imageSize - iconSize) / 2, iconSize, iconSize),
         new IntDim(imageSize, imageSize));
   }
 
   /**
    * Instantiates a new raster icon.
    *
-   * @param icon
-   *          the icon
-   * @param iconRect
-   *          the icon rect
-   * @param imageSize
-   *          the image size
+   * @param icon the icon
+   * @param iconRect the icon rect
+   * @param imageSize the image size
    */
   public RasterIcon(ModernIcon icon, IntRect iconRect, int imageSize) {
     this(icon, iconRect, new IntDim(imageSize, imageSize));
@@ -125,14 +114,12 @@ public class RasterIcon extends ModernIcon {
 
   /**
    * Creates a rastorized version of the icon of a given size in an image of a
-   * given size. This allows the icon to be scaled inside the image if necessary.
+   * given size. This allows the icon to be scaled inside the image if
+   * necessary.
    *
-   * @param icon
-   *          the icon
-   * @param iconRect
-   *          the dimensions of the icon
-   * @param imageSize
-   *          the size of this image (which will become an icon).
+   * @param icon the icon
+   * @param iconRect the dimensions of the icon
+   * @param imageSize the size of this image (which will become an icon).
    */
   public RasterIcon(ModernIcon icon, IntRect iconRect, IntDim imageSize) {
     cache(icon, iconRect, imageSize);
@@ -141,12 +128,9 @@ public class RasterIcon extends ModernIcon {
   /**
    * Cache the image.
    *
-   * @param icon
-   *          the icon
-   * @param iconRect
-   *          the icon rect
-   * @param imageSize
-   *          the image size
+   * @param icon the icon
+   * @param iconRect the icon rect
+   * @param imageSize the image size
    */
   private void cache(ModernIcon icon, IntRect iconRect, IntDim imageSize) {
     mBufferedImage = ImageUtils.createImage(imageSize);
@@ -168,7 +152,12 @@ public class RasterIcon extends ModernIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     g2.drawImage(mBufferedImage, x, y, null);
   }
 

@@ -48,8 +48,7 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern dialog flat button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernDialogFlatDropDownButton(String text1) {
     super(text1);
@@ -60,8 +59,7 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern dialog flat button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernDialogFlatDropDownButton(ModernIcon icon) {
     super(icon);
@@ -72,10 +70,8 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern dialog flat button.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
+   * @param text1 the text1
+   * @param icon the icon
    */
   public ModernDialogFlatDropDownButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -86,10 +82,8 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern dialog flat drop down button.
    *
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param icon the icon
+   * @param menu the menu
    */
   public ModernDialogFlatDropDownButton(ModernIcon icon, ModernPopupMenu menu) {
     super(icon, menu);
@@ -100,14 +94,12 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern dialog flat drop down button.
    *
-   * @param text1
-   *          the text 1
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param text1 the text 1
+   * @param icon the icon
+   * @param menu the menu
    */
-  public ModernDialogFlatDropDownButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
+  public ModernDialogFlatDropDownButton(String text1, ModernIcon icon,
+      ModernPopupMenu menu) {
     super(text1, icon, menu);
 
     setup();
@@ -116,10 +108,8 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern dialog flat drop down button.
    *
-   * @param text1
-   *          the text 1
-   * @param menu
-   *          the menu
+   * @param text1 the text 1
+   * @param menu the menu
    */
   public ModernDialogFlatDropDownButton(String text1, ModernPopupMenu menu) {
     super(text1, menu);
@@ -132,10 +122,10 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
-   * (isSelected() || mHighlight || mPopupShown) {
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
+   * if (isSelected() || mHighlight || mPopupShown) {
    * getWidgetRenderer().drawButton(g2, mInternalRect, RenderMode.SELECTED,
-   * hasFocus()); } else { getWidgetRenderer().drawContentBox(g2, mInternalRect);
-   * } } }
+   * hasFocus()); } else { getWidgetRenderer().drawContentBox(g2,
+   * mInternalRect); } } }
    */
 }

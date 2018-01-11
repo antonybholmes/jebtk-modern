@@ -51,8 +51,7 @@ public class ModernStateEvent extends Event {
   /**
    * Instantiates a new modern state event.
    *
-   * @param source
-   *          the source
+   * @param source the source
    */
   public ModernStateEvent(Object source) {
     this(source, EVENT_STATE_CHANGED);
@@ -61,10 +60,8 @@ public class ModernStateEvent extends Event {
   /**
    * Instantiates a new modern state event.
    *
-   * @param source
-   *          the source
-   * @param message
-   *          the message
+   * @param source the source
+   * @param message the message
    */
   public ModernStateEvent(Object source, String message) {
     super(source, message);

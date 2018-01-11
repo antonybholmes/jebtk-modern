@@ -45,7 +45,8 @@ import org.jebtk.modern.event.ModernClickEvent;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernTableColorCellRenderer extends ModernDataCellRenderer implements MouseListener {
+public class ModernTableColorCellRenderer extends ModernDataCellRenderer
+    implements MouseListener {
 
   /**
    * The constant serialVersionUID.
@@ -76,7 +77,8 @@ public class ModernTableColorCellRenderer extends ModernDataCellRenderer impleme
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -96,14 +98,25 @@ public class ModernTableColorCellRenderer extends ModernDataCellRenderer impleme
    * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
-  public final Component getCellRendererComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public final Component getCellRendererComponent(ModernData table,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
 
     if (value != null) {
       color = (Color) value;
     }
 
-    return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
+    return super.getCellRendererComponent(table,
+        value,
+        highlight,
+        isSelected,
+        hasFocus,
+        row,
+        column);
   }
 
   /*
@@ -121,8 +134,7 @@ public class ModernTableColorCellRenderer extends ModernDataCellRenderer impleme
   /**
    * Sets the color.
    *
-   * @param color
-   *          the new color
+   * @param color the new color
    */
   public void setColor(Color color) {
     this.color = color;

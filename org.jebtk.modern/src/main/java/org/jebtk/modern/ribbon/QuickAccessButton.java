@@ -54,8 +54,7 @@ public class QuickAccessButton extends ModernButton {
   /**
    * Instantiates a new quick access button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public QuickAccessButton(ModernIcon icon) {
     super(icon);
@@ -66,8 +65,7 @@ public class QuickAccessButton extends ModernButton {
   /**
    * Instantiates a new quick access button.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public QuickAccessButton(String text) {
     super(text);

@@ -45,8 +45,7 @@ public class StatusLog implements LogEventListener {
   /**
    * Instantiates a new status log.
    *
-   * @param statusModel
-   *          the status model
+   * @param statusModel the status model
    */
   public StatusLog(StatusModel statusModel) {
     this.statusModel = statusModel;

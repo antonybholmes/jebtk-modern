@@ -52,10 +52,12 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   private static final long serialVersionUID = 1L;
 
   /** The Constant ICON_1. */
-  public static final ModernIcon ICON_1 = UIService.getInstance().loadIcon(RadioButtonVectorIcon.class, 16);
+  public static final ModernIcon ICON_1 = UIService.getInstance()
+      .loadIcon(RadioButtonVectorIcon.class, 16);
 
   /** The Constant ICON_2. */
-  public static final ModernIcon ICON_2 = UIService.getInstance().loadIcon(RadioButtonSelectedVectorIcon.class, 16);
+  public static final ModernIcon ICON_2 = UIService.getInstance()
+      .loadIcon(RadioButtonSelectedVectorIcon.class, 16);
 
   /**
    * The member text1.
@@ -72,8 +74,7 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   /**
    * Instantiates a new modern radio button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernRadioButton(String text1) {
     this(text1, false);
@@ -82,10 +83,8 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   /**
    * Instantiates a new modern radio button.
    *
-   * @param text1
-   *          the text1
-   * @param selected
-   *          the selected
+   * @param text1 the text1
+   * @param selected the selected
    */
   public ModernRadioButton(String text1, boolean selected) {
     this(text1, selected, ModernButton.getIconButtonSize(text1));
@@ -94,10 +93,8 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   /**
    * Instantiates a new modern radio button.
    *
-   * @param text1
-   *          the text 1
-   * @param width
-   *          the width
+   * @param text1 the text 1
+   * @param width the width
    */
   public ModernRadioButton(String text1, int width) {
     this(text1, new Dimension(width, ModernWidget.WIDGET_HEIGHT));
@@ -106,10 +103,8 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   /**
    * Instantiates a new modern radio button.
    *
-   * @param text1
-   *          the text1
-   * @param size
-   *          the size
+   * @param text1 the text1
+   * @param size the size
    */
   public ModernRadioButton(String text1, Dimension size) {
     this(text1, false, size);
@@ -118,12 +113,9 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   /**
    * Instantiates a new modern radio button.
    *
-   * @param text1
-   *          the text1
-   * @param selected
-   *          the selected
-   * @param size
-   *          the size
+   * @param text1 the text1
+   * @param selected the selected
+   * @param size the size
    */
   public ModernRadioButton(String text1, boolean selected, Dimension size) {
     setText(text1);
@@ -151,8 +143,7 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   /**
    * Sets the text.
    *
-   * @param text
-   *          the new text
+   * @param text the new text
    */
   public void setText(String text) {
     mText1 = text;
@@ -163,7 +154,8 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
    */
   /*
    * @Override public void drawBackgroundAA(Graphics2D g2) { // Do nothing
@@ -177,7 +169,8 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

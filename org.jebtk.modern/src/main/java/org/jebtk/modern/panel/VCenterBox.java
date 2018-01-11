@@ -62,8 +62,7 @@ public class VCenterBox extends VBox {
   /**
    * Instantiates a new v center box panel.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public VCenterBox(Component c) {
     this();

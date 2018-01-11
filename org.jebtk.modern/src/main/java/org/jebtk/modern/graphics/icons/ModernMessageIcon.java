@@ -61,8 +61,7 @@ public abstract class ModernMessageIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new modern message icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public ModernMessageIcon(Color color) {
     super(color);
@@ -71,10 +70,8 @@ public abstract class ModernMessageIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new modern message icon.
    *
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
+   * @param color1 the color 1
+   * @param color2 the color 2
    */
   public ModernMessageIcon(Color color1, Color color2) {
     super(color1, color2);
@@ -87,43 +84,48 @@ public abstract class ModernMessageIcon extends ModernVectorScalableIcon {
   /**
    * Draws a scaled version of some text in the center of an icon.
    *
-   * @param g2
-   *          the g 2
-   * @param size
-   *          the size
-   * @param rect
-   *          the rect
-   * @param text
-   *          the text
-   * @param color
-   *          the color
+   * @param g2 the g 2
+   * @param size the size
+   * @param rect the rect
+   * @param text the text
+   * @param color the color
    */
-  public static void drawScaledText(Graphics2D g2, int size, final Rectangle rect, String text, Color color) {
+  public static void drawScaledText(Graphics2D g2,
+      int size,
+      final Rectangle rect,
+      String text,
+      Color color) {
 
-    drawScaledText(g2, size, rect.x, rect.y, rect.width, rect.height, text, color);
+    drawScaledText(g2,
+        size,
+        rect.x,
+        rect.y,
+        rect.width,
+        rect.height,
+        text,
+        color);
   }
 
   /**
    * Draw scaled text.
    *
-   * @param g2
-   *          the g 2
-   * @param size
-   *          the size
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param w
-   *          the w
-   * @param h
-   *          the h
-   * @param text
-   *          the text
-   * @param color
-   *          the color
+   * @param g2 the g 2
+   * @param size the size
+   * @param x the x
+   * @param y the y
+   * @param w the w
+   * @param h the h
+   * @param text the text
+   * @param color the color
    */
-  public static void drawScaledText(Graphics2D g2, int size, int x, int y, int w, int h, String text, Color color) {
+  public static void drawScaledText(Graphics2D g2,
+      int size,
+      int x,
+      int y,
+      int w,
+      int h,
+      String text,
+      Color color) {
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
@@ -135,9 +137,13 @@ public abstract class ModernMessageIcon extends ModernVectorScalableIcon {
       // Scale factor
       double factor = size / (double) fontHeight * FONT_SCALE;
 
-      x = x + (int) ((w - g2Temp.getFontMetrics().stringWidth(text) * factor) / 2);
-      y = y + ModernWidget.getTextYPosCenter(h, g2Temp.getFontMetrics().getAscent() * factor,
-          g2Temp.getFontMetrics().getDescent() * factor); // h - (int)((h - fontHeight * factor) / 2);
+      x = x + (int) ((w - g2Temp.getFontMetrics().stringWidth(text) * factor)
+          / 2);
+      y = y + ModernWidget.getTextYPosCenter(h,
+          g2Temp.getFontMetrics().getAscent() * factor,
+          g2Temp.getFontMetrics().getDescent() * factor); // h - (int)((h -
+                                                          // fontHeight *
+                                                          // factor) / 2);
 
       g2Temp.translate(x, y);
       g2Temp.scale(factor, factor);

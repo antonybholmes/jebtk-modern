@@ -33,14 +33,14 @@ public class RibbonBackAnimation extends HoverFadeAnimation {
   /**
    * Instantiates a new quick access animation.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public RibbonBackAnimation(ModernWidget button) {
     super(button);
 
     // setFadeColor("fill", RibbonBackMenuItem.BASE_COLOR, Color.WHITE);
-    setFadeColor("fill", MaterialService.getInstance().color("gray-highlighted"));
+    setFadeColor("fill",
+        MaterialService.getInstance().color("gray-highlighted"));
   }
 
   @Override

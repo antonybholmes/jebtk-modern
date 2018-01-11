@@ -35,7 +35,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernCleanDialogWindow.
  */
-public class ModernCleanDialogWindow extends ModernDialogWindow implements ModernToolTipModel {
+public class ModernCleanDialogWindow extends ModernDialogWindow
+    implements ModernToolTipModel {
 
   /**
    * The constant serialVersionUID.
@@ -45,8 +46,7 @@ public class ModernCleanDialogWindow extends ModernDialogWindow implements Moder
   /**
    * Instantiates a new modern clean dialog window.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public ModernCleanDialogWindow(ModernWindow parent) {
     super(parent);
@@ -55,8 +55,7 @@ public class ModernCleanDialogWindow extends ModernDialogWindow implements Moder
   /**
    * Instantiates a new modern clean dialog window.
    *
-   * @param productDetails
-   *          the product details
+   * @param productDetails the product details
    */
   public ModernCleanDialogWindow(GuiAppInfo productDetails) {
     super(productDetails);

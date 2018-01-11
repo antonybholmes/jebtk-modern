@@ -48,13 +48,13 @@ public class ModernSubHeadingLabel extends ModernAutoSizeLabel {
   /**
    * The constant SUB_HEADING_FONT.
    */
-  private static final Font SUB_HEADING_FONT = ThemeService.loadFont("theme.widget.fonts.sub-heading");
+  private static final Font SUB_HEADING_FONT = ThemeService
+      .loadFont("theme.widget.fonts.sub-heading");
 
   /**
    * Instantiates a new modern sub heading label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernSubHeadingLabel(String text) {
     super(text);
@@ -65,10 +65,8 @@ public class ModernSubHeadingLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern sub heading label.
    *
-   * @param text
-   *          the text
-   * @param color
-   *          the color
+   * @param text the text
+   * @param color the color
    */
   public ModernSubHeadingLabel(String text, Color color) {
     super(text, color);
@@ -79,10 +77,8 @@ public class ModernSubHeadingLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern sub heading label.
    *
-   * @param text
-   *          the text
-   * @param border
-   *          the border
+   * @param text the text
+   * @param border the border
    */
   public ModernSubHeadingLabel(String text, Border border) {
     this(text);

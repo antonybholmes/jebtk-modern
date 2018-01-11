@@ -60,7 +60,8 @@ public abstract class ModernTableModel extends ModernDataGridModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.dataview.ModernDataModel#getColumnAnnotationText(int)
+   * @see
+   * org.abh.common.ui.dataview.ModernDataModel#getColumnAnnotationText(int)
    */
   @Override
   public List<String> getColumnAnnotationText(int column) {
@@ -86,14 +87,14 @@ public abstract class ModernTableModel extends ModernDataGridModel {
   /**
    * Gets the auto header name.
    *
-   * @param column
-   *          the column
+   * @param column the column
    * @return the auto header name
    */
   public List<String> getAutoColumnName(int column) {
 
     if (!mHeaderMap.containsKey(column)) {
-      mHeaderMap.put(column, CollectionUtils.toList(getAutoColumnHeading(column)));
+      mHeaderMap.put(column,
+          CollectionUtils.toList(getAutoColumnHeading(column)));
     }
 
     return mHeaderMap.get(column);
@@ -103,8 +104,7 @@ public abstract class ModernTableModel extends ModernDataGridModel {
    * Generates a column heading where the first 26 columns are A-Z followed by
    * AA-AZ etc.
    *
-   * @param column
-   *          the column
+   * @param column the column
    * @return the auto column heading
    */
   public static String getAutoColumnHeading(int column) {

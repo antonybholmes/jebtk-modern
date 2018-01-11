@@ -36,7 +36,8 @@ public class CloseButton extends ModernButton {
   private static final long serialVersionUID = 1L;
 
   /** The Constant ICON. */
-  private static final ModernIcon ICON = new Raster16Icon(new CloseVectorIcon(TEXT_COLOR));
+  private static final ModernIcon ICON = new Raster16Icon(
+      new CloseVectorIcon(TEXT_COLOR));
 
   // private static final ModernIcon HIGHLIGHT_ICON =
   // new Raster16Icon(new

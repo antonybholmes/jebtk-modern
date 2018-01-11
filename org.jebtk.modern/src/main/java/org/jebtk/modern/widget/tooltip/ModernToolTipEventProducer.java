@@ -38,24 +38,21 @@ public interface ModernToolTipEventProducer {
   /**
    * Add an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addToolTipListener(ModernToolTipListener l);
 
   /**
    * Remove an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeToolTipListener(ModernToolTipListener l);
 
   /**
    * fire an event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireToolTipChanged(ModernToolTipEvent event);
 }

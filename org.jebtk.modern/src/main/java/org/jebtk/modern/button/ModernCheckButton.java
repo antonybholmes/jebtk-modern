@@ -47,7 +47,8 @@ import org.jebtk.modern.widget.ModernTwoStateWidget;
  *
  * @author Antony Holmes Holmes
  */
-public class ModernCheckButton extends ModernTwoStateWidget implements TextProperty {
+public class ModernCheckButton extends ModernTwoStateWidget
+    implements TextProperty {
 
   /**
    * The constant serialVersionUID.
@@ -133,8 +134,8 @@ public class ModernCheckButton extends ModernTwoStateWidget implements TextPrope
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -167,8 +168,7 @@ public class ModernCheckButton extends ModernTwoStateWidget implements TextPrope
   /**
    * Instantiates a new modern check button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernCheckButton(String text1) {
     this(text1, false);
@@ -177,10 +177,8 @@ public class ModernCheckButton extends ModernTwoStateWidget implements TextPrope
   /**
    * Instantiates a new modern check button.
    *
-   * @param text1
-   *          the text1
-   * @param selected
-   *          the selected
+   * @param text1 the text1
+   * @param selected the selected
    */
   public ModernCheckButton(String text1, boolean selected) {
     setText(text1);
@@ -195,8 +193,7 @@ public class ModernCheckButton extends ModernTwoStateWidget implements TextPrope
   /**
    * Instantiates a new modern check button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernCheckButton(ModernIcon icon) {
     setIcon(icon);
@@ -209,10 +206,8 @@ public class ModernCheckButton extends ModernTwoStateWidget implements TextPrope
   /**
    * Instantiates a new modern check button.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
+   * @param text1 the text1
+   * @param icon the icon
    */
   public ModernCheckButton(String text1, ModernIcon icon) {
     this(text1, icon, false);
@@ -221,12 +216,9 @@ public class ModernCheckButton extends ModernTwoStateWidget implements TextPrope
   /**
    * Instantiates a new modern check button.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
-   * @param selected
-   *          the selected
+   * @param text1 the text1
+   * @param icon the icon
+   * @param selected the selected
    */
   public ModernCheckButton(String text1, ModernIcon icon, boolean selected) {
     setText(text1);
@@ -242,10 +234,8 @@ public class ModernCheckButton extends ModernTwoStateWidget implements TextPrope
   /**
    * Instantiates a new modern check button.
    *
-   * @param text
-   *          the text
-   * @param size
-   *          the size
+   * @param text the text
+   * @param size the size
    */
   public ModernCheckButton(String text, Dimension size) {
     this(text);
@@ -265,8 +255,7 @@ public class ModernCheckButton extends ModernTwoStateWidget implements TextPrope
   /**
    * Sets the icon.
    *
-   * @param icon
-   *          the new icon
+   * @param icon the new icon
    */
   public void setIcon(ModernIcon icon) {
     mIcon = icon;
@@ -315,7 +304,8 @@ public class ModernCheckButton extends ModernTwoStateWidget implements TextPrope
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

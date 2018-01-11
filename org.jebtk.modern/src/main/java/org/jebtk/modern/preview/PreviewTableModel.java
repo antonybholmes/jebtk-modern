@@ -62,10 +62,8 @@ public class PreviewTableModel extends ModernColumnHeaderTableModel {
   /**
    * Instantiates a new preview table model.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public PreviewTableModel(final Path file) throws IOException {
     setup(file, -1);
@@ -74,12 +72,9 @@ public class PreviewTableModel extends ModernColumnHeaderTableModel {
   /**
    * Instantiates a new preview table model.
    *
-   * @param file
-   *          the file
-   * @param rows
-   *          the rows
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @param rows the rows
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public PreviewTableModel(final Path file, int rows) throws IOException {
     setup(file, rows);
@@ -88,12 +83,9 @@ public class PreviewTableModel extends ModernColumnHeaderTableModel {
   /**
    * Setup.
    *
-   * @param file
-   *          the file
-   * @param rows
-   *          the rows
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @param rows the rows
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   private void setup(final Path file, int rows) throws IOException {
     BufferedReader reader = FileUtils.newBufferedReader(file);
@@ -120,7 +112,8 @@ public class PreviewTableModel extends ModernColumnHeaderTableModel {
           break;
         }
 
-        List<String> values = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+        List<String> values = TextUtils.fastSplit(line,
+            TextUtils.TAB_DELIMITER);
 
         data.add(values);
 
@@ -179,7 +172,8 @@ public class PreviewTableModel extends ModernColumnHeaderTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
    */
   @Override
   public final List<String> getColumnAnnotationText(int columnIndex) {

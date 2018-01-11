@@ -31,10 +31,9 @@ import java.awt.Dimension;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jebtk.core.NameProperty;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
-import org.jebtk.core.NameProperty;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernButtonGroup;
@@ -61,10 +60,10 @@ import org.jebtk.modern.window.ModernWindow;
  * Allows user to sort samples.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public class SortPanel<T extends NameProperty> extends HBox implements ModernClickListener {
+public class SortPanel<T extends NameProperty> extends HBox
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -79,7 +78,8 @@ public class SortPanel<T extends NameProperty> extends HBox implements ModernCli
   /**
    * The constant MENU_SIZE.
    */
-  private static final Dimension MENU_SIZE = new Dimension(250, ModernIconMenuItem.HEIGHT);
+  private static final Dimension MENU_SIZE = new Dimension(250,
+      ModernIconMenuItem.HEIGHT);
 
   // private static final ModernIcon UP_ICON =
   // Resources.getInstance().loadIcon("up_scroll", Resources.ICON_SIZE_16);
@@ -99,19 +99,22 @@ public class SortPanel<T extends NameProperty> extends HBox implements ModernCli
   /**
    * The member sort direction button.
    */
-  private SortDirectionButton mSortDirectionButton = new SortDirectionButton(true);
+  private SortDirectionButton mSortDirectionButton = new SortDirectionButton(
+      true);
 
   /**
    * The member list button.
    */
   private ModernCheckRadioButton mListButton = new ModernCheckRadioButton(
-      UIService.getInstance().loadIcon(ListVectorIcon.class, 16), "List view", "Display data in a list.");
+      UIService.getInstance().loadIcon(ListVectorIcon.class, 16), "List view",
+      "Display data in a list.");
 
   /**
    * The member tree button.
    */
   private ModernCheckRadioButton mTreeButton = new ModernCheckRadioButton(
-      UIService.getInstance().loadIcon(TreeVectorIcon.class, 16), "Tree view", "Display data in a tree.");
+      UIService.getInstance().loadIcon(TreeVectorIcon.class, 16), "Tree view",
+      "Display data in a tree.");
 
   /**
    * The member filter button.
@@ -141,11 +144,13 @@ public class SortPanel<T extends NameProperty> extends HBox implements ModernCli
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see
+     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
-      // mSortFieldMenuButton.setText("Sort by " + mSortModel.getSorter().getName());
+      // mSortFieldMenuButton.setText("Sort by " +
+      // mSortModel.getSorter().getName());
 
       mSortDirectionButton.setAscending(mSortModel.getSortAscending());
 
@@ -156,16 +161,13 @@ public class SortPanel<T extends NameProperty> extends HBox implements ModernCli
   /**
    * Instantiates a new sort panel.
    *
-   * @param parent
-   *          the parent
-   * @param sortModel
-   *          the sort model
-   * @param filterModel
-   *          the filter model
-   * @param viewModel
-   *          the view model
+   * @param parent the parent
+   * @param sortModel the sort model
+   * @param filterModel the filter model
+   * @param viewModel the view model
    */
-  public SortPanel(ModernWindow parent, SortModel<T> sortModel, FilterModel filterModel, ViewModel viewModel) {
+  public SortPanel(ModernWindow parent, SortModel<T> sortModel,
+      FilterModel filterModel, ViewModel viewModel) {
     mSortModel = sortModel;
     mViewModel = viewModel;
 
@@ -212,7 +214,8 @@ public class SortPanel<T extends NameProperty> extends HBox implements ModernCli
     // add(expandButton);
 
     // sortFieldMenuButton = new ModernHiddenComboBox("Array Design", popup);
-    // mSortFieldMenuButton = new ModernDropDownMenuLabelButton("Sort by", popup);
+    // mSortFieldMenuButton = new ModernDropDownMenuLabelButton("Sort by",
+    // popup);
     mSortFieldMenuButton = new ModernComboBox(mPopup);
     mSortFieldMenuButton.addClickListener(this);
     UI.setSize(mSortFieldMenuButton, 250, ModernWidget.WIDGET_HEIGHT);
@@ -274,8 +277,8 @@ public class SortPanel<T extends NameProperty> extends HBox implements ModernCli
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     if (e.getSource().equals(mSortDirectionButton)) {

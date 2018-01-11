@@ -59,8 +59,7 @@ public class ColorSwatchButton extends ModernDialogFlatDropDownButton {
   /**
    * Instantiates a new color swatch button.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public ColorSwatchButton(ModernWindow parent) {
     this(parent, Color.BLACK);
@@ -69,10 +68,8 @@ public class ColorSwatchButton extends ModernDialogFlatDropDownButton {
   /**
    * Instantiates a new color swatch button.
    *
-   * @param parent
-   *          the parent
-   * @param color
-   *          the color
+   * @param parent the parent
+   * @param color the color
    */
   public ColorSwatchButton(ModernWindow parent, Color color) {
     super("Color Swatch");
@@ -88,8 +85,8 @@ public class ColorSwatchButton extends ModernDialogFlatDropDownButton {
      * repaint();
      * 
      * if (e.getMessage().equals(ColorSelectionModel.COLOR_CHANGED)) {
-     * fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED)); }
-     * }});
+     * fireClicked(new ModernClickEvent(this,
+     * ColorSelectionModel.COLOR_CHANGED)); } }});
      */
 
     setMenu(mPopup);
@@ -116,8 +113,8 @@ public class ColorSwatchButton extends ModernDialogFlatDropDownButton {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -138,8 +135,8 @@ public class ColorSwatchButton extends ModernDialogFlatDropDownButton {
     // g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
     // g2.drawRect(x, y, 32, Resources.ICON_SIZE_16);
 
-    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, getWidth() - 16,
-        (getHeight() - 16) / 2, 16);
+    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
+        .drawIcon(g2, getWidth() - 16, (getHeight() - 16) / 2, 16);
   }
 
   /**
@@ -154,8 +151,7 @@ public class ColorSwatchButton extends ModernDialogFlatDropDownButton {
   /**
    * Sets the selected color.
    *
-   * @param color
-   *          the new selected color
+   * @param color the new selected color
    */
   public void setSelectedColor(Color color) {
     mPopup.setSelectedColor(color);

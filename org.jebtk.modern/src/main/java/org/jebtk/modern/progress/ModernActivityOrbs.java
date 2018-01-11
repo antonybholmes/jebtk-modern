@@ -103,7 +103,8 @@ public class ModernActivityOrbs extends ModernWidget {
   /**
    * The constant COLOR.
    */
-  private static final Color COLOR = SettingsService.getInstance().getAsColor("theme.activity-bar.dot-color");
+  private static final Color COLOR = SettingsService.getInstance()
+      .getAsColor("theme.activity-bar.dot-color");
 
   /**
    * The class ProgressWorker.
@@ -152,7 +153,8 @@ public class ModernActivityOrbs extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   public void drawForegroundAAText(Graphics2D g2) {
     int y = getInsets().top + (mInternalRect.getH() - w) / 2;

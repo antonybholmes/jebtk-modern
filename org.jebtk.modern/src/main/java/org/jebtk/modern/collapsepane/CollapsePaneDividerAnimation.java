@@ -42,7 +42,8 @@ public class CollapsePaneDividerAnimation extends HighlightAnimation {
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
     Rectangle r = new Rectangle(widget.getInsets().left, widget.getInsets().top,
-        widget.getWidth() - widget.getInsets().left - widget.getInsets().right, ModernWidget.WIDGET_HEIGHT);
+        widget.getWidth() - widget.getInsets().left - widget.getInsets().right,
+        ModernWidget.WIDGET_HEIGHT);
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
@@ -56,7 +57,9 @@ public class CollapsePaneDividerAnimation extends HighlightAnimation {
         }
 
         g2Temp.translate(0,
-            mPane.mHeaderHeight + (mPane.mExpanded.get(i) ? mPane.mComponents.get(i).getPreferredSize().height : 0));
+            mPane.mHeaderHeight + (mPane.mExpanded.get(i)
+                ? mPane.mComponents.get(i).getPreferredSize().height
+                : 0));
       }
     } finally {
       g2Temp.dispose();

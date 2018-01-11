@@ -38,8 +38,7 @@ public class OrbTabsChangeAnimation extends TranslateXAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public OrbTabsChangeAnimation(ModernWidget tabs) {
     super(tabs);
@@ -69,7 +68,8 @@ public class OrbTabsChangeAnimation extends TranslateXAnimation {
     if (previousIndex > selectedIndex) {
       previousIndex = selectedIndex + 1;
     } else {
-      previousIndex = Mathematics.bound(selectedIndex - 1, 0, mTabs.getTabsModel().getTabCount() - 1);
+      previousIndex = Mathematics
+          .bound(selectedIndex - 1, 0, mTabs.getTabsModel().getTabCount() - 1);
     }
 
     int leftOffset = mTabs.getInsets().left;
@@ -81,7 +81,9 @@ public class OrbTabsChangeAnimation extends TranslateXAnimation {
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void drawTranslation(ModernWidget widget,
+      Graphics2D g2,
+      Object... params) {
     int h = mTabs.getInternalRect().getH();
 
     /*

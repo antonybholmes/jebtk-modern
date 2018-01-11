@@ -29,9 +29,8 @@ package org.jebtk.modern.tree;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.core.tree.TreeNode;
-
 import org.jebtk.core.tree.CheckTreeNode;
+import org.jebtk.core.tree.TreeNode;
 import org.jebtk.modern.theme.RenderMode;
 
 // TODO: Auto-generated Javadoc
@@ -39,8 +38,7 @@ import org.jebtk.modern.theme.RenderMode;
  * Renders the icon as a checkbox.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
 public class ModernTreeCheckNodeRenderer extends TreeNodeFileRenderer {
 
@@ -58,8 +56,7 @@ public class ModernTreeCheckNodeRenderer extends TreeNodeFileRenderer {
   /**
    * Sets the checked.
    *
-   * @param checked
-   *          the new checked
+   * @param checked the new checked
    */
   public void setChecked(boolean checked) {
     mChecked = checked;
@@ -69,8 +66,8 @@ public class ModernTreeCheckNodeRenderer extends TreeNodeFileRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawNodeIcon(Graphics2D g2) {
@@ -94,13 +91,26 @@ public class ModernTreeCheckNodeRenderer extends TreeNodeFileRenderer {
    * 
    * @see
    * org.abh.common.ui.tree.TreeIconNodeRenderer#getRenderer(org.abh.common.ui.
-   * tree.Tree, org.abh.common.tree.TreeNode, boolean, boolean, boolean, boolean,
-   * int, int)
+   * tree.Tree, org.abh.common.tree.TreeNode, boolean, boolean, boolean,
+   * boolean, int, int)
    */
   @Override
-  public ModernTreeNodeRenderer getRenderer(Tree<?> tree, TreeNode<?> node, boolean nodeIsHighlighted,
-      boolean nodeIsSelected, boolean hasFocus, boolean isDragToNode, int depth, int row) {
-    super.getRenderer(tree, node, nodeIsHighlighted, nodeIsSelected, hasFocus, isDragToNode, depth, row);
+  public ModernTreeNodeRenderer getRenderer(Tree<?> tree,
+      TreeNode<?> node,
+      boolean nodeIsHighlighted,
+      boolean nodeIsSelected,
+      boolean hasFocus,
+      boolean isDragToNode,
+      int depth,
+      int row) {
+    super.getRenderer(tree,
+        node,
+        nodeIsHighlighted,
+        nodeIsSelected,
+        hasFocus,
+        isDragToNode,
+        depth,
+        row);
 
     if (node instanceof CheckTreeNode) {
       mIsCheckNode = true;

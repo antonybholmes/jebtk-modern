@@ -43,11 +43,10 @@ public interface ModernCanvasListener extends EventListener {
 
   /**
    * Notify parents to revalidate as the canvas has changed. This implies the
-   * whole underlying structure and or size has changed so it should be completely
-   * re-rendered.
+   * whole underlying structure and or size has changed so it should be
+   * completely re-rendered.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void canvasChanged(ChangeEvent e);
 
@@ -57,16 +56,14 @@ public interface ModernCanvasListener extends EventListener {
    * designed to be less intensive than canvasChanged which will cause
    * revalidation of components.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void redrawCanvas(ChangeEvent e);
 
   /**
    * Notify listeners that they should ensure the scroll point is visible.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void canvasScrolled(ChangeEvent e);
 
@@ -74,8 +71,7 @@ public interface ModernCanvasListener extends EventListener {
    * Notify the parents that the canvas has changed size, but the content is the
    * same. This is designed to be less intensive than canvas changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void canvasResized(ChangeEvent e);
 }

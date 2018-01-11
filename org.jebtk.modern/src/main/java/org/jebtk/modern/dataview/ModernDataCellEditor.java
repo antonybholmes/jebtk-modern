@@ -47,24 +47,22 @@ public abstract class ModernDataCellEditor extends ModernDataEditorListeners {
   /**
    * Returns the editor component.
    *
-   * @param view
-   *          the view
-   * @param value
-   *          the value
-   * @param highlight
-   *          the highlight
-   * @param isSelected
-   *          the is selected
-   * @param hasFocus
-   *          the has focus
-   * @param row
-   *          the row
-   * @param column
-   *          the column
+   * @param view the view
+   * @param value the value
+   * @param highlight the highlight
+   * @param isSelected the is selected
+   * @param hasFocus the has focus
+   * @param row the row
+   * @param column the column
    * @return the cell editor component
    */
-  public abstract Component getCellEditorComponent(ModernData view, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column);
+  public abstract Component getCellEditorComponent(ModernData view,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column);
 
   /**
    * Gets the cell editor value.

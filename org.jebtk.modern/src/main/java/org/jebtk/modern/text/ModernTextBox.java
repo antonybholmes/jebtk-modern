@@ -46,10 +46,10 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.Timer;
 import javax.swing.border.Border;
-import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.event.ChangeListener;
 
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeEventProducer;
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.clipboard.Clipboard;
@@ -71,7 +71,8 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public class ModernTextBox extends ModernCanvas
-    implements Clipboard, TextProperty, KeyListener, MouseListener, MouseMotionListener, ChangeEventProducer {
+    implements Clipboard, TextProperty, KeyListener, MouseListener,
+    MouseMotionListener, ChangeEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -81,7 +82,8 @@ public class ModernTextBox extends ModernCanvas
   /**
    * The constant TEXT_BOX_SIZE.
    */
-  public static final Dimension TEXT_BOX_SIZE = new Dimension(100, ModernWidget.WIDGET_HEIGHT);
+  public static final Dimension TEXT_BOX_SIZE = new Dimension(100,
+      ModernWidget.WIDGET_HEIGHT);
 
   /**
    * The constant DISABLED_COLOR.
@@ -97,7 +99,10 @@ public class ModernTextBox extends ModernCanvas
   private static final int INC_TIMER_SPEED_MS = 50;
 
   /** The Constant DEFAULT_BORDER. */
-  private static final Border DEFAULT_BORDER = UI.createBorder(2); // (2, PADDING, 2, PADDING);
+  private static final Border DEFAULT_BORDER = UI.createBorder(2); // (2,
+                                                                   // PADDING,
+                                                                   // 2,
+                                                                   // PADDING);
 
   /** The Constant CARET_TIMER_SPEED_MS. */
   private static final int CARET_TIMER_SPEED_MS = 600;
@@ -110,10 +115,12 @@ public class ModernTextBox extends ModernCanvas
   /**
    * The member selection color.
    */
-  private Color mSelectionColor = ThemeService.getInstance().colors().getHighlight(4);
+  private Color mSelectionColor = ThemeService.getInstance().colors()
+      .getHighlight(4);
 
   /** The m caret color. */
-  private Color mCaretColor = ThemeService.getInstance().colors().getHighlight(10);
+  private Color mCaretColor = ThemeService.getInstance().colors()
+      .getHighlight(10);
 
   /**
    * The member caret.
@@ -242,8 +249,8 @@ public class ModernTextBox extends ModernCanvas
   /*
    * private class CaretWorker extends SwingWorker<Void, Void> {
    * 
-   * @Override protected Void doInBackground() throws InterruptedException { while
-   * (hasFocus()) { if (mDragCaret == -1) { mShowCaret = !mShowCaret;
+   * @Override protected Void doInBackground() throws InterruptedException {
+   * while (hasFocus()) { if (mDragCaret == -1) { mShowCaret = !mShowCaret;
    * 
    * fireCanvasRedraw(); }
    * 
@@ -315,8 +322,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Instantiates a new modern text box.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernTextBox(String text) {
     setText(text);
@@ -337,7 +343,8 @@ public class ModernTextBox extends ModernCanvas
 
     setBorder(DEFAULT_BORDER);
 
-    setMinimumSize(new Dimension(ModernWidget.WIDGET_HEIGHT, ModernWidget.WIDGET_HEIGHT));
+    setMinimumSize(
+        new Dimension(ModernWidget.WIDGET_HEIGHT, ModernWidget.WIDGET_HEIGHT));
 
     mCaretTimer = new Timer(0, new CaretTask());
     mCaretTimer.setDelay(CARET_TIMER_SPEED_MS);
@@ -366,7 +373,8 @@ public class ModernTextBox extends ModernCanvas
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawTranslatedCanvas(Graphics2D g2, DrawingContext context) {
@@ -374,7 +382,8 @@ public class ModernTextBox extends ModernCanvas
 
     try {
       g2Temp.translate(getInsets().left, getInsets().top);
-      g2Temp.clipRect(-1, -1, getInternalRect().getW(), getInternalRect().getH());
+      g2Temp
+          .clipRect(-1, -1, getInternalRect().getW(), getInternalRect().getH());
       g2Temp.translate(mMinOffset - mOffset, 0);
 
       drawTextBox(g2Temp, context);
@@ -386,10 +395,8 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Draw text box.
    *
-   * @param g2
-   *          the g 2
-   * @param context
-   *          the context
+   * @param g2 the g 2
+   * @param context the context
    */
   public void drawTextBox(Graphics2D g2, DrawingContext context) {
 
@@ -421,8 +428,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Sets the selection color.
    *
-   * @param color
-   *          the new selection color
+   * @param color the new selection color
    */
   public void setSelectionColor(Color color) {
     mSelectionColor = color;
@@ -431,8 +437,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Sets the caret color.
    *
-   * @param color
-   *          the new caret color
+   * @param color the new caret color
    */
   public void setCaretColor(Color color) {
     mCaretColor = color;
@@ -461,8 +466,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Sets the text.
    *
-   * @param v
-   *          the new text
+   * @param v the new text
    */
   public void setText(double v) {
     setText(Double.toString(v));
@@ -471,8 +475,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Sets the text.
    *
-   * @param v
-   *          the new text
+   * @param v the new text
    */
   public void setText(int v) {
     setText(Integer.toString(v));
@@ -497,8 +500,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Append.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public void append(String text) {
     int sc = Math.min(mStartCaret, mEndCaret);
@@ -547,7 +549,8 @@ public class ModernTextBox extends ModernCanvas
     mOffsetArray[0] = 0;
 
     for (int i = 1; i < n; ++i) {
-      // System.err.println("tee hee " + s.substring(0, i) + " " + f.getSize() + " " +
+      // System.err.println("tee hee " + s.substring(0, i) + " " + f.getSize() +
+      // " " +
       // ImageUtils.getStringWidth(f, s.substring(0, i)));
       mOffsetArray[i] = ImageUtils.getStringWidth(f, s.substring(0, i));
     }
@@ -562,8 +565,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Update caret.
    *
-   * @param caret
-   *          the caret
+   * @param caret the caret
    */
   private void updateCaret(int caret) {
     updateCaret(caret, caret, caret);
@@ -572,8 +574,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Update end caret.
    *
-   * @param caret
-   *          the caret
+   * @param caret the caret
    */
   private void updateEndCaret(int caret) {
     updateCaret(mStartCaret, caret, caret);
@@ -582,12 +583,9 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Update caret.
    *
-   * @param start
-   *          the start
-   * @param end
-   *          the end
-   * @param caret
-   *          the caret
+   * @param start the start
+   * @param end the end
+   * @param caret the caret
    */
   private void updateCaret(int start, int end, int caret) {
     mStartCaret = Math.min(start, mBuffer.length());
@@ -598,8 +596,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Sets the editable.
    *
-   * @param editable
-   *          the new editable
+   * @param editable the new editable
    */
   public void setEditable(boolean editable) {
     mEditable = editable;
@@ -617,8 +614,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Determine which character the caret lies between.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the caret from x
    */
   private int getCaretFromX(int x) {
@@ -657,8 +653,8 @@ public class ModernTextBox extends ModernCanvas
      * 
      * if (px <= 0) { return 0; }
      * 
-     * for (int i = 0; i < mBuffer.length() - 1; ++i) { if (px >= p1 && px < p2) {
-     * double l = p2 - p1;
+     * for (int i = 0; i < mBuffer.length() - 1; ++i) { if (px >= p1 && px < p2)
+     * { double l = p2 - p1;
      * 
      * return i + (int)Math.round((px - p1) / l); }
      * 
@@ -671,8 +667,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Returns the x for a caret.
    *
-   * @param c
-   *          the c
+   * @param c the c
    * @return the caret x
    */
   private int getCaretX(int c) {
@@ -700,12 +695,13 @@ public class ModernTextBox extends ModernCanvas
      * 
      * Font f = getFont();
      * 
-     * if (c >= mBuffer.length()) { return PADDING + ImageUtils.getStringWidth(f,
-     * mBuffer.toString()); }
+     * if (c >= mBuffer.length()) { return PADDING +
+     * ImageUtils.getStringWidth(f, mBuffer.toString()); }
      * 
      * int p = 0;
      * 
-     * for (int i = 0; i < c; ++i) { p += ImageUtils.getStringWidth(f, mArray[i]); }
+     * for (int i = 0; i < c; ++i) { p += ImageUtils.getStringWidth(f,
+     * mArray[i]); }
      * 
      * return p + PADDING;
      */
@@ -714,10 +710,8 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Gets the caret X.
    *
-   * @param g2
-   *          the g 2
-   * @param c
-   *          the c
+   * @param g2 the g 2
+   * @param c the c
    * @return the caret X
    */
   private int getCaretX(Graphics2D g2, int c) {
@@ -737,7 +731,8 @@ public class ModernTextBox extends ModernCanvas
     } else if (c >= n) {
       return g2.getFontMetrics().stringWidth(mBuffer.toString());
     } else {
-      return g2.getFontMetrics().stringWidth(mBuffer.toString().substring(0, c));
+      return g2.getFontMetrics()
+          .stringWidth(mBuffer.toString().substring(0, c));
     }
 
     /*
@@ -745,12 +740,13 @@ public class ModernTextBox extends ModernCanvas
      * 
      * Font f = getFont();
      * 
-     * if (c >= mBuffer.length()) { return PADDING + ImageUtils.getStringWidth(f,
-     * mBuffer.toString()); }
+     * if (c >= mBuffer.length()) { return PADDING +
+     * ImageUtils.getStringWidth(f, mBuffer.toString()); }
      * 
      * int p = 0;
      * 
-     * for (int i = 0; i < c; ++i) { p += ImageUtils.getStringWidth(f, mArray[i]); }
+     * for (int i = 0; i < c; ++i) { p += ImageUtils.getStringWidth(f,
+     * mArray[i]); }
      * 
      * return p + PADDING;
      */
@@ -826,8 +822,11 @@ public class ModernTextBox extends ModernCanvas
     Font f = getFont();
 
     mCaretY = getInternalRect().getH();
-    mTextY = ImageUtils.getTextYPosCenter(f, mCaretY); // (getHeight() + mG2.getFontMetrics().getAscent() -
-                                                       // mG2.getFontMetrics().getDescent()) / 2;
+    mTextY = ImageUtils.getTextYPosCenter(f, mCaretY); // (getHeight() +
+                                                       // mG2.getFontMetrics().getAscent()
+                                                       // -
+                                                       // mG2.getFontMetrics().getDescent())
+                                                       // / 2;
 
     mSelectionHeight = mCaretY;
 
@@ -845,7 +844,8 @@ public class ModernTextBox extends ModernCanvas
     if (mAlignment == ModernTextBoxAlignment.LEFT) {
       mMinOffset = 0;
     } else {
-      mMinOffset = getInternalRect().getW() - ImageUtils.getStringWidth(f, mBuffer.toString()) - getInsets().left
+      mMinOffset = getInternalRect().getW()
+          - ImageUtils.getStringWidth(f, mBuffer.toString()) - getInsets().left
           - PADDING;
     }
   }
@@ -885,8 +885,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Flash.
    *
-   * @param flash
-   *          the flash
+   * @param flash the flash
    */
   public void flash(boolean flash) {
     if (flash) {
@@ -910,7 +909,8 @@ public class ModernTextBox extends ModernCanvas
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.graphics.ModernCanvas#canvasKeyPressed(java.awt.event.
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvas#canvasKeyPressed(java.awt.event.
    * KeyEvent)
    */
   @Override
@@ -945,7 +945,8 @@ public class ModernTextBox extends ModernCanvas
 
     mCaretTimer.stop();
 
-    // System.err.println("key " + e.getKeyCode() + " " + KeyEvent.VK_BACK_SPACE);
+    // System.err.println("key " + e.getKeyCode() + " " +
+    // KeyEvent.VK_BACK_SPACE);
 
     int sc;
     int ec;
@@ -1050,15 +1051,15 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Insert char.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   private void insertChar(KeyEvent e) {
     // Process other keys as chars
     int sc = Math.min(mStartCaret, mCaret);
     int ec = Math.max(mStartCaret, mCaret);
 
-    // System.err.println("caret " + mCaret + " " + mStartCaret + " " + mEndCaret);
+    // System.err.println("caret " + mCaret + " " + mStartCaret + " " +
+    // mEndCaret);
 
     if (ec > 0) {
       mBuffer.delete(sc, ec);
@@ -1123,9 +1124,8 @@ public class ModernTextBox extends ModernCanvas
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.event.ChangeEventProducer#removeChangeListener(org.abh.common.
-   * event.ChangeListener)
+   * @see org.abh.common.event.ChangeEventProducer#removeChangeListener(org.abh.
+   * common. event.ChangeListener)
    */
   @Override
   public void removeChangeListener(ChangeListener l) {
@@ -1255,7 +1255,8 @@ public class ModernTextBox extends ModernCanvas
   /*
    * (non-Javadoc)
    * 
-   * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+   * @see
+   * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
    */
   @Override
   public void mouseMoved(MouseEvent e) {

@@ -31,15 +31,15 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class OrbTabsAnimation extends WidgetAnimation {
 
-  private static final Color TEXT_COLOR = ThemeService.getInstance().colors().getHighlight(10);
+  private static final Color TEXT_COLOR = ThemeService.getInstance().colors()
+      .getHighlight(10);
 
   private OrbTabs mTabs;
 
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public OrbTabsAnimation(ModernWidget w) {
     super(w);
@@ -72,7 +72,8 @@ public class OrbTabsAnimation extends WidgetAnimation {
 
       int textY = ModernWidget.getTextYPosCenter(g2, mTabs.getHeight());
 
-      String s = mTabs.getTabsModel().getTab(i).getName().toUpperCase().substring(0, 1);
+      String s = mTabs.getTabsModel().getTab(i).getName().toUpperCase()
+          .substring(0, 1);
 
       g2.drawString(s, x + (h - g2.getFontMetrics().stringWidth(s)) / 2, textY);
 

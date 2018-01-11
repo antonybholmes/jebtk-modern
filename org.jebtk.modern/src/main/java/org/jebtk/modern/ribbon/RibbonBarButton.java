@@ -48,8 +48,7 @@ public class RibbonBarButton extends ModernButton {
   /**
    * Instantiates a new ribbon bar button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public RibbonBarButton(String text1) {
     super(text1);
@@ -58,8 +57,7 @@ public class RibbonBarButton extends ModernButton {
   /**
    * Instantiates a new ribbon bar button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public RibbonBarButton(ModernIcon icon) {
     super(icon);
@@ -68,10 +66,8 @@ public class RibbonBarButton extends ModernButton {
   /**
    * Instantiates a new ribbon bar button.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
+   * @param text1 the text1
+   * @param icon the icon
    */
   public RibbonBarButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -80,7 +76,8 @@ public class RibbonBarButton extends ModernButton {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

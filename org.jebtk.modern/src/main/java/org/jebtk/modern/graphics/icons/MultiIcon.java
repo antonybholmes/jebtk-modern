@@ -51,8 +51,7 @@ public class MultiIcon extends ModernIcon {
   /**
    * Adds the icon.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public void addIcon(ModernIcon icon) {
     mIcons.add(icon);
@@ -63,8 +62,7 @@ public class MultiIcon extends ModernIcon {
   /**
    * Sets the icon.
    *
-   * @param index
-   *          the new icon
+   * @param index the new icon
    */
   public void setIcon(int index) {
     mIcon = mIcons.get(index);
@@ -78,7 +76,12 @@ public class MultiIcon extends ModernIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     mIcon.drawIcon(g2, x, y, w, h);
   }
 

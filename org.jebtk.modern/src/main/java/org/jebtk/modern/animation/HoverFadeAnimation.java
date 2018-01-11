@@ -33,8 +33,7 @@ public abstract class HoverFadeAnimation extends MouseAnimation {
   /**
    * Instantiates a new hover fade animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public HoverFadeAnimation(ModernWidget widget) {
     super(widget);
@@ -44,8 +43,9 @@ public abstract class HoverFadeAnimation extends MouseAnimation {
     /*
      * widget.addFocusListener(new FocusListener() {
      * 
-     * @Override public void focusGained(FocusEvent e) { // If the button regains
-     * focus, it means a dialog etc was mPressed = false; //pseudoMouseExited(); }
+     * @Override public void focusGained(FocusEvent e) { // If the button
+     * regains focus, it means a dialog etc was mPressed = false;
+     * //pseudoMouseExited(); }
      * 
      * @Override public void focusLost(FocusEvent e) {
      * //System.err.println("f loss "); }});
@@ -55,10 +55,8 @@ public abstract class HoverFadeAnimation extends MouseAnimation {
   /**
    * Set a fade in color.
    *
-   * @param name
-   *          the name
-   * @param color
-   *          the color
+   * @param name the name
+   * @param color the color
    */
   public void setFadeColor(String name, Color color) {
     mFade.setFadeColor(name, color);
@@ -84,8 +82,7 @@ public abstract class HoverFadeAnimation extends MouseAnimation {
   /**
    * Gets the fade color map.
    *
-   * @param step
-   *          the step
+   * @param step the step
    * @return the fade color map
    */
   public Map<String, Color> getFadeColorMap(int step) {

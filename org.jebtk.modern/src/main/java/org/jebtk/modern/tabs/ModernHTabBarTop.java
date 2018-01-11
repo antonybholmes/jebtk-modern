@@ -49,8 +49,7 @@ public class ModernHTabBarTop extends ModernHTabBar {
   /**
    * Instantiates a new modern h tab bar top.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernHTabBarTop(TabsModel model) {
     super(model);
@@ -59,7 +58,8 @@ public class ModernHTabBarTop extends ModernHTabBar {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -111,7 +111,9 @@ public class ModernHTabBarTop extends ModernHTabBar {
 
       g2.setColor(TEXT_COLOR);
       g2.drawString(getTabsModel().getTab(i).getName(),
-          tabX + (TAB_WIDTH - ModernWidget.getStringWidth(g2, getTabsModel().getTab(i).getName())) / 2, textY);
+          tabX + (TAB_WIDTH - ModernWidget.getStringWidth(g2,
+              getTabsModel().getTab(i).getName())) / 2,
+          textY);
 
       tabX += TAB_WIDTH;
     }

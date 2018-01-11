@@ -81,7 +81,8 @@ public class ModernDataGridView extends ModernData {
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -157,8 +158,7 @@ public class ModernDataGridView extends ModernData {
   /**
    * Returns the cumulative distance from 0 of a particular col.
    *
-   * @param col
-   *          the col
+   * @param col the col
    * @return the x
    */
   @Override
@@ -170,8 +170,7 @@ public class ModernDataGridView extends ModernData {
   /**
    * Returns the cumulative distance from 0 of a particular row.
    *
-   * @param row
-   *          the row
+   * @param row the row
    * @return the y
    */
   @Override
@@ -232,12 +231,11 @@ public class ModernDataGridView extends ModernData {
   }
 
   /**
-   * Provides a standard method for rendering the cells. This method ensures only
-   * visible cells are rendered, which is improves drawing time since it wastes a
-   * lot of effort drawing cells no one can see.
+   * Provides a standard method for rendering the cells. This method ensures
+   * only visible cells are rendered, which is improves drawing time since it
+   * wastes a lot of effort drawing cells no one can see.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    */
   public void createImage(Graphics2D g2) {
     ModernDataCellRenderer renderer;
@@ -250,7 +248,8 @@ public class ModernDataGridView extends ModernData {
     // all non visible cells
     translate(g2Table);
 
-    for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i) {
+    for (int i = visibleCells.getStartRow(); i <= visibleCells
+        .getEndRow(); ++i) {
       if (i >= getRowCount()) {
         break;
       }
@@ -266,8 +265,13 @@ public class ModernDataGridView extends ModernData {
 
         renderer = mCellRendererModel.get(i, j);
 
-        Component c = renderer.getCellRendererComponent(this, getValueAt(index, 0), index == mHighlightCellIndex,
-            mSelectionModel.contains(index, 0), this.isFocusOwner(), index, 0);
+        Component c = renderer.getCellRendererComponent(this,
+            getValueAt(index, 0),
+            index == mHighlightCellIndex,
+            mSelectionModel.contains(index, 0),
+            this.isFocusOwner(),
+            index,
+            0);
 
         c.setSize(mCellSize);
 
@@ -371,7 +375,8 @@ public class ModernDataGridView extends ModernData {
       return -1;
     }
 
-    return (int) (p.getY() / mCellSize.height * mCols + p.getX() / mCellSize.width);
+    return (int) (p.getY() / mCellSize.height * mCols
+        + p.getX() / mCellSize.width);
   }
 
   /*
@@ -396,24 +401,24 @@ public class ModernDataGridView extends ModernData {
   /**
    * Selects a cell if the mouse is over a valid cell when clicked.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
-   * @param multiItemSelect
-   *          the multi item select
-   * @param multiRangeSelect
-   *          the multi range select
+   * @param row the row
+   * @param col the col
+   * @param multiItemSelect the multi item select
+   * @param multiRangeSelect the multi range select
    */
   @Override
-  public void setSelectedCell(int row, int col, boolean multiItemSelect, boolean multiRangeSelect) {
+  public void setSelectedCell(int row,
+      int col,
+      boolean multiItemSelect,
+      boolean multiRangeSelect) {
     int index = getIndex(row, col);
 
     if (index == -1) {
       return;
     }
 
-    if ((!multiItemSelect && !multiRangeSelect) || mSelectionPolicy != SelectionPolicy.MULTIPLE) {
+    if ((!multiItemSelect && !multiRangeSelect)
+        || mSelectionPolicy != SelectionPolicy.MULTIPLE) {
       // If we are not selecting multiple cells, clear
       // the current selection
       mSelectionModel.clear();
@@ -428,12 +433,14 @@ public class ModernDataGridView extends ModernData {
       } else {
         mSelectionModel.getRowSelectionModel().add(index);
       }
-    } else if (multiRangeSelect && mSelectionModel.getRowSelectionModel().size() > 0) {
+    } else if (multiRangeSelect
+        && mSelectionModel.getRowSelectionModel().size() > 0) {
       // since we are adding intermediates, we do not
       // add the current first and last in duplicate,
       // hence the index begins one past the min and
       // ends one before the max
-      mSelectionModel.getRowSelectionModel().setSelectionInterval(mSelectionModel.getRowSelectionModel().first(),
+      mSelectionModel.getRowSelectionModel().setSelectionInterval(
+          mSelectionModel.getRowSelectionModel().first(),
           index);
     } else {
       mSelectionModel.getRowSelectionModel().add(index);
@@ -462,7 +469,8 @@ public class ModernDataGridView extends ModernData {
     p.x -= getViewRect().getX();
     p.y -= getViewRect().getY();
 
-    Rectangle b = new Rectangle(getInsets().left + p.x, getInsets().top + p.y, mCellSize.width, mCellSize.height);
+    Rectangle b = new Rectangle(getInsets().left + p.x, getInsets().top + p.y,
+        mCellSize.width, mCellSize.height);
 
     mCurrentEditorComponent.setBounds(b);
   }
@@ -488,8 +496,7 @@ public class ModernDataGridView extends ModernData {
   /**
    * Key pressed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void keyPressed(KeyEvent e) {
     if (e.getKeyCode() == KeyEvent.VK_A && e.isControlDown()) {
@@ -513,7 +520,8 @@ public class ModernDataGridView extends ModernData {
    * Selects all cells or rows depending on the table type.
    */
   public void selectAll() {
-    mSelectionModel.getRowSelectionModel().setSelectionInterval(0, mModel.getRowCount() - 1);
+    mSelectionModel.getRowSelectionModel().setSelectionInterval(0,
+        mModel.getRowCount() - 1);
     mSelectionModel.getColumnSelectionModel().setSelection(0);
   }
 
@@ -533,8 +541,7 @@ public class ModernDataGridView extends ModernData {
   /**
    * Key released.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void keyReleased(KeyEvent e) {
 
@@ -543,8 +550,7 @@ public class ModernDataGridView extends ModernData {
   /**
    * Key typed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void keyTyped(KeyEvent e) {
     // TODO Auto-generated method stub
@@ -553,13 +559,11 @@ public class ModernDataGridView extends ModernData {
 
   /**
    * Returns the value at a given row, col on the table. Since the table may be
-   * sorted, getValue may return a different value to getModel().getValue() since
-   * that returns the ordering of the data as it was loaded.
+   * sorted, getValue may return a different value to getModel().getValue()
+   * since that returns the ordering of the data as it was loaded.
    *
-   * @param i
-   *          the i
-   * @param j
-   *          the j
+   * @param i the i
+   * @param j the j
    * @return the value at
    */
   public Object getValueAt(int i, int j) {
@@ -572,15 +576,12 @@ public class ModernDataGridView extends ModernData {
 
   /**
    * Returns the value at a given row, col on the table. Since the table may be
-   * sorted, getValue may return a different value to getModel().getValue() since
-   * that returns the ordering of the data as it was loaded.
+   * sorted, getValue may return a different value to getModel().getValue()
+   * since that returns the ordering of the data as it was loaded.
    *
-   * @param i
-   *          the i
-   * @param j
-   *          the j
-   * @param value
-   *          the value
+   * @param i the i
+   * @param j the j
+   * @param value the value
    */
   public void setValueAt(int i, int j, Object value) {
     if (mModel == null) {
@@ -592,11 +593,10 @@ public class ModernDataGridView extends ModernData {
 
   /**
    * Converts a row to that of the model. If a sort model is in use, this method
-   * will map the selected row to the actual row it corresponds to in the unsorted
-   * model.
+   * will map the selected row to the actual row it corresponds to in the
+   * unsorted model.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the model row index
    */
   public int getModelRowIndex(int i) {
@@ -606,8 +606,7 @@ public class ModernDataGridView extends ModernData {
   /**
    * Gets the original row.
    *
-   * @param row
-   *          the row
+   * @param row the row
    * @return the original row
    */
   public int getOriginalRow(int row) {
@@ -617,8 +616,7 @@ public class ModernDataGridView extends ModernData {
   /**
    * Set the renderer which determines how grid/list items appear.
    *
-   * @param renderer
-   *          the new cell renderer
+   * @param renderer the new cell renderer
    */
   public void setCellRenderer(ModernDataCellRenderer renderer) {
     getRendererModel().setDefault(renderer);
@@ -627,8 +625,7 @@ public class ModernDataGridView extends ModernData {
   /**
    * Sets the cell size.
    *
-   * @param dimension
-   *          the new cell size
+   * @param dimension the new cell size
    */
   public void setCellSize(Dimension dimension) {
     if (dimension == null) {
@@ -641,10 +638,8 @@ public class ModernDataGridView extends ModernData {
   /**
    * Sets the cell size.
    *
-   * @param width
-   *          the width
-   * @param height
-   *          the height
+   * @param width the width
+   * @param height the height
    */
   public void setCellSize(int width, int height) {
     mCellSize.width = width;

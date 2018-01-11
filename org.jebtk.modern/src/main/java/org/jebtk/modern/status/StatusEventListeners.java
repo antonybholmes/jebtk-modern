@@ -36,7 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class StatusEventListeners extends EventProducer<StatusEventListener> implements StatusEventProducer {
+public class StatusEventListeners extends EventProducer<StatusEventListener>
+    implements StatusEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -58,8 +59,8 @@ public class StatusEventListeners extends EventProducer<StatusEventListener> imp
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.status.StatusEventProducer#removeStatusListener(org.abh
-   * .lib.ui.modern.status.StatusEventListener)
+   * org.abh.lib.ui.modern.status.StatusEventProducer#removeStatusListener(org.
+   * abh .lib.ui.modern.status.StatusEventListener)
    */
   public void removeStatusListener(StatusEventListener l) {
     mListeners.remove(l);

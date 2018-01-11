@@ -39,7 +39,8 @@ import org.jebtk.core.event.ChangeListeners;
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernChangeWidget extends ModernClickWidget implements ChangeEventProducer {
+public abstract class ModernChangeWidget extends ModernClickWidget
+    implements ChangeEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -74,8 +75,8 @@ public abstract class ModernChangeWidget extends ModernClickWidget implements Ch
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.event.
-   * ChangeListener)
+   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.
+   * event. ChangeListener)
    */
   @Override
   public void removeChangeListener(ChangeListener l) {

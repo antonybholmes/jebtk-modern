@@ -39,7 +39,8 @@ import java.util.Map;
  *
  * @author Antony Holmes Holmes
  */
-public class LayerModel extends LayerEventListeners implements Iterable<String> {
+public class LayerModel extends LayerEventListeners
+    implements Iterable<String> {
 
   /**
    * The constant serialVersionUID.
@@ -71,8 +72,7 @@ public class LayerModel extends LayerEventListeners implements Iterable<String> 
   /**
    * Adds the layer.
    *
-   * @param layer
-   *          the layer
+   * @param layer the layer
    */
   public final void addLayer(String layer) {
     mIndexMap.put(layer, mLayers.size());
@@ -85,8 +85,7 @@ public class LayerModel extends LayerEventListeners implements Iterable<String> 
   /**
    * Remove a selected node.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   public void removeLayer(int index) {
     mIndexMap.remove(mLayers.get(index));
@@ -99,10 +98,8 @@ public class LayerModel extends LayerEventListeners implements Iterable<String> 
   /**
    * Sets the visible.
    *
-   * @param name
-   *          the name
-   * @param visible
-   *          the visible
+   * @param name the name
+   * @param visible the visible
    */
   public void setVisible(String name, boolean visible) {
     if (mIndexMap.containsKey(name)) {
@@ -113,10 +110,8 @@ public class LayerModel extends LayerEventListeners implements Iterable<String> 
   /**
    * Sets the visible.
    *
-   * @param index
-   *          the index
-   * @param visible
-   *          the visible
+   * @param index the index
+   * @param visible the visible
    */
   public void setVisible(int index, boolean visible) {
     if (index < 0 || index >= mLayers.size()) {
@@ -133,8 +128,7 @@ public class LayerModel extends LayerEventListeners implements Iterable<String> 
   /**
    * Checks if is visible.
    *
-   * @param name
-   *          the name
+   * @param name the name
    * @return true, if is visible
    */
   public boolean isVisible(String name) {
@@ -148,8 +142,7 @@ public class LayerModel extends LayerEventListeners implements Iterable<String> 
   /**
    * Checks if is visible.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return true, if is visible
    */
   public boolean isVisible(int index) {
@@ -172,8 +165,7 @@ public class LayerModel extends LayerEventListeners implements Iterable<String> 
   /**
    * Gets the.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the string
    */
   public String get(int i) {
@@ -193,10 +185,8 @@ public class LayerModel extends LayerEventListeners implements Iterable<String> 
   /**
    * Adds the layer.
    *
-   * @param name
-   *          the name
-   * @param visible
-   *          the visible
+   * @param name the name
+   * @param visible the visible
    */
   public void addLayer(String name, boolean visible) {
     addLayer(name);

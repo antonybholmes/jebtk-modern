@@ -52,10 +52,8 @@ public class ModernDropDownIconButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern drop down button icon only.
    *
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param icon the icon
+   * @param menu the menu
    */
   public ModernDropDownIconButton(ModernIcon icon, ModernPopupMenu menu) {
     super(icon, menu);
@@ -64,8 +62,7 @@ public class ModernDropDownIconButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern drop down button icon only.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernDropDownIconButton(ModernIcon icon) {
     super(icon);
@@ -75,8 +72,8 @@ public class ModernDropDownIconButton extends ModernDropDownButton {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -86,10 +83,12 @@ public class ModernDropDownIconButton extends ModernDropDownButton {
 
     int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
 
-    mIcon.drawIcon(g2, new Rectangle(iconX, iconY, UIService.ICON_SIZE_16, UIService.ICON_SIZE_16));
+    mIcon.drawIcon(g2,
+        new Rectangle(iconX, iconY, UIService.ICON_SIZE_16,
+            UIService.ICON_SIZE_16));
 
-    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, mRect.getW() - 16,
-        (getHeight() - 16) / 2, 16);
+    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
+        .drawIcon(g2, mRect.getW() - 16, (getHeight() - 16) / 2, 16);
   }
 
 }

@@ -23,7 +23,8 @@ import org.jebtk.modern.animation.FadeAnimation;
 import org.jebtk.modern.animation.MousePressReleaseStepAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class ListPanelItemPressedAnimation extends MousePressReleaseStepAnimation {
+public class ListPanelItemPressedAnimation
+    extends MousePressReleaseStepAnimation {
 
   private FadeAnimation mFade;
 
@@ -34,7 +35,8 @@ public class ListPanelItemPressedAnimation extends MousePressReleaseStepAnimatio
 
     mFade.setFadeColor("line", ModernWidget.DARK_LINE_COLOR);
 
-    mFade.setFadeColor("highlight", ColorUtils.getTransparentColor(Color.BLACK, 0.92));
+    mFade.setFadeColor("highlight",
+        ColorUtils.getTransparentColor(Color.BLACK, 0.92));
   }
 
   @Override

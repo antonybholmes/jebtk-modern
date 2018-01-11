@@ -40,8 +40,7 @@ public class ColorMapIcon extends ModernVectorIcon {
   /**
    * Instantiates a new color map icon.
    *
-   * @param colorMap
-   *          the color map
+   * @param colorMap the color map
    */
   public ColorMapIcon(ColorMap colorMap) {
     mColorMap = colorMap;
@@ -55,14 +54,19 @@ public class ColorMapIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
 
     w = w - 2;
     h = h / 3;
     y = (h - h / 3) / 2;
 
-    LinearGradientPaint paint = mColorMap.getAnchorColors().toGradientPaint(new Point2D.Float(x, 0),
-        new Point2D.Float(x + w, 0));
+    LinearGradientPaint paint = mColorMap.getAnchorColors()
+        .toGradientPaint(new Point2D.Float(x, 0), new Point2D.Float(x + w, 0));
 
     g2.setPaint(paint);
     g2.fillRect(x, y, w, h);
@@ -75,7 +79,8 @@ public class ColorMapIcon extends ModernVectorIcon {
      * 
      * x = x + 1;
      * 
-     * for (int i = 0; i < w; ++i) { g2.setColor(mColorMap.getColorByIndex((int)c));
+     * for (int i = 0; i < w; ++i) {
+     * g2.setColor(mColorMap.getColorByIndex((int)c));
      * 
      * g2.drawLine(x, y + 1, x, y + h - 2);
      * 

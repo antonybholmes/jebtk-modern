@@ -55,13 +55,13 @@ public class ModernTitleIconMenuItem extends ModernMenuItem {
   /**
    * The constant BACKGROUND.
    */
-  private static final Color BACKGROUND = ThemeService.getInstance().colors().getHighlight(2);
+  private static final Color BACKGROUND = ThemeService.getInstance().colors()
+      .getHighlight(2);
 
   /**
    * Instantiates a new modern title icon menu item.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernTitleIconMenuItem(String text) {
     super(text);
@@ -74,12 +74,14 @@ public class ModernTitleIconMenuItem extends ModernMenuItem {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override
   public void drawBackground(Graphics2D g2) {
-    Rectangle rect = new Rectangle(getHeight(), 0, getWidth() - getHeight(), getHeight());
+    Rectangle rect = new Rectangle(getHeight(), 0, getWidth() - getHeight(),
+        getHeight());
 
     fill(g2, BACKGROUND, rect);
   }
@@ -94,6 +96,8 @@ public class ModernTitleIconMenuItem extends ModernMenuItem {
   public void drawForegroundAAText(Graphics2D g2) {
     g2.setColor(TEXT_COLOR);
 
-    g2.drawString(mDisplayText, OFFSET + getHeight(), getTextYPosCenter(g2, getHeight()));
+    g2.drawString(mDisplayText,
+        OFFSET + getHeight(),
+        getTextYPosCenter(g2, getHeight()));
   }
 }

@@ -31,11 +31,23 @@ public class ButtonFillAnimation extends HoverFadeAnimation {
     if (widget.isEnabled()) {
       IntRect rect = widget.getInternalRect();
 
-      drawButtonFill(g2, rect.getX(), rect.getY(), rect.getW(), rect.getH(), mButton.getRenderMode(), false);
+      drawButtonFill(g2,
+          rect.getX(),
+          rect.getY(),
+          rect.getW(),
+          rect.getH(),
+          mButton.getRenderMode(),
+          false);
     }
   }
 
-  public void drawButtonFill(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawButtonFill(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     // if (mode == RenderMode.NONE && !hasFocus) {
     // return;
     // }

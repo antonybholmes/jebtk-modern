@@ -67,8 +67,8 @@ public class FilterVectorIcon extends ModernVectorScalableIcon {
   /**
    * The constant FUNNEL_HEIGHT_SCALE.
    */
-  private static final double FUNNEL_HEIGHT_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.filter-icon.funnel-height-scale");
+  private static final double FUNNEL_HEIGHT_SCALE = SettingsService
+      .getInstance().getAsDouble("theme.icons.filter-icon.funnel-height-scale");
 
   /**
    * The constant SPOUT_SCALE.
@@ -94,8 +94,7 @@ public class FilterVectorIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new filter vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public FilterVectorIcon(Color color) {
     this(color, color);
@@ -104,10 +103,8 @@ public class FilterVectorIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new filter vector icon.
    *
-   * @param line
-   *          the line
-   * @param fill
-   *          the fill
+   * @param line the line
+   * @param fill the fill
    */
   public FilterVectorIcon(Color line, Color fill) {
     mColor = line;
@@ -122,7 +119,12 @@ public class FilterVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     double hf = h * HEIGHT_SCALE;
     double wf = h * WIDTH_SCALE;
 

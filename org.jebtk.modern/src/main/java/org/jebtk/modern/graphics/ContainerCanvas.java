@@ -34,7 +34,6 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.core.geom.IntRect;
 
@@ -47,7 +46,8 @@ import org.jebtk.core.geom.IntRect;
  * @author Antony Holmes Holmes
  *
  */
-public class ContainerCanvas extends ModernCanvas implements ModernCanvasListener, CanvasCursorListener {
+public class ContainerCanvas extends ModernCanvas
+    implements ModernCanvasListener, CanvasCursorListener {
 
   /**
    * The constant serialVersionUID.
@@ -62,8 +62,7 @@ public class ContainerCanvas extends ModernCanvas implements ModernCanvasListene
   /**
    * Instantiates a new container canvas.
    *
-   * @param canvas
-   *          the canvas
+   * @param canvas the canvas
    */
   public ContainerCanvas(ModernCanvas canvas) {
     mCanvas = canvas;
@@ -127,8 +126,8 @@ public class ContainerCanvas extends ModernCanvas implements ModernCanvasListene
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasChanged(org.abh.lib
-   * .event.ChangeEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasChanged(org.abh.
+   * lib .event.ChangeEvent)
    */
   @Override
   public void canvasChanged(ChangeEvent e) {
@@ -140,8 +139,8 @@ public class ContainerCanvas extends ModernCanvas implements ModernCanvasListene
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#redrawCanvas(org.abh.lib.
-   * event.ChangeEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#redrawCanvas(org.abh.
+   * lib. event.ChangeEvent)
    */
   @Override
   public void redrawCanvas(ChangeEvent e) {
@@ -165,9 +164,8 @@ public class ContainerCanvas extends ModernCanvas implements ModernCanvasListene
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.common.
-   * event.ChangeEvent)
+   * @see org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.
+   * common. event.ChangeEvent)
    */
   @Override
   public void canvasResized(ChangeEvent e) {
@@ -251,9 +249,8 @@ public class ContainerCanvas extends ModernCanvas implements ModernCanvasListene
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.CanvasCursorListener#cursorChanged(org.abh.common.
-   * ui.graphics.CanvasCursorEvent)
+   * @see org.abh.common.ui.graphics.CanvasCursorListener#cursorChanged(org.abh.
+   * common. ui.graphics.CanvasCursorEvent)
    */
   @Override
   public void cursorChanged(CanvasCursorEvent e) {

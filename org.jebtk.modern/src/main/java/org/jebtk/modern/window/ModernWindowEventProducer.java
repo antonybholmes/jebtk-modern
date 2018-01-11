@@ -40,32 +40,28 @@ public interface ModernWindowEventProducer {
   /**
    * Add an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addWindowListener(ModernWindowListener l);
 
   /**
    * Remove an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeWindowListener(ModernWindowListener l);
 
   /**
    * fire an event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireWindowAdded(ChangeEvent event);
 
   /**
    * Fire window removed.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireWindowRemoved(ChangeEvent event);
 }

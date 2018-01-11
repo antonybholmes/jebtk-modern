@@ -31,11 +31,23 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
     if (widget.isEnabled()) {
       IntRect rect = widget.getInternalRect();
 
-      drawButtonOutline(g2, rect.getX(), rect.getY(), rect.getW(), rect.getH(), mButton.getRenderMode(), false);
+      drawButtonOutline(g2,
+          rect.getX(),
+          rect.getY(),
+          rect.getW(),
+          rect.getH(),
+          mButton.getRenderMode(),
+          false);
     }
   }
 
-  public void drawButtonOutline(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawButtonOutline(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     // if (mode == RenderMode.NONE && !hasFocus) {
     // return;
     // }

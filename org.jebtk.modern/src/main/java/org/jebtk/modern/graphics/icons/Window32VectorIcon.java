@@ -72,8 +72,7 @@ public class Window32VectorIcon extends ModernVectorIcon {
   /**
    * Instantiates a new window32 vector icon.
    *
-   * @param barColor
-   *          the bar color
+   * @param barColor the bar color
    */
   public Window32VectorIcon(Color barColor) {
     mBarColor = barColor;
@@ -87,7 +86,12 @@ public class Window32VectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     x = x + (w - WIDTH) / 2;
     y = y + (h - HEIGHT) / 2;
 

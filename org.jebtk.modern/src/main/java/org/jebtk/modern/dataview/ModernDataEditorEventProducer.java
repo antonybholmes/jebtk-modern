@@ -40,24 +40,21 @@ public interface ModernDataEditorEventProducer {
   /**
    * Adds the editor listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addEditorListener(ModernDataEditorListener l);
 
   /**
    * Removes the editor listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeEditorListener(ModernDataEditorListener l);
 
   /**
    * Fire changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireChanged(ChangeEvent e);
 

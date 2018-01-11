@@ -44,7 +44,8 @@ public abstract class ArrowVectorIcon extends ModernVectorIcon {
   /**
    * The constant SCALE.
    */
-  protected static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.arrow-icon.width-scale");
+  protected static final double SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.arrow-icon.width-scale");
 
   /**
    * The color.
@@ -61,8 +62,7 @@ public abstract class ArrowVectorIcon extends ModernVectorIcon {
   /**
    * Instantiates a new arrow vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public ArrowVectorIcon(Color color) {
     mColor = color;

@@ -60,8 +60,7 @@ public class LogTablePanel extends ModernWidget implements LogEventListener {
   /**
    * Instantiates a new log table panel.
    *
-   * @param log
-   *          the log
+   * @param log the log
    */
   public LogTablePanel(Log log) {
     model = new LogTableModel();

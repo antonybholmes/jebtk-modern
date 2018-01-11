@@ -31,8 +31,8 @@ public abstract class SelectedAnimation extends TimerAnimation {
    * The listener interface for receiving click events. The class that is
    * interested in processing a click event implements this interface, and the
    * object created with that class is registered with a component using the
-   * component's <code>addClickListener<code> method. When the click event occurs,
-   * that object's appropriate method is invoked.
+   * component's <code>addClickListener<code> method. When the click event
+   * occurs, that object's appropriate method is invoked.
    *
    * @see ClickEvent
    */
@@ -47,8 +47,7 @@ public abstract class SelectedAnimation extends TimerAnimation {
   /**
    * Instantiates a new click animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public SelectedAnimation(ModernClickWidget widget) {
     super(widget);

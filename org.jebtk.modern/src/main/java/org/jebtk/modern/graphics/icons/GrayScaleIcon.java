@@ -45,8 +45,7 @@ public class GrayScaleIcon {
   /**
    * Convert.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    * @return the modern icon
    */
   public static ModernIcon convert(ModernIcon icon) {
@@ -62,8 +61,7 @@ public class GrayScaleIcon {
   /**
    * Convert.
    *
-   * @param image
-   *          the image
+   * @param image the image
    * @return the image
    */
   public static Image convert(BufferedImage image) {
@@ -72,10 +70,12 @@ public class GrayScaleIcon {
     }
 
     // ImageFilter filter = new GrayFilter(true, 50);
-    // ImageProducer producer = new FilteredImageSource(image.getSource(), filter);
+    // ImageProducer producer = new FilteredImageSource(image.getSource(),
+    // filter);
     // Image grayImg = Toolkit.getDefaultToolkit().createImage(producer);
 
-    BufferedImageOp op = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
+    BufferedImageOp op = new ColorConvertOp(
+        ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
     Image grayImage = op.filter(image, null);
 
     return grayImage;

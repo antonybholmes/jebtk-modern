@@ -35,15 +35,15 @@ public class BlockVertHighlightAnimation extends HighlightAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public BlockVertHighlightAnimation(ModernWidget segments) {
     super((BlockVertTabs) segments);
 
     mTabs = (BlockVertTabs) segments;
 
-    getFade().setFadeColor("fill", MaterialService.getInstance().color("gray-highlighted"));
+    getFade().setFadeColor("fill",
+        MaterialService.getInstance().color("gray-highlighted"));
   }
 
   /*
@@ -55,7 +55,8 @@ public class BlockVertHighlightAnimation extends HighlightAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-    int x = mTabs.getInsets().left; // + widget.getWidth() - SegmentChangeAnimation.HEIGHT;
+    int x = mTabs.getInsets().left; // + widget.getWidth() -
+                                    // SegmentChangeAnimation.HEIGHT;
     int y = mTabs.getInsets().top + mTabs.mOffset;
 
     int n = mTabs.getTabsModel().getTabCount();
@@ -66,7 +67,8 @@ public class BlockVertHighlightAnimation extends HighlightAnimation {
     // Draw if highlighted
     //
 
-    if (mTabs.mHighlight > -1 && mTabs.mHighlight < n) { // && mTabs.mHighlight != selectedIndex) {
+    if (mTabs.mHighlight > -1 && mTabs.mHighlight < n) { // && mTabs.mHighlight
+                                                         // != selectedIndex) {
       // g2.setColor(TEXT_TAB_HIGHLIGHT_COLOR);
       // //getRenderer().getHighlightFillColor()); //TEXT_TAB_HIGHLIGHT_COLOR);
       // g2.fillRect(x, y + mHighlight * mTabSize, w, mTabSize);

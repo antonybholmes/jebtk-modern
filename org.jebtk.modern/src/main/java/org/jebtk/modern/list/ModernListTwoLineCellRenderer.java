@@ -39,8 +39,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * used with standard JTables as well.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
 public class ModernListTwoLineCellRenderer extends ModernListIconCellRenderer {
 
@@ -69,8 +68,7 @@ public class ModernListTwoLineCellRenderer extends ModernListIconCellRenderer {
   /**
    * Instantiates a new modern list two line cell renderer.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernListTwoLineCellRenderer(ModernIcon icon) {
     super(icon);
@@ -80,8 +78,8 @@ public class ModernListTwoLineCellRenderer extends ModernListIconCellRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.list.ModernListIconCellRenderer#drawForegroundAA(java.
-   * awt.Graphics2D)
+   * org.abh.lib.ui.modern.list.ModernListIconCellRenderer#drawForegroundAA(
+   * java. awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -124,8 +122,12 @@ public class ModernListTwoLineCellRenderer extends ModernListIconCellRenderer {
    * getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList,
    * java.lang.Object, boolean, boolean, boolean, int)
    */
-  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row) {
+  public Component getCellRendererComponent(ModernList<?> list,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row) {
 
     if (isSelected) {
       color2 = TEXT_COLOR;
@@ -133,16 +135,19 @@ public class ModernListTwoLineCellRenderer extends ModernListIconCellRenderer {
       color2 = ALT_TEXT_COLOR;
     }
 
-    return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
+    return super.getCellRendererComponent(list,
+        value,
+        highlight,
+        isSelected,
+        hasFocus,
+        row);
   }
 
   /**
    * Sets the text.
    *
-   * @param text
-   *          the text
-   * @param text2
-   *          the text2
+   * @param text the text
+   * @param text2 the text2
    */
   protected void setText(String text, String text2) {
     setText(text);

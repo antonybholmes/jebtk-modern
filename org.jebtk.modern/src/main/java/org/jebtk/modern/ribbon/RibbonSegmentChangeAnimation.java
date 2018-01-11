@@ -40,8 +40,7 @@ public class RibbonSegmentChangeAnimation extends TranslateYAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public RibbonSegmentChangeAnimation(ModernWidget tabs) {
     super(tabs);
@@ -72,15 +71,19 @@ public class RibbonSegmentChangeAnimation extends TranslateYAnimation {
       previousIndex = selectedIndex;
     }
 
-    int y1 = mTabs.getInsets().top + previousIndex * RibbonSegmentVertTabs.TAB_SIZE;
+    int y1 = mTabs.getInsets().top
+        + previousIndex * RibbonSegmentVertTabs.TAB_SIZE;
 
-    int y2 = mTabs.getInsets().top + selectedIndex * RibbonSegmentVertTabs.TAB_SIZE;
+    int y2 = mTabs.getInsets().top
+        + selectedIndex * RibbonSegmentVertTabs.TAB_SIZE;
 
     restart(y1, y2);
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void drawTranslation(ModernWidget widget,
+      Graphics2D g2,
+      Object... params) {
     /*
      * int w = mTabs.getInternalRect().getW();
      * 

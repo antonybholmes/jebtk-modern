@@ -63,9 +63,10 @@ public class ModernSplashScreen extends ModernDialogWindow {
   private static final long serialVersionUID = 1L;
 
   /** The Constant COLOR. */
-  public static final Color COLOR = ThemeService.getInstance().colors().getColorHighlight32(24); // new
-                                                                                                 // Color(appInfo.getIcon().getImage().getRGB(1,
-                                                                                                 // 1));
+  public static final Color COLOR = ThemeService.getInstance().colors()
+      .getColorHighlight32(24); // new
+                                // Color(appInfo.getIcon().getImage().getRGB(1,
+                                // 1));
 
   /**
    * The member close button.
@@ -86,8 +87,8 @@ public class ModernSplashScreen extends ModernDialogWindow {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -105,8 +106,8 @@ public class ModernSplashScreen extends ModernDialogWindow {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -123,10 +124,8 @@ public class ModernSplashScreen extends ModernDialogWindow {
   /**
    * Instantiates a new modern splash screen.
    *
-   * @param window
-   *          the window
-   * @param appInfo
-   *          the app info
+   * @param window the window
+   * @param appInfo the app info
    */
   public ModernSplashScreen(ModernWindow window, GuiAppInfo appInfo) {
     super(window, appInfo);
@@ -137,8 +136,7 @@ public class ModernSplashScreen extends ModernDialogWindow {
   /**
    * Instantiates a new modern splash screen2.
    *
-   * @param appInfo
-   *          the app info
+   * @param appInfo the app info
    */
   public ModernSplashScreen(GuiAppInfo appInfo) {
     super(appInfo);
@@ -170,7 +168,8 @@ public class ModernSplashScreen extends ModernDialogWindow {
 
     box2.add(ModernPanel.createHGap());
 
-    mCloseButton = new ModernSplashTitleButton(new Raster24Icon(new CrossVectorIcon(Color.WHITE)));
+    mCloseButton = new ModernSplashTitleButton(
+        new Raster24Icon(new CrossVectorIcon(Color.WHITE)));
     mCloseButton.setClickMessage(UI.MENU_CLOSE);
     mCloseButton.addClickListener(new CloseEvents());
     box2.add(mCloseButton);
@@ -189,8 +188,7 @@ public class ModernSplashScreen extends ModernDialogWindow {
   /**
    * Sets the buttons enabled.
    *
-   * @param enabled
-   *          the new buttons enabled
+   * @param enabled the new buttons enabled
    */
   protected void setButtonsEnabled(boolean enabled) {
     mCloseButton.setEnabled(enabled);

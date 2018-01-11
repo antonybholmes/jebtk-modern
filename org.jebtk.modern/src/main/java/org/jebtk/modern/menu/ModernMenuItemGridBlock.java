@@ -48,7 +48,8 @@ import org.jebtk.modern.widget.ModernClickWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernMenuItemGridBlock extends ModernMenuItem implements ModernClickListener {
+public class ModernMenuItemGridBlock extends ModernMenuItem
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -78,12 +79,9 @@ public class ModernMenuItemGridBlock extends ModernMenuItem implements ModernCli
   /**
    * Instantiates a new modern menu item grid block.
    *
-   * @param title
-   *          the title
-   * @param menuItemWidth
-   *          the menu item width
-   * @param columns
-   *          the columns
+   * @param title the title
+   * @param menuItemWidth the menu item width
+   * @param columns the columns
    */
   public ModernMenuItemGridBlock(String title, int menuItemWidth, int columns) {
     super("Grid Block");
@@ -100,10 +98,8 @@ public class ModernMenuItemGridBlock extends ModernMenuItem implements ModernCli
   /**
    * Sets the width.
    *
-   * @param width
-   *          the width
-   * @param columns
-   *          the columns
+   * @param width the width
+   * @param columns the columns
    */
   private void setWidth(int width, int columns) {
     mColumns = columns;
@@ -117,8 +113,7 @@ public class ModernMenuItemGridBlock extends ModernMenuItem implements ModernCli
   /**
    * Adds the.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public void add(ModernClickWidget item) {
     addMenuItem(item);
@@ -127,8 +122,7 @@ public class ModernMenuItemGridBlock extends ModernMenuItem implements ModernCli
   /**
    * Adds the menu item.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public void addMenuItem(ModernClickWidget item) {
     mPanel.add(item);
@@ -143,19 +137,23 @@ public class ModernMenuItemGridBlock extends ModernMenuItem implements ModernCli
    * Sets the size.
    */
   private void setSize() {
-    UI.setSize(mPanel, mWidth,
-        (mItems.size() / mColumns + (mItems.size() % mColumns > 0 ? 1 : 0)) * ModernIconMenuItem.HEIGHT);
+    UI.setSize(mPanel,
+        mWidth,
+        (mItems.size() / mColumns + (mItems.size() % mColumns > 0 ? 1 : 0))
+            * ModernIconMenuItem.HEIGHT);
 
     // The size of the menu is the size of the grid plus the title height
-    UI.setSize(this, mWidth, mPanel.getPreferredSize().height + ModernTitleMenuItem.HEIGHT);
+    UI.setSize(this,
+        mWidth,
+        mPanel.getPreferredSize().height + ModernTitleMenuItem.HEIGHT);
   }
 
   /*
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

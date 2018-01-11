@@ -60,8 +60,7 @@ public class ModernLineBorderPanel extends ModernWidget {
   /**
    * Instantiates a new modern line border panel.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public ModernLineBorderPanel(Color color) {
     setBackground(color);
@@ -72,8 +71,7 @@ public class ModernLineBorderPanel extends ModernWidget {
   /**
    * Instantiates a new modern line border panel.
    *
-   * @param layout
-   *          the layout
+   * @param layout the layout
    */
   public ModernLineBorderPanel(LayoutManager layout) {
     super(layout);
@@ -84,8 +82,7 @@ public class ModernLineBorderPanel extends ModernWidget {
   /**
    * Instantiates a new modern line border panel.
    *
-   * @param component
-   *          the component
+   * @param component the component
    */
   public ModernLineBorderPanel(Component component) {
     add(component, BorderLayout.CENTER);
@@ -96,10 +93,8 @@ public class ModernLineBorderPanel extends ModernWidget {
   /**
    * Instantiates a new modern line border panel.
    *
-   * @param component
-   *          the component
-   * @param dimension
-   *          the dimension
+   * @param component the component
+   * @param dimension the dimension
    */
   public ModernLineBorderPanel(Component component, Dimension dimension) {
     this(component);

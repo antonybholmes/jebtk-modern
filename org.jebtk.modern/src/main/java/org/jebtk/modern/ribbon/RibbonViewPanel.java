@@ -56,8 +56,8 @@ public class RibbonViewPanel extends ModernComponent {
     box.add(UI.createHGap(5));
     setRight(box);
 
-    mHideButton.setToolTip(new ModernBasicToolTipPanel(
-        new ModernToolTip("Minimize Ribbon", "Minimize the ribbon so it takes up less space.")));
+    mHideButton.setToolTip(new ModernBasicToolTipPanel(new ModernToolTip(
+        "Minimize Ribbon", "Minimize the ribbon so it takes up less space.")));
   }
 
   /*

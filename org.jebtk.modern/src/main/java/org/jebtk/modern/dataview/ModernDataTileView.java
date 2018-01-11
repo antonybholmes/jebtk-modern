@@ -62,8 +62,7 @@ public class ModernDataTileView extends ModernDataGridView
     /**
      * Instantiates a new dnd button.
      *
-     * @param text
-     *          the text
+     * @param text the text
      */
     public DndButton(String text) {
       super(text);
@@ -86,7 +85,8 @@ public class ModernDataTileView extends ModernDataGridView
      * DataFlavor)
      */
     @Override
-    public Object getTransferData(DataFlavor flavor) throws UnsupportedFlavorException, IOException {
+    public Object getTransferData(DataFlavor flavor)
+        throws UnsupportedFlavorException, IOException {
       return this;
     }
 
@@ -145,7 +145,9 @@ public class ModernDataTileView extends ModernDataGridView
     setTransferHandler(t);
 
     mSource = new DragSource();
-    mSource.createDefaultDragGestureRecognizer(this, DnDConstants.ACTION_COPY, this);
+    mSource.createDefaultDragGestureRecognizer(this,
+        DnDConstants.ACTION_COPY,
+        this);
   }
 
   /*
@@ -156,14 +158,15 @@ public class ModernDataTileView extends ModernDataGridView
    */
   @Override
   public void dragGestureRecognized(DragGestureEvent e) {
-    mSource.startDrag(e, DragSource.DefaultMoveDrop, new DndButton("test"), this);
+    mSource
+        .startDrag(e, DragSource.DefaultMoveDrop, new DndButton("test"), this);
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * java.awt.dnd.DragSourceListener#dragDropEnd(java.awt.dnd.DragSourceDropEvent)
+   * @see java.awt.dnd.DragSourceListener#dragDropEnd(java.awt.dnd.
+   * DragSourceDropEvent)
    */
   @Override
   public void dragDropEnd(DragSourceDropEvent dsde) {
@@ -226,7 +229,8 @@ public class ModernDataTileView extends ModernDataGridView
    * DataFlavor)
    */
   @Override
-  public Object getTransferData(DataFlavor arg0) throws UnsupportedFlavorException, IOException {
+  public Object getTransferData(DataFlavor arg0)
+      throws UnsupportedFlavorException, IOException {
     // TODO Auto-generated method stub
     return null;
   }

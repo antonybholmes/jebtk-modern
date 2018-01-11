@@ -59,7 +59,8 @@ import org.jebtk.modern.widget.tooltip.ModernToolTipWidget;
  * @author Antony Holmes Holmes
  */
 public abstract class ModernClickWidget extends ModernToolTipWidget
-    implements ModernClickEventProducer, ModernStateEventProducer, ModernSelectedEventProducer, HighlightEventProducer {
+    implements ModernClickEventProducer, ModernStateEventProducer,
+    ModernSelectedEventProducer, HighlightEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -98,7 +99,8 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.ui.modern.FocusAdapter#focusLost(java.awt.event.FocusEvent)
+     * @see
+     * org.abh.lib.ui.modern.FocusAdapter#focusLost(java.awt.event.FocusEvent)
      */
     @Override
     public void focusLost(FocusEvent e) {
@@ -142,8 +144,7 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
   /**
    * Instantiates a new modern click widget.
    *
-   * @param manager
-   *          the manager
+   * @param manager the manager
    */
   public ModernClickWidget(LayoutManager manager) {
     super(manager);
@@ -182,8 +183,7 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
   /**
    * Sets the highlighted.
    *
-   * @param highlight
-   *          the new highlighted
+   * @param highlight the new highlighted
    */
   public void setHighlighted(boolean highlight) {
     mHighlight = highlight;
@@ -207,8 +207,8 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
   }
 
   /**
-   * Should return true of the click widget supports popup functions and the popup
-   * is visible.
+   * Should return true of the click widget supports popup functions and the
+   * popup is visible.
    * 
    * @return
    */
@@ -228,8 +228,7 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
   /**
    * Sets the message that will be sent when the item is clicked.
    *
-   * @param clickMessage
-   *          the new click message
+   * @param clickMessage the new click message
    */
   public void setClickMessage(String clickMessage) {
     mMessage = clickMessage;
@@ -238,8 +237,7 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
   /**
    * Sets the selected.
    *
-   * @param selected
-   *          the new selected
+   * @param selected the new selected
    */
   public void setSelected(boolean selected) {
     repaint();
@@ -273,8 +271,7 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
   /**
    * Sends a message.
    *
-   * @param clickMessage
-   *          the click message
+   * @param clickMessage the click message
    */
   public void fireClicked(String clickMessage) {
     fireClicked(new ModernClickEvent(this, clickMessage));
@@ -284,8 +281,8 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh
-   * .lib.ui.modern.event.ModernClickListener)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.
+   * abh .lib.ui.modern.event.ModernClickListener)
    */
   @Override
   public void addClickListener(ModernClickListener l) {
@@ -296,8 +293,8 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.
-   * abh.lib.ui.modern.event.ModernClickListener)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(
+   * org. abh.lib.ui.modern.event.ModernClickListener)
    */
   @Override
   public void removeClickListener(ModernClickListener l) {
@@ -308,8 +305,8 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.
-   * ui.modern.event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.
+   * lib. ui.modern.event.ModernClickEvent)
    */
   @Override
   public void fireClicked(final ModernClickEvent e) {
@@ -332,8 +329,8 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernStateEventProducer#addStateListener(org.abh
-   * .lib.ui.modern.event.ModernStateListener)
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#addStateListener(org.
+   * abh .lib.ui.modern.event.ModernStateListener)
    */
   @Override
   public void addStateListener(ModernStateListener l) {
@@ -344,8 +341,8 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernStateEventProducer#removeStateListener(org.
-   * abh.lib.ui.modern.event.ModernStateListener)
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#removeStateListener(
+   * org. abh.lib.ui.modern.event.ModernStateListener)
    */
   @Override
   public void removeStateListener(ModernStateListener l) {
@@ -356,8 +353,8 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernStateEventProducer#fireStateChanged(org.abh
-   * .lib.ui.modern.event.ModernStateEvent)
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#fireStateChanged(org.
+   * abh .lib.ui.modern.event.ModernStateEvent)
    */
   @Override
   public void fireStateChanged(ModernStateEvent event) {

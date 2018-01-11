@@ -48,14 +48,12 @@ public class RibbonBarDropDownMenuButton extends ModernDropDownButton {
   /**
    * Instantiates a new ribbon bar drop down menu button.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param text1 the text1
+   * @param icon the icon
+   * @param menu the menu
    */
-  public RibbonBarDropDownMenuButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
+  public RibbonBarDropDownMenuButton(String text1, ModernIcon icon,
+      ModernPopupMenu menu) {
     super(text1, icon, menu);
 
     setup();
@@ -64,10 +62,8 @@ public class RibbonBarDropDownMenuButton extends ModernDropDownButton {
   /**
    * Instantiates a new ribbon bar drop down menu button.
    *
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param icon the icon
+   * @param menu the menu
    */
   public RibbonBarDropDownMenuButton(ModernIcon icon, ModernPopupMenu menu) {
     super(icon, menu);

@@ -52,7 +52,8 @@ import org.jebtk.modern.window.ModernWindowConstructor;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernLogWindow extends ModernRibbonWindow implements ModernWindowConstructor, ModernClickListener {
+public class ModernLogWindow extends ModernRibbonWindow
+    implements ModernWindowConstructor, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -82,10 +83,8 @@ public class ModernLogWindow extends ModernRibbonWindow implements ModernWindowC
   /**
    * Instantiates a new modern log window.
    *
-   * @param information
-   *          the information
-   * @param log
-   *          the log
+   * @param information the information
+   * @param log the log
    */
   public ModernLogWindow(GuiAppInfo information, Log log) {
     super(information);
@@ -126,11 +125,13 @@ public class ModernLogWindow extends ModernRibbonWindow implements ModernWindowC
     getRibbonMenu().addSeparator();
 
     menuItem = new RibbonMenuItem(UI.MENU_INFO);
-    getRibbonMenu().addTabbedMenuItem(menuItem, new RibbonPanelProductInfo(getAppInfo()));
+    getRibbonMenu().addTabbedMenuItem(menuItem,
+        new RibbonPanelProductInfo(getAppInfo()));
     // getRibbonMenu().addTabbedMenuItem(menuItem);
 
     menuItem = new RibbonMenuItem(UI.MENU_OPTIONS);
-    getRibbonMenu().addTabbedMenuItem(menuItem, new ModernOptionsRibbonPanel(getAppInfo()));
+    getRibbonMenu().addTabbedMenuItem(menuItem,
+        new ModernOptionsRibbonPanel(getAppInfo()));
 
     getRibbonMenu().addClickListener(this);
 
@@ -140,7 +141,8 @@ public class ModernLogWindow extends ModernRibbonWindow implements ModernWindowC
 
     // export
 
-    getRibbon().getHomeToolbar().addSection(new ClipboardRibbonSection(getRibbon()));
+    getRibbon().getHomeToolbar()
+        .addSection(new ClipboardRibbonSection(getRibbon()));
 
     getRibbon().setSelectedIndex(1);
 
@@ -167,8 +169,8 @@ public class ModernLogWindow extends ModernRibbonWindow implements ModernWindowC
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public final void clicked(ModernClickEvent e) {
@@ -196,10 +198,8 @@ public class ModernLogWindow extends ModernRibbonWindow implements ModernWindowC
   /**
    * Create a default centered about dialog.
    *
-   * @param productDetails
-   *          the product details
-   * @param log
-   *          the log
+   * @param productDetails the product details
+   * @param log the log
    */
   public static void createAndShow(GuiAppInfo productDetails, Log log) {
     ModernWindow dialog = new ModernLogWindow(productDetails, log);

@@ -45,7 +45,8 @@ import org.jebtk.modern.menu.ModernTitleMenuItem;
 /**
  * The class FillColorButton.
  */
-public class FillColorButton extends ModernOptionalDropDownMenuButton implements ModernClickListener {
+public class FillColorButton extends ModernOptionalDropDownMenuButton
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -60,8 +61,7 @@ public class FillColorButton extends ModernOptionalDropDownMenuButton implements
   /**
    * Instantiates a new fill color button.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   public FillColorButton(String name) {
     this(name, UIService.getInstance().loadIcon("paint", 16));
@@ -70,10 +70,8 @@ public class FillColorButton extends ModernOptionalDropDownMenuButton implements
   /**
    * Instantiates a new fill color button.
    *
-   * @param name
-   *          the name
-   * @param icon
-   *          the icon
+   * @param name the name
+   * @param icon the icon
    */
   public FillColorButton(String name, ModernIcon icon) {
     super(name, icon, new ModernPopupMenu());
@@ -84,8 +82,7 @@ public class FillColorButton extends ModernOptionalDropDownMenuButton implements
   /**
    * Instantiates a new fill color button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public FillColorButton(ModernIcon icon) {
     super(icon, new ModernPopupMenu());
@@ -105,8 +102,8 @@ public class FillColorButton extends ModernOptionalDropDownMenuButton implements
     mMenu.add(colorPicker);
 
     mMenu.add(new ModernMenuSeparator());
-    mMenu.add(
-        new ModernIconMenuItem("More colors...", UIService.getInstance().loadIcon("palette", UIService.ICON_SIZE_16)));
+    mMenu.add(new ModernIconMenuItem("More colors...",
+        UIService.getInstance().loadIcon("palette", UIService.ICON_SIZE_16)));
 
     colorPicker.addClickListener(this);
   }
@@ -115,8 +112,8 @@ public class FillColorButton extends ModernOptionalDropDownMenuButton implements
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {
@@ -142,8 +139,7 @@ public class FillColorButton extends ModernOptionalDropDownMenuButton implements
   /**
    * Sets the selected color.
    *
-   * @param color
-   *          the new selected color
+   * @param color the new selected color
    */
   public void setSelectedColor(Color color) {
     colorPicker.setSelectedColor(color);

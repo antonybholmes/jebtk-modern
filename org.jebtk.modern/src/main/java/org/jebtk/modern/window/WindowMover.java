@@ -106,16 +106,16 @@ public class WindowMover extends MouseAdapter {
   private boolean mPotentialDrag;
 
   /**
-   * Constructor to specify a parent component that will be moved when drag events
-   * are generated on a registered child component.
+   * Constructor to specify a parent component that will be moved when drag
+   * events are generated on a registered child component.
    *
-   * @param destinationComponent
-   *          the component drage events should be forwareded to
-   * @param components
-   *          the Components to be registered for forwarding drag events to the
-   *          parent component to be moved
+   * @param destinationComponent the component drage events should be forwareded
+   *          to
+   * @param components the Components to be registered for forwarding drag
+   *          events to the parent component to be moved
    */
-  public WindowMover(ModernWindow destinationComponent, Component... components) {
+  public WindowMover(ModernWindow destinationComponent,
+      Component... components) {
     mWindow = destinationComponent;
     registerComponent(components);
   }
@@ -132,8 +132,7 @@ public class WindowMover extends MouseAdapter {
   /**
    * Set the change cursor property.
    *
-   * @param changeCursor
-   *          the new change cursor
+   * @param changeCursor the new change cursor
    */
   public void setChangeCursor(boolean changeCursor) {
     mChangeCursor = changeCursor;
@@ -154,8 +153,7 @@ public class WindowMover extends MouseAdapter {
    * prevent these events from being confused with a MouseMotionListener that
    * supports component resizing.
    *
-   * @param dragInsets
-   *          the new drag insets
+   * @param dragInsets the new drag insets
    */
   public void setDragInsets(Insets dragInsets) {
     mDragInsets = dragInsets;
@@ -171,13 +169,12 @@ public class WindowMover extends MouseAdapter {
   }
 
   /**
-   * Set the edge insets. The insets specify how close to each edge of the parent
-   * component that the child component can be moved. Positive values means the
-   * component must be contained within the parent. Negative values means the
-   * component can be moved outside the parent.
+   * Set the edge insets. The insets specify how close to each edge of the
+   * parent component that the child component can be moved. Positive values
+   * means the component must be contained within the parent. Negative values
+   * means the component can be moved outside the parent.
    *
-   * @param edgeInsets
-   *          the new edge insets
+   * @param edgeInsets the new edge insets
    */
   public void setEdgeInsets(Insets edgeInsets) {
     mEdgeInsets = edgeInsets;
@@ -186,8 +183,7 @@ public class WindowMover extends MouseAdapter {
   /**
    * Remove listeners from the specified component.
    *
-   * @param components
-   *          the components
+   * @param components the components
    */
   public void deregisterComponent(Component... components) {
     for (Component component : components) {
@@ -198,8 +194,7 @@ public class WindowMover extends MouseAdapter {
   /**
    * Add the required listeners to the specified component.
    *
-   * @param components
-   *          the components
+   * @param components the components
    */
   public void registerComponent(Component... components) {
     for (Component component : components) {
@@ -221,8 +216,7 @@ public class WindowMover extends MouseAdapter {
    * Set the snap size. Forces the component to be snapped to the closest grid
    * position. Snapping will occur when the mouse is dragged half way.
    *
-   * @param snapSize
-   *          the new snap size
+   * @param snapSize the new snap size
    */
   public void setSnapSize(Dimension snapSize) {
     if (snapSize.width < 1 || snapSize.height < 1) {
@@ -235,8 +229,7 @@ public class WindowMover extends MouseAdapter {
   /**
    * Sets the up for dragging.
    *
-   * @param e
-   *          the new up for dragging
+   * @param e the new up for dragging
    */
   private void setupForDragging(MouseEvent e) {
     // mSource.addMouseMotionListener(this);
@@ -256,21 +249,22 @@ public class WindowMover extends MouseAdapter {
   /**
    * Setup the variables used to control the moving of the component:
    * 
-   * source - the source component of the mouse event destination - the component
-   * that will ultimately be moved pressed - the Point where the mouse was pressed
-   * in the destination component coordinates.
+   * source - the source component of the mouse event destination - the
+   * component that will ultimately be moved pressed - the Point where the mouse
+   * was pressed in the destination component coordinates.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   @Override
   public void mousePressed(MouseEvent e) {
     mSource = e.getComponent();
 
     int width = mSource.getSize().width - mDragInsets.left - mDragInsets.right;
-    int height = mSource.getSize().height - mDragInsets.top - mDragInsets.bottom;
+    int height = mSource.getSize().height - mDragInsets.top
+        - mDragInsets.bottom;
 
-    Rectangle r = new Rectangle(mDragInsets.left, mDragInsets.top, width, height);
+    Rectangle r = new Rectangle(mDragInsets.left, mDragInsets.top, width,
+        height);
 
     if (r.contains(e.getPoint())) {
       setupForDragging(e);
@@ -281,8 +275,7 @@ public class WindowMover extends MouseAdapter {
    * Move the component to its new location. The dragged Point must be in the
    * destination coordinates.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   @Override
   public void mouseDragged(MouseEvent e) {
@@ -306,7 +299,8 @@ public class WindowMover extends MouseAdapter {
 
     // Dimension d = getBoundingSize(destination);
 
-    // while (locationX + destination.getSize().width + edgeInsets.right > d.width)
+    // while (locationX + destination.getSize().width + edgeInsets.right >
+    // d.width)
     // locationX -= snapSize.width;
 
     // while (locationY + destination.getSize().height + edgeInsets.bottom >
@@ -323,8 +317,7 @@ public class WindowMover extends MouseAdapter {
   /**
    * Restore the original state of the Component.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   @Override
   public void mouseReleased(MouseEvent e) {
@@ -341,12 +334,9 @@ public class WindowMover extends MouseAdapter {
   /**
    * Gets the drag distance.
    *
-   * @param larger
-   *          the larger
-   * @param smaller
-   *          the smaller
-   * @param snapSize
-   *          the snap size
+   * @param larger the larger
+   * @param smaller the smaller
+   * @param snapSize the snap size
    * @return the drag distance
    */
   /*
@@ -365,8 +355,7 @@ public class WindowMover extends MouseAdapter {
   /**
    * Gets the bounding size.
    *
-   * @param source
-   *          the source
+   * @param source the source
    * @return the bounding size
    */
   /*
@@ -374,7 +363,8 @@ public class WindowMover extends MouseAdapter {
    */
   private Dimension getBoundingSize(Component source) {
     if (source instanceof Window) {
-      GraphicsEnvironment env = GraphicsEnvironment.getLocalGraphicsEnvironment();
+      GraphicsEnvironment env = GraphicsEnvironment
+          .getLocalGraphicsEnvironment();
       Rectangle bounds = env.getMaximumWindowBounds();
       return new Dimension(bounds.width, bounds.height);
     } else {

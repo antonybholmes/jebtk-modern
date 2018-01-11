@@ -57,8 +57,7 @@ public class DownloadVectorIcon extends ModernVectorColorIcon {
   /**
    * Instantiates a new download vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public DownloadVectorIcon(Color color) {
     super(color);
@@ -72,7 +71,12 @@ public class DownloadVectorIcon extends ModernVectorColorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
 
     double wf = Mathematics.makeMult2(Math.min(w, h) * 0.75);
     double w2 = wf * 0.5;

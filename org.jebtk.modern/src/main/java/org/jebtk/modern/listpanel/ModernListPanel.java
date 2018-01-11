@@ -55,7 +55,8 @@ import org.jebtk.modern.widget.ModernVertWidget;
  *
  * @author Antony Holmes Holmes
  */
-public class ModernListPanel extends ModernVertWidget implements Iterable<ModernListPanelItem> {
+public class ModernListPanel extends ModernVertWidget
+    implements Iterable<ModernListPanelItem> {
 
   /**
    * The constant serialVersionUID.
@@ -68,7 +69,8 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
   /**
    * The member list model.
    */
-  private List<ModernListPanelItem> mListModel = new ArrayList<ModernListPanelItem>(10);
+  private List<ModernListPanelItem> mListModel = new ArrayList<ModernListPanelItem>(
+      10);
 
   /** The m Y pos. */
   private List<Integer> mYPos = new ArrayList<Integer>();
@@ -138,10 +140,8 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
     /**
      * Instantiates a new animate movement.
      *
-     * @param index
-     *          the index
-     * @param y2
-     *          the y 2
+     * @param index the index
+     * @param y2 the y 2
      */
     public AnimateMovement(int index, int y2) {
       super(null);
@@ -185,15 +185,14 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
       Point p = convert(e);
 
       mStartY = p.y;
-      
-      mSelectedC = (Component)e.getSource();
+
+      mSelectedC = (Component) e.getSource();
 
       // Try to move above others for drawing
-      //setComponentZOrder(mSelectedC, 1000);
-      
+      // setComponentZOrder(mSelectedC, 1000);
 
       mCY = mSelectedC.getY();
-      
+
       mPressBlockY = getBlockY(p);
 
       mSelectedCellIndex = getIndex(e, null);
@@ -262,7 +261,7 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
 
       int y = Mathematics.bound(mCY + yDiff, 0, mMaxY);
 
-      Component c = (Component)e.getSource();
+      Component c = (Component) e.getSource();
 
       mDragCellIndex = getIndex(e, mSelectedC);
 
@@ -312,10 +311,8 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
   /**
    * Adds the.
    *
-   * @param c
-   *          the c
-   * @param color
-   *          the color
+   * @param c the c
+   * @param color the color
    * @return the component
    */
   public Component add(Component c, Color color) {
@@ -356,8 +353,7 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
   /**
    * Gets the block Y.
    *
-   * @param p
-   *          the p
+   * @param p the p
    * @return the block Y
    */
   private int getBlockY(Point p) {
@@ -367,10 +363,8 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
   /**
    * Gets the index.
    *
-   * @param e
-   *          the e
-   * @param excludeC
-   *          the exclude C
+   * @param e the e
+   * @param excludeC the exclude C
    * @return the index
    */
   private int getIndex(MouseEvent e, Component excludeC) {
@@ -394,10 +388,8 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
   /**
    * Gets the comp.
    *
-   * @param e
-   *          the e
-   * @param excludeC
-   *          the exclude C
+   * @param e the e
+   * @param excludeC the exclude C
    * @return the comp
    */
   private Component getComp(MouseEvent e, Component excludeC) {
@@ -408,7 +400,8 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
 
       int ty = mYPos.get(i);
 
-      if ((excludeC == null || !item.equals(excludeC)) && p.y >= ty && p.y < ty + mItemH) {
+      if ((excludeC == null || !item.equals(excludeC)) && p.y >= ty
+          && p.y < ty + mItemH) {
         return mListModel.get(i);
       }
     }
@@ -417,14 +410,14 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
   }
 
   /**
-   * Convert.
+   * Convert a point on a component to panel space.
    *
-   * @param e
-   *          the e
+   * @param e the e
    * @return the point
    */
   private Point convert(MouseEvent e) {
-    Point p = SwingUtilities.convertPoint((Component) e.getSource(), e.getPoint(), this);
+    Point p = SwingUtilities
+        .convertPoint((Component) e.getSource(), e.getPoint(), this);
 
     p.y -= getInsets().top;
 
@@ -435,8 +428,7 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
    * Allows user to drag items in a list to reorder it. This is disabled by
    * default.
    *
-   * @param enabled
-   *          the new drag reorder enabled
+   * @param enabled the new drag reorder enabled
    */
   public void setDragReorderEnabled(boolean enabled) {
     mDragEnabled = enabled;
@@ -447,8 +439,7 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
   /**
    * Drag reorder.
    *
-   * @param dir
-   *          the dir
+   * @param dir the dir
    * @return true, if successful
    */
   private boolean dragReorder(int dir) {
@@ -468,7 +459,8 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
       return false;
     }
 
-    // System.err.println("s2 " + mDragC.equals(mDraggedC) + " " + (dir == mDir));
+    // System.err.println("s2 " + mDragC.equals(mDraggedC) + " " + (dir ==
+    // mDir));
 
     if (mDragC.equals(mDraggedC) && dir == mDir) {
       return false;
@@ -549,8 +541,7 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
   /**
    * Gets the.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the modern list panel item
    */
   public ModernListPanelItem get(int index) {
@@ -560,8 +551,8 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
   }
 
   /**
-   * Reorder items based on y position if necessary. This is so that when iterated
-   * over, items match the order they appear in the UI.
+   * Reorder items based on y position if necessary. This is so that when
+   * iterated over, items match the order they appear in the UI.
    */
   private void autoReorder() {
     if (!mAutoReorder) {
@@ -576,7 +567,8 @@ public class ModernListPanel extends ModernVertWidget implements Iterable<Modern
       ySortMap.put(mYPos.get(i), i);
     }
 
-    List<ModernListPanelItem> listModel = new ArrayList<ModernListPanelItem>(mListModel.size());
+    List<ModernListPanelItem> listModel = new ArrayList<ModernListPanelItem>(
+        mListModel.size());
 
     List<Integer> yPos = new ArrayList<Integer>(mListModel.size());
 

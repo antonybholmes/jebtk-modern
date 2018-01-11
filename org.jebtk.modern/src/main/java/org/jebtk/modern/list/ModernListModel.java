@@ -36,9 +36,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.collections.CollectionUtils;
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.io.Io;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.dataview.ModernDataViewEventProducer;
@@ -51,10 +50,10 @@ import org.jebtk.modern.dataview.ModernDataViewListeners;
  * tree etc.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProducer {
+public class ModernListModel<T>
+    implements Iterable<T>, ModernDataViewEventProducer {
 
   /**
    * The member listeners.
@@ -78,8 +77,7 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   /**
    * Gets the value at.
    *
-   * @param row
-   *          the row
+   * @param row the row
    * @return the value at
    */
   public T getValueAt(int row) {
@@ -93,8 +91,7 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   /**
    * Adds the value.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public void addValue(T item) {
     mItems.add(item);
@@ -105,8 +102,7 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   /**
    * Sets the values.
    *
-   * @param items
-   *          the new values
+   * @param items the new values
    */
   public void setValues(Collection<T> items) {
     // remove all without notifying
@@ -118,8 +114,7 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   /**
    * Adds the values.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public void addValues(Collection<T> items) {
     mItems.addAll(items);
@@ -130,10 +125,8 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   /**
    * Adds the values.
    *
-   * @param items
-   *          the items
-   * @param index
-   *          the index
+   * @param items the items
+   * @param index the index
    */
   public void addValues(Collection<T> items, int index) {
     mItems.addAll(index, items);
@@ -144,8 +137,7 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   /**
    * Add the items in order at the start of the list rather than the end.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public void addValuesAtStart(List<T> items) {
     addValues(items, 0);
@@ -154,8 +146,7 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   /**
    * Removes the value at.
    *
-   * @param row
-   *          the row
+   * @param row the row
    */
   public void removeValueAt(int row) {
     if (mItems.size() == 0 || row < 0 || row >= mItems.size()) {
@@ -170,8 +161,7 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   /**
    * Remove multiple values.
    *
-   * @param indices
-   *          the indices
+   * @param indices the indices
    */
   public void removeValuesAt(ArrayList<Integer> indices) {
     for (int i : CollectionUtils.reverse(CollectionUtils.sort(indices))) {
@@ -212,7 +202,8 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#
-   * removeDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
+   * removeDataViewListener(org.abh.lib.ui.modern.dataview.
+   * ModernDataViewListener)
    */
   @Override
   public void removeDataViewListener(ModernDataViewListener l) {
@@ -262,10 +253,8 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   /**
    * Indicates an item should be reordered in the list.
    *
-   * @param index
-   *          the index
-   * @param newIndex
-   *          the new index
+   * @param index the index
+   * @param newIndex the new index
    */
   public void move(int index, int newIndex) {
     shift(index, newIndex);
@@ -276,10 +265,8 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   /**
    * Shift.
    *
-   * @param index
-   *          the index
-   * @param newIndex
-   *          the new index
+   * @param index the index
+   * @param newIndex the new index
    */
   public void shift(int index, int newIndex) {
     // don't pointless swap an item with itself
@@ -310,10 +297,8 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   /**
    * Shift.
    *
-   * @param fromIndices
-   *          the from indices
-   * @param toIndices
-   *          the to indices
+   * @param fromIndices the from indices
+   * @param toIndices the to indices
    */
   public void shift(List<Integer> fromIndices, List<Integer> toIndices) {
     for (int i = 0; i < fromIndices.size(); ++i) {
@@ -334,14 +319,12 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
   }
 
   /**
-   * Parse a text file into a list model. The first line is assumed to be a header
-   * and is ignored.
+   * Parse a text file into a list model. The first line is assumed to be a
+   * header and is ignored.
    *
-   * @param file
-   *          the file
+   * @param file the file
    * @return the modern list model
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public static ModernListModel<String> parse(File file) throws IOException {
     ModernListModel<String> model = new ModernListModel<String>();
@@ -359,7 +342,8 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
           continue;
         }
 
-        List<String> tokens = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
+        List<String> tokens = TextUtils.fastSplit(line,
+            TextUtils.TAB_DELIMITER);
 
         model.addValue(tokens.get(0));
       }

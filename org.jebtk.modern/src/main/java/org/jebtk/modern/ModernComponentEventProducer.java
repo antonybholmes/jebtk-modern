@@ -41,48 +41,42 @@ public interface ModernComponentEventProducer {
   /**
    * Adds the component listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addComponentListener(ComponentListener l);
 
   /**
    * Removes the component listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeComponentListener(ComponentListener l);
 
   /**
    * Fire component hidden.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireComponentHidden(ComponentEvent e);
 
   /**
    * Fire component moved.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireComponentMoved(ComponentEvent e);
 
   /**
    * Fire component resized.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireComponentResized(ComponentEvent e);
 
   /**
    * Fire component shown.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireComponentShown(ComponentEvent e);
 }

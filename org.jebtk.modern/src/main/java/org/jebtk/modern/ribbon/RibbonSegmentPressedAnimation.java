@@ -34,8 +34,7 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
   /**
    * Instantiates a new ribbon menu animation.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public RibbonSegmentPressedAnimation(ModernWidget w) {
     super(w, MaterialService.getInstance().color("ribbon-theme-pressed"));
@@ -66,7 +65,8 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
       return;
     }
 
-    int x = mTabs.getInsets().left; // + widget.getWidth() - SegmentChangeAnimation.HEIGHT;
+    int x = mTabs.getInsets().left; // + widget.getWidth() -
+                                    // SegmentChangeAnimation.HEIGHT;
     int y = mTabs.getInsets().top;
     int tabWidth = mTabs.getInternalRect().getW();
 
@@ -74,7 +74,8 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
 
       g2.setColor(mColor);
 
-      double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
+      double r = TranslateAnimation.BEZ_T[getStep()]; // /
+                                                      // (double)TimerAnimation.STEPS;
 
       int d = (int) (tabWidth * r);
 
@@ -82,7 +83,10 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
 
       g2.setColor(mColor);
 
-      g2.fillRect(x, y + mHighlight * RibbonSegmentVertTabs.TAB_SIZE, d, RibbonSegmentVertTabs.TAB_SIZE);
+      g2.fillRect(x,
+          y + mHighlight * RibbonSegmentVertTabs.TAB_SIZE,
+          d,
+          RibbonSegmentVertTabs.TAB_SIZE);
     }
   }
 }

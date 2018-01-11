@@ -56,10 +56,8 @@ public class ModernHideButton extends QuickAccessButton {
   /**
    * Instantiates a new modern hide button.
    *
-   * @param icon1
-   *          the icon1
-   * @param icon2
-   *          the icon2
+   * @param icon1 the icon1
+   * @param icon2 the icon2
    */
   public ModernHideButton(ModernIcon icon1, ModernIcon icon2) {
     super(icon1);
@@ -73,8 +71,7 @@ public class ModernHideButton extends QuickAccessButton {
   /**
    * Set whether the button is in hidden mode or not.
    *
-   * @param hidden
-   *          the new hidden
+   * @param hidden the new hidden
    */
   public void setHidden(boolean hidden) {
     mHidden = hidden;

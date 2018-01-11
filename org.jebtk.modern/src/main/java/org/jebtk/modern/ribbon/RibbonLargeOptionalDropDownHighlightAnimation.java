@@ -27,7 +27,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The Class RibbonButtonAnimation.
  */
-public class RibbonLargeOptionalDropDownHighlightAnimation extends DropDownButtonAnimation {
+public class RibbonLargeOptionalDropDownHighlightAnimation
+    extends DropDownButtonAnimation {
 
   /** The m button. */
   private ModernOptionalDropDownMenuButton mButton;
@@ -35,8 +36,7 @@ public class RibbonLargeOptionalDropDownHighlightAnimation extends DropDownButto
   /**
    * Instantiates a new ribbon button animation.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public RibbonLargeOptionalDropDownHighlightAnimation(ModernWidget button) {
     super((ModernOptionalDropDownMenuButton) button);
@@ -54,7 +54,8 @@ public class RibbonLargeOptionalDropDownHighlightAnimation extends DropDownButto
    */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-    if (getWidget().isEnabled()) { // && (getButton().getHightlighted() || getButton().getPopupShown())) {
+    if (getWidget().isEnabled()) { // && (getButton().getHightlighted() ||
+                                   // getButton().getPopupShown())) {
       IntRect rect = getWidget().getInternalRect();
 
       int x = 0;
@@ -81,8 +82,10 @@ public class RibbonLargeOptionalDropDownHighlightAnimation extends DropDownButto
         // getWidget().getWidgetRenderer().outline(g2, rect);
         getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
 
-        // getWidgetRenderer().drawRibbonButtonOutline(g2, rect, RenderMode.SELECTED);
-        // getWidgetRenderer().drawRibbonButton(g2, x, y, w, h, RenderMode.SELECTED);
+        // getWidgetRenderer().drawRibbonButtonOutline(g2, rect,
+        // RenderMode.SELECTED);
+        // getWidgetRenderer().drawRibbonButton(g2, x, y, w, h,
+        // RenderMode.SELECTED);
 
         // paintHighlightedBorder(g2, rect);
         // paintHighlighted(g2, x, y, w, h);

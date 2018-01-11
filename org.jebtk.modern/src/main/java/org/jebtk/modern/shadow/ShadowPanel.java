@@ -57,10 +57,8 @@ public class ShadowPanel extends JLayeredPane implements ComponentListener {
   /**
    * Instantiates a new shadow panel.
    *
-   * @param c
-   *          the c
-   * @param shadow
-   *          the shadow
+   * @param c the c
+   * @param shadow the shadow
    */
   public ShadowPanel(Component c, RibbonShadow shadow) {
     mC = c;

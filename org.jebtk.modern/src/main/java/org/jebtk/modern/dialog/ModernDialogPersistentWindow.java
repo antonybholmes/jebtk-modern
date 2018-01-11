@@ -45,8 +45,7 @@ public class ModernDialogPersistentWindow extends ModernDialogWindow {
   /**
    * Instantiates a new modern dialog persistent window.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public ModernDialogPersistentWindow(ModernWindow parent) {
     super(parent);

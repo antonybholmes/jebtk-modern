@@ -38,7 +38,8 @@ import org.jebtk.modern.menu.ModernPopupMenu;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDialogFlatDropDownIconButton extends ModernDropDownIconButton {
+public class ModernDialogFlatDropDownIconButton
+    extends ModernDropDownIconButton {
 
   /**
    * The constant serialVersionUID.
@@ -48,8 +49,7 @@ public class ModernDialogFlatDropDownIconButton extends ModernDropDownIconButton
   /**
    * Instantiates a new modern dialog flat button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernDialogFlatDropDownIconButton(ModernIcon icon) {
     super(icon);
@@ -60,12 +60,11 @@ public class ModernDialogFlatDropDownIconButton extends ModernDropDownIconButton
   /**
    * Instantiates a new modern dialog flat drop down icon button.
    *
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param icon the icon
+   * @param menu the menu
    */
-  public ModernDialogFlatDropDownIconButton(ModernIcon icon, ModernPopupMenu menu) {
+  public ModernDialogFlatDropDownIconButton(ModernIcon icon,
+      ModernPopupMenu menu) {
     super(icon, menu);
 
     setup();
@@ -76,10 +75,10 @@ public class ModernDialogFlatDropDownIconButton extends ModernDropDownIconButton
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
-   * (isSelected() || mHighlight || mPopupShown) {
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
+   * if (isSelected() || mHighlight || mPopupShown) {
    * getWidgetRenderer().drawButton(g2, mInternalRect, RenderMode.SELECTED,
-   * hasFocus()); } else { getWidgetRenderer().drawContentBox(g2, mInternalRect);
-   * } } }
+   * hasFocus()); } else { getWidgetRenderer().drawContentBox(g2,
+   * mInternalRect); } } }
    */
 }

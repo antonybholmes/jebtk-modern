@@ -34,10 +34,8 @@ public class RotateVectorIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new rotate vector icon.
    *
-   * @param icon
-   *          the icon
-   * @param d
-   *          the d
+   * @param icon the icon
+   * @param d the d
    */
   public RotateVectorIcon(ModernVectorScalableIcon icon, int d) {
     mIcon = icon;
@@ -52,7 +50,12 @@ public class RotateVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
     try {

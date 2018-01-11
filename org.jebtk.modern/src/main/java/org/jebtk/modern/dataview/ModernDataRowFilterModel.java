@@ -34,10 +34,8 @@ public class ModernDataRowFilterModel extends ModernDataModel {
   /**
    * Instantiates a new modern data row filter model.
    *
-   * @param model
-   *          the model
-   * @param rows
-   *          the rows
+   * @param model the model
+   * @param rows the rows
    */
   public ModernDataRowFilterModel(ModernDataModel model, List<Integer> rows) {
     mModel = model;
@@ -117,7 +115,8 @@ public class ModernDataRowFilterModel extends ModernDataModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.dataview.ModernDataModel#getColumnAnnotationText(int)
+   * @see
+   * org.abh.common.ui.dataview.ModernDataModel#getColumnAnnotationText(int)
    */
   @Override
   public List<String> getColumnAnnotationText(int column) {

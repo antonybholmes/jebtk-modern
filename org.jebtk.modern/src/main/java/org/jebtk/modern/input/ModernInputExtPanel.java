@@ -49,7 +49,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernSearchPanel.
  */
-public class ModernInputExtPanel extends ModernLineBorderPanel implements TextProperty {
+public class ModernInputExtPanel extends ModernLineBorderPanel
+    implements TextProperty {
 
   /**
    * The constant serialVersionUID.
@@ -57,8 +58,9 @@ public class ModernInputExtPanel extends ModernLineBorderPanel implements TextPr
   private static final long serialVersionUID = 1L;
 
   /** The m ext button. */
-  private ModernButton mExtButton = new ModernButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
-                                                                                                                  // 16));
+  private ModernButton mExtButton = new ModernButton(
+      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
+                                                                   // 16));
 
   /**
    * The member search field.
@@ -74,14 +76,12 @@ public class ModernInputExtPanel extends ModernLineBorderPanel implements TextPr
   /**
    * Instantiates a new modern search panel.
    *
-   * @param window
-   *          the window
-   * @param text
-   *          the text
-   * @param delimiter
-   *          the delimiter
+   * @param window the window
+   * @param text the text
+   * @param delimiter the delimiter
    */
-  public ModernInputExtPanel(ModernWindow window, String text, String delimiter) {
+  public ModernInputExtPanel(ModernWindow window, String text,
+      String delimiter) {
     mWindow = window;
     mDelimiter = delimiter;
 
@@ -109,7 +109,8 @@ public class ModernInputExtPanel extends ModernLineBorderPanel implements TextPr
    * Input ext.
    */
   private void inputExt() {
-    InputExtDialog dialog = new InputExtDialog(mWindow, mTextField.getText(), mDelimiter);
+    InputExtDialog dialog = new InputExtDialog(mWindow, mTextField.getText(),
+        mDelimiter);
 
     dialog.setVisible(true);
 
@@ -123,8 +124,7 @@ public class ModernInputExtPanel extends ModernLineBorderPanel implements TextPr
   /**
    * Input ext.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public void inputExt(Collection<String> items) {
     mTextField.setText(Join.on(mDelimiter).values(items).toString());

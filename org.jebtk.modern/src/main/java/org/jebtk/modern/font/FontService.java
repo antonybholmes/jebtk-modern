@@ -52,9 +52,11 @@ public class FontService extends ModernTheme {
 
   /** The m font map. */
   private Map<String, IterMap<Integer, IterMap<Integer, IterMap<Boolean, IterMap<Boolean, Font>>>>> mFontMap = DefaultHashMap
-      .create(new DefaultHashMapCreator<Integer, IterMap<Integer, IterMap<Boolean, IterMap<Boolean, Font>>>>(
-          new DefaultHashMapCreator<Integer, IterMap<Boolean, IterMap<Boolean, Font>>>(
-              new DefaultHashMapCreator<Boolean, IterMap<Boolean, Font>>(new HashMapCreator<Boolean, Font>()))));
+      .create(
+          new DefaultHashMapCreator<Integer, IterMap<Integer, IterMap<Boolean, IterMap<Boolean, Font>>>>(
+              new DefaultHashMapCreator<Integer, IterMap<Boolean, IterMap<Boolean, Font>>>(
+                  new DefaultHashMapCreator<Boolean, IterMap<Boolean, Font>>(
+                      new HashMapCreator<Boolean, Font>()))));
 
   /**
    * Load a font from the settings.
@@ -69,8 +71,7 @@ public class FontService extends ModernTheme {
   /**
    * Load a font from the settings.
    * 
-   * @param path
-   *          A path to a setting.
+   * @param path A path to a setting.
    * @return
    */
   public Font loadFont(Path path) {
@@ -84,13 +85,15 @@ public class FontService extends ModernTheme {
 
     p = path.append("style");
 
-    boolean bold = SettingsService.getInstance().getAsString(p).contains("bold");
+    boolean bold = SettingsService.getInstance().getAsString(p)
+        .contains("bold");
 
     // Second way of specifying bold
     p = path.append("bold");
     bold |= SettingsService.getInstance().getAsBool(p);
 
-    boolean italic = SettingsService.getInstance().getAsString(p).contains("italic");
+    boolean italic = SettingsService.getInstance().getAsString(p)
+        .contains("italic");
 
     // Second way of specifying italic
     p = path.append("italic");
@@ -102,21 +105,21 @@ public class FontService extends ModernTheme {
   /**
    * Load font.
    *
-   * @param size
-   *          the size
+   * @param size the size
    * @return the font
    */
   public Font loadFont(int size) {
-    return loadFont(SettingsService.getInstance().getAsString("theme.widget.fonts.text.family"), size);
+    return loadFont(
+        SettingsService.getInstance()
+            .getAsString("theme.widget.fonts.text.family"),
+        size);
   }
 
   /**
    * Load a font.
    *
-   * @param family
-   *          The font family, e.g. Roboto.
-   * @param size
-   *          The font size.
+   * @param family The font family, e.g. Roboto.
+   * @param size The font size.
    * @return The font.
    */
   public Font loadFont(String family, int size) {
@@ -126,12 +129,9 @@ public class FontService extends ModernTheme {
   /**
    * Load a font.
    *
-   * @param family
-   *          The font family.
-   * @param size
-   *          The font size.
-   * @param bold
-   *          Whether the font should be bold.
+   * @param family The font family.
+   * @param size The font size.
+   * @param bold Whether the font should be bold.
    * @return The font.
    */
   public Font loadFont(String family, int size, boolean bold) {
@@ -141,14 +141,10 @@ public class FontService extends ModernTheme {
   /**
    * Load a font by name.
    * 
-   * @param family
-   *          The font family, e.g. Roboto.
-   * @param size
-   *          The font size.
-   * @param bold
-   *          Whether font should be bold.
-   * @param italic
-   *          Whether font should be italic.
+   * @param family The font family, e.g. Roboto.
+   * @param size The font size.
+   * @param bold Whether font should be bold.
+   * @param italic Whether font should be italic.
    * @return The font.
    */
   public Font loadFont(String family, int size, boolean bold, boolean italic) {
@@ -158,40 +154,38 @@ public class FontService extends ModernTheme {
   /**
    * Load font.
    *
-   * @param family
-   *          the family
-   * @param size
-   *          the size
-   * @param bold
-   *          the bold
-   * @param italic
-   *          the italic
-   * @param underline
-   *          the underline
+   * @param family the family
+   * @param size the size
+   * @param bold the bold
+   * @param italic the italic
+   * @param underline the underline
    * @return the font
    */
-  public Font loadFont(String family, int size, boolean bold, boolean italic, boolean underline) {
+  public Font loadFont(String family,
+      int size,
+      boolean bold,
+      boolean italic,
+      boolean underline) {
     return loadFont(family, size, bold, italic, underline, false);
   }
 
   /**
    * Load font.
    *
-   * @param family
-   *          the family
-   * @param size
-   *          the size
-   * @param bold
-   *          the bold
-   * @param italic
-   *          the italic
-   * @param underline
-   *          the underline
-   * @param stikethrough
-   *          the stikethrough
+   * @param family the family
+   * @param size the size
+   * @param bold the bold
+   * @param italic the italic
+   * @param underline the underline
+   * @param stikethrough the stikethrough
    * @return the font
    */
-  public Font loadFont(String family, int size, boolean bold, boolean italic, boolean underline, boolean stikethrough) {
+  public Font loadFont(String family,
+      int size,
+      boolean bold,
+      boolean italic,
+      boolean underline,
+      boolean stikethrough) {
     int style;
 
     if (bold) {
@@ -210,12 +204,9 @@ public class FontService extends ModernTheme {
   /**
    * Load font.
    *
-   * @param family
-   *          the family
-   * @param style
-   *          the style
-   * @param size
-   *          the size
+   * @param family the family
+   * @param style the style
+   * @param size the size
    * @return the font
    */
   public Font loadFont(String family, int style, int size) {
@@ -225,14 +216,10 @@ public class FontService extends ModernTheme {
   /**
    * Load font.
    *
-   * @param family
-   *          the family
-   * @param style
-   *          the style
-   * @param size
-   *          the size
-   * @param underline
-   *          the underline
+   * @param family the family
+   * @param style the style
+   * @param size the size
+   * @param underline the underline
    * @return the font
    */
   public Font loadFont(String family, int style, int size, boolean underline) {
@@ -242,20 +229,20 @@ public class FontService extends ModernTheme {
   /**
    * Load font.
    *
-   * @param family
-   *          The font family, e.g. Roboto.
-   * @param style
-   *          The font style.
-   * @param size
-   *          The font size.
-   * @param underline
-   *          the underline
-   * @param strikethrough
-   *          the strikethrough
+   * @param family The font family, e.g. Roboto.
+   * @param style The font style.
+   * @param size The font size.
+   * @param underline the underline
+   * @param strikethrough the strikethrough
    * @return The font.
    */
-  public Font loadFont(String family, int style, int size, boolean underline, boolean strikethrough) {
-    if (!mFontMap.get(family).get(style).get(size).get(underline).containsKey(strikethrough)) {
+  public Font loadFont(String family,
+      int style,
+      int size,
+      boolean underline,
+      boolean strikethrough) {
+    if (!mFontMap.get(family).get(style).get(size).get(underline)
+        .containsKey(strikethrough)) {
 
       Font f = new Font(family, style, size);
 
@@ -267,10 +254,12 @@ public class FontService extends ModernTheme {
         f = FontUtils.strikethrough(f);
       }
 
-      mFontMap.get(family).get(style).get(size).get(underline).put(strikethrough, f);
+      mFontMap.get(family).get(style).get(size).get(underline)
+          .put(strikethrough, f);
     }
 
-    return mFontMap.get(family).get(style).get(size).get(underline).get(strikethrough);
+    return mFontMap.get(family).get(style).get(size).get(underline)
+        .get(strikethrough);
   }
 
 }

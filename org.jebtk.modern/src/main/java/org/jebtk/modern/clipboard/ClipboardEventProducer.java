@@ -40,24 +40,21 @@ public interface ClipboardEventProducer {
   /**
    * Add an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addClipboardListener(ClipboardEventListener l);
 
   /**
    * Remove an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeClipboardListener(ClipboardEventListener l);
 
   /**
    * fire an event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireClipboardChanged(ChangeEvent event);
 }

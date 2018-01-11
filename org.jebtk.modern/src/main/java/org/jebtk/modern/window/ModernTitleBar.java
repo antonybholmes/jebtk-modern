@@ -47,7 +47,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The class ModernTitleBar.
  */
-public class ModernTitleBar extends ModernClickWidget implements ModernClickListener {
+public class ModernTitleBar extends ModernClickWidget
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -74,7 +75,8 @@ public class ModernTitleBar extends ModernClickWidget implements ModernClickList
   private Box _mRightButtonsBox = HBox.create();
 
   /** The Constant SIZE. */
-  private static final Dimension SIZE = new Dimension(Short.MAX_VALUE, Ribbon.TAB_HEIGHT);
+  private static final Dimension SIZE = new Dimension(Short.MAX_VALUE,
+      Ribbon.TAB_HEIGHT);
 
   /**
    * Instantiates a new modern title bar.
@@ -95,8 +97,7 @@ public class ModernTitleBar extends ModernClickWidget implements ModernClickList
   /**
    * Sets the title.
    *
-   * @param title
-   *          the new title
+   * @param title the new title
    */
   public void setTitle(String title) {
     mTitle = title;
@@ -107,8 +108,7 @@ public class ModernTitleBar extends ModernClickWidget implements ModernClickList
   /**
    * Adds the left.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public void addLeft(ModernClickWidget c) {
     mLeftBox.add(c);
@@ -119,8 +119,7 @@ public class ModernTitleBar extends ModernClickWidget implements ModernClickList
   /**
    * Adds the left.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   protected void _addLeft(ModernClickWidget c) {
     _mLeftBox.add(c);
@@ -131,8 +130,7 @@ public class ModernTitleBar extends ModernClickWidget implements ModernClickList
   /**
    * Adds the right.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public void addRight(ModernClickWidget c) {
     mRightButtonsBox.add(c);
@@ -143,8 +141,7 @@ public class ModernTitleBar extends ModernClickWidget implements ModernClickList
   /**
    * Adds the right.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public void _addRight(ModernClickWidget c) {
     _mRightButtonsBox.add(c);
@@ -166,12 +163,13 @@ public class ModernTitleBar extends ModernClickWidget implements ModernClickList
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.panel.ModernPanel#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.panel.ModernPanel#drawForegroundAA(java.awt.
+   * Graphics2D)
    */
   @Override
   public void drawForeground(Graphics2D g2) {
-    Point p = ModernWidget.getStringCenterPlotCoordinates(g2, getRect(), mTitle);
+    Point p = ModernWidget
+        .getStringCenterPlotCoordinates(g2, getRect(), mTitle);
 
     Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
@@ -187,8 +185,8 @@ public class ModernTitleBar extends ModernClickWidget implements ModernClickList
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {
@@ -200,8 +198,7 @@ public class ModernTitleBar extends ModernClickWidget implements ModernClickList
   /**
    * Add a quick access button.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public void addQuickAccessButton(ModernClickWidget button) {
     addLeft(button);

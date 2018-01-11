@@ -31,13 +31,25 @@ public class GenericButtonAnimation extends HoverFadeAnimation {
 
   }
 
-  public void drawButton(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawButton(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     drawButtonFill(g2, x, y, w, h, mode, hasFocus);
 
     drawButtonOutline(g2, x, y, w, h, mode, hasFocus);
   }
 
-  public void drawButtonOutline(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawButtonOutline(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     // g2.setColor(getFadeColor("outline"));
     // outline(g2, x, y, w, h);
   }
@@ -46,7 +58,13 @@ public class GenericButtonAnimation extends HoverFadeAnimation {
     getWidget().getWidgetRenderer().outline(g2, x, y, w, h);
   }
 
-  public void drawButtonFill(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawButtonFill(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
 
     ModernWidget wt = getWidget();
 

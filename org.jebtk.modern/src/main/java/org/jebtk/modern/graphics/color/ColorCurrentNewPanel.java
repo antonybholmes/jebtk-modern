@@ -29,10 +29,9 @@ package org.jebtk.modern.graphics.color;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.ColorValue;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
-import org.jebtk.core.ColorValue;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -40,7 +39,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The class ColorCurrentNewPanel.
  */
-public class ColorCurrentNewPanel extends ModernWidget implements ChangeListener {
+public class ColorCurrentNewPanel extends ModernWidget
+    implements ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -73,8 +73,7 @@ public class ColorCurrentNewPanel extends ModernWidget implements ChangeListener
   /**
    * Instantiates a new color current new panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ColorCurrentNewPanel(ColorSelectionModel model) {
     mModel = model;
@@ -89,7 +88,8 @@ public class ColorCurrentNewPanel extends ModernWidget implements ChangeListener
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -109,8 +109,8 @@ public class ColorCurrentNewPanel extends ModernWidget implements ChangeListener
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void changed(ChangeEvent e) {

@@ -49,7 +49,8 @@ public class ModernWindowContentPanel extends ModernPanel {
   /**
    * The constant COLOR.
    */
-  public static final Color COLOR = ThemeService.getInstance().colors().getHighlight32(1);
+  public static final Color COLOR = ThemeService.getInstance().colors()
+      .getHighlight32(1);
 
   /**
    * Instantiates a new modern window content panel.

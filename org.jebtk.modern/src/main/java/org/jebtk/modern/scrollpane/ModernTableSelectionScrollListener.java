@@ -28,7 +28,6 @@
 package org.jebtk.modern.scrollpane;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.table.ModernTable;
@@ -41,7 +40,8 @@ import org.jebtk.modern.table.ModernTable;
  *
  * @see ModernTableSelectionScrollEvent
  */
-public class ModernTableSelectionScrollListener implements ModernSelectionListener {
+public class ModernTableSelectionScrollListener
+    implements ModernSelectionListener {
 
   /** The m table. */
   private ModernTable mTable;
@@ -55,14 +55,12 @@ public class ModernTableSelectionScrollListener implements ModernSelectionListen
   /**
    * Instantiates a new modern table selection scroll listener.
    *
-   * @param table
-   *          the table
-   * @param vScrollbar
-   *          the v scrollbar
-   * @param hScrollbar
-   *          the h scrollbar
+   * @param table the table
+   * @param vScrollbar the v scrollbar
+   * @param hScrollbar the h scrollbar
    */
-  public ModernTableSelectionScrollListener(ModernTable table, ModernScrollBar vScrollbar, ModernScrollBar hScrollbar) {
+  public ModernTableSelectionScrollListener(ModernTable table,
+      ModernScrollBar vScrollbar, ModernScrollBar hScrollbar) {
     mTable = table;
     mVScrollbar = vScrollbar;
     mHScrollbar = hScrollbar;
@@ -87,11 +85,12 @@ public class ModernTableSelectionScrollListener implements ModernSelectionListen
        * 
        * int height = mTable.getRowModel().getWidth(row);
        * 
-       * if (y < viewRect.getY()) { double p = -mVScrollbar.normalize(height); // *
-       * notches; mVScrollbar.incrementNormalizedScrollPosition(p); } else if (y +
-       * height >= viewRect.getY() + viewRect.getH()) { double p =
+       * if (y < viewRect.getY()) { double p = -mVScrollbar.normalize(height);
+       * // * notches; mVScrollbar.incrementNormalizedScrollPosition(p); } else
+       * if (y + height >= viewRect.getY() + viewRect.getH()) { double p =
        * mVScrollbar.normalize(height); // * Math.signum(notches); // * notches;
-       * mVScrollbar.incrementNormalizedScrollPosition(p); } else { // Do nothing }
+       * mVScrollbar.incrementNormalizedScrollPosition(p); } else { // Do
+       * nothing }
        */
 
       int y1 = mTable.getRowModel().getCumOffset(row);
@@ -111,7 +110,8 @@ public class ModernTableSelectionScrollListener implements ModernSelectionListen
         y2 += mTable.getColumnModel().getHeaderSize();
       }
 
-      // System.err.println("scroll h " + x1 + " " + x2 + " " + xr + " " + col + " " +
+      // System.err.println("scroll h " + x1 + " " + x2 + " " + xr + " " + col +
+      // " " +
       // viewRect);
 
       if (y1 < h) {
@@ -131,11 +131,12 @@ public class ModernTableSelectionScrollListener implements ModernSelectionListen
        * 
        * //System.err.println("scroll h " + x + " " + viewRect);
        * 
-       * if (x < viewRect.getX()) { double p = -mHScrollbar.normalize(width); // *
-       * notches; mHScrollbar.incrementNormalizedScrollPosition(p); } else if (x +
-       * width >= viewRect.getX() + viewRect.getW()) { double p =
+       * if (x < viewRect.getX()) { double p = -mHScrollbar.normalize(width); //
+       * * notches; mHScrollbar.incrementNormalizedScrollPosition(p); } else if
+       * (x + width >= viewRect.getX() + viewRect.getW()) { double p =
        * mHScrollbar.normalize(width); // * Math.signum(notches); // * notches;
-       * mHScrollbar.incrementNormalizedScrollPosition(p); } else { // Do nothing }
+       * mHScrollbar.incrementNormalizedScrollPosition(p); } else { // Do
+       * nothing }
        */
 
       int x1 = mTable.getColumnModel().getCumOffset(col);
@@ -155,7 +156,8 @@ public class ModernTableSelectionScrollListener implements ModernSelectionListen
         x2 += mTable.getRowModel().getHeaderSize();
       }
 
-      // System.err.println("scroll h " + x1 + " " + x2 + " " + xr + " " + col + " " +
+      // System.err.println("scroll h " + x1 + " " + x2 + " " + xr + " " + col +
+      // " " +
       // viewRect);
 
       if (x1 < w) {

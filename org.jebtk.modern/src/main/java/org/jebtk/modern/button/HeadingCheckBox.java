@@ -46,8 +46,7 @@ public class HeadingCheckBox extends ModernCheckBox {
   /**
    * Instantiates a new heading check box.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public HeadingCheckBox(String text) {
     super(text);

@@ -53,7 +53,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ColorDialog.
  */
-public class ColorDialog extends ModernDialogTaskWindow implements ModernClickListener {
+public class ColorDialog extends ModernDialogTaskWindow
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -124,10 +125,8 @@ public class ColorDialog extends ModernDialogTaskWindow implements ModernClickLi
   /**
    * Instantiates a new color dialog.
    *
-   * @param parent
-   *          the parent
-   * @param color
-   *          the color
+   * @param parent the parent
+   * @param color the color
    */
   public ColorDialog(ModernWindow parent, Color color) {
     super(parent);
@@ -138,8 +137,7 @@ public class ColorDialog extends ModernDialogTaskWindow implements ModernClickLi
   /**
    * Sets the up.
    *
-   * @param color
-   *          the new up
+   * @param color the new up
    */
   private void setup(Color color) {
     setResizable(false);
@@ -217,7 +215,8 @@ public class ColorDialog extends ModernDialogTaskWindow implements ModernClickLi
 
     box1.add(box2);
 
-    setContent(new CardPanel(new ModernComponent(box1, ModernWidget.QUAD_BORDER)));
+    setContent(
+        new CardPanel(new ModernComponent(box1, ModernWidget.QUAD_BORDER)));
 
     setBackground(ModernDialogWindow.DIALOG_BACKGROUND);
 
@@ -249,8 +248,8 @@ public class ColorDialog extends ModernDialogTaskWindow implements ModernClickLi
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

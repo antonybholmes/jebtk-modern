@@ -31,17 +31,18 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class OrbTabsHighlightAnimation extends HighlightAnimation {
 
-  protected static final Color ORB_COLOR = ThemeService.getInstance().colors().getHighlight(3);
+  protected static final Color ORB_COLOR = ThemeService.getInstance().colors()
+      .getHighlight(3);
 
-  protected static final Color ORB_COLOR_2 = ThemeService.getInstance().colors().getHighlight(5);
+  protected static final Color ORB_COLOR_2 = ThemeService.getInstance().colors()
+      .getHighlight(5);
 
   private OrbTabs mTabs;
 
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public OrbTabsHighlightAnimation(ModernWidget w) {
     super((OrbTabs) w);
@@ -72,8 +73,8 @@ public class OrbTabsHighlightAnimation extends HighlightAnimation {
     //
 
     /*
-     * if (highlighted != selectedIndex && highlighted > -1 && highlighted < n) { x
-     * += mTabs.mHighlight * mTabs.mTabSize;
+     * if (highlighted != selectedIndex && highlighted > -1 && highlighted < n)
+     * { x += mTabs.mHighlight * mTabs.mTabSize;
      * 
      * g2.setColor(getFade().getFadeColor("highlight"));
      * 
@@ -81,7 +82,8 @@ public class OrbTabsHighlightAnimation extends HighlightAnimation {
      */
 
     for (int i = 0; i < n; ++i) {
-      g2.setColor(i == highlighted ? getFade().getFadeColor("highlight") : ORB_COLOR);
+      g2.setColor(
+          i == highlighted ? getFade().getFadeColor("highlight") : ORB_COLOR);
       g2.fillOval(x, y, h, h);
 
       x += mTabs.mTabSize;

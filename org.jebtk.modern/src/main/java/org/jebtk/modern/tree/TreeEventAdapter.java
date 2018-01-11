@@ -37,8 +37,8 @@ public class TreeEventAdapter implements TreeEventListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.TreeEventListener#treeNodeDragged(org.abh.lib.ui.
-   * modern.tree.ModernTreeEvent)
+   * org.abh.lib.ui.modern.tree.TreeEventListener#treeNodeDragged(org.abh.lib.
+   * ui. modern.tree.ModernTreeEvent)
    */
   @Override
   public void treeNodeDragged(ModernTreeEvent e) {
@@ -50,8 +50,8 @@ public class TreeEventAdapter implements TreeEventListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.TreeEventListener#treeNodeClicked(org.abh.lib.ui.
-   * modern.tree.ModernTreeEvent)
+   * org.abh.lib.ui.modern.tree.TreeEventListener#treeNodeClicked(org.abh.lib.
+   * ui. modern.tree.ModernTreeEvent)
    */
   @Override
   public void treeNodeClicked(ModernTreeEvent e) {

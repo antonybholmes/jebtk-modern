@@ -36,9 +36,8 @@ public class ModernCanvasMouseAdapter implements ModernCanvasMouseListener {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseClicked(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseClicked( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseClicked(CanvasMouseEvent e) {
@@ -49,9 +48,8 @@ public class ModernCanvasMouseAdapter implements ModernCanvasMouseListener {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseEntered(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseEntered( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseEntered(CanvasMouseEvent e) {
@@ -75,9 +73,8 @@ public class ModernCanvasMouseAdapter implements ModernCanvasMouseListener {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMousePressed(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMousePressed( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMousePressed(CanvasMouseEvent e) {
@@ -88,9 +85,8 @@ public class ModernCanvasMouseAdapter implements ModernCanvasMouseListener {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseReleased(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseReleased( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseReleased(CanvasMouseEvent e) {
@@ -101,9 +97,8 @@ public class ModernCanvasMouseAdapter implements ModernCanvasMouseListener {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseDragged(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseDragged( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseDragged(CanvasMouseEvent e) {
@@ -115,8 +110,8 @@ public class ModernCanvasMouseAdapter implements ModernCanvasMouseListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(org
-   * .abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(
+   * org .abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseMoved(CanvasMouseEvent e) {

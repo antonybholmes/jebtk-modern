@@ -53,7 +53,7 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
   /**
    * The constant SIZE.
    */
-  public static final Dimension SIZE = new Dimension(200, 80);
+  private static final Dimension SIZE = new Dimension(200, 80);
 
   /**
    * The member title.
@@ -68,8 +68,7 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
   /**
    * Instantiates a new modern basic tool tip panel.
    *
-   * @param tooltip
-   *          the tooltip
+   * @param tooltip the tooltip
    */
   public ModernBasicToolTipPanel(ModernToolTip tooltip) {
     setToolTip(tooltip);
@@ -85,7 +84,9 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
 
     panel.add(mText, BorderLayout.CENTER);
 
-    panel.setBorder(DOUBLE_BORDER);
+    setPreferredSize(SIZE);
+    
+    panel.setBorder(BORDER);
 
     add(panel);
   }
@@ -93,8 +94,7 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
   /**
    * Sets the tool tip.
    *
-   * @param tooltip
-   *          the new tool tip
+   * @param tooltip the new tool tip
    */
   public void setToolTip(ModernToolTip tooltip) {
     mTitle.setText(tooltip.getTitle());
@@ -104,9 +104,9 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.tooltip.ModernToolTipPanel#getToolTipSize()
+   * @see org.abh.lib.ui.modern.tooltip.ModernToolTipPanel#getPreferredSize()
    */
-  public Dimension getToolTipSize() {
+  public Dimension getPreferredSize() {
     return SIZE;
   }
 }

@@ -39,7 +39,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerException;
 
 import org.jebtk.core.collections.ArrayListCreator;
 import org.jebtk.core.collections.DefaultTreeMap;
@@ -68,7 +67,8 @@ import org.xml.sax.SAXException;
  * @author Antony Holmes Holmes
  *
  */
-public class RecentFilesModel extends ChangeListeners implements XmlRepresentation, JsonRepresentation, Iterable<Path> {
+public class RecentFilesModel extends ChangeListeners
+    implements XmlRepresentation, JsonRepresentation, Iterable<Path> {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -88,10 +88,12 @@ public class RecentFilesModel extends ChangeListeners implements XmlRepresentati
   /**
    * The constant MAX_FILES.
    */
-  public static final int MAX_FILES = SettingsService.getInstance().getAsInt("ui.recent-files.max-files");
+  public static final int MAX_FILES = SettingsService.getInstance()
+      .getAsInt("ui.recent-files.max-files");
 
   /** The m file type map. */
-  protected Map<String, List<Path>> mFileTypeMap = DefaultTreeMap.create(new ArrayListCreator<Path>());
+  protected Map<String, List<Path>> mFileTypeMap = DefaultTreeMap
+      .create(new ArrayListCreator<Path>());
 
   /** The m files. */
   protected List<Path> mFiles = new ArrayList<Path>(100);
@@ -104,16 +106,11 @@ public class RecentFilesModel extends ChangeListeners implements XmlRepresentati
   /**
    * Instantiates a new recent files service.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws SAXException
-   *           the SAX exception
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
-   * @throws FileIsNotADirException
-   *           the file is not A dir exception
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException the SAX exception
+   * @throws ParserConfigurationException the parser configuration exception
+   * @throws FileIsNotADirException the file is not A dir exception
    */
   public RecentFilesModel() {
 
@@ -136,8 +133,7 @@ public class RecentFilesModel extends ChangeListeners implements XmlRepresentati
   /**
    * Adds the.
    *
-   * @param file
-   *          the file
+   * @param file the file
    * @return true, if successful
    */
   public synchronized boolean add(Path file) {
@@ -177,10 +173,8 @@ public class RecentFilesModel extends ChangeListeners implements XmlRepresentati
   /**
    * Adds the file.
    *
-   * @param file
-   *          the file
-   * @param date
-   *          the date
+   * @param file the file
+   * @param date the date
    */
   public synchronized void add(Path file, Date date) {
     file = file.toAbsolutePath();
@@ -193,8 +187,7 @@ public class RecentFilesModel extends ChangeListeners implements XmlRepresentati
   /**
    * Return only files with a particular extension.
    *
-   * @param exts
-   *          the exts
+   * @param exts the exts
    * @return the files by ext
    */
   public List<Path> getFilesByExt(String... exts) {
@@ -210,8 +203,7 @@ public class RecentFilesModel extends ChangeListeners implements XmlRepresentati
   /**
    * Gets the date.
    *
-   * @param file
-   *          the file
+   * @param file the file
    * @return the date
    */
   public Date getDate(Path file) {
@@ -229,7 +221,8 @@ public class RecentFilesModel extends ChangeListeners implements XmlRepresentati
 
     Element filesElement = doc.createElement("files");
 
-    filesElement.setAttribute("pwd", mPwdModel.getPwd().toAbsolutePath().toString());
+    filesElement.setAttribute("pwd",
+        mPwdModel.getPwd().toAbsolutePath().toString());
 
     // We write out no more than max files
     int n = Math.min(mFiles.size(), MAX_FILES);

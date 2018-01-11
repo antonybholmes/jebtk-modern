@@ -8,9 +8,11 @@ import org.jebtk.modern.widget.ModernTwoStateWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class ChipButtonHighlightAnimation extends ButtonHighlightAnimation {
-  public static final Color HIGHLIGHT = ThemeService.getInstance().colors().getHighlight32(4);
+  public static final Color HIGHLIGHT = ThemeService.getInstance().colors()
+      .getHighlight32(4);
 
-  public static final Color SELECTED = ThemeService.getInstance().colors().getHighlight32(6);
+  public static final Color SELECTED = ThemeService.getInstance().colors()
+      .getHighlight32(6);
 
   private ModernTwoStateWidget mButton;
 

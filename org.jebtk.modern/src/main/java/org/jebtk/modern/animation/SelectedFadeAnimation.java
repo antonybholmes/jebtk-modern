@@ -34,8 +34,7 @@ public abstract class SelectedFadeAnimation extends SelectedAnimation {
   /**
    * Instantiates a new state fade animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public SelectedFadeAnimation(ModernWidget widget) {
     super((ModernClickWidget) widget);
@@ -77,10 +76,8 @@ public abstract class SelectedFadeAnimation extends SelectedAnimation {
   /**
    * Adds the fade color.
    *
-   * @param name
-   *          the name
-   * @param color
-   *          the color
+   * @param name the name
+   * @param color the color
    */
   public void setFadeColor(String name, Color color) {
     mFade.setFadeColor(name, color);
@@ -106,8 +103,7 @@ public abstract class SelectedFadeAnimation extends SelectedAnimation {
   /**
    * Gets the fade color map.
    *
-   * @param step
-   *          the step
+   * @param step the step
    * @return the fade color map
    */
   public Map<String, Color> getFadeColorMap(int step) {

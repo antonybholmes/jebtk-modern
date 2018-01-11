@@ -36,26 +36,21 @@ public class MouseUtils {
    * Clone a mouse event but update its location. Useful for callback functions
    * that need to normalize mouse events.
    *
-   * @param e
-   *          the e
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param e the e
+   * @param x the x
+   * @param y the y
    * @return the mouse event
    */
   public static MouseEvent updateXY(final MouseEvent e, int x, int y) {
-    return new MouseEvent(e.getComponent(), e.getID(), e.getWhen(), e.getModifiers(), x, y, e.getClickCount(),
-        e.isPopupTrigger());
+    return new MouseEvent(e.getComponent(), e.getID(), e.getWhen(),
+        e.getModifiers(), x, y, e.getClickCount(), e.isPopupTrigger());
   }
 
   /**
    * Update XY.
    *
-   * @param e
-   *          the e
-   * @param p
-   *          the p
+   * @param e the e
+   * @param p the p
    * @return the mouse event
    */
   public static MouseEvent updateXY(final MouseEvent e, final IntPos2D p) {

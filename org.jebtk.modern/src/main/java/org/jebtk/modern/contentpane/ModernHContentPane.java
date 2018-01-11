@@ -104,19 +104,20 @@ public class ModernHContentPane extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabAdded(TabEvent e) {
       refresh();
 
       /*
-       * if (e.getPane().getName().equals(ContentPaneModel.CENTER_PANE)) { return; }
+       * if (e.getPane().getName().equals(ContentPaneModel.CENTER_PANE)) {
+       * return; }
        * 
        * Timer timer = new Timer(10, null); timer.setRepeats(true);
-       * timer.addClickListener(new AnimatePane(e.getPane(), timer)); timer.start();
+       * timer.addClickListener(new AnimatePane(e.getPane(), timer));
+       * timer.start();
        */
     }
 
@@ -124,8 +125,8 @@ public class ModernHContentPane extends ModernWidget {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabRemoved(TabEvent e) {
@@ -136,8 +137,8 @@ public class ModernHContentPane extends ModernWidget {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabResized(TabEvent e) {
@@ -148,8 +149,8 @@ public class ModernHContentPane extends ModernWidget {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabChanged(TabEvent e) {
@@ -274,7 +275,8 @@ public class ModernHContentPane extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -290,8 +292,8 @@ public class ModernHContentPane extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.
+     * MouseEvent)
      */
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -314,13 +316,16 @@ public class ModernHContentPane extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
       mSelectedDivider = getClosestDivider(e.getX());
 
-      setCursor(Cursor.getPredefinedCursor(mSelectedDivider != -1 ? Cursor.E_RESIZE_CURSOR : Cursor.DEFAULT_CURSOR));
+      setCursor(Cursor
+          .getPredefinedCursor(mSelectedDivider != -1 ? Cursor.E_RESIZE_CURSOR
+              : Cursor.DEFAULT_CURSOR));
 
       // repaint();
     }
@@ -343,8 +348,7 @@ public class ModernHContentPane extends ModernWidget {
   /**
    * Sets the model.
    *
-   * @param model
-   *          the new model
+   * @param model the new model
    */
   public void setModel(TabsModel model) {
     mModel = model;
@@ -364,8 +368,7 @@ public class ModernHContentPane extends ModernWidget {
   /**
    * Gets the closest divider.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the closest divider
    */
   private int getClosestDivider(int x) {
@@ -502,11 +505,19 @@ public class ModernHContentPane extends ModernWidget {
     repaint();
   }
 
-  public void addLeftTab(String name, ModernComponent c, int width, int minWidth, int maxWidth) {
+  public void addLeftTab(String name,
+      ModernComponent c,
+      int width,
+      int minWidth,
+      int maxWidth) {
     getModel().addLeftTab(name, c, width, minWidth, maxWidth);
   }
 
-  public void addRightTab(String name, ModernComponent c, int width, int minWidth, int maxWidth) {
+  public void addRightTab(String name,
+      ModernComponent c,
+      int width,
+      int minWidth,
+      int maxWidth) {
     getModel().addRightTab(name, c, width, minWidth, maxWidth);
   }
 
@@ -518,7 +529,7 @@ public class ModernHContentPane extends ModernWidget {
    * g2.setColor(ModernWidget.LIGHT_LINE_COLOR);
    * 
    * // Draw divider lines //g2.setColor(ModernWidget.LINE_COLOR); for (int
-   * divider : mDividerLocations) { g2.drawLine(divider, getInsets().top, divider,
-   * mInternalRect.getH()); } }
+   * divider : mDividerLocations) { g2.drawLine(divider, getInsets().top,
+   * divider, mInternalRect.getH()); } }
    */
 }

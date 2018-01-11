@@ -32,7 +32,6 @@ import java.nio.file.Path;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -45,7 +44,8 @@ import org.jebtk.modern.menu.ModernScrollPopupMenu;
 /**
  * The class RecentFilesPopup.
  */
-public class RecentFilesPopup extends ModernScrollPopupMenu implements ChangeListener {
+public class RecentFilesPopup extends ModernScrollPopupMenu
+    implements ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -75,20 +75,19 @@ public class RecentFilesPopup extends ModernScrollPopupMenu implements ChangeLis
   /**
    * Instantiates a new recent files popup.
    *
-   * @param recentFiles
-   *          the recent files
+   * @param recentFiles the recent files
    */
   public RecentFilesPopup(RecentFilesService recentFiles) {
-    setup(recentFiles, UIService.getInstance().loadIcon("file", UIService.ICON_SIZE_32), MAX_FILES);
+    setup(recentFiles,
+        UIService.getInstance().loadIcon("file", UIService.ICON_SIZE_32),
+        MAX_FILES);
   }
 
   /**
    * Instantiates a new recent files popup.
    *
-   * @param recentFiles
-   *          the recent files
-   * @param icon
-   *          the icon
+   * @param recentFiles the recent files
+   * @param icon the icon
    */
   public RecentFilesPopup(RecentFilesService recentFiles, ModernIcon icon) {
     setup(recentFiles, icon, MAX_FILES);
@@ -97,26 +96,21 @@ public class RecentFilesPopup extends ModernScrollPopupMenu implements ChangeLis
   /**
    * Instantiates a new recent files popup.
    *
-   * @param recentFiles
-   *          the recent files
-   * @param icon
-   *          the icon
-   * @param max
-   *          the max
+   * @param recentFiles the recent files
+   * @param icon the icon
+   * @param max the max
    */
-  public RecentFilesPopup(RecentFilesService recentFiles, ModernIcon icon, int max) {
+  public RecentFilesPopup(RecentFilesService recentFiles, ModernIcon icon,
+      int max) {
     setup(recentFiles, icon, max);
   }
 
   /**
    * Setup.
    *
-   * @param recentFiles
-   *          the recent files
-   * @param icon
-   *          the icon
-   * @param max
-   *          the max
+   * @param recentFiles the recent files
+   * @param icon the icon
+   * @param max the max
    */
   private void setup(RecentFilesService recentFiles, ModernIcon icon, int max) {
     mRecentFiles = recentFiles;
@@ -157,7 +151,8 @@ public class RecentFilesPopup extends ModernScrollPopupMenu implements ChangeLis
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+   * @see
+   * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void changed(ChangeEvent e) {

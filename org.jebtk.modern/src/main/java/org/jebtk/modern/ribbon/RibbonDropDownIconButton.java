@@ -45,8 +45,7 @@ public class RibbonDropDownIconButton extends ModernDropDownIconButton {
   /**
    * Instantiates a new ribbon drop down icon button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public RibbonDropDownIconButton(ModernIcon icon) {
     super(icon);
@@ -55,14 +54,16 @@ public class RibbonDropDownIconButton extends ModernDropDownIconButton {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.button.ModernDropDownWidget#drawBackgroundAA(java.awt.
+   * @see
+   * org.abh.common.ui.button.ModernDropDownWidget#drawBackgroundAA(java.awt.
    * Graphics2D)
    */
   @Override
   public void drawBackgroundAA(Graphics2D g2) {
     if (isEnabled()) {
       if (mHighlight || mPopupShown) {
-        getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+        getWidgetRenderer()
+            .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
       }
     }
   }

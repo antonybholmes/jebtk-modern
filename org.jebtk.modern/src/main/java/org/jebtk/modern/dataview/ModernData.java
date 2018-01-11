@@ -61,8 +61,9 @@ import org.jebtk.modern.zoom.ZoomModel;
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernData extends ZoomCanvas implements ModernDataViewEventProducer, ClipboardUiControl,
-    ModernSelectionListener, ModernDataViewListener, FocusListener, ComponentListener {
+public abstract class ModernData extends ZoomCanvas implements
+    ModernDataViewEventProducer, ClipboardUiControl, ModernSelectionListener,
+    ModernDataViewListener, FocusListener, ComponentListener {
 
   /**
    * The constant serialVersionUID.
@@ -90,8 +91,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   protected ModernDataCellsSelectionModel mSelectionModel = new ModernDataCellsSelectionModel();
 
   /**
-   * Keeps track of the ways the rows can be sorted. It can store multiple sorters
-   * (one for each col) to determine how data is presented.
+   * Keeps track of the ways the rows can be sorted. It can store multiple
+   * sorters (one for each col) to determine how data is presented.
    */
   protected ModernDataSortModel mRowSortModel = new ModernDataSortModel();
 
@@ -162,7 +163,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see
+     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -172,7 +174,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.ui.modern.dataview.ModernDataEditorListener#editingStopped()
+     * @see
+     * org.abh.lib.ui.modern.dataview.ModernDataEditorListener#editingStopped()
      */
     @Override
     public void editingStopped() {
@@ -193,8 +196,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.graphics.ModernCanvasAdapter#canvasChanged(org.abh.lib.
-     * event.ChangeEvent)
+     * org.abh.lib.ui.modern.graphics.ModernCanvasAdapter#canvasChanged(org.abh.
+     * lib. event.ChangeEvent)
      */
     @Override
     public void canvasChanged(ChangeEvent e) {
@@ -217,11 +220,15 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
         return;
       }
 
-      boolean multiSelect = (e.getModifiers() & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) == Toolkit
-          .getDefaultToolkit().getMenuShortcutKeyMask();
-      boolean multiRangeSelect = (e.getModifiers() & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
+      boolean multiSelect = (e.getModifiers()
+          & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) == Toolkit
+              .getDefaultToolkit().getMenuShortcutKeyMask();
+      boolean multiRangeSelect = (e.getModifiers()
+          & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
 
-      setSelectedCell(getCell(translateCoordinate(e)), multiSelect, multiRangeSelect);
+      setSelectedCell(getCell(translateCoordinate(e)),
+          multiSelect,
+          multiRangeSelect);
     }
   }
 
@@ -259,8 +266,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Sets the model.
    *
-   * @param model
-   *          the new model
+   * @param model the new model
    */
   public void setModel(ModernDataModel model) {
     mModel = model;
@@ -282,8 +288,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   }
 
   /**
-   * Update the views to reflect the table data, i.e ensure there is a col and row
-   * view to represent each colum and row in the table data.
+   * Update the views to reflect the table data, i.e ensure there is a col and
+   * row view to represent each colum and row in the table data.
    */
   protected void updateViewModels() {
     mSelectionModel.clear();
@@ -311,8 +317,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvas#updateViewRectangle(org.abh.lib.
-   * IntRect)
+   * org.abh.lib.ui.modern.graphics.ModernCanvas#updateViewRectangle(org.abh.
+   * lib. IntRect)
    */
   @Override
   public void updateViewRectangle(IntRect rect) {
@@ -334,8 +340,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
-   * lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.
+   * abh. lib.event.ChangeEvent)
    */
   @Override
   public void selectionChanged(ChangeEvent e) {
@@ -347,8 +353,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Returns the cumulative distance from 0 of a particular col.
    *
-   * @param col
-   *          the col
+   * @param col the col
    * @return the x
    */
   public abstract int getX(int col);
@@ -356,8 +361,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Returns the cumulative distance from 0 of a particular row.
    *
-   * @param row
-   *          the row
+   * @param row the row
    * @return the y
    */
   public abstract int getY(int row);
@@ -365,8 +369,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Returns the col for a given position x.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the col
    */
   public abstract int getCol(int x);
@@ -374,8 +377,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Returns the row for a given position y.
    *
-   * @param y
-   *          the y
+   * @param y the y
    * @return the row
    */
   public abstract int getRow(int y);
@@ -383,8 +385,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the cell.
    *
-   * @param p
-   *          the p
+   * @param p the p
    * @return the cell
    */
   protected ModernDataCell getCell(IntPos2D p) {
@@ -394,8 +395,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the cell.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the cell
    */
   protected ModernDataCell getCell(int index) {
@@ -405,8 +405,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the index.
    *
-   * @param cell
-   *          the cell
+   * @param cell the cell
    * @return the index
    */
   protected final int getIndex(ModernDataCell cell) {
@@ -420,10 +419,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the index.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
+   * @param row the row
+   * @param col the col
    * @return the index
    */
   protected int getIndex(int row, int col) {
@@ -441,8 +438,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the index.
    *
-   * @param p
-   *          the p
+   * @param p the p
    * @return the index
    */
   protected int getIndex(IntPos2D p) {
@@ -452,8 +448,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the point.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the point
    */
   protected Point getPoint(int index) {
@@ -463,8 +458,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the point.
    *
-   * @param cell
-   *          the cell
+   * @param cell the cell
    * @return the point
    */
   protected final Point getPoint(ModernDataCell cell) {
@@ -474,10 +468,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the point.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
+   * @param row the row
+   * @param col the col
    * @return the point
    */
   protected Point getPoint(int row, int col) {
@@ -487,8 +479,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Translate a graphics context to the correct location for rendering.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    */
   protected void translate(Graphics2D g2) {
     ModernDataSelection visibleCells = calculateVisibleCells();
@@ -507,14 +498,13 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Sets the selected cell.
    *
-   * @param cell
-   *          the cell
-   * @param multiRowSelect
-   *          the multi row select
-   * @param multiRangeSelect
-   *          the multi range select
+   * @param cell the cell
+   * @param multiRowSelect the multi row select
+   * @param multiRangeSelect the multi range select
    */
-  public final void setSelectedCell(ModernDataCell cell, boolean multiRowSelect, boolean multiRangeSelect) {
+  public final void setSelectedCell(ModernDataCell cell,
+      boolean multiRowSelect,
+      boolean multiRangeSelect) {
     if (cell == null) {
       return;
     }
@@ -525,16 +515,15 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Selects a cell if the mouse is over a valid cell when clicked.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
-   * @param multiRowSelect
-   *          the multi row select
-   * @param multiRangeSelect
-   *          the multi range select
+   * @param row the row
+   * @param col the col
+   * @param multiRowSelect the multi row select
+   * @param multiRangeSelect the multi range select
    */
-  public abstract void setSelectedCell(int row, int col, boolean multiRowSelect, boolean multiRangeSelect);
+  public abstract void setSelectedCell(int row,
+      int col,
+      boolean multiRowSelect,
+      boolean multiRangeSelect);
 
   /*
    * (non-Javadoc)
@@ -560,8 +549,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Sets the selection policy.
    *
-   * @param selectionPolicy
-   *          the new selection policy
+   * @param selectionPolicy the new selection policy
    */
   public void setSelectionPolicy(SelectionPolicy selectionPolicy) {
     mSelectionPolicy = selectionPolicy;
@@ -588,8 +576,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the renderer.
    *
-   * @param cell
-   *          the cell
+   * @param cell the cell
    * @return the renderer
    */
   public ModernDataCellRenderer getRenderer(ModernDataCell cell) {
@@ -599,10 +586,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the renderer.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
+   * @param row the row
+   * @param col the col
    * @return the renderer
    */
   public ModernDataCellRenderer getRenderer(int row, int col) {
@@ -621,8 +606,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the editor.
    *
-   * @param cell
-   *          the cell
+   * @param cell the cell
    * @return the editor
    */
   public ModernDataCellEditor getEditor(ModernDataCell cell) {
@@ -632,10 +616,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the editor.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
+   * @param row the row
+   * @param col the col
    * @return the editor
    */
   public ModernDataCellEditor getEditor(int row, int col) {
@@ -703,8 +685,13 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
 
     mCurrentEditor.addEditorListener(new EditorEvents());
 
-    mCurrentEditorComponent = mCurrentEditor.getCellEditorComponent(this, getValueAt(selectedCell), true, true, true,
-        selectedCell.row, selectedCell.col);
+    mCurrentEditorComponent = mCurrentEditor.getCellEditorComponent(this,
+        getValueAt(selectedCell),
+        true,
+        true,
+        true,
+        selectedCell.row,
+        selectedCell.col);
 
     // Add the component onto the table so the user can see it
     add(mCurrentEditorComponent);
@@ -732,8 +719,7 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the value at.
    *
-   * @param cell
-   *          the cell
+   * @param cell the cell
    * @return the value at
    */
   public Object getValueAt(ModernDataCell cell) {
@@ -746,13 +732,11 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
 
   /**
    * Returns the value at a given row, col on the table. Since the table may be
-   * sorted, getValue may return a different value to getModel().getValue() since
-   * that returns the ordering of the data as it was loaded.
+   * sorted, getValue may return a different value to getModel().getValue()
+   * since that returns the ordering of the data as it was loaded.
    *
-   * @param row
-   *          the row
-   * @param column
-   *          the column
+   * @param row the row
+   * @param column the column
    * @return the value at
    */
   public abstract Object getValueAt(int row, int column);
@@ -760,10 +744,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the int value at.
    *
-   * @param row
-   *          the row
-   * @param column
-   *          the column
+   * @param row the row
+   * @param column the column
    * @return the int value at
    */
   public int getIntValueAt(int row, int column) {
@@ -783,10 +765,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the double value at.
    *
-   * @param row
-   *          the row
-   * @param column
-   *          the column
+   * @param row the row
+   * @param column the column
    * @return the double value at
    */
   public double getDoubleValueAt(int row, int column) {
@@ -806,10 +786,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Sets the value at.
    *
-   * @param cell
-   *          the cell
-   * @param value
-   *          the value
+   * @param cell the cell
+   * @param value the value
    */
   public void setValueAt(ModernDataCell cell, Object value) {
     if (cell == null) {
@@ -821,15 +799,12 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
 
   /**
    * Returns the value at a given row, col on the table. Since the table may be
-   * sorted, getValue may return a different value to getModel().getValue() since
-   * that returns the ordering of the data as it was loaded.
+   * sorted, getValue may return a different value to getModel().getValue()
+   * since that returns the ordering of the data as it was loaded.
    *
-   * @param i
-   *          the i
-   * @param j
-   *          the j
-   * @param value
-   *          the value
+   * @param i the i
+   * @param j the j
+   * @param value the value
    */
   public abstract void setValueAt(int i, int j, Object value);
 
@@ -967,7 +942,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#
-   * removeDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
+   * removeDataViewListener(org.abh.lib.ui.modern.dataview.
+   * ModernDataViewListener)
    */
   @Override
   public void removeDataViewListener(ModernDataViewListener l) {
@@ -1020,8 +996,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.lib
-   * .event.ChangeEvent)
+   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.
+   * lib .event.ChangeEvent)
    */
   @Override
   public void dataChanged(ChangeEvent e) {
@@ -1032,8 +1008,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.lib
-   * .event.ChangeEvent)
+   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.
+   * lib .event.ChangeEvent)
    */
   @Override
   public void dataUpdated(ChangeEvent e) {
@@ -1042,11 +1018,10 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
 
   /**
    * Converts a row to that of the model. If a sort model is in use, this method
-   * will map the selected row to the actual row it corresponds to in the unsorted
-   * model.
+   * will map the selected row to the actual row it corresponds to in the
+   * unsorted model.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the model row index
    */
   public abstract int getModelRowIndex(int i);
@@ -1054,10 +1029,8 @@ public abstract class ModernData extends ZoomCanvas implements ModernDataViewEve
   /**
    * Gets the checks if is cell enabled.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
+   * @param row the row
+   * @param col the col
    * @return the checks if is cell enabled
    */
   public boolean getIsCellEnabled(int row, int col) {

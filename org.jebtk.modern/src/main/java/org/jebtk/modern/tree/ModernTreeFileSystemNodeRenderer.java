@@ -29,9 +29,8 @@ package org.jebtk.modern.tree;
 
 import java.nio.file.Path;
 
-import org.jebtk.core.tree.TreeNode;
-
 import org.jebtk.core.io.FileUtils;
+import org.jebtk.core.tree.TreeNode;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -40,7 +39,8 @@ import org.jebtk.core.io.FileUtils;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernTreeFileSystemNodeRenderer extends TreeNodeFileCountRenderer {
+public class ModernTreeFileSystemNodeRenderer
+    extends TreeNodeFileCountRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -51,14 +51,27 @@ public class ModernTreeFileSystemNodeRenderer extends TreeNodeFileCountRenderer 
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.TreeIconNodeCountRenderer#getRenderer(org.abh.lib.
-   * ui.modern.tree.Tree, org.abh.lib.tree.TreeNode, boolean, boolean, boolean,
-   * boolean, int, int)
+   * org.abh.lib.ui.modern.tree.TreeIconNodeCountRenderer#getRenderer(org.abh.
+   * lib. ui.modern.tree.Tree, org.abh.lib.tree.TreeNode, boolean, boolean,
+   * boolean, boolean, int, int)
    */
   @Override
-  public ModernTreeNodeRenderer getRenderer(Tree<?> tree, TreeNode<?> node, boolean nodeIsHighlighted,
-      boolean nodeIsSelected, boolean hasFocus, boolean isDragToNode, int depth, int row) {
-    super.getRenderer(tree, node, nodeIsHighlighted, nodeIsSelected, hasFocus, isDragToNode, depth, row);
+  public ModernTreeNodeRenderer getRenderer(Tree<?> tree,
+      TreeNode<?> node,
+      boolean nodeIsHighlighted,
+      boolean nodeIsSelected,
+      boolean hasFocus,
+      boolean isDragToNode,
+      int depth,
+      int row) {
+    super.getRenderer(tree,
+        node,
+        nodeIsHighlighted,
+        nodeIsSelected,
+        hasFocus,
+        isDragToNode,
+        depth,
+        row);
 
     if (node.isParent() || FileUtils.isDirectory((Path) node.getValue())) {
       // we renderer as a parent if the node is classified as a parent {

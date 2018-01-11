@@ -21,7 +21,8 @@ public class CheckBoxSelectedAnimation extends WidgetAnimation {
 
     if (widget.isEnabled() && ((ModernClickWidget) getWidget()).isSelected()) {
       g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR); // getFadeColor("fill"));
-      getWidget().getWidgetRenderer().fill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
+      getWidget().getWidgetRenderer()
+          .fill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
     }
   }
 }

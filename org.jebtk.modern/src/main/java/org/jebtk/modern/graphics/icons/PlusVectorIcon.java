@@ -46,8 +46,7 @@ public class PlusVectorIcon extends MinusVectorIcon {
   /**
    * Instantiates a new plus vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public PlusVectorIcon(Color color) {
     super(color);
@@ -60,7 +59,12 @@ public class PlusVectorIcon extends MinusVectorIcon {
    * Graphics2D, java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     super.drawIcon(g2, x, y, w, h, params);
 
     double wf = w * SCALE;
@@ -69,6 +73,9 @@ public class PlusVectorIcon extends MinusVectorIcon {
     double xf = x + (w - wf) / 2.0;
     double yf = y + (h - wf) / 2.0;
 
-    g2.drawLine((int) Math.round(xf + w2), (int) Math.round(yf), (int) Math.round(xf + w2), (int) Math.round(yf + wf));
+    g2.drawLine((int) Math.round(xf + w2),
+        (int) Math.round(yf),
+        (int) Math.round(xf + w2),
+        (int) Math.round(yf + wf));
   }
 }

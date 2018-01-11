@@ -68,18 +68,14 @@ public class BorderPanel extends ModernPanel {
   /**
    * Instantiates a new border panel.
    *
-   * @param colorT
-   *          the color t
-   * @param colorL
-   *          the color l
-   * @param colorB
-   *          the color b
-   * @param colorR
-   *          the color r
-   * @param layout
-   *          the layout
+   * @param colorT the color t
+   * @param colorL the color l
+   * @param colorB the color b
+   * @param colorR the color r
+   * @param layout the layout
    */
-  public BorderPanel(Color colorT, Color colorL, Color colorB, Color colorR, LayoutManager layout) {
+  public BorderPanel(Color colorT, Color colorL, Color colorB, Color colorR,
+      LayoutManager layout) {
     super(layout);
 
     this.colorT = colorT;
@@ -91,14 +87,10 @@ public class BorderPanel extends ModernPanel {
   /**
    * Instantiates a new border panel.
    *
-   * @param colorT
-   *          the color t
-   * @param colorL
-   *          the color l
-   * @param colorB
-   *          the color b
-   * @param colorR
-   *          the color r
+   * @param colorT the color t
+   * @param colorL the color l
+   * @param colorB the color b
+   * @param colorR the color r
    */
   public BorderPanel(Color colorT, Color colorL, Color colorB, Color colorR) {
     this.colorT = colorT;

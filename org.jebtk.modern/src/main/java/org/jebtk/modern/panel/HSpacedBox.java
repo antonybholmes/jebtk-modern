@@ -46,19 +46,17 @@ public class HSpacedBox extends HBox {
   /**
    * Instantiates a new h spaced box.
    *
-   * @param space
-   *          the space
+   * @param space the space
    */
   public HSpacedBox(int space) {
     mSpace = space;
   }
 
   /**
-   * Create a horizontal box containing some components with the default amount of
-   * space between each.
+   * Create a horizontal box containing some components with the default amount
+   * of space between each.
    *
-   * @param components
-   *          the components
+   * @param components the components
    */
   public HSpacedBox(Component... components) {
     this(ModernWidget.PADDING, components);
@@ -67,10 +65,8 @@ public class HSpacedBox extends HBox {
   /**
    * Instantiates a new h spaced box.
    *
-   * @param space
-   *          the space
-   * @param components
-   *          the components
+   * @param space the space
+   * @param components the components
    */
   public HSpacedBox(int space, Component... components) {
     this(space);

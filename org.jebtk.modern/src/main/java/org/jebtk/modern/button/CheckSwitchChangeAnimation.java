@@ -17,8 +17,6 @@ package org.jebtk.modern.button;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.event.ModernStateEvent;
@@ -43,7 +41,8 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
    * Pick a color a few shades lighter than the background
    */
   public static final Color SELECTED_COLOR = ModernWidgetRenderer.SELECTED_FILL_COLOR; // ThemeService.getInstance().colors().getColorHighlight32(ThemeService.getInstance().colors().getColorHighlightIndex(ModernWidgetRenderer.SELECTED_FILL_COLOR)
-                                                                                       // / 2);
+                                                                                       // /
+                                                                                       // 2);
 
   // public static final Color LINE_COLOR =
   // ThemeService.getInstance().colors().getHighlight32(ThemeService.getInstance().colors().getHighlightIndex(ModernWidget.LINE_COLOR)
@@ -56,8 +55,7 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public CheckSwitchChangeAnimation(ModernWidget button, Color color) {
     super(button);
@@ -83,7 +81,8 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
     /*
      * mButton.addComponentListener(new ComponentAdapter() {
      * 
-     * @Override public void componentResized(ComponentEvent arg0) { restart(); }});
+     * @Override public void componentResized(ComponentEvent arg0) { restart();
+     * }});
      */
   }
 
@@ -112,7 +111,9 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void drawTranslation(ModernWidget widget,
+      Graphics2D g2,
+      Object... params) {
     int s = ModernCheckSwitch.ORB_HEIGHT;
 
     int y1 = (widget.getInternalRect().getH() - s) / 2;

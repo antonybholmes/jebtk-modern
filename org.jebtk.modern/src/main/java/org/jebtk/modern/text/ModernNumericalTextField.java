@@ -55,8 +55,7 @@ public class ModernNumericalTextField extends ModernTextField {
   /**
    * Instantiates a new modern numerical text field.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernNumericalTextField(String text) {
 
@@ -70,8 +69,7 @@ public class ModernNumericalTextField extends ModernTextField {
   /**
    * Instantiates a new modern numerical text field.
    *
-   * @param value
-   *          the value
+   * @param value the value
    */
   public ModernNumericalTextField(int value) {
     this(Integer.toString(value));
@@ -86,8 +84,7 @@ public class ModernNumericalTextField extends ModernTextField {
   /**
    * Instantiates a new modern numerical text field.
    *
-   * @param value
-   *          the value
+   * @param value the value
    */
   public ModernNumericalTextField(double value) {
     this(Double.toString(value));

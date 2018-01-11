@@ -58,8 +58,7 @@ public class WindowMaxVectorIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new max vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public WindowMaxVectorIcon(Color color) {
     mColor = color;
@@ -73,7 +72,12 @@ public class WindowMaxVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
     g2.setColor(mColor);
 

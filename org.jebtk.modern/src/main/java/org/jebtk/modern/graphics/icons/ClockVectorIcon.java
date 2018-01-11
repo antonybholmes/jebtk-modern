@@ -45,7 +45,8 @@ public class ClockVectorIcon extends ModernVectorScalableIcon {
   /**
    * The constant SCALE.
    */
-  private static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.clock-icon.width-scale");
+  private static final double SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.clock-icon.width-scale");
 
   /**
    * The constant HAND_SCALE_1.
@@ -85,7 +86,12 @@ public class ClockVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     double wf = w * SCALE;
 
     double xf = x + (w - wf) / 2.0;
@@ -97,18 +103,28 @@ public class ClockVectorIcon extends ModernVectorScalableIcon {
     g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
     g2.setColor(BACKGROUND);
 
-    g2.fillOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(wf));
+    g2.fillOval((int) Math.round(xf),
+        (int) Math.round(yf),
+        (int) Math.round(wf),
+        (int) Math.round(wf));
 
     g2.setColor(OUTLINE_COLOR);
 
-    g2.drawOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(wf));
+    g2.drawOval((int) Math.round(xf),
+        (int) Math.round(yf),
+        (int) Math.round(wf),
+        (int) Math.round(wf));
 
     g2.setColor(HAND_COLOR);
 
-    g2.drawLine((int) Math.round(xf + w2), (int) Math.round(yf + w2), (int) Math.round(xf + w2),
+    g2.drawLine((int) Math.round(xf + w2),
+        (int) Math.round(yf + w2),
+        (int) Math.round(xf + w2),
         (int) Math.round(yf + w2 - h1));
 
-    g2.drawLine((int) Math.round(xf + w2), (int) Math.round(yf + w2), (int) Math.round(xf + w2 + h2),
+    g2.drawLine((int) Math.round(xf + w2),
+        (int) Math.round(yf + w2),
+        (int) Math.round(xf + w2 + h2),
         (int) Math.round(yf + w2));
   }
 }

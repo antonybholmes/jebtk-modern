@@ -44,8 +44,7 @@ public interface ModernToolTipListener extends EventListener {
   /**
    * Tooltip changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void tooltipChanged(ModernToolTipEvent e);
 }

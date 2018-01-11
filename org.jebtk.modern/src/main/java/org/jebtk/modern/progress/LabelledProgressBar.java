@@ -43,8 +43,7 @@ public class LabelledProgressBar extends ModernProgressBar {
   /**
    * Instantiates a new labelled progress bar.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public LabelledProgressBar(ProgressModel model) {
     super(model);
@@ -60,7 +59,8 @@ public class LabelledProgressBar extends ModernProgressBar {
   public void drawForegroundAAText(Graphics2D g2) {
     super.drawForegroundAAText(g2);
 
-    String text = Integer.toString((int) (progressModel.getPercentComplete() * 100));
+    String text = Integer
+        .toString((int) (progressModel.getPercentComplete() * 100));
 
     int x = (mRect.getW() - g2.getFontMetrics().stringWidth(text)) / 2;
 

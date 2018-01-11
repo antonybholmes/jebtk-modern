@@ -39,8 +39,7 @@ public interface TwoLineWidget {
   /**
    * Set the text for line 2.
    *
-   * @param text
-   *          the new text2
+   * @param text the new text2
    */
   void setText2(String text);
 
@@ -54,10 +53,8 @@ public interface TwoLineWidget {
   /**
    * Set both lines of text.
    *
-   * @param text1
-   *          the text1
-   * @param text2
-   *          the text2
+   * @param text1 the text1
+   * @param text2 the text2
    */
   void setText(String text1, String text2);
 

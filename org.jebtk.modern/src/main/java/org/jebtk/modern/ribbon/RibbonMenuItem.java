@@ -46,7 +46,8 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * The class RibbonMenuItem.
  */
-public class RibbonMenuItem extends ModernCheckButton implements ComponentListener {
+public class RibbonMenuItem extends ModernCheckButton
+    implements ComponentListener {
 
   /**
    * The constant serialVersionUID.
@@ -66,24 +67,30 @@ public class RibbonMenuItem extends ModernCheckButton implements ComponentListen
   /**
    * The constant SIZE.
    */
-  public static final Dimension RIBBON_MENU_ITEM_SIZE = new Dimension(RibbonFileMenuPanel.RIBBON_MENU_WIDTH,
+  public static final Dimension RIBBON_MENU_ITEM_SIZE = new Dimension(
+      RibbonFileMenuPanel.RIBBON_MENU_WIDTH,
       RibbonFileMenuPanel.RIBBON_MENU_WIDTH / 5); // * 4 / 5);
 
   /** The Constant RIBBON_MENU_ITEM_SIZE_2. */
   public static final Dimension RIBBON_MENU_ITEM_SIZE_2 = RIBBON_MENU_ITEM_SIZE; // new
                                                                                  // Dimension(RibbonFileMenuPanel.RIBBON_MENU_WIDTH,
                                                                                  // RibbonFileMenuPanel.RIBBON_MENU_WIDTH
-                                                                                 // * 3 / 5);
+                                                                                 // *
+                                                                                 // 3
+                                                                                 // /
+                                                                                 // 5);
 
   /**
    * The constant MENU_SELECTED_COLOR.
    */
-  public static final Color MENU_SELECTED_COLOR = MaterialService.getInstance().color("gray-selected"); // ColorUtils.getTransparentColor60(Color.WHITE);
+  public static final Color MENU_SELECTED_COLOR = MaterialService.getInstance()
+      .color("gray-selected"); // ColorUtils.getTransparentColor60(Color.WHITE);
 
   /**
    * The constant MENU_HIGHLIGHT_COLOR.
    */
-  public static final Color MENU_HIGHLIGHT_COLOR = MaterialService.getInstance().color("gray-highlighted");
+  public static final Color MENU_HIGHLIGHT_COLOR = MaterialService.getInstance()
+      .color("gray-highlighted");
 
   /** The Constant ROUNDING. */
   public static final int ROUNDING = 10;
@@ -101,8 +108,7 @@ public class RibbonMenuItem extends ModernCheckButton implements ComponentListen
   /**
    * Instantiates a new ribbon menu item.
    *
-   * @param title
-   *          the title
+   * @param title the title
    */
   public RibbonMenuItem(String title) {
     super(title);
@@ -115,10 +121,8 @@ public class RibbonMenuItem extends ModernCheckButton implements ComponentListen
   /**
    * Instantiates a new ribbon menu item.
    *
-   * @param title
-   *          the title
-   * @param icon
-   *          the icon
+   * @param title the title
+   * @param icon the icon
    */
   public RibbonMenuItem(String title, ModernIcon icon) {
     super(title, icon);
@@ -162,7 +166,8 @@ public class RibbonMenuItem extends ModernCheckButton implements ComponentListen
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
    * Graphics2D)
    */
   /*
@@ -191,9 +196,11 @@ public class RibbonMenuItem extends ModernCheckButton implements ComponentListen
     // g2.setColor(TEXT_COLOR); //Color.WHITE);
 
     if (isSelected()) {
-      g2.setColor(MaterialService.getInstance().color("ribbon-menu-font-selected"));
+      g2.setColor(
+          MaterialService.getInstance().color("ribbon-menu-font-selected"));
     } else if (getHightlighted()) {
-      g2.setColor(MaterialService.getInstance().color("ribbon-menu-font-highlighted"));
+      g2.setColor(
+          MaterialService.getInstance().color("ribbon-menu-font-highlighted"));
     } else {
       g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
     }
@@ -227,19 +234,23 @@ public class RibbonMenuItem extends ModernCheckButton implements ComponentListen
   /**
    * Component resized.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public final void componentResized(ComponentEvent e) {
     int h = getHeight() - 1;
 
     mP = new GeneralPath();
     mP.moveTo(OFFSET, ROUNDING);
-    mP.append(new Arc2D.Float(OFFSET, 0, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN), true);
+    mP.append(
+        new Arc2D.Float(OFFSET, 0, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN),
+        true);
     mP.lineTo(getWidth(), 0);
     mP.lineTo(getWidth(), h);
     mP.lineTo(OFFSET + ROUNDING, h);
-    mP.append(new Arc2D.Float(OFFSET, h - ROUNDING, ROUNDING, ROUNDING, 270, -90, Arc2D.OPEN), true);
+    mP.append(
+        new Arc2D.Float(OFFSET, h - ROUNDING, ROUNDING, ROUNDING, 270, -90,
+            Arc2D.OPEN),
+        true);
     mP.closePath();
 
     repaint();
@@ -248,8 +259,7 @@ public class RibbonMenuItem extends ModernCheckButton implements ComponentListen
   /**
    * Component shown.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public final void componentShown(ComponentEvent e) {
     // TODO Auto-generated method stub

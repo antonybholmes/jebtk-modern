@@ -51,7 +51,8 @@ import org.jebtk.modern.widget.ModernClickWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class RibbonPanelSideTabs extends TabsController implements ModernClickListener {
+public class RibbonPanelSideTabs extends TabsController
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -76,8 +77,7 @@ public class RibbonPanelSideTabs extends TabsController implements ModernClickLi
   /**
    * Instantiates a new ribbon panel side tabs.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public RibbonPanelSideTabs(TabsModel model) {
     super(model);
@@ -88,10 +88,8 @@ public class RibbonPanelSideTabs extends TabsController implements ModernClickLi
   /**
    * Adds the tab.
    *
-   * @param name
-   *          the name
-   * @param icon
-   *          the icon
+   * @param name the name
+   * @param icon the icon
    */
   public final void addTab(String name, ModernIcon icon) {
     ModernClickWidget button = new RibbonPanelSideTabsButton(name, icon); // VerticalTabsModernCheckButton(name,
@@ -103,8 +101,7 @@ public class RibbonPanelSideTabs extends TabsController implements ModernClickLi
   /**
    * Adds the tab.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   private final void addTab(ModernClickWidget button) {
     button.addClickListener(this);
@@ -122,8 +119,7 @@ public class RibbonPanelSideTabs extends TabsController implements ModernClickLi
   /**
    * Change tab.
    *
-   * @param tab
-   *          the tab
+   * @param tab the tab
    */
   private final void changeTab(int tab) {
     getTabsModel().changeTab(tab);
@@ -133,8 +129,8 @@ public class RibbonPanelSideTabs extends TabsController implements ModernClickLi
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

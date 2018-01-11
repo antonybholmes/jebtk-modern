@@ -48,20 +48,19 @@ public class ModernOrbSlider extends OrbSlider {
   private static final long serialVersionUID = 1L;
 
   /** The Constant HIGHLIGHT. */
-  protected static final Color HIGHLIGHT = ThemeService.getInstance().colors().getHighlight(7);
+  protected static final Color HIGHLIGHT = ThemeService.getInstance().colors()
+      .getHighlight(7);
 
   /** The Constant COLOR. */
-  protected static final Color COLOR = ThemeService.getInstance().colors().getHighlight(9);
+  protected static final Color COLOR = ThemeService.getInstance().colors()
+      .getHighlight(9);
 
   /**
    * Instantiates a new modern orb slider.
    *
-   * @param min
-   *          the min
-   * @param max
-   *          the max
-   * @param value
-   *          the value
+   * @param min the min
+   * @param max the max
+   * @param value the value
    */
   public ModernOrbSlider(double min, double max, double value) {
     super(min, max, value);
@@ -70,10 +69,8 @@ public class ModernOrbSlider extends OrbSlider {
   /**
    * Instantiates a new modern orb slider.
    *
-   * @param value
-   *          the value
-   * @param values
-   *          the values
+   * @param value the value
+   * @param values the values
    */
   public ModernOrbSlider(double value, double... values) {
     super(value, values);
@@ -82,10 +79,8 @@ public class ModernOrbSlider extends OrbSlider {
   /**
    * Instantiates a new modern orb slider.
    *
-   * @param value
-   *          the value
-   * @param values
-   *          the values
+   * @param value the value
+   * @param values the values
    */
   public ModernOrbSlider(double value, List<Double> values) {
     super(value, values);
@@ -94,7 +89,8 @@ public class ModernOrbSlider extends OrbSlider {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -108,7 +104,10 @@ public class ModernOrbSlider extends OrbSlider {
 
     int y = getHeight() / 2;
 
-    g2.drawLine(getInsets().left + mSliderDiameter, y, mRect.getW() - getInsets().right - mSliderDiameter, y);
+    g2.drawLine(getInsets().left + mSliderDiameter,
+        y,
+        mRect.getW() - getInsets().right - mSliderDiameter,
+        y);
 
     // g2.drawLine(getInsets().left + SLIDER_DIAMETER, y - 1,
     // mRect.getW() - getInsets().right - SLIDER_DIAMETER,

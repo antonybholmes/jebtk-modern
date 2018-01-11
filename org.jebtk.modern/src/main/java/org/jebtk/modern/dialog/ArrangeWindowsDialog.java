@@ -52,28 +52,31 @@ public class ArrangeWindowsDialog extends ModernDialogTaskWindow {
   /**
    * The tiled radio button.
    */
-  private ModernTwoStateWidget mTiledRadioButton = new ModernRadioButton("Tiled");
+  private ModernTwoStateWidget mTiledRadioButton = new ModernRadioButton(
+      "Tiled");
 
   /**
    * The horiz radio button.
    */
-  private ModernTwoStateWidget mHorizRadioButton = new ModernRadioButton("Horizontal");
+  private ModernTwoStateWidget mHorizRadioButton = new ModernRadioButton(
+      "Horizontal");
 
   /**
    * The vert radio button.
    */
-  private ModernTwoStateWidget mVertRadioButton = new ModernRadioButton("Vertical");
+  private ModernTwoStateWidget mVertRadioButton = new ModernRadioButton(
+      "Vertical");
 
   /**
    * The cascade radio button.
    */
-  private ModernTwoStateWidget mCascadeRadioButton = new ModernRadioButton("Cascade");
+  private ModernTwoStateWidget mCascadeRadioButton = new ModernRadioButton(
+      "Cascade");
 
   /**
    * Instantiates a new arrange windows dialog.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public ArrangeWindowsDialog(ModernWindow parent) {
     super(parent);

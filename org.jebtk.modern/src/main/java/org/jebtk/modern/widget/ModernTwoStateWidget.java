@@ -110,8 +110,7 @@ public abstract class ModernTwoStateWidget extends ModernClickWidget {
   /**
    * Instantiates a new modern two state widget.
    *
-   * @param manager
-   *          the manager
+   * @param manager the manager
    */
   public ModernTwoStateWidget(LayoutManager manager) {
     super(manager);
@@ -125,9 +124,11 @@ public abstract class ModernTwoStateWidget extends ModernClickWidget {
   private void setup() {
     addMouseListener(new MouseEvents());
 
-    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"), "enter_pressed");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"),
+        "enter_pressed");
     getActionMap().put("enter_pressed", new ActionEvents());
-    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("SPACE"), "space_pressed");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("SPACE"),
+        "space_pressed");
     getActionMap().put("space_pressed", new ActionEvents());
   }
 
@@ -142,8 +143,7 @@ public abstract class ModernTwoStateWidget extends ModernClickWidget {
   /**
    * Toggle selected.
    *
-   * @param selected
-   *          the selected
+   * @param selected the selected
    */
   protected void toggleSelected(boolean selected) {
     // System.err.println("toggle selected " + selected);

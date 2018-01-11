@@ -53,7 +53,8 @@ import org.jebtk.modern.widget.ModernClickWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernOutlookVerticalTabs extends TabsController implements ModernClickListener, ComponentListener {
+public class ModernOutlookVerticalTabs extends TabsController
+    implements ModernClickListener, ComponentListener {
 
   /**
    * The constant serialVersionUID.
@@ -113,8 +114,7 @@ public class ModernOutlookVerticalTabs extends TabsController implements ModernC
   /**
    * Instantiates a new modern outlook vertical tabs.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernOutlookVerticalTabs(TabsModel model) {
     super(model);
@@ -135,23 +135,22 @@ public class ModernOutlookVerticalTabs extends TabsController implements ModernC
   /**
    * Adds the tab.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   private final void addTab(String name) {
-    addTab(name, UIService.getInstance().loadIcon("blank", UIService.ICON_SIZE_16));
+    addTab(name,
+        UIService.getInstance().loadIcon("blank", UIService.ICON_SIZE_16));
   }
 
   /**
    * Adds the tab.
    *
-   * @param name
-   *          the name
-   * @param icon
-   *          the icon
+   * @param name the name
+   * @param icon the icon
    */
   private final void addTab(String name, ModernIcon icon) {
-    ModernClickWidget button = new TabButton(name, icon); // VerticalTabsModernCheckButton(name, JLabel.LEFT);
+    ModernClickWidget button = new TabButton(name, icon); // VerticalTabsModernCheckButton(name,
+                                                          // JLabel.LEFT);
 
     addTab(button);
   }
@@ -159,8 +158,7 @@ public class ModernOutlookVerticalTabs extends TabsController implements ModernC
   /**
    * Adds the tab.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   private final void addTab(ModernClickWidget button) {
     button.setBounds(0, 0, 0, TAB_HEIGHT);
@@ -207,7 +205,8 @@ public class ModernOutlookVerticalTabs extends TabsController implements ModernC
     for (int i = 0; i < buttons.size(); ++i) {
       bounds = buttons.get(i).getBounds();
 
-      bounds.y = getInsets().top + mInternalRect.getH() - buttonHeight + TOTAL_TAB_HEIGHT * i;
+      bounds.y = getInsets().top + mInternalRect.getH() - buttonHeight
+          + TOTAL_TAB_HEIGHT * i;
       bounds.width = mInternalRect.getW();
       bounds.x = getInsets().left;
 
@@ -232,13 +231,15 @@ public class ModernOutlookVerticalTabs extends TabsController implements ModernC
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
     Rectangle r = new Rectangle(mInternalRect.getX(),
-        getInsets().top + mInternalRect.getH() - TOTAL_TAB_HEIGHT * buttons.size() - HALF_GAP, mInternalRect.getW() - 1,
-        1);
+        getInsets().top + mInternalRect.getH()
+            - TOTAL_TAB_HEIGHT * buttons.size() - HALF_GAP,
+        mInternalRect.getW() - 1, 1);
 
     g2.setColor(LINE_COLOR);
 
@@ -249,8 +250,7 @@ public class ModernOutlookVerticalTabs extends TabsController implements ModernC
   /**
    * Change tab.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   private final void changeTab(ModernCheckButton button) {
     changeTab(buttonMap.get(button));
@@ -259,8 +259,7 @@ public class ModernOutlookVerticalTabs extends TabsController implements ModernC
   /**
    * Change tab.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   private final void changeTab(int index) {
     getTabsModel().changeTab(index);
@@ -272,8 +271,8 @@ public class ModernOutlookVerticalTabs extends TabsController implements ModernC
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     // System.out.println("what " + e.getMessage());

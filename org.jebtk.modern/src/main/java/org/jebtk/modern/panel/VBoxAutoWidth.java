@@ -74,7 +74,8 @@ public class VBoxAutoWidth extends ModernComponent {
    * Instantiates a new v box auto width panel.
    */
   public VBoxAutoWidth() {
-    setLayout(new VBoxAutoWidthLayout()); // new BoxLayout(this, BoxLayout.PAGE_AXIS));
+    setLayout(new VBoxAutoWidthLayout()); // new BoxLayout(this,
+                                          // BoxLayout.PAGE_AXIS));
 
     // addComponentListener(new ComponentEvents());
   }

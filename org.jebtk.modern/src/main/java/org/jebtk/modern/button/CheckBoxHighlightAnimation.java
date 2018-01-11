@@ -21,7 +21,13 @@ public class CheckBoxHighlightAnimation extends ButtonFillAnimation {
 
       // g2.setStroke(ThemeService.DOUBLE_LINE_STROKE);
 
-      drawButtonFill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE, getButton().getRenderMode(), false);
+      drawButtonFill(g2,
+          x,
+          y,
+          ModernCheckBox.ICON_SIZE,
+          ModernCheckBox.ICON_SIZE,
+          getButton().getRenderMode(),
+          false);
     }
   }
 }

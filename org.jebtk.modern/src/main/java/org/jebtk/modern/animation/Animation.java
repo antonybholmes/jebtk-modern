@@ -29,12 +29,9 @@ public interface Animation {
    * The animation becomes responsible handling the drawing for the widget. This
    * method this called on each animation refresh.
    *
-   * @param widget
-   *          the widget
-   * @param g2
-   *          the g 2
-   * @param params
-   *          the params
+   * @param widget the widget
+   * @param g2 the g 2
+   * @param params the params
    */
   public void draw(ModernWidget widget, Graphics2D g2, Object... params);
 }

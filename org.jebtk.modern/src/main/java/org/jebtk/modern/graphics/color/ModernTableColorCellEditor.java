@@ -31,7 +31,6 @@ import java.awt.Color;
 import java.awt.Component;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -42,7 +41,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernTableColorCellEditor.
  */
-public class ModernTableColorCellEditor extends AbstractModernTableCellEditor implements ModernClickListener {
+public class ModernTableColorCellEditor extends AbstractModernTableCellEditor
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -62,8 +62,7 @@ public class ModernTableColorCellEditor extends AbstractModernTableCellEditor im
   /**
    * Instantiates a new modern table color cell editor.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public ModernTableColorCellEditor(ModernWindow parent) {
 
@@ -79,7 +78,8 @@ public class ModernTableColorCellEditor extends AbstractModernTableCellEditor im
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
    */
   @Override
   public final Object getCellEditorValue() {
@@ -100,8 +100,8 @@ public class ModernTableColorCellEditor extends AbstractModernTableCellEditor im
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public final void clicked(ModernClickEvent e) {
@@ -120,21 +120,31 @@ public class ModernTableColorCellEditor extends AbstractModernTableCellEditor im
    * org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean,
    * boolean, boolean, int, int)
    */
-  public final Component getCellEditorComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public final Component getCellEditorComponent(ModernData table,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
 
     Color color = (Color) value;
 
     mMenu.setSelectedColor(color);
 
-    return mRenderer.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
+    return mRenderer.getCellRendererComponent(table,
+        value,
+        highlight,
+        isSelected,
+        hasFocus,
+        row,
+        column);
   }
 
   /**
    * Sets the color.
    *
-   * @param color
-   *          the new color
+   * @param color the new color
    */
   public void setColor(Color color) {
     mRenderer.setColor(color);

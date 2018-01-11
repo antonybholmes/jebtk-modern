@@ -59,7 +59,6 @@ import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.ribbon.RibbonFileMenu;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.tooltip.ModernToolTipModel;
-import org.jebtk.modern.widget.tooltip.ModernToolTipPanel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,7 +68,8 @@ import org.slf4j.LoggerFactory;
  *
  * @author Antony Holmes Holmes
  */
-public class ModernWindow extends JFrame implements ModernDialogConstructor, ModernToolTipModel {
+public class ModernWindow extends JFrame
+    implements ModernDialogConstructor, ModernToolTipModel {
 
   /**
    * The constant serialVersionUID.
@@ -90,7 +90,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * The member tooltips.
    */
-  private List<ModernToolTipPanel> mTooltips = new ArrayList<ModernToolTipPanel>();
+  private List<Component> mTooltips = new ArrayList<Component>();
 
   /**
    * The member app info.
@@ -145,8 +145,8 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   private Component mCenter = null;
 
   /**
-   * Allows multiple items such as toolbars and ribbons to be added to the top of
-   * the window within the {@code CONTENT} context.
+   * Allows multiple items such as toolbars and ribbons to be added to the top
+   * of the window within the {@code CONTENT} context.
    */
   // protected VBoxAutoWidth mHeaderContainer;
 
@@ -164,8 +164,8 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -182,7 +182,8 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.WindowAdapter#windowClosing(java.awt.event.WindowEvent)
+     * @see
+     * java.awt.event.WindowAdapter#windowClosing(java.awt.event.WindowEvent)
      */
     @Override
     public void windowClosing(WindowEvent e) {
@@ -193,8 +194,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Instantiates a new modern window.
    *
-   * @param appInfo
-   *          the app info
+   * @param appInfo the app info
    */
   public ModernWindow(GuiAppInfo appInfo) {
     setAppInfo(appInfo);
@@ -250,8 +250,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Sets the app info.
    *
-   * @param appInfo
-   *          the new app info
+   * @param appInfo the new app info
    */
   public void setAppInfo(GuiAppInfo appInfo) {
     mAppInfo = appInfo;
@@ -262,8 +261,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Set the window title but include the main app title.
    *
-   * @param subTitle
-   *          the new sub title
+   * @param subTitle the new sub title
    */
   public void setSubTitle(String subTitle) {
     setTitle(subTitle + " - " + getAppInfo().getName());
@@ -322,8 +320,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Sets the header.
    *
-   * @param c
-   *          the new header
+   * @param c the new header
    */
   protected void setHeader(Component c) {
     // mHeaderContainer.add(c);
@@ -337,8 +334,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Sets the body.
    *
-   * @param c
-   *          the new body
+   * @param c the new body
    */
   public void setBody(Component c) {
     if (mCenter != null) {
@@ -359,8 +355,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Sets the footer.
    *
-   * @param c
-   *          the new footer
+   * @param c the new footer
    */
   public void setFooter(Component c) {
     getContentPane().add(c, BorderLayout.PAGE_END);
@@ -372,8 +367,8 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
 
   /**
    * Returns the content pane for the window to which content should be added.
-   * Since we have a custom system that displays both content and the ribbon menu,
-   * this returns the panel
+   * Since we have a custom system that displays both content and the ribbon
+   * menu, this returns the panel
    *
    * @return the content pane
    */
@@ -416,8 +411,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Sets the ribbon.
    *
-   * @param ribbon
-   *          the new ribbon
+   * @param ribbon the new ribbon
    */
   // public void setRibbon(Component ribbon) {
   // mHeaderPanel.setBody(ribbon);
@@ -447,23 +441,28 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.ui.
-   * modern.ModernComponent, org.abh.lib.ui.modern.tooltip.ModernToolTipPanel)
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.
+   * ui. modern.ModernComponent,
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel)
    */
   @Override
-  public synchronized void showToolTip(ModernComponent source, ModernToolTipPanel tooltip) {
+  public synchronized void showToolTip(Component source,
+      Component tooltip) {
     Point p = source.getLocationOnScreen();
 
     Rectangle wb = getBounds();
+    
+    int w = tooltip.getPreferredSize().width;
+    int h = tooltip.getPreferredSize().height;
 
-    if (p.x + tooltip.getToolTipSize().width > wb.x + wb.width) {
-      p.x += source.getWidth() - tooltip.getToolTipSize().width;
+    if (p.x + w > wb.x + wb.width) {
+      p.x += source.getWidth() - w;
     }
 
     p.y += source.getHeight();
 
-    if (p.y + tooltip.getToolTipSize().height > wb.y + wb.height) {
-      p.y -= source.getHeight() + tooltip.getToolTipSize().height;
+    if (p.y + h > wb.y + wb.height) {
+      p.y -= source.getHeight() + h;
     }
 
     showToolTip(source, tooltip, p);
@@ -473,12 +472,14 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.ui.
-   * modern.ModernComponent, org.abh.lib.ui.modern.tooltip.ModernToolTipPanel,
-   * java.awt.Point)
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.
+   * ui. modern.ModernComponent,
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel, java.awt.Point)
    */
   @Override
-  public synchronized void showToolTip(ModernComponent source, ModernToolTipPanel tooltip, Point p) {
+  public synchronized void showToolTip(Component source,
+      Component tooltip,
+      Point p) {
     if (mLayeredPane == null) {
       mLayeredPane = getLayeredPane();
     }
@@ -490,7 +491,10 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
 
     SwingUtilities.convertPointFromScreen(p, mLayeredPane);
 
-    tooltip.setBounds(p.x, p.y, tooltip.getToolTipSize().width, tooltip.getToolTipSize().height);
+    tooltip.setBounds(p.x,
+        p.y,
+        tooltip.getPreferredSize().width,
+        tooltip.getPreferredSize().height);
 
     mLayeredPane.add(tooltip, JLayeredPane.POPUP_LAYER);
 
@@ -498,8 +502,8 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
     repaint();
 
     // new ModernVerticalChangeSizeAnimation(tooltip, new
-    // Dimension(tooltip.getToolTipSize().width, 0),
-    // tooltip.getToolTipSize()).start();
+    // Dimension(tooltip.getPreferredSize().width, 0),
+    // tooltip.getPreferredSize()).start();
 
   }
 
@@ -507,11 +511,11 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#hideToolTips(org.abh.lib.ui.
-   * modern.ModernComponent)
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#hideToolTips(org.abh.lib.
+   * ui. modern.ModernComponent)
    */
   @Override
-  public synchronized void hideToolTips(ModernComponent source) {
+  public synchronized void hideToolTips(Component source) {
     hideToolTips();
 
     validate();
@@ -547,8 +551,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Set the current popup.
    *
-   * @param component
-   *          the new popup
+   * @param component the new popup
    */
   /*
    * public void setPopup(Component component) { for (Component c :
@@ -570,8 +573,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Terminate application with a given status code (non zero implies error).
    *
-   * @param status
-   *          the status
+   * @param status the status
    */
   public void exit(int status) {
     System.exit(status);
@@ -589,8 +591,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
    * Close the window and exit application if this is the only window and auto
    * exit is true.
    *
-   * @param autoExit
-   *          the auto exit
+   * @param autoExit the auto exit
    */
   public void close(boolean autoExit) {
     WindowService.getInstance().remove(this);
@@ -619,8 +620,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Determine the underlying JFrame of a component.
    *
-   * @param c
-   *          the c
+   * @param c the c
    * @return the modern window parent
    */
   public static ModernWindow getModernWindowParent(Container c) {
@@ -640,8 +640,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Gets the modern dialog parent.
    *
-   * @param c
-   *          the c
+   * @param c the c
    * @return the modern dialog parent
    */
   public static ModernDialogWindow getModernDialogParent(Container c) {
@@ -661,8 +660,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Returns the ModernWindow or ModernDialog the component is a child of.
    *
-   * @param c
-   *          the c
+   * @param c the c
    * @return the parent window
    */
   public static Window getParentWindow(Component c) {
@@ -689,8 +687,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Gets the layered pane.
    *
-   * @param c
-   *          the c
+   * @param c the c
    * @return the layered pane
    */
   public static JLayeredPane getLayeredPane(Component c) {
@@ -700,8 +697,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Returns the layer pane for a given window,.
    *
-   * @param window
-   *          the window
+   * @param window the window
    * @return the layered pane
    */
   public static JLayeredPane getLayeredPane(Window window) {
@@ -719,8 +715,7 @@ public class ModernWindow extends JFrame implements ModernDialogConstructor, Mod
   /**
    * Trigger the window closing events.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public static void close(ModernWindow window) {
     window.dispatchEvent(new WindowEvent(window, WindowEvent.WINDOW_CLOSING));

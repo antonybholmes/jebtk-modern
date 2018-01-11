@@ -35,15 +35,15 @@ public class ListHighlightAnimation extends HighlightAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public ListHighlightAnimation(ModernWidget list) {
     super((ModernList<?>) list);
 
     mList = (ModernList<?>) list;
 
-    getFade().setFadeColor("highlight", MaterialService.getInstance().color("gray-highlighted"));
+    getFade().setFadeColor("highlight",
+        MaterialService.getInstance().color("gray-highlighted"));
   }
 
   /*
@@ -85,7 +85,8 @@ public class ListHighlightAnimation extends HighlightAnimation {
           if (highlighted) {
             g2Table.setColor(getFade().getFadeColor("highlight"));
             g2Table.fillRect(0, 0, mList.getWidth(), mList.mRowHeight);
-            // getWidgetRenderer().drawButton(g2, getRect(), RenderMode.SELECTED);
+            // getWidgetRenderer().drawButton(g2, getRect(),
+            // RenderMode.SELECTED);
           } else {
             // Do nothing
           }

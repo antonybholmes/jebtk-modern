@@ -38,10 +38,10 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
-import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.event.ChangeListener;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.modern.MouseUtils;
 import org.jebtk.modern.SelectionPolicy;
@@ -77,8 +77,8 @@ import org.jebtk.modern.zoom.ZoomModel;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernTable extends ModernData
-    implements ClipboardUiControl, ModernSelectionListener, ModernCanvasListener, CanvasCursorListener {
+public class ModernTable extends ModernData implements ClipboardUiControl,
+    ModernSelectionListener, ModernCanvasListener, CanvasCursorListener {
 
   /**
    * The constant serialVersionUID.
@@ -93,7 +93,8 @@ public class ModernTable extends ModernData
   /**
    * The constant SELECTION_RECT_COLOR.
    */
-  public static final Color SELECTION_RECT_COLOR = ThemeService.getInstance().colors().getColorHighlight(5);
+  public static final Color SELECTION_RECT_COLOR = ThemeService.getInstance()
+      .colors().getColorHighlight(5);
 
   /** The m heading render model. */
   protected ModernTableHeadingRendererModel mHeadingRenderModel = new ModernTableHeadingRendererModel();
@@ -147,7 +148,8 @@ public class ModernTable extends ModernData
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see
+     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -179,7 +181,10 @@ public class ModernTable extends ModernData
       ModernDataCell cell = mSelectionModel.last();
 
       if (cell != null) {
-        setSelectedCell(Math.min(getRowCount() - 1, cell.row + 1), cell.col, false, false);
+        setSelectedCell(Math.min(getRowCount() - 1, cell.row + 1),
+            cell.col,
+            false,
+            false);
       }
     }
   }
@@ -188,8 +193,8 @@ public class ModernTable extends ModernData
    * private class LeftKeyEvents extends AbstractAction { private static final
    * long serialVersionUID = 1L;
    * 
-   * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell =
-   * mSelectionModel.last();
+   * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell
+   * = mSelectionModel.last();
    * 
    * if (cell != null) { setSelectedCell(cell.row, Math.max(0, cell.col - 1),
    * false, false); } } }
@@ -197,17 +202,17 @@ public class ModernTable extends ModernData
    * private class RightKeyEvents extends AbstractAction { private static final
    * long serialVersionUID = 1L;
    * 
-   * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell =
-   * mSelectionModel.last();
+   * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell
+   * = mSelectionModel.last();
    * 
-   * if (cell != null) { setSelectedCell(cell.row, Math.min(getColumnCount() - 1,
-   * cell.col + 1), false, false); } } }
+   * if (cell != null) { setSelectedCell(cell.row, Math.min(getColumnCount() -
+   * 1, cell.col + 1), false, false); } } }
    * 
-   * private class UpKeyEvents extends AbstractAction { private static final long
-   * serialVersionUID = 1L;
+   * private class UpKeyEvents extends AbstractAction { private static final
+   * long serialVersionUID = 1L;
    * 
-   * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell =
-   * mSelectionModel.last();
+   * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell
+   * = mSelectionModel.last();
    * 
    * if (cell != null) { setSelectedCell(Math.max(0, cell.row - 1), cell.col,
    * false, false); } } }
@@ -215,8 +220,8 @@ public class ModernTable extends ModernData
    * private class DownKeyEvents extends AbstractAction { private static final
    * long serialVersionUID = 1L;
    * 
-   * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell =
-   * mSelectionModel.last();
+   * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell
+   * = mSelectionModel.last();
    * 
    * if (cell != null) { setSelectedCell(Math.min(getRowCount() - 1, cell.row +
    * 1), cell.col, false, false); } } }
@@ -249,7 +254,10 @@ public class ModernTable extends ModernData
         cell = mSelectionModel.last();
 
         if (cell != null) {
-          setSelectedCell(cell.row, Math.min(getColumnCount() - 1, cell.col + 1), false, false);
+          setSelectedCell(cell.row,
+              Math.min(getColumnCount() - 1, cell.col + 1),
+              false,
+              false);
         }
 
         break;
@@ -292,9 +300,11 @@ public class ModernTable extends ModernData
         return;
       }
 
-      boolean multiSelect = (e.getModifiers() & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) == Toolkit
-          .getDefaultToolkit().getMenuShortcutKeyMask();
-      boolean multiRangeSelect = (e.getModifiers() & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
+      boolean multiSelect = (e.getModifiers()
+          & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) == Toolkit
+              .getDefaultToolkit().getMenuShortcutKeyMask();
+      boolean multiRangeSelect = (e.getModifiers()
+          & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
 
       setSelectedCell(getCell(p2), multiSelect, multiRangeSelect);
 
@@ -304,7 +314,8 @@ public class ModernTable extends ModernData
 
       ModernDataCell selectedCell = mSelectionModel.last();
 
-      if (selectedCell != null && mCurrentEditorComponent instanceof ModernTextBox) {
+      if (selectedCell != null
+          && mCurrentEditorComponent instanceof ModernTextBox) {
         ModernTextBox ec = (ModernTextBox) mCurrentEditorComponent;
 
         // System.err.println("ec " + ec + " " + ec.getFont().getSize());
@@ -320,14 +331,15 @@ public class ModernTable extends ModernData
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.graphics.ModernCanvasMouseAdapter#canvasMouseReleased(org.
-     * abh.common.ui.graphics.CanvasMouseEvent)
+     * org.abh.common.ui.graphics.ModernCanvasMouseAdapter#canvasMouseReleased(
+     * org. abh.common.ui.graphics.CanvasMouseEvent)
      */
     @Override
     public void canvasMouseReleased(CanvasMouseEvent e) {
       ModernDataCell selectedCell = mSelectionModel.last();
 
-      if (selectedCell != null && mCurrentEditorComponent instanceof ModernTextBox) {
+      if (selectedCell != null
+          && mCurrentEditorComponent instanceof ModernTextBox) {
         ModernTextBox ec = (ModernTextBox) mCurrentEditorComponent;
 
         // Localise mouse event to the cell
@@ -339,14 +351,15 @@ public class ModernTable extends ModernData
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.graphics.ModernCanvasMouseAdapter#canvasMouseClicked(org.
-     * abh.common.ui.graphics.CanvasMouseEvent)
+     * org.abh.common.ui.graphics.ModernCanvasMouseAdapter#canvasMouseClicked(
+     * org. abh.common.ui.graphics.CanvasMouseEvent)
      */
     @Override
     public void canvasMouseClicked(CanvasMouseEvent e) {
       ModernDataCell selectedCell = mSelectionModel.last();
 
-      if (selectedCell != null && mCurrentEditorComponent instanceof ModernTextBox) {
+      if (selectedCell != null
+          && mCurrentEditorComponent instanceof ModernTextBox) {
         ModernTextBox ec = (ModernTextBox) mCurrentEditorComponent;
 
         // Localise mouse event to the cell
@@ -358,14 +371,15 @@ public class ModernTable extends ModernData
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.graphics.ModernCanvasMouseAdapter#canvasMouseMoved(org.abh.
-     * common.ui.graphics.CanvasMouseEvent)
+     * org.abh.common.ui.graphics.ModernCanvasMouseAdapter#canvasMouseMoved(org.
+     * abh. common.ui.graphics.CanvasMouseEvent)
      */
     @Override
     public void canvasMouseMoved(CanvasMouseEvent e) {
       ModernDataCell selectedCell = mSelectionModel.last();
 
-      if (selectedCell != null && mCurrentEditorComponent instanceof ModernTextBox) {
+      if (selectedCell != null
+          && mCurrentEditorComponent instanceof ModernTextBox) {
 
         // Mouse events on the table must be localized for the
         // selected cell so that the selected cell behaves as if
@@ -379,7 +393,8 @@ public class ModernTable extends ModernData
         // mColumnModel.getWidth(selectedCell.col) + " " +
         // mRowModel.getWidth(selectedCell.row));
 
-        if (p.getX() >= 0 && p.getY() >= 0 && p.getX() < mColumnModel.getWidth(selectedCell.col)
+        if (p.getX() >= 0 && p.getY() >= 0
+            && p.getX() < mColumnModel.getWidth(selectedCell.col)
             && p.getY() < mRowModel.getWidth(selectedCell.row)) {
           ec.mouseEntered(MouseUtils.updateXY(e, p));
         } else {
@@ -392,14 +407,15 @@ public class ModernTable extends ModernData
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.graphics.ModernCanvasMouseAdapter#canvasMouseDragged(org.
-     * abh.common.ui.graphics.CanvasMouseEvent)
+     * org.abh.common.ui.graphics.ModernCanvasMouseAdapter#canvasMouseDragged(
+     * org. abh.common.ui.graphics.CanvasMouseEvent)
      */
     @Override
     public void canvasMouseDragged(CanvasMouseEvent e) {
       ModernDataCell selectedCell = mSelectionModel.last();
 
-      if (selectedCell != null && mCurrentEditorComponent instanceof ModernTextBox) {
+      if (selectedCell != null
+          && mCurrentEditorComponent instanceof ModernTextBox) {
         ModernTextBox ec = (ModernTextBox) mCurrentEditorComponent;
 
         // Localise mouse event to the cell
@@ -418,8 +434,7 @@ public class ModernTable extends ModernData
   /**
    * Instantiates a new modern table.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernTable(ModernDataModel model) {
     setModel(model);
@@ -463,79 +478,84 @@ public class ModernTable extends ModernData
 
     addCanvasKeyListener(new KeyEvents());
 
-    getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "enter_pressed");
+    getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)
+        .put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "enter_pressed");
     getActionMap().put("enter_pressed", new EnterKeyEvents());
 
     /*
-     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.getKeyStroke(
-     * KeyEvent.VK_LEFT, 0), "left_pressed"); getActionMap().put("left_pressed", new
-     * AbstractAction() { private static final long serialVersionUID = 1L;
+     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.
+     * getKeyStroke( KeyEvent.VK_LEFT, 0), "left_pressed");
+     * getActionMap().put("left_pressed", new AbstractAction() { private static
+     * final long serialVersionUID = 1L;
      * 
-     * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell =
-     * mSelectionModel.last();
+     * @Override public void actionPerformed(ActionEvent e) { ModernDataCell
+     * cell = mSelectionModel.last();
      * 
      * if (cell != null) { setSelectedCell(cell.row, Math.max(0, cell.col - 1),
      * false, false); } }});
      */
 
     /*
-     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.getKeyStroke(
-     * KeyEvent.VK_RIGHT, 0), "right_pressed"); getActionMap().put("right_pressed",
-     * new AbstractAction() { private static final long serialVersionUID = 1L;
+     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.
+     * getKeyStroke( KeyEvent.VK_RIGHT, 0), "right_pressed");
+     * getActionMap().put("right_pressed", new AbstractAction() { private static
+     * final long serialVersionUID = 1L;
      * 
-     * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell =
-     * mSelectionModel.last();
+     * @Override public void actionPerformed(ActionEvent e) { ModernDataCell
+     * cell = mSelectionModel.last();
      * 
-     * if (cell != null) { setSelectedCell(cell.row, Math.min(getColumnCount() - 1,
-     * cell.col + 1), false, false); } }});
+     * if (cell != null) { setSelectedCell(cell.row, Math.min(getColumnCount() -
+     * 1, cell.col + 1), false, false); } }});
      */
 
     /*
-     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.getKeyStroke(
-     * KeyEvent.VK_UP, 0), "up_pressed"); getActionMap().put("up_pressed", new
-     * AbstractAction() { private static final long serialVersionUID = 1L;
+     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.
+     * getKeyStroke( KeyEvent.VK_UP, 0), "up_pressed");
+     * getActionMap().put("up_pressed", new AbstractAction() { private static
+     * final long serialVersionUID = 1L;
      * 
-     * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell =
-     * mSelectionModel.last();
+     * @Override public void actionPerformed(ActionEvent e) { ModernDataCell
+     * cell = mSelectionModel.last();
      * 
      * if (cell != null) { setSelectedCell(Math.max(0, cell.row - 1), cell.col,
      * false, false); } }});
      */
 
     /*
-     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.getKeyStroke(
-     * KeyEvent.VK_DOWN, 0), "down_pressed"); getActionMap().put("down_pressed", new
-     * AbstractAction() { private static final long serialVersionUID = 1L;
+     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.
+     * getKeyStroke( KeyEvent.VK_DOWN, 0), "down_pressed");
+     * getActionMap().put("down_pressed", new AbstractAction() { private static
+     * final long serialVersionUID = 1L;
      * 
-     * @Override public void actionPerformed(ActionEvent e) { ModernDataCell cell =
-     * mSelectionModel.last();
+     * @Override public void actionPerformed(ActionEvent e) { ModernDataCell
+     * cell = mSelectionModel.last();
      * 
-     * if (cell != null) { setSelectedCell(Math.min(getRowCount() - 1, cell.row +
-     * 1), cell.col, false, false); } }});
+     * if (cell != null) { setSelectedCell(Math.min(getRowCount() - 1, cell.row
+     * + 1), cell.col, false, false); } }});
      */
 
     /*
-     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.getKeyStroke(
-     * KeyEvent.VK_LEFT, 0), "left_key"); getActionMap().put("left_key", new
-     * LeftKeyEvents());
+     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.
+     * getKeyStroke( KeyEvent.VK_LEFT, 0), "left_key");
+     * getActionMap().put("left_key", new LeftKeyEvents());
      * 
-     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.getKeyStroke(
-     * KeyEvent.VK_RIGHT, 0), "right_key"); getActionMap().put("right_key", new
-     * RightKeyEvents());
+     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.
+     * getKeyStroke( KeyEvent.VK_RIGHT, 0), "right_key");
+     * getActionMap().put("right_key", new RightKeyEvents());
      * 
-     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.getKeyStroke(
-     * KeyEvent.VK_UP, 0), "up_key"); getActionMap().put("up_key", new
-     * UpKeyEvents());
+     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.
+     * getKeyStroke( KeyEvent.VK_UP, 0), "up_key"); getActionMap().put("up_key",
+     * new UpKeyEvents());
      * 
-     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.getKeyStroke(
-     * KeyEvent.VK_DOWN, 0), "down_key"); getActionMap().put("down_key", new
-     * DownKeyEvents());
+     * getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(KeyStroke.
+     * getKeyStroke( KeyEvent.VK_DOWN, 0), "down_key");
+     * getActionMap().put("down_key", new DownKeyEvents());
      */
   }
 
   /**
-   * Update the views to reflect the table data, i.e ensure there is a column and
-   * row view to represent each column and row in the table data.
+   * Update the views to reflect the table data, i.e ensure there is a column
+   * and row view to represent each column and row in the table data.
    */
   @Override
   protected void updateViewModels() {
@@ -576,8 +596,8 @@ public class ModernTable extends ModernData
     // mRowSortModel.clear();
 
     /*
-     * for (int i = 0; i < model.getColumnCount(); ++i) { columnModel.addIndex(new
-     * ModernTableColumn(i, defaultColumnWidth)); }
+     * for (int i = 0; i < model.getColumnCount(); ++i) {
+     * columnModel.addIndex(new ModernTableColumn(i, defaultColumnWidth)); }
      * 
      * for (int i = 0; i < model.getRowCount(); ++i) { rowModel.addIndex(new
      * ModernTableRow(i, rowHeight)); }
@@ -612,16 +632,17 @@ public class ModernTable extends ModernData
   /**
    * Sets the view cell.
    *
-   * @param row
-   *          the row
-   * @param column
-   *          the column
+   * @param row the row
+   * @param column the column
    */
   public void setViewCell(int row, int column) {
     int y = mRowModel.getCumWidth(Math.max(0, row));
     int x = mColumnModel.getCumWidth(Math.max(0, column));
 
-    super.setViewRectangle(x, y, mColumnModel.getWidth(column), mRowModel.getWidth(row));
+    super.setViewRectangle(x,
+        y,
+        mColumnModel.getWidth(column),
+        mRowModel.getWidth(row));
   }
 
   /*
@@ -641,10 +662,14 @@ public class ModernTable extends ModernData
       return;
     }
 
-    mRowModel.setSize(mModel.getRowCount()); // = new TableIndexModel(model.getRowCount(), new
+    mRowModel.setSize(mModel.getRowCount()); // = new
+                                             // TableIndexModel(model.getRowCount(),
+                                             // new
                                              // ModernTableRow(rowHeight));
 
-    mColumnModel.setSize(mModel.getColumnCount()); // = new TableIndexModel(model.getColumnCount(), new
+    mColumnModel.setSize(mModel.getColumnCount()); // = new
+                                                   // TableIndexModel(model.getColumnCount(),
+                                                   // new
                                                    // ModernTableColumn(defaultColumnWidth));
 
     int width = 0;
@@ -684,8 +709,7 @@ public class ModernTable extends ModernData
   /**
    * Returns the cumulative distance from 0 of a particular column.
    *
-   * @param column
-   *          the column
+   * @param column the column
    * @return the x
    */
   public final int getX(int column) {
@@ -699,8 +723,7 @@ public class ModernTable extends ModernData
   /**
    * Returns the cumulative distance from 0 of a particular row.
    *
-   * @param row
-   *          the row
+   * @param row the row
    * @return the y
    */
   public final int getY(int row) {
@@ -714,8 +737,7 @@ public class ModernTable extends ModernData
   /**
    * Gets the nearest column divider.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the nearest column divider
    */
   public int getNearestColumnDivider(int x) {
@@ -744,8 +766,7 @@ public class ModernTable extends ModernData
   /**
    * Gets the nearest row divider.
    *
-   * @param y
-   *          the y
+   * @param y the y
    * @return the nearest row divider
    */
   public int getNearestRowDivider(int y) {
@@ -769,8 +790,7 @@ public class ModernTable extends ModernData
   /**
    * Returns the nearest sort column for a given column.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the sort column
    */
   public int getSortColumn(int x) {
@@ -795,8 +815,7 @@ public class ModernTable extends ModernData
   /**
    * Gets the nearest swap column.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the nearest swap column
    */
   public int getNearestSwapColumn(int x) {
@@ -864,8 +883,7 @@ public class ModernTable extends ModernData
   /**
    * Sets the show row header.
    *
-   * @param show
-   *          the new show row header
+   * @param show the new show row header
    */
   public void setShowRowHeader(boolean show) {
     mShowRowHeader = show;
@@ -886,8 +904,7 @@ public class ModernTable extends ModernData
    * Set whether the header is visible when the table is displayed in a scroll
    * pane.
    *
-   * @param show
-   *          the new show header
+   * @param show the new show header
    */
   public void setShowHeader(boolean show) {
     mShowHeader = show;
@@ -907,8 +924,8 @@ public class ModernTable extends ModernData
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvas#canvasTranslate(java.awt.Graphics2D)
+   * @see org.abh.common.ui.graphics.ModernCanvas#canvasTranslate(java.awt.
+   * Graphics2D)
    */
   @Override
   public void canvasTranslate(Graphics2D g2) {
@@ -919,8 +936,7 @@ public class ModernTable extends ModernData
   /**
    * Translate a graphics context to the correct location for rendering.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    */
   @Override
   protected void translate(Graphics2D g2) {
@@ -930,10 +946,8 @@ public class ModernTable extends ModernData
   /**
    * Translate.
    *
-   * @param g2
-   *          the g 2
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g 2
+   * @param visibleCells the visible cells
    */
   protected void translate(Graphics2D g2, ModernDataSelection visibleCells) {
     translate(g2, visibleCells, mShowHeader, mShowRowHeader);
@@ -942,21 +956,22 @@ public class ModernTable extends ModernData
   /**
    * Translate.
    *
-   * @param g2
-   *          the g 2
-   * @param visibleCells
-   *          the visible cells
-   * @param showHeader
-   *          the show header
-   * @param showRowHeader
-   *          the show row header
+   * @param g2 the g 2
+   * @param visibleCells the visible cells
+   * @param showHeader the show header
+   * @param showRowHeader the show row header
    */
-  protected void translate(Graphics2D g2, ModernDataSelection visibleCells, boolean showHeader, boolean showRowHeader) {
+  protected void translate(Graphics2D g2,
+      ModernDataSelection visibleCells,
+      boolean showHeader,
+      boolean showRowHeader) {
     translateX(g2, visibleCells, showRowHeader);
     translateY(g2, visibleCells, showHeader);
   }
 
-  protected void translate(Graphics2D g2, boolean showHeader, boolean showRowHeader) {
+  protected void translate(Graphics2D g2,
+      boolean showHeader,
+      boolean showRowHeader) {
     translateX(g2, showRowHeader);
     translateY(g2, showHeader);
   }
@@ -964,10 +979,8 @@ public class ModernTable extends ModernData
   /**
    * Translate X.
    *
-   * @param g2
-   *          the g 2
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g 2
+   * @param visibleCells the visible cells
    */
   public void translateX(Graphics2D g2, ModernDataSelection visibleCells) {
     translateX(g2, visibleCells, mShowRowHeader);
@@ -976,16 +989,16 @@ public class ModernTable extends ModernData
   /**
    * Translate X.
    *
-   * @param g2
-   *          the g 2
-   * @param visibleCells
-   *          the visible cells
-   * @param showHeader
-   *          the show header
+   * @param g2 the g 2
+   * @param visibleCells the visible cells
+   * @param showHeader the show header
    */
-  public void translateX(Graphics2D g2, ModernDataSelection visibleCells, boolean showHeader) {
+  public void translateX(Graphics2D g2,
+      ModernDataSelection visibleCells,
+      boolean showHeader) {
 
-    // double x = getVisibleRect().x; //0; //getX(visibleCells.getStartCol()); // -
+    // double x = getVisibleRect().x; //0; //getX(visibleCells.getStartCol());
+    // // -
     // getViewRect().getX();
 
     double x = getX(visibleCells.getStartCol());// - getVisibleRect().x);
@@ -1001,12 +1014,12 @@ public class ModernTable extends ModernData
    * Translate the header in the x direction so that it is always visible.
    * 
    * @param g2
-   * @param showHeader
-   *          whether to offset to render the header.
+   * @param showHeader whether to offset to render the header.
    */
   private void translateX(Graphics2D g2, boolean showHeader) {
 
-    double x = getVisibleRect().x; // 0; //getX(visibleCells.getStartCol()); // - getViewRect().getX();
+    double x = getVisibleRect().x; // 0; //getX(visibleCells.getStartCol()); //
+                                   // - getViewRect().getX();
 
     if (showHeader) {
       x += scale(mRowModel.getHeaderSize());
@@ -1018,10 +1031,8 @@ public class ModernTable extends ModernData
   /**
    * Translate Y.
    *
-   * @param g2
-   *          the g 2
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g 2
+   * @param visibleCells the visible cells
    */
   public void translateY(Graphics2D g2, ModernDataSelection visibleCells) {
     translateY(g2, visibleCells, mShowHeader);
@@ -1030,14 +1041,13 @@ public class ModernTable extends ModernData
   /**
    * Translate Y.
    *
-   * @param g2
-   *          the g 2
-   * @param visibleCells
-   *          the visible cells
-   * @param showHeader
-   *          the show header
+   * @param g2 the g 2
+   * @param visibleCells the visible cells
+   * @param showHeader the show header
    */
-  public void translateY(Graphics2D g2, ModernDataSelection visibleCells, boolean showHeader) {
+  public void translateY(Graphics2D g2,
+      ModernDataSelection visibleCells,
+      boolean showHeader) {
     // reset so that there is no offset
     // double y = getVisibleRect().y; //getY(visibleCells.getStartRow());
     // -getViewRect().getY();
@@ -1068,8 +1078,7 @@ public class ModernTable extends ModernData
   /**
    * Inv translate X.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the int
    */
   public int invTranslateX(int x) {
@@ -1085,8 +1094,7 @@ public class ModernTable extends ModernData
   /**
    * Inv translate Y.
    *
-   * @param y
-   *          the y
+   * @param y the y
    * @return the int
    */
   public int invTranslateY(int y) {
@@ -1197,7 +1205,8 @@ public class ModernTable extends ModernData
    */
   @Override
   public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
-    if (mModel == null || mModel.getRowCount() == 0 || mModel.getColumnCount() == 0) {
+    if (mModel == null || mModel.getRowCount() == 0
+        || mModel.getColumnCount() == 0) {
       return;
     }
 
@@ -1227,14 +1236,12 @@ public class ModernTable extends ModernData
   }
 
   /**
-   * Provides a standard method for rendering the cells. This method ensures only
-   * visible cells are rendered, which is improves drawing time since it wastes a
-   * lot of effort drawing cells no one can see.
+   * Provides a standard method for rendering the cells. This method ensures
+   * only visible cells are rendered, which is improves drawing time since it
+   * wastes a lot of effort drawing cells no one can see.
    *
-   * @param g2
-   *          the g2
-   * @param context
-   *          the context
+   * @param g2 the g2
+   * @param context the context
    */
   protected void createTableImage(Graphics2D g2, DrawingContext context) {
     createTableImage(g2, context, calculateVisibleCells());
@@ -1243,14 +1250,13 @@ public class ModernTable extends ModernData
   /**
    * Creates the table image.
    *
-   * @param g2
-   *          the g 2
-   * @param context
-   *          the context
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g 2
+   * @param context the context
+   * @param visibleCells the visible cells
    */
-  protected void createTableImage(Graphics2D g2, DrawingContext context, ModernDataSelection visibleCells) {
+  protected void createTableImage(Graphics2D g2,
+      DrawingContext context,
+      ModernDataSelection visibleCells) {
 
     ModernDataCellRenderer renderer;
 
@@ -1272,7 +1278,8 @@ public class ModernTable extends ModernData
 
       createTableBackground(g2Temp, context, visibleCells);
 
-      for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i) {
+      for (int i = visibleCells.getStartRow(); i <= visibleCells
+          .getEndRow(); ++i) {
         if (i >= getRowCount()) {
           break;
         }
@@ -1284,7 +1291,8 @@ public class ModernTable extends ModernData
         Graphics2D g2Temp2 = ImageUtils.clone(g2Temp);
 
         try {
-          for (int j = visibleCells.getStartCol(); j <= visibleCells.getEndCol(); ++j) {
+          for (int j = visibleCells.getStartCol(); j <= visibleCells
+              .getEndCol(); ++j) {
             if (j >= getColumnCount()) {
               break;
             }
@@ -1297,7 +1305,8 @@ public class ModernTable extends ModernData
 
             w = mColumnModel.getWidth(j, zoom);
 
-            if (cell != null && cell.row == i && cell.col == j && mCurrentEditorComponent != null
+            if (cell != null && cell.row == i && cell.col == j
+                && mCurrentEditorComponent != null
                 && mCurrentEditorComponent instanceof ModernTextBox) {
               ModernTextBox ec = (ModernTextBox) mCurrentEditorComponent;
 
@@ -1311,8 +1320,13 @@ public class ModernTable extends ModernData
             } else {
               renderer = mCellRendererModel.get(i, j);
 
-              Component c = renderer.getCellRendererComponent(this, getValueAt(i, j), false, highlight, isFocusOwner(),
-                  i, j);
+              Component c = renderer.getCellRendererComponent(this,
+                  getValueAt(i, j),
+                  false,
+                  highlight,
+                  isFocusOwner(),
+                  i,
+                  j);
 
               c.setSize(w, h);
 
@@ -1351,14 +1365,13 @@ public class ModernTable extends ModernData
   /**
    * Creates the table background.
    *
-   * @param g2
-   *          the g 2
-   * @param context
-   *          the context
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g 2
+   * @param context the context
+   * @param visibleCells the visible cells
    */
-  protected void createTableBackground(Graphics2D g2, DrawingContext context, ModernDataSelection visibleCells) {
+  protected void createTableBackground(Graphics2D g2,
+      DrawingContext context,
+      ModernDataSelection visibleCells) {
     g2.setColor(Color.WHITE);
 
     int x = mColumnModel.getCumOffset(visibleCells.getStartCol());
@@ -1368,7 +1381,9 @@ public class ModernTable extends ModernData
     // mColumnModel.getCumOffset(visibleCells.getEndCol()) + " " +
     // mRowModel.getCumOffset(visibleCells.getEndRow()) );
 
-    g2.fillRect(0, 0, mColumnModel.getCumWidth(visibleCells.getEndCol()) - x,
+    g2.fillRect(0,
+        0,
+        mColumnModel.getCumWidth(visibleCells.getEndCol()) - x,
         mRowModel.getCumWidth(visibleCells.getEndRow()) - y);
 
   }
@@ -1376,12 +1391,11 @@ public class ModernTable extends ModernData
   /**
    * Creates the table header image.
    *
-   * @param g2
-   *          the g 2
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g 2
+   * @param visibleCells the visible cells
    */
-  protected void createTableHeaderImage(Graphics2D g2, ModernDataSelection visibleCells) {
+  protected void createTableHeaderImage(Graphics2D g2,
+      ModernDataSelection visibleCells) {
     if (!mShowHeader) {
       return;
     }
@@ -1402,8 +1416,8 @@ public class ModernTable extends ModernData
      * 
      * Graphics2D g2Temp = (Graphics2D)g2.create();
      * 
-     * // translate to the start of the rendering rectangle so that we skip // all
-     * non visible cells
+     * // translate to the start of the rendering rectangle so that we skip //
+     * all non visible cells
      * 
      * translateX(g2Temp, visibleCells);
      * 
@@ -1411,8 +1425,8 @@ public class ModernTable extends ModernData
      * 
      * int w;
      * 
-     * try { for (int i = visibleCells.getStartCol(); i <= visibleCells.getEndCol();
-     * ++i) { if (i >= getColumnCount()) { break; }
+     * try { for (int i = visibleCells.getStartCol(); i <=
+     * visibleCells.getEndCol(); ++i) { if (i >= getColumnCount()) { break; }
      * 
      * renderer = mHeadingRenderModel.get(i);
      * 
@@ -1434,8 +1448,7 @@ public class ModernTable extends ModernData
   /**
    * Creates the table corner image.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   protected void createTableCornerImage(Graphics2D g2) {
     if (mShowHeader && mShowRowHeader) {
@@ -1451,15 +1464,17 @@ public class ModernTable extends ModernData
       }
 
       /*
-       * fill(g2, ModernTableHeaderCellRenderer.HEADER_BACKGROUND, new Rectangle(0, 0,
-       * mRowModel.getHeaderSize(), mColumnModel.getHeaderSize()));
+       * fill(g2, ModernTableHeaderCellRenderer.HEADER_BACKGROUND, new
+       * Rectangle(0, 0, mRowModel.getHeaderSize(),
+       * mColumnModel.getHeaderSize()));
        * 
        * g2.setColor(ModernWidget.LINE_COLOR);
        * 
-       * int p = mRowModel.getHeaderSize() - 1; g2.drawLine(p, 0, p, mRect.getH() -
-       * 1);
+       * int p = mRowModel.getHeaderSize() - 1; g2.drawLine(p, 0, p,
+       * mRect.getH() - 1);
        * 
-       * p = mColumnModel.getHeaderSize() - 1; g2.drawLine(0, p, mRect.getW(), p);
+       * p = mColumnModel.getHeaderSize() - 1; g2.drawLine(0, p, mRect.getW(),
+       * p);
        */
     }
 
@@ -1468,12 +1483,11 @@ public class ModernTable extends ModernData
   /**
    * Creates the table row header image.
    *
-   * @param g2
-   *          the g 2
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g 2
+   * @param visibleCells the visible cells
    */
-  protected void createTableRowHeaderImage(Graphics2D g2, ModernDataSelection visibleCells) {
+  protected void createTableRowHeaderImage(Graphics2D g2,
+      ModernDataSelection visibleCells) {
     if (!mShowRowHeader) {
       return;
     }
@@ -1510,13 +1524,13 @@ public class ModernTable extends ModernData
      * 
      * int h;
      * 
-     * try { for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow();
-     * ++i) { if (i >= getRowCount()) { break; }
+     * try { for (int i = visibleCells.getStartRow(); i <=
+     * visibleCells.getEndRow(); ++i) { if (i >= getRowCount()) { break; }
      * 
      * renderer = mRowHeadingRenderModel.get(i);
      * 
-     * Component c = renderer.getCellRendererComponent(this, mModel.getRowName(i),
-     * false, false, false, i, 0);
+     * Component c = renderer.getCellRendererComponent(this,
+     * mModel.getRowName(i), false, false, false, i, 0);
      * 
      * h = mRowModel.getWidth(i);
      * 
@@ -1532,44 +1546,52 @@ public class ModernTable extends ModernData
   /**
    * Draw selection rectangle.
    *
-   * @param g2
-   *          the g 2
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g 2
+   * @param visibleCells the visible cells
    */
-  private void drawSelectionRectangle(Graphics2D g2, ModernDataSelection visibleCells) {
+  private void drawSelectionRectangle(Graphics2D g2,
+      ModernDataSelection visibleCells) {
 
     // System.err.println("sel " + mRowModel.getSelectionModel().size() + " " +
     // mColumnModel.getSelectionModel().size());
 
     double zoom = getZoomModel().getZoom();
 
-    if (mRowModel.getSelectionModel().size() > 0 && mColumnModel.getSelectionModel().size() == 0) {
+    if (mRowModel.getSelectionModel().size() > 0
+        && mColumnModel.getSelectionModel().size() == 0) {
       // Row selected
 
       // always draw relative to the visible cells
       drawSelectionRow(g2, visibleCells);
-    } else if (mRowModel.getSelectionModel().size() == 0 && mColumnModel.getSelectionModel().size() > 0) {
+    } else if (mRowModel.getSelectionModel().size() == 0
+        && mColumnModel.getSelectionModel().size() > 0) {
       // Column selected
 
       // always draw relative to the visible cells
       // int y = getY(0);
       // int x = invTranslateX(mColumnModel.getSelectionModel().first()); // -
       // getViewRectangle().getX());
-      // int h = getY(getRowCount() - 1) + mRowModel.getWidth(getRowCount() - 1) + 1;
+      // int h = getY(getRowCount() - 1) + mRowModel.getWidth(getRowCount() - 1)
+      // + 1;
       // int w = getX(mColumnModel.getSelectionModel().last()) -
       // getX(mColumnModel.getSelectionModel().first()) +
       // mColumnModel.getWidth(mColumnModel.getSelectionModel().last()) + 1;
 
       int y = 0; // getY(visibleCells.getStartRow()); //invTranslateY(getY(0));
-      int x = getX(mColumnModel.getSelectionModel().first(), zoom) - getX(visibleCells.getStartCol(), zoom); // invTranslateX(getX(mColumnModel.getSelectionModel().first()));
-                                                                                                             // // -
-                                                                                                             // getViewRectangle().getY();
-      int h = getY(visibleCells.getEndRow(), zoom) - getY(visibleCells.getStartRow(), zoom)
-          + mRowModel.getWidth(visibleCells.getEndRow(), zoom); // getColumnCount() - 1) +
-                                                                // mColumnModel.getWidth(getColumnCount() - 1) + 1;
-      int w = getX(mColumnModel.getSelectionModel().last(), zoom) - getX(mColumnModel.getSelectionModel().first())
-          + mColumnModel.getWidth(mColumnModel.getSelectionModel().last(), zoom) + 1;
+      int x = getX(mColumnModel.getSelectionModel().first(), zoom)
+          - getX(visibleCells.getStartCol(), zoom); // invTranslateX(getX(mColumnModel.getSelectionModel().first()));
+                                                    // // -
+                                                    // getViewRectangle().getY();
+      int h = getY(visibleCells.getEndRow(), zoom)
+          - getY(visibleCells.getStartRow(), zoom)
+          + mRowModel.getWidth(visibleCells.getEndRow(), zoom); // getColumnCount()
+                                                                // - 1) +
+                                                                // mColumnModel.getWidth(getColumnCount()
+                                                                // - 1) + 1;
+      int w = getX(mColumnModel.getSelectionModel().last(), zoom)
+          - getX(mColumnModel.getSelectionModel().first())
+          + mColumnModel.getWidth(mColumnModel.getSelectionModel().last(), zoom)
+          + 1;
 
       // System.err.println("h " + getY(getRowCount() - 1) + " " +
       // mRowModel.getWidth(getRowCount() - 1));
@@ -1631,23 +1653,27 @@ public class ModernTable extends ModernData
   /**
    * Draw selection row.
    *
-   * @param g2
-   *          the g 2
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g 2
+   * @param visibleCells the visible cells
    */
-  public void drawSelectionRow(Graphics2D g2, ModernDataSelection visibleCells) {
+  public void drawSelectionRow(Graphics2D g2,
+      ModernDataSelection visibleCells) {
 
     double zoom = getZoomModel().getZoom();
 
     int x = 0; // getX(visibleCells.getStartCol()); //invTranslateX(getX(0));
-    int y = getY(mRowModel.getSelectionModel().first()) - getY(visibleCells.getStartRow()); // invTranslateY(getY(mRowModel.getSelectionModel().first()));
-                                                                                            // // -
-                                                                                            // getViewRectangle().getY();
+    int y = getY(mRowModel.getSelectionModel().first())
+        - getY(visibleCells.getStartRow()); // invTranslateY(getY(mRowModel.getSelectionModel().first()));
+                                            // // -
+                                            // getViewRectangle().getY();
     int w = getX(visibleCells.getEndCol()) - getX(visibleCells.getStartCol())
-        + mColumnModel.getWidth(visibleCells.getEndCol(), zoom) - 1; // getColumnCount() - 1) +
-                                                                     // mColumnModel.getWidth(getColumnCount() - 1) + 1;
-    int h = getY(mRowModel.getSelectionModel().last()) - getY(mRowModel.getSelectionModel().first())
+        + mColumnModel.getWidth(visibleCells.getEndCol(), zoom) - 1; // getColumnCount()
+                                                                     // - 1) +
+                                                                     // mColumnModel.getWidth(getColumnCount()
+                                                                     // - 1) +
+                                                                     // 1;
+    int h = getY(mRowModel.getSelectionModel().last())
+        - getY(mRowModel.getSelectionModel().first())
         + mRowModel.getWidth(mRowModel.getSelectionModel().last(), zoom);
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
@@ -1682,12 +1708,11 @@ public class ModernTable extends ModernData
   /**
    * Creates the grid lines.
    *
-   * @param g2
-   *          the g 2
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g 2
+   * @param visibleCells the visible cells
    */
-  protected void createGridLines(Graphics2D g2, ModernDataSelection visibleCells) {
+  protected void createGridLines(Graphics2D g2,
+      ModernDataSelection visibleCells) {
     Graphics2D g2Temp;
 
     //
@@ -1729,12 +1754,11 @@ public class ModernTable extends ModernData
   /**
    * Creates the grid row lines.
    *
-   * @param g2
-   *          the g2
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g2
+   * @param visibleCells the visible cells
    */
-  private void createGridRowLines(Graphics2D g2, ModernDataSelection visibleCells) {
+  private void createGridRowLines(Graphics2D g2,
+      ModernDataSelection visibleCells) {
 
     g2.setColor(LINE_COLOR);
 
@@ -1744,8 +1768,8 @@ public class ModernTable extends ModernData
     double zoom = getZoomModel().getZoom();
 
     /*
-     * for (int i = visibleCells.getStartCol(); i <= visibleCells.getEndCol(); ++i)
-     * { if (i >= mColumnModel.size()) { break; }
+     * for (int i = visibleCells.getStartCol(); i <= visibleCells.getEndCol();
+     * ++i) { if (i >= mColumnModel.size()) { break; }
      * 
      * w += mColumnModel.getWidth(i, zoom); }
      */
@@ -1760,7 +1784,8 @@ public class ModernTable extends ModernData
 
     while (y < rect.height) {
 
-      // for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i)
+      // for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow();
+      // ++i)
       // {
       // if (i >= mRowModel.size()) {
       // break;
@@ -1780,12 +1805,11 @@ public class ModernTable extends ModernData
   /**
    * Creates the grid column lines.
    *
-   * @param g2
-   *          the g2
-   * @param visibleCells
-   *          the visible cells
+   * @param g2 the g2
+   * @param visibleCells the visible cells
    */
-  private void createGridColumnLines(Graphics2D g2, ModernDataSelection visibleCells) {
+  private void createGridColumnLines(Graphics2D g2,
+      ModernDataSelection visibleCells) {
 
     g2.setColor(LINE_COLOR);
 
@@ -1797,8 +1821,8 @@ public class ModernTable extends ModernData
     double zoom = getZoomModel().getZoom();
 
     /*
-     * for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i)
-     * { if (i >= mRowModel.size()) { break; }
+     * for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow();
+     * ++i) { if (i >= mRowModel.size()) { break; }
      * 
      * h += mRowModel.getWidth(i, zoom); }
      */
@@ -1813,7 +1837,8 @@ public class ModernTable extends ModernData
 
     while (x < rect.width) {
 
-      // for (int i = visibleCells.getStartCol(); i <= visibleCells.getEndCol(); ++i)
+      // for (int i = visibleCells.getStartCol(); i <= visibleCells.getEndCol();
+      // ++i)
       // {
       // if (mColumnModel == null) {
       // break;
@@ -1831,14 +1856,12 @@ public class ModernTable extends ModernData
   }
 
   /**
-   * Returns the value at a given row, column on the table. Since the table may be
-   * sorted, getValue may return a different value to getModel().getValue() since
-   * that returns the ordering of the data as it was loaded.
+   * Returns the value at a given row, column on the table. Since the table may
+   * be sorted, getValue may return a different value to getModel().getValue()
+   * since that returns the ordering of the data as it was loaded.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
+   * @param row the row
+   * @param col the col
    * @return the value at
    */
   @Override
@@ -1861,15 +1884,12 @@ public class ModernTable extends ModernData
 
   /**
    * Sets the value at a given row, column on the table. Since the table may be
-   * sorted, getValue may return a different value to getModel().getValue() since
-   * that returns the ordering of the data as it was loaded.
+   * sorted, getValue may return a different value to getModel().getValue()
+   * since that returns the ordering of the data as it was loaded.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
-   * @param value
-   *          the value
+   * @param row the row
+   * @param col the col
+   * @param value the value
    * @parm value
    */
   @Override
@@ -1878,14 +1898,16 @@ public class ModernTable extends ModernData
       return;
     }
 
-    mModel.setValueAt(mRowSortModel.getSorter().getModelIndex(row), mColSortModel.getSorter().getModelIndex(col),
+    mModel.setValueAt(mRowSortModel.getSorter().getModelIndex(row),
+        mColSortModel.getSorter().getModelIndex(col),
         value);
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.dataview.ModernData#dataChanged(org.abh.lib.event.
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernData#dataChanged(org.abh.lib.event.
    * ChangeEvent)
    */
   @Override
@@ -1893,7 +1915,8 @@ public class ModernTable extends ModernData
     // if the data changes, change the sort model.
 
     // If the data changes, update any current sorter
-    mRowSortModel.getSorter().sort(this, mRowSortModel.getSortIndex(),
+    mRowSortModel.getSorter().sort(this,
+        mRowSortModel.getSortIndex(),
         mRowSortModel.get(mRowSortModel.getSortIndex()).getSortAscending());
 
     super.dataChanged(e);
@@ -1973,23 +1996,23 @@ public class ModernTable extends ModernData
   /**
    * Selects a cell if the mouse is over a valid cell when clicked.
    *
-   * @param row
-   *          the row
-   * @param column
-   *          the column
-   * @param multiRowSelect
-   *          the multi row select
-   * @param multiRangeSelect
-   *          the multi range select
+   * @param row the row
+   * @param column the column
+   * @param multiRowSelect the multi row select
+   * @param multiRangeSelect the multi range select
    */
   @Override
-  public void setSelectedCell(int row, int column, boolean multiRowSelect, boolean multiRangeSelect) {
+  public void setSelectedCell(int row,
+      int column,
+      boolean multiRowSelect,
+      boolean multiRangeSelect) {
 
     // First ensure none of the rows or columns are selected.
     mColumnModel.unselectAll();
     mRowModel.unselectAll();
 
-    if ((!multiRowSelect && !multiRangeSelect) || mSelectionPolicy != SelectionPolicy.MULTIPLE) {
+    if ((!multiRowSelect && !multiRangeSelect)
+        || mSelectionPolicy != SelectionPolicy.MULTIPLE) {
       // If we are not selecting multiple cells, clear
       // the current selection
       mSelectionModel.clear();
@@ -2004,12 +2027,15 @@ public class ModernTable extends ModernData
       } else {
         mSelectionModel.getRowSelectionModel().add(row);
       }
-    } else if (multiRangeSelect && mSelectionModel.getRowSelectionModel().size() > 0) {
+    } else if (multiRangeSelect
+        && mSelectionModel.getRowSelectionModel().size() > 0) {
       // since we are adding intermediates, we do not
       // add the current first and last in duplicate,
       // hence the index begins one past the min and
       // ends one before the max
-      mSelectionModel.getRowSelectionModel().setSelectionInterval(mSelectionModel.getRowSelectionModel().first(), row);
+      mSelectionModel.getRowSelectionModel().setSelectionInterval(
+          mSelectionModel.getRowSelectionModel().first(),
+          row);
     } else {
       mSelectionModel.getRowSelectionModel().add(row);
     }
@@ -2023,12 +2049,14 @@ public class ModernTable extends ModernData
       } else {
         mSelectionModel.getColumnSelectionModel().add(column);
       }
-    } else if (multiRangeSelect && mSelectionModel.getColumnSelectionModel().size() > 0) {
+    } else if (multiRangeSelect
+        && mSelectionModel.getColumnSelectionModel().size() > 0) {
       // since we are adding intermediates, we do not
       // add the current first and last in duplicate,
       // hence the index begins one past the min and
       // ends one before the max
-      mSelectionModel.getColumnSelectionModel().setSelectionInterval(mSelectionModel.getColumnSelectionModel().first(),
+      mSelectionModel.getColumnSelectionModel().setSelectionInterval(
+          mSelectionModel.getColumnSelectionModel().first(),
           column);
     } else {
       mSelectionModel.getColumnSelectionModel().add(column);
@@ -2073,7 +2101,8 @@ public class ModernTable extends ModernData
 
     // System.err.println("remove editor");
 
-    if (mCurrentEditorComponent != null && mCurrentEditorComponent instanceof ModernTextBox) {
+    if (mCurrentEditorComponent != null
+        && mCurrentEditorComponent instanceof ModernTextBox) {
       ModernTextBox t = (ModernTextBox) mCurrentEditorComponent;
       t.flash(false);
       t.removeCanvasListener(this);
@@ -2114,8 +2143,13 @@ public class ModernTable extends ModernData
 
     mCurrentEditor.addEditorListener(new EditorEvents());
 
-    mCurrentEditorComponent = mCurrentEditor.getCellEditorComponent(this, getValueAt(selectedCell), true, true, true,
-        selectedCell.row, selectedCell.col);
+    mCurrentEditorComponent = mCurrentEditor.getCellEditorComponent(this,
+        getValueAt(selectedCell),
+        true,
+        true,
+        true,
+        selectedCell.row,
+        selectedCell.col);
 
     if (mCurrentEditorComponent instanceof ModernTextBox) {
       ModernTextBox t = (ModernTextBox) mCurrentEditorComponent;
@@ -2146,7 +2180,8 @@ public class ModernTable extends ModernData
    * 
    * if (selectedCell == null) { return; }
    * 
-   * if (!model.isCellEditable(selectedCell.row, selectedCell.column)) { return; }
+   * if (!model.isCellEditable(selectedCell.row, selectedCell.column)) { return;
+   * }
    * 
    * currentEditor = columnModel.get(selectedCell.column).getEditor();
    * 
@@ -2177,8 +2212,7 @@ public class ModernTable extends ModernData
   /**
    * Sets the sort column.
    *
-   * @param column
-   *          the new sort column
+   * @param column the new sort column
    */
   public void setSortColumn(int column) {
     if (mModel == null) {
@@ -2190,8 +2224,10 @@ public class ModernTable extends ModernData
     // the sort order
     mRowSortModel.setSortIndex(column);
 
-    mRowSortModel.getSorter().sort(this, column, getSortCol() == column ? !mRowSortModel.get(column).getSortAscending()
-        : mRowSortModel.get(column).getSortAscending());
+    mRowSortModel.getSorter().sort(this,
+        column,
+        getSortCol() == column ? !mRowSortModel.get(column).getSortAscending()
+            : mRowSortModel.get(column).getSortAscending());
 
     adjustSize();
   }
@@ -2199,8 +2235,7 @@ public class ModernTable extends ModernData
   /**
    * Sets the row height.
    *
-   * @param rowHeight
-   *          the new row height
+   * @param rowHeight the new row height
    */
   public void setRowHeight(int rowHeight) {
     getRowModel().setWidth(rowHeight);
@@ -2217,25 +2252,25 @@ public class ModernTable extends ModernData
 
   /*
    * @Override public void keyPressed(KeyEvent e) { if (e.getKeyCode() ==
-   * KeyEvent.VK_A && e.isControlDown()) { selectAll(); } else if (e.getKeyCode()
-   * == KeyEvent.VK_C && e.isControlDown()) { copy(); } else { // Do nothing } }
+   * KeyEvent.VK_A && e.isControlDown()) { selectAll(); } else if
+   * (e.getKeyCode() == KeyEvent.VK_C && e.isControlDown()) { copy(); } else {
+   * // Do nothing } }
    * 
-   * @Override public void keyReleased(KeyEvent e) { // TODO Auto-generated method
-   * stub }
+   * @Override public void keyReleased(KeyEvent e) { // TODO Auto-generated
+   * method stub }
    * 
-   * @Override public void keyTyped(KeyEvent arg0) { // TODO Auto-generated method
-   * stub
+   * @Override public void keyTyped(KeyEvent arg0) { // TODO Auto-generated
+   * method stub
    * 
    * }
    */
 
   /**
    * Converts a row to that of the model. If a sort model is in use, this method
-   * will map the selected row to the actual row it corresponds to in the unsorted
-   * model.
+   * will map the selected row to the actual row it corresponds to in the
+   * unsorted model.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the model row index
    */
   public int getModelRowIndex(int i) {
@@ -2267,8 +2302,7 @@ public class ModernTable extends ModernData
   /**
    * Gets the renderer.
    *
-   * @param col
-   *          the col
+   * @param col the col
    * @return the renderer
    */
   public ModernDataCellRenderer getHeadingRenderer(int col) {
@@ -2287,8 +2321,7 @@ public class ModernTable extends ModernData
   /**
    * Gets the row heading renderer.
    *
-   * @param col
-   *          the col
+   * @param col the col
    * @return the row heading renderer
    */
   public ModernDataCellRenderer getRowHeadingRenderer(int col) {
@@ -2318,16 +2351,18 @@ public class ModernTable extends ModernData
     ModernDataCell cell = mSelectionModel.last();
 
     if (cell != null) {
-      setSelectedCell(Math.min(getRowCount() - 1, cell.row + 1), cell.col, false, false);
+      setSelectedCell(Math.min(getRowCount() - 1, cell.row + 1),
+          cell.col,
+          false,
+          false);
     }
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasListener#canvasChanged(org.abh.common.
-   * event.ChangeEvent)
+   * @see org.abh.common.ui.graphics.ModernCanvasListener#canvasChanged(org.abh.
+   * common. event.ChangeEvent)
    */
   @Override
   public void canvasChanged(ChangeEvent e) {
@@ -2338,9 +2373,8 @@ public class ModernTable extends ModernData
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasListener#redrawCanvas(org.abh.common.
-   * event.ChangeEvent)
+   * @see org.abh.common.ui.graphics.ModernCanvasListener#redrawCanvas(org.abh.
+   * common. event.ChangeEvent)
    */
   @Override
   public void redrawCanvas(ChangeEvent e) {
@@ -2352,8 +2386,8 @@ public class ModernTable extends ModernData
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.graphics.ModernCanvasListener#canvasScrolled(org.abh.common
-   * .event.ChangeEvent)
+   * org.abh.common.ui.graphics.ModernCanvasListener#canvasScrolled(org.abh.
+   * common .event.ChangeEvent)
    */
   @Override
   public void canvasScrolled(ChangeEvent e) {
@@ -2364,9 +2398,8 @@ public class ModernTable extends ModernData
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.common.
-   * event.ChangeEvent)
+   * @see org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.
+   * common. event.ChangeEvent)
    */
   @Override
   public void canvasResized(ChangeEvent e) {
@@ -2378,10 +2411,8 @@ public class ModernTable extends ModernData
    * Translate a table x y coordinate to that of a cell so we can pass the
    * relative cell coordinates to the cell rather than the table coordinates.
    *
-   * @param e
-   *          the e
-   * @param cell
-   *          the cell
+   * @param e the e
+   * @param cell the cell
    * @return the int pos 2 D
    */
   private IntPos2D toCellSpace(CanvasMouseEvent e, ModernDataCell cell) {
@@ -2421,9 +2452,8 @@ public class ModernTable extends ModernData
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.CanvasCursorListener#cursorChanged(org.abh.common.
-   * ui.graphics.CanvasCursorEvent)
+   * @see org.abh.common.ui.graphics.CanvasCursorListener#cursorChanged(org.abh.
+   * common. ui.graphics.CanvasCursorEvent)
    */
   @Override
   public void cursorChanged(CanvasCursorEvent e) {

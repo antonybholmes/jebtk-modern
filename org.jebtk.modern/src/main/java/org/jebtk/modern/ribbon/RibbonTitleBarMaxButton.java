@@ -39,7 +39,8 @@ import org.jebtk.modern.window.WindowService;
 /**
  * The class ModernWindowTitleBarMaxButton.
  */
-public class RibbonTitleBarMaxButton extends RibbonTitleBarButton implements ModernClickListener {
+public class RibbonTitleBarMaxButton extends RibbonTitleBarButton
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -52,8 +53,7 @@ public class RibbonTitleBarMaxButton extends RibbonTitleBarButton implements Mod
   /**
    * Instantiates a new ribbon title bar max button.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public RibbonTitleBarMaxButton(ModernWindow window) {
     super(new Raster16Icon(new WindowMaxVectorIcon(DARK_LINE_COLOR)));
@@ -70,9 +70,8 @@ public class RibbonTitleBarMaxButton extends RibbonTitleBarButton implements Mod
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
-   * ModernClickEvent)
+   * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+   * event. ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

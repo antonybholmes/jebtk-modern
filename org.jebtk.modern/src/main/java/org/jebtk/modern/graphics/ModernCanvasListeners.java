@@ -28,7 +28,6 @@
 package org.jebtk.modern.graphics;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.EventProducer;
 
 // TODO: Auto-generated Javadoc
@@ -38,7 +37,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernCanvasListeners extends EventProducer<ModernCanvasListener> implements ModernCanvasEventProducer {
+public class ModernCanvasListeners extends EventProducer<ModernCanvasListener>
+    implements ModernCanvasEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -62,9 +62,8 @@ public class ModernCanvasListeners extends EventProducer<ModernCanvasListener> i
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#removeCanvasListener
-   * (org.abh.lib.ui.modern.graphics.ModernCanvasListener)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#
+   * removeCanvasListener (org.abh.lib.ui.modern.graphics.ModernCanvasListener)
    */
   @Override
   public void removeCanvasListener(ModernCanvasListener l) {
@@ -103,8 +102,8 @@ public class ModernCanvasListeners extends EventProducer<ModernCanvasListener> i
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasRedraw(org
-   * .abh.lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasRedraw(
+   * org .abh.lib.event.ChangeEvent)
    */
   @Override
   public void fireCanvasRedraw(ChangeEvent e) {
@@ -123,9 +122,8 @@ public class ModernCanvasListeners extends EventProducer<ModernCanvasListener> i
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasScrolled(
-   * org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#
+   * fireCanvasScrolled( org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void fireCanvasScrolled(ChangeEvent e) {
@@ -144,9 +142,8 @@ public class ModernCanvasListeners extends EventProducer<ModernCanvasListener> i
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasScrolled(
-   * org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#
+   * fireCanvasScrolled( org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void fireCanvasResized(ChangeEvent e) {

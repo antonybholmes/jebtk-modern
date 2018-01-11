@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.Mathematics;
-import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.ribbon.Ribbon;
 
 // TODO: Auto-generated Javadoc
@@ -67,7 +66,12 @@ public class RunVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
 
     double hf = w * SCALE;
     double h2 = hf / 2.0;

@@ -28,8 +28,8 @@
 package org.jebtk.modern.layers;
 
 import javax.swing.Box;
-import org.jebtk.core.event.ChangeEvent;
 
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernCheckSwitch;
@@ -43,7 +43,8 @@ import org.jebtk.modern.scrollpane.ScrollBarPolicy;
 /**
  * The class LayersPanel.
  */
-public class LayersPanel2 extends ModernComponent implements LayerEventListener {
+public class LayersPanel2 extends ModernComponent
+    implements LayerEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -56,8 +57,7 @@ public class LayersPanel2 extends ModernComponent implements LayerEventListener 
   /**
    * Instantiates a new layers panel.
    *
-   * @param layerModel
-   *          the layer model
+   * @param layerModel the layer model
    */
   public LayersPanel2(LayerModel layerModel) {
     mLayerModel = layerModel;
@@ -74,7 +74,8 @@ public class LayersPanel2 extends ModernComponent implements LayerEventListener 
     Box box = VBox.create();
 
     for (String name : mLayerModel) {
-      ModernCheckSwitch button = new ModernCheckSwitch(name, mLayerModel.isVisible(name));
+      ModernCheckSwitch button = new ModernCheckSwitch(name,
+          mLayerModel.isVisible(name));
 
       box.add(button);
       box.add(UI.createVGap(5));
@@ -100,8 +101,8 @@ public class LayersPanel2 extends ModernComponent implements LayerEventListener 
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.layers.LayerEventListener#layerChanged(org.abh.common.event
-   * .ChangeEvent)
+   * org.abh.common.ui.layers.LayerEventListener#layerChanged(org.abh.common.
+   * event .ChangeEvent)
    */
   @Override
   public void layerChanged(ChangeEvent e) {
@@ -112,8 +113,8 @@ public class LayersPanel2 extends ModernComponent implements LayerEventListener 
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.event
-   * .ChangeEvent)
+   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.
+   * event .ChangeEvent)
    */
   @Override
   public void layerUpdated(ChangeEvent e) {

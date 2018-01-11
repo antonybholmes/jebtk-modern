@@ -40,16 +40,14 @@ public interface ModernDataViewEventProducer {
   /**
    * Adds the data view listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addDataViewListener(ModernDataViewListener l);
 
   /**
    * Removes the data view listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeDataViewListener(ModernDataViewListener l);
 
@@ -57,16 +55,14 @@ public interface ModernDataViewEventProducer {
    * Called when the underlying data changes so the view has to fully adjust
    * itself.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireDataChanged(ChangeEvent e);
 
   /**
    * Called when data is updated so the view should be repainted.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireDataUpdated(ChangeEvent e);
 

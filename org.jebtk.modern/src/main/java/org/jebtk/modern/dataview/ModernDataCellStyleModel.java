@@ -35,7 +35,8 @@ package org.jebtk.modern.dataview;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDataCellStyleModel extends ModernDataCellModel<ModernDataCellStyle> {
+public class ModernDataCellStyleModel
+    extends ModernDataCellModel<ModernDataCellStyle> {
 
   /**
    * The constant serialVersionUID.

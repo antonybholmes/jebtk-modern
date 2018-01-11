@@ -24,7 +24,11 @@ public class RadioOutlineAnimation extends HoverFadeAnimation {
       Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
       try {
-        drawOutline(g2Temp, x, y, RadioAnimation.RADIO_SIZE, RadioAnimation.RADIO_SIZE);
+        drawOutline(g2Temp,
+            x,
+            y,
+            RadioAnimation.RADIO_SIZE,
+            RadioAnimation.RADIO_SIZE);
       } finally {
         g2Temp.dispose();
       }

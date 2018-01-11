@@ -92,7 +92,8 @@ public abstract class MouseAnimation extends WidgetAnimation {
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -129,8 +130,7 @@ public abstract class MouseAnimation extends WidgetAnimation {
   /**
    * Instantiates a new mouse animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public MouseAnimation(ModernWidget widget) {
     super(widget);

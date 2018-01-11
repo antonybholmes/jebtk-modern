@@ -30,8 +30,7 @@ public abstract class MousePressedStepAnimation extends MousePressedAnimation {
   /**
    * Instantiates a new hover fade animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public MousePressedStepAnimation(ModernWidget widget) {
     super(widget);

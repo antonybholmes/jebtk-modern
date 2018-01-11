@@ -51,8 +51,7 @@ public class RibbonTitleBar extends ModernTitleBar {
   /**
    * Instantiates a new ribbon title bar.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public RibbonTitleBar(ModernWindow window) {
     this(window, UI.TITLE_BUTTONS_ON_LEFT, UI.WINDOW_TITLE_STYLE);
@@ -62,14 +61,12 @@ public class RibbonTitleBar extends ModernTitleBar {
   /**
    * Creates a new title bar.
    *
-   * @param window
-   *          Parent window.
-   * @param onLeft
-   *          the on left
-   * @param style
-   *          The button style.
+   * @param window Parent window.
+   * @param onLeft the on left
+   * @param style The button style.
    */
-  public RibbonTitleBar(ModernWindow window, boolean onLeft, ModernWindowTitleBarStyle style) {
+  public RibbonTitleBar(ModernWindow window, boolean onLeft,
+      ModernWindowTitleBarStyle style) {
 
     setForeground(DARK_LINE_COLOR);
 

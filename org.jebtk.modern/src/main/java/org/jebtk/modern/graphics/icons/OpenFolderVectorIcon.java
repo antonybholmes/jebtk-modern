@@ -60,12 +60,14 @@ public class OpenFolderVectorIcon extends ModernVectorScalableIcon {
   /**
    * The constant OFFSET.
    */
-  private static final double OFFSET = SettingsService.getInstance().getAsDouble("theme.icons.folder-icon.offset");
+  private static final double OFFSET = SettingsService.getInstance()
+      .getAsDouble("theme.icons.folder-icon.offset");
 
   /**
    * The constant COLOR1.
    */
-  private static final Color COLOR1 = SettingsService.getInstance().getAsColor("theme.icons.folder-icon.colors.color1");
+  private static final Color COLOR1 = SettingsService.getInstance()
+      .getAsColor("theme.icons.folder-icon.colors.color1");
 
   /**
    * Instantiates a new open folder vector icon.
@@ -77,8 +79,7 @@ public class OpenFolderVectorIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new open folder vector icon.
    *
-   * @param color1
-   *          the color 1
+   * @param color1 the color 1
    */
   public OpenFolderVectorIcon(Color color1) {
     super(color1);
@@ -92,7 +93,12 @@ public class OpenFolderVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     double wf = w * WIDTH_SCALE;
     double o = wf * OFFSET;
     double hf = wf * HEIGHT_SCALE;
@@ -139,8 +145,8 @@ public class OpenFolderVectorIcon extends ModernVectorScalableIcon {
      * gp.moveTo(x - corner, y + 2 * corner); gp.lineTo(x + w + corner, y + 2 *
      * corner); gp.lineTo(x + w, y + h); gp.lineTo(x, y + h); gp.closePath();
      * 
-     * paint = new GradientPaint((float)x, (float)y, COLOR1, (float)x, (float)(y +
-     * w), COLOR2);
+     * paint = new GradientPaint((float)x, (float)y, COLOR1, (float)x, (float)(y
+     * + w), COLOR2);
      * 
      * g2.setPaint(paint); g2.fill(gp);
      */

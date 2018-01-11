@@ -117,10 +117,8 @@ public abstract class ModernHScrollBar extends ModernScrollBar {
     /**
      * Instantiates a new mouse motion events.
      *
-     * @param c
-     *          the c
-     * @param scrollbar
-     *          the scrollbar
+     * @param c the c
+     * @param scrollbar the scrollbar
      */
     public MouseMotionEvents(Component c, ModernScrollBar scrollbar) {
       mC = c;
@@ -130,18 +128,20 @@ public abstract class ModernHScrollBar extends ModernScrollBar {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.
+     * MouseEvent)
      */
     @Override
     public void mouseDragged(MouseEvent e) {
-      mScroller.drag(e.getX(), mStartPosition.x, mScrollStartPosition, mC, mScrollbar);
+      mScroller.drag(e
+          .getX(), mStartPosition.x, mScrollStartPosition, mC, mScrollbar);
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -149,7 +149,8 @@ public abstract class ModernHScrollBar extends ModernScrollBar {
 
       // highlight if the mouse is where the scrollbar appears and is
       // located inside the scrollbar button itself
-      if (e.getY() >= getHeight() - getInsets().bottom - getInternalFixedDimension()) {
+      if (e.getY() >= getHeight() - getInsets().bottom
+          - getInternalFixedDimension()) {
         double x = e.getX() - getInsets().left;
 
         mHighlightButton1 = x >= 0 && x < getButtonSize();
@@ -224,13 +225,15 @@ public abstract class ModernHScrollBar extends ModernScrollBar {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawBackgroundAA(Graphics2D g2) {
     int gap = mInternalRect.getW();
 
-    boolean showScroll = gap >= 2 * getInternalFixedDimension() + mMinScrollBarSize;
+    boolean showScroll = gap >= 2 * getInternalFixedDimension()
+        + mMinScrollBarSize;
     boolean showButtons = gap >= 2 * getInternalFixedDimension();
 
     if (!showScroll && !showButtons) {
@@ -248,8 +251,8 @@ public abstract class ModernHScrollBar extends ModernScrollBar {
       // Scrollbar
       //
 
-      Rectangle r = new Rectangle((int) (x + getButtonSize() + mScrollPosition), y, mScrollBarSize,
-          getInternalFixedDimension());
+      Rectangle r = new Rectangle((int) (x + getButtonSize() + mScrollPosition),
+          y, mScrollBarSize, getInternalFixedDimension());
 
       // if (mHScrollBarDrag || mHighlightHScroll) {
       // paintHighlightedScrollBar(g2, r);
@@ -298,7 +301,8 @@ public abstract class ModernHScrollBar extends ModernScrollBar {
 
   @Override
   protected void setPreferredSize() {
-    setPreferredSize(new Dimension(mLinePadding, mPagePadding + getInternalFixedDimension()));
+    setPreferredSize(new Dimension(mLinePadding,
+        mPagePadding + getInternalFixedDimension()));
   }
 
   @Override

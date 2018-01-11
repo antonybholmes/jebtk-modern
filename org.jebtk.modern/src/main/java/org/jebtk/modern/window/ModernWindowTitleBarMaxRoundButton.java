@@ -39,7 +39,8 @@ import org.jebtk.modern.event.ModernClickListener;
 /**
  * The class ModernWindowTitleBarCloseButton.
  */
-public class ModernWindowTitleBarMaxRoundButton extends ModernWindowTitleBarRoundButton implements ModernClickListener {
+public class ModernWindowTitleBarMaxRoundButton
+    extends ModernWindowTitleBarRoundButton implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -55,8 +56,7 @@ public class ModernWindowTitleBarMaxRoundButton extends ModernWindowTitleBarRoun
   /**
    * Instantiates a new modern window title bar close button.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public ModernWindowTitleBarMaxRoundButton(ModernWindow window) {
     super(COLOR);
@@ -72,9 +72,8 @@ public class ModernWindowTitleBarMaxRoundButton extends ModernWindowTitleBarRoun
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
-   * ModernClickEvent)
+   * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+   * event. ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

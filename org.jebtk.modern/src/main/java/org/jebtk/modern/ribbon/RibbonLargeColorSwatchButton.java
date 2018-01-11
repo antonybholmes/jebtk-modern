@@ -43,7 +43,8 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes Holmes
  *
  */
-public class RibbonLargeColorSwatchButton extends RibbonLargeDropDownButton implements ModernClickListener {
+public class RibbonLargeColorSwatchButton extends RibbonLargeDropDownButton
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -53,8 +54,7 @@ public class RibbonLargeColorSwatchButton extends RibbonLargeDropDownButton impl
   /**
    * Instantiates a new ribbon large color swatch button.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public RibbonLargeColorSwatchButton(ModernWindow parent) {
     this(parent, Color.BLACK);
@@ -63,10 +63,8 @@ public class RibbonLargeColorSwatchButton extends RibbonLargeDropDownButton impl
   /**
    * Instantiates a new color swatch button.
    *
-   * @param parent
-   *          the parent
-   * @param color
-   *          the color
+   * @param parent the parent
+   * @param color the color
    */
   public RibbonLargeColorSwatchButton(ModernWindow parent, Color color) {
     super(new ColorPopupMenu(parent, color));
@@ -80,8 +78,8 @@ public class RibbonLargeColorSwatchButton extends RibbonLargeDropDownButton impl
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -109,8 +107,8 @@ public class RibbonLargeColorSwatchButton extends RibbonLargeDropDownButton impl
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {
@@ -120,7 +118,8 @@ public class RibbonLargeColorSwatchButton extends RibbonLargeDropDownButton impl
     repaint();
 
     if (e.getMessage().equals(ColorSelectionModel.COLOR_CHANGED)) {
-      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+      fireClicked(
+          new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
     }
   }
 
@@ -136,8 +135,7 @@ public class RibbonLargeColorSwatchButton extends RibbonLargeDropDownButton impl
   /**
    * Sets the selected color.
    *
-   * @param color
-   *          the new selected color
+   * @param color the new selected color
    */
   public void setSelectedColor(Color color) {
     ((ColorPopupMenu) mMenu).setSelectedColor(color);

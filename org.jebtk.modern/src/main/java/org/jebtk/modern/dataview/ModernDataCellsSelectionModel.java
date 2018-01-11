@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.modern.SelectionRangeModel;
 import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.event.ModernSelectionListeners;
@@ -43,7 +42,8 @@ import org.jebtk.modern.event.ModernSelectionListeners;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDataCellsSelectionModel extends ModernSelectionListeners implements ModernSelectionListener {
+public class ModernDataCellsSelectionModel extends ModernSelectionListeners
+    implements ModernSelectionListener {
 
   /**
    * The constant serialVersionUID.
@@ -104,7 +104,8 @@ public class ModernDataCellsSelectionModel extends ModernSelectionListeners impl
       return null;
     }
 
-    return new ModernDataCell(mRowsSelectionModel.first(), mColumnsSelectionModel.first());
+    return new ModernDataCell(mRowsSelectionModel.first(),
+        mColumnsSelectionModel.first());
   }
 
   /**
@@ -120,7 +121,8 @@ public class ModernDataCellsSelectionModel extends ModernSelectionListeners impl
       return null;
     }
 
-    return new ModernDataCell(mRowsSelectionModel.last(), mColumnsSelectionModel.last());
+    return new ModernDataCell(mRowsSelectionModel.last(),
+        mColumnsSelectionModel.last());
   }
 
   /**
@@ -182,22 +184,21 @@ public class ModernDataCellsSelectionModel extends ModernSelectionListeners impl
   /**
    * Returns true if the cell at the row and column is within the selection.
    *
-   * @param row
-   *          the row
-   * @param column
-   *          the column
+   * @param row the row
+   * @param column the column
    * @return true, if successful
    */
   public boolean contains(int row, int column) {
-    return mRowsSelectionModel.contains(row) && mColumnsSelectionModel.contains(column);
+    return mRowsSelectionModel.contains(row)
+        && mColumnsSelectionModel.contains(column);
   }
 
   /*
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
-   * lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.
+   * abh. lib.event.ChangeEvent)
    */
   @Override
   public void selectionChanged(ChangeEvent e) {
@@ -207,14 +208,10 @@ public class ModernDataCellsSelectionModel extends ModernSelectionListeners impl
   /**
    * Sets the modern selection.
    *
-   * @param rs
-   *          the rs
-   * @param re
-   *          the re
-   * @param cs
-   *          the cs
-   * @param ce
-   *          the ce
+   * @param rs the rs
+   * @param re the re
+   * @param cs the cs
+   * @param ce the ce
    */
   public void setSelection(int rs, int re, int cs, int ce) {
     mRowsSelectionModel.setSelectionInterval(rs, re);
@@ -224,10 +221,8 @@ public class ModernDataCellsSelectionModel extends ModernSelectionListeners impl
   /**
    * Sets the modern selection.
    *
-   * @param r
-   *          the r
-   * @param c
-   *          the c
+   * @param r the r
+   * @param c the c
    */
   public void setSelection(int r, int c) {
     mRowsSelectionModel.setSelection(r);
@@ -237,10 +232,8 @@ public class ModernDataCellsSelectionModel extends ModernSelectionListeners impl
   /**
    * Adds the.
    *
-   * @param r
-   *          the r
-   * @param c
-   *          the c
+   * @param r the r
+   * @param c the c
    */
   public void add(int r, int c) {
     mRowsSelectionModel.add(r);

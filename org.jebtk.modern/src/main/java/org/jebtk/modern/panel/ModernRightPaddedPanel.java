@@ -56,8 +56,7 @@ public class ModernRightPaddedPanel extends ModernWidget {
   /**
    * Instantiates a new modern right padded panel.
    *
-   * @param padding
-   *          the padding
+   * @param padding the padding
    */
   public ModernRightPaddedPanel(int padding) {
     setup(padding);
@@ -66,8 +65,7 @@ public class ModernRightPaddedPanel extends ModernWidget {
   /**
    * Instantiates a new modern right padded panel.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public ModernRightPaddedPanel(Component c) {
     setup(ModernWidget.PADDING);
@@ -78,8 +76,7 @@ public class ModernRightPaddedPanel extends ModernWidget {
   /**
    * Instantiates a new modern right padded panel.
    *
-   * @param layout
-   *          the layout
+   * @param layout the layout
    */
   public ModernRightPaddedPanel(LayoutManager layout) {
     super(layout);
@@ -90,8 +87,7 @@ public class ModernRightPaddedPanel extends ModernWidget {
   /**
    * Sets the up.
    *
-   * @param padding
-   *          the new up
+   * @param padding the new up
    */
   private void setup(int padding) {
     setBorder(BorderService.getInstance().createRightBorder(padding));

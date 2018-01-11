@@ -46,8 +46,7 @@ public class ModernSplashTitleButton extends ModernSplashButton {
   /**
    * Instantiates a new modern splash button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernSplashTitleButton(String text1) {
     super(text1);
@@ -56,8 +55,7 @@ public class ModernSplashTitleButton extends ModernSplashButton {
   /**
    * Instantiates a new modern splash button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernSplashTitleButton(ModernIcon icon) {
     super(icon);

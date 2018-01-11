@@ -54,8 +54,7 @@ public class ClipBox extends JComponent {
   /**
    * Instantiates a new clip box.
    *
-   * @param content
-   *          the content
+   * @param content the content
    */
   public ClipBox(JComponent content) {
     setLayout(null);
@@ -72,8 +71,7 @@ public class ClipBox extends JComponent {
   /**
    * Sets the offset.
    *
-   * @param offset
-   *          the new offset
+   * @param offset the new offset
    */
   public final void setOffset(Point offset) {
     setOffset(offset.x, offset.y);
@@ -82,10 +80,8 @@ public class ClipBox extends JComponent {
   /**
    * Sets the offset.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   public void setOffset(int x, int y) {
     content.setLocation(x, y);

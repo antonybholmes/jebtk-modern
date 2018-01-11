@@ -44,7 +44,8 @@ import org.jebtk.core.io.PathUtils;
  *
  * @author Antony Holmes Holmes
  */
-public abstract class GuiFileExtFilter extends FileFilter implements Comparable<FileFilter> {
+public abstract class GuiFileExtFilter extends FileFilter
+    implements Comparable<FileFilter> {
 
   /**
    * The extensions.
@@ -54,8 +55,7 @@ public abstract class GuiFileExtFilter extends FileFilter implements Comparable<
   /**
    * Instantiates a new gui file ext filter.
    *
-   * @param extensions
-   *          the extensions
+   * @param extensions the extensions
    */
   public GuiFileExtFilter(String extension, String... extensions) {
     mExtensions = CollectionUtils.toList(extension, extensions);
@@ -64,8 +64,7 @@ public abstract class GuiFileExtFilter extends FileFilter implements Comparable<
   /**
    * Instantiates a new gui file ext filter.
    *
-   * @param extensions
-   *          the extensions
+   * @param extensions the extensions
    */
   public GuiFileExtFilter(List<String> extensions) {
     mExtensions = extensions;
@@ -147,15 +146,13 @@ public abstract class GuiFileExtFilter extends FileFilter implements Comparable<
   /**
    * Adds the extension.
    *
-   * @param file
-   *          the file
-   * @param filter
-   *          the filter
+   * @param file the file
+   * @param filter the filter
    * @return the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static File addExtension(File file, GuiFileExtFilter filter) throws IOException {
+  public static File addExtension(File file, GuiFileExtFilter filter)
+      throws IOException {
     return addExtension(file, filter.getExtension());
   }
 
@@ -164,15 +161,13 @@ public abstract class GuiFileExtFilter extends FileFilter implements Comparable<
    * does not create duplicate endings such as .txt.txt, but it will allow
    * .csv.txt for example.
    *
-   * @param file
-   *          the file
-   * @param extension
-   *          the extension
+   * @param file the file
+   * @param extension the extension
    * @return the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static final File addExtension(final File file, final String extension) throws IOException {
+  public static final File addExtension(final File file, final String extension)
+      throws IOException {
     String s = file.getCanonicalPath();
 
     if (!s.toLowerCase().endsWith("." + extension)) {
@@ -185,10 +180,8 @@ public abstract class GuiFileExtFilter extends FileFilter implements Comparable<
   /**
    * Adds the extension.
    *
-   * @param file
-   *          the file
-   * @param filter
-   *          the filter
+   * @param file the file
+   * @param filter the filter
    * @return the path
    */
   public static Path addExtension(Path file, GuiFileExtFilter filter) {

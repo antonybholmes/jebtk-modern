@@ -75,13 +75,13 @@ public class ModernDataCellRenderer extends ModernClickWidget {
   protected boolean mEnabled;
 
   /** The Constant DISABLED_COLOR. */
-  public static final Color DISABLED_COLOR = ThemeService.getInstance().colors().getHighlight(2);
+  public static final Color DISABLED_COLOR = ThemeService.getInstance().colors()
+      .getHighlight(2);
 
   /**
    * Sets the can highlight.
    *
-   * @param canHighlight
-   *          the new can highlight
+   * @param canHighlight the new can highlight
    */
   public void setCanHighlight(boolean canHighlight) {
     mCanHighlight = canHighlight;
@@ -106,24 +106,22 @@ public class ModernDataCellRenderer extends ModernClickWidget {
   /**
    * Returns the rendering component for the given data view.
    *
-   * @param dataView
-   *          the data view
-   * @param value
-   *          the value
-   * @param highlight
-   *          the highlight
-   * @param isSelected
-   *          the is selected
-   * @param hasFocus
-   *          the has focus
-   * @param row
-   *          the row
-   * @param column
-   *          the column
+   * @param dataView the data view
+   * @param value the value
+   * @param highlight the highlight
+   * @param isSelected the is selected
+   * @param hasFocus the has focus
+   * @param row the row
+   * @param column the column
    * @return the cell renderer component
    */
-  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public Component getCellRendererComponent(ModernData dataView,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
 
     mIsHighlighted = highlight;
     mIsSelected = isSelected;

@@ -53,24 +53,28 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * The constant DEFAULT_SIZE.
    */
-  public static final Dimension DEFAULT_SIZE = ModernTheme.loadDimension("theme.button.dimensions.default");
+  public static final Dimension DEFAULT_SIZE = ModernTheme
+      .loadDimension("theme.button.dimensions.default");
 
   /**
    * The constant ICON_TEXT_SIZE.
    */
-  public static final Dimension ICON_TEXT_SIZE = ModernTheme.loadDimension("theme.button.dimensions.icon-text");
+  public static final Dimension ICON_TEXT_SIZE = ModernTheme
+      .loadDimension("theme.button.dimensions.icon-text");
 
   /**
    * The constant ICON_ONLY_SIZE.
    */
-  public static final Dimension ICON_ONLY_SIZE = new Dimension(getButtonHeight(), getButtonHeight());
+  public static final Dimension ICON_ONLY_SIZE = new Dimension(
+      getButtonHeight(), getButtonHeight());
 
   /** The Constant SMALL_BUTTON_HEIGHT. */
   public static final int SMALL_BUTTON_HEIGHT = SettingsService.getInstance()
       .getAsInt("theme.button.small-button.height");
 
   /** The Constant SMALL_BUTTON_SIZE. */
-  public static final Dimension SMALL_BUTTON_SIZE = new Dimension(SMALL_BUTTON_HEIGHT, SMALL_BUTTON_HEIGHT);
+  public static final Dimension SMALL_BUTTON_SIZE = new Dimension(
+      SMALL_BUTTON_HEIGHT, SMALL_BUTTON_HEIGHT);
 
   /** The Constant MIN_BUTTON_WIDTH. */
   private static final int MIN_BUTTON_WIDTH = 80;
@@ -85,8 +89,7 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Instantiates a new modern button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernButton(String text1) {
     super(text1);
@@ -98,8 +101,7 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Instantiates a new modern button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernButton(ModernIcon icon) {
     super(icon);
@@ -110,10 +112,8 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Instantiates a new modern button.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
+   * @param text1 the text1
+   * @param icon the icon
    */
   public ModernButton(String text1, ModernIcon icon) {
     super(text1); // ICON_TEXT_SIZE);
@@ -130,12 +130,9 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Instantiates a new modern button.
    *
-   * @param text1
-   *          the text 1
-   * @param icon
-   *          the icon
-   * @param width
-   *          the width
+   * @param text1 the text 1
+   * @param icon the icon
+   * @param width the width
    */
   public ModernButton(String text1, ModernIcon icon, int width) {
     super(text1, icon);
@@ -146,12 +143,9 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Instantiates a new modern button.
    *
-   * @param text1
-   *          the text 1
-   * @param icon
-   *          the icon
-   * @param size
-   *          the size
+   * @param text1 the text 1
+   * @param icon the icon
+   * @param size the size
    */
   public ModernButton(String text1, ModernIcon icon, Dimension size) {
     super(text1, icon);
@@ -167,7 +161,9 @@ public class ModernButton extends ModernClickableButtonWidget {
   @Override
   public void autoSize() {
     if (mText1 != null && mIcon != null) {
-      UI.setSize(this, Math.max(MIN_BUTTON_WIDTH, getButtonWidth(mText1) + mIcon.getWidth()), getButtonHeight());
+      UI.setSize(this,
+          Math.max(MIN_BUTTON_WIDTH, getButtonWidth(mText1) + mIcon.getWidth()),
+          getButtonHeight());
     } else if (mText1 != null) {
       UI.setSize(this, getButtonWidth(mText1), getButtonHeight());
     } else {
@@ -178,7 +174,8 @@ public class ModernButton extends ModernClickableButtonWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -189,8 +186,7 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Draw text.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   public void drawText(Graphics2D g2) {
     if (mText1 != null) {
@@ -210,8 +206,7 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Draw icon.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   public void drawIcon(Graphics2D g2) {
     if (mIcon != null) {
@@ -236,8 +231,7 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Gets the button size.
    *
-   * @param text
-   *          the text
+   * @param text the text
    * @return the button size
    */
   public static Dimension getButtonSize(String text) {
@@ -247,8 +241,7 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Gets the icon button size based on the text that will appear in the button.
    *
-   * @param text
-   *          the text
+   * @param text the text
    * @return the icon button size
    */
   public static Dimension getIconButtonSize(String text) {
@@ -258,14 +251,13 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Gets the icon button size.
    *
-   * @param font
-   *          the font
-   * @param text
-   *          the text
+   * @param font the font
+   * @param text the text
    * @return the icon button size
    */
   public static Dimension getIconButtonSize(Font font, String text) {
-    return new Dimension(getButtonWidth(font, text) + WIDGET_HEIGHT, getButtonHeight());
+    return new Dimension(getButtonWidth(font, text) + WIDGET_HEIGHT,
+        getButtonHeight());
   }
 
   /**
@@ -283,8 +275,7 @@ public class ModernButton extends ModernClickableButtonWidget {
    * Returns a reasonable width to use for a text only button, based on the
    * standard graphics context.
    *
-   * @param text
-   *          the text
+   * @param text the text
    * @return the button width
    */
   public static int getButtonWidth(String text) {
@@ -294,10 +285,8 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Gets the button width.
    *
-   * @param g2
-   *          the g2
-   * @param text
-   *          the text
+   * @param g2 the g2
+   * @param text the text
    * @return the button width
    */
   public static int getButtonWidth(Graphics2D g2, String text) {
@@ -307,14 +296,13 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Gets the button width.
    *
-   * @param font
-   *          the font
-   * @param text
-   *          the text
+   * @param font the font
+   * @param text the text
    * @return the button width
    */
   public static int getButtonWidth(Font font, String text) {
-    return Math.max(MIN_BUTTON_WIDTH, getStringWidth(font, text) + DOUBLE_PADDING); // QUAD_PADDING;
+    return Math.max(MIN_BUTTON_WIDTH,
+        getStringWidth(font, text) + DOUBLE_PADDING); // QUAD_PADDING;
   }
 
   /**
@@ -329,8 +317,7 @@ public class ModernButton extends ModernClickableButtonWidget {
   /**
    * Gets the button height.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    * @return the button height
    */
   public static int getButtonHeight(Graphics2D g2) {

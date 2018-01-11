@@ -54,8 +54,7 @@ public class ModernStatusZoomSlider extends HBox {
   /**
    * Instantiates a new modern status zoom slider.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernStatusZoomSlider(ZoomModel model) {
     mSlider = new ModernZoomSlider(model);

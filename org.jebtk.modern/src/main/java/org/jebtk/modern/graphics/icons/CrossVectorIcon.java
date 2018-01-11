@@ -41,7 +41,8 @@ public class CrossVectorIcon extends ModernVectorScalableIcon {
   /**
    * The constant SCALE.
    */
-  protected static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.cross-icon.width-scale");
+  protected static final double SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.cross-icon.width-scale");
 
   /** The m color. */
   private Color mColor;
@@ -56,8 +57,7 @@ public class CrossVectorIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new cross vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public CrossVectorIcon(Color color) {
     mColor = color;
@@ -71,7 +71,12 @@ public class CrossVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
 
     double wf = w * SCALE;

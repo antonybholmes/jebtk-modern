@@ -38,7 +38,8 @@ public class BrowseButton extends ModernButton {
    * Instantiates a new browse button.
    */
   public BrowseButton() {
-    super("Browse", UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+    super("Browse",
+        UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
 
     setFont(SUB_HEADING_FONT);
 

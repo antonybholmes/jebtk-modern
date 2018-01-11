@@ -27,9 +27,7 @@
  */
 package org.jebtk.modern.widget.tooltip;
 
-import java.awt.Dimension;
-
-import org.jebtk.modern.panel.ModernBorderPanel;
+import org.jebtk.modern.panel.Card;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -39,17 +37,10 @@ import org.jebtk.modern.panel.ModernBorderPanel;
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernToolTipPanel extends ModernBorderPanel {
+public abstract class ModernToolTipPanel extends Card {
 
   /**
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-
-  /**
-   * Should return how big the tool tip should appear.
-   *
-   * @return the tool tip size
-   */
-  public abstract Dimension getToolTipSize();
 }

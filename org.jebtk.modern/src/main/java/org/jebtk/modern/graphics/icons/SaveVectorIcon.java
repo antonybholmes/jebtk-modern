@@ -45,7 +45,8 @@ public class SaveVectorIcon extends ModernVectorScalableIcon {
   /**
    * The constant SCALE.
    */
-  private static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.save-icon.width-scale");
+  private static final double SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.save-icon.width-scale");
 
   /**
    * The constant CORNER_SCALE.
@@ -74,8 +75,7 @@ public class SaveVectorIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new save vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public SaveVectorIcon(Color color) {
     mColor = color;
@@ -89,7 +89,12 @@ public class SaveVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     double wf = w * SCALE;
 
     double corner = wf * CORNER_SCALE;
@@ -119,7 +124,9 @@ public class SaveVectorIcon extends ModernVectorScalableIcon {
     double labelH = wf * 0.45;
     double offset = wf * 0.1;
 
-    g2.fillRect((int) Math.round(xf + (wf - labelW) / 2.0), (int) Math.round(yf + offset), (int) Math.round(labelW),
+    g2.fillRect((int) Math.round(xf + (wf - labelW) / 2.0),
+        (int) Math.round(yf + offset),
+        (int) Math.round(labelW),
         (int) Math.round(labelH));
 
     // slider
@@ -127,8 +134,10 @@ public class SaveVectorIcon extends ModernVectorScalableIcon {
     labelW = wf * 0.5;
     labelH = wf * 0.3;
 
-    g2.fillRect((int) Math.round(xf + (wf - labelW) / 2.0), (int) Math.round(yf + wf - labelH),
-        (int) Math.round(labelW), (int) Math.round(labelH));
+    g2.fillRect((int) Math.round(xf + (wf - labelW) / 2.0),
+        (int) Math.round(yf + wf - labelH),
+        (int) Math.round(labelW),
+        (int) Math.round(labelH));
 
     // g2.setColor(ThemeService.getInstance().getThemeColor(4));
 

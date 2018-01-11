@@ -44,8 +44,7 @@ public interface DialogEventListener extends EventListener {
   /**
    * Status changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void statusChanged(DialogEvent e);
 }

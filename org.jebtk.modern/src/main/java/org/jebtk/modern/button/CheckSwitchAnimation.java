@@ -39,8 +39,14 @@ public class CheckSwitchAnimation extends WidgetAnimation {
       g2.setColor(ModernWidget.LINE_COLOR);
     }
 
-    g2.fillRoundRect(widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET, y2,
-        ModernCheckSwitch.SLIDER_WIDTH - 2 * ModernCheckSwitch.SWITCH_ICON_OFFSET, HEIGHT, HEIGHT, HEIGHT);
+    g2.fillRoundRect(
+        widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET,
+        y2,
+        ModernCheckSwitch.SLIDER_WIDTH
+            - 2 * ModernCheckSwitch.SWITCH_ICON_OFFSET,
+        HEIGHT,
+        HEIGHT,
+        HEIGHT);
 
     /*
      * 

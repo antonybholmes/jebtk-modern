@@ -65,16 +65,13 @@ public abstract class ModernApplicationIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new modern application icon.
    *
-   * @param text1
-   *          the text 1
-   * @param text2
-   *          the text 2
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
+   * @param text1 the text 1
+   * @param text2 the text 2
+   * @param color1 the color 1
+   * @param color2 the color 2
    */
-  public ModernApplicationIcon(String text1, String text2, Color color1, Color color2) {
+  public ModernApplicationIcon(String text1, String text2, Color color1,
+      Color color2) {
     super(color1, color2);
 
     mText1 = text1;
@@ -84,16 +81,15 @@ public abstract class ModernApplicationIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new modern application icon.
    *
-   * @param text1
-   *          the text 1
-   * @param text2
-   *          the text 2
-   * @param theme
-   *          the theme
+   * @param text1 the text 1
+   * @param text2 the text 2
+   * @param theme the theme
    */
   public ModernApplicationIcon(String text1, String text2, ColorTheme theme) {
-    this(text1, text2, ThemeService.getInstance().colors().getColorTheme(theme).getColor32(22),
-        ThemeService.getInstance().colors().getColorTheme(theme).getColor32(24));
+    this(text1, text2,
+        ThemeService.getInstance().colors().getColorTheme(theme).getColor32(22),
+        ThemeService.getInstance().colors().getColorTheme(theme)
+            .getColor32(24));
 
   }
 
@@ -105,7 +101,12 @@ public abstract class ModernApplicationIcon extends ModernVectorScalableIcon {
    * int, int, int, int)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
 
     GradientPaint p = new GradientPaint(0, y, mColor1, 0, y + h, mColor2);
 
@@ -138,26 +139,24 @@ public abstract class ModernApplicationIcon extends ModernVectorScalableIcon {
   /**
    * Draws a scaled version of some text in the center of an icon.
    *
-   * @param g2
-   *          the g 2
-   * @param size
-   *          the size
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param w
-   *          the w
-   * @param h
-   *          the h
-   * @param text1
-   *          the text 1
-   * @param text2
-   *          the text 2
-   * @param color
-   *          the color
+   * @param g2 the g 2
+   * @param size the size
+   * @param x the x
+   * @param y the y
+   * @param w the w
+   * @param h the h
+   * @param text1 the text 1
+   * @param text2 the text 2
+   * @param color the color
    */
-  public static void drawScaledText(Graphics2D g2, int size, int x, int y, int w, int h, String text1, String text2,
+  public static void drawScaledText(Graphics2D g2,
+      int size,
+      int x,
+      int y,
+      int w,
+      int h,
+      String text1,
+      String text2,
       Color color) {
 
     int x1;
@@ -201,8 +200,11 @@ public abstract class ModernApplicationIcon extends ModernVectorScalableIcon {
       g2Temp.setFont(FONT_1);
 
       x1 = x + (int) ((w - wf) / 2);
-      y1 = y + ModernWidget.getTextYPosCenter(h, g2Temp.getFontMetrics().getAscent() * factor1,
-          g2Temp.getFontMetrics().getDescent() * factor1); // h - (int)((h - fontHeight * factor) / 2);
+      y1 = y + ModernWidget.getTextYPosCenter(h,
+          g2Temp.getFontMetrics().getAscent() * factor1,
+          g2Temp.getFontMetrics().getDescent() * factor1); // h - (int)((h -
+                                                           // fontHeight *
+                                                           // factor) / 2);
 
       g2Temp.translate(x1, y1);
       g2Temp.scale(factor1, factor1);
@@ -220,8 +222,11 @@ public abstract class ModernApplicationIcon extends ModernVectorScalableIcon {
       g2Temp.setFont(FONT_2);
 
       x1 = x + (int) ((w - wf) / 2 + w1);
-      y1 = y + ModernWidget.getTextYPosCenter(h, g2Temp.getFontMetrics().getAscent() * factor2,
-          g2Temp.getFontMetrics().getDescent() * factor2); // h - (int)((h - fontHeight * factor) / 2);
+      y1 = y + ModernWidget.getTextYPosCenter(h,
+          g2Temp.getFontMetrics().getAscent() * factor2,
+          g2Temp.getFontMetrics().getDescent() * factor2); // h - (int)((h -
+                                                           // fontHeight *
+                                                           // factor) / 2);
 
       g2Temp.translate(x1, y1);
       g2Temp.scale(factor2, factor2);

@@ -48,16 +48,14 @@ public interface ModernWindowListener extends EventListener {
   /**
    * Window added.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void windowAdded(ChangeEvent e);
 
   /**
    * Window removed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void windowRemoved(ChangeEvent e);
 }

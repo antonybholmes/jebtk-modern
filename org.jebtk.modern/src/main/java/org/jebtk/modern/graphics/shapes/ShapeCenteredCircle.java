@@ -41,12 +41,9 @@ public class ShapeCenteredCircle extends ShapeCenteredEllipse {
   /**
    * Instantiates a new shape centered circle.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param diameter
-   *          the diameter
+   * @param x the x
+   * @param y the y
+   * @param diameter the diameter
    */
   public ShapeCenteredCircle(int x, int y, int diameter) {
     super(x, y, diameter, diameter);

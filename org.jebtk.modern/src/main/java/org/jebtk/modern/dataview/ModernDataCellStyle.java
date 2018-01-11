@@ -60,8 +60,7 @@ public class ModernDataCellStyle {
   /**
    * Sets the color.
    *
-   * @param color
-   *          the new color
+   * @param color the new color
    */
   public void setColor(Color color) {
     mColor = color;
@@ -79,8 +78,7 @@ public class ModernDataCellStyle {
   /**
    * Sets the background.
    *
-   * @param color
-   *          the new background
+   * @param color the new background
    */
   public void setBackground(Color color) {
     mBackground = color;

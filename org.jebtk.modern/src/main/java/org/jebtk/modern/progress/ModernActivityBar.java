@@ -109,8 +109,8 @@ public class ModernActivityBar extends ModernWidget {
   }
 
   /*
-   * @Override public void drawBackground(Graphics2D g2) { int y = (getHeight() -
-   * w) / 2;
+   * @Override public void drawBackground(Graphics2D g2) { int y = (getHeight()
+   * - w) / 2;
    * 
    * g2.setColor(BACKGROUND);
    * 
@@ -120,7 +120,8 @@ public class ModernActivityBar extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

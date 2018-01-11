@@ -38,48 +38,42 @@ public interface TabEventProducer {
   /**
    * Add an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addTabListener(TabEventListener l);
 
   /**
    * Remove an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeTabListener(TabEventListener l);
 
   /**
    * Notify that a pane has been added.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireTabAdded(TabEvent e);
 
   /**
    * Notify that a pane has been removed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireTabRemoved(TabEvent e);
 
   /**
    * Notify that a pane has been resized.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireTabResized(TabEvent e);
 
   /**
    * Notify that a pane has been added.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireTabChanged(TabEvent e);
 

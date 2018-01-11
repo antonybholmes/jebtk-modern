@@ -48,8 +48,7 @@ public class ModernHTabsBottom extends ModernWidget {
   /**
    * Instantiates a new modern h tabs bottom.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernHTabsBottom(TabsModel model) {
     TabsViewPanel viewPanel = new TabsViewPanel(model);

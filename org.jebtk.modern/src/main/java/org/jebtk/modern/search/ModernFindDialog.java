@@ -54,7 +54,8 @@ import org.jebtk.modern.window.WindowWidgetFocusEvents;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernFindDialog extends ModernDialogTaskWindow implements ModernClickListener {
+public class ModernFindDialog extends ModernDialogTaskWindow
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -74,8 +75,7 @@ public class ModernFindDialog extends ModernDialogTaskWindow implements ModernCl
   /**
    * Instantiates a new modern find dialog.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public ModernFindDialog(ModernWindow parent) {
     super(parent, false);
@@ -124,7 +124,8 @@ public class ModernFindDialog extends ModernDialogTaskWindow implements ModernCl
 
     // ModernComponent panel = new ModernComponent(new GridBagLayout());
 
-    // panel.add(new ModernTextBorderPanel(mText, ModernWidget.EXTRA_LARGE_SIZE));
+    // panel.add(new ModernTextBorderPanel(mText,
+    // ModernWidget.EXTRA_LARGE_SIZE));
 
     setContent(box);
 
@@ -141,8 +142,8 @@ public class ModernFindDialog extends ModernDialogTaskWindow implements ModernCl
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     if (e.getSource().equals(mFindNext)) {

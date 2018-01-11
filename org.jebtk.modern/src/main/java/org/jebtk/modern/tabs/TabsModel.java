@@ -70,7 +70,8 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    */
   private Tab mCenterTab = null;
 
-  // private Map<String, Integer> mNameIndexMap = new HashMap<String, Integer>();
+  // private Map<String, Integer> mNameIndexMap = new HashMap<String,
+  // Integer>();
 
   /**
    * The selected tab.
@@ -92,9 +93,8 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabAdded(TabEvent e) {
@@ -105,8 +105,8 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabRemoved(TabEvent e) {
@@ -117,8 +117,8 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabResized(TabEvent e) {
@@ -129,8 +129,8 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabChanged(TabEvent e) {
@@ -156,8 +156,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Gets the tab.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the tab
    */
   public Tab getTab(int i) {
@@ -173,8 +172,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Gets the tab.
    *
-   * @param name
-   *          the name
+   * @param name the name
    * @return the tab
    */
   public Tab getTab(String name) {
@@ -184,10 +182,8 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Adds the tab.
    *
-   * @param name
-   *          the name
-   * @param c
-   *          the c
+   * @param name the name
+   * @param c the c
    */
   public void addTab(String name, JComponent c) {
     addTab(name, c, false);
@@ -196,12 +192,9 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Adds the tab.
    *
-   * @param name
-   *          the name
-   * @param icon
-   *          the icon
-   * @param c
-   *          the c
+   * @param name the name
+   * @param icon the icon
+   * @param c the c
    */
   public void addTab(String name, ModernIcon icon, JComponent c) {
     addTab(name, icon, c, false);
@@ -210,12 +203,9 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Adds the tab.
    *
-   * @param name
-   *          the name
-   * @param c
-   *          the c
-   * @param closeable
-   *          the closeable
+   * @param name the name
+   * @param c the c
+   * @param closeable the closeable
    */
   public void addTab(String name, JComponent c, boolean closeable) {
     addTab(name, null, c, closeable);
@@ -224,24 +214,22 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Adds the tab.
    *
-   * @param name
-   *          the name
-   * @param icon
-   *          the icon
-   * @param c
-   *          the c
-   * @param closeable
-   *          the closeable
+   * @param name the name
+   * @param icon the icon
+   * @param c the c
+   * @param closeable the closeable
    */
-  public void addTab(String name, ModernIcon icon, JComponent c, boolean closeable) {
+  public void addTab(String name,
+      ModernIcon icon,
+      JComponent c,
+      boolean closeable) {
     addTab(new Tab(name, icon, c, closeable));
   }
 
   /**
    * Adds the tab.
    *
-   * @param tab
-   *          the tab
+   * @param tab the tab
    */
   public void addTab(Tab tab) {
     if (tab.getName().equals(TabsModel.CENTER_PANE)) {
@@ -254,8 +242,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Sets the center tab.
    *
-   * @param c
-   *          the new center tab
+   * @param c the new center tab
    */
   public void setCenterTab(JComponent c) {
     setCenterTab(new CenterTab(c));
@@ -264,8 +251,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Sets the center tab.
    *
-   * @param tab
-   *          the new center tab
+   * @param tab the new center tab
    */
   public void setCenterTab(Tab tab) {
     mCenterTab = tab;
@@ -288,15 +274,18 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @param minWidth
    * @param maxWidth
    */
-  public void addLeftTab(String name, JComponent c, int width, int minWidth, int maxWidth) {
+  public void addLeftTab(String name,
+      JComponent c,
+      int width,
+      int minWidth,
+      int maxWidth) {
     addLeftTab(new SizableContentPane(name, c, width, minWidth, maxWidth));
   }
 
   /**
    * Adds the left.
    *
-   * @param tab
-   *          the tab
+   * @param tab the tab
    */
   public void addLeftTab(Tab tab) {
     getLeftTabs().addTab(tab);
@@ -318,15 +307,18 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @param minWidth
    * @param maxWidth
    */
-  public void addRightTab(String name, JComponent c, int width, int minWidth, int maxWidth) {
+  public void addRightTab(String name,
+      JComponent c,
+      int width,
+      int minWidth,
+      int maxWidth) {
     addRightTab(new SizableContentPane(name, c, width, minWidth, maxWidth));
   }
 
   /**
    * Adds a right tab.
    *
-   * @param tab
-   *          the tab
+   * @param tab the tab
    */
   public void addRightTab(Tab tab) {
     getRightTabs().addTab(tab);
@@ -337,8 +329,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Gets the index of.
    *
-   * @param name
-   *          the name
+   * @param name the name
    * @return the index of
    */
   public int getIndexOf(String name) {
@@ -348,8 +339,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Change tab.
    *
-   * @param tab
-   *          the tab
+   * @param tab the tab
    */
   public void changeTab(String tab) {
     changeTab(getIndexOf(tab));
@@ -358,8 +348,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Change tab.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   public void changeTab(int index) {
     index = CollectionUtils.cyclicIndex(index, mLeftTabs.size());
@@ -390,8 +379,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Returns true if the model contains a tab with this name.
    *
-   * @param tab
-   *          the tab
+   * @param tab the tab
    * @return true, if successful
    */
   public boolean containsTab(String tab) {
@@ -432,8 +420,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Removes the tab.
    *
-   * @param tab
-   *          the tab
+   * @param tab the tab
    */
   public void removeTab(String tab) {
     mLeftTabs.removeTab(tab);
@@ -494,10 +481,8 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   /**
    * Replace tab.
    *
-   * @param name
-   *          the name
-   * @param c
-   *          the c
+   * @param name the name
+   * @param c the c
    */
   public void replaceTab(String name, JComponent c) {
     getLeftTabs().replaceTab(name, c);

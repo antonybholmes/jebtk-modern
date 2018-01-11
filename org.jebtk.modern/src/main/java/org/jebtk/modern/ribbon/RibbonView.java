@@ -70,8 +70,7 @@ public class RibbonView extends TabsModel {
   /**
    * Instantiates a new ribbon view.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   public RibbonView(String name) {
     mName = name;

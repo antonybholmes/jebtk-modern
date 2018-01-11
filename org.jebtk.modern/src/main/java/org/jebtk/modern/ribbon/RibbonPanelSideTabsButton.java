@@ -56,10 +56,8 @@ public class RibbonPanelSideTabsButton extends ModernCheckButton {
   /**
    * Instantiates a new ribbon panel side tabs button.
    *
-   * @param name
-   *          the name
-   * @param icon
-   *          the icon
+   * @param name the name
+   * @param icon the icon
    */
   public RibbonPanelSideTabsButton(String name, ModernIcon icon) {
     super(name, icon);
@@ -72,7 +70,8 @@ public class RibbonPanelSideTabsButton extends ModernCheckButton {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

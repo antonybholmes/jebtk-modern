@@ -48,12 +48,11 @@ public class ModernDialogHelpButton extends ModernUrlTextLink {
 
   /**
    * Creates a new dialog help button, referring to the URL specified by the
-   * settings url string. The parameter must be a setting name that maps to a URL.
-   * It cannot be a URL as a string. To use a URL directory use the URL
+   * settings url string. The parameter must be a setting name that maps to a
+   * URL. It cannot be a URL as a string. To use a URL directory use the URL
    * constructor.
    *
-   * @param settingsUrl
-   *          the settings url
+   * @param settingsUrl the settings url
    */
   public ModernDialogHelpButton(String settingsUrl) {
     this(SettingsService.getInstance().getAsUrl(settingsUrl));
@@ -62,8 +61,7 @@ public class ModernDialogHelpButton extends ModernUrlTextLink {
   /**
    * Instantiates a new modern dialog help button.
    *
-   * @param url
-   *          the url
+   * @param url the url
    */
   public ModernDialogHelpButton(URL url) {
     super("Help...", url);

@@ -54,13 +54,15 @@ public class ModernCollapseNodeRenderer extends ModernWidget {
 
   static final int ICON_SIZE = 12;
 
-  public static final ModernIcon BRANCH_OPEN_ICON = new RasterIcon(new CheveronUpVectorIcon(), ICON_SIZE); // new
-                                                                                                           // TriangleDownVectorIcon());
-                                                                                                           // //CheveronDownVectorIcon());
+  public static final ModernIcon BRANCH_OPEN_ICON = new RasterIcon(
+      new CheveronUpVectorIcon(), ICON_SIZE); // new
+                                              // TriangleDownVectorIcon());
+                                              // //CheveronDownVectorIcon());
 
   /** The Constant BRANCH_CLOSED_ICON. */
-  public static final ModernIcon BRANCH_CLOSED_ICON = new RasterIcon(new CheveronDownVectorIcon(), ICON_SIZE); // new
-                                                                                                               // TriangleRightVectorIcon());
+  public static final ModernIcon BRANCH_CLOSED_ICON = new RasterIcon(
+      new CheveronDownVectorIcon(), ICON_SIZE); // new
+                                                // TriangleRightVectorIcon());
 
   /**
    * The member is highlighted.
@@ -105,7 +107,8 @@ public class ModernCollapseNodeRenderer extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawBackgroundAA(Graphics2D g2) {
@@ -115,22 +118,22 @@ public class ModernCollapseNodeRenderer extends ModernWidget {
   /**
    * Obtains a renderer for the tree node.
    *
-   * @param name
-   *          the name
-   * @param isHighlighted
-   *          whether to highlight the node.
-   * @param isSelected
-   *          whether the node is selected or not.
-   * @param hasFocus
-   *          the has focus
-   * @param isExpanded
-   *          the is expanded
+   * @param name the name
+   * @param isHighlighted whether to highlight the node.
+   * @param isSelected whether the node is selected or not.
+   * @param hasFocus the has focus
+   * @param isExpanded the is expanded
    * @return the renderer
    * @Param hasFocus whether the tree has focus or not, as this can determine
    *        color.
    */
-  public ModernCollapseNodeRenderer getRenderer(AbstractCollapsePane pane, String name, int index,
-      boolean isHighlighted, boolean isSelected, boolean hasFocus, boolean isExpanded) {
+  public ModernCollapseNodeRenderer getRenderer(AbstractCollapsePane pane,
+      String name,
+      int index,
+      boolean isHighlighted,
+      boolean isSelected,
+      boolean hasFocus,
+      boolean isExpanded) {
     mName = name; // .toUpperCase();
     mIndex = index;
     mIsHighlighted = isHighlighted;
@@ -150,7 +153,10 @@ public class ModernCollapseNodeRenderer extends ModernWidget {
     return this;
   }
 
-  public void drawCollapseBar(Graphics2D g2, String name, boolean expanded, IntRect rect) {
+  public void drawCollapseBar(Graphics2D g2,
+      String name,
+      boolean expanded,
+      IntRect rect) {
     // if (mIsHighlighted) {
     // paintThemeHighlighted(g2, getRect());
     // }
@@ -158,8 +164,8 @@ public class ModernCollapseNodeRenderer extends ModernWidget {
     // if (mIsExpanded) {
 
     /*
-     * GradientPaint gradColor = new GradientPaint(0, 0, COLLAPSE_FILL_COLOR_1, 0,
-     * h, COLLAPSE_FILL_COLOR_2);
+     * GradientPaint gradColor = new GradientPaint(0, 0, COLLAPSE_FILL_COLOR_1,
+     * 0, h, COLLAPSE_FILL_COLOR_2);
      * 
      * g2.setPaint(gradColor);
      */
@@ -180,12 +186,14 @@ public class ModernCollapseNodeRenderer extends ModernWidget {
 
     yt = ModernWidget.getTextYPosCenter(g2, rect.getH());
 
-    xt = rect.getX() + PADDING; // + ModernTheme.getInstance().getClass("widget").getInt("padding");
+    xt = rect.getX() + PADDING; // +
+                                // ModernTheme.getInstance().getClass("widget").getInt("padding");
 
     g2.setColor(ModernWidget.TEXT_COLOR);
 
     g2.setFont(MaterialService.getInstance().font("text")); // SUB_SUB_HEADING_FONT);
 
-    g2.drawString(ModernWidget.getTruncatedText(g2, name, rect.getX(), rect.getW()), xt, yt);
+    g2.drawString(ModernWidget
+        .getTruncatedText(g2, name, rect.getX(), rect.getW()), xt, yt);
   }
 }

@@ -72,8 +72,7 @@ public class SwitchWindows32VectorIcon extends ModernVectorIcon {
   /**
    * Instantiates a new switch windows32 vector icon.
    *
-   * @param barColor
-   *          the bar color
+   * @param barColor the bar color
    */
   public SwitchWindows32VectorIcon(Color barColor) {
     mBarColor = barColor;
@@ -87,7 +86,12 @@ public class SwitchWindows32VectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     x = x + 2;
     y = y + 2;
 
@@ -103,14 +107,10 @@ public class SwitchWindows32VectorIcon extends ModernVectorIcon {
   /**
    * Draw window.
    *
-   * @param g2
-   *          the g2
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param barColor
-   *          the bar color
+   * @param g2 the g2
+   * @param x the x
+   * @param y the y
+   * @param barColor the bar color
    */
   private void drawWindow(Graphics2D g2, int x, int y, Color barColor) {
     g2.setColor(Color.WHITE);

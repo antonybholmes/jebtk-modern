@@ -43,8 +43,7 @@ public class TopLineBorderComponent extends ModernComponent {
   /**
    * Instantiates a new top line border component.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public TopLineBorderComponent(Component c) {
     this(c, ModernWidget.LIGHT_LINE_COLOR);
@@ -53,8 +52,7 @@ public class TopLineBorderComponent extends ModernComponent {
   /**
    * Instantiates a new top line border component.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public TopLineBorderComponent(Color color) {
     mColor = color;
@@ -63,10 +61,8 @@ public class TopLineBorderComponent extends ModernComponent {
   /**
    * Instantiates a new top line border component.
    *
-   * @param c
-   *          the c
-   * @param color
-   *          the color
+   * @param c the c
+   * @param color the color
    */
   public TopLineBorderComponent(Component c, Color color) {
     this(color);

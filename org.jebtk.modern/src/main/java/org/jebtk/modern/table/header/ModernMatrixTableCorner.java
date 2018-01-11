@@ -55,10 +55,8 @@ public class ModernMatrixTableCorner extends ModernWidget {
   /**
    * Instantiates a new modern matrix table corner.
    *
-   * @param <T>
-   *          the generic type
-   * @param matrix
-   *          the matrix
+   * @param <T> the generic type
+   * @param matrix the matrix
    */
   public <T> ModernMatrixTableCorner(ModernTable matrix) {
     mTable = matrix;
@@ -77,7 +75,8 @@ public class ModernMatrixTableCorner extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -104,8 +103,8 @@ public class ModernMatrixTableCorner extends ModernWidget {
      * 
      * polygon.moveTo(getWidth() - o, o);
      * 
-     * polygon.lineTo(getWidth() - o, o + h); polygon.lineTo(getWidth() - o - h, o +
-     * h);
+     * polygon.lineTo(getWidth() - o, o + h); polygon.lineTo(getWidth() - o - h,
+     * o + h);
      * 
      * polygon.closePath(); g2.fill(polygon);
      */

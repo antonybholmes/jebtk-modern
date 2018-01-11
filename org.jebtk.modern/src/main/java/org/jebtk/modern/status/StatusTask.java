@@ -58,8 +58,7 @@ public abstract class StatusTask extends SwingWorker<Void, String> {
     /**
      * Instantiates a new message.
      *
-     * @param status
-     *          the status
+     * @param status the status
      */
     public Message(String status) {
       mStatus = status;
@@ -80,8 +79,7 @@ public abstract class StatusTask extends SwingWorker<Void, String> {
   /**
    * Instantiates a new status task.
    *
-   * @param statusModel
-   *          the status model
+   * @param statusModel the status model
    */
   public StatusTask(StatusModel statusModel) {
     mStatusModel = statusModel;

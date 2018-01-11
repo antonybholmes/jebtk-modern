@@ -38,24 +38,21 @@ public interface ProgressEventProducer {
   /**
    * Adds the progress listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addProgressListener(ProgressEventListener l);
 
   /**
    * Removes the progress listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeProgressListener(ProgressEventListener l);
 
   /**
    * Fire progress changed.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireProgressChanged(ProgressEvent event);
 }

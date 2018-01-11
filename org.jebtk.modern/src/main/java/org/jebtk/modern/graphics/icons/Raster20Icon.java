@@ -39,8 +39,7 @@ public class Raster20Icon extends RasterIcon {
   /**
    * Instantiates a new raster16 icon.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public Raster20Icon(ModernIcon icon) {
     super(icon, 20);

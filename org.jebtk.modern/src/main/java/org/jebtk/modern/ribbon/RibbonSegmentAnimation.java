@@ -33,8 +33,7 @@ public class RibbonSegmentAnimation extends WidgetAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public RibbonSegmentAnimation(ModernWidget w) {
     super(w);
@@ -59,10 +58,13 @@ public class RibbonSegmentAnimation extends WidgetAnimation {
     // Draw the labels
     //
 
-    int textY = ModernWidget.getTextYPosCenter(g2, RibbonSegmentVertTabs.TAB_SIZE);
-    int iconY = (RibbonSegmentVertTabs.TAB_SIZE - RibbonSegmentVertTabs.ICON_SIZE) / 2;
+    int textY = ModernWidget.getTextYPosCenter(g2,
+        RibbonSegmentVertTabs.TAB_SIZE);
+    int iconY = (RibbonSegmentVertTabs.TAB_SIZE
+        - RibbonSegmentVertTabs.ICON_SIZE) / 2;
     int tabX = RibbonSegmentVertTabs.TAB_SIZE / 2;
-    int textX = tabX + RibbonSegmentVertTabs.ICON_SIZE + RibbonSegmentVertTabs.ICON_SIZE / 2;
+    int textX = tabX + RibbonSegmentVertTabs.ICON_SIZE
+        + RibbonSegmentVertTabs.ICON_SIZE / 2;
 
     for (int i = 0; i < n; ++i) {
       boolean selected = i == selectedIndex;
@@ -74,7 +76,8 @@ public class RibbonSegmentAnimation extends WidgetAnimation {
       String s = mSegments.getTabsModel().getTab(i).getName();
 
       if (mSegments.getTabsModel().getTab(i).getIcon() != null) {
-        mSegments.getTabsModel().getTab(i).getIcon().drawIcon(g2, tabX, iconY, RibbonSegmentVertTabs.TAB_SIZE);
+        mSegments.getTabsModel().getTab(i).getIcon()
+            .drawIcon(g2, tabX, iconY, RibbonSegmentVertTabs.TAB_SIZE);
       }
 
       g2.drawString(s, textX, textY);

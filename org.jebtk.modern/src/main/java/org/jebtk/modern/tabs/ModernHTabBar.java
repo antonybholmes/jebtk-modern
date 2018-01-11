@@ -43,7 +43,8 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernHTabBar extends TabsController implements MouseMotionListener, MouseListener {
+public class ModernHTabBar extends TabsController
+    implements MouseMotionListener, MouseListener {
 
   /**
    * The constant serialVersionUID.
@@ -66,7 +67,8 @@ public class ModernHTabBar extends TabsController implements MouseMotionListener
   protected static final int CROSS_WIDTH = 6;
 
   /** The Constant SIZE. */
-  private static final Dimension SIZE = new Dimension(Short.MAX_VALUE, TAB_HEIGHT);
+  private static final Dimension SIZE = new Dimension(Short.MAX_VALUE,
+      TAB_HEIGHT);
 
   // protected List<ModernHTab> tabButtons = new ArrayList<ModernHTab>();
   // protected List<Integer> tabWidths = new ArrayList<Integer>();
@@ -78,7 +80,8 @@ public class ModernHTabBar extends TabsController implements MouseMotionListener
   // ModernHTab>();
 
   /** The Constant TAB_HIGHLIGHT_COLOR. */
-  protected static final Color TAB_HIGHLIGHT_COLOR = ThemeService.getInstance().colors().getColorHighlight(4);
+  protected static final Color TAB_HIGHLIGHT_COLOR = ThemeService.getInstance()
+      .colors().getColorHighlight(4);
 
   /**
    * The tab width.
@@ -98,8 +101,7 @@ public class ModernHTabBar extends TabsController implements MouseMotionListener
   /**
    * Instantiates a new modern h tab bar.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernHTabBar(TabsModel model) {
     super(model);
@@ -148,7 +150,8 @@ public class ModernHTabBar extends TabsController implements MouseMotionListener
   /*
    * (non-Javadoc)
    * 
-   * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+   * @see
+   * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
    */
   @Override
   public void mouseMoved(MouseEvent e) {
@@ -194,8 +197,7 @@ public class ModernHTabBar extends TabsController implements MouseMotionListener
   /**
    * Change tab.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   private void changeTab(int index) {
     getTabsModel().changeTab(index);

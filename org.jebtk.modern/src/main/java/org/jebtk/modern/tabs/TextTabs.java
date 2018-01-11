@@ -61,7 +61,8 @@ public class TextTabs extends TabsController implements HighlightEventProducer {
   /**
    * The constant GAP_WIDTH.
    */
-  protected static final int GAP_WIDTH = SettingsService.getInstance().getAsInt("theme.text-tabs.gap-width"); // ModernTheme.getInstance().getClass("text-tabs").getInt("gap-width");
+  protected static final int GAP_WIDTH = SettingsService.getInstance()
+      .getAsInt("theme.text-tabs.gap-width"); // ModernTheme.getInstance().getClass("text-tabs").getInt("gap-width");
 
   /**
    * The member tab widths.
@@ -71,12 +72,14 @@ public class TextTabs extends TabsController implements HighlightEventProducer {
   /**
    * The constant FONT.
    */
-  protected static final Font TEXT_TABS_FONT = ThemeService.loadFont("theme/text-tabs/text-font"); // ThemeService.loadFont("text-tabs.text");
+  protected static final Font TEXT_TABS_FONT = ThemeService
+      .loadFont("theme/text-tabs/text-font"); // ThemeService.loadFont("text-tabs.text");
 
   /**
    * The constant BOLD_FONT.
    */
-  protected static final Font TEXT_TABS_BOLD_FONT = ThemeService.loadFont("theme/text-tabs/text-font-bold"); // ThemeService.loadFont("text-tabs.bold-text");
+  protected static final Font TEXT_TABS_BOLD_FONT = ThemeService
+      .loadFont("theme/text-tabs/text-font-bold"); // ThemeService.loadFont("text-tabs.bold-text");
 
   /**
    * The member highlight.
@@ -132,8 +135,7 @@ public class TextTabs extends TabsController implements HighlightEventProducer {
   /**
    * Instantiates a new text tabs.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public TextTabs(TabsModel model) {
     this(model, false);
@@ -142,10 +144,8 @@ public class TextTabs extends TabsController implements HighlightEventProducer {
   /**
    * Instantiates a new text tabs.
    *
-   * @param model
-   *          the model
-   * @param center
-   *          the center
+   * @param model the model
+   * @param center the center
    */
   public TextTabs(TabsModel model, boolean center) {
     super(model);
@@ -163,7 +163,8 @@ public class TextTabs extends TabsController implements HighlightEventProducer {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawBackgroundAA(Graphics2D g2) {
@@ -180,7 +181,8 @@ public class TextTabs extends TabsController implements HighlightEventProducer {
       boolean selected = i == getTabsModel().getSelectedIndex();
       boolean highlight = i == mHighlight;
 
-      g2.setColor(selected || highlight ? THEME_SELECTED_BORDER_COLOR : TEXT_COLOR);
+      g2.setColor(
+          selected || highlight ? THEME_SELECTED_BORDER_COLOR : TEXT_COLOR);
 
       g2.setFont(selected ? BOLD_FONT : FONT);
 
@@ -211,7 +213,8 @@ public class TextTabs extends TabsController implements HighlightEventProducer {
       }
 
       if (mCenter) {
-        mOffset = (getInternalRect().getW() - (tw + GAP_WIDTH * (mTabWidths.size() - 1))) / 2;
+        mOffset = (getInternalRect().getW()
+            - (tw + GAP_WIDTH * (mTabWidths.size() - 1))) / 2;
       }
     }
   }
@@ -219,10 +222,8 @@ public class TextTabs extends TabsController implements HighlightEventProducer {
   /**
    * Change tab.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   protected void changeTab(int x, int y) {
     int tab = -1;
@@ -251,10 +252,8 @@ public class TextTabs extends TabsController implements HighlightEventProducer {
   /**
    * Highlight.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   protected void highlightTab(int x, int y) {
     int t = -1;

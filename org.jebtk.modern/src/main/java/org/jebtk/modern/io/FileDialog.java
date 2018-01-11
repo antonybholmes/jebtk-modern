@@ -62,124 +62,127 @@ public class FileDialog {
   /**
    * Save file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param filters the filters
    * @return the path
    */
-  public static Path saveFile(Frame parent, Path pwd, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+  public static Path saveFile(Frame parent,
+      Path pwd,
+      GuiFileExtFilter filter,
+      GuiFileExtFilter... filters) {
     return saveFile(parent, pwd, EMPTY_FILE, 0, filter, filters);
   }
 
   /**
    * Save file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the working directory
-   * @param defaultFilter
-   *          the default filter
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the working directory
+   * @param defaultFilter the default filter
+   * @param filters the filters
    * @return the file
    */
-  public static Path saveFile(Frame parent, Path pwd, int defaultFilter, GuiFileExtFilter filter,
+  public static Path saveFile(Frame parent,
+      Path pwd,
+      int defaultFilter,
+      GuiFileExtFilter filter,
       GuiFileExtFilter... filters) {
-    return saveFile(parent, pwd, defaultFilter, CollectionUtils.toList(filter, filters));
+    return saveFile(parent,
+        pwd,
+        defaultFilter,
+        CollectionUtils.toList(filter, filters));
   }
 
   /**
    * Save file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param defaultFilter
-   *          the default filter
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param defaultFilter the default filter
+   * @param filters the filters
    * @return the path
    */
-  public static Path saveFile(Frame parent, Path pwd, int defaultFilter, List<GuiFileExtFilter> filters) {
+  public static Path saveFile(Frame parent,
+      Path pwd,
+      int defaultFilter,
+      List<GuiFileExtFilter> filters) {
     return saveFile(parent, pwd, EMPTY_FILE, defaultFilter, filters);
   }
 
   /**
    * Save file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param suggestedFile
-   *          the suggested file
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param suggestedFile the suggested file
+   * @param filters the filters
    * @return the path
    */
-  public static Path saveFile(Frame parent, Path pwd, Path suggestedFile, GuiFileExtFilter filter,
+  public static Path saveFile(Frame parent,
+      Path pwd,
+      Path suggestedFile,
+      GuiFileExtFilter filter,
       GuiFileExtFilter... filters) {
-    return saveFile(parent, pwd, suggestedFile, CollectionUtils.toList(filter, filters));
+    return saveFile(parent,
+        pwd,
+        suggestedFile,
+        CollectionUtils.toList(filter, filters));
   }
 
   /**
    * Save file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param suggestedFile
-   *          the suggested file
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param suggestedFile the suggested file
+   * @param filters the filters
    * @return the path
    */
-  public static Path saveFile(Frame parent, Path pwd, Path suggestedFile, List<GuiFileExtFilter> filters) {
+  public static Path saveFile(Frame parent,
+      Path pwd,
+      Path suggestedFile,
+      List<GuiFileExtFilter> filters) {
     return saveFile(parent, pwd, suggestedFile, 0, filters);
   }
 
   /**
    * Save file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the working directory
-   * @param suggestedFile
-   *          the suggested file
-   * @param defaultFilter
-   *          the default filter
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the working directory
+   * @param suggestedFile the suggested file
+   * @param defaultFilter the default filter
+   * @param filters the filters
    * @return the file
    */
-  public static Path saveFile(Frame parent, Path pwd, Path suggestedFile, int defaultFilter, GuiFileExtFilter filter,
+  public static Path saveFile(Frame parent,
+      Path pwd,
+      Path suggestedFile,
+      int defaultFilter,
+      GuiFileExtFilter filter,
       GuiFileExtFilter... filters) {
-    return saveFile(parent, pwd, suggestedFile, defaultFilter, CollectionUtils.toList(filter, filters));
+    return saveFile(parent,
+        pwd,
+        suggestedFile,
+        defaultFilter,
+        CollectionUtils.toList(filter, filters));
   }
 
   /**
    * Save file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param suggestedFile
-   *          the suggested file
-   * @param defaultFilter
-   *          the default filter
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param suggestedFile the suggested file
+   * @param defaultFilter the default filter
+   * @param filters the filters
    * @return the path
    */
-  public static Path saveFile(Frame parent, Path pwd, Path suggestedFile, int defaultFilter,
+  public static Path saveFile(Frame parent,
+      Path pwd,
+      Path suggestedFile,
+      int defaultFilter,
       List<GuiFileExtFilter> filters) {
 
     JFileChooser fc = new JFileChooser();
@@ -205,19 +208,17 @@ public class FileDialog {
 
     Path file = fc.getSelectedFile().toPath();
 
-    return GuiFileExtFilter.addExtension(file, (GuiFileExtFilter) fc.getFileFilter());
+    return GuiFileExtFilter.addExtension(file,
+        (GuiFileExtFilter) fc.getFileFilter());
   }
 
   /**
    * Allow users to save Text files.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the working directory
+   * @param parent the parent
+   * @param pwd the working directory
    * @return the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public static Path saveTextFile(Frame parent, Path pwd) throws IOException {
     return saveFile(parent, pwd, 0, new TxtGuiFileFilter());
@@ -226,13 +227,10 @@ public class FileDialog {
   /**
    * Save zip file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the working directory
+   * @param parent the parent
+   * @param pwd the working directory
    * @return the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public static Path saveZipFile(Frame parent, Path pwd) throws IOException {
     return saveFile(parent, pwd, 0, new ZipGuiFileFilter());
@@ -241,32 +239,31 @@ public class FileDialog {
   /**
    * Open file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param filters the filters
    * @return the path
    */
-  public static Path openFile(Frame parent, Path pwd, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+  public static Path openFile(Frame parent,
+      Path pwd,
+      GuiFileExtFilter filter,
+      GuiFileExtFilter... filters) {
     return openFile(parent, pwd, 0, filter, filters);
   }
 
   /**
    * Open file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the working directory
-   * @param defaultFilter
-   *          the default filter
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the working directory
+   * @param defaultFilter the default filter
+   * @param filters the filters
    * @return the file
    */
-  public static Path openFile(Frame parent, Path pwd, int defaultFilter, GuiFileExtFilter filter,
+  public static Path openFile(Frame parent,
+      Path pwd,
+      int defaultFilter,
+      GuiFileExtFilter filter,
       GuiFileExtFilter... filters) {
     return openFile(parent, pwd, 0, CollectionUtils.toList(filter, filters));
   }
@@ -274,32 +271,30 @@ public class FileDialog {
   /**
    * Open file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param filters the filters
    * @return the path
    */
-  public static Path openFile(Frame parent, Path pwd, List<GuiFileExtFilter> filters) {
+  public static Path openFile(Frame parent,
+      Path pwd,
+      List<GuiFileExtFilter> filters) {
     return openFile(parent, pwd, 0, filters);
   }
 
   /**
    * Open file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param defaultFilter
-   *          the default filter
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param defaultFilter the default filter
+   * @param filters the filters
    * @return the path
    */
-  public static Path openFile(Frame parent, Path pwd, int defaultFilter, List<GuiFileExtFilter> filters) {
+  public static Path openFile(Frame parent,
+      Path pwd,
+      int defaultFilter,
+      List<GuiFileExtFilter> filters) {
     JFileChooser fc = new JFileChooser();
 
     LOG.info("Set working directory to {}", pwd);
@@ -325,68 +320,68 @@ public class FileDialog {
   /**
    * Open files.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the working directory
-   * @param defaultFilter
-   *          the default filter
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the working directory
+   * @param defaultFilter the default filter
+   * @param filters the filters
    * @return the list
    */
-  public static List<Path> openFiles(Frame parent, Path pwd, int defaultFilter, GuiFileExtFilter... filters) {
+  public static List<Path> openFiles(Frame parent,
+      Path pwd,
+      int defaultFilter,
+      GuiFileExtFilter... filters) {
     return openFiles(parent, pwd, 0, filters);
   }
 
   /**
    * Open files.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param filters the filters
    * @return the list
    */
-  public static List<Path> openFiles(Frame parent, Path pwd, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+  public static List<Path> openFiles(Frame parent,
+      Path pwd,
+      GuiFileExtFilter filter,
+      GuiFileExtFilter... filters) {
     return openFiles(parent, pwd, 0, true, filter, filters);
   }
 
-  public static List<Path> openFiles(Frame parent, Path pwd, List<GuiFileExtFilter> filters) {
+  public static List<Path> openFiles(Frame parent,
+      Path pwd,
+      List<GuiFileExtFilter> filters) {
     return openFiles(parent, pwd, 0, true, filters);
   }
 
   /**
    * Open files.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param filters the filters
    * @return the list
    */
-  public static List<Path> openFiles(Frame parent, Path pwd, boolean multiSelect, List<GuiFileExtFilter> filters) {
+  public static List<Path> openFiles(Frame parent,
+      Path pwd,
+      boolean multiSelect,
+      List<GuiFileExtFilter> filters) {
     return openFiles(parent, pwd, 0, multiSelect, filters);
   }
 
   /**
    * Open files.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param multiSelect
-   *          the multi select
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param multiSelect the multi select
+   * @param filters the filters
    * @return the list
    */
-  public static List<Path> openFiles(Frame parent, Path pwd, boolean multiSelect, GuiFileExtFilter filter,
+  public static List<Path> openFiles(Frame parent,
+      Path pwd,
+      boolean multiSelect,
+      GuiFileExtFilter filter,
       GuiFileExtFilter... filters) {
     return openFiles(parent, pwd, 0, multiSelect, filter, filters);
   }
@@ -394,39 +389,40 @@ public class FileDialog {
   /**
    * Open files.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param defaultFilter
-   *          the default filter
-   * @param multiSelect
-   *          the multi select
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param defaultFilter the default filter
+   * @param multiSelect the multi select
+   * @param filters the filters
    * @return the list
    */
-  public static List<Path> openFiles(Frame parent, Path pwd, int defaultFilter, boolean multiSelect,
-      GuiFileExtFilter filter, GuiFileExtFilter... filters) {
-    return openFiles(parent, pwd, defaultFilter, multiSelect, CollectionUtils.toList(filter, filters));
+  public static List<Path> openFiles(Frame parent,
+      Path pwd,
+      int defaultFilter,
+      boolean multiSelect,
+      GuiFileExtFilter filter,
+      GuiFileExtFilter... filters) {
+    return openFiles(parent,
+        pwd,
+        defaultFilter,
+        multiSelect,
+        CollectionUtils.toList(filter, filters));
   }
 
   /**
    * Open files.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
-   * @param defaultFilter
-   *          the default filter
-   * @param multiSelect
-   *          the multi select
-   * @param filters
-   *          the filters
+   * @param parent the parent
+   * @param pwd the pwd
+   * @param defaultFilter the default filter
+   * @param multiSelect the multi select
+   * @param filters the filters
    * @return the list
    */
-  public static List<Path> openFiles(Frame parent, Path pwd, int defaultFilter, boolean multiSelect,
+  public static List<Path> openFiles(Frame parent,
+      Path pwd,
+      int defaultFilter,
+      boolean multiSelect,
       List<GuiFileExtFilter> filters) {
     JFileChooser fc = new JFileChooser();
 
@@ -460,10 +456,8 @@ public class FileDialog {
   /**
    * Open text file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the working directory
+   * @param parent the parent
+   * @param pwd the working directory
    * @return the file
    */
   public static Path openTextFile(Frame parent, Path pwd) {
@@ -473,10 +467,8 @@ public class FileDialog {
   /**
    * Open text files.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
+   * @param parent the parent
+   * @param pwd the pwd
    * @return the list
    */
   public static List<Path> openTextFiles(Frame parent, Path pwd) {
@@ -486,24 +478,24 @@ public class FileDialog {
   /**
    * Open text file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the working directory
+   * @param parent the parent
+   * @param pwd the working directory
    * @return the file
    */
   public static Path openTabCsvFile(Frame parent, Path pwd) {
-    return openFile(parent, pwd, new TxtTsvCsvGuiFileFilter(), new TxtGuiFileFilter(), new TsvGuiFileFilter(),
+    return openFile(parent,
+        pwd,
+        new TxtTsvCsvGuiFileFilter(),
+        new TxtGuiFileFilter(),
+        new TsvGuiFileFilter(),
         new CsvGuiFileFilter());
   }
 
   /**
    * Open tab file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
+   * @param parent the parent
+   * @param pwd the pwd
    * @return the path
    */
   public static Path openTabFile(Frame parent, Path pwd) {
@@ -513,13 +505,10 @@ public class FileDialog {
   /**
    * Save tab file.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
+   * @param parent the parent
+   * @param pwd the pwd
    * @return the path
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public static Path saveTabFile(Frame parent, Path pwd) throws IOException {
     return saveFile(parent, pwd, new TxtGuiFileFilter());
@@ -528,10 +517,8 @@ public class FileDialog {
   /**
    * Open dir.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
+   * @param parent the parent
+   * @param pwd the pwd
    * @return the path
    */
   public static Path openDir(Frame parent, Path pwd) {
@@ -552,10 +539,8 @@ public class FileDialog {
   /**
    * Open dirs.
    *
-   * @param parent
-   *          the parent
-   * @param pwd
-   *          the pwd
+   * @param parent the parent
+   * @param pwd the pwd
    * @return the list
    */
   public static List<Path> openDirs(Frame parent, Path pwd) {
@@ -586,8 +571,7 @@ public class FileDialog {
     /**
      * Instantiates a new paths selection.
      *
-     * @param frame
-     *          the frame
+     * @param frame the frame
      */
     public PathsSelection(Frame frame) {
       super(frame);
@@ -611,8 +595,8 @@ public class FileDialog {
     }
 
     /**
-     * Returns a list of selected files. The current present working directory will
-     * be used as the starting directory.
+     * Returns a list of selected files. The current present working directory
+     * will be used as the starting directory.
      *
      * @return the files
      */
@@ -624,8 +608,7 @@ public class FileDialog {
      * Returns a list of selected files. The default directory is specified with
      * {@code pwd}.
      *
-     * @param pwd
-     *          the pwd
+     * @param pwd the pwd
      * @return the files
      */
     public abstract List<Path> getFiles(Path pwd);
@@ -642,16 +625,15 @@ public class FileDialog {
     /**
      * Instantiates a new path selection.
      *
-     * @param frame
-     *          the frame
+     * @param frame the frame
      */
     public PathSelection(Frame frame) {
       mFrame = frame;
     }
 
     /**
-     * Returns a selected file using the present working directory as the default
-     * starting directory to locate a file.
+     * Returns a selected file using the present working directory as the
+     * default starting directory to locate a file.
      *
      * @return the file
      */
@@ -662,8 +644,7 @@ public class FileDialog {
     /**
      * Gets the file.
      *
-     * @param pwd
-     *          the pwd
+     * @param pwd the pwd
      * @return the file
      */
     public abstract Path getFile(Path pwd);
@@ -681,8 +662,7 @@ public class FileDialog {
     /**
      * Instantiates a new open dir selection.
      *
-     * @param frame
-     *          the frame
+     * @param frame the frame
      */
     public OpenDirSelection(Frame frame) {
       super(frame);
@@ -692,7 +672,8 @@ public class FileDialog {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.io.FileDialog.PathsSelection#getFiles(java.nio.file.Path)
+     * org.abh.common.ui.io.FileDialog.PathsSelection#getFiles(java.nio.file.
+     * Path)
      */
     @Override
     public List<Path> getFiles(Path pwd) {
@@ -708,8 +689,7 @@ public class FileDialog {
     /**
      * Instantiates a new open text file selection.
      *
-     * @param frame
-     *          the frame
+     * @param frame the frame
      */
     public OpenTextFileSelection(Frame frame) {
       super(frame);
@@ -719,7 +699,8 @@ public class FileDialog {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.io.FileDialog.PathsSelection#getFiles(java.nio.file.Path)
+     * org.abh.common.ui.io.FileDialog.PathsSelection#getFiles(java.nio.file.
+     * Path)
      */
     @Override
     public List<Path> getFiles(Path pwd) {
@@ -741,12 +722,11 @@ public class FileDialog {
     /**
      * Instantiates a new open files selection.
      *
-     * @param frame
-     *          the frame
-     * @param filters
-     *          the filters
+     * @param frame the frame
+     * @param filters the filters
      */
-    public OpenFilesSelection(Frame frame, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+    public OpenFilesSelection(Frame frame, GuiFileExtFilter filter,
+        GuiFileExtFilter... filters) {
       super(frame);
 
       mFilters = CollectionUtils.toList(filter, filters);
@@ -762,7 +742,8 @@ public class FileDialog {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.io.FileDialog.PathsSelection#getFiles(java.nio.file.Path)
+     * org.abh.common.ui.io.FileDialog.PathsSelection#getFiles(java.nio.file.
+     * Path)
      */
     @Override
     public List<Path> getFiles(Path pwd) {
@@ -772,8 +753,7 @@ public class FileDialog {
     /**
      * Sets whether the user can select multiple files or not.
      *
-     * @param multiSelect
-     *          the multi select
+     * @param multiSelect the multi select
      * @return the paths selection
      */
     public PathsSelection multiSelect(boolean multiSelect) {
@@ -800,8 +780,7 @@ public class FileDialog {
     /**
      * Instantiates a new open dialog.
      *
-     * @param frame
-     *          the frame
+     * @param frame the frame
      */
     private OpenDialog(Frame frame) {
       mFrame = frame;
@@ -844,17 +823,19 @@ public class FileDialog {
      * @return the paths selection
      */
     public PathsSelection settings() {
-      return filter(new AllSettingsGuiFileFilter(), new JsonGuiFileFilter(), new XmlGuiFileFilter());
+      return filter(new AllSettingsGuiFileFilter(),
+          new JsonGuiFileFilter(),
+          new XmlGuiFileFilter());
     }
 
     /**
      * Filter.
      *
-     * @param filters
-     *          the filters
+     * @param filters the filters
      * @return the open files selection
      */
-    public OpenFilesSelection filter(GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+    public OpenFilesSelection filter(GuiFileExtFilter filter,
+        GuiFileExtFilter... filters) {
       return new OpenFilesSelection(mFrame, filter, filters);
     }
 
@@ -866,8 +847,7 @@ public class FileDialog {
   /**
    * Open.
    *
-   * @param frame
-   *          the frame
+   * @param frame the frame
    * @return the open dialog
    */
   public static OpenDialog open(Frame frame) {
@@ -895,30 +875,25 @@ public class FileDialog {
     /**
      * Instantiates a new save file selection.
      *
-     * @param frame
-     *          the frame
-     * @param suggestedFile
-     *          the suggested file
-     * @param filters
-     *          the filters
+     * @param frame the frame
+     * @param suggestedFile the suggested file
+     * @param filters the filters
      */
-    public SaveFileSelection(Frame frame, Path suggestedFile, List<GuiFileExtFilter> filters) {
+    public SaveFileSelection(Frame frame, Path suggestedFile,
+        List<GuiFileExtFilter> filters) {
       this(frame, suggestedFile, 0, filters);
     }
 
     /**
      * Instantiates a new save file selection.
      *
-     * @param frame
-     *          the frame
-     * @param suggestedFile
-     *          the suggested file
-     * @param defaultFilter
-     *          the default filter
-     * @param filters
-     *          the filters
+     * @param frame the frame
+     * @param suggestedFile the suggested file
+     * @param defaultFilter the default filter
+     * @param filters the filters
      */
-    public SaveFileSelection(Frame frame, Path suggestedFile, int defaultFilter, List<GuiFileExtFilter> filters) {
+    public SaveFileSelection(Frame frame, Path suggestedFile, int defaultFilter,
+        List<GuiFileExtFilter> filters) {
       super(frame);
 
       mSuggestedFile = suggestedFile;
@@ -930,8 +905,7 @@ public class FileDialog {
      * Set the default filter by name. Searches filter descriptions for name and
      * matches on the first.
      *
-     * @param name
-     *          the name
+     * @param name the name
      * @return the save file selection
      */
     public SaveFileSelection setDefaultFilter(String name) {
@@ -953,8 +927,7 @@ public class FileDialog {
     /**
      * Sets the default filter.
      *
-     * @param index
-     *          the index
+     * @param index the index
      * @return the save file selection
      */
     public SaveFileSelection setDefaultFilter(int index) {
@@ -975,8 +948,7 @@ public class FileDialog {
     /**
      * Suggested.
      *
-     * @param suggestedFile
-     *          the suggested file
+     * @param suggestedFile the suggested file
      * @return the save file selection
      */
     public SaveFileSelection suggested(String suggestedFile) {
@@ -986,12 +958,12 @@ public class FileDialog {
     /**
      * Suggested.
      *
-     * @param suggestedFile
-     *          the suggested file
+     * @param suggestedFile the suggested file
      * @return the save file selection
      */
     public SaveFileSelection suggested(Path suggestedFile) {
-      return new SaveFileSelection(mFrame, suggestedFile, mDefaultFilter, mFilters);
+      return new SaveFileSelection(mFrame, suggestedFile, mDefaultFilter,
+          mFilters);
     }
   }
 
@@ -1006,8 +978,7 @@ public class FileDialog {
     /**
      * Instantiates a new save dialog.
      *
-     * @param frame
-     *          the frame
+     * @param frame the frame
      */
     private SaveDialog(Frame frame) {
       mFrame = frame;
@@ -1016,19 +987,18 @@ public class FileDialog {
     /**
      * Filter.
      *
-     * @param filters
-     *          the filters
+     * @param filters the filters
      * @return the save file selection
      */
-    public SaveFileSelection filter(GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+    public SaveFileSelection filter(GuiFileExtFilter filter,
+        GuiFileExtFilter... filters) {
       return filter(CollectionUtils.toList(filter, filters));
     }
 
     /**
      * Filter.
      *
-     * @param filters
-     *          the filters
+     * @param filters the filters
      * @return the save file selection
      */
     public SaveFileSelection filter(List<GuiFileExtFilter> filters) {
@@ -1039,8 +1009,7 @@ public class FileDialog {
   /**
    * Save.
    *
-   * @param frame
-   *          the frame
+   * @param frame the frame
    * @return the save dialog
    */
   public static SaveDialog save(Frame frame) {

@@ -46,8 +46,7 @@ public class ModernDialogFlatButton extends ModernDialogButton {
   /**
    * Instantiates a new modern dialog flat button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernDialogFlatButton(String text1) {
     super(text1);
@@ -58,8 +57,7 @@ public class ModernDialogFlatButton extends ModernDialogButton {
   /**
    * Instantiates a new modern dialog flat button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernDialogFlatButton(ModernIcon icon) {
     super(icon);
@@ -70,10 +68,8 @@ public class ModernDialogFlatButton extends ModernDialogButton {
   /**
    * Instantiates a new modern dialog flat button.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
+   * @param text1 the text1
+   * @param icon the icon
    */
   public ModernDialogFlatButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -92,8 +88,8 @@ public class ModernDialogFlatButton extends ModernDialogButton {
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
-   * (isSelected() || mHighlight) { getWidgetRenderer().drawButton(g2,
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
+   * if (isSelected() || mHighlight) { getWidgetRenderer().drawButton(g2,
    * mInternalRect, RenderMode.SELECTED, hasFocus()); } else {
    * getWidgetRenderer().drawContentBox(g2, mInternalRect); } } }
    */

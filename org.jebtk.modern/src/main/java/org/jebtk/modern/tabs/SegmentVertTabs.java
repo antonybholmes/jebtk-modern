@@ -56,10 +56,8 @@ public class SegmentVertTabs extends SegmentTabs {
   /**
    * Instantiates a new text tabs.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
+   * @param model the model
+   * @param tabSize the tab size
    */
   public SegmentVertTabs(TabsModel model, int tabSize) {
     this(model, tabSize, true);
@@ -68,12 +66,9 @@ public class SegmentVertTabs extends SegmentTabs {
   /**
    * Instantiates a new segment vert tabs.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
-   * @param centered
-   *          the centered
+   * @param model the model
+   * @param tabSize the tab size
+   * @param centered the centered
    */
   public SegmentVertTabs(TabsModel model, int tabSize, boolean centered) {
     super(model, tabSize, centered);
@@ -86,7 +81,8 @@ public class SegmentVertTabs extends SegmentTabs {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -115,7 +111,13 @@ public class SegmentVertTabs extends SegmentTabs {
     if (mHighlight > -1 && mHighlight < n) {
       y += mHighlight * TAB_SIZE;
 
-      getWidgetRenderer().buttonFillPaint(g2, x, y, w, mTabSize, RenderMode.HIGHLIGHT, hasFocus());
+      getWidgetRenderer().buttonFillPaint(g2,
+          x,
+          y,
+          w,
+          mTabSize,
+          RenderMode.HIGHLIGHT,
+          hasFocus());
 
       if (mHighlight == 0) {
         g2.fill(mLeftEnd);
@@ -210,7 +212,8 @@ public class SegmentVertTabs extends SegmentTabs {
       textY += TAB_SIZE;
     }
 
-    // g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW() - 1,
+    // g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW()
+    // - 1,
     // mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING);
   }
 
@@ -229,9 +232,12 @@ public class SegmentVertTabs extends SegmentTabs {
 
       mLeftEnd = new GeneralPath();
       mLeftEnd.moveTo(x, getInsets().top + ROUNDING);
-      mLeftEnd.append(new Arc2D.Double(x, y, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN), true);
+      mLeftEnd.append(
+          new Arc2D.Double(x, y, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN),
+          true);
       mLeftEnd.lineTo(x + w - ROUNDING, y);
-      mLeftEnd.append(new Arc2D.Double(x + w - ROUNDING, y, ROUNDING, ROUNDING, 90, -90, Arc2D.OPEN), true);
+      mLeftEnd.append(new Arc2D.Double(x + w - ROUNDING, y, ROUNDING, ROUNDING,
+          90, -90, Arc2D.OPEN), true);
       mLeftEnd.lineTo(x + w, y + h);
       mLeftEnd.lineTo(x, y + h);
       // mLeftEnd.lineTo(getInsets().left, getInsets().top + ROUNDING);
@@ -243,10 +249,11 @@ public class SegmentVertTabs extends SegmentTabs {
       mRightEnd.moveTo(x, y);
       mRightEnd.lineTo(x + w, y);
       mRightEnd.lineTo(x + w, y + h - ROUNDING);
-      mRightEnd.append(new Arc2D.Double(x + w - ROUNDING, y + h - ROUNDING, ROUNDING, ROUNDING, 0, -90, Arc2D.OPEN),
-          true);
+      mRightEnd.append(new Arc2D.Double(x + w - ROUNDING, y + h - ROUNDING,
+          ROUNDING, ROUNDING, 0, -90, Arc2D.OPEN), true);
       mRightEnd.lineTo(x + ROUNDING, y + h);
-      mRightEnd.append(new Arc2D.Double(x, y + h - ROUNDING, ROUNDING, ROUNDING, 270, -90, Arc2D.OPEN), true);
+      mRightEnd.append(new Arc2D.Double(x, y + h - ROUNDING, ROUNDING, ROUNDING,
+          270, -90, Arc2D.OPEN), true);
       mRightEnd.closePath();
 
       mCreateEndShapes = false;

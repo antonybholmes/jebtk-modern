@@ -62,8 +62,7 @@ public class LeftLineBorderPanel extends ModernComponent {
   /**
    * Instantiates a new modern line border panel.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public LeftLineBorderPanel(Color color) {
     setBackground(color);
@@ -74,8 +73,7 @@ public class LeftLineBorderPanel extends ModernComponent {
   /**
    * Instantiates a new modern line border panel.
    *
-   * @param layout
-   *          the layout
+   * @param layout the layout
    */
   public LeftLineBorderPanel(LayoutManager layout) {
     super(layout);
@@ -86,8 +84,7 @@ public class LeftLineBorderPanel extends ModernComponent {
   /**
    * Instantiates a new modern line border panel.
    *
-   * @param component
-   *          the component
+   * @param component the component
    */
   public LeftLineBorderPanel(Component component) {
     add(component, BorderLayout.CENTER);
@@ -98,10 +95,8 @@ public class LeftLineBorderPanel extends ModernComponent {
   /**
    * Instantiates a new modern line border panel.
    *
-   * @param component
-   *          the component
-   * @param dimension
-   *          the dimension
+   * @param component the component
+   * @param dimension the dimension
    */
   public LeftLineBorderPanel(Component component, Dimension dimension) {
     this(component);

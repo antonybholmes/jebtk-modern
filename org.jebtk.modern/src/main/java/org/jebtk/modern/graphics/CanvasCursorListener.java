@@ -41,8 +41,7 @@ public interface CanvasCursorListener extends EventListener {
   /**
    * Cursor changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void cursorChanged(CanvasCursorEvent e);
 }

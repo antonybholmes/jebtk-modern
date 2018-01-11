@@ -29,8 +29,7 @@ public abstract class TranslateYAnimation extends TranslateAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public TranslateYAnimation(ModernWidget widget) {
     super(widget);
@@ -44,6 +43,7 @@ public abstract class TranslateYAnimation extends TranslateAnimation {
    */
   @Override
   public void translate(Graphics2D g2) {
-    g2.translate(getWidget().getInsets().left, getWidget().getInsets().top + getX());
+    g2.translate(getWidget().getInsets().left,
+        getWidget().getInsets().top + getX());
   }
 }

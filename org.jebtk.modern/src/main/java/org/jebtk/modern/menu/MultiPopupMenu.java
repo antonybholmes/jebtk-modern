@@ -49,8 +49,7 @@ public class MultiPopupMenu {
   /**
    * The main method.
    *
-   * @param args
-   *          the arguments
+   * @param args the arguments
    */
   public static void main(String[] args) {
     JFrame frame = new JFrame();
@@ -84,7 +83,8 @@ public class MultiPopupMenu {
     Point floc = frame.getLocation();
     Point loc = label1.getLocation();
     System.out.println(floc);
-    popup1.setLocation((int) (floc.getX() + loc.getX()) - 20, (int) (floc.getY() + loc.getY()) + 40);
+    popup1.setLocation((int) (floc.getX() + loc.getX()) - 20,
+        (int) (floc.getY() + loc.getY()) + 40);
     loc = label2.getLocation();
     // popup2.setLocation((int)(floc.getX()+loc.getX())+20,
     // (int)(floc.getY()+loc.getY())+40);
@@ -97,10 +97,8 @@ public class MultiPopupMenu {
   /**
    * Creates the popup.
    *
-   * @param parent
-   *          the parent
-   * @param label
-   *          the label
+   * @param parent the parent
+   * @param label the label
    * @return the j dialog
    */
   private static JDialog createPopup(Frame parent, String label) {

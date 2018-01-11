@@ -43,10 +43,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jebtk.core.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
@@ -67,7 +67,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The class ModernComboBox.
  */
-public class ModernComboBox extends ModernDropDownWidget implements KeyListener, DocumentListener {
+public class ModernComboBox extends ModernDropDownWidget
+    implements KeyListener, DocumentListener {
 
   /**
    * The constant serialVersionUID.
@@ -105,7 +106,8 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * The constant DOWN_ARROW_ICON.
    */
-  public static final ModernIcon DOWN_ARROW_ICON = UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16);
+  public static final ModernIcon DOWN_ARROW_ICON = UIService.getInstance()
+      .loadIcon(TriangleDownVectorIcon.class, 16);
 
   /**
    * The member editable.
@@ -176,8 +178,8 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.
+     * MouseEvent)
      */
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -188,7 +190,8 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -224,8 +227,8 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -248,8 +251,8 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /*
    * private class PopupActions implements PopupMenuListener {
    * 
-   * public final void popupMenuCanceled(PopupMenuEvent e) { mPopupShown = false;
-   * setHighlighted(false);
+   * public final void popupMenuCanceled(PopupMenuEvent e) { mPopupShown =
+   * false; setHighlighted(false);
    * 
    * }
    * 
@@ -258,15 +261,14 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
    * 
    * }
    * 
-   * public final void popupMenuWillBecomeVisible(PopupMenuEvent e) { //reset(); }
-   * }
+   * public final void popupMenuWillBecomeVisible(PopupMenuEvent e) { //reset();
+   * } }
    */
 
   /**
    * Instantiates a new modern combo box.
    *
-   * @param size
-   *          the size
+   * @param size the size
    */
   public ModernComboBox(Dimension size) {
     this(new ModernScrollPopupMenu());
@@ -284,8 +286,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Instantiates a new modern combo box.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public ModernComboBox(List<String> items) {
     this(new ModernScrollPopupMenu());
@@ -300,10 +301,8 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Instantiates a new modern combo box.
    *
-   * @param items
-   *          the items
-   * @param size
-   *          the size
+   * @param items the items
+   * @param size the size
    */
   public ModernComboBox(List<String> items, Dimension size) {
     this(items);
@@ -314,8 +313,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Instantiates a new modern combo box.
    *
-   * @param popup
-   *          the popup
+   * @param popup the popup
    */
   public ModernComboBox(ModernPopupMenu popup) {
     this("", popup);
@@ -324,10 +322,8 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Instantiates a new modern combo box.
    *
-   * @param text
-   *          the text
-   * @param popup
-   *          the popup
+   * @param text the text
+   * @param popup the popup
    */
   public ModernComboBox(String text, ModernPopupMenu popup) {
     super(text, popup);
@@ -374,8 +370,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Sets the popup.
    *
-   * @param popup
-   *          the new popup
+   * @param popup the new popup
    */
   @Override
   public void setMenu(ModernPopup popup) {
@@ -386,8 +381,8 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { IntRect buttonRect =
-   * new IntRect(mButtonX, mRect.getY(), BUTTON_WIDTH, mRect.getH());
+   * @Override public void drawBackgroundAA(Graphics2D g2) { IntRect buttonRect
+   * = new IntRect(mButtonX, mRect.getY(), BUTTON_WIDTH, mRect.getH());
    * 
    * getWidgetRenderer().drawBackground(g2, mInternalRect);
    * 
@@ -408,9 +403,11 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
    * 
    * //paintSelected(g2, buttonRect); getWidgetRenderer().drawButtonOutline(g2,
    * mRect, RenderMode.SELECTED); getWidgetRenderer().drawButton(g2, buttonRect,
-   * RenderMode.SELECTED); } else { getWidgetRenderer().drawOutline(g2, mRect); }
+   * RenderMode.SELECTED); } else { getWidgetRenderer().drawOutline(g2, mRect);
+   * }
    * 
-   * //paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON, buttonRect);
+   * //paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON,
+   * buttonRect);
    * 
    * DOWN_ARROW_ICON.drawIcon(g2, buttonRect.getX(), buttonRect.getY() +
    * (buttonRect.getH() - 16) / 2, 16); }
@@ -419,12 +416,15 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
     g2.setColor(TEXT_COLOR);
-    g2.drawString(getText(), ModernWidget.PADDING, getTextYPosCenter(g2, getHeight()));
+    g2.drawString(getText(),
+        ModernWidget.PADDING,
+        getTextYPosCenter(g2, getHeight()));
   }
 
   /*
@@ -477,7 +477,8 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
      * popup.getItem(0).getCanvasSize().getW()); }
      */
 
-    // popup.setLocation(this.getLocationOnScreen().x, this.getLocationOnScreen().y
+    // popup.setLocation(this.getLocationOnScreen().x,
+    // this.getLocationOnScreen().y
     // + getHeight());
 
     // popup.setVisible(true);
@@ -494,8 +495,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Determines whether the combobox can be edited or not.
    *
-   * @param editable
-   *          the new editable
+   * @param editable the new editable
    */
   public void setEditable(boolean editable) {
     mEditable = editable;
@@ -516,8 +516,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Adds the scroll modern menu item.
    *
-   * @param i
-   *          the i
+   * @param i the i
    */
   public final void addScrollMenuItem(int i) {
     addScrollMenuItem(Integer.toString(i));
@@ -526,8 +525,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Adds the scroll modern menu item.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public final void addScrollMenuItem(String text) {
     addScrollMenuItem(new ModernMenuItem(text));
@@ -536,8 +534,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Adds the scroll modern menu item.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public final void addScrollMenuItem(ModernMenuItem item) {
     ((ModernScrollPopupMenu) mMenu).addScrollMenuItem(item);
@@ -548,8 +545,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Adds the menu item.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public final void addMenuItem(String text) {
     ModernMenuItem menuItem = new ModernMenuItem(text);
@@ -560,8 +556,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Adds the modern menu item.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public final void addMenuItem(ModernMenuItem item) {
     ((ModernScrollPopupMenu) mMenu).addMenuItem(item);
@@ -572,8 +567,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Register item.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public final void registerItem(ModernMenuItem item) {
 
@@ -590,8 +584,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Sets the selected index.
    *
-   * @param index
-   *          the new selected index
+   * @param index the new selected index
    */
   public void setSelectedIndex(int index) {
     if (index == -1 || index >= mItems.size()) {
@@ -606,8 +599,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Change the view without triggering a click event.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   public void changeSelectedIndex(int index) {
     if (index == -1 || index >= mItems.size()) {
@@ -646,11 +638,15 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
 
     mButtonX = getWidth() - insets.right - BUTTON_WIDTH;
 
-    mDisplayText.setBounds(mRect.getX() + TEXT_OFFSET, mRect.getY() + 1, mButtonX - TEXT_OFFSET_2, mRect.getH() - 2);
+    mDisplayText.setBounds(mRect.getX() + TEXT_OFFSET,
+        mRect.getY() + 1,
+        mButtonX - TEXT_OFFSET_2,
+        mRect.getH() - 2);
 
     // Resize the menu items to match the combo width
     for (ModernMenuItem item : mItems) {
-      UI.setSize(item, new Dimension(getWidth(), item.getPreferredSize().height));
+      UI.setSize(item,
+          new Dimension(getWidth(), item.getPreferredSize().height));
     }
 
     repaint();
@@ -677,8 +673,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Sets the text.
    *
-   * @param text
-   *          the new text
+   * @param text the new text
    */
   public void setText(String text) {
     super.setText(text);
@@ -733,8 +728,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Gets the item at.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the item at
    */
   public Object getItemAt(int i) {
@@ -753,8 +747,7 @@ public class ModernComboBox extends ModernDropDownWidget implements KeyListener,
   /**
    * Adds the text changed listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addTextChangedListener(ChangeListener l) {
     mListeners.addChangeListener(l);

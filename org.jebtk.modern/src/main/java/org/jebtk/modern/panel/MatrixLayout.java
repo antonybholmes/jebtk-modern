@@ -66,16 +66,13 @@ public class MatrixLayout implements LayoutManager {
   /**
    * Instantiates a new simple matrix panel.
    *
-   * @param rowHeights
-   *          the row heights
-   * @param columnWidth
-   *          the column width
-   * @param xSep
-   *          the x sep
-   * @param ySep
-   *          the y sep
+   * @param rowHeights the row heights
+   * @param columnWidth the column width
+   * @param xSep the x sep
+   * @param ySep the y sep
    */
-  public MatrixLayout(int[] rowHeights, int[] columnWidths, int xSep, int ySep) {
+  public MatrixLayout(int[] rowHeights, int[] columnWidths, int xSep,
+      int ySep) {
     mRowHeights = rowHeights;
     mColumnWidths = columnWidths;
 

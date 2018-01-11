@@ -32,7 +32,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.modern.combobox.ModernComboBox;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 
@@ -42,7 +41,8 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
  *
  * @author Antony Holmes Holmes
  */
-public class SearchTermsComboBox extends ModernComboBox implements SearchTermEventListener {
+public class SearchTermsComboBox extends ModernComboBox
+    implements SearchTermEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -57,8 +57,7 @@ public class SearchTermsComboBox extends ModernComboBox implements SearchTermEve
   /**
    * Instantiates a new search terms combo box.
    *
-   * @param searchTermsModel
-   *          the search terms model
+   * @param searchTermsModel the search terms model
    */
   public SearchTermsComboBox(SearchTermsService searchTermsModel) {
     searchTermsModel.addSearchTermListener(this);
@@ -102,8 +101,8 @@ public class SearchTermsComboBox extends ModernComboBox implements SearchTermEve
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(org.
-   * abh.lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(
+   * org. abh.lib.event.ChangeEvent)
    */
   @Override
   public void searchTermsChanged(ChangeEvent e) {

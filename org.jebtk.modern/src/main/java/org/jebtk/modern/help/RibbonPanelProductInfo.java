@@ -48,7 +48,8 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes Holmes
  *
  */
-public class RibbonPanelProductInfo extends RibbonMenuPanel implements ModernClickListener {
+public class RibbonPanelProductInfo extends RibbonMenuPanel
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -63,8 +64,7 @@ public class RibbonPanelProductInfo extends RibbonMenuPanel implements ModernCli
   /**
    * Instantiates a new ribbon panel product info.
    *
-   * @param product
-   *          the product
+   * @param product the product
    */
   public RibbonPanelProductInfo(GuiAppInfo product) {
     this(null, product);
@@ -73,8 +73,7 @@ public class RibbonPanelProductInfo extends RibbonMenuPanel implements ModernCli
   /**
    * Instantiates a new ribbon panel product info.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public RibbonPanelProductInfo(ModernWindow window) {
     this(window, window.getAppInfo());
@@ -86,10 +85,8 @@ public class RibbonPanelProductInfo extends RibbonMenuPanel implements ModernCli
   /**
    * Instantiates a new ribbon panel product info.
    *
-   * @param window
-   *          the window
-   * @param product
-   *          the product
+   * @param window the window
+   * @param product the product
    */
   public RibbonPanelProductInfo(ModernWindow window, GuiAppInfo product) {
     super("Help");
@@ -102,7 +99,8 @@ public class RibbonPanelProductInfo extends RibbonMenuPanel implements ModernCli
 
     Box box2 = HBox.create();
 
-    ModernImagePanel image = new ModernImagePanel(product.getIcon128(), 128, 64);
+    ModernImagePanel image = new ModernImagePanel(product.getIcon128(), 128,
+        64);
 
     box2.add(image);
     box2.add(UI.createHGap(10));
@@ -115,7 +113,8 @@ public class RibbonPanelProductInfo extends RibbonMenuPanel implements ModernCli
 
     box.add(UI.createVGap(10));
 
-    box.add(new ModernAutoSizeLabel("Version " + product.getVersion().toString()));
+    box.add(
+        new ModernAutoSizeLabel("Version " + product.getVersion().toString()));
 
     if (window != null) {
       box.add(UI.createVGap(40));
@@ -136,8 +135,8 @@ public class RibbonPanelProductInfo extends RibbonMenuPanel implements ModernCli
     box.add(new RibbonHelpLinkButton(product));
 
     /*
-     * box2 = HBox.create(); box2.add(button); button.setAlignmentY(TOP_ALIGNMENT);
-     * box2.add(UI.createHGap(20));
+     * box2 = HBox.create(); box2.add(button);
+     * button.setAlignmentY(TOP_ALIGNMENT); box2.add(UI.createHGap(20));
      * 
      * Box box3 = VBox.create(); box3.add(new ModernSubTitleLabel("About " +
      * product.getName())); box3.add(UI.createVGap(10)); box3.add(new
@@ -159,8 +158,8 @@ public class RibbonPanelProductInfo extends RibbonMenuPanel implements ModernCli
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

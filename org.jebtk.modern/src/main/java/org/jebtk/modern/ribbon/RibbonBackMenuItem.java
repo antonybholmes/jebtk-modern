@@ -61,7 +61,8 @@ public class RibbonBackMenuItem extends RibbonMenuItem {
   // public static final Dimension SIZE =
   // new Dimension(64, 64);
 
-  public static final Color BASE_COLOR = ColorUtils.getTransparentColor25(Color.WHITE);
+  public static final Color BASE_COLOR = ColorUtils
+      .getTransparentColor25(Color.WHITE);
 
   /**
    * Instantiates a new ribbon back menu item.
@@ -118,12 +119,9 @@ public class RibbonBackMenuItem extends RibbonMenuItem {
   /**
    * Draw icon.
    *
-   * @param g2
-   *          the g 2
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param g2 the g 2
+   * @param x the x
+   * @param y the y
    */
   public static void drawIcon(Graphics2D g2, int x, int y) {
     g2.drawOval(x, y, HEIGHT, HEIGHT);

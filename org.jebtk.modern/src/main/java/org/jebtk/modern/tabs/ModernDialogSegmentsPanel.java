@@ -32,10 +32,8 @@ public class ModernDialogSegmentsPanel extends ModernComponent {
   /**
    * Instantiates a new modern dialog segments panel.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
+   * @param model the model
+   * @param tabSize the tab size
    */
   public ModernDialogSegmentsPanel(TabsModel model, int tabSize) {
     this(model, tabSize, false);
@@ -44,37 +42,36 @@ public class ModernDialogSegmentsPanel extends ModernComponent {
   /**
    * Instantiates a new modern dialog segments panel.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
-   * @param centered
-   *          the centered
+   * @param model the model
+   * @param tabSize the tab size
+   * @param centered the centered
    */
-  public ModernDialogSegmentsPanel(TabsModel model, int tabSize, boolean centered) {
+  public ModernDialogSegmentsPanel(TabsModel model, int tabSize,
+      boolean centered) {
     this(model, tabSize, 0);
   }
 
   /**
    * Instantiates a new modern dialog segments panel.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
-   * @param pagePadding
-   *          the page padding
+   * @param model the model
+   * @param tabSize the tab size
+   * @param pagePadding the page padding
    */
-  public ModernDialogSegmentsPanel(TabsModel model, int tabSize, int pagePadding) {
+  public ModernDialogSegmentsPanel(TabsModel model, int tabSize,
+      int pagePadding) {
     SegmentTabs tabs = new SegmentTabs(model, tabSize);
 
-    UI.setSize(tabs, ModernWidget.MAX_SIZE, UI.createTopBottomBorder(pagePadding));
+    UI.setSize(tabs,
+        ModernWidget.MAX_SIZE,
+        UI.createTopBottomBorder(pagePadding));
 
     setHeader(tabs); // new TextTabsTriangle(model, centered));
 
     TabsViewPanel panel = new TabsViewPanel(model);
     // panel.setBorder(TOP_BORDER);
 
-    setBody(panel); // new ModernLineBorderPanel(new ModernComponent(panel, LARGE_BORDER)));
+    setBody(panel); // new ModernLineBorderPanel(new ModernComponent(panel,
+                    // LARGE_BORDER)));
   }
 }

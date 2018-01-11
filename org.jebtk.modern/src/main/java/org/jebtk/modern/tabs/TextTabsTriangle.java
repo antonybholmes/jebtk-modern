@@ -54,8 +54,7 @@ public class TextTabsTriangle extends TextTabs {
   /**
    * Instantiates a new text tabs triangle.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public TextTabsTriangle(TabsModel model) {
     this(model, false);
@@ -64,10 +63,8 @@ public class TextTabsTriangle extends TextTabs {
   /**
    * Instantiates a new text tabs.
    *
-   * @param model
-   *          the model
-   * @param center
-   *          the center
+   * @param model the model
+   * @param center the center
    */
   public TextTabsTriangle(TabsModel model, boolean center) {
     super(model, center);
@@ -76,7 +73,8 @@ public class TextTabsTriangle extends TextTabs {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

@@ -57,8 +57,7 @@ public class HBox extends GenericBox {
   /**
    * Instantiates a new h box.
    *
-   * @param components
-   *          the components
+   * @param components the components
    */
   public HBox(Component... components) {
     this();
@@ -71,8 +70,7 @@ public class HBox extends GenericBox {
   /**
    * Instantiates a new h box.
    *
-   * @param border
-   *          the border
+   * @param border the border
    */
   public HBox(Border border) {
     this();
@@ -83,8 +81,7 @@ public class HBox extends GenericBox {
   /**
    * Adds the.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   public void add(String name) {
     add(new ModernLabel(name));

@@ -66,8 +66,7 @@ public class SettingsVectorIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new settings vector icon.
    *
-   * @param color1
-   *          the color 1
+   * @param color1 the color 1
    */
   public SettingsVectorIcon(Color color1) {
     super(color1);
@@ -81,7 +80,12 @@ public class SettingsVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     int wf = (int) (w * WIDTH_SCALE);
     int wf2 = (int) (w * WIDTH_SCALE / 2);
 

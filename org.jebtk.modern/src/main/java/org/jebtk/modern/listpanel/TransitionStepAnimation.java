@@ -26,10 +26,8 @@ public abstract class TransitionStepAnimation extends TimerAnimation {
   /**
    * Instantiates a new animate movement.
    *
-   * @param index
-   *          the index
-   * @param y2
-   *          the y 2
+   * @param index the index
+   * @param y2 the y 2
    */
   public void setup(double y1, double y2) {
     double mD = y2 - y1;

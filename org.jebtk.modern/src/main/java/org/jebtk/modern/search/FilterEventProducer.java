@@ -42,32 +42,28 @@ public interface FilterEventProducer {
   /**
    * Add an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addFilterListener(FilterEventListener l);
 
   /**
    * Remove an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeFilterListener(FilterEventListener l);
 
   /**
    * fire an event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireFiltersUpdated(ChangeEvent event);
 
   /**
    * Fire filters updated.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireFiltersChanged(ChangeEvent event);
 }

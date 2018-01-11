@@ -52,15 +52,12 @@ public class ModernDataIndexSorter extends ChangeListeners {
   private boolean mEnabled = false;
 
   /**
-   * Sort the given index so that calls to getOriginalIndex or getSortedIndex will
-   * allow the data model to be sorted.
+   * Sort the given index so that calls to getOriginalIndex or getSortedIndex
+   * will allow the data model to be sorted.
    *
-   * @param data
-   *          the data
-   * @param index
-   *          the index
-   * @param sortAscending
-   *          the sort ascending
+   * @param data the data
+   * @param index the index
+   * @param sortAscending the sort ascending
    */
   public void sort(ModernData data, int index, boolean sortAscending) {
     mSortAscending = sortAscending;
@@ -70,8 +67,7 @@ public class ModernDataIndexSorter extends ChangeListeners {
    * Returns the original index of an item in a data model so that we can
    * correctly retrieve it from the unsorted model.
    *
-   * @param sortedIndex
-   *          the sorted index
+   * @param sortedIndex the sorted index
    * @return the model index
    */
   public int getModelIndex(int sortedIndex) {
@@ -81,8 +77,7 @@ public class ModernDataIndexSorter extends ChangeListeners {
   /**
    * Given an original index, returns its sorted index in the sort model.
    *
-   * @param originalIndex
-   *          the original index
+   * @param originalIndex the original index
    * @return the sorted index
    */
   public int getSortedIndex(int originalIndex) {
@@ -101,8 +96,7 @@ public class ModernDataIndexSorter extends ChangeListeners {
   /**
    * Sets the enabled.
    *
-   * @param enabled
-   *          the new enabled
+   * @param enabled the new enabled
    */
   public void setEnabled(boolean enabled) {
     mEnabled = enabled;

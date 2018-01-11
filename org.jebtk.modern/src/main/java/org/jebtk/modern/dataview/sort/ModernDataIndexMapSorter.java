@@ -69,8 +69,8 @@ public abstract class ModernDataIndexMapSorter extends ModernDataIndexSorter {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#sort(org.abh.lib.ui
-   * .modern.dataview.ModernData, int, boolean)
+   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#sort(org.abh.lib.
+   * ui .modern.dataview.ModernData, int, boolean)
    */
   @Override
   public void sort(ModernData data, int index, boolean sortAscending) {
@@ -83,12 +83,11 @@ public abstract class ModernDataIndexMapSorter extends ModernDataIndexSorter {
   /**
    * Sort indexed values for use in a table sorter.
    *
-   * @param <T>
-   *          the generic type
-   * @param values
-   *          the values
+   * @param <T> the generic type
+   * @param values the values
    */
-  public <T extends Comparable<? super T>> void sort(List<Indexed<Integer, T>> values) {
+  public <T extends Comparable<? super T>> void sort(
+      List<Indexed<Integer, T>> values) {
     Collections.sort(values);
 
     if (!mSortAscending) {
@@ -105,7 +104,8 @@ public abstract class ModernDataIndexMapSorter extends ModernDataIndexSorter {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#getModelIndex(int)
+   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#getModelIndex(
+   * int)
    */
   @Override
   public int getModelIndex(int sortedIndex) {
@@ -122,7 +122,8 @@ public abstract class ModernDataIndexMapSorter extends ModernDataIndexSorter {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#getSortedIndex(int)
+   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#getSortedIndex(
+   * int)
    */
   @Override
   public int getSortedIndex(int originalIndex) {

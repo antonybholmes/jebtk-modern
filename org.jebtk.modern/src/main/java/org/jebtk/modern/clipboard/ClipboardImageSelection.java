@@ -48,8 +48,7 @@ public class ClipboardImageSelection implements Transferable {
   /**
    * Instantiates a new clipboard image selection.
    *
-   * @param image
-   *          the image
+   * @param image the image
    */
   public ClipboardImageSelection(Image image) {
     this.image = image;

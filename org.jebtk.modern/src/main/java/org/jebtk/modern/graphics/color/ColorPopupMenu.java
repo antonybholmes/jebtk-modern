@@ -54,7 +54,8 @@ public class ColorPopupMenu extends ModernPopupMenu {
   private static final long serialVersionUID = 1L;
 
   /** The Constant COLOR_PICKER_BACKGROUND. */
-  public static final Color COLOR_PICKER_BACKGROUND = ThemeService.getInstance().colors().getHighlight(1);
+  public static final Color COLOR_PICKER_BACKGROUND = ThemeService.getInstance()
+      .colors().getHighlight(1);
 
   /**
    * The member color picker.
@@ -79,10 +80,8 @@ public class ColorPopupMenu extends ModernPopupMenu {
   /**
    * Instantiates a new color popup menu.
    *
-   * @param parent
-   *          the parent
-   * @param color
-   *          the color
+   * @param parent the parent
+   * @param color the color
    */
   public ColorPopupMenu(ModernWindow parent, Color color) {
     mParent = parent;
@@ -95,8 +94,7 @@ public class ColorPopupMenu extends ModernPopupMenu {
   /**
    * Instantiates a new color popup menu.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public ColorPopupMenu(ModernWindow parent) {
     mParent = parent;
@@ -110,8 +108,8 @@ public class ColorPopupMenu extends ModernPopupMenu {
   private void setup() {
     setBackground(COLOR_PICKER_BACKGROUND);
 
-    setBorder(
-        BorderFactory.createCompoundBorder(ModernWidget.LINE_BORDER, BorderService.getInstance().createBorder(4)));
+    setBorder(BorderFactory.createCompoundBorder(ModernWidget.LINE_BORDER,
+        BorderService.getInstance().createBorder(4)));
 
     // Dimension size = new Dimension(mColorPicker.getPreferredSize().width,
     // ModernWidget.WIDGET_HEIGHT);
@@ -130,8 +128,9 @@ public class ColorPopupMenu extends ModernPopupMenu {
 
     // add(new ModernMenuDivider());
 
-    add(new ModernIconMenuItem("More Colors...", UIService.getInstance().loadIcon("color_wheel", 16))
-        .setBackgroundAnimations("color-menu-fade"));
+    add(new ModernIconMenuItem("More Colors...",
+        UIService.getInstance().loadIcon("color_wheel", 16))
+            .setBackgroundAnimations("color-menu-fade"));
 
     mColorPicker.addClickListener(this);
     mStandardColorPicker.addClickListener(this);
@@ -153,15 +152,18 @@ public class ColorPopupMenu extends ModernPopupMenu {
     if (e.getSource().equals(mColorPicker)) {
       mColor = mColorPicker.getSelectedColor();
 
-      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+      fireClicked(
+          new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
     } else if (e.getSource().equals(mStandardColorPicker)) {
       mColor = mStandardColorPicker.getSelectedColor();
 
-      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+      fireClicked(
+          new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
     } else if (e.getMessage().equals("No Color")) {
       mColor = null;
 
-      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+      fireClicked(
+          new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
     } else if (e.getMessage().equals("More Colors...")) {
       ColorDialog dialog = new ColorDialog(mParent, mColor);
 
@@ -170,7 +172,8 @@ public class ColorPopupMenu extends ModernPopupMenu {
       if (dialog.getStatus() == ModernDialogStatus.OK) {
         mColor = dialog.getColor();
 
-        fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+        fireClicked(
+            new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
       }
     } else {
       // do nothing
@@ -189,8 +192,7 @@ public class ColorPopupMenu extends ModernPopupMenu {
   /**
    * Sets the selected color.
    *
-   * @param color
-   *          the new selected color
+   * @param color the new selected color
    */
   public void setSelectedColor(Color color) {
     mColor = color;

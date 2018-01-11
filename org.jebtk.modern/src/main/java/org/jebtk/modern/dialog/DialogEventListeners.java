@@ -36,7 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class DialogEventListeners extends EventProducer<DialogEventListener> implements DialogEventProducer {
+public class DialogEventListeners extends EventProducer<DialogEventListener>
+    implements DialogEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -58,8 +59,8 @@ public class DialogEventListeners extends EventProducer<DialogEventListener> imp
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dialog.DialogEventProducer#removeDialogListener(org.abh
-   * .lib.ui.modern.dialog.DialogEventListener)
+   * org.abh.lib.ui.modern.dialog.DialogEventProducer#removeDialogListener(org.
+   * abh .lib.ui.modern.dialog.DialogEventListener)
    */
   public void removeDialogListener(DialogEventListener l) {
     mListeners.remove(l);
@@ -69,8 +70,8 @@ public class DialogEventListeners extends EventProducer<DialogEventListener> imp
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dialog.DialogEventProducer#fireDialogStatusChanged(org.
-   * abh.lib.ui.modern.dialog.DialogEvent)
+   * org.abh.lib.ui.modern.dialog.DialogEventProducer#fireDialogStatusChanged(
+   * org. abh.lib.ui.modern.dialog.DialogEvent)
    */
   public void fireDialogStatusChanged(DialogEvent e) {
     for (DialogEventListener l : mListeners) {

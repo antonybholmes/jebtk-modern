@@ -48,8 +48,7 @@ public class ModernSplashWindow2 extends ModernWindow {
   /**
    * Instantiates a new modern splash window2.
    *
-   * @param appInfo
-   *          the app info
+   * @param appInfo the app info
    */
   public ModernSplashWindow2(GuiAppInfo appInfo) {
     super(appInfo);

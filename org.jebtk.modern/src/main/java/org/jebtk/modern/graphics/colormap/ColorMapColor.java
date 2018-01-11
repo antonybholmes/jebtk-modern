@@ -40,7 +40,8 @@ import org.w3c.dom.Element;
 /**
  * The class ColorMapColor.
  */
-public class ColorMapColor extends Color implements XmlRepresentation, JsonRepresentation {
+public class ColorMapColor extends Color
+    implements XmlRepresentation, JsonRepresentation {
 
   /**
    * The constant serialVersionUID.
@@ -50,12 +51,9 @@ public class ColorMapColor extends Color implements XmlRepresentation, JsonRepre
   /**
    * Instantiates a new color map color.
    *
-   * @param r
-   *          the r
-   * @param g
-   *          the g
-   * @param b
-   *          the b
+   * @param r the r
+   * @param g the g
+   * @param b the b
    */
   public ColorMapColor(int r, int g, int b) {
     super(r, g, b);
@@ -64,14 +62,10 @@ public class ColorMapColor extends Color implements XmlRepresentation, JsonRepre
   /**
    * Instantiates a new color map color.
    *
-   * @param r
-   *          the r
-   * @param g
-   *          the g
-   * @param b
-   *          the b
-   * @param a
-   *          the a
+   * @param r the r
+   * @param g the g
+   * @param b the b
+   * @param a the a
    */
   public ColorMapColor(int r, int g, int b, int a) {
     super(r, g, b, a);
@@ -80,12 +74,9 @@ public class ColorMapColor extends Color implements XmlRepresentation, JsonRepre
   /**
    * Instantiates a new color map color.
    *
-   * @param r
-   *          the r
-   * @param g
-   *          the g
-   * @param b
-   *          the b
+   * @param r the r
+   * @param g the g
+   * @param b the b
    */
   public ColorMapColor(float r, float g, float b) {
     super(r, g, b);
@@ -94,14 +85,10 @@ public class ColorMapColor extends Color implements XmlRepresentation, JsonRepre
   /**
    * Instantiates a new color map color.
    *
-   * @param r
-   *          the r
-   * @param g
-   *          the g
-   * @param b
-   *          the b
-   * @param a
-   *          the a
+   * @param r the r
+   * @param g the g
+   * @param b the b
+   * @param a the a
    */
   public ColorMapColor(float r, float g, float b, float a) {
     super(r, g, b, a);
@@ -144,11 +131,11 @@ public class ColorMapColor extends Color implements XmlRepresentation, JsonRepre
   /**
    * Creates the.
    *
-   * @param c
-   *          the c
+   * @param c the c
    * @return the color map color
    */
   public static ColorMapColor create(Color c) {
-    return new ColorMapColor(c.getRed(), c.getGreen(), c.getBlue(), c.getAlpha());
+    return new ColorMapColor(c.getRed(), c.getGreen(), c.getBlue(),
+        c.getAlpha());
   }
 }

@@ -54,10 +54,8 @@ public class FilterButton extends ModernDropDownIconButton {
   /**
    * Instantiates a new filter button.
    *
-   * @param parent
-   *          the parent
-   * @param filterModel
-   *          the filter model
+   * @param parent the parent
+   * @param filterModel the filter model
    */
   public FilterButton(ModernWindow parent, FilterModel filterModel) {
     super(UIService.getInstance().loadIcon(FilterVectorIcon.class, 16));

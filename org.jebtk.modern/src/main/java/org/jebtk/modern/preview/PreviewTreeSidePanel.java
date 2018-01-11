@@ -72,8 +72,7 @@ public class PreviewTreeSidePanel extends ModernWidget {
   /**
    * Sets the root.
    *
-   * @param previewPanel
-   *          the new root
+   * @param previewPanel the new root
    */
   public final void setRoot(ModernWidget previewPanel) {
 
@@ -82,19 +81,19 @@ public class PreviewTreeSidePanel extends ModernWidget {
 
     tree.clear();
 
-    tree.getRoot().addChild(new TreeNode<ModernWidget>(previewPanel.getName(), previewPanel));
+    tree.getRoot().addChild(
+        new TreeNode<ModernWidget>(previewPanel.getName(), previewPanel));
   }
 
   /**
    * Adds the.
    *
-   * @param name
-   *          the name
-   * @param previewPanel
-   *          the preview panel
+   * @param name the name
+   * @param previewPanel the preview panel
    */
   public final void add(String name, ModernWidget previewPanel) {
-    tree.getRoot().getChild(0).addChild(new TreeNode<ModernWidget>(name, previewPanel));
+    tree.getRoot().getChild(0)
+        .addChild(new TreeNode<ModernWidget>(name, previewPanel));
   }
 
   /**

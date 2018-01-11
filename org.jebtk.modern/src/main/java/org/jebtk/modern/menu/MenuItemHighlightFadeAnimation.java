@@ -6,7 +6,8 @@ import java.awt.event.HierarchyListener;
 import org.jebtk.modern.button.ButtonHighlightAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
-public abstract class MenuItemHighlightFadeAnimation extends ButtonHighlightAnimation {
+public abstract class MenuItemHighlightFadeAnimation
+    extends ButtonHighlightAnimation {
   public MenuItemHighlightFadeAnimation(ModernWidget button) {
     super(button);
 

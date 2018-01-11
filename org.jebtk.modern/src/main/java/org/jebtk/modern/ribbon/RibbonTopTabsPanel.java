@@ -34,10 +34,8 @@ public class RibbonTopTabsPanel extends ModernComponent {
   /**
    * Instantiates a new ribbon top tabs panel.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
+   * @param model the model
+   * @param tabSize the tab size
    */
   public RibbonTopTabsPanel(TabsModel model, int tabSize) {
     this(model, tabSize, true);
@@ -46,12 +44,9 @@ public class RibbonTopTabsPanel extends ModernComponent {
   /**
    * Instantiates a new ribbon top tabs panel.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
-   * @param centered
-   *          the centered
+   * @param model the model
+   * @param tabSize the tab size
+   * @param centered the centered
    */
   public RibbonTopTabsPanel(TabsModel model, int tabSize, boolean centered) {
     this(model, tabSize, 0, centered);
@@ -60,18 +55,17 @@ public class RibbonTopTabsPanel extends ModernComponent {
   /**
    * Instantiates a new ribbon top tabs panel.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
-   * @param pagePadding
-   *          the page padding
-   * @param centered
-   *          the centered
+   * @param model the model
+   * @param tabSize the tab size
+   * @param pagePadding the page padding
+   * @param centered the centered
    */
-  public RibbonTopTabsPanel(TabsModel model, int tabSize, int pagePadding, boolean centered) {
+  public RibbonTopTabsPanel(TabsModel model, int tabSize, int pagePadding,
+      boolean centered) {
     SegmentTabs tabs = new RibbonSegmentTabs(model, tabSize, centered);
-    UI.setSize(tabs, ModernWidget.MAX_SIZE_32, UI.createTopBottomBorder(pagePadding));
+    UI.setSize(tabs,
+        ModernWidget.MAX_SIZE_32,
+        UI.createTopBottomBorder(pagePadding));
 
     setHeader(tabs); // new TextTabsTriangle(model, centered));
 

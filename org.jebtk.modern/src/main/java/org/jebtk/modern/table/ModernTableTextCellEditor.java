@@ -29,11 +29,11 @@ package org.jebtk.modern.table;
 
 import java.awt.Component;
 
-import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.event.ChangeListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.dataview.ModernDataCellEditor;
@@ -44,7 +44,8 @@ import org.jebtk.modern.text.ModernTextBox;
 /**
  * The class ModernDataGridCellEditor.
  */
-public class ModernTableTextCellEditor extends ModernDataCellEditor implements DocumentListener, ChangeListener {
+public class ModernTableTextCellEditor extends ModernDataCellEditor
+    implements DocumentListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -96,8 +97,7 @@ public class ModernTableTextCellEditor extends ModernDataCellEditor implements D
   /**
    * Instantiates a new modern data grid cell editor.
    *
-   * @param editable
-   *          the editable
+   * @param editable the editable
    */
   public ModernTableTextCellEditor(boolean editable) {
     mTextField.setBorder(BorderService.getInstance().createBorder(2, 5, 2, 5));
@@ -112,7 +112,8 @@ public class ModernTableTextCellEditor extends ModernDataCellEditor implements D
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
    */
   @Override
   public final Object getCellEditorValue() {
@@ -132,8 +133,13 @@ public class ModernTableTextCellEditor extends ModernDataCellEditor implements D
    * boolean, boolean, int, int)
    */
   @Override
-  public Component getCellEditorComponent(ModernData view, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public Component getCellEditorComponent(ModernData view,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
 
     mIsNumber = false;
 
@@ -206,8 +212,8 @@ public class ModernTableTextCellEditor extends ModernDataCellEditor implements D
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.event.ChangeListener#changed(org.abh.common.event.ChangeEvent)
+   * @see org.abh.common.event.ChangeListener#changed(org.abh.common.event.
+   * ChangeEvent)
    */
   @Override
   public void changed(ChangeEvent e) {

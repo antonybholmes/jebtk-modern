@@ -44,8 +44,7 @@ public class LogTextArea implements LogEventListener {
   /**
    * Instantiates a new log text area.
    *
-   * @param logPanel
-   *          the log panel
+   * @param logPanel the log panel
    */
   public LogTextArea(LogTextAreaPanel logPanel) {
     this.logPanel = logPanel;

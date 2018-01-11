@@ -40,28 +40,32 @@ import org.jebtk.modern.graphics.icons.RasterIcon;
  * concrete implementations of renderers.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public abstract class ModernTreeBranchNodeRenderer extends ModernTreeNodeRenderer {
+public abstract class ModernTreeBranchNodeRenderer
+    extends ModernTreeNodeRenderer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
   /** The Constant BRANCH_OPEN_ICON. */
-  public static final RasterIcon BRANCH_OPEN_ICON = new RasterIcon(new ModernBranchOpenVectorIcon(), 12); // new
-                                                                                                          // TriangleDownVectorIcon());
-                                                                                                          // //CheveronDownVectorIcon());
+  public static final RasterIcon BRANCH_OPEN_ICON = new RasterIcon(
+      new ModernBranchOpenVectorIcon(), 12); // new
+                                             // TriangleDownVectorIcon());
+                                             // //CheveronDownVectorIcon());
 
   /** The Constant BRANCH_CLOSED_ICON. */
-  public static final RasterIcon BRANCH_CLOSED_ICON = new RasterIcon(new ModernBranchClosedVectorIcon(), 12); // new
-                                                                                                              // TriangleRightVectorIcon());
+  public static final RasterIcon BRANCH_CLOSED_ICON = new RasterIcon(
+      new ModernBranchClosedVectorIcon(), 12); // new
+                                               // TriangleRightVectorIcon());
 
   /** The m branch closed icon. */
-  public static ModernIcon mBranchClosedIcon = BRANCH_CLOSED_ICON; // new ModernBranchClosedVectorIcon());
+  public static ModernIcon mBranchClosedIcon = BRANCH_CLOSED_ICON; // new
+                                                                   // ModernBranchClosedVectorIcon());
 
   /** The m branch open icon. */
-  public static ModernIcon mBranchOpenIcon = BRANCH_OPEN_ICON; // new ModernBranchOpenVectorIcon());
+  public static ModernIcon mBranchOpenIcon = BRANCH_OPEN_ICON; // new
+                                                               // ModernBranchOpenVectorIcon());
 
   /** The m branch width. */
   protected int mBranchWidth = 16;
@@ -78,8 +82,7 @@ public abstract class ModernTreeBranchNodeRenderer extends ModernTreeNodeRendere
   /**
    * Set the height the node will be rendered at.
    *
-   * @param branchWidth
-   *          the new branch width
+   * @param branchWidth the new branch width
    */
   public void setBranchWidth(int branchWidth) {
     mBranchWidth = branchWidth;
@@ -88,7 +91,8 @@ public abstract class ModernTreeBranchNodeRenderer extends ModernTreeNodeRendere
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawNode(Graphics2D g2) {
@@ -109,8 +113,7 @@ public abstract class ModernTreeBranchNodeRenderer extends ModernTreeNodeRendere
    * Draws the rest of the node excluding the branch icon. It is assumed the
    * branch icon will rename the same even if the node look changes.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   public void drawNodeIconText(Graphics2D g2) {
     // Do nothing
@@ -119,8 +122,7 @@ public abstract class ModernTreeBranchNodeRenderer extends ModernTreeNodeRendere
   /**
    * Draws the branch icon for the node.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   public void drawNodeBranch(Graphics2D g2) {
     int x = (mBranchWidth - mBranchOpenIcon.getWidth()) / 2;
@@ -133,12 +135,9 @@ public abstract class ModernTreeBranchNodeRenderer extends ModernTreeNodeRendere
   /**
    * Draw the branch at a particular location.
    *
-   * @param g2
-   *          the g 2
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param g2 the g 2
+   * @param x the x
+   * @param y the y
    */
   public void drawNodeBranch(Graphics2D g2, int x, int y) {
     if (mNode.isParent()) {

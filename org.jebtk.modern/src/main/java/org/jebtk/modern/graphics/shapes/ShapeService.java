@@ -64,7 +64,8 @@ public class ShapeService {
   /**
    * The map.
    */
-  private Map<String, IterMap<Integer, Shape>> mShapeMap = DefaultHashMap.create(new HashMapCreator<Integer, Shape>());
+  private Map<String, IterMap<Integer, Shape>> mShapeMap = DefaultHashMap
+      .create(new HashMapCreator<Integer, Shape>());
 
   /**
    * Instantiates a new UI resources.
@@ -76,8 +77,7 @@ public class ShapeService {
   /**
    * Load shape.
    *
-   * @param name
-   *          the name
+   * @param name the name
    * @return the shape
    */
   public Shape loadShape(String name) {
@@ -87,10 +87,8 @@ public class ShapeService {
   /**
    * Load shape.
    *
-   * @param name
-   *          the name
-   * @param size
-   *          the size
+   * @param name the name
+   * @param size the size
    * @return the shape
    */
   public Shape loadShape(String name, int size) {
@@ -100,12 +98,9 @@ public class ShapeService {
   /**
    * Load icon64.
    *
-   * @param name
-   *          the name
-   * @param size
-   *          the size
-   * @param centered
-   *          the centered
+   * @param name the name
+   * @param size the size
+   * @param centered the centered
    * @return the modern icon
    */
   public Shape loadShape(String name, int size, boolean centered) {
@@ -169,8 +164,7 @@ public class ShapeService {
   /**
    * Gets the shape.
    *
-   * @param shape
-   *          the shape
+   * @param shape the shape
    * @return the shape
    */
   public static String getShape(Shape shape) {

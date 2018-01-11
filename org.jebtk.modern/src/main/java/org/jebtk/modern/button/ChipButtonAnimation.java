@@ -13,7 +13,8 @@ public class ChipButtonAnimation extends WidgetAnimation {
 
   private static final int SIZE = 12;
 
-  private static final ModernIcon ICON = UIService.getInstance().loadIcon(ChipCloseIcon.class, SIZE);
+  private static final ModernIcon ICON = UIService.getInstance()
+      .loadIcon(ChipCloseIcon.class, SIZE);
 
   private ModernTwoStateWidget mButton;
 

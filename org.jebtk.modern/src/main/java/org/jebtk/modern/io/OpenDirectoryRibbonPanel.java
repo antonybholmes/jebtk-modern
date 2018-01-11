@@ -33,8 +33,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.swing.Box;
-import org.jebtk.core.event.ChangeEvent;
 
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
@@ -62,7 +62,8 @@ import org.jebtk.modern.text.ModernDialogHeadingLabel;
 /**
  * The class OpenDirectoryRibbonPanel.
  */
-public class OpenDirectoryRibbonPanel extends RibbonMenuPanel implements ModernClickListener, ModernSelectionListener {
+public class OpenDirectoryRibbonPanel extends RibbonMenuPanel
+    implements ModernClickListener, ModernSelectionListener {
 
   /**
    * The constant serialVersionUID.
@@ -131,7 +132,8 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel implements ModernC
     // label.setBorder(BorderService.getInstance().createBottomBorder(20));
     // setHeader(label);
 
-    sideTabs.addTab("Computer", UIService.getInstance().loadIcon(ComputerVectorIcon.class, 32));
+    sideTabs.addTab("Computer",
+        UIService.getInstance().loadIcon(ComputerVectorIcon.class, 32));
 
     UI.setSize(sideTabs, new Dimension(300, Short.MAX_VALUE));
 
@@ -151,7 +153,8 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel implements ModernC
 
     box.add(UI.createVGap(5));
 
-    mCurrentDirectoryList = new ModernList<Path>(new ModernListRecentDirectoryRenderer());
+    mCurrentDirectoryList = new ModernList<Path>(
+        new ModernListRecentDirectoryRenderer());
 
     mCurrentDirectoryList.addSelectionListener(this);
     mCurrentDirectoryList.setRowHeight(48);
@@ -165,7 +168,8 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel implements ModernC
 
     ModernDialogTaskWindow.midSectionHeader("Recent Directories", box);
 
-    mRecentDirectoriesList = new ModernList<Path>(new ModernListRecentDirectoryRenderer());
+    mRecentDirectoriesList = new ModernList<Path>(
+        new ModernListRecentDirectoryRenderer());
 
     mRecentDirectoriesList.addSelectionListener(this);
     mRecentDirectoriesList.setRowHeight(48);
@@ -249,8 +253,8 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel implements ModernC
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     fireClicked(new ModernClickEvent(this, e.getMessage()));
@@ -269,8 +273,8 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel implements ModernC
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
-   * lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.
+   * abh. lib.event.ChangeEvent)
    */
   public void selectionChanged(ChangeEvent e) {
     if (e.getSource().equals(mCurrentDirectoryList)) {

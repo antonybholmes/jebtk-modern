@@ -26,7 +26,8 @@ import javax.swing.Scrollable;
  * vertical content.
  * 
  */
-public abstract class ModernVertWidget extends ModernWidget implements Scrollable {
+public abstract class ModernVertWidget extends ModernWidget
+    implements Scrollable {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -44,12 +45,9 @@ public abstract class ModernVertWidget extends ModernWidget implements Scrollabl
   /**
    * Gets the scrollable block increment.
    *
-   * @param arg0
-   *          the arg 0
-   * @param arg1
-   *          the arg 1
-   * @param arg2
-   *          the arg 2
+   * @param arg0 the arg 0
+   * @param arg1 the arg 1
+   * @param arg2 the arg 2
    * @return the scrollable block increment
    */
   @Override
@@ -82,12 +80,9 @@ public abstract class ModernVertWidget extends ModernWidget implements Scrollabl
   /**
    * Gets the scrollable unit increment.
    *
-   * @param arg0
-   *          the arg 0
-   * @param arg1
-   *          the arg 1
-   * @param arg2
-   *          the arg 2
+   * @param arg0 the arg 0
+   * @param arg1 the arg 1
+   * @param arg2 the arg 2
    * @return the scrollable unit increment
    */
   @Override

@@ -62,8 +62,7 @@ public class RibbonStripContainer extends VCenterBox {
   /**
    * Instantiates a new ribbon strip container.
    *
-   * @param components
-   *          the components
+   * @param components the components
    */
   public RibbonStripContainer(Component... components) {
     this();

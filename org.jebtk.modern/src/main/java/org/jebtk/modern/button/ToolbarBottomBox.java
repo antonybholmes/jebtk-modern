@@ -52,7 +52,8 @@ public class ToolbarBottomBox extends Box {
   /**
    * The constant LINE_COLOR.
    */
-  private static final Color LINE_COLOR = ThemeService.getInstance().colors().getHighlight(4);
+  private static final Color LINE_COLOR = ThemeService.getInstance().colors()
+      .getHighlight(4);
 
   /**
    * The member internal box.

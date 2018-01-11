@@ -53,10 +53,12 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
   static final int TAB_SIZE = 42;
 
   /** The Constant TEXT_TAB_HIGHLIGHT_COLOR. */
-  static final Color TEXT_TAB_HIGHLIGHT_COLOR = ColorUtils.getTransparentColor90(Color.BLACK);
+  static final Color TEXT_TAB_HIGHLIGHT_COLOR = ColorUtils
+      .getTransparentColor90(Color.BLACK);
 
   /** The Constant TEXT_TAB_SELECTED_COLOR. */
-  static final Color TEXT_TAB_SELECTED_COLOR = ColorUtils.getTransparentColor50(Color.BLACK); // Color.WHITE;
+  static final Color TEXT_TAB_SELECTED_COLOR = ColorUtils
+      .getTransparentColor50(Color.BLACK); // Color.WHITE;
 
   // private static final Color BG_COLOR =
   // ThemeService.getInstance().colors().getHighlight32(0);
@@ -76,8 +78,7 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
   /**
    * Instantiates a new block vert tabs.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public BlockVertTabs(TabsModel model) {
     this(model, TAB_SIZE);
@@ -86,10 +87,8 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
   /**
    * Instantiates a new block vert tabs.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
+   * @param model the model
+   * @param tabSize the tab size
    */
   public BlockVertTabs(TabsModel model, int tabSize) {
     super(model, false);
@@ -127,8 +126,8 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
    * 
    * try { g2Temp.setColor(TEXT_TAB_HIGHLIGHT_COLOR);
    * 
-   * g2Temp.translate(x, y + mHighlight * mTabSize); g2Temp.fill(mP); } finally {
-   * g2Temp.dispose(); } }
+   * g2Temp.translate(x, y + mHighlight * mTabSize); g2Temp.fill(mP); } finally
+   * { g2Temp.dispose(); } }
    * 
    * 
    * // // Draw the selected tab //
@@ -152,7 +151,8 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -197,7 +197,8 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
       // textY += mTabSize;
     }
 
-    // g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW() - 1,
+    // g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW()
+    // - 1,
     // mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING);
   }
 
@@ -230,10 +231,8 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
   /**
    * Gets the tab.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    * @return the tab
    */
   protected int getTab(int x, int y) {
@@ -274,13 +273,18 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
   public void componentResized(ComponentEvent e) {
     mP = new GeneralPath();
     mP.moveTo(RibbonMenuItem.OFFSET, RibbonMenuItem.ROUNDING);
-    mP.append(new Arc2D.Float(RibbonMenuItem.OFFSET, 0, RibbonMenuItem.ROUNDING, RibbonMenuItem.ROUNDING, 180, -90,
-        Arc2D.OPEN), true);
+    mP.append(
+        new Arc2D.Float(RibbonMenuItem.OFFSET, 0, RibbonMenuItem.ROUNDING,
+            RibbonMenuItem.ROUNDING, 180, -90, Arc2D.OPEN),
+        true);
     mP.lineTo(getWidth(), 0);
     mP.lineTo(getWidth(), mTabSize);
     mP.lineTo(RibbonMenuItem.OFFSET + RibbonMenuItem.ROUNDING, mTabSize);
-    mP.append(new Arc2D.Float(RibbonMenuItem.OFFSET, mTabSize - RibbonMenuItem.ROUNDING, RibbonMenuItem.ROUNDING,
-        RibbonMenuItem.ROUNDING, 270, -90, Arc2D.OPEN), true);
+    mP.append(
+        new Arc2D.Float(RibbonMenuItem.OFFSET,
+            mTabSize - RibbonMenuItem.ROUNDING, RibbonMenuItem.ROUNDING,
+            RibbonMenuItem.ROUNDING, 270, -90, Arc2D.OPEN),
+        true);
     mP.closePath();
   }
 

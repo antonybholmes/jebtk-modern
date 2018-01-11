@@ -39,16 +39,13 @@ public class DeviceConfig {
   /**
    * Instantiates a new device config.
    *
-   * @param i
-   *          the i
-   * @param j
-   *          the j
-   * @param graphicsDevice
-   *          the graphics device
-   * @param graphicsConfiguration
-   *          the graphics configuration
+   * @param i the i
+   * @param j the j
+   * @param graphicsDevice the graphics device
+   * @param graphicsConfiguration the graphics configuration
    */
-  public DeviceConfig(int i, int j, GraphicsDevice graphicsDevice, GraphicsConfiguration graphicsConfiguration) {
+  public DeviceConfig(int i, int j, GraphicsDevice graphicsDevice,
+      GraphicsConfiguration graphicsConfiguration) {
     deviceIndex = i;
     configIndex = j;
     device = graphicsDevice;

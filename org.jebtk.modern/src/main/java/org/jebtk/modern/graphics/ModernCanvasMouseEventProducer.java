@@ -38,72 +38,63 @@ public interface ModernCanvasMouseEventProducer {
   /**
    * Add an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addCanvasMouseListener(ModernCanvasMouseListener l);
 
   /**
    * Remove an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeCanvasMouseListener(ModernCanvasMouseListener l);
 
   /**
    * Fire canvas mouse moved.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseMoved(CanvasMouseEvent e);
 
   /**
    * Fire canvas mouse dragged.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseDragged(CanvasMouseEvent e);
 
   /**
    * Fire canvas mouse clicked.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseClicked(CanvasMouseEvent e);
 
   /**
    * Fire canvas mouse pressed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMousePressed(CanvasMouseEvent e);
 
   /**
    * Fire canvas mouse released.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseReleased(CanvasMouseEvent e);
 
   /**
    * Fire canvas mouse entered.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseEntered(CanvasMouseEvent e);
 
   /**
    * Fire canvas mouse exited.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseExited(CanvasMouseEvent e);
 }

@@ -47,7 +47,13 @@ public class RadioButtonSelectedVectorIcon extends RadioButtonVectorIcon {
    * Graphics2D, int, int, int, int)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
-    WidgetRendererService.getInstance().getRenderer().drawRadioSelected(g2, x, y, w, h);
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
+    WidgetRendererService.getInstance().getRenderer()
+        .drawRadioSelected(g2, x, y, w, h);
   }
 }

@@ -41,8 +41,7 @@ import org.jebtk.core.event.ChangeEvent;
  * cells do not need an object.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
 public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
 
@@ -74,8 +73,7 @@ public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
   /**
    * Instantiates a new modern data cell model.
    *
-   * @param defaultObject
-   *          the default object
+   * @param defaultObject the default object
    */
   public ModernDataCellModel(T defaultObject) {
     setDefault(defaultObject);
@@ -84,8 +82,7 @@ public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
   /**
    * Sets the default.
    *
-   * @param defaultObject
-   *          the new default
+   * @param defaultObject the new default
    */
   public void setDefault(T defaultObject) {
     mDefaultObject = defaultObject;
@@ -96,8 +93,7 @@ public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
   /**
    * Equivalent to setDefault().
    *
-   * @param defaultObject
-   *          the default object
+   * @param defaultObject the default object
    */
   public void set(T defaultObject) {
     setDefault(defaultObject);
@@ -106,14 +102,13 @@ public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
   /**
    * Gets the.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
+   * @param row the row
+   * @param col the col
    * @return the t
    */
   public T get(int row, int col) {
-    if (mCellLevelMap.containsKey(row) && mCellLevelMap.get(row).containsKey(col)) {
+    if (mCellLevelMap.containsKey(row)
+        && mCellLevelMap.get(row).containsKey(col)) {
       return mCellLevelMap.get(row).get(col);
     } else if (mColumnLevelMap.containsKey(col)) {
       return mColumnLevelMap.get(col);
@@ -127,12 +122,9 @@ public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
   /**
    * Sets the.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
-   * @param o
-   *          the o
+   * @param row the row
+   * @param col the col
+   * @param o the o
    */
   public void set(int row, int col, T o) {
     if (!mCellLevelMap.containsKey(row)) {
@@ -147,10 +139,8 @@ public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
   /**
    * Sets the row.
    *
-   * @param row
-   *          the row
-   * @param o
-   *          the o
+   * @param row the row
+   * @param o the o
    */
   public void setRow(int row, T o) {
     if (!mRowLevelMap.containsKey(row)) {
@@ -163,10 +153,8 @@ public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
   /**
    * Sets the col.
    *
-   * @param col
-   *          the col
-   * @param o
-   *          the o
+   * @param col the col
+   * @param o the o
    */
   public void setCol(int col, T o) {
     if (!mColumnLevelMap.containsKey(col)) {

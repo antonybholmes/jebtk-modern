@@ -45,7 +45,8 @@ import org.jebtk.modern.view.ViewModel;
  * @author Antony Holmes Holmes
  *
  */
-public class RibbonViewSection extends RibbonSection implements ModernClickListener {
+public class RibbonViewSection extends RibbonSection
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -55,19 +56,22 @@ public class RibbonViewSection extends RibbonSection implements ModernClickListe
   /**
    * The list button.
    */
-  private RibbonLargeRadioButton mListButton = new RibbonLargeRadioButton("List",
+  private RibbonLargeRadioButton mListButton = new RibbonLargeRadioButton(
+      "List",
       UIService.getInstance().loadIcon("view_list", UIService.ICON_SIZE_32));
 
   /**
    * The tiles button.
    */
-  private RibbonLargeRadioButton mTilesButton = new RibbonLargeRadioButton("Tiles",
+  private RibbonLargeRadioButton mTilesButton = new RibbonLargeRadioButton(
+      "Tiles",
       UIService.getInstance().loadIcon("view_tiles", UIService.ICON_SIZE_32));
 
   /**
    * The details button.
    */
-  private RibbonLargeRadioButton mDetailsButton = new RibbonLargeRadioButton("Details",
+  private RibbonLargeRadioButton mDetailsButton = new RibbonLargeRadioButton(
+      "Details",
       UIService.getInstance().loadIcon("view_details", UIService.ICON_SIZE_32));
 
   /**
@@ -78,10 +82,8 @@ public class RibbonViewSection extends RibbonSection implements ModernClickListe
   /**
    * Instantiates a new ribbon view section.
    *
-   * @param ribbon
-   *          the ribbon
-   * @param model
-   *          the model
+   * @param ribbon the ribbon
+   * @param model the model
    */
   public RibbonViewSection(Ribbon ribbon, ViewModel model) {
     super(ribbon, "View");
@@ -113,8 +115,7 @@ public class RibbonViewSection extends RibbonSection implements ModernClickListe
   /**
    * Enabled or disable all the controls on the panel.
    *
-   * @param enabled
-   *          the new enabled
+   * @param enabled the new enabled
    */
   public final void setEnabled(boolean enabled) {
     mDetailsButton.setEnabled(enabled);
@@ -126,8 +127,8 @@ public class RibbonViewSection extends RibbonSection implements ModernClickListe
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     if (mModel == null) {

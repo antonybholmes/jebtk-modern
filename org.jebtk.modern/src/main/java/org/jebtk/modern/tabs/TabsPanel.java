@@ -47,7 +47,8 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class TabsPanel extends TabsController implements HighlightEventProducer {
+public class TabsPanel extends TabsController
+    implements HighlightEventProducer {
 
   private static final long serialVersionUID = 1L;
 
@@ -104,10 +105,8 @@ public class TabsPanel extends TabsController implements HighlightEventProducer 
   /**
    * Instantiates a new text tabs.
    *
-   * @param model
-   *          the model
-   * @param center
-   *          the center
+   * @param model the model
+   * @param center the center
    */
   public TabsPanel(TabsModel model) {
     super(model);
@@ -123,10 +122,8 @@ public class TabsPanel extends TabsController implements HighlightEventProducer 
   /**
    * Change tab.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   protected void changeTab(int x, int y) {
     int tab = -1;
@@ -155,10 +152,8 @@ public class TabsPanel extends TabsController implements HighlightEventProducer 
   /**
    * Highlight.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   protected void highlightTab(int x, int y) {
     int t = -1;

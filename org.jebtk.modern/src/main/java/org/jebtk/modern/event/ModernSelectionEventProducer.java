@@ -40,24 +40,21 @@ public interface ModernSelectionEventProducer {
   /**
    * Add a ModernSelection listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addSelectionListener(ModernSelectionListener l);
 
   /**
    * Remove a ModernSelection listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeSelectionListener(ModernSelectionListener l);
 
   /**
    * fire an event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireSelectionChanged(ChangeEvent event);
 }

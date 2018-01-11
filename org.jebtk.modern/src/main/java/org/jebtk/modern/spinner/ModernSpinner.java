@@ -75,12 +75,14 @@ public class ModernSpinner extends ModernClickWidget {
   /**
    * The member inc button.
    */
-  protected ModernButton mIncButton = new ModernButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+  protected ModernButton mIncButton = new ModernButton(
+      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
   /**
    * The member dec button.
    */
-  protected ModernButton mDecButton = new ModernButton(UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+  protected ModernButton mDecButton = new ModernButton(
+      UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
 
   /**
    * The member min.
@@ -154,7 +156,8 @@ public class ModernSpinner extends ModernClickWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -165,10 +168,8 @@ public class ModernSpinner extends ModernClickWidget {
   /**
    * Instantiates a new modern spinner.
    *
-   * @param min
-   *          the min
-   * @param max
-   *          the max
+   * @param min the min
+   * @param max the max
    */
   public ModernSpinner(int min, int max) {
     mMin = min;
@@ -180,12 +181,9 @@ public class ModernSpinner extends ModernClickWidget {
   /**
    * Instantiates a new modern spinner.
    *
-   * @param min
-   *          the min
-   * @param max
-   *          the max
-   * @param value
-   *          the value
+   * @param min the min
+   * @param max the max
+   * @param value the value
    */
   public ModernSpinner(int min, int max, int value) {
     mMin = min;
@@ -250,8 +248,7 @@ public class ModernSpinner extends ModernClickWidget {
   /**
    * Parses the.
    *
-   * @throws ParseException
-   *           the parse exception
+   * @throws ParseException the parse exception
    */
   private void parse() throws ParseException {
     setValue(TextUtils.parseInt(field.getText()));
@@ -260,8 +257,7 @@ public class ModernSpinner extends ModernClickWidget {
   /**
    * Sets the value.
    *
-   * @param value
-   *          the new value
+   * @param value the new value
    */
   public void setValue(int value) {
     setValue(value, true);
@@ -270,10 +266,8 @@ public class ModernSpinner extends ModernClickWidget {
   /**
    * Sets the value.
    *
-   * @param value
-   *          the value
-   * @param trigger
-   *          the trigger
+   * @param value the value
+   * @param trigger the trigger
    */
   protected void setValue(int value, boolean trigger) {
     if (value < mMin) {

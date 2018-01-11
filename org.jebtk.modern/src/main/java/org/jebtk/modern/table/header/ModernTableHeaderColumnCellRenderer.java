@@ -46,7 +46,8 @@ import org.jebtk.modern.zoom.ZoomCanvas;
 /**
  * The class ModernTableHeaderColumnCellRenderer.
  */
-public class ModernTableHeaderColumnCellRenderer extends ModernTableHeaderCellRenderer {
+public class ModernTableHeaderColumnCellRenderer
+    extends ModernTableHeaderCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -91,12 +92,14 @@ public class ModernTableHeaderColumnCellRenderer extends ModernTableHeaderCellRe
   /**
    * The constant UP_ICON.
    */
-  private static final ModernIcon UP_ICON = UIService.getInstance().loadIcon("up_scroll", UIService.ICON_SIZE_16);
+  private static final ModernIcon UP_ICON = UIService.getInstance()
+      .loadIcon("up_scroll", UIService.ICON_SIZE_16);
 
   /**
    * The constant DOWN_ICON.
    */
-  private static final ModernIcon DOWN_ICON = UIService.getInstance().loadIcon("down_scroll", UIService.ICON_SIZE_16);
+  private static final ModernIcon DOWN_ICON = UIService.getInstance()
+      .loadIcon("down_scroll", UIService.ICON_SIZE_16);
 
   /** The m img line cache. */
   private Map<Integer, BufferedImage> mImgLineCache = new HashMap<Integer, BufferedImage>();
@@ -120,8 +123,8 @@ public class ModernTableHeaderColumnCellRenderer extends ModernTableHeaderCellRe
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#drawBackground(java.awt
-   * .Graphics2D)
+   * org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#drawBackground(java.
+   * awt .Graphics2D)
    */
   @Override
   public void drawBackground(Graphics2D g2) {
@@ -153,7 +156,8 @@ public class ModernTableHeaderColumnCellRenderer extends ModernTableHeaderCellRe
     g2.drawLine(p, 0, p, h - 1);
 
     if (mMode == CellSelectionType.SELECTED) {
-      // g2.drawImage(cacheSelectionLine(mRect.getW()), 0, mRect.getH() - 3, null);
+      // g2.drawImage(cacheSelectionLine(mRect.getW()), 0, mRect.getH() - 3,
+      // null);
 
       g2.setColor(SEL_LINE_COLOR);
       g2.fillRect(0, h - 2, w, 2);
@@ -167,8 +171,7 @@ public class ModernTableHeaderColumnCellRenderer extends ModernTableHeaderCellRe
   /**
    * Cache background.
    *
-   * @param w
-   *          the w
+   * @param w the w
    * @return the buffered image
    */
   private BufferedImage cacheBackground(int w) {
@@ -195,8 +198,7 @@ public class ModernTableHeaderColumnCellRenderer extends ModernTableHeaderCellRe
   /**
    * Cache sel background.
    *
-   * @param w
-   *          the w
+   * @param w the w
    * @return the buffered image
    */
   private BufferedImage cacheSelBackground(int w) {
@@ -223,8 +225,7 @@ public class ModernTableHeaderColumnCellRenderer extends ModernTableHeaderCellRe
   /**
    * Cache selection line.
    *
-   * @param w
-   *          the w
+   * @param w the w
    * @return the buffered image
    */
   private BufferedImage cacheSelectionLine(int w) {
@@ -242,7 +243,8 @@ public class ModernTableHeaderColumnCellRenderer extends ModernTableHeaderCellRe
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -253,10 +255,11 @@ public class ModernTableHeaderColumnCellRenderer extends ModernTableHeaderCellRe
     // g2.setFont(ModernWidget.FONT);
 
     /*
-     * int h = mRect.getH() / Math.max(1, mNames.size()); y = getTextYPosCenter(g2,
-     * h);
+     * int h = mRect.getH() / Math.max(1, mNames.size()); y =
+     * getTextYPosCenter(g2, h);
      * 
-     * for (String name : mNames) { String text = getTruncatedText(g2, name, 0, w);
+     * for (String name : mNames) { String text = getTruncatedText(g2, name, 0,
+     * w);
      * 
      * x = (mRect.getW() - g2.getFontMetrics().stringWidth(text)) / 2;
      * 
@@ -293,8 +296,13 @@ public class ModernTableHeaderColumnCellRenderer extends ModernTableHeaderCellRe
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public Component getCellRendererComponent(ModernData dataView,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
 
     if (value != null) {
       setText(value.toString());

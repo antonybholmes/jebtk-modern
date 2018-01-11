@@ -33,8 +33,7 @@ public class RibbonPressedAnimation extends ButtonPressedAnimation {
   /**
    * Instantiates a new ribbon menu animation.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public RibbonPressedAnimation(ModernWidget w) {
     super(w, RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
@@ -85,7 +84,8 @@ public class RibbonPressedAnimation extends ButtonPressedAnimation {
 
         g2.fillRect(x, Ribbon.Y_OFFSET, tabWidth, Ribbon.TAB_HEIGHT);
 
-        double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
+        double r = TranslateAnimation.BEZ_T[getStep()]; // /
+                                                        // (double)TimerAnimation.STEPS;
 
         int w = tabWidth;
 

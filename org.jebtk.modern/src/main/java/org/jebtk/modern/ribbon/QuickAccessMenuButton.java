@@ -48,10 +48,8 @@ public class QuickAccessMenuButton extends ModernMenuButton {
   /**
    * Instantiates a new quick access menu button.
    *
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param icon the icon
+   * @param menu the menu
    */
   public QuickAccessMenuButton(ModernIcon icon, ModernPopupMenu menu) {
     super(icon, menu);
@@ -61,7 +59,7 @@ public class QuickAccessMenuButton extends ModernMenuButton {
 
   /*
    * @Override public void drawBackground(Graphics2D g2) { if (isEnabled()) { if
-   * (mHighlight || mPopupShown) { fill(g2, RibbonMenuItem.MENU_SELECTED_COLOR); }
-   * } }
+   * (mHighlight || mPopupShown) { fill(g2, RibbonMenuItem.MENU_SELECTED_COLOR);
+   * } } }
    */
 }

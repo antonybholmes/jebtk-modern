@@ -37,13 +37,13 @@ import java.awt.Graphics2D;
  *
  * @author Antony Holmes Holmes
  */
-public class ModernWidgetBufferedImageHighlighted extends ModernWidgetBufferedImage {
+public class ModernWidgetBufferedImageHighlighted
+    extends ModernWidgetBufferedImage {
 
   /**
    * Instantiates a new modern widget buffered image highlighted.
    *
-   * @param size
-   *          the size
+   * @param size the size
    */
   public ModernWidgetBufferedImageHighlighted(Dimension size) {
     super(size);
@@ -52,7 +52,8 @@ public class ModernWidgetBufferedImageHighlighted extends ModernWidgetBufferedIm
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidgetBufferedImage#drawBackground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.ModernWidgetBufferedImage#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

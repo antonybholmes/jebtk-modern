@@ -51,8 +51,7 @@ public class ModernBoldTextField extends ModernClipboardTextField {
   /**
    * Instantiates a new modern bold text field.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernBoldTextField(String text) {
 

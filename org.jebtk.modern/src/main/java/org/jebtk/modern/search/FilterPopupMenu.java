@@ -33,8 +33,8 @@ import java.util.Map;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import org.jebtk.core.event.ChangeEvent;
 
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.ColumnLayout;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
@@ -52,7 +52,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class FilterPopupMenu.
  */
-public class FilterPopupMenu extends ModernPopup implements FilterEventListener {
+public class FilterPopupMenu extends ModernPopup
+    implements FilterEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -82,10 +83,8 @@ public class FilterPopupMenu extends ModernPopup implements FilterEventListener 
   /**
    * Instantiates a new filter popup menu.
    *
-   * @param parent
-   *          the parent
-   * @param filterModel
-   *          the filter model
+   * @param parent the parent
+   * @param filterModel the filter model
    */
   public FilterPopupMenu(ModernWindow parent, FilterModel filterModel) {
     mFilterModel = filterModel;
@@ -127,7 +126,8 @@ public class FilterPopupMenu extends ModernPopup implements FilterEventListener 
     box.add(mCheckMenuItem);
 
     for (String name : mFilterModel) {
-      ModernTwoStateWidget menuItem = new ModernCheckSwitch(name, mFilterModel.keep(name));
+      ModernTwoStateWidget menuItem = new ModernCheckSwitch(name,
+          mFilterModel.keep(name));
 
       menuItem.addClickListener(this);
 
@@ -216,8 +216,8 @@ public class FilterPopupMenu extends ModernPopup implements FilterEventListener 
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.search.FilterEventListener#filtersUpdated(org.abh.lib.
-   * event.ChangeEvent)
+   * org.abh.lib.ui.modern.search.FilterEventListener#filtersUpdated(org.abh.
+   * lib. event.ChangeEvent)
    */
   @Override
   public void filtersChanged(ChangeEvent e) {

@@ -55,12 +55,14 @@ public class ModernStatusBar extends ModernComponent {
   private static final long serialVersionUID = 1L;
 
   /** The Constant STATUS_BORDER. */
-  private static final Border STATUS_BORDER = BorderService.getInstance().createBorder(1);
+  private static final Border STATUS_BORDER = BorderService.getInstance()
+      .createBorder(1);
 
   /**
    * The member status label.
    */
-  private ModernStatusLabel mStatusLabel = new ModernStatusLabel(UI.STATUS_READY);
+  private ModernStatusLabel mStatusLabel = new ModernStatusLabel(
+      UI.STATUS_READY);
 
   /**
    * The member model.
@@ -148,8 +150,7 @@ public class ModernStatusBar extends ModernComponent {
   /**
    * Adds the left.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public void addLeft(Component c) {
     mLBox.add(c);
@@ -158,8 +159,7 @@ public class ModernStatusBar extends ModernComponent {
   /**
    * Adds the center.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public void addCenter(Component c) {
     mCBox.add(c);
@@ -168,8 +168,7 @@ public class ModernStatusBar extends ModernComponent {
   /**
    * Adds the right.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public void addRight(Component c) {
     mRBox.add(c);

@@ -52,8 +52,7 @@ public class HTabToolbar extends HBox {
   /**
    * Instantiates a new h tab toolbar2.
    *
-   * @param title
-   *          the title
+   * @param title the title
    */
   public HTabToolbar(String title) {
     this(title, null);
@@ -62,10 +61,8 @@ public class HTabToolbar extends HBox {
   /**
    * Instantiates a new h tab toolbar2.
    *
-   * @param title
-   *          the title
-   * @param c
-   *          the c
+   * @param title the title
+   * @param c the c
    */
   public HTabToolbar(String title, Component c) {
     ModernAutoSizeLabel label = new ModernSubHeadingLabel(title);

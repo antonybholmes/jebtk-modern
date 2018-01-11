@@ -57,7 +57,8 @@ public abstract class TriangleVectorIcon extends ModernVectorScalableIcon {
   /**
    * The constant COLOR.
    */
-  protected static final Color COLOR = ThemeService.getInstance().colors().getHighlight(10);
+  protected static final Color COLOR = ThemeService.getInstance().colors()
+      .getHighlight(10);
 
   /** The m wf. */
   protected double mWf;
@@ -84,8 +85,7 @@ public abstract class TriangleVectorIcon extends ModernVectorScalableIcon {
   /**
    * Instantiates a new triangle vector icon.
    *
-   * @param color1
-   *          the color 1
+   * @param color1 the color 1
    */
   public TriangleVectorIcon(Color color1) {
     super(color1 != null ? color1 : COLOR);
@@ -99,7 +99,12 @@ public abstract class TriangleVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
 
     mWf = w * WIDTH_SCALE;
 

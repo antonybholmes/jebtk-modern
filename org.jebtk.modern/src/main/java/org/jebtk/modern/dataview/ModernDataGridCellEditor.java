@@ -29,10 +29,10 @@ package org.jebtk.modern.dataview;
 
 import java.awt.Component;
 
-import org.jebtk.core.event.ChangeEvent;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.text.ModernNumericalTextField;
 import org.jebtk.modern.text.ModernTextField;
@@ -41,7 +41,8 @@ import org.jebtk.modern.text.ModernTextField;
 /**
  * The class ModernDataGridCellEditor.
  */
-public class ModernDataGridCellEditor extends ModernDataCellEditor implements DocumentListener {
+public class ModernDataGridCellEditor extends ModernDataCellEditor
+    implements DocumentListener {
 
   /**
    * The constant serialVersionUID.
@@ -61,12 +62,14 @@ public class ModernDataGridCellEditor extends ModernDataCellEditor implements Do
   /**
    * The member text panel.
    */
-  private ModernPanel mTextPanel = new ModernPanel(mTextField, ModernPanel.SMALL_BORDER);
+  private ModernPanel mTextPanel = new ModernPanel(mTextField,
+      ModernPanel.SMALL_BORDER);
 
   /**
    * The member number panel.
    */
-  private ModernPanel mNumberPanel = new ModernPanel(mNumberField, ModernPanel.SMALL_BORDER);
+  private ModernPanel mNumberPanel = new ModernPanel(mNumberField,
+      ModernPanel.SMALL_BORDER);
 
   /**
    * The member is number.
@@ -91,8 +94,7 @@ public class ModernDataGridCellEditor extends ModernDataCellEditor implements Do
   /**
    * Instantiates a new modern data grid cell editor.
    *
-   * @param editable
-   *          the editable
+   * @param editable the editable
    */
   public ModernDataGridCellEditor(boolean editable) {
     mTextField.setEditable(editable);
@@ -105,7 +107,8 @@ public class ModernDataGridCellEditor extends ModernDataCellEditor implements Do
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
    */
   @Override
   public final Object getCellEditorValue() {
@@ -125,8 +128,13 @@ public class ModernDataGridCellEditor extends ModernDataCellEditor implements Do
    * boolean, boolean, int, int)
    */
   @Override
-  public Component getCellEditorComponent(ModernData view, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public Component getCellEditorComponent(ModernData view,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
 
     mIsNumber = false;
 

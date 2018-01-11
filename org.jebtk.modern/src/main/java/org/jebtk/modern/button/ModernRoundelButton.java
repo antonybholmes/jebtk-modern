@@ -68,8 +68,7 @@ public class ModernRoundelButton extends ModernButton {
   /**
    * Instantiates a new modern roundel button.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernRoundelButton(String text) {
     super(text);
@@ -87,7 +86,8 @@ public class ModernRoundelButton extends ModernButton {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

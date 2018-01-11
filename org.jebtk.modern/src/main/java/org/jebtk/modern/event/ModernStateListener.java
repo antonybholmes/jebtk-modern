@@ -41,8 +41,7 @@ public interface ModernStateListener extends EventListener {
   /**
    * State changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void stateChanged(ModernStateEvent e);
 }

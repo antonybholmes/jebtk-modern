@@ -38,24 +38,21 @@ public interface ModernStateEventProducer {
   /**
    * Add a State listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addStateListener(ModernStateListener l);
 
   /**
    * Remove a State listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeStateListener(ModernStateListener l);
 
   /**
    * fire an event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireStateChanged(ModernStateEvent event);
 }

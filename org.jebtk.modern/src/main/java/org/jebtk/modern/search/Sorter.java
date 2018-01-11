@@ -36,13 +36,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.jebtk.core.tree.TreeNode;
-
 import org.jebtk.core.NameProperty;
 import org.jebtk.core.collections.ArrayListCreator;
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.text.NaturalComparator;
+import org.jebtk.core.tree.TreeNode;
 import org.jebtk.core.tree.TreeRootNode;
 import org.jebtk.modern.tree.ModernTree;
 
@@ -52,10 +51,10 @@ import org.jebtk.modern.tree.ModernTree;
  * experiments and a tree, generate a custom sorted tree of experiments.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public abstract class Sorter<T extends NameProperty> implements Comparable<Sorter<T>>, NameProperty {
+public abstract class Sorter<T extends NameProperty>
+    implements Comparable<Sorter<T>>, NameProperty {
 
   public static final Comparator<String> STRING_NAT_SORTER = new NaturalComparator<String>();
 
@@ -69,24 +68,21 @@ public abstract class Sorter<T extends NameProperty> implements Comparable<Sorte
   /**
    * Arrange.
    *
-   * @param items
-   *          the items
-   * @param tree
-   *          the tree
-   * @param ascending
-   *          the ascending
-   * @param filterModel
-   *          the filter model
+   * @param items the items
+   * @param tree the tree
+   * @param ascending the ascending
+   * @param filterModel the filter model
    */
-  public abstract void arrange(Collection<T> items, ModernTree<T> tree, boolean ascending, FilterModel filterModel);
+  public abstract void arrange(Collection<T> items,
+      ModernTree<T> tree,
+      boolean ascending,
+      FilterModel filterModel);
 
   /**
    * Filter.
    *
-   * @param items
-   *          the items
-   * @param filterModel
-   *          the filter model
+   * @param items the items
+   * @param filterModel the filter model
    */
   public void filter(Collection<T> items, FilterModel filterModel) {
     filterModel.clear();
@@ -95,12 +91,11 @@ public abstract class Sorter<T extends NameProperty> implements Comparable<Sorte
   /**
    * Adds the filter names.
    *
-   * @param names
-   *          the names
-   * @param filterModel
-   *          the filter model
+   * @param names the names
+   * @param filterModel the filter model
    */
-  public static void addFilterNames(Collection<String> names, FilterModel filterModel) {
+  public static void addFilterNames(Collection<String> names,
+      FilterModel filterModel) {
     filterModel.setSelected(names, true);
   }
 
@@ -110,7 +105,8 @@ public abstract class Sorter<T extends NameProperty> implements Comparable<Sorte
    * @param names
    * @param filterModel
    */
-  public static void addSortedFilterNames(Collection<String> names, FilterModel filterModel) {
+  public static void addSortedFilterNames(Collection<String> names,
+      FilterModel filterModel) {
     addFilterNames(CollectionUtils.sort(names, STRING_NAT_SORTER), filterModel);
   }
 
@@ -140,16 +136,15 @@ public abstract class Sorter<T extends NameProperty> implements Comparable<Sorte
   /**
    * Sort a set of ChipSeqSamples by name.
    *
-   * @param <X>
-   *          the generic type
-   * @param items
-   *          the items
-   * @param ascending
-   *          the ascending
+   * @param <X> the generic type
+   * @param items the items
+   * @param ascending the ascending
    * @return the list
    */
-  public static <X extends NameProperty> List<X> sortByName(Iterable<X> items, boolean ascending) {
-    Map<String, List<X>> itemMap = DefaultHashMap.create(new ArrayListCreator<X>());
+  public static <X extends NameProperty> List<X> sortByName(Iterable<X> items,
+      boolean ascending) {
+    Map<String, List<X>> itemMap = DefaultHashMap
+        .create(new ArrayListCreator<X>());
 
     for (X item : items) {
       String name = item.getName();
@@ -157,7 +152,8 @@ public abstract class Sorter<T extends NameProperty> implements Comparable<Sorte
       itemMap.get(name).add(item);
     }
 
-    List<String> names = CollectionUtils.sort(itemMap.keySet(), STRING_NAT_SORTER);
+    List<String> names = CollectionUtils.sort(itemMap.keySet(),
+        STRING_NAT_SORTER);
 
     if (!ascending) {
       Collections.reverse(names);
@@ -177,18 +173,17 @@ public abstract class Sorter<T extends NameProperty> implements Comparable<Sorte
   /**
    * Arrange.
    *
-   * @param <X>
-   *          the generic type
-   * @param map
-   *          the map
-   * @param ascending
-   *          the ascending
-   * @param tree
-   *          the tree
+   * @param <X> the generic type
+   * @param map the map
+   * @param ascending the ascending
+   * @param tree the tree
    */
-  protected <X extends Comparable<? super X>> void arrange(Map<X, ? extends Iterable<T>> map, boolean ascending,
+  protected <X extends Comparable<? super X>> void arrange(
+      Map<X, ? extends Iterable<T>> map,
+      boolean ascending,
       ModernTree<T> tree) {
-    List<X> sortedNames = CollectionUtils.sortKeys(map, new NaturalComparator<X>(), ascending);
+    List<X> sortedNames = CollectionUtils
+        .sortKeys(map, new NaturalComparator<X>(), ascending);
 
     tree.clear();
 
@@ -215,19 +210,17 @@ public abstract class Sorter<T extends NameProperty> implements Comparable<Sorte
    * Create a tree from a date map. Dates will sorted in order and formatted
    * according the format provided.
    *
-   * @param <X>
-   *          the generic type
-   * @param map
-   *          the map
-   * @param format
-   *          the format
-   * @param ascending
-   *          the ascending
-   * @param tree
-   *          the tree
+   * @param <X> the generic type
+   * @param map the map
+   * @param format the format
+   * @param ascending the ascending
+   * @param tree the tree
    */
-  protected <X extends Comparable<? super X>> void arrange(Map<Date, ? extends Iterable<T>> map, DateFormat format,
-      boolean ascending, ModernTree<T> tree) {
+  protected <X extends Comparable<? super X>> void arrange(
+      Map<Date, ? extends Iterable<T>> map,
+      DateFormat format,
+      boolean ascending,
+      ModernTree<T> tree) {
     List<Date> sortedDates = CollectionUtils.sortKeys(map, ascending);
 
     tree.clear();

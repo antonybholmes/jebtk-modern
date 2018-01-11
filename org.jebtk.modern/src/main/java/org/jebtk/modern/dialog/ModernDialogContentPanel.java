@@ -43,10 +43,10 @@ public class ModernDialogContentPanel extends ModernComponent {
   /**
    * Instantiates a new modern dialog content panel.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public ModernDialogContentPanel(Component c) {
-    super(new ModernDialogBorderPanel(new ModernComponent(c))); // , ModernWidget.DOUBLE_BORDER)));
+    super(new ModernDialogBorderPanel(new ModernComponent(c))); // ,
+                                                                // ModernWidget.DOUBLE_BORDER)));
   }
 }

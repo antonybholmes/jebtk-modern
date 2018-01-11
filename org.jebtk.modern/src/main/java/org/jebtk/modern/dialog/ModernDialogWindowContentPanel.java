@@ -47,6 +47,7 @@ public class ModernDialogWindowContentPanel extends ModernPanel {
    * Instantiates a new modern dialog window content panel.
    */
   public ModernDialogWindowContentPanel() {
-    super(ModernDialogWindow.DIALOG_BACKGROUND); // , ModernDialogWindow.DIALOG_BACKGROUND);
+    super(ModernDialogWindow.DIALOG_BACKGROUND); // ,
+                                                 // ModernDialogWindow.DIALOG_BACKGROUND);
   }
 }

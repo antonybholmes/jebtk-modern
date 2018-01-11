@@ -42,7 +42,8 @@ public abstract class ModernColumnHeaderTableModel extends ModernTableModel {
   /**
    * The constant HEADER_NAMES.
    */
-  protected static final List<String> HEADER_NAMES = CollectionUtils.asList("Name");
+  protected static final List<String> HEADER_NAMES = CollectionUtils
+      .asList("Name");
 
   /*
    * (non-Javadoc)

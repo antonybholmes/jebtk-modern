@@ -31,7 +31,6 @@ import java.text.ParseException;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.combobox.ModernComboBox;
@@ -49,7 +48,8 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class ZoomRibbonPanel extends HBox implements Zoom, ModernClickListener, ChangeListener {
+public class ZoomRibbonPanel extends HBox
+    implements Zoom, ModernClickListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -84,8 +84,7 @@ public class ZoomRibbonPanel extends HBox implements Zoom, ModernClickListener, 
   /**
    * Instantiates a new zoom ribbon panel2.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ZoomRibbonPanel(ZoomModel model) {
     mModel = model;
@@ -106,8 +105,7 @@ public class ZoomRibbonPanel extends HBox implements Zoom, ModernClickListener, 
   /**
    * Enabled or disable all the controls on the panel.
    *
-   * @param enabled
-   *          the enabled
+   * @param enabled the enabled
    */
   public final void enableControls(boolean enabled) {
     mZoomCombo.setEnabled(enabled);
@@ -117,8 +115,8 @@ public class ZoomRibbonPanel extends HBox implements Zoom, ModernClickListener, 
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     try {
@@ -131,7 +129,8 @@ public class ZoomRibbonPanel extends HBox implements Zoom, ModernClickListener, 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+   * @see
+   * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void changed(ChangeEvent e) {
@@ -150,8 +149,7 @@ public class ZoomRibbonPanel extends HBox implements Zoom, ModernClickListener, 
   /**
    * Parses the zoom.
    *
-   * @throws ParseException
-   *           the parse exception
+   * @throws ParseException the parse exception
    */
   private void parseZoom() throws ParseException {
     setZoom(TextUtils.parseDouble(mZoomCombo.getText()) / 100.0);

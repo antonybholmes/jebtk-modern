@@ -68,12 +68,9 @@ public abstract class SteppedSlider extends Slider {
   /**
    * Instantiates a new stepped slider.
    *
-   * @param min
-   *          the min
-   * @param max
-   *          the max
-   * @param value
-   *          the value
+   * @param min the min
+   * @param max the max
+   * @param value the value
    */
   public SteppedSlider(double min, double max, double value) {
     this(value, Linspace.evenlySpaced(min, max, 1));
@@ -82,10 +79,8 @@ public abstract class SteppedSlider extends Slider {
   /**
    * Instantiates a new stepped slider.
    *
-   * @param value
-   *          the value
-   * @param marks
-   *          the marks
+   * @param value the value
+   * @param marks the marks
    */
   public SteppedSlider(double value, List<Double> marks) {
     this(value, CollectionUtils.toArray(marks));
@@ -94,10 +89,8 @@ public abstract class SteppedSlider extends Slider {
   /**
    * Instantiates a new stepped slider.
    *
-   * @param value
-   *          the value
-   * @param marks
-   *          the marks
+   * @param value the value
+   * @param marks the marks
    */
   public SteppedSlider(double value, double... marks) {
     mMarks = marks;
@@ -183,8 +176,7 @@ public abstract class SteppedSlider extends Slider {
   /**
    * Update the slider without causing a change event.
    *
-   * @param v
-   *          the v
+   * @param v the v
    */
   @Override
   public void updateValue(double v) {
@@ -203,8 +195,7 @@ public abstract class SteppedSlider extends Slider {
   /**
    * Return the value of a given mark.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the value
    */
   public double getValue(int index) {
@@ -214,8 +205,7 @@ public abstract class SteppedSlider extends Slider {
   /**
    * Get the closest index of the mark closest and less than or equal to v.
    *
-   * @param v
-   *          the v
+   * @param v the v
    * @return the pc
    */
   public int getPc(double v) {
@@ -251,8 +241,7 @@ public abstract class SteppedSlider extends Slider {
   /**
    * Gets the index from X.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the index from X
    */
   public int getIndexFromX(int x) {
@@ -271,8 +260,7 @@ public abstract class SteppedSlider extends Slider {
   /**
    * Gets the closest value.
    *
-   * @param v
-   *          the v
+   * @param v the v
    * @return the closest value
    */
   public double getClosestValue(double v) {

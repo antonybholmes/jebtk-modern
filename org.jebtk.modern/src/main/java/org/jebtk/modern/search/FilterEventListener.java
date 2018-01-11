@@ -46,16 +46,14 @@ public interface FilterEventListener extends EventListener {
   /**
    * Filter changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void filtersUpdated(ChangeEvent e);
 
   /**
    * Invoked when filters update occurs.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void filtersChanged(ChangeEvent e);
 }

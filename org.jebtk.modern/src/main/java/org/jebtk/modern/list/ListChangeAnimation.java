@@ -17,9 +17,8 @@ package org.jebtk.modern.list;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.animation.TranslateYAnimation;
 import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.theme.RenderMode;
@@ -39,25 +38,26 @@ public class ListChangeAnimation extends TranslateYAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public ListChangeAnimation(ModernWidget tabs) {
     super((ModernList<?>) tabs);
 
     mTabs = (ModernList<?>) tabs;
 
-    mTabs.getSelectionModel().addSelectionListener(new ModernSelectionListener() {
-      @Override
-      public void selectionChanged(ChangeEvent e) {
-        restart();
-      }
-    });
+    mTabs.getSelectionModel()
+        .addSelectionListener(new ModernSelectionListener() {
+          @Override
+          public void selectionChanged(ChangeEvent e) {
+            restart();
+          }
+        });
 
     /*
      * mTabs.addComponentListener(new ComponentAdapter() {
      * 
-     * @Override public void componentResized(ComponentEvent arg0) { restart(); }});
+     * @Override public void componentResized(ComponentEvent arg0) { restart();
+     * }});
      */
   }
 
@@ -73,9 +73,11 @@ public class ListChangeAnimation extends TranslateYAnimation {
       previousIndex = selectedIndex - 1;
     }
 
-    previousIndex = Mathematics.bound(previousIndex, 0, mTabs.getItemCount() - 1);
+    previousIndex = Mathematics
+        .bound(previousIndex, 0, mTabs.getItemCount() - 1);
 
-    selectedIndex = Mathematics.bound(selectedIndex, 0, mTabs.getItemCount() - 1);
+    selectedIndex = Mathematics
+        .bound(selectedIndex, 0, mTabs.getItemCount() - 1);
 
     int y1 = mTabs.getInsets().top + previousIndex * mTabs.mRowHeight;
 
@@ -85,12 +87,20 @@ public class ListChangeAnimation extends TranslateYAnimation {
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void drawTranslation(ModernWidget widget,
+      Graphics2D g2,
+      Object... params) {
     // g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR);
     // g2.fill(mTabs.mP);
     // g2.fillRect(0, 0, widget.getWidth(), mTabs.mRowHeight);
 
-    widget.getWidgetRenderer().drawMenu(g2, 0, 0, widget.getWidth(), mTabs.mRowHeight, RenderMode.SELECTED, false);
+    widget.getWidgetRenderer().drawMenu(g2,
+        0,
+        0,
+        widget.getWidth(),
+        mTabs.mRowHeight,
+        RenderMode.SELECTED,
+        false);
 
   }
 }

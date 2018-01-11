@@ -46,10 +46,8 @@ public class RecentSearchTermButton extends ModernButton {
   /**
    * Instantiates a new recent search term button.
    *
-   * @param text
-   *          the text
-   * @param icon
-   *          the icon
+   * @param text the text
+   * @param icon the icon
    */
   public RecentSearchTermButton(String text, ModernIcon icon) {
     super(text, icon);

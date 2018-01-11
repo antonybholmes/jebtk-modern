@@ -29,8 +29,7 @@ public class QuickAccessAnimation extends ButtonHighlightAnimation {
   /**
    * Instantiates a new quick access animation.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public QuickAccessAnimation(ModernClickWidget button) {
     super(button);
@@ -42,10 +41,17 @@ public class QuickAccessAnimation extends ButtonHighlightAnimation {
    * (non-Javadoc)
    * 
    * @see org.abh.common.ui.widget.ButtonAnimation#drawButtonOutline(java.awt.
-   * Graphics2D, int, int, int, int, org.abh.common.ui.theme.RenderMode, boolean)
+   * Graphics2D, int, int, int, int, org.abh.common.ui.theme.RenderMode,
+   * boolean)
    */
   @Override
-  public void drawButtonOutline(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawButtonOutline(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     // Do nothing
   }
 

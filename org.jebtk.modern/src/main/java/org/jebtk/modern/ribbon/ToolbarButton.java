@@ -59,8 +59,7 @@ public class ToolbarButton extends ModernButton {
   /**
    * Instantiates a new toolbar button2.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ToolbarButton(String text) {
     super(text);
@@ -71,8 +70,7 @@ public class ToolbarButton extends ModernButton {
   /**
    * Instantiates a new toolbar button2.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ToolbarButton(ModernIcon icon) {
     super(icon);
@@ -83,7 +81,7 @@ public class ToolbarButton extends ModernButton {
   /*
    * @Override public void drawBackground(Graphics2D g2) { if (mHighlight) {
    * paintHighlightedOutlined(g2, getRect()); } else if(hasFocus()) {
-   * paintOutlinedFocused(g2, getRect()); } else { paintOutlined(g2, getRect()); }
-   * }
+   * paintOutlinedFocused(g2, getRect()); } else { paintOutlined(g2, getRect());
+   * } }
    */
 }

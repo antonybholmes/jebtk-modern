@@ -35,7 +35,8 @@ public class FontUtils {
   static {
     FONT_UNDERLINE_MAP.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 
-    FONT_STRIKE_MAP.put(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
+    FONT_STRIKE_MAP.put(TextAttribute.STRIKETHROUGH,
+        TextAttribute.STRIKETHROUGH_ON);
   }
 
   /**
@@ -48,8 +49,7 @@ public class FontUtils {
   /**
    * Create a bold version of a font.
    *
-   * @param font
-   *          the font
+   * @param font the font
    * @return the font
    */
   public static Font bold(final Font font) {
@@ -59,8 +59,7 @@ public class FontUtils {
   /**
    * Create an underlined version of a font.
    *
-   * @param font
-   *          the font
+   * @param font the font
    * @return the font
    */
   public static Font underline(Font font) {
@@ -70,8 +69,7 @@ public class FontUtils {
   /**
    * Strikethrough.
    *
-   * @param font
-   *          the font
+   * @param font the font
    * @return the font
    */
   public static Font strikethrough(Font font) {
@@ -81,10 +79,8 @@ public class FontUtils {
   /**
    * Returns a scaled version of a font.
    * 
-   * @param font
-   *          A font.
-   * @param zoom
-   *          A zoom factor. 1 = no scaling, 2 = 200 %, 1.5 = 150%.
+   * @param font A font.
+   * @param zoom A zoom factor. 1 = no scaling, 2 = 200 %, 1.5 = 150%.
    * @return A scaled font.
    */
   public static Font scale(Font font, double zoom) {

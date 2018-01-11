@@ -62,7 +62,8 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernScrollBar extends ModernWidget implements ChangeEventProducer {
+public abstract class ModernScrollBar extends ModernWidget
+    implements ChangeEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -77,29 +78,33 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * The constant BASE_COLOR.
    */
-  protected static final Color BASE_COLOR = ThemeService.getInstance().colors().getHighlight(3);
+  protected static final Color BASE_COLOR = ThemeService.getInstance().colors()
+      .getHighlight(3);
 
   /**
    * The constant SCROLLBAR_COLOR.
    */
-  protected static final Color SCROLLBAR_COLOR = ThemeService.getInstance().colors().getHighlight(4);
+  protected static final Color SCROLLBAR_COLOR = ThemeService.getInstance()
+      .colors().getHighlight(4);
 
   /**
    * The constant SCROLLBAR_OUTLINE_COLOR.
    */
-  protected static final Color SCROLLBAR_OUTLINE_COLOR = ThemeService.getInstance().colors().getHighlight(5);
+  protected static final Color SCROLLBAR_OUTLINE_COLOR = ThemeService
+      .getInstance().colors().getHighlight(5);
 
   /**
    * The constant SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR.
    */
-  protected static final Color SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR = ThemeService.getInstance().colors()
-      .getHighlight32(16);
+  protected static final Color SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR = ThemeService
+      .getInstance().colors().getHighlight32(16);
 
   /** The Constant BASE_ROUNDED_COLOR. */
   protected static final Color BASE_ROUNDED_COLOR = Color.BLACK; // ThemeService.getInstance().colors().getHighlight32(31);
 
   /** The Constant ROUNDED_SCROLLBAR_COLOR. */
-  protected static final Color ROUNDED_SCROLLBAR_COLOR = ColorUtils.getTransparentColor60(BASE_ROUNDED_COLOR); // ThemeService.getInstance().colors().getHighlight32(31));
+  protected static final Color ROUNDED_SCROLLBAR_COLOR = ColorUtils
+      .getTransparentColor60(BASE_ROUNDED_COLOR); // ThemeService.getInstance().colors().getHighlight32(31));
 
   /** The Constant ROUNDED_SCROLLBAR_BACKGROUND_COLOR. */
   protected static final Color ROUNDED_SCROLLBAR_BACKGROUND_COLOR = ColorUtils
@@ -108,7 +113,8 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * The constant SCROLLBAR_HIGHLIGHT_COLOR.
    */
-  protected static final Color SCROLLBAR_HIGHLIGHT_COLOR = ThemeService.getInstance().colors().getHighlight(2);
+  protected static final Color SCROLLBAR_HIGHLIGHT_COLOR = ThemeService
+      .getInstance().colors().getHighlight(2);
 
   /**
    * The constant SCROLLBAR_WIDTH.
@@ -232,8 +238,8 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   private static final double MIN_STEP_SIZE = 0.1; // SettingsService.getInstance().getAsDouble("theme.scrollpane.scrollbar.min-step-size");
 
   /**
-   * The normalized amount the component must shift for each pixel the scroll bar
-   * moves.
+   * The normalized amount the component must shift for each pixel the scroll
+   * bar moves.
    */
   protected double mScrollStepSize = MIN_STEP_SIZE;
 
@@ -277,8 +283,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
     /**
      * Instantiates a new mouse wheel events.
      *
-     * @param scrollBar
-     *          the scroll bar
+     * @param scrollBar the scroll bar
      */
     public MouseWheelEvents(ModernScrollBar scrollBar) {
       mScrollBar = scrollBar;
@@ -361,9 +366,8 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Scroll bar setup.
    *
-   * @param scrollWidth
-   *          The number of pixels that can be scrolled, i.e between the two
-   *          scroll buttons.
+   * @param scrollWidth The number of pixels that can be scrolled, i.e between
+   *          the two scroll buttons.
    */
   protected void scrollBarSetup(int scrollWidth) {
     // int vDiff = mVScrollDistance;
@@ -390,12 +394,14 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
     // we shift the scrollbar, how much the component must be shifted.
 
     if (mScrollPixels > 0) {
-      mScrollStepSize = Math.max((double) mScrollDistance / mScrollPixels, MIN_STEP_SIZE);
+      mScrollStepSize = Math.max((double) mScrollDistance / mScrollPixels,
+          MIN_STEP_SIZE);
     } else {
       mScrollStepSize = 0;
     }
 
-    // System.err.println("scrollbar " + scrollWidth + " " + mScrollBarSize + " " +
+    // System.err.println("scrollbar " + scrollWidth + " " + mScrollBarSize + "
+    // " +
     // mScrollDistance + " " + mScrollBarDistance + " " + mScrollStepSize);
 
     updateNormalizedScrollPosition();
@@ -406,8 +412,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Should paint the scroll bar base underneath the buttons and knob.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   protected void paintScrollBarBase(Graphics2D g2) {
     // TODO Auto-generated method stub
@@ -416,10 +421,8 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Should paint the scroll bar or knob.
    *
-   * @param g2
-   *          the g 2
-   * @param r
-   *          the r
+   * @param g2 the g 2
+   * @param r the r
    */
   protected void paintScrollBar(Graphics2D g2, Rectangle r) {
     // TODO Auto-generated method stub
@@ -429,8 +432,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Should paing the up/left button.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   protected void paintUpButton(Graphics2D g2) {
     // TODO Auto-generated method stub
@@ -440,8 +442,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Should paint the down/right button.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   protected void paintDownButton(Graphics2D g2) {
     // TODO Auto-generated method stub
@@ -455,10 +456,8 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Paint scroll bar base.
    *
-   * @param g2
-   *          the g2
-   * @param rect
-   *          the rect
+   * @param g2 the g2
+   * @param rect the rect
    */
   protected void paintScrollBarBase(Graphics2D g2, Rectangle rect) {
     fill(g2, BASE_COLOR, rect);
@@ -467,10 +466,8 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Paint scroll bar base.
    *
-   * @param g2
-   *          the g 2
-   * @param rect
-   *          the rect
+   * @param g2 the g 2
+   * @param rect the rect
    */
   protected void paintScrollBarBase(Graphics2D g2, IntRect rect) {
     fill(g2, BASE_COLOR, rect);
@@ -480,8 +477,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
    * Move the scrollbar n pixels. This will cause the content to move at least n
    * pixels.
    *
-   * @param p
-   *          the new normalized scroll position
+   * @param p the new normalized scroll position
    */
   public void setNormalizedScrollPosition(double p) {
     updateNormalizedScrollPosition(p);
@@ -492,8 +488,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Update normalized scroll position.
    *
-   * @param p
-   *          the p
+   * @param p the p
    */
   public void updateNormalizedScrollPosition(double p) {
     // Only update if there is a change
@@ -526,8 +521,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Increment normalized scroll position.
    *
-   * @param pos
-   *          the pos
+   * @param pos the pos
    */
   public void incrementNormalizedScrollPosition(double pos) {
     setNormalizedScrollPosition(mNormalizedScrollPosition + pos);
@@ -536,8 +530,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Translate a coordinate to the scrollbar distance space.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the double
    */
   public double translate(int x) {
@@ -547,19 +540,17 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Set the minimum size in pixels for the scroll bar.
    *
-   * @param size
-   *          the new minimum scroll bar size
+   * @param size the new minimum scroll bar size
    */
   public void setMinimumScrollBarSize(int size) {
     mMinScrollBarSize = size;
   }
 
   /**
-   * Set the number of pixels the component can move (i.e. the difference between
-   * the view window and the actual component's size.
+   * Set the number of pixels the component can move (i.e. the difference
+   * between the view window and the actual component's size.
    *
-   * @param d
-   *          the new scroll distance
+   * @param d the new scroll distance
    */
   public void setScrollDistance(int d) {
     mScrollDistance = d;
@@ -589,8 +580,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Sets the internal fixed dimension.
    *
-   * @param size
-   *          the new internal fixed dimension
+   * @param size the new internal fixed dimension
    */
   public void setInternalFixedDimension(int size) {
     mIternalFixedDim = size;
@@ -618,8 +608,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Sets the button size.
    *
-   * @param size
-   *          the new button size
+   * @param size the new button size
    */
   public void setButtonSize(int size) {
     mButtonSize = size;
@@ -651,8 +640,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Normalize a pixel position to the scroll distance.
    *
-   * @param d
-   *          the d
+   * @param d the d
    * @return the double
    */
   public double normalize(double d) {
@@ -667,10 +655,8 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Normalizes a distance taking into account the sign of notches.
    *
-   * @param d
-   *          the d
-   * @param notches
-   *          the notches
+   * @param d the d
+   * @param notches the notches
    * @return A normalized representation of d.
    */
   public double normalize(double d, int notches) {
@@ -680,8 +666,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Scale.
    *
-   * @param d
-   *          the d
+   * @param d the d
    * @return the double
    */
   public double scale(double d) {
@@ -703,8 +688,8 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   }
 
   /**
-   * Returns the pixel offset of the scroll bar for setting the view rectangle of
-   * a component.
+   * Returns the pixel offset of the scroll bar for setting the view rectangle
+   * of a component.
    *
    * @return the offset
    */
@@ -728,8 +713,8 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.event.
-   * ChangeListener)
+   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.
+   * event. ChangeListener)
    */
   @Override
   public void removeChangeListener(ChangeListener l) {
@@ -757,8 +742,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Sets the canvas.
    *
-   * @param c
-   *          the new canvas
+   * @param c the new canvas
    */
   public void setView(Component c) {
     mView = c;
@@ -767,8 +751,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Sets the scroller which governs how much the scrollbar moves.
    *
-   * @param scroller
-   *          the new scroller
+   * @param scroller the new scroller
    */
   public void setScroller(Scroller scroller) {
     mScroller = scroller;
@@ -813,8 +796,7 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Sets the location.
    *
-   * @param position
-   *          the new location
+   * @param position the new location
    */
   public void setLocation(ScrollBarLocation position) {
     mLocation = position;
@@ -845,12 +827,11 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Paint scroll bar highlighted.
    *
-   * @param g2
-   *          the g2
-   * @param rect
-   *          the rect
+   * @param g2 the g2
+   * @param rect the rect
    */
-  protected static void paintScrollBarHighlighted(Graphics2D g2, Rectangle rect) {
+  protected static void paintScrollBarHighlighted(Graphics2D g2,
+      Rectangle rect) {
     fill(g2, SCROLLBAR_HIGHLIGHT_COLOR, rect);
     drawRect(g2, SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR, rect);
   }
@@ -858,10 +839,8 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Paint scroll bar button.
    *
-   * @param g2
-   *          the g2
-   * @param rect
-   *          the rect
+   * @param g2 the g2
+   * @param rect the rect
    */
   protected static void paintScrollBarButton(Graphics2D g2, Rectangle rect) {
     paintScrollBarButtonBase(g2, rect);
@@ -871,12 +850,11 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Paint scroll bar button highlighted.
    *
-   * @param g2
-   *          the g2
-   * @param rect
-   *          the rect
+   * @param g2 the g2
+   * @param rect the rect
    */
-  protected static void paintScrollBarButtonHighlighted(Graphics2D g2, Rectangle rect) {
+  protected static void paintScrollBarButtonHighlighted(Graphics2D g2,
+      Rectangle rect) {
     paintHighlightedScrollBarButtonBase(g2, rect);
     drawRect(g2, SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR, rect);
   }
@@ -884,36 +862,33 @@ public abstract class ModernScrollBar extends ModernWidget implements ChangeEven
   /**
    * Paint highlighted scroll bar button base.
    *
-   * @param g2
-   *          the g 2
-   * @param rect
-   *          the rect
+   * @param g2 the g 2
+   * @param rect the rect
    */
-  protected static void paintHighlightedScrollBarButtonBase(Graphics2D g2, Rectangle rect) {
+  protected static void paintHighlightedScrollBarButtonBase(Graphics2D g2,
+      Rectangle rect) {
     fill(g2, BASE_COLOR, rect);
   }
 
   /**
    * Paint scroll bar button base.
    *
-   * @param g2
-   *          the g2
-   * @param rect
-   *          the rect
+   * @param g2 the g2
+   * @param rect the rect
    */
-  protected static void paintScrollBarButtonBase(Graphics2D g2, Rectangle rect) {
+  protected static void paintScrollBarButtonBase(Graphics2D g2,
+      Rectangle rect) {
     fill(g2, SCROLLBAR_BUTTON_BASE_COLOR, rect);
   }
 
   /**
    * Paint scroll bar button border.
    *
-   * @param g2
-   *          the g2
-   * @param rect
-   *          the rect
+   * @param g2 the g2
+   * @param rect the rect
    */
-  protected static void paintScrollBarButtonBorder(Graphics2D g2, Rectangle rect) {
+  protected static void paintScrollBarButtonBorder(Graphics2D g2,
+      Rectangle rect) {
     drawRect(g2, SCROLLBAR_OUTLINE_COLOR, rect);
   }
 

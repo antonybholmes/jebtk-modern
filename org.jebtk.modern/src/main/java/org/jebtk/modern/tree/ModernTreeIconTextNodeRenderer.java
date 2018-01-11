@@ -39,10 +39,10 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * concrete implementations of renderers.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public abstract class ModernTreeIconTextNodeRenderer extends ModernTreeBranchNodeRenderer {
+public abstract class ModernTreeIconTextNodeRenderer
+    extends ModernTreeBranchNodeRenderer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -67,8 +67,7 @@ public abstract class ModernTreeIconTextNodeRenderer extends ModernTreeBranchNod
   /**
    * Sets the icon width.
    *
-   * @param iconWidth
-   *          the new icon width
+   * @param iconWidth the new icon width
    */
   public void setIconWidth(int iconWidth) {
     mIconWidth = iconWidth;
@@ -77,8 +76,7 @@ public abstract class ModernTreeIconTextNodeRenderer extends ModernTreeBranchNod
   /**
    * Sets the icon.
    *
-   * @param icon
-   *          the new icon
+   * @param icon the new icon
    */
   public void setIcon(ModernIcon icon) {
     mIcon = icon;
@@ -88,8 +86,8 @@ public abstract class ModernTreeIconTextNodeRenderer extends ModernTreeBranchNod
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.tree.ModernTreeBranchNodeRenderer#drawNodeIconText(java.awt
-   * .Graphics2D)
+   * org.abh.common.ui.tree.ModernTreeBranchNodeRenderer#drawNodeIconText(java.
+   * awt .Graphics2D)
    */
   @Override
   public void drawNodeIconText(Graphics2D g2) {
@@ -110,22 +108,20 @@ public abstract class ModernTreeIconTextNodeRenderer extends ModernTreeBranchNod
    * Should render any text that appears in the node. The graphics context is
    * already adjusted to be at the correct x.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   public void drawNodeText(Graphics2D g2) {
     // Do nothing
   }
 
   /**
-   * Draws the icon for the node. The graphics context is offset so that x = 0 is
-   * the correctly offset start for the block the icon should be rendered in.
+   * Draws the icon for the node. The graphics context is offset so that x = 0
+   * is the correctly offset start for the block the icon should be rendered in.
    * Therefore the only adjustments that may be required are centering the icon
-   * about (mIconWidth, getHeight()) which represents the space allocated to draw
-   * the icon.
+   * about (mIconWidth, getHeight()) which represents the space allocated to
+   * draw the icon.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   public void drawNodeIcon(Graphics2D g2) {
     if (mIcon != null) {

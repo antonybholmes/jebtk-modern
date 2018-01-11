@@ -62,8 +62,7 @@ public class ModernAutoSizeLabel extends ModernLabel {
   /**
    * Instantiates a new modern label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernAutoSizeLabel(String text) {
     super(text, TEXT_COLOR);
@@ -72,10 +71,8 @@ public class ModernAutoSizeLabel extends ModernLabel {
   /**
    * Instantiates a new modern auto size label.
    *
-   * @param text
-   *          the text
-   * @param font
-   *          the font
+   * @param text the text
+   * @param font the font
    */
   public ModernAutoSizeLabel(String text, Font font) {
     super(text, font);
@@ -84,10 +81,8 @@ public class ModernAutoSizeLabel extends ModernLabel {
   /**
    * Instantiates a new modern label.
    *
-   * @param text
-   *          the text
-   * @param color
-   *          the color
+   * @param text the text
+   * @param color the color
    */
   public ModernAutoSizeLabel(String text, Color color) {
     super(text, color);
@@ -96,10 +91,8 @@ public class ModernAutoSizeLabel extends ModernLabel {
   /**
    * Instantiates a new modern label.
    *
-   * @param text
-   *          the text
-   * @param size
-   *          the size
+   * @param text the text
+   * @param size the size
    */
   public ModernAutoSizeLabel(String text, Dimension size) {
     super(text, size);
@@ -108,10 +101,8 @@ public class ModernAutoSizeLabel extends ModernLabel {
   /**
    * Instantiates a new modern label.
    *
-   * @param text
-   *          the text
-   * @param width
-   *          the width
+   * @param text the text
+   * @param width the width
    */
   public ModernAutoSizeLabel(String text, int width) {
     super(text, width);
@@ -159,7 +150,9 @@ public class ModernAutoSizeLabel extends ModernLabel {
    */
   private void update() {
     if (mText != null) {
-      UI.setSize(this, ModernWidget.getStringWidth(getFont(), mText), ModernWidget.getStringHeight(getFont()));
+      UI.setSize(this,
+          ModernWidget.getStringWidth(getFont(), mText),
+          ModernWidget.getStringHeight(getFont()));
 
       repaint();
     }
@@ -168,8 +161,7 @@ public class ModernAutoSizeLabel extends ModernLabel {
   /**
    * Creates the.
    *
-   * @param text
-   *          the text
+   * @param text the text
    * @return the modern auto size label
    */
   public static ModernAutoSizeLabel create(String text) {
@@ -179,34 +171,33 @@ public class ModernAutoSizeLabel extends ModernLabel {
   /**
    * Creates the.
    *
-   * @param text
-   *          the text
-   * @param family
-   *          the family
-   * @param size
-   *          the size
+   * @param text the text
+   * @param family the family
+   * @param size the size
    * @return the modern auto size label
    */
-  public static ModernAutoSizeLabel create(String text, String family, int size) {
+  public static ModernAutoSizeLabel create(String text,
+      String family,
+      int size) {
     return create(text, family, size, false, false);
   }
 
   /**
    * Creates the.
    *
-   * @param text
-   *          the text
-   * @param family
-   *          the family
-   * @param size
-   *          the size
-   * @param bold
-   *          the bold
-   * @param italic
-   *          the italic
+   * @param text the text
+   * @param family the family
+   * @param size the size
+   * @param bold the bold
+   * @param italic the italic
    * @return the modern auto size label
    */
-  public static ModernAutoSizeLabel create(String text, String family, int size, boolean bold, boolean italic) {
-    return new ModernAutoSizeLabel(text, FontService.getInstance().loadFont(family, size, bold, italic));
+  public static ModernAutoSizeLabel create(String text,
+      String family,
+      int size,
+      boolean bold,
+      boolean italic) {
+    return new ModernAutoSizeLabel(text,
+        FontService.getInstance().loadFont(family, size, bold, italic));
   }
 }

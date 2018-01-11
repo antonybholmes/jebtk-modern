@@ -43,8 +43,7 @@ public class ModernWhiteLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern white label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernWhiteLabel(String text) {
     super(text, Color.WHITE);

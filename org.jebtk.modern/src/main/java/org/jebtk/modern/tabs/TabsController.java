@@ -41,7 +41,8 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class TabsController extends ModernFocusableWidget implements TabEventListener {
+public class TabsController extends ModernFocusableWidget
+    implements TabEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -56,8 +57,7 @@ public class TabsController extends ModernFocusableWidget implements TabEventLis
   /**
    * Instantiates a new tabs controller.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public TabsController(TabsModel model) {
     mModel = model;
@@ -102,9 +102,8 @@ public class TabsController extends ModernFocusableWidget implements TabEventLis
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.modern.
-   * tabs.TabEvent)
+   * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.
+   * modern. tabs.TabEvent)
    */
   @Override
   public void tabChanged(TabEvent e) {
@@ -128,9 +127,8 @@ public class TabsController extends ModernFocusableWidget implements TabEventLis
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.modern.
-   * tabs.TabEvent)
+   * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.
+   * modern. tabs.TabEvent)
    */
   @Override
   public void tabRemoved(TabEvent e) {
@@ -141,9 +139,8 @@ public class TabsController extends ModernFocusableWidget implements TabEventLis
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.modern.
-   * tabs.TabEvent)
+   * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.
+   * modern. tabs.TabEvent)
    */
   @Override
   public void tabResized(TabEvent e) {

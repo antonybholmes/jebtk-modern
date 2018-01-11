@@ -42,7 +42,8 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernTableLayerCellRenderer extends ModernTableCheckboxCellRenderer {
+public class ModernTableLayerCellRenderer
+    extends ModernTableCheckboxCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -52,12 +53,14 @@ public class ModernTableLayerCellRenderer extends ModernTableCheckboxCellRendere
   /**
    * The constant VISIBLE_ICON.
    */
-  private final static ModernIcon VISIBLE_ICON = UIService.getInstance().loadIcon("layer_visible", 16);
+  private final static ModernIcon VISIBLE_ICON = UIService.getInstance()
+      .loadIcon("layer_visible", 16);
 
   /**
    * The constant INVISIBLE_ICON.
    */
-  private final static ModernIcon INVISIBLE_ICON = UIService.getInstance().loadIcon("blank", 16);
+  private final static ModernIcon INVISIBLE_ICON = UIService.getInstance()
+      .loadIcon("blank", 16);
 
   /**
    * Instantiates a new modern table layer cell renderer.
@@ -69,9 +72,8 @@ public class ModernTableLayerCellRenderer extends ModernTableCheckboxCellRendere
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.table.ModernTableCheckboxCellRenderer#drawForegroundAA(
-   * java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.table.ModernTableCheckboxCellRenderer#
+   * drawForegroundAA( java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -88,6 +90,8 @@ public class ModernTableLayerCellRenderer extends ModernTableCheckboxCellRendere
     x = (this.getWidth() - UIService.ICON_SIZE_20) / 2;
     y = (this.getHeight() - UIService.ICON_SIZE_20) / 2;
 
-    drawRect(g2, ThemeService.getInstance().colors().getColorHighlight(2), new Rectangle(x, y, 20, 20));
+    drawRect(g2,
+        ThemeService.getInstance().colors().getColorHighlight(2),
+        new Rectangle(x, y, 20, 20));
   }
 }

@@ -83,8 +83,7 @@ public class ModernTableHeaderRow extends ModernTableHeader {
   /**
    * Instantiates a new modern table header row.
    *
-   * @param table
-   *          the table
+   * @param table the table
    */
   public ModernTableHeaderRow(ModernTable table) {
     super(table);
@@ -105,8 +104,7 @@ public class ModernTableHeaderRow extends ModernTableHeader {
   /**
    * Adjust offset.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    */
   public void adjustOffset(Graphics2D g2) {
     // g2.translate(0, table.getY(table.getVisibleCells().startRow) -
@@ -116,13 +114,13 @@ public class ModernTableHeaderRow extends ModernTableHeader {
   /**
    * Translate.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    */
   public void translate(Graphics2D g2) {
     ModernDataSelection visibleCells = mTable.calculateVisibleCells();
 
-    g2.translate(0, mTable.getY(visibleCells.getStartRow()) - getViewRect().getY());
+    g2.translate(0,
+        mTable.getY(visibleCells.getStartRow()) - getViewRect().getY());
   }
 
   /*
@@ -168,7 +166,10 @@ public class ModernTableHeaderRow extends ModernTableHeader {
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
-    int w = (int) mTable.scale(mTable.getRowModel().getHeaderSize()); // mRect.getW(); ///getWidth() / rowNames.size();
+    int w = (int) mTable.scale(mTable.getRowModel().getHeaderSize()); // mRect.getW();
+                                                                      // ///getWidth()
+                                                                      // /
+                                                                      // rowNames.size();
 
     int i = visibleCells.getStartRow();
     int y = mTable.getY(i);
@@ -180,15 +181,16 @@ public class ModernTableHeaderRow extends ModernTableHeader {
 
       while (y < h) {
 
-        // for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i)
+        // for (int i = visibleCells.getStartRow(); i <=
+        // visibleCells.getEndRow(); ++i)
         // {
         // if (i >= mTable.getRowModel().size()) {
         // break;
         // }
 
         boolean highlight = i == mHighlightRow;
-        boolean selected = mTable.getRowModel().isSelected(i)
-            || mTable.getCellSelectionModel().getRowSelectionModel().contains(i);
+        boolean selected = mTable.getRowModel().isSelected(i) || mTable
+            .getCellSelectionModel().getRowSelectionModel().contains(i);
 
         // first draw row number
 
@@ -208,8 +210,14 @@ public class ModernTableHeaderRow extends ModernTableHeader {
 
         try {
           for (String name : rowNames) {
-            Component c = mTable.getRowHeadingRenderer(i).getCellRendererComponent(mTable, name, highlight, selected,
-                highlight, i, 0);
+            Component c = mTable.getRowHeadingRenderer(i)
+                .getCellRendererComponent(mTable,
+                    name,
+                    highlight,
+                    selected,
+                    highlight,
+                    i,
+                    0);
 
             c.setSize(w, hc);
 
@@ -288,8 +296,7 @@ public class ModernTableHeaderRow extends ModernTableHeader {
   /**
    * In header.
    *
-   * @param e
-   *          the e
+   * @param e the e
    * @return true, if successful
    */
   private boolean inHeader(CanvasMouseEvent e) {
@@ -300,8 +307,8 @@ public class ModernTableHeaderRow extends ModernTableHeader {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.table.header.ModernTableHeader#mouseReleased(java.awt.
-   * event.CanvasMouseEvent)
+   * org.abh.lib.ui.modern.table.header.ModernTableHeader#mouseReleased(java.
+   * awt. event.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseReleased(CanvasMouseEvent e) {
@@ -375,8 +382,8 @@ public class ModernTableHeaderRow extends ModernTableHeader {
      * mHighlightRow = index;
      * 
      * if (inHeader(e)) {
-     * setCursor(Cursor.getPredefinedCursor(mTable.getNearestRowDivider(p.getY()) !=
-     * -1 ? Cursor.S_RESIZE_CURSOR : Cursor.DEFAULT_CURSOR)); }
+     * setCursor(Cursor.getPredefinedCursor(mTable.getNearestRowDivider(p.getY()
+     * ) != -1 ? Cursor.S_RESIZE_CURSOR : Cursor.DEFAULT_CURSOR)); }
      * 
      * mTable.fireCanvasRedraw();
      */

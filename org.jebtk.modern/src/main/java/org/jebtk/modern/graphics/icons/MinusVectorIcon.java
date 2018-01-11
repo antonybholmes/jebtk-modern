@@ -41,7 +41,8 @@ public class MinusVectorIcon extends ModernVectorIcon {
   /**
    * The constant SCALE.
    */
-  protected static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.plus-icon.width-scale");
+  protected static final double SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.plus-icon.width-scale");
 
   /**
    * The color.
@@ -52,14 +53,14 @@ public class MinusVectorIcon extends ModernVectorIcon {
    * Instantiates a new minus vector icon.
    */
   public MinusVectorIcon() {
-    this(SettingsService.getInstance().getAsColor("theme.icons.plus-icon.colors.foreground"));
+    this(SettingsService.getInstance()
+        .getAsColor("theme.icons.plus-icon.colors.foreground"));
   }
 
   /**
    * Instantiates a new minus vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public MinusVectorIcon(Color color) {
     mColor = color;
@@ -73,7 +74,12 @@ public class MinusVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
     g2.setColor(mColor);
 
@@ -83,6 +89,9 @@ public class MinusVectorIcon extends ModernVectorIcon {
     double xf = x + (w - wf) / 2.0;
     double yf = y + (h - wf) / 2.0;
 
-    g2.drawLine((int) Math.round(xf), (int) Math.round(yf + w2), (int) Math.round(xf + wf), (int) Math.round(yf + w2));
+    g2.drawLine((int) Math.round(xf),
+        (int) Math.round(yf + w2),
+        (int) Math.round(xf + wf),
+        (int) Math.round(yf + w2));
   }
 }

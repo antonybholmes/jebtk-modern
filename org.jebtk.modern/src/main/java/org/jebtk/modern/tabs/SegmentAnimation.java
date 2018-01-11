@@ -35,8 +35,7 @@ public class SegmentAnimation extends WidgetAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public SegmentAnimation(ModernWidget w) {
     super(w);
@@ -76,7 +75,9 @@ public class SegmentAnimation extends WidgetAnimation {
 
       String s = mSegments.getTabsModel().getTab(i).getName(); // .toUpperCase();
 
-      g2.drawString(s, x + (mSegments.mTabSize - g2.getFontMetrics().stringWidth(s)) / 2, textY);
+      g2.drawString(s,
+          x + (mSegments.mTabSize - g2.getFontMetrics().stringWidth(s)) / 2,
+          textY);
 
       x += mSegments.mTabSize;
     }

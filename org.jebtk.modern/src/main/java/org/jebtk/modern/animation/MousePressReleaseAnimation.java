@@ -71,8 +71,7 @@ public abstract class MousePressReleaseAnimation extends WidgetAnimation {
   /**
    * Instantiates a new mouse animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public MousePressReleaseAnimation(ModernWidget widget) {
     super(widget);

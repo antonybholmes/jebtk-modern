@@ -52,14 +52,15 @@ public class ModernHScrollBarOffice extends ModernHScrollBar {
   /**
    * The constant LEFT_ARROW_ICON.
    */
-  protected static final ModernIcon LEFT_ARROW_ICON = UIService.getInstance().loadIcon(CheveronLeftVectorIcon.class,
-      SCROLLBAR_SIZE);
+  protected static final ModernIcon LEFT_ARROW_ICON = UIService.getInstance()
+      .loadIcon(CheveronLeftVectorIcon.class, SCROLLBAR_SIZE);
 
   /**
    * The constant RIGHT_ARROW_ICON.
    */
-  protected static final ModernIcon RIGHT_ARROW_ICON = UIService.getInstance().loadIcon(CheveronRightVectorIcon.class,
-      SCROLLBAR_SIZE); // Resources.getInstance().loadIcon("right_scroll", Resources.ICON_SIZE_16);
+  protected static final ModernIcon RIGHT_ARROW_ICON = UIService.getInstance()
+      .loadIcon(CheveronRightVectorIcon.class, SCROLLBAR_SIZE); // Resources.getInstance().loadIcon("right_scroll",
+                                                                // Resources.ICON_SIZE_16);
 
   /**
    * Instantiates a new modern H scroll bar office.
@@ -115,7 +116,8 @@ public class ModernHScrollBarOffice extends ModernHScrollBar {
    */
   @Override
   public void paintUpButton(Graphics2D g2) {
-    Rectangle r = new Rectangle(getInsets().left, getInsets().top, mIternalFixedDim, mIternalFixedDim);
+    Rectangle r = new Rectangle(getInsets().left, getInsets().top,
+        mIternalFixedDim, mIternalFixedDim);
 
     if (mHighlightButton1) {
       paintScrollBarButtonHighlighted(g2, r);
@@ -125,7 +127,10 @@ public class ModernHScrollBarOffice extends ModernHScrollBar {
 
     int offset = (getInternalFixedDimension() - LEFT_ARROW_ICON.getWidth()) / 2;
 
-    LEFT_ARROW_ICON.drawIcon(g2, getInsets().left + offset, getInsets().top + offset, mIternalFixedDim);
+    LEFT_ARROW_ICON.drawIcon(g2,
+        getInsets().left + offset,
+        getInsets().top + offset,
+        mIternalFixedDim);
   }
 
   /*
@@ -137,8 +142,9 @@ public class ModernHScrollBarOffice extends ModernHScrollBar {
    */
   @Override
   public void paintDownButton(Graphics2D g2) {
-    Rectangle r = new Rectangle(getWidth() - mIternalFixedDim - getInsets().right, getInsets().top, mIternalFixedDim,
-        mIternalFixedDim);
+    Rectangle r = new Rectangle(
+        getWidth() - mIternalFixedDim - getInsets().right, getInsets().top,
+        mIternalFixedDim, mIternalFixedDim);
 
     if (mHighlightButton2) {
       paintScrollBarButtonHighlighted(g2, r);
@@ -148,7 +154,9 @@ public class ModernHScrollBarOffice extends ModernHScrollBar {
 
     int offset = (mIternalFixedDim - RIGHT_ARROW_ICON.getWidth()) / 2;
 
-    RIGHT_ARROW_ICON.drawIcon(g2, getWidth() - mIternalFixedDim - getInsets().right + offset, getInsets().top + offset,
+    RIGHT_ARROW_ICON.drawIcon(g2,
+        getWidth() - mIternalFixedDim - getInsets().right + offset,
+        getInsets().top + offset,
         mIternalFixedDim);
   }
 

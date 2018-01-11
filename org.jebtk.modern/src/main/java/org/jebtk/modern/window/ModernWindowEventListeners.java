@@ -28,7 +28,6 @@
 package org.jebtk.modern.window;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.EventProducer;
 
 // TODO: Auto-generated Javadoc
@@ -38,8 +37,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernWindowEventListeners extends EventProducer<ModernWindowListener>
-    implements ModernWindowEventProducer {
+public class ModernWindowEventListeners extends
+    EventProducer<ModernWindowListener> implements ModernWindowEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -50,8 +49,8 @@ public class ModernWindowEventListeners extends EventProducer<ModernWindowListen
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.window.ModernWindowEventProducer#addWindowListener(org.
-   * abh.lib.ui.modern.window.ModernWindowListener)
+   * org.abh.lib.ui.modern.window.ModernWindowEventProducer#addWindowListener(
+   * org. abh.lib.ui.modern.window.ModernWindowListener)
    */
   public void addWindowListener(ModernWindowListener l) {
     mListeners.add(l);
@@ -60,9 +59,8 @@ public class ModernWindowEventListeners extends EventProducer<ModernWindowListen
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.window.ModernWindowEventProducer#removeWindowListener(
-   * org.abh.lib.ui.modern.window.ModernWindowListener)
+   * @see org.abh.lib.ui.modern.window.ModernWindowEventProducer#
+   * removeWindowListener( org.abh.lib.ui.modern.window.ModernWindowListener)
    */
   public void removeWindowListener(ModernWindowListener l) {
     mListeners.remove(l);
@@ -85,8 +83,8 @@ public class ModernWindowEventListeners extends EventProducer<ModernWindowListen
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.window.ModernWindowEventProducer#fireWindowRemoved(org.
-   * abh.lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.window.ModernWindowEventProducer#fireWindowRemoved(
+   * org. abh.lib.event.ChangeEvent)
    */
   public void fireWindowRemoved(ChangeEvent e) {
     for (ModernWindowListener l : mListeners) {

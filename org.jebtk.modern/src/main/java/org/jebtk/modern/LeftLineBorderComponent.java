@@ -43,8 +43,7 @@ public class LeftLineBorderComponent extends ModernComponent {
   /**
    * Instantiates a new left line border component.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public LeftLineBorderComponent(Component c) {
     this();
@@ -55,8 +54,7 @@ public class LeftLineBorderComponent extends ModernComponent {
   /**
    * Instantiates a new left line border component.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public LeftLineBorderComponent(Color color) {
     mColor = color;
@@ -65,10 +63,8 @@ public class LeftLineBorderComponent extends ModernComponent {
   /**
    * Instantiates a new left line border component.
    *
-   * @param c
-   *          the c
-   * @param color
-   *          the color
+   * @param c the c
+   * @param color the color
    */
   public LeftLineBorderComponent(Component c, Color color) {
     this(color);

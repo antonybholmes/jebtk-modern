@@ -26,7 +26,8 @@ import org.jebtk.modern.UI;
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ControlDropDownButton extends ModernDialogFlatDropDownButton {
+public abstract class ControlDropDownButton
+    extends ModernDialogFlatDropDownButton {
 
   /**
    * The constant serialVersionUID.
@@ -41,8 +42,7 @@ public abstract class ControlDropDownButton extends ModernDialogFlatDropDownButt
   /**
    * Instantiates a new dashed line type button.
    *
-   * @param text1
-   *          the text 1
+   * @param text1 the text 1
    */
   public ControlDropDownButton(String text1) {
     super(text1);

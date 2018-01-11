@@ -33,9 +33,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.Timer;
+
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernButton;
@@ -77,7 +77,10 @@ public class ModernZoomSlider extends HBox implements Zoom {
   /**
    * The member slider.
    */
-  private Slider mSlider = new ContinuousMacOrbSlider(1, 0.1, 1, 5); // new MacOrbSlider(1, LEVELS, MID_LEVEL);
+  private Slider mSlider = new ContinuousMacOrbSlider(1, 0.1, 1, 5); // new
+                                                                     // MacOrbSlider(1,
+                                                                     // LEVELS,
+                                                                     // MID_LEVEL);
 
   /**
    * The constant TIMER_DELAY.
@@ -112,12 +115,14 @@ public class ModernZoomSlider extends HBox implements Zoom {
   /**
    * The member zoom in button.
    */
-  private ModernButton mZoomInButton = new RibbonButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+  private ModernButton mZoomInButton = new RibbonButton(
+      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
   /**
    * The member zoom out button.
    */
-  private ModernButton mZoomOutButton = new RibbonButton(UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+  private ModernButton mZoomOutButton = new RibbonButton(
+      UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
 
   // private double[] mZooms;
 
@@ -129,7 +134,8 @@ public class ModernZoomSlider extends HBox implements Zoom {
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see
+     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -242,8 +248,7 @@ public class ModernZoomSlider extends HBox implements Zoom {
   /**
    * Instantiates a new modern zoom slider2.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernZoomSlider(ZoomModel model) {
     mModel = model;
@@ -366,8 +371,8 @@ public class ModernZoomSlider extends HBox implements Zoom {
    * 
    * mZooms[mZooms.length - 1] = mMaxZoom;
    * 
-   * for (int i = mZooms.length - 2; i > HALF_LEVEL; --i) { mZooms[i] = mZooms[i +
-   * 1] - mPInc; } }
+   * for (int i = mZooms.length - 2; i > HALF_LEVEL; --i) { mZooms[i] = mZooms[i
+   * + 1] - mPInc; } }
    */
 
   /*

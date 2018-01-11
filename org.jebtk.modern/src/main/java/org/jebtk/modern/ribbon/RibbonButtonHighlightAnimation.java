@@ -36,8 +36,7 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
   /**
    * Instantiates a new ribbon button animation.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public RibbonButtonHighlightAnimation(ModernWidget button) {
     super(button);
@@ -59,10 +58,17 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
    */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-    if (getWidget().isEnabled()) { // && (getButton().getHightlighted() || getButton().getPopupShown())) {
+    if (getWidget().isEnabled()) { // && (getButton().getHightlighted() ||
+                                   // getButton().getPopupShown())) {
       IntRect rect = getWidget().getInternalRect();
 
-      drawRibbonButtonFill(g2, rect.getX(), rect.getY(), rect.getW(), rect.getH(), mButton.getRenderMode(), false);
+      drawRibbonButtonFill(g2,
+          rect.getX(),
+          rect.getY(),
+          rect.getW(),
+          rect.getH(),
+          mButton.getRenderMode(),
+          false);
 
       /*
        * drawRibbonButtonOutline(g2, rect.getX(), rect.getY(), rect.getW(),
@@ -83,29 +89,28 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
    * g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) { //if
    * (mode == RenderMode.NONE && !hasFocus) { // return; //}
    * 
-   * getWidget().getWidgetRenderer().outline(g2, getFadeColor("outline"), x, y, w,
-   * h); }
+   * getWidget().getWidgetRenderer().outline(g2, getFadeColor("outline"), x, y,
+   * w, h); }
    */
 
   /**
    * Draw ribbon button fill.
    *
-   * @param g2
-   *          the g 2
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param w
-   *          the w
-   * @param h
-   *          the h
-   * @param mode
-   *          the mode
-   * @param hasFocus
-   *          the has focus
+   * @param g2 the g 2
+   * @param x the x
+   * @param y the y
+   * @param w the w
+   * @param h the h
+   * @param mode the mode
+   * @param hasFocus the has focus
    */
-  public void drawRibbonButtonFill(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawRibbonButtonFill(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     // if (mode == RenderMode.NONE) {
     // return;
     // }

@@ -51,10 +51,8 @@ public abstract class ModernIcon {
   /**
    * Draw icon.
    *
-   * @param g2
-   *          the g 2
-   * @param rect
-   *          the rect
+   * @param g2 the g 2
+   * @param rect the rect
    */
   public void drawIcon(Graphics2D g2, IntRect rect) {
     drawIcon(g2, rect.getX(), rect.getY(), rect.getW(), rect.getH());
@@ -63,10 +61,8 @@ public abstract class ModernIcon {
   /**
    * Draw icon.
    *
-   * @param g2
-   *          the g 2
-   * @param rect
-   *          the rect
+   * @param g2 the g 2
+   * @param rect the rect
    */
   public void drawIcon(Graphics2D g2, Rectangle rect) {
     drawIcon(g2, rect.x, rect.y, rect.width, rect.height);
@@ -75,10 +71,8 @@ public abstract class ModernIcon {
   /**
    * Draw the icon in a space wxw at (0, 0).
    *
-   * @param g2
-   *          the g 2
-   * @param w
-   *          the w
+   * @param g2 the g 2
+   * @param w the w
    */
   public void drawIcon(Graphics2D g2, int w) {
     drawIcon(g2, 0, 0, w, w);
@@ -87,14 +81,10 @@ public abstract class ModernIcon {
   /**
    * Draw icon.
    *
-   * @param g2
-   *          the g 2
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param w
-   *          the w
+   * @param g2 the g 2
+   * @param x the x
+   * @param y the y
+   * @param w the w
    */
   public void drawIcon(Graphics2D g2, int x, int y, int w) {
     drawIcon(g2, x, y, w, w);
@@ -103,10 +93,8 @@ public abstract class ModernIcon {
   /**
    * Draw icon.
    *
-   * @param g2
-   *          the g 2
-   * @param dim
-   *          the dim
+   * @param g2 the g 2
+   * @param dim the dim
    */
   public void drawIcon(Graphics2D g2, IntDim dim) {
     drawIcon(g2, 0, 0, dim);
@@ -115,14 +103,10 @@ public abstract class ModernIcon {
   /**
    * Draw the icon at position x, y in a space dim.
    *
-   * @param g2
-   *          the g 2
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param dim
-   *          the dim
+   * @param g2 the g 2
+   * @param x the x
+   * @param y the y
+   * @param dim the dim
    */
   public void drawIcon(Graphics2D g2, int x, int y, IntDim dim) {
     drawIcon(g2, x, y, dim.getW(), dim.getH());
@@ -132,18 +116,18 @@ public abstract class ModernIcon {
    * Draw the icon on the graphics context at the position and size specified by
    * the rectangle.
    *
-   * @param g2
-   *          the g2
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param w
-   *          the w
-   * @param h
-   *          the h
+   * @param g2 the g2
+   * @param x the x
+   * @param y the y
+   * @param w the w
+   * @param h the h
    */
-  public abstract void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params);
+  public abstract void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params);
 
   /**
    * Returns the width of the icon.

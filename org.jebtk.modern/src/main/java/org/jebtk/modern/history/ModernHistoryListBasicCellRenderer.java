@@ -38,10 +38,10 @@ import org.jebtk.modern.list.ModernList;
  * used with standard JTables as well.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public class ModernHistoryListBasicCellRenderer extends ModernHistoryListCellRenderer {
+public class ModernHistoryListBasicCellRenderer
+    extends ModernHistoryListCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -62,8 +62,12 @@ public class ModernHistoryListBasicCellRenderer extends ModernHistoryListCellRen
    * boolean, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row) {
+  public Component getCellRendererComponent(ModernList<?> list,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row) {
 
     if (row <= list.getSelectedIndex()) {
       mTextColor = TEXT_COLOR;
@@ -71,6 +75,11 @@ public class ModernHistoryListBasicCellRenderer extends ModernHistoryListCellRen
       mTextColor = ALT_TEXT_COLOR;
     }
 
-    return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
+    return super.getCellRendererComponent(list,
+        value,
+        highlight,
+        isSelected,
+        hasFocus,
+        row);
   }
 }

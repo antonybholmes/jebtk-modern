@@ -20,7 +20,6 @@ import java.awt.Graphics2D;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.ribbon.Ribbon;
@@ -45,8 +44,7 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public SegmentChangeAnimation(ModernWidget tabs) {
     super(tabs);
@@ -76,14 +74,15 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
     if (previousIndex > selectedIndex) {
       previousIndex = selectedIndex + 1;
     } else {
-      previousIndex = Mathematics.bound(selectedIndex - 1, 0, mTabs.getTabsModel().getTabCount() - 1);
+      previousIndex = Mathematics
+          .bound(selectedIndex - 1, 0, mTabs.getTabsModel().getTabCount() - 1);
     }
 
     int leftOffset = 0;
 
     if (mTabs.mCenter) {
-      leftOffset = mTabs.getInsets().left
-          + (mTabs.getRect().getW() - mTabs.mTabSize * mTabs.getTabsModel().getTabCount()) / 2;
+      leftOffset = mTabs.getInsets().left + (mTabs.getRect().getW()
+          - mTabs.mTabSize * mTabs.getTabsModel().getTabCount()) / 2;
     } else {
       leftOffset = mTabs.getInsets().left;
     }
@@ -95,7 +94,9 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void drawTranslation(ModernWidget widget,
+      Graphics2D g2,
+      Object... params) {
     int h = mTabs.getInternalRect().getH();
 
     /*
@@ -104,9 +105,13 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
      */
 
     // g2.setColor(COLOR);
-    // mTabs.getWidgetRenderer().drawPillButtonFill(g2, 0, 0, mTabs.mTabSize, h);
+    // mTabs.getWidgetRenderer().drawPillButtonFill(g2, 0, 0, mTabs.mTabSize,
+    // h);
 
     g2.setColor(COLOR);
-    g2.fillRect(0, h - RibbonChangeAnimation.BAR_HEIGHT, mTabs.mTabSize, RibbonChangeAnimation.BAR_HEIGHT);
+    g2.fillRect(0,
+        h - RibbonChangeAnimation.BAR_HEIGHT,
+        mTabs.mTabSize,
+        RibbonChangeAnimation.BAR_HEIGHT);
   }
 }

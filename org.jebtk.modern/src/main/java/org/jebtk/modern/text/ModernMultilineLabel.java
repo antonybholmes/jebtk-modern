@@ -102,8 +102,7 @@ public class ModernMultilineLabel extends ModernCanvas implements TextProperty {
   /**
    * Instantiates a new modern multiline label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernMultilineLabel(String text) {
     setFont(ModernWidget.FONT);
@@ -163,7 +162,8 @@ public class ModernMultilineLabel extends ModernCanvas implements TextProperty {
     for (String word : words) {
       // See what happens when we add a new word, if this exceeds the
       // line width, create a new line
-      StringBuilder tp = new StringBuilder(buffer.toString()).append(TextUtils.SPACE_DELIMITER).append(word);
+      StringBuilder tp = new StringBuilder(buffer.toString())
+          .append(TextUtils.SPACE_DELIMITER).append(word);
 
       int w = mG2.getFontMetrics().stringWidth(tp.toString());
 
@@ -180,7 +180,8 @@ public class ModernMultilineLabel extends ModernCanvas implements TextProperty {
       mLines.add(buffer.toString());
     }
 
-    // System.err.println("x " + mInternalRect.getW() + " " + (mH * mLines.size()));
+    // System.err.println("x " + mInternalRect.getW() + " " + (mH *
+    // mLines.size()));
 
     setPreferredSize(new Dimension(Short.MAX_VALUE, mH * mLines.size()));
     setMaximumSize(getPreferredSize());

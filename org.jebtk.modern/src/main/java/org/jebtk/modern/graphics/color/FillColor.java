@@ -32,10 +32,8 @@ public class FillColor {
   /**
    * Instantiates a new fill color.
    *
-   * @param lineColor
-   *          the line color
-   * @param fillColor
-   *          the fill color
+   * @param lineColor the line color
+   * @param fillColor the fill color
    */
   public FillColor(Color lineColor, Color fillColor) {
     mLineColor = lineColor;

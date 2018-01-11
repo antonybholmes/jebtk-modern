@@ -4,7 +4,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.MaterialUtils;
-import org.jebtk.modern.button.ButtonHighlightAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.widget.ModernClickWidget;

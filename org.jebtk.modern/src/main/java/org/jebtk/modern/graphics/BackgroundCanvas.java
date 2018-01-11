@@ -47,8 +47,7 @@ public class BackgroundCanvas extends ContainerCanvas {
   /**
    * Instantiates a new background canvas.
    *
-   * @param canvas
-   *          the canvas
+   * @param canvas the canvas
    */
   public BackgroundCanvas(ModernCanvas canvas) {
     this(canvas, Color.WHITE);
@@ -57,10 +56,8 @@ public class BackgroundCanvas extends ContainerCanvas {
   /**
    * Instantiates a new background canvas.
    *
-   * @param canvas
-   *          the canvas
-   * @param color
-   *          the color
+   * @param canvas the canvas
+   * @param color the color
    */
   public BackgroundCanvas(ModernCanvas canvas, Color color) {
     super(canvas);
@@ -83,8 +80,8 @@ public class BackgroundCanvas extends ContainerCanvas {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ContainerCanvas#drawCanvasForeground(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.graphics.ContainerCanvas#drawCanvasForeground(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {

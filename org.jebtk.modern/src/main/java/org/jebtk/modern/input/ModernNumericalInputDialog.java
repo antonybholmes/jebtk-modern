@@ -58,23 +58,16 @@ public class ModernNumericalInputDialog extends ModernDialogTaskWindow {
   /**
    * Instantiates a new modern int input dialog.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
-   * @param prompt
-   *          the prompt
-   * @param value
-   *          the value
-   * @param min
-   *          the min
-   * @param max
-   *          the max
-   * @param bound
-   *          the bound
+   * @param parent the parent
+   * @param title the title
+   * @param prompt the prompt
+   * @param value the value
+   * @param min the min
+   * @param max the max
+   * @param bound the bound
    */
-  public ModernNumericalInputDialog(ModernWindow parent, String title, String prompt, double value, double min,
-      double max, boolean bound) {
+  public ModernNumericalInputDialog(ModernWindow parent, String title,
+      String prompt, double value, double min, double max, boolean bound) {
     super(parent);
 
     setTitle(title);
@@ -99,8 +92,7 @@ public class ModernNumericalInputDialog extends ModernDialogTaskWindow {
   /**
    * Creates the ui.
    *
-   * @param prompt
-   *          the prompt
+   * @param prompt the prompt
    */
   private final void createUi(String prompt) {
     // this.getContentPane().add(new JLabel("Change " +

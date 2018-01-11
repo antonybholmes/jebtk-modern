@@ -32,15 +32,15 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class IconTabsIconAnimation extends WidgetAnimation {
 
-  public static final Color ICON_COLOR = ThemeService.getInstance().colors().getHighlight(5);
+  public static final Color ICON_COLOR = ThemeService.getInstance().colors()
+      .getHighlight(5);
 
   private IconTabs mTabs;
 
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public IconTabsIconAnimation(ModernWidget w) {
     super(w);

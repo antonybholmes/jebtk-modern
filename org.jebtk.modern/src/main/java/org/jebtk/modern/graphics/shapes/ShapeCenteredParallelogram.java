@@ -43,12 +43,9 @@ public class ShapeCenteredParallelogram extends ShapeParallelogram {
   /**
    * Instantiates a new shape centered diamond.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param size
-   *          the size
+   * @param x the x
+   * @param y the y
+   * @param size the size
    */
   public ShapeCenteredParallelogram(int x, int y, int size) {
     super(x - size / 2, y - size / 2, size);

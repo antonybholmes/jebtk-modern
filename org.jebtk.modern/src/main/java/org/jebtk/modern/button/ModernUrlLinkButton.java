@@ -61,10 +61,8 @@ public class ModernUrlLinkButton extends ModernLinkButton {
   /**
    * Instantiates a new modern url link button.
    *
-   * @param title
-   *          the title
-   * @param url
-   *          the url
+   * @param title the title
+   * @param url the url
    */
   public ModernUrlLinkButton(String title, URL url) {
     super(title);
@@ -75,12 +73,9 @@ public class ModernUrlLinkButton extends ModernLinkButton {
   /**
    * Instantiates a new modern url link button.
    *
-   * @param title
-   *          the title
-   * @param url
-   *          the url
-   * @param icon
-   *          the icon
+   * @param title the title
+   * @param url the url
+   * @param icon the icon
    */
   public ModernUrlLinkButton(String title, URL url, ModernIcon icon) {
     super(title, icon);
@@ -91,8 +86,7 @@ public class ModernUrlLinkButton extends ModernLinkButton {
   /**
    * Inits the.
    *
-   * @param url
-   *          the url
+   * @param url the url
    */
   private void init(URL url) {
     mUrl = url;
@@ -115,10 +109,8 @@ public class ModernUrlLinkButton extends ModernLinkButton {
   /**
    * Instantiates a new modern url link button.
    *
-   * @param title
-   *          the title
-   * @param email
-   *          the email
+   * @param title the title
+   * @param email the email
    */
   public ModernUrlLinkButton(String title, String email) {
     super(title);

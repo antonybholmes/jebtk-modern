@@ -17,7 +17,9 @@ public class SpinnerHighlightAnimation extends HoverFadeAnimation {
 
     bind(mSpinner.mField);
 
-    setFadeColor("outline", ModernWidget.LINE_COLOR, ModernWidgetRenderer.SELECTED_FILL_COLOR);
+    setFadeColor("outline",
+        ModernWidget.LINE_COLOR,
+        ModernWidgetRenderer.SELECTED_FILL_COLOR);
   }
 
   @Override
@@ -27,7 +29,8 @@ public class SpinnerHighlightAnimation extends HoverFadeAnimation {
     int x = r.getX();
     int y = r.getY();
 
-    IntRect intRect = new IntRect(x, y, mSpinner.mMinButtonX - x - ModernCompactSpinner.BORDER, r.getH());
+    IntRect intRect = new IntRect(x, y,
+        mSpinner.mMinButtonX - x - ModernCompactSpinner.BORDER, r.getH());
 
     widget.getWidgetRenderer().drawBackground(g2, intRect);
 

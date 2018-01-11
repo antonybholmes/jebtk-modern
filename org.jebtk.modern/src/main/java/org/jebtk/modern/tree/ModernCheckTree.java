@@ -20,9 +20,8 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-import org.jebtk.core.tree.TreeNode;
-
 import org.jebtk.core.tree.CheckTreeNode;
+import org.jebtk.core.tree.TreeNode;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -30,8 +29,7 @@ import org.jebtk.core.tree.CheckTreeNode;
  * nodes are checked or not.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
 public class ModernCheckTree<T> extends ModernTree<T> {
 
@@ -51,8 +49,7 @@ public class ModernCheckTree<T> extends ModernTree<T> {
   /**
    * Instantiates a new modern check tree.
    *
-   * @param mode
-   *          the mode
+   * @param mode the mode
    */
   public ModernCheckTree(ModernCheckTreeMode mode) {
     setMultiSelect(mode);
@@ -66,7 +63,8 @@ public class ModernCheckTree<T> extends ModernTree<T> {
         if (e.getMessage().equals(NODE_CLICKED)) {
           // System.err.println("checked tree " + mMode);
 
-          if (mMode == ModernCheckTreeMode.SINGLE || mMode == ModernCheckTreeMode.RADIO) {
+          if (mMode == ModernCheckTreeMode.SINGLE
+              || mMode == ModernCheckTreeMode.RADIO) {
             // cancel all selections
             setChecked(false);
           }
@@ -102,8 +100,7 @@ public class ModernCheckTree<T> extends ModernTree<T> {
   /**
    * Sets the multi select.
    *
-   * @param multiSelect
-   *          the new multi select
+   * @param multiSelect the new multi select
    */
   public void setMultiSelect(ModernCheckTreeMode multiSelect) {
     mMode = multiSelect;
@@ -146,8 +143,8 @@ public class ModernCheckTree<T> extends ModernTree<T> {
   }
 
   /**
-   * Returns a list of nodes in the tree that are check nodes. Nodes are in order
-   * of how they are found in the tree exploring depth first.
+   * Returns a list of nodes in the tree that are check nodes. Nodes are in
+   * order of how they are found in the tree exploring depth first.
    *
    * @return the check nodes
    */
@@ -168,8 +165,7 @@ public class ModernCheckTree<T> extends ModernTree<T> {
   /**
    * Set the status of all checked nodes in the tree.
    *
-   * @param checked
-   *          the new checked
+   * @param checked the new checked
    */
   public void setChecked(boolean checked) {
     Deque<TreeNode<T>> stack = new ArrayDeque<TreeNode<T>>();

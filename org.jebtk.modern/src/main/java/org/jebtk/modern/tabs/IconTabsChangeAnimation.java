@@ -37,8 +37,7 @@ public class IconTabsChangeAnimation extends HighlightBaseAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public IconTabsChangeAnimation(ModernWidget tabs) {
     super((IconTabs) tabs);
@@ -52,7 +51,9 @@ public class IconTabsChangeAnimation extends HighlightBaseAnimation {
       }
     });
 
-    getFade().setFadeColor("fill", IconTabsIconAnimation.ICON_COLOR, Ribbon.BAR_BACKGROUND);
+    getFade().setFadeColor("fill",
+        IconTabsIconAnimation.ICON_COLOR,
+        Ribbon.BAR_BACKGROUND);
   }
 
   @Override
@@ -72,6 +73,11 @@ public class IconTabsChangeAnimation extends HighlightBaseAnimation {
 
     Color color = getFadeColor("fill");
 
-    icon.drawIcon(g2, x + mTabs.mTabSize * selectedIndex + offset, yoffset, mTabs.mIconSize, mTabs.mIconSize, color);
+    icon.drawIcon(g2,
+        x + mTabs.mTabSize * selectedIndex + offset,
+        yoffset,
+        mTabs.mIconSize,
+        mTabs.mIconSize,
+        color);
   }
 }

@@ -56,10 +56,8 @@ public class ModernTextInputDialog extends ModernDialogTaskWindow {
   /**
    * Instantiates a new modern text input dialog.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
+   * @param parent the parent
+   * @param title the title
    */
   public ModernTextInputDialog(ModernWindow parent, String title) {
     this(parent, title, true);
@@ -68,30 +66,25 @@ public class ModernTextInputDialog extends ModernDialogTaskWindow {
   /**
    * Instantiates a new modern text input dialog.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
-   * @param editable
-   *          the editable
+   * @param parent the parent
+   * @param title the title
+   * @param editable the editable
    */
-  public ModernTextInputDialog(ModernWindow parent, String title, boolean editable) {
+  public ModernTextInputDialog(ModernWindow parent, String title,
+      boolean editable) {
     this(parent, title, editable, null);
   }
 
   /**
    * Instantiates a new modern text input dialog.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
-   * @param editable
-   *          the editable
-   * @param text
-   *          the text
+   * @param parent the parent
+   * @param title the title
+   * @param editable the editable
+   * @param text the text
    */
-  public ModernTextInputDialog(ModernWindow parent, String title, boolean editable, String text) {
+  public ModernTextInputDialog(ModernWindow parent, String title,
+      boolean editable, String text) {
     super(parent);
 
     setTitle(title);

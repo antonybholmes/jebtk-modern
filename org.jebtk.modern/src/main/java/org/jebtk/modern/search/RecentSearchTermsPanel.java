@@ -52,7 +52,8 @@ import org.jebtk.modern.ribbon.RibbonPanelTitle;
 /**
  * The class RecentSearchTermsPanel.
  */
-public class RecentSearchTermsPanel extends RibbonMenuPanel implements ModernClickListener {
+public class RecentSearchTermsPanel extends RibbonMenuPanel
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -95,16 +96,16 @@ public class RecentSearchTermsPanel extends RibbonMenuPanel implements ModernCli
   public RecentSearchTermsPanel() {
     super("Recent searches");
 
-    setup("Recent searches", UIService.getInstance().loadIcon("recent_search", UIService.ICON_SIZE_32));
+    setup("Recent searches",
+        UIService.getInstance().loadIcon("recent_search",
+            UIService.ICON_SIZE_32));
   }
 
   /**
    * Setup.
    *
-   * @param title
-   *          the title
-   * @param icon
-   *          the icon
+   * @param title the title
+   * @param icon the icon
    */
   private void setup(String title, ModernIcon icon) {
 
@@ -135,7 +136,8 @@ public class RecentSearchTermsPanel extends RibbonMenuPanel implements ModernCli
     scrollPane.setBorder(BORDER);
     scrollPane.setViewportBorder(BorderFactory.createEmptyBorder());
     scrollPane.getViewport().setBackground(Color.WHITE);
-    scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    scrollPane
+        .setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     scrollPane.setBackground(Color.WHITE);
 
     setBorder(BORDER);
@@ -189,8 +191,8 @@ public class RecentSearchTermsPanel extends RibbonMenuPanel implements ModernCli
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     if (e.getMessage().equals("Clear")) {

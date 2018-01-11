@@ -30,7 +30,6 @@ package org.jebtk.modern.table;
 import java.awt.Component;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -39,7 +38,8 @@ import org.jebtk.modern.event.ModernClickListener;
 /**
  * The class ModernTableCheckboxCellEditor.
  */
-public class ModernTableCheckboxCellEditor extends AbstractModernTableCellEditor implements ModernClickListener {
+public class ModernTableCheckboxCellEditor extends AbstractModernTableCellEditor
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -61,7 +61,8 @@ public class ModernTableCheckboxCellEditor extends AbstractModernTableCellEditor
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
    */
   public final Object getCellEditorValue() {
     return mRenderer.isSelected();
@@ -71,8 +72,8 @@ public class ModernTableCheckboxCellEditor extends AbstractModernTableCellEditor
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     setSelected(!isSelected());
@@ -86,8 +87,13 @@ public class ModernTableCheckboxCellEditor extends AbstractModernTableCellEditor
    * org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean,
    * boolean, boolean, int, int)
    */
-  public final Component getCellEditorComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public final Component getCellEditorComponent(ModernData table,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
 
     // renderer.setSelected((Boolean)value);
 
@@ -96,7 +102,13 @@ public class ModernTableCheckboxCellEditor extends AbstractModernTableCellEditor
     // renderer.setDisplay(table, value, isSelected, true, row, column);
 
     // Setup the renderer to reflect the value
-    Component c = mRenderer.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
+    Component c = mRenderer.getCellRendererComponent(table,
+        value,
+        highlight,
+        isSelected,
+        hasFocus,
+        row,
+        column);
 
     // Before returning the component, force the selection
     // to be inverted to simulate the user clicking
@@ -117,8 +129,7 @@ public class ModernTableCheckboxCellEditor extends AbstractModernTableCellEditor
   /**
    * Sets the selected.
    *
-   * @param selected
-   *          the new selected
+   * @param selected the new selected
    */
   public void setSelected(boolean selected) {
     mRenderer.setSelected(selected);

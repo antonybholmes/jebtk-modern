@@ -35,7 +35,8 @@ package org.jebtk.modern.dataview;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDataCellEditorModel extends ModernDataCellModel<ModernDataCellEditor> {
+public class ModernDataCellEditorModel
+    extends ModernDataCellModel<ModernDataCellEditor> {
 
   /**
    * The constant serialVersionUID.
@@ -45,7 +46,8 @@ public class ModernDataCellEditorModel extends ModernDataCellModel<ModernDataCel
   /**
    * The constant DEFAULT_STYLE.
    */
-  public static final ModernDataCellEditor DEFAULT_STYLE = new ModernDataGridCellEditor(true);
+  public static final ModernDataCellEditor DEFAULT_STYLE = new ModernDataGridCellEditor(
+      true);
 
   /**
    * Instantiates a new modern data cell editor model.

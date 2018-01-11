@@ -33,7 +33,6 @@ import java.text.ParseException;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernButton;
@@ -54,7 +53,8 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class ZoomToolsPanel extends ModernWidget implements Zoom, ModernClickListener, ChangeListener {
+public class ZoomToolsPanel extends ModernWidget
+    implements Zoom, ModernClickListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -70,7 +70,8 @@ public class ZoomToolsPanel extends ModernWidget implements Zoom, ModernClickLis
   /**
    * The member zoom in button.
    */
-  private ModernButton mZoomInButton = new RibbonBarButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+  private ModernButton mZoomInButton = new RibbonBarButton(
+      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
   /**
    * The member zoom combo.
@@ -100,8 +101,7 @@ public class ZoomToolsPanel extends ModernWidget implements Zoom, ModernClickLis
   /**
    * Instantiates a new zoom tools panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ZoomToolsPanel(ZoomModel model) {
     this.mModel = model;
@@ -125,8 +125,7 @@ public class ZoomToolsPanel extends ModernWidget implements Zoom, ModernClickLis
   /**
    * Enabled or disable all the controls on the panel.
    *
-   * @param enabled
-   *          the enabled
+   * @param enabled the enabled
    */
   public final void enableControls(boolean enabled) {
     mZoomOutButton.setEnabled(enabled);
@@ -138,8 +137,8 @@ public class ZoomToolsPanel extends ModernWidget implements Zoom, ModernClickLis
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     if (e.getSource().equals(mZoomOutButton)) {
@@ -160,7 +159,8 @@ public class ZoomToolsPanel extends ModernWidget implements Zoom, ModernClickLis
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+   * @see
+   * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
    */
   public void changed(ChangeEvent e) {
     updateZoom();
@@ -169,8 +169,7 @@ public class ZoomToolsPanel extends ModernWidget implements Zoom, ModernClickLis
   /**
    * Parses the zoom.
    *
-   * @throws ParseException
-   *           the parse exception
+   * @throws ParseException the parse exception
    */
   private void parseZoom() throws ParseException {
     setZoom(TextUtils.parseDouble(mZoomCombo.getText()) / 100.0);

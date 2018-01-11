@@ -55,8 +55,8 @@ public class ModernDropDownMenuComboButton extends ModernDropDownButton {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -68,8 +68,7 @@ public class ModernDropDownMenuComboButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern drop down menu combo button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernDropDownMenuComboButton(String text1) {
     super(text1);
@@ -80,14 +79,12 @@ public class ModernDropDownMenuComboButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern drop down menu combo button.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param text1 the text1
+   * @param icon the icon
+   * @param menu the menu
    */
-  public ModernDropDownMenuComboButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
+  public ModernDropDownMenuComboButton(String text1, ModernIcon icon,
+      ModernPopupMenu menu) {
     super(text1, icon, menu);
 
     setup();
@@ -96,10 +93,8 @@ public class ModernDropDownMenuComboButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern drop down menu combo button.
    *
-   * @param text1
-   *          the text1
-   * @param menu
-   *          the menu
+   * @param text1 the text1
+   * @param menu the menu
    */
   public ModernDropDownMenuComboButton(String text1, ModernPopupMenu menu) {
     super(text1, menu);
@@ -110,10 +105,8 @@ public class ModernDropDownMenuComboButton extends ModernDropDownButton {
   /**
    * Instantiates a new modern drop down menu combo button.
    *
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param icon the icon
+   * @param menu the menu
    */
   public ModernDropDownMenuComboButton(ModernIcon icon, ModernPopupMenu menu) {
     super(icon, menu);

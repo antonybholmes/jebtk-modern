@@ -41,8 +41,7 @@ public class ColorRangeBlueSlider extends ColorRangeSlider {
   /**
    * Instantiates a new color range blue panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ColorRangeBlueSlider(ColorSelectionModel model) {
     super(model, ColorChannel.BLUE);

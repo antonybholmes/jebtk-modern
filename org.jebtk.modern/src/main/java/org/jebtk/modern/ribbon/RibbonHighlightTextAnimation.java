@@ -30,7 +30,8 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RibbonHighlightTextAnimation extends HighlightAnimation {
 
-  public static final Color HIGHLIGHT_COLOR = MaterialService.getInstance().color("ribbon-theme-highlighted");
+  public static final Color HIGHLIGHT_COLOR = MaterialService.getInstance()
+      .color("ribbon-theme-highlighted");
 
   /** The m ribbon. */
   private Ribbon mRibbon;
@@ -38,15 +39,15 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public RibbonHighlightTextAnimation(ModernWidget ribbon) {
     super((Ribbon) ribbon);
 
     mRibbon = (Ribbon) ribbon;
 
-    setFadeColor("highlight", MaterialService.getInstance().color("ribbon-menu-font"),
+    setFadeColor("highlight",
+        MaterialService.getInstance().color("ribbon-menu-font"),
         MaterialService.getInstance().color("ribbon-theme"));
   }
 
@@ -62,8 +63,8 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
     /*
      * int x; int tabWidth;
      * 
-     * for (int i = 0; i < mRibbon.mTitles.size(); ++i) { x = mRibbon.mTabStartX +
-     * mRibbon.mTabStarts.get(i); tabWidth = mRibbon.mTabWidths.get(i);
+     * for (int i = 0; i < mRibbon.mTitles.size(); ++i) { x = mRibbon.mTabStartX
+     * + mRibbon.mTabStarts.get(i); tabWidth = mRibbon.mTabWidths.get(i);
      * 
      * if (i == mRibbon.mHighlightedTab) {
      * g2.setColor(mFade.getFadeColor("highlight"));
@@ -76,7 +77,8 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
      */
 
     int x;
-    int y = Ribbon.TAB_BODY_Y - Ribbon.TAB_HEIGHT + (Ribbon.TAB_HEIGHT + g2.getFontMetrics().getAscent()) / 2;
+    int y = Ribbon.TAB_BODY_Y - Ribbon.TAB_HEIGHT
+        + (Ribbon.TAB_HEIGHT + g2.getFontMetrics().getAscent()) / 2;
     int tabWidth;
 
     //
@@ -103,7 +105,8 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
       // if (mToolbarVisible && i == mSelectedTab) {
       // g2.setColor(BAR_BACKGROUND);
       // } else {
-      // g2.setColor(i == mSelectedTab ? BAR_BACKGROUND : TEXT_COLOR); //Color.WHITE);
+      // g2.setColor(i == mSelectedTab ? BAR_BACKGROUND : TEXT_COLOR);
+      // //Color.WHITE);
       // }
 
       if (i == mRibbon.mSelectedTab) {
@@ -114,7 +117,9 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
         g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
       }
 
-      int textX = x + (tabWidth - g2.getFontMetrics().stringWidth(mRibbon.mTitles.get(i))) / 2;
+      int textX = x
+          + (tabWidth - g2.getFontMetrics().stringWidth(mRibbon.mTitles.get(i)))
+              / 2;
 
       g2.drawString(mRibbon.mTitles.get(i), textX, y);
     }

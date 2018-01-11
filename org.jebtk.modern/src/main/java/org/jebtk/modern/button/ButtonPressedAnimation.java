@@ -33,8 +33,7 @@ public class ButtonPressedAnimation extends MousePressedStepAnimation {
   /**
    * Instantiates a new ribbon menu animation.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public ButtonPressedAnimation(ModernWidget button, Color color) {
     super(button);
@@ -56,7 +55,8 @@ public class ButtonPressedAnimation extends MousePressedStepAnimation {
       return;
     }
 
-    double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
+    double r = TranslateAnimation.BEZ_T[getStep()]; // /
+                                                    // (double)TimerAnimation.STEPS;
 
     int w = widget.getWidth();
 

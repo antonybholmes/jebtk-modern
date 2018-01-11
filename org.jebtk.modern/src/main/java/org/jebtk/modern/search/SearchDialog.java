@@ -51,7 +51,8 @@ import org.jebtk.modern.window.WindowWidgetFocusEvents;
 /**
  * The class MatchDialog.
  */
-public class SearchDialog extends ModernDialogTaskWindow implements ModernClickListener {
+public class SearchDialog extends ModernDialogTaskWindow
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -59,10 +60,12 @@ public class SearchDialog extends ModernDialogTaskWindow implements ModernClickL
   private static final long serialVersionUID = 1L;
 
   /** The m check in list. */
-  private ModernCheckBox mCheckInList = new ModernCheckBox("Match in list", true);
+  private ModernCheckBox mCheckInList = new ModernCheckBox("Match in list",
+      true);
 
   /** The m check exact. */
-  private ModernCheckBox mCheckExact = new ModernCheckBox("Match entire contents");
+  private ModernCheckBox mCheckExact = new ModernCheckBox(
+      "Match entire contents");
 
   /** The m check case. */
   private ModernCheckBox mCheckCase = new ModernCheckBox("Case sensitive");
@@ -73,12 +76,9 @@ public class SearchDialog extends ModernDialogTaskWindow implements ModernClickL
   /**
    * Instantiates a new match dialog.
    *
-   * @param parent
-   *          the parent
-   * @param text
-   *          the text
-   * @param delimiter
-   *          the delimiter
+   * @param parent the parent
+   * @param text the text
+   * @param delimiter the delimiter
    */
   public SearchDialog(ModernWindow parent, String text, String delimiter) {
     super(parent);
@@ -108,8 +108,7 @@ public class SearchDialog extends ModernDialogTaskWindow implements ModernClickL
   /**
    * Creates the ui.
    *
-   * @param lines
-   *          the lines
+   * @param lines the lines
    */
   private final void createUi(List<String> lines) {
     // this.getContentPane().add(new JLabel("Change " +
@@ -118,14 +117,16 @@ public class SearchDialog extends ModernDialogTaskWindow implements ModernClickL
 
     ModernComponent content = new ModernComponent();
 
-    content.setHeader(new ModernSubHeadingLabel("Search for:", BorderService.getInstance().createBottomBorder(5)));
+    content.setHeader(new ModernSubHeadingLabel("Search for:",
+        BorderService.getInstance().createBottomBorder(5)));
 
     mText.setText(lines);
 
     ModernScrollPane scrollPane = new ModernScrollPane(mText);
     // scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
 
-    content.setBody(new ModernBorderPanel(new ModernComponent(scrollPane, ModernWidget.BORDER)));
+    content.setBody(new ModernBorderPanel(
+        new ModernComponent(scrollPane, ModernWidget.BORDER)));
 
     Box box = VBox.create();
 

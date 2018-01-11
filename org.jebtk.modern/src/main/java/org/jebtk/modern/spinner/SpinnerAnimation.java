@@ -13,15 +13,17 @@ import org.jebtk.modern.widget.ModernWidget;
 public class SpinnerAnimation extends WidgetAnimation {
   private ModernCompactSpinner mSpinner;
 
-  private static final ModernIcon TRIANGLE_UP = UIService.getInstance().loadIcon(TriangleUpVectorIcon.class, 16);
+  private static final ModernIcon TRIANGLE_UP = UIService.getInstance()
+      .loadIcon(TriangleUpVectorIcon.class, 16);
 
-  private static final ModernIcon TRIANGLE_UP_HIGH = UIService.getInstance().loadIcon(TriangleUpVectorIcon.class,
-      Ribbon.BAR_BACKGROUND, 16);
+  private static final ModernIcon TRIANGLE_UP_HIGH = UIService.getInstance()
+      .loadIcon(TriangleUpVectorIcon.class, Ribbon.BAR_BACKGROUND, 16);
 
-  private static final ModernIcon TRIANGLE_DOWN = UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16);
+  private static final ModernIcon TRIANGLE_DOWN = UIService.getInstance()
+      .loadIcon(TriangleDownVectorIcon.class, 16);
 
-  private static final ModernIcon TRIANGLE_DOWN_HIGH = UIService.getInstance().loadIcon(TriangleDownVectorIcon.class,
-      Ribbon.BAR_BACKGROUND, 16);
+  private static final ModernIcon TRIANGLE_DOWN_HIGH = UIService.getInstance()
+      .loadIcon(TriangleDownVectorIcon.class, Ribbon.BAR_BACKGROUND, 16);
 
   public SpinnerAnimation(ModernWidget widget) {
     super(widget);

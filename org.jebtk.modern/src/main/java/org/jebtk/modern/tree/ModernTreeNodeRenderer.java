@@ -30,7 +30,6 @@ package org.jebtk.modern.tree;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.tree.TreeNode;
-
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.widget.ModernWidget;
@@ -42,8 +41,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * concrete implementations of renderers.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
 public abstract class ModernTreeNodeRenderer extends ModernWidget {
 
@@ -124,16 +122,15 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
   /**
    * Set the height the node will be rendered at.
    *
-   * @param branchHeight
-   *          the new branch height
+   * @param branchHeight the new branch height
    */
   public void setBranchHeight(int branchHeight) {
     mBranchHeight = branchHeight;
   }
 
   /**
-   * Returns the x offset for where a node should begin drawing, if the intend is
-   * to display the tree as a nested graph.
+   * Returns the x offset for where a node should begin drawing, if the intend
+   * is to display the tree as a nested graph.
    *
    * @return The cumulative x depth offset.
    */
@@ -155,16 +152,15 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
   /**
    * Sets the x depth offset.
    *
-   * @param xDepthOffset
-   *          the new x depth offset
+   * @param xDepthOffset the new x depth offset
    */
   public void setXDepthOffset(int xDepthOffset) {
     mXDepthOffset = xDepthOffset;
   }
 
   /**
-   * Returns the width of the region that determines whether to collapse a node or
-   * not. This is so collapsable nodes can be selected without collapsing.
+   * Returns the width of the region that determines whether to collapse a node
+   * or not. This is so collapsable nodes can be selected without collapsing.
    *
    * @return The collapse region width
    */
@@ -175,8 +171,7 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
   /**
    * Sets the collapse region width.
    *
-   * @param collapseRegionWidth
-   *          the new collapse region width
+   * @param collapseRegionWidth the new collapse region width
    */
   public void setCollapseRegionWidth(int collapseRegionWidth) {
     mCollapseRegionWidth = collapseRegionWidth;
@@ -214,7 +209,8 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
 
       if (mRenderer != null) {
         g2.setColor(mRenderer.getFade().getFadeColor("highlight"));
-        getWidgetRenderer().fill(g2, mRect.getX(), mRect.getY(), mRect.getW(), mRect.getH());
+        getWidgetRenderer()
+            .fill(g2, mRect.getX(), mRect.getY(), mRect.getW(), mRect.getH());
       }
 
       // getWidgetRenderer().drawButton(g2, mRect, RenderMode.SELECTED);
@@ -228,7 +224,8 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -246,8 +243,7 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
   /**
    * Draw node.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   public void drawNode(Graphics2D g2) {
     // Do nothing
@@ -256,29 +252,27 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
   /**
    * Obtains a renderer for the tree node.
    *
-   * @param tree
-   *          the tree control.
-   * @param node
-   *          the node.
-   * @param nodeIsHighlighted
-   *          whether to highlight the node.
-   * @param nodeIsSelected
-   *          whether the node is selected or not.
-   * @param hasFocus
-   *          the has focus
-   * @param isDragToNode
-   *          the is drag to node
-   * @param depth
-   *          the nested depth of the node.
-   * @param row
-   *          the row
+   * @param tree the tree control.
+   * @param node the node.
+   * @param nodeIsHighlighted whether to highlight the node.
+   * @param nodeIsSelected whether the node is selected or not.
+   * @param hasFocus the has focus
+   * @param isDragToNode the is drag to node
+   * @param depth the nested depth of the node.
+   * @param row the row
    * @return the renderer
    * @Param hasFocus whether the tree has focus or not, as this can determine
    *        color.
    */
   @SuppressWarnings("unchecked")
-  public ModernTreeNodeRenderer getRenderer(Tree<?> tree, TreeNode<?> node, boolean nodeIsHighlighted,
-      boolean nodeIsSelected, boolean hasFocus, boolean isDragToNode, int depth, int row) {
+  public ModernTreeNodeRenderer getRenderer(Tree<?> tree,
+      TreeNode<?> node,
+      boolean nodeIsHighlighted,
+      boolean nodeIsSelected,
+      boolean hasFocus,
+      boolean isDragToNode,
+      int depth,
+      int row) {
     mNodeIsHighlighted = nodeIsHighlighted;
     mNodeIsSelected = nodeIsSelected;
     mHasFocus = hasFocus;
@@ -297,18 +291,14 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
   }
 
   /**
-   * Set the size of the node based on the parent tree dimensions. The size of the
-   * renderer is used by the tree itself to determine its size based on the nodes
-   * that are visible.
+   * Set the size of the node based on the parent tree dimensions. The size of
+   * the renderer is used by the tree itself to determine its size based on the
+   * nodes that are visible.
    *
-   * @param tree
-   *          the tree
-   * @param node
-   *          the node
-   * @param depth
-   *          the depth
-   * @param row
-   *          the row
+   * @param tree the tree
+   * @param node the node
+   * @param depth the depth
+   * @param row the row
    */
   protected void setSize(Tree<?> tree, TreeNode<?> node, int depth, int row) {
     setSize(tree.getInternalRect().getW(), mBranchHeight);

@@ -69,8 +69,7 @@ public class LayersCanvas extends ModernCanvas {
   /**
    * Instantiates a new layers canvas.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public LayersCanvas(LayerModel model) {
     setLayerModel(model);
@@ -90,8 +89,7 @@ public class LayersCanvas extends ModernCanvas {
   /**
    * Sets the layer model.
    *
-   * @param layerModel
-   *          the new layer model
+   * @param layerModel the new layer model
    */
   public void setLayerModel(LayerModel layerModel) {
     mLayerModel = layerModel;
@@ -100,8 +98,7 @@ public class LayersCanvas extends ModernCanvas {
   /**
    * Adds the layer.
    *
-   * @param layer
-   *          the layer
+   * @param layer the layer
    */
   public void addLayer(LayerCanvas layer) {
     mLayerModel.addLayer(layer.getName());

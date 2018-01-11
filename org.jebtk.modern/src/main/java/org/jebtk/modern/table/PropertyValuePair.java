@@ -46,10 +46,8 @@ public class PropertyValuePair {
   /**
    * Instantiates a new property value pair.
    *
-   * @param property
-   *          the property
-   * @param value
-   *          the value
+   * @param property the property
+   * @param value the value
    */
   public PropertyValuePair(String property, String value) {
     this.property = property;

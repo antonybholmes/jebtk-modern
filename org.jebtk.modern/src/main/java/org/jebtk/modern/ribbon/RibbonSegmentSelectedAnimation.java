@@ -35,8 +35,7 @@ public class RibbonSegmentSelectedAnimation extends WidgetAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public RibbonSegmentSelectedAnimation(ModernWidget segments) {
     super(segments);

@@ -28,7 +28,6 @@
 package org.jebtk.modern.clipboard;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.EventProducer;
 
 // TODO: Auto-generated Javadoc
@@ -38,7 +37,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ClipboardEventListeners extends EventProducer<ClipboardEventListener> implements ClipboardEventProducer {
+public class ClipboardEventListeners extends
+    EventProducer<ClipboardEventListener> implements ClipboardEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -48,8 +48,8 @@ public class ClipboardEventListeners extends EventProducer<ClipboardEventListene
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.clipboard.ClipboardEventProducer#addClipboardListener(
+   * @see org.abh.lib.ui.modern.clipboard.ClipboardEventProducer#
+   * addClipboardListener(
    * org.abh.lib.ui.modern.clipboard.ClipboardEventListener)
    */
   public void addClipboardListener(ClipboardEventListener l) {
@@ -70,9 +70,8 @@ public class ClipboardEventListeners extends EventProducer<ClipboardEventListene
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.clipboard.ClipboardEventProducer#fireClipboardChanged(
-   * org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.ui.modern.clipboard.ClipboardEventProducer#
+   * fireClipboardChanged( org.abh.lib.event.ChangeEvent)
    */
   public void fireClipboardChanged(ChangeEvent e) {
     for (ClipboardEventListener l : mListeners) {

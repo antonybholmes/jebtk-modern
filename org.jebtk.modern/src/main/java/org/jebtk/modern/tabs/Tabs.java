@@ -73,8 +73,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
     /**
      * Instantiates a new tab events.
      *
-     * @param tabs
-     *          the tabs
+     * @param tabs the tabs
      */
     public TabEvents(Tabs tabs) {
       mTabs = tabs;
@@ -83,9 +82,8 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabAdded(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabAdded(TabEvent e) {
@@ -96,8 +94,8 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabRemoved(TabEvent e) {
@@ -108,8 +106,8 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabResized(TabEvent e) {
@@ -120,8 +118,8 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.modern.
-     * tabs.TabEvent)
+     * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.
+     * modern. tabs.TabEvent)
      */
     @Override
     public void tabChanged(TabEvent e) {
@@ -144,10 +142,8 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Adds the tab.
    *
-   * @param name
-   *          the name
-   * @param c
-   *          the c
+   * @param name the name
+   * @param c the c
    */
   public void addTab(String name, JComponent c) {
     addTab(new Tab(name, c));
@@ -156,8 +152,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Adds the tab.
    *
-   * @param pane
-   *          the pane
+   * @param pane the pane
    */
   public void addTab(Tab pane) {
     mNameIndexMap.put(pane.getName(), mTabs.size());
@@ -172,10 +167,8 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Replace tab.
    *
-   * @param name
-   *          the name
-   * @param c
-   *          the c
+   * @param name the name
+   * @param c the c
    */
   public void replaceTab(String name, JComponent c) {
     replaceTab(new Tab(name, c));
@@ -184,8 +177,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Replace an existing tab with a new one of the same name.
    *
-   * @param tab
-   *          the tab
+   * @param tab the tab
    */
   public void replaceTab(Tab tab) {
     int index = indexOf(tab);
@@ -202,8 +194,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Removes the tab.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   private void removeTab(int index) {
     if (index < 0 || index >= mTabs.size()) {
@@ -220,8 +211,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Contains tab.
    *
-   * @param name
-   *          the name
+   * @param name the name
    * @return true, if successful
    */
   public boolean containsTab(String name) {
@@ -231,8 +221,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Index of.
    *
-   * @param tab
-   *          the tab
+   * @param tab the tab
    * @return the int
    */
   public int indexOf(Tab tab) {
@@ -242,8 +231,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Index of.
    *
-   * @param name
-   *          the name
+   * @param name the name
    * @return the int
    */
   public int indexOf(String name) {
@@ -267,8 +255,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Gets the tab.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the tab
    */
   public Tab getTab(int i) {
@@ -291,10 +278,8 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Sets the.
    *
-   * @param index
-   *          the index
-   * @param pane
-   *          the pane
+   * @param index the index
+   * @param pane the pane
    */
   public void set(int index, Tab pane) {
     mNameIndexMap.remove(mTabs.get(index).getName());
@@ -326,8 +311,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Remove an existing tab.
    *
-   * @param tab
-   *          the tab
+   * @param tab the tab
    */
   public void removeTab(Tab tab) {
     removeTab(tab.getName());
@@ -336,8 +320,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   /**
    * Removes the tab.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   public void removeTab(String name) {
     int index = indexOf(name);

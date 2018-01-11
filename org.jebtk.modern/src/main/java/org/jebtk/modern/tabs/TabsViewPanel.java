@@ -58,8 +58,7 @@ public class TabsViewPanel extends ViewPanel implements TabEventListener {
   /**
    * Instantiates a new tabs view panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public TabsViewPanel(TabsModel model) {
     mModel = model;
@@ -70,10 +69,8 @@ public class TabsViewPanel extends ViewPanel implements TabEventListener {
   /**
    * Instantiates a new tabs view panel.
    *
-   * @param model
-   *          the model
-   * @param border
-   *          the border
+   * @param model the model
+   * @param border the border
    */
   public TabsViewPanel(TabsModel model, Border border) {
     this(model);
@@ -113,9 +110,8 @@ public class TabsViewPanel extends ViewPanel implements TabEventListener {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.modern.
-   * tabs.TabEvent)
+   * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.
+   * modern. tabs.TabEvent)
    */
   @Override
   public void tabChanged(TabEvent e) {
@@ -138,9 +134,8 @@ public class TabsViewPanel extends ViewPanel implements TabEventListener {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.modern.
-   * tabs.TabEvent)
+   * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.
+   * modern. tabs.TabEvent)
    */
   @Override
   public void tabRemoved(TabEvent e) {
@@ -151,9 +146,8 @@ public class TabsViewPanel extends ViewPanel implements TabEventListener {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.modern.
-   * tabs.TabEvent)
+   * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.
+   * modern. tabs.TabEvent)
    */
   @Override
   public void tabResized(TabEvent e) {

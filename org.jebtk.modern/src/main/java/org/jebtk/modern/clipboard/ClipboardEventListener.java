@@ -43,8 +43,7 @@ public interface ClipboardEventListener extends EventListener {
   /**
    * Clipboard changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void clipboardChanged(ChangeEvent e);
 }

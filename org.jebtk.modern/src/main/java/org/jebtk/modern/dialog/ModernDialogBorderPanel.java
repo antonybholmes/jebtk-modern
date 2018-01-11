@@ -57,8 +57,7 @@ public class ModernDialogBorderPanel extends ModernBorderPanel {
   /**
    * Instantiates a new modern dialog border panel.
    *
-   * @param layout
-   *          the layout
+   * @param layout the layout
    */
   public ModernDialogBorderPanel(LayoutManager layout) {
     super(layout);
@@ -67,8 +66,7 @@ public class ModernDialogBorderPanel extends ModernBorderPanel {
   /**
    * Instantiates a new modern dialog border panel.
    *
-   * @param component
-   *          the component
+   * @param component the component
    */
   public ModernDialogBorderPanel(Component component) {
     super(component);

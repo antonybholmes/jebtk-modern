@@ -67,8 +67,7 @@ public class ModernDataSortModel {
   /**
    * Sets the default sorter.
    *
-   * @param sorter
-   *          the new default sorter
+   * @param sorter the new default sorter
    */
   public final void setDefaultSorter(ModernDataIndexSorter sorter) {
     if (sorter == null) {
@@ -81,10 +80,8 @@ public class ModernDataSortModel {
   /**
    * Sets the.
    *
-   * @param sortIndex
-   *          the sort index
-   * @param sorter
-   *          the sorter
+   * @param sortIndex the sort index
+   * @param sorter the sorter
    */
   public final void set(int sortIndex, ModernDataIndexSorter sorter) {
     if (sorter != null && sortIndex > -1) {
@@ -95,8 +92,7 @@ public class ModernDataSortModel {
   /**
    * Sets the sort index.
    *
-   * @param sortIndex
-   *          the new sort index
+   * @param sortIndex the new sort index
    */
   public void setSortIndex(int sortIndex) {
     // System.err.println("Setting sort sortIndex " + sortIndex);
@@ -123,12 +119,11 @@ public class ModernDataSortModel {
   }
 
   /**
-   * Returns the sortIndex sorter for a given table sortIndex. If the index is -1,
-   * the special nosort indexer is returned so that the table can be display as it
-   * was loaded (i.e unsorted)
+   * Returns the sortIndex sorter for a given table sortIndex. If the index is
+   * -1, the special nosort indexer is returned so that the table can be display
+   * as it was loaded (i.e unsorted)
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the modern data index sorter
    */
   public final ModernDataIndexSorter get(int index) {

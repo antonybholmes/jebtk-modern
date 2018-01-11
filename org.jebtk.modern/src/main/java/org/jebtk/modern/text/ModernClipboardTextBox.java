@@ -44,7 +44,8 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * The class ModernClipboardTextBox.
  */
-public class ModernClipboardTextBox extends ModernTextBox implements ClipboardUiControl {
+public class ModernClipboardTextBox extends ModernTextBox
+    implements ClipboardUiControl {
 
   /**
    * The constant serialVersionUID.
@@ -101,8 +102,7 @@ public class ModernClipboardTextBox extends ModernTextBox implements ClipboardUi
     /**
      * Instantiates a new focus events.
      *
-     * @param c
-     *          the c
+     * @param c the c
      */
     public FocusEvents(ClipboardUiControl c) {
       mC = c;
@@ -138,8 +138,8 @@ public class ModernClipboardTextBox extends ModernTextBox implements ClipboardUi
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     public final void clicked(ModernClickEvent e) {
       if (e.getMessage().equals(UI.MENU_SELECT_ALL)) {
@@ -169,14 +169,12 @@ public class ModernClipboardTextBox extends ModernTextBox implements ClipboardUi
   /**
    * Instantiates a new modern clipboard text box.
    *
-   * @param cutEnabled
-   *          the cut enabled
-   * @param copyEnabled
-   *          the copy enabled
-   * @param pasteEnabled
-   *          the paste enabled
+   * @param cutEnabled the cut enabled
+   * @param copyEnabled the copy enabled
+   * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardTextBox(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
+  public ModernClipboardTextBox(boolean cutEnabled, boolean copyEnabled,
+      boolean pasteEnabled) {
     mCutEnabled = cutEnabled;
     // this.copyEnabled = copyEnabled;
     mPasteEnabled = pasteEnabled;
@@ -187,8 +185,7 @@ public class ModernClipboardTextBox extends ModernTextBox implements ClipboardUi
   /**
    * Instantiates a new modern clipboard text box.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernClipboardTextBox(String text) {
 
@@ -200,16 +197,13 @@ public class ModernClipboardTextBox extends ModernTextBox implements ClipboardUi
   /**
    * Instantiates a new modern clipboard text box.
    *
-   * @param text
-   *          the text
-   * @param cutEnabled
-   *          the cut enabled
-   * @param copyEnabled
-   *          the copy enabled
-   * @param pasteEnabled
-   *          the paste enabled
+   * @param text the text
+   * @param cutEnabled the cut enabled
+   * @param copyEnabled the copy enabled
+   * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardTextBox(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
+  public ModernClipboardTextBox(String text, boolean cutEnabled,
+      boolean copyEnabled, boolean pasteEnabled) {
 
     super(text);
 
@@ -232,8 +226,7 @@ public class ModernClipboardTextBox extends ModernTextBox implements ClipboardUi
   /**
    * Show popup.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   private void showPopup(MouseEvent e) {
 
@@ -242,8 +235,11 @@ public class ModernClipboardTextBox extends ModernTextBox implements ClipboardUi
       // copyModernMenuItem.setEnabled(copyEnabled);
       // pasteModernMenuItem.setEnabled(pasteEnabled && this.isEditable());
 
-      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(new ModernClickEvents(),
-          mCutEnabled && this.isEditable(), true, mPasteEnabled && this.isEditable());
+      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(
+          new ModernClickEvents(),
+          mCutEnabled && this.isEditable(),
+          true,
+          mPasteEnabled && this.isEditable());
 
       popup.showPopup(e.getComponent(), e.getX(), e.getY());
     }
@@ -252,8 +248,7 @@ public class ModernClipboardTextBox extends ModernTextBox implements ClipboardUi
   /**
    * Clicked.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public final void clicked(ModernClickEvent e) {
     if (e.getMessage().equals(UI.MENU_SELECT_ALL)) {

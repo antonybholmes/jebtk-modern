@@ -50,7 +50,8 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes Holmes
  *
  */
-public class ZoomRibbonSection extends RibbonSection implements Zoom, ModernClickListener {
+public class ZoomRibbonSection extends RibbonSection
+    implements Zoom, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -87,10 +88,8 @@ public class ZoomRibbonSection extends RibbonSection implements Zoom, ModernClic
   /**
    * Instantiates a new zoom ribbon section2.
    *
-   * @param parent
-   *          the parent
-   * @param model
-   *          the model
+   * @param parent the parent
+   * @param model the model
    */
   public ZoomRibbonSection(ModernRibbonWindow parent, ZoomModel model) {
     super(parent.getRibbon(), "Zoom");
@@ -119,8 +118,7 @@ public class ZoomRibbonSection extends RibbonSection implements Zoom, ModernClic
   /**
    * Enabled or disable all the controls on the panel.
    *
-   * @param enabled
-   *          the enabled
+   * @param enabled the enabled
    */
   public final void enableControls(boolean enabled) {
     mZoomButton.setEnabled(enabled);
@@ -185,8 +183,8 @@ public class ZoomRibbonSection extends RibbonSection implements Zoom, ModernClic
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     if (e.getSource().equals(mZoomButton)) {

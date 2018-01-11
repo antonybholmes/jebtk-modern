@@ -49,7 +49,8 @@ public class ModernLayersCheckBox extends ModernCheckBox {
   /**
    * The constant IMAGE_CHECKED.
    */
-  public static final ModernIcon IMAGE_CHECKED = UIService.getInstance().loadIcon("layer_visible", 16);
+  public static final ModernIcon IMAGE_CHECKED = UIService.getInstance()
+      .loadIcon("layer_visible", 16);
 
   /**
    * Instantiates a new modern layers check box.
@@ -61,8 +62,7 @@ public class ModernLayersCheckBox extends ModernCheckBox {
   /**
    * Instantiates a new modern layers check box.
    *
-   * @param selected
-   *          the selected
+   * @param selected the selected
    */
   public ModernLayersCheckBox(boolean selected) {
     super(selected);

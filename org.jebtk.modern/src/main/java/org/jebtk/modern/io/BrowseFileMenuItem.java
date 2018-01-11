@@ -47,7 +47,8 @@ public class BrowseFileMenuItem extends ModernLargeIconMenuItem {
    * Instantiates a new browse file menu item.
    */
   public BrowseFileMenuItem() {
-    super(UI.MENU_BROWSE, UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+    super(UI.MENU_BROWSE,
+        UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
 
     setFont(SUB_HEADING_FONT);
   }

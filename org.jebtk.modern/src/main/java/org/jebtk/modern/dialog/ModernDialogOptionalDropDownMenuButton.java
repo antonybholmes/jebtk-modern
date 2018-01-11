@@ -41,7 +41,8 @@ import org.jebtk.modern.menu.ModernPopupMenu;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDialogOptionalDropDownMenuButton extends ModernOptionalDropDownMenuButton {
+public class ModernDialogOptionalDropDownMenuButton
+    extends ModernOptionalDropDownMenuButton {
 
   /**
    * The constant serialVersionUID.
@@ -51,35 +52,31 @@ public class ModernDialogOptionalDropDownMenuButton extends ModernOptionalDropDo
   /**
    * Instantiates a new modern dialog optional drop down menu button.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param text1 the text1
+   * @param icon the icon
+   * @param menu the menu
    */
-  public ModernDialogOptionalDropDownMenuButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
+  public ModernDialogOptionalDropDownMenuButton(String text1, ModernIcon icon,
+      ModernPopupMenu menu) {
     super(text1, icon, menu);
   }
 
   /**
    * Instantiates a new modern dialog optional drop down menu button.
    *
-   * @param icon
-   *          the icon
-   * @param menu
-   *          the menu
+   * @param icon the icon
+   * @param menu the menu
    */
-  public ModernDialogOptionalDropDownMenuButton(ModernIcon icon, ModernPopupMenu menu) {
+  public ModernDialogOptionalDropDownMenuButton(ModernIcon icon,
+      ModernPopupMenu menu) {
     super(icon, menu);
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernOptionalDropDownMenuButton#drawBackground(
-   * java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.button.ModernOptionalDropDownMenuButton#
+   * drawBackground( java.awt.Graphics2D)
    */
   @Override
   public void drawBackground(Graphics2D g2) {

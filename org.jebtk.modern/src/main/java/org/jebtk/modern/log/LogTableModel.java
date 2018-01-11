@@ -39,12 +39,14 @@ import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 /**
  * The class LogTableModel.
  */
-public class LogTableModel extends ModernColumnHeaderTableModel implements LogEventListener {
+public class LogTableModel extends ModernColumnHeaderTableModel
+    implements LogEventListener {
 
   /**
    * The constant HEADER.
    */
-  private static final String[] HEADER = { "Type", "Date", "Source", "Message", "ID" };
+  private static final String[] HEADER = { "Type", "Date", "Source", "Message",
+      "ID" };
 
   /**
    * The member events.
@@ -116,7 +118,8 @@ public class LogTableModel extends ModernColumnHeaderTableModel implements LogEv
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
    */
   @Override
   public final List<String> getColumnAnnotationText(int column) {

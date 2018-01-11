@@ -44,7 +44,8 @@ import org.jebtk.modern.help.HelpManager;
  * @author Antony Holmes Holmes
  *
  */
-public class RibbonHelpButton extends QuickAccessButton implements ModernClickListener {
+public class RibbonHelpButton extends QuickAccessButton
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -73,8 +74,7 @@ public class RibbonHelpButton extends QuickAccessButton implements ModernClickLi
   /**
    * Sets the help product name.
    *
-   * @param product
-   *          the new help product name
+   * @param product the new help product name
    */
   public void setHelpProductName(GuiAppInfo product) {
     mProduct = product;
@@ -84,8 +84,8 @@ public class RibbonHelpButton extends QuickAccessButton implements ModernClickLi
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     if (e.getSource().equals(this)) {

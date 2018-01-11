@@ -49,10 +49,8 @@ public class TransIcon extends ModernIcon {
   /**
    * Instantiates a new raster icon.
    *
-   * @param icon
-   *          the icon
-   * @param alpha
-   *          the alpha
+   * @param icon the icon
+   * @param alpha the alpha
    */
   public TransIcon(ModernIcon icon, float alpha) {
     mBufferedImage = ImageUtils.createImage(icon.getWidth(), icon.getHeight());
@@ -60,7 +58,8 @@ public class TransIcon extends ModernIcon {
     Graphics2D g2Temp = ImageUtils.createAAGraphics(mBufferedImage);
 
     try {
-      g2Temp.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC, 1 - alpha));
+      g2Temp.setComposite(
+          AlphaComposite.getInstance(AlphaComposite.SRC, 1 - alpha));
       icon.drawIcon(g2Temp, 0, 0, icon.getWidth());
     } finally {
       g2Temp.dispose();
@@ -75,7 +74,12 @@ public class TransIcon extends ModernIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     g2.drawImage(mBufferedImage, x, y, null);
   }
 

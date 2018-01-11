@@ -103,8 +103,7 @@ public class TopTabs extends TabsController implements ModernClickListener {
   /**
    * Instantiates a new side tabs.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public TopTabs(TabsModel model) {
     super(model);
@@ -123,11 +122,11 @@ public class TopTabs extends TabsController implements ModernClickListener {
   /**
    * Adds the tab.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   public final void addTab(String name) {
-    ModernClickWidget button = new ModernCheckRadioButton(name); // VerticalTabsModernCheckButton(name, JLabel.LEFT);
+    ModernClickWidget button = new ModernCheckRadioButton(name); // VerticalTabsModernCheckButton(name,
+                                                                 // JLabel.LEFT);
 
     button.addClickListener(this);
 
@@ -145,8 +144,7 @@ public class TopTabs extends TabsController implements ModernClickListener {
   /**
    * Change tab.
    *
-   * @param tab
-   *          the tab
+   * @param tab the tab
    */
   private final void changeTab(int tab) {
     getTabsModel().changeTab(tab);
@@ -156,8 +154,8 @@ public class TopTabs extends TabsController implements ModernClickListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {
@@ -184,7 +182,8 @@ public class TopTabs extends TabsController implements ModernClickListener {
 
     resize();
 
-    if (getTabsModel().getSelectedIndex() != -1 && mButtons.size() > getTabsModel().getSelectedIndex()) {
+    if (getTabsModel().getSelectedIndex() != -1
+        && mButtons.size() > getTabsModel().getSelectedIndex()) {
       mButtons.get(getTabsModel().getSelectedIndex()).setSelected(true);
     }
 
@@ -222,8 +221,8 @@ public class TopTabs extends TabsController implements ModernClickListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tabs.TabsController#tabAdded(org.abh.lib.ui.modern.tabs
-   * .TabEvent)
+   * org.abh.lib.ui.modern.tabs.TabsController#tabAdded(org.abh.lib.ui.modern.
+   * tabs .TabEvent)
    */
   @Override
   public void tabAdded(TabEvent e) {
@@ -245,7 +244,8 @@ public class TopTabs extends TabsController implements ModernClickListener {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

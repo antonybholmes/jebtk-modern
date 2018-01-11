@@ -34,8 +34,7 @@ public class BlockVertPressedAnimation extends ButtonPressedAnimation {
   /**
    * Instantiates a new ribbon menu animation.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public BlockVertPressedAnimation(ModernWidget w) {
     super(w, MaterialService.getInstance().color("gray-pressed"));
@@ -66,7 +65,8 @@ public class BlockVertPressedAnimation extends ButtonPressedAnimation {
       return;
     }
 
-    int x = mTabs.getInsets().left; // + widget.getWidth() - SegmentChangeAnimation.HEIGHT;
+    int x = mTabs.getInsets().left; // + widget.getWidth() -
+                                    // SegmentChangeAnimation.HEIGHT;
     int y = mTabs.getInsets().top + mTabs.mOffset;
     int tabWidth = mTabs.getInternalRect().getW();
 
@@ -74,7 +74,8 @@ public class BlockVertPressedAnimation extends ButtonPressedAnimation {
 
       g2.setColor(mColor);
 
-      double r = TranslateAnimation.BEZ_T[getStep()]; // / (double)TimerAnimation.STEPS;
+      double r = TranslateAnimation.BEZ_T[getStep()]; // /
+                                                      // (double)TimerAnimation.STEPS;
 
       int d = (int) (tabWidth * r);
 

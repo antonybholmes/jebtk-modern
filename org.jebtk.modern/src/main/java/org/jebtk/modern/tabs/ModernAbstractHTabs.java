@@ -48,7 +48,8 @@ import org.jebtk.modern.event.ModernClickListener;
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernAbstractHTabs extends TabsController implements ModernClickListener {
+public abstract class ModernAbstractHTabs extends TabsController
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -134,8 +135,7 @@ public abstract class ModernAbstractHTabs extends TabsController implements Mode
   /**
    * Instantiates a new modern abstract h tabs.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernAbstractHTabs(TabsModel model) {
     super(model);
@@ -153,8 +153,7 @@ public abstract class ModernAbstractHTabs extends TabsController implements Mode
   /**
    * Adds the tab.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public final void addTab(ModernCheckButton button) {
     button.addClickListener(this);
@@ -192,8 +191,8 @@ public abstract class ModernAbstractHTabs extends TabsController implements Mode
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     if (e.getSource().equals(this.shiftLeftButton)) {
@@ -224,8 +223,7 @@ public abstract class ModernAbstractHTabs extends TabsController implements Mode
   /**
    * Change tab.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   private void changeTab(ModernButtonWidget button) {
     changeTab(buttonMap.get(button));
@@ -234,8 +232,7 @@ public abstract class ModernAbstractHTabs extends TabsController implements Mode
   /**
    * Change tab.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   private void changeTab(int index) {
     getTabsModel().changeTab(index);

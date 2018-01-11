@@ -93,8 +93,7 @@ public abstract class ModernTaskSplashScreen2 extends ModernSplashScreen {
   /**
    * Instantiates a new modern task splash screen2.
    *
-   * @param appInfo
-   *          the app info
+   * @param appInfo the app info
    */
   public ModernTaskSplashScreen2(GuiAppInfo appInfo) {
     super(appInfo);
@@ -130,7 +129,8 @@ public abstract class ModernTaskSplashScreen2 extends ModernSplashScreen {
 
     box.add(new ModernSplashTitleLabel(getAppInfo().getName()));
     box.add(UI.createVGap(10));
-    box.add(new ModernAutoSizeLabel(getAppInfo().getVersion().toString(), Color.WHITE));
+    box.add(new ModernAutoSizeLabel(getAppInfo().getVersion().toString(),
+        Color.WHITE));
 
     // box2.add(box3);
 

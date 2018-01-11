@@ -64,7 +64,8 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernOptionsDialog extends ModernDialogTaskWindow implements ModernSelectionListener {
+public class ModernOptionsDialog extends ModernDialogTaskWindow
+    implements ModernSelectionListener {
 
   /**
    * The constant serialVersionUID.
@@ -89,10 +90,8 @@ public class ModernOptionsDialog extends ModernDialogTaskWindow implements Moder
   /**
    * Instantiates a new modern options dialog.
    *
-   * @param parent
-   *          the parent
-   * @param details
-   *          the details
+   * @param parent the parent
+   * @param details the details
    */
   public ModernOptionsDialog(ModernWindow parent, GuiAppInfo details) {
     super(parent);
@@ -115,8 +114,7 @@ public class ModernOptionsDialog extends ModernDialogTaskWindow implements Moder
   /**
    * Setup.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   private void setup() throws IOException {
     createUi();
@@ -155,8 +153,7 @@ public class ModernOptionsDialog extends ModernDialogTaskWindow implements Moder
   /**
    * Creates the tree.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   private void createTree() throws IOException {
     List<Path> paths = new ArrayList<Path>();
@@ -176,8 +173,8 @@ public class ModernOptionsDialog extends ModernDialogTaskWindow implements Moder
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public final void clicked(ModernClickEvent e) {
@@ -198,8 +195,7 @@ public class ModernOptionsDialog extends ModernDialogTaskWindow implements Moder
   /**
    * Sets the table model.
    *
-   * @param node
-   *          the new table model
+   * @param node the new table model
    */
   private void setTableModel(TreeNode<List<Path>> node) {
     ModernSettingsTableModel tableModel = new ModernSettingsTableModel(node);
@@ -214,8 +210,8 @@ public class ModernOptionsDialog extends ModernDialogTaskWindow implements Moder
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
-   * lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.
+   * abh. lib.event.ChangeEvent)
    */
   @Override
   public void selectionChanged(ChangeEvent e) {
@@ -241,10 +237,8 @@ public class ModernOptionsDialog extends ModernDialogTaskWindow implements Moder
   /**
    * Sets the visible.
    *
-   * @param parent
-   *          the parent
-   * @param details
-   *          the details
+   * @param parent the parent
+   * @param details the details
    */
   public static void setVisible(ModernWindow parent, GuiAppInfo details) {
     JDialog dialog = new ModernOptionsDialog(parent, details);

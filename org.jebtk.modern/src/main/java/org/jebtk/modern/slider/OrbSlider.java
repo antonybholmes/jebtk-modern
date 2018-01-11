@@ -83,8 +83,8 @@ public abstract class OrbSlider extends SteppedSlider {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.
+     * MouseEvent)
      */
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -134,7 +134,8 @@ public abstract class OrbSlider extends SteppedSlider {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-      if (e.getX() >= getInsets().left && e.getX() < getWidth() - getInsets().right) {
+      if (e.getX() >= getInsets().left
+          && e.getX() < getWidth() - getInsets().right) {
         mDrag = true;
       }
 
@@ -185,12 +186,9 @@ public abstract class OrbSlider extends SteppedSlider {
   /**
    * Instantiates a new orb slider.
    *
-   * @param min
-   *          the min
-   * @param max
-   *          the max
-   * @param value
-   *          the value
+   * @param min the min
+   * @param max the max
+   * @param value the value
    */
   public OrbSlider(double min, double max, double value) {
     super(min, max, value);
@@ -201,10 +199,8 @@ public abstract class OrbSlider extends SteppedSlider {
   /**
    * Instantiates a new orb slider.
    *
-   * @param value
-   *          the value
-   * @param values
-   *          the values
+   * @param value the value
+   * @param values the values
    */
   public OrbSlider(double value, double... values) {
     super(value, values);
@@ -215,10 +211,8 @@ public abstract class OrbSlider extends SteppedSlider {
   /**
    * Instantiates a new orb slider.
    *
-   * @param value
-   *          the value
-   * @param values
-   *          the values
+   * @param value the value
+   * @param values the values
    */
   public OrbSlider(double value, List<Double> values) {
     super(value, values);
@@ -238,8 +232,7 @@ public abstract class OrbSlider extends SteppedSlider {
   /**
    * Sets the radius.
    *
-   * @param radius
-   *          the new radius
+   * @param radius the new radius
    */
   public void setRadius(int radius) {
     mSliderRadius = radius;
@@ -265,11 +258,11 @@ public abstract class OrbSlider extends SteppedSlider {
   /**
    * Translate X.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the int
    */
   public int translateX(int x) {
-    return Mathematics.bound(x - mSliderRadius - getInsets().left, 0, mSliderWidth);
+    return Mathematics
+        .bound(x - mSliderRadius - getInsets().left, 0, mSliderWidth);
   }
 }

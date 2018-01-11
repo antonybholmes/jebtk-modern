@@ -28,7 +28,6 @@
 package org.jebtk.modern.clipboard;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -46,7 +45,8 @@ import org.jebtk.modern.ribbon.RibbonSection;
  * @author Antony Holmes Holmes
  *
  */
-public class ClipboardRibbonSection extends RibbonSection implements ModernClickListener, ClipboardEventListener {
+public class ClipboardRibbonSection extends RibbonSection
+    implements ModernClickListener, ClipboardEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -62,18 +62,19 @@ public class ClipboardRibbonSection extends RibbonSection implements ModernClick
   /**
    * The member cut button.
    */
-  private ModernButtonWidget mCutButton = new RibbonLargeButton("Cut", UIService.getInstance().loadIcon("cut", 24));
+  private ModernButtonWidget mCutButton = new RibbonLargeButton("Cut",
+      UIService.getInstance().loadIcon("cut", 24));
 
   /**
    * The member copy button.
    */
-  private ModernButtonWidget mCopyButton = new RibbonLargeButton("Copy", UIService.getInstance().loadIcon("copy", 24));
+  private ModernButtonWidget mCopyButton = new RibbonLargeButton("Copy",
+      UIService.getInstance().loadIcon("copy", 24));
 
   /**
    * Instantiates a new clipboard ribbon section2.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public ClipboardRibbonSection(Ribbon ribbon) {
     super(ribbon, "Clipboard");
@@ -85,7 +86,8 @@ public class ClipboardRibbonSection extends RibbonSection implements ModernClick
     mCutButton.setToolTip("Cut", "Cut the currently selected text.");
 
     mCopyButton.addClickListener(this);
-    mCopyButton.setToolTip("Copy", "Copy the currently selected data to the clipboard.");
+    mCopyButton.setToolTip("Copy",
+        "Copy the currently selected data to the clipboard.");
 
     mPasteButton.setEnabled(false);
     mCutButton.setEnabled(false);
@@ -102,28 +104,28 @@ public class ClipboardRibbonSection extends RibbonSection implements ModernClick
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.clipboard.ClipboardEventListener#clipboardChanged(org.
-   * abh.lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.clipboard.ClipboardEventListener#clipboardChanged(
+   * org. abh.lib.event.ChangeEvent)
    */
   @Override
   public void clipboardChanged(ChangeEvent e) {
-    mPasteButton.setEnabled(
-        ClipboardService.getInstance().getControl() != null ? ClipboardService.getInstance().getControl().pasteEnabled()
-            : false);
-    mCutButton.setEnabled(
-        ClipboardService.getInstance().getControl() != null ? ClipboardService.getInstance().getControl().cutEnabled()
-            : false);
-    mCopyButton.setEnabled(
-        ClipboardService.getInstance().getControl() != null ? ClipboardService.getInstance().getControl().copyEnabled()
-            : false);
+    mPasteButton.setEnabled(ClipboardService.getInstance().getControl() != null
+        ? ClipboardService.getInstance().getControl().pasteEnabled()
+        : false);
+    mCutButton.setEnabled(ClipboardService.getInstance().getControl() != null
+        ? ClipboardService.getInstance().getControl().cutEnabled()
+        : false);
+    mCopyButton.setEnabled(ClipboardService.getInstance().getControl() != null
+        ? ClipboardService.getInstance().getControl().copyEnabled()
+        : false);
   }
 
   /*
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

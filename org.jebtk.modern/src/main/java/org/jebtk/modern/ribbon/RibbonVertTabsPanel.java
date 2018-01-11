@@ -35,10 +35,8 @@ public class RibbonVertTabsPanel extends ModernComponent {
   /**
    * Instantiates a new ribbon vert tabs panel.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
+   * @param model the model
+   * @param tabSize the tab size
    */
   public RibbonVertTabsPanel(TabsModel model, int tabSize) {
     this(model, tabSize, true);
@@ -47,12 +45,9 @@ public class RibbonVertTabsPanel extends ModernComponent {
   /**
    * Instantiates a new ribbon vert tabs panel.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
-   * @param centered
-   *          the centered
+   * @param model the model
+   * @param tabSize the tab size
+   * @param centered the centered
    */
   public RibbonVertTabsPanel(TabsModel model, int tabSize, boolean centered) {
     this(model, tabSize, 0, centered);
@@ -61,37 +56,32 @@ public class RibbonVertTabsPanel extends ModernComponent {
   /**
    * Instantiates a new ribbon vert tabs panel.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
-   * @param pagePadding
-   *          the page padding
-   * @param centered
-   *          the centered
+   * @param model the model
+   * @param tabSize the tab size
+   * @param pagePadding the page padding
+   * @param centered the centered
    */
-  public RibbonVertTabsPanel(TabsModel model, int tabSize, int pagePadding, boolean centered) {
+  public RibbonVertTabsPanel(TabsModel model, int tabSize, int pagePadding,
+      boolean centered) {
     this(model, tabSize, 48, pagePadding, centered);
   }
 
   /**
    * Instantiates a new ribbon vert tabs panel.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
-   * @param tabHeight
-   *          the tab height
-   * @param pagePadding
-   *          the page padding
-   * @param centered
-   *          the centered
+   * @param model the model
+   * @param tabSize the tab size
+   * @param tabHeight the tab height
+   * @param pagePadding the page padding
+   * @param centered the centered
    */
-  public RibbonVertTabsPanel(TabsModel model, int tabSize, int tabHeight, int pagePadding, boolean centered) {
+  public RibbonVertTabsPanel(TabsModel model, int tabSize, int tabHeight,
+      int pagePadding, boolean centered) {
     SegmentTabs tabs = new RibbonSegmentVertTabs(model, tabSize, centered);
 
-    UI.setSize(tabs, new Dimension(tabSize, Short.MAX_VALUE), UI.createRightBorder(pagePadding));
+    UI.setSize(tabs,
+        new Dimension(tabSize, Short.MAX_VALUE),
+        UI.createRightBorder(pagePadding));
 
     setLeft(tabs); // new TextTabsTriangle(model, centered));
 

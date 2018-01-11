@@ -40,7 +40,8 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernStatusLabel extends ModernAutoSizeLabel implements StatusEventListener {
+public class ModernStatusLabel extends ModernAutoSizeLabel
+    implements StatusEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -50,8 +51,7 @@ public class ModernStatusLabel extends ModernAutoSizeLabel implements StatusEven
   /**
    * Instantiates a new modern status label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernStatusLabel(String text) {
     super(text);
@@ -75,8 +75,8 @@ public class ModernStatusLabel extends ModernAutoSizeLabel implements StatusEven
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.status.StatusEventListener#statusChanged(org.abh.lib.ui
-   * .modern.status.StatusEvent)
+   * org.abh.lib.ui.modern.status.StatusEventListener#statusChanged(org.abh.lib.
+   * ui .modern.status.StatusEvent)
    */
   @Override
   public void statusChanged(final StatusEvent e) {

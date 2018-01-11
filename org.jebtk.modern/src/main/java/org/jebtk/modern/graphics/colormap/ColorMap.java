@@ -56,7 +56,8 @@ import org.w3c.dom.Element;
  * @author Antony Holmes Holmes
  *
  */
-public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, XmlRepresentation, JsonRepresentation {
+public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
+    XmlRepresentation, JsonRepresentation {
 
   /** The Constant DEFAULT_COLORS. */
   public static final int DEFAULT_COLORS = 65;
@@ -90,7 +91,8 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /** The Constant WINTERGREEN. */
   public static final Color WINTERGREEN = ColorUtils.decodeHtmlColor("#00d4aa");
 
-  public static final Color WINTERGREEN_2 = ColorUtils.decodeHtmlColor("2ca089");
+  public static final Color WINTERGREEN_2 = ColorUtils
+      .decodeHtmlColor("2ca089");
 
   /**
    * The Class AnchorColors.
@@ -98,10 +100,12 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   public static class AnchorColors implements Iterable<ColorMapColor> {
 
     /** The Constant GRADIENT_FIVE_POINT. */
-    private static final float[] GRADIENT_FIVE_POINT = { 0.0f, 0.25f, 0.5f, 0.75f, 1.0f };
+    private static final float[] GRADIENT_FIVE_POINT = { 0.0f, 0.25f, 0.5f,
+        0.75f, 1.0f };
 
     /** The Constant GRADIENT_FOUR_POINT. */
-    private static final float[] GRADIENT_FOUR_POINT = { 0.0f, 0.3333f, 0.6666f, 1.0f };
+    private static final float[] GRADIENT_FOUR_POINT = { 0.0f, 0.3333f, 0.6666f,
+        1.0f };
 
     /** The Constant GRADIENT_THREE_POINT. */
     private static final float[] GRADIENT_THREE_POINT = { 0.0f, 0.5f, 1.0f };
@@ -115,10 +119,8 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
     /**
      * Instantiates a new anchor colors.
      *
-     * @param color1
-     *          the color 1
-     * @param color2
-     *          the color 2
+     * @param color1 the color 1
+     * @param color2 the color 2
      */
     public AnchorColors(Color color1, Color color2) {
       this(ColorMapColor.create(color1), ColorMapColor.create(color2));
@@ -127,10 +129,8 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
     /**
      * Instantiates a new anchor colors.
      *
-     * @param color1
-     *          the color 1
-     * @param color2
-     *          the color 2
+     * @param color1 the color 1
+     * @param color2 the color 2
      */
     public AnchorColors(ColorMapColor color1, ColorMapColor color2) {
       this(CollectionUtils.toList(color1, color2));
@@ -139,107 +139,88 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
     /**
      * Instantiates a new anchor colors.
      *
-     * @param color1
-     *          the color 1
-     * @param color2
-     *          the color 2
-     * @param color3
-     *          the color 3
+     * @param color1 the color 1
+     * @param color2 the color 2
+     * @param color3 the color 3
      */
     public AnchorColors(Color color1, Color color2, Color color3) {
-      this(ColorMapColor.create(color1), ColorMapColor.create(color2), ColorMapColor.create(color3));
+      this(ColorMapColor.create(color1), ColorMapColor.create(color2),
+          ColorMapColor.create(color3));
     }
 
     /**
      * Instantiates a new anchor colors.
      *
-     * @param color1
-     *          the color 1
-     * @param color2
-     *          the color 2
-     * @param color3
-     *          the color 3
+     * @param color1 the color 1
+     * @param color2 the color 2
+     * @param color3 the color 3
      */
-    public AnchorColors(ColorMapColor color1, ColorMapColor color2, ColorMapColor color3) {
+    public AnchorColors(ColorMapColor color1, ColorMapColor color2,
+        ColorMapColor color3) {
       this(CollectionUtils.toList(color1, color2, color3));
     }
 
     /**
      * Instantiates a new anchor colors.
      *
-     * @param color1
-     *          the color 1
-     * @param color2
-     *          the color 2
-     * @param color3
-     *          the color 3
-     * @param color4
-     *          the color 4
+     * @param color1 the color 1
+     * @param color2 the color 2
+     * @param color3 the color 3
+     * @param color4 the color 4
      */
-    public AnchorColors(Color color1, Color color2, Color color3, Color color4) {
-      this(ColorMapColor.create(color1), ColorMapColor.create(color2), ColorMapColor.create(color3),
-          ColorMapColor.create(color4));
+    public AnchorColors(Color color1, Color color2, Color color3,
+        Color color4) {
+      this(ColorMapColor.create(color1), ColorMapColor.create(color2),
+          ColorMapColor.create(color3), ColorMapColor.create(color4));
     }
 
     /**
      * Instantiates a new anchor colors.
      *
-     * @param color1
-     *          the color 1
-     * @param color2
-     *          the color 2
-     * @param color3
-     *          the color 3
-     * @param color4
-     *          the color 4
+     * @param color1 the color 1
+     * @param color2 the color 2
+     * @param color3 the color 3
+     * @param color4 the color 4
      */
-    public AnchorColors(ColorMapColor color1, ColorMapColor color2, ColorMapColor color3, ColorMapColor color4) {
+    public AnchorColors(ColorMapColor color1, ColorMapColor color2,
+        ColorMapColor color3, ColorMapColor color4) {
       this(CollectionUtils.toList(color1, color2, color3, color4));
     }
 
     /**
      * Instantiates a new anchor colors.
      *
-     * @param color1
-     *          the color 1
-     * @param color2
-     *          the color 2
-     * @param color3
-     *          the color 3
-     * @param color4
-     *          the color 4
-     * @param color5
-     *          the color 5
+     * @param color1 the color 1
+     * @param color2 the color 2
+     * @param color3 the color 3
+     * @param color4 the color 4
+     * @param color5 the color 5
      */
-    public AnchorColors(Color color1, Color color2, Color color3, Color color4, Color color5) {
-      this(ColorMapColor.create(color1), ColorMapColor.create(color2), ColorMapColor.create(color3),
-          ColorMapColor.create(color4), ColorMapColor.create(color5));
+    public AnchorColors(Color color1, Color color2, Color color3, Color color4,
+        Color color5) {
+      this(ColorMapColor.create(color1), ColorMapColor.create(color2),
+          ColorMapColor.create(color3), ColorMapColor.create(color4),
+          ColorMapColor.create(color5));
     }
 
     /**
      * Instantiates a new anchor colors.
      *
-     * @param color1
-     *          the color 1
-     * @param color2
-     *          the color 2
-     * @param color3
-     *          the color 3
-     * @param color4
-     *          the color 4
-     * @param color5
-     *          the color 5
+     * @param color1 the color 1
+     * @param color2 the color 2
+     * @param color3 the color 3
+     * @param color4 the color 4
+     * @param color5 the color 5
      */
-    public AnchorColors(ColorMapColor color1, ColorMapColor color2, ColorMapColor color3, ColorMapColor color4,
-        ColorMapColor color5) {
+    public AnchorColors(ColorMapColor color1, ColorMapColor color2,
+        ColorMapColor color3, ColorMapColor color4, ColorMapColor color5) {
       this(CollectionUtils.toList(color1, color2, color3, color4, color5));
     }
 
     /**
      * Instantiates a new anchor colors.
      *
-     * @param colors
-     *          the colors
+     * @param colors the colors
      */
     private AnchorColors(Collection<ColorMapColor> colors) {
       mColors.addAll(colors);
@@ -248,10 +229,8 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
     /**
      * Instantiates a new anchor colors.
      *
-     * @param anchorColors
-     *          the anchor colors
-     * @param reverse
-     *          the reverse
+     * @param anchorColors the anchor colors
+     * @param reverse the reverse
      */
     public AnchorColors(AnchorColors anchorColors, boolean reverse) {
       mColors.addAll(anchorColors.mColors);
@@ -264,8 +243,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
     /**
      * Gets the anchor color.
      *
-     * @param index
-     *          the index
+     * @param index the index
      * @return the anchor color
      */
     public Color getAnchorColor(int index) {
@@ -275,10 +253,8 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
     /**
      * To gradient paint.
      *
-     * @param start
-     *          the start
-     * @param end
-     *          the end
+     * @param start the start
+     * @param end the end
      * @return the linear gradient paint
      */
     public LinearGradientPaint toGradientPaint(Point2D start, Point2D end) {
@@ -297,19 +273,25 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
       }
     }
 
-    public LinearGradientPaint toGradientPaint(Point2D start, Point2D end, double trans) {
+    public LinearGradientPaint toGradientPaint(Point2D start,
+        Point2D end,
+        double trans) {
 
       Color[] cl = mColors.toArray(new Color[mColors.size()]);
 
       switch (mColors.size()) {
       case 5:
-        return new LinearGradientPaint(start, end, GRADIENT_FIVE_POINT, ColorUtils.trans(cl, trans));
+        return new LinearGradientPaint(start, end, GRADIENT_FIVE_POINT,
+            ColorUtils.trans(cl, trans));
       case 4:
-        return new LinearGradientPaint(start, end, GRADIENT_FOUR_POINT, ColorUtils.trans(cl, trans));
+        return new LinearGradientPaint(start, end, GRADIENT_FOUR_POINT,
+            ColorUtils.trans(cl, trans));
       case 3:
-        return new LinearGradientPaint(start, end, GRADIENT_THREE_POINT, ColorUtils.trans(cl, trans));
+        return new LinearGradientPaint(start, end, GRADIENT_THREE_POINT,
+            ColorUtils.trans(cl, trans));
       default:
-        return new LinearGradientPaint(start, end, GRADIENT_TWO_POINT, ColorUtils.trans(cl, trans));
+        return new LinearGradientPaint(start, end, GRADIENT_TWO_POINT,
+            ColorUtils.trans(cl, trans));
       }
     }
 
@@ -371,10 +353,8 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Clone a color map and optionally reverse it.
    *
-   * @param colorMap
-   *          the color map
-   * @param reverse
-   *          the reverse
+   * @param colorMap the color map
+   * @param reverse the reverse
    */
   public ColorMap(ColorMap colorMap, boolean reverse) {
     this(colorMap.mName, colorMap, reverse);
@@ -383,18 +363,14 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Instantiates a new color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param colors the colors
+   * @param reverse the reverse
    */
-  public ColorMap(String name, Color color1, Color color2, int colors, boolean reverse) {
+  public ColorMap(String name, Color color1, Color color2, int colors,
+      boolean reverse) {
     if (reverse) {
       mAnchorColors = new AnchorColors(color2, color1);
     } else {
@@ -409,20 +385,15 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Instantiates a new color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param colors the colors
+   * @param reverse the reverse
    */
-  public ColorMap(String name, Color color1, Color color2, Color color3, int colors, boolean reverse) {
+  public ColorMap(String name, Color color1, Color color2, Color color3,
+      int colors, boolean reverse) {
     if (reverse) {
       mAnchorColors = new AnchorColors(color3, color2, color1);
     } else {
@@ -437,29 +408,28 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Instantiates a new color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param color4
-   *          the color 4
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param color4 the color 4
+   * @param colors the colors
+   * @param reverse the reverse
    */
-  public ColorMap(String name, Color color1, Color color2, Color color3, Color color4, int colors, boolean reverse) {
+  public ColorMap(String name, Color color1, Color color2, Color color3,
+      Color color4, int colors, boolean reverse) {
     if (reverse) {
       mAnchorColors = new AnchorColors(color4, color3, color2, color1);
     } else {
       mAnchorColors = new AnchorColors(color1, color2, color3, color4);
     }
 
-    mColors = createFourColorMap(color1, color2, color3, color4, colors, reverse);
+    mColors = createFourColorMap(color1,
+        color2,
+        color3,
+        color4,
+        colors,
+        reverse);
 
     init(name);
   }
@@ -467,32 +437,30 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Instantiates a new color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param color4
-   *          the color 4
-   * @param color5
-   *          the color 5
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param color4 the color 4
+   * @param color5 the color 5
+   * @param colors the colors
+   * @param reverse the reverse
    */
-  public ColorMap(String name, Color color1, Color color2, Color color3, Color color4, Color color5, int colors,
-      boolean reverse) {
+  public ColorMap(String name, Color color1, Color color2, Color color3,
+      Color color4, Color color5, int colors, boolean reverse) {
     if (reverse) {
       mAnchorColors = new AnchorColors(color5, color4, color3, color2, color1);
     } else {
       mAnchorColors = new AnchorColors(color1, color2, color3, color4, color5);
     }
 
-    mColors = createFiveColorMap(color1, color2, color3, color4, color5, colors, reverse);
+    mColors = createFiveColorMap(color1,
+        color2,
+        color3,
+        color4,
+        color5,
+        colors,
+        reverse);
 
     init(name);
   }
@@ -500,12 +468,9 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Instantiates a new color map.
    *
-   * @param name
-   *          the name
-   * @param colorMap
-   *          the color map
-   * @param reverse
-   *          the reverse
+   * @param name the name
+   * @param colorMap the color map
+   * @param reverse the reverse
    */
   public ColorMap(String name, ColorMap colorMap, boolean reverse) {
     mAnchorColors = new AnchorColors(colorMap.mAnchorColors, reverse);
@@ -522,8 +487,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Inits the.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   private void init(String name) {
     mName = name;
@@ -581,8 +545,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Gets the color. V should be a value between 0 and 1.
    *
-   * @param v
-   *          the v
+   * @param v the v
    * @return the color
    */
   public Color getColor(double v) {
@@ -608,17 +571,17 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   }
 
   /**
-   * Gets the color index for a value. Values are bounded in the range [0, 1] with
-   * the assumption that the matrix should be normalized before rendering
+   * Gets the color index for a value. Values are bounded in the range [0, 1]
+   * with the assumption that the matrix should be normalized before rendering
    * (independently of any other transformations).
    *
-   * @param v
-   *          the v
+   * @param v the v
    * @return the color index
    */
   public int getColorIndex(double v) {
 
-    double s = Mathematics.bound(v, 0, 1); // / mRange; // Math.max(0, Math.min(1, (v - min) / range));
+    double s = Mathematics.bound(v, 0, 1); // / mRange; // Math.max(0,
+                                           // Math.min(1, (v - min) / range));
     // double s = Mathematics.bound(v, mMin, mMax) / mRange;
 
     int index = (int) (mMaxIndex * s);
@@ -631,8 +594,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Gets the color by index.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the color by index
    */
   public Color getColorByIndex(int index) {
@@ -660,8 +622,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Color maps with the same name are considered equal.
    *
-   * @param m
-   *          the m
+   * @param m the m
    * @return true, if successful
    */
   /*
@@ -731,53 +692,50 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the two color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param colors
-   *          the colors
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param colors the colors
    * @return the color map
    */
-  public static ColorMap createTwoColorMap(String name, Color color1, Color color2, int colors) {
+  public static ColorMap createTwoColorMap(String name,
+      Color color1,
+      Color color2,
+      int colors) {
     return createTwoColorMap(name, color1, color2, colors, false);
   }
 
   /**
    * Creates the two color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param colors the colors
+   * @param reverse the reverse
    * @return the color map
    */
-  public static ColorMap createTwoColorMap(String name, Color color1, Color color2, int colors, boolean reverse) {
+  public static ColorMap createTwoColorMap(String name,
+      Color color1,
+      Color color2,
+      int colors,
+      boolean reverse) {
     return new ColorMap(name, color1, color2, colors, reverse);
   }
 
   /**
    * Creates the two color map.
    *
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param colors the colors
+   * @param reverse the reverse
    * @return the list
    */
-  public static List<ColorMapColor> createTwoColorMap(Color color1, Color color2, int colors, boolean reverse) {
+  public static List<ColorMapColor> createTwoColorMap(Color color1,
+      Color color2,
+      int colors,
+      boolean reverse) {
     float[] r = new float[colors];
     float[] g = new float[colors];
     float[] b = new float[colors];
@@ -825,40 +783,37 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the three color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param colors
-   *          the colors
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param colors the colors
    * @return the color map
    */
-  public static ColorMap createThreeColorMap(String name, Color color1, Color color2, Color color3, int colors) {
+  public static ColorMap createThreeColorMap(String name,
+      Color color1,
+      Color color2,
+      Color color3,
+      int colors) {
     return createThreeColorMap(name, color1, color2, color3, colors, false);
   }
 
   /**
    * Creates the three color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param colors the colors
+   * @param reverse the reverse
    * @return the color map
    */
-  public static ColorMap createThreeColorMap(String name, Color color1, Color color2, Color color3, int colors,
+  public static ColorMap createThreeColorMap(String name,
+      Color color1,
+      Color color2,
+      Color color3,
+      int colors,
       boolean reverse) {
     return new ColorMap(name, color1, color2, color3, colors, reverse);
   }
@@ -866,19 +821,17 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the three color map.
    *
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param colors the colors
+   * @param reverse the reverse
    * @return the list
    */
-  public static List<ColorMapColor> createThreeColorMap(Color color1, Color color2, Color color3, int colors,
+  public static List<ColorMapColor> createThreeColorMap(Color color1,
+      Color color2,
+      Color color3,
+      int colors,
       boolean reverse) {
     float[] r = new float[colors];
     float[] g = new float[colors];
@@ -891,13 +844,17 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
 
     float bsf = binSize;
 
-    float[] rinc = { (color2.getRed() - color1.getRed()) / NF, (color3.getRed() - color2.getRed()) / NF };
+    float[] rinc = { (color2.getRed() - color1.getRed()) / NF,
+        (color3.getRed() - color2.getRed()) / NF };
 
-    float[] ginc = { (color2.getGreen() - color1.getGreen()) / NF, (color3.getGreen() - color2.getGreen()) / NF };
+    float[] ginc = { (color2.getGreen() - color1.getGreen()) / NF,
+        (color3.getGreen() - color2.getGreen()) / NF };
 
-    float[] binc = { (color2.getBlue() - color1.getBlue()) / NF, (color3.getBlue() - color2.getBlue()) / NF };
+    float[] binc = { (color2.getBlue() - color1.getBlue()) / NF,
+        (color3.getBlue() - color2.getBlue()) / NF };
 
-    float[] ainc = { (color2.getAlpha() - color1.getAlpha()) / NF, (color3.getAlpha() - color2.getAlpha()) / NF };
+    float[] ainc = { (color2.getAlpha() - color1.getAlpha()) / NF,
+        (color3.getAlpha() - color2.getAlpha()) / NF };
 
     float[] rf = { color1.getRed() / NF, color2.getRed() / NF };
     float[] gf = { color1.getGreen() / NF, color2.getGreen() / NF };
@@ -941,68 +898,68 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the four color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param color4
-   *          the color 4
-   * @param colors
-   *          the colors
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param color4 the color 4
+   * @param colors the colors
    * @return the color map
    */
-  public static ColorMap createFourColorMap(String name, Color color1, Color color2, Color color3, Color color4,
+  public static ColorMap createFourColorMap(String name,
+      Color color1,
+      Color color2,
+      Color color3,
+      Color color4,
       int colors) {
-    return createFourColorMap(name, color1, color2, color3, color4, colors, false);
+    return createFourColorMap(name,
+        color1,
+        color2,
+        color3,
+        color4,
+        colors,
+        false);
   }
 
   /**
    * Creates the four color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param color4
-   *          the color 4
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param color4 the color 4
+   * @param colors the colors
+   * @param reverse the reverse
    * @return the color map
    */
-  public static ColorMap createFourColorMap(String name, Color color1, Color color2, Color color3, Color color4,
-      int colors, boolean reverse) {
+  public static ColorMap createFourColorMap(String name,
+      Color color1,
+      Color color2,
+      Color color3,
+      Color color4,
+      int colors,
+      boolean reverse) {
     return new ColorMap(name, color1, color2, color3, color4, colors, reverse);
   }
 
   /**
    * Creates the four color map.
    *
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param color4
-   *          the color 4
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param color4 the color 4
+   * @param colors the colors
+   * @param reverse the reverse
    * @return the list
    */
-  public static List<ColorMapColor> createFourColorMap(Color color1, Color color2, Color color3, Color color4,
-      int colors, boolean reverse) {
+  public static List<ColorMapColor> createFourColorMap(Color color1,
+      Color color2,
+      Color color3,
+      Color color4,
+      int colors,
+      boolean reverse) {
     float[] r = new float[colors];
     float[] g = new float[colors];
     float[] b = new float[colors];
@@ -1010,34 +967,44 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
 
     // Set the color reference points
 
-    int binSize = (int) Math.round(colors / 3.0); // + (colors % 2 == 0 ? 0 : 1);
+    int binSize = (int) Math.round(colors / 3.0); // + (colors % 2 == 0 ? 0 :
+                                                  // 1);
     float bsf = binSize;
 
-    float[] rinc = { (color2.getRed() - color1.getRed()) / NF, (color3.getRed() - color2.getRed()) / NF,
+    float[] rinc = { (color2.getRed() - color1.getRed()) / NF,
+        (color3.getRed() - color2.getRed()) / NF,
         (color4.getRed() - color3.getRed()) / NF };
 
-    float[] ginc = { (color2.getGreen() - color1.getGreen()) / NF, (color3.getGreen() - color2.getGreen()) / NF,
+    float[] ginc = { (color2.getGreen() - color1.getGreen()) / NF,
+        (color3.getGreen() - color2.getGreen()) / NF,
         (color4.getGreen() - color3.getGreen()) / NF };
 
-    float[] binc = { (color2.getBlue() - color1.getBlue()) / NF, (color3.getBlue() - color2.getBlue()) / NF,
+    float[] binc = { (color2.getBlue() - color1.getBlue()) / NF,
+        (color3.getBlue() - color2.getBlue()) / NF,
         (color4.getBlue() - color3.getBlue()) / NF };
 
-    float[] ainc = { (color2.getAlpha() - color1.getAlpha()) / NF, (color3.getAlpha() - color2.getAlpha()) / NF,
+    float[] ainc = { (color2.getAlpha() - color1.getAlpha()) / NF,
+        (color3.getAlpha() - color2.getAlpha()) / NF,
         (color4.getAlpha() - color3.getAlpha()) / NF };
 
-    float[] rf = { color1.getRed() / NF, color2.getRed() / NF, color3.getRed() / NF };
+    float[] rf = { color1.getRed() / NF, color2.getRed() / NF,
+        color3.getRed() / NF };
 
-    float[] gf = { color1.getGreen() / NF, color2.getGreen() / NF, color3.getGreen() / NF };
+    float[] gf = { color1.getGreen() / NF, color2.getGreen() / NF,
+        color3.getGreen() / NF };
 
-    float[] bf = { color1.getBlue() / NF, color2.getBlue() / NF, color3.getBlue() / NF };
+    float[] bf = { color1.getBlue() / NF, color2.getBlue() / NF,
+        color3.getBlue() / NF };
 
-    float[] af = { color1.getAlpha() / NF, color2.getAlpha() / NF, color3.getAlpha() / NF };
+    float[] af = { color1.getAlpha() / NF, color2.getAlpha() / NF,
+        color3.getAlpha() / NF };
 
     // fill in the gaps
     for (int i = 0; i < colors - 1; ++i) {
       int bin = i / binSize;
 
-      // System.err.println("cmap " + colors + " " + binSize + " " + i + " " + bin);
+      // System.err.println("cmap " + colors + " " + binSize + " " + i + " " +
+      // bin);
 
       // Bound p within a block since we are scaling colors from
       // the beginning of the block to the end and then repeating
@@ -1075,74 +1042,76 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the five color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param color4
-   *          the color 4
-   * @param color5
-   *          the color 5
-   * @param colors
-   *          the colors
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param color4 the color 4
+   * @param color5 the color 5
+   * @param colors the colors
    * @return the color map
    */
-  public static ColorMap createFiveColorMap(String name, Color color1, Color color2, Color color3, Color color4,
-      Color color5, int colors) {
-    return createFiveColorMap(name, color1, color2, color3, color4, color5, colors, false);
+  public static ColorMap createFiveColorMap(String name,
+      Color color1,
+      Color color2,
+      Color color3,
+      Color color4,
+      Color color5,
+      int colors) {
+    return createFiveColorMap(name,
+        color1,
+        color2,
+        color3,
+        color4,
+        color5,
+        colors,
+        false);
   }
 
   /**
    * Creates the five color map.
    *
-   * @param name
-   *          the name
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param color4
-   *          the color 4
-   * @param color5
-   *          the color 5
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param name the name
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param color4 the color 4
+   * @param color5 the color 5
+   * @param colors the colors
+   * @param reverse the reverse
    * @return the color map
    */
-  public static ColorMap createFiveColorMap(String name, Color color1, Color color2, Color color3, Color color4,
-      Color color5, int colors, boolean reverse) {
-    return new ColorMap(name, color1, color2, color3, color4, color5, colors, reverse);
+  public static ColorMap createFiveColorMap(String name,
+      Color color1,
+      Color color2,
+      Color color3,
+      Color color4,
+      Color color5,
+      int colors,
+      boolean reverse) {
+    return new ColorMap(name, color1, color2, color3, color4, color5, colors,
+        reverse);
   }
 
   /**
    * Creates the five color map.
    *
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
-   * @param color3
-   *          the color 3
-   * @param color4
-   *          the color 4
-   * @param color5
-   *          the color 5
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param color1 the color 1
+   * @param color2 the color 2
+   * @param color3 the color 3
+   * @param color4 the color 4
+   * @param color5 the color 5
+   * @param colors the colors
+   * @param reverse the reverse
    * @return the list
    */
-  public static List<ColorMapColor> createFiveColorMap(Color color1, Color color2, Color color3, Color color4,
-      Color color5, int colors, boolean reverse) {
+  public static List<ColorMapColor> createFiveColorMap(Color color1,
+      Color color2,
+      Color color3,
+      Color color4,
+      Color color5,
+      int colors,
+      boolean reverse) {
     float[] r = new float[colors];
     float[] g = new float[colors];
     float[] b = new float[colors];
@@ -1150,34 +1119,48 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
 
     // Set the color reference points
 
-    int binSize = (int) Math.round(colors / 4.0); // + (colors % 2 == 0 ? 0 : 1);
+    int binSize = (int) Math.round(colors / 4.0); // + (colors % 2 == 0 ? 0 :
+                                                  // 1);
     float bsf = binSize;
 
-    float[] rinc = { (color2.getRed() - color1.getRed()) / NF, (color3.getRed() - color2.getRed()) / NF,
-        (color4.getRed() - color3.getRed()) / NF, (color5.getRed() - color4.getRed()) / NF };
+    float[] rinc = { (color2.getRed() - color1.getRed()) / NF,
+        (color3.getRed() - color2.getRed()) / NF,
+        (color4.getRed() - color3.getRed()) / NF,
+        (color5.getRed() - color4.getRed()) / NF };
 
-    float[] ginc = { (color2.getGreen() - color1.getGreen()) / NF, (color3.getGreen() - color2.getGreen()) / NF,
-        (color4.getGreen() - color3.getGreen()) / NF, (color5.getGreen() - color4.getGreen()) / NF };
+    float[] ginc = { (color2.getGreen() - color1.getGreen()) / NF,
+        (color3.getGreen() - color2.getGreen()) / NF,
+        (color4.getGreen() - color3.getGreen()) / NF,
+        (color5.getGreen() - color4.getGreen()) / NF };
 
-    float[] binc = { (color2.getBlue() - color1.getBlue()) / NF, (color3.getBlue() - color2.getBlue()) / NF,
-        (color4.getBlue() - color3.getBlue()) / NF, (color5.getBlue() - color4.getBlue()) / NF };
+    float[] binc = { (color2.getBlue() - color1.getBlue()) / NF,
+        (color3.getBlue() - color2.getBlue()) / NF,
+        (color4.getBlue() - color3.getBlue()) / NF,
+        (color5.getBlue() - color4.getBlue()) / NF };
 
-    float[] ainc = { (color2.getAlpha() - color1.getAlpha()) / NF, (color3.getAlpha() - color2.getAlpha()) / NF,
-        (color4.getAlpha() - color3.getAlpha()) / NF, (color5.getAlpha() - color4.getAlpha()) / NF };
+    float[] ainc = { (color2.getAlpha() - color1.getAlpha()) / NF,
+        (color3.getAlpha() - color2.getAlpha()) / NF,
+        (color4.getAlpha() - color3.getAlpha()) / NF,
+        (color5.getAlpha() - color4.getAlpha()) / NF };
 
-    float[] rf = { color1.getRed() / NF, color2.getRed() / NF, color3.getRed() / NF, color4.getRed() / NF };
+    float[] rf = { color1.getRed() / NF, color2.getRed() / NF,
+        color3.getRed() / NF, color4.getRed() / NF };
 
-    float[] gf = { color1.getGreen() / NF, color2.getGreen() / NF, color3.getGreen() / NF, color4.getGreen() / NF };
+    float[] gf = { color1.getGreen() / NF, color2.getGreen() / NF,
+        color3.getGreen() / NF, color4.getGreen() / NF };
 
-    float[] bf = { color1.getBlue() / NF, color2.getBlue() / NF, color3.getBlue() / NF, color4.getBlue() / NF };
+    float[] bf = { color1.getBlue() / NF, color2.getBlue() / NF,
+        color3.getBlue() / NF, color4.getBlue() / NF };
 
-    float[] af = { color1.getAlpha() / NF, color2.getAlpha() / NF, color3.getAlpha() / NF, color4.getAlpha() / NF };
+    float[] af = { color1.getAlpha() / NF, color2.getAlpha() / NF,
+        color3.getAlpha() / NF, color4.getAlpha() / NF };
 
     // fill in the gaps
     for (int i = 0; i < colors - 1; ++i) {
       int bin = i / binSize;
 
-      // System.err.println("cmap " + colors + " " + binSize + " " + i + " " + bin);
+      // System.err.println("cmap " + colors + " " + binSize + " " + i + " " +
+      // bin);
 
       // Bound p within a block since we are scaling colors from
       // the beginning of the block to the end and then repeating
@@ -1224,12 +1207,16 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the blue white red map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createBlueWhiteRedMap(boolean invert) {
-    return createThreeColorMap("Blue White Red", BLUE, Color.WHITE, Color.RED, DEFAULT_COLORS, invert);
+    return createThreeColorMap("Blue White Red",
+        BLUE,
+        Color.WHITE,
+        Color.RED,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1244,12 +1231,16 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the green white red map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createGreenWhiteRedMap(boolean invert) {
-    return createThreeColorMap("Green White Red", GREEN, Color.WHITE, Color.RED, DEFAULT_COLORS, invert);
+    return createThreeColorMap("Green White Red",
+        GREEN,
+        Color.WHITE,
+        Color.RED,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1264,12 +1255,16 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the blue red map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createGreenBlackRedMap(boolean invert) {
-    return createThreeColorMap("Green Black Red", GREEN, Color.BLACK, Color.RED, DEFAULT_COLORS, invert);
+    return createThreeColorMap("Green Black Red",
+        GREEN,
+        Color.BLACK,
+        Color.RED,
+        DEFAULT_COLORS,
+        invert);
   }
 
   public static ColorMap createViridisMap() {
@@ -1277,7 +1272,14 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   }
 
   public static ColorMap createViridisMap(boolean invert) {
-    return createFiveColorMap("Viridis", PURPLE_2, BLUE_2, WINTERGREEN_2, GREEN_2, YELLOW_2, DEFAULT_COLORS, invert);
+    return createFiveColorMap("Viridis",
+        PURPLE_2,
+        BLUE_2,
+        WINTERGREEN_2,
+        GREEN_2,
+        YELLOW_2,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1292,12 +1294,18 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the white blue map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createJetMap(boolean invert) {
-    return createFiveColorMap("Jet", BLUE, Color.CYAN, GREEN, YELLOW, Color.RED, DEFAULT_COLORS, invert);
+    return createFiveColorMap("Jet",
+        BLUE,
+        Color.CYAN,
+        GREEN,
+        YELLOW,
+        Color.RED,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1312,12 +1320,17 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the hot map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createHotMap(boolean invert) {
-    return createFiveColorMap("Hot", Color.BLACK, Color.RED, Color.ORANGE, Color.YELLOW, Color.WHITE, DEFAULT_COLORS,
+    return createFiveColorMap("Hot",
+        Color.BLACK,
+        Color.RED,
+        Color.ORANGE,
+        Color.YELLOW,
+        Color.WHITE,
+        DEFAULT_COLORS,
         invert);
   }
 
@@ -1333,8 +1346,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the cool map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createCoolMap(boolean invert) {
@@ -1353,12 +1365,15 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the spring map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createSpringMap(boolean invert) {
-    return createTwoColorMap("Spring", PINK, Color.YELLOW, DEFAULT_COLORS, invert);
+    return createTwoColorMap("Spring",
+        PINK,
+        Color.YELLOW,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1373,12 +1388,15 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the summer map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createSummerMap(boolean invert) {
-    return createTwoColorMap("Summer", GREEN, Color.YELLOW, DEFAULT_COLORS, invert);
+    return createTwoColorMap("Summer",
+        GREEN,
+        Color.YELLOW,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1393,12 +1411,15 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the winter map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createWinterMap(boolean invert) {
-    return createTwoColorMap("Winter", BLUE, WINTERGREEN, DEFAULT_COLORS, invert);
+    return createTwoColorMap("Winter",
+        BLUE,
+        WINTERGREEN,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1413,12 +1434,15 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the autumn map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createAutumnMap(boolean invert) {
-    return createTwoColorMap("Autumn", Color.RED, Color.YELLOW, DEFAULT_COLORS, invert);
+    return createTwoColorMap("Autumn",
+        Color.RED,
+        Color.YELLOW,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1433,12 +1457,15 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the gray map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createGrayMap(boolean invert) {
-    return createTwoColorMap("Gray", Color.WHITE, Color.BLACK, DEFAULT_COLORS, invert);
+    return createTwoColorMap("Gray",
+        Color.WHITE,
+        Color.BLACK,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1453,12 +1480,15 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the white blue map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createWhiteBlueMap(boolean invert) {
-    return createTwoColorMap("White Blue", Color.WHITE, BLUE, DEFAULT_COLORS, invert);
+    return createTwoColorMap("White Blue",
+        Color.WHITE,
+        BLUE,
+        DEFAULT_COLORS,
+        invert);
   }
 
   public static ColorMap createWhiteYellowMap() {
@@ -1468,12 +1498,15 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the white blue map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createWhiteYellowMap(boolean invert) {
-    return createTwoColorMap("White Yellow", Color.WHITE, YELLOW, DEFAULT_COLORS, invert);
+    return createTwoColorMap("White Yellow",
+        Color.WHITE,
+        YELLOW,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1488,12 +1521,15 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the blue yellow map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createBlueYellowMap(boolean invert) {
-    return createTwoColorMap("Blue Yellow", BLUE, Color.YELLOW, DEFAULT_COLORS, invert);
+    return createTwoColorMap("Blue Yellow",
+        BLUE,
+        Color.YELLOW,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1508,12 +1544,15 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the white red map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createWhiteRedMap(boolean invert) {
-    return createTwoColorMap("White Red", Color.WHITE, Color.RED, DEFAULT_COLORS, invert);
+    return createTwoColorMap("White Red",
+        Color.WHITE,
+        Color.RED,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
@@ -1528,21 +1567,22 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the white green map.
    *
-   * @param invert
-   *          the invert
+   * @param invert the invert
    * @return the color map
    */
   public static ColorMap createWhiteGreenMap(boolean invert) {
-    return createTwoColorMap("White Green", Color.WHITE, GREEN, DEFAULT_COLORS, invert);
+    return createTwoColorMap("White Green",
+        Color.WHITE,
+        GREEN,
+        DEFAULT_COLORS,
+        invert);
   }
 
   /**
    * Creates the white blue map.
    *
-   * @param name
-   *          the name
-   * @param color
-   *          the color
+   * @param name the name
+   * @param color the color
    * @return the color map
    */
   public static ColorMap createWhiteToColorMap(String name, Color color) {
@@ -1552,17 +1592,16 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>, 
   /**
    * Creates the white to color map.
    *
-   * @param name
-   *          the name
-   * @param color
-   *          the color
-   * @param colors
-   *          the colors
-   * @param reverse
-   *          the reverse
+   * @param name the name
+   * @param color the color
+   * @param colors the colors
+   * @param reverse the reverse
    * @return the color map
    */
-  public static ColorMap createWhiteToColorMap(String name, Color color, int colors, boolean reverse) {
+  public static ColorMap createWhiteToColorMap(String name,
+      Color color,
+      int colors,
+      boolean reverse) {
     return createTwoColorMap(name, Color.WHITE, color, colors, reverse);
   }
 

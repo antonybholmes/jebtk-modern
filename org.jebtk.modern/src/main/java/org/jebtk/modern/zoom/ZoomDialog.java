@@ -37,7 +37,6 @@ import org.jebtk.modern.button.ModernRadioButton;
 import org.jebtk.modern.dialog.ModernDialogTaskType;
 import org.jebtk.modern.dialog.ModernDialogTaskWindow;
 import org.jebtk.modern.event.ModernClickEvent;
-import org.jebtk.modern.panel.CardPanel2;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.spinner.ModernCompactSpinner;
@@ -96,7 +95,8 @@ public class ZoomDialog extends ModernDialogTaskWindow {
   /**
    * The text custom.
    */
-  private ModernCompactSpinner mTextCustom = new ModernCompactSpinner(1, 400, 100);
+  private ModernCompactSpinner mTextCustom = new ModernCompactSpinner(1, 400,
+      100);
 
   /**
    * The member model.
@@ -134,10 +134,8 @@ public class ZoomDialog extends ModernDialogTaskWindow {
   /**
    * Instantiates a new zoom dialog.
    *
-   * @param parent
-   *          the parent
-   * @param model
-   *          the model
+   * @param parent the parent
+   * @param model the model
    */
   public ZoomDialog(ModernWindow parent, ZoomModel model) {
     super(parent, ModernDialogTaskType.CLOSE);
@@ -179,8 +177,8 @@ public class ZoomDialog extends ModernDialogTaskWindow {
 
     setDialogCardContent(box);
 
-    new ModernButtonGroup().add(mCheck25).add(mCheck50).add(mCheck75).add(mCheck100).add(mCheck200).add(mCheck400)
-        .add(mCheckCustom);
+    new ModernButtonGroup().add(mCheck25).add(mCheck50).add(mCheck75)
+        .add(mCheck100).add(mCheck200).add(mCheck400).add(mCheckCustom);
 
     mCheck25.addClickListener(this);
     mCheck50.addClickListener(this);
@@ -197,8 +195,8 @@ public class ZoomDialog extends ModernDialogTaskWindow {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

@@ -63,7 +63,12 @@ public class WarningVectorIcon extends ModernMessageIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
 
     int height = (int) (Math.sin(Math.PI / 3.0) * w);
 
@@ -76,7 +81,8 @@ public class WarningVectorIcon extends ModernMessageIcon {
     gp.lineTo(x + w, y + height);
     gp.closePath();
 
-    GradientPaint paint = new GradientPaint(0, y, COLOR, 0, y + height, BORDER_COLOR);
+    GradientPaint paint = new GradientPaint(0, y, COLOR, 0, y + height,
+        BORDER_COLOR);
 
     // g2.setColor(COLOR);
     g2.setPaint(paint);

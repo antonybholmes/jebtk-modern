@@ -70,8 +70,7 @@ public class ModernPasswordField extends JPasswordField {
   /**
    * Instantiates a new modern password field.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernPasswordField(String text) {
 
@@ -103,7 +102,8 @@ public class ModernPasswordField extends JPasswordField {
 
     setBorder(BorderFactory.createEmptyBorder());
 
-    setMinimumSize(new Dimension(UIService.ICON_SIZE_24, UIService.ICON_SIZE_24));
+    setMinimumSize(
+        new Dimension(UIService.ICON_SIZE_24, UIService.ICON_SIZE_24));
     setMaximumSize(new Dimension(Short.MAX_VALUE, UIService.ICON_SIZE_24));
   }
 

@@ -33,7 +33,8 @@ public class FontMenuItem extends ModernIconMenuItem {
   private static final long serialVersionUID = 1L;
 
   /** The icon. */
-  public static ModernIcon ICON = UIService.getInstance().loadIcon("font", UIService.ICON_SIZE_16);
+  public static ModernIcon ICON = UIService.getInstance().loadIcon("font",
+      UIService.ICON_SIZE_16);
 
   /** The m font. */
   private Font mFont;
@@ -41,8 +42,7 @@ public class FontMenuItem extends ModernIconMenuItem {
   /**
    * Instantiates a new font menu item.
    *
-   * @param font
-   *          the font
+   * @param font the font
    */
   public FontMenuItem(String font) {
     super(font, ICON);
@@ -53,7 +53,8 @@ public class FontMenuItem extends ModernIconMenuItem {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.menu.ModernIconMenuItem#drawForegroundAAText(java.awt.
+   * @see
+   * org.abh.common.ui.menu.ModernIconMenuItem#drawForegroundAAText(java.awt.
    * Graphics2D)
    */
   @Override

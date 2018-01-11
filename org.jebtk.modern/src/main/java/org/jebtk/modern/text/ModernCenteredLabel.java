@@ -44,8 +44,7 @@ public class ModernCenteredLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern centered label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernCenteredLabel(String text) {
     super(text);
@@ -54,10 +53,8 @@ public class ModernCenteredLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern centered label.
    *
-   * @param text
-   *          the text
-   * @param color
-   *          the color
+   * @param text the text
+   * @param color the color
    */
   public ModernCenteredLabel(String text, Color color) {
     super(text, color);
@@ -66,8 +63,8 @@ public class ModernCenteredLabel extends ModernAutoSizeLabel {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.text.ModernLabel#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.text.ModernLabel#drawForegroundAA(java.awt.
+   * Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

@@ -34,8 +34,7 @@ public class ListPanelItemAnimation extends WidgetAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public ListPanelItemAnimation(ModernWidget w) {
     super(w);
@@ -54,8 +53,10 @@ public class ListPanelItemAnimation extends WidgetAnimation {
 
     g2.setColor(mItem.mColor);
 
-    int x = widget.getWidth() - widget.getInsets().right - ModernListPanelItem.HANDLE_SIZE
-        + (ModernListPanelItem.HANDLE_SIZE - ModernListPanelItem.BURGER_WIDTH) / 2;
+    int x = widget.getWidth() - widget.getInsets().right
+        - ModernListPanelItem.HANDLE_SIZE
+        + (ModernListPanelItem.HANDLE_SIZE - ModernListPanelItem.BURGER_WIDTH)
+            / 2;
     int y = (widget.getHeight() - 6) / 2;
 
     g2.drawLine(x, y, x + ModernListPanelItem.BURGER_WIDTH, y);

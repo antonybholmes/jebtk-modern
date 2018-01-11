@@ -41,8 +41,7 @@ public class ModernTableScrollerH extends ModernTableScroller {
   /**
    * Instantiates a new modern table scroller H.
    *
-   * @param table
-   *          the table
+   * @param table the table
    */
   public ModernTableScrollerH(ModernTable table) {
     super(table);

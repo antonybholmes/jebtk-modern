@@ -51,8 +51,7 @@ public class RibbonLargeRadioButton extends RibbonLargeCheckButton {
   /**
    * Instantiates a new ribbon large radio button2.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public RibbonLargeRadioButton(String text1) {
     this(text1, false);
@@ -61,10 +60,8 @@ public class RibbonLargeRadioButton extends RibbonLargeCheckButton {
   /**
    * Instantiates a new ribbon large radio button.
    *
-   * @param text1
-   *          the text 1
-   * @param selected
-   *          the selected
+   * @param text1 the text 1
+   * @param selected the selected
    */
   public RibbonLargeRadioButton(String text1, boolean selected) {
     super(text1);
@@ -75,10 +72,8 @@ public class RibbonLargeRadioButton extends RibbonLargeCheckButton {
   /**
    * Instantiates a new ribbon large radio button.
    *
-   * @param text1
-   *          the text 1
-   * @param icon
-   *          the icon
+   * @param text1 the text 1
+   * @param icon the icon
    */
   public RibbonLargeRadioButton(String text1, ModernIcon icon) {
     this(text1, icon, false);
@@ -87,14 +82,12 @@ public class RibbonLargeRadioButton extends RibbonLargeCheckButton {
   /**
    * Instantiates a new ribbon large radio button2.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
-   * @param selected
-   *          the selected
+   * @param text1 the text1
+   * @param icon the icon
+   * @param selected the selected
    */
-  public RibbonLargeRadioButton(String text1, ModernIcon icon, boolean selected) {
+  public RibbonLargeRadioButton(String text1, ModernIcon icon,
+      boolean selected) {
     super(text1, icon);
 
     setSelected(selected);
@@ -103,12 +96,9 @@ public class RibbonLargeRadioButton extends RibbonLargeCheckButton {
   /**
    * Instantiates a new ribbon large radio button.
    *
-   * @param text1
-   *          the text 1
-   * @param text2
-   *          the text 2
-   * @param icon
-   *          the icon
+   * @param text1 the text 1
+   * @param text2 the text 2
+   * @param icon the icon
    */
   public RibbonLargeRadioButton(String text1, String text2, ModernIcon icon) {
     this(text1, text2, icon, false);
@@ -117,16 +107,13 @@ public class RibbonLargeRadioButton extends RibbonLargeCheckButton {
   /**
    * Instantiates a new ribbon large radio button2.
    *
-   * @param text1
-   *          the text1
-   * @param text2
-   *          the text 2
-   * @param icon
-   *          the icon
-   * @param selected
-   *          the selected
+   * @param text1 the text1
+   * @param text2 the text 2
+   * @param icon the icon
+   * @param selected the selected
    */
-  public RibbonLargeRadioButton(String text1, String text2, ModernIcon icon, boolean selected) {
+  public RibbonLargeRadioButton(String text1, String text2, ModernIcon icon,
+      boolean selected) {
     super(text1, text2, icon);
 
     setSelected(selected);
@@ -135,12 +122,9 @@ public class RibbonLargeRadioButton extends RibbonLargeCheckButton {
   /**
    * Instantiates a new ribbon large radio button2.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
-   * @param size
-   *          the size
+   * @param text1 the text1
+   * @param icon the icon
+   * @param size the size
    */
   public RibbonLargeRadioButton(String text1, ModernIcon icon, Dimension size) {
     this(text1, icon);
@@ -151,34 +135,27 @@ public class RibbonLargeRadioButton extends RibbonLargeCheckButton {
   /**
    * Instantiates a new ribbon large radio button2.
    *
-   * @param text
-   *          the text
-   * @param icon
-   *          the icon
-   * @param toolTipTitle
-   *          the tool tip title
-   * @param toolTipText
-   *          the tool tip text
+   * @param text the text
+   * @param icon the icon
+   * @param toolTipTitle the tool tip title
+   * @param toolTipText the tool tip text
    */
-  public RibbonLargeRadioButton(String text, ModernIcon icon, String toolTipTitle, String toolTipText) {
+  public RibbonLargeRadioButton(String text, ModernIcon icon,
+      String toolTipTitle, String toolTipText) {
     this(text, icon, false, toolTipTitle, toolTipText);
   }
 
   /**
    * Instantiates a new ribbon large radio button2.
    *
-   * @param text
-   *          the text
-   * @param icon
-   *          the icon
-   * @param toolTipTitle
-   *          the tool tip title
-   * @param toolTipText
-   *          the tool tip text
-   * @param size
-   *          the size
+   * @param text the text
+   * @param icon the icon
+   * @param toolTipTitle the tool tip title
+   * @param toolTipText the tool tip text
+   * @param size the size
    */
-  public RibbonLargeRadioButton(String text, ModernIcon icon, String toolTipTitle, String toolTipText, Dimension size) {
+  public RibbonLargeRadioButton(String text, ModernIcon icon,
+      String toolTipTitle, String toolTipText, Dimension size) {
     this(text, icon, toolTipTitle, toolTipText);
 
     UI.setSize(this, size);
@@ -187,19 +164,14 @@ public class RibbonLargeRadioButton extends RibbonLargeCheckButton {
   /**
    * Instantiates a new ribbon large radio button2.
    *
-   * @param text
-   *          the text
-   * @param icon
-   *          the icon
-   * @param selected
-   *          the selected
-   * @param toolTipTitle
-   *          the tool tip title
-   * @param toolTipText
-   *          the tool tip text
+   * @param text the text
+   * @param icon the icon
+   * @param selected the selected
+   * @param toolTipTitle the tool tip title
+   * @param toolTipText the tool tip text
    */
-  public RibbonLargeRadioButton(String text, ModernIcon icon, boolean selected, String toolTipTitle,
-      String toolTipText) {
+  public RibbonLargeRadioButton(String text, ModernIcon icon, boolean selected,
+      String toolTipTitle, String toolTipText) {
     this(text, icon, selected);
 
     setToolTip(toolTipTitle, toolTipText);

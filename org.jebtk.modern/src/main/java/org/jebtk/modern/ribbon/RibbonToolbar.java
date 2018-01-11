@@ -68,10 +68,8 @@ public class RibbonToolbar extends HBox implements RibbonModeProperty {
   /**
    * Instantiates a new ribbon toolbar.
    *
-   * @param ribbon
-   *          the ribbon
-   * @param name
-   *          the name
+   * @param ribbon the ribbon
+   * @param name the name
    */
   public RibbonToolbar(Ribbon ribbon, String name) {
     mRibbon = ribbon;
@@ -101,8 +99,7 @@ public class RibbonToolbar extends HBox implements RibbonModeProperty {
   /**
    * Adds the.
    *
-   * @param ribbonSection
-   *          the ribbon section
+   * @param ribbonSection the ribbon section
    */
   public void add(RibbonSection ribbonSection) {
     addSection(ribbonSection);
@@ -111,8 +108,7 @@ public class RibbonToolbar extends HBox implements RibbonModeProperty {
   /**
    * Adds the section.
    *
-   * @param ribbonSection
-   *          the ribbon section
+   * @param ribbonSection the ribbon section
    */
   public void addSection(RibbonSection ribbonSection) {
     ribbonSection.setSize(mMode);
@@ -129,8 +125,7 @@ public class RibbonToolbar extends HBox implements RibbonModeProperty {
   /**
    * Create a section or return an existing one if it exists.
    *
-   * @param name
-   *          the name
+   * @param name the name
    * @return the section
    */
   public RibbonSection getSection(String name) {
@@ -157,8 +152,7 @@ public class RibbonToolbar extends HBox implements RibbonModeProperty {
   /**
    * Gets the.
    *
-   * @param name
-   *          the name
+   * @param name the name
    * @return the ribbon section
    */
   public RibbonSection get(String name) {
@@ -168,9 +162,8 @@ public class RibbonToolbar extends HBox implements RibbonModeProperty {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.ribbon.
-   * RibbonSize)
+   * @see org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.
+   * ribbon. RibbonSize)
    */
   public void setSize(RibbonSize mode) {
     mMode = mode;

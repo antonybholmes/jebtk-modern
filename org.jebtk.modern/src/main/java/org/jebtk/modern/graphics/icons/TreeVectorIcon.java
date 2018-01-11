@@ -52,7 +52,12 @@ public class TreeVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     double wf = w * SCALE;
 
     double xf = x + (w - wf) / 2.0;
@@ -60,11 +65,19 @@ public class TreeVectorIcon extends ModernVectorIcon {
 
     g2.setColor(Color.BLACK);
 
-    g2.drawLine((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(xf), (int) Math.round(yf + wf));
+    g2.drawLine((int) Math.round(xf),
+        (int) Math.round(yf),
+        (int) Math.round(xf),
+        (int) Math.round(yf + wf));
 
-    g2.drawLine((int) Math.round(xf), (int) Math.round(yf + wf / 2.0), (int) Math.round(xf + wf),
+    g2.drawLine((int) Math.round(xf),
+        (int) Math.round(yf + wf / 2.0),
+        (int) Math.round(xf + wf),
         (int) Math.round(yf + wf / 2.0));
 
-    g2.drawLine((int) Math.round(xf), (int) Math.round(yf + wf), (int) Math.round(xf + wf), (int) Math.round(yf + wf));
+    g2.drawLine((int) Math.round(xf),
+        (int) Math.round(yf + wf),
+        (int) Math.round(xf + wf),
+        (int) Math.round(yf + wf));
   }
 }

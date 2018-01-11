@@ -49,18 +49,19 @@ public class FileTitleMenuItem extends ModernMenuItem {
   /**
    * The constant TITLE_COLOR.
    */
-  private static final Color TITLE_COLOR = MaterialService.getInstance().color("ribbon-theme"); // ThemeService.getInstance().colors().getColorHighlight32(16);
+  private static final Color TITLE_COLOR = MaterialService.getInstance()
+      .color("ribbon-theme"); // ThemeService.getInstance().colors().getColorHighlight32(16);
 
   /**
    * The constant TITLE_SIZE.
    */
-  private static final Dimension TITLE_SIZE = new Dimension(Short.MAX_VALUE, 60);
+  private static final Dimension TITLE_SIZE = new Dimension(Short.MAX_VALUE,
+      60);
 
   /**
    * Instantiates a new file title menu item.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public FileTitleMenuItem(String text) {
     super(text);

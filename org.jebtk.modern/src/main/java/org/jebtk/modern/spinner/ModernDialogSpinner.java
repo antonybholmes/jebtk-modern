@@ -46,10 +46,8 @@ public class ModernDialogSpinner extends ModernSpinner {
   /**
    * Instantiates a new modern dialog spinner.
    *
-   * @param min
-   *          the min
-   * @param max
-   *          the max
+   * @param min the min
+   * @param max the max
    */
   public ModernDialogSpinner(int min, int max) {
     super(min, max);
@@ -58,12 +56,9 @@ public class ModernDialogSpinner extends ModernSpinner {
   /**
    * Instantiates a new modern dialog spinner.
    *
-   * @param min
-   *          the min
-   * @param max
-   *          the max
-   * @param value
-   *          the value
+   * @param min the min
+   * @param max the max
+   * @param value the value
    */
   public ModernDialogSpinner(int min, int max, int value) {
     super(min, max, value);
@@ -75,9 +70,11 @@ public class ModernDialogSpinner extends ModernSpinner {
    * @see org.abh.lib.ui.modern.spinner.ModernSpinner#setup()
    */
   protected void setup() {
-    mIncButton = new RibbonBarButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+    mIncButton = new RibbonBarButton(
+        UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
-    mDecButton = new RibbonBarButton(UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+    mDecButton = new RibbonBarButton(
+        UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
 
     super.setup();
   }

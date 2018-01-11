@@ -36,7 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class HighlightListeners extends EventProducer<HighlightListener> implements HighlightEventProducer {
+public class HighlightListeners extends EventProducer<HighlightListener>
+    implements HighlightEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -47,8 +48,8 @@ public class HighlightListeners extends EventProducer<HighlightListener> impleme
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernStateEventProducer#addStateListener(org.abh
-   * .lib.ui.modern.event.ModernStateListener)
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#addStateListener(org.
+   * abh .lib.ui.modern.event.ModernStateListener)
    */
   public void addHighlightListener(HighlightListener l) {
     mListeners.add(l);
@@ -58,8 +59,8 @@ public class HighlightListeners extends EventProducer<HighlightListener> impleme
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernStateEventProducer#removeStateListener(org.
-   * abh.lib.ui.modern.event.ModernStateListener)
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#removeStateListener(
+   * org. abh.lib.ui.modern.event.ModernStateListener)
    */
   public void removeHighlightListener(HighlightListener l) {
     mListeners.remove(l);
@@ -69,8 +70,8 @@ public class HighlightListeners extends EventProducer<HighlightListener> impleme
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernStateEventProducer#fireStateChanged(org.abh
-   * .lib.ui.modern.event.ModernStateEvent)
+   * org.abh.lib.ui.modern.event.ModernStateEventProducer#fireStateChanged(org.
+   * abh .lib.ui.modern.event.ModernStateEvent)
    */
   @Override
   public void fireHighlighted(HighlightEvent e) {

@@ -49,8 +49,7 @@ public class ModernOutlineButton extends ModernButton {
   /**
    * Instantiates a new modern outline button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernOutlineButton(String text1) {
     super(text1);
@@ -61,8 +60,7 @@ public class ModernOutlineButton extends ModernButton {
   /**
    * Instantiates a new modern outline button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernOutlineButton(ModernIcon icon) {
     super(icon);
@@ -73,10 +71,8 @@ public class ModernOutlineButton extends ModernButton {
   /**
    * Instantiates a new modern outline button.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
+   * @param text1 the text1
+   * @param icon the icon
    */
   public ModernOutlineButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -106,7 +102,8 @@ public class ModernOutlineButton extends ModernButton {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

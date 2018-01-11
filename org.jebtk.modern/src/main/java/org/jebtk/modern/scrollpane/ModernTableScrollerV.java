@@ -41,8 +41,7 @@ public class ModernTableScrollerV extends ModernTableScroller {
   /**
    * Instantiates a new modern table scroller V.
    *
-   * @param table
-   *          the table
+   * @param table the table
    */
   public ModernTableScrollerV(ModernTable table) {
     super(table);
@@ -67,7 +66,8 @@ public class ModernTableScrollerV extends ModernTableScroller {
 
     double p = scrollBar.normalize(width, notches); // * notches;
 
-    // System.err.println("Row " + range.getStartRow() + " " + notches + " " + width
+    // System.err.println("Row " + range.getStartRow() + " " + notches + " " +
+    // width
     // + " " + p);
 
     scrollBar.incrementNormalizedScrollPosition(p); // .setNormalizedScrollPosition(p);

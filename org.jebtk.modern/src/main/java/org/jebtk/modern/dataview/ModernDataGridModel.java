@@ -51,8 +51,8 @@ public abstract class ModernDataGridModel extends ModernDataModel {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.lib
-     * .event.ChangeEvent)
+     * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh
+     * .lib .event.ChangeEvent)
      */
     @Override
     public void dataChanged(ChangeEvent e) {
@@ -63,8 +63,8 @@ public abstract class ModernDataGridModel extends ModernDataModel {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.lib
-     * .event.ChangeEvent)
+     * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh
+     * .lib .event.ChangeEvent)
      */
     @Override
     public void dataUpdated(ChangeEvent e) {

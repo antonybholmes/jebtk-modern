@@ -44,8 +44,7 @@ public class ModernCenteredLabelPanel extends ModernLabel {
   /**
    * Instantiates a new modern centered label panel.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernCenteredLabelPanel(String text) {
     super(text);
@@ -54,10 +53,8 @@ public class ModernCenteredLabelPanel extends ModernLabel {
   /**
    * Instantiates a new modern centered label panel.
    *
-   * @param text
-   *          the text
-   * @param color
-   *          the color
+   * @param text the text
+   * @param color the color
    */
   public ModernCenteredLabelPanel(String text, Color color) {
     super(text, color);

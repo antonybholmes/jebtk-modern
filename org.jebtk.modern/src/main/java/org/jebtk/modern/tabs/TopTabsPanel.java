@@ -30,8 +30,7 @@ public class TopTabsPanel extends ModernComponent {
   /**
    * Instantiates a new top tabs panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public TopTabsPanel(TabsModel model) {
     setHeader(new ModernHTabBarTop(model));

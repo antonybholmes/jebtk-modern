@@ -65,8 +65,7 @@ public class TableVectorIcon extends ModernVectorIcon {
   /**
    * Instantiates a new table vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public TableVectorIcon(Color color) {
     mColor = color;
@@ -80,7 +79,12 @@ public class TableVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     double wf = w * WIDTH_SCALE;
     double hf = w * HEIGHT_SCALE;
 
@@ -90,21 +94,31 @@ public class TableVectorIcon extends ModernVectorIcon {
     double barH = hf * 0.25;
 
     g2.setColor(ModernWidget.BACKGROUND_COLOR);
-    g2.fillRect((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(hf));
+    g2.fillRect((int) Math.round(xf),
+        (int) Math.round(yf),
+        (int) Math.round(wf),
+        (int) Math.round(hf));
 
     g2.setColor(ModernWidget.DARK_LINE_COLOR);
-    g2.drawRect((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(hf));
+    g2.drawRect((int) Math.round(xf),
+        (int) Math.round(yf),
+        (int) Math.round(wf),
+        (int) Math.round(hf));
 
     g2.setColor(mColor);
-    g2.fillRect((int) Math.round(xf), (int) Math.round(yf), (int) (Math.round(wf) + 1), (int) Math.round(barH));
+    g2.fillRect((int) Math.round(xf),
+        (int) Math.round(yf),
+        (int) (Math.round(wf) + 1),
+        (int) Math.round(barH));
 
     /*
-     * g2.setColor(ModernTheme.getInstance().getClass("widget").getColor("text"));
+     * g2.setColor(ModernTheme.getInstance().getClass("widget").getColor("text")
+     * );
      * 
      * g2.setFont(ThemeService.loadFont("widget.text"));
      * 
-     * double x = x + (w - g2.getFontMetrics().stringWidth(text)) / 2.0; double y =
-     * y + h * 0.75;
+     * double x = x + (w - g2.getFontMetrics().stringWidth(text)) / 2.0; double
+     * y = y + h * 0.75;
      * 
      * g2.drawString(text, (int)x, (int)y);
      */

@@ -51,8 +51,7 @@ public class SubHeading extends Box {
   /**
    * Instantiates a new sub heading.
    *
-   * @param title
-   *          the title
+   * @param title the title
    */
   public SubHeading(String title) {
     super(BoxLayout.LINE_AXIS);
@@ -64,10 +63,8 @@ public class SubHeading extends Box {
   /**
    * Instantiates a new sub heading.
    *
-   * @param title
-   *          the title
-   * @param component
-   *          the component
+   * @param title the title
+   * @param component the component
    */
   public SubHeading(String title, JComponent component) {
     super(BoxLayout.LINE_AXIS);

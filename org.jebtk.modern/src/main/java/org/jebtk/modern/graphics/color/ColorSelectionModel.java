@@ -70,8 +70,7 @@ public class ColorSelectionModel extends ChangeListeners {
   /**
    * Sets the current color.
    *
-   * @param color
-   *          the new current color
+   * @param color the new current color
    */
   public void setCurrentColor(ColorValue color) {
     mCurrentColor = color;
@@ -85,10 +84,8 @@ public class ColorSelectionModel extends ChangeListeners {
   /**
    * Update color.
    *
-   * @param channel
-   *          the channel
-   * @param value
-   *          the value
+   * @param channel the channel
+   * @param value the value
    */
   public void updateColor(ColorChannel channel, int value) {
     switch (channel) {
@@ -112,8 +109,7 @@ public class ColorSelectionModel extends ChangeListeners {
   /**
    * Sets the channel.
    *
-   * @param channel
-   *          the new channel
+   * @param channel the new channel
    */
   public void setChannel(ColorChannel channel) {
     mChannel = channel;
@@ -151,8 +147,7 @@ public class ColorSelectionModel extends ChangeListeners {
   /**
    * Sets the new color.
    *
-   * @param color
-   *          the new color
+   * @param color the new color
    */
   public void setNewColor(ColorValue color) {
     mNewColor = color;

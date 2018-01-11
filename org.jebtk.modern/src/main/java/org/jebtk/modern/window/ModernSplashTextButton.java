@@ -50,7 +50,8 @@ public class ModernSplashTextButton extends ModernButton {
   private static final long serialVersionUID = 1L;
 
   /** The Constant COLOR1. */
-  private static final Color COLOR1 = ColorUtils.getTransparentColor40(Color.WHITE);
+  private static final Color COLOR1 = ColorUtils
+      .getTransparentColor40(Color.WHITE);
 
   /** The Constant COLOR2. */
   private static final Color COLOR2 = Color.WHITE;
@@ -58,8 +59,7 @@ public class ModernSplashTextButton extends ModernButton {
   /**
    * Instantiates a new modern splash button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernSplashTextButton(String text1) {
     super(text1);
@@ -78,7 +78,8 @@ public class ModernSplashTextButton extends ModernButton {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

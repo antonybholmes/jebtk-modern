@@ -56,10 +56,8 @@ public class DialogEvent extends ChangeEvent {
   /**
    * Instantiates a new dialog event.
    *
-   * @param source
-   *          the source
-   * @param status
-   *          the status
+   * @param source the source
+   * @param status the status
    */
   public DialogEvent(Object source, ModernDialogStatus status) {
     super(source);

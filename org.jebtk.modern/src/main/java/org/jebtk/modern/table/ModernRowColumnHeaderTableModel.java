@@ -35,7 +35,8 @@ import java.util.List;
  *
  * @author Antony Holmes Holmes
  */
-public abstract class ModernRowColumnHeaderTableModel extends ModernColumnHeaderTableModel {
+public abstract class ModernRowColumnHeaderTableModel
+    extends ModernColumnHeaderTableModel {
 
   /*
    * (non-Javadoc)

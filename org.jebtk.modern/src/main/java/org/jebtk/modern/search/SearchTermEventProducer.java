@@ -41,24 +41,21 @@ public interface SearchTermEventProducer {
   /**
    * Add a search term listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addSearchTermListener(SearchTermEventListener l);
 
   /**
    * Remove a search term listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeSearchTermListener(SearchTermEventListener l);
 
   /**
    * fire an event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireSearchTermsChanged(ChangeEvent event);
 }

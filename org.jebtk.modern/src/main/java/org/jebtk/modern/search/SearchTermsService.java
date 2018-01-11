@@ -34,12 +34,12 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
-import org.jebtk.core.event.ChangeEvent;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
 import org.jebtk.core.collections.CircularArray;
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.xml.Xml;
 import org.xml.sax.SAXException;
 
@@ -52,7 +52,8 @@ import org.xml.sax.SAXException;
  * @author Antony Holmes Holmes
  *
  */
-public class SearchTermsService extends SearchTermEventListeners implements Iterable<String> {
+public class SearchTermsService extends SearchTermEventListeners
+    implements Iterable<String> {
 
   /**
    * The constant serialVersionUID.
@@ -104,30 +105,25 @@ public class SearchTermsService extends SearchTermEventListeners implements Iter
   /**
    * Load xml.
    *
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
-   * @throws SAXException
-   *           the SAX exception
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws ParserConfigurationException the parser configuration exception
+   * @throws SAXException the SAX exception
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public final void loadXml() throws ParserConfigurationException, SAXException, IOException {
+  public final void loadXml()
+      throws ParserConfigurationException, SAXException, IOException {
     loadXml(DEFAULT_XML_FILE);
   }
 
   /**
    * Load search terms from an XML file.
    *
-   * @param file
-   *          the file
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
-   * @throws SAXException
-   *           the SAX exception
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws ParserConfigurationException the parser configuration exception
+   * @throws SAXException the SAX exception
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public final void loadXml(File file) throws ParserConfigurationException, SAXException, IOException {
+  public final void loadXml(File file)
+      throws ParserConfigurationException, SAXException, IOException {
     if (!file.exists()) {
       return;
     }
@@ -143,8 +139,7 @@ public class SearchTermsService extends SearchTermEventListeners implements Iter
   /**
    * Adds the term.
    *
-   * @param term
-   *          the term
+   * @param term the term
    */
   public final void addTerm(String term) {
 
@@ -169,8 +164,7 @@ public class SearchTermsService extends SearchTermEventListeners implements Iter
   /**
    * Write.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public final void write() throws IOException {
     write(DEFAULT_XML_FILE);
@@ -179,10 +173,8 @@ public class SearchTermsService extends SearchTermEventListeners implements Iter
   /**
    * Write.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public final void write(File file) throws IOException {
     BufferedWriter out = new BufferedWriter(new FileWriter(file));
@@ -229,8 +221,7 @@ public class SearchTermsService extends SearchTermEventListeners implements Iter
   /**
    * Contains.
    *
-   * @param query
-   *          the query
+   * @param query the query
    * @return true, if successful
    */
   public final boolean contains(String query) {

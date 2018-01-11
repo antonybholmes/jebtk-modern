@@ -54,8 +54,8 @@ public class ModernDataRowDateSorter extends ModernDataIndexMapSorter {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexMapSorter#sort(org.abh.lib
-   * .ui.modern.dataview.ModernData, int, boolean)
+   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexMapSorter#sort(org.abh.
+   * lib .ui.modern.dataview.ModernData, int, boolean)
    */
   @Override
   public void sort(ModernData data, int column, boolean sortAscending) {

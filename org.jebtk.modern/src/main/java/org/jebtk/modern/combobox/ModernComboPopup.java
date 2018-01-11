@@ -54,8 +54,7 @@ public class ModernComboPopup extends ModernScrollPopupMenu {
   /**
    * Instantiates a new modern combo popup.
    *
-   * @param maxHeight
-   *          the max height
+   * @param maxHeight the max height
    */
   public ModernComboPopup(int maxHeight) {
     super(maxHeight);
@@ -64,7 +63,8 @@ public class ModernComboPopup extends ModernScrollPopupMenu {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.menu.ModernScrollPopupMenu#showPopup(javax.swing.
+   * @see
+   * org.abh.lib.ui.modern.menu.ModernScrollPopupMenu#showPopup(javax.swing.
    * JComponent)
    */
   @Override
@@ -74,7 +74,8 @@ public class ModernComboPopup extends ModernScrollPopupMenu {
     int w = component.getWidth() - 2;
 
     for (int i = 0; i < this.mScrollMenuPanel.getComponentCount(); ++i) {
-      w = Math.max(w, this.mScrollMenuPanel.getComponent(i).getPreferredSize().width);
+      w = Math.max(w,
+          this.mScrollMenuPanel.getComponent(i).getPreferredSize().width);
 
       h += this.mScrollMenuPanel.getComponent(i).getPreferredSize().height;
     }
@@ -84,10 +85,12 @@ public class ModernComboPopup extends ModernScrollPopupMenu {
     /*
      * int border = 0;
      * 
-     * if (this.menuPanel.getComponentCount() > maxRows) { // the scroll bar will be
-     * displayed so adjust the border border += ModernScrollPane.SCROLLBAR_WIDTH;
+     * if (this.menuPanel.getComponentCount() > maxRows) { // the scroll bar
+     * will be displayed so adjust the border border +=
+     * ModernScrollPane.SCROLLBAR_WIDTH;
      * //scrollPane.getVerticalScrollBar().getMaximumSize().width; //w -= 2; }
-     * menuPanel.setBorder(BorderService.getInstance().createRightBorder(border));
+     * menuPanel.setBorder(BorderService.getInstance().createRightBorder(border)
+     * );
      */
 
     mScrollMenuPanel.setPreferredSize(new Dimension(w, h));

@@ -23,7 +23,8 @@ import org.jebtk.modern.table.header.ModernTableHeaderColumnCellRenderer;
 /**
  * The Class ModernTableHeadingRendererModel.
  */
-public class ModernTableHeadingRendererModel extends ModernData1DModel<ModernDataCellRenderer> {
+public class ModernTableHeadingRendererModel
+    extends ModernData1DModel<ModernDataCellRenderer> {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -38,8 +39,7 @@ public class ModernTableHeadingRendererModel extends ModernData1DModel<ModernDat
   /**
    * Instantiates a new modern table heading renderer model.
    *
-   * @param renderer
-   *          the renderer
+   * @param renderer the renderer
    */
   public ModernTableHeadingRendererModel(ModernDataCellRenderer renderer) {
     super(renderer);

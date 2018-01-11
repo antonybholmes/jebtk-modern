@@ -59,8 +59,7 @@ public class FadeAnimation extends WidgetAnimation {
   /**
    * Instantiates a new hover fade animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public FadeAnimation(ModernWidget widget) {
     super(widget);
@@ -82,10 +81,8 @@ public class FadeAnimation extends WidgetAnimation {
    * Set a fade in color that can transition linearly between transparent and
    * opaque.
    *
-   * @param name
-   *          the name
-   * @param color
-   *          the color
+   * @param name the name
+   * @param color the color
    */
   public void setFadeColor(String name, Color color) {
     double t = ColorUtils.getTrans(color);
@@ -93,7 +90,8 @@ public class FadeAnimation extends WidgetAnimation {
     double d = (1.0 - t); // / STEPS;
 
     for (int i = 0; i < TimerAnimation.STEPS; ++i) {
-      Color c = ColorUtils.getTransparentColor(color, t + d * TranslateAnimation.BEZ_T[i]);
+      Color c = ColorUtils.getTransparentColor(color,
+          t + d * TranslateAnimation.BEZ_T[i]);
 
       mFadeColorMap.get(i).put(name, c);
 
@@ -107,7 +105,8 @@ public class FadeAnimation extends WidgetAnimation {
     // in the transparent state (the last step) and work backwards to
     // opaque once the animation begins. Therefore with a a color map,
     // the last color needs to be the starting color.
-    List<ColorMapColor> colorMap = ColorMap.createTwoColorMap(color1, color2, TimerAnimation.STEPS, true);
+    List<ColorMapColor> colorMap = ColorMap
+        .createTwoColorMap(color1, color2, TimerAnimation.STEPS, true);
 
     for (int i = 0; i < TimerAnimation.STEPS; ++i) {
       mFadeColorMap.get(i).put(name, colorMap.get(i));
@@ -130,8 +129,7 @@ public class FadeAnimation extends WidgetAnimation {
   /**
    * Gets the fade color map.
    *
-   * @param step
-   *          the step
+   * @param step the step
    * @return the fade color map
    */
   public Map<String, Color> getFadeColorMap(int step) {

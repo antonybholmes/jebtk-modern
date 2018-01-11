@@ -28,7 +28,6 @@
 package org.jebtk.modern.dataview;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.EventProducer;
 
 // TODO: Auto-generated Javadoc
@@ -40,7 +39,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDataViewListeners extends EventProducer<ModernDataViewListener>
+public class ModernDataViewListeners
+    extends EventProducer<ModernDataViewListener>
     implements ModernDataViewEventProducer {
 
   /**
@@ -67,7 +67,8 @@ public class ModernDataViewListeners extends EventProducer<ModernDataViewListene
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#
-   * removeDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
+   * removeDataViewListener(org.abh.lib.ui.modern.dataview.
+   * ModernDataViewListener)
    */
   public void removeDataViewListener(ModernDataViewListener l) {
     mListeners.remove(l);

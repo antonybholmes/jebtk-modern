@@ -51,8 +51,7 @@ public class ModernHeading extends Box {
   /**
    * Instantiates a new modern heading.
    *
-   * @param title
-   *          the title
+   * @param title the title
    */
   public ModernHeading(String title) {
     super(BoxLayout.LINE_AXIS);
@@ -64,10 +63,8 @@ public class ModernHeading extends Box {
   /**
    * Instantiates a new modern heading.
    *
-   * @param title
-   *          the title
-   * @param component
-   *          the component
+   * @param title the title
+   * @param component the component
    */
   public ModernHeading(String title, JComponent component) {
     super(BoxLayout.LINE_AXIS);

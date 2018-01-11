@@ -42,10 +42,10 @@ import org.jebtk.core.event.ChangeListeners;
  * and experiments are sorted.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public class SortModel<T extends NameProperty> extends ChangeListeners implements Iterable<Sorter<T>> {
+public class SortModel<T extends NameProperty> extends ChangeListeners
+    implements Iterable<Sorter<T>> {
 
   /**
    * The constant serialVersionUID.
@@ -94,8 +94,7 @@ public class SortModel<T extends NameProperty> extends ChangeListeners implement
   /**
    * Gets the.
    *
-   * @param name
-   *          the name
+   * @param name the name
    * @return the sorter
    */
   public Sorter<T> get(String name) {
@@ -105,8 +104,7 @@ public class SortModel<T extends NameProperty> extends ChangeListeners implement
   /**
    * Adds the.
    *
-   * @param sorter
-   *          the sorter
+   * @param sorter the sorter
    */
   public void add(Sorter<T> sorter) {
     mSorters.add(sorter);
@@ -116,8 +114,7 @@ public class SortModel<T extends NameProperty> extends ChangeListeners implement
   /**
    * Sets the default.
    *
-   * @param name
-   *          the new default
+   * @param name the new default
    */
   public void setDefault(String name) {
     mDefaultSorter = mSorterMap.get(name);
@@ -137,8 +134,7 @@ public class SortModel<T extends NameProperty> extends ChangeListeners implement
   /**
    * Sets the sorter.
    *
-   * @param name
-   *          the new sorter
+   * @param name the new sorter
    */
   public void setSorter(String name) {
     if (!mSorterMap.containsKey(name)) {
@@ -162,8 +158,7 @@ public class SortModel<T extends NameProperty> extends ChangeListeners implement
   /**
    * Sets the sort ascending.
    *
-   * @param sortAscending
-   *          the new sort ascending
+   * @param sortAscending the new sort ascending
    */
   public void setSortAscending(boolean sortAscending) {
     mSortAscending = sortAscending;
@@ -183,8 +178,7 @@ public class SortModel<T extends NameProperty> extends ChangeListeners implement
   /**
    * Sets the expanded.
    *
-   * @param expanded
-   *          the new expanded
+   * @param expanded the new expanded
    */
   public void setExpanded(boolean expanded) {
     if (expanded == mExpanded) {

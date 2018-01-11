@@ -15,7 +15,8 @@ public class CompResizeAnimation extends ChangeAnimation {
   private int mStep;
   private int mDir = 1;
 
-  public <T extends ModernWidget & ChangeEventProducer> CompResizeAnimation(T widget) {
+  public <T extends ModernWidget & ChangeEventProducer> CompResizeAnimation(
+      T widget) {
     super(widget, 50);
   }
 

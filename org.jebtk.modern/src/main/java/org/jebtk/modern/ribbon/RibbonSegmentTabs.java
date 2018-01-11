@@ -50,10 +50,8 @@ public class RibbonSegmentTabs extends SegmentTabs {
   /**
    * Instantiates a new text tabs.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
+   * @param model the model
+   * @param tabSize the tab size
    */
   public RibbonSegmentTabs(TabsModel model, int tabSize) {
     this(model, tabSize, true);
@@ -62,12 +60,9 @@ public class RibbonSegmentTabs extends SegmentTabs {
   /**
    * Instantiates a new ribbon segment tabs.
    *
-   * @param model
-   *          the model
-   * @param tabSize
-   *          the tab size
-   * @param centered
-   *          the centered
+   * @param model the model
+   * @param tabSize the tab size
+   * @param centered the centered
    */
   public RibbonSegmentTabs(TabsModel model, int tabSize, boolean centered) {
     super(model, tabSize, centered);
@@ -80,7 +75,8 @@ public class RibbonSegmentTabs extends SegmentTabs {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -105,7 +101,8 @@ public class RibbonSegmentTabs extends SegmentTabs {
     //
 
     if (mHighlight > -1 && mHighlight < n) {
-      getWidgetRenderer().drawButtonFill(g2, x, y, w, h, RenderMode.HIGHLIGHT, hasFocus());
+      getWidgetRenderer()
+          .drawButtonFill(g2, x, y, w, h, RenderMode.HIGHLIGHT, hasFocus());
 
       if (mHighlight == 0) {
         g2.fill(mLeftEnd);
@@ -184,9 +181,11 @@ public class RibbonSegmentTabs extends SegmentTabs {
       int tabX;
 
       if (getTabsModel().getTab(i).getIcon() != null) {
-        tabX = (mTabSize - 24 - DOUBLE_PADDING - g2.getFontMetrics().stringWidth(s)) / 2;
+        tabX = (mTabSize - 24 - DOUBLE_PADDING
+            - g2.getFontMetrics().stringWidth(s)) / 2;
 
-        getTabsModel().getTab(i).getIcon().drawIcon(g2, x + tabX, (getHeight() - 24) / 2, 32);
+        getTabsModel().getTab(i).getIcon()
+            .drawIcon(g2, x + tabX, (getHeight() - 24) / 2, 32);
 
         tabX += 24 + DOUBLE_PADDING;
       } else {
@@ -198,7 +197,8 @@ public class RibbonSegmentTabs extends SegmentTabs {
       x += mTabSize;
     }
 
-    // g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW() - 1,
+    // g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW()
+    // - 1,
     // mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING);
   }
 }

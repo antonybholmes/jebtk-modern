@@ -41,7 +41,6 @@ import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.core.geom.IntRect;
@@ -57,8 +56,9 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  *
  */
 public class ModernCanvas extends ModernFocusableWidget
-    implements ModernCanvasEventProducer, ModernCanvasMouseEventProducer, ModernCanvasMouseListener,
-    ModernCanvasKeyEventProducer, ModernCanvasKeyListener, CanvasCursorEventProducer {
+    implements ModernCanvasEventProducer, ModernCanvasMouseEventProducer,
+    ModernCanvasMouseListener, ModernCanvasKeyEventProducer,
+    ModernCanvasKeyListener, CanvasCursorEventProducer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -194,7 +194,8 @@ public class ModernCanvas extends ModernFocusableWidget
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -210,8 +211,8 @@ public class ModernCanvas extends ModernFocusableWidget
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.
+     * MouseEvent)
      */
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -224,7 +225,8 @@ public class ModernCanvas extends ModernFocusableWidget
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -291,8 +293,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Instantiates a new modern canvas.
    *
-   * @param size
-   *          the size
+   * @param size the size
    */
   public ModernCanvas(Dimension size) {
     setup();
@@ -322,12 +323,11 @@ public class ModernCanvas extends ModernFocusableWidget
 
   /**
    * Sets whether canvas events are forwarded or not. This can be useful if you
-   * want to temporarily disable drawing operations for instance if doing a batch
-   * update to a canvas where you do not want to trigger multiple drawing events
-   * until it has finished updating.
+   * want to temporarily disable drawing operations for instance if doing a
+   * batch update to a canvas where you do not want to trigger multiple drawing
+   * events until it has finished updating.
    *
-   * @param enabled
-   *          the new forward canvas events enabled
+   * @param enabled the new forward canvas events enabled
    */
   public void setForwardCanvasEventsEnabled(boolean enabled) {
     mForwardCanvasEvents = enabled;
@@ -358,8 +358,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Sets the canvas size.
    *
-   * @param size
-   *          the size
+   * @param size the size
    */
   public void updateCanvasSize(IntDim size) {
     updateCanvasSize(size.getW(), size.getH());
@@ -368,8 +367,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Sets the canvas size.
    *
-   * @param size
-   *          the new canvas size
+   * @param size the new canvas size
    */
   public void updateCanvasSize(Dimension size) {
     updateCanvasSize(size.width, size.height);
@@ -394,8 +392,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Sets the canvas size.
    *
-   * @param size
-   *          the new canvas size
+   * @param size the new canvas size
    */
   public void setCanvasSize(IntDim size) {
     updateCanvasSize(size);
@@ -406,8 +403,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Sets the canvas size.
    *
-   * @param size
-   *          the new canvas size
+   * @param size the new canvas size
    */
   public void setCanvasSize(Dimension size) {
     updateCanvasSize(size);
@@ -418,10 +414,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Sets the canvas size.
    *
-   * @param width
-   *          the width
-   * @param height
-   *          the height
+   * @param width the width
+   * @param height the height
    */
   public void setCanvasSize(int width, int height) {
     updateCanvasSize(width, height);
@@ -432,22 +426,21 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Set the size of the canvas. This will take into account any borders.
    *
-   * @param width
-   *          the width
-   * @param height
-   *          the height
+   * @param width the width
+   * @param height the height
    */
   public void updateCanvasSize(int width, int height) {
     mIntCanvasSize = new IntDim(width, height);
 
     // The total size of the canvas including margins
-    // mCanvasSize = new IntDim(size.getW() + getInsets().left + getInsets().right,
+    // mCanvasSize = new IntDim(size.getW() + getInsets().left +
+    // getInsets().right,
     // size.getH() + getInsets().top + getInsets().bottom);
 
     mCanvasMidPoint = new IntPos2D(width / 2, height / 2);
 
-    setPreferredSize(
-        new Dimension(width + getInsets().left + getInsets().right, height + getInsets().top + getInsets().bottom)); // IntDim.toDimension(mCanvasSize));
+    setPreferredSize(new Dimension(width + getInsets().left + getInsets().right,
+        height + getInsets().top + getInsets().bottom)); // IntDim.toDimension(mCanvasSize));
 
     // System.err.println("canvas size " + mPs + " " + this);
 
@@ -482,8 +475,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Update the canvas offset and trigger a repaint.
    *
-   * @param position
-   *          the new view rectangle
+   * @param position the new view rectangle
    */
   // public void setViewRectangle(int x, int y) {
   // setViewRectangle(new IntPosition(x, y));
@@ -507,8 +499,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Sets the view rectangle.
    *
-   * @param position
-   *          the new view rectangle
+   * @param position the new view rectangle
    */
   public void setViewRectangle(IntPos2D position) {
     updateViewRectangle(position);
@@ -519,20 +510,18 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Update view rectangle.
    *
-   * @param position
-   *          the position
+   * @param position the position
    */
   public void updateViewRectangle(IntPos2D position) {
-    updateViewRectangle(new IntRect(position.getX(), position.getY(), mInternalRect.getW(), mInternalRect.getH()));
+    updateViewRectangle(new IntRect(position.getX(), position.getY(),
+        mInternalRect.getW(), mInternalRect.getH()));
   }
 
   /**
    * Sets the view rectangle.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   public void setViewRectangle(int x, int y) {
     updateViewRectangle(x, y);
@@ -543,8 +532,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Sets the view rectangle.
    *
-   * @param dim
-   *          the new view rectangle
+   * @param dim the new view rectangle
    */
   public void setViewRectangle(IntDim dim) {
     updateViewRectangle(dim);
@@ -555,10 +543,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Sets the view rectangle.
    *
-   * @param position
-   *          the position
-   * @param dim
-   *          the dim
+   * @param position the position
+   * @param dim the dim
    */
   public void setViewRectangle(IntPos2D position, IntDim dim) {
     updateViewRectangle(position, dim);
@@ -569,14 +555,10 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Sets the view rectangle.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param w
-   *          the w
-   * @param h
-   *          the h
+   * @param x the x
+   * @param y the y
+   * @param w the w
+   * @param h the h
    */
   public void setViewRectangle(int x, int y, int w, int h) {
     updateViewRectangle(x, y, w, h);
@@ -587,8 +569,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Sets the view rectangle.
    *
-   * @param rect
-   *          the new view rectangle
+   * @param rect the new view rectangle
    */
   public void setViewRectangle(IntRect rect) {
     updateViewRectangle(rect);
@@ -599,20 +580,18 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Update view rectangle.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   public void updateViewRectangle(int x, int y) {
-    updateViewRectangle(new IntRect(x, y, mInternalRect.getW(), mInternalRect.getH()));
+    updateViewRectangle(
+        new IntRect(x, y, mInternalRect.getW(), mInternalRect.getH()));
   }
 
   /**
    * Update view rectangle.
    *
-   * @param size
-   *          the size
+   * @param size the size
    */
   public void updateViewRectangle(IntDim size) {
     updateViewRectangle(new IntRect(0, 0, size.getW(), size.getH()));
@@ -621,26 +600,23 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Update view rectangle.
    *
-   * @param position
-   *          the position
-   * @param dim
-   *          the dim
+   * @param position the position
+   * @param dim the dim
    */
   public void updateViewRectangle(IntPos2D position, IntDim dim) {
-    updateViewRectangle(position.getX(), position.getY(), dim.getW(), dim.getH());
+    updateViewRectangle(position.getX(),
+        position.getY(),
+        dim.getW(),
+        dim.getH());
   }
 
   /**
    * Update the current view on the rectangle.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param w
-   *          the w
-   * @param h
-   *          the h
+   * @param x the x
+   * @param y the y
+   * @param w the w
+   * @param h the h
    */
   public void updateViewRectangle(int x, int y, int w, int h) {
     updateViewRectangle(new IntRect(x, y, w, h));
@@ -649,8 +625,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Update the viewing rect without triggering a redraw.
    *
-   * @param rect
-   *          the rect
+   * @param rect the rect
    */
   public void updateViewRectangle(IntRect rect) {
     mIntViewRect = rect;
@@ -697,8 +672,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Translate x.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the int
    */
   protected int translateX(int x) {
@@ -708,8 +682,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Translate y.
    *
-   * @param y
-   *          the y
+   * @param y the y
    * @return the int
    */
   protected int translateY(int y) {
@@ -756,8 +729,8 @@ public class ModernCanvas extends ModernFocusableWidget
    * 
    * // adjust where the canvas is rendered
    * 
-   * try { g2Temp.setClip(getInsets().left, getInsets().top, mInternalRect.getW(),
-   * mInternalRect.getH());
+   * try { g2Temp.setClip(getInsets().left, getInsets().top,
+   * mInternalRect.getW(), mInternalRect.getH());
    * 
    * drawTranslatedCanvas(g2Temp); } finally { g2Temp.dispose(); } }
    */
@@ -765,8 +738,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Draw translated canvas.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   public void drawTranslatedCanvas(Graphics2D g2) {
     drawTranslatedCanvas(g2, DrawingContext.SCREEN);
@@ -775,10 +747,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Draw translated canvas.
    *
-   * @param g2
-   *          the g 2
-   * @param context
-   *          the context
+   * @param g2 the g 2
+   * @param context the context
    */
   public void drawTranslatedCanvas(Graphics2D g2, DrawingContext context) {
     drawCanvasForeground(g2, context);
@@ -799,10 +769,10 @@ public class ModernCanvas extends ModernFocusableWidget
   // }
 
   /**
-   * Should translate the graphics context to the current view window coordinates.
+   * Should translate the graphics context to the current view window
+   * coordinates.
    *
-   * @param g2Temp
-   *          the g 2 temp
+   * @param g2Temp the g 2 temp
    */
   public void canvasTranslate(Graphics2D g2Temp) {
     Rectangle r = getVisibleRect();
@@ -813,14 +783,12 @@ public class ModernCanvas extends ModernFocusableWidget
   }
 
   /**
-   * In charge of rendering the canvas. This is position agnostic, drawForeground
-   * will adjust the offset of the image if necessary. This method should assume
-   * the picture is being rendered at 0,0.
+   * In charge of rendering the canvas. This is position agnostic,
+   * drawForeground will adjust the offset of the image if necessary. This
+   * method should assume the picture is being rendered at 0,0.
    *
-   * @param g2
-   *          the g2
-   * @param context
-   *          the context
+   * @param g2 the g2
+   * @param context the context
    */
   public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
     cacheCanvas(g2, context);
@@ -829,10 +797,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Cache canvas.
    *
-   * @param g2
-   *          the g 2
-   * @param context
-   *          the context
+   * @param g2 the g 2
+   * @param context the context
    */
   public void cacheCanvas(Graphics2D g2, DrawingContext context) {
     if (context == DrawingContext.PRINT) {
@@ -840,7 +806,8 @@ public class ModernCanvas extends ModernFocusableWidget
     } else {
       // Create an image version of the canvas and draw that to spped
       // up operations
-      if (mBufferedImage == null || mCacheViewRect == null || !mCacheViewRect.equals(getViewRect())) {
+      if (mBufferedImage == null || mCacheViewRect == null
+          || !mCacheViewRect.equals(getViewRect())) {
         // The canvas need only be the size of the available display
         mBufferedImage = ImageUtils.createImage(getSize());
 
@@ -863,10 +830,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Draw canvas.
    *
-   * @param g2
-   *          the g 2
-   * @param context
-   *          the context
+   * @param g2 the g 2
+   * @param context the context
    */
   public void drawCanvas(Graphics2D g2, DrawingContext context) {
     // Do nothing
@@ -894,8 +859,8 @@ public class ModernCanvas extends ModernFocusableWidget
   }
 
   /**
-   * Returns the absolute preferred size of the canvas at a zoom level 1, i.e. no
-   * zooming. This is so the desired size of the canvas is always known.
+   * Returns the absolute preferred size of the canvas at a zoom level 1, i.e.
+   * no zooming. This is so the desired size of the canvas is always known.
    * 
    * @return
    */
@@ -907,33 +872,32 @@ public class ModernCanvas extends ModernFocusableWidget
    * Translate the current mouse position from the view coordinates to the panel
    * coordinates.
    *
-   * @param e
-   *          the e
+   * @param e the e
    * @return the point
    */
   public IntPos2D translateCoordinate(MouseEvent e) {
-    return translateCoordinate(e.getX(), e.getY()); // translateCoordinate(e.getX(), e.getY());
+    return translateCoordinate(e.getX(), e.getY()); // translateCoordinate(e.getX(),
+                                                    // e.getY());
   }
 
   /**
    * Translate coordinate.
    *
-   * @param e
-   *          the e
+   * @param e the e
    * @return the int pos 2 D
    */
   public IntPos2D translateCoordinate(CanvasMouseEvent e) {
     IntPos2D p = e.getScaledPos();
 
-    return translateCoordinate(p.getX(), p.getY()); // translateCoordinate(e.getX(), e.getY());
+    return translateCoordinate(p.getX(), p.getY()); // translateCoordinate(e.getX(),
+                                                    // e.getY());
   }
 
   /**
    * Translate the current mouse position from the view coordinates to the panel
    * coordinates.
    *
-   * @param p
-   *          the p
+   * @param p the p
    * @return the point
    */
   public IntPos2D translateCoordinate(Point p) {
@@ -943,8 +907,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Translate coordinate.
    *
-   * @param p
-   *          the p
+   * @param p the p
    * @return the point
    */
   public IntPos2D translateCoordinate(IntPos2D p) {
@@ -955,10 +918,8 @@ public class ModernCanvas extends ModernFocusableWidget
    * Translate the current mouse position from the view coordinates to the panel
    * coordinates.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    * @return the point
    */
   public IntPos2D translateCoordinate(int x, int y) {
@@ -978,8 +939,7 @@ public class ModernCanvas extends ModernFocusableWidget
    * Creates a mouse event where the x and y coordinates are adjusted for the
    * canvas.
    *
-   * @param e
-   *          the e
+   * @param e the e
    * @return the canvas mouse event
    */
   public CanvasMouseEvent createCanvasMouseEvent(MouseEvent e) {
@@ -989,8 +949,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Creates the canvas mouse event.
    *
-   * @param e
-   *          the e
+   * @param e the e
    * @return the canvas mouse event
    */
   public CanvasMouseEvent createCanvasMouseEvent(CanvasMouseEvent e) {
@@ -1012,9 +971,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#removeCanvasListener
-   * (org.abh.lib.ui.modern.graphics.ModernCanvasListener)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#
+   * removeCanvasListener (org.abh.lib.ui.modern.graphics.ModernCanvasListener)
    */
   @Override
   public void removeCanvasListener(ModernCanvasListener l) {
@@ -1060,8 +1018,8 @@ public class ModernCanvas extends ModernFocusableWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasRedraw(org
-   * .abh.lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasRedraw(
+   * org .abh.lib.event.ChangeEvent)
    */
   @Override
   public void fireCanvasRedraw(ChangeEvent e) {
@@ -1086,9 +1044,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasScrolled(
-   * org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#
+   * fireCanvasScrolled( org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void fireCanvasScrolled(ChangeEvent e) {
@@ -1113,9 +1070,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#fireCanvasScrolled(
-   * org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasEventProducer#
+   * fireCanvasScrolled( org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void fireCanvasResized(ChangeEvent e) {
@@ -1161,8 +1117,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Fire canvas mouse moved.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseMoved(MouseEvent e) {
     fireCanvasMouseMoved(createCanvasMouseEvent(e));
@@ -1171,8 +1126,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Fire canvas mouse dragged.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseDragged(MouseEvent e) {
     fireCanvasMouseDragged(createCanvasMouseEvent(e));
@@ -1181,8 +1135,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Fire canvas mouse clicked.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseClicked(MouseEvent e) {
     fireCanvasMouseClicked(createCanvasMouseEvent(e));
@@ -1191,8 +1144,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Fire canvas mouse pressed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMousePressed(MouseEvent e) {
     CanvasMouseEvent ce = createCanvasMouseEvent(e);
@@ -1203,8 +1155,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Fire canvas mouse released.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseReleased(MouseEvent e) {
     fireCanvasMouseReleased(createCanvasMouseEvent(e));
@@ -1213,8 +1164,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Fire canvas mouse entered.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseEntered(MouseEvent e) {
     fireCanvasMouseEntered(createCanvasMouseEvent(e));
@@ -1223,8 +1173,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * Fire canvas mouse exited.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasMouseExited(MouseEvent e) {
     fireCanvasMouseExited(createCanvasMouseEvent(e));
@@ -1310,9 +1259,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseClicked(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseClicked( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseClicked(CanvasMouseEvent e) {
@@ -1322,9 +1270,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseEntered(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseEntered( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseEntered(CanvasMouseEvent e) {
@@ -1346,9 +1293,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMousePressed(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMousePressed( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMousePressed(CanvasMouseEvent e) {
@@ -1360,9 +1306,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseReleased(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseReleased( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseReleased(CanvasMouseEvent e) {
@@ -1372,9 +1317,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseDragged(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseDragged( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseDragged(CanvasMouseEvent e) {
@@ -1385,8 +1329,8 @@ public class ModernCanvas extends ModernFocusableWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(org
-   * .abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(
+   * org .abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseMoved(CanvasMouseEvent e) {
@@ -1413,8 +1357,8 @@ public class ModernCanvas extends ModernFocusableWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyPressed(java.awt.
-   * event.KeyEvent)
+   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyPressed(java.
+   * awt. event.KeyEvent)
    */
   @Override
   public void canvasKeyPressed(KeyEvent e) {
@@ -1425,8 +1369,8 @@ public class ModernCanvas extends ModernFocusableWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyReleased(java.awt
-   * .event.KeyEvent)
+   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyReleased(java.
+   * awt .event.KeyEvent)
    */
   @Override
   public void canvasKeyReleased(KeyEvent e) {
@@ -1436,9 +1380,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#addCanvasKeyListener(
-   * org.abh.common.ui.graphics.ModernCanvasKeyListener)
+   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
+   * addCanvasKeyListener( org.abh.common.ui.graphics.ModernCanvasKeyListener)
    */
   @Override
   public void addCanvasKeyListener(ModernCanvasKeyListener l) {
@@ -1471,9 +1414,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyPressed(
-   * java.awt.event.KeyEvent)
+   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
+   * fireCanvasKeyPressed( java.awt.event.KeyEvent)
    */
   @Override
   public void fireCanvasKeyPressed(KeyEvent e) {
@@ -1483,9 +1425,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyReleased
-   * (java.awt.event.KeyEvent)
+   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
+   * fireCanvasKeyReleased (java.awt.event.KeyEvent)
    */
   @Override
   public void fireCanvasKeyReleased(KeyEvent e) {
@@ -1495,9 +1436,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.CanvasCursorEventProducer#addCanvasCursorListener(
-   * org.abh.common.ui.graphics.CanvasCursorListener)
+   * @see org.abh.common.ui.graphics.CanvasCursorEventProducer#
+   * addCanvasCursorListener( org.abh.common.ui.graphics.CanvasCursorListener)
    */
   @Override
   public void addCanvasCursorListener(CanvasCursorListener l) {
@@ -1537,9 +1477,8 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.CanvasCursorEventProducer#fireCanvasCursorChanged(
-   * org.abh.common.ui.graphics.CanvasCursorEvent)
+   * @see org.abh.common.ui.graphics.CanvasCursorEventProducer#
+   * fireCanvasCursorChanged( org.abh.common.ui.graphics.CanvasCursorEvent)
    */
   @Override
   public void fireCanvasCursorChanged(CanvasCursorEvent e) {

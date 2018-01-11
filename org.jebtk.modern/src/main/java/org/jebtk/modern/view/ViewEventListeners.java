@@ -28,7 +28,6 @@
 package org.jebtk.modern.view;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.EventProducer;
 
 // TODO: Auto-generated Javadoc
@@ -38,7 +37,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ViewEventListeners extends EventProducer<ViewEventListener> implements ViewEventProducer {
+public class ViewEventListeners extends EventProducer<ViewEventListener>
+    implements ViewEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -49,8 +49,8 @@ public class ViewEventListeners extends EventProducer<ViewEventListener> impleme
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.view.ViewEventProducer#addViewListener(org.abh.lib.ui.
-   * modern.view.ViewEventListener)
+   * org.abh.lib.ui.modern.view.ViewEventProducer#addViewListener(org.abh.lib.
+   * ui. modern.view.ViewEventListener)
    */
   public void addViewListener(ViewEventListener l) {
     mListeners.add(l);
@@ -60,8 +60,8 @@ public class ViewEventListeners extends EventProducer<ViewEventListener> impleme
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.view.ViewEventProducer#removeViewListener(org.abh.lib.
-   * ui.modern.view.ViewEventListener)
+   * org.abh.lib.ui.modern.view.ViewEventProducer#removeViewListener(org.abh.
+   * lib. ui.modern.view.ViewEventListener)
    */
   public void removeViewListener(ViewEventListener l) {
     mListeners.remove(l);

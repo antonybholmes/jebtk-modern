@@ -55,8 +55,7 @@ public class ModernListRecentFileRenderer extends ModernListFileRenderer {
   /**
    * Instantiates a new modern list recent file renderer.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernListRecentFileRenderer(ModernIcon icon) {
     super(icon);

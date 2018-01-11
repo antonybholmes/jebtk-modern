@@ -68,11 +68,11 @@ import org.jebtk.modern.theme.ThemeService;
  * list.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
 public class ModernList<T> extends ModernVertCanvas
-    implements ModernSelectionEventProducer, ModernDataViewEventProducer, HighlightEventProducer {
+    implements ModernSelectionEventProducer, ModernDataViewEventProducer,
+    HighlightEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -82,7 +82,8 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * The constant DRAG_LINE_COLOR.
    */
-  static final Color DRAG_LINE_COLOR = ThemeService.getInstance().colors().getHighlight(6);
+  static final Color DRAG_LINE_COLOR = ThemeService.getInstance().colors()
+      .getHighlight(6);
 
   /**
    * The member list model.
@@ -173,11 +174,15 @@ public class ModernList<T> extends ModernVertCanvas
       // selectionModel.clearModernSelection();
       // cellsSelectionModel.clear();
 
-      boolean multiSelect = (e.getModifiers() & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) == Toolkit
-          .getDefaultToolkit().getMenuShortcutKeyMask();
-      boolean multiRangeSelect = (e.getModifiers() & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
+      boolean multiSelect = (e.getModifiers()
+          & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) == Toolkit
+              .getDefaultToolkit().getMenuShortcutKeyMask();
+      boolean multiRangeSelect = (e.getModifiers()
+          & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
 
-      setSelectedCell(getCell(translateCoordinate(e)), multiSelect, multiRangeSelect);
+      setSelectedCell(getCell(translateCoordinate(e)),
+          multiSelect,
+          multiRangeSelect);
     }
 
     /*
@@ -271,8 +276,7 @@ public class ModernList<T> extends ModernVertCanvas
     /**
      * Instantiates a new selection events.
      *
-     * @param list
-     *          the list
+     * @param list the list
      */
     public SelectionEvents(ModernList<T> list) {
       mList = list;
@@ -282,8 +286,8 @@ public class ModernList<T> extends ModernVertCanvas
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.abh.
-     * lib.event.ChangeEvent)
+     * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.
+     * abh. lib.event.ChangeEvent)
      */
     @Override
     public void selectionChanged(ChangeEvent e) {
@@ -304,8 +308,7 @@ public class ModernList<T> extends ModernVertCanvas
     /**
      * Instantiates a new data events.
      *
-     * @param list
-     *          the list
+     * @param list the list
      */
     public DataEvents(ModernList<T> list) {
       mList = list;
@@ -315,8 +318,8 @@ public class ModernList<T> extends ModernVertCanvas
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.lib
-     * .event.ChangeEvent)
+     * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh
+     * .lib .event.ChangeEvent)
      */
     @Override
     public void dataChanged(ChangeEvent e) {
@@ -329,8 +332,8 @@ public class ModernList<T> extends ModernVertCanvas
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.lib
-     * .event.ChangeEvent)
+     * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh
+     * .lib .event.ChangeEvent)
      */
     @Override
     public void dataUpdated(ChangeEvent e) {
@@ -348,8 +351,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Instantiates a new modern list.
    *
-   * @param renderer
-   *          the renderer
+   * @param renderer the renderer
    */
   public ModernList(ModernListCellRenderer renderer) {
     setCellRenderer(renderer);
@@ -360,8 +362,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Instantiates a new modern list.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernList(ModernIcon icon) {
     this(new ModernListIconCellRenderer(icon));
@@ -370,8 +371,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Instantiates a new modern list.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernList(ModernListModel<T> model) {
     this(model, new ModernListIconCellRenderer());
@@ -380,10 +380,8 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Instantiates a new modern list.
    *
-   * @param model
-   *          the model
-   * @param icon
-   *          the icon
+   * @param model the model
+   * @param icon the icon
    */
   public ModernList(ModernListModel<T> model, ModernIcon icon) {
     this(model, new ModernListIconCellRenderer(icon));
@@ -392,10 +390,8 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Instantiates a new modern list.
    *
-   * @param model
-   *          the model
-   * @param renderer
-   *          the renderer
+   * @param model the model
+   * @param renderer the renderer
    */
   public ModernList(ModernListModel<T> model, ModernListCellRenderer renderer) {
     setModel(model);
@@ -407,8 +403,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Instantiates a new modern list.
    *
-   * @param size
-   *          the size
+   * @param size the size
    */
   public ModernList(Dimension size) {
     setup();
@@ -428,8 +423,8 @@ public class ModernList<T> extends ModernVertCanvas
 
     mSelectionModel.addSelectionListener(new SelectionEvents(this));
 
-    getInputMap(WHEN_FOCUSED)
-        .put(KeyStroke.getKeyStroke(KeyEvent.VK_A, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "a_pressed");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_A,
+        Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "a_pressed");
     getActionMap().put("a_pressed", new AbstractAction() {
       private static final long serialVersionUID = 1L;
 
@@ -446,8 +441,7 @@ public class ModernList<T> extends ModernVertCanvas
    * Allows user to drag items in a list to reorder it. This is disabled by
    * default.
    *
-   * @param enabled
-   *          the new drag reorder enabled
+   * @param enabled the new drag reorder enabled
    */
   public void setDragReorderEnabled(boolean enabled) {
     mDragEnabled = enabled;
@@ -493,14 +487,13 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Selects a cell if the mouse is over a valid cell when clicked.
    *
-   * @param index
-   *          the index
-   * @param multiItemSelect
-   *          the multi item select
-   * @param multiRangeSelect
-   *          the multi range select
+   * @param index the index
+   * @param multiItemSelect the multi item select
+   * @param multiRangeSelect the multi range select
    */
-  protected void setSelectedCell(int index, boolean multiItemSelect, boolean multiRangeSelect) {
+  protected void setSelectedCell(int index,
+      boolean multiItemSelect,
+      boolean multiRangeSelect) {
 
     if (index == -1) {
       return;
@@ -513,11 +506,13 @@ public class ModernList<T> extends ModernVertCanvas
     // a single selection; this prevents multiple items being selected
     // and dragged. The solution is to not change the selection if
     // one of the items being clicked on is already selected.
-    if (!multiItemSelect && !multiRangeSelect && mSelectionModel.contains(index)) {
+    if (!multiItemSelect && !multiRangeSelect
+        && mSelectionModel.contains(index)) {
       return;
     }
 
-    if ((!multiItemSelect && !multiRangeSelect) || mSelectionPolicy != SelectionPolicy.MULTIPLE) {
+    if ((!multiItemSelect && !multiRangeSelect)
+        || mSelectionPolicy != SelectionPolicy.MULTIPLE) {
       // If we are not selecting multiple cells, clear
       // the current selection
       mSelectionModel.removeAll();
@@ -555,8 +550,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Sets the model.
    *
-   * @param model
-   *          the new model
+   * @param model the new model
    */
   public void setModel(ModernListModel<T> model) {
     mListModel = model;
@@ -578,8 +572,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Sets the cell renderer.
    *
-   * @param renderer
-   *          the new cell renderer
+   * @param renderer the new cell renderer
    */
   public void setCellRenderer(ModernListCellRenderer renderer) {
     mRenderer = renderer;
@@ -590,8 +583,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Gets the cell.
    *
-   * @param p
-   *          the p
+   * @param p the p
    * @return the cell
    */
   protected int getCell(IntPos2D p) {
@@ -605,9 +597,9 @@ public class ModernList<T> extends ModernVertCanvas
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { // We want to use the
-   * unadjusted canvas space (i.e. no offset changes). if (mListModel == null) {
-   * return; }
+   * @Override public void drawBackgroundAA(Graphics2D g2) { // We want to use
+   * the unadjusted canvas space (i.e. no offset changes). if (mListModel ==
+   * null) { return; }
    * 
    * if (mListModel.getItemCount() == 0) { return; }
    * 
@@ -651,8 +643,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Returns the cumulative distance from 0 of a particular column.
    *
-   * @param column
-   *          the column
+   * @param column the column
    * @return the x
    */
   public final int getX(int column) {
@@ -662,8 +653,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Returns the cumulative distance from 0 of a particular row.
    *
-   * @param row
-   *          the row
+   * @param row the row
    * @return the y
    */
   public final int getY(int row) {
@@ -673,8 +663,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Gets the column.
    *
-   * @param x
-   *          the x
+   * @param x the x
    * @return the column
    */
   public int getColumn(int x) {
@@ -684,8 +673,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Gets the row.
    *
-   * @param y
-   *          the y
+   * @param y the y
    * @return the row
    */
   public int getRow(int y) {
@@ -695,8 +683,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Gets the index.
    *
-   * @param p
-   *          the p
+   * @param p the p
    * @return the index
    */
   protected int getIndex(IntPos2D p) {
@@ -706,8 +693,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Gets the point.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the point
    */
   protected Point getPoint(int index) {
@@ -717,8 +703,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Sets the row height.
    *
-   * @param rowHeight
-   *          the new row height
+   * @param rowHeight the new row height
    */
   public void setRowHeight(int rowHeight) {
     mRowHeight = rowHeight;
@@ -778,9 +763,8 @@ public class ModernList<T> extends ModernVertCanvas
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionEventProducer#addSelectionListener
-   * (org.abh.lib.ui.modern.event.ModernSelectionListener)
+   * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
+   * addSelectionListener (org.abh.lib.ui.modern.event.ModernSelectionListener)
    */
   @Override
   public void addSelectionListener(ModernSelectionListener l) {
@@ -791,7 +775,8 @@ public class ModernList<T> extends ModernVertCanvas
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
-   * removeSelectionListener(org.abh.lib.ui.modern.event.ModernSelectionListener)
+   * removeSelectionListener(org.abh.lib.ui.modern.event.
+   * ModernSelectionListener)
    */
   @Override
   public void removeSelectionListener(ModernSelectionListener l) {
@@ -801,9 +786,8 @@ public class ModernList<T> extends ModernVertCanvas
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionEventProducer#fireSelectionChanged
-   * (org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
+   * fireSelectionChanged (org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void fireSelectionChanged(ChangeEvent e) {
@@ -815,8 +799,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Sets the selected index.
    *
-   * @param i
-   *          the new selected index
+   * @param i the new selected index
    */
   public void setSelectedIndex(int i) {
     getSelectionModel().setSelection(i);
@@ -825,8 +808,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Gets the value at.
    *
-   * @param row
-   *          the row
+   * @param row the row
    * @return the value at
    */
   public T getValueAt(int row) {
@@ -836,8 +818,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Removes the value at.
    *
-   * @param row
-   *          the row
+   * @param row the row
    */
   public void removeValueAt(int row) {
     mListModel.removeValueAt(row);
@@ -880,7 +861,8 @@ public class ModernList<T> extends ModernVertCanvas
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.dataview.ModernDataViewEventProducer#
-   * removeDataViewListener(org.abh.lib.ui.modern.dataview.ModernDataViewListener)
+   * removeDataViewListener(org.abh.lib.ui.modern.dataview.
+   * ModernDataViewListener)
    */
   @Override
   public void removeDataViewListener(ModernDataViewListener l) {

@@ -28,7 +28,6 @@
 package org.jebtk.modern.event;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.EventProducer;
 
 // TODO: Auto-generated Javadoc
@@ -38,7 +37,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernLayoutListeners extends EventProducer<ModernLayoutListener> implements ModernLayoutEventProducer {
+public class ModernLayoutListeners extends EventProducer<ModernLayoutListener>
+    implements ModernLayoutEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -49,8 +49,8 @@ public class ModernLayoutListeners extends EventProducer<ModernLayoutListener> i
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernLayoutEventProducer#addLayoutListener(org.
-   * abh.lib.ui.modern.event.ModernLayoutListener)
+   * org.abh.lib.ui.modern.event.ModernLayoutEventProducer#addLayoutListener(
+   * org. abh.lib.ui.modern.event.ModernLayoutListener)
    */
   public void addLayoutListener(ModernLayoutListener l) {
     mListeners.add(l);
@@ -71,8 +71,8 @@ public class ModernLayoutListeners extends EventProducer<ModernLayoutListener> i
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernLayoutEventProducer#fireLayoutChanged(org.
-   * abh.lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.event.ModernLayoutEventProducer#fireLayoutChanged(
+   * org. abh.lib.event.ChangeEvent)
    */
   public void fireLayoutChanged(ChangeEvent e) {
     for (ModernLayoutListener l : mListeners) {

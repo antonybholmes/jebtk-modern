@@ -30,19 +30,21 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RibbonBackMenuAnimation extends HoverFadeAnimation {
 
-  private static final Color MENU_SELECTED_COLOR_2 = ThemeService.getInstance().colors().getHighlight32(12);
+  private static final Color MENU_SELECTED_COLOR_2 = ThemeService.getInstance()
+      .colors().getHighlight32(12);
 
   /**
    * Instantiates a new quick access animation.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public RibbonBackMenuAnimation(ModernClickWidget button) {
     super(button);
 
     // setFadeColor("fill", RibbonBackMenuItem.BASE_COLOR, Color.WHITE);
-    setFadeColor("fill", RibbonMenuItem.MENU_SELECTED_COLOR, MENU_SELECTED_COLOR_2);
+    setFadeColor("fill",
+        RibbonMenuItem.MENU_SELECTED_COLOR,
+        MENU_SELECTED_COLOR_2);
   }
 
   @Override

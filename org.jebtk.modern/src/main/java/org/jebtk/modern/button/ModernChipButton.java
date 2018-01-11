@@ -47,8 +47,7 @@ public class ModernChipButton extends ModernCheckButton {
   /**
    * Instantiates a new modern check button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernChipButton(String text1) {
     this(text1, false);
@@ -57,15 +56,15 @@ public class ModernChipButton extends ModernCheckButton {
   /**
    * Instantiates a new modern check button.
    *
-   * @param text1
-   *          the text1
-   * @param selected
-   *          the selected
+   * @param text1 the text1
+   * @param selected the selected
    */
   public ModernChipButton(String text1, boolean selected) {
     super(text1, selected);
 
-    UI.setSize(this, ModernButton.getButtonWidth(text1) + 16, ModernButton.getButtonHeight());
+    UI.setSize(this,
+        ModernButton.getButtonWidth(text1) + 16,
+        ModernButton.getButtonHeight());
 
     setBackgroundAnimations("chip-button");
   }
@@ -73,7 +72,8 @@ public class ModernChipButton extends ModernCheckButton {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

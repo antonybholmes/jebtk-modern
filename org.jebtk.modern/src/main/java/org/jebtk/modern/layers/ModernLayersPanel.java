@@ -77,10 +77,8 @@ public class ModernLayersPanel extends ModernWidget {
   /**
    * Adds the group.
    *
-   * @param group
-   *          the group
-   * @param container
-   *          the container
+   * @param group the group
+   * @param container the container
    */
   public void addGroup(String group, Box container) {
     collapsePane.addTab(group, container, true);

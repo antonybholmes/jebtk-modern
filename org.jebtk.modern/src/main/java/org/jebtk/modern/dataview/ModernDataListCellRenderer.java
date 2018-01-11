@@ -36,7 +36,8 @@ import org.jebtk.modern.graphics.icons.FileVectorIcon;
 /**
  * The class ModernDataListCellRenderer.
  */
-public class ModernDataListCellRenderer extends ModernDataGridIconTextCellRenderer {
+public class ModernDataListCellRenderer
+    extends ModernDataGridIconTextCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -53,7 +54,8 @@ public class ModernDataListCellRenderer extends ModernDataGridIconTextCellRender
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -78,11 +80,22 @@ public class ModernDataListCellRenderer extends ModernDataGridIconTextCellRender
    * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
-  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public Component getCellRendererComponent(ModernData dataView,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
 
     setText(value.toString());
 
-    return super.getCellRendererComponent(dataView, value, highlight, isSelected, hasFocus, row, column);
+    return super.getCellRendererComponent(dataView,
+        value,
+        highlight,
+        isSelected,
+        hasFocus,
+        row,
+        column);
   }
 }

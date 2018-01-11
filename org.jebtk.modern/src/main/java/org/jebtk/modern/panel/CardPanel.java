@@ -50,23 +50,26 @@ public class CardPanel extends ModernPanel {
    */
   private static final long serialVersionUID = 1L;
 
-  public static final Border CARD_BORDER = BorderService.getInstance().createBorder(1, 1,
-      MaterialUtils.SHADOW_BORDER_HEIGHT, 1);
+  public static final Border CARD_BORDER = BorderService.getInstance()
+      .createBorder(1, 1, MaterialUtils.SHADOW_BORDER_HEIGHT, 1);
 
+  
+  public CardPanel() {
+    setBorder(CARD_BORDER);
+  }
+  
   /**
    * Instantiates a new card panel.
    *
-   * @param title
-   *          the title
-   * @param content
-   *          the content
+   * @param title the title
+   * @param content the content
    */
   public CardPanel(Component content) {
     // ModernPanel panel = new ModernPaddedPanel(10);
 
     setBody(content);
 
-    setBorder(CARD_BORDER);
+   
   }
 
   @Override

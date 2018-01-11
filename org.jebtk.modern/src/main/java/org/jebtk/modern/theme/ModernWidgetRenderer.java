@@ -33,62 +33,76 @@ import org.jebtk.modern.widget.ModernWidget;
 public class ModernWidgetRenderer extends WidgetRenderer {
 
   /** The Constant HIGHLIGHTED_FILL_COLOR. */
-  public static final Color HIGHLIGHTED_FILL_COLOR = ThemeService.getInstance().colors().getColorHighlight32(10);
+  public static final Color HIGHLIGHTED_FILL_COLOR = ThemeService.getInstance()
+      .colors().getColorHighlight32(10);
 
   /** The Constant SELECTED_FILL_COLOR. */
-  public static final Color SELECTED_FILL_COLOR = ThemeService.getInstance().colors().getColorHighlight32(16);
+  public static final Color SELECTED_FILL_COLOR = ThemeService.getInstance()
+      .colors().getColorHighlight32(16);
 
   // public static final Color MENU_FILL_COLOR =
   // ThemeService.getInstance().colors().getHighlight32(4);
 
   /** The Constant HIGHLIGHTED_OUTLINE_COLOR. */
-  public static final Color HIGHLIGHTED_OUTLINE_COLOR = ThemeService.getInstance().colors().getColorHighlight32(14);
+  public static final Color HIGHLIGHTED_OUTLINE_COLOR = ThemeService
+      .getInstance().colors().getColorHighlight32(14);
 
   /** The Constant SELECTED_OUTLINE_COLOR. */
-  public static final Color SELECTED_OUTLINE_COLOR = ThemeService.getInstance().colors().getColorHighlight32(16);
+  public static final Color SELECTED_OUTLINE_COLOR = ThemeService.getInstance()
+      .colors().getColorHighlight32(16);
 
   /** The Constant DISABLED_OUTLINE_COLOR. */
-  public static final Color DISABLED_OUTLINE_COLOR = ThemeService.getInstance().colors().getHighlight32(8);
+  public static final Color DISABLED_OUTLINE_COLOR = ThemeService.getInstance()
+      .colors().getHighlight32(8);
 
   /** The Constant PRIMARY_DIALOG_BUTTON_OUTLINE_COLOR. */
-  public static final Color PRIMARY_DIALOG_BUTTON_OUTLINE_COLOR = ThemeService.getInstance().colors()
-      .getColorHighlight32(22);
+  public static final Color PRIMARY_DIALOG_BUTTON_OUTLINE_COLOR = ThemeService
+      .getInstance().colors().getColorHighlight32(22);
 
   /** The Constant FOCUSED_PRIMARY_DIALOG_BUTTON_OUTLINE_COLOR. */
-  public static final Color FOCUSED_PRIMARY_DIALOG_BUTTON_OUTLINE_COLOR = ThemeService.getInstance().colors()
-      .getColorHighlight32(30);
+  public static final Color FOCUSED_PRIMARY_DIALOG_BUTTON_OUTLINE_COLOR = ThemeService
+      .getInstance().colors().getColorHighlight32(30);
 
   /** The Constant LINE_COLOR. */
-  public static final Color LINE_COLOR = ThemeService.getInstance().colors().getLineColor();
+  public static final Color LINE_COLOR = ThemeService.getInstance().colors()
+      .getLineColor();
 
   /** The Constant LIGHT_LINE_COLOR. */
-  public static final Color LIGHT_LINE_COLOR = ThemeService.getInstance().colors().getLightLineColor();
+  public static final Color LIGHT_LINE_COLOR = ThemeService.getInstance()
+      .colors().getLightLineColor();
 
   /** The Constant BACKGROUND_COLOR. */
   public static final Color BACKGROUND_COLOR = Color.WHITE;
 
   /** The Constant DIALOG_CONTENT_COLOR. */
-  private static final Color DIALOG_CONTENT_COLOR = ThemeService.getInstance().colors().getHighlight32(1);
+  private static final Color DIALOG_CONTENT_COLOR = ThemeService.getInstance()
+      .colors().getHighlight32(1);
 
   /** The Constant DIALOG_BUTTON_FILL_COLOR. */
-  public static final Color DIALOG_BUTTON_FILL_COLOR = ThemeService.getInstance().colors().getHighlight32(1);
+  public static final Color DIALOG_BUTTON_FILL_COLOR = ThemeService
+      .getInstance().colors().getHighlight32(1);
 
   /** The Constant DIALOG_BUTTON_OUTLINE_COLOR. */
-  public static final Color DIALOG_BUTTON_OUTLINE_COLOR = ThemeService.getInstance().colors().getHighlight32(8);
+  public static final Color DIALOG_BUTTON_OUTLINE_COLOR = ThemeService
+      .getInstance().colors().getHighlight32(8);
 
   /** The Constant FOCUSED_DIALOG_BUTTON_OUTLINE_COLOR. */
-  public static final Color FOCUSED_DIALOG_BUTTON_OUTLINE_COLOR = ThemeService.getInstance().colors()
-      .getHighlight32(14);
+  public static final Color FOCUSED_DIALOG_BUTTON_OUTLINE_COLOR = ThemeService
+      .getInstance().colors().getHighlight32(14);
 
-  public static final Color RIBBON_BACKGROUND = ThemeService.getInstance().colors().getColorHighlight32(24);
+  public static final Color RIBBON_BACKGROUND = ThemeService.getInstance()
+      .colors().getColorHighlight32(24);
 
-  public static final Color RIBBON_SELECTED_COLOR = ThemeService.getInstance().colors().getHighlight32(31);
+  public static final Color RIBBON_SELECTED_COLOR = ThemeService.getInstance()
+      .colors().getHighlight32(31);
 
   /** The Constant RIBBON_SELECTED_FILL_COLOR. */
-  public static final Color RIBBON_SELECTED_FILL_COLOR = ColorUtils.getTransparentColor80(RIBBON_SELECTED_COLOR);
+  public static final Color RIBBON_SELECTED_FILL_COLOR = ColorUtils
+      .getTransparentColor80(RIBBON_SELECTED_COLOR);
 
   /** The Constant RIBBON_SELECTED_HIGHLIGHT_COLOR. */
-  public static final Color RIBBON_HIGHLIGHT_FILL_COLOR = ColorUtils.getTransparentColor85(RIBBON_SELECTED_COLOR); // RIBBON_SELECTED_FILL_COLOR;
+  public static final Color RIBBON_HIGHLIGHT_FILL_COLOR = ColorUtils
+      .getTransparentColor85(RIBBON_SELECTED_COLOR); // RIBBON_SELECTED_FILL_COLOR;
 
   // ThemeService.getInstance().colors().getHighlight32(6);
 
@@ -96,25 +110,32 @@ public class ModernWidgetRenderer extends WidgetRenderer {
   public static final Color RIBBON_HIGHLIGHTED_OUTLINE_COLOR = RIBBON_SELECTED_FILL_COLOR; // ThemeService.getInstance().colors().getHighlight32(6);
 
   /** The Constant RIBBON_SELECTED_OUTLINE_COLOR. */
-  public static final Color RIBBON_SELECTED_OUTLINE_COLOR = ColorUtils.getTransparentColor75(RIBBON_SELECTED_COLOR); // ThemeService.getInstance().colors().getHighlight32(8);
+  public static final Color RIBBON_SELECTED_OUTLINE_COLOR = ColorUtils
+      .getTransparentColor75(RIBBON_SELECTED_COLOR); // ThemeService.getInstance().colors().getHighlight32(8);
 
   /** The Constant RADIO_COLOR. */
-  public static final Color RADIO_COLOR = ThemeService.getInstance().colors().getColorHighlight32(14);
+  public static final Color RADIO_COLOR = ThemeService.getInstance().colors()
+      .getColorHighlight32(14);
 
   /** The Constant COLLAPSE_FILL_COLOR_1. */
-  public static final Color COLLAPSE_FILL_COLOR_1 = ThemeService.getInstance().colors().getHighlight32(1);
+  public static final Color COLLAPSE_FILL_COLOR_1 = ThemeService.getInstance()
+      .colors().getHighlight32(1);
 
   /** The Constant COLLAPSE_FILL_COLOR_2. */
-  public static final Color COLLAPSE_FILL_COLOR_2 = ThemeService.getInstance().colors().getHighlight32(4);
+  public static final Color COLLAPSE_FILL_COLOR_2 = ThemeService.getInstance()
+      .colors().getHighlight32(4);
 
   /** The Constant PILL_BUTTON_HIGHLIGHT_FILL. */
-  private static final Color PILL_BUTTON_HIGHLIGHT_FILL = ThemeService.getInstance().colors().getHighlight32(2);
+  private static final Color PILL_BUTTON_HIGHLIGHT_FILL = ThemeService
+      .getInstance().colors().getHighlight32(2);
 
   /** The Constant PILL_BUTTON_SELECTED_FILL. */
-  private static final Color PILL_BUTTON_SELECTED_FILL = ThemeService.getInstance().colors().getHighlight32(4);
+  private static final Color PILL_BUTTON_SELECTED_FILL = ThemeService
+      .getInstance().colors().getHighlight32(4);
 
   /** The Constant PILL_BUTTON_OUTLINE. */
-  private static final Color PILL_BUTTON_OUTLINE = ThemeService.getInstance().colors().getHighlight32(8);
+  private static final Color PILL_BUTTON_OUTLINE = ThemeService.getInstance()
+      .colors().getHighlight32(8);
 
   /**
    * The constant SCALE.
@@ -129,7 +150,8 @@ public class ModernWidgetRenderer extends WidgetRenderer {
       .getAsDouble("theme.icons.check-icon.tick-scale");
 
   /** Defines the size of the radio button relative to the rendering space. */
-  public static final double RADIO_SCALE = SettingsService.getInstance().getAsDouble("theme.icons.radio-icon.scale");
+  public static final double RADIO_SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.radio-icon.scale");
 
   /** The Constant RADIO_BUTTON_SCALE. */
   public static final double RADIO_BUTTON_SCALE = 0.1;
@@ -137,12 +159,18 @@ public class ModernWidgetRenderer extends WidgetRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.theme.WidgetRenderer#drawButtonOutline(java.awt.Graphics2D,
-   * int, int, int, int, org.abh.common.ui.theme.RenderMode, boolean)
+   * @see org.abh.common.ui.theme.WidgetRenderer#drawButtonOutline(java.awt.
+   * Graphics2D, int, int, int, int, org.abh.common.ui.theme.RenderMode,
+   * boolean)
    */
   @Override
-  public void drawButtonOutline(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawButtonOutline(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     if (mode == RenderMode.NONE && !hasFocus) {
       return;
     }
@@ -156,11 +184,17 @@ public class ModernWidgetRenderer extends WidgetRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.theme.WidgetRenderer#buttonHighlightedOutlinePaint(java.awt
-   * .Graphics2D, int, int, int, int)
+   * org.abh.common.ui.theme.WidgetRenderer#buttonHighlightedOutlinePaint(java.
+   * awt .Graphics2D, int, int, int, int)
    */
   @Override
-  public void buttonOutlinePaint(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void buttonOutlinePaint(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     if (mode == RenderMode.DISABLED) {
       g2.setColor(DISABLED_OUTLINE_COLOR);
     } else {
@@ -181,7 +215,13 @@ public class ModernWidgetRenderer extends WidgetRenderer {
    * Graphics2D, int, int, int, int)
    */
   @Override
-  public void buttonFillPaint(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void buttonFillPaint(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
 
     if (mode == RenderMode.NONE) {
       return;
@@ -198,11 +238,17 @@ public class ModernWidgetRenderer extends WidgetRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.theme.WidgetRenderer#primaryDialogButtonFillPaint(java.awt.
-   * Graphics2D, int, int, int, int, org.abh.common.ui.theme.RenderMode, boolean)
+   * org.abh.common.ui.theme.WidgetRenderer#primaryDialogButtonFillPaint(java.
+   * awt. Graphics2D, int, int, int, int, org.abh.common.ui.theme.RenderMode,
+   * boolean)
    */
   @Override
-  public void primaryDialogButtonFillPaint(Graphics2D g2, int x, int y, int w, int h, RenderMode mode,
+  public void primaryDialogButtonFillPaint(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
       boolean hasFocus) {
     drawButtonFill(g2, x, y, w, h, mode, hasFocus);
   }
@@ -215,7 +261,12 @@ public class ModernWidgetRenderer extends WidgetRenderer {
    * awt.Graphics2D, int, int, int, int)
    */
   @Override
-  public void drawPrimaryDialogButtonOutline(Graphics2D g2, int x, int y, int w, int h, RenderMode mode,
+  public void drawPrimaryDialogButtonOutline(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
       boolean hasFocus) {
     if (hasFocus) {
       outline(g2, FOCUSED_PRIMARY_DIALOG_BUTTON_OUTLINE_COLOR, x, y, w, h);
@@ -231,18 +282,31 @@ public class ModernWidgetRenderer extends WidgetRenderer {
    * Graphics2D, int, int, int, int)
    */
   @Override
-  public void drawDialogButtonFill(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawDialogButtonFill(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     fill(g2, DIALOG_BUTTON_FILL_COLOR, x, y, w, h);
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.theme.WidgetRenderer#drawDialogButtonOutline(java.awt.
+   * @see
+   * org.abh.common.ui.theme.WidgetRenderer#drawDialogButtonOutline(java.awt.
    * Graphics2D, int, int, int, int)
    */
   @Override
-  public void drawDialogButtonOutline(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawDialogButtonOutline(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     if (hasFocus) {
       outline(g2, FOCUSED_DIALOG_BUTTON_OUTLINE_COLOR, x, y, w, h);
     } else {
@@ -254,10 +318,17 @@ public class ModernWidgetRenderer extends WidgetRenderer {
    * (non-Javadoc)
    * 
    * @see org.abh.common.ui.theme.WidgetRenderer#drawRibbonButtonFill(java.awt.
-   * Graphics2D, int, int, int, int, org.abh.common.ui.theme.RenderMode, boolean)
+   * Graphics2D, int, int, int, int, org.abh.common.ui.theme.RenderMode,
+   * boolean)
    */
   @Override
-  public void drawRibbonButtonFill(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawRibbonButtonFill(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     if (mode == RenderMode.NONE) {
       return;
     }
@@ -269,11 +340,17 @@ public class ModernWidgetRenderer extends WidgetRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.theme.WidgetRenderer#drawRibbonButtonSelectedFill(java.awt.
-   * Graphics2D, int, int, int, int)
+   * org.abh.common.ui.theme.WidgetRenderer#drawRibbonButtonSelectedFill(java.
+   * awt. Graphics2D, int, int, int, int)
    */
   @Override
-  public void drawRibbonButtonOutline(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawRibbonButtonOutline(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     // if (mode == RenderMode.NONE && !hasFocus) {
     // return;
     // }
@@ -282,7 +359,13 @@ public class ModernWidgetRenderer extends WidgetRenderer {
   }
 
   @Override
-  public void menuFillPaint(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void menuFillPaint(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
 
     if (mode == RenderMode.SELECTED) {
       g2.setColor(MaterialService.getInstance().color("gray-selected"));
@@ -294,11 +377,17 @@ public class ModernWidgetRenderer extends WidgetRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.theme.WidgetRenderer#drawChecked(java.awt.Graphics2D,
+   * @see
+   * org.abh.common.ui.theme.WidgetRenderer#drawChecked(java.awt.Graphics2D,
    * int, int, int, int)
    */
   @Override
-  public void drawChecked(Graphics2D g2, int x, int y, int w, int h, RenderMode mode) {
+  public void drawChecked(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode) {
     drawButtonFill(g2, x, y, w, h, mode, false);
     drawCheck(g2, Color.WHITE, x, y, w, h);
   }
@@ -311,7 +400,12 @@ public class ModernWidgetRenderer extends WidgetRenderer {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawCheck(Graphics2D g2, Color color, int x, int y, int w, int h) {
+  public void drawCheck(Graphics2D g2,
+      Color color,
+      int x,
+      int y,
+      int w,
+      int h) {
     g2.setColor(color);
 
     g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
@@ -361,9 +455,8 @@ public class ModernWidgetRenderer extends WidgetRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.theme.WidgetRenderer#drawRadioSelected(java.awt.Graphics2D,
-   * int, int, int, int)
+   * @see org.abh.common.ui.theme.WidgetRenderer#drawRadioSelected(java.awt.
+   * Graphics2D, int, int, int, int)
    */
   @Override
   public void drawRadioSelected(Graphics2D g2, int x, int y, int w, int h) {
@@ -423,7 +516,13 @@ public class ModernWidgetRenderer extends WidgetRenderer {
    * java.lang.String, boolean, int, int, int, int)
    */
   @Override
-  public void drawCollapseBar(Graphics2D g2, String name, boolean expanded, int x, int y, int w, int h) {
+  public void drawCollapseBar(Graphics2D g2,
+      String name,
+      boolean expanded,
+      int x,
+      int y,
+      int w,
+      int h) {
     // if (mIsHighlighted) {
     // paintThemeHighlighted(g2, getRect());
     // }
@@ -431,8 +530,8 @@ public class ModernWidgetRenderer extends WidgetRenderer {
     // if (mIsExpanded) {
 
     /*
-     * GradientPaint gradColor = new GradientPaint(0, 0, COLLAPSE_FILL_COLOR_1, 0,
-     * h, COLLAPSE_FILL_COLOR_2);
+     * GradientPaint gradColor = new GradientPaint(0, 0, COLLAPSE_FILL_COLOR_1,
+     * 0, h, COLLAPSE_FILL_COLOR_2);
      * 
      * g2.setPaint(gradColor);
      */
@@ -460,7 +559,8 @@ public class ModernWidgetRenderer extends WidgetRenderer {
       ModernTreeBranchNodeRenderer.BRANCH_CLOSED_ICON.drawIcon(g2, 0, yt, 16);
     }
 
-    int xt = x + 16; // + ModernTheme.getInstance().getClass("widget").getInt("padding");
+    int xt = x + 16; // +
+                     // ModernTheme.getInstance().getClass("widget").getInt("padding");
 
     yt = ModernWidget.getTextYPosCenter(g2, h);
 
@@ -479,7 +579,13 @@ public class ModernWidgetRenderer extends WidgetRenderer {
    * int, int, int, int, org.abh.common.ui.theme.RenderMode, boolean)
    */
   @Override
-  public void drawPillButton(Graphics2D g2, int x, int y, int w, int h, RenderMode mode, boolean hasFocus) {
+  public void drawPillButton(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      RenderMode mode,
+      boolean hasFocus) {
     if (mode == RenderMode.SELECTED) {
       g2.setColor(PILL_BUTTON_SELECTED_FILL);
       drawPillButtonFill(g2, x, y, w, h);
@@ -497,7 +603,8 @@ public class ModernWidgetRenderer extends WidgetRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.theme.WidgetRenderer#drawOutline(java.awt.Graphics2D,
+   * @see
+   * org.abh.common.ui.theme.WidgetRenderer#drawOutline(java.awt.Graphics2D,
    * int, int, int, int)
    */
   @Override
@@ -554,8 +661,8 @@ public class ModernWidgetRenderer extends WidgetRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.theme.WidgetRenderer#outline(java.awt.Graphics2D, int,
-   * int, int, int)
+   * @see org.abh.common.ui.theme.WidgetRenderer#outline(java.awt.Graphics2D,
+   * int, int, int, int)
    */
   @Override
   public void outline(Graphics2D g2, int x, int y, int w, int h) {

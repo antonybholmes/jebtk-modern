@@ -29,7 +29,6 @@ package org.jebtk.modern.panel;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.modern.dataview.ModernDataCellsSelectionModel;
 import org.jebtk.modern.dataview.ModernDataListView;
 import org.jebtk.modern.dataview.ModernDataModel;
@@ -73,8 +72,7 @@ public class MultiViewPanel extends TabsViewPanel implements ChangeListener {
   /**
    * Instantiates a new multi view panel.
    *
-   * @param viewModel
-   *          the view model
+   * @param viewModel the view model
    */
   public MultiViewPanel(ViewModel viewModel) {
     mViewModel = viewModel;
@@ -115,8 +113,7 @@ public class MultiViewPanel extends TabsViewPanel implements ChangeListener {
   /**
    * Sets the model.
    *
-   * @param model
-   *          the new model
+   * @param model the new model
    */
   public void setModel(ModernDataModel model) {
     mViewDetails.setModel(model);
@@ -130,8 +127,7 @@ public class MultiViewPanel extends TabsViewPanel implements ChangeListener {
   /**
    * Convert row index to model.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the int
    */
   public int convertRowIndexToModel(int i) {
@@ -157,7 +153,8 @@ public class MultiViewPanel extends TabsViewPanel implements ChangeListener {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+   * @see
+   * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void changed(ChangeEvent e) {

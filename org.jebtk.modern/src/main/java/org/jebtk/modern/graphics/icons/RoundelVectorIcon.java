@@ -66,14 +66,14 @@ public class RoundelVectorIcon extends ModernVectorIcon {
    * Instantiates a new roundel vector icon.
    */
   public RoundelVectorIcon() {
-    this(SettingsService.getInstance().getAsColor("theme.icons.roundel-icon.colors.foreground"));
+    this(SettingsService.getInstance()
+        .getAsColor("theme.icons.roundel-icon.colors.foreground"));
   }
 
   /**
    * Instantiates a new roundel vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public RoundelVectorIcon(Color color) {
     mColor = color;
@@ -87,7 +87,12 @@ public class RoundelVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
 
     g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
 
@@ -99,19 +104,32 @@ public class RoundelVectorIcon extends ModernVectorIcon {
     double yf = y + (h - wf) / 2.0;
 
     g2.setColor(Color.WHITE);
-    g2.fillOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(wf));
+    g2.fillOval((int) Math.round(xf),
+        (int) Math.round(yf),
+        (int) Math.round(wf),
+        (int) Math.round(wf));
 
     g2.setColor(mColor);
-    g2.drawOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(wf), (int) Math.round(wf));
+    g2.drawOval((int) Math.round(xf),
+        (int) Math.round(yf),
+        (int) Math.round(wf),
+        (int) Math.round(wf));
 
     xf = xf + (wf - lw) / 2.0;
     yf = yf + h / 2.0;
 
-    g2.drawLine((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(xf + lw), (int) Math.round(yf));
+    g2.drawLine((int) Math.round(xf),
+        (int) Math.round(yf),
+        (int) Math.round(xf + lw),
+        (int) Math.round(yf));
 
-    g2.drawLine((int) Math.round(xf + lw), (int) Math.round(yf), (int) Math.round(xf + lw - aw),
+    g2.drawLine((int) Math.round(xf + lw),
+        (int) Math.round(yf),
+        (int) Math.round(xf + lw - aw),
         (int) Math.round(yf - aw));
-    g2.drawLine((int) Math.round(xf + lw), (int) Math.round(yf), (int) Math.round(xf + lw - aw),
+    g2.drawLine((int) Math.round(xf + lw),
+        (int) Math.round(yf),
+        (int) Math.round(xf + lw - aw),
         (int) Math.round(yf + aw));
   }
 }

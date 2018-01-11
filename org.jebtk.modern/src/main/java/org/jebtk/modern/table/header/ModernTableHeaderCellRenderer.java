@@ -36,7 +36,8 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * The class ModernTableHeaderCellRenderer.
  */
-public abstract class ModernTableHeaderCellRenderer extends ModernDataCellRenderer {
+public abstract class ModernTableHeaderCellRenderer
+    extends ModernDataCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -44,10 +45,12 @@ public abstract class ModernTableHeaderCellRenderer extends ModernDataCellRender
   private static final long serialVersionUID = 1L;
 
   /** The Constant SEL_LINE_COLOR. */
-  public static final Color SEL_LINE_COLOR = ThemeService.getInstance().colors().getColorHighlight(5);
+  public static final Color SEL_LINE_COLOR = ThemeService.getInstance().colors()
+      .getColorHighlight(5);
 
   /** The Constant SEL_BACK_COLOR. */
-  public static final Color SEL_BACK_COLOR = ThemeService.getInstance().colors().getHighlight(3);
+  public static final Color SEL_BACK_COLOR = ThemeService.getInstance().colors()
+      .getHighlight(3);
 
   /** The m text. */
   protected String mText;
@@ -55,8 +58,7 @@ public abstract class ModernTableHeaderCellRenderer extends ModernDataCellRender
   /**
    * Sets the text.
    *
-   * @param text
-   *          the new text
+   * @param text the new text
    */
   public final void setText(String text) {
     mText = text;

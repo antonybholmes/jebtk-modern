@@ -63,8 +63,7 @@ public class ModernTableIconCellRenderer extends ModernDataCellRenderer {
   /**
    * Instantiates a new modern table icon cell renderer.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernTableIconCellRenderer(ModernIcon icon) {
 
@@ -74,11 +73,14 @@ public class ModernTableIconCellRenderer extends ModernDataCellRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   public void drawForegroundAAText(Graphics2D g2) {
 
-    mIcon.drawIcon(g2, (this.getWidth() - UIService.ICON_SIZE_16) / 2, (this.getHeight() - UIService.ICON_SIZE_16) / 2,
+    mIcon.drawIcon(g2,
+        (this.getWidth() - UIService.ICON_SIZE_16) / 2,
+        (this.getHeight() - UIService.ICON_SIZE_16) / 2,
         UIService.ICON_SIZE_16);
   }
 
@@ -89,8 +91,19 @@ public class ModernTableIconCellRenderer extends ModernDataCellRenderer {
    * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
-  public final Component getCellRendererComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
-    return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
+  public final Component getCellRendererComponent(ModernData table,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
+    return super.getCellRendererComponent(table,
+        value,
+        highlight,
+        isSelected,
+        hasFocus,
+        row,
+        column);
   }
 }

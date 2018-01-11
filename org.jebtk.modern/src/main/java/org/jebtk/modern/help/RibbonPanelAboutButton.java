@@ -44,11 +44,14 @@ public class RibbonPanelAboutButton extends ModernTextLink {
   /**
    * Instantiates a new ribbon panel about button.
    *
-   * @param product
-   *          the product
+   * @param product the product
    */
   public RibbonPanelAboutButton(GuiAppInfo product) {
-    super("Learn more about " + product.getName() + " and copyright information"); // "About " + product.getName());
+    super(
+        "Learn more about " + product.getName() + " and copyright information"); // "About
+                                                                                 // "
+                                                                                 // +
+                                                                                 // product.getName());
 
     // mProduct = product;
 
@@ -62,8 +65,8 @@ public class RibbonPanelAboutButton extends ModernTextLink {
    * @Override public void drawForegroundAAText(Graphics2D g2) { int x =
    * (mRect.getW() - 32) / 2; int y = 10;
    * 
-   * UIService.getInstance().loadIcon(HelpVectorIcon.class, 32).drawIcon(g2, x, y,
-   * 32);
+   * UIService.getInstance().loadIcon(HelpVectorIcon.class, 32).drawIcon(g2, x,
+   * y, 32);
    * 
    * g2.setColor(TEXT_COLOR); g2.setFont(FONT);
    * 
@@ -71,7 +74,7 @@ public class RibbonPanelAboutButton extends ModernTextLink {
    * g2.getFontMetrics().stringWidth("About")) / 2, mRect.getH() - 24);
    * 
    * g2.drawString(mProduct.getName(), (mRect.getW() -
-   * g2.getFontMetrics().stringWidth(mProduct.getName())) / 2, mRect.getH() - 10);
-   * }
+   * g2.getFontMetrics().stringWidth(mProduct.getName())) / 2, mRect.getH() -
+   * 10); }
    */
 }

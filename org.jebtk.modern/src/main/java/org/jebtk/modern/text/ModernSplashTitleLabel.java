@@ -43,8 +43,7 @@ public class ModernSplashTitleLabel extends ModernTitleLabel {
   /**
    * Instantiates a new modern splash title label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernSplashTitleLabel(String text) {
     super(text, Color.WHITE);

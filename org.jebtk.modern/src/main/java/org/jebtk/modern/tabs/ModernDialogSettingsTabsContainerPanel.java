@@ -46,8 +46,7 @@ public class ModernDialogSettingsTabsContainerPanel extends TabsViewPanel {
   /**
    * Instantiates a new modern dialog settings tabs container panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernDialogSettingsTabsContainerPanel(TabsModel model) {
     super(model);

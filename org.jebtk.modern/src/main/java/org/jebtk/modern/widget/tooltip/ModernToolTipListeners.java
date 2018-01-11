@@ -36,7 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernToolTipListeners extends EventProducer<ModernToolTipListener> implements ModernToolTipEventProducer {
+public class ModernToolTipListeners extends EventProducer<ModernToolTipListener>
+    implements ModernToolTipEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -46,9 +47,8 @@ public class ModernToolTipListeners extends EventProducer<ModernToolTipListener>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipEventProducer#addToolTipListener(
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipListener)
+   * @see org.abh.lib.ui.modern.tooltip.ModernToolTipEventProducer#
+   * addToolTipListener( org.abh.lib.ui.modern.tooltip.ModernToolTipListener)
    */
   public void addToolTipListener(ModernToolTipListener l) {
     mListeners.add(l);
@@ -67,9 +67,8 @@ public class ModernToolTipListeners extends EventProducer<ModernToolTipListener>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipEventProducer#fireToolTipChanged(
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipEvent)
+   * @see org.abh.lib.ui.modern.tooltip.ModernToolTipEventProducer#
+   * fireToolTipChanged( org.abh.lib.ui.modern.tooltip.ModernToolTipEvent)
    */
   public void fireToolTipChanged(ModernToolTipEvent e) {
     for (ModernToolTipListener l : mListeners) {

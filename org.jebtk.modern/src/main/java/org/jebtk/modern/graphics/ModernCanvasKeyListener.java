@@ -42,24 +42,21 @@ public interface ModernCanvasKeyListener extends EventListener {
   /**
    * Canvas key typed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void canvasKeyTyped(KeyEvent e);
 
   /**
    * Canvas key pressed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void canvasKeyPressed(KeyEvent e);
 
   /**
    * Canvas key released.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void canvasKeyReleased(KeyEvent e);
 }

@@ -34,10 +34,10 @@ import org.jebtk.modern.graphics.ModernVertCanvas;
 /**
  * The class Tree.
  *
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public abstract class Tree<T> extends ModernVertCanvas implements Iterable<TreeNode<T>> {
+public abstract class Tree<T> extends ModernVertCanvas
+    implements Iterable<TreeNode<T>> {
 
   /**
    * The constant serialVersionUID.

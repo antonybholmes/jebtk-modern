@@ -19,7 +19,8 @@ public class MessageDialogCenterLayout extends VBoxCenterLayout {
   @Override
   public void layoutContainer(Container parent) {
     Insets insets = parent.getInsets();
-    int maxWidth = parent.getWidth() - (insets.left + insets.right); // - mIconSize;
+    int maxWidth = parent.getWidth() - (insets.left + insets.right); // -
+                                                                     // mIconSize;
     int maxHeight = parent.getHeight() - (insets.top + insets.bottom);
     int nComps = parent.getComponentCount();
     int x = insets.left + ModernWidget.QUAD_PADDING;
@@ -78,7 +79,8 @@ public class MessageDialogCenterLayout extends VBoxCenterLayout {
 
     Insets insets = parent.getInsets();
 
-    dim.width = Math.max(dim.width + insets.left + insets.right, parent.getWidth());
+    dim.width = Math.max(dim.width + insets.left + insets.right,
+        parent.getWidth());
     dim.height += insets.top + insets.bottom;
 
     return dim;

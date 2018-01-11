@@ -36,7 +36,8 @@ import org.jebtk.core.event.ChangeListeners;
  * @author Antony Holmes Holmes
  *
  */
-public class TableIndex extends ChangeListeners implements Comparable<TableIndex> {
+public class TableIndex extends ChangeListeners
+    implements Comparable<TableIndex> {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -64,8 +65,7 @@ public class TableIndex extends ChangeListeners implements Comparable<TableIndex
   /**
    * Instantiates a new table index.
    *
-   * @param width
-   *          the width
+   * @param width the width
    */
   public TableIndex(int width) {
     setWidth(width);
@@ -74,8 +74,7 @@ public class TableIndex extends ChangeListeners implements Comparable<TableIndex
   /**
    * Copy constructor.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   public TableIndex(TableIndex index) {
     this(index.getWidth());
@@ -96,10 +95,10 @@ public class TableIndex extends ChangeListeners implements Comparable<TableIndex
   /**
    * Sets the cell heading renderer.
    *
-   * @param width
-   *          the new width
+   * @param width the new width
    */
-  // public void setCellHeadingRenderer(ModernDataCellRenderer headingRenderer) {
+  // public void setCellHeadingRenderer(ModernDataCellRenderer headingRenderer)
+  // {
   // mHeadingRenderer = headingRenderer;
   // }
 
@@ -114,8 +113,7 @@ public class TableIndex extends ChangeListeners implements Comparable<TableIndex
   /**
    * Sets the width.
    *
-   * @param width
-   *          the new width
+   * @param width the new width
    */
   public void setWidth(int width) {
     mWidth = Math.max(width, mMinWidth);

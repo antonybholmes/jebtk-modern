@@ -40,7 +40,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernWindowTitleBarMinButton.
  */
-public class RibbonTitleBarMinButton extends RibbonTitleBarButton implements ModernClickListener {
+public class RibbonTitleBarMinButton extends RibbonTitleBarButton
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -53,8 +54,7 @@ public class RibbonTitleBarMinButton extends RibbonTitleBarButton implements Mod
   /**
    * Instantiates a new ribbon title bar min button.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public RibbonTitleBarMinButton(ModernWindow window) {
     super(new Raster16Icon(new WindowMinVectorIcon(DARK_LINE_COLOR)));
@@ -71,9 +71,8 @@ public class RibbonTitleBarMinButton extends RibbonTitleBarButton implements Mod
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
-   * ModernClickEvent)
+   * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+   * event. ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

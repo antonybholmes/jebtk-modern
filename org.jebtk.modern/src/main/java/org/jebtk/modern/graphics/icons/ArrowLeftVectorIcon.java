@@ -50,8 +50,7 @@ public class ArrowLeftVectorIcon extends ArrowVectorIcon {
   /**
    * Instantiates a new arrow left vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public ArrowLeftVectorIcon(Color color) {
     super(color);
@@ -65,7 +64,12 @@ public class ArrowLeftVectorIcon extends ArrowVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
 
     double wf = w * SCALE;
     double w2 = wf * 0.5;

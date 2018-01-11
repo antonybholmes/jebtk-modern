@@ -51,10 +51,8 @@ public abstract class PreviewPanel extends ModernWidget {
   /**
    * Add a preview panel to the panel view.
    *
-   * @param name
-   *          the name
-   * @param previewTablePanel
-   *          the preview table panel
+   * @param name the name
+   * @param previewTablePanel the preview table panel
    */
   public abstract void addPreview(String name, ModernPanel previewTablePanel);
 
@@ -73,8 +71,7 @@ public abstract class PreviewPanel extends ModernWidget {
   /**
    * Returns a particular preview.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the preview
    */
   public abstract ModernPanel getPreview(int index);

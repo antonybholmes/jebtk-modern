@@ -38,7 +38,8 @@ import org.jebtk.modern.ribbon.RibbonMenuItem;
 /**
  * The class RibbonHelpMenuItem.
  */
-public class RibbonHelpMenuItem extends RibbonMenuItem implements ModernClickListener {
+public class RibbonHelpMenuItem extends RibbonMenuItem
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -53,8 +54,7 @@ public class RibbonHelpMenuItem extends RibbonMenuItem implements ModernClickLis
   /**
    * Instantiates a new ribbon help menu item.
    *
-   * @param product
-   *          the product
+   * @param product the product
    */
   public RibbonHelpMenuItem(GuiAppInfo product) {
     super("Help");
@@ -68,8 +68,8 @@ public class RibbonHelpMenuItem extends RibbonMenuItem implements ModernClickLis
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     try {

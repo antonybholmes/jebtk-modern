@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.color;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.modern.spinner.ModernCompactSpinner;
 
 // TODO: Auto-generated Javadoc
@@ -61,8 +60,8 @@ public class ColorSpinner extends ModernCompactSpinner {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.common.event.ChangeListener#changed(org.abh.common.event.ChangeEvent)
+     * @see org.abh.common.event.ChangeListener#changed(org.abh.common.event.
+     * ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -79,8 +78,8 @@ public class ColorSpinner extends ModernCompactSpinner {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -104,10 +103,8 @@ public class ColorSpinner extends ModernCompactSpinner {
   /**
    * Instantiates a new color spinner.
    *
-   * @param model
-   *          the model
-   * @param channel
-   *          the channel
+   * @param model the model
+   * @param channel the channel
    */
   public ColorSpinner(ColorSelectionModel model, ColorChannel channel) {
     super(0, 0, 127, 255);

@@ -47,10 +47,8 @@ public class ModernScaleIcon extends ModernIcon {
   /**
    * Instantiates a new modern scale icon.
    *
-   * @param icon
-   *          the icon
-   * @param w
-   *          the w
+   * @param icon the icon
+   * @param w the w
    */
   public ModernScaleIcon(ModernIcon icon, int w) {
     this(icon, w, w);
@@ -59,12 +57,9 @@ public class ModernScaleIcon extends ModernIcon {
   /**
    * Instantiates a new modern scale icon.
    *
-   * @param icon
-   *          the icon
-   * @param w
-   *          the w
-   * @param h
-   *          the h
+   * @param icon the icon
+   * @param w the w
+   * @param h the h
    */
   public ModernScaleIcon(ModernIcon icon, int w, int h) {
     this(icon.getImage(), w, h);
@@ -73,12 +68,9 @@ public class ModernScaleIcon extends ModernIcon {
   /**
    * Instantiates a new modern scale icon.
    *
-   * @param image
-   *          the image
-   * @param w
-   *          the w
-   * @param h
-   *          the h
+   * @param image the image
+   * @param w the w
+   * @param h the h
    */
   public ModernScaleIcon(Image image, int w, int h) {
     cache(image, w, h);
@@ -87,12 +79,9 @@ public class ModernScaleIcon extends ModernIcon {
   /**
    * Cache.
    *
-   * @param image
-   *          the image
-   * @param w
-   *          the w
-   * @param h
-   *          the h
+   * @param image the image
+   * @param w the w
+   * @param h the h
    */
   private void cache(Image image, int w, int h) {
     mBufferedImage = scale(image, w, h);
@@ -126,7 +115,12 @@ public class ModernScaleIcon extends ModernIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     x = x + (w - getWidth()) / 2;
     y = y + (h - getHeight()) / 2;
 
@@ -146,16 +140,16 @@ public class ModernScaleIcon extends ModernIcon {
   /**
    * Scale.
    *
-   * @param image
-   *          the image
-   * @param w
-   *          the w
-   * @param h
-   *          the h
+   * @param image the image
+   * @param w the w
+   * @param h the h
    * @return the buffered image
    */
   public static BufferedImage scale(Image image, int w, int h) {
-    BufferedImage resizedImage = ImageUtils.createImage(w, h); // new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+    BufferedImage resizedImage = ImageUtils.createImage(w, h); // new
+                                                               // BufferedImage(w,
+                                                               // h,
+                                                               // BufferedImage.TYPE_INT_ARGB);
 
     Graphics2D g2 = resizedImage.createGraphics();
 

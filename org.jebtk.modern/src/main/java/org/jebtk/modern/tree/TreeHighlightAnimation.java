@@ -18,7 +18,6 @@ package org.jebtk.modern.tree;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.tree.TreeNode;
-
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.ModernWidgetRenderer;
@@ -38,15 +37,15 @@ public class TreeHighlightAnimation extends HighlightAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public TreeHighlightAnimation(ModernWidget tree) {
     super((ModernTree<?>) tree);
 
     mTree = (ModernTree<?>) tree;
 
-    getFade().setFadeColor("highlight", ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
+    getFade().setFadeColor("highlight",
+        ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
   }
 
   /*
@@ -58,8 +57,8 @@ public class TreeHighlightAnimation extends HighlightAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-    if (mTree.mSelectionModel == null || mTree.mNodeIndexMap == null || mTree.mNodeDepthMap == null
-        || mTree.mNodeRenderer == null) {
+    if (mTree.mSelectionModel == null || mTree.mNodeIndexMap == null
+        || mTree.mNodeDepthMap == null || mTree.mNodeRenderer == null) {
       return;
     }
 
@@ -86,11 +85,17 @@ public class TreeHighlightAnimation extends HighlightAnimation {
           break;
         }
 
-        boolean isDragToNode = mTree.mDragTo != null && mTree.mDragTo.index == c && !mTree.mDragTo.insertBetween;
+        boolean isDragToNode = mTree.mDragTo != null && mTree.mDragTo.index == c
+            && !mTree.mDragTo.insertBetween;
 
-        renderer = mTree.mNodeRenderer.getRenderer(mTree, node, node.equals(mTree.mHighlightNode) || isDragToNode,
-            mTree.mSelectionModel.contains(mTree.mNodeIndexMap.get(node)), mTree.isFocusOwner(), isDragToNode,
-            mTree.mNodeDepthMap.get(node), c);
+        renderer = mTree.mNodeRenderer.getRenderer(mTree,
+            node,
+            node.equals(mTree.mHighlightNode) || isDragToNode,
+            mTree.mSelectionModel.contains(mTree.mNodeIndexMap.get(node)),
+            mTree.isFocusOwner(),
+            isDragToNode,
+            mTree.mNodeDepthMap.get(node),
+            c);
 
         h = renderer.getHeight();
 

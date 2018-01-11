@@ -82,8 +82,9 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernScrollPane extends ModernFocusableWidget implements ModernClickListener, HierarchyBoundsListener,
-    ModernDataViewListener, DocumentListener, ModernCanvasListener, ChangeListener {
+public class ModernScrollPane extends ModernFocusableWidget implements
+    ModernClickListener, HierarchyBoundsListener, ModernDataViewListener,
+    DocumentListener, ModernCanvasListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -125,7 +126,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * The member v scroll bar.
    */
-  ModernScrollBar mVScrollBar = null; // new ModernVScrollBarOffice(); //new ModernVScrollBar();
+  ModernScrollBar mVScrollBar = null; // new ModernVScrollBarOffice(); //new
+                                      // ModernVScrollBar();
 
   //
   // Horizontal
@@ -154,7 +156,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * The member h scroll bar.
    */
-  ModernScrollBar mHScrollBar = null; // new ModernHScrollBarOffice(); //new ModernHScrollBar();
+  ModernScrollBar mHScrollBar = null; // new ModernHScrollBarOffice(); //new
+                                      // ModernHScrollBar();
 
   //
   // Common
@@ -361,8 +364,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
     /**
      * Instantiates a new hover mouse events.
      *
-     * @param c
-     *          the c
+     * @param c the c
      */
     public HoverMouseEvents(JComponent c) {
       mC = c;
@@ -474,8 +476,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.ComponentAdapter#componentShown(java.awt.event.ComponentEvent)
+     * @see java.awt.event.ComponentAdapter#componentShown(java.awt.event.
+     * ComponentEvent)
      */
     @Override
     public void componentShown(ComponentEvent e) {
@@ -491,8 +493,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.ContainerAdapter#componentAdded(java.awt.event.ContainerEvent)
+     * @see java.awt.event.ContainerAdapter#componentAdded(java.awt.event.
+     * ContainerEvent)
      */
     @Override
     public void componentAdded(ContainerEvent e) {
@@ -519,7 +521,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see
+     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -535,7 +538,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see
+     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -648,8 +652,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Instantiates a new modern scroll pane.
    *
-   * @param component
-   *          the component
+   * @param component the component
    */
   public ModernScrollPane(JComponent component) {
     mComponent = component;
@@ -660,8 +663,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Instantiates a new modern scroll pane.
    *
-   * @param table
-   *          the table
+   * @param table the table
    */
   public ModernScrollPane(ModernSpreadsheet table) {
     mComponent = table;
@@ -675,8 +677,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
      * if (table.getShowRowHeader()) { setLeftHeader(new
      * ModernTableHeaderRow(table)); }
      * 
-     * if (table.getShowHeader() && table.getShowRowHeader()) { setTopLeftHeader(new
-     * ModernMatrixTableCorner(table)); }
+     * if (table.getShowHeader() && table.getShowRowHeader()) {
+     * setTopLeftHeader(new ModernMatrixTableCorner(table)); }
      */
 
     table.getRowModel().addChangeListener(this);
@@ -689,8 +691,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Instantiates a new modern scroll pane.
    *
-   * @param table
-   *          the table
+   * @param table the table
    */
   public ModernScrollPane(ModernRowTable table) {
     mComponent = table;
@@ -712,8 +713,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
    * Configures the scroll pane to work well with a table using row and column
    * scrolling rather than pixel scrolling.
    *
-   * @param table
-   *          the new up
+   * @param table the new up
    */
   public void configureTable(ModernTable table) {
     mVScrollBar.setScroller(new ModernTableScrollerV(table));
@@ -727,8 +727,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Instantiates a new modern scroll pane.
    *
-   * @param list
-   *          the list
+   * @param list the list
    */
   public ModernScrollPane(ModernList<?> list) {
     mComponent = list;
@@ -741,8 +740,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Instantiates a new modern scroll pane.
    *
-   * @param pane
-   *          the pane
+   * @param pane the pane
    */
   public ModernScrollPane(AbstractCollapsePane pane) {
     mComponent = pane;
@@ -755,8 +753,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Instantiates a new modern scroll pane.
    *
-   * @param data
-   *          the data
+   * @param data the data
    */
   public ModernScrollPane(ModernData data) {
     mComponent = data;
@@ -769,8 +766,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Instantiates a new modern scroll pane.
    *
-   * @param canvas
-   *          the canvas
+   * @param canvas the canvas
    */
   public ModernScrollPane(ModernCanvas canvas) {
     mComponent = canvas;
@@ -781,8 +777,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Instantiates a new modern scroll pane.
    *
-   * @param tree
-   *          the tree
+   * @param tree the tree
    */
   public ModernScrollPane(ModernTree<?> tree) {
     mComponent = tree;
@@ -790,14 +785,14 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
     setup();
 
     mVScrollBar.setScroller(new ModernTreeScrollerV());
-    tree.getSelectionModel().addSelectionListener(new ModernTreeSelectionScrollV(tree, mVScrollBar));
+    tree.getSelectionModel().addSelectionListener(
+        new ModernTreeSelectionScrollV(tree, mVScrollBar));
   }
 
   /**
    * Instantiates a new modern scroll pane.
    *
-   * @param textArea
-   *          the text area
+   * @param textArea the text area
    */
   public ModernScrollPane(JTextArea textArea) {
     mComponent = textArea;
@@ -897,8 +892,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Sets the top header.
    *
-   * @param header
-   *          the new top header
+   * @param header the new top header
    */
   public void setTopHeader(ModernScrollPaneHeader header) {
     mTopHeader = createViewport(header);
@@ -912,8 +906,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Creates a default viewport control.
    *
-   * @param c
-   *          the c
+   * @param c the c
    * @return the j viewport
    */
   private static JViewport createViewport(Component c) {
@@ -927,8 +920,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Sets the left header.
    *
-   * @param header
-   *          the new left header
+   * @param header the new left header
    */
   public void setLeftHeader(ModernScrollPaneHeader header) {
     if (mLeftHeader != null) {
@@ -945,10 +937,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Sets the footer.
    *
-   * @param footer
-   *          the footer
-   * @param height
-   *          the height
+   * @param footer the footer
+   * @param height the height
    */
   public void setFooter(ModernCanvas footer, int height) {
     mFooter = createViewport(footer);
@@ -959,8 +949,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Sets the top left header.
    *
-   * @param header
-   *          the new top left header
+   * @param header the new top left header
    */
   public void setTopLeftHeader(ModernComponent header) {
     if (mTopLeftHeader != null) {
@@ -976,8 +965,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Sets the bottom left footer.
    *
-   * @param footer
-   *          the new bottom left footer
+   * @param footer the new bottom left footer
    */
   public void setBottomLeftFooter(ModernComponent footer) {
     mBottomLeftFooter = createViewport(footer);
@@ -1078,8 +1066,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Hover.
    *
-   * @param hover
-   *          the hover
+   * @param hover the hover
    */
   private void hover(boolean hover) {
     if (hover == mHover) {
@@ -1087,7 +1074,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
     }
 
     // Don't bother with this unless we are auto showing the scroll bars
-    if (mVScrollBarPolicy != ScrollBarPolicy.AUTO_SHOW && mHScrollBarPolicy != ScrollBarPolicy.AUTO_SHOW) {
+    if (mVScrollBarPolicy != ScrollBarPolicy.AUTO_SHOW
+        && mHScrollBarPolicy != ScrollBarPolicy.AUTO_SHOW) {
       return;
     }
 
@@ -1134,8 +1122,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   }
 
   /**
-   * Change the size of the component in response to the scrollpane changing size.
-   * This will only affect dimensions where the scrollbar is not visible
+   * Change the size of the component in response to the scrollpane changing
+   * size. This will only affect dimensions where the scrollbar is not visible
    */
   private void adjustComponentSize() {
     if (mComponent == null) {
@@ -1148,12 +1136,14 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
 
     if (mTopHeader != null) {
       Rectangle b = new Rectangle(mLeftHeaderOffset + border, border,
-          mInternalRect.getW() - mLeftHeaderOffset - (mShowClipBorder ? 3 : 0), mTopHeaderOffset);
+          mInternalRect.getW() - mLeftHeaderOffset - (mShowClipBorder ? 3 : 0),
+          mTopHeaderOffset);
 
       // If the scroll bars are visible or auto show is true then resize
       // the components to allow for this
       if (mVScrollBarLocation == ScrollBarLocation.SIDE) {
-        if (mVScrollBar.isVisible() || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        if (mVScrollBar.isVisible()
+            || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
           b.width -= mVScrollBar.getFixedDimension();
         }
       }
@@ -1162,11 +1152,12 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
     }
 
     if (mLeftHeader != null) {
-      Rectangle b = new Rectangle(border, mTopHeaderOffset + border, mLeftHeaderOffset,
-          h - mTopHeaderOffset - (mShowClipBorder ? 3 : 0));
+      Rectangle b = new Rectangle(border, mTopHeaderOffset + border,
+          mLeftHeaderOffset, h - mTopHeaderOffset - (mShowClipBorder ? 3 : 0));
 
       if (mHScrollBarPosition == ScrollBarLocation.SIDE) {
-        if (mHScrollBar.isVisible() || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        if (mHScrollBar.isVisible()
+            || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
           b.height -= mHScrollBar.getFixedDimension();
         }
 
@@ -1179,15 +1170,18 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
     }
 
     if (mFooter != null) {
-      Rectangle b = new Rectangle(mLeftHeaderOffset + border, h - mFooterOffset + border,
+      Rectangle b = new Rectangle(mLeftHeaderOffset + border,
+          h - mFooterOffset + border,
           mInternalRect.getW() - mLeftHeaderOffset - border, mFooterOffset);
 
       if (mVScrollBarLocation == ScrollBarLocation.SIDE) {
-        if (mVScrollBar.isVisible() || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        if (mVScrollBar.isVisible()
+            || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
           b.width -= mVScrollBar.getFixedDimension();
         }
 
-        if (mHScrollBar.isVisible() || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        if (mHScrollBar.isVisible()
+            || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
           b.y -= mHScrollBar.getFixedDimension();
         }
       }
@@ -1196,16 +1190,19 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
     }
 
     if (mLeftHeader != null && mTopHeader != null && mTopLeftHeader != null) {
-      Rectangle b = new Rectangle(border, border, mLeftHeaderOffset, mTopHeaderOffset);
+      Rectangle b = new Rectangle(border, border, mLeftHeaderOffset,
+          mTopHeaderOffset);
 
       mTopLeftHeader.setBounds(b);
     }
 
     if (mLeftHeader != null && mFooter != null && mBottomLeftFooter != null) {
-      Rectangle b = new Rectangle(border, h - mFooterOffset + border, mLeftHeaderOffset, mFooterOffset);
+      Rectangle b = new Rectangle(border, h - mFooterOffset + border,
+          mLeftHeaderOffset, mFooterOffset);
 
       if (mHScrollBarPosition == ScrollBarLocation.SIDE) {
-        if (mHScrollBar.isVisible() || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        if (mHScrollBar.isVisible()
+            || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
           b.y -= mHScrollBar.getFixedDimension();
         }
       }
@@ -1213,20 +1210,25 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
       mBottomLeftFooter.setBounds(b);
     }
 
-    Rectangle b = new Rectangle((mLeftHeader != null ? mLeftHeaderOffset : 0) + border,
+    Rectangle b = new Rectangle(
+        (mLeftHeader != null ? mLeftHeaderOffset : 0) + border,
         (mTopHeader != null ? mTopHeaderOffset : 0) + border,
-        mInternalRect.getW() - (mLeftHeader != null ? mLeftHeaderOffset : 0) - (mShowClipBorder ? 2 : 0) - border,
-        h - (mTopHeader != null ? mTopHeaderOffset : 0) - (mFooter != null ? mFooterOffset : 0)
-            - (mShowClipBorder ? 2 : 0) - border);
+        mInternalRect.getW() - (mLeftHeader != null ? mLeftHeaderOffset : 0)
+            - (mShowClipBorder ? 2 : 0) - border,
+        h - (mTopHeader != null ? mTopHeaderOffset : 0)
+            - (mFooter != null ? mFooterOffset : 0) - (mShowClipBorder ? 2 : 0)
+            - border);
 
     if (mVScrollBarLocation == ScrollBarLocation.SIDE) {
-      if (mVScrollBar.isVisible() || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+      if (mVScrollBar.isVisible()
+          || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
         b.width -= mVScrollBar.getFixedDimension() + mVScrollSep;
       }
     }
 
     if (mHScrollBarPosition == ScrollBarLocation.SIDE) {
-      if (mHScrollBar.isVisible() || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+      if (mHScrollBar.isVisible()
+          || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
         b.height -= mHScrollBar.getFixedDimension() + mHScrollSep;
       }
     }
@@ -1262,10 +1264,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
    * Adjust the component location within the container. This simulates movement
    * from the scrollbars.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   /*
    * private void adjustComponentPosition() { if (mComponent == null ||
@@ -1281,10 +1281,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Increment normalized scroll position.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   private void incrementNormalizedScrollBarPosition(double x, double y) {
     // setNormalizedScrollBarPosition(mNormalizedHScrollBarPosition + x,
@@ -1324,10 +1322,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Sets the normalized scroll position.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   public void setNormalizedScrollBarPosition(double x, double y) {
     updateNormalizedScrollBarPosition(x, y);
@@ -1434,12 +1430,14 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   private void vScrollBarSetup() {
 
     // if (mVScrollBar.isVisible()) {
-    Rectangle r = new Rectangle(mInternalRect.getW() - mVScrollBar.getFixedDimension(), 0,
-        mVScrollBar.getFixedDimension(),
-        mInternalRect.getH() - (mHScrollBar.isVisible() ? mHScrollBar.getFixedDimension() : 0));
+    Rectangle r = new Rectangle(
+        mInternalRect.getW() - mVScrollBar.getFixedDimension(), 0,
+        mVScrollBar.getFixedDimension(), mInternalRect.getH()
+            - (mHScrollBar.isVisible() ? mHScrollBar.getFixedDimension() : 0));
 
     // if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
-    // r.height -= (mHScrollBar.isVisible() ? mHScrollBar.getFixedDimension() : 0);
+    // r.height -= (mHScrollBar.isVisible() ? mHScrollBar.getFixedDimension() :
+    // 0);
     // }
 
     mVScrollBar.setBounds(r);
@@ -1465,7 +1463,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
       // mComponent.getPreferredSize().height - mInternalRect.getH());
       // }
 
-      scrollDistance = Math.max(0, mComponent.getPreferredSize().height - mInternalRect.getH());
+      scrollDistance = Math.max(0,
+          mComponent.getPreferredSize().height - mInternalRect.getH());
     }
 
     mVScrollBar.setScrollDistance(scrollDistance);
@@ -1494,20 +1493,20 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   private void updateComponentVOffset() {
     // System.err.println("v p " + mVScrollDistance + " " +
     // mVScrollBar.getNormalizedScrollBarPosition() + " " +(mVScrollDistance *
-    // mVScrollBar.getNormalizedScrollBarPosition()) + " " + (int)(mVScrollDistance
+    // mVScrollBar.getNormalizedScrollBarPosition()) + " " +
+    // (int)(mVScrollDistance
     // * mVScrollBar.getNormalizedScrollBarPosition()));
 
-    mComponentVOffset = (int) Math.round(mVScrollBar.getOffset()); // (int)(mVScrollDistance *
+    mComponentVOffset = (int) Math.round(mVScrollBar.getOffset()); // (int)(mVScrollDistance
+                                                                   // *
                                                                    // mVScrollBar.getNormalizedScrollBarPosition());
   }
 
   /**
    * Update normalized scroll position.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
+   * @param x the x
+   * @param y the y
    */
   private void updateNormalizedScrollBarPosition(double x, double y) {
     updateNormalizedHScrollBarPosition(x);
@@ -1517,8 +1516,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Update normalized v scroll position.
    *
-   * @param p
-   *          the p
+   * @param p the p
    */
   private void updateNormalizedVScrollBarPosition(double p) {
     mVScrollBar.updateNormalizedScrollPosition(p);
@@ -1528,8 +1526,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Update normalized h scroll position.
    *
-   * @param p
-   *          the p
+   * @param p the p
    */
   private void updateNormalizedHScrollBarPosition(double p) {
     mHScrollBar.updateNormalizedScrollPosition(p);
@@ -1546,12 +1543,15 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   private void hScrollBarSetup() {
 
     // if (mHScrollBar.isVisible()) {
-    Rectangle r = new Rectangle(0, mInternalRect.getH() - mHScrollBar.getFixedDimension(),
-        mInternalRect.getW() - (mVScrollBar.isVisible() ? mVScrollBar.getFixedDimension() : 0),
+    Rectangle r = new Rectangle(0,
+        mInternalRect.getH() - mHScrollBar.getFixedDimension(),
+        mInternalRect.getW()
+            - (mVScrollBar.isVisible() ? mVScrollBar.getFixedDimension() : 0),
         mHScrollBar.getFixedDimension());
 
     // if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
-    // r.width -= (mVScrollBar.isVisible() ? mVScrollBar.getFixedDimension() : 0);
+    // r.width -= (mVScrollBar.isVisible() ? mVScrollBar.getFixedDimension() :
+    // 0);
     // }
 
     mHScrollBar.setBounds(r);
@@ -1577,7 +1577,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
       /// mComponent.getPreferredSize().width - mInternalRect.getW());
       // }
 
-      hScrollDistance = Math.max(0, mComponent.getPreferredSize().width - mInternalRect.getW());
+      hScrollDistance = Math.max(0,
+          mComponent.getPreferredSize().width - mInternalRect.getW());
     }
 
     mHScrollBar.setScrollDistance(hScrollDistance);
@@ -1603,15 +1604,15 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
    * Update normalized h scroll position.
    */
   private void updateComponentHOffset() {
-    mComponentHOffset = (int) Math.round(mHScrollBar.getOffset()); // (int)(mHScrollDistance *
+    mComponentHOffset = (int) Math.round(mHScrollBar.getOffset()); // (int)(mHScrollDistance
+                                                                   // *
                                                                    // mHScrollBar.getNormalizedScrollBarPosition());
   }
 
   /**
    * Set the space between the view and the vertical scroll bar.
    *
-   * @param sep
-   *          the sep
+   * @param sep the sep
    * @return the modern scroll pane
    */
   public ModernScrollPane setVScrollSep(int sep) {
@@ -1625,8 +1626,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Sets the H scroll sep.
    *
-   * @param sep
-   *          the sep
+   * @param sep the sep
    * @return the modern scroll pane
    */
   public ModernScrollPane setHScrollSep(int sep) {
@@ -1640,8 +1640,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Sets the horizontal scroll bar policy.
    *
-   * @param policy
-   *          the new horizontal scroll bar policy
+   * @param policy the new horizontal scroll bar policy
    * @return the modern scroll pane
    */
   public ModernScrollPane setHorizontalScrollBarPolicy(ScrollBarPolicy policy) {
@@ -1655,8 +1654,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Sets the vertical scroll bar policy.
    *
-   * @param policy
-   *          the new vertical scroll bar policy
+   * @param policy the new vertical scroll bar policy
    * @return the modern scroll pane
    */
   public ModernScrollPane setVerticalScrollBarPolicy(ScrollBarPolicy policy) {
@@ -1670,8 +1668,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Change both the vertical and horizontal scroll bar location.
    *
-   * @param position
-   *          the position
+   * @param position the position
    * @return the modern scroll pane
    */
   public ModernScrollPane setScrollBarLocation(ScrollBarLocation position) {
@@ -1681,13 +1678,12 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Change both the vertical and horizontal scroll bar location.
    *
-   * @param hl
-   *          The horizontal scroll bar location.
-   * @param vl
-   *          The vertical scroll bar location.
+   * @param hl The horizontal scroll bar location.
+   * @param vl The vertical scroll bar location.
    * @return the modern scroll pane
    */
-  public ModernScrollPane setScrollBarLocation(ScrollBarLocation hl, ScrollBarLocation vl) {
+  public ModernScrollPane setScrollBarLocation(ScrollBarLocation hl,
+      ScrollBarLocation vl) {
     setHScrollBarLocation(hl);
     setVScrollBarLocation(vl);
 
@@ -1698,8 +1694,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
    * Determines where the scroll bar appears relative to the content being
    * scrolled. Currently this can either be the side or floating on top.
    *
-   * @param position
-   *          the position
+   * @param position the position
    * @return the modern scroll pane
    */
   public ModernScrollPane setHScrollBarLocation(ScrollBarLocation position) {
@@ -1724,8 +1719,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
    * Determines where the scroll bar appears relative to the content being
    * scrolled. Currently this can either be the side or floating on top.
    *
-   * @param position
-   *          the position
+   * @param position the position
    * @return the modern scroll pane
    */
   public ModernScrollPane setVScrollBarLocation(ScrollBarLocation position) {
@@ -1749,13 +1743,12 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Set the scrollbar policy for both axes at the same time.
    *
-   * @param hPolicy
-   *          the h policy
-   * @param vPolicy
-   *          the v policy
+   * @param hPolicy the h policy
+   * @param vPolicy the v policy
    * @return the modern scroll pane
    */
-  public ModernScrollPane setScrollBarPolicy(ScrollBarPolicy hPolicy, ScrollBarPolicy vPolicy) {
+  public ModernScrollPane setScrollBarPolicy(ScrollBarPolicy hPolicy,
+      ScrollBarPolicy vPolicy) {
     setHorizontalScrollBarPolicy(hPolicy);
     setVerticalScrollBarPolicy(vPolicy);
 
@@ -1765,8 +1758,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Sets the scroll bar policy.
    *
-   * @param policy
-   *          the policy
+   * @param policy the policy
    * @return the modern scroll pane
    */
   public ModernScrollPane setScrollBarPolicy(ScrollBarPolicy policy) {
@@ -1776,8 +1768,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /**
    * Show clip border.
    *
-   * @param showClipBorder
-   *          the show clip border
+   * @param showClipBorder the show clip border
    */
   public void showClipBorder(boolean showClipBorder) {
     mShowClipBorder = showClipBorder;
@@ -1818,8 +1809,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   }
 
   /**
-   * Returns the number of pixels in the y dimension that are available to display
-   * content once headers and scrollbar widths are subtracted.
+   * Returns the number of pixels in the y dimension that are available to
+   * display content once headers and scrollbar widths are subtracted.
    *
    * @return the internal height
    */
@@ -1840,8 +1831,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {
@@ -1874,8 +1865,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.lib
-   * .event.ChangeEvent)
+   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataChanged(org.abh.
+   * lib .event.ChangeEvent)
    */
   @Override
   public void dataChanged(ChangeEvent e) {
@@ -1889,8 +1880,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.lib
-   * .event.ChangeEvent)
+   * org.abh.lib.ui.modern.dataview.ModernDataViewListener#dataUpdated(org.abh.
+   * lib .event.ChangeEvent)
    */
   @Override
   public void dataUpdated(ChangeEvent e) {
@@ -1934,8 +1925,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasChanged(org.abh.lib
-   * .event.ChangeEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasChanged(org.abh.
+   * lib .event.ChangeEvent)
    */
   @Override
   public void canvasChanged(ChangeEvent e) {
@@ -1945,9 +1936,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.common.
-   * event.ChangeEvent)
+   * @see org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.
+   * common. event.ChangeEvent)
    */
   @Override
   public void canvasResized(ChangeEvent e) {
@@ -1958,8 +1948,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#redrawCanvas(org.abh.lib.
-   * event.ChangeEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#redrawCanvas(org.abh.
+   * lib. event.ChangeEvent)
    */
   @Override
   public void redrawCanvas(ChangeEvent e) {
@@ -1991,8 +1981,8 @@ public class ModernScrollPane extends ModernFocusableWidget implements ModernCli
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.event.ChangeListener#changed(org.abh.common.event.ChangeEvent)
+   * @see org.abh.common.event.ChangeListener#changed(org.abh.common.event.
+   * ChangeEvent)
    */
   @Override
   public void changed(ChangeEvent e) {

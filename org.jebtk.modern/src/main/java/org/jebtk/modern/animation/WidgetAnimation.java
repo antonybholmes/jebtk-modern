@@ -31,8 +31,7 @@ public abstract class WidgetAnimation implements Animation {
   /**
    * Instantiates a new widget animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public WidgetAnimation(ModernWidget widget) {
     mWidget = widget;

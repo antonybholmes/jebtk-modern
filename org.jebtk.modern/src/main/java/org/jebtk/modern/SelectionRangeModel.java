@@ -34,9 +34,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.collections.CollectionUtils;
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.event.ModernSelectionListeners;
 
@@ -48,7 +47,8 @@ import org.jebtk.modern.event.ModernSelectionListeners;
  * @author Antony Holmes Holmes
  *
  */
-public class SelectionRangeModel extends ModernSelectionListeners implements Iterable<Integer> {
+public class SelectionRangeModel extends ModernSelectionListeners
+    implements Iterable<Integer> {
 
   /**
    * The constant serialVersionUID.
@@ -88,10 +88,8 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Sets the selection interval.
    *
-   * @param s
-   *          the s
-   * @param e
-   *          the e
+   * @param s the s
+   * @param e the e
    */
   public void setSelectionInterval(int s, int e) {
     int min = Math.min(s, e);
@@ -106,10 +104,8 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Adds the selection interval.
    *
-   * @param s
-   *          the s
-   * @param e
-   *          the e
+   * @param s the s
+   * @param e the e
    */
   public void addSelectionInterval(int s, int e) {
     if (!mEnabled) {
@@ -128,8 +124,7 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Remove a selected node.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   public void remove(int index) {
     if (mCurrent == index) {
@@ -182,8 +177,7 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Add a row to the selection.
    *
-   * @param index
-   *          the row
+   * @param index the row
    */
   public void add(int index) {
     update(index);
@@ -194,8 +188,7 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Add a new item to the selection model.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   public void update(int index) {
     if (!mEnabled) {
@@ -211,8 +204,7 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Returns true if an index exists in the selection.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return Returns true if an i exists in the selection, false otherwise.
    */
   public boolean contains(int i) {
@@ -233,8 +225,8 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   }
 
   /**
-   * Return the currently selected item (the last item that was added even if the
-   * sorted order of items means this index appears in the middle).
+   * Return the currently selected item (the last item that was added even if
+   * the sorted order of items means this index appears in the middle).
    *
    * @return the current
    */
@@ -267,8 +259,7 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Gets the.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the int
    */
   public int get(int index) {
@@ -309,8 +300,7 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Sets the selection.
    *
-   * @param indices
-   *          the new selection
+   * @param indices the new selection
    */
   public void setSelection(List<Integer> indices) {
     removeAll();
@@ -321,8 +311,7 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Sets the selection.
    *
-   * @param i
-   *          the new selection
+   * @param i the new selection
    */
   public void setSelection(int i) {
     removeAll();
@@ -333,8 +322,7 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Add multiple indices to the selection.
    *
-   * @param indices
-   *          the indices
+   * @param indices the indices
    */
   public void addSelection(List<Integer> indices) {
     if (!mEnabled) {
@@ -351,8 +339,7 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Sets whether the selection model reports changes or not.
    *
-   * @param fire
-   *          the new fire changes
+   * @param fire the new fire changes
    */
   public void setFireChanges(boolean fire) {
     mFire = fire;
@@ -361,8 +348,7 @@ public class SelectionRangeModel extends ModernSelectionListeners implements Ite
   /**
    * Sets the enabled.
    *
-   * @param enabled
-   *          the new enabled
+   * @param enabled the new enabled
    */
   public void setEnabled(boolean enabled) {
     mEnabled = enabled;

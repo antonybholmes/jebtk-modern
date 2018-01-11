@@ -43,7 +43,8 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * The class ModernStatusAnimatedProgressBar.
  */
-public class ModernStatusAnimatedProgressBar extends ModernStatusProgressBar implements ActionListener {
+public class ModernStatusAnimatedProgressBar extends ModernStatusProgressBar
+    implements ActionListener {
 
   /**
    * The constant serialVersionUID.
@@ -73,8 +74,7 @@ public class ModernStatusAnimatedProgressBar extends ModernStatusProgressBar imp
   /**
    * Instantiates a new modern status animated progress bar.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernStatusAnimatedProgressBar(ProgressModel model) {
     super(model);
@@ -118,12 +118,14 @@ public class ModernStatusAnimatedProgressBar extends ModernStatusProgressBar imp
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.status.ModernStatusProgressBar#drawBackground(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.status.ModernStatusProgressBar#drawBackground(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawBackground(Graphics2D g2) {
-    fill(g2, ThemeService.getInstance().colors().getColorHighlight(5), getRect());
+    fill(g2,
+        ThemeService.getInstance().colors().getColorHighlight(5),
+        getRect());
   }
 
   /*
@@ -140,8 +142,10 @@ public class ModernStatusAnimatedProgressBar extends ModernStatusProgressBar imp
 
     fill(g2, Color.WHITE, getInternalRect());
 
-    Rectangle r = new Rectangle(this.getInsets().left + (int) (minS1 * mInternalRect.getW() / 100.0),
-        this.getInsets().top, (int) ((s2 - minS1) * mInternalRect.getW() / 100.0), h);
+    Rectangle r = new Rectangle(
+        this.getInsets().left + (int) (minS1 * mInternalRect.getW() / 100.0),
+        this.getInsets().top,
+        (int) ((s2 - minS1) * mInternalRect.getW() / 100.0), h);
 
     fill(g2, ThemeService.getInstance().colors().getColorHighlight(1), r);
   }
@@ -150,8 +154,8 @@ public class ModernStatusAnimatedProgressBar extends ModernStatusProgressBar imp
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.progress.ModernProgressBar#progressUpdated(org.abh.lib.
-   * ui.modern.progress.ProgressEvent)
+   * org.abh.lib.ui.modern.progress.ModernProgressBar#progressUpdated(org.abh.
+   * lib. ui.modern.progress.ProgressEvent)
    */
   public void progressUpdated(ProgressEvent e) {
     stop();

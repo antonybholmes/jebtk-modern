@@ -54,8 +54,7 @@ public abstract class LayerCanvas extends ModernCanvas {
   /**
    * Instantiates a new layer canvas.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   public LayerCanvas(String name) {
     mName = name;
@@ -64,10 +63,8 @@ public abstract class LayerCanvas extends ModernCanvas {
   /**
    * Instantiates a new layer canvas.
    *
-   * @param name
-   *          the name
-   * @param d
-   *          the d
+   * @param name the name
+   * @param d the d
    */
   public LayerCanvas(String name, Dimension d) {
     super(d);

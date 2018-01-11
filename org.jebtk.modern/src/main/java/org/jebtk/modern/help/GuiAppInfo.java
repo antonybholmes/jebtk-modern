@@ -53,96 +53,76 @@ public class GuiAppInfo extends AppInfo {
   /**
    * Instantiates a new application information.
    *
-   * @param name
-   *          the name
-   * @param version
-   *          the version
-   * @param copyright
-   *          the copyright
-   * @param icon
-   *          the icon
+   * @param name the name
+   * @param version the version
+   * @param copyright the copyright
+   * @param icon the icon
    */
-  public GuiAppInfo(String name, AppVersion version, String copyright, ModernIcon icon) {
-    this(name, version, copyright, icon, icon, name.toLowerCase().replaceAll("\\s", "_"), null);
+  public GuiAppInfo(String name, AppVersion version, String copyright,
+      ModernIcon icon) {
+    this(name, version, copyright, icon, icon,
+        name.toLowerCase().replaceAll("\\s", "_"), null);
   }
 
   /**
    * Instantiates a new application information.
    *
-   * @param name
-   *          the name
-   * @param version
-   *          the version
-   * @param copyright
-   *          the copyright
-   * @param icon
-   *          the icon
-   * @param largeIcon
-   *          the large icon
+   * @param name the name
+   * @param version the version
+   * @param copyright the copyright
+   * @param icon the icon
+   * @param largeIcon the large icon
    */
-  public GuiAppInfo(String name, AppVersion version, String copyright, ModernIcon icon, ModernIcon largeIcon) {
-    this(name, version, copyright, icon, largeIcon, name.toLowerCase().replaceAll("\\s", ""), null);
+  public GuiAppInfo(String name, AppVersion version, String copyright,
+      ModernIcon icon, ModernIcon largeIcon) {
+    this(name, version, copyright, icon, largeIcon,
+        name.toLowerCase().replaceAll("\\s", ""), null);
   }
 
   /**
    * Instantiates a new application information.
    *
-   * @param name
-   *          the name
-   * @param version
-   *          the version
-   * @param copyright
-   *          the copyright
-   * @param icon
-   *          the icon
-   * @param description
-   *          the description
+   * @param name the name
+   * @param version the version
+   * @param copyright the copyright
+   * @param icon the icon
+   * @param description the description
    */
-  public GuiAppInfo(String name, AppVersion version, String copyright, ModernIcon icon, String description) {
+  public GuiAppInfo(String name, AppVersion version, String copyright,
+      ModernIcon icon, String description) {
     this(name, version, copyright, icon, icon, description);
   }
 
   /**
    * Instantiates a new application information.
    *
-   * @param name
-   *          the name
-   * @param version
-   *          the version
-   * @param copyright
-   *          the copyright
-   * @param icon
-   *          the icon
-   * @param largeIcon
-   *          the large icon
-   * @param description
-   *          the description
+   * @param name the name
+   * @param version the version
+   * @param copyright the copyright
+   * @param icon the icon
+   * @param largeIcon the large icon
+   * @param description the description
    */
-  public GuiAppInfo(String name, AppVersion version, String copyright, ModernIcon icon, ModernIcon largeIcon,
-      String description) {
-    this(name, version, copyright, icon, largeIcon, name.toLowerCase().replaceAll("[\\.\\s]", ""), description);
+  public GuiAppInfo(String name, AppVersion version, String copyright,
+      ModernIcon icon, ModernIcon largeIcon, String description) {
+    this(name, version, copyright, icon, largeIcon,
+        name.toLowerCase().replaceAll("[\\.\\s]", ""), description);
   }
 
   /**
    * Instantiates a new application information.
    *
-   * @param name
-   *          the name
-   * @param version
-   *          the version
-   * @param copyright
-   *          the copyright
-   * @param icon
-   *          the icon
-   * @param icon128
-   *          the large icon
-   * @param helpName
-   *          the help name
-   * @param description
-   *          the description
+   * @param name the name
+   * @param version the version
+   * @param copyright the copyright
+   * @param icon the icon
+   * @param icon128 the large icon
+   * @param helpName the help name
+   * @param description the description
    */
-  public GuiAppInfo(String name, AppVersion version, String copyright, ModernIcon icon, ModernIcon icon128,
-      String helpName, String description) {
+  public GuiAppInfo(String name, AppVersion version, String copyright,
+      ModernIcon icon, ModernIcon icon128, String helpName,
+      String description) {
     super(name, version, copyright, helpName, description);
 
     mIcon = icon;

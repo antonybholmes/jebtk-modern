@@ -84,8 +84,7 @@ public class ModernPopupMenu extends ModernPopup {
   /**
    * Instantiates a new modern popup menu.
    *
-   * @param menuItems
-   *          the menu items
+   * @param menuItems the menu items
    */
   public ModernPopupMenu(ModernClickWidget... menuItems) {
     this();
@@ -105,8 +104,7 @@ public class ModernPopupMenu extends ModernPopup {
   /**
    * Adds the menu item.
    *
-   * @param menuItem
-   *          the menu item
+   * @param menuItem the menu item
    */
   public void addMenuItem(ModernClickWidget menuItem) {
     add(menuItem);
@@ -133,8 +131,7 @@ public class ModernPopupMenu extends ModernPopup {
   /**
    * Adds the.
    *
-   * @param menuItem
-   *          the menu item
+   * @param menuItem the menu item
    * @return
    */
   public Component add(ModernClickWidget c) {
@@ -150,8 +147,7 @@ public class ModernPopupMenu extends ModernPopup {
   /**
    * Adds the.
    *
-   * @param menuItems
-   *          the menu items
+   * @param menuItems the menu items
    */
   public void add(ModernClickWidget... menuItems) {
     for (ModernClickWidget menuItem : menuItems) {
@@ -203,8 +199,7 @@ public class ModernPopupMenu extends ModernPopup {
   /**
    * Gets the.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the modern click widget
    */
   public ModernClickWidget get(int index) {

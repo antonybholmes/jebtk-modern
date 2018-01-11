@@ -51,7 +51,8 @@ public class ModernDataDateRenderer extends ModernDataCellRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -76,11 +77,17 @@ public class ModernDataDateRenderer extends ModernDataCellRenderer {
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public Component getCellRendererComponent(ModernData dataView,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
     if (value != null) {
       setForeground(dataView.getModel().getCellStyle(row, column).getColor());
-      setBackground(dataView.getModel().getCellStyle(row, column).getBackground());
+      setBackground(
+          dataView.getModel().getCellStyle(row, column).getBackground());
 
       // For rendering purposes, truncate long strings
       String v = DateUtils.getAmericanFormattedDate((Date) value);
@@ -90,6 +97,12 @@ public class ModernDataDateRenderer extends ModernDataCellRenderer {
       setForeground(ModernWidget.TEXT_COLOR);
     }
 
-    return super.getCellRendererComponent(dataView, value, highlight, isSelected, hasFocus, row, column);
+    return super.getCellRendererComponent(dataView,
+        value,
+        highlight,
+        isSelected,
+        hasFocus,
+        row,
+        column);
   }
 }

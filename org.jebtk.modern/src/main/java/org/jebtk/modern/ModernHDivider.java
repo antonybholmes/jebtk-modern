@@ -71,8 +71,7 @@ public class ModernHDivider extends ModernComponent {
   /**
    * Instantiates a new modern H divider.
    *
-   * @param padding
-   *          the padding
+   * @param padding the padding
    */
   public ModernHDivider(int padding) {
     mOffset = padding;
@@ -84,7 +83,8 @@ public class ModernHDivider extends ModernComponent {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   @Override

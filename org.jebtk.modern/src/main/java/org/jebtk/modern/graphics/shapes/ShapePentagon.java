@@ -95,12 +95,9 @@ public class ShapePentagon extends Polygon {
   /**
    * Instantiates a new shape diamond.
    *
-   * @param x
-   *          the x
-   * @param y
-   *          the y
-   * @param size
-   *          the size
+   * @param x the x
+   * @param y the y
+   * @param size the size
    */
   public ShapePentagon(int x, int y, int size) {
     if (size % 2 == 0) {

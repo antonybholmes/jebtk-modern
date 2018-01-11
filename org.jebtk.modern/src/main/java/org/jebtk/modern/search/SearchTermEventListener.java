@@ -47,8 +47,7 @@ public interface SearchTermEventListener extends EventListener {
   /**
    * Search terms changed.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void searchTermsChanged(ChangeEvent e);
 }

@@ -36,7 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernCanvasMouseListeners extends EventProducer<ModernCanvasMouseListener>
+public class ModernCanvasMouseListeners
+    extends EventProducer<ModernCanvasMouseListener>
     implements ModernCanvasMouseEventProducer {
 
   /**

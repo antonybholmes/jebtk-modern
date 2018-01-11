@@ -56,12 +56,14 @@ public class ModernMenuItem extends ModernButton {
   /**
    * The constant HEIGHT.
    */
-  public static final int HEIGHT = SettingsService.getInstance().getAsInt("theme.menu.height");
+  public static final int HEIGHT = SettingsService.getInstance()
+      .getAsInt("theme.menu.height");
 
   /**
    * The constant WIDTH.
    */
-  public static final int WIDTH = SettingsService.getInstance().getAsInt("theme.menu.width");
+  public static final int WIDTH = SettingsService.getInstance()
+      .getAsInt("theme.menu.width");
 
   /**
    * The constant MIN_SIZE.
@@ -76,7 +78,8 @@ public class ModernMenuItem extends ModernButton {
   /**
    * The constant MAX_SIZE.
    */
-  public static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
+  public static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE,
+      HEIGHT);
 
   // public static final Color ICON_BACKGROUND = DialogButton.LIGHT_COLOR;
   // public static final Color ICON_BACKGROUND_SEPARATOR =
@@ -89,7 +92,8 @@ public class ModernMenuItem extends ModernButton {
   // Color(100, 149, 237);
   // public static final Color DARK_BORDER_COLOR = new Color(50, 100, 175);
 
-  // public static final Color COLOR_1 = new Color(220, 230, 250); //Color.WHITE;
+  // public static final Color COLOR_1 = new Color(220, 230, 250);
+  // //Color.WHITE;
 
   /**
    * Allows a menu hierarchy.
@@ -110,8 +114,8 @@ public class ModernMenuItem extends ModernButton {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -140,8 +144,7 @@ public class ModernMenuItem extends ModernButton {
   /**
    * Instantiates a new modern menu item.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernMenuItem(String text) {
     super(text);
@@ -152,10 +155,8 @@ public class ModernMenuItem extends ModernButton {
   /**
    * Instantiates a new modern menu item.
    *
-   * @param text
-   *          the text
-   * @param icon
-   *          the icon
+   * @param text the text
+   * @param icon the icon
    */
   public ModernMenuItem(String text, ModernIcon icon) {
     super(text, icon);
@@ -166,12 +167,9 @@ public class ModernMenuItem extends ModernButton {
   /**
    * Instantiates a new modern menu item.
    *
-   * @param text
-   *          the text
-   * @param icon
-   *          the icon
-   * @param size
-   *          the size
+   * @param text the text
+   * @param icon the icon
+   * @param size the size
    */
   public ModernMenuItem(String text, ModernIcon icon, Dimension size) {
     this(text, icon);
@@ -249,8 +247,7 @@ public class ModernMenuItem extends ModernButton {
   /**
    * Adds a new menu item.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public void add(ModernMenuItem item) {
     getSubMenuItems().add(item);

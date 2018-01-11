@@ -56,8 +56,7 @@ public abstract class ModernVectorScalableIcon extends ModernVectorIcon {
   /**
    * Instantiates a new modern vector scalable icon.
    *
-   * @param color1
-   *          the color 1
+   * @param color1 the color 1
    */
   public ModernVectorScalableIcon(Color color1) {
     mColor1 = color1;
@@ -66,10 +65,8 @@ public abstract class ModernVectorScalableIcon extends ModernVectorIcon {
   /**
    * Instantiates a new modern vector scalable icon.
    *
-   * @param color1
-   *          the color 1
-   * @param color2
-   *          the color 2
+   * @param color1 the color 1
+   * @param color2 the color 2
    */
   public ModernVectorScalableIcon(Color color1, Color color2) {
     mColor1 = color1;

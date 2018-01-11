@@ -50,22 +50,19 @@ public class ModernContentPanel extends ModernComponent {
   /**
    * Instantiates a new modern content panel.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public ModernContentPanel(Component c) {
-    super(new ModernBorderPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)));
+    super(new ModernBorderPanel(
+        new ModernComponent(c, ModernWidget.DOUBLE_BORDER)));
   }
 
   /**
    * Instantiates a new modern content panel.
    *
-   * @param c
-   *          the c
-   * @param w
-   *          the w
-   * @param h
-   *          the h
+   * @param c the c
+   * @param w the w
+   * @param h the h
    */
   public ModernContentPanel(ModernScrollPane c, int w, int h) {
     this(c);

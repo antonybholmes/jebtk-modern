@@ -28,7 +28,6 @@
 package org.jebtk.modern.search;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.EventProducer;
 
 // TODO: Auto-generated Javadoc
@@ -38,8 +37,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class SearchTermEventListeners extends EventProducer<SearchTermEventListener>
-    implements SearchTermEventProducer {
+public class SearchTermEventListeners extends
+    EventProducer<SearchTermEventListener> implements SearchTermEventProducer {
 
   /*
    * (non-Javadoc)
@@ -55,8 +54,8 @@ public class SearchTermEventListeners extends EventProducer<SearchTermEventListe
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.search.SearchTermEventProducer#removeSearchTermListener
+   * @see org.abh.lib.ui.modern.search.SearchTermEventProducer#
+   * removeSearchTermListener
    * (org.abh.lib.ui.modern.search.SearchTermEventListener)
    */
   public void removeSearchTermListener(SearchTermEventListener l) {
@@ -66,9 +65,8 @@ public class SearchTermEventListeners extends EventProducer<SearchTermEventListe
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.search.SearchTermEventProducer#fireSearchTermsChanged(
-   * org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.ui.modern.search.SearchTermEventProducer#
+   * fireSearchTermsChanged( org.abh.lib.event.ChangeEvent)
    */
   public void fireSearchTermsChanged(ChangeEvent e) {
     for (SearchTermEventListener l : mListeners) {

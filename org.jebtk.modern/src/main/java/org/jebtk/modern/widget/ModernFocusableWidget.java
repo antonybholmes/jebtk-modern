@@ -118,8 +118,7 @@ public abstract class ModernFocusableWidget extends ModernWidget {
   /**
    * Instantiates a new modern focusable widget.
    *
-   * @param manager
-   *          the manager
+   * @param manager the manager
    */
   public ModernFocusableWidget(LayoutManager manager) {
     super(manager);
@@ -141,8 +140,7 @@ public abstract class ModernFocusableWidget extends ModernWidget {
    * Sets whether the widget will automatically try to become focused when
    * clicked.
    *
-   * @param autoFocus
-   *          the new auto focus
+   * @param autoFocus the new auto focus
    */
   protected final void setAutoFocus(boolean autoFocus) {
     mAutoFocus = autoFocus;

@@ -175,8 +175,7 @@ public abstract class AbstractCollapsePane extends ModernVertWidget
   /**
    * Set the renderer for displaying nodes.
    *
-   * @param nodeRenderer
-   *          the new node renderer
+   * @param nodeRenderer the new node renderer
    */
   public void setNodeRenderer(ModernCollapseNodeRenderer nodeRenderer) {
     mNodeRenderer = nodeRenderer;
@@ -196,8 +195,7 @@ public abstract class AbstractCollapsePane extends ModernVertWidget
   /**
    * Sets the header height.
    *
-   * @param height
-   *          the new header height
+   * @param height the new header height
    */
   public void setHeaderHeight(int height) {
     mHeaderHeight = height;
@@ -210,12 +208,9 @@ public abstract class AbstractCollapsePane extends ModernVertWidget
   /**
    * Adds a tab to the control.
    *
-   * @param name
-   *          The name of the tab.
-   * @param c1
-   *          The component to be placed in the tab.
-   * @param expanded
-   *          Whether the tab is shown in its expanded view.
+   * @param name The name of the tab.
+   * @param c1 The component to be placed in the tab.
+   * @param expanded Whether the tab is shown in its expanded view.
    */
   public void addTab(String name, Component c1, boolean expanded) {
     mTabNames.add(name);
@@ -255,8 +250,7 @@ public abstract class AbstractCollapsePane extends ModernVertWidget
   /**
    * Return the component associated with tab i.
    *
-   * @param i
-   *          the i
+   * @param i the i
    * @return the tab component
    */
   public Component getTabComponent(int i) {
@@ -284,10 +278,10 @@ public abstract class AbstractCollapsePane extends ModernVertWidget
   // }
 
   /**
-   * Resizes the collapse pane without indicating to parents that it has changed.
+   * Resizes the collapse pane without indicating to parents that it has
+   * changed.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   private void updateSize(int index) {
     Dimension d = layoutTabs(index);
@@ -327,8 +321,7 @@ public abstract class AbstractCollapsePane extends ModernVertWidget
   /**
    * Layout tabs.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the int
    */
   public Dimension layoutTabs(int index) {
@@ -382,8 +375,7 @@ public abstract class AbstractCollapsePane extends ModernVertWidget
   /**
    * Invert expanded.
    *
-   * @param index
-   *          the i
+   * @param index the i
    */
   protected void invertExpanded(int index) {
     mExpanded.set(index, !mExpanded.get(index));
@@ -411,8 +403,7 @@ public abstract class AbstractCollapsePane extends ModernVertWidget
   /**
    * Set whether all panes are in their expanded (visible) view or not.
    *
-   * @param ex
-   *          the new expanded
+   * @param ex the new expanded
    */
   public void setExpanded(boolean ex) {
     for (int i = 0; i < mComponents.size(); ++i) {
@@ -452,9 +443,8 @@ public abstract class AbstractCollapsePane extends ModernVertWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.event.ChangeEventProducer#removeChangeListener(org.abh.common.
-   * event.ChangeListener)
+   * @see org.abh.common.event.ChangeEventProducer#removeChangeListener(org.abh.
+   * common. event.ChangeListener)
    */
   @Override
   public void removeChangeListener(ChangeListener l) {

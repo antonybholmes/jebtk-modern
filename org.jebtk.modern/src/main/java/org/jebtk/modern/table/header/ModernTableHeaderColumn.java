@@ -80,8 +80,7 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
   /**
    * Instantiates a new modern table header column.
    *
-   * @param table
-   *          the table
+   * @param table the table
    */
   public ModernTableHeaderColumn(ModernTable table) {
     super(table);
@@ -100,13 +99,13 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
   /**
    * Translate.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    */
   public void translate(Graphics2D g2) {
     ModernDataSelection visibleCells = mTable.calculateVisibleCells();
 
-    g2.translate(mTable.getX(visibleCells.getStartCol()) - getViewRect().getX(), 0);
+    g2.translate(mTable.getX(visibleCells.getStartCol()) - getViewRect().getX(),
+        0);
   }
 
   /*
@@ -169,15 +168,16 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
 
     try {
       while (x < w) {
-        // for (int i = visibleCells.getStartCol(); i <= visibleCells.getEndCol(); ++i)
+        // for (int i = visibleCells.getStartCol(); i <=
+        // visibleCells.getEndCol(); ++i)
         // {
         // if (i >= mTable.getModel().getColumnCount()) {
         // break;
         // }
 
         boolean highlight = i == mHighlightColumn;
-        boolean selected = mTable.getColumnModel().isSelected(i)
-            || mTable.getCellSelectionModel().getColumnSelectionModel().contains(i);
+        boolean selected = mTable.getColumnModel().isSelected(i) || mTable
+            .getCellSelectionModel().getColumnSelectionModel().contains(i);
 
         int wc = (int) mTable.scale(mTable.getColumnModel().getWidth(i));
 
@@ -192,8 +192,14 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
 
         try {
           for (String name : columnNames) {
-            Component c = mTable.getHeadingRenderer(i).getCellRendererComponent(mTable, name, highlight, selected,
-                highlight, 0, i);
+            Component c = mTable.getHeadingRenderer(i).getCellRendererComponent(
+                mTable,
+                name,
+                highlight,
+                selected,
+                highlight,
+                0,
+                i);
 
             c.setSize(wc, h);
 
@@ -256,7 +262,8 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
     mDragTableColumn = mTable.getNearestColumnDivider(p.getX());
 
     if (mDragTableColumn != -1) {
-      mDragTableColumnWidth = mTable.getColumnModel().getWidth(mDragTableColumn);
+      mDragTableColumnWidth = mTable.getColumnModel()
+          .getWidth(mDragTableColumn);
       mDragTableColumnX = mTable.getX(mDragTableColumn) + mDragTableColumnWidth;
 
       mTable.setSortColumn(mDragTableColumn);
@@ -271,8 +278,8 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.table.header.ModernTableHeader#mouseReleased(java.awt.
-   * event.CanvasMouseEvent)
+   * org.abh.lib.ui.modern.table.header.ModernTableHeader#mouseReleased(java.
+   * awt. event.CanvasMouseEvent)
    */
   @Override
   public void canvasMouseReleased(CanvasMouseEvent e) {
@@ -355,8 +362,7 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
   /**
    * In header.
    *
-   * @param e
-   *          the e
+   * @param e the e
    * @return true, if successful
    */
   private boolean inHeader(CanvasMouseEvent e) {

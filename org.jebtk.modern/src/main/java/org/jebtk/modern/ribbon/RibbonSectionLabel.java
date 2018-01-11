@@ -44,8 +44,7 @@ public class RibbonSectionLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new ribbon section label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public RibbonSectionLabel(String text) {
     super(text, ModernWidget.TEXT_DISABLED_COLOR);

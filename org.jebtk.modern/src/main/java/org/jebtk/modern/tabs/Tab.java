@@ -71,10 +71,8 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Instantiates a new tab.
    *
-   * @param name
-   *          the name
-   * @param c
-   *          the c
+   * @param name the name
+   * @param c the c
    */
   public Tab(String name, JComponent c) {
     this(name, null, c);
@@ -83,12 +81,9 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Instantiates a new tab.
    *
-   * @param name
-   *          the name
-   * @param icon
-   *          the icon
-   * @param c
-   *          the c
+   * @param name the name
+   * @param icon the icon
+   * @param c the c
    */
   public Tab(String name, ModernIcon icon, JComponent c) {
     this(name, icon, c, false, TabPosition.LEFT);
@@ -97,8 +92,7 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Instantiates a new tab.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   public Tab(String name) {
     this(name, null, null, false, TabPosition.LEFT);
@@ -107,12 +101,9 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Instantiates a new tab.
    *
-   * @param name
-   *          the name
-   * @param c
-   *          the c
-   * @param closeable
-   *          the closeable
+   * @param name the name
+   * @param c the c
+   * @param closeable the closeable
    */
   public Tab(String name, JComponent c, boolean closeable) {
     this(name, c, closeable, TabPosition.LEFT);
@@ -121,14 +112,10 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Instantiates a new tab.
    *
-   * @param name
-   *          the name
-   * @param icon
-   *          the icon
-   * @param c
-   *          the c
-   * @param closeable
-   *          the closeable
+   * @param name the name
+   * @param icon the icon
+   * @param c the c
+   * @param closeable the closeable
    */
   public Tab(String name, ModernIcon icon, JComponent c, boolean closeable) {
     this(name, icon, c, closeable, TabPosition.LEFT);
@@ -137,34 +124,27 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Instantiates a new tab.
    *
-   * @param name
-   *          the name
-   * @param c
-   *          the c
-   * @param closeable
-   *          the closeable
-   * @param position
-   *          the position
+   * @param name the name
+   * @param c the c
+   * @param closeable the closeable
+   * @param position the position
    */
-  public Tab(String name, JComponent c, boolean closeable, TabPosition position) {
+  public Tab(String name, JComponent c, boolean closeable,
+      TabPosition position) {
     this(name, null, c, closeable, position);
   }
 
   /**
    * Instantiates a new tab.
    *
-   * @param name
-   *          the name
-   * @param icon
-   *          the icon
-   * @param c
-   *          the c
-   * @param closeable
-   *          the closeable
-   * @param position
-   *          the position
+   * @param name the name
+   * @param icon the icon
+   * @param c the c
+   * @param closeable the closeable
+   * @param position the position
    */
-  public Tab(String name, ModernIcon icon, JComponent c, boolean closeable, TabPosition position) {
+  public Tab(String name, ModernIcon icon, JComponent c, boolean closeable,
+      TabPosition position) {
     mName = name;
     mIcon = icon;
     mClosable = closeable;
@@ -193,8 +173,7 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Sets the JComponent.
    *
-   * @param c
-   *          the new JComponent
+   * @param c the new JComponent
    */
   public void setJComponent(JComponent c) {
     mC = c;
@@ -230,8 +209,7 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Sets the width.
    *
-   * @param width
-   *          the new width
+   * @param width the new width
    */
   public void setWidth(int width) {
     adjustWidth(width);
@@ -242,8 +220,7 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Adjust the width without triggering a layout change event.
    *
-   * @param width
-   *          the width
+   * @param width the width
    */
   public void adjustWidth(int width) {
     mWidth = width;

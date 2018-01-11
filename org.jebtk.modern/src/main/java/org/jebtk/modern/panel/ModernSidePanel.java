@@ -54,10 +54,8 @@ public class ModernSidePanel extends JComponent {
   /**
    * Instantiates a new modern side panel.
    *
-   * @param title
-   *          the title
-   * @param content
-   *          the content
+   * @param title the title
+   * @param content the content
    */
   public ModernSidePanel(String title, JComponent content) {
     ModernAutoSizeLabel label = new ModernColoredHeadingLabel(title);
@@ -71,12 +69,9 @@ public class ModernSidePanel extends JComponent {
   /**
    * Instantiates a new modern side panel.
    *
-   * @param title
-   *          the title
-   * @param top
-   *          the top
-   * @param content
-   *          the content
+   * @param title the title
+   * @param top the top
+   * @param content the content
    */
   public ModernSidePanel(String title, JComponent top, JComponent content) {
     add(new ModernHeading(title, top), BorderLayout.PAGE_START);
@@ -87,8 +82,7 @@ public class ModernSidePanel extends JComponent {
   /**
    * Instantiates a new modern side panel.
    *
-   * @param title
-   *          the title
+   * @param title the title
    */
   public ModernSidePanel(String title) {
     ModernAutoSizeLabel label = new ModernColoredHeadingLabel(title);

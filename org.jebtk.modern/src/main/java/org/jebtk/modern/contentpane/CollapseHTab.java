@@ -80,8 +80,8 @@ public class CollapseHTab extends ModernComponent {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -98,10 +98,8 @@ public class CollapseHTab extends ModernComponent {
   /**
    * Instantiates a new collapse h tab.
    *
-   * @param pane
-   *          the pane
-   * @param c
-   *          the c
+   * @param pane the pane
+   * @param c the c
    */
   public CollapseHTab(SizableContentPane pane, JComponent c) {
     mPane = pane;
@@ -112,7 +110,8 @@ public class CollapseHTab extends ModernComponent {
 
     box.add(Box.createHorizontalGlue());
 
-    ModernButtonWidget button = new ModernSideButton(UIService.getInstance().loadIcon("left_arrow", 16));
+    ModernButtonWidget button = new ModernSideButton(
+        UIService.getInstance().loadIcon("left_arrow", 16));
     button.addClickListener(new ClickEvents());
 
     box.add(button);

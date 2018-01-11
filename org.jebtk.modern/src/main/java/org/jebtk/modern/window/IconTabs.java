@@ -31,7 +31,6 @@ import javax.swing.JComponent;
 import javax.swing.border.Border;
 
 import org.jebtk.modern.BorderService;
-import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.contentpane.ModernHContentPane;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.panel.AutoHidePanel;
@@ -50,8 +49,11 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class IconTabs {
 
-  private static final Border BORDER = BorderService.getInstance().createBorder(ModernWidget.DOUBLE_PADDING,
-      ModernWidget.PADDING, ModernWidget.DOUBLE_PADDING, ModernWidget.PADDING);
+  private static final Border BORDER = BorderService.getInstance().createBorder(
+      ModernWidget.DOUBLE_PADDING,
+      ModernWidget.PADDING,
+      ModernWidget.DOUBLE_PADDING,
+      ModernWidget.PADDING);
 
   private TabsModel mLeftTabsModel;
 
@@ -62,8 +64,7 @@ public class IconTabs {
   /**
    * Instantiates a new modern dialog window.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public IconTabs(ModernHContentPane tabsPane) {
     mTabsPane = tabsPane;
@@ -113,7 +114,11 @@ public class IconTabs {
       return;
     }
 
-    getTabsPane().addLeftTab("Left Tabs", new AutoHidePanel(mViewPanel, 100), 200, ModernWidget.WIDGET_HEIGHT, 500);
+    getTabsPane().addLeftTab("Left Tabs",
+        new AutoHidePanel(mViewPanel, 100),
+        200,
+        ModernWidget.WIDGET_HEIGHT,
+        500);
   }
 
   public void changeTab(int index) {

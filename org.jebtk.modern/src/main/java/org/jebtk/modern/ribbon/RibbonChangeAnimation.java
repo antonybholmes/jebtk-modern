@@ -38,8 +38,7 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public RibbonChangeAnimation(ModernWidget tabs) {
     super(tabs);
@@ -75,7 +74,8 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
       return;
     }
 
-    previousIndex = Mathematics.bound(previousIndex, 0, mTabs.mTabStarts.size() - 1);
+    previousIndex = Mathematics
+        .bound(previousIndex, 0, mTabs.mTabStarts.size() - 1);
 
     int x1 = mTabs.mTabStartX + mTabs.mTabStarts.get(previousIndex);
     int x2 = mTabs.mTabStartX + mTabs.mTabStarts.get(selectedIndex);
@@ -84,9 +84,13 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void drawTranslation(ModernWidget widget,
+      Graphics2D g2,
+      Object... params) {
     g2.setColor(Ribbon.BAR_BACKGROUND);
-    g2.fillRect(0, Ribbon.Y_OFFSET + Ribbon.TAB_HEIGHT - BAR_HEIGHT,
-        mTabs.mTabWidths.get(mTabs.getTabsModel().getSelectedIndex()), BAR_HEIGHT);
+    g2.fillRect(0,
+        Ribbon.Y_OFFSET + Ribbon.TAB_HEIGHT - BAR_HEIGHT,
+        mTabs.mTabWidths.get(mTabs.getTabsModel().getSelectedIndex()),
+        BAR_HEIGHT);
   }
 }

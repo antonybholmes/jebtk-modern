@@ -47,18 +47,19 @@ public class ModernDefaultDialogButton extends ModernButton {
   /**
    * The constant BUTTON_HIGHLIGHT_COLOR.
    */
-  private static final Color BUTTON_HIGHLIGHT_COLOR = ThemeService.getInstance().colors().getColorHighlight(5);
+  private static final Color BUTTON_HIGHLIGHT_COLOR = ThemeService.getInstance()
+      .colors().getColorHighlight(5);
 
   /**
    * The constant BUTTON_BACKGROUND_COLOR.
    */
-  private static final Color BUTTON_BACKGROUND_COLOR = ThemeService.getInstance().colors().getColorHighlight(4);
+  private static final Color BUTTON_BACKGROUND_COLOR = ThemeService
+      .getInstance().colors().getColorHighlight(4);
 
   /**
    * Instantiates a new modern default dialog button2.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernDefaultDialogButton(String text1) {
     super(text1);
@@ -86,8 +87,8 @@ public class ModernDefaultDialogButton extends ModernButton {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.ribbon2.ModernDialogButton2#drawForegroundAA(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.ribbon2.ModernDialogButton2#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

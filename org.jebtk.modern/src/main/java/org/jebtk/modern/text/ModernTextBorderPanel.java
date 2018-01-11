@@ -42,7 +42,8 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  * @author Antony Holmes Holmes
  */
-public class ModernTextBorderPanel extends ModernWidget implements TextProperty {
+public class ModernTextBorderPanel extends ModernWidget
+    implements TextProperty {
 
   /**
    * The constant serialVersionUID.
@@ -57,15 +58,14 @@ public class ModernTextBorderPanel extends ModernWidget implements TextProperty 
   /**
    * The constant STANDARD_SIZE.
    */
-  public static final Dimension STANDARD_SIZE = new Dimension(100, ModernWidget.WIDGET_HEIGHT);
+  public static final Dimension STANDARD_SIZE = new Dimension(100,
+      ModernWidget.WIDGET_HEIGHT);
 
   /**
    * Instantiates a new modern text border panel.
    *
-   * @param textField
-   *          the text field
-   * @param color
-   *          the color
+   * @param textField the text field
+   * @param color the color
    */
   public ModernTextBorderPanel(ModernTextField textField) {
     mComponent = textField;
@@ -78,10 +78,8 @@ public class ModernTextBorderPanel extends ModernWidget implements TextProperty 
   /**
    * Instantiates a new modern text border panel.
    *
-   * @param textField
-   *          the text field
-   * @param color
-   *          the color
+   * @param textField the text field
+   * @param color the color
    */
   public ModernTextBorderPanel(ModernTextBox textField) {
     mComponent = textField;
@@ -94,10 +92,8 @@ public class ModernTextBorderPanel extends ModernWidget implements TextProperty 
   /**
    * Instantiates a new modern text border panel.
    *
-   * @param textField
-   *          the text field
-   * @param width
-   *          the width
+   * @param textField the text field
+   * @param width the width
    */
   public ModernTextBorderPanel(ModernTextField textField, int width) {
     this(textField, new Dimension(width, ModernButton.getButtonHeight()));
@@ -106,10 +102,8 @@ public class ModernTextBorderPanel extends ModernWidget implements TextProperty 
   /**
    * Instantiates a new modern text border panel.
    *
-   * @param textField
-   *          the text field
-   * @param width
-   *          the width
+   * @param textField the text field
+   * @param width the width
    */
   public ModernTextBorderPanel(ModernTextBox textField, int width) {
     this(textField, new Dimension(width, ModernButton.getButtonHeight()));
@@ -118,12 +112,9 @@ public class ModernTextBorderPanel extends ModernWidget implements TextProperty 
   /**
    * Instantiates a new modern text border panel.
    *
-   * @param textField
-   *          the text field
-   * @param color
-   *          the color
-   * @param size
-   *          the size
+   * @param textField the text field
+   * @param color the color
+   * @param size the size
    */
   public ModernTextBorderPanel(ModernTextField textField, Dimension size) {
 
@@ -139,12 +130,9 @@ public class ModernTextBorderPanel extends ModernWidget implements TextProperty 
   /**
    * Instantiates a new modern text border panel.
    *
-   * @param textField
-   *          the text field
-   * @param color
-   *          the color
-   * @param size
-   *          the size
+   * @param textField the text field
+   * @param color the color
+   * @param size the size
    */
   public ModernTextBorderPanel(ModernTextBox textField, Dimension size) {
     mComponent = textField;
@@ -159,8 +147,7 @@ public class ModernTextBorderPanel extends ModernWidget implements TextProperty 
   /**
    * Instantiates a new modern text border panel.
    *
-   * @param textArea
-   *          the text area
+   * @param textArea the text area
    */
   public ModernTextBorderPanel(ModernTextArea textArea) {
 
@@ -174,8 +161,7 @@ public class ModernTextBorderPanel extends ModernWidget implements TextProperty 
   /**
    * Instantiates a new modern text border panel.
    *
-   * @param textField
-   *          the text field
+   * @param textField the text field
    */
   public ModernTextBorderPanel(ModernPasswordField textField) {
 

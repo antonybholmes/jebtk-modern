@@ -48,8 +48,7 @@ public class ModernDialogMaterialButton extends ModernButton {
   /**
    * Instantiates a new modern dialog button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernDialogMaterialButton(String text1) {
     super(text1);

@@ -44,8 +44,7 @@ public interface ProgressEventListener extends EventListener {
   /**
    * Invoked when progress update occurs.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void progressUpdated(ProgressEvent e);
 }

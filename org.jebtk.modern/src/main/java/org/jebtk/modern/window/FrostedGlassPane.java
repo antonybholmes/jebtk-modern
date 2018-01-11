@@ -56,7 +56,8 @@ public class FrostedGlassPane extends ModernPanel {
   /**
    * The constant GLASS_COLOR.
    */
-  public static final Color GLASS_COLOR = ColorUtils.getTransparentColor80(Color.BLACK);
+  public static final Color GLASS_COLOR = ColorUtils
+      .getTransparentColor80(Color.BLACK);
 
   /**
    * Instantiates a new frosted glass pane.

@@ -41,8 +41,7 @@ public class ColorSpinnerRed extends ColorSpinner {
   /**
    * Instantiates a new color spinner red.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ColorSpinnerRed(ColorSelectionModel model) {
     super(model, ColorChannel.RED);

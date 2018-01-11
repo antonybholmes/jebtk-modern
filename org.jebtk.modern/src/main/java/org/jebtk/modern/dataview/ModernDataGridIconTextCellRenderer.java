@@ -33,7 +33,8 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * The class ModernDataGridIconTextCellRenderer.
  */
-public abstract class ModernDataGridIconTextCellRenderer extends ModernDataCellRenderer {
+public abstract class ModernDataGridIconTextCellRenderer
+    extends ModernDataCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -53,8 +54,7 @@ public abstract class ModernDataGridIconTextCellRenderer extends ModernDataCellR
   /**
    * Sets the text.
    *
-   * @param text
-   *          the new text
+   * @param text the new text
    */
   public final void setText(String text) {
     mText = text;
@@ -63,8 +63,7 @@ public abstract class ModernDataGridIconTextCellRenderer extends ModernDataCellR
   /**
    * Sets the icon.
    *
-   * @param icon
-   *          the new icon
+   * @param icon the new icon
    */
   public final void setIcon(ModernIcon icon) {
     mIcon = icon;

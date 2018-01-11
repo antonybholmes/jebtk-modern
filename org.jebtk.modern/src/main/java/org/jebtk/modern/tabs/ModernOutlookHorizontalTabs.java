@@ -48,7 +48,8 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernOutlookHorizontalTabs extends ModernWidget implements MouseMotionListener, MouseListener {
+public class ModernOutlookHorizontalTabs extends ModernWidget
+    implements MouseMotionListener, MouseListener {
 
   /**
    * The constant serialVersionUID.
@@ -63,7 +64,8 @@ public class ModernOutlookHorizontalTabs extends ModernWidget implements MouseMo
   /**
    * The constant COLOR.
    */
-  private static final Color COLOR = ThemeService.getInstance().colors().getHighlight(3);
+  private static final Color COLOR = ThemeService.getInstance().colors()
+      .getHighlight(3);
 
   // protected List<ModernHTab> tabButtons = new ArrayList<ModernHTab>();
   /**
@@ -83,12 +85,14 @@ public class ModernOutlookHorizontalTabs extends ModernWidget implements MouseMo
   private ViewModel mModel;
 
   /** The Constant FONT. */
-  private static final Font FONT = ThemeService.loadFont("theme/text-tabs/text-font"); // ThemeService.loadFont("text-tabs.text");
+  private static final Font FONT = ThemeService
+      .loadFont("theme/text-tabs/text-font"); // ThemeService.loadFont("text-tabs.text");
 
   /**
    * The constant BOLD_FONT.
    */
-  private static final Font BOLD_FONT = ThemeService.loadFont("theme/text-tabs/text-font-bold");
+  private static final Font BOLD_FONT = ThemeService
+      .loadFont("theme/text-tabs/text-font-bold");
 
   /**
    * The member items.
@@ -103,8 +107,7 @@ public class ModernOutlookHorizontalTabs extends ModernWidget implements MouseMo
   /**
    * Instantiates a new modern outlook horizontal tabs.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernOutlookHorizontalTabs(ViewModel model) {
     mModel = model;
@@ -140,7 +143,8 @@ public class ModernOutlookHorizontalTabs extends ModernWidget implements MouseMo
   /*
    * (non-Javadoc)
    * 
-   * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+   * @see
+   * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
    */
   @Override
   public void mouseMoved(MouseEvent e) {
@@ -189,8 +193,7 @@ public class ModernOutlookHorizontalTabs extends ModernWidget implements MouseMo
   /**
    * Change tab.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   private void changeTab(int index) {
     mModel.setView(mItems.get(index));
@@ -211,7 +214,8 @@ public class ModernOutlookHorizontalTabs extends ModernWidget implements MouseMo
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -293,8 +297,7 @@ public class ModernOutlookHorizontalTabs extends ModernWidget implements MouseMo
   /**
    * Adds the tab.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public void addTab(String item) {
     mItems.add(item);

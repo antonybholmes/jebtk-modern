@@ -55,10 +55,8 @@ public class ModernHiddenComboBox extends ModernComboBox {
   /**
    * Instantiates a new modern hidden combo box.
    *
-   * @param name
-   *          the name
-   * @param popup
-   *          the popup
+   * @param name the name
+   * @param popup the popup
    */
   public ModernHiddenComboBox(String name, ModernScrollPopupMenu popup) {
     super(name, popup);
@@ -72,7 +70,8 @@ public class ModernHiddenComboBox extends ModernComboBox {
    */
   @Override
   public void drawBackground(Graphics2D g2) {
-    Rectangle buttonRect = new Rectangle(mButtonX, mRect.getY(), BUTTON_WIDTH, mRect.getH());
+    Rectangle buttonRect = new Rectangle(mButtonX, mRect.getY(), BUTTON_WIDTH,
+        mRect.getH());
 
     if (mHighlight) {
       // ModernTheme.fillRect(g2, getRect(), highlightBorderColor);
@@ -82,7 +81,8 @@ public class ModernHiddenComboBox extends ModernComboBox {
       paintHighlightedOutlined(g2, buttonRect);
 
       // g2.setColor(highlightBorderColor);
-      // g2.drawRect(mRect.getX(), mRect.getY(), mRect.getW() - 1, mRect.getH() - 1);
+      // g2.drawRect(mRect.getX(), mRect.getY(), mRect.getW() - 1, mRect.getH()
+      // - 1);
       // Theme.paintRect(g2, getRect(), highlightBorderColor);
 
       // g2.setColor(ThemeService.getInstance().getThemeColor(2));
@@ -90,7 +90,8 @@ public class ModernHiddenComboBox extends ModernComboBox {
       // g2.drawRect(buttonX, mRect.getY(), BUTTON_WIDTH - 1, mRect.getH() - 1);
     } else if (mPopupShown) {
       // g2.setColor(highlightBorderColor);
-      // g2.drawRect(mRect.getX(), mRect.getY(), mRect.getW() - 1, mRect.getH() - 1);
+      // g2.drawRect(mRect.getX(), mRect.getY(), mRect.getW() - 1, mRect.getH()
+      // - 1);
       paintSelectedBorder(g2, getRect());
 
       paintSelected(g2, buttonRect);
@@ -98,9 +99,13 @@ public class ModernHiddenComboBox extends ModernComboBox {
 
     }
 
-    // paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON, buttonRect);
+    // paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON,
+    // buttonRect);
 
-    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, buttonRect.x,
-        buttonRect.y + (buttonRect.height - 16) / 2, 16);
+    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(
+        g2,
+        buttonRect.x,
+        buttonRect.y + (buttonRect.height - 16) / 2,
+        16);
   }
 }

@@ -47,7 +47,8 @@ import org.jebtk.modern.panel.VBox;
  *
  * @author Antony Holmes Holmes
  */
-public class ComponentTable extends ModernComponent implements Iterable<Component> {
+public class ComponentTable extends ModernComponent
+    implements Iterable<Component> {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -55,7 +56,8 @@ public class ComponentTable extends ModernComponent implements Iterable<Componen
   /**
    * The Class ComponentList.
    */
-  private static class ComponentList extends ModernComponent implements Iterable<Component> {
+  private static class ComponentList extends ModernComponent
+      implements Iterable<Component> {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
@@ -206,8 +208,7 @@ public class ComponentTable extends ModernComponent implements Iterable<Componen
     /**
      * Gets the.
      *
-     * @param i
-     *          the i
+     * @param i the i
      * @return the component
      */
     public Component get(int i) {
@@ -218,7 +219,8 @@ public class ComponentTable extends ModernComponent implements Iterable<Componen
   /**
    * The Class CContainer.
    */
-  private static class CContainer extends ModernComponent implements ModernClickListener, ModernClickEventProducer {
+  private static class CContainer extends ModernComponent
+      implements ModernClickListener, ModernClickEventProducer {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
@@ -230,7 +232,8 @@ public class ComponentTable extends ModernComponent implements Iterable<Componen
     private ModernCheckBox mCheckSelected = new ModernCheckBox();
 
     /** The m delete button. */
-    private ModernButton mDeleteButton = new ModernButton(UIService.getInstance().loadIcon(DeleteVectorIcon.class, 16));
+    private ModernButton mDeleteButton = new ModernButton(
+        UIService.getInstance().loadIcon(DeleteVectorIcon.class, 16));
 
     /** The m listeners. */
     private ModernClickListeners mListeners = new ModernClickListeners();
@@ -238,8 +241,7 @@ public class ComponentTable extends ModernComponent implements Iterable<Componen
     /**
      * Instantiates a new c container.
      *
-     * @param c
-     *          the c
+     * @param c the c
      */
     public CContainer(Component c) {
       mC = c;
@@ -264,8 +266,7 @@ public class ComponentTable extends ModernComponent implements Iterable<Componen
     /**
      * Sets the selected.
      *
-     * @param selected
-     *          the new selected
+     * @param selected the new selected
      */
     public void setSelected(boolean selected) {
       mCheckSelected.setSelected(selected);
@@ -284,8 +285,8 @@ public class ComponentTable extends ModernComponent implements Iterable<Componen
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
-     * ModernClickEvent)
+     * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+     * event. ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -296,8 +297,8 @@ public class ComponentTable extends ModernComponent implements Iterable<Componen
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.event.ModernClickEventProducer#addClickListener(org.abh.
-     * common.ui.event.ModernClickListener)
+     * org.abh.common.ui.event.ModernClickEventProducer#addClickListener(org.
+     * abh. common.ui.event.ModernClickListener)
      */
     @Override
     public void addClickListener(ModernClickListener l) {
@@ -308,8 +309,8 @@ public class ComponentTable extends ModernComponent implements Iterable<Componen
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.event.ModernClickEventProducer#removeClickListener(org.abh.
-     * common.ui.event.ModernClickListener)
+     * org.abh.common.ui.event.ModernClickEventProducer#removeClickListener(org.
+     * abh. common.ui.event.ModernClickListener)
      */
     @Override
     public void removeClickListener(ModernClickListener l) {
@@ -320,8 +321,8 @@ public class ComponentTable extends ModernComponent implements Iterable<Componen
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.common.ui.event.ModernClickEventProducer#fireClicked(org.abh.common.
-     * ui.event.ModernClickEvent)
+     * org.abh.common.ui.event.ModernClickEventProducer#fireClicked(org.abh.
+     * common. ui.event.ModernClickEvent)
      */
     @Override
     public void fireClicked(ModernClickEvent e) {
@@ -348,7 +349,8 @@ public class ComponentTable extends ModernComponent implements Iterable<Componen
   private ComponentList mBox = new ComponentList();
 
   /** The m move up button. */
-  private ModernButton mMoveUpButton = new ModernButton(UIService.getInstance().loadIcon(ArrowUpVectorIcon.class, 16));
+  private ModernButton mMoveUpButton = new ModernButton(
+      UIService.getInstance().loadIcon(ArrowUpVectorIcon.class, 16));
 
   /** The m move down button. */
   private ModernButton mMoveDownButton = new ModernButton(

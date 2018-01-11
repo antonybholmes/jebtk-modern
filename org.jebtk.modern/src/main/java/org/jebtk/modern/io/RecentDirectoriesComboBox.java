@@ -43,22 +43,22 @@ public class RecentDirectoriesComboBox extends RecentFilesComboBox {
   /**
    * Instantiates a new recent directories combo box.
    *
-   * @param recentFiles
-   *          the recent files
+   * @param recentFiles the recent files
    */
   public RecentDirectoriesComboBox(RecentFilesService recentFiles) {
-    super(recentFiles, UIService.getInstance().loadIcon("folder", UIService.ICON_SIZE_32));
+    super(recentFiles,
+        UIService.getInstance().loadIcon("folder", UIService.ICON_SIZE_32));
   }
 
   /**
    * Instantiates a new recent directories combo box.
    *
-   * @param recentFiles
-   *          the recent files
-   * @param max
-   *          the max
+   * @param recentFiles the recent files
+   * @param max the max
    */
   public RecentDirectoriesComboBox(RecentFilesService recentFiles, int max) {
-    super(recentFiles, UIService.getInstance().loadIcon("folder", UIService.ICON_SIZE_32), max);
+    super(recentFiles,
+        UIService.getInstance().loadIcon("folder", UIService.ICON_SIZE_32),
+        max);
   }
 }

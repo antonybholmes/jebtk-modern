@@ -44,8 +44,7 @@ public class LogTable implements LogEventListener {
   /**
    * Instantiates a new log table.
    *
-   * @param logPanel
-   *          the log panel
+   * @param logPanel the log panel
    */
   public LogTable(LogTablePanel logPanel) {
     this.logPanel = logPanel;

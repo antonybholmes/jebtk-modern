@@ -28,9 +28,8 @@
 package org.jebtk.modern.slider;
 
 import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.core.event.ChangeEventProducer;
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernFocusableWidget;
@@ -43,7 +42,8 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public abstract class Slider extends ModernFocusableWidget implements ChangeEventProducer {
+public abstract class Slider extends ModernFocusableWidget
+    implements ChangeEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -103,8 +103,7 @@ public abstract class Slider extends ModernFocusableWidget implements ChangeEven
   /**
    * Sets the value.
    *
-   * @param value
-   *          the new value
+   * @param value the new value
    */
   /*
    * (non-Javadoc)
@@ -120,8 +119,7 @@ public abstract class Slider extends ModernFocusableWidget implements ChangeEven
   /**
    * Update the slider without causing a change event.
    *
-   * @param v
-   *          the v
+   * @param v the v
    */
   public abstract void updateValue(double v);
 
@@ -164,8 +162,8 @@ public abstract class Slider extends ModernFocusableWidget implements ChangeEven
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.event.
-   * ChangeListener)
+   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.
+   * event. ChangeListener)
    */
   public void removeChangeListener(ChangeListener l) {
     mChangeListeners.removeChangeListener(l);

@@ -43,15 +43,13 @@ public class Validation {
   /**
    * Validate as int.
    *
-   * @param name
-   *          the name
-   * @param text
-   *          the text
+   * @param name the name
+   * @param text the text
    * @return the int
-   * @throws ValidationException
-   *           the validation exception
+   * @throws ValidationException the validation exception
    */
-  public static int validateAsInt(String name, String text) throws ValidationException {
+  public static int validateAsInt(String name, String text)
+      throws ValidationException {
     try {
       return Integer.parseInt(text);
     } catch (Exception e) {
@@ -62,15 +60,13 @@ public class Validation {
   /**
    * Validate as double.
    *
-   * @param name
-   *          the name
-   * @param text
-   *          the text
+   * @param name the name
+   * @param text the text
    * @return the double
-   * @throws ValidationException
-   *           the validation exception
+   * @throws ValidationException the validation exception
    */
-  public static double validateAsDouble(String name, String text) throws ValidationException {
+  public static double validateAsDouble(String name, String text)
+      throws ValidationException {
     try {
       return Double.parseDouble(text);
     } catch (Exception e) {
@@ -81,22 +77,21 @@ public class Validation {
   /**
    * Validates that the text field is a number between min and max inclusive.
    *
-   * @param name
-   *          the name
-   * @param text
-   *          the text
-   * @param min
-   *          the min
-   * @param max
-   *          the max
+   * @param name the name
+   * @param text the text
+   * @param min the min
+   * @param max the max
    * @return the double
-   * @throws ValidationException
-   *           the validation exception
+   * @throws ValidationException the validation exception
    */
-  public static double validateAsDouble(String name, String text, double min, double max) throws ValidationException {
+  public static double validateAsDouble(String name,
+      String text,
+      double min,
+      double max) throws ValidationException {
     double ret = 0;
 
-    ValidationException ex = new ValidationException(name + " must be a number between " + min + " and " + max + ".");
+    ValidationException ex = new ValidationException(
+        name + " must be a number between " + min + " and " + max + ".");
 
     try {
       ret = Double.parseDouble(text);
@@ -114,28 +109,25 @@ public class Validation {
   /**
    * Show validation error.
    *
-   * @param parent
-   *          the parent
-   * @param e
-   *          the e
+   * @param parent the parent
+   * @param e the e
    */
-  public static void showValidationError(ModernWindow parent, ValidationException e) {
-    ModernMessageDialog.createDialog(parent, e.getMessage(), MessageDialogType.WARNING);
+  public static void showValidationError(ModernWindow parent,
+      ValidationException e) {
+    ModernMessageDialog
+        .createDialog(parent, e.getMessage(), MessageDialogType.WARNING);
   }
 
   /**
    * Validates that a user made a selection.
    *
-   * @param <T>
-   *          the generic type
-   * @param name
-   *          the name
-   * @param selection
-   *          the selection
-   * @throws ValidationException
-   *           the validation exception
+   * @param <T> the generic type
+   * @param name the name
+   * @param selection the selection
+   * @throws ValidationException the validation exception
    */
-  public static <T> void validateSelection(String name, Collection<T> selection) throws ValidationException {
+  public static <T> void validateSelection(String name, Collection<T> selection)
+      throws ValidationException {
     if (CollectionUtils.isNullOrEmpty(selection)) {
       String message = "You must select some " + name + ".";
 

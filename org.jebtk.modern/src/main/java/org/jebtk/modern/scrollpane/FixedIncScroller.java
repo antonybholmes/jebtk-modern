@@ -42,8 +42,7 @@ public class FixedIncScroller extends Scroller {
   /**
    * Instantiates a new fixed inc scroller.
    *
-   * @param inc
-   *          the inc
+   * @param inc the inc
    */
   public FixedIncScroller(int inc) {
     mInc = inc;

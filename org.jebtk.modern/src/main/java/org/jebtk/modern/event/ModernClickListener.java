@@ -41,8 +41,7 @@ public interface ModernClickListener extends EventListener {
   /**
    * Clicked.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void clicked(ModernClickEvent e);
 }

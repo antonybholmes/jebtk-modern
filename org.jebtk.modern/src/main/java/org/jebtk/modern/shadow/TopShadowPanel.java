@@ -42,7 +42,8 @@ public class TopShadowPanel extends ShadowPanel {
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
+     * @see
+     * org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
      */
     @Override
     public void drawBackground(Graphics2D g2) {
@@ -59,8 +60,7 @@ public class TopShadowPanel extends ShadowPanel {
   /**
    * Instantiates a new top shadow panel.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public TopShadowPanel(Component c) {
     super(c, new TopShadow());

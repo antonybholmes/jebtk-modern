@@ -28,7 +28,6 @@
 package org.jebtk.modern.scrollpane;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.tree.ModernTree;
@@ -48,12 +47,11 @@ public class ModernTreeSelectionScrollV implements ModernSelectionListener {
   /**
    * Instantiates a new modern tree selection scroll V.
    *
-   * @param tree
-   *          the tree
-   * @param scrollbar
-   *          the scrollbar
+   * @param tree the tree
+   * @param scrollbar the scrollbar
    */
-  public ModernTreeSelectionScrollV(ModernTree<?> tree, ModernScrollBar scrollbar) {
+  public ModernTreeSelectionScrollV(ModernTree<?> tree,
+      ModernScrollBar scrollbar) {
     mTree = tree;
     mScrollbar = scrollbar;
   }
@@ -79,7 +77,8 @@ public class ModernTreeSelectionScrollV implements ModernSelectionListener {
 
     int height = mTree.getNodeRenderer(row).getHeight();
 
-    // System.err.println("tree scroll " + y + " " + viewRect.getY() + " " + height
+    // System.err.println("tree scroll " + y + " " + viewRect.getY() + " " +
+    // height
     // + " " + (viewRect.getY() + viewRect.getH()));
 
     if (y < viewRect.getY()) {

@@ -24,8 +24,7 @@ public interface RibbonModeProperty {
   /**
    * Sets the size.
    *
-   * @param mode
-   *          the new size
+   * @param mode the new size
    */
   void setSize(RibbonSize mode);
 }

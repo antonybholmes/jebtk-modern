@@ -23,7 +23,8 @@ public class CheckBoxSelectedTickAnimation extends WidgetAnimation {
       }
     } else {
       if (((ModernClickWidget) getWidget()).isSelected()) {
-        ModernCheckBox.DISABLED_CHECKED_ICON.drawIcon(g2, x, y, ModernCheckBox.ICON_SIZE);
+        ModernCheckBox.DISABLED_CHECKED_ICON
+            .drawIcon(g2, x, y, ModernCheckBox.ICON_SIZE);
       }
     }
   }

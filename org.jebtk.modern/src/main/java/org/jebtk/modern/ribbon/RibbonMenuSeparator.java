@@ -40,7 +40,8 @@ import org.jebtk.modern.UI;
 public class RibbonMenuSeparator extends RibbonMenuItem {
 
   /** The Constant COLOR. */
-  private static final Color COLOR = ColorUtils.getTransparentColor70(Color.WHITE);
+  private static final Color COLOR = ColorUtils
+      .getTransparentColor70(Color.WHITE);
 
   /**
    * The constant serialVersionUID.

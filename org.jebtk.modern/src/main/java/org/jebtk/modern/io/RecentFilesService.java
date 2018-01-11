@@ -92,13 +92,16 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * The constant DEFAULT_XML_FILE.
    */
-  public static final Path DEFAULT_XML_FILE = PathUtils.getPath("recent.files.xml");
+  public static final Path DEFAULT_XML_FILE = PathUtils
+      .getPath("recent.files.xml");
 
   /** The Constant DEFAULT_JSON_FILE. */
-  public static final Path DEFAULT_JSON_FILE = PathUtils.getPath("recent.files.json");
+  public static final Path DEFAULT_JSON_FILE = PathUtils
+      .getPath("recent.files.json");
 
   /** The Constant USER_JSON_FILE. */
-  public static final Path USER_JSON_FILE = AppService.getInstance().getAppDir().resolve("recent.files.json");
+  public static final Path USER_JSON_FILE = AppService.getInstance().getAppDir()
+      .resolve("recent.files.json");
 
   /**
    * The Class RecentFilesXmlHandler.
@@ -122,8 +125,10 @@ public class RecentFilesService extends RecentFilesModel {
      * java.lang.String, java.lang.String, org.xml.sax.Attributes)
      */
     @Override
-    public final void startElement(String uri, String localName, String qName, Attributes attributes)
-        throws SAXException {
+    public final void startElement(String uri,
+        String localName,
+        String qName,
+        Attributes attributes) throws SAXException {
 
       if (qName.equals("files")) {
         System.err.println("xml pwd " + attributes.getValue("pwd"));
@@ -161,19 +166,14 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * Instantiates a new recent files service.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws SAXException
-   *           the SAX exception
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
-   * @throws FileIsNotADirException
-   *           the file is not A dir exception
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException the SAX exception
+   * @throws ParserConfigurationException the parser configuration exception
+   * @throws FileIsNotADirException the file is not A dir exception
    */
-  public RecentFilesService(Path file)
-      throws IOException, SAXException, ParserConfigurationException, FileIsNotADirException {
+  public RecentFilesService(Path file) throws IOException, SAXException,
+      ParserConfigurationException, FileIsNotADirException {
     super();
 
     loadJson(file);
@@ -182,30 +182,25 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * Load.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws SAXException
-   *           the SAX exception
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException the SAX exception
+   * @throws ParserConfigurationException the parser configuration exception
    */
-  public void loadXml() throws IOException, SAXException, ParserConfigurationException {
+  public void loadXml()
+      throws IOException, SAXException, ParserConfigurationException {
     loadXml(DEFAULT_XML_FILE);
   }
 
   /**
    * Load xml.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws SAXException
-   *           the SAX exception
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException the SAX exception
+   * @throws ParserConfigurationException the parser configuration exception
    */
-  public synchronized void loadXml(Path file) throws IOException, SAXException, ParserConfigurationException {
+  public synchronized void loadXml(Path file)
+      throws IOException, SAXException, ParserConfigurationException {
     if (FileUtils.exists(file)) {
       LOG.info("Parsing recent files from {}...", file);
 
@@ -224,14 +219,12 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * Load.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws SAXException
-   *           the SAX exception
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException the SAX exception
+   * @throws ParserConfigurationException the parser configuration exception
    */
-  public void loadJson() throws IOException, SAXException, ParserConfigurationException {
+  public void loadJson()
+      throws IOException, SAXException, ParserConfigurationException {
     loadJson(DEFAULT_JSON_FILE);
 
     // Load the file from the user directory as this is where we want to
@@ -242,16 +235,13 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * Load xml.
    *
-   * @param jsonFile
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws SAXException
-   *           the SAX exception
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
+   * @param jsonFile the file
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException the SAX exception
+   * @throws ParserConfigurationException the parser configuration exception
    */
-  public synchronized void loadJson(Path jsonFile) throws IOException, SAXException, ParserConfigurationException {
+  public synchronized void loadJson(Path jsonFile)
+      throws IOException, SAXException, ParserConfigurationException {
     // If the file does not exist, create a default instance
     if (Files.exists(jsonFile)) {
       // createNewFileList();
@@ -323,14 +313,12 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * Auto load.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws SAXException
-   *           the SAX exception
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException the SAX exception
+   * @throws ParserConfigurationException the parser configuration exception
    */
-  private synchronized void autoLoad() throws IOException, SAXException, ParserConfigurationException {
+  private synchronized void autoLoad()
+      throws IOException, SAXException, ParserConfigurationException {
     if (!mLoaded) {
       mLoaded = true;
 
@@ -345,8 +333,7 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * Adds the file.
    *
-   * @param file
-   *          the file
+   * @param file the file
    * @return true, if successful
    */
   @Override
@@ -356,7 +343,8 @@ public class RecentFilesService extends RecentFilesModel {
     if (ret) {
       try {
         write();
-      } catch (IOException | TransformerException | ParserConfigurationException e) {
+      } catch (IOException | TransformerException
+          | ParserConfigurationException e) {
         e.printStackTrace();
       }
     }
@@ -367,14 +355,12 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * Write.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws TransformerException
-   *           the transformer exception
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws TransformerException the transformer exception
+   * @throws ParserConfigurationException the parser configuration exception
    */
-  public synchronized void write() throws IOException, TransformerException, ParserConfigurationException {
+  public synchronized void write()
+      throws IOException, TransformerException, ParserConfigurationException {
     writeJson();
     // writeXml();
   }
@@ -382,30 +368,25 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * Write xml.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws TransformerException
-   *           the transformer exception
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws TransformerException the transformer exception
+   * @throws ParserConfigurationException the parser configuration exception
    */
-  public synchronized void writeXml() throws IOException, TransformerException, ParserConfigurationException {
+  public synchronized void writeXml()
+      throws IOException, TransformerException, ParserConfigurationException {
     writeXml(DEFAULT_XML_FILE);
   }
 
   /**
    * Write xml.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws TransformerException
-   *           the transformer exception
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws TransformerException the transformer exception
+   * @throws ParserConfigurationException the parser configuration exception
    */
-  public synchronized void writeXml(Path file) throws IOException, TransformerException, ParserConfigurationException {
+  public synchronized void writeXml(Path file)
+      throws IOException, TransformerException, ParserConfigurationException {
 
     LOG.info("Writing recent files to {}...", file);
 
@@ -421,8 +402,7 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * Write json.
    *
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public synchronized void writeJson() throws IOException {
     writeJson(USER_JSON_FILE);
@@ -431,10 +411,8 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * Write xml.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public synchronized void writeJson(Path file) throws IOException {
     LOG.info("Writing recent files to {}...", file);
@@ -461,8 +439,7 @@ public class RecentFilesService extends RecentFilesModel {
   /**
    * Sets the pwd.
    *
-   * @param pwd
-   *          the new pwd
+   * @param pwd the new pwd
    * @return
    */
   @Override
@@ -483,7 +460,8 @@ public class RecentFilesService extends RecentFilesModel {
 
     try {
       write();
-    } catch (IOException | TransformerException | ParserConfigurationException e) {
+    } catch (IOException | TransformerException
+        | ParserConfigurationException e) {
       e.printStackTrace();
     }
 

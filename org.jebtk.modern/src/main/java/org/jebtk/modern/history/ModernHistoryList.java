@@ -36,10 +36,10 @@ import org.jebtk.modern.list.ModernListModel;
  * A flowchart style control similar to a modern list, but indicates stages etc.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public class ModernHistoryList<T> extends ModernList<T> implements ModernSelectionEventProducer {
+public class ModernHistoryList<T> extends ModernList<T>
+    implements ModernSelectionEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -58,8 +58,7 @@ public class ModernHistoryList<T> extends ModernList<T> implements ModernSelecti
   /**
    * Instantiates a new modern history list.
    *
-   * @param renderer
-   *          the renderer
+   * @param renderer the renderer
    */
   public ModernHistoryList(ModernHistoryListCellRenderer renderer) {
     setup();
@@ -70,8 +69,7 @@ public class ModernHistoryList<T> extends ModernList<T> implements ModernSelecti
   /**
    * Instantiates a new modern history list.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernHistoryList(ModernListModel<T> model) {
     setModel(model);
@@ -97,8 +95,8 @@ public class ModernHistoryList<T> extends ModernList<T> implements ModernSelecti
    * 
    * //int counter = 0;
    * 
-   * for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i)
-   * { if (i == getItemCount()) { break; }
+   * for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow();
+   * ++i) { if (i == getItemCount()) { break; }
    * 
    * //System.err.println("get row " + i);
    * 

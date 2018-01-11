@@ -46,10 +46,8 @@ public class ModernDataCell implements Comparable<ModernDataCell> {
   /**
    * Instantiates a new modern data cell.
    *
-   * @param row
-   *          the row
-   * @param col
-   *          the col
+   * @param row the row
+   * @param col the col
    */
   public ModernDataCell(int row, int col) {
     this.row = row;

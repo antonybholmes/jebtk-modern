@@ -55,8 +55,7 @@ public class ModernImageIcon extends ModernIcon {
   /**
    * Instantiates a new modern image icon.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernImageIcon(ImageIcon icon) {
     this(icon.getImage());
@@ -65,8 +64,7 @@ public class ModernImageIcon extends ModernIcon {
   /**
    * Instantiates a new modern image icon.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernImageIcon(Image icon) {
     mW = icon.getWidth(null);
@@ -78,8 +76,7 @@ public class ModernImageIcon extends ModernIcon {
   /**
    * Cache.
    *
-   * @param image
-   *          the image
+   * @param image the image
    */
   private void cache(Image image) {
     mBufferedImage = ImageUtils.createImage(mW, mH);
@@ -103,7 +100,12 @@ public class ModernImageIcon extends ModernIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     x = x + (w - mW) / 2;
     y = y + (h - mH) / 2;
 

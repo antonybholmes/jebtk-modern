@@ -46,8 +46,7 @@ public interface Zoom {
   /**
    * Set the zoom level.
    *
-   * @param zoom
-   *          the new zoom
+   * @param zoom the new zoom
    */
   public void setZoom(double zoom);
 
@@ -61,8 +60,7 @@ public interface Zoom {
   /**
    * Set the minimum zoom level.
    *
-   * @param zoom
-   *          the new min zoom
+   * @param zoom the new min zoom
    */
   public void setMinZoom(double zoom);
 
@@ -76,8 +74,7 @@ public interface Zoom {
   /**
    * Sets the maximum zoom level allowed.
    *
-   * @param zoom
-   *          the new max zoom
+   * @param zoom the new max zoom
    */
   public void setMaxZoom(double zoom);
 }

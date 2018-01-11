@@ -44,22 +44,26 @@ public class GroupVectorIcon extends ModernVectorIcon {
   /**
    * The constant COLOR1.
    */
-  private static final Color COLOR1 = SettingsService.getInstance().getAsColor("theme.icons.group-icon.colors.color1");
+  private static final Color COLOR1 = SettingsService.getInstance()
+      .getAsColor("theme.icons.group-icon.colors.color1");
 
   /**
    * The constant COLOR2.
    */
-  private static final Color COLOR2 = SettingsService.getInstance().getAsColor("theme.icons.group-icon.colors.color2");
+  private static final Color COLOR2 = SettingsService.getInstance()
+      .getAsColor("theme.icons.group-icon.colors.color2");
 
   /**
    * The constant COLOR3.
    */
-  private static final Color COLOR3 = SettingsService.getInstance().getAsColor("theme.icons.group-icon.colors.color3");
+  private static final Color COLOR3 = SettingsService.getInstance()
+      .getAsColor("theme.icons.group-icon.colors.color3");
 
   /**
    * The constant RADIUS.
    */
-  private static final double RADIUS = SettingsService.getInstance().getAsDouble("theme.icons.group-icon.radius-scale");
+  private static final double RADIUS = SettingsService.getInstance()
+      .getAsDouble("theme.icons.group-icon.radius-scale");
 
   /**
    * The constant BALL_RADIUS.
@@ -85,7 +89,12 @@ public class GroupVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
 
     double wf = w * RADIUS;
     double br = wf * BALL_RADIUS;

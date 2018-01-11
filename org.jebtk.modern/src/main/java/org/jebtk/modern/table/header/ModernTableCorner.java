@@ -62,7 +62,8 @@ public class ModernTableCorner extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -72,8 +73,8 @@ public class ModernTableCorner extends ModernWidget {
 
     /*
      * GradientPaint gradient = new GradientPaint(x, 0,
-     * ThemeService.getInstance().colors().getHighlight(1), x + w, 0, LINE_COLOR,
-     * false);
+     * ThemeService.getInstance().colors().getHighlight(1), x + w, 0,
+     * LINE_COLOR, false);
      * 
      * g2.setPaint(gradient);
      */
@@ -82,13 +83,16 @@ public class ModernTableCorner extends ModernWidget {
 
     /*
      * gradient = new GradientPaint(0, y,
-     * ThemeService.getInstance().colors().getHighlight(1), 0, y + h, LINE_COLOR,
-     * false);
+     * ThemeService.getInstance().colors().getHighlight(1), 0, y + h,
+     * LINE_COLOR, false);
      * 
      * g2.setPaint(gradient);
      */
 
-    g2.drawLine(rect.getX() + rect.getW() - 1, rect.getY(), rect.getX() + rect.getW() - 1, rect.getY() + rect.getH());
+    g2.drawLine(rect.getX() + rect.getW() - 1,
+        rect.getY(),
+        rect.getX() + rect.getW() - 1,
+        rect.getY() + rect.getH());
 
     g2.setColor(ThemeService.getInstance().colors().getHighlight(2));
 

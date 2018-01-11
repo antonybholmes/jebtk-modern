@@ -38,24 +38,21 @@ public interface ModernSelectedEventProducer {
   /**
    * Add a Selected listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addSelectedListener(ModernSelectedListener l);
 
   /**
    * Remove a Selected listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeSelectedListener(ModernSelectedListener l);
 
   /**
    * fire an event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireSelected(ModernSelectedEvent event);
 }

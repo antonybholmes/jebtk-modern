@@ -46,8 +46,7 @@ public interface TextProperty {
   /**
    * Sets the text.
    *
-   * @param text
-   *          the new text
+   * @param text the new text
    */
   public void setText(String text);
 }

@@ -40,7 +40,8 @@ import org.jebtk.modern.zoom.ZoomCanvas;
 /**
  * The class ModernTableHeaderRowCellRenderer.
  */
-public class ModernTableHeaderRowCellRenderer extends ModernTableHeaderCellRenderer {
+public class ModernTableHeaderRowCellRenderer
+    extends ModernTableHeaderCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -63,8 +64,8 @@ public class ModernTableHeaderRowCellRenderer extends ModernTableHeaderCellRende
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#drawBackground(java.awt
-   * .Graphics2D)
+   * org.abh.lib.ui.modern.dataview.ModernDataCellRenderer#drawBackground(java.
+   * awt .Graphics2D)
    */
   @Override
   public void drawBackground(Graphics2D g2) {
@@ -110,7 +111,8 @@ public class ModernTableHeaderRowCellRenderer extends ModernTableHeaderCellRende
     g2.drawLine(0, p, w - 1, p);
 
     if (mMode == CellSelectionType.SELECTED) {
-      // g2.drawImage(cacheSelectionLine(mRect.getW()), 0, mRect.getH() - 3, null);
+      // g2.drawImage(cacheSelectionLine(mRect.getW()), 0, mRect.getH() - 3,
+      // null);
 
       g2.setColor(SEL_LINE_COLOR);
       g2.fillRect(w - 2, 0, 2, h);
@@ -129,7 +131,8 @@ public class ModernTableHeaderRowCellRenderer extends ModernTableHeaderCellRende
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -140,7 +143,8 @@ public class ModernTableHeaderRowCellRenderer extends ModernTableHeaderCellRende
      * int x = 0; int w = mRect.getW() / Math.max(1, mNames.size()); int y =
      * getTextYPosCenter(g2, mRect.getH());
      * 
-     * for (String name : mNames) { String text = getTruncatedText(g2, name, 0, w);
+     * for (String name : mNames) { String text = getTruncatedText(g2, name, 0,
+     * w);
      * 
      * int p = x + (w - g2.getFontMetrics().stringWidth(text)) / 2;
      * 
@@ -166,8 +170,13 @@ public class ModernTableHeaderRowCellRenderer extends ModernTableHeaderCellRende
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row, int column) {
+  public Component getCellRendererComponent(ModernData dataView,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row,
+      int column) {
 
     if (value != null) {
       setText(value.toString());

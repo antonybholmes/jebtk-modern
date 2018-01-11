@@ -36,7 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernSelectedListeners extends EventProducer<ModernSelectedListener>
+public class ModernSelectedListeners
+    extends EventProducer<ModernSelectedListener>
     implements ModernSelectedEventProducer {
 
   /**
@@ -47,9 +48,8 @@ public class ModernSelectedListeners extends EventProducer<ModernSelectedListene
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernSelectedEventProducer#addSelectedListener(
-   * org.abh.lib.ui.modern.event.ModernSelectedListener)
+   * @see org.abh.lib.ui.modern.event.ModernSelectedEventProducer#
+   * addSelectedListener( org.abh.lib.ui.modern.event.ModernSelectedListener)
    */
   public void addSelectedListener(ModernSelectedListener l) {
     mListeners.add(l);
@@ -68,9 +68,8 @@ public class ModernSelectedListeners extends EventProducer<ModernSelectedListene
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernSelectedEventProducer#fireSelectedChanged(
-   * org.abh.lib.ui.modern.event.ModernSelectedEvent)
+   * @see org.abh.lib.ui.modern.event.ModernSelectedEventProducer#
+   * fireSelectedChanged( org.abh.lib.ui.modern.event.ModernSelectedEvent)
    */
   public void fireSelected(ModernSelectedEvent e) {
     for (ModernSelectedListener l : mListeners) {

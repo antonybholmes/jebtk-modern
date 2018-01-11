@@ -57,8 +57,7 @@ public class CenterTab extends Tab {
   /**
    * Instantiates a new center tab.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public CenterTab(JComponent c) {
     super(TabsModel.CENTER_PANE, c);

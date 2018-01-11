@@ -34,8 +34,7 @@ public class RibbonAnimation extends WidgetAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public RibbonAnimation(ModernWidget ribbon) {
     super(ribbon);
@@ -57,13 +56,12 @@ public class RibbonAnimation extends WidgetAnimation {
   /**
    * Draw background.
    *
-   * @param g2
-   *          the g 2
+   * @param g2 the g 2
    */
   public void drawBackground(Graphics2D g2) {
     /*
-     * GradientPaint paint = new GradientPaint(0, 0, BAR_BACKGROUND, 0, TAB_BODY_Y,
-     * BAR_BACKGROUND_1); g2.setPaint(paint);
+     * GradientPaint paint = new GradientPaint(0, 0, BAR_BACKGROUND, 0,
+     * TAB_BODY_Y, BAR_BACKGROUND_1); g2.setPaint(paint);
      */
 
     g2.setColor(Color.WHITE); // Ribbon.BAR_BACKGROUND);

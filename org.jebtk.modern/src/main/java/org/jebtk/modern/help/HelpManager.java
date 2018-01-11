@@ -60,10 +60,8 @@ public class HelpManager {
   /**
    * Launch help.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public static void launchHelp(File file) throws IOException {
     UrlUtils.launch(file.toURI());
@@ -72,14 +70,12 @@ public class HelpManager {
   /**
    * Launch help.
    *
-   * @param product
-   *          the product
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws URISyntaxException
-   *           the URI syntax exception
+   * @param product the product
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws URISyntaxException the URI syntax exception
    */
-  public static void launchHelp(GuiAppInfo product) throws IOException, URISyntaxException {
+  public static void launchHelp(GuiAppInfo product)
+      throws IOException, URISyntaxException {
     boolean local = true;
 
     // If the help settings exist, see if we want to use local help or not.
@@ -96,16 +92,13 @@ public class HelpManager {
   /**
    * Launch help.
    *
-   * @param product
-   *          the product
-   * @param local
-   *          the local
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws URISyntaxException
-   *           the URI syntax exception
+   * @param product the product
+   * @param local the local
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws URISyntaxException the URI syntax exception
    */
-  public static void launchHelp(GuiAppInfo product, boolean local) throws IOException, URISyntaxException {
+  public static void launchHelp(GuiAppInfo product, boolean local)
+      throws IOException, URISyntaxException {
     System.err.println("Help " + local);
 
     if (local) {
@@ -118,17 +111,16 @@ public class HelpManager {
   /**
    * Launch local help.
    *
-   * @param product
-   *          the product
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws URISyntaxException
-   *           the URI syntax exception
+   * @param product the product
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws URISyntaxException the URI syntax exception
    */
-  public static void launchLocalHelp(GuiAppInfo product) throws IOException, URISyntaxException {
+  public static void launchLocalHelp(GuiAppInfo product)
+      throws IOException, URISyntaxException {
     // StringBuilder buffer = new StringBuilder();
 
-    // buffer.append(SettingsService.getInstance().getSetting(product.getName() +
+    // buffer.append(SettingsService.getInstance().getSetting(product.getName()
+    // +
     // ".help.url").getValue());
     // buffer.append(HELP_URL);
     // buffer.append(product);
@@ -140,14 +132,12 @@ public class HelpManager {
   /**
    * Launch remote help.
    *
-   * @param product
-   *          the product
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws URISyntaxException
-   *           the URI syntax exception
+   * @param product the product
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws URISyntaxException the URI syntax exception
    */
-  public static void launchRemoteHelp(GuiAppInfo product) throws IOException, URISyntaxException {
+  public static void launchRemoteHelp(GuiAppInfo product)
+      throws IOException, URISyntaxException {
     StringBuilder buffer = new StringBuilder();
 
     // System.err.println("aha" +
@@ -165,14 +155,12 @@ public class HelpManager {
   /**
    * Launch help.
    *
-   * @param url
-   *          the url
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws URISyntaxException
-   *           the URI syntax exception
+   * @param url the url
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws URISyntaxException the URI syntax exception
    */
-  public static void launchHelp(URL url) throws IOException, URISyntaxException {
+  public static void launchHelp(URL url)
+      throws IOException, URISyntaxException {
     System.err.println("Help URL " + url);
 
     UrlUtils.launch(url.toURI());
@@ -181,14 +169,12 @@ public class HelpManager {
   /**
    * Launch help.
    *
-   * @param url
-   *          the url
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws URISyntaxException
-   *           the URI syntax exception
+   * @param url the url
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws URISyntaxException the URI syntax exception
    */
-  public static void launchHelp(URI url) throws IOException, URISyntaxException {
+  public static void launchHelp(URI url)
+      throws IOException, URISyntaxException {
     UrlUtils.launch(url);
   }
 

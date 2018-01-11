@@ -48,10 +48,10 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernHistoryPanel.
  *
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public class ModernHistoryPanel<T> extends ModernComponent implements ModernClickListener {
+public class ModernHistoryPanel<T> extends ModernComponent
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -61,12 +61,14 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
   /**
    * The member up button.
    */
-  private ModernButton mUpButton = new ModernButton(UIService.getInstance().loadIcon("up_arrow", 16));
+  private ModernButton mUpButton = new ModernButton(
+      UIService.getInstance().loadIcon("up_arrow", 16));
 
   /**
    * The member down button.
    */
-  private ModernButton mDownButton = new ModernButton(UIService.getInstance().loadIcon("down_arrow", 16));
+  private ModernButton mDownButton = new ModernButton(
+      UIService.getInstance().loadIcon("down_arrow", 16));
 
   /**
    * The member history model.
@@ -76,7 +78,8 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
   /**
    * The member history list.
    */
-  protected ModernHistoryList<T> mHistoryList = new ModernHistoryList<T>(mHistoryModel);
+  protected ModernHistoryList<T> mHistoryList = new ModernHistoryList<T>(
+      mHistoryModel);
 
   /**
    * The class MouseEvents.
@@ -130,7 +133,8 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent arg0) {
@@ -143,8 +147,7 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
   /**
    * Instantiates a new modern history panel.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public ModernHistoryPanel(ModernWindow parent) {
 
@@ -184,8 +187,7 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
   /**
    * Adds the item.
    *
-   * @param item
-   *          the item
+   * @param item the item
    * @return the t
    */
   public T addItem(T item) {
@@ -195,10 +197,8 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
   /**
    * Adds the item.
    *
-   * @param item
-   *          the item
-   * @param selectedIndex
-   *          the selected index
+   * @param item the item
+   * @param selectedIndex the selected index
    * @return the t
    */
   public T addItem(T item, int selectedIndex) {
@@ -222,8 +222,7 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
   /**
    * Sets the cell renderer.
    *
-   * @param renderer
-   *          the new cell renderer
+   * @param renderer the new cell renderer
    */
   public void setCellRenderer(ModernListCellRenderer renderer) {
     mHistoryList.setCellRenderer(renderer);
@@ -232,8 +231,7 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
   /**
    * Adds the selection listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addSelectionListener(ModernSelectionListener l) {
     mHistoryList.addSelectionListener(l);
@@ -276,8 +274,7 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
   /**
    * Sets the selected index.
    *
-   * @param i
-   *          the new selected index
+   * @param i the new selected index
    */
   public void setSelectedIndex(int i) {
     mHistoryList.setSelectedIndex(i);
@@ -297,8 +294,8 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {
@@ -323,8 +320,7 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
   /**
    * Gets the value at.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the value at
    */
   public T getValueAt(int index) {
@@ -334,8 +330,7 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
   /**
    * Removes the value at.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   public void removeValueAt(int index) {
     mHistoryList.removeValueAt(index);
@@ -344,8 +339,7 @@ public class ModernHistoryPanel<T> extends ModernComponent implements ModernClic
   /**
    * Sets the row height.
    *
-   * @param rowHeight
-   *          the new row height
+   * @param rowHeight the new row height
    */
   public void setRowHeight(int rowHeight) {
     mHistoryList.setRowHeight(rowHeight);

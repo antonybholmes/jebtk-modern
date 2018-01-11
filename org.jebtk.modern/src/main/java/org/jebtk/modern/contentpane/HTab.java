@@ -55,10 +55,8 @@ public class HTab extends ModernComponent {
   /**
    * Instantiates a new h tab2.
    *
-   * @param title
-   *          the title
-   * @param content
-   *          the content
+   * @param title the title
+   * @param content the content
    */
   public HTab(String title, Component content) {
     mToolbar = new HTabToolbar(title);
@@ -77,8 +75,7 @@ public class HTab extends ModernComponent {
   /**
    * Adds the button.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public void addToToolbar(ModernWidget widget) {
     mToolbar.add(widget);

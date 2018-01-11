@@ -29,7 +29,6 @@ package org.jebtk.modern.zoom;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.core.settings.SettingsService;
 
 // TODO: Auto-generated Javadoc
@@ -70,7 +69,8 @@ public class SettingsZoomModel extends ZoomModel {
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see
+     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -81,14 +81,12 @@ public class SettingsZoomModel extends ZoomModel {
   /**
    * Create a new settings zoom model.
    * 
-   * @param zoomSetting
-   *          The setting storing the current zoom.
-   * @param minSetting
-   *          The setting storing the minimum allowed zoom.
-   * @param maxSetting
-   *          The setting storing the maximum allowed zoom.
+   * @param zoomSetting The setting storing the current zoom.
+   * @param minSetting The setting storing the minimum allowed zoom.
+   * @param maxSetting The setting storing the maximum allowed zoom.
    */
-  public SettingsZoomModel(String zoomSetting, String minSetting, String maxSetting) {
+  public SettingsZoomModel(String zoomSetting, String minSetting,
+      String maxSetting) {
     mZoomSetting = zoomSetting;
     mMaxSetting = maxSetting;
     mMinSetting = minSetting;

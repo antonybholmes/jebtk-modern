@@ -32,7 +32,6 @@ import java.util.Collections;
 import java.util.List;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.modern.button.ModernDropDownMenuComboButton;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernPopupMenu;
@@ -44,7 +43,8 @@ import org.jebtk.modern.menu.ModernScrollPopupMenu;
  *
  * @author Antony Holmes Holmes
  */
-public class SearchTermsComboButton extends ModernDropDownMenuComboButton implements SearchTermEventListener {
+public class SearchTermsComboButton extends ModernDropDownMenuComboButton
+    implements SearchTermEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -59,12 +59,11 @@ public class SearchTermsComboButton extends ModernDropDownMenuComboButton implem
   /**
    * Instantiates a new search terms combo button.
    *
-   * @param text
-   *          the text
-   * @param searchTermsModel
-   *          the search terms model
+   * @param text the text
+   * @param searchTermsModel the search terms model
    */
-  public SearchTermsComboButton(String text, SearchTermsService searchTermsModel) {
+  public SearchTermsComboButton(String text,
+      SearchTermsService searchTermsModel) {
     super(text);
 
     searchTermsModel.addSearchTermListener(this);
@@ -109,8 +108,8 @@ public class SearchTermsComboButton extends ModernDropDownMenuComboButton implem
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(org.
-   * abh.lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(
+   * org. abh.lib.event.ChangeEvent)
    */
   @Override
   public void searchTermsChanged(ChangeEvent e) {

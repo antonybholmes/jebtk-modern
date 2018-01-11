@@ -48,13 +48,13 @@ public class ModernHeadingLabel extends ModernAutoSizeLabel {
   /**
    * The constant HEADING_FONT.
    */
-  private static final Font HEADING_FONT = ThemeService.loadFont("theme.widget.fonts.heading");
+  private static final Font HEADING_FONT = ThemeService
+      .loadFont("theme.widget.fonts.heading");
 
   /**
    * Instantiates a new modern heading label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernHeadingLabel(String text) {
     super(text);
@@ -65,10 +65,8 @@ public class ModernHeadingLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern heading label.
    *
-   * @param text
-   *          the text
-   * @param color
-   *          the color
+   * @param text the text
+   * @param color the color
    */
   public ModernHeadingLabel(String text, Color color) {
     super(text, color);

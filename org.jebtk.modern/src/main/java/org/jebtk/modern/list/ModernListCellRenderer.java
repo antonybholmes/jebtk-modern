@@ -37,8 +37,7 @@ import org.jebtk.modern.widget.ModernClickWidget;
  * Interface for list renderers. These assume the same data type within each row
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
 public class ModernListCellRenderer extends ModernClickWidget {
 
@@ -72,8 +71,7 @@ public class ModernListCellRenderer extends ModernClickWidget {
   /**
    * Sets the can highlight.
    *
-   * @param canHighlight
-   *          the new can highlight
+   * @param canHighlight the new can highlight
    */
   public void setCanHighlight(boolean canHighlight) {
     mCanHighlight = canHighlight;
@@ -91,30 +89,28 @@ public class ModernListCellRenderer extends ModernClickWidget {
      * ModernWidgetRenderer.SELECTED_FILL_COLOR); } else if (mIsHighlighted) {
      * fill(g2, mFillColor);
      * 
-     * //getWidgetRenderer().drawButton(g2, getRect(), RenderMode.SELECTED); } else
-     * { // Do nothing } }
+     * //getWidgetRenderer().drawButton(g2, getRect(), RenderMode.SELECTED); }
+     * else { // Do nothing } }
      */
   }
 
   /**
    * Specialized instance of the cell renderer method for lists.
    *
-   * @param list
-   *          the list
-   * @param value
-   *          the value
-   * @param highlight
-   *          the highlight
-   * @param isSelected
-   *          the is selected
-   * @param hasFocus
-   *          the has focus
-   * @param row
-   *          the row
+   * @param list the list
+   * @param value the value
+   * @param highlight the highlight
+   * @param isSelected the is selected
+   * @param hasFocus the has focus
+   * @param row the row
    * @return the cell renderer component
    */
-  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
-      boolean hasFocus, int row) {
+  public Component getCellRendererComponent(ModernList<?> list,
+      Object value,
+      boolean highlight,
+      boolean isSelected,
+      boolean hasFocus,
+      int row) {
 
     mIsHighlighted = highlight;
     mIsSelected = isSelected;

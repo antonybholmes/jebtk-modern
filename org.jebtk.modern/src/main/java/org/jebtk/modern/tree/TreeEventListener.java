@@ -44,24 +44,21 @@ public interface TreeEventListener extends EventListener {
   /**
    * Tree node dragged.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void treeNodeDragged(ModernTreeEvent e);
 
   /**
    * Tree node clicked.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void treeNodeClicked(ModernTreeEvent e);
 
   /**
    * Tree node double clicked.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void treeNodeDoubleClicked(ModernTreeEvent e);
 }

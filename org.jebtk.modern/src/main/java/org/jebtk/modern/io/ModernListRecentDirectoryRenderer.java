@@ -37,7 +37,8 @@ import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernListRecentDirectoryRenderer extends ModernListRecentFileRenderer {
+public class ModernListRecentDirectoryRenderer
+    extends ModernListRecentFileRenderer {
 
   /**
    * The constant serialVersionUID.

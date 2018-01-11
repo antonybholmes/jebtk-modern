@@ -30,7 +30,6 @@ package org.jebtk.modern.tree;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.tree.TreeNode;
-
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
 // TODO: Auto-generated Javadoc
@@ -39,8 +38,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * parent nodes and an icon depending on whether the node is a parent or a leaf.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
 public class TreeIconNodeRenderer extends ModernTreeIconTextNodeRenderer {
 
@@ -68,20 +66,16 @@ public class TreeIconNodeRenderer extends ModernTreeIconTextNodeRenderer {
   /**
    * The collapse region width.
    *
-   * @param parentIcon
-   *          the parent icon
-   * @param leafIcon
-   *          the leaf icon
+   * @param parentIcon the parent icon
+   * @param leafIcon the leaf icon
    */
   // protected int mCollapseRegionWidth = WIDGET_HEIGHT;
 
   /**
    * Instantiates a new tree icon node renderer.
    *
-   * @param parentIcon
-   *          the parent icon
-   * @param leafIcon
-   *          the leaf icon
+   * @param parentIcon the parent icon
+   * @param leafIcon the leaf icon
    */
   public TreeIconNodeRenderer(ModernIcon parentIcon, ModernIcon leafIcon) {
     mParentIcon = parentIcon;
@@ -92,8 +86,8 @@ public class TreeIconNodeRenderer extends ModernTreeIconTextNodeRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawNodeText(Graphics2D g2) {
@@ -115,14 +109,27 @@ public class TreeIconNodeRenderer extends ModernTreeIconTextNodeRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#getRenderer(org.abh.lib.ui.
-   * modern.tree.Tree, org.abh.lib.tree.TreeNode, boolean, boolean, boolean,
+   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#getRenderer(org.abh.lib.
+   * ui. modern.tree.Tree, org.abh.lib.tree.TreeNode, boolean, boolean, boolean,
    * boolean, int, int)
    */
   @Override
-  public ModernTreeNodeRenderer getRenderer(Tree<?> tree, TreeNode<?> node, boolean nodeIsHighlighted,
-      boolean nodeIsSelected, boolean hasFocus, boolean isDragToNode, int depth, int row) {
-    super.getRenderer(tree, node, nodeIsHighlighted, nodeIsSelected, hasFocus, isDragToNode, depth, row);
+  public ModernTreeNodeRenderer getRenderer(Tree<?> tree,
+      TreeNode<?> node,
+      boolean nodeIsHighlighted,
+      boolean nodeIsSelected,
+      boolean hasFocus,
+      boolean isDragToNode,
+      int depth,
+      int row) {
+    super.getRenderer(tree,
+        node,
+        nodeIsHighlighted,
+        nodeIsSelected,
+        hasFocus,
+        isDragToNode,
+        depth,
+        row);
 
     mText = mNode.getName();
 

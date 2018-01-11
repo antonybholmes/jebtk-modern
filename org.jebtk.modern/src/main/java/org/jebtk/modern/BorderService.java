@@ -70,8 +70,10 @@ public class BorderService {
    * The map.
    */
   private Map<Integer, IterMap<Integer, IterMap<Integer, IterMap<Integer, Border>>>> mMap = DefaultHashMap
-      .create(new DefaultHashMapCreator<Integer, IterMap<Integer, IterMap<Integer, Border>>>(
-          new DefaultHashMapCreator<Integer, IterMap<Integer, Border>>(new HashMapCreator<Integer, Border>())));
+      .create(
+          new DefaultHashMapCreator<Integer, IterMap<Integer, IterMap<Integer, Border>>>(
+              new DefaultHashMapCreator<Integer, IterMap<Integer, Border>>(
+                  new HashMapCreator<Integer, Border>())));
 
   /** The m line border map. */
   private Map<Color, Border> mLineBorderMap = new HashMap<Color, Border>();
@@ -86,8 +88,7 @@ public class BorderService {
   /**
    * Creates the left border.
    *
-   * @param padding
-   *          the padding
+   * @param padding the padding
    * @return a border
    */
   public final Border createLeftBorder(int padding) {
@@ -97,8 +98,7 @@ public class BorderService {
   /**
    * Creates a left right border.
    *
-   * @param padding
-   *          the padding
+   * @param padding the padding
    * @return a border
    */
   public final Border createLeftRightBorder(int padding) {
@@ -112,8 +112,7 @@ public class BorderService {
   /**
    * Creates the right border.
    *
-   * @param padding
-   *          the padding
+   * @param padding the padding
    * @return a border
    */
   public final Border createRightBorder(int padding) {
@@ -123,8 +122,7 @@ public class BorderService {
   /**
    * Creates the top border.
    *
-   * @param padding
-   *          the padding
+   * @param padding the padding
    * @return a border
    */
   public final Border createTopBorder(int padding) {
@@ -134,8 +132,7 @@ public class BorderService {
   /**
    * Creates the bottom border.
    *
-   * @param padding
-   *          the padding
+   * @param padding the padding
    * @return a border
    */
   public final Border createBottomBorder(int padding) {
@@ -145,8 +142,7 @@ public class BorderService {
   /**
    * Creates a uniform border for a component.
    *
-   * @param padding
-   *          the padding
+   * @param padding the padding
    * @return a border
    */
   public final Border createBorder(int padding) {
@@ -156,8 +152,7 @@ public class BorderService {
   /**
    * Creates the top bottom border.
    *
-   * @param padding
-   *          the padding
+   * @param padding the padding
    * @return a border
    */
   public final Border createTopBottomBorder(int padding) {
@@ -167,10 +162,8 @@ public class BorderService {
   /**
    * Creates the top bottom border.
    *
-   * @param top
-   *          the top
-   * @param bottom
-   *          the bottom
+   * @param top the top
+   * @param bottom the bottom
    * @return the border
    */
   public final Border createTopBottomBorder(int top, int bottom) {
@@ -180,8 +173,7 @@ public class BorderService {
   /**
    * Creates the top left border.
    *
-   * @param padding
-   *          the padding
+   * @param padding the padding
    * @return a border
    */
   public Border createTopLeftBorder(int padding) {
@@ -191,8 +183,7 @@ public class BorderService {
   /**
    * Creates the bottom left border.
    *
-   * @param padding
-   *          the padding
+   * @param padding the padding
    * @return a border
    */
   public Border createBottomLeftBorder(int padding) {
@@ -202,20 +193,17 @@ public class BorderService {
   /**
    * Creates a border.
    *
-   * @param top
-   *          the top
-   * @param left
-   *          the left
-   * @param bottom
-   *          the bottom
-   * @param right
-   *          the right
+   * @param top the top
+   * @param left the left
+   * @param bottom the bottom
+   * @param right the right
    * @return a border
    */
   public Border createBorder(int top, int left, int bottom, int right) {
 
     if (!mMap.get(top).get(left).get(bottom).containsKey(right)) {
-      mMap.get(top).get(left).get(bottom).put(right, BorderFactory.createEmptyBorder(top, left, bottom, right));
+      mMap.get(top).get(left).get(bottom).put(right,
+          BorderFactory.createEmptyBorder(top, left, bottom, right));
     }
 
     return mMap.get(top).get(left).get(bottom).get(right);
@@ -224,8 +212,7 @@ public class BorderService {
   /**
    * Returns a cached instance of a line border of a given color.
    *
-   * @param color
-   *          the color
+   * @param color the color
    * @return the border
    */
   public Border createLineBorder(Color color) {

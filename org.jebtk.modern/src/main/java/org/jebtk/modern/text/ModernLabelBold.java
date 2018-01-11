@@ -41,8 +41,7 @@ public class ModernLabelBold extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern label bold.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernLabelBold(String text) {
     super(text);

@@ -48,9 +48,11 @@ public class TableRowVectorIcon extends TableVectorIcon {
    * Instantiates a new table row vector icon.
    */
   public TableRowVectorIcon() {
-    super(SettingsService.getInstance().getAsColor("theme.icons.filter-rows-icon.colors.highlight-1"));
+    super(SettingsService.getInstance()
+        .getAsColor("theme.icons.filter-rows-icon.colors.highlight-1"));
 
-    this.color2 = SettingsService.getInstance().getAsColor("theme.icons.filter-rows-icon.colors.highlight-2");
+    this.color2 = SettingsService.getInstance()
+        .getAsColor("theme.icons.filter-rows-icon.colors.highlight-2");
   }
 
   /*
@@ -60,7 +62,12 @@ public class TableRowVectorIcon extends TableVectorIcon {
    * Graphics2D, java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     super.drawIcon(g2, x, y, w, h, params);
 
     double wf = w * WIDTH_SCALE;
@@ -71,7 +78,10 @@ public class TableRowVectorIcon extends TableVectorIcon {
     double yf = y + (b + hf - b) / 2.0;
 
     g2.setColor(color2);
-    g2.fillRect((int) Math.round(xf) + 1, (int) Math.round(yf), (int) Math.round(wf) - 1, (int) Math.round(b));
+    g2.fillRect((int) Math.round(xf) + 1,
+        (int) Math.round(yf),
+        (int) Math.round(wf) - 1,
+        (int) Math.round(b));
   }
 
 }

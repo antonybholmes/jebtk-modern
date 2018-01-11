@@ -50,7 +50,8 @@ import org.w3c.dom.Element;
  * @author Antony Holmes Holmes
  *
  */
-public class ColorMaps extends NameListModel<ColorMap> implements XmlRepresentation, JsonRepresentation {
+public class ColorMaps extends NameListModel<ColorMap>
+    implements XmlRepresentation, JsonRepresentation {
 
   /**
    * The constant serialVersionUID.
@@ -60,8 +61,7 @@ public class ColorMaps extends NameListModel<ColorMap> implements XmlRepresentat
   /**
    * Adds the.
    *
-   * @param colorMap
-   *          the color map
+   * @param colorMap the color map
    */
   public void add(ColorMap colorMap) {
     add(colorMap.getName(), colorMap);
@@ -70,8 +70,7 @@ public class ColorMaps extends NameListModel<ColorMap> implements XmlRepresentat
   /**
    * Update.
    *
-   * @param colorMap
-   *          the color map
+   * @param colorMap the color map
    */
   public void update(ColorMap colorMap) {
     update(colorMap.getName(), colorMap);
@@ -80,14 +79,10 @@ public class ColorMaps extends NameListModel<ColorMap> implements XmlRepresentat
   /**
    * Write xml.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
-   * @throws TransformerException
-   *           the transformer exception
-   * @throws ParserConfigurationException
-   *           the parser configuration exception
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws TransformerException the transformer exception
+   * @throws ParserConfigurationException the parser configuration exception
    */
   public synchronized final void writeXml(Path file)
       throws IOException, TransformerException, ParserConfigurationException {
@@ -133,10 +128,8 @@ public class ColorMaps extends NameListModel<ColorMap> implements XmlRepresentat
   /**
    * Write json.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public synchronized void writeJson(Path file) throws IOException {
     Json.prettyWrite(toJson(), file);

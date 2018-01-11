@@ -37,8 +37,7 @@ import java.awt.Point;
  * concrete implementations of renderers.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
 public class ModernTreeTextNodeRenderer extends ModernTreeBranchNodeRenderer {
 
@@ -51,8 +50,8 @@ public class ModernTreeTextNodeRenderer extends ModernTreeBranchNodeRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawNodeIconText(Graphics2D g2) {
@@ -66,6 +65,8 @@ public class ModernTreeTextNodeRenderer extends ModernTreeBranchNodeRenderer {
       g2.setFont(FONT);
     }
 
-    g2.drawString(getTruncatedText(g2, mNode.getName(), 0, mRect.getW()), 0, p.y);
+    g2.drawString(getTruncatedText(g2, mNode.getName(), 0, mRect.getW()),
+        0,
+        p.y);
   }
 }

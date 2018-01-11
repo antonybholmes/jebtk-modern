@@ -50,10 +50,8 @@ public class EmptyTableModel extends ModernTableModel {
    * Creates an empty table that reports a certain size, but displays nothing.
    * Useful for scenarios where the ui is initialised to a blank table.
    *
-   * @param rows
-   *          the rows
-   * @param columns
-   *          the columns
+   * @param rows the rows
+   * @param columns the columns
    */
   public EmptyTableModel(int rows, int columns) {
     mRows = rows;

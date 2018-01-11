@@ -31,15 +31,15 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class IconTabsAnimation extends HoverFadeAnimation {
 
-  private static final Color BACKGROUND = ColorUtils.getTransparentColor(Color.BLACK, 0.95); // ThemeService.getInstance().colors().getHighlight(2);
+  private static final Color BACKGROUND = ColorUtils
+      .getTransparentColor(Color.BLACK, 0.95); // ThemeService.getInstance().colors().getHighlight(2);
 
   private IconTabs mTabs;
 
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public IconTabsAnimation(ModernWidget w) {
     super(w);

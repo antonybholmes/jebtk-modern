@@ -60,9 +60,11 @@ public class ColumnLayout implements LayoutManager {
 
     int o = parent.getComponentCount() % mCols != 0 ? 1 : 0;
 
-    int h = (parent.getComponentCount() / mCols + o) * mHeight + parent.getInsets().top + parent.getInsets().bottom;
+    int h = (parent.getComponentCount() / mCols + o) * mHeight
+        + parent.getInsets().top + parent.getInsets().bottom;
 
-    return new Dimension(mWidth * mCols + parent.getInsets().left + parent.getInsets().right, h);
+    return new Dimension(
+        mWidth * mCols + parent.getInsets().left + parent.getInsets().right, h);
   }
 
   @Override

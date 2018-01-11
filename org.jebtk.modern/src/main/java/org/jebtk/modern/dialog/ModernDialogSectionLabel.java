@@ -46,8 +46,7 @@ public class ModernDialogSectionLabel extends JLabel {
   /**
    * Instantiates a new modern dialog heading label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernDialogSectionLabel(String text) {
     super(text);

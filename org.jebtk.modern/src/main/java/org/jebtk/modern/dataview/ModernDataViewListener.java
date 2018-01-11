@@ -43,8 +43,7 @@ public interface ModernDataViewListener extends EventListener {
   /**
    * Triggered when the underlying structure of the data changes.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void dataChanged(ChangeEvent e);
 
@@ -52,8 +51,7 @@ public interface ModernDataViewListener extends EventListener {
    * Should be called if the data is reordered, but the record count remains the
    * same.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void dataUpdated(ChangeEvent e);
 

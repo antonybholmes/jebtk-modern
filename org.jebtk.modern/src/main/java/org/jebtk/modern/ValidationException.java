@@ -43,8 +43,7 @@ public class ValidationException extends MessageException {
   /**
    * Instantiates a new validation exception.
    *
-   * @param message
-   *          the message
+   * @param message the message
    */
   public ValidationException(String message) {
     super(message);

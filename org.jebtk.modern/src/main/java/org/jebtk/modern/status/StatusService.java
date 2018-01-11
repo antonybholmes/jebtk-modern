@@ -73,8 +73,7 @@ public class StatusService {
   /**
    * Register.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void register(StatusEventListener l) {
     register(DEFAULT_CHANNEL, l);
@@ -83,10 +82,8 @@ public class StatusService {
   /**
    * Register.
    *
-   * @param channel
-   *          the channel
-   * @param l
-   *          the l
+   * @param channel the channel
+   * @param l the l
    */
   public void register(String channel, StatusEventListener l) {
     getModel(channel).addStatusListener(l);
@@ -95,8 +92,7 @@ public class StatusService {
   /**
    * Gets the model.
    *
-   * @param channel
-   *          the channel
+   * @param channel the channel
    * @return the model
    */
   private synchronized StatusModel getModel(String channel) {
@@ -110,8 +106,7 @@ public class StatusService {
   /**
    * Sets the status.
    *
-   * @param status
-   *          the new status
+   * @param status the new status
    */
   public void setStatus(String status) {
     setStatus(DEFAULT_CHANNEL, status);
@@ -120,10 +115,8 @@ public class StatusService {
   /**
    * Sets the status.
    *
-   * @param channel
-   *          the channel
-   * @param status
-   *          the status
+   * @param channel the channel
+   * @param status the status
    */
   public void setStatus(String channel, String status) {
     getModel(channel).setStatus(status);
@@ -139,8 +132,7 @@ public class StatusService {
   /**
    * Sets the ready.
    *
-   * @param channel
-   *          the new ready
+   * @param channel the new ready
    */
   public void setReady(String channel) {
     getModel(channel).setReady();

@@ -43,7 +43,8 @@ import org.jebtk.core.collections.UniqueArrayList;
  * @author Antony Holmes Holmes
  *
  */
-public class FilterModel extends FilterEventListeners implements Iterable<String> {
+public class FilterModel extends FilterEventListeners
+    implements Iterable<String> {
 
   /**
    * The constant serialVersionUID.
@@ -63,8 +64,7 @@ public class FilterModel extends FilterEventListeners implements Iterable<String
   /**
    * Returns true if the item should be kept.
    *
-   * @param name
-   *          the name
+   * @param name the name
    * @return the filter
    */
   public boolean keep(String name) {
@@ -78,10 +78,8 @@ public class FilterModel extends FilterEventListeners implements Iterable<String
   /**
    * Sets which filter names are selected.
    *
-   * @param names
-   *          the names
-   * @param filter
-   *          the filter
+   * @param names the names
+   * @param filter the filter
    */
   public void setSelected(Collection<String> names, boolean filter) {
     clear();
@@ -97,8 +95,7 @@ public class FilterModel extends FilterEventListeners implements Iterable<String
   /**
    * Sets the filters.
    *
-   * @param updates
-   *          the updates
+   * @param updates the updates
    */
   public void setSelected(Map<String, Boolean> updates) {
     for (String name : updates.keySet()) {
@@ -111,8 +108,7 @@ public class FilterModel extends FilterEventListeners implements Iterable<String
   /**
    * Sets the filters.
    *
-   * @param selected
-   *          the new filters
+   * @param selected the new filters
    */
   public void setFilters(boolean selected) {
     for (String name : new HashSet<String>(mFilterMap.keySet())) {
@@ -125,10 +121,8 @@ public class FilterModel extends FilterEventListeners implements Iterable<String
   /**
    * Sets the filter.
    *
-   * @param name
-   *          the name
-   * @param filter
-   *          the filter
+   * @param name the name
+   * @param filter the filter
    */
   public void setFilter(String name, boolean filter) {
     updateFilter(name, filter);

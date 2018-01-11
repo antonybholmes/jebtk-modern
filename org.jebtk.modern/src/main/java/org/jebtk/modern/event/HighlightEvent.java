@@ -53,8 +53,7 @@ public class HighlightEvent extends Event {
   /**
    * Instantiates a new modern state event.
    *
-   * @param source
-   *          the source
+   * @param source the source
    */
   public HighlightEvent(Object source, int id) {
     this(source, id, EVENT_HIGHLIGHTED);
@@ -63,10 +62,8 @@ public class HighlightEvent extends Event {
   /**
    * Instantiates a new modern state event.
    *
-   * @param source
-   *          the source
-   * @param message
-   *          the message
+   * @param source the source
+   * @param message the message
    */
   public HighlightEvent(Object source, int id, String message) {
     super(source, message);

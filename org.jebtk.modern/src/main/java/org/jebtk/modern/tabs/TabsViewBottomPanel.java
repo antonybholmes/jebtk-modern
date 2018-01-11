@@ -50,8 +50,7 @@ public class TabsViewBottomPanel extends TabsViewPanel {
   /**
    * Instantiates a new tabs view bottom panel.
    *
-   * @param tabsModel
-   *          the tabs model
+   * @param tabsModel the tabs model
    */
   public TabsViewBottomPanel(TabsModel tabsModel) {
     super(tabsModel);

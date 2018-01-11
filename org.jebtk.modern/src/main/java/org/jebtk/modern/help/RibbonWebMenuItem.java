@@ -42,7 +42,8 @@ import org.jebtk.modern.ribbon.RibbonMenuItem;
  * @author Antony Holmes Holmes
  *
  */
-public class RibbonWebMenuItem extends RibbonMenuItem implements ModernClickListener {
+public class RibbonWebMenuItem extends RibbonMenuItem
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -57,10 +58,8 @@ public class RibbonWebMenuItem extends RibbonMenuItem implements ModernClickList
   /**
    * Instantiates a new ribbon web menu item.
    *
-   * @param title
-   *          the title
-   * @param file
-   *          the file
+   * @param title the title
+   * @param file the file
    */
   public RibbonWebMenuItem(String title, File file) {
     super(title);
@@ -74,8 +73,8 @@ public class RibbonWebMenuItem extends RibbonMenuItem implements ModernClickList
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     try {

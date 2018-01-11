@@ -46,8 +46,7 @@ public class HideUpVectorIcon extends HideVectorIcon {
   /**
    * Instantiates a new hide up vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public HideUpVectorIcon(Color color) {
     super(color);
@@ -60,7 +59,12 @@ public class HideUpVectorIcon extends HideVectorIcon {
    * Graphics2D, java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     super.drawIcon(g2, x, y, w, h, params);
 
     double wf = w * WIDTH_SCALE;
@@ -70,7 +74,13 @@ public class HideUpVectorIcon extends HideVectorIcon {
     double xf = x + (w - wf) / 2.0;
     double yf = y + (h - hf) / 2.0;
 
-    g2.drawLine((int) Math.round(xf), (int) Math.round(yf + hf), (int) Math.round(xf + w2), (int) Math.round(yf));
-    g2.drawLine((int) Math.round(xf + w2), (int) Math.round(yf), (int) Math.round(xf + wf), (int) Math.round(yf + hf));
+    g2.drawLine((int) Math.round(xf),
+        (int) Math.round(yf + hf),
+        (int) Math.round(xf + w2),
+        (int) Math.round(yf));
+    g2.drawLine((int) Math.round(xf + w2),
+        (int) Math.round(yf),
+        (int) Math.round(xf + wf),
+        (int) Math.round(yf + hf));
   }
 }

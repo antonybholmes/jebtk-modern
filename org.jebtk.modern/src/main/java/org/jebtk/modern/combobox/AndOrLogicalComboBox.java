@@ -53,8 +53,7 @@ public class AndOrLogicalComboBox extends LogicalComboBox {
   /**
    * Instantiates a new and or logical combo box.
    *
-   * @param operator
-   *          the operator
+   * @param operator the operator
    */
   public AndOrLogicalComboBox(BooleanOperator operator) {
     super(operator);

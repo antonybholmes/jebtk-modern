@@ -55,7 +55,8 @@ import org.slf4j.LoggerFactory;
  * @author Antony Holmes Holmes
  *
  */
-public class WindowService extends ModernWindowEventListeners implements Iterable<ModernWindow> {
+public class WindowService extends ModernWindowEventListeners
+    implements Iterable<ModernWindow> {
 
   /**
    * The constant serialVersionUID.
@@ -96,7 +97,8 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
   /**
    * The constant LOG.
    */
-  private static final Logger LOG = LoggerFactory.getLogger(WindowService.class);
+  private static final Logger LOG = LoggerFactory
+      .getLogger(WindowService.class);
 
   /**
    * The class BringWindowToFront.
@@ -111,8 +113,7 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
     /**
      * Instantiates a new bring window to front.
      *
-     * @param window
-     *          the window
+     * @param window the window
      */
     public BringWindowToFront(ModernWindow window) {
       this.window = window;
@@ -134,8 +135,7 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
   /**
    * Register.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public synchronized void register(ModernWindow window) {
 
@@ -153,8 +153,7 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
   /**
    * Removes the.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public synchronized void remove(ModernWindow window) {
 
@@ -169,8 +168,8 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
     /*
      * windows.clear();
      * 
-     * for (int i = 0; i < windowList.size(); ++i) { windows.put(windowList.get(i),
-     * i); }
+     * for (int i = 0; i < windowList.size(); ++i) {
+     * windows.put(windowList.get(i), i); }
      */
 
     fireWindowRemoved(new ChangeEvent(this));
@@ -188,8 +187,7 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
   /**
    * Finds an active window by name, otherwise returns null.
    *
-   * @param name
-   *          the name
+   * @param name the name
    * @return the modern window
    */
   public final ModernWindow findByName(final String name) {
@@ -209,8 +207,7 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
   /**
    * Sets the focus.
    *
-   * @param window
-   *          the new focus
+   * @param window the new focus
    */
   public static final void setFocus(ModernWindow window) {
     SwingUtilities.invokeLater(new BringWindowToFront(window));
@@ -229,7 +226,8 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
    * Tile.
    */
   public void tile() {
-    GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+    GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment()
+        .getDefaultScreenDevice();
 
     double g = Math.ceil(Math.sqrt(mWindows.size()));
 
@@ -277,7 +275,8 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
    * Arrange horizontally.
    */
   public void arrangeHorizontally() {
-    GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+    GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment()
+        .getDefaultScreenDevice();
 
     int width = gd.getDisplayMode().getWidth();
     int height = gd.getDisplayMode().getHeight() / mWindows.size();
@@ -296,7 +295,8 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
    * Arrange vertically.
    */
   public void arrangeVertically() {
-    GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+    GraphicsDevice gd = GraphicsEnvironment.getLocalGraphicsEnvironment()
+        .getDefaultScreenDevice();
 
     int width = gd.getDisplayMode().getWidth() / mWindows.size();
     int height = gd.getDisplayMode().getHeight();
@@ -314,8 +314,7 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
   /**
    * Auto maximize.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public void autoMaximize(ModernWindow window) {
     DeviceConfig config = UI.findDeviceConfig(window);
@@ -339,7 +338,8 @@ public class WindowService extends ModernWindowEventListeners implements Iterabl
         Rectangle bounds = config.device.getDefaultConfiguration().getBounds();
 
         // Try to account for task bars etc
-        Insets insets = Toolkit.getDefaultToolkit().getScreenInsets(config.device.getDefaultConfiguration());
+        Insets insets = Toolkit.getDefaultToolkit()
+            .getScreenInsets(config.device.getDefaultConfiguration());
 
         bounds.width -= insets.left + insets.right;
         bounds.height -= insets.top + insets.bottom;

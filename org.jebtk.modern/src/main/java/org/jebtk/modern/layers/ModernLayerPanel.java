@@ -31,8 +31,8 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 import javax.swing.BoxLayout;
-import org.jebtk.core.event.ChangeEvent;
 
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernCheckBox;
 import org.jebtk.modern.event.ModernStateEvent;
@@ -45,7 +45,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The class ModernLayerPanel.
  */
-public class ModernLayerPanel extends ModernWidget implements LayerEventListener, ModernStateListener {
+public class ModernLayerPanel extends ModernWidget
+    implements LayerEventListener, ModernStateListener {
 
   /**
    * The constant serialVersionUID.
@@ -75,10 +76,8 @@ public class ModernLayerPanel extends ModernWidget implements LayerEventListener
   /**
    * Instantiates a new modern layer panel.
    *
-   * @param name
-   *          the name
-   * @param layerModel
-   *          the layer model
+   * @param name the name
+   * @param layerModel the layer model
    */
   public ModernLayerPanel(String name, LayerModel layerModel) {
     setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
@@ -107,7 +106,8 @@ public class ModernLayerPanel extends ModernWidget implements LayerEventListener
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -132,8 +132,8 @@ public class ModernLayerPanel extends ModernWidget implements LayerEventListener
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.event
-   * .ChangeEvent)
+   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.
+   * event .ChangeEvent)
    */
   @Override
   public void layerUpdated(ChangeEvent e) {
@@ -144,8 +144,8 @@ public class ModernLayerPanel extends ModernWidget implements LayerEventListener
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib.ui.
-   * modern.event.ModernStateEvent)
+   * org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib.
+   * ui. modern.event.ModernStateEvent)
    */
   @Override
   public void stateChanged(ModernStateEvent e) {

@@ -27,7 +27,8 @@ import org.jebtk.core.text.TextUtils;
  * @author Antony Holmes Holmes
  *
  */
-public class SuggestionTextBox extends ModernClipboardTextField implements FocusListener {
+public class SuggestionTextBox extends ModernClipboardTextField
+    implements FocusListener {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -38,8 +39,7 @@ public class SuggestionTextBox extends ModernClipboardTextField implements Focus
   /**
    * Instantiates a new suggestion text box.
    *
-   * @param suggestion
-   *          the suggestion
+   * @param suggestion the suggestion
    */
   public SuggestionTextBox(String suggestion) {
     super(suggestion);

@@ -24,7 +24,8 @@ public class UrlTextLinkHighlightAnimation extends GenericButtonAnimation {
    */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-    if (getWidget().isEnabled()) { // && (getButton().getHightlighted() || getButton().getPopupShown())) {
+    if (getWidget().isEnabled()) { // && (getButton().getHightlighted() ||
+                                   // getButton().getPopupShown())) {
       String text = mButton.getText();
 
       int x = (widget.getWidth() - g2.getFontMetrics().stringWidth(text)) / 2;

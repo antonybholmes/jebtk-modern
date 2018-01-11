@@ -38,24 +38,21 @@ public interface HighlightEventProducer {
   /**
    * Add a State listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addHighlightListener(HighlightListener l);
 
   /**
    * Remove a State listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeHighlightListener(HighlightListener l);
 
   /**
    * fire an event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public void fireHighlighted(HighlightEvent e);
 }

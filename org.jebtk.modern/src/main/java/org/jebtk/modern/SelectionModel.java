@@ -32,9 +32,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.collections.CollectionUtils;
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.event.ModernSelectionListeners;
 
@@ -43,10 +42,10 @@ import org.jebtk.modern.event.ModernSelectionListeners;
  * Generic model for storing items and notifying of changes.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
-public class SelectionModel<T> extends ModernSelectionListeners implements Iterable<T> {
+public class SelectionModel<T> extends ModernSelectionListeners
+    implements Iterable<T> {
 
   /**
    * The constant serialVersionUID.
@@ -66,8 +65,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Sets the.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public final void set(T item) {
     clearNoUpdate();
@@ -78,8 +76,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Sets the.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public void set(Set<T> items) {
     clearNoUpdate();
@@ -90,8 +87,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Sets the.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public void set(SelectionModel<T> items) {
     clearNoUpdate();
@@ -102,8 +98,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Clear the current selection and set a new list of items.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public final void set(List<T> items) {
     clearNoUpdate();
@@ -114,8 +109,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Adds the.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public final void add(T item) {
     add(CollectionUtils.asList(item));
@@ -124,8 +118,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Adds the.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public void add(Set<T> items) {
     if (CollectionUtils.isNullOrEmpty(items)) {
@@ -142,8 +135,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Adds the.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public void add(SelectionModel<T> items) {
     if (items == null) {
@@ -160,8 +152,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Adds the.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public void add(List<T> items) {
     if (items == null) {
@@ -193,8 +184,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Remove a selected node.
    *
-   * @param index
-   *          the index
+   * @param index the index
    */
   public void remove(int index) {
     items.remove(index);
@@ -203,8 +193,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Removes the.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public void remove(T item) {
     items.remove(item);
@@ -247,8 +236,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Gets the.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the t
    */
   public T get(int index) {
@@ -291,8 +279,7 @@ public class SelectionModel<T> extends ModernSelectionListeners implements Itera
   /**
    * Sets whether the selection model reports changes or not.
    *
-   * @param fire
-   *          the new fire update
+   * @param fire the new fire update
    */
   public void setFireUpdate(boolean fire) {
     this.fire = fire;

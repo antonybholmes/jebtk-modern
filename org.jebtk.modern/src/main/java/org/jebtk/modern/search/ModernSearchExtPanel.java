@@ -56,8 +56,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernSearchPanel.
  */
-public class ModernSearchExtPanel extends ModernLineBorderPanel
-    implements ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
+public class ModernSearchExtPanel extends ModernLineBorderPanel implements
+    ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
 
   /**
    * The constant serialVersionUID.
@@ -67,11 +67,13 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel
   /**
    * The member search button.
    */
-  private ModernButton mSearchButton = new ModernButton(UIService.getInstance().loadIcon(SearchVectorIcon.class, 16));
+  private ModernButton mSearchButton = new ModernButton(
+      UIService.getInstance().loadIcon(SearchVectorIcon.class, 16));
 
   /** The m search 2 button. */
-  private ModernButton mSearch2Button = new ModernButton(UIService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
-                                                                                                                      // 16));
+  private ModernButton mSearch2Button = new ModernButton(
+      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
+                                                                   // 16));
 
   /**
    * The member search field.
@@ -97,8 +99,7 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel
   /**
    * Instantiates a new modern search panel.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public ModernSearchExtPanel(ModernWindow window) {
     this(window, new SearchModel(), TextUtils.COMMA_DELIMITER);
@@ -107,10 +108,8 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel
   /**
    * Instantiates a new modern search ext panel.
    *
-   * @param window
-   *          the window
-   * @param delimiter
-   *          the delimiter
+   * @param window the window
+   * @param delimiter the delimiter
    */
   public ModernSearchExtPanel(ModernWindow window, String delimiter) {
     this(window, new SearchModel(), delimiter);
@@ -119,14 +118,12 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel
   /**
    * Instantiates a new modern search panel.
    *
-   * @param window
-   *          the window
-   * @param model
-   *          the model
-   * @param delimiter
-   *          the delimiter
+   * @param window the window
+   * @param model the model
+   * @param delimiter the delimiter
    */
-  public ModernSearchExtPanel(ModernWindow window, SearchModel model, String delimiter) {
+  public ModernSearchExtPanel(ModernWindow window, SearchModel model,
+      String delimiter) {
     mWindow = window;
     mModel = model;
     mDelimiter = delimiter;
@@ -176,7 +173,8 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel
    * Search 2.
    */
   private void search2() {
-    SearchDialog dialog = new SearchDialog(mWindow, mSearchField.getText(), mDelimiter);
+    SearchDialog dialog = new SearchDialog(mWindow, mSearchField.getText(),
+        mDelimiter);
 
     dialog.setVisible(true);
 
@@ -194,8 +192,7 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel
   /**
    * Search.
    *
-   * @param items
-   *          the items
+   * @param items the items
    */
   public void search(Collection<String> items) {
     mSearchField.setText(Join.on(mDelimiter).values(items).toString());
@@ -207,8 +204,8 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh
-   * .lib.ui.modern.event.ModernClickListener)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.
+   * abh .lib.ui.modern.event.ModernClickListener)
    */
   @Override
   public void addClickListener(ModernClickListener l) {
@@ -219,8 +216,8 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.
-   * abh.lib.ui.modern.event.ModernClickListener)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(
+   * org. abh.lib.ui.modern.event.ModernClickListener)
    */
   @Override
   public void removeClickListener(ModernClickListener l) {
@@ -231,8 +228,8 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.
-   * ui.modern.event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.
+   * lib. ui.modern.event.ModernClickEvent)
    */
   @Override
   public void fireClicked(ModernClickEvent e) {
@@ -252,8 +249,8 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public final void clicked(ModernClickEvent e) {

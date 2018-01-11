@@ -58,8 +58,7 @@ public class ViewPanel extends ModernComponent {
   /**
    * Change view.
    *
-   * @param component
-   *          the component
+   * @param component the component
    */
   public void changeView(Component component) {
     // removeAll();

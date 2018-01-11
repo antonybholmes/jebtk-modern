@@ -55,8 +55,7 @@ public class LayersPanel extends ModernComponent {
   /**
    * Instantiates a new layers panel.
    *
-   * @param layerModel
-   *          the layer model
+   * @param layerModel the layer model
    */
   public LayersPanel(LayerModel layerModel) {
     setup();
@@ -79,8 +78,7 @@ public class LayersPanel extends ModernComponent {
   /**
    * Sets the layer model.
    *
-   * @param layerModel
-   *          the new layer model
+   * @param layerModel the new layer model
    */
   public void setLayerModel(LayerModel layerModel) {
     LayersTableModel tableModel = new LayersTableModel(layerModel);

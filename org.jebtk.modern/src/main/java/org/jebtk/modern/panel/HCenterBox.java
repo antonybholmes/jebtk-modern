@@ -62,8 +62,7 @@ public class HCenterBox extends HBox {
   /**
    * Instantiates a new h center box panel.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public HCenterBox(Component c) {
     this();

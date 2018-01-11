@@ -61,8 +61,7 @@ public class ModernLineBottomBorderPanel extends ModernComponent {
   /**
    * Instantiates a new modern line border panel.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public ModernLineBottomBorderPanel(Color color) {
     setBackground(color);
@@ -73,8 +72,7 @@ public class ModernLineBottomBorderPanel extends ModernComponent {
   /**
    * Instantiates a new modern line border panel.
    *
-   * @param layout
-   *          the layout
+   * @param layout the layout
    */
   public ModernLineBottomBorderPanel(LayoutManager layout) {
     super(layout);
@@ -85,8 +83,7 @@ public class ModernLineBottomBorderPanel extends ModernComponent {
   /**
    * Instantiates a new modern line border panel.
    *
-   * @param component
-   *          the component
+   * @param component the component
    */
   public ModernLineBottomBorderPanel(Component component) {
     super(component);
@@ -97,10 +94,8 @@ public class ModernLineBottomBorderPanel extends ModernComponent {
   /**
    * Instantiates a new modern line bottom border panel.
    *
-   * @param component
-   *          the component
-   * @param dimension
-   *          the dimension
+   * @param component the component
+   * @param dimension the dimension
    */
   public ModernLineBottomBorderPanel(Component component, Dimension dimension) {
     this(component);

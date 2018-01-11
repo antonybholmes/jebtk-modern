@@ -52,8 +52,7 @@ public class FontSwatchButton extends RibbonColorSwatchButton {
   /**
    * Instantiates a new font swatch button.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public FontSwatchButton(ModernWindow parent) {
     this(parent, Color.BLACK);
@@ -62,10 +61,8 @@ public class FontSwatchButton extends RibbonColorSwatchButton {
   /**
    * Instantiates a new color swatch button.
    *
-   * @param parent
-   *          the parent
-   * @param color
-   *          the color
+   * @param parent the parent
+   * @param color the color
    */
   public FontSwatchButton(ModernWindow parent, Color color) {
     super(parent, color);
@@ -79,8 +76,8 @@ public class FontSwatchButton extends RibbonColorSwatchButton {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -103,7 +100,7 @@ public class FontSwatchButton extends RibbonColorSwatchButton {
       g2.fillRect(x - 2, y + 1, w + 4, 4);
     }
 
-    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, getWidth() - 16,
-        (getHeight() - 16) / 2, 16);
+    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
+        .drawIcon(g2, getWidth() - 16, (getHeight() - 16) / 2, 16);
   }
 }

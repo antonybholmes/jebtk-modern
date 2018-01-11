@@ -36,7 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class CanvasCursorListeners extends EventProducer<CanvasCursorListener> implements CanvasCursorEventProducer {
+public class CanvasCursorListeners extends EventProducer<CanvasCursorListener>
+    implements CanvasCursorEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -46,9 +47,8 @@ public class CanvasCursorListeners extends EventProducer<CanvasCursorListener> i
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.CanvasCursorEventProducer#addCanvasCursorListener(
-   * org.abh.common.ui.graphics.CanvasCursorListener)
+   * @see org.abh.common.ui.graphics.CanvasCursorEventProducer#
+   * addCanvasCursorListener( org.abh.common.ui.graphics.CanvasCursorListener)
    */
   @Override
   public void addCanvasCursorListener(CanvasCursorListener l) {
@@ -69,9 +69,8 @@ public class CanvasCursorListeners extends EventProducer<CanvasCursorListener> i
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.CanvasCursorEventProducer#fireCanvasCursorChanged(
-   * org.abh.common.ui.graphics.CanvasCursorEvent)
+   * @see org.abh.common.ui.graphics.CanvasCursorEventProducer#
+   * fireCanvasCursorChanged( org.abh.common.ui.graphics.CanvasCursorEvent)
    */
   @Override
   public void fireCanvasCursorChanged(CanvasCursorEvent e) {

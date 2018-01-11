@@ -63,8 +63,7 @@ public class ViewModel extends ChangeListeners {
   /**
    * Instantiates a new view model.
    *
-   * @param view
-   *          the view
+   * @param view the view
    */
   public ViewModel(String view) {
     setView(view);
@@ -82,8 +81,7 @@ public class ViewModel extends ChangeListeners {
   /**
    * Sets the view.
    *
-   * @param view
-   *          the new view
+   * @param view the new view
    */
   public void setView(String view) {
     mView = view;

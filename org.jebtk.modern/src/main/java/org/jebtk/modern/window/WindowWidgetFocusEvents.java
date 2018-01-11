@@ -49,8 +49,7 @@ public class WindowWidgetFocusEvents extends WindowAdapter {
   /**
    * Instantiates a new window widget focus events.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public WindowWidgetFocusEvents(JComponent button) {
     mComponent = button;

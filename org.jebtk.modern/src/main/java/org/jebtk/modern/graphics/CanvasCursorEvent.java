@@ -49,10 +49,8 @@ public class CanvasCursorEvent extends ChangeEvent {
   /**
    * Instantiates a new canvas cursor event.
    *
-   * @param source
-   *          the source
-   * @param cursor
-   *          the cursor
+   * @param source the source
+   * @param cursor the cursor
    */
   public CanvasCursorEvent(Component source, Cursor cursor) {
     super(source);

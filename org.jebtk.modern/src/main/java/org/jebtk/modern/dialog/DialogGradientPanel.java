@@ -69,8 +69,7 @@ public class DialogGradientPanel extends ModernGradientPanel {
   /**
    * Instantiates a new gradient dialog panel.
    *
-   * @param manager
-   *          the manager
+   * @param manager the manager
    */
   public DialogGradientPanel(LayoutManager manager) {
     super(manager, COLOR1, COLOR2);
@@ -79,8 +78,7 @@ public class DialogGradientPanel extends ModernGradientPanel {
   /**
    * Instantiates a new gradient dialog panel.
    *
-   * @param border
-   *          the border
+   * @param border the border
    */
   public DialogGradientPanel(Border border) {
     super(COLOR1, COLOR2);

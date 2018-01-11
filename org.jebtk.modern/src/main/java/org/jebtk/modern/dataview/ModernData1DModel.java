@@ -41,8 +41,7 @@ import org.jebtk.core.event.ChangeEvent;
  * cells do not need an object.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
 public class ModernData1DModel<T> extends ModernDataViewListeners {
 
@@ -64,8 +63,7 @@ public class ModernData1DModel<T> extends ModernDataViewListeners {
   /**
    * Instantiates a new modern data cell model.
    *
-   * @param defaultObject
-   *          the default object
+   * @param defaultObject the default object
    */
   public ModernData1DModel(T defaultObject) {
     setDefault(defaultObject);
@@ -74,8 +72,7 @@ public class ModernData1DModel<T> extends ModernDataViewListeners {
   /**
    * Sets the default.
    *
-   * @param defaultObject
-   *          the new default
+   * @param defaultObject the new default
    */
   public void setDefault(T defaultObject) {
     mDefaultObject = defaultObject;
@@ -86,8 +83,7 @@ public class ModernData1DModel<T> extends ModernDataViewListeners {
   /**
    * Gets the.
    *
-   * @param index
-   *          the row
+   * @param index the row
    * @return the t
    */
   public T get(int index) {
@@ -101,10 +97,8 @@ public class ModernData1DModel<T> extends ModernDataViewListeners {
   /**
    * Sets the row.
    *
-   * @param index
-   *          the row
-   * @param o
-   *          the o
+   * @param index the row
+   * @param o the o
    */
   public void set(int index, T o) {
     if (!m1dMap.containsKey(index)) {

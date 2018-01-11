@@ -49,8 +49,7 @@ public class CheveronUpVectorIcon extends CheveronVectorIcon {
   /**
    * Instantiates a new cheveron up vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public CheveronUpVectorIcon(Color color) {
     super(color);
@@ -59,11 +58,17 @@ public class CheveronUpVectorIcon extends CheveronVectorIcon {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.icons.CheveronVectorIcon#drawForeground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.icons.CheveronVectorIcon#drawForeground(java.awt.
    * Graphics2D, java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     super.drawIcon(g2, x, y, w, h, params);
 
     x += (w - mW) / 2;

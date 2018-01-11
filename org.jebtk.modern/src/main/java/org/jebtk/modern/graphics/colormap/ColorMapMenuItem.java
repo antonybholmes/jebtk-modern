@@ -39,10 +39,8 @@ public class ColorMapMenuItem extends ModernIconMenuItem {
   /**
    * Instantiates a new color map menu item.
    *
-   * @param colorMap
-   *          the color map
-   * @param title
-   *          the title
+   * @param colorMap the color map
+   * @param title the title
    */
   public ColorMapMenuItem(ColorMap colorMap, String title) {
     super(title);
@@ -53,7 +51,8 @@ public class ColorMapMenuItem extends ModernIconMenuItem {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.ui.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * @see
+   * org.abh.common.ui.ui.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   @Override

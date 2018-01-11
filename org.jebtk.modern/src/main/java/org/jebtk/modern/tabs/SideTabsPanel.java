@@ -31,8 +31,7 @@ public class SideTabsPanel extends ModernComponent {
   /**
    * Instantiates a new side tabs panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public SideTabsPanel(TabsModel model) {
     add(new SideTabs(model), BorderLayout.LINE_START);

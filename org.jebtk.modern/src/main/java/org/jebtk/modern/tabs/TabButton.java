@@ -50,10 +50,8 @@ public class TabButton extends ModernCheckButton {
   /**
    * Instantiates a new tab button.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
+   * @param text1 the text1
+   * @param icon the icon
    */
   public TabButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -64,8 +62,7 @@ public class TabButton extends ModernCheckButton {
   /**
    * Instantiates a new tab button.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public TabButton(String text1) {
     super(text1);
@@ -76,8 +73,7 @@ public class TabButton extends ModernCheckButton {
   /**
    * Instantiates a new tab button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public TabButton(ModernIcon icon) {
     super(icon);
@@ -95,7 +91,8 @@ public class TabButton extends ModernCheckButton {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
+   * @see
+   * org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

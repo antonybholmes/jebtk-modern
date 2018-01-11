@@ -60,16 +60,13 @@ public class ModernInputDialog extends ModernDialogTaskWindow {
   /**
    * Instantiates a new modern input dialog.
    *
-   * @param parent
-   *          the parent
-   * @param title
-   *          the title
-   * @param message
-   *          the message
-   * @param text
-   *          the text
+   * @param parent the parent
+   * @param title the title
+   * @param message the message
+   * @param text the text
    */
-  public ModernInputDialog(ModernWindow parent, String title, String message, String text) {
+  public ModernInputDialog(ModernWindow parent, String title, String message,
+      String text) {
     super(parent);
 
     setTitle(title);
@@ -83,8 +80,7 @@ public class ModernInputDialog extends ModernDialogTaskWindow {
   /**
    * Setup.
    *
-   * @param text
-   *          the new up
+   * @param text the new up
    */
   private void setup(String text) {
     mText.setText(text);
@@ -99,8 +95,7 @@ public class ModernInputDialog extends ModernDialogTaskWindow {
   /**
    * Creates the ui.
    *
-   * @param message
-   *          the message
+   * @param message the message
    */
   private final void createUi(String message) {
     Box box = VBox.create();

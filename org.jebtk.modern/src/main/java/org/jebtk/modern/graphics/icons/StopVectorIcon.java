@@ -44,7 +44,8 @@ public class StopVectorIcon extends ModernVectorIcon {
   /**
    * The constant SCALE.
    */
-  private static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.run-icon.width-scale");
+  private static final double SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.run-icon.width-scale");
 
   /**
    * The constant BACKGROUND.
@@ -60,7 +61,12 @@ public class StopVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
 
     double wf = w * SCALE;
 

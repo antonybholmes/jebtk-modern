@@ -83,10 +83,8 @@ public abstract class ContinuousSlider extends Slider {
   /**
    * Instantiates a new stepped slider.
    *
-   * @param value
-   *          the value
-   * @param marks
-   *          the marks
+   * @param value the value
+   * @param marks the marks
    */
   public ContinuousSlider(double value, double min, double mid, double max) {
     mMin = min;
@@ -169,8 +167,7 @@ public abstract class ContinuousSlider extends Slider {
   /**
    * Update the slider without causing a change event.
    *
-   * @param v
-   *          the v
+   * @param v the v
    */
   @Override
   public void updateValue(double v) {
@@ -189,8 +186,7 @@ public abstract class ContinuousSlider extends Slider {
   /**
    * Return the value of a given mark.
    *
-   * @param index
-   *          the index
+   * @param index the index
    * @return the value
    */
   public double getValue(int x) {
@@ -237,7 +233,8 @@ public abstract class ContinuousSlider extends Slider {
   public int vToX(double v) {
     if (v < mMid) {
 
-      // System.err.println("ss " + v + " " + mMin + " " + mP1 + " " + Math.round((v -
+      // System.err.println("ss " + v + " " + mMin + " " + mP1 + " " +
+      // Math.round((v -
       // mMin) * mP1));
 
       return (int) Math.round((v - mMin) * mP1);

@@ -62,10 +62,8 @@ public class PreviewTablePanel extends ModernPanel {
   /**
    * Instantiates a new preview table panel.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public PreviewTablePanel(Path file) throws IOException {
     this(file, -1);
@@ -74,12 +72,9 @@ public class PreviewTablePanel extends ModernPanel {
   /**
    * Instantiates a new preview table panel.
    *
-   * @param file
-   *          the file
-   * @param rows
-   *          the rows
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @param rows the rows
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public PreviewTablePanel(Path file, int rows) throws IOException {
     this(new PreviewTableModel(file, rows));
@@ -94,8 +89,7 @@ public class PreviewTablePanel extends ModernPanel {
   /**
    * Instantiates a new preview table panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public PreviewTablePanel(ModernDataModel model, ZoomModel zoomModel) {
     mTable = new ModernSpreadsheet();

@@ -43,7 +43,8 @@ import org.jebtk.modern.widget.ModernClickWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernButtonGroup implements ModernClickListener, ModernStateListener {
+public class ModernButtonGroup
+    implements ModernClickListener, ModernStateListener {
 
   /**
    * The buttons.
@@ -58,8 +59,7 @@ public class ModernButtonGroup implements ModernClickListener, ModernStateListen
   /**
    * Instantiates a new modern button group.
    *
-   * @param buttons
-   *          the buttons
+   * @param buttons the buttons
    */
   public ModernButtonGroup(ModernClickWidget... buttons) {
     for (ModernClickWidget button : buttons) {
@@ -70,8 +70,7 @@ public class ModernButtonGroup implements ModernClickListener, ModernStateListen
   /**
    * Adds the.
    *
-   * @param button
-   *          the button
+   * @param button the button
    * @return
    */
   public ModernButtonGroup add(ModernClickWidget button) {
@@ -93,8 +92,7 @@ public class ModernButtonGroup implements ModernClickListener, ModernStateListen
   /**
    * Adds the button.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   private void addButton(ModernClickWidget button) {
     // button.addClickListener(this);
@@ -115,8 +113,8 @@ public class ModernButtonGroup implements ModernClickListener, ModernStateListen
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {
@@ -127,8 +125,8 @@ public class ModernButtonGroup implements ModernClickListener, ModernStateListen
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib.ui.
-   * modern.event.ModernStateEvent)
+   * org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib.
+   * ui. modern.event.ModernStateEvent)
    */
   @Override
   public void stateChanged(ModernStateEvent e) {
@@ -138,8 +136,7 @@ public class ModernButtonGroup implements ModernClickListener, ModernStateListen
   /**
    * Update.
    *
-   * @param source
-   *          the source
+   * @param source the source
    */
   private void update(ModernClickWidget source) {
     /*

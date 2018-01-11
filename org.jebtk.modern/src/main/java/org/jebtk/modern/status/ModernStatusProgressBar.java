@@ -49,8 +49,7 @@ public class ModernStatusProgressBar extends ModernProgressBar {
   /**
    * Instantiates a new modern status progress bar.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ModernStatusProgressBar(ProgressModel model) {
     super(model);
@@ -70,7 +69,9 @@ public class ModernStatusProgressBar extends ModernProgressBar {
    */
   @Override
   public void drawBackground(Graphics2D g2) {
-    fill(g2, ThemeService.getInstance().colors().getColorHighlight(5), getRect());
+    fill(g2,
+        ThemeService.getInstance().colors().getColorHighlight(5),
+        getRect());
   }
 
   /*
@@ -87,13 +88,15 @@ public class ModernStatusProgressBar extends ModernProgressBar {
 
     fill(g2, Color.WHITE, getInternalRect());
 
-    int width = (int) (mInternalRect.getW() * progressModel.getPercentComplete());
+    int width = (int) (mInternalRect.getW()
+        * progressModel.getPercentComplete());
 
     if (width < 2) {
       return;
     }
 
-    Rectangle r = new Rectangle(this.getInsets().left, this.getInsets().top, width, h);
+    Rectangle r = new Rectangle(this.getInsets().left, this.getInsets().top,
+        width, h);
 
     fill(g2, ThemeService.getInstance().colors().getColorHighlight(1), r);
   }

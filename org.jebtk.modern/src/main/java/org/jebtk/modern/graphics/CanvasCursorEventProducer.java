@@ -38,24 +38,21 @@ public interface CanvasCursorEventProducer {
   /**
    * Add an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void addCanvasCursorListener(CanvasCursorListener l);
 
   /**
    * Remove an action listener.
    *
-   * @param l
-   *          the l
+   * @param l the l
    */
   public void removeCanvasCursorListener(CanvasCursorListener l);
 
   /**
    * Fire canvas mouse moved.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireCanvasCursorChanged(CanvasCursorEvent e);
 }

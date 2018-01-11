@@ -36,15 +36,15 @@ public class SegmentHighlightAnimation extends HighlightAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public SegmentHighlightAnimation(ModernWidget w) {
     super((SegmentTabs) w);
 
     mTabs = (SegmentTabs) w;
 
-    getFade().setFadeColor("highlight", RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
+    getFade().setFadeColor("highlight",
+        RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
   }
 
   /*
@@ -76,7 +76,9 @@ public class SegmentHighlightAnimation extends HighlightAnimation {
       // g2.drawRect(x, mSegments.getInsets().top, mSegments.mTabSize, h - 1);
       // g2.fillRect(x, mSegments.getInsets().top, mSegments.mTabSize, h);
 
-      g2.fillRect(x, mTabs.getInsets().top + h - RibbonChangeAnimation.BAR_HEIGHT, mTabs.mTabSize,
+      g2.fillRect(x,
+          mTabs.getInsets().top + h - RibbonChangeAnimation.BAR_HEIGHT,
+          mTabs.mTabSize,
           RibbonChangeAnimation.BAR_HEIGHT);
 
     }

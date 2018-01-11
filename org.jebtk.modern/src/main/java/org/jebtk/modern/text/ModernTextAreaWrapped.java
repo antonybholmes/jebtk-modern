@@ -41,14 +41,12 @@ public class ModernTextAreaWrapped extends ModernClipboardTextArea {
   /**
    * Instantiates a new modern text area wrapped.
    *
-   * @param cutEnabled
-   *          the cut enabled
-   * @param copyEnabled
-   *          the copy enabled
-   * @param pasteEnabled
-   *          the paste enabled
+   * @param cutEnabled the cut enabled
+   * @param copyEnabled the copy enabled
+   * @param pasteEnabled the paste enabled
    */
-  public ModernTextAreaWrapped(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
+  public ModernTextAreaWrapped(boolean cutEnabled, boolean copyEnabled,
+      boolean pasteEnabled) {
     super(cutEnabled, copyEnabled, pasteEnabled);
 
     setup();
@@ -57,8 +55,7 @@ public class ModernTextAreaWrapped extends ModernClipboardTextArea {
   /**
    * Instantiates a new modern text area wrapped.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernTextAreaWrapped(String text) {
 
@@ -70,16 +67,13 @@ public class ModernTextAreaWrapped extends ModernClipboardTextArea {
   /**
    * Instantiates a new modern text area wrapped.
    *
-   * @param text
-   *          the text
-   * @param cutEnabled
-   *          the cut enabled
-   * @param copyEnabled
-   *          the copy enabled
-   * @param pasteEnabled
-   *          the paste enabled
+   * @param text the text
+   * @param cutEnabled the cut enabled
+   * @param copyEnabled the copy enabled
+   * @param pasteEnabled the paste enabled
    */
-  public ModernTextAreaWrapped(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
+  public ModernTextAreaWrapped(String text, boolean cutEnabled,
+      boolean copyEnabled, boolean pasteEnabled) {
     super(text, cutEnabled, copyEnabled, pasteEnabled);
 
     setup();

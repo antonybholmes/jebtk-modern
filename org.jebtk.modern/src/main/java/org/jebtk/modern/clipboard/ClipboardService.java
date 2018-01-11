@@ -34,8 +34,8 @@ import java.awt.datatransfer.Transferable;
 
 import javax.swing.JList;
 import javax.swing.JTable;
-import org.jebtk.core.event.ChangeEvent;
 
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.text.TextUtils;
 
 // TODO: Auto-generated Javadoc
@@ -46,7 +46,8 @@ import org.jebtk.core.text.TextUtils;
  * @author Antony Holmes Holmes
  *
  */
-public class ClipboardService extends ClipboardEventListeners implements Clipboard {
+public class ClipboardService extends ClipboardEventListeners
+    implements Clipboard {
 
   /**
    * The constant serialVersionUID.
@@ -101,8 +102,7 @@ public class ClipboardService extends ClipboardEventListeners implements Clipboa
   /**
    * Register.
    *
-   * @param control
-   *          the control
+   * @param control the control
    */
   public synchronized void register(ClipboardUiControl control) {
     mControl = control;
@@ -113,8 +113,7 @@ public class ClipboardService extends ClipboardEventListeners implements Clipboa
   /**
    * Unregister.
    *
-   * @param control
-   *          the control
+   * @param control the control
    */
   public synchronized void unregister(ClipboardUiControl control) {
     if (!control.equals(mControl)) {
@@ -168,8 +167,7 @@ public class ClipboardService extends ClipboardEventListeners implements Clipboa
   /**
    * Copies a table model to the clipboard.
    *
-   * @param table
-   *          the table
+   * @param table the table
    */
   public static final void copy(JTable table) {
     if (table.getModel() == null) {
@@ -201,8 +199,8 @@ public class ClipboardService extends ClipboardEventListeners implements Clipboa
     }
 
     /*
-     * if (table.getSelectedRowCount() == 0) { // copy all rows for (int i = 0; i <
-     * table.getModel().getRowCount(); ++i) { for (int j = 0; j <
+     * if (table.getSelectedRowCount() == 0) { // copy all rows for (int i = 0;
+     * i < table.getModel().getRowCount(); ++i) { for (int j = 0; j <
      * table.getModel().getColumnCount(); ++j) {
      * builder.append(table.getModel().getValueAt(i, j).toString());
      * 
@@ -226,8 +224,7 @@ public class ClipboardService extends ClipboardEventListeners implements Clipboa
   /**
    * Copy.
    *
-   * @param list
-   *          the list
+   * @param list the list
    */
   public static final void copy(JList list) {
     StringBuilder builder = new StringBuilder();
@@ -238,11 +235,12 @@ public class ClipboardService extends ClipboardEventListeners implements Clipboa
     }
 
     /*
-     * if (list.getSelectedIndices().length == 0) { // copy all rows for (int i = 0;
-     * i < list.getModel().getSize(); ++i) {
+     * if (list.getSelectedIndices().length == 0) { // copy all rows for (int i
+     * = 0; i < list.getModel().getSize(); ++i) {
      * builder.append(list.getModel().getElementAt(i));
      * builder.append(Text.NEWLINE); } } else { for (int i :
-     * list.getSelectedIndices()) { builder.append(list.getModel().getElementAt(i));
+     * list.getSelectedIndices()) {
+     * builder.append(list.getModel().getElementAt(i));
      * builder.append(Text.NEWLINE); } }
      */
 
@@ -252,8 +250,7 @@ public class ClipboardService extends ClipboardEventListeners implements Clipboa
   /**
    * Copy to clipboard.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public static final void copyToClipboard(StringBuilder text) {
     copyToClipboard(text.toString());
@@ -262,12 +259,12 @@ public class ClipboardService extends ClipboardEventListeners implements Clipboa
   /**
    * Copy to the clipboard.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public static final void copyToClipboard(String text) {
     StringSelection stringModernSelection = new StringSelection(text);
-    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringModernSelection, null);
+    Toolkit.getDefaultToolkit().getSystemClipboard()
+        .setContents(stringModernSelection, null);
   }
 
   /**
@@ -277,12 +274,14 @@ public class ClipboardService extends ClipboardEventListeners implements Clipboa
    */
   public static final String getClipboardContents() {
 
-    java.awt.datatransfer.Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+    java.awt.datatransfer.Clipboard clipboard = Toolkit.getDefaultToolkit()
+        .getSystemClipboard();
 
     // odd: the Object param of getContents is not currently used
     Transferable contents = clipboard.getContents(null);
 
-    boolean hasTransferableText = (contents != null) && contents.isDataFlavorSupported(DataFlavor.stringFlavor);
+    boolean hasTransferableText = (contents != null)
+        && contents.isDataFlavorSupported(DataFlavor.stringFlavor);
 
     String result = "";
 

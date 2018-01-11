@@ -29,16 +29,16 @@ package org.jebtk.modern.layers;
 
 import java.util.List;
 
-import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.collections.CollectionUtils;
+import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 
 // TODO: Auto-generated Javadoc
 /**
  * The class LayersTableModel.
  */
-public class LayersTableModel extends ModernColumnHeaderTableModel implements LayerEventListener {
+public class LayersTableModel extends ModernColumnHeaderTableModel
+    implements LayerEventListener {
 
   /**
    * The constant HEADER.
@@ -53,8 +53,7 @@ public class LayersTableModel extends ModernColumnHeaderTableModel implements La
   /**
    * Instantiates a new layers table model.
    *
-   * @param layerModel
-   *          the layer model
+   * @param layerModel the layer model
    */
   public LayersTableModel(LayerModel layerModel) {
     mLayerModel = layerModel;
@@ -100,7 +99,8 @@ public class LayersTableModel extends ModernColumnHeaderTableModel implements La
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   * @see
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
    */
   @Override
   public final List<String> getColumnAnnotationText(int column) {
@@ -150,8 +150,8 @@ public class LayersTableModel extends ModernColumnHeaderTableModel implements La
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.event
-   * .ChangeEvent)
+   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.
+   * event .ChangeEvent)
    */
   @Override
   public void layerUpdated(ChangeEvent e) {

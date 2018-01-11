@@ -63,8 +63,7 @@ public class ModernDataListView extends ModernDataGridView {
   /**
    * Instantiates a new modern data list view.
    *
-   * @param renderer
-   *          the renderer
+   * @param renderer the renderer
    */
   public ModernDataListView(ModernDataCellRenderer renderer) {
     super();
@@ -110,12 +109,11 @@ public class ModernDataListView extends ModernDataGridView {
   }
 
   /**
-   * Provides a standard method for rendering the cells. This method ensures only
-   * visible cells are rendered, which is improves drawing time since it wastes a
-   * lot of effort drawing cells no one can see.
+   * Provides a standard method for rendering the cells. This method ensures
+   * only visible cells are rendered, which is improves drawing time since it
+   * wastes a lot of effort drawing cells no one can see.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    */
   @Override
   public final void createImage(Graphics2D g2) {
@@ -130,7 +128,8 @@ public class ModernDataListView extends ModernDataGridView {
     // all non visible cells
     translate(g2Table);
 
-    for (int i = visibleCells.getStartCol(); i <= visibleCells.getEndCol(); ++i) {
+    for (int i = visibleCells.getStartCol(); i <= visibleCells
+        .getEndCol(); ++i) {
       if (i >= getColumnCount()) {
         break;
       }
@@ -146,8 +145,13 @@ public class ModernDataListView extends ModernDataGridView {
 
         renderer = mCellRendererModel.get(i, j);
 
-        Component c = renderer.getCellRendererComponent(this, getValueAt(index, 0), index == mHighlightCellIndex,
-            mSelectionModel.contains(index, 0), this.isFocusOwner(), index, 0);
+        Component c = renderer.getCellRendererComponent(this,
+            getValueAt(index, 0),
+            index == mHighlightCellIndex,
+            mSelectionModel.contains(index, 0),
+            this.isFocusOwner(),
+            index,
+            0);
 
         c.setSize(mCellSize);
 
@@ -229,7 +233,8 @@ public class ModernDataListView extends ModernDataGridView {
       return -1;
     }
 
-    return (int) (p.getY() / mCellSize.height + p.getX() / mCellSize.width * mRows);
+    return (int) (p.getY() / mCellSize.height
+        + p.getX() / mCellSize.width * mRows);
   }
 
   /*

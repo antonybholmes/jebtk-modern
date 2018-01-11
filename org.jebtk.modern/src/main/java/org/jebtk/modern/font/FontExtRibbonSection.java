@@ -57,8 +57,7 @@ public class FontExtRibbonSection extends FontRibbonSection {
   /**
    * Instantiates a new font ribbon section.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public FontExtRibbonSection(ModernRibbonWindow parent) {
     super(parent);
@@ -71,12 +70,9 @@ public class FontExtRibbonSection extends FontRibbonSection {
   /**
    * Setup.
    *
-   * @param font
-   *          the font
-   * @param fontColor
-   *          the font color
-   * @param sentenceCase
-   *          the sentence case
+   * @param font the font
+   * @param fontColor the font color
+   * @param sentenceCase the sentence case
    */
   public void setup(Font font, Color fontColor, SentenceCaseType sentenceCase) {
     super.setup(font, fontColor);

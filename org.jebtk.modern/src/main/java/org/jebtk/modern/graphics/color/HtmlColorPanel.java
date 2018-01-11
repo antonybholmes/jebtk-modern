@@ -31,11 +31,10 @@ import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.ColorValue;
+import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.text.ModernTextBorderPanel;
@@ -46,7 +45,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The class HtmlColorPanel.
  */
-public class HtmlColorPanel extends ModernWidget implements KeyListener, ChangeListener {
+public class HtmlColorPanel extends ModernWidget
+    implements KeyListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -66,8 +66,7 @@ public class HtmlColorPanel extends ModernWidget implements KeyListener, ChangeL
   /**
    * Instantiates a new html color panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public HtmlColorPanel(ColorSelectionModel model) {
     mModel = model;
@@ -90,12 +89,13 @@ public class HtmlColorPanel extends ModernWidget implements KeyListener, ChangeL
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void changed(ChangeEvent e) {
-    mColorField.setText(ColorUtils.toHtml(ColorValue.convert(mModel.getNewColor())).substring(1));
+    mColorField.setText(ColorUtils
+        .toHtml(ColorValue.convert(mModel.getNewColor())).substring(1));
   }
 
   /*
@@ -136,6 +136,7 @@ public class HtmlColorPanel extends ModernWidget implements KeyListener, ChangeL
    * @return the color
    */
   public ColorValue getColor() {
-    return ColorValue.convert(ColorUtils.decodeHtmlColor(mColorField.getText()));
+    return ColorValue
+        .convert(ColorUtils.decodeHtmlColor(mColorField.getText()));
   }
 }

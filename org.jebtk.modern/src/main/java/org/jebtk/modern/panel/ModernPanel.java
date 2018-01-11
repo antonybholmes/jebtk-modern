@@ -61,8 +61,7 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public ModernPanel(Color color) {
     setup();
@@ -73,8 +72,7 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param manager
-   *          the manager
+   * @param manager the manager
    */
   public ModernPanel(LayoutManager manager) {
     setup();
@@ -85,8 +83,7 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param c
-   *          the c
+   * @param c the c
    */
   public ModernPanel(Component c) {
     setup();
@@ -97,10 +94,8 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param c
-   *          the c
-   * @param border
-   *          the border
+   * @param c the c
+   * @param border the border
    */
   public ModernPanel(Component c, int border) {
     this(c, BorderService.getInstance().createBorder(border));
@@ -109,10 +104,8 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param c
-   *          the c
-   * @param border
-   *          the border
+   * @param c the c
+   * @param border the border
    */
   public ModernPanel(Component c, Border border) {
     this(c);
@@ -123,10 +116,8 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param c
-   *          the c
-   * @param color
-   *          the color
+   * @param c the c
+   * @param color the color
    */
   public ModernPanel(Component c, Color color) {
     this(c);
@@ -137,12 +128,9 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param c
-   *          the c
-   * @param color
-   *          the color
-   * @param border
-   *          the border
+   * @param c the c
+   * @param color the color
+   * @param border the border
    */
   public ModernPanel(Component c, Color color, Border border) {
     this(c, color);
@@ -153,12 +141,9 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param c
-   *          the c
-   * @param color
-   *          the color
-   * @param padding
-   *          the padding
+   * @param c the c
+   * @param color the color
+   * @param padding the padding
    */
   public ModernPanel(Component c, Color color, int padding) {
     this(c, padding);
@@ -176,8 +161,7 @@ public class ModernPanel extends ModernComponent {
   /**
    * Should be in charge of rendering the foreground using anti-aliasing.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    */
   @Override
   public void drawBackground(Graphics2D g2) {

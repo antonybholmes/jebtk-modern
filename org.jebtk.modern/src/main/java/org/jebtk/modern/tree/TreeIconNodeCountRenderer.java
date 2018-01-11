@@ -31,7 +31,6 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 
 import org.jebtk.core.tree.TreeNode;
-
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
 // TODO: Auto-generated Javadoc
@@ -40,8 +39,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * parent nodes and an icon depending on whether the node is a parent or a leaf.
  *
  * @author Antony Holmes Holmes
- * @param <T>
- *          the generic type
+ * @param <T> the generic type
  */
 public class TreeIconNodeCountRenderer extends TreeIconNodeRenderer {
 
@@ -56,10 +54,8 @@ public class TreeIconNodeCountRenderer extends TreeIconNodeRenderer {
   /**
    * Instantiates a new tree icon node count renderer.
    *
-   * @param parentIcon
-   *          the parent icon
-   * @param leafIcon
-   *          the leaf icon
+   * @param parentIcon the parent icon
+   * @param leafIcon the leaf icon
    */
   public TreeIconNodeCountRenderer(ModernIcon parentIcon, ModernIcon leafIcon) {
     super(parentIcon, leafIcon);
@@ -69,8 +65,8 @@ public class TreeIconNodeCountRenderer extends TreeIconNodeRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.awt.
-   * Graphics2D)
+   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
   @Override
   public void drawNodeText(Graphics2D g2) {
@@ -87,7 +83,8 @@ public class TreeIconNodeCountRenderer extends TreeIconNodeRenderer {
     g2.setColor(getForeground());
 
     /*
-     * if (mNodeIsSelected) { g2.setFont(BOLD_FONT); } else { g2.setFont(FONT); }
+     * if (mNodeIsSelected) { g2.setFont(BOLD_FONT); } else { g2.setFont(FONT);
+     * }
      */
 
     g2.drawString(getTruncatedText(g2, text, 0, mRect.getW()), 0, p.y);
@@ -97,14 +94,27 @@ public class TreeIconNodeCountRenderer extends TreeIconNodeRenderer {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#getRenderer(org.abh.lib.ui.
-   * modern.tree.Tree, org.abh.lib.tree.TreeNode, boolean, boolean, boolean,
+   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#getRenderer(org.abh.lib.
+   * ui. modern.tree.Tree, org.abh.lib.tree.TreeNode, boolean, boolean, boolean,
    * boolean, int, int)
    */
   @Override
-  public ModernTreeNodeRenderer getRenderer(Tree<?> tree, TreeNode<?> node, boolean nodeIsHighlighted,
-      boolean nodeIsSelected, boolean hasFocus, boolean isDragToNode, int depth, int row) {
-    super.getRenderer(tree, node, nodeIsHighlighted, nodeIsSelected, hasFocus, isDragToNode, depth, row);
+  public ModernTreeNodeRenderer getRenderer(Tree<?> tree,
+      TreeNode<?> node,
+      boolean nodeIsHighlighted,
+      boolean nodeIsSelected,
+      boolean hasFocus,
+      boolean isDragToNode,
+      int depth,
+      int row) {
+    super.getRenderer(tree,
+        node,
+        nodeIsHighlighted,
+        nodeIsSelected,
+        hasFocus,
+        isDragToNode,
+        depth,
+        row);
 
     if (node.isParent()) {
       mCount = node.getCumulativeChildCount();

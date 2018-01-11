@@ -39,8 +39,8 @@ public class ModernCanvasAdapter implements ModernCanvasListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasChanged(org.abh.lib
-   * .event.ChangeEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasChanged(org.abh.
+   * lib .event.ChangeEvent)
    */
   @Override
   public void canvasChanged(ChangeEvent e) {
@@ -51,8 +51,8 @@ public class ModernCanvasAdapter implements ModernCanvasListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#redrawCanvas(org.abh.lib.
-   * event.ChangeEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#redrawCanvas(org.abh.
+   * lib. event.ChangeEvent)
    */
   @Override
   public void redrawCanvas(ChangeEvent e) {
@@ -74,9 +74,8 @@ public class ModernCanvasAdapter implements ModernCanvasListener {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.common.
-   * event.ChangeEvent)
+   * @see org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.
+   * common. event.ChangeEvent)
    */
   @Override
   public void canvasResized(ChangeEvent e) {

@@ -24,7 +24,6 @@ import javax.swing.border.Border;
 
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UIService;
-import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.CheveronRightVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
@@ -48,15 +47,14 @@ public class AutoHidePanel extends ModernComponent {
   private Component mC;
 
   /** The icon. */
-  private ModernIcon ICON = UIService.getInstance().loadIcon(CheveronRightVectorIcon.class, 12);
+  private ModernIcon ICON = UIService.getInstance()
+      .loadIcon(CheveronRightVectorIcon.class, 12);
 
   /**
    * Instantiates a new auto hide panel.
    *
-   * @param c
-   *          the c
-   * @param minWidth
-   *          the min width
+   * @param c the c
+   * @param minWidth the min width
    */
   public AutoHidePanel(Component c, int minWidth) {
     mC = c;

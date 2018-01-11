@@ -13,7 +13,9 @@ public class TextBorderAnimation extends HoverFadeAnimation {
   public TextBorderAnimation(ModernWidget widget) {
     super(widget);
 
-    setFadeColor("outline", ModernWidget.LINE_COLOR, ModernWidgetRenderer.SELECTED_FILL_COLOR);
+    setFadeColor("outline",
+        ModernWidget.LINE_COLOR,
+        ModernWidgetRenderer.SELECTED_FILL_COLOR);
 
     widget.addContainerListener(new ContainerListener() {
 
@@ -50,7 +52,8 @@ public class TextBorderAnimation extends HoverFadeAnimation {
 
       widget.getWidgetRenderer().drawContentBoxFill(g2, x, y, w, h);
 
-      widget.getWidgetRenderer().outline(g2, getFadeColor("outline"), x, y, w, h);
+      widget.getWidgetRenderer()
+          .outline(g2, getFadeColor("outline"), x, y, w, h);
     }
   }
 }

@@ -16,9 +16,8 @@
 package org.jebtk.modern.animation;
 
 import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.core.event.ChangeEventProducer;
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -33,8 +32,8 @@ public abstract class ChangeAnimation extends TimerAnimation {
    * The listener interface for receiving click events. The class that is
    * interested in processing a click event implements this interface, and the
    * object created with that class is registered with a component using the
-   * component's <code>addClickListener<code> method. When the click event occurs,
-   * that object's appropriate method is invoked.
+   * component's <code>addClickListener<code> method. When the click event
+   * occurs, that object's appropriate method is invoked.
    *
    * @see ClickEvent
    */
@@ -51,14 +50,15 @@ public abstract class ChangeAnimation extends TimerAnimation {
    * 
    * @param <T>
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
-  public <T extends ModernWidget & ChangeEventProducer> ChangeAnimation(T widget) {
+  public <T extends ModernWidget & ChangeEventProducer> ChangeAnimation(
+      T widget) {
     this(widget, DELAY_MS);
   }
 
-  public <T extends ModernWidget & ChangeEventProducer> ChangeAnimation(T widget, int delay) {
+  public <T extends ModernWidget & ChangeEventProducer> ChangeAnimation(
+      T widget, int delay) {
     super(widget, delay);
 
     widget.addChangeListener(new ChangeEvents());

@@ -45,8 +45,7 @@ public class ModernSubTitleLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern sub title label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernSubTitleLabel(String text) {
     super(text);
@@ -60,10 +59,8 @@ public class ModernSubTitleLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern sub title label.
    *
-   * @param text
-   *          the text
-   * @param border
-   *          the border
+   * @param text the text
+   * @param border the border
    */
   public ModernSubTitleLabel(String text, Border border) {
     this(text);

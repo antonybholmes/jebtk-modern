@@ -56,7 +56,8 @@ public class ModernDialogSectionSeparator extends ModernWidget {
   /**
    * The constant BACKGROUND.
    */
-  private static final Color BACKGROUND = ThemeService.getInstance().colors().getHighlight(3);
+  private static final Color BACKGROUND = ThemeService.getInstance().colors()
+      .getHighlight(3);
 
   /**
    * The member text.
@@ -66,8 +67,7 @@ public class ModernDialogSectionSeparator extends ModernWidget {
   /**
    * Instantiates a new modern dialog section separator.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernDialogSectionSeparator(String text) {
     mText = text;
@@ -90,7 +90,8 @@ public class ModernDialogSectionSeparator extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

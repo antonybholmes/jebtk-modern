@@ -40,7 +40,8 @@ import org.jebtk.modern.graphics.icons.WindowMaxVectorIcon;
 /**
  * The class ModernWindowTitleBarMaxButton.
  */
-public class ModernWindowTitleBarMaxButton extends ModernWindowTitleBarWinButton implements ModernClickListener {
+public class ModernWindowTitleBarMaxButton extends ModernWindowTitleBarWinButton
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -53,8 +54,7 @@ public class ModernWindowTitleBarMaxButton extends ModernWindowTitleBarWinButton
   /**
    * Instantiates a new modern window title bar max button.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public ModernWindowTitleBarMaxButton(ModernWindow window) {
     this(window, new Raster16Icon(new WindowMaxVectorIcon(Color.WHITE)));
@@ -63,10 +63,8 @@ public class ModernWindowTitleBarMaxButton extends ModernWindowTitleBarWinButton
   /**
    * Instantiates a new modern window title bar max button.
    *
-   * @param window
-   *          the window
-   * @param icon
-   *          the icon
+   * @param window the window
+   * @param icon the icon
    */
   public ModernWindowTitleBarMaxButton(ModernWindow window, ModernIcon icon) {
     super(icon);
@@ -83,9 +81,8 @@ public class ModernWindowTitleBarMaxButton extends ModernWindowTitleBarWinButton
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
-   * ModernClickEvent)
+   * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+   * event. ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

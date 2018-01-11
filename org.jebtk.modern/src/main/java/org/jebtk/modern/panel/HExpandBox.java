@@ -48,12 +48,9 @@ public class HExpandBox extends ModernComponent implements ComponentListener {
   /**
    * Instantiates a new h expand box.
    *
-   * @param name
-   *          the name
-   * @param c2
-   *          the c 2
-   * @param others
-   *          the others
+   * @param name the name
+   * @param c2 the c 2
+   * @param others the others
    */
   public HExpandBox(String name, Component c2, Component... others) {
     this(new ModernAutoSizeLabel(name), c2, others);
@@ -62,12 +59,9 @@ public class HExpandBox extends ModernComponent implements ComponentListener {
   /**
    * Instantiates a new h expand box.
    *
-   * @param c1
-   *          the c 1
-   * @param c2
-   *          the c 2
-   * @param others
-   *          the others
+   * @param c1 the c 1
+   * @param c2 the c 2
+   * @param others the others
    */
   public HExpandBox(Component c1, Component c2, Component... others) {
     this();
@@ -137,7 +131,10 @@ public class HExpandBox extends ModernComponent implements ComponentListener {
     Component c;
 
     c = getComponent(0);
-    c.setBounds(getInsets().left, getInsets().top, c.getPreferredSize().width, h);
+    c.setBounds(getInsets().left,
+        getInsets().top,
+        c.getPreferredSize().width,
+        h);
 
     // Determine the offset of the right components
     int w = 0;

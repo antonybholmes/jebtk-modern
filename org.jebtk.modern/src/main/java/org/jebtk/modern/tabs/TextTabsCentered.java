@@ -52,8 +52,7 @@ public class TextTabsCentered extends TextTabs {
   /**
    * Instantiates a new text tabs centered.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public TextTabsCentered(TabsModel model) {
     super(model);
@@ -94,13 +93,16 @@ public class TextTabsCentered extends TextTabs {
       boolean selected = i == getTabsModel().getSelectedIndex();
       boolean highlight = i == mHighlight;
 
-      g2.setColor(selected || highlight ? THEME_SELECTED_BORDER_COLOR : TEXT_COLOR);
+      g2.setColor(
+          selected || highlight ? THEME_SELECTED_BORDER_COLOR : TEXT_COLOR);
 
       g2.setFont(selected ? BOLD_FONT : FONT);
 
       String s = getTabsModel().getTab(i).getName(); // .toUpperCase();
 
-      g2.drawString(s, x + (mTabWidths.get(i) - g2.getFontMetrics().stringWidth(s)) / 2, textY);
+      g2.drawString(s,
+          x + (mTabWidths.get(i) - g2.getFontMetrics().stringWidth(s)) / 2,
+          textY);
 
       x += mTabWidths.get(i) + GAP_WIDTH;
     }

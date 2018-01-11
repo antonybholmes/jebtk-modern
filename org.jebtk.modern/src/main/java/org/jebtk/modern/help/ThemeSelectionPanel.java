@@ -42,8 +42,7 @@ public class ThemeSelectionPanel extends HBox {
   /**
    * Instantiates a new theme selection panel.
    *
-   * @param window
-   *          the window
+   * @param window the window
    */
   public ThemeSelectionPanel(final ModernWindow window) {
 

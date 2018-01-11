@@ -67,8 +67,8 @@ public class ImageCanvas extends ModernCanvas {
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.graphics.ModernCanvasAdapter#canvasChanged(org.abh.lib.
-     * event.ChangeEvent)
+     * org.abh.lib.ui.modern.graphics.ModernCanvasAdapter#canvasChanged(org.abh.
+     * lib. event.ChangeEvent)
      */
     @Override
     public void canvasChanged(ChangeEvent e) {
@@ -79,8 +79,7 @@ public class ImageCanvas extends ModernCanvas {
   /**
    * Instantiates a new image canvas.
    *
-   * @param canvas
-   *          the canvas
+   * @param canvas the canvas
    */
   public ImageCanvas(ModernCanvas canvas) {
     mCanvas = canvas;
@@ -103,9 +102,11 @@ public class ImageCanvas extends ModernCanvas {
    * Cache.
    */
   private void cache() {
-    Dimension size = new Dimension(mCanvas.getCanvasSize().getW(), mCanvas.getCanvasSize().getH());
+    Dimension size = new Dimension(mCanvas.getCanvasSize().getW(),
+        mCanvas.getCanvasSize().getH());
 
-    image = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_ARGB);
+    image = new BufferedImage(size.width, size.height,
+        BufferedImage.TYPE_INT_ARGB);
 
     Graphics2D g2Temp = ImageUtils.createAAGraphics(image);
 

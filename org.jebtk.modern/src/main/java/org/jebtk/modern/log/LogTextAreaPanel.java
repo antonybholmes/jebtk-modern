@@ -52,7 +52,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The class LogTextAreaPanel.
  */
-public class LogTextAreaPanel extends ModernWidget implements MouseListener, ModernClickListener {
+public class LogTextAreaPanel extends ModernWidget
+    implements MouseListener, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -98,8 +99,7 @@ public class LogTextAreaPanel extends ModernWidget implements MouseListener, Mod
   /**
    * Adds the event.
    *
-   * @param event
-   *          the event
+   * @param event the event
    */
   public final void addEvent(LogEvent event) {
     textArea.append("[");
@@ -113,8 +113,7 @@ public class LogTextAreaPanel extends ModernWidget implements MouseListener, Mod
   /**
    * Show log popup.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   private void showLogPopup(MouseEvent e) {
     logPopup.showPopup(e.getComponent(), e.getX(), e.getY());
@@ -176,8 +175,8 @@ public class LogTextAreaPanel extends ModernWidget implements MouseListener, Mod
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
     if (e.getMessage().equals(UI.MENU_COPY)) {

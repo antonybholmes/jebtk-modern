@@ -5,7 +5,8 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class MenuItemColorHighlightAnimation extends MenuItemHighlightAnimation {
+public class MenuItemColorHighlightAnimation
+    extends MenuItemHighlightAnimation {
   public MenuItemColorHighlightAnimation(ModernWidget button) {
     super(button);
   }
@@ -13,7 +14,8 @@ public class MenuItemColorHighlightAnimation extends MenuItemHighlightAnimation 
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     if (mButton.isEnabled() && mButton.getHightlighted()) {
-      ModernWidget.fill(g2, ModernWidgetRenderer.SELECTED_FILL_COLOR, widget.getRect());
+      ModernWidget
+          .fill(g2, ModernWidgetRenderer.SELECTED_FILL_COLOR, widget.getRect());
     }
   }
 

@@ -34,10 +34,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import org.jebtk.core.ColorValue;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
-import org.jebtk.core.ColorValue;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -45,7 +44,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The class ColorMatrixPanel.
  */
-public class ColorMatrixPanel extends ModernWidget implements MouseMotionListener, MouseListener, ChangeListener {
+public class ColorMatrixPanel extends ModernWidget
+    implements MouseMotionListener, MouseListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -80,8 +80,7 @@ public class ColorMatrixPanel extends ModernWidget implements MouseMotionListene
   /**
    * Instantiates a new color matrix panel.
    *
-   * @param model
-   *          the model
+   * @param model the model
    */
   public ColorMatrixPanel(ColorSelectionModel model) {
     mModel = model;
@@ -130,7 +129,8 @@ public class ColorMatrixPanel extends ModernWidget implements MouseMotionListene
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
@@ -179,8 +179,8 @@ public class ColorMatrixPanel extends ModernWidget implements MouseMotionListene
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void changed(ChangeEvent e) {
@@ -214,8 +214,7 @@ public class ColorMatrixPanel extends ModernWidget implements MouseMotionListene
   /**
    * Change color.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   private void changeColor(MouseEvent e) {
     ColorValue color;
@@ -256,7 +255,8 @@ public class ColorMatrixPanel extends ModernWidget implements MouseMotionListene
   /*
    * (non-Javadoc)
    * 
-   * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+   * @see
+   * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
    */
   @Override
   public void mouseMoved(MouseEvent e) {

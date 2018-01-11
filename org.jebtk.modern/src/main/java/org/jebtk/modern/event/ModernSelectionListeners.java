@@ -28,7 +28,6 @@
 package org.jebtk.modern.event;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.EventProducer;
 
 // TODO: Auto-generated Javadoc
@@ -38,7 +37,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernSelectionListeners extends EventProducer<ModernSelectionListener>
+public class ModernSelectionListeners
+    extends EventProducer<ModernSelectionListener>
     implements ModernSelectionEventProducer {
 
   /**
@@ -49,9 +49,8 @@ public class ModernSelectionListeners extends EventProducer<ModernSelectionListe
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionEventProducer#addSelectionListener
-   * (org.abh.lib.ui.modern.event.ModernSelectionListener)
+   * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
+   * addSelectionListener (org.abh.lib.ui.modern.event.ModernSelectionListener)
    */
   public void addSelectionListener(ModernSelectionListener l) {
     mListeners.add(l);
@@ -61,7 +60,8 @@ public class ModernSelectionListeners extends EventProducer<ModernSelectionListe
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
-   * removeSelectionListener(org.abh.lib.ui.modern.event.ModernSelectionListener)
+   * removeSelectionListener(org.abh.lib.ui.modern.event.
+   * ModernSelectionListener)
    */
   public void removeSelectionListener(ModernSelectionListener l) {
     mListeners.remove(l);
@@ -70,9 +70,8 @@ public class ModernSelectionListeners extends EventProducer<ModernSelectionListe
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionEventProducer#fireSelectionChanged
-   * (org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
+   * fireSelectionChanged (org.abh.lib.event.ChangeEvent)
    */
   public void fireSelectionChanged(ChangeEvent e) {
     for (ModernSelectionListener l : mListeners) {

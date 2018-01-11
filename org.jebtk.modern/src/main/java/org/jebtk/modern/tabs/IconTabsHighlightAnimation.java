@@ -20,8 +20,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.animation.HighlightAnimation;
-import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -41,15 +39,15 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
   /**
    * Instantiates a new state animation.
    *
-   * @param ribbon
-   *          the ribbon
+   * @param ribbon the ribbon
    */
   public IconTabsHighlightAnimation(ModernWidget w) {
     super((IconTabs) w);
 
     mTabs = (IconTabs) w;
 
-    getFade().setFadeColor("highlight", ColorUtils.getTransparentColor(Color.BLACK, 0.95));
+    getFade().setFadeColor("highlight",
+        ColorUtils.getTransparentColor(Color.BLACK, 0.95));
   }
 
   /*
@@ -79,8 +77,9 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
       /*
        * Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
        * 
-       * try { g2Temp.setColor(getFade().getFadeColor("highlight")); g2Temp.fillOval(x
-       * + mTabs.mTabSize * highlighted, y, h, h); } finally { g2Temp.dispose(); }
+       * try { g2Temp.setColor(getFade().getFadeColor("highlight"));
+       * g2Temp.fillOval(x + mTabs.mTabSize * highlighted, y, h, h); } finally {
+       * g2Temp.dispose(); }
        */
     }
   }

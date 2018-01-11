@@ -45,8 +45,7 @@ public class ModernCenteredHeadingPanel extends ModernCenteredLabelPanel {
   /**
    * Instantiates a new modern centered heading panel.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernCenteredHeadingPanel(String text) {
     super(text);
@@ -57,10 +56,8 @@ public class ModernCenteredHeadingPanel extends ModernCenteredLabelPanel {
   /**
    * Instantiates a new modern centered heading panel.
    *
-   * @param text
-   *          the text
-   * @param color
-   *          the color
+   * @param text the text
+   * @param color the color
    */
   public ModernCenteredHeadingPanel(String text, Color color) {
     super(text, color);

@@ -48,12 +48,9 @@ public class ProgressEvent extends Event {
   /**
    * Instantiates a new progress event.
    *
-   * @param source
-   *          the source
-   * @param message
-   *          the message
-   * @param percent
-   *          the percent
+   * @param source the source
+   * @param message the message
+   * @param percent the percent
    */
   public ProgressEvent(Object source, String message, int percent) {
     super(source, message);

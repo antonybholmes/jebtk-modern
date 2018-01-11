@@ -78,8 +78,7 @@ public class PropertyValueTableModel extends ModernColumnHeaderTableModel {
   /**
    * Gets the column annotation.
    *
-   * @param col
-   *          the col
+   * @param col the col
    * @return the column annotation
    */
   public final List<String> getColumnAnnotation(int col) {
@@ -100,14 +99,13 @@ public class PropertyValueTableModel extends ModernColumnHeaderTableModel {
   /**
    * Adds the.
    *
-   * @param property
-   *          the property
-   * @param value
-   *          the value
-   * @param editable
-   *          the editable
+   * @param property the property
+   * @param value the value
+   * @param editable the editable
    */
-  public final void add(String property, String value, PropertyValueEditType editable) {
+  public final void add(String property,
+      String value,
+      PropertyValueEditType editable) {
 
     PropertyValuePair pair = new PropertyValuePair(property, value);
 
@@ -117,12 +115,11 @@ public class PropertyValueTableModel extends ModernColumnHeaderTableModel {
   /**
    * Adds the.
    *
-   * @param pair
-   *          the pair
-   * @param editable
-   *          the editable
+   * @param pair the pair
+   * @param editable the editable
    */
-  public final void add(PropertyValuePair pair, PropertyValueEditType editable) {
+  public final void add(PropertyValuePair pair,
+      PropertyValueEditType editable) {
 
     values.add(pair);
 

@@ -69,8 +69,7 @@ public class RibbonPanelTitle extends ModernWidget {
   /**
    * Instantiates a new ribbon panel title.
    *
-   * @param name
-   *          the name
+   * @param name the name
    */
   public RibbonPanelTitle(String name) {
     mName = name;
@@ -87,7 +86,8 @@ public class RibbonPanelTitle extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

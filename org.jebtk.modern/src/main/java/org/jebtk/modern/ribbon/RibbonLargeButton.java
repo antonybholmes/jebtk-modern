@@ -40,7 +40,8 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The class RibbonButton2.
  */
-public class RibbonLargeButton extends ModernButton implements RibbonModeProperty {
+public class RibbonLargeButton extends ModernButton
+    implements RibbonModeProperty {
 
   /**
    * The constant serialVersionUID.
@@ -65,10 +66,8 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
   /**
    * Instantiates a new ribbon large button.
    *
-   * @param text1
-   *          the text 1
-   * @param icon
-   *          the icon
+   * @param text1 the text 1
+   * @param icon the icon
    */
   public RibbonLargeButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -81,14 +80,12 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
   /**
    * Instantiates a new ribbon large button.
    *
-   * @param text1
-   *          the text 1
-   * @param icon
-   *          the icon
-   * @param compactIcon
-   *          the compact icon
+   * @param text1 the text 1
+   * @param icon the icon
+   * @param compactIcon the compact icon
    */
-  public RibbonLargeButton(String text1, ModernIcon icon, ModernIcon compactIcon) {
+  public RibbonLargeButton(String text1, ModernIcon icon,
+      ModernIcon compactIcon) {
     this(text1, icon);
 
     mCompactIcon = compactIcon;
@@ -97,12 +94,9 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
   /**
    * Instantiates a new ribbon button2.
    *
-   * @param text1
-   *          the text1
-   * @param text2
-   *          the text 2
-   * @param icon
-   *          the icon
+   * @param text1 the text1
+   * @param text2 the text 2
+   * @param icon the icon
    */
   public RibbonLargeButton(String text1, String text2, ModernIcon icon) {
     super(text1, icon);
@@ -120,8 +114,7 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
   /**
    * Instantiates a new ribbon button2.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public RibbonLargeButton(ModernIcon icon) {
     super(icon);
@@ -132,16 +125,13 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
   /**
    * Instantiates a new ribbon large button.
    *
-   * @param text1
-   *          the text 1
-   * @param icon
-   *          the icon
-   * @param toolTipTitle
-   *          the tool tip title
-   * @param toolTipText
-   *          the tool tip text
+   * @param text1 the text 1
+   * @param icon the icon
+   * @param toolTipTitle the tool tip title
+   * @param toolTipText the tool tip text
    */
-  public RibbonLargeButton(String text1, ModernIcon icon, String toolTipTitle, String toolTipText) {
+  public RibbonLargeButton(String text1, ModernIcon icon, String toolTipTitle,
+      String toolTipText) {
     this(text1, icon);
 
     setToolTip(toolTipTitle, toolTipText);
@@ -150,14 +140,12 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
   /**
    * Create an icon button with a tooltip.
    *
-   * @param icon
-   *          the icon
-   * @param toolTipTitle
-   *          the tool tip title
-   * @param toolTipText
-   *          the tool tip text
+   * @param icon the icon
+   * @param toolTipTitle the tool tip title
+   * @param toolTipText the tool tip text
    */
-  public RibbonLargeButton(ModernIcon icon, String toolTipTitle, String toolTipText) {
+  public RibbonLargeButton(ModernIcon icon, String toolTipTitle,
+      String toolTipText) {
     this(icon);
 
     setToolTip(toolTipTitle, toolTipText);
@@ -166,18 +154,14 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
   /**
    * Instantiates a new ribbon large button.
    *
-   * @param text1
-   *          the text 1
-   * @param text2
-   *          the text 2
-   * @param icon
-   *          the icon
-   * @param toolTipTitle
-   *          the tool tip title
-   * @param toolTipText
-   *          the tool tip text
+   * @param text1 the text 1
+   * @param text2 the text 2
+   * @param icon the icon
+   * @param toolTipTitle the tool tip title
+   * @param toolTipText the tool tip text
    */
-  public RibbonLargeButton(String text1, String text2, ModernIcon icon, String toolTipTitle, String toolTipText) {
+  public RibbonLargeButton(String text1, String text2, ModernIcon icon,
+      String toolTipTitle, String toolTipText) {
     this(text1, text2, icon);
 
     setToolTip(toolTipTitle, toolTipText);
@@ -186,19 +170,14 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
   /**
    * Instantiates a new ribbon large button.
    *
-   * @param text1
-   *          the text 1
-   * @param icon
-   *          the icon
-   * @param compactIcon
-   *          the compact icon
-   * @param toolTipTitle
-   *          the tool tip title
-   * @param toolTipText
-   *          the tool tip text
+   * @param text1 the text 1
+   * @param icon the icon
+   * @param compactIcon the compact icon
+   * @param toolTipTitle the tool tip title
+   * @param toolTipText the tool tip text
    */
-  public RibbonLargeButton(String text1, ModernIcon icon, ModernIcon compactIcon, String toolTipTitle,
-      String toolTipText) {
+  public RibbonLargeButton(String text1, ModernIcon icon,
+      ModernIcon compactIcon, String toolTipTitle, String toolTipText) {
     this(text1, icon, compactIcon);
 
     setToolTip(toolTipTitle, toolTipText);
@@ -214,14 +193,14 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
 
     setSize(RibbonSize.COMPACT);
 
-    setBackgroundAnimations("ribbon-button"); // new RibbonButtonHighlightAnimation(this));
+    setBackgroundAnimations("ribbon-button"); // new
+                                              // RibbonButtonHighlightAnimation(this));
   }
 
   /**
    * Sets the show text.
    *
-   * @param show
-   *          the new show text
+   * @param show the new show text
    */
   public void setShowText(boolean show) {
     mShowText = show;
@@ -259,9 +238,8 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.ribbon.
-   * RibbonSize)
+   * @see org.abh.common.ui.ribbon.RibbonModeProperty#setSize(org.abh.common.ui.
+   * ribbon. RibbonSize)
    */
   @Override
   public void setSize(RibbonSize mode) {
@@ -312,7 +290,16 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
-    drawForegroundAA(g2, mMode, isEnabled(), mShowText, mText1, mText2, mText, mIcon, mCompactIcon, mRect);
+    drawForegroundAA(g2,
+        mMode,
+        isEnabled(),
+        mShowText,
+        mText1,
+        mText2,
+        mText,
+        mIcon,
+        mCompactIcon,
+        mRect);
 
     /*
      * int x; int y;
@@ -322,17 +309,19 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
      * 
      * if (mMode == RibbonMode.LARGE) { if (mText1 != null) { y = mRect.getH() -
      * PADDING - ModernWidget.getStringHeight(); x = (getWidth() -
-     * g2.getFontMetrics().stringWidth(mText1)) / 2; g2.drawString(mText1, x, y);
+     * g2.getFontMetrics().stringWidth(mText1)) / 2; g2.drawString(mText1, x,
+     * y);
      * 
-     * if (mText2 != null) { y += ModernWidget.getStringHeight(); x = (getWidth() -
-     * g2.getFontMetrics().stringWidth(mText2)) / 2; g2.drawString(mText2, x, y); }
+     * if (mText2 != null) { y += ModernWidget.getStringHeight(); x =
+     * (getWidth() - g2.getFontMetrics().stringWidth(mText2)) / 2;
+     * g2.drawString(mText2, x, y); }
      * 
      * x = (mRect.getW() - getIcon().getWidth()) / 2; y = PADDING;
      * 
      * if (isEnabled()) { getIcon().drawIcon(g2, x, y, 16); } else {
      * getDisabledIcon().drawIcon(g2, x, y, 16); } } else { x = (mRect.getW() -
-     * mCompactIcon.getWidth()) / 2; y = (mRect.getH() - mCompactIcon.getHeight()) /
-     * 2;
+     * mCompactIcon.getWidth()) / 2; y = (mRect.getH() -
+     * mCompactIcon.getHeight()) / 2;
      * 
      * if (isEnabled()) { getIcon().drawIcon(g2, x, y, 16); } else {
      * getDisabledIcon().drawIcon(g2, x, y, 16); } }
@@ -349,8 +338,8 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
      * ModernWidget.getTextYPosCenter(g2, getHeight());
      * 
      * g2.drawString(mText, x, y); } else { x = (mRect.getW() -
-     * mCompactIcon.getWidth()) / 2; y = (mRect.getH() - mCompactIcon.getHeight()) /
-     * 2;
+     * mCompactIcon.getWidth()) / 2; y = (mRect.getH() -
+     * mCompactIcon.getHeight()) / 2;
      * 
      * if (isEnabled()) { mCompactIcon.drawIcon(g2, x, y, 16); } else {
      * mCompactIcon.getDisabledIcon()).drawIcon(g2, x, y, 16); } } }
@@ -360,29 +349,27 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
   /**
    * Draw foreground AA.
    *
-   * @param g2
-   *          the g 2
-   * @param mode
-   *          the mode
-   * @param enabled
-   *          the enabled
-   * @param showText
-   *          the show text
-   * @param text1
-   *          the text 1
-   * @param text2
-   *          the text 2
-   * @param text
-   *          the text
-   * @param icon
-   *          the icon
-   * @param compactIcon
-   *          the compact icon
-   * @param rect
-   *          the rect
+   * @param g2 the g 2
+   * @param mode the mode
+   * @param enabled the enabled
+   * @param showText the show text
+   * @param text1 the text 1
+   * @param text2 the text 2
+   * @param text the text
+   * @param icon the icon
+   * @param compactIcon the compact icon
+   * @param rect the rect
    */
-  public static void drawForegroundAA(Graphics2D g2, RibbonSize mode, boolean enabled, boolean showText, String text1,
-      String text2, String text, ModernIcon icon, ModernIcon compactIcon, IntRect rect) {
+  public static void drawForegroundAA(Graphics2D g2,
+      RibbonSize mode,
+      boolean enabled,
+      boolean showText,
+      String text1,
+      String text2,
+      String text,
+      ModernIcon icon,
+      ModernIcon compactIcon,
+      IntRect rect) {
     int x;
     int y;
 
@@ -430,7 +417,8 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
         if (enabled) {
           compactIcon.drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
         } else {
-          compactIcon.getDisabledIcon().drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
+          compactIcon.getDisabledIcon()
+              .drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
         }
 
         x = DOUBLE_PADDING + compactIcon.getWidth();
@@ -444,7 +432,8 @@ public class RibbonLargeButton extends ModernButton implements RibbonModePropert
         if (enabled) {
           compactIcon.drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
         } else {
-          compactIcon.getDisabledIcon().drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
+          compactIcon.getDisabledIcon()
+              .drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
         }
       }
     }

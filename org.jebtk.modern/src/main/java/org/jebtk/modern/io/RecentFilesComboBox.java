@@ -31,7 +31,6 @@ import java.nio.file.Path;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.combobox.ModernComboBox;
@@ -58,7 +57,8 @@ public class RecentFilesComboBox extends ModernComboBox {
   /**
    * The icon.
    */
-  private ModernIcon icon = UIService.getInstance().loadIcon("file", UIService.ICON_SIZE_32);
+  private ModernIcon icon = UIService.getInstance().loadIcon("file",
+      UIService.ICON_SIZE_32);
 
   /**
    * The max.
@@ -78,7 +78,8 @@ public class RecentFilesComboBox extends ModernComboBox {
     /*
      * (non-Javadoc)
      * 
-     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see
+     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -89,8 +90,7 @@ public class RecentFilesComboBox extends ModernComboBox {
   /**
    * Instantiates a new recent files combo box.
    *
-   * @param recentFiles
-   *          the recent files
+   * @param recentFiles the recent files
    */
   public RecentFilesComboBox(RecentFilesService recentFiles) {
     setup(recentFiles, MAX_FILES);
@@ -99,10 +99,8 @@ public class RecentFilesComboBox extends ModernComboBox {
   /**
    * Instantiates a new recent files combo box.
    *
-   * @param recentFiles
-   *          the recent files
-   * @param max
-   *          the max
+   * @param recentFiles the recent files
+   * @param max the max
    */
   public RecentFilesComboBox(RecentFilesService recentFiles, int max) {
     setup(recentFiles, max);
@@ -111,10 +109,8 @@ public class RecentFilesComboBox extends ModernComboBox {
   /**
    * Instantiates a new recent files combo box.
    *
-   * @param recentFiles
-   *          the recent files
-   * @param icon
-   *          the icon
+   * @param recentFiles the recent files
+   * @param icon the icon
    */
   public RecentFilesComboBox(RecentFilesService recentFiles, ModernIcon icon) {
     this.icon = icon;
@@ -125,14 +121,12 @@ public class RecentFilesComboBox extends ModernComboBox {
   /**
    * Instantiates a new recent files combo box.
    *
-   * @param recentFiles
-   *          the recent files
-   * @param icon
-   *          the icon
-   * @param max
-   *          the max
+   * @param recentFiles the recent files
+   * @param icon the icon
+   * @param max the max
    */
-  public RecentFilesComboBox(RecentFilesService recentFiles, ModernIcon icon, int max) {
+  public RecentFilesComboBox(RecentFilesService recentFiles, ModernIcon icon,
+      int max) {
     this.icon = icon;
 
     setup(recentFiles, max);
@@ -141,10 +135,8 @@ public class RecentFilesComboBox extends ModernComboBox {
   /**
    * Setup.
    *
-   * @param recentFiles
-   *          the recent files
-   * @param max
-   *          the max
+   * @param recentFiles the recent files
+   * @param max the max
    */
   private void setup(RecentFilesService recentFiles, int max) {
     this.recentFiles = recentFiles;

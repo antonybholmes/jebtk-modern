@@ -51,7 +51,8 @@ import org.jebtk.modern.text.ModernCenteredHeadingPanel;
  * @author Antony Holmes Holmes
  *
  */
-public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane implements ModernClickListener {
+public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -65,7 +66,8 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
    * @author Antony Holmes Holmes
    *
    */
-  private class OKCancelPanel extends MessageDialogPanel implements ModernClickListener, FocusListener {
+  private class OKCancelPanel extends MessageDialogPanel
+      implements ModernClickListener, FocusListener {
 
     /**
      * The constant serialVersionUID.
@@ -85,7 +87,8 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
     /**
      * The member message label.
      */
-    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel("Heading", Color.WHITE);
+    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel(
+        "Heading", Color.WHITE);
 
     /**
      * The member listeners.
@@ -123,8 +126,7 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
     /**
      * Show message.
      *
-     * @param message
-     *          the message
+     * @param message the message
      */
     public void showMessage(String message) {
       mMessageLabel.setText(message);
@@ -133,8 +135,7 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
     /**
      * Adds the click listener.
      *
-     * @param l
-     *          the l
+     * @param l the l
      */
     public void addClickListener(ModernClickListener l) {
       mListeners.addClickListener(l);
@@ -144,8 +145,8 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
      * (non-Javadoc)
      * 
      * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-     * .event.ModernClickEvent)
+     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * modern .event.ModernClickEvent)
      */
     @Override
     public void clicked(ModernClickEvent e) {
@@ -210,8 +211,8 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {
@@ -219,6 +220,7 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
 
     // call back
     mListeners.fireDialogStatusChanged(new DialogEvent(this,
-        (e.getMessage().equals(UI.BUTTON_OK) ? ModernDialogStatus.OK : ModernDialogStatus.CANCEL)));
+        (e.getMessage().equals(UI.BUTTON_OK) ? ModernDialogStatus.OK
+            : ModernDialogStatus.CANCEL)));
   }
 }

@@ -44,8 +44,7 @@ public class WidgetRendererProvider {
   /**
    * Sets the.
    *
-   * @param renderer
-   *          the renderer
+   * @param renderer the renderer
    * @return the widget renderer provider
    */
   /*

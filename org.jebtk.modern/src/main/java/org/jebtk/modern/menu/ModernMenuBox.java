@@ -40,7 +40,8 @@ import org.jebtk.modern.panel.VBoxAutoWidth;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernMenuBox extends VBoxAutoWidth implements ModernClickEventProducer, ModernClickListener {
+public class ModernMenuBox extends VBoxAutoWidth
+    implements ModernClickEventProducer, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -55,8 +56,7 @@ public class ModernMenuBox extends VBoxAutoWidth implements ModernClickEventProd
   /**
    * Adds the.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public void add(ModernMenuItem item) {
     addMenuItem(item);
@@ -65,8 +65,7 @@ public class ModernMenuBox extends VBoxAutoWidth implements ModernClickEventProd
   /**
    * Adds the menu item.
    *
-   * @param item
-   *          the item
+   * @param item the item
    */
   public void addMenuItem(ModernMenuItem item) {
     super.add(item);
@@ -78,8 +77,8 @@ public class ModernMenuBox extends VBoxAutoWidth implements ModernClickEventProd
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.abh
-   * .lib.ui.modern.event.ModernClickListener)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#addClickListener(org.
+   * abh .lib.ui.modern.event.ModernClickListener)
    */
   @Override
   public void addClickListener(ModernClickListener l) {
@@ -90,8 +89,8 @@ public class ModernMenuBox extends VBoxAutoWidth implements ModernClickEventProd
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(org.
-   * abh.lib.ui.modern.event.ModernClickListener)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#removeClickListener(
+   * org. abh.lib.ui.modern.event.ModernClickListener)
    */
   @Override
   public void removeClickListener(ModernClickListener l) {
@@ -102,8 +101,8 @@ public class ModernMenuBox extends VBoxAutoWidth implements ModernClickEventProd
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.lib.
-   * ui.modern.event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.
+   * lib. ui.modern.event.ModernClickEvent)
    */
   @Override
   public void fireClicked(ModernClickEvent e) {
@@ -114,8 +113,8 @@ public class ModernMenuBox extends VBoxAutoWidth implements ModernClickEventProd
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {

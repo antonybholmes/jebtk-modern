@@ -31,9 +31,8 @@ import java.awt.Color;
 import java.awt.Font;
 
 import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.event.ChangeListener;
-
 import org.jebtk.core.event.ChangeEventProducer;
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernCheckButton;
@@ -52,7 +51,8 @@ import org.jebtk.modern.window.ModernRibbonWindow;
  * @author Antony Holmes Holmes
  *
  */
-public class FontRibbonSection extends RibbonSection implements ModernClickListener, ChangeEventProducer {
+public class FontRibbonSection extends RibbonSection
+    implements ModernClickListener, ChangeEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -72,12 +72,14 @@ public class FontRibbonSection extends RibbonSection implements ModernClickListe
   /**
    * The bold button.
    */
-  private ModernCheckButton mBoldButton = new RibbonCheckButton(UIService.getInstance().loadIcon("font_bold", 16));
+  private ModernCheckButton mBoldButton = new RibbonCheckButton(
+      UIService.getInstance().loadIcon("font_bold", 16));
 
   /**
    * The italic button.
    */
-  private ModernCheckButton mItalicButton = new RibbonCheckButton(UIService.getInstance().loadIcon("font_italic", 16));
+  private ModernCheckButton mItalicButton = new RibbonCheckButton(
+      UIService.getInstance().loadIcon("font_italic", 16));
 
   /**
    * The underline button.
@@ -100,8 +102,7 @@ public class FontRibbonSection extends RibbonSection implements ModernClickListe
   /**
    * Instantiates a new font ribbon section.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public FontRibbonSection(ModernRibbonWindow parent) {
     super(parent.getRibbon(), "Font");
@@ -121,7 +122,8 @@ public class FontRibbonSection extends RibbonSection implements ModernClickListe
     mBoldButton.setToolTip("Bold", "Make your text bold.");
     mItalicButton.setToolTip("Italic", "Italicize your text.");
     mUnderlineButton.setToolTip("Underline", "Underline your text.");
-    mStrikethroughButton.setToolTip("Strikethough", "Cross something out by drawing a line through it.");
+    mStrikethroughButton.setToolTip("Strikethough",
+        "Cross something out by drawing a line through it.");
 
     // mUnderlineButton.setEnabled(false);
 
@@ -137,10 +139,8 @@ public class FontRibbonSection extends RibbonSection implements ModernClickListe
   /**
    * Setup.
    *
-   * @param font
-   *          the font
-   * @param fontColor
-   *          the font color
+   * @param font the font
+   * @param fontColor the font color
    */
   public void setup(Font font, Color fontColor) {
     if (font == null) {
@@ -162,8 +162,11 @@ public class FontRibbonSection extends RibbonSection implements ModernClickListe
    * @return the user font
    */
   public Font getUserFont() {
-    return FontService.getInstance().loadFont(mFontsCombo.getText(), Integer.parseInt(mFontSizeCombo.getText()),
-        mBoldButton.isSelected(), mItalicButton.isSelected(), mUnderlineButton.isSelected(),
+    return FontService.getInstance().loadFont(mFontsCombo.getText(),
+        Integer.parseInt(mFontSizeCombo.getText()),
+        mBoldButton.isSelected(),
+        mItalicButton.isSelected(),
+        mUnderlineButton.isSelected(),
         mStrikethroughButton.isSelected());
   }
 
@@ -171,8 +174,8 @@ public class FontRibbonSection extends RibbonSection implements ModernClickListe
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     fireChanged();
@@ -202,9 +205,8 @@ public class FontRibbonSection extends RibbonSection implements ModernClickListe
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.event.ChangeEventProducer#removeChangeListener(org.abh.common.
-   * event.ChangeListener)
+   * @see org.abh.common.event.ChangeEventProducer#removeChangeListener(org.abh.
+   * common. event.ChangeListener)
    */
   @Override
   public void removeChangeListener(ChangeListener l) {

@@ -31,28 +31,23 @@ import java.awt.Component;
 import java.io.IOException;
 import java.nio.file.Path;
 
-import javax.swing.JComponent;
 import javax.swing.border.Border;
 
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.UI;
 import org.jebtk.modern.dialog.DialogEventListener;
 import org.jebtk.modern.dialog.MessageDialogOkCancelGlassPane;
 import org.jebtk.modern.dialog.MessageDialogTaskGlassPane;
 import org.jebtk.modern.dialog.MessageDialogType;
 import org.jebtk.modern.dialog.ModernMessageDialog;
-import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.help.GuiAppInfo;
-import org.jebtk.modern.panel.AutoHidePanel;
-import org.jebtk.modern.panel.CardPanel;
+import org.jebtk.modern.panel.Card;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.shadow.TopShadowPanel;
 import org.jebtk.modern.status.ModernStatusBar;
 import org.jebtk.modern.tabs.IconTabsPanel;
-import org.jebtk.modern.tabs.IconTabsVectorIcon;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
@@ -76,7 +71,8 @@ public class ModernRibbonWindow extends ModernWindow {
   // private MessageDialogGlassPane mMessagePane =
   // new MessageDialogGlassPane();
 
-  private static final Border RIBBON_BORDER = BorderService.getInstance().createLineBorder(Ribbon.BAR_BACKGROUND);
+  private static final Border RIBBON_BORDER = BorderService.getInstance()
+      .createLineBorder(Ribbon.BAR_BACKGROUND);
 
   /**
    * The member ribbon.
@@ -95,8 +91,7 @@ public class ModernRibbonWindow extends ModernWindow {
   /**
    * Instantiates a new modern window2.
    *
-   * @param appInfo
-   *          the app info
+   * @param appInfo the app info
    */
   public ModernRibbonWindow(GuiAppInfo appInfo) {
     super(appInfo);
@@ -105,6 +100,7 @@ public class ModernRibbonWindow extends ModernWindow {
     mRibbon = new Ribbon(this);
     super.setHeader(mRibbon);
 
+    /*
     if (UI.CUSTOM_WINDOW_DECORATION) {
       // Disable chrome
       setUndecorated(true);
@@ -118,6 +114,7 @@ public class ModernRibbonWindow extends ModernWindow {
       new WindowMover(this, mRibbon);
       new WindowResizer(this);
     }
+    */
 
     setFooter(mStatusBar);
 
@@ -183,8 +180,10 @@ public class ModernRibbonWindow extends ModernWindow {
    * @param c
    */
   public void setCard(Component c) {
-    getTabsPane().getModel().setCenterTab(new ModernComponent(
-        new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)), ModernWidget.DOUBLE_BORDER));
+    getTabsPane().getModel()
+        .setCenterTab(new ModernComponent(
+            new Card(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)),
+            ModernWidget.DOUBLE_BORDER));
   }
 
   /**
@@ -202,8 +201,7 @@ public class ModernRibbonWindow extends ModernWindow {
    * automatically be either on the left side of the title bar or the ribbon
    * itself.
    *
-   * @param button
-   *          the button
+   * @param button the button
    */
   public void addQuickAccessButton(ModernClickWidget button) {
     // Add the quick access buttons to the title bar rather than the
@@ -222,41 +220,39 @@ public class ModernRibbonWindow extends ModernWindow {
   /**
    * Creates the file saved dialog.
    *
-   * @param file
-   *          the file
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @throws IOException Signals that an I/O exception has occurred.
    */
   public void createFileSavedDialog(Path file) throws IOException {
-    createInformationDialog(
-        TextUtils.singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file))) + " was saved.");
+    createInformationDialog(TextUtils.singleQuote(
+        ModernMessageDialog.truncate(PathUtils.getName(file))) + " was saved.");
   }
 
   /**
    * Creates the file exists dialog.
    *
-   * @param file
-   *          the file
-   * @param l
-   *          the l
-   * @throws IOException
-   *           Signals that an I/O exception has occurred.
+   * @param file the file
+   * @param l the l
+   * @throws IOException Signals that an I/O exception has occurred.
    */
-  public void createFileExistsDialog(Path file, DialogEventListener l) throws IOException {
-    createOkCancelDialog(TextUtils.singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file)))
-        + " already exists. Do you want to replace it?", l);
+  public void createFileExistsDialog(Path file, DialogEventListener l)
+      throws IOException {
+    createOkCancelDialog(
+        TextUtils
+            .singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file)))
+            + " already exists. Do you want to replace it?",
+        l);
   }
 
   /**
    * Creates the ok cancel dialog.
    *
-   * @param message
-   *          the message
-   * @param l
-   *          the l
+   * @param message the message
+   * @param l the l
    * @return the message dialog ok cancel glass pane
    */
-  public MessageDialogOkCancelGlassPane createOkCancelDialog(String message, DialogEventListener l) {
+  public MessageDialogOkCancelGlassPane createOkCancelDialog(String message,
+      DialogEventListener l) {
     MessageDialogOkCancelGlassPane searchPane = new MessageDialogOkCancelGlassPane();
 
     setGlassPane(searchPane);
@@ -271,8 +267,7 @@ public class ModernRibbonWindow extends ModernWindow {
   /**
    * Creates the information dialog.
    *
-   * @param message
-   *          the message
+   * @param message the message
    */
   public void createInformationDialog(String message) {
     createDialog(message, MessageDialogType.INFORMATION);
@@ -281,10 +276,8 @@ public class ModernRibbonWindow extends ModernWindow {
   /**
    * Create a message overlay over the window.
    *
-   * @param message
-   *          the message
-   * @param type
-   *          the type
+   * @param message the message
+   * @param type the type
    */
   public void createDialog(String message, MessageDialogType type) {
     // setGlassPane(mMessagePane);
@@ -295,8 +288,7 @@ public class ModernRibbonWindow extends ModernWindow {
   /**
    * Creates the task dialog.
    *
-   * @param message
-   *          the message
+   * @param message the message
    * @return the message dialog task glass pane
    */
   public MessageDialogTaskGlassPane createTaskDialog(final String message) {

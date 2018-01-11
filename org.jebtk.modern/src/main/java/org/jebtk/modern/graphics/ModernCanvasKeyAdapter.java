@@ -52,8 +52,8 @@ public class ModernCanvasKeyAdapter implements ModernCanvasKeyListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyPressed(java.awt.
-   * event.KeyEvent)
+   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyPressed(java.
+   * awt. event.KeyEvent)
    */
   @Override
   public void canvasKeyPressed(KeyEvent e) {
@@ -65,8 +65,8 @@ public class ModernCanvasKeyAdapter implements ModernCanvasKeyListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyReleased(java.awt
-   * .event.KeyEvent)
+   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyReleased(java.
+   * awt .event.KeyEvent)
    */
   @Override
   public void canvasKeyReleased(KeyEvent e) {

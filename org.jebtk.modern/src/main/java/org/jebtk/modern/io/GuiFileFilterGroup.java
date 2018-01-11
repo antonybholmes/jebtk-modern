@@ -41,7 +41,8 @@ import org.jebtk.core.stream.Stream;
  * @author Antony Holmes Holmes
  *
  */
-public class GuiFileFilterGroup extends GuiFileExtFilter implements Iterable<GuiFileExtFilter> {
+public class GuiFileFilterGroup extends GuiFileExtFilter
+    implements Iterable<GuiFileExtFilter> {
 
   /** The m name. */
   private String mName;
@@ -52,12 +53,11 @@ public class GuiFileFilterGroup extends GuiFileExtFilter implements Iterable<Gui
   /**
    * Instantiates a new gif gui file filter.
    *
-   * @param name
-   *          the name
-   * @param filters
-   *          the filters
+   * @param name the name
+   * @param filters the filters
    */
-  public GuiFileFilterGroup(String name, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+  public GuiFileFilterGroup(String name, GuiFileExtFilter filter,
+      GuiFileExtFilter... filters) {
     super(getExtensions(filters));
 
     mName = name + " (" + Stream.of(getExtension()).join(";") + ")";
@@ -78,8 +78,7 @@ public class GuiFileFilterGroup extends GuiFileExtFilter implements Iterable<Gui
   /**
    * Return all the extensions of a file.
    *
-   * @param filters
-   *          the filters
+   * @param filters the filters
    * @return the extensions
    */
   private static List<String> getExtensions(GuiFileExtFilter... filters) {

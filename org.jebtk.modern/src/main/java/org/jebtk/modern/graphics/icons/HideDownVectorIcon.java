@@ -46,8 +46,7 @@ public class HideDownVectorIcon extends HideVectorIcon {
   /**
    * Instantiates a new hide down vector icon.
    *
-   * @param color
-   *          the color
+   * @param color the color
    */
   public HideDownVectorIcon(Color color) {
     super(color);
@@ -60,7 +59,12 @@ public class HideDownVectorIcon extends HideVectorIcon {
    * Graphics2D, java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     super.drawIcon(g2, x, y, w, h, params);
 
     double wf = w * WIDTH_SCALE;
@@ -70,8 +74,14 @@ public class HideDownVectorIcon extends HideVectorIcon {
     double xf = x + (w - w) / 2.0;
     double yf = y + (h - h) / 2.0;
 
-    g2.drawLine((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(xf + w2), (int) Math.round(yf + h));
-    g2.drawLine((int) Math.round(xf + w2), (int) Math.round(yf + hf), (int) Math.round(xf + wf), (int) Math.round(yf));
+    g2.drawLine((int) Math.round(xf),
+        (int) Math.round(yf),
+        (int) Math.round(xf + w2),
+        (int) Math.round(yf + h));
+    g2.drawLine((int) Math.round(xf + w2),
+        (int) Math.round(yf + hf),
+        (int) Math.round(xf + wf),
+        (int) Math.round(yf));
 
   }
 }

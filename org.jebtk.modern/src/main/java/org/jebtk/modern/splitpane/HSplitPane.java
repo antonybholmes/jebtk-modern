@@ -113,8 +113,8 @@ public class HSplitPane extends SplitPane {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseDragged(java.awt.event.
+     * MouseEvent)
      */
     @Override
     public void mouseDragged(MouseEvent e) {
@@ -122,14 +122,16 @@ public class HSplitPane extends SplitPane {
         return;
       }
 
-      double r = mDivStartX + ((double) e.getX() - mStartX) / mInternalRect.getW();
+      double r = mDivStartX
+          + ((double) e.getX() - mStartX) / mInternalRect.getW();
 
       r = Math.max(mMinSize, r);
 
       if (mDragDividerIndex == 0) {
         r = Math.max(mMinSize, r);
       } else {
-        r = Math.max(mDividerLocations.get(mDragDividerIndex - 1) + mMinSize, r);
+        r = Math.max(mDividerLocations.get(mDragDividerIndex - 1) + mMinSize,
+            r);
       }
 
       // The last divider is ignored because the last component is glued
@@ -138,7 +140,8 @@ public class HSplitPane extends SplitPane {
       if (mDragDividerIndex == mDividerLocations.size() - 2) {
         r = Math.min(1.0 - mMinSize, r);
       } else {
-        r = Math.min(mDividerLocations.get(mDragDividerIndex + 1) - mMinSize, r);
+        r = Math.min(mDividerLocations.get(mDragDividerIndex + 1) - mMinSize,
+            r);
       }
 
       r = Mathematics.bound(r, 0, 1);
@@ -151,7 +154,8 @@ public class HSplitPane extends SplitPane {
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see
+     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -159,7 +163,9 @@ public class HSplitPane extends SplitPane {
         return;
       }
 
-      setCursor(Cursor.getPredefinedCursor(getIsDraggable(e) != -1 ? Cursor.W_RESIZE_CURSOR : Cursor.DEFAULT_CURSOR));
+      setCursor(Cursor
+          .getPredefinedCursor(getIsDraggable(e) != -1 ? Cursor.W_RESIZE_CURSOR
+              : Cursor.DEFAULT_CURSOR));
     }
   }
 
@@ -193,7 +199,8 @@ public class HSplitPane extends SplitPane {
     for (int i = 0; i < mComponents.size() - 1; ++i) {
       int cw = (int) (mW * mDividerLocations.get(i));
 
-      Rectangle b = new Rectangle(x + getInsets().left, getInsets().top, cw - x - mDividerHalfWidth, h);
+      Rectangle b = new Rectangle(x + getInsets().left, getInsets().top,
+          cw - x - mDividerHalfWidth, h);
 
       mComponents.get(i).setBounds(b);
 

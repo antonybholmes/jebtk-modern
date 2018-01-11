@@ -139,8 +139,7 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
   /**
    * Instantiates a new modern tool tip widget.
    *
-   * @param manager
-   *          the manager
+   * @param manager the manager
    */
   public ModernToolTipWidget(LayoutManager manager) {
     super(manager);
@@ -160,32 +159,30 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
      * TreeNode<String> setting =
      * Settings.getInstance().getChild("help/ribbon/tooltips/delay");
      * 
-     * if (setting != null) { delay = ((KeyNode)setting).asInt(); } else { delay =
-     * 1000; }
+     * if (setting != null) { delay = ((KeyNode)setting).asInt(); } else { delay
+     * = 1000; }
      */
   }
 
   /**
    * Sets the tool tip.
    *
-   * @param tooltip
-   *          the tooltip
-   * @param tooltipModel
-   *          the tooltip model
+   * @param tooltip the tooltip
+   * @param tooltipModel the tooltip model
    */
-  public void setToolTip(ModernToolTip tooltip, ModernToolTipModel tooltipModel) {
+  public void setToolTip(ModernToolTip tooltip,
+      ModernToolTipModel tooltipModel) {
     setToolTip(new ModernToolTipSuggestHelpPanel(tooltip), tooltipModel);
   }
 
   /**
    * Sets the tool tip.
    *
-   * @param tooltipPanel
-   *          the tooltip panel
-   * @param tooltipModel
-   *          the tooltip model
+   * @param tooltipPanel the tooltip panel
+   * @param tooltipModel the tooltip model
    */
-  public void setToolTip(ModernBasicToolTipPanel tooltipPanel, ModernToolTipModel tooltipModel) {
+  public void setToolTip(ModernBasicToolTipPanel tooltipPanel,
+      ModernToolTipModel tooltipModel) {
     setToolTip(tooltipPanel);
 
     setToolTipModel(tooltipModel);
@@ -194,10 +191,8 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
   /**
    * Sets the tool tip.
    *
-   * @param title
-   *          the title
-   * @param help
-   *          the help
+   * @param title the title
+   * @param help the help
    * @return
    */
   public ModernToolTipWidget setToolTip(String title, String help) {
@@ -207,14 +202,13 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
   /**
    * Set the tooltip along with the model to display the tool tip.
    *
-   * @param title
-   *          the title
-   * @param help
-   *          the help
-   * @param tooltipModel
-   *          the tooltip model
+   * @param title the title
+   * @param help the help
+   * @param tooltipModel the tooltip model
    */
-  public void setToolTip(String title, String help, ModernToolTipModel tooltipModel) {
+  public void setToolTip(String title,
+      String help,
+      ModernToolTipModel tooltipModel) {
     setToolTip(title, help);
 
     setToolTipModel(tooltipModel);
@@ -223,8 +217,7 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
   /**
    * Sets the tool tip.
    *
-   * @param tooltip
-   *          the new tool tip
+   * @param tooltip the new tool tip
    * @return
    */
   public ModernToolTipWidget setToolTip(ModernToolTip tooltip) {
@@ -234,8 +227,7 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
   /**
    * Sets the tool tip.
    *
-   * @param tooltipPanel
-   *          the new tool tip
+   * @param tooltipPanel the new tool tip
    * @return
    */
   public ModernToolTipWidget setToolTip(ModernBasicToolTipPanel tooltipPanel) {
@@ -247,8 +239,7 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
   /**
    * Sets the tool tip model.
    *
-   * @param tooltipModel
-   *          the new tool tip model
+   * @param tooltipModel the new tool tip model
    */
   public void setToolTipModel(ModernToolTipModel tooltipModel) {
     mToolTipModel = tooltipModel;
@@ -309,15 +300,14 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
   /**
    * Gets the tool tip display.
    *
-   * @param source
-   *          the source
+   * @param source the source
    * @return the tool tip display
    */
   public static ModernToolTipModel getToolTipDisplay(ModernWidget source) {
     Window w = ModernWindow.getParentWindow(source);
 
     if (w instanceof ModernToolTipModel) {
-      return (ModernToolTipModel) w;
+      return (ModernToolTipModel)w;
     } else {
       return null;
     }

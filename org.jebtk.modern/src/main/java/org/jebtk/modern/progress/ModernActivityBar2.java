@@ -59,7 +59,8 @@ public class ModernActivityBar2 extends ModernWidget {
   /**
    * The constant BACKGROUND.
    */
-  private static final Color BACKGROUND = ColorUtils.getTransparentColor75(Color.WHITE);
+  private static final Color BACKGROUND = ColorUtils
+      .getTransparentColor75(Color.WHITE);
 
   /**
    * The xpos.
@@ -131,7 +132,8 @@ public class ModernActivityBar2 extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see
+   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {

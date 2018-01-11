@@ -44,7 +44,8 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class SortDirectionButton extends ModernButton implements ModernClickListener {
+public class SortDirectionButton extends ModernButton
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -54,14 +55,14 @@ public class SortDirectionButton extends ModernButton implements ModernClickList
   /**
    * The constant ASCENDING_ICON.
    */
-  private static final ModernIcon ASCENDING_ICON = UIService.getInstance().loadIcon("sort_ascending",
-      UIService.ICON_SIZE_16);
+  private static final ModernIcon ASCENDING_ICON = UIService.getInstance()
+      .loadIcon("sort_ascending", UIService.ICON_SIZE_16);
 
   /**
    * The constant DESCENDING_ICON.
    */
-  private static final ModernIcon DESCENDING_ICON = UIService.getInstance().loadIcon("sort_descending",
-      UIService.ICON_SIZE_16);
+  private static final ModernIcon DESCENDING_ICON = UIService.getInstance()
+      .loadIcon("sort_descending", UIService.ICON_SIZE_16);
 
   /**
    * The ascending.
@@ -71,8 +72,7 @@ public class SortDirectionButton extends ModernButton implements ModernClickList
   /**
    * Instantiates a new sort direction button.
    *
-   * @param ascending
-   *          the ascending
+   * @param ascending the ascending
    */
   public SortDirectionButton(boolean ascending) {
     super("A to Z", DESCENDING_ICON);
@@ -87,8 +87,7 @@ public class SortDirectionButton extends ModernButton implements ModernClickList
   /**
    * Sets the ascending.
    *
-   * @param ascending
-   *          the new ascending
+   * @param ascending the new ascending
    */
   public void setAscending(boolean ascending) {
     this.ascending = ascending;
@@ -105,7 +104,8 @@ public class SortDirectionButton extends ModernButton implements ModernClickList
   }
 
   /*
-   * public final void paintComponent(Graphics g) { Graphics2D g2 = (Graphics2D)g;
+   * public final void paintComponent(Graphics g) { Graphics2D g2 =
+   * (Graphics2D)g;
    * 
    * if (isSelected()) { ModernTheme.paintHighlightedBorder(g2, rect); } else if
    * (pressed) { ModernTheme.paintHighlightedBorder(g2, rect); } else if
@@ -122,8 +122,8 @@ public class SortDirectionButton extends ModernButton implements ModernClickList
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.modern
-   * .event.ModernClickEvent)
+   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
     // setAscending(!ascending);

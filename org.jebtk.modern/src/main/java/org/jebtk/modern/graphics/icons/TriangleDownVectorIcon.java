@@ -50,8 +50,7 @@ public class TriangleDownVectorIcon extends TriangleVectorIcon {
   /**
    * Instantiates a new triangle down vector icon.
    *
-   * @param color1
-   *          the color 1
+   * @param color1 the color 1
    */
   public TriangleDownVectorIcon(Color color1) {
     super(color1);
@@ -64,7 +63,12 @@ public class TriangleDownVectorIcon extends TriangleVectorIcon {
    * Graphics2D, int, int, int, int)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     super.drawIcon(g2, x, y, w, h, params);
 
     mXf = x + (w - mWf) / 2.0;

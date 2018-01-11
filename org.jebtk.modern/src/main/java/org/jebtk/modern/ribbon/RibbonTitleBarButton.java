@@ -47,8 +47,7 @@ public class RibbonTitleBarButton extends ModernWindowTitleBarWinButton {
   /**
    * Instantiates a new ribbon title bar button.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public RibbonTitleBarButton(ModernIcon icon) {
     super(icon);

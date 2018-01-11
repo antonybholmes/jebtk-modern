@@ -28,7 +28,6 @@
 package org.jebtk.modern.layers;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.EventProducer;
 
 // TODO: Auto-generated Javadoc
@@ -37,7 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * 
  * @author Antony Holmes Holmes
  */
-public class LayerEventListeners extends EventProducer<LayerEventListener> implements LayerEventProducer {
+public class LayerEventListeners extends EventProducer<LayerEventListener>
+    implements LayerEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -48,8 +48,8 @@ public class LayerEventListeners extends EventProducer<LayerEventListener> imple
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.layers.LayerEventProducer#addLayerListener(org.abh.lib.
-   * ui.modern.layers.LayerEventListener)
+   * org.abh.lib.ui.modern.layers.LayerEventProducer#addLayerListener(org.abh.
+   * lib. ui.modern.layers.LayerEventListener)
    */
   public void addLayerListener(LayerEventListener l) {
     mListeners.add(l);
@@ -59,8 +59,8 @@ public class LayerEventListeners extends EventProducer<LayerEventListener> imple
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.layers.LayerEventProducer#removeLayerListener(org.abh.
-   * lib.ui.modern.layers.LayerEventListener)
+   * org.abh.lib.ui.modern.layers.LayerEventProducer#removeLayerListener(org.
+   * abh. lib.ui.modern.layers.LayerEventListener)
    */
   public void removeLayerListener(LayerEventListener l) {
     mListeners.remove(l);
@@ -84,8 +84,8 @@ public class LayerEventListeners extends EventProducer<LayerEventListener> imple
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.layers.LayerEventProducer#fireLayerChanged(org.abh.lib.
-   * event.ChangeEvent)
+   * org.abh.lib.ui.modern.layers.LayerEventProducer#fireLayerChanged(org.abh.
+   * lib. event.ChangeEvent)
    */
   public void fireLayerChanged(ChangeEvent e) {
     for (LayerEventListener l : mListeners) {
@@ -96,8 +96,7 @@ public class LayerEventListeners extends EventProducer<LayerEventListener> imple
   /**
    * Fire layer updated.
    *
-   * @param e
-   *          the e
+   * @param e the e
    */
   public void fireLayerUpdated(ChangeEvent e) {
     for (LayerEventListener l : mListeners) {

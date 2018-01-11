@@ -49,8 +49,7 @@ public class ModernWidgetBufferedImage {
   /**
    * Instantiates a new modern widget buffered image.
    *
-   * @param size
-   *          the size
+   * @param size the size
    */
   public ModernWidgetBufferedImage(Dimension size) {
     this.size = size;
@@ -62,7 +61,8 @@ public class ModernWidgetBufferedImage {
    * @return the buffered image
    */
   public BufferedImage create() {
-    BufferedImage image = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_ARGB);
+    BufferedImage image = new BufferedImage(size.width, size.height,
+        BufferedImage.TYPE_INT_ARGB);
 
     Graphics2D g2 = (Graphics2D) image.createGraphics();
 
@@ -76,13 +76,13 @@ public class ModernWidgetBufferedImage {
    * widgets will use the same background rendering and only change how
    * information is displayed.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    */
   public void drawIcon(Graphics2D g2) {
     // Ensure rendering is antialiased
 
-    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+        RenderingHints.VALUE_ANTIALIAS_ON);
 
     g2.setColor(ModernWidget.TEXT_COLOR);
     g2.setFont(ModernWidget.FONT);
@@ -91,14 +91,14 @@ public class ModernWidgetBufferedImage {
 
     drawForeground(g2);
 
-    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_OFF);
+    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
+        RenderingHints.VALUE_ANTIALIAS_OFF);
   }
 
   /**
    * Should be in charge of rendering the background.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    */
   public void drawBackground(Graphics2D g2) {
     // Do nothing
@@ -107,8 +107,7 @@ public class ModernWidgetBufferedImage {
   /**
    * Should be in charge of rendering the foreground.
    *
-   * @param g2
-   *          the g2
+   * @param g2 the g2
    */
   public void drawForeground(Graphics2D g2) {
     // Do nothing

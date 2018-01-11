@@ -51,8 +51,7 @@ public class ModernClickEvent extends Event {
   /**
    * Instantiates a new modern click event.
    *
-   * @param source
-   *          the source
+   * @param source the source
    */
   public ModernClickEvent(Object source) {
     this(source, CLICK_MESSAGE);
@@ -61,10 +60,8 @@ public class ModernClickEvent extends Event {
   /**
    * Instantiates a new modern click event.
    *
-   * @param source
-   *          the source
-   * @param message
-   *          the message
+   * @param source the source
+   * @param message the message
    */
   public ModernClickEvent(Object source, String message) {
     super(source, message);

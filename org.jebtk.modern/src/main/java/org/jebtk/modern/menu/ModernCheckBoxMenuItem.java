@@ -56,16 +56,17 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
   /**
    * The constant ICON.
    */
-  private static final ModernIcon CHECK_ICON = UIService.getInstance().loadIcon(UnCheckedVectorIcon.class, ICON_SIZE);
+  private static final ModernIcon CHECK_ICON = UIService.getInstance()
+      .loadIcon(UnCheckedVectorIcon.class, ICON_SIZE);
 
   /** The Constant CHECKED_ICON. */
-  private static final ModernIcon CHECKED_ICON = UIService.getInstance().loadIcon(CheckedVectorIcon.class, ICON_SIZE);
+  private static final ModernIcon CHECKED_ICON = UIService.getInstance()
+      .loadIcon(CheckedVectorIcon.class, ICON_SIZE);
 
   /**
    * Instantiates a new modern check box menu item.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernCheckBoxMenuItem(String text) {
     this(text, false);
@@ -74,10 +75,8 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
   /**
    * Instantiates a new modern check box menu item.
    *
-   * @param text
-   *          the text
-   * @param selected
-   *          the selected
+   * @param text the text
+   * @param selected the selected
    */
   public ModernCheckBoxMenuItem(String text, boolean selected) {
     super(text);

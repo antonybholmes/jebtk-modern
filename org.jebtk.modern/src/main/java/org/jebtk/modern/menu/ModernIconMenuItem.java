@@ -60,8 +60,7 @@ public class ModernIconMenuItem extends ModernMenuItem {
   /**
    * Instantiates a new modern icon menu item.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernIconMenuItem(String text) {
     super(text);
@@ -72,10 +71,8 @@ public class ModernIconMenuItem extends ModernMenuItem {
   /**
    * Instantiates a new modern icon menu item.
    *
-   * @param title
-   *          the title
-   * @param icon
-   *          the icon
+   * @param title the title
+   * @param icon the icon
    */
   public ModernIconMenuItem(String title, ModernIcon icon) {
     super(title, icon);
@@ -86,12 +83,9 @@ public class ModernIconMenuItem extends ModernMenuItem {
   /**
    * Instantiates a new modern icon menu item.
    *
-   * @param title
-   *          the title
-   * @param icon
-   *          the icon
-   * @param size
-   *          the size
+   * @param title the title
+   * @param icon the icon
+   * @param size the size
    */
   public ModernIconMenuItem(String title, ModernIcon icon, Dimension size) {
     super(title, icon, size);
@@ -118,12 +112,12 @@ public class ModernIconMenuItem extends ModernMenuItem {
    * Set the pixel position where the text is drawn on the menu item. By default
    * this is set so that a 16x16 icon can be drawn in the space.
    *
-   * @param offset
-   *          the offset
+   * @param offset the offset
    * @return the modern icon menu item
    */
   public ModernIconMenuItem setTextOffset(int offset) {
-    mTextOffset = offset; // (mIcon != null ? mIcon.getWidth() : 0) + 2 * PADDING;
+    mTextOffset = offset; // (mIcon != null ? mIcon.getWidth() : 0) + 2 *
+                          // PADDING;
 
     repaint();
 
@@ -154,7 +148,9 @@ public class ModernIconMenuItem extends ModernMenuItem {
 
     if (mDisplayText != null) {
       g2.setColor(getForeground());
-      g2.drawString(mDisplayText, mTextOffset, getTextYPosCenter(g2, getHeight()));
+      g2.drawString(mDisplayText,
+          mTextOffset,
+          getTextYPosCenter(g2, getHeight()));
     }
   }
 

@@ -57,8 +57,7 @@ public class ModernTextArea extends JTextArea {
   /**
    * Instantiates a new modern text area.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernTextArea(String text) {
     super(text);
@@ -103,10 +102,8 @@ public class ModernTextArea extends JTextArea {
   /**
    * Sets the text.
    *
-   * @param <T>
-   *          the generic type
-   * @param items
-   *          the new text
+   * @param <T> the generic type
+   * @param items the new text
    */
   public <T> void setText(List<T> items) {
     setText(Stream.of(items).asString().join(TextUtils.NEW_LINE_DELIMITER));

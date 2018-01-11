@@ -42,7 +42,8 @@ public class CutVectorIcon extends ModernVectorIcon {
   /**
    * The constant SCALE.
    */
-  private static final double SCALE = SettingsService.getInstance().getAsDouble("theme.icons.cut-icon.width-scale");
+  private static final double SCALE = SettingsService.getInstance()
+      .getAsDouble("theme.icons.cut-icon.width-scale");
 
   /**
    * The constant HANDLE_SCALE.
@@ -53,7 +54,8 @@ public class CutVectorIcon extends ModernVectorIcon {
   /**
    * The constant COLOR.
    */
-  private static final Color COLOR = SettingsService.getInstance().getAsColor("theme.icons.cut-icon.colors.foreground");
+  private static final Color COLOR = SettingsService.getInstance()
+      .getAsColor("theme.icons.cut-icon.colors.foreground");
 
   /**
    * The constant BACKGROUND.
@@ -64,7 +66,8 @@ public class CutVectorIcon extends ModernVectorIcon {
   /**
    * The constant HANDLE.
    */
-  private static final Color HANDLE = SettingsService.getInstance().getAsColor("theme.icons.cut-icon.colors.handle");
+  private static final Color HANDLE = SettingsService.getInstance()
+      .getAsColor("theme.icons.cut-icon.colors.handle");
 
   /*
    * (non-Javadoc)
@@ -74,7 +77,12 @@ public class CutVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Object... params) {
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
     double wf = w * SCALE;
 
     double xf = x + (w - w) / 2.0;
@@ -84,21 +92,35 @@ public class CutVectorIcon extends ModernVectorIcon {
     g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
     g2.setColor(COLOR);
 
-    g2.drawLine((int) Math.round(xf + hw / 2.0), (int) Math.round(yf), (int) Math.round(x + wf - hw / 2.0),
+    g2.drawLine((int) Math.round(xf + hw / 2.0),
+        (int) Math.round(yf),
+        (int) Math.round(x + wf - hw / 2.0),
         (int) Math.round(yf + wf - hw / 2.0));
-    g2.drawLine((int) Math.round(xf + hw / 2.0), (int) Math.round(yf + wf - hw / 2.0),
-        (int) Math.round(xf + wf - hw / 2.0), (int) Math.round(yf));
+    g2.drawLine((int) Math.round(xf + hw / 2.0),
+        (int) Math.round(yf + wf - hw / 2.0),
+        (int) Math.round(xf + wf - hw / 2.0),
+        (int) Math.round(yf));
 
     g2.setStroke(ModernTheme.SINGLE_LINE_STROKE);
 
     g2.setColor(BACKGROUND);
-    g2.fillOval((int) Math.round(xf), (int) Math.round(y + w - hw), (int) Math.round(hw), (int) Math.round(hw));
-    g2.fillOval((int) Math.round(xf + wf - hw), (int) Math.round(yf + wf - hw), (int) Math.round(hw),
+    g2.fillOval((int) Math.round(xf),
+        (int) Math.round(y + w - hw),
+        (int) Math.round(hw),
+        (int) Math.round(hw));
+    g2.fillOval((int) Math.round(xf + wf - hw),
+        (int) Math.round(yf + wf - hw),
+        (int) Math.round(hw),
         (int) Math.round(hw));
 
     g2.setColor(HANDLE);
-    g2.drawOval((int) Math.round(xf), (int) Math.round(y + w - hw), (int) Math.round(hw), (int) Math.round(hw));
-    g2.drawOval((int) Math.round(xf + wf - hw), (int) Math.round(y + wf - hw), (int) Math.round(hw),
+    g2.drawOval((int) Math.round(xf),
+        (int) Math.round(y + w - hw),
+        (int) Math.round(hw),
+        (int) Math.round(hw));
+    g2.drawOval((int) Math.round(xf + wf - hw),
+        (int) Math.round(y + wf - hw),
+        (int) Math.round(hw),
         (int) Math.round(hw));
   }
 }

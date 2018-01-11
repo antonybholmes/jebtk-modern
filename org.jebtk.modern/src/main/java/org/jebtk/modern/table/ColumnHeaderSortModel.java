@@ -54,8 +54,7 @@ public class ColumnHeaderSortModel extends ChangeListeners {
   /**
    * Instantiates a new column header sort model.
    *
-   * @param columnCount
-   *          the column count
+   * @param columnCount the column count
    */
   public ColumnHeaderSortModel(int columnCount) {
     for (int i = 0; i < columnCount; ++i) {
@@ -66,10 +65,8 @@ public class ColumnHeaderSortModel extends ChangeListeners {
   /**
    * Swap.
    *
-   * @param oldIndex
-   *          the old index
-   * @param newIndex
-   *          the new index
+   * @param oldIndex the old index
+   * @param newIndex the new index
    */
   public void swap(int oldIndex, int newIndex) {
 

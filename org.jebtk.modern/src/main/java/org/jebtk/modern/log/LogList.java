@@ -44,8 +44,7 @@ public class LogList implements LogEventListener {
   /**
    * Instantiates a new log list.
    *
-   * @param logPanel
-   *          the log panel
+   * @param logPanel the log panel
    */
   public LogList(LogListPanel logPanel) {
     this.logPanel = logPanel;

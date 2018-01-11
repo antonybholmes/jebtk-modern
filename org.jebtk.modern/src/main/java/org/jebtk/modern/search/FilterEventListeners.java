@@ -28,7 +28,6 @@
 package org.jebtk.modern.search;
 
 import org.jebtk.core.event.ChangeEvent;
-
 import org.jebtk.core.event.EventProducer;
 
 // TODO: Auto-generated Javadoc
@@ -38,7 +37,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class FilterEventListeners extends EventProducer<FilterEventListener> implements FilterEventProducer {
+public class FilterEventListeners extends EventProducer<FilterEventListener>
+    implements FilterEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -60,8 +60,8 @@ public class FilterEventListeners extends EventProducer<FilterEventListener> imp
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.search.FilterEventProducer#removeFilterListener(org.abh
-   * .lib.ui.modern.search.FilterEventListener)
+   * org.abh.lib.ui.modern.search.FilterEventProducer#removeFilterListener(org.
+   * abh .lib.ui.modern.search.FilterEventListener)
    */
   public void removeFilterListener(FilterEventListener l) {
     mListeners.remove(l);
@@ -98,8 +98,8 @@ public class FilterEventListeners extends EventProducer<FilterEventListener> imp
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.search.FilterEventProducer#fireFiltersUpdated(org.abh.
-   * lib.event.ChangeEvent)
+   * org.abh.lib.ui.modern.search.FilterEventProducer#fireFiltersUpdated(org.
+   * abh. lib.event.ChangeEvent)
    */
   public void fireFiltersChanged(ChangeEvent e) {
     for (FilterEventListener l : mListeners) {

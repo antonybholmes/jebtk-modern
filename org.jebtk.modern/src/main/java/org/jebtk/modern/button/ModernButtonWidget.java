@@ -39,7 +39,8 @@ import org.jebtk.modern.widget.ModernClickWidget;
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernButtonWidget extends ModernClickWidget implements TextProperty {
+public abstract class ModernButtonWidget extends ModernClickWidget
+    implements TextProperty {
 
   /**
    * The constant serialVersionUID.
@@ -71,8 +72,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget implements Te
   /**
    * Instantiates a new modern button widget.
    *
-   * @param text1
-   *          the text1
+   * @param text1 the text1
    */
   public ModernButtonWidget(String text1) {
     setText(text1);
@@ -84,8 +84,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget implements Te
   /**
    * Instantiates a new modern button widget.
    *
-   * @param icon
-   *          the icon
+   * @param icon the icon
    */
   public ModernButtonWidget(ModernIcon icon) {
     setIcon(icon);
@@ -97,10 +96,8 @@ public abstract class ModernButtonWidget extends ModernClickWidget implements Te
   /**
    * Instantiates a new modern button widget.
    *
-   * @param text1
-   *          the text1
-   * @param icon
-   *          the icon
+   * @param text1 the text1
+   * @param icon the icon
    */
   public ModernButtonWidget(String text1, ModernIcon icon) {
     setText(text1);
@@ -113,8 +110,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget implements Te
   /**
    * Sets the icon.
    *
-   * @param icon
-   *          the new icon
+   * @param icon the new icon
    */
   public void setIcon(ModernIcon icon) {
     mIcon = icon;

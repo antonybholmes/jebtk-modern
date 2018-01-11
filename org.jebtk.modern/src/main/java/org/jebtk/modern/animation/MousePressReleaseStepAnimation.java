@@ -23,15 +23,15 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  * @author Antony Holmes
  */
-public abstract class MousePressReleaseStepAnimation extends MousePressReleaseAnimation {
+public abstract class MousePressReleaseStepAnimation
+    extends MousePressReleaseAnimation {
 
   protected int mStep = -1;
 
   /**
    * Instantiates a new hover fade animation.
    *
-   * @param widget
-   *          the widget
+   * @param widget the widget
    */
   public MousePressReleaseStepAnimation(ModernWidget widget) {
     super(widget);

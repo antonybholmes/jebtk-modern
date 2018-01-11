@@ -39,12 +39,9 @@ import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.contentpane.ModernHContentPane;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
-import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.panel.AutoHidePanel;
 import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.tabs.IconTabsPanel;
-import org.jebtk.modern.tabs.IconTabsVectorIcon;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.text.ModernDialogHeadingLabel;
 import org.jebtk.modern.widget.ModernWidget;
@@ -59,7 +56,8 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDialogTaskWindow extends ModernDialogWindow implements ModernClickListener {
+public class ModernDialogTaskWindow extends ModernDialogWindow
+    implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -70,12 +68,14 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
   protected ModernDialogButtonsBox mButtons = new ModernDialogButtonsBox();
 
   /** The m ok button. */
-  protected ModernButton mOkButton = new ModernDialogMaterialButton(UI.BUTTON_OK);
+  protected ModernButton mOkButton = new ModernDialogMaterialButton(
+      UI.BUTTON_OK);
 
   /**
    * The close button.
    */
-  protected ModernButton mCancelButton = new ModernDialogMaterialButton(UI.BUTTON_CANCEL);
+  protected ModernButton mCancelButton = new ModernDialogMaterialButton(
+      UI.BUTTON_CANCEL);
 
   private ModernHContentPane mContentPane = new ModernHContentPane();
 
@@ -88,8 +88,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
   /**
    * Instantiates a new modern dialog window.
    *
-   * @param parent
-   *          the parent
+   * @param parent the parent
    */
   public ModernDialogTaskWindow(ModernWindow parent) {
     this(parent, true);
@@ -98,10 +97,8 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
   /**
    * Instantiates a new modern dialog window.
    *
-   * @param parent
-   *          the parent
-   * @param modal
-   *          the modal
+   * @param parent the parent
+   * @param modal the modal
    */
   public ModernDialogTaskWindow(ModernWindow parent, boolean modal) {
     this(parent, modal, ModernDialogTaskType.OK_CANCEL);
@@ -110,26 +107,23 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
   /**
    * Instantiates a new modern dialog task window.
    *
-   * @param parent
-   *          the parent
-   * @param type
-   *          the type
+   * @param parent the parent
+   * @param type the type
    */
-  public ModernDialogTaskWindow(ModernWindow parent, ModernDialogTaskType type) {
+  public ModernDialogTaskWindow(ModernWindow parent,
+      ModernDialogTaskType type) {
     this(parent, true, type);
   }
 
   /**
    * Instantiates a new modern dialog task window.
    *
-   * @param parent
-   *          the parent
-   * @param modal
-   *          the modal
-   * @param type
-   *          the type
+   * @param parent the parent
+   * @param modal the modal
+   * @param type the type
    */
-  public ModernDialogTaskWindow(ModernWindow parent, boolean modal, ModernDialogTaskType type) {
+  public ModernDialogTaskWindow(ModernWindow parent, boolean modal,
+      ModernDialogTaskType type) {
     super(parent, modal);
 
     if (type != ModernDialogTaskType.NONE) {
@@ -142,8 +136,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
   /**
    * Set the dialog type and hence which buttons are on display.
    *
-   * @param type
-   *          the new up
+   * @param type the new up
    */
   protected void setup(ModernDialogTaskType type) {
 
@@ -176,8 +169,10 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
    * @param c
    */
   public void setCard(Component c) {
-    getTabsPane().getModel().setCenterTab(new ModernComponent(
-        new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)), ModernWidget.DOUBLE_BORDER));
+    getTabsPane().getModel()
+        .setCenterTab(new ModernComponent(
+            new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)),
+            ModernWidget.DOUBLE_BORDER));
 
     setDarkBackground();
   }
@@ -241,9 +236,8 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.event.
-   * ModernClickEvent)
+   * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+   * event. ModernClickEvent)
    */
   @Override
   public void clicked(ModernClickEvent e) {
@@ -262,16 +256,16 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
    */
   @Override
   public void setContent(JComponent c) {
-    setInternalContent(new ModernComponent(c, ModernWidget.QUAD_BORDER)); // c); //new ModernDialogContentPanel(c));
+    setInternalContent(new ModernComponent(c, ModernWidget.QUAD_BORDER)); // c);
+                                                                          // //new
+                                                                          // ModernDialogContentPanel(c));
   }
 
   /**
    * Create a standardized section header in a dialog vertical box.
    *
-   * @param name
-   *          the name
-   * @param box
-   *          the box
+   * @param name the name
+   * @param box the box
    */
   public static void sectionHeader(final String name, Box box) {
     box.add(new ModernDialogHeadingLabel(name));
@@ -282,10 +276,8 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
    * Create a standardized mid section header in a dialog vertical box. This
    * should be used for subsequent headers after using {@code sectionHeader(..)}
    *
-   * @param name
-   *          the name
-   * @param box
-   *          the box
+   * @param name the name
+   * @param box the box
    */
   public static void midSectionHeader(final String name, Box box) {
     box.add(UI.createVGap(30));

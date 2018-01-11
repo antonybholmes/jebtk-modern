@@ -43,8 +43,7 @@ public class ModernColoredSubHeadingLabel extends ModernSubHeadingLabel {
   /**
    * Instantiates a new modern colored sub heading label.
    *
-   * @param text
-   *          the text
+   * @param text the text
    */
   public ModernColoredSubHeadingLabel(String text) {
     super(text);

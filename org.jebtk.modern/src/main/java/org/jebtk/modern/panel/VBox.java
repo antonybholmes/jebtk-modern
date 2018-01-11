@@ -53,8 +53,7 @@ public class VBox extends GenericBox {
   /**
    * Instantiates a new v box.
    *
-   * @param components
-   *          the components
+   * @param components the components
    */
   public VBox(Component... components) {
     this();
@@ -67,8 +66,7 @@ public class VBox extends GenericBox {
   /**
    * Instantiates a new v box.
    *
-   * @param border
-   *          the border
+   * @param border the border
    */
   public VBox(Border border) {
     this();

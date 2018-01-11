@@ -54,8 +54,7 @@ public class EmptyCanvas extends ModernCanvas {
   /**
    * Instantiates a new empty canvas.
    *
-   * @param dimension
-   *          the dimension
+   * @param dimension the dimension
    */
   public EmptyCanvas(Dimension dimension) {
     setCanvasSize(dimension);
@@ -69,7 +68,8 @@ public class EmptyCanvas extends ModernCanvas {
    * Graphics2D)
    */
   @Override
-  public final void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
+  public final void drawCanvasForeground(Graphics2D g2,
+      DrawingContext context) {
     // do nothing
   }
 }
