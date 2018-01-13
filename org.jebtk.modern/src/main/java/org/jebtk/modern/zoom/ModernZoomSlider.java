@@ -116,13 +116,15 @@ public class ModernZoomSlider extends HBox implements Zoom {
    * The member zoom in button.
    */
   private ModernButton mZoomInButton = new RibbonButton(
-      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16),
+      "Zoom In", "Zoom in.");
 
   /**
    * The member zoom out button.
    */
   private ModernButton mZoomOutButton = new RibbonButton(
-      UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+      UIService.getInstance().loadIcon(MinusVectorIcon.class, 16),
+      "Zoom Out", "Zoom out.");
 
   // private double[] mZooms;
 

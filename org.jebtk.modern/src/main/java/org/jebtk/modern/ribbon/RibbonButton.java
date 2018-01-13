@@ -91,6 +91,15 @@ public class RibbonButton extends ModernButton {
 
     setup();
   }
+  
+  public RibbonButton(ModernIcon icon, String toolTipTitle,
+      String toolTipText) {
+    this(icon);
+
+    setToolTip(toolTipTitle, toolTipText);
+
+    setup();
+  }
 
   /**
    * Setup.
