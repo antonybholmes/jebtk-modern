@@ -78,7 +78,9 @@ public class GenericButtonAnimation extends HoverFadeAnimation {
       g2.setColor(getFadeColor("fill"));
     }
 
-    fill(g2, x, y, w, h);
+    if (mode != RenderMode.NONE) {
+      fill(g2, x, y, w, h);
+    }
   }
 
   public void fill(Graphics2D g2, int x, int y, int w, int h) {
