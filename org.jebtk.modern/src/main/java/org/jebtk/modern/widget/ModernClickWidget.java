@@ -311,11 +311,6 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
   @Override
   public void fireClicked(final ModernClickEvent e) {
     mActionListeners.fireClicked(e);
-
-    /*
-     * EventQueue.invokeLater(new Runnable() { public void run() {
-     * mActionListeners.fireClicked(e); } });
-     */
   }
 
   /**

@@ -45,6 +45,7 @@ import org.jebtk.modern.button.ChipButtonAnimation;
 import org.jebtk.modern.button.ChipButtonHighlightAnimation;
 import org.jebtk.modern.button.CircularButtonHighlightAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation;
+import org.jebtk.modern.button.DropDownButtonAnimation2;
 import org.jebtk.modern.button.RadioAnimation;
 import org.jebtk.modern.button.RadioOutlineAnimation;
 import org.jebtk.modern.button.RadioSelectedAnimation;
@@ -73,8 +74,10 @@ import org.jebtk.modern.ribbon.RibbonBackAnimation;
 import org.jebtk.modern.ribbon.RibbonButtonHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonChangeAnimation;
 import org.jebtk.modern.ribbon.RibbonDropDownButtonAnimation;
+import org.jebtk.modern.ribbon.RibbonDropDownButtonAnimation2;
 import org.jebtk.modern.ribbon.RibbonHighlightTextAnimation;
 import org.jebtk.modern.ribbon.RibbonLargeOptionalDropDownHighlightAnimation;
+import org.jebtk.modern.ribbon.RibbonLargeOptionalDropDownHighlightAnimation2;
 import org.jebtk.modern.ribbon.RibbonMenuHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonMenuPressedAnimation;
 import org.jebtk.modern.ribbon.RibbonPressedAnimation;
@@ -156,6 +159,7 @@ public class AnimationService {
     getCreator("circular-button").add(CircularButtonHighlightAnimation.class);
 
     getCreator("dropdown-button").add(DropDownButtonAnimation.class);
+    getCreator("dropdown-button-2").add(DropDownButtonAnimation2.class);
 
     getCreator("chip-button").add(ChipButtonHighlightAnimation.class)
         .add(ChipButtonAnimation.class);
@@ -163,7 +167,8 @@ public class AnimationService {
     getCreator("dialog-flat-button").add(FlatButtonAnimation.class);
 
     getCreator("ribbon").add(RibbonAnimation.class)
-        .add(RibbonPressedAnimation.class).add(RibbonChangeAnimation.class)
+        //.add(RibbonPressedAnimation.class)
+        .add(RibbonChangeAnimation.class)
         .add(RibbonHighlightTextAnimation.class);
 
     getCreator("segment-tabs")
@@ -222,9 +227,15 @@ public class AnimationService {
 
     getCreator("ribbon-dropdown-button")
         .add(RibbonDropDownButtonAnimation.class);
+    
+    getCreator("ribbon-dropdown-button-2")
+    .add(RibbonDropDownButtonAnimation2.class);
 
     getCreator("ribbon-optional-dropdown-button")
         .add(RibbonLargeOptionalDropDownHighlightAnimation.class);
+    
+    getCreator("ribbon-optional-dropdown-button-2")
+      .add(RibbonLargeOptionalDropDownHighlightAnimation2.class);
 
     getCreator("ribbon-segments").add(RibbonSegmentHighlightAnimation.class)
         .add(RibbonSegmentSelectedAnimation.class)

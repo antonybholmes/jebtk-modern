@@ -181,6 +181,9 @@ public class ModernMenuItem extends ModernButton {
    * Setup.
    */
   private void setup() {
+    // Menu items should not be displaying tooltips by default
+    setToolTipsEnabled(false);
+    
     addClickListener(new ClickEvents());
     addComponentListener(new ComponentEvents());
 

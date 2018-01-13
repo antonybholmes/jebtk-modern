@@ -27,6 +27,9 @@
  */
 package org.jebtk.modern.widget.tooltip;
 
+import java.awt.Component;
+import java.awt.Point;
+
 import org.jebtk.core.event.Event;
 
 // TODO: Auto-generated Javadoc
@@ -40,19 +43,38 @@ public class ModernToolTipEvent extends Event {
    */
   private static final long serialVersionUID = 1L;
 
+  private static final String DEFAULT_MESSAGE = "tooltip";
+
   /**
    * The tooltip.
    */
-  private ModernBasicToolTipPanel tooltip;
+  private Component mTooltip;
 
-  /**
-   * Instantiates a new modern tool tip event.
-   *
-   * @param source the source
-   * @param message the message
-   */
-  public ModernToolTipEvent(Object source, String message) {
-    super(source, message);
+  private Component mSource;
+  
+  private ModernToolTipListener mDest;
+
+  private Point mP;
+  
+  public ModernToolTipEvent(Component dest) {
+    this(dest, (ModernToolTipListener)dest);
+  }
+  
+  public ModernToolTipEvent(Component source, ModernToolTipListener dest) {
+    this(source, dest, source);
+  }
+
+  public ModernToolTipEvent(Component source, 
+      ModernToolTipListener dest,
+      Component tooltip) {
+    this(source, dest, tooltip, null);
+  }
+  
+  public ModernToolTipEvent(Component source, 
+      ModernToolTipListener dest,
+      Component tooltip,
+      Point p) {
+    this(source, dest, tooltip, p, DEFAULT_MESSAGE);
   }
 
   /**
@@ -62,19 +84,35 @@ public class ModernToolTipEvent extends Event {
    * @param message the message
    * @param tooltip the tooltip
    */
-  public ModernToolTipEvent(Object source, String message,
-      ModernBasicToolTipPanel tooltip) {
+  public ModernToolTipEvent(Component source,
+      ModernToolTipListener dest,
+      Component tooltip,
+      Point p,
+      String message) {
     super(source, message);
-
-    this.tooltip = tooltip;
+    
+    mSource = source;
+    mDest = dest;
+    mTooltip = tooltip;
+    mP = p;
   }
+  
+  
 
-  /**
-   * Gets the tool tip panel.
-   *
-   * @return the tool tip panel
-   */
-  public ModernBasicToolTipPanel getToolTipPanel() {
-    return tooltip;
+  @Override
+  public Component getSource() {
+    return mSource;
+  }
+  
+  public ModernToolTipListener getDest() {
+    return mDest;
+  }
+  
+  public Component getTooltip() {
+    return mTooltip;
+  }
+  
+  public Point getP() {
+    return mP;
   }
 }

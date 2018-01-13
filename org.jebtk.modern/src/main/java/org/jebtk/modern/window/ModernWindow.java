@@ -27,13 +27,18 @@
  */
 package org.jebtk.modern.window;
 
+import java.awt.AWTEvent;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.Window;
+import java.awt.event.AWTEventListener;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -58,7 +63,9 @@ import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.ribbon.RibbonFileMenu;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.widget.tooltip.ModernToolTipModel;
+import org.jebtk.modern.widget.tooltip.ModernToolTipEvent;
+import org.jebtk.modern.widget.tooltip.ModernToolTipListener;
+import org.jebtk.modern.widget.tooltip.ToolTipService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,7 +76,7 @@ import org.slf4j.LoggerFactory;
  * @author Antony Holmes Holmes
  */
 public class ModernWindow extends JFrame
-    implements ModernDialogConstructor, ModernToolTipModel {
+implements ModernDialogConstructor, ModernToolTipListener {
 
   /**
    * The constant serialVersionUID.
@@ -85,7 +92,7 @@ public class ModernWindow extends JFrame
   /**
    * The member layered pane.
    */
-  private JLayeredPane mLayeredPane;
+  // p//rivate JLayeredPane mLayeredPane;
 
   /**
    * The member tooltips.
@@ -191,6 +198,38 @@ public class ModernWindow extends JFrame
     }
   }
 
+  private class AllMouseEvents implements AWTEventListener {
+    private Component mContentPane;
+
+    public AllMouseEvents(Container contentPane) {
+      mContentPane = contentPane;
+    }
+
+    @Override
+    public void eventDispatched(AWTEvent e) {
+      if (e.getID() == MouseEvent.MOUSE_PRESSED) {
+        //Point l = MouseInfo.getPointerInfo().getLocation();
+
+        //SwingUtilities.convertPointFromScreen(l, mContentPane);
+
+        //Component component =
+        //    SwingUtilities.getDeepestComponentAt(
+        //        mContentPane,
+        //        l.x,
+        //        l.y);
+
+        // If there is nothing underneath, or the component is different
+        // to the one that generated the mouse event, assume that means we
+        // are clicking outside the bounds of the tooltip so we can hide
+        // all the tooltips to replicate a loss of focus event
+        //if (component == null || !component.equals(e.getSource())) {
+          // Hide all tooltips
+          doHideTooltips();
+        //}
+      }
+    }
+  }
+
   /**
    * Instantiates a new modern window.
    *
@@ -206,7 +245,7 @@ public class ModernWindow extends JFrame
     mCards.add(mWindowContentPanel, CONTENT_CARD);
 
     // Window uses card layout
-    super.getContentPane().add(mCards, BorderLayout.CENTER);
+    getContentPane().add(mCards, BorderLayout.CENTER);
 
     mCl = (CardLayout) mCards.getLayout();
     mCl.show(mCards, CONTENT_CARD);
@@ -215,7 +254,7 @@ public class ModernWindow extends JFrame
     setBody(mContentPanel);
 
     // mHeaderContainer = new WindowVBoxAutoWidth(this);
-    // getContentPane().add(mHeaderContainer, BorderLayout.PAGE_START);
+    // getWindowContentPanel().add(mHeaderContainer, BorderLayout.PAGE_START);
 
     addWindowListener(new WindowEvents());
 
@@ -226,7 +265,33 @@ public class ModernWindow extends JFrame
     // register existence
     WindowService.getInstance().register(this);
 
-    // init();
+    // Register to receive tooltips
+    ToolTipService.getInstance().addToolTipListener(this);
+
+    //
+    // Listen for clicking anywhere on the window to get rid of the tool tip
+    //
+
+    /*
+    Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener() {
+      public void eventDispatched(AWTEvent e) {
+        // System.out.println("get source" + e.getSource());
+
+        if (e.getID() == MouseEvent.MOUSE_PRESSED) {
+          // System.err.println("pressed");
+
+          // Point l = MouseInfo.getPointerInfo().getLocation();
+
+          // System.out.println("(" + l.x + ", " + l.y + ")");
+
+          // Hide all tooltips
+          doHideTooltips();
+        }
+      }
+    }, AWTEvent.MOUSE_EVENT_MASK);
+     */
+    
+    Toolkit.getDefaultToolkit().addAWTEventListener(new AllMouseEvents(getContentPane()), AWTEvent.MOUSE_EVENT_MASK);
   }
 
   /*
@@ -324,7 +389,7 @@ public class ModernWindow extends JFrame
    */
   protected void setHeader(Component c) {
     // mHeaderContainer.add(c);
-    getContentPane().add(c, BorderLayout.PAGE_START);
+    getWindowContentPanel().add(c, BorderLayout.PAGE_START);
   }
 
   protected void setContentHeader(Component c) {
@@ -338,14 +403,14 @@ public class ModernWindow extends JFrame
    */
   public void setBody(Component c) {
     if (mCenter != null) {
-      getContentPane().remove(mCenter);
+      getWindowContentPanel().remove(mCenter);
     }
 
     mCenter = c;
 
-    getContentPane().add(c, BorderLayout.CENTER);
-    getContentPane().validate();
-    getContentPane().repaint();
+    getWindowContentPanel().add(c, BorderLayout.CENTER);
+    getWindowContentPanel().validate();
+    getWindowContentPanel().repaint();
   }
 
   public void setContentBody(Component c) {
@@ -358,23 +423,11 @@ public class ModernWindow extends JFrame
    * @param c the new footer
    */
   public void setFooter(Component c) {
-    getContentPane().add(c, BorderLayout.PAGE_END);
+    getWindowContentPanel().add(c, BorderLayout.PAGE_END);
   }
 
   public void setContentFooter(Component c) {
     getContentPanel().setFooter(c);
-  }
-
-  /**
-   * Returns the content pane for the window to which content should be added.
-   * Since we have a custom system that displays both content and the ribbon
-   * menu, this returns the panel
-   *
-   * @return the content pane
-   */
-  @Override
-  public Container getContentPane() {
-    return getWindowContentPanel();
   }
 
   /**
@@ -385,7 +438,7 @@ public class ModernWindow extends JFrame
   }
 
   /**
-   * Returns the panel.
+   * Returns the panel that should have the main window content added to it.
    *
    * @return the content panel
    */
@@ -393,10 +446,23 @@ public class ModernWindow extends JFrame
     return mWindowContentPanel;
   }
 
+  /**
+   * Returns the panel within the window content panel where the main ui
+   * controls go. This panel typically appears below any tool bars.
+   * 
+   * @return
+   */
   public ModernComponent getContentPanel() {
     return mContentPanel;
   }
 
+  /**
+   * Returns the default tabs within the content panel. For multi-column
+   * interfaces such as UIs with a sidebar and main panel, use this to create
+   * the columns.
+   * 
+   * @return
+   */
   public ModernHContentPane getTabsPane() {
     return mTabsPane;
   }
@@ -422,9 +488,9 @@ public class ModernWindow extends JFrame
    * 
    * @see org.abh.lib.ui.modern.window.ModernDialogConstructor#createUi()
    */
+  @Override
   public void createUi() {
-    // TODO Auto-generated method stub
-
+    //Do nothing
   }
 
   /*
@@ -432,9 +498,27 @@ public class ModernWindow extends JFrame
    * 
    * @see org.abh.lib.ui.modern.window.ModernDialogConstructor#createMenus()
    */
+  @Override
   public void createMenus() {
-    // TODO Auto-generated method stub
+    //Do nothing
+  }
 
+  @Override
+  public void tooltipShown(ModernToolTipEvent e) {
+    if (e.getP() != null) {
+      showToolTip(e.getSource(), e.getTooltip(), e.getP());
+    } else {
+      showToolTip(e.getSource(), e.getTooltip());
+    }
+  }
+  
+  @Override
+  public void tooltipAdded(ModernToolTipEvent e) {
+    if (e.getP() != null) {
+      addToolTip(e.getSource(), e.getTooltip(), e.getP());
+    } else {
+      addToolTip(e.getSource(), e.getTooltip());
+    }
   }
 
   /*
@@ -445,27 +529,48 @@ public class ModernWindow extends JFrame
    * ui. modern.ModernComponent,
    * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel)
    */
-  @Override
-  public synchronized void showToolTip(Component source,
-      Component tooltip) {
+  private synchronized void showToolTip(Component source, Component tooltip) {
+    showToolTip(source, tooltip, toolTipP(source, tooltip));
+  }
+  
+  private synchronized void addToolTip(Component source, Component tooltip) {
+    addToolTip(source, tooltip, toolTipP(source, tooltip));
+  }
+  
+  /**
+   * Where to position the tooltip on screen.
+   * 
+   * @param source
+   * @param tooltip
+   * @return
+   */
+  private synchronized Point toolTipP(Component source, Component tooltip) {
     Point p = source.getLocationOnScreen();
 
-    Rectangle wb = getBounds();
-    
-    int w = tooltip.getPreferredSize().width;
-    int h = tooltip.getPreferredSize().height;
+    // Put in the context of the window
+    SwingUtilities.convertPointFromScreen(p, getLayeredPane());
 
-    if (p.x + w > wb.x + wb.width) {
+    Rectangle wb = getBounds();
+
+    Dimension ps = tooltip.getPreferredSize();
+    
+    int w = ps.width;
+    int h = ps.height;
+
+    if (p.x + w > wb.width) {
       p.x += source.getWidth() - w;
     }
 
-    p.y += source.getHeight();
+    int sh = source.getHeight();
+    
+    // Always show below the component
+    p.y += sh;
 
-    if (p.y + h > wb.y + wb.height) {
-      p.y -= source.getHeight() + h;
+    if (p.y + h > wb.height) {
+      p.y -= sh + h;
     }
 
-    showToolTip(source, tooltip, p);
+    return p;
   }
 
   /*
@@ -476,35 +581,34 @@ public class ModernWindow extends JFrame
    * ui. modern.ModernComponent,
    * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel, java.awt.Point)
    */
-  @Override
-  public synchronized void showToolTip(Component source,
+  private synchronized void showToolTip(Component source,
       Component tooltip,
       Point p) {
-    if (mLayeredPane == null) {
-      mLayeredPane = getLayeredPane();
-    }
-
+    
+    System.err.println("show");
+    
     // Hide any current tips
     hideToolTips();
 
+    addToolTip(source, tooltip, p);
+  }
+  
+  private synchronized void addToolTip(Component source,
+      Component tooltip,
+      Point p) {
     mTooltips.add(tooltip);
 
-    SwingUtilities.convertPointFromScreen(p, mLayeredPane);
-
+    Dimension ps = tooltip.getPreferredSize();
+    
     tooltip.setBounds(p.x,
         p.y,
-        tooltip.getPreferredSize().width,
-        tooltip.getPreferredSize().height);
+        ps.width,
+        ps.height);
 
-    mLayeredPane.add(tooltip, JLayeredPane.POPUP_LAYER);
+    getLayeredPane().add(tooltip, JLayeredPane.POPUP_LAYER);
 
     revalidate();
     repaint();
-
-    // new ModernVerticalChangeSizeAnimation(tooltip, new
-    // Dimension(tooltip.getPreferredSize().width, 0),
-    // tooltip.getPreferredSize()).start();
-
   }
 
   /*
@@ -514,8 +618,34 @@ public class ModernWindow extends JFrame
    * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#hideToolTips(org.abh.lib.
    * ui. modern.ModernComponent)
    */
+  private synchronized void hideToolTips() {
+    System.err.println("hide");
+    
+    if (mTooltips.size() > 0) {
+      for (Component c : mTooltips) {
+        getLayeredPane().remove(c);
+      }
+
+      mTooltips.clear();
+    }
+  }
+
   @Override
-  public synchronized void hideToolTips(Component source) {
+  public void tooltipHidden(ModernToolTipEvent e) {
+    Component c = e.getTooltip();
+
+    getLayeredPane().remove(c);
+    mTooltips.remove(c);
+
+    revalidate();
+    repaint();
+  }
+
+  /**
+   * Hide tool tips.
+   */
+  @Override
+  public synchronized void tooltipsHidden(ModernToolTipEvent e) {
     hideToolTips();
 
     validate();
@@ -523,18 +653,12 @@ public class ModernWindow extends JFrame
   }
 
   /**
-   * Hide tool tips.
+   * Fire events to hide all tooltips. This method sends the hide event rather
+   * than simply destroying any tooltips, hence this is the preferred way to
+   * communicate to other components if the tooltips are hidden.
    */
-  private synchronized void hideToolTips() {
-    if (mTooltips.size() == 0) {
-      return;
-    }
-
-    for (Component c : mTooltips) {
-      getLayeredPane().remove(c);
-    }
-
-    mTooltips.clear();
+  protected void doHideTooltips() {
+    ToolTipService.getInstance().hideToolTips(new ModernToolTipEvent(this, this));
   }
 
   /**
@@ -665,15 +789,19 @@ public class ModernWindow extends JFrame
    */
   public static Window getParentWindow(Component c) {
 
-    Component w = c;
+    Component w = c.getParent();
 
     while (w != null) {
-      if (w instanceof ModernDialogWindow) {
-        return (Window) w;
+      if (w instanceof JFrame) {
+        return (JFrame) w;
       }
 
-      if (w instanceof ModernWindow) {
-        return (Window) w;
+      if (w instanceof JDialog) {
+        return (JDialog) w;
+      }
+
+      if (w instanceof JWindow) {
+        return (JWindow) w;
       }
 
       w = w.getParent();
@@ -707,6 +835,34 @@ public class ModernWindow extends JFrame
       return ((JFrame) window).getLayeredPane();
     } else if (window instanceof JWindow) {
       return ((JWindow) window).getLayeredPane();
+    } else {
+      return null;
+    }
+  }
+
+  /**
+   * Finds the glass pane of the container window of a component.
+   * 
+   * @param c
+   * @return
+   */
+  public static Component getGlassPane(Component c) {
+    return getGlassPane(getParentWindow(c));
+  }
+
+  /**
+   * Returns the layer pane for a given window,.
+   *
+   * @param window the window
+   * @return the layered pane
+   */
+  public static Component getGlassPane(Window window) {
+    if (window instanceof JDialog) {
+      return ((JDialog) window).getGlassPane();
+    } else if (window instanceof JFrame) {
+      return ((JFrame) window).getGlassPane();
+    } else if (window instanceof JWindow) {
+      return ((JWindow) window).getGlassPane();
     } else {
       return null;
     }

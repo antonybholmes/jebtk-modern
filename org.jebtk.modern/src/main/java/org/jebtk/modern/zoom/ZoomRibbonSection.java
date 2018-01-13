@@ -111,7 +111,7 @@ public class ZoomRibbonSection extends RibbonSection
 
     add(box);
 
-    mZoomButton.setToolTip("Zoom", "Set the zoom level.", mRibbon);
+    mZoomButton.setToolTip("Zoom", "Set the zoom level.");
     mZoomButton.addClickListener(this);
   }
 

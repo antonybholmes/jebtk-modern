@@ -49,7 +49,7 @@ public class QuickOpenVectorIcon extends ModernVectorIcon {
   private Color mColor;
 
   public QuickOpenVectorIcon() {
-    this(Ribbon.BAR_BACKGROUND);
+    this(Color.WHITE); //Ribbon.BAR_BACKGROUND);
   }
 
   public QuickOpenVectorIcon(Color color) {

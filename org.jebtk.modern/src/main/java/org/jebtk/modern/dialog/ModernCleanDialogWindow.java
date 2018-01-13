@@ -28,15 +28,13 @@
 package org.jebtk.modern.dialog;
 
 import org.jebtk.modern.help.GuiAppInfo;
-import org.jebtk.modern.widget.tooltip.ModernToolTipModel;
 import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernCleanDialogWindow.
  */
-public class ModernCleanDialogWindow extends ModernDialogWindow
-    implements ModernToolTipModel {
+public class ModernCleanDialogWindow extends ModernDialogWindow {
 
   /**
    * The constant serialVersionUID.
@@ -67,6 +65,6 @@ public class ModernCleanDialogWindow extends ModernDialogWindow
   protected void setContentPane() {
     // mBody = new ModernPanel();
 
-    // getContentPane().add(mBody, BorderLayout.CENTER);
+    // getWindowContentPanel().add(mBody, BorderLayout.CENTER);
   }
 }

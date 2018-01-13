@@ -61,6 +61,6 @@ public class ModernSplashWindow2 extends ModernWindow {
 
     // mContentPanel = new ModernPanel(color);
 
-    // super.getContentPane().add(mContentPanel, BorderLayout.CENTER);
+    // super.getWindowContentPanel().add(mContentPanel, BorderLayout.CENTER);
   }
 }

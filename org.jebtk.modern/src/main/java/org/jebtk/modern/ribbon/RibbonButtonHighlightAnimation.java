@@ -135,8 +135,9 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
       g2.setColor(getFadeColor("highlight"));
     }
 
-    // g2.fillRect(x, y, w, h);
-    getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
+    if (mode != RenderMode.NONE) {
+      getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
+    }
   }
 
   /**

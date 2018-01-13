@@ -47,12 +47,13 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.panel.BorderlessCardPanel;
-import org.jebtk.modern.panel.Card;
+import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.panel.ModernLineBottomBorderPanel;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
-import org.jebtk.modern.widget.tooltip.ModernToolTipModel;
+import org.jebtk.modern.widget.tooltip.ModernToolTipEvent;
+import org.jebtk.modern.widget.tooltip.ModernToolTipListener;
 import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc
@@ -62,7 +63,7 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
+public class ModernDialogWindow extends JDialog implements ModernToolTipListener {
 
   /**
    * The constant serialVersionUID.
@@ -222,7 +223,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
     // setUndecorated(true);
 
     // getRootPane ().setOpaque (false);
-    // getContentPane().setBackground (new Color(0, 0, 0, 0));
+    // getWindowContentPanel().setBackground (new Color(0, 0, 0, 0));
     // setBackground (new Color(0, 0, 0, 0));
 
     setIconImage(getAppInfo().getIcon().getImage());
@@ -322,7 +323,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
    */
   public void setCardContent(JComponent c) {
     setInternalContent(
-        new ModernComponent(new Card(c), ModernWidget.QUAD_BORDER));
+        new ModernComponent(new CardPanel(c), ModernWidget.QUAD_BORDER));
 
     // Auto set the background to dark so that the card contrasts.
     setDarkBackground();
@@ -330,7 +331,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
 
   public void setDialogCardContent(JComponent c) {
     setInternalContent(
-        new ModernComponent(new Card(c), ModernWidget.DOUBLE_BORDER));
+        new ModernComponent(new CardPanel(c), ModernWidget.DOUBLE_BORDER));
 
     // Auto set the background to dark so that the card contrasts.
     setDarkBackground();
@@ -399,16 +400,6 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
     setFooter(c); // new ModernDialogButtonBox(c));
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see javax.swing.JDialog#getContentPane()
-   */
-  @Override
-  public Container getContentPane() {
-    return getContentPanel();
-  }
-
   /**
    * Gets the content panel.
    *
@@ -426,11 +417,18 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
    * ui. modern.ModernComponent,
    * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel)
    */
-  @Override
-  public void showToolTip(Component source, Component tooltip) {
+  private void showToolTip(Component source, Component tooltip) {
+    showToolTip(source, tooltip, toolTipP(source, tooltip));
+  }
+  
+  private void addToolTip(Component source, Component tooltip) {
+    addToolTip(source, tooltip, toolTipP(source, tooltip));
+  }
+  
+  private Point toolTipP(Component source, Component tooltip) {
     Point p = source.getLocationOnScreen();
 
-    Rectangle wb = this.getBounds();
+    Rectangle wb = getBounds();
 
     if (p.x + tooltip.getPreferredSize().width > wb.x + wb.width) {
       p.x += source.getWidth() - tooltip.getPreferredSize().width;
@@ -442,7 +440,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
       p.y -= source.getHeight() + tooltip.getPreferredSize().height;
     }
 
-    showToolTip(source, tooltip, p);
+    return p;
   }
 
   /*
@@ -453,8 +451,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
    * ui. modern.ModernComponent,
    * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel, java.awt.Point)
    */
-  @Override
-  public synchronized void showToolTip(Component source,
+  private synchronized void showToolTip(Component source,
       Component tooltip,
       Point p) {
 
@@ -471,6 +468,19 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
       layeredPane.remove(c);
     }
 
+    addToolTip(source, tooltip, p);
+  }
+  
+  private synchronized void addToolTip(Component source,
+      Component tooltip,
+      Point p) {
+
+    JLayeredPane layeredPane = getLayeredPane();
+
+    if (layeredPane == null) {
+      return;
+    }
+
     SwingUtilities.convertPointFromScreen(p, layeredPane);
 
     tooltip.setBounds(p.x,
@@ -483,21 +493,43 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipModel {
     validate();
     repaint();
   }
+  
+  @Override
+  public void tooltipShown(ModernToolTipEvent e) {
+    if (e.getP() != null) {
+      showToolTip(e.getSource(), e.getTooltip(), e.getP());
+    } else {
+      showToolTip(e.getSource(), e.getTooltip());
+    }
+  }
+  
+  @Override
+  public void tooltipAdded(ModernToolTipEvent e) {
+    if (e.getP() != null) {
+      addToolTip(e.getSource(), e.getTooltip(), e.getP());
+    } else {
+      addToolTip(e.getSource(), e.getTooltip());
+    }
+  }
+  
+  @Override
+  public void tooltipHidden(ModernToolTipEvent e) {
+    getLayeredPane().remove(e.getTooltip());
+  
+    validate();
+    repaint();
+  }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#hideToolTips(org.abh.lib.
-   * ui. modern.ModernComponent)
+  /**
+   * Hide tool tips.
    */
   @Override
-  public synchronized void hideToolTips(Component source) {
+  public synchronized void tooltipsHidden(ModernToolTipEvent e) {
     for (Component c : getLayeredPane()
         .getComponentsInLayer(JLayeredPane.POPUP_LAYER)) {
       getLayeredPane().remove(c);
     }
-
+    
     validate();
     repaint();
   }

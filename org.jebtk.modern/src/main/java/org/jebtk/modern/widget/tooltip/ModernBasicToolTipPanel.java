@@ -86,7 +86,7 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
 
     setPreferredSize(SIZE);
     
-    panel.setBorder(BORDER);
+    panel.setBorder(DOUBLE_BORDER);
 
     add(panel);
   }

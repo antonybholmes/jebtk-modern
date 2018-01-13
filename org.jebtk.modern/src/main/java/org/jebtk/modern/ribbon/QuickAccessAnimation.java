@@ -17,6 +17,7 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.MaterialUtils;
 import org.jebtk.modern.button.ButtonHighlightAnimation;
 import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.widget.ModernClickWidget;
@@ -34,7 +35,7 @@ public class QuickAccessAnimation extends ButtonHighlightAnimation {
   public QuickAccessAnimation(ModernClickWidget button) {
     super(button);
 
-    setFadeColor("fill", RibbonHighlightTextAnimation.HIGHLIGHT_COLOR); // MaterialUtils.HIGHLIGHT_COLOR);
+    setFadeColor("fill", MaterialUtils.HIGHLIGHT_COLOR); //RibbonHighlightTextAnimation.HIGHLIGHT_COLOR); // MaterialUtils.HIGHLIGHT_COLOR);
   }
 
   /*

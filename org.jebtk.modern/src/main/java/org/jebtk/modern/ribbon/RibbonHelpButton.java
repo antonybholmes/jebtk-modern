@@ -27,6 +27,7 @@
  */
 package org.jebtk.modern.ribbon;
 
+import java.awt.Color;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
@@ -63,7 +64,7 @@ public class RibbonHelpButton extends QuickAccessButton
   public RibbonHelpButton() {
     super("?");
 
-    setForeground(Ribbon.BAR_BACKGROUND); // Color.WHITE);
+    setForeground(Color.WHITE); //Ribbon.BAR_BACKGROUND); // 
     setFont(BOLD_FONT);
 
     addClickListener(this);

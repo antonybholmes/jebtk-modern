@@ -28,9 +28,15 @@
 package org.jebtk.modern.window;
 
 import java.awt.Component;
+import java.awt.Container;
+import java.awt.Point;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.io.IOException;
 import java.nio.file.Path;
 
+import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 
 import org.jebtk.core.io.PathUtils;
@@ -43,7 +49,7 @@ import org.jebtk.modern.dialog.MessageDialogTaskGlassPane;
 import org.jebtk.modern.dialog.MessageDialogType;
 import org.jebtk.modern.dialog.ModernMessageDialog;
 import org.jebtk.modern.help.GuiAppInfo;
-import org.jebtk.modern.panel.Card;
+import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.shadow.TopShadowPanel;
 import org.jebtk.modern.status.ModernStatusBar;
@@ -64,6 +70,140 @@ public class ModernRibbonWindow extends ModernWindow {
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
+
+  private class GlassPaneMouseEvents implements MouseListener {
+    
+    private Container mContentPane;
+    private Component mGlassPane;
+
+    public GlassPaneMouseEvents(Container contentPane, Component glassPane) {
+      mContentPane = contentPane;
+      mGlassPane = glassPane;
+    }
+
+    private void redispatchMouseEvent(MouseEvent e) {
+      Point glassPanePoint = e.getPoint();
+      Point containerPoint = SwingUtilities.convertPoint(
+          mGlassPane,
+          glassPanePoint,
+          mContentPane);
+
+      if (containerPoint.y < 0) { //we're not in the content pane
+        //Could have special code to handle mouse events over
+        //the menu bar or non-system window decorations, such as
+        //the ones provided by the Java look and feel.
+      } else {
+        //The mouse event is probably over the content pane.
+        //Find out exactly which component it's over.
+        Component component =
+            SwingUtilities.getDeepestComponentAt(
+                mContentPane,
+                containerPoint.x,
+                containerPoint.y);
+
+        if (component != null) {
+          //Forward events over the check box.
+          Point componentPoint = SwingUtilities.convertPoint(
+              mGlassPane,
+              glassPanePoint,
+              component);
+          component.dispatchEvent(new MouseEvent(component,
+              e.getID(),
+              e.getWhen(),
+              e.getModifiers(),
+              componentPoint.x,
+              componentPoint.y,
+              e.getClickCount(),
+              e.isPopupTrigger()));
+        }
+      }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+      redispatchMouseEvent(e);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+      System.err.println("glass mouse " + e.getX() + " " + e.getY());
+      redispatchMouseEvent(e);
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+      redispatchMouseEvent(e);
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+      redispatchMouseEvent(e);
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+      redispatchMouseEvent(e);
+    }
+  }
+  
+  private class GlassPaneMouseMotionEvents implements MouseMotionListener {
+    
+    private Container mContentPane;
+    private Component mGlassPane;
+
+    public GlassPaneMouseMotionEvents(Container contentPane, Component glassPane) {
+      mContentPane = contentPane;
+      mGlassPane = glassPane;
+    }
+
+    private void redispatchMouseEvent(MouseEvent e) {
+      Point glassPanePoint = e.getPoint();
+      Point containerPoint = SwingUtilities.convertPoint(
+          mGlassPane,
+          glassPanePoint,
+          mContentPane);
+
+      if (containerPoint.y < 0) { //we're not in the content pane
+        //Could have special code to handle mouse events over
+        //the menu bar or non-system window decorations, such as
+        //the ones provided by the Java look and feel.
+      } else {
+        //The mouse event is probably over the content pane.
+        //Find out exactly which component it's over.
+        Component component =
+            SwingUtilities.getDeepestComponentAt(
+                mContentPane,
+                containerPoint.x,
+                containerPoint.y);
+
+        if (component != null) {
+          //Forward events over the check box.
+          Point componentPoint = SwingUtilities.convertPoint(
+              mGlassPane,
+              glassPanePoint,
+              component);
+          component.dispatchEvent(new MouseEvent(component,
+              e.getID(),
+              e.getWhen(),
+              e.getModifiers(),
+              componentPoint.x,
+              componentPoint.y,
+              e.getClickCount(),
+              e.isPopupTrigger()));
+        }
+      }
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+      redispatchMouseEvent(e);
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+      redispatchMouseEvent(e);
+    }
+  }
 
   /**
    * The member message pane.
@@ -99,6 +239,12 @@ public class ModernRibbonWindow extends ModernWindow {
     // setGlassPane(mMessagePane);
     mRibbon = new Ribbon(this);
     super.setHeader(mRibbon);
+    
+
+    
+    //getGlassPane().setVisible(true);
+    //getGlassPane().addMouseListener(new GlassPaneMouseEvents(getContentPanel(), getGlassPane()));
+    //getGlassPane().addMouseMotionListener(new GlassPaneMouseMotionEvents(getContentPanel(), getGlassPane()));
 
     /*
     if (UI.CUSTOM_WINDOW_DECORATION) {
@@ -114,7 +260,7 @@ public class ModernRibbonWindow extends ModernWindow {
       new WindowMover(this, mRibbon);
       new WindowResizer(this);
     }
-    */
+     */
 
     setFooter(mStatusBar);
 
@@ -181,9 +327,9 @@ public class ModernRibbonWindow extends ModernWindow {
    */
   public void setCard(Component c) {
     getTabsPane().getModel()
-        .setCenterTab(new ModernComponent(
-            new Card(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)),
-            ModernWidget.DOUBLE_BORDER));
+    .setCenterTab(new ModernComponent(
+        new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)),
+        ModernWidget.DOUBLE_BORDER));
   }
 
   /**
@@ -239,8 +385,8 @@ public class ModernRibbonWindow extends ModernWindow {
       throws IOException {
     createOkCancelDialog(
         TextUtils
-            .singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file)))
-            + " already exists. Do you want to replace it?",
+        .singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file)))
+        + " already exists. Do you want to replace it?",
         l);
   }
 

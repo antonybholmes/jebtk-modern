@@ -17,10 +17,12 @@ package org.jebtk.modern.shadow;
 
 import java.awt.Component;
 import java.awt.Graphics2D;
+import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
+import java.awt.image.BufferedImage;
 
-import org.jebtk.modern.MaterialUtils;
 import org.jebtk.modern.graphics.ImageUtils;
+import org.jebtk.modern.panel.Card;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -39,6 +41,19 @@ public class TopShadowPanel extends ShadowPanel {
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
 
+    private static final int WIDTH = 200;
+
+    private BufferedImage mImg = null;
+
+    public TopShadow() {
+      addComponentListener(new ComponentAdapter() {
+
+        @Override
+        public void componentResized(ComponentEvent e) {
+          mImg = null;
+        }});
+    }
+
     /*
      * (non-Javadoc)
      * 
@@ -47,13 +62,37 @@ public class TopShadowPanel extends ShadowPanel {
      */
     @Override
     public void drawBackground(Graphics2D g2) {
-      Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+      //Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+
+      //try {
+      if (mImg == null) {
+        mImg = shadow();
+      }
+
+      // Scale image
+      g2.drawImage(mImg, 0, -Card.HALF_SHADOW_SIZE, getWidth(), Card.SHADOW_SIZE, null);
+
+      //MaterialUtils.drawDropShadow(g2Temp, 0, 0, getWidth(), 0);
+      //} finally {
+      //  g2Temp.dispose();
+      //}
+    }
+
+    private static BufferedImage shadow() {
+      BufferedImage img = Card.createCompatibleImage(WIDTH, Card.SHADOW_SIZE);
+
+      Graphics2D g2 = img.createGraphics();
 
       try {
-        MaterialUtils.drawDropShadow(g2Temp, 0, 0, getWidth(), 0);
+        ImageUtils.setQualityHints(g2);
+        g2.setColor(Card.COLOR);
+        //tg2.translate(-bounds.x, -bounds.y);
+        g2.fillRect(0, 0, WIDTH, Card.HALF_SHADOW_SIZE);
       } finally {
-        g2Temp.dispose();
+        g2.dispose();
       }
+
+      return Card.blur(img, Card.SHADOW_SIZE); //imgMask; //blur(imgMask, size);
     }
   }
 
@@ -74,7 +113,7 @@ public class TopShadowPanel extends ShadowPanel {
    */
   @Override
   public void componentResized(ComponentEvent e) {
-    mShadow.setBounds(0, 0, getWidth(), MaterialUtils.SHADOW_HEIGHT);
+    mShadow.setBounds(0, 0, getWidth(), Card.SHADOW_SIZE); //MaterialUtils.SHADOW_HEIGHT);
 
     super.componentResized(e);
   }

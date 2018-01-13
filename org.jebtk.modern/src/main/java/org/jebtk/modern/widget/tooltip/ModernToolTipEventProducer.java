@@ -54,5 +54,16 @@ public interface ModernToolTipEventProducer {
    *
    * @param event the event
    */
-  public void fireToolTipChanged(ModernToolTipEvent event);
+  public void showToolTip(ModernToolTipEvent e);
+
+  public void addToolTip(ModernToolTipEvent e);
+  
+  /**
+   * Hide tool tips.
+   *
+   * @param source the source
+   */
+  public void hideToolTip(ModernToolTipEvent e);
+  
+  public void hideToolTips(ModernToolTipEvent e);
 }

@@ -27,8 +27,9 @@
  */
 package org.jebtk.modern.widget.tooltip;
 
+import java.awt.Component;
 import java.awt.LayoutManager;
-import java.awt.Window;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -37,8 +38,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.Timer;
 
 import org.jebtk.modern.widget.ModernFocusableWidget;
-import org.jebtk.modern.widget.ModernWidget;
-import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -49,17 +48,13 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernToolTipWidget extends ModernFocusableWidget {
+public abstract class ModernToolTipWidget extends ModernFocusableWidget
+    implements ModernToolTipEventProducer {
 
   /**
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-
-  /**
-   * The member tool tip model.
-   */
-  protected ModernToolTipModel mToolTipModel = null;
 
   /**
    * The member tool tip panel.
@@ -69,12 +64,12 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
   /**
    * The delay in ms after which a tooltip is shown.
    */
-  private static final int DELAY = 800;
+  private static final int DELAY = 500;
 
   /**
    * The member timer.
    */
-  private Timer mTimer = new Timer(0, new ToolTipEvents());
+  private Timer mTimer = null;
 
   /**
    * The class ToolTipEvents.
@@ -89,7 +84,7 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
      */
     @Override
     public void actionPerformed(ActionEvent arg0) {
-      displayToolTip();
+      timerDisplayToolTip();
     }
   }
 
@@ -105,7 +100,7 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
      */
     @Override
     public void mouseEntered(MouseEvent e) {
-      showToolTip();
+      mouseHoverToolTip();
     }
 
     /*
@@ -115,19 +110,13 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
      */
     @Override
     public void mouseExited(MouseEvent e) {
-      hideToolTips();
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.awt.event.MouseAdapter#mousePressed(java.awt.event.MouseEvent)
-     */
-    @Override
-    public void mousePressed(MouseEvent e) {
-      hideToolTips();
+      mouseHideToolTips();
     }
   }
+  
+  private boolean mEnableToolTips = true;
+
+  private ModernToolTipListener mToolTipDest;
 
   /**
    * Instantiates a new modern tool tip widget.
@@ -151,41 +140,24 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
    * Setup.
    */
   private void setup() {
+    mTimer = new Timer(0, new ToolTipEvents());
+    mTimer.setRepeats(false);
     mTimer.setInitialDelay(DELAY);
 
     addMouseListener(new MouseEvents());
-
-    /*
-     * TreeNode<String> setting =
-     * Settings.getInstance().getChild("help/ribbon/tooltips/delay");
-     * 
-     * if (setting != null) { delay = ((KeyNode)setting).asInt(); } else { delay
-     * = 1000; }
-     */
   }
-
+  
   /**
-   * Sets the tool tip.
-   *
-   * @param tooltip the tooltip
-   * @param tooltipModel the tooltip model
+   * Sets whether the component will automatically generate tooltip events.
+   * The default is true since most components will want to generate tooltip
+   * events when the mouse hovers over them. This methods allows tooltip events
+   * to be disabled for more specialized components that will manage them
+   * independently.
+   * 
+   * @param enable whether the tooltip events should be generated or not.
    */
-  public void setToolTip(ModernToolTip tooltip,
-      ModernToolTipModel tooltipModel) {
-    setToolTip(new ModernToolTipSuggestHelpPanel(tooltip), tooltipModel);
-  }
-
-  /**
-   * Sets the tool tip.
-   *
-   * @param tooltipPanel the tooltip panel
-   * @param tooltipModel the tooltip model
-   */
-  public void setToolTip(ModernBasicToolTipPanel tooltipPanel,
-      ModernToolTipModel tooltipModel) {
-    setToolTip(tooltipPanel);
-
-    setToolTipModel(tooltipModel);
+  public void setToolTipsEnabled(boolean enable) {
+    mEnableToolTips = enable;
   }
 
   /**
@@ -197,21 +169,6 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
    */
   public ModernToolTipWidget setToolTip(String title, String help) {
     return setToolTip(new ModernToolTip(title, help));
-  }
-
-  /**
-   * Set the tooltip along with the model to display the tool tip.
-   *
-   * @param title the title
-   * @param help the help
-   * @param tooltipModel the tooltip model
-   */
-  public void setToolTip(String title,
-      String help,
-      ModernToolTipModel tooltipModel) {
-    setToolTip(title, help);
-
-    setToolTipModel(tooltipModel);
   }
 
   /**
@@ -232,84 +189,106 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget {
    */
   public ModernToolTipWidget setToolTip(ModernBasicToolTipPanel tooltipPanel) {
     mToolTipPanel = tooltipPanel;
+    
+    //setToolTipsEnabled(true);
 
     return this;
   }
 
   /**
-   * Sets the tool tip model.
-   *
-   * @param tooltipModel the new tool tip model
+   * Show tooltip when mouse hovers.
    */
-  public void setToolTipModel(ModernToolTipModel tooltipModel) {
-    mToolTipModel = tooltipModel;
-  }
-
-  /**
-   * Gets the tool tip model.
-   *
-   * @return the tool tip model
-   */
-  public ModernToolTipModel getToolTipModel() {
-
-    if (mToolTipModel == null) {
-      mToolTipModel = getToolTipDisplay(this);
+  private void mouseHoverToolTip() {
+    if (mEnableToolTips && mToolTipPanel != null) {
+      mTimer.start();
     }
-
-    return mToolTipModel;
   }
-
+  
   /**
-   * Show tool tip.
+   * Hide tooltips when mouse exits component.
    */
-  protected void showToolTip() {
-    if (mToolTipPanel == null) {
-      return;
+  private void mouseHideToolTips() {
+    if (mEnableToolTips && mToolTipPanel != null) {
+      mTimer.stop();
+      hideToolTips(createToolTipEvent());
     }
-
-    mTimer.start();
-
-  }
-
-  /**
-   * Hide tool tips.
-   */
-  protected void hideToolTips() {
-    if (mToolTipPanel == null) {
-      return;
-    }
-
-    mTimer.stop();
-
-    // mShow = false;
-
-    getToolTipModel().hideToolTips(this);
   }
 
   /**
    * Display tool tip.
    */
-  private void displayToolTip() {
+  private void timerDisplayToolTip() {
     // if (!mShow) {
     // return;
     // }
 
-    getToolTipModel().showToolTip(this, mToolTipPanel);
+    // getToolTipModel().showToolTip(this, mToolTipPanel);
+
+    //if (mEnableToolTips) {
+     showToolTip(createToolTipEvent(mToolTipPanel));
+    //}
+  }
+
+  @Override
+  public void addToolTipListener(ModernToolTipListener l) {
+    ToolTipService.getInstance().addToolTipListener(l);
+  }
+
+  @Override
+  public void removeToolTipListener(ModernToolTipListener l) {
+    ToolTipService.getInstance().removeToolTipListener(l);
+  }
+
+  @Override
+  public void showToolTip(ModernToolTipEvent e) {
+    ToolTipService.getInstance().showToolTip(e);
+  }
+  
+  @Override
+  public void addToolTip(ModernToolTipEvent e) {
+    ToolTipService.getInstance().addToolTip(e);
+  }
+
+  @Override
+  public void hideToolTip(ModernToolTipEvent e) {
+    ToolTipService.getInstance().hideToolTip(e);
   }
 
   /**
-   * Gets the tool tip display.
-   *
-   * @param source the source
-   * @return the tool tip display
+   * Hide tool tips.
    */
-  public static ModernToolTipModel getToolTipDisplay(ModernWidget source) {
-    Window w = ModernWindow.getParentWindow(source);
-
-    if (w instanceof ModernToolTipModel) {
-      return (ModernToolTipModel)w;
-    } else {
-      return null;
+  @Override
+  public void hideToolTips(ModernToolTipEvent e) {
+    ToolTipService.getInstance().hideToolTips(e);
+  }
+  
+  /**
+   * Try to find a default listener if one is not provided. Typically this will
+   * be the underlying window the component is within.
+   * 
+   * @return 
+   */
+  public ModernToolTipListener getToolTipDest() {
+    if (mToolTipDest == null) {
+      mToolTipDest = ToolTipService.getToolTipWindow(this);
     }
+    
+    return mToolTipDest;
+  }
+
+  public void setToolTipDest(ModernToolTipListener dest) {
+    mToolTipDest = dest;
+  }
+
+  public ModernToolTipEvent createToolTipEvent() {
+    return createToolTipEvent(this);
+  }
+  
+  public ModernToolTipEvent createToolTipEvent(Component tooltip) {
+    return createToolTipEvent(tooltip, null);
+  }
+  
+  public ModernToolTipEvent createToolTipEvent(Component tooltip, Point p) {
+    return new ModernToolTipEvent(this, getToolTipDest(), tooltip, p);
   }
 }

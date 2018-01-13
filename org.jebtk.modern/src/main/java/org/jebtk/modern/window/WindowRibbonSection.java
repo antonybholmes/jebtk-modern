@@ -41,9 +41,10 @@ import org.jebtk.modern.graphics.icons.ArrangeWindows32VectorIcon;
 import org.jebtk.modern.graphics.icons.SwitchWindows32VectorIcon;
 import org.jebtk.modern.menu.ModernCheckBoxMenuItem;
 import org.jebtk.modern.menu.ModernScrollPopupMenu;
+import org.jebtk.modern.menu.ModernScrollPopupMenu2;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.ribbon.RibbonLargeButton;
-import org.jebtk.modern.ribbon.RibbonLargeDropDownButton;
+import org.jebtk.modern.ribbon.RibbonLargeDropDownButton2;
 import org.jebtk.modern.ribbon.RibbonSection;
 
 // TODO: Auto-generated Javadoc
@@ -76,7 +77,7 @@ public class WindowRibbonSection extends RibbonSection
   /**
    * The member window menu.
    */
-  private ModernScrollPopupMenu mWindowMenu = new ModernScrollPopupMenu();
+  private ModernScrollPopupMenu2 mWindowMenu = new ModernScrollPopupMenu2();
 
   /**
    * The member arrange window button.
@@ -88,7 +89,7 @@ public class WindowRibbonSection extends RibbonSection
   /**
    * The member switch window button.
    */
-  private RibbonLargeDropDownButton mSwitchWindowButton = new RibbonLargeDropDownButton(
+  private RibbonLargeDropDownButton2 mSwitchWindowButton = new RibbonLargeDropDownButton2(
       UIService.getInstance().loadIcon(SwitchWindows32VectorIcon.class, 32),
       mWindowMenu);
 

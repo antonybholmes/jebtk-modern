@@ -42,9 +42,29 @@ import java.util.EventListener;
 public interface ModernToolTipListener extends EventListener {
 
   /**
-   * Tooltip changed.
-   *
-   * @param e the e
+   * Show a single tooltip. All other tooltips will be removed.
+   * 
+   * @param e
    */
-  public void tooltipChanged(ModernToolTipEvent e);
+  public void tooltipShown(ModernToolTipEvent e);
+  
+  /**
+   * Add a tooltip to the existing display without removing the others.
+   * 
+   * @param e
+   */
+  public void tooltipAdded(ModernToolTipEvent e);
+
+  /**
+   * Hide a particular tooltip specified by source in e.
+   * 
+   * @param e
+   */
+  public void tooltipHidden(ModernToolTipEvent e);
+  
+  /**
+   * Hide all tooltips
+   * @param e
+   */
+  public void tooltipsHidden(ModernToolTipEvent e);
 }

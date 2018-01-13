@@ -15,10 +15,16 @@
  */
 package org.jebtk.modern.ribbon;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.animation.TranslateXAnimation;
+import org.jebtk.modern.graphics.ImageUtils;
+import org.jebtk.modern.panel.Card;
 import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabEventAdapter;
 import org.jebtk.modern.widget.ModernWidget;
@@ -34,6 +40,8 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
 
   public static final int BAR_HEIGHT = 2;
   private Ribbon mTabs;
+
+  private Map<Integer, BufferedImage> mTabShadowMap = new HashMap<Integer, BufferedImage>();
 
   /**
    * Instantiates a new state animation.
@@ -87,10 +95,51 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
   public void drawTranslation(ModernWidget widget,
       Graphics2D g2,
       Object... params) {
-    g2.setColor(Ribbon.BAR_BACKGROUND);
-    g2.fillRect(0,
-        Ribbon.Y_OFFSET + Ribbon.TAB_HEIGHT - BAR_HEIGHT,
-        mTabs.mTabWidths.get(mTabs.getTabsModel().getSelectedIndex()),
-        BAR_HEIGHT);
+    // g2.setColor(Ribbon.BAR_BACKGROUND);
+    // g2.fillRect(0,
+    // Ribbon.Y_OFFSET + Ribbon.TAB_HEIGHT - BAR_HEIGHT,
+    // mTabs.mTabWidths.get(mTabs.getTabsModel().getSelectedIndex()),
+    // BAR_HEIGHT);
+
+    int s = mTabs.getTabsModel().getSelectedIndex();
+
+    int w = mTabs.mTabWidths.get(s);
+
+    if (!mTabShadowMap.containsKey(s)) {
+      // Cache shadow as expensive operation to create
+      BufferedImage shadow = Card.shadow(w + Card.SHADOW_SIZE,
+          Ribbon.TAB_HEIGHT + Card.ROUNDING + Card.SHADOW_SIZE);
+
+      // Add the shadow
+      Card.background(shadow);
+
+      mTabShadowMap.put(s, shadow);
+    }
+
+    BufferedImage img = mTabShadowMap.get(s);
+
+    Graphics2D g2Temp = ImageUtils.clone(g2);
+
+    try {
+      g2Temp.clipRect(-Card.HALF_SHADOW_SIZE,
+          0,
+          img.getWidth(),
+          Ribbon.TAB_BODY_Y);
+      g2Temp.drawImage(img,
+          -Card.HALF_SHADOW_SIZE,
+          Ribbon.Y_OFFSET - Card.HALF_SHADOW_SIZE,
+          null);
+
+    } finally {
+      g2Temp.dispose();
+    }
+
+    /*
+     * Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+     * 
+     * try { g2Temp.setColor(Color.WHITE); g2Temp.fillRoundRect(0,
+     * Ribbon.Y_OFFSET, w, Ribbon.TAB_HEIGHT + Card.ROUNDING, Card.ROUNDING,
+     * Card.ROUNDING); } finally { g2Temp.dispose(); }
+     */
   }
 }

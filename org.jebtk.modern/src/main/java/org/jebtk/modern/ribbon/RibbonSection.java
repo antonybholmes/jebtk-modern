@@ -155,7 +155,8 @@ public class RibbonSection extends ModernClickWidget
     }
 
     if (c instanceof ModernToolTipWidget) {
-      ((ModernToolTipWidget) c).setToolTipModel(mRibbon);
+      // Tell component to forward events to us
+      ((ModernToolTipWidget)c).setToolTipDest(mRibbon);
     }
 
     return super.add(c);

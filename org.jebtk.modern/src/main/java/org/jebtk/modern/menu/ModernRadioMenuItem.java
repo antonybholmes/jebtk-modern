@@ -78,6 +78,8 @@ public class ModernRadioMenuItem extends ModernRadioButton {
    */
   public ModernRadioMenuItem(String text, boolean selected) {
     super(text);
+    
+    setToolTipsEnabled(false);
 
     setSelected(selected);
 

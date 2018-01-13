@@ -33,7 +33,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
@@ -51,8 +50,10 @@ import java.util.List;
 import javax.swing.AbstractAction;
 import javax.swing.Box;
 import javax.swing.KeyStroke;
+import javax.swing.SwingUtilities;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.MaterialService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
@@ -67,7 +68,7 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.ModernScaleIcon;
 import org.jebtk.modern.help.GuiAppInfo;
-import org.jebtk.modern.menu.ModernPopupMenu;
+import org.jebtk.modern.menu.ModernPopupMenu2;
 import org.jebtk.modern.menu.ModernRadioMenuItem;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.panel.VBox;
@@ -79,11 +80,12 @@ import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.theme.ModernRoundedWidgetRenderer;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernClickWidget;
-import org.jebtk.modern.widget.tooltip.ModernToolTipModel;
+import org.jebtk.modern.widget.tooltip.ModernToolTipEvent;
+import org.jebtk.modern.widget.tooltip.ModernToolTipListener;
+import org.jebtk.modern.widget.tooltip.ToolTipService;
 import org.jebtk.modern.window.ModernTitleBar;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.ModernWindowTitleBar;
-import org.jebtk.modern.window.WindowMover;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -91,7 +93,7 @@ import org.jebtk.modern.window.WindowMover;
  */
 public class Ribbon extends ModernClickWidget
     implements RibbonModeProperty, TabEventProducer, TabEventListener,
-    ModernToolTipModel, HighlightEventProducer {
+    HighlightEventProducer, ModernToolTipListener {
 
   /**
    * The constant serialVersionUID.
@@ -105,8 +107,7 @@ public class Ribbon extends ModernClickWidget
   public static final int TAB_HEIGHT = 32; // WIDGET_HEIGHT; //28;
 
   /** The border between the window and where the ribbon starts. */
-  public static final int Y_OFFSET = (UI.CUSTOM_WINDOW_DECORATION ? TAB_HEIGHT
-      : 0); // +1;
+  public static final int Y_OFFSET = 2; //(UI.CUSTOM_WINDOW_DECORATION ? TAB_HEIGHT : 0); // +1;
 
   /** The y position where tabs start. */
   public static final int TAB_BODY_Y = Y_OFFSET + TAB_HEIGHT;
@@ -292,6 +293,9 @@ public class Ribbon extends ModernClickWidget
   public static final Color SEPARATOR_COLOR = ThemeService.getInstance()
       .colors().getHighlight(3);
 
+  /** The default width of a tab to make ribbon tabs as uniform as possible. */
+  private static final int DEFAULT_TAB_WIDTH = 60;
+
   /**
    * The member tabs panel.
    */
@@ -348,12 +352,14 @@ public class Ribbon extends ModernClickWidget
   /**
    * The member quick access buttons.
    */
-  private List<ModernClickWidget> mQuickAccessButtons = new ArrayList<ModernClickWidget>();
+  private List<ModernClickWidget> mQuickAccessButtons = 
+      new ArrayList<ModernClickWidget>();
 
   /**
    * The member right toolbar buttons.
    */
-  private List<ModernComponent> mRightToolbarButtons = new ArrayList<ModernComponent>();
+  private List<ModernComponent> mRightToolbarButtons = 
+      new ArrayList<ModernComponent>();
 
   /** The m height. */
   private int mHeight;
@@ -371,7 +377,7 @@ public class Ribbon extends ModernClickWidget
   private ModernWindow mWindow;
 
   /** The m mode button. */
-  private QuickAccessMenuButton mModeButton;
+  private QuickAccessMenuButton2 mModeButton;
 
   private HighlightListeners mHighlightListeners = new HighlightListeners();
 
@@ -627,6 +633,7 @@ public class Ribbon extends ModernClickWidget
 
     setLayout(null);
 
+    /*
     if (UI.CUSTOM_WINDOW_DECORATION) {
       mTitleBar = new ModernWindowTitleBar(window);
 
@@ -637,6 +644,7 @@ public class Ribbon extends ModernClickWidget
       // So the title bar can be used to move the window
       new WindowMover(window, mTitleBar);
     }
+    */
 
     addMouseListener(new MouseEvents());
     addMouseMotionListener(new MouseMotionEvents());
@@ -674,6 +682,14 @@ public class Ribbon extends ModernClickWidget
     addToolbar(UI.ASSET_RIBBON_FILE);
 
     setMode(RibbonMode.TABS_COMMANDS);
+    
+    // Register to recieve events sent to the ribbon so that we can forward
+    // them to the underlying window
+    ToolTipService.getInstance().addToolTipListener(this);
+    
+    // As a pass through entity, this component does not generate nor need
+    // to respond to tooltips
+    setToolTipsEnabled(false);
 
     setBackgroundAnimations("ribbon");
 
@@ -731,60 +747,7 @@ public class Ribbon extends ModernClickWidget
     return mSize;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.
-   * ui. modern.ModernComponent,
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel)
-   */
-  @Override
-  public synchronized void showToolTip(Component source,
-      Component tooltipPanel) {
-    hideToolTips(source);
-
-    Window window = ModernWindow.getParentWindow(source);
-
-    Rectangle wb = window.getBounds();
-
-    Point p = source.getLocationOnScreen();
-
-    if (p.x + tooltipPanel.getPreferredSize().width > wb.x + wb.width) {
-      p.x = source.getWidth() - tooltipPanel.getPreferredSize().width;
-    }
-
-    p.y = getLocationOnScreen().y + getHeight();
-
-    showToolTip(this, tooltipPanel, p);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.
-   * ui. modern.ModernComponent,
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel, java.awt.Point)
-   */
-  @Override
-  public synchronized void showToolTip(Component source,
-      Component tooltipPanel,
-      Point location) {
-    getToolTipModel().showToolTip(source, tooltipPanel, location);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#hideToolTips(org.abh.lib.
-   * ui. modern.ModernComponent)
-   */
-  @Override
-  public synchronized void hideToolTips(Component source) {
-    getToolTipModel().hideToolTips(source);
-  }
+  
 
   /**
    * Creates the right toolbar.
@@ -800,10 +763,10 @@ public class Ribbon extends ModernClickWidget
 
     showTabsCommandsMenuItem.doClick();
 
-    ModernPopupMenu menu = new ModernPopupMenu(showTabsMenuItem,
+    ModernPopupMenu2 menu = new ModernPopupMenu2(showTabsMenuItem,
         showTabsCommandsMenuItem);
 
-    mModeButton = new QuickAccessMenuButton(
+    mModeButton = new QuickAccessMenuButton2(
         UIService.getInstance().loadIcon(RibbonModeVectorIcon.class, 16), menu);
     mModeButton.setToolTip("Ribbon Display Options",
         "Configure ribbon behavior.");
@@ -970,7 +933,7 @@ public class Ribbon extends ModernClickWidget
     Tab tab = mTabs.getTab(nu);
 
     if (tab != null) {
-      return (RibbonToolbar) tab.getComponent();
+      return (RibbonToolbar)tab.getComponent();
     }
 
     addToolbar(nu);
@@ -1408,7 +1371,7 @@ public class Ribbon extends ModernClickWidget
    * @return the tab width
    */
   public static int getTabWidth(String name) {
-    return getStringWidth(TAB_FONT, name) + TOTAL_TAB_PADDING_X;
+    return Math.max(DEFAULT_TAB_WIDTH, getStringWidth(TAB_FONT, name) + TOTAL_TAB_PADDING_X);
   }
 
   /**
@@ -1527,5 +1490,86 @@ public class Ribbon extends ModernClickWidget
   @Override
   public void fireHighlighted(HighlightEvent e) {
     mHighlightListeners.fireHighlighted(e);
+  }
+  
+  /*
+  @Override
+  public synchronized void showToolTip(Component source,
+      Component tooltipPanel) {
+    hideToolTips(source);
+
+    Rectangle wb = mWindow.getBounds();
+
+    Point p = source.getLocationOnScreen();
+
+    if (p.x + tooltipPanel.getPreferredSize().width > wb.x + wb.width) {
+      p.x = source.getWidth() - tooltipPanel.getPreferredSize().width;
+    }
+
+    p.y = getLocationOnScreen().y + getHeight();
+
+    showToolTip(this, tooltipPanel, p);
+  }
+
+  @Override
+  public synchronized void showToolTip(Component source,
+      Component tooltipPanel,
+      Point location) {
+    getToolTipModel().showToolTip(source, tooltipPanel, location);
+  }
+
+  @Override
+  public synchronized void hideToolTips(Component source) {
+    getToolTipModel().hideToolTips(source);
+  }
+  */
+
+  @Override
+  public void tooltipShown(ModernToolTipEvent e) {
+    showToolTip(createToolTipEvent(e.getTooltip(), tooltipP(e)));
+  }
+  
+  @Override
+  public void tooltipAdded(ModernToolTipEvent e) {
+    addToolTip(createToolTipEvent(e.getTooltip(), tooltipP(e)));
+  }
+  
+  private Point tooltipP(ModernToolTipEvent e) {
+    Rectangle wb = mWindow.getBounds();
+
+    Component source = e.getSource();
+    Component tooltip = e.getTooltip();
+    
+    Point p = source.getLocationOnScreen();
+    SwingUtilities.convertPointFromScreen(p, mWindow.getLayeredPane());
+    
+    Point p2 = getLocationOnScreen();
+    SwingUtilities.convertPointFromScreen(p2, mWindow.getLayeredPane());
+
+    p2.x = p.x;
+    p2.y += getHeight();
+    
+    int pw = tooltip.getPreferredSize().width;
+    
+    
+    // If tooltip would go out of bounds, shift it back so that it is flush
+    // with the right edge of the source
+    if (p2.x + pw > wb.width) {
+      p2.x += source.getWidth() - pw;
+    }
+
+    return p2;
+  }
+
+  @Override
+  public void tooltipHidden(ModernToolTipEvent e) {
+    // Forward
+    hideToolTip(createToolTipEvent(e.getTooltip()));
+  }
+
+  @Override
+  public void tooltipsHidden(ModernToolTipEvent e) {
+    // Forward
+    hideToolTips(createToolTipEvent());
   }
 }

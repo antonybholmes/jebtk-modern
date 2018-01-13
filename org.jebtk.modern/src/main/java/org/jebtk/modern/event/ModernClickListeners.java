@@ -73,6 +73,7 @@ public class ModernClickListeners extends EventProducer<ModernClickListener>
    * org.abh.lib.ui.modern.event.ModernClickEventProducer#fireClicked(org.abh.
    * lib. ui.modern.event.ModernClickEvent)
    */
+  @Override
   public void fireClicked(ModernClickEvent e) {
     for (ModernClickListener l : mListeners) {
       l.clicked(e);

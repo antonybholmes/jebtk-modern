@@ -136,7 +136,7 @@ public abstract class ModernTaskSplashScreen2 extends ModernSplashScreen {
 
     box.add(UI.createVGap(60));
 
-    UI.setSize(mActivityBar, new Dimension(500, 24));
+    UI.setSize(mActivityBar, 500, 24);
     box.add(new HCenterBox(mActivityBar));
 
     box.setBorder(BorderService.getInstance().createLeftRightBorder(60));

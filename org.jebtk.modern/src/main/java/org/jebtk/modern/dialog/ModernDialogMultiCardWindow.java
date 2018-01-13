@@ -148,7 +148,7 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
    * @param type the type
    */
   private final void createUi(ModernDialogTaskType type) {
-    // this.getContentPane().add(new JLabel("Change " +
+    // this.getWindowContentPanel().add(new JLabel("Change " +
     // getProductDetails().getProductName() + " settings", JLabel.LEFT),
     // BorderLayout.PAGE_START);
 

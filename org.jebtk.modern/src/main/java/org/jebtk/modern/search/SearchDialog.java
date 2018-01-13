@@ -111,7 +111,7 @@ public class SearchDialog extends ModernDialogTaskWindow
    * @param lines the lines
    */
   private final void createUi(List<String> lines) {
-    // this.getContentPane().add(new JLabel("Change " +
+    // this.getWindowContentPanel().add(new JLabel("Change " +
     // getProductDetails().getProductName() + " settings", JLabel.LEFT),
     // BorderLayout.PAGE_START);
 

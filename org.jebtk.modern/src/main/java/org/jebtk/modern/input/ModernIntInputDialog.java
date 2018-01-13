@@ -94,7 +94,7 @@ public class ModernIntInputDialog extends ModernDialogTaskWindow {
    * @param prompt the prompt
    */
   private final void createUi(String prompt) {
-    // this.getContentPane().add(new JLabel("Change " +
+    // this.getWindowContentPanel().add(new JLabel("Change " +
     // getProductDetails().getProductName() + " settings", JLabel.LEFT),
     // BorderLayout.PAGE_START);
 

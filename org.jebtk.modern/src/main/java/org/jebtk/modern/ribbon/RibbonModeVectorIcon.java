@@ -43,7 +43,7 @@ public class RibbonModeVectorIcon extends ModernVectorScalableIcon {
   private Color mColor;
 
   public RibbonModeVectorIcon() {
-    this(Ribbon.BAR_BACKGROUND);
+    this(Color.WHITE); //Ribbon.BAR_BACKGROUND);
   }
 
   public RibbonModeVectorIcon(Color color) {

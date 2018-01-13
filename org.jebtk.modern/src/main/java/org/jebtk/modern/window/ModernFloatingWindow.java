@@ -127,16 +127,6 @@ public class ModernFloatingWindow extends JFrame {
     getContentPane().add(c, BorderLayout.PAGE_END);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see javax.swing.JFrame#getContentPane()
-   */
-  @Override
-  public Container getContentPane() {
-    return getContentPanel();
-  }
-
   /**
    * Returns the panel.
    *

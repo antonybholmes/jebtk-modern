@@ -109,12 +109,18 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
       // //Color.WHITE);
       // }
 
+//      if (i == mRibbon.mSelectedTab) {
+//        g2.setColor(Ribbon.BAR_BACKGROUND);
+//      } else if (i == mRibbon.mHighlightedTab) {
+//        g2.setColor(getFadeColor("highlight"));
+//      } else {
+//        g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
+//      }
+      
       if (i == mRibbon.mSelectedTab) {
-        g2.setColor(Ribbon.BAR_BACKGROUND); // MaterialService.getInstance().color("ribbon-menu-font-selected"));
-      } else if (i == mRibbon.mHighlightedTab) {
-        g2.setColor(getFadeColor("highlight"));
+        g2.setColor(Ribbon.BAR_BACKGROUND);
       } else {
-        g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
+        g2.setColor(Color.WHITE);
       }
 
       int textX = x

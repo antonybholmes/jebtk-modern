@@ -16,8 +16,10 @@
 package org.jebtk.modern.ribbon;
 
 import java.awt.Color;
+import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -30,6 +32,9 @@ import org.jebtk.modern.widget.ModernWidget;
 public class RibbonAnimation extends WidgetAnimation {
 
   private Ribbon mRibbon;
+
+  private static final Color RIBBON_LIGHT_COLOR =
+      ColorUtils.tint(Ribbon.BAR_BACKGROUND, 0.1);
 
   /**
    * Instantiates a new state animation.
@@ -59,19 +64,17 @@ public class RibbonAnimation extends WidgetAnimation {
    * @param g2 the g 2
    */
   public void drawBackground(Graphics2D g2) {
-    /*
-     * GradientPaint paint = new GradientPaint(0, 0, BAR_BACKGROUND, 0,
-     * TAB_BODY_Y, BAR_BACKGROUND_1); g2.setPaint(paint);
-     */
 
     g2.setColor(Color.WHITE); // Ribbon.BAR_BACKGROUND);
-
     g2.fillRect(0, 0, mRibbon.getWidth(), mRibbon.getHeight()); // Ribbon.TAB_BODY_Y);
 
-    // g2.setColor(Ribbon.TAB_COLOR);
+    GradientPaint paint = new GradientPaint(0, 0, RIBBON_LIGHT_COLOR, 0,
+        Ribbon.TAB_BODY_Y, Ribbon.BAR_BACKGROUND);
+    g2.setPaint(paint);
+    g2.fillRect(0, 0, mRibbon.getWidth(), Ribbon.TAB_BODY_Y);
 
+    // g2.setColor(Ribbon.TAB_COLOR);
     // g2.fillRect(0, Ribbon.TAB_BODY_Y, mRibbon.getWidth(),
     // mRibbon.mToolbarHeight);
-
   }
 }

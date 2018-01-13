@@ -18,10 +18,10 @@ package org.jebtk.modern.ribbon;
 import javax.swing.Box;
 
 import org.jebtk.modern.BorderService;
-import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.panel.HBox;
+import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.tabs.ViewPanel;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.tooltip.ModernBasicToolTipPanel;
@@ -31,7 +31,7 @@ import org.jebtk.modern.widget.tooltip.ModernToolTip;
 /**
  * The Class RibbonViewPanel.
  */
-public class RibbonViewPanel extends ModernComponent {
+public class RibbonViewPanel extends ModernPanel {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
