@@ -301,6 +301,22 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
     
     setBackgroundAnimations("dropdown-button-2");
   }
+  
+  @Override
+  protected void mouseShowToolTip() {
+    // Don't hide tooltip if popup is shown as this will affect the UI.
+    if (!getPopupShown()) {
+      super.mouseShowToolTip();
+    }
+  }
+  
+  @Override
+  protected void mouseHideToolTips() {
+    // Don't hide tooltip if popup is shown as this will affect the UI.
+    if (!getPopupShown()) {
+      super.mouseHideToolTips();
+    }
+  }
 
   /*
    * (non-Javadoc)

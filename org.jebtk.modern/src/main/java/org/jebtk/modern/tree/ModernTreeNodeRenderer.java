@@ -32,6 +32,7 @@ import java.awt.Graphics2D;
 import org.jebtk.core.tree.TreeNode;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -199,7 +200,9 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
 
       // g2.setColor(ModernWidgetRenderer.RIBBON_SELECTED_OUTLINE_COLOR);
 
-      getWidgetRenderer().drawRibbonButton(g2, mRect, RenderMode.SELECTED);
+      // getWidgetRenderer().drawRibbonButton(g2, mRect, RenderMode.SELECTED);
+
+      UIDrawService.getInstance().get("button.selected").draw(g2, mRect, false);
 
     } else if (mNodeIsHighlighted) {
       /*
@@ -208,9 +211,12 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
        */
 
       if (mRenderer != null) {
-        g2.setColor(mRenderer.getFade().getFadeColor("highlight"));
-        getWidgetRenderer()
-            .fill(g2, mRect.getX(), mRect.getY(), mRect.getW(), mRect.getH());
+        // g2.setColor(mRenderer.getFade().getFadeColor("highlight"));
+        // getWidgetRenderer()
+        // .fill(g2, mRect.getX(), mRect.getY(), mRect.getW(), mRect.getH());
+
+        UIDrawService.getInstance().get("button.highlight")
+            .draw(g2, mRect, false, mRenderer.getFade().getFadeColor("highlight"));
       }
 
       // getWidgetRenderer().drawButton(g2, mRect, RenderMode.SELECTED);

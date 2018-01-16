@@ -21,6 +21,7 @@ import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -111,19 +112,7 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
       int h,
       RenderMode mode,
       boolean hasFocus) {
-    // if (mode == RenderMode.NONE) {
-    // return;
-    // }
-
-    // GradientPaint paint = new GradientPaint(0,
-    // y,
-    // getFadeColor("highlight"),
-    // 0,
-    // y + h,
-    // getFadeColor("fill"));
-
-    // g2.setPaint(paint);
-
+    /*
     if (mode == RenderMode.SELECTED) {
       g2.setColor(ModernWidgetRenderer.RIBBON_SELECTED_FILL_COLOR);
 
@@ -137,6 +126,18 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
 
     if (mode != RenderMode.NONE) {
       getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
+    }
+    */
+    
+    switch (mode) {
+    case SELECTED:
+      UIDrawService.getInstance().get("button.selected").draw(g2, x, y, w, h, hasFocus);
+      break;
+    case HIGHLIGHT:
+      UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h, hasFocus, getFadeColor("highlight"));
+      break;
+    default:
+      break;
     }
   }
 

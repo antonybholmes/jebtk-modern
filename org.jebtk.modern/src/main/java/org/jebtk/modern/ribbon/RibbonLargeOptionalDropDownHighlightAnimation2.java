@@ -21,6 +21,7 @@ import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.button.DropDownButtonAnimation2;
 import org.jebtk.modern.button.ModernOptionalDropDownMenuButton2;
 import org.jebtk.modern.theme.ModernWidgetRenderer;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -71,16 +72,18 @@ public class RibbonLargeOptionalDropDownHighlightAnimation2
         w = rect.getW() - mButton.mDividerLocation;
       }
 
-      g2.setColor(getFadeColor("fill"));
+      //g2.setColor(getFadeColor("fill"));
 
       if (mButton.isSelected() || mButton.mPopupShown) {
         // paintHighlighted(g2, rect);
 
-        getWidget().getWidgetRenderer().fill(g2, rect);
+        //getWidget().getWidgetRenderer().fill(g2, rect);
+        UIDrawService.getInstance().get("button.selected").draw(g2, rect, false);
 
       } else if (mButton.getHightlighted()) {
         // getWidget().getWidgetRenderer().outline(g2, rect);
-        getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
+        //getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
+        UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h, false, getFadeColor("fill"));
 
         // getWidgetRenderer().drawRibbonButtonOutline(g2, rect,
         // RenderMode.SELECTED);

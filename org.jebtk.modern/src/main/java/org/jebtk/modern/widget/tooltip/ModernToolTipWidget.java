@@ -100,7 +100,7 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
      */
     @Override
     public void mouseEntered(MouseEvent e) {
-      mouseHoverToolTip();
+      mouseShowToolTip();
     }
 
     /*
@@ -194,21 +194,25 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
 
     return this;
   }
+  
+  private boolean toolTipActionable() {
+    return mEnableToolTips && mToolTipPanel != null;
+  }
 
   /**
    * Show tooltip when mouse hovers.
    */
-  private void mouseHoverToolTip() {
-    if (mEnableToolTips && mToolTipPanel != null) {
-      mTimer.start();
+  protected void mouseShowToolTip() {
+    if (toolTipActionable()) {
+      mTimer.restart(); //restart();
     }
   }
   
   /**
    * Hide tooltips when mouse exits component.
    */
-  private void mouseHideToolTips() {
-    if (mEnableToolTips && mToolTipPanel != null) {
+  protected void mouseHideToolTips() {
+    if (toolTipActionable()) {
       mTimer.stop();
       hideToolTips(createToolTipEvent());
     }

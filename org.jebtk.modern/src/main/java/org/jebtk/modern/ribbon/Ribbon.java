@@ -136,7 +136,7 @@ public class Ribbon extends ModernClickWidget
   /**
    * The constant TAB_PADDING_X.
    */
-  private static final int TAB_PADDING_X = 16;
+  private static final int TAB_PADDING_X = 12;
 
   /**
    * The constant TOTAL_TAB_PADDING_X.
@@ -1371,7 +1371,7 @@ public class Ribbon extends ModernClickWidget
    * @return the tab width
    */
   public static int getTabWidth(String name) {
-    return Math.max(DEFAULT_TAB_WIDTH, getStringWidth(TAB_FONT, name) + TOTAL_TAB_PADDING_X);
+    return ((getStringWidth(TAB_FONT, name) + TOTAL_TAB_PADDING_X) / 10 + 1) * 10;
   }
 
   /**

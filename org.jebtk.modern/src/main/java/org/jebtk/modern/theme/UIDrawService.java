@@ -1,5 +1,5 @@
 /**
-WidgetRendererService.java * Copyright (C) 2016, Antony Holmes
+ * Copyright (C) 2016, Antony Holmes
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,6 +27,14 @@ WidgetRendererService.java * Copyright (C) 2016, Antony Holmes
  */
 package org.jebtk.modern.theme;
 
+import java.util.Iterator;
+
+import org.jebtk.core.collections.IterHashMap;
+import org.jebtk.core.collections.IterMap;
+import org.jebtk.modern.theme.renderers.ButtonHighlightedUI;
+import org.jebtk.modern.theme.renderers.ButtonHighlightedUI;
+import org.jebtk.modern.theme.renderers.ButtonSelectedUI;
+
 // TODO: Auto-generated Javadoc
 /**
  * Provides the shared renderer to components. This is the default way to
@@ -36,39 +44,50 @@ package org.jebtk.modern.theme;
  * @author Antony Holmes Holmes
  *
  */
-public class WidgetRendererProvider {
-
-  /** The m renderer. */
-  private WidgetRenderer mRenderer = new ModernWidgetRenderer();
+public class UIDrawService implements Iterable<String> {
 
   /**
-   * Sets the.
-   *
-   * @param renderer the renderer
-   * @return the widget renderer provider
+   * The Class WidgetRendererServiceLoader.
    */
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.GetSet#set(java.lang.Object)
-   */
-  public WidgetRendererProvider set(WidgetRenderer renderer) {
-    mRenderer = renderer;
+  private static class UIRendererServiceLoader {
 
-    return this;
+    /** The Constant INSTANCE. */
+    private static final UIDrawService INSTANCE = new UIDrawService();
   }
 
   /**
-   * Gets the renderer.
+   * Gets the single instance of SettingsService.
    *
-   * @return the renderer
+   * @return single instance of SettingsService
    */
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.GetSet#get()
-   */
-  public WidgetRenderer getRenderer() {
-    return mRenderer;
+  public static UIDrawService getInstance() {
+    return UIRendererServiceLoader.INSTANCE;
+  }
+
+  private IterMap<String, UIRenderer> mRenderMap = 
+      new IterHashMap<String, UIRenderer>();
+
+  private UIDrawService() {
+    // Do nothing
+    
+    add(new ButtonHighlightedUI());
+    add(new ButtonSelectedUI());
+  }
+  
+  public void add(UIRenderer renderer) {
+    add(renderer.getName(), renderer);
+  }
+  
+  public void add(String name, UIRenderer renderer) {
+    mRenderMap.put(name, renderer);
+  }
+  
+  public UIRenderer get(String name) {
+    return mRenderMap.get(name);
+  }
+
+  @Override
+  public Iterator<String> iterator() {
+    return mRenderMap.keySet().iterator();
   }
 }
