@@ -86,8 +86,8 @@ public class MinusVectorIcon extends ModernVectorIcon {
     double wf = w * SCALE;
     double w2 = wf / 2.0;
 
-    double xf = x + (w - wf) / 2.0;
-    double yf = y + (h - wf) / 2.0;
+    double xf = x + (w - wf) / 2.0 - 1;
+    double yf = y + (h - wf) / 2.0 - 1;
 
     g2.drawLine((int) Math.round(xf),
         (int) Math.round(yf + w2),

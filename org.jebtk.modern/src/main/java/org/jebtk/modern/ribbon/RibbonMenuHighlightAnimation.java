@@ -41,9 +41,9 @@ public class RibbonMenuHighlightAnimation extends HoverFadeAnimation {
     mButton = (RibbonMenuItem) button;
 
     // setFadeColor("selected",
-    // MaterialService.getInstance().color("ribbon-theme-selected"));
+    // MaterialService.getInstance().color("ribbon-selected"));
     setFadeColor("highlight",
-        MaterialService.getInstance().color("gray-highlighted"));
+        MaterialService.getInstance().color("gray-highlight"));
   }
 
   /*

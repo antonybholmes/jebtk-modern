@@ -51,6 +51,9 @@ public class MaterialService {
   /** The Constant LOG. */
   private final static Logger LOG = LoggerFactory
       .getLogger(MaterialService.class);
+  
+  public static final Color TEXT_COLOR = ThemeService.getInstance().colors()
+      .getTextColor();
 
   /**
    * The Class MaterialFonts represents standard material fonts that are cached
@@ -106,33 +109,46 @@ public class MaterialService {
      * Instantiates a new material colors.
      */
     public MaterialColors() {
-      put("ribbon-theme",
+      put("ribbon",
           ThemeService.getInstance().colors().getColorHighlight32(28));
-      put("ribbon-theme-highlighted",
-          ColorUtils.getTransparentColor(get("ribbon-theme"), 0.92));
-      put("ribbon-theme-selected",
-          ColorUtils.getTransparentColor(get("ribbon-theme"), 0.87));
-      put("ribbon-theme-pressed",
-          ColorUtils.getTransparentColor(get("ribbon-theme"), 0.82));
+      put("ribbon-highlight",
+          ColorUtils.getTransparentColor(get("ribbon"), 0.92));
+      put("ribbon-selected",
+          ColorUtils.getTransparentColor(get("ribbon"), 0.87));
+      put("ribbon-pressed",
+          ColorUtils.getTransparentColor(get("ribbon"), 0.82));
 
       // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
 
-      put("button", ColorUtils.getTransparentColor(get("ribbon-theme"), 0.75));
+      //put("button", ColorUtils.getTransparentColor(get("ribbon"), 0.75));
 
-      put("gray", ThemeService.getInstance().colors().getHighlight32(28));
-      put("gray-highlighted",
-          ColorUtils.getTransparentColor(get("gray"), 0.92));
-      put("gray-selected", ColorUtils.getTransparentColor(get("gray"), 0.87));
-      put("gray-pressed", ColorUtils.getTransparentColor(get("gray"), 0.82));
-
+      
       put("ribbon-menu-font",
           ThemeService.getInstance().colors().getHighlight32(20));
-      put("ribbon-menu-font-highlighted",
+      put("ribbon-menu-font-highlight",
           ThemeService.getInstance().colors().getHighlight32(25));
       put("ribbon-menu-font-selected", ModernWidget.TEXT_COLOR);
 
       put("card-border",
           ColorUtils.getTransparentColor25(ModernWidget.LIGHT_LINE_COLOR));
+      
+      put("theme-highlight",ThemeService.getInstance()
+          .colors().getColorHighlight32(14));
+
+      put("theme-selected",ThemeService.getInstance()
+          .colors().getColorHighlight32(16));
+      
+      put("theme-outline",ThemeService.getInstance()
+          .colors().getColorHighlight32(18));
+      
+      put("gray-highlight",ThemeService.getInstance()
+          .colors().getHighlight32(5));
+
+      put("gray-selected",ThemeService.getInstance()
+          .colors().getHighlight32(10));
+      
+      put("gray-outline",ThemeService.getInstance()
+          .colors().getHighlight32(15));
     }
 
   }

@@ -50,7 +50,7 @@ public class MaterialUtils {
   public static final int SMALL_PADDING = ModernWidget.DOUBLE_PADDING;
 
   public static final Color BUTTON_COLOR = MaterialService.getInstance()
-      .color("button"); // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
+      .color("theme-highlight"); // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
 
   public static final Color LINE_COLOR = MaterialService.getInstance()
       .color("card-border"); // ColorUtils.getTransparentColor50(ModernWidget.LIGHT_LINE_COLOR);

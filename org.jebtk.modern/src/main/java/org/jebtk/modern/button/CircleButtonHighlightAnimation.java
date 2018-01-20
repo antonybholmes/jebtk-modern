@@ -2,7 +2,7 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.theme.MaterialUtils;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -10,7 +10,7 @@ public class CircleButtonHighlightAnimation extends ButtonHighlightAnimation {
   public CircleButtonHighlightAnimation(ModernWidget button) {
     super(button);
 
-    setFadeColor("fill", MaterialUtils.BUTTON_COLOR);
+    setFadeColor("fill", MaterialService.getInstance().color("theme-highlight"));
   }
 
   @Override

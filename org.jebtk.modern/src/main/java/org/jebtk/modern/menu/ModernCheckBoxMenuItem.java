@@ -89,14 +89,14 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
     //setBackgroundAnimations("menu");
   }
 
-  /*
   @Override
   public void drawBackground(Graphics2D g2) {
     if (isEnabled() && mHighlight) {
-      getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.HIGHLIGHT);
+      //getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.HIGHLIGHT);
+      
+      UIDrawService.getInstance().get("menu.highlight").draw(g2, mInternalRect);
     }
   }
-  */
 
   /*
    * (non-Javadoc)
@@ -118,11 +118,13 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
     if (isSelected()) {
       //CHECKED_ICON.drawIcon(g2, x, y, ICON_SIZE);
       
-      UIDrawService.getInstance().get("checkbox.checked").draw(g2, x, y, ICON_SIZE, ICON_SIZE);
+      UIDrawService.getInstance().get("check").draw(g2, x, y, ICON_SIZE, ICON_SIZE);
       
-    } else {
+    } 
+    
+    //else {
       //CHECK_ICON.drawIcon(g2, x, y, ICON_SIZE);
-      UIDrawService.getInstance().get("checkbox").draw(g2, x, y, ICON_SIZE, ICON_SIZE);
-    }
+    //  UIDrawService.getInstance().get("checkbox").draw(g2, x, y, ICON_SIZE, ICON_SIZE);
+    //}
   }
 }

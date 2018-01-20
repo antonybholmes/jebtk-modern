@@ -5,8 +5,9 @@ import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.settings.SettingsService;
+import org.jebtk.modern.graphics.ImageUtils;
 
-public class CheckedUI extends RoundedUI {
+public class CheckUI extends RoundedUI {
   public static final double CHECK_SCALE = SettingsService.getInstance()
       .getAsDouble("theme.icons.check-icon.width-scale");
 
@@ -15,12 +16,12 @@ public class CheckedUI extends RoundedUI {
    */
   public static final double TICK_SCALE = SettingsService.getInstance()
       .getAsDouble("theme.icons.check-icon.tick-scale");
-  
+
   @Override
   public String getName() {
-    return "check.checked";
+    return "check";
   }
-  
+
   @Override
   public void draw(Graphics2D g2,
       int x,
@@ -28,13 +29,7 @@ public class CheckedUI extends RoundedUI {
       int w,
       int h,
       Object... params) {
-    if (params.length > 0) {
-      g2.setColor((Color) params[0]);
-    } else {
-      g2.setColor(Color.WHITE);
-    }
 
-    g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
 
     double wf = w * CHECK_SCALE;
     double t = wf * TICK_SCALE;
@@ -48,6 +43,20 @@ public class CheckedUI extends RoundedUI {
     gp.lineTo(xf + t, yf + wf);
     gp.lineTo(xf + wf, yf);
 
-    g2.draw(gp);
+    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+
+    try {
+      if (params.length > 0) {
+        g2Temp.setColor((Color) params[0]);
+      } else {
+        g2Temp.setColor(MaterialService.TEXT_COLOR);
+      }
+
+      g2Temp.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+
+      g2Temp.draw(gp);
+    } finally {
+      g2Temp.dispose();
+    }
   }
 }

@@ -369,7 +369,7 @@ public class ModernWidgetRenderer extends WidgetRenderer {
     if (mode == RenderMode.SELECTED) {
       g2.setColor(MaterialService.getInstance().color("gray-selected"));
     } else {
-      g2.setColor(MaterialService.getInstance().color("gray-highlighted"));
+      g2.setColor(MaterialService.getInstance().color("gray-highlight"));
     }
   }
 

@@ -20,6 +20,7 @@ import java.awt.Graphics2D;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.button.DropDownButtonAnimation2;
 import org.jebtk.modern.button.ModernOptionalDropDownMenuButton2;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
@@ -44,7 +45,7 @@ public class RibbonLargeOptionalDropDownHighlightAnimation2
 
     mButton = (ModernOptionalDropDownMenuButton2) button;
 
-    setFadeColor("fill", ModernWidgetRenderer.RIBBON_SELECTED_FILL_COLOR);
+    setFadeColor("fill", MaterialService.getInstance().color("gray-highlight"));
   }
 
   /*

@@ -90,7 +90,7 @@ public class RibbonMenuItem extends ModernCheckButton
    * The constant MENU_HIGHLIGHT_COLOR.
    */
   public static final Color MENU_HIGHLIGHT_COLOR = MaterialService.getInstance()
-      .color("gray-highlighted");
+      .color("gray-highlight");
 
   /** The Constant ROUNDING. */
   public static final int ROUNDING = 10;
@@ -200,7 +200,7 @@ public class RibbonMenuItem extends ModernCheckButton
           MaterialService.getInstance().color("ribbon-menu-font-selected"));
     } else if (getHightlighted()) {
       g2.setColor(
-          MaterialService.getInstance().color("ribbon-menu-font-highlighted"));
+          MaterialService.getInstance().color("ribbon-menu-font-highlight"));
     } else {
       g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
     }

@@ -61,7 +61,7 @@ public class ModernStatusZoomSlider extends HBox {
     mLabel = new ModernZoomLabel(model);
 
     add(mSlider);
-    add(UI.createHGap(20));
+    add(UI.createHGap(10));
     add(mLabel);
   }
 }

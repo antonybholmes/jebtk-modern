@@ -39,10 +39,10 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernButton;
+import org.jebtk.modern.button.ModernCircleButton;
 import org.jebtk.modern.graphics.icons.MinusVectorIcon;
 import org.jebtk.modern.graphics.icons.PlusVectorIcon;
 import org.jebtk.modern.panel.HBox;
-import org.jebtk.modern.ribbon.RibbonButton;
 import org.jebtk.modern.slider.ContinuousMacOrbSlider;
 import org.jebtk.modern.slider.Slider;
 
@@ -58,21 +58,6 @@ public class ModernZoomSlider extends HBox implements Zoom {
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-
-  /**
-   * The constant LEVELS.
-   */
-  private static final int LEVELS = 21;
-
-  /**
-   * The constant HALF_LEVEL.
-   */
-  private static final int HALF_LEVEL = LEVELS / 2;
-
-  /**
-   * The constant MID_LEVEL.
-   */
-  private static final int MID_LEVEL = HALF_LEVEL + 1;
 
   /**
    * The member slider.
@@ -98,31 +83,16 @@ public class ModernZoomSlider extends HBox implements Zoom {
   // private double mMinZoom;
 
   /**
-   * The member max zoom.
-   */
-  // private double mMaxZoom;
-
-  /**
-   * The member p inc.
-   */
-  private double mPInc;
-
-  /**
-   * The member p dec.
-   */
-  private double mPDec;
-
-  /**
    * The member zoom in button.
    */
-  private ModernButton mZoomInButton = new RibbonButton(
+  private ModernButton mZoomInButton = new ModernCircleButton(
       UIService.getInstance().loadIcon(PlusVectorIcon.class, 16),
       "Zoom In", "Zoom in.");
 
   /**
    * The member zoom out button.
    */
-  private ModernButton mZoomOutButton = new RibbonButton(
+  private ModernButton mZoomOutButton = new ModernCircleButton(
       UIService.getInstance().loadIcon(MinusVectorIcon.class, 16),
       "Zoom Out", "Zoom out.");
 
@@ -264,9 +234,9 @@ public class ModernZoomSlider extends HBox implements Zoom {
   private void setup() {
     UI.setSize(mZoomOutButton, ModernButton.SMALL_BUTTON_SIZE);
     add(mZoomOutButton);
-    add(UI.createHGap(5));
+    //add(UI.createHGap(5));
     add(mSlider);
-    add(UI.createHGap(5));
+    //add(UI.createHGap(5));
     UI.setSize(mZoomInButton, ModernButton.SMALL_BUTTON_SIZE);
     add(mZoomInButton);
 

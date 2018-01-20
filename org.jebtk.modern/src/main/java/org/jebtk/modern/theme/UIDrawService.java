@@ -74,13 +74,14 @@ public class UIDrawService implements Iterable<String> {
     add(new CircleHighlightUI());
     add(new MenuHighlightUI());
     add(new PillHighlightUI());
-    //add(new CheckedUI());
+    add(new CheckUI());
     add(new CheckedBoxUI());
     
     add("checkbox", get("content-box"));
     
     add(new ColorButtonHighlightUI());
     add(new ColorButtonSelectedUI());
+    add(new ColorCircleHighlightUI());
   }
   
   public void add(UIRenderer renderer) {

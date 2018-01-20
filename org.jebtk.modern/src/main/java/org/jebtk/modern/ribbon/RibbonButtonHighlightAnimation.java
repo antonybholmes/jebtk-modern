@@ -19,6 +19,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.animation.HoverFadeAnimation;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.theme.UIDrawService;
@@ -52,9 +53,9 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
     mButton = (ModernClickWidget) button;
     mType = type;
     
-    setFadeColor("outline", ModernWidgetRenderer.RIBBON_SELECTED_OUTLINE_COLOR);
-    setFadeColor("highlight", ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
-    setFadeColor("fill", ModernWidgetRenderer.RIBBON_SELECTED_FILL_COLOR);
+    setFadeColor("outline", MaterialService.getInstance().color("gray-outline"));
+    setFadeColor("highlight", MaterialService.getInstance().color("gray-highlight"));
+    setFadeColor("fill", MaterialService.getInstance().color("gray-selected"));
   }
 
   /*

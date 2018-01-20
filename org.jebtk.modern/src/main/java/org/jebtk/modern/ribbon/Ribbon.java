@@ -52,6 +52,7 @@ import javax.swing.Box;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
+import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
@@ -244,7 +245,9 @@ public class Ribbon extends ModernClickWidget
 
   /** The Constant BAR_BACKGROUND. */
   public static final Color BAR_BACKGROUND = MaterialService.getInstance()
-      .color("ribbon-theme");
+      .color("ribbon");
+  
+  
 
   /** The constant TAB_COLOR. */
   public static final Color TAB_COLOR = ThemeService.getInstance().colors()
@@ -1101,7 +1104,7 @@ public class Ribbon extends ModernClickWidget
    *           if (i == mSelectedTab) {
    *           g2.setColor(MaterialService.getInstance().color("ribbon-menu-font-selected"));
    *           } else if (i == mHighlightedTab) {
-   *           g2.setColor(MaterialService.getInstance().color("ribbon-menu-font-highlighted"));
+   *           g2.setColor(MaterialService.getInstance().color("ribbon-menu-font-highlight"));
    *           } else {
    *           g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
    *           }

@@ -31,7 +31,7 @@ import org.jebtk.modern.widget.ModernWidget;
 public class RibbonHighlightTextAnimation extends HighlightAnimation {
 
   public static final Color HIGHLIGHT_COLOR = MaterialService.getInstance()
-      .color("ribbon-theme-highlighted");
+      .color("ribbon-highlight");
 
   /** The m ribbon. */
   private Ribbon mRibbon;
@@ -48,7 +48,7 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
 
     setFadeColor("highlight",
         MaterialService.getInstance().color("ribbon-menu-font"),
-        MaterialService.getInstance().color("ribbon-theme"));
+        MaterialService.getInstance().color("ribbon"));
   }
 
   /*

@@ -38,7 +38,7 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
    * @param button the button
    */
   public RibbonSegmentPressedAnimation(ModernWidget w) {
-    super(w, MaterialService.getInstance().color("ribbon-theme-pressed"));
+    super(w, MaterialService.getInstance().color("ribbon-pressed"));
 
     mTabs = (RibbonSegmentVertTabs) w;
   }

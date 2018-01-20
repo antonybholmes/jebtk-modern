@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.ribbon.Ribbon;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -21,7 +21,7 @@ public class ContinuousMacOrbAnimation extends HoverFadeAnimation {
     mButton = (ContinuousMacOrbSlider) button;
 
     setFadeColor("highlight",
-        ModernWidgetRenderer.SELECTED_FILL_COLOR,
+        MaterialService.getInstance().color("theme-selected"),
         Ribbon.BAR_BACKGROUND);
     setFadeColor("line", ModernWidget.LINE_COLOR, ModernWidget.DARK_LINE_COLOR);
   }

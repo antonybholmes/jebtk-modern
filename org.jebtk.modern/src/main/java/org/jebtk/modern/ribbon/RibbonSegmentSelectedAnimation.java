@@ -69,7 +69,7 @@ public class RibbonSegmentSelectedAnimation extends WidgetAnimation {
     if (selected != -1) { // highlighted != selectedIndex &&
       y1 = y + selected * RibbonSegmentVertTabs.TAB_SIZE;
 
-      //g2.setColor(MaterialService.getInstance().color("ribbon-theme-selected"));
+      //g2.setColor(MaterialService.getInstance().color("ribbon-selected"));
       //g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
       
       UIDrawService.getInstance().get("menu.highlight").draw(g2, 
@@ -77,7 +77,7 @@ public class RibbonSegmentSelectedAnimation extends WidgetAnimation {
           y1, 
           w, 
           RibbonSegmentVertTabs.TAB_SIZE,
-          MaterialService.getInstance().color("ribbon-theme-selected"));
+          MaterialService.getInstance().color("ribbon-selected"));
     }
   }
 }

@@ -71,7 +71,7 @@ public abstract class Slider extends ModernFocusableWidget
   // private ModernClickListeners mClickListeners = new ModernClickListeners();
 
   public Slider() {
-    UI.setSize(this, 200, ModernWidget.WIDGET_HEIGHT);
+    UI.setSize(this, 160, ModernWidget.WIDGET_HEIGHT);
   }
 
   /**
