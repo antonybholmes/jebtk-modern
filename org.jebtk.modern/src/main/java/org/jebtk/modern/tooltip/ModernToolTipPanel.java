@@ -25,49 +25,22 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget.tooltip;
+package org.jebtk.modern.tooltip;
 
-import java.awt.Dimension;
+import org.jebtk.modern.panel.Card;
 
 // TODO: Auto-generated Javadoc
 /**
- * Extension of the basic tooltip that also suggests the user presses F1 to get
- * more help.
+ * The default tool tip panel provides a simple titled tool tip that appears
+ * below the ribbon.
  * 
  * @author Antony Holmes Holmes
  *
  */
-public class ModernToolTipSuggestHelpPanel extends ModernBasicToolTipPanel {
+public abstract class ModernToolTipPanel extends Card {
 
   /**
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-
-  /**
-   * The constant SIZE.
-   */
-  private static final Dimension SIZE = new Dimension(240, 90);
-
-  /**
-   * Instantiates a new modern tool tip suggest help panel.
-   *
-   * @param tooltip the tooltip
-   */
-  public ModernToolTipSuggestHelpPanel(ModernToolTip tooltip) {
-    super(tooltip);
-
-    // add(new ModernMenuDivider());
-    // add(ModernTheme.createVerticalGap());
-    // Box box = new HBoxPanel();
-    // box.setAlignmentX(LEFT_ALIGNMENT);
-    // box.add(new ModernImagePanel(ModernVectorIcon.HELP_ICON, 16));
-    // //(Resources.getInstance().loadIcon("help", Resources.ICON_SIZE_16)));
-    // box.add(Ui.createHorizontalGap(10));
-    // box.add(new ModernBoldLabel("Press F1 for more help."));
-    // Ui.setSize(box, new Dimension(400, 24));
-    // add(box);
-    
-    setPreferredSize(SIZE);
-  }
 }

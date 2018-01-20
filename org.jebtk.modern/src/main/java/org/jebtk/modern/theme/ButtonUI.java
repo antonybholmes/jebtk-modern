@@ -1,13 +1,11 @@
-package org.jebtk.modern.theme.renderers;
+package org.jebtk.modern.theme;
 
 import java.awt.Color;
 
-import org.jebtk.modern.theme.ThemeService;
-
 public abstract class ButtonUI extends RoundedUI {
   public static final Color HIGHLIGHTED_FILL_COLOR = ThemeService.getInstance()
-      .colors().getHighlight32(8);
+      .colors().getHighlight32(6);
   
   public static final Color SELECTED_FILL_COLOR = ThemeService.getInstance()
-      .colors().getHighlight32(10);
+      .colors().getHighlight32(8);
 }

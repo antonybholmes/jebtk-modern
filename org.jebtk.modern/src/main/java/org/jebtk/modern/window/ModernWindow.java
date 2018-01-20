@@ -63,9 +63,9 @@ import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.ribbon.RibbonFileMenu;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.widget.tooltip.ModernToolTipEvent;
-import org.jebtk.modern.widget.tooltip.ModernToolTipListener;
-import org.jebtk.modern.widget.tooltip.ToolTipService;
+import org.jebtk.modern.tooltip.ModernToolTipEvent;
+import org.jebtk.modern.tooltip.ModernToolTipListener;
+import org.jebtk.modern.tooltip.ToolTipService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -585,7 +585,7 @@ implements ModernDialogConstructor, ModernToolTipListener {
       Component tooltip,
       Point p) {
     
-    System.err.println("show");
+    //System.err.println("show");
     
     // Hide any current tips
     hideToolTips();
@@ -619,7 +619,7 @@ implements ModernDialogConstructor, ModernToolTipListener {
    * ui. modern.ModernComponent)
    */
   private synchronized void hideToolTips() {
-    System.err.println("hide");
+    //System.err.println("hide");
     
     if (mTooltips.size() > 0) {
       for (Component c : mTooltips) {

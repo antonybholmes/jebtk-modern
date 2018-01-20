@@ -36,6 +36,7 @@ import org.jebtk.modern.graphics.icons.CheckedVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.UnCheckedVectorIcon;
 import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -56,12 +57,12 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
   /**
    * The constant ICON.
    */
-  private static final ModernIcon CHECK_ICON = UIService.getInstance()
-      .loadIcon(UnCheckedVectorIcon.class, ICON_SIZE);
+  //private static final ModernIcon CHECK_ICON = UIService.getInstance()
+  //    .loadIcon(UnCheckedVectorIcon.class, ICON_SIZE);
 
   /** The Constant CHECKED_ICON. */
-  private static final ModernIcon CHECKED_ICON = UIService.getInstance()
-      .loadIcon(CheckedVectorIcon.class, ICON_SIZE);
+  //private static final ModernIcon CHECKED_ICON = UIService.getInstance()
+  //    .loadIcon(CheckedVectorIcon.class, ICON_SIZE);
 
   /**
    * Instantiates a new modern check box menu item.
@@ -84,20 +85,18 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
     setSelected(selected);
 
     UI.setSize(this, ModernMenuItem.PREFERRED_SIZE);
+    
+    //setBackgroundAnimations("menu");
   }
 
   /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.ui.widget.ModernWidget#drawBackground(java.awt.Graphics2D)
-   */
   @Override
   public void drawBackground(Graphics2D g2) {
     if (isEnabled() && mHighlight) {
       getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.HIGHLIGHT);
     }
   }
+  */
 
   /*
    * (non-Javadoc)
@@ -117,9 +116,13 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
     int y = x;
 
     if (isSelected()) {
-      CHECKED_ICON.drawIcon(g2, x, y, ICON_SIZE);
+      //CHECKED_ICON.drawIcon(g2, x, y, ICON_SIZE);
+      
+      UIDrawService.getInstance().get("checkbox.checked").draw(g2, x, y, ICON_SIZE, ICON_SIZE);
+      
     } else {
-      CHECK_ICON.drawIcon(g2, x, y, ICON_SIZE);
+      //CHECK_ICON.drawIcon(g2, x, y, ICON_SIZE);
+      UIDrawService.getInstance().get("checkbox").draw(g2, x, y, ICON_SIZE, ICON_SIZE);
     }
   }
 }

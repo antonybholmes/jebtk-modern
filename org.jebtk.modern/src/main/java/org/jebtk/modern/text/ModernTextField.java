@@ -59,7 +59,8 @@ public class ModernTextField extends JTextField implements TextProperty {
   /**
    * The constant DISABLED_COLOR.
    */
-  public static final Color DISABLED_COLOR = ModernWidget.ALT_TEXT_COLOR; // DialogButton.BORDER_COLOR;
+  public static final Color DISABLED_COLOR = 
+      ModernWidget.ALT_TEXT_COLOR; // DialogButton.BORDER_COLOR;
 
   /**
    * The constant ENABLED_COLOR.

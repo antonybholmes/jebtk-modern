@@ -29,7 +29,7 @@ package org.jebtk.modern.collapsepane;
 
 import java.awt.Dimension;
 
-import org.jebtk.modern.MaterialUtils;
+import org.jebtk.modern.theme.MaterialUtils;
 
 // TODO: Auto-generated Javadoc
 /**

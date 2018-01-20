@@ -39,8 +39,8 @@ import org.jebtk.core.NameProperty;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.text.ModernLabel;
+import org.jebtk.modern.tooltip.ModernToolTipWidget;
 import org.jebtk.modern.widget.ModernClickWidget;
-import org.jebtk.modern.widget.tooltip.ModernToolTipWidget;
 
 // TODO: Auto-generated Javadoc
 /**

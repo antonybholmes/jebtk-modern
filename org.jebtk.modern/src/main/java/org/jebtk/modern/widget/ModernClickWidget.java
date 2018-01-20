@@ -50,7 +50,7 @@ import org.jebtk.modern.event.ModernStateEventProducer;
 import org.jebtk.modern.event.ModernStateListener;
 import org.jebtk.modern.event.ModernStateListeners;
 import org.jebtk.modern.theme.RenderMode;
-import org.jebtk.modern.widget.tooltip.ModernToolTipWidget;
+import org.jebtk.modern.tooltip.ModernToolTipWidget;
 
 // TODO: Auto-generated Javadoc
 /**

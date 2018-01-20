@@ -31,9 +31,6 @@ import java.util.Iterator;
 
 import org.jebtk.core.collections.IterHashMap;
 import org.jebtk.core.collections.IterMap;
-import org.jebtk.modern.theme.renderers.ButtonHighlightedUI;
-import org.jebtk.modern.theme.renderers.ButtonHighlightedUI;
-import org.jebtk.modern.theme.renderers.ButtonSelectedUI;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -70,8 +67,20 @@ public class UIDrawService implements Iterable<String> {
   private UIDrawService() {
     // Do nothing
     
-    add(new ButtonHighlightedUI());
+    add(new ContentBoxUI());
+    add(new TextBorderUI());
+    add(new ButtonHighlightUI());
     add(new ButtonSelectedUI());
+    add(new CircleHighlightUI());
+    add(new MenuHighlightUI());
+    add(new PillHighlightUI());
+    //add(new CheckedUI());
+    add(new CheckedBoxUI());
+    
+    add("checkbox", get("content-box"));
+    
+    add(new ColorButtonHighlightUI());
+    add(new ColorButtonSelectedUI());
   }
   
   public void add(UIRenderer renderer) {
@@ -82,6 +91,12 @@ public class UIDrawService implements Iterable<String> {
     mRenderMap.put(name, renderer);
   }
   
+  /**
+   * Return a named UI rendering component.
+   * 
+   * @param name
+   * @return
+   */
   public UIRenderer get(String name) {
     return mRenderMap.get(name);
   }

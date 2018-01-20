@@ -3,8 +3,8 @@ package org.jebtk.modern.collapsepane;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.MaterialUtils;
 import org.jebtk.modern.animation.WidgetAnimation;
+import org.jebtk.modern.theme.MaterialUtils;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class CollapsePaneCardAnimation extends WidgetAnimation {

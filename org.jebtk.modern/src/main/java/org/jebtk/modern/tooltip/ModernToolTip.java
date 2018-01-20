@@ -25,22 +25,56 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget.tooltip;
-
-import org.jebtk.modern.panel.Card;
+package org.jebtk.modern.tooltip;
 
 // TODO: Auto-generated Javadoc
 /**
- * The default tool tip panel provides a simple titled tool tip that appears
- * below the ribbon.
+ * Provides tooltip support for the ribbon. This is unrelated to the tool tip
+ * mechanism standard with JComponents and is specifically for buttons and
+ * controls appearing on the ribbon to provide a standardized and more visually
+ * appealing tooltip.
  * 
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernToolTipPanel extends Card {
+public class ModernToolTip {
 
   /**
-   * The constant serialVersionUID.
+   * The member title.
    */
-  private static final long serialVersionUID = 1L;
+  private String mTitle;
+
+  /**
+   * The member text.
+   */
+  private String mText;
+
+  /**
+   * Instantiates a new modern tool tip.
+   *
+   * @param title the title
+   * @param text the text
+   */
+  public ModernToolTip(String title, String text) {
+    mTitle = title;
+    mText = text;
+  }
+
+  /**
+   * Gets the title.
+   *
+   * @return the title
+   */
+  public String getTitle() {
+    return mTitle;
+  }
+
+  /**
+   * Gets the text.
+   *
+   * @return the text
+   */
+  public String getText() {
+    return mText;
+  }
 }

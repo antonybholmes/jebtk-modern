@@ -20,7 +20,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.event.ComponentEvent;
 
-import org.jebtk.modern.MaterialUtils;
+import org.jebtk.modern.theme.MaterialUtils;
 
 // TODO: Auto-generated Javadoc
 /**

@@ -1,4 +1,4 @@
-package org.jebtk.modern.widget.tooltip;
+package org.jebtk.modern.tooltip;
 
 public class ModernToolTipAdapter implements ModernToolTipListener {
 

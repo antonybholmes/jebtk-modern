@@ -19,47 +19,34 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.MaterialService;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class RibbonMenuAnimation.
+ * Provides the fade animation for quick access buttons
  */
-public class RibbonMenuHighlightAnimation extends HoverFadeAnimation {
+public class RibbonBackHighlightAnimation extends HoverFadeAnimation {
 
-  /** The m button. */
-  private RibbonMenuItem mButton;
+  public static final int HEIGHT = 32;
 
   /**
-   * Instantiates a new ribbon menu animation.
+   * Instantiates a new quick access animation.
    *
    * @param button the button
    */
-  public RibbonMenuHighlightAnimation(ModernWidget button) {
-    super((RibbonMenuItem) button);
+  public RibbonBackHighlightAnimation(ModernWidget button) {
+    super(button);
 
-    mButton = (RibbonMenuItem) button;
-
-    // setFadeColor("selected",
-    // MaterialService.getInstance().color("ribbon-theme-selected"));
-    setFadeColor("highlight",
+    // setFadeColor("fill", RibbonBackMenuItem.BASE_COLOR, Color.WHITE);
+    setFadeColor("fill",
         MaterialService.getInstance().color("gray-highlighted"));
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.widget.ModernClickWidget#drawBackgroundAA(java.awt.
-   * Graphics2D)
-   */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-    if (mButton.isSelected()) {
-      ModernWidget.fill(g2,
-          MaterialService.getInstance().color("gray-selected"),
-          getWidget().getRect());
-    } else {
-      ModernWidget.fill(g2, getFadeColor("highlight"), getWidget().getRect());
-    }
+    int x = ModernWidget.DOUBLE_PADDING;
+    int y = (widget.getHeight() - HEIGHT) / 2;
+    
+    UIDrawService.getInstance().get("circle.highlight").draw(g2, x, y, HEIGHT, HEIGHT, getFadeColor("fill"));
   }
 }

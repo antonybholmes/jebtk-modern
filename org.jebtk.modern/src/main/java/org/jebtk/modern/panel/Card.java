@@ -3,12 +3,11 @@ package org.jebtk.modern.panel;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.Transparency;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 
@@ -25,18 +24,18 @@ public class Card extends ModernComponent {
   private static final long serialVersionUID = 1L;
 
   public static final int ROUNDING = 6;
-  
+
   private static final int V_SPACE = ROUNDING * 2;
 
   public static final int SHADOW_SIZE = 8;
-  
+
   public static final int HALF_SHADOW_SIZE = SHADOW_SIZE / 2;
 
   public static final double ALPHA = 0.85;
 
   private static final Insets OFFSETS = 
       new Insets(HALF_SHADOW_SIZE, HALF_SHADOW_SIZE, HALF_SHADOW_SIZE, HALF_SHADOW_SIZE);
-  
+
   /**
    * Allow for space at the top so that items appear just below the rounded
    * corners rather than running into them.
@@ -47,8 +46,25 @@ public class Card extends ModernComponent {
   public static final Color COLOR = 
       ColorUtils.getTransparentColor(Color.BLACK, Card.ALPHA);
 
-  private BufferedImage mShadow;
+  private static BufferedImage C1;
 
+  private static BufferedImage C2;
+
+  private static BufferedImage C3;
+
+  private static BufferedImage C4;
+
+  private static BufferedImage TB;
+
+  private static BufferedImage RB;
+
+  private static BufferedImage BB;
+
+  private static BufferedImage LB;
+
+  //private BufferedImage mShadow;
+
+  /*
   private class ComponentEvents extends ComponentAdapter {
     @Override
     public void componentResized(ComponentEvent e) {
@@ -56,10 +72,65 @@ public class Card extends ModernComponent {
       //mBackground = null;
     } 
   }
+  */
+  
+  static {
+    //
+    // Create images to make shadow
+    //
+    
+    BufferedImage shadow = shadow(200, 200);
+
+    int o = 200 - SHADOW_SIZE;
+
+    Graphics g;
+
+    C1 = ImageUtils.createImage(SHADOW_SIZE);
+    g = C1.getGraphics();
+    g.drawImage(shadow, 0, 0, null);
+    g.dispose();
+
+    C2 = ImageUtils.createImage(SHADOW_SIZE);
+    g = C2.getGraphics();
+    g.drawImage(shadow, -o, 0, null);
+    g.dispose();
+
+    C3 = ImageUtils.createImage(SHADOW_SIZE);
+    g = C3.getGraphics();
+    g.drawImage(shadow, -o, -o, null);
+    g.dispose();
+
+    C4 = ImageUtils.createImage(SHADOW_SIZE);
+    g = C4.getGraphics();
+    g.drawImage(shadow, 0, -o, null);
+    g.dispose();
+
+    int o2 = 50;
+
+    TB = ImageUtils.createImage(100, SHADOW_SIZE);
+    g = TB.getGraphics();
+    g.drawImage(shadow, -o2, 0, null);
+    g.dispose();
+
+    RB = ImageUtils.createImage(SHADOW_SIZE, 100);
+    g = RB.getGraphics();
+    g.drawImage(shadow, -o, -o2, null);
+    g.dispose();
+
+    BB = ImageUtils.createImage(100, SHADOW_SIZE);
+    g = BB.getGraphics();
+    g.drawImage(shadow, -o2, -o, null);
+    g.dispose();
+
+    LB = ImageUtils.createImage(SHADOW_SIZE, 100);
+    g = LB.getGraphics();
+    g.drawImage(shadow, 0, -o2, null);
+    g.dispose();
+  }
 
   public Card() {
-    addComponentListener(new ComponentEvents());
-    
+    //addComponentListener(new ComponentEvents());
+
     setBorder(CARD_BORDER);
   }
 
@@ -68,21 +139,22 @@ public class Card extends ModernComponent {
 
     setBody(c);
   }
-  
+
   @Override
   public void setBody(Component c) {
     super.setBody(c);
-    
+
     Dimension s = c.getPreferredSize();
-    
+
     setPreferredSize(new Dimension(s.width + SHADOW_SIZE, s.height + SHADOW_SIZE + V_SPACE));
   }
-  
+
   @Override
   public void drawBackground(Graphics2D g2) {
     int width = getWidth() - 1;
     int height = getHeight() - 1;
 
+    /*
     if (mShadow == null) {
       // Cache shadow as expensive operation to create
       mShadow = shadow(width, height);
@@ -92,7 +164,40 @@ public class Card extends ModernComponent {
     }
 
     g2.drawImage(mShadow, 0, 0, this);
-    //g2.drawImage(mBackground, 0, 0, this);
+     */
+
+
+    int w2 = width - 2 * SHADOW_SIZE;
+    int h2 = height - 2 * SHADOW_SIZE;
+
+    // Draw the borders
+    g2.drawImage(TB, SHADOW_SIZE, 0, w2, SHADOW_SIZE, null);
+    g2.drawImage(RB, width - SHADOW_SIZE, SHADOW_SIZE, SHADOW_SIZE, h2, null);
+    g2.drawImage(BB, SHADOW_SIZE, height - SHADOW_SIZE, w2, SHADOW_SIZE, null);
+    g2.drawImage(LB, 0, SHADOW_SIZE, SHADOW_SIZE, h2, null);
+
+    // Draw the corners
+    g2.drawImage(C1, 0, 0, null);
+    g2.drawImage(C2, width - SHADOW_SIZE, 0, null);
+    g2.drawImage(C3, width - SHADOW_SIZE, height - SHADOW_SIZE, null);
+    g2.drawImage(C4, 0, height - SHADOW_SIZE, null);
+
+    // Draw the content box
+    
+    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+
+    try {
+      g2Temp.setColor(Color.WHITE);
+
+      g2Temp.fillRoundRect(OFFSETS.left, 
+          OFFSETS.top,
+          width - (OFFSETS.left + OFFSETS.right), 
+          height - (OFFSETS.top + OFFSETS.bottom), 
+          ROUNDING, 
+          ROUNDING);
+    } finally {
+      g2Temp.dispose();
+    }
   }
 
   /*
@@ -146,7 +251,7 @@ public class Card extends ModernComponent {
 
     try {
       ImageUtils.setQualityHints(g2);
-      
+
       //g2.setColor(Color.RED);
       //g2.draw(shape);
       g2.setColor(Color.WHITE);
@@ -156,9 +261,11 @@ public class Card extends ModernComponent {
     }
   }
 
+
+
   public static BufferedImage shadow(int width, int height) {
     BufferedImage img = createCompatibleImage(width, height);
-    
+
     width -= OFFSETS.right + HALF_SHADOW_SIZE;
     height -= OFFSETS.bottom + HALF_SHADOW_SIZE;
 

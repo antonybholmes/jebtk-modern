@@ -43,7 +43,7 @@ import org.jebtk.modern.button.CheckSwitchAnimation;
 import org.jebtk.modern.button.CheckSwitchChangeAnimation;
 import org.jebtk.modern.button.ChipButtonAnimation;
 import org.jebtk.modern.button.ChipButtonHighlightAnimation;
-import org.jebtk.modern.button.CircularButtonHighlightAnimation;
+import org.jebtk.modern.button.CircleButtonHighlightAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation2;
 import org.jebtk.modern.button.RadioAnimation;
@@ -71,6 +71,7 @@ import org.jebtk.modern.menu.MenuItemColorHighlightFadeAnimation;
 import org.jebtk.modern.menu.MenuItemHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonAnimation;
 import org.jebtk.modern.ribbon.RibbonBackAnimation;
+import org.jebtk.modern.ribbon.RibbonBackHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonButtonHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonChangeAnimation;
 import org.jebtk.modern.ribbon.RibbonDropDownButtonAnimation;
@@ -80,7 +81,6 @@ import org.jebtk.modern.ribbon.RibbonLargeOptionalDropDownHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonLargeOptionalDropDownHighlightAnimation2;
 import org.jebtk.modern.ribbon.RibbonMenuHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonMenuPressedAnimation;
-import org.jebtk.modern.ribbon.RibbonPressedAnimation;
 import org.jebtk.modern.ribbon.RibbonSegmentAnimation;
 import org.jebtk.modern.ribbon.RibbonSegmentHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonSegmentPressedAnimation;
@@ -139,134 +139,138 @@ public class AnimationService {
     return AnimationServiceLoader.INSTANCE;
   }
 
-  private Map<String, AnimationCreator> mCreatorMap;
+  private Map<String, AnimationCreator> mCreatorMap = 
+      DefaultHashMap.create(new EntryCreator<AnimationCreator>() {
+        @Override
+        public AnimationCreator newEntry() {
+          return new AnimationCreator();
+        }
+      });
 
   private AnimationService() {
-    mCreatorMap = DefaultHashMap.create(new EntryCreator<AnimationCreator>() {
-
-      @Override
-      public AnimationCreator newEntry() {
-        return new AnimationCreator();
-      }
-    });
 
     //
     // Load the default animations
     //
 
-    getCreator("button").add(DialogMaterialButtonHighlightAnimation.class);
+    get("button").add(DialogMaterialButtonHighlightAnimation.class);
 
-    getCreator("circular-button").add(CircularButtonHighlightAnimation.class);
+    get("circular-button").add(CircleButtonHighlightAnimation.class);
 
-    getCreator("dropdown-button").add(DropDownButtonAnimation.class);
-    getCreator("dropdown-button-2").add(DropDownButtonAnimation2.class);
+    get("dropdown-button").add(DropDownButtonAnimation.class);
+    get("dropdown-button-2").add(DropDownButtonAnimation2.class);
 
-    getCreator("chip-button").add(ChipButtonHighlightAnimation.class)
+    get("chip-button").add(ChipButtonHighlightAnimation.class)
         .add(ChipButtonAnimation.class);
 
-    getCreator("dialog-flat-button").add(FlatButtonAnimation.class);
+    get("dialog-flat-button").add(FlatButtonAnimation.class);
 
-    getCreator("ribbon").add(RibbonAnimation.class)
-        //.add(RibbonPressedAnimation.class)
+    get("ribbon").add(RibbonAnimation.class)
+        // .add(RibbonPressedAnimation.class)
         .add(RibbonChangeAnimation.class)
         .add(RibbonHighlightTextAnimation.class);
 
-    getCreator("segment-tabs")
+    get("segment-tabs")
         // .add(SegmentHighlightAnimation.class)
         // .add(SegmentPressedAnimation.class)
-        .add(SegmentChangeAnimation.class).add(SegmentAnimation.class);
+        .add(SegmentChangeAnimation.class)
+        .add(SegmentAnimation.class);
 
-    getCreator("orb-tabs").add(OrbTabsHighlightAnimation.class)
-        .add(OrbTabsChangeAnimation.class).add(OrbTabsAnimation.class);
+    get("orb-tabs").add(OrbTabsHighlightAnimation.class)
+        .add(OrbTabsChangeAnimation.class)
+        .add(OrbTabsAnimation.class);
 
-    getCreator("icon-tabs")
+    get("icon-tabs")
         // .add(IconTabsAnimation.class)
-        .add(IconTabsHighlightAnimation.class).add(IconTabsIconAnimation.class)
+        .add(IconTabsHighlightAnimation.class)
+        .add(IconTabsIconAnimation.class)
         .add(IconTabsChangeAnimation.class);
 
-    getCreator("block-vert-tabs").add(BlockVertHighlightAnimation.class)
+    get("block-vert-tabs").add(BlockVertHighlightAnimation.class)
         .add(BlockVertSelectedAnimation.class)
         .add(BlockVertPressedAnimation.class); // .add(BlockVertChangeAnimation.class);
 
-    getCreator("spinner").add(SpinnerAnimation.class)
+    get("spinner").add(SpinnerAnimation.class)
         .add(SpinnerHighlightAnimation.class);
 
-    getCreator("help-button").add(HelpButtonHighlightAnimation.class);
+    get("help-button").add(HelpButtonHighlightAnimation.class);
 
-    getCreator("dialog-button").add(DialogButtonHighlightAnimation.class);
+    get("dialog-button").add(DialogButtonHighlightAnimation.class);
 
-    getCreator("dialog-material-button")
+    get("dialog-material-button")
         .add(DialogMaterialButtonHighlightAnimation.class);
 
-    getCreator("primary-dialog-button").add(PrimaryDialogButtonAnimation.class);
+    get("primary-dialog-button").add(PrimaryDialogButtonAnimation.class);
 
-    getCreator("checkbox").add(CheckBoxAnimation.class)
+    get("checkbox").add(CheckBoxAnimation.class)
         .add(CheckBoxSelectedAnimation.class)
         .add(CheckBoxHighlightAnimation.class)
         .add(CheckBoxSelectedTickAnimation.class);
 
-    getCreator("continuous-orb-slider").add(ContinuousMacOrbAnimation.class);
+    get("continuous-orb-slider").add(ContinuousMacOrbAnimation.class);
 
-    getCreator("radio-button").add(RadioAnimation.class)
+    get("radio-button").add(RadioAnimation.class)
         .add(RadioSelectedAnimation.class).add(RadioOutlineAnimation.class);
 
-    getCreator("menu").add(MenuItemHighlightAnimation.class);
-    getCreator("color-menu").add(MenuItemColorHighlightAnimation.class);
-    getCreator("color-menu-fade")
+    get("menu").add(MenuItemHighlightAnimation.class);
+
+    get("color-menu").add(MenuItemColorHighlightAnimation.class);
+    get("color-menu-fade")
         .add(MenuItemColorHighlightFadeAnimation.class);
 
-    getCreator("sub-collapse-pane").add(CollapsePaneHighlightAnimation.class)
+    get("sub-collapse-pane").add(CollapsePaneHighlightAnimation.class)
         .add(CollapsePaneExpandAnimation.class);
 
-    getCreator("collapse-pane").add(CollapsePaneCardAnimation.class)
+    get("collapse-pane").add(CollapsePaneCardAnimation.class)
         .add(CollapsePaneHighlightAnimation.class)
         .add(CollapsePaneDividerAnimation.class)
         .add(CollapsePaneExpandAnimation.class);
 
-    getCreator("ribbon-button").add(RibbonButtonHighlightAnimation.class);
+    get("ribbon-button").add(RibbonButtonHighlightAnimation.class);
 
-    getCreator("ribbon-dropdown-button")
+    get("ribbon-dropdown-button")
         .add(RibbonDropDownButtonAnimation.class);
-    
-    getCreator("ribbon-dropdown-button-2")
-    .add(RibbonDropDownButtonAnimation2.class);
 
-    getCreator("ribbon-optional-dropdown-button")
+    get("ribbon-dropdown-button-2")
+        .add(RibbonDropDownButtonAnimation2.class);
+
+    get("ribbon-optional-dropdown-button")
         .add(RibbonLargeOptionalDropDownHighlightAnimation.class);
-    
-    getCreator("ribbon-optional-dropdown-button-2")
-      .add(RibbonLargeOptionalDropDownHighlightAnimation2.class);
 
-    getCreator("ribbon-segments").add(RibbonSegmentHighlightAnimation.class)
+    get("ribbon-optional-dropdown-button-2")
+        .add(RibbonLargeOptionalDropDownHighlightAnimation2.class);
+
+    get("ribbon-segments").add(RibbonSegmentHighlightAnimation.class)
         .add(RibbonSegmentSelectedAnimation.class)
         .add(RibbonSegmentPressedAnimation.class)
         .add(RibbonSegmentAnimation.class);
 
-    getCreator("tree").add(TreeHighlightAnimation.class);
+    get("tree").add(TreeHighlightAnimation.class);
 
-    getCreator("list").add(ListHighlightAnimation.class)
+    get("list").add(ListHighlightAnimation.class)
         .add(ListChangeAnimation.class).add(ListAnimation.class);
 
-    getCreator("combobox").add(ComboBoxAnimation.class);
+    get("combobox").add(ComboBoxAnimation.class);
 
-    getCreator("text-border").add(TextBorderAnimation.class);
+    get("text-border").add(TextBorderAnimation.class);
 
-    getCreator("ribbon-menu").add(RibbonMenuHighlightAnimation.class)
+    get("ribbon-menu").add(RibbonMenuHighlightAnimation.class)
         .add(RibbonMenuPressedAnimation.class);
 
-    getCreator("ribbon-back-button").add(RibbonBackAnimation.class);
+    get("ribbon-back-button").add(RibbonBackHighlightAnimation.class)
+        .add(RibbonBackAnimation.class);
 
-    getCreator("hoz-content-pane").add(ModernHContentPaneAnimation.class);
+    get("hoz-content-pane").add(ModernHContentPaneAnimation.class);
 
-    getCreator("url-text-button").add(UrlTextLinkHighlightAnimation.class);
+    get("url-text-button").add(UrlTextLinkHighlightAnimation.class);
 
-    getCreator("splitpane-vert-line").add(ModernVSplitPaneLineAnimation.class);
-    getCreator("splitpane-hoz-line").add(ModernHSplitPaneLineAnimation.class);
+    get("splitpane-vert-line").add(ModernVSplitPaneLineAnimation.class);
+    get("splitpane-hoz-line").add(ModernHSplitPaneLineAnimation.class);
 
-    getCreator("check-switch").add(CheckSwitchAnimation.class)
+    get("check-switch").add(CheckSwitchAnimation.class)
         .add(CheckSwitchChangeAnimation.class);
 
-    getCreator("listpanel").add(ListPanelItemPressedAnimation.class)
+    get("listpanel").add(ListPanelItemPressedAnimation.class)
         .add(ListPanelItemAnimation.class);
 
   }
@@ -277,7 +281,7 @@ public class AnimationService {
    * @param name
    * @return
    */
-  public AnimationCreator getCreator(String name) {
+  public AnimationCreator get(String name) {
     return mCreatorMap.get(name);
   }
 
@@ -289,7 +293,7 @@ public class AnimationService {
    * @return The animations so that they can either be assigned to a widget's
    *         foreground or background.
    */
-  public Animations createAnimations(String name, ModernWidget widget) {
+  public Animations create(String name, ModernWidget widget) {
 
     AnimationCreator creator = mCreatorMap.get(name);
 

@@ -77,7 +77,7 @@ public class ModernTwoLineMenuItem extends ModernIconMenuItem
   /**
    * The constant DEFAULT_SIZE.
    */
-  public static final Dimension DEFAULT_SIZE = new Dimension(360, 48);
+  public static final Dimension DEFAULT_SIZE = new Dimension(340, 48);
 
   /**
    * The member color1.

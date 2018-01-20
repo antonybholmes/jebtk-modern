@@ -21,7 +21,7 @@ import org.jebtk.core.Mathematics;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.animation.TranslateYAnimation;
 import org.jebtk.modern.event.ModernSelectionListener;
-import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -90,17 +90,12 @@ public class ListChangeAnimation extends TranslateYAnimation {
   public void drawTranslation(ModernWidget widget,
       Graphics2D g2,
       Object... params) {
-    // g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR);
-    // g2.fill(mTabs.mP);
-    // g2.fillRect(0, 0, widget.getWidth(), mTabs.mRowHeight);
+    /*
+     * widget.getWidgetRenderer().drawMenu(g2, 0, 0, widget.getWidth(),
+     * mTabs.mRowHeight, RenderMode.SELECTED, false);
+     */
 
-    widget.getWidgetRenderer().drawMenu(g2,
-        0,
-        0,
-        widget.getWidth(),
-        mTabs.mRowHeight,
-        RenderMode.SELECTED,
-        false);
-
+    UIDrawService.getInstance().get("button.selected")
+        .draw(g2, 0, 0, widget.getWidth(), mTabs.mRowHeight);
   }
 }

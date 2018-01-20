@@ -25,45 +25,66 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget.tooltip;
+package org.jebtk.modern.tooltip;
+
+import org.jebtk.core.event.EventProducer;
 
 // TODO: Auto-generated Javadoc
 /**
- * For classes that generate ModernClickEvents.
- *
+ * The basis for model controls in a model view controller setup.
+ * 
  * @author Antony Holmes Holmes
+ *
  */
-public interface ModernToolTipEventProducer {
+public class ToolTipListeners
+    extends EventProducer<ModernToolTipListener>
+    implements ModernToolTipEventProducer {
 
   /**
-   * Add an action listener.
-   *
-   * @param l the l
+   * The constant serialVersionUID.
    */
-  public void addToolTipListener(ModernToolTipListener l);
+  private static final long serialVersionUID = 1L;
 
-  /**
-   * Remove an action listener.
-   *
-   * @param l the l
+  @Override
+  public void addToolTipListener(ModernToolTipListener l) {
+    mListeners.add(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.event.ModernSelectedEventProducer#
+   * removeSelectedListener(org.abh.lib.ui.modern.event.ModernSelectedListener)
    */
-  public void removeToolTipListener(ModernToolTipListener l);
+  public void removeToolTipListener(ModernToolTipListener l) {
+    mListeners.remove(l);
+  }
 
-  /**
-   * fire an event.
-   *
-   * @param event the event
-   */
-  public void showToolTip(ModernToolTipEvent e);
-
-  public void addToolTip(ModernToolTipEvent e);
+  @Override
+  public void showToolTip(ModernToolTipEvent e) {
+    for (ModernToolTipListener l : mListeners) {
+      l.tooltipShown(e);
+    }
+  }
   
-  /**
-   * Hide tool tips.
-   *
-   * @param source the source
-   */
-  public void hideToolTip(ModernToolTipEvent e);
-  
-  public void hideToolTips(ModernToolTipEvent e);
+  @Override
+  public void addToolTip(ModernToolTipEvent e) {
+    for (ModernToolTipListener l : mListeners) {
+      l.tooltipAdded(e);
+    }
+  }
+
+  @Override
+  public void hideToolTip(ModernToolTipEvent e) {
+    for (ModernToolTipListener l : mListeners) {
+      l.tooltipHidden(e);
+    }
+  }
+
+  @Override
+  public void hideToolTips(ModernToolTipEvent e) {
+    for (ModernToolTipListener l : mListeners) {
+      l.tooltipsHidden(e);
+    }
+  }
 }

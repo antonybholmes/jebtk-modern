@@ -13,19 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.theme.renderers;
+package org.jebtk.modern.theme;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
-public class ButtonSelectedUI extends ButtonUI {
+public class ColorButtonHighlightUI extends ColorButtonUI {
   
   @Override
   public String getName() {
-    return "button.selected";
+    return "color.button.highlight";
   }
 
   @Override
@@ -34,10 +35,13 @@ public class ButtonSelectedUI extends ButtonUI {
       int y,
       int w,
       int h,
-      boolean hasFocus,
-      Object... varargs) {
+      Object... params) {
     
-    g2.setColor(HIGHLIGHTED_FILL_COLOR);
+    if (params.length > 0) {
+      g2.setColor((Color) params[0]);
+    } else {
+      g2.setColor(HIGHLIGHTED_FILL_COLOR);
+    }
     
     fill(g2, x, y, w, h);
   }

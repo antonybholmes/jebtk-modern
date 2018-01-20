@@ -25,7 +25,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget.tooltip;
+package org.jebtk.modern.tooltip;
 
 import java.awt.Component;
 import java.awt.Window;
@@ -108,7 +108,7 @@ public class ToolTipService implements ModernToolTipEventProducer {
   
   private ToolTipService() {
     // Log tooltips
-    addAllToolTipListener(new ToolTipLog());
+    //addAllToolTipListener(new ToolTipLog());
   }
 
   @Override

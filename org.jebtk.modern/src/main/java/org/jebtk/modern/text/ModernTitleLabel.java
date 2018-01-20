@@ -30,7 +30,7 @@ package org.jebtk.modern.text;
 import java.awt.Color;
 import java.awt.Font;
 
-import org.jebtk.modern.MaterialService;
+import org.jebtk.modern.theme.MaterialService;
 
 // TODO: Auto-generated Javadoc
 /**

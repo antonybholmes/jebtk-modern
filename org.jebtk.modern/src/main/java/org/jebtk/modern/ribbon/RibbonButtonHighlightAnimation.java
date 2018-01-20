@@ -33,21 +33,27 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
 
   /** The m button. */
   private ModernClickWidget mButton;
+  private String mType;
 
+  
+  public RibbonButtonHighlightAnimation(ModernWidget button) {
+    this(button, "button");
+  }
+  
   /**
    * Instantiates a new ribbon button animation.
    *
    * @param button the button
    */
-  public RibbonButtonHighlightAnimation(ModernWidget button) {
+  public RibbonButtonHighlightAnimation(ModernWidget button, String type) {
     super(button);
 
+    
     mButton = (ModernClickWidget) button;
-
+    mType = type;
+    
     setFadeColor("outline", ModernWidgetRenderer.RIBBON_SELECTED_OUTLINE_COLOR);
-
     setFadeColor("highlight", ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
-
     setFadeColor("fill", ModernWidgetRenderer.RIBBON_SELECTED_FILL_COLOR);
   }
 
@@ -128,13 +134,13 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
       getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
     }
     */
-    
+       
     switch (mode) {
     case SELECTED:
-      UIDrawService.getInstance().get("button.selected").draw(g2, x, y, w, h, hasFocus);
+      UIDrawService.getInstance().get(mType + ".selected").draw(g2, x, y, w, h);
       break;
     case HIGHLIGHT:
-      UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h, hasFocus, getFadeColor("highlight"));
+      UIDrawService.getInstance().get(mType + ".highlight").draw(g2, x, y, w, h, getFadeColor("highlight"));
       break;
     default:
       break;

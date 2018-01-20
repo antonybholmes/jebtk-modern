@@ -31,6 +31,7 @@ import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.text.TextProperty;
@@ -60,7 +61,7 @@ public class ModernListIconCellRenderer extends ModernListCellRenderer
   /**
    * The member text.
    */
-  protected String mText = "";
+  protected String mText = TextUtils.EMPTY_STRING;
 
   /**
    * Instantiates a new modern list icon cell renderer.

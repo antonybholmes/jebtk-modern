@@ -13,24 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.ribbon;
+package org.jebtk.modern.theme;
 
-import org.jebtk.modern.button.ButtonPressedAnimation;
-import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.widget.ModernWidget;
+import java.awt.Color;
+import java.awt.Graphics2D;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class RibbonMenuAnimation.
+ * The Class ModernRoundedWidgetRenderer.
  */
-public class RibbonMenuPressedAnimation extends ButtonPressedAnimation {
+public class PillHighlightUI extends ButtonUI {
+  
+  @Override
+  public String getName() {
+    return "pill.highlight";
+  }
 
-  /**
-   * Instantiates a new ribbon menu animation.
-   *
-   * @param button the button
-   */
-  public RibbonMenuPressedAnimation(ModernWidget button) {
-    super(button, MaterialService.getInstance().color("gray-pressed"));
+  @Override
+  public void fill(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
+    
+    if (params.length > 0) {
+      g2.setColor((Color) params[0]);
+    } else {
+      g2.setColor(HIGHLIGHTED_FILL_COLOR);
+    }
+    
+    g2.fillRoundRect(x, y, w - 1, h - 1, h, h);
   }
 }

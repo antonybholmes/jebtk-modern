@@ -21,7 +21,6 @@ import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.settings.SettingsService;
-import org.jebtk.modern.MaterialService;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.tree.ModernTreeBranchNodeRenderer;
 import org.jebtk.modern.widget.ModernWidget;

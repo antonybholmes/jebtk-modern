@@ -17,9 +17,10 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.MaterialUtils;
 import org.jebtk.modern.button.ButtonHighlightAnimation;
+import org.jebtk.modern.theme.MaterialUtils;
 import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernClickWidget;
 
 /**
@@ -38,26 +39,10 @@ public class QuickAccessAnimation extends ButtonHighlightAnimation {
     setFadeColor("fill", MaterialUtils.HIGHLIGHT_COLOR); //RibbonHighlightTextAnimation.HIGHLIGHT_COLOR); // MaterialUtils.HIGHLIGHT_COLOR);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.widget.ButtonAnimation#drawButtonOutline(java.awt.
-   * Graphics2D, int, int, int, int, org.abh.common.ui.theme.RenderMode,
-   * boolean)
-   */
-  @Override
-  public void drawButtonOutline(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      RenderMode mode,
-      boolean hasFocus) {
-    // Do nothing
-  }
-
   @Override
   public void fill(Graphics2D g2, int x, int y, int w, int h) {
-    g2.fillRect(x, y, w, h);
+    //g2.fillRect(x, y, w, h);
+    
+    UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h, getFadeColor("fill"));
   }
 }

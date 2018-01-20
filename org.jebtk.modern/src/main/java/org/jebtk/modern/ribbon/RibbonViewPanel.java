@@ -23,9 +23,9 @@ import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.tabs.ViewPanel;
+import org.jebtk.modern.tooltip.ModernBasicToolTipPanel;
+import org.jebtk.modern.tooltip.ModernToolTip;
 import org.jebtk.modern.widget.ModernClickWidget;
-import org.jebtk.modern.widget.tooltip.ModernBasicToolTipPanel;
-import org.jebtk.modern.widget.tooltip.ModernToolTip;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -56,8 +56,8 @@ public class RibbonViewPanel extends ModernPanel {
     box.add(UI.createHGap(5));
     setRight(box);
 
-    mHideButton.setToolTip(new ModernBasicToolTipPanel(new ModernToolTip(
-        "Minimize Ribbon", "Minimize the ribbon so it takes up less space.")));
+    mHideButton.setToolTip("Minimize Ribbon", 
+        "Minimize the ribbon so it takes up less space.");
   }
 
   /*

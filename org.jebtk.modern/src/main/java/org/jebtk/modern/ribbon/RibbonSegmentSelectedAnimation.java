@@ -17,8 +17,9 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.MaterialService;
 import org.jebtk.modern.animation.WidgetAnimation;
+import org.jebtk.modern.theme.MaterialService;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -68,11 +69,15 @@ public class RibbonSegmentSelectedAnimation extends WidgetAnimation {
     if (selected != -1) { // highlighted != selectedIndex &&
       y1 = y + selected * RibbonSegmentVertTabs.TAB_SIZE;
 
-      g2.setColor(MaterialService.getInstance().color("ribbon-theme-selected"));
-
-      // g2.fillRect(x + w - RibbonSegmentChangeAnimation.WIDTH, y1,
-      // RibbonSegmentChangeAnimation.WIDTH, RibbonSegmentVertTabs.TAB_SIZE);
-      g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
+      //g2.setColor(MaterialService.getInstance().color("ribbon-theme-selected"));
+      //g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
+      
+      UIDrawService.getInstance().get("menu.highlight").draw(g2, 
+          x, 
+          y1, 
+          w, 
+          RibbonSegmentVertTabs.TAB_SIZE,
+          MaterialService.getInstance().color("ribbon-theme-selected"));
     }
   }
 }

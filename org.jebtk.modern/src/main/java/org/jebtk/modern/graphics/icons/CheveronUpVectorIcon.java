@@ -71,8 +71,8 @@ public class CheveronUpVectorIcon extends CheveronVectorIcon {
       Object... params) {
     super.drawIcon(g2, x, y, w, h, params);
 
-    x += (w - mW) / 2;
-    y += (h - mH) / 2;
+    x += (w - mW) / 2 - 1;
+    y += (h - mH) / 2 - 1;
 
     g2.drawLine(x, y + mH, x + mC, y);
 

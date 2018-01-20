@@ -17,8 +17,8 @@ package org.jebtk.modern.list;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.MaterialService;
 import org.jebtk.modern.animation.HighlightAnimation;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -84,11 +84,16 @@ public class ListHighlightAnimation extends HighlightAnimation {
           boolean highlighted = i == mList.mHighlightCellIndex;
 
           if (highlighted) {
-            //g2Table.setColor(getFade().getFadeColor("highlight"));
-            //g2Table.fillRect(0, 0, mList.getWidth(), mList.mRowHeight);
-            
-            UIDrawService.getInstance().get("button.highlight").draw(g2Table, mList.getWidth(), mList.mRowHeight, false, getFade().getFadeColor("highlight"));
-            
+            // g2Table.setColor(getFade().getFadeColor("highlight"));
+            // g2Table.fillRect(0, 0, mList.getWidth(), mList.mRowHeight);
+
+            UIDrawService.getInstance().get("button.highlight").draw(g2Table,
+                0,
+                0,
+                mList.getWidth(),
+                mList.mRowHeight,
+                getFade().getFadeColor("highlight"));
+
             // getWidgetRenderer().drawButton(g2, getRect(),
             // RenderMode.SELECTED);
           } else {

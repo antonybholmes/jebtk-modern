@@ -30,8 +30,8 @@ package org.jebtk.modern.panel;
 import java.awt.Component;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.MaterialUtils;
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.theme.MaterialUtils;
 
 // TODO: Auto-generated Javadoc
 /**

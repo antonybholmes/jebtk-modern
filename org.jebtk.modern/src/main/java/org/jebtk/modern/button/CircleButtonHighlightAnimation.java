@@ -2,15 +2,12 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.core.geom.IntRect;
-import org.jebtk.modern.MaterialUtils;
-import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
-import org.jebtk.modern.widget.ModernClickWidget;
+import org.jebtk.modern.theme.MaterialUtils;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class CircularButtonHighlightAnimation extends ButtonHighlightAnimation {
-  public CircularButtonHighlightAnimation(ModernWidget button) {
+public class CircleButtonHighlightAnimation extends ButtonHighlightAnimation {
+  public CircleButtonHighlightAnimation(ModernWidget button) {
     super(button);
 
     setFadeColor("fill", MaterialUtils.BUTTON_COLOR);
@@ -20,6 +17,9 @@ public class CircularButtonHighlightAnimation extends ButtonHighlightAnimation {
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     if (getWidget().isEnabled()) {
 
+      UIDrawService.getInstance().get("circle.highlight").draw(g2, getWidget().getInternalRect(), getFadeColor("fill"));
+      
+      /*
       Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
       try {
@@ -39,6 +39,7 @@ public class CircularButtonHighlightAnimation extends ButtonHighlightAnimation {
       } finally {
         g2Temp.dispose();
       }
+      */
     }
   }
 }

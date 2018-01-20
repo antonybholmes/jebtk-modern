@@ -49,7 +49,6 @@ import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.BorderService;
-import org.jebtk.modern.MaterialService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.animation.Animation;
@@ -58,6 +57,7 @@ import org.jebtk.modern.animation.Animations;
 import org.jebtk.modern.font.FontUtils;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.theme.WidgetRenderer;
 import org.jebtk.modern.theme.WidgetRendererProvider;
@@ -374,7 +374,8 @@ public abstract class ModernWidget extends ModernComponent
       .createBorder(2);
 
   private Animations mBackgroundAnimations = new Animations();
-  private Animations mForegroundAnimations = new Animations();
+  
+  //private Animations mForegroundAnimations = new Animations();
 
   static {
     // Create a default graphics context that can be used to size
@@ -476,7 +477,7 @@ public abstract class ModernWidget extends ModernComponent
    */
   public ModernWidget setBackgroundAnimations(String name) {
     return setBackgroundAnimations(
-        AnimationService.getInstance().createAnimations(name, this));
+        AnimationService.getInstance().create(name, this));
   }
 
   public ModernWidget setBackgroundAnimations(Animations animations) {
@@ -491,9 +492,9 @@ public abstract class ModernWidget extends ModernComponent
     return this;
   }
 
-  public Animations getForegroundAnimations() {
-    return mForegroundAnimations;
-  }
+  //public Animations getForegroundAnimations() {
+   // return mForegroundAnimations;
+  //}
 
   /**
    * Gets the widget renderer provider.

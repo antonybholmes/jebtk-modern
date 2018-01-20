@@ -17,8 +17,8 @@ package org.jebtk.modern.tabs;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.MaterialService;
 import org.jebtk.modern.animation.HighlightAnimation;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc

@@ -25,56 +25,94 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget.tooltip;
+package org.jebtk.modern.tooltip;
+
+import java.awt.Component;
+import java.awt.Point;
+
+import org.jebtk.core.event.Event;
 
 // TODO: Auto-generated Javadoc
 /**
- * Provides tooltip support for the ribbon. This is unrelated to the tool tip
- * mechanism standard with JComponents and is specifically for buttons and
- * controls appearing on the ribbon to provide a standardized and more visually
- * appealing tooltip.
- * 
- * @author Antony Holmes Holmes
- *
+ * The class ModernToolTipEvent.
  */
-public class ModernToolTip {
+public class ModernToolTipEvent extends Event {
 
   /**
-   * The member title.
+   * The constant serialVersionUID.
    */
-  private String mTitle;
+  private static final long serialVersionUID = 1L;
+
+  private static final String DEFAULT_MESSAGE = "tooltip";
 
   /**
-   * The member text.
+   * The tooltip.
    */
-  private String mText;
+  private Component mTooltip;
 
-  /**
-   * Instantiates a new modern tool tip.
-   *
-   * @param title the title
-   * @param text the text
-   */
-  public ModernToolTip(String title, String text) {
-    mTitle = title;
-    mText = text;
+  private Component mSource;
+  
+  private ModernToolTipListener mDest;
+
+  private Point mP;
+  
+  public ModernToolTipEvent(Component dest) {
+    this(dest, (ModernToolTipListener)dest);
+  }
+  
+  public ModernToolTipEvent(Component source, ModernToolTipListener dest) {
+    this(source, dest, source);
+  }
+
+  public ModernToolTipEvent(Component source, 
+      ModernToolTipListener dest,
+      Component tooltip) {
+    this(source, dest, tooltip, null);
+  }
+  
+  public ModernToolTipEvent(Component source, 
+      ModernToolTipListener dest,
+      Component tooltip,
+      Point p) {
+    this(source, dest, tooltip, p, DEFAULT_MESSAGE);
   }
 
   /**
-   * Gets the title.
+   * Instantiates a new modern tool tip event.
    *
-   * @return the title
+   * @param source the source
+   * @param message the message
+   * @param tooltip the tooltip
    */
-  public String getTitle() {
-    return mTitle;
+  public ModernToolTipEvent(Component source,
+      ModernToolTipListener dest,
+      Component tooltip,
+      Point p,
+      String message) {
+    super(source, message);
+    
+    mSource = source;
+    mDest = dest;
+    mTooltip = tooltip;
+    mP = p;
   }
+  
+  
 
-  /**
-   * Gets the text.
-   *
-   * @return the text
-   */
-  public String getText() {
-    return mText;
+  @Override
+  public Component getSource() {
+    return mSource;
+  }
+  
+  public ModernToolTipListener getDest() {
+    return mDest;
+  }
+  
+  public Component getTooltip() {
+    return mTooltip;
+  }
+  
+  public Point getP() {
+    return mP;
   }
 }

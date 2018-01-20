@@ -40,9 +40,9 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernPopup2;
 import org.jebtk.modern.menu.ModernPopupMenu2;
 import org.jebtk.modern.theme.RenderMode;
-import org.jebtk.modern.widget.tooltip.ModernToolTipEvent;
-import org.jebtk.modern.widget.tooltip.ModernToolTipListener;
-import org.jebtk.modern.widget.tooltip.ToolTipService;
+import org.jebtk.modern.tooltip.ModernToolTipEvent;
+import org.jebtk.modern.tooltip.ModernToolTipListener;
+import org.jebtk.modern.tooltip.ToolTipService;
 
 // TODO: Auto-generated Javadoc
 /**

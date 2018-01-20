@@ -13,14 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern;
+package org.jebtk.modern.theme;
 
 import java.awt.Color;
 import java.awt.Font;
 
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.model.KeyStore;
-import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

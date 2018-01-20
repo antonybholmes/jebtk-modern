@@ -37,6 +37,8 @@ import org.jebtk.modern.contentpane.HTabToolbar;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.event.ModernSelectionListener;
+import org.jebtk.modern.graphics.icons.CheveronDownVectorIcon;
+import org.jebtk.modern.graphics.icons.CheveronUpVectorIcon;
 import org.jebtk.modern.list.ModernListCellRenderer;
 import org.jebtk.modern.list.ModernListModel;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
@@ -61,14 +63,14 @@ public class ModernHistoryPanel<T> extends ModernComponent
   /**
    * The member up button.
    */
-  private ModernButton mUpButton = new ModernButton(
-      UIService.getInstance().loadIcon("up_arrow", 16));
+  private ModernButton mUpButton = new HistoryButton(
+      UIService.getInstance().loadIcon(CheveronUpVectorIcon.class, 12));
 
   /**
    * The member down button.
    */
-  private ModernButton mDownButton = new ModernButton(
-      UIService.getInstance().loadIcon("down_arrow", 16));
+  private ModernButton mDownButton = new HistoryButton(
+      UIService.getInstance().loadIcon(CheveronDownVectorIcon.class, 12));
 
   /**
    * The member history model.

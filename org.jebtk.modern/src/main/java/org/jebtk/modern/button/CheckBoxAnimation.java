@@ -3,6 +3,7 @@ package org.jebtk.modern.button;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.WidgetAnimation;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class CheckBoxAnimation extends WidgetAnimation {
@@ -13,7 +14,7 @@ public class CheckBoxAnimation extends WidgetAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     int x = widget.getInsets().left;
-    int y = (widget.getHeight() - ModernCheckBox.CHECKED_ICON.getWidth()) / 2;
+    int y = (widget.getHeight() - ModernCheckBox.ICON_SIZE) / 2;
 
     // if (((ModernClickWidget)widget).isSelected()) {
     // if (widget.isEnabled()) {
@@ -26,7 +27,9 @@ public class CheckBoxAnimation extends WidgetAnimation {
 
     // If there is nothing to be done, draw the unselected version of the
     // checkbox
-    ModernCheckBox.UNCHECKED_ICON.drawIcon(g2, x, y, ModernCheckBox.ICON_SIZE);
+    //ModernCheckBox.UNCHECKED_ICON.drawIcon(g2, x, y, ModernCheckBox.ICON_SIZE);
+    
+    UIDrawService.getInstance().get("content-box").draw(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
     // }
   }
 }

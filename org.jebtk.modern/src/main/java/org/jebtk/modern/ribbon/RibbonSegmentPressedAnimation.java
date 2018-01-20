@@ -17,9 +17,10 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.MaterialService;
 import org.jebtk.modern.animation.TranslateAnimation;
 import org.jebtk.modern.button.ButtonPressedAnimation;
+import org.jebtk.modern.theme.MaterialService;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -81,12 +82,18 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
 
       x += (tabWidth - d) / 2;
 
-      g2.setColor(mColor);
-
-      g2.fillRect(x,
+      //g2.setColor(mColor);
+      //g2.fillRect(x,
+      //    y + mHighlight * RibbonSegmentVertTabs.TAB_SIZE,
+      ///    d,
+      //    RibbonSegmentVertTabs.TAB_SIZE);
+      
+      UIDrawService.getInstance().get("menu.highlight").draw(g2, 
+          x,
           y + mHighlight * RibbonSegmentVertTabs.TAB_SIZE,
           d,
-          RibbonSegmentVertTabs.TAB_SIZE);
+          RibbonSegmentVertTabs.TAB_SIZE,
+          mColor);
     }
   }
 }

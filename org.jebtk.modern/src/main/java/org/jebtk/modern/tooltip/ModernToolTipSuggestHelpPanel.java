@@ -25,25 +25,19 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget.tooltip;
+package org.jebtk.modern.tooltip;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-
-import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.text.ModernAutoSizeLabel;
-import org.jebtk.modern.text.ModernLabelBold;
-import org.jebtk.modern.text.ModernTextArea;
 
 // TODO: Auto-generated Javadoc
 /**
- * The default tooltip panel provides a simple titled tooltip that appears below
- * the ribbon.
+ * Extension of the basic tooltip that also suggests the user presses F1 to get
+ * more help.
  * 
  * @author Antony Holmes Holmes
  *
  */
-public class ModernBasicToolTipPanel extends ModernToolTipPanel {
+public class ModernToolTipSuggestHelpPanel extends ModernBasicToolTipPanel {
 
   /**
    * The constant serialVersionUID.
@@ -53,60 +47,27 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
   /**
    * The constant SIZE.
    */
-  private static final Dimension SIZE = new Dimension(200, 80);
+  //private static final Dimension SIZE = new Dimension(240, 100);
 
   /**
-   * The member title.
-   */
-  private ModernAutoSizeLabel mTitle = new ModernLabelBold("");
-
-  /**
-   * The member text.
-   */
-  private ModernTextArea mText = new ModernTextArea("");
-
-  /**
-   * Instantiates a new modern basic tool tip panel.
+   * Instantiates a new modern tool tip suggest help panel.
    *
    * @param tooltip the tooltip
    */
-  public ModernBasicToolTipPanel(ModernToolTip tooltip) {
-    setToolTip(tooltip);
+  public ModernToolTipSuggestHelpPanel(ModernToolTip tooltip) {
+    super(tooltip);
 
-    ModernComponent panel = new ModernComponent();
-
-    mTitle.setBorder(BOTTOM_BORDER);
-    panel.add(mTitle, BorderLayout.PAGE_START);
-
-    mText.setEditable(false);
-    mText.setLineWrap(true);
-    mText.setWrapStyleWord(true);
-
-    panel.add(mText, BorderLayout.CENTER);
-
-    setPreferredSize(SIZE);
+    // add(new ModernMenuDivider());
+    // add(ModernTheme.createVerticalGap());
+    // Box box = new HBoxPanel();
+    // box.setAlignmentX(LEFT_ALIGNMENT);
+    // box.add(new ModernImagePanel(ModernVectorIcon.HELP_ICON, 16));
+    // //(Resources.getInstance().loadIcon("help", Resources.ICON_SIZE_16)));
+    // box.add(Ui.createHorizontalGap(10));
+    // box.add(new ModernBoldLabel("Press F1 for more help."));
+    // Ui.setSize(box, new Dimension(400, 24));
+    // add(box);
     
-    panel.setBorder(DOUBLE_BORDER);
-
-    add(panel);
-  }
-
-  /**
-   * Sets the tool tip.
-   *
-   * @param tooltip the new tool tip
-   */
-  public void setToolTip(ModernToolTip tooltip) {
-    mTitle.setText(tooltip.getTitle());
-    mText.setText(tooltip.getText());
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.tooltip.ModernToolTipPanel#getPreferredSize()
-   */
-  public Dimension getPreferredSize() {
-    return SIZE;
+    //setPreferredSize(SIZE);
   }
 }

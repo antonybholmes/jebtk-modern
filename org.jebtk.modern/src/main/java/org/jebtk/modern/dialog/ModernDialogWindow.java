@@ -51,9 +51,9 @@ import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.panel.ModernLineBottomBorderPanel;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.theme.ThemeService;
+import org.jebtk.modern.tooltip.ModernToolTipEvent;
+import org.jebtk.modern.tooltip.ModernToolTipListener;
 import org.jebtk.modern.widget.ModernWidget;
-import org.jebtk.modern.widget.tooltip.ModernToolTipEvent;
-import org.jebtk.modern.widget.tooltip.ModernToolTipListener;
 import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc

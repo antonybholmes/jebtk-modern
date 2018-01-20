@@ -202,7 +202,7 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
 
       // getWidgetRenderer().drawRibbonButton(g2, mRect, RenderMode.SELECTED);
 
-      UIDrawService.getInstance().get("button.selected").draw(g2, mRect, false);
+      UIDrawService.getInstance().get("button.selected").draw(g2, mRect);
 
     } else if (mNodeIsHighlighted) {
       /*
@@ -216,7 +216,7 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
         // .fill(g2, mRect.getX(), mRect.getY(), mRect.getW(), mRect.getH());
 
         UIDrawService.getInstance().get("button.highlight")
-            .draw(g2, mRect, false, mRenderer.getFade().getFadeColor("highlight"));
+            .draw(g2, mRect, mRenderer.getFade().getFadeColor("highlight"));
       }
 
       // getWidgetRenderer().drawButton(g2, mRect, RenderMode.SELECTED);

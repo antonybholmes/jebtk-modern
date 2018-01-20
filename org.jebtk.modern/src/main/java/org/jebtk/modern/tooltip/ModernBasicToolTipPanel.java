@@ -25,94 +25,88 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget.tooltip;
+package org.jebtk.modern.tooltip;
 
-import java.awt.Component;
-import java.awt.Point;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
-import org.jebtk.core.event.Event;
+import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.text.ModernAutoSizeLabel;
+import org.jebtk.modern.text.ModernLabelBold;
+import org.jebtk.modern.text.ModernTextArea;
 
 // TODO: Auto-generated Javadoc
 /**
- * The class ModernToolTipEvent.
+ * The default tooltip panel provides a simple titled tooltip that appears below
+ * the ribbon.
+ * 
+ * @author Antony Holmes
+ *
  */
-public class ModernToolTipEvent extends Event {
+public class ModernBasicToolTipPanel extends ModernToolTipPanel {
 
   /**
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
 
-  private static final String DEFAULT_MESSAGE = "tooltip";
-
   /**
-   * The tooltip.
+   * The constant SIZE.
    */
-  private Component mTooltip;
-
-  private Component mSource;
-  
-  private ModernToolTipListener mDest;
-
-  private Point mP;
-  
-  public ModernToolTipEvent(Component dest) {
-    this(dest, (ModernToolTipListener)dest);
-  }
-  
-  public ModernToolTipEvent(Component source, ModernToolTipListener dest) {
-    this(source, dest, source);
-  }
-
-  public ModernToolTipEvent(Component source, 
-      ModernToolTipListener dest,
-      Component tooltip) {
-    this(source, dest, tooltip, null);
-  }
-  
-  public ModernToolTipEvent(Component source, 
-      ModernToolTipListener dest,
-      Component tooltip,
-      Point p) {
-    this(source, dest, tooltip, p, DEFAULT_MESSAGE);
-  }
+  private static final Dimension SIZE = new Dimension(200, 100);
 
   /**
-   * Instantiates a new modern tool tip event.
+   * The member title.
+   */
+  private ModernAutoSizeLabel mTitle = new ModernLabelBold("");
+
+  /**
+   * The member text.
+   */
+  private ModernTextArea mText = new ModernTextArea("");
+
+  /**
+   * Instantiates a new modern basic tool tip panel.
    *
-   * @param source the source
-   * @param message the message
    * @param tooltip the tooltip
    */
-  public ModernToolTipEvent(Component source,
-      ModernToolTipListener dest,
-      Component tooltip,
-      Point p,
-      String message) {
-    super(source, message);
-    
-    mSource = source;
-    mDest = dest;
-    mTooltip = tooltip;
-    mP = p;
-  }
-  
-  
+  public ModernBasicToolTipPanel(ModernToolTip tooltip) {
+    setToolTip(tooltip);
 
-  @Override
-  public Component getSource() {
-    return mSource;
+    ModernComponent panel = new ModernComponent();
+
+    mTitle.setBorder(BOTTOM_BORDER);
+    panel.add(mTitle, BorderLayout.PAGE_START);
+
+    mText.setEditable(false);
+    mText.setLineWrap(true);
+    mText.setWrapStyleWord(true);
+
+    panel.add(mText, BorderLayout.CENTER);
+
+    setPreferredSize(SIZE);
+    
+    panel.setBorder(DOUBLE_BORDER);
+
+    add(panel);
   }
-  
-  public ModernToolTipListener getDest() {
-    return mDest;
+
+  /**
+   * Sets the tool tip.
+   *
+   * @param tooltip the new tool tip
+   */
+  public void setToolTip(ModernToolTip tooltip) {
+    mTitle.setText(tooltip.getTitle());
+    mText.setText(tooltip.getText());
   }
-  
-  public Component getTooltip() {
-    return mTooltip;
-  }
-  
-  public Point getP() {
-    return mP;
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.tooltip.ModernToolTipPanel#getPreferredSize()
+   */
+  public Dimension getPreferredSize() {
+    return SIZE;
   }
 }

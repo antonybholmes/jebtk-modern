@@ -1,4 +1,4 @@
-package org.jebtk.modern;
+package org.jebtk.modern.theme;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -10,8 +10,9 @@ import javax.swing.JComponent;
 import javax.swing.border.Border;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.modern.BorderService;
+import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.panel.CardPanel;
-import org.jebtk.modern.theme.WidgetRendererService;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class MaterialUtils {

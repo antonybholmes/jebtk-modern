@@ -30,11 +30,11 @@ package org.jebtk.modern.collapsepane;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
-import org.jebtk.modern.MaterialService;
 import org.jebtk.modern.graphics.icons.CheveronDownVectorIcon;
 import org.jebtk.modern.graphics.icons.CheveronUpVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RasterIcon;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc

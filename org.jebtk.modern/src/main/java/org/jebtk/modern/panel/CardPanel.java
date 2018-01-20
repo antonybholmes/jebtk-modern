@@ -33,8 +33,8 @@ import java.awt.Graphics2D;
 import javax.swing.border.Border;
 
 import org.jebtk.modern.BorderService;
-import org.jebtk.modern.MaterialUtils;
 import org.jebtk.modern.graphics.ImageUtils;
+import org.jebtk.modern.theme.MaterialUtils;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -51,7 +51,7 @@ public class CardPanel extends Card {
   private static final long serialVersionUID = 1L;
 
   public static final Border CARD_BORDER = 
-      BorderService.getInstance().createBorder(HALF_SHADOW_SIZE + DOUBLE_PADDING);
+      BorderService.getInstance().createBorder(HALF_SHADOW_SIZE + QUAD_PADDING);
 
   
   public CardPanel() {
