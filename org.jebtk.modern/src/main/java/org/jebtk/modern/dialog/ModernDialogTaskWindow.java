@@ -68,13 +68,13 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
   protected ModernDialogButtonsBox mButtons = new ModernDialogButtonsBox();
 
   /** The m ok button. */
-  protected ModernButton mOkButton = new ModernDialogMaterialButton(
+  protected ModernButton mOkButton = new ModernDialogPrimaryButton(
       UI.BUTTON_OK);
 
   /**
    * The close button.
    */
-  protected ModernButton mCancelButton = new ModernDialogMaterialButton(
+  protected ModernButton mCancelButton = new ModernDialogButton(
       UI.BUTTON_CANCEL);
 
   private ModernHContentPane mContentPane = new ModernHContentPane();

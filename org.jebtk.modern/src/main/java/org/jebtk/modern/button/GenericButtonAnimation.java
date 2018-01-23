@@ -4,7 +4,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
@@ -79,10 +78,8 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
     case SELECTED:
       UIDrawService.getInstance().get("button.selected").draw(g2, x, y, w, h);
       break;
-    case HIGHLIGHT:
+      default:
       UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h, getFadeColor("fill"));
-      break;
-    default:
       break;
     }
   }

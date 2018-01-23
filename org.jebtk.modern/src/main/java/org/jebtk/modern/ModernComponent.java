@@ -219,6 +219,10 @@ public class ModernComponent extends JComponent {
   /** The m page padding. */
   protected int mPagePadding;
 
+  private Component mHeader;
+
+  private Component mFooter;
+
   /**
    * The class ComponentEvents.
    */
@@ -600,7 +604,20 @@ public class ModernComponent extends JComponent {
    * @param c the new header
    */
   public void setHeader(Component c) {
+    if (c == null) {
+      return;
+    }
+
+    if (mHeader != null) {
+      remove(mHeader);
+    }
+    
+    mHeader = c;
+    
     add(c, BorderLayout.PAGE_START);
+    
+    revalidate();
+    repaint();
   }
 
   /**
@@ -631,7 +648,20 @@ public class ModernComponent extends JComponent {
    * @param c the new footer
    */
   public void setFooter(Component c) {
+    if (c == null) {
+      return;
+    }
+
+    if (mFooter != null) {
+      remove(mFooter);
+    }
+    
+    mFooter = c;
+    
     add(c, BorderLayout.PAGE_END);
+    
+    revalidate();
+    repaint();
   }
 
   /**

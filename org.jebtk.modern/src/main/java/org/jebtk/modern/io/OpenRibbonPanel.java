@@ -37,6 +37,7 @@ import java.util.List;
 
 import org.jebtk.core.collections.UniqueArrayList;
 import org.jebtk.core.io.FileUtils;
+import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -236,7 +237,9 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
         .setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
     // scrollPane.setBackground(Color.WHITE);
 
-    mTabsModel.addTab("RECENT " + title.toUpperCase(),
+    //title.toUpperCase()
+    
+    mTabsModel.addTab("Recent " + TextUtils.sentenceCase(title),
         UIService.getInstance().loadIcon(ClockVectorIcon.class, 24),
         scrollPane);
 

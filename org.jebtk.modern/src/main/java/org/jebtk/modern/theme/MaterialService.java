@@ -132,23 +132,48 @@ public class MaterialService {
       put("card-border",
           ColorUtils.getTransparentColor25(ModernWidget.LIGHT_LINE_COLOR));
       
-      put("theme-highlight",ThemeService.getInstance()
+      put("theme-highlight", ThemeService.getInstance()
           .colors().getColorHighlight32(14));
 
-      put("theme-selected",ThemeService.getInstance()
+      put("theme-selected", ThemeService.getInstance()
           .colors().getColorHighlight32(16));
       
-      put("theme-outline",ThemeService.getInstance()
+      put("theme-outline", ThemeService.getInstance()
           .colors().getColorHighlight32(18));
       
-      put("gray-highlight",ThemeService.getInstance()
-          .colors().getHighlight32(5));
+      put("gray-highlight", ThemeService.getInstance()
+          .colors().getHighlight32(4));
 
-      put("gray-selected",ThemeService.getInstance()
-          .colors().getHighlight32(10));
+      put("gray-selected", ThemeService.getInstance()
+          .colors().getHighlight32(8));
       
-      put("gray-outline",ThemeService.getInstance()
+      put("gray-outline", ThemeService.getInstance()
           .colors().getHighlight32(15));
+      
+      put("dialog.button.gradient.start", ThemeService.getInstance()
+          .colors().getHighlight32(2));
+      
+      put("dialog.button.gradient.end", ThemeService.getInstance()
+          .colors().getHighlight32(3));
+      
+      put("dialog.button.outline", ThemeService.getInstance()
+          .colors().getHighlight32(8));
+      
+      put("dialog.button.highlight", ThemeService.getInstance()
+          .colors().getHighlight32(12));
+      
+      
+      put("color.dialog.button.gradient.start", ThemeService.getInstance()
+          .colors().getColorHighlight32(15));
+      
+      put("color.dialog.button.gradient.end", ThemeService.getInstance()
+          .colors().getColorHighlight32(16));
+      
+      put("color.dialog.button.outline", ThemeService.getInstance()
+          .colors().getColorHighlight32(20));
+      
+      put("color.dialog.button.highlight", ThemeService.getInstance()
+          .colors().getColorHighlight32(28));
     }
 
   }

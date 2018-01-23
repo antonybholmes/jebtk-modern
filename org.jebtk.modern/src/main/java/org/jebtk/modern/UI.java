@@ -393,17 +393,19 @@ public class UI {
   public static final String ASSET_ABOUT = "ABOUT";
   public static final String ASSET_LICENSE = "LICENSE";
 
-  public static final String ASSET_THIS_PC = "THIS PC";
+  public static final String ASSET_THIS_PC = "This PC"; //"THIS PC";
 
-  public static final String ASSET_BROWSE = "BROWSE...";
+  public static final String ASSET_BROWSE = "Browse..."; //"BROWSE...";
 
+  public static final String ASSET_RECENT_FILES = "Recent Files...";
+  
   public static final String ASSET_TODAY = "Today";
 
   public static final String ASSET_OLDER = "Older";
 
-  public static final String ASSET_RIBBON_FILE = "FILE";
+  public static final String ASSET_RIBBON_FILE = "File"; //FILE";
 
-  public static final String ASSET_RIBBON_HOME = "HOME";
+  public static final String ASSET_RIBBON_HOME = "Home"; // HOME;
 
   static {
     // Determine if we should mac style buttons or not.

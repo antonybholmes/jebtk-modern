@@ -56,10 +56,12 @@ import org.jebtk.modern.collapsepane.CollapsePaneExpandAnimation;
 import org.jebtk.modern.collapsepane.CollapsePaneHighlightAnimation;
 import org.jebtk.modern.combobox.ComboBoxAnimation;
 import org.jebtk.modern.contentpane.ModernHContentPaneAnimation;
+import org.jebtk.modern.dialog.ColorDialogButtonAnimation;
+import org.jebtk.modern.dialog.ColorDialogButtonHighlightAnimation;
+import org.jebtk.modern.dialog.DialogButtonAnimation;
 import org.jebtk.modern.dialog.DialogButtonHighlightAnimation;
 import org.jebtk.modern.dialog.DialogMaterialButtonHighlightAnimation;
 import org.jebtk.modern.dialog.FlatButtonAnimation;
-import org.jebtk.modern.dialog.PrimaryDialogButtonAnimation;
 import org.jebtk.modern.help.HelpButtonHighlightAnimation;
 import org.jebtk.modern.list.ListAnimation;
 import org.jebtk.modern.list.ListChangeAnimation;
@@ -175,6 +177,9 @@ public class AnimationService {
         // .add(SegmentPressedAnimation.class)
         .add(SegmentChangeAnimation.class)
         .add(SegmentAnimation.class);
+    
+    get("bottom-tabs")
+    .add(SegmentAnimation.class);
 
     get("orb-tabs").add(OrbTabsHighlightAnimation.class)
         .add(OrbTabsChangeAnimation.class)
@@ -195,12 +200,16 @@ public class AnimationService {
 
     get("help-button").add(HelpButtonHighlightAnimation.class);
 
-    get("dialog-button").add(DialogButtonHighlightAnimation.class);
+    get("dialog-button")
+      .add(DialogButtonAnimation.class)
+      .add(DialogButtonHighlightAnimation.class);
 
     get("dialog-material-button")
         .add(DialogMaterialButtonHighlightAnimation.class);
 
-    get("primary-dialog-button").add(PrimaryDialogButtonAnimation.class);
+    get("primary-dialog-button")
+      .add(ColorDialogButtonAnimation.class)
+      .add(ColorDialogButtonHighlightAnimation.class);
 
     get("checkbox").add(CheckBoxAnimation.class)
         .add(CheckBoxSelectedAnimation.class)

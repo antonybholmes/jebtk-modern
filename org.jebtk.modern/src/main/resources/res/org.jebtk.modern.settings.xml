@@ -113,7 +113,7 @@
 		</setting>
 
 		<setting name="widget">
-			<setting name="default-height" value="26" />
+			<setting name="default-height" value="28" />
 			<setting name="padding" value="5" />
 
 			<setting name="borders">

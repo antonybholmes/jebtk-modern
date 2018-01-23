@@ -52,8 +52,8 @@ import javax.swing.Box;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
-import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
@@ -677,7 +677,7 @@ public class Ribbon extends ModernClickWidget
 
     createRightToolbar();
 
-    setFont(TAB_FONT);
+    //setFont(TAB_FONT);
 
     setSize(RibbonSize.COMPACT);
 
@@ -930,7 +930,7 @@ public class Ribbon extends ModernClickWidget
    * @return the toolbar
    */
   public final RibbonToolbar getToolbar(String name) {
-    String nu = name.toUpperCase(); // TextUtils.sentenceCase(name); //
+    String nu = TextUtils.sentenceCase(name); // name.toUpperCase(); // 
 
     Tab tab = mTabs.getTab(nu);
 

@@ -82,6 +82,11 @@ public class UIDrawService implements Iterable<String> {
     add(new ColorButtonHighlightUI());
     add(new ColorButtonSelectedUI());
     add(new ColorCircleHighlightUI());
+    
+    add(new DialogButtonUI());
+    add(new ColorDialogButtonUI());
+    add(new ButtonOutlineUI());
+    //add(new DUI());
   }
   
   public void add(UIRenderer renderer) {
