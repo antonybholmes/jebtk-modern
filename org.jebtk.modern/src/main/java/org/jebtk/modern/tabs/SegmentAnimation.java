@@ -63,6 +63,7 @@ public class SegmentAnimation extends WidgetAnimation {
     x = mSegments.mLeftOffset;
 
     g2.setColor(ModernWidget.TEXT_COLOR);
+    g2.setFont(TextTabs.TEXT_TABS_FONT);
 
     for (int i = 0; i < n; ++i) {
       boolean selected = i == selectedIndex;

@@ -139,8 +139,8 @@
 				</setting>
 
 				<setting name="bold-text">
-					<setting name="family" value="Roboto" />
-					<setting name="style" value="bold" />
+					<setting name="family" value="Roboto Bold" />
+					<setting name="style" value="plain" />
 					<setting name="size" value="12" />
 				</setting>
 
@@ -222,7 +222,7 @@
 		<setting name="ribbon">
 			<setting name="fonts">
 				<setting name="tab">
-					<setting name="family" value="Roboto Light" />
+					<setting name="family" value="Roboto" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="14" />
 				</setting>
@@ -238,7 +238,7 @@
 		<setting name="ribbon-menu">
 			<setting name="fonts">
 				<setting name="text">
-					<setting name="family" value="Roboto Light" />
+					<setting name="family" value="Roboto" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="12" />
 				</setting>
@@ -254,7 +254,7 @@
 			<setting name="background-color" value="#f9f9f9" />
 
 			<setting name="text-font">
-				<setting name="family" value="Roboto Light" />
+				<setting name="family" value="Roboto" />
 				<setting name="style" value="plain" />
 				<setting name="size" value="12" />
 			</setting>
@@ -263,7 +263,7 @@
 		<setting name="outlook-horizontal-tabs">
 			<setting name="fonts">
 				<setting name="text">
-					<setting name="family" value="Roboto Light" />
+					<setting name="family" value="Roboto" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="18" />
 				</setting>
@@ -293,14 +293,14 @@
 			<setting name="gap-width" value="20" />
 
 			<setting name="text-font">
-				<setting name="family" value="Roboto Light" />
+				<setting name="family" value="Roboto" />
 				<setting name="style" value="plain" />
 				<setting name="size" value="14" />
 			</setting>
 
 			<setting name="text-font-bold">
-				<setting name="family" value="Roboto Light" />
-				<setting name="style" value="bold" />
+				<setting name="family" value="Roboto Bold" />
+				<setting name="style" value="plain" />
 				<setting name="size" value="14" />
 			</setting>
 		</setting>

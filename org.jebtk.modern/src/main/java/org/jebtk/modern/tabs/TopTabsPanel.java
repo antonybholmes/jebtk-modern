@@ -15,8 +15,11 @@
  */
 package org.jebtk.modern.tabs;
 
+import java.awt.Dimension;
+
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.panel.ModernPanel;
+import org.jebtk.modern.UI;
+import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -27,14 +30,60 @@ public class TopTabsPanel extends ModernComponent {
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
+  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE,
+      ModernWidget.WIDGET_HEIGHT + 2);
+
   /**
-   * Instantiates a new top tabs panel.
+   * Instantiates a new segment tabs panel.
    *
    * @param model the model
+   * @param tabSize the tab size
    */
-  public TopTabsPanel(TabsModel model) {
-    setHeader(new ModernHTabBarTop(model));
+  public TopTabsPanel(TabsModel model, int tabSize) {
+    this(model, tabSize, 0, true);
+  }
 
-    setBody(new ModernPanel(new TabsViewPanel(model)));
+  /**
+   * Instantiates a new segment tabs panel.
+   *
+   * @param model the model
+   * @param tabSize the tab size
+   * @param centered the centered
+   */
+  public TopTabsPanel(TabsModel model, int tabSize, boolean centered) {
+    this(model, tabSize, 0, centered);
+  }
+
+  /**
+   * Instantiates a new segment tabs panel.
+   *
+   * @param model the model
+   * @param tabSize the tab size
+   * @param pagePadding the page padding
+   */
+  public TopTabsPanel(TabsModel model, int tabSize, int pagePadding) {
+    this(model, tabSize, pagePadding, true);
+  }
+
+  /**
+   * Instantiates a new segment tabs panel.
+   *
+   * @param model the model
+   * @param tabSize the tab size
+   * @param pagePadding the page padding
+   * @param centered the centered
+   */
+  public TopTabsPanel(TabsModel model, int tabSize, int pagePadding,
+      boolean centered) {
+    SegmentTabs tabs = new BottomTabs(model, tabSize);
+
+    UI.setSize(tabs, MAX_SIZE, UI.createTopBottomBorder(pagePadding));
+
+    setHeader(tabs); // new TextTabsTriangle(model, centered));
+
+    TabsViewPanel panel = new TabsViewPanel(model);
+    // panel.setBorder(0);
+
+    setBody(panel);
   }
 }

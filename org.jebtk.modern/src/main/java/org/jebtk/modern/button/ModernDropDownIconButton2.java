@@ -25,20 +25,24 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.dialog;
+package org.jebtk.modern.button;
 
-import org.jebtk.modern.button.ModernButton;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+
+import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
+import org.jebtk.modern.menu.ModernPopupMenu2;
 
 // TODO: Auto-generated Javadoc
 /**
- * A dialog button appears on dialogs and typically represents the OK and Cancel
- * buttons etc.
- *
+ * Drop down button that displays a menu.
+ * 
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDialogButton extends ModernButton {
+public class ModernDropDownIconButton2 extends ModernDropDownButton2 {
 
   /**
    * The constant serialVersionUID.
@@ -46,54 +50,45 @@ public class ModernDialogButton extends ModernButton {
   private static final long serialVersionUID = 1L;
 
   /**
-   * Instantiates a new modern dialog button.
+   * Instantiates a new modern drop down button icon only.
    *
-   * @param text1 the text1
+   * @param icon the icon
+   * @param menu the menu
    */
-  public ModernDialogButton(String text1) {
-    super(text1);
-
-    setup();
+  public ModernDropDownIconButton2(ModernIcon icon, ModernPopupMenu2 menu) {
+    super(icon, menu);
   }
 
   /**
-   * Instantiates a new modern dialog button.
+   * Instantiates a new modern drop down button icon only.
    *
    * @param icon the icon
    */
-  public ModernDialogButton(ModernIcon icon) {
+  public ModernDropDownIconButton2(ModernIcon icon) {
     super(icon);
-
-    setup();
-  }
-
-  /**
-   * Instantiates a new modern dialog button.
-   *
-   * @param text1 the text 1
-   * @param icon the icon
-   */
-  public ModernDialogButton(String text1, ModernIcon icon) {
-    super(text1, icon);
-
-    setup();
-  }
-
-  public ModernDialogButton(String text1, ModernIcon icon, int width) {
-    super(text1, icon, width);
-
-    setup();
-  }
-
-  private void setup() {
-    //setFont(BOLD_FONT);
-
-    setBackgroundAnimations("dialog-button");
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
-   * getWidgetRenderer().drawDialogButton(g2, mInternalRect, getRenderMode(),
-   * hasFocus()); } }
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * awt. Graphics2D)
    */
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    int iconX = PADDING;
+
+    g2.setColor(getForeground());
+
+    int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
+
+    mIcon.drawIcon(g2,
+        new Rectangle(iconX, iconY, UIService.ICON_SIZE_16,
+            UIService.ICON_SIZE_16));
+
+    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
+        .drawIcon(g2, mRect.getW() - 16, (getHeight() - 16) / 2, 16);
+  }
+
 }

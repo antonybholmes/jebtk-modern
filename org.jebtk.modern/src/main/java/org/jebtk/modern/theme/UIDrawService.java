@@ -67,7 +67,9 @@ public class UIDrawService implements Iterable<String> {
   private UIDrawService() {
     // Do nothing
     
+    add(new ContentUI());
     add(new ContentBoxUI());
+    
     add(new TextBorderUI());
     add(new ButtonHighlightUI());
     add(new ButtonSelectedUI());

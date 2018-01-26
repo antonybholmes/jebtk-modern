@@ -207,7 +207,7 @@ public class Ribbon extends ModernClickWidget
    * The constant TAB_FONT.
    */
   public static final Font TAB_FONT = MaterialService.getInstance().fonts()
-      .subtext(); // ModernWidget.BOLD_FONT;
+      .text(); // ModernWidget.BOLD_FONT;
                   // //MaterialUtils.TEXT_FONT;
                   // //ModernWidget.FONT;
                   // //ThemeService.loadFont("theme.ribbon.fonts.tab");
@@ -677,7 +677,7 @@ public class Ribbon extends ModernClickWidget
 
     createRightToolbar();
 
-    //setFont(TAB_FONT);
+    setFont(TAB_FONT);
 
     setSize(RibbonSize.COMPACT);
 

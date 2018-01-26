@@ -55,6 +55,8 @@ import org.jebtk.modern.collapsepane.CollapsePaneDividerAnimation;
 import org.jebtk.modern.collapsepane.CollapsePaneExpandAnimation;
 import org.jebtk.modern.collapsepane.CollapsePaneHighlightAnimation;
 import org.jebtk.modern.combobox.ComboBoxAnimation;
+import org.jebtk.modern.combobox.ComboBoxArrowAnimation;
+import org.jebtk.modern.combobox.ComboBoxHighlightAnimation;
 import org.jebtk.modern.contentpane.ModernHContentPaneAnimation;
 import org.jebtk.modern.dialog.ColorDialogButtonAnimation;
 import org.jebtk.modern.dialog.ColorDialogButtonHighlightAnimation;
@@ -259,7 +261,11 @@ public class AnimationService {
     get("list").add(ListHighlightAnimation.class)
         .add(ListChangeAnimation.class).add(ListAnimation.class);
 
-    get("combobox").add(ComboBoxAnimation.class);
+    get("combobox").add(ComboBoxAnimation.class)
+      .add(ComboBoxAnimation.class)
+      .add(ComboBoxHighlightAnimation.class)
+      .add(ComboBoxArrowAnimation.class)
+      .add(DialogButtonHighlightAnimation.class);
 
     get("text-border").add(TextBorderAnimation.class);
 

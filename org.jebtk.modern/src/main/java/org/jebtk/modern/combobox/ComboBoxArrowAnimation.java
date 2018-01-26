@@ -4,13 +4,15 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.animation.WidgetAnimation;
-import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class ComboBoxAnimation extends WidgetAnimation {
-  
-  public ComboBoxAnimation(ModernWidget combo) {
+public class ComboBoxArrowAnimation extends WidgetAnimation {
+  private ModernComboBox mCombo;
+
+  public ComboBoxArrowAnimation(ModernWidget combo) {
     super(combo);
+    
+    mCombo = (ModernComboBox)combo;
   }
 
   /*
@@ -23,6 +25,12 @@ public class ComboBoxAnimation extends WidgetAnimation {
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     IntRect rect = widget.getInternalRect();
     
-    UIDrawService.getInstance().get("content").draw(g2, rect);
+    IntRect buttonRect = new IntRect(mCombo.mButtonX, widget.getInsets().top,
+        ModernComboBox.BUTTON_WIDTH, rect.getH());
+
+    ModernComboBox.DOWN_ARROW_ICON.drawIcon(g2,
+        buttonRect.getX(),
+        buttonRect.getY() + (buttonRect.getH() - 16) / 2,
+        16);
   }
 }

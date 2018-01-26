@@ -601,10 +601,21 @@ public class ThemeService extends ModernTheme {
   public static final void registerFonts()
       throws FontFormatException, IOException {
     Resources.getInstance().registerFont("Inconsolata-Regular.ttf");
-    Resources.getInstance().registerFont("Roboto-Regular.ttf");
+    
     Resources.getInstance().registerFont("Roboto-Light.ttf");
-    Resources.getInstance().registerFont("Roboto-Thin.ttf");
+    Resources.getInstance().registerFont("Roboto-Regular.ttf");
     Resources.getInstance().registerFont("Roboto-Bold.ttf");
+    
+    Resources.getInstance().registerFont("SourceSansPro-Light.ttf");
+    Resources.getInstance().registerFont("SourceSansPro-Regular.ttf");
+    Resources.getInstance().registerFont("SourceSansPro-Bold.ttf");
+    
+    Resources.getInstance().registerFont("Raleway-Light.ttf");
+    Resources.getInstance().registerFont("Raleway-Regular.ttf");
+    Resources.getInstance().registerFont("Raleway-Bold.ttf");
+    
+    Resources.getInstance().registerFont("NotoSans-Regular.ttf");
+    Resources.getInstance().registerFont("NotoSans-Bold.ttf");
 
     // Resources.getInstance().registerFont("OpenSans-Regular.ttf");
     // Resources.getInstance().registerFont("OpenSans-Light.ttf");
