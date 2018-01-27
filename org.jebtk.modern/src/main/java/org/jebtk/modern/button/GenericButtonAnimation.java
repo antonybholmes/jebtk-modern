@@ -20,7 +20,7 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
     setFadeColor("fill", MaterialService.getInstance().color("theme-highlight"));
   }
 
-  
+
   public void drawButton(Graphics2D g2,
       int x,
       int y,
@@ -72,14 +72,16 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
     if (mode != RenderMode.NONE) {
       fill(g2, x, y, w, h);
     }
-    */
-    
+     */
+
     switch (mode) {
     case SELECTED:
       UIDrawService.getInstance().get("button.selected").draw(g2, x, y, w, h);
       break;
-      default:
+    case HIGHLIGHT:
       UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h, getFadeColor("fill"));
+      break;
+    default:
       break;
     }
   }

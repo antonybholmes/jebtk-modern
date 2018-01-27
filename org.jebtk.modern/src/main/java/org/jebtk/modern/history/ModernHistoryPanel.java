@@ -84,68 +84,7 @@ public class ModernHistoryPanel<T> extends ModernComponent
   protected ModernHistoryList<T> mHistoryList = new ModernHistoryList<T>(
       mHistoryModel);
 
-  /**
-   * The class MouseEvents.
-   */
-  private class MouseEvents implements MouseListener {
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.awt.event.MouseListener#mouseClicked(java.awt.event.MouseEvent)
-     */
-    @Override
-    public void mouseClicked(MouseEvent arg0) {
-      // TODO Auto-generated method stub
-
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.awt.event.MouseListener#mouseEntered(java.awt.event.MouseEvent)
-     */
-    @Override
-    public void mouseEntered(MouseEvent arg0) {
-      // TODO Auto-generated method stub
-
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.awt.event.MouseListener#mouseExited(java.awt.event.MouseEvent)
-     */
-    @Override
-    public void mouseExited(MouseEvent arg0) {
-      // TODO Auto-generated method stub
-
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-     */
-    @Override
-    public void mousePressed(MouseEvent arg0) {
-      // TODO Auto-generated method stub
-
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
-     */
-    @Override
-    public void mouseReleased(MouseEvent arg0) {
-      // TODO Auto-generated method stub
-
-    }
-
-  }
 
   /**
    * Instantiates a new modern history panel.
@@ -161,7 +100,6 @@ public class ModernHistoryPanel<T> extends ModernComponent
     mUpButton.addClickListener(this);
     mDownButton.addClickListener(this);
 
-    mHistoryList.addMouseListener(new MouseEvents());
 
     // Sync ui
     mHistoryList.getModel().fireDataChanged();
@@ -177,7 +115,7 @@ public class ModernHistoryPanel<T> extends ModernComponent
     toolbar.add(mDownButton);
     // toolbar.setBorder(BOTTOM_BORDER);
 
-    setHeader(toolbar);
+    //setHeader(toolbar);
 
     ModernScrollPane scrollPane = new ModernScrollPane(mHistoryList);
     scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);

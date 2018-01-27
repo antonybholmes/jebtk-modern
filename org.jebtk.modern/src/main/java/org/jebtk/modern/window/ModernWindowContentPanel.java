@@ -27,10 +27,8 @@
  */
 package org.jebtk.modern.window;
 
-import java.awt.Color;
-
-import org.jebtk.modern.panel.ModernPanel;
-import org.jebtk.modern.theme.ThemeService;
+import org.jebtk.modern.panel.ModernGradientPanel;
+import org.jebtk.modern.theme.MaterialService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -39,7 +37,7 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernWindowContentPanel extends ModernPanel {
+public class ModernWindowContentPanel extends ModernGradientPanel {
 
   /**
    * The constant serialVersionUID.
@@ -49,13 +47,13 @@ public class ModernWindowContentPanel extends ModernPanel {
   /**
    * The constant COLOR.
    */
-  public static final Color COLOR = ThemeService.getInstance().colors()
-      .getHighlight32(1);
+  
 
   /**
    * Instantiates a new modern window content panel.
    */
   public ModernWindowContentPanel() {
-    super(COLOR);
+    super(MaterialService.getInstance().color("window.background.gradient.start"),
+        MaterialService.getInstance().color("window.background.gradient.end"));
   }
 }

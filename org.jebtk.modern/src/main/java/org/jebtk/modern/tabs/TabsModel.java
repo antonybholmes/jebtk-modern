@@ -27,6 +27,7 @@
  */
 package org.jebtk.modern.tabs;
 
+import java.awt.Component;
 import java.util.Iterator;
 
 import javax.swing.JComponent;

@@ -105,6 +105,7 @@ import org.jebtk.modern.tabs.OrbTabsChangeAnimation;
 import org.jebtk.modern.tabs.OrbTabsHighlightAnimation;
 import org.jebtk.modern.tabs.SegmentAnimation;
 import org.jebtk.modern.tabs.SegmentChangeAnimation;
+import org.jebtk.modern.tabs.SegmentTextAnimation;
 import org.jebtk.modern.text.TextBorderAnimation;
 import org.jebtk.modern.tree.TreeHighlightAnimation;
 import org.jebtk.modern.widget.ModernWidget;
@@ -178,10 +179,11 @@ public class AnimationService {
         // .add(SegmentHighlightAnimation.class)
         // .add(SegmentPressedAnimation.class)
         .add(SegmentChangeAnimation.class)
-        .add(SegmentAnimation.class);
+        .add(SegmentTextAnimation.class);
     
     get("bottom-tabs")
-    .add(SegmentAnimation.class);
+    .add(SegmentAnimation.class)
+    .add(SegmentTextAnimation.class);
 
     get("orb-tabs").add(OrbTabsHighlightAnimation.class)
         .add(OrbTabsChangeAnimation.class)

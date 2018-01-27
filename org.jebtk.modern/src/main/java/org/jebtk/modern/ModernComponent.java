@@ -45,6 +45,7 @@ import javax.swing.border.Border;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.graphics.ImageUtils;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ModernTheme;
 import org.jebtk.modern.theme.ThemeService;
 
@@ -93,8 +94,8 @@ public class ModernComponent extends JComponent {
   /**
    * The constant LINE_COLOR.
    */
-  public static final Color LINE_COLOR = ThemeService.getInstance().colors()
-      .getLineColor();
+  public static final Color LINE_COLOR = 
+      MaterialService.getInstance().color("line");
 
   /** The Constant LIGHT_LINE_COLOR. */
   public static final Color LIGHT_LINE_COLOR = ThemeService.getInstance()

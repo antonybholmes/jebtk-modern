@@ -27,6 +27,7 @@
  */
 package org.jebtk.modern.panel;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.LayoutManager;
@@ -81,7 +82,8 @@ public class ModernBorderPanel extends ModernWidget {
    * Inits the.
    */
   private void init() {
-    setBorder(BorderService.getInstance().createBorder(2));
+    setBackground(Color.WHITE);
+    setBorder(BorderService.getInstance().createBorder(1));
   }
 
   /*
@@ -91,7 +93,10 @@ public class ModernBorderPanel extends ModernWidget {
    * org.abh.common.ui.widget.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawBackgroundAA(Graphics2D g2) {
-    getWidgetRenderer().drawContentBox(g2, mRect);
+  public void drawBackground(Graphics2D g2) {
+    fillBackground(g2);
+    
+    g2.setColor(LINE_COLOR);
+    g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
   }
 }

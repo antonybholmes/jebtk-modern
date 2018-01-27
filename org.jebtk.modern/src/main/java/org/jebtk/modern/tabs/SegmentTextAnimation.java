@@ -15,12 +15,10 @@
  */
 package org.jebtk.modern.tabs;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.WidgetAnimation;
-import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -30,18 +28,19 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes
  * @param <T>
  */
-public class SegmentAnimation extends WidgetAnimation {
+public class SegmentTextAnimation extends WidgetAnimation {
 
-  private static final Color BG = 
-      ThemeService.getInstance().colors().getHighlight(2);
+  private SegmentTabs mSegments;
 
   /**
    * Instantiates a new state animation.
    *
    * @param ribbon the ribbon
    */
-  public SegmentAnimation(ModernWidget w) {
+  public SegmentTextAnimation(ModernWidget w) {
     super(w);
+
+    mSegments = (SegmentTabs) w;
   }
 
   /*
@@ -52,6 +51,36 @@ public class SegmentAnimation extends WidgetAnimation {
    */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-   UIDrawService.getInstance().get("button.highlight").draw(g2, widget.getRect(), BG);
+
+    int x = mSegments.mLeftOffset;
+    int n = mSegments.getTabsModel().getTabCount();
+    int selectedIndex = mSegments.getTabsModel().getSelectedIndex();
+
+    //
+    // Draw the labels
+    //
+
+    x = mSegments.mLeftOffset;
+
+    g2.setColor(ModernWidget.TEXT_COLOR);
+    g2.setFont(TextTabs.TEXT_TABS_FONT);
+
+    for (int i = 0; i < n; ++i) {
+      boolean selected = i == selectedIndex;
+
+      g2.setColor(selected ? Ribbon.BAR_BACKGROUND : ModernWidget.TEXT_COLOR);
+
+      // g2.setFont(selected ? ModernWidget.BOLD_FONT : ModernWidget.FONT);
+
+      int textY = ModernWidget.getTextYPosCenter(g2, mSegments.getHeight());
+
+      String s = mSegments.getTabsModel().getTab(i).getName(); // .toUpperCase();
+
+      g2.drawString(s,
+          x + (mSegments.mTabSize - g2.getFontMetrics().stringWidth(s)) / 2,
+          textY);
+
+      x += mSegments.mTabSize;
+    }
   }
 }

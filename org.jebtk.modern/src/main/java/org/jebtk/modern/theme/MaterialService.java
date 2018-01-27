@@ -174,6 +174,17 @@ public class MaterialService {
       
       put("color.dialog.button.highlight", ThemeService.getInstance()
           .colors().getColorHighlight32(28));
+      
+      put("window.background", ThemeService.getInstance().colors()
+          .getHighlight32(0));
+      
+      put("window.background.gradient.start", get("window.background"));
+      
+      put("window.background.gradient.end", ThemeService.getInstance().colors()
+          .getHighlight32(1));
+      
+      
+      put("line", ThemeService.getInstance().colors().getHighlight32(7));
     }
 
   }

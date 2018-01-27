@@ -149,7 +149,7 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
     mIcon = icon;
     mClosable = closeable;
 
-    setJComponent(c);
+    setComponent(c);
   }
 
   /**
@@ -175,7 +175,7 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
    *
    * @param c the new JComponent
    */
-  public void setJComponent(JComponent c) {
+  public void setComponent(JComponent c) {
     mC = c;
   }
 

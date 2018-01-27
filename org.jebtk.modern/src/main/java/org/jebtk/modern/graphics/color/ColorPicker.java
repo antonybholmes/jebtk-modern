@@ -153,8 +153,8 @@ public class ColorPicker extends ModernClickWidget {
      */
     @Override
     public void mouseMoved(MouseEvent e) {
-      int r = ((e.getY() - DOUBLE_PADDING) / BLOCK_SIZE);
-      int c = ((e.getX() - DOUBLE_PADDING) / SPACE);
+      int r = ((e.getY() - PADDING) / BLOCK_SIZE);
+      int c = ((e.getX() - PADDING) / SPACE);
 
       if (c < 0 || c >= mColors.size()) {
         return;
@@ -167,8 +167,8 @@ public class ColorPicker extends ModernClickWidget {
       mRow = r;
       mCol = c;
 
-      mP.x = DOUBLE_PADDING + SPACE * mCol;
-      mP.y = DOUBLE_PADDING + BLOCK_SIZE * mRow;
+      mP.x = PADDING + SPACE * mCol;
+      mP.y = PADDING + BLOCK_SIZE * mRow;
 
       repaint();
     }
@@ -203,8 +203,8 @@ public class ColorPicker extends ModernClickWidget {
     mColors = colors;
 
     setPreferredSize(new Dimension(
-        BLOCK_SIZE * mColors.size() + GAP * (mColors.size() - 1) + QUAD_PADDING,
-        mColors.get(0).size() * BLOCK_SIZE + QUAD_PADDING));
+        BLOCK_SIZE * mColors.size() + GAP * (mColors.size() - 1) + DOUBLE_PADDING,
+        mColors.get(0).size() * BLOCK_SIZE + DOUBLE_PADDING));
   }
 
   /**
@@ -245,8 +245,8 @@ public class ColorPicker extends ModernClickWidget {
     mSelectedRow = row;
     mSelectedCol = col;
 
-    mSelectedP.x = DOUBLE_PADDING + SPACE * mSelectedCol;
-    mSelectedP.y = DOUBLE_PADDING + BLOCK_SIZE * mSelectedRow;
+    mSelectedP.x = PADDING + SPACE * mSelectedCol;
+    mSelectedP.y = PADDING + BLOCK_SIZE * mSelectedRow;
 
     if (mSelectedCol < 0 || mSelectedCol > mColors.size()) {
       return;
@@ -289,11 +289,11 @@ public class ColorPicker extends ModernClickWidget {
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
-    int x = DOUBLE_PADDING;
-    int y = DOUBLE_PADDING;
+    int x = PADDING;
+    int y = PADDING;
 
     for (List<Color> column : mColors) {
-      y = DOUBLE_PADDING;
+      y = PADDING;
 
       for (Color c : column) {
         if (c != null) {
@@ -318,8 +318,8 @@ public class ColorPicker extends ModernClickWidget {
 
     g2.setColor(LINE_COLOR);
 
-    x = DOUBLE_PADDING;
-    y = DOUBLE_PADDING;
+    x = PADDING;
+    y = PADDING;
 
     int h = BLOCK_SIZE * mColors.get(0).size();
 
