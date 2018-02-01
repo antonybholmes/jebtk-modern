@@ -21,11 +21,13 @@ public class CheckBoxSelectedAnimation extends WidgetAnimation {
     int y = (widget.getHeight() - ModernCheckBox.ICON_SIZE) / 2;
 
     if (widget.isEnabled() && ((ModernClickWidget) getWidget()).isSelected()) {
-      //g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR); // getFadeColor("fill"));
-      //getWidget().getWidgetRenderer()
-      //    .fill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
-      
-      UIDrawService.getInstance().get("color.button.selected").draw(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
+      // g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR); //
+      // getFadeColor("fill"));
+      // getWidget().getWidgetRenderer()
+      // .fill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
+
+      UIDrawService.getInstance().get("color.button.selected")
+          .draw(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
     }
   }
 }

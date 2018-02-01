@@ -505,6 +505,15 @@ public class ModernHContentPane extends ModernWidget {
     repaint();
   }
 
+  /**
+   * Add a tab to the left side of the display.
+   * 
+   * @param name
+   * @param c
+   * @param width
+   * @param minWidth
+   * @param maxWidth
+   */
   public void addLeftTab(String name,
       ModernComponent c,
       int width,

@@ -32,11 +32,13 @@ import java.awt.event.FocusListener;
 
 import javax.swing.Box;
 
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.button.ModernRadioButton;
 import org.jebtk.modern.dialog.ModernDialogTaskType;
 import org.jebtk.modern.dialog.ModernDialogTaskWindow;
 import org.jebtk.modern.event.ModernClickEvent;
+import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.spinner.ModernCompactSpinner;
@@ -142,7 +144,7 @@ public class ZoomDialog extends ModernDialogTaskWindow {
 
     setResizable(false);
     setDarkBackground();
-    setSize(420, 360);
+    setSize(400, 400);
     setTitle("Zoom");
     mModel = model;
 
@@ -176,6 +178,9 @@ public class ZoomDialog extends ModernDialogTaskWindow {
     box.add(hbox);
 
     setDialogCardContent(box);
+    
+    
+    mTextCustom.setText(Integer.toString((int)(model.getZoom() * 100)));
 
     new ModernButtonGroup().add(mCheck25).add(mCheck50).add(mCheck75)
         .add(mCheck100).add(mCheck200).add(mCheck400).add(mCheckCustom);
@@ -186,9 +191,23 @@ public class ZoomDialog extends ModernDialogTaskWindow {
     mCheck100.addClickListener(this);
     mCheck200.addClickListener(this);
     mCheck400.addClickListener(this);
-    mCheckCustom.addClickListener(this);
+    
 
     mTextCustom.addFocusListener(new FocusEvents());
+    
+    
+    mCheckCustom.addClickListener(new ModernClickListener() {
+
+      @Override
+      public void clicked(ModernClickEvent e) {
+        zoomCustom();
+      }});
+    
+    mTextCustom.addChangeListener(new ChangeListener() {
+      @Override
+      public void changed(org.jebtk.core.event.ChangeEvent e) {
+        zoomCustom();
+      }});
   }
 
   /*
@@ -212,8 +231,6 @@ public class ZoomDialog extends ModernDialogTaskWindow {
       mModel.setZoom(2);
     } else if (e.getSource().equals(mCheck400)) {
       mModel.setZoom(4);
-    } else if (e.getSource().equals(mCheckCustom)) {
-      zoomCustom();
     } else {
       super.clicked(e);
     }

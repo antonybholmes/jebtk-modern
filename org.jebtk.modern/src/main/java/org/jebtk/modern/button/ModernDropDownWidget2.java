@@ -257,7 +257,6 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
         "enter_pressed");
     getActionMap().put("enter_pressed", new ActionEvents());
 
-    
     final ModernDropDownWidget2 source = this;
 
     ModernToolTipListener l = new ModernToolTipListener() {
@@ -266,7 +265,7 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
       public void tooltipShown(ModernToolTipEvent e) {
         tooltipAdded(e);
       }
-      
+
       @Override
       public void tooltipAdded(ModernToolTipEvent e) {
         // If some other tooltip is being shown, we should reset.
@@ -293,15 +292,13 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
         repaint();
       }
     };
-    
+
     // Listen for all
     ToolTipService.getInstance().addAllToolTipListener(l);
-    
-    
-    
+
     setBackgroundAnimations("dropdown-button-2");
   }
-  
+
   @Override
   protected void mouseShowToolTip() {
     // Don't hide tooltip if popup is shown as this will affect the UI.
@@ -309,7 +306,7 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
       super.mouseShowToolTip();
     }
   }
-  
+
   @Override
   protected void mouseHideToolTips() {
     // Don't hide tooltip if popup is shown as this will affect the UI.
@@ -349,6 +346,8 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
   public void showMenu() {
     mPopupShown = true;
 
+    // System.err.println("show menu " + mMenu.isVisible());
+
     showToolTip(createToolTipEvent(mMenu));
   }
 
@@ -380,7 +379,6 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
     if (e.isPopupTrigger()) {
       return;
     }
-
 
     showMenu();
   }

@@ -302,7 +302,7 @@ public class ModernRibbonWindow extends ModernWindow {
   public void setCard(Component c) {
     getTabsPane().getModel()
         .setCenterTab(new ModernComponent(
-            new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)),
+            new CardPanel(c),
             ModernWidget.DOUBLE_BORDER));
   }
 

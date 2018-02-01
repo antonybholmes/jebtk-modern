@@ -35,7 +35,8 @@ import org.jebtk.core.text.Splitter;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.button.ModernCheckBox;
+import org.jebtk.modern.button.CheckBox;
+import org.jebtk.modern.button.ModernCheckSwitch;
 import org.jebtk.modern.dialog.ModernDialogTaskWindow;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.ModernBorderPanel;
@@ -60,15 +61,14 @@ public class SearchDialog extends ModernDialogTaskWindow
   private static final long serialVersionUID = 1L;
 
   /** The m check in list. */
-  private ModernCheckBox mCheckInList = new ModernCheckBox("Match in list",
+  private CheckBox mCheckInList = new ModernCheckSwitch("Match in list",
       true);
 
   /** The m check exact. */
-  private ModernCheckBox mCheckExact = new ModernCheckBox(
-      "Match entire contents");
+  private CheckBox mCheckExact = new ModernCheckSwitch("Match entire contents");
 
   /** The m check case. */
-  private ModernCheckBox mCheckCase = new ModernCheckBox("Case sensitive");
+  private CheckBox mCheckCase = new ModernCheckSwitch("Case sensitive");
 
   /** The m text. */
   private ModernTextArea mText = new ModernTextArea();
@@ -98,7 +98,7 @@ public class SearchDialog extends ModernDialogTaskWindow
   private void setup() {
     addWindowListener(new WindowWidgetFocusEvents(mOkButton));
 
-    setSize(640, 400);
+    setSize(600, 400);
 
     setResizable(true);
 
@@ -132,14 +132,14 @@ public class SearchDialog extends ModernDialogTaskWindow
 
     box.add(UI.createVGap(10));
     box.add(mCheckInList);
-    box.add(UI.createVGap(5));
+    //box.add(UI.createVGap(5));
     box.add(mCheckExact);
-    box.add(UI.createVGap(5));
+    //box.add(UI.createVGap(5));
     box.add(mCheckCase);
 
     content.setFooter(box);
 
-    setContent(content);
+    setDialogCardContent(content);
   }
 
   /**

@@ -297,6 +297,12 @@ public abstract class ModernScrollBar extends ModernWidget
      */
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
+      // Don't scroll if keyboard modifiers are pressed so that alterntive
+      // actions can be implemented without the scrolling interfering.
+      if (e.getModifiers() != 0) {
+        return;
+      }
+      
       int notches = e.getWheelRotation();
 
       mScroller.wheelScroll(notches, mView, mScrollBar);

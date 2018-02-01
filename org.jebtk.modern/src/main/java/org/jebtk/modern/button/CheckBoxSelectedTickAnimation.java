@@ -20,9 +20,11 @@ public class CheckBoxSelectedTickAnimation extends WidgetAnimation {
     if (widget.isEnabled()) {
       if (((ModernClickWidget) getWidget()).isSelected()) {
         // Only draw the tick if the button is selected
-        //ModernCheckBox.CHECK_ICON.drawIcon(g2, x, y, ModernCheckBox.ICON_SIZE);
-        
-        UIDrawService.getInstance().get("checked.check").draw(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
+        // ModernCheckBox.CHECK_ICON.drawIcon(g2, x, y,
+        // ModernCheckBox.ICON_SIZE);
+
+        UIDrawService.getInstance().get("checkbox.checked")
+            .draw(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
       }
     } else {
       if (((ModernClickWidget) getWidget()).isSelected()) {

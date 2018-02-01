@@ -181,7 +181,8 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
     setup();
   }
 
-  public ModernOptionalDropDownMenuButton2(String text1, ModernPopupMenu2 menu) {
+  public ModernOptionalDropDownMenuButton2(String text1,
+      ModernPopupMenu2 menu) {
     super(text1);
 
     setMenu(menu);

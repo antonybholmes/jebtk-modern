@@ -73,6 +73,7 @@ public class UIDrawService implements Iterable<String> {
     add(new TextBorderUI());
     add(new ButtonHighlightUI());
     add(new ButtonSelectedUI());
+    add(new CircleOutlineUI());
     add(new CircleHighlightUI());
     add(new MenuHighlightUI());
     add(new PillHighlightUI());

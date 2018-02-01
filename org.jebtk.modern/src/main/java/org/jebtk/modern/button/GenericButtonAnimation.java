@@ -16,10 +16,10 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
 
     // mButton = (ModernClickWidget)button;
 
-    //setFadeColor("outline", ModernWidgetRenderer.SELECTED_OUTLINE_COLOR);
-    setFadeColor("fill", MaterialService.getInstance().color("theme-highlight"));
+    // setFadeColor("outline", ModernWidgetRenderer.SELECTED_OUTLINE_COLOR);
+    setFadeColor("fill",
+        MaterialService.getInstance().color("theme-highlight"));
   }
-
 
   public void drawButton(Graphics2D g2,
       int x,
@@ -57,21 +57,15 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
       boolean hasFocus) {
 
     /*
-    ModernWidget wt = getWidget();
-
-    if (wt instanceof ModernClickWidget) {
-      if (((ModernClickWidget) wt).isSelected()) {
-        g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR);
-      } else {
-        g2.setColor(getFadeColor("fill"));
-      }
-    } else {
-      g2.setColor(getFadeColor("fill"));
-    }
-
-    if (mode != RenderMode.NONE) {
-      fill(g2, x, y, w, h);
-    }
+     * ModernWidget wt = getWidget();
+     * 
+     * if (wt instanceof ModernClickWidget) { if (((ModernClickWidget)
+     * wt).isSelected()) {
+     * g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR); } else {
+     * g2.setColor(getFadeColor("fill")); } } else {
+     * g2.setColor(getFadeColor("fill")); }
+     * 
+     * if (mode != RenderMode.NONE) { fill(g2, x, y, w, h); }
      */
 
     switch (mode) {
@@ -79,7 +73,8 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
       UIDrawService.getInstance().get("button.selected").draw(g2, x, y, w, h);
       break;
     case HIGHLIGHT:
-      UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h, getFadeColor("fill"));
+      UIDrawService.getInstance().get("button.highlight")
+          .draw(g2, x, y, w, h, getFadeColor("fill"));
       break;
     default:
       break;

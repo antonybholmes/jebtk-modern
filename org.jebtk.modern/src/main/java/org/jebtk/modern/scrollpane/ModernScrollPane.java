@@ -441,6 +441,10 @@ public class ModernScrollPane extends ModernFocusableWidget implements
      */
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
+      if (e.getModifiers() != 0) {
+        return;
+      }
+      
       int notches = e.getWheelRotation();
 
       if (mVScrollBar.getScrollDistance() > 0) {

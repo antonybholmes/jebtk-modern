@@ -21,16 +21,12 @@ public class CheckBoxHighlightAnimation extends ButtonFillAnimation {
       int y = (widget.getHeight() - ModernCheckBox.ICON_SIZE) / 2;
 
       /*
-      drawButtonFill(g2,
+       * drawButtonFill(g2, x, y, ModernCheckBox.ICON_SIZE,
+       * ModernCheckBox.ICON_SIZE, getButton().getRenderMode(), false);
+       */
+
+      UIDrawService.getInstance().get("button.highlight").draw(g2,
           x,
-          y,
-          ModernCheckBox.ICON_SIZE,
-          ModernCheckBox.ICON_SIZE,
-          getButton().getRenderMode(),
-          false);
-      */
-      
-      UIDrawService.getInstance().get("button.highlight").draw(g2, x,
           y,
           ModernCheckBox.ICON_SIZE,
           ModernCheckBox.ICON_SIZE,

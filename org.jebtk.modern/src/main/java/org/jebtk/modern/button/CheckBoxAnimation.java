@@ -27,9 +27,11 @@ public class CheckBoxAnimation extends WidgetAnimation {
 
     // If there is nothing to be done, draw the unselected version of the
     // checkbox
-    //ModernCheckBox.UNCHECKED_ICON.drawIcon(g2, x, y, ModernCheckBox.ICON_SIZE);
-    
-    UIDrawService.getInstance().get("content-box").draw(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
+    // ModernCheckBox.UNCHECKED_ICON.drawIcon(g2, x, y,
+    // ModernCheckBox.ICON_SIZE);
+
+    UIDrawService.getInstance().get("content-box")
+        .draw(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
     // }
   }
 }

@@ -38,6 +38,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 import java.awt.image.BufferedImage;
 
 import org.jebtk.core.event.ChangeEvent;
@@ -57,7 +59,9 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  */
 public class ModernCanvas extends ModernFocusableWidget
     implements ModernCanvasEventProducer, ModernCanvasMouseEventProducer,
-    ModernCanvasMouseListener, ModernCanvasKeyEventProducer,
+    ModernCanvasMouseWheelEventProducer,
+    ModernCanvasMouseListener, CanvasMouseWheelListener,
+    ModernCanvasKeyEventProducer,
     ModernCanvasKeyListener, CanvasCursorEventProducer {
 
   /** The Constant serialVersionUID. */
@@ -95,6 +99,8 @@ public class ModernCanvas extends ModernFocusableWidget
 
   /** The m canvas cursor listeners. */
   private CanvasCursorListeners mCanvasCursorListeners = new CanvasCursorListeners();
+  
+  private ModernCanvasMouseWheelListeners mCanvasMouseWheelListeners = new ModernCanvasMouseWheelListeners();
 
   /**
    * The member canvas size.
@@ -282,6 +288,15 @@ public class ModernCanvas extends ModernFocusableWidget
       fireCanvasKeyTyped(e);
     }
   }
+  
+  private class MouseWheelEvents implements MouseWheelListener {
+
+    @Override
+    public void mouseWheelMoved(MouseWheelEvent e) {
+      fireCanvasMouseWheelMoved(e);
+    }
+    
+  }
 
   /**
    * Instantiates a new modern canvas.
@@ -307,6 +322,7 @@ public class ModernCanvas extends ModernFocusableWidget
   private void setup() {
     addMouseListener(new MouseEvents());
     addMouseMotionListener(new MouseMotionEvents());
+    addMouseWheelListener(new MouseWheelEvents());
     // addComponentListener(new ComponentEvents());
     addKeyListener(new KeyEvents());
   }
@@ -946,16 +962,6 @@ public class ModernCanvas extends ModernFocusableWidget
     return new CanvasMouseEvent(this, e, translateCoordinate(e));
   }
 
-  /**
-   * Creates the canvas mouse event.
-   *
-   * @param e the e
-   * @return the canvas mouse event
-   */
-  public CanvasMouseEvent createCanvasMouseEvent(CanvasMouseEvent e) {
-    return new CanvasMouseEvent(this, e, translateCoordinate(e));
-  }
-
   /*
    * (non-Javadoc)
    * 
@@ -1483,5 +1489,34 @@ public class ModernCanvas extends ModernFocusableWidget
   @Override
   public void fireCanvasCursorChanged(CanvasCursorEvent e) {
     mCanvasCursorListeners.fireCanvasCursorChanged(e);
+  }
+
+  @Override
+  public void canvasMouseWheelMoved(CanvasMouseWheelEvent e) {
+    // TODO Auto-generated method stub
+    
+  }
+
+  @Override
+  public void addCanvasMouseWheelListener(CanvasMouseWheelListener l) {
+    mCanvasMouseWheelListeners.addCanvasMouseWheelListener(l);
+  }
+
+  @Override
+  public void removeCanvasMouseWheelListener(CanvasMouseWheelListener l) {
+    mCanvasMouseWheelListeners.removeCanvasMouseWheelListener(l);
+  }
+
+  @Override
+  public void fireCanvasMouseWheelMoved(CanvasMouseWheelEvent e) {
+    mCanvasMouseWheelListeners.fireCanvasMouseWheelMoved(e);
+  }
+  
+  public void fireCanvasMouseWheelMoved(MouseWheelEvent e) {
+    fireCanvasMouseWheelMoved(createCanvasMouseWheelEvent(e));
+  }
+  
+  public CanvasMouseWheelEvent createCanvasMouseWheelEvent(MouseWheelEvent e) {
+    return new CanvasMouseWheelEvent(this, e, translateCoordinate(e));
   }
 }

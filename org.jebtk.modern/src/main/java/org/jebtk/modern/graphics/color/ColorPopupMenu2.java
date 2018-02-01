@@ -151,8 +151,6 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
    */
   @Override
   public void clicked(ModernClickEvent e) {
-    setVisible(false);
-
     if (e.getSource().equals(mColorPicker)) {
       mColor = mColorPicker.getSelectedColor();
 

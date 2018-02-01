@@ -55,8 +55,8 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
       .loadIcon(UnCheckedVectorIcon.class, ICON_SIZE);
 
   /** The Constant CHECKED_ICON. */
-  //public static final ModernIcon CHECKED_ICON = UIService.getInstance()
-  //    .loadIcon(CheckedVectorIcon.class, ICON_SIZE);
+  // public static final ModernIcon CHECKED_ICON = UIService.getInstance()
+  // .loadIcon(CheckedVectorIcon.class, ICON_SIZE);
 
   /** The Constant DISABLED_CHECKED_ICON. */
   public static final ModernIcon DISABLED_CHECKED_ICON = UIService.getInstance()
