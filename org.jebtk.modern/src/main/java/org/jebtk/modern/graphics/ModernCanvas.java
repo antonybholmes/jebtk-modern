@@ -59,7 +59,7 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  */
 public class ModernCanvas extends ModernFocusableWidget
     implements ModernCanvasEventProducer, ModernCanvasMouseEventProducer,
-    ModernCanvasMouseWheelEventProducer,
+    CanvasMouseWheelEventProducer,
     ModernCanvasMouseListener, CanvasMouseWheelListener,
     ModernCanvasKeyEventProducer,
     ModernCanvasKeyListener, CanvasCursorEventProducer {
@@ -100,7 +100,7 @@ public class ModernCanvas extends ModernFocusableWidget
   /** The m canvas cursor listeners. */
   private CanvasCursorListeners mCanvasCursorListeners = new CanvasCursorListeners();
   
-  private ModernCanvasMouseWheelListeners mCanvasMouseWheelListeners = new ModernCanvasMouseWheelListeners();
+  private CanvasMouseWheelListeners mCanvasMouseWheelListeners = new CanvasMouseWheelListeners();
 
   /**
    * The member canvas size.

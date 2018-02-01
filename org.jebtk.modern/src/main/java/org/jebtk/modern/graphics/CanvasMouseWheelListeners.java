@@ -36,9 +36,9 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernCanvasMouseWheelListeners
+public class CanvasMouseWheelListeners
     extends EventProducer<CanvasMouseWheelListener>
-    implements ModernCanvasMouseWheelEventProducer {
+    implements CanvasMouseWheelEventProducer {
 
   /**
    * The constant serialVersionUID.

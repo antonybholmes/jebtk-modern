@@ -33,7 +33,7 @@ package org.jebtk.modern.graphics;
  *
  * @author Antony Holmes Holmes
  */
-public interface ModernCanvasMouseWheelEventProducer {
+public interface CanvasMouseWheelEventProducer {
 
   /**
    * Add an action listener.
