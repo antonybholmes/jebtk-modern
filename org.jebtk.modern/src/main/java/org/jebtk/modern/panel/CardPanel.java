@@ -50,14 +50,13 @@ public class CardPanel extends Card {
    */
   private static final long serialVersionUID = 1L;
 
-  public static final Border CARD_BORDER = 
-      BorderService.getInstance().createBorder(HALF_SHADOW_SIZE + QUAD_PADDING);
+  public static final Border CARD_BORDER = BorderService.getInstance()
+      .createBorder(HALF_SHADOW_SIZE + QUAD_PADDING);
 
-  
   public CardPanel() {
     setBorder(CARD_BORDER);
   }
-  
+
   /**
    * Instantiates a new card panel.
    *

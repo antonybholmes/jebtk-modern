@@ -444,7 +444,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements
       if (e.getModifiers() != 0) {
         return;
       }
-      
+
       int notches = e.getWheelRotation();
 
       if (mVScrollBar.getScrollDistance() > 0) {

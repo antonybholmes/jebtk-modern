@@ -47,13 +47,13 @@ public class ModernWindowContentPanel extends ModernGradientPanel {
   /**
    * The constant COLOR.
    */
-  
 
   /**
    * Instantiates a new modern window content panel.
    */
   public ModernWindowContentPanel() {
-    super(MaterialService.getInstance().color("window.background.gradient.start"),
+    super(
+        MaterialService.getInstance().color("window.background.gradient.start"),
         MaterialService.getInstance().color("window.background.gradient.end"));
   }
 }

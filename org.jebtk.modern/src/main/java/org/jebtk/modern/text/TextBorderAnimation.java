@@ -43,20 +43,21 @@ public class TextBorderAnimation extends HoverFadeAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     if (widget.isEnabled()) {
-      //int x = 0; // widget.getInsets().left;
-      //int y = 0; // widget.getInsets().top;
+      // int x = 0; // widget.getInsets().left;
+      // int y = 0; // widget.getInsets().top;
 
       IntRect r = widget.getRect();
 
-      //int w = r.getW();
-      //int h = r.getH();
+      // int w = r.getW();
+      // int h = r.getH();
 
-      //widget.getWidgetRenderer().drawContentBoxFill(g2, x, y, w, h);
+      // widget.getWidgetRenderer().drawContentBoxFill(g2, x, y, w, h);
 
-      //widget.getWidgetRenderer()
-      //    .outline(g2, getFadeColor("outline"), x, y, w, h);
-      
-      UIDrawService.getInstance().get("text.border.highlight").draw(g2, r, params);
+      // widget.getWidgetRenderer()
+      // .outline(g2, getFadeColor("outline"), x, y, w, h);
+
+      UIDrawService.getInstance().get("text.border.highlight")
+          .draw(g2, r, params);
     }
   }
 }

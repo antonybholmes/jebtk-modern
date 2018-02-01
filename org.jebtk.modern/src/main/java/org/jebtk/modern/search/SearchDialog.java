@@ -61,8 +61,7 @@ public class SearchDialog extends ModernDialogTaskWindow
   private static final long serialVersionUID = 1L;
 
   /** The m check in list. */
-  private CheckBox mCheckInList = new ModernCheckSwitch("Match in list",
-      true);
+  private CheckBox mCheckInList = new ModernCheckSwitch("Match in list", true);
 
   /** The m check exact. */
   private CheckBox mCheckExact = new ModernCheckSwitch("Match entire contents");
@@ -132,9 +131,9 @@ public class SearchDialog extends ModernDialogTaskWindow
 
     box.add(UI.createVGap(10));
     box.add(mCheckInList);
-    //box.add(UI.createVGap(5));
+    // box.add(UI.createVGap(5));
     box.add(mCheckExact);
-    //box.add(UI.createVGap(5));
+    // box.add(UI.createVGap(5));
     box.add(mCheckCase);
 
     content.setFooter(box);

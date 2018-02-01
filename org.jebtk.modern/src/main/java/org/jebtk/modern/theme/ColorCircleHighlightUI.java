@@ -23,7 +23,7 @@ import java.awt.Graphics2D;
  * The Class ModernRoundedWidgetRenderer.
  */
 public class ColorCircleHighlightUI extends ColorButtonUI {
-  
+
   @Override
   public String getName() {
     return "color.circle.highlight";
@@ -36,15 +36,15 @@ public class ColorCircleHighlightUI extends ColorButtonUI {
       int w,
       int h,
       Object... params) {
-    
+
     if (params.length > 0) {
       g2.setColor((Color) params[0]);
     } else {
       g2.setColor(HIGHLIGHTED_FILL_COLOR);
     }
-    
+
     w = Math.max(w - 1, h - 1);
-    
+
     g2.fillOval(x, y, w, w);
   }
 }

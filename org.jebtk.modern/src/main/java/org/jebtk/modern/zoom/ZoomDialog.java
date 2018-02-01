@@ -178,9 +178,8 @@ public class ZoomDialog extends ModernDialogTaskWindow {
     box.add(hbox);
 
     setDialogCardContent(box);
-    
-    
-    mTextCustom.setText(Integer.toString((int)(model.getZoom() * 100)));
+
+    mTextCustom.setText(Integer.toString((int) (model.getZoom() * 100)));
 
     new ModernButtonGroup().add(mCheck25).add(mCheck50).add(mCheck75)
         .add(mCheck100).add(mCheck200).add(mCheck400).add(mCheckCustom);
@@ -191,23 +190,23 @@ public class ZoomDialog extends ModernDialogTaskWindow {
     mCheck100.addClickListener(this);
     mCheck200.addClickListener(this);
     mCheck400.addClickListener(this);
-    
 
     mTextCustom.addFocusListener(new FocusEvents());
-    
-    
+
     mCheckCustom.addClickListener(new ModernClickListener() {
 
       @Override
       public void clicked(ModernClickEvent e) {
         zoomCustom();
-      }});
-    
+      }
+    });
+
     mTextCustom.addChangeListener(new ChangeListener() {
       @Override
       public void changed(org.jebtk.core.event.ChangeEvent e) {
         zoomCustom();
-      }});
+      }
+    });
   }
 
   /*

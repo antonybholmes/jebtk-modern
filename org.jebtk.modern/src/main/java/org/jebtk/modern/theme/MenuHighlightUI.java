@@ -23,7 +23,7 @@ import java.awt.Graphics2D;
  * The Class ModernRoundedWidgetRenderer.
  */
 public class MenuHighlightUI extends ButtonUI {
-  
+
   @Override
   public String getName() {
     return "menu.highlight";
@@ -36,13 +36,13 @@ public class MenuHighlightUI extends ButtonUI {
       int w,
       int h,
       Object... varargs) {
-    
+
     if (varargs.length > 0) {
       g2.setColor((Color) varargs[0]);
     } else {
       g2.setColor(HIGHLIGHTED_FILL_COLOR);
     }
-    
+
     g2.fillRect(x, y, w, h);
   }
 }

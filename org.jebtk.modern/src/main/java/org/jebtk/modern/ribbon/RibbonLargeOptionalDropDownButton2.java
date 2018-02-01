@@ -95,7 +95,8 @@ public class RibbonLargeOptionalDropDownButton2
     setup();
   }
 
-  public RibbonLargeOptionalDropDownButton2(String text1, ModernPopupMenu2 menu) {
+  public RibbonLargeOptionalDropDownButton2(String text1,
+      ModernPopupMenu2 menu) {
     super(text1, menu);
 
     mText = text1;

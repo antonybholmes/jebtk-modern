@@ -38,15 +38,15 @@ public class RibbonBackHighlightAnimation extends HoverFadeAnimation {
     super(button);
 
     // setFadeColor("fill", RibbonBackMenuItem.BASE_COLOR, Color.WHITE);
-    setFadeColor("fill",
-        MaterialService.getInstance().color("gray-highlight"));
+    setFadeColor("fill", MaterialService.getInstance().color("gray-highlight"));
   }
 
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     int x = ModernWidget.DOUBLE_PADDING;
     int y = (widget.getHeight() - HEIGHT) / 2;
-    
-    UIDrawService.getInstance().get("circle.highlight").draw(g2, x, y, HEIGHT, HEIGHT, getFadeColor("fill"));
+
+    UIDrawService.getInstance().get("circle.highlight")
+        .draw(g2, x, y, HEIGHT, HEIGHT, getFadeColor("fill"));
   }
 }

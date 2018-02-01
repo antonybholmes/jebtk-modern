@@ -56,29 +56,37 @@ public class ToolTipService implements ModernToolTipEventProducer {
     /** The Constant INSTANCE. */
     private static final ToolTipService INSTANCE = new ToolTipService();
   }
-  
+
   private static class ToolTipLog implements ModernToolTipListener {
 
     @Override
     public void tooltipShown(ModernToolTipEvent e) {
-      LOG.info("Show tooltip: {} -> {}.", e.getSource().getClass(), e.getDest().getClass());
+      LOG.info("Show tooltip: {} -> {}.",
+          e.getSource().getClass(),
+          e.getDest().getClass());
     }
 
     @Override
     public void tooltipAdded(ModernToolTipEvent e) {
-      LOG.info("Add tooltip: {} -> {}.", e.getSource().getClass(), e.getDest().getClass());
+      LOG.info("Add tooltip: {} -> {}.",
+          e.getSource().getClass(),
+          e.getDest().getClass());
     }
 
     @Override
     public void tooltipHidden(ModernToolTipEvent e) {
-      LOG.info("Hide tooltip: {} -> {}.", e.getSource().getClass(), e.getDest().getClass());
+      LOG.info("Hide tooltip: {} -> {}.",
+          e.getSource().getClass(),
+          e.getDest().getClass());
     }
 
     @Override
     public void tooltipsHidden(ModernToolTipEvent e) {
-      LOG.info("Hide tooltips: {} -> {}.", e.getSource().getClass(), e.getDest().getClass());
+      LOG.info("Hide tooltips: {} -> {}.",
+          e.getSource().getClass(),
+          e.getDest().getClass());
     }
-    
+
   }
 
   /**
@@ -89,33 +97,33 @@ public class ToolTipService implements ModernToolTipEventProducer {
   public static ToolTipService getInstance() {
     return ToolTipServiceLoader.INSTANCE;
   }
-  
+
   private static final Object ALL_EVENTS = new Object();
-  
-  private Map<Object, ToolTipListeners> mListenerMap =
-      DefaultHashMap.create(new EntryCreator<ToolTipListeners>() {
+
+  private Map<Object, ToolTipListeners> mListenerMap = DefaultHashMap
+      .create(new EntryCreator<ToolTipListeners>() {
         @Override
         public ToolTipListeners newEntry() {
           return new ToolTipListeners();
-        }});
-  
-  
+        }
+      });
+
   /**
    * The constant LOG.
    */
   private static final Logger LOG = LoggerFactory
       .getLogger(ToolTipService.class);
-  
+
   private ToolTipService() {
     // Log tooltips
-    //addAllToolTipListener(new ToolTipLog());
+    // addAllToolTipListener(new ToolTipLog());
   }
 
   @Override
   public void addToolTipListener(ModernToolTipListener l) {
     addToolTipListener(l, l);
   }
-  
+
   /**
    * Register to receive all tooltip events.
    * 
@@ -124,30 +132,32 @@ public class ToolTipService implements ModernToolTipEventProducer {
   public void addAllToolTipListener(ModernToolTipListener l) {
     mListenerMap.get(ALL_EVENTS).addToolTipListener(l);
   }
-  
-  public void addToolTipListener(ModernToolTipListener dest, ModernToolTipListener l) {
+
+  public void addToolTipListener(ModernToolTipListener dest,
+      ModernToolTipListener l) {
     mListenerMap.get(dest).addToolTipListener(l);
   }
-  
+
   @Override
   public void removeToolTipListener(ModernToolTipListener l) {
     removeToolTipListener(l, l);
   }
-  
+
   public void removeAllToolTipListener(ModernToolTipListener l) {
     mListenerMap.get(ALL_EVENTS).addToolTipListener(l);
   }
-  
-  public void removeToolTipListener(ModernToolTipListener dest, ModernToolTipListener l) {
+
+  public void removeToolTipListener(ModernToolTipListener dest,
+      ModernToolTipListener l) {
     mListenerMap.get(dest).removeToolTipListener(l);
   }
-  
+
   @Override
   public void showToolTip(ModernToolTipEvent e) {
     mListenerMap.get(e.getDest()).showToolTip(e);
     mListenerMap.get(ALL_EVENTS).showToolTip(e);
   }
-  
+
   @Override
   public void addToolTip(ModernToolTipEvent e) {
     mListenerMap.get(e.getDest()).addToolTip(e);
@@ -165,7 +175,6 @@ public class ToolTipService implements ModernToolTipEventProducer {
     mListenerMap.get(e.getDest()).hideToolTips(e);
     mListenerMap.get(ALL_EVENTS).hideToolTips(e);
   }
-  
 
   /**
    * Find the first component in the hierarchy that accepts tooltips
@@ -175,18 +184,18 @@ public class ToolTipService implements ModernToolTipEventProducer {
    */
   public static ModernToolTipListener getToolTipDest(ModernWidget source) {
     Component parent = source.getParent();
-    
+
     while (parent != null) {
       if (parent instanceof ModernToolTipListener) {
         return (ModernToolTipListener) parent;
       }
-      
+
       parent = parent.getParent();
     }
-    
+
     return null;
   }
-  
+
   public static ModernToolTipListener getToolTipWindow(ModernWidget source) {
     Window w = ModernWindow.getParentWindow(source);
 

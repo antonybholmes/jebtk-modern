@@ -113,7 +113,7 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
       mouseHideToolTips();
     }
   }
-  
+
   private boolean mEnableToolTips = true;
 
   private ModernToolTipListener mToolTipDest;
@@ -146,12 +146,12 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
 
     addMouseListener(new MouseEvents());
   }
-  
+
   /**
-   * Sets whether the component will automatically generate tooltip events.
-   * The default is true since most components will want to generate tooltip
-   * events when the mouse hovers over them. This methods allows tooltip events
-   * to be disabled for more specialized components that will manage them
+   * Sets whether the component will automatically generate tooltip events. The
+   * default is true since most components will want to generate tooltip events
+   * when the mouse hovers over them. This methods allows tooltip events to be
+   * disabled for more specialized components that will manage them
    * independently.
    * 
    * @param enable whether the tooltip events should be generated or not.
@@ -189,12 +189,12 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
    */
   public ModernToolTipWidget setToolTip(ModernBasicToolTipPanel tooltipPanel) {
     mToolTipPanel = tooltipPanel;
-    
-    //setToolTipsEnabled(true);
+
+    // setToolTipsEnabled(true);
 
     return this;
   }
-  
+
   private boolean toolTipActionable() {
     return mEnableToolTips && mToolTipPanel != null;
   }
@@ -204,10 +204,10 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
    */
   protected void mouseShowToolTip() {
     if (toolTipActionable()) {
-      mTimer.restart(); //restart();
+      mTimer.restart(); // restart();
     }
   }
-  
+
   /**
    * Hide tooltips when mouse exits component.
    */
@@ -228,9 +228,9 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
 
     // getToolTipModel().showToolTip(this, mToolTipPanel);
 
-    //if (mEnableToolTips) {
-     showToolTip(createToolTipEvent(mToolTipPanel));
-    //}
+    // if (mEnableToolTips) {
+    showToolTip(createToolTipEvent(mToolTipPanel));
+    // }
   }
 
   @Override
@@ -247,7 +247,7 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
   public void showToolTip(ModernToolTipEvent e) {
     ToolTipService.getInstance().showToolTip(e);
   }
-  
+
   @Override
   public void addToolTip(ModernToolTipEvent e) {
     ToolTipService.getInstance().addToolTip(e);
@@ -265,18 +265,18 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
   public void hideToolTips(ModernToolTipEvent e) {
     ToolTipService.getInstance().hideToolTips(e);
   }
-  
+
   /**
    * Try to find a default listener if one is not provided. Typically this will
    * be the underlying window the component is within.
    * 
-   * @return 
+   * @return
    */
   public ModernToolTipListener getToolTipDest() {
     if (mToolTipDest == null) {
       mToolTipDest = ToolTipService.getToolTipWindow(this);
     }
-    
+
     return mToolTipDest;
   }
 
@@ -287,11 +287,11 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
   public ModernToolTipEvent createToolTipEvent() {
     return createToolTipEvent(this);
   }
-  
+
   public ModernToolTipEvent createToolTipEvent(Component tooltip) {
     return createToolTipEvent(tooltip, null);
   }
-  
+
   public ModernToolTipEvent createToolTipEvent(Component tooltip, Point p) {
     return new ModernToolTipEvent(this, getToolTipDest(), tooltip, p);
   }

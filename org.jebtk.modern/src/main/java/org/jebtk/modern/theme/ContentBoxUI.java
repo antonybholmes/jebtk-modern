@@ -8,7 +8,7 @@ public class ContentBoxUI extends RoundedUI {
   public String getName() {
     return "content-box";
   }
-  
+
   @Override
   public void draw(Graphics2D g2,
       int x,
@@ -18,7 +18,7 @@ public class ContentBoxUI extends RoundedUI {
       Object... params) {
     g2.setColor(Color.WHITE);
     fill(g2, x, y, w, h);
-    
+
     g2.setColor(LINE_COLOR);
     outline(g2, x, y, w, h);
   }

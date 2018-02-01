@@ -25,7 +25,7 @@ import org.jebtk.modern.graphics.ImageUtils;
  * The Class ModernRoundedWidgetRenderer.
  */
 public class CircleOutlineUI extends ColorButtonUI {
-  
+
   @Override
   public String getName() {
     return "circle.outline";
@@ -38,17 +38,17 @@ public class CircleOutlineUI extends ColorButtonUI {
       int w,
       int h,
       Object... params) {
-    
+
     if (params.length > 0) {
       g2.setColor((Color) params[0]);
     } else {
       g2.setColor(HIGHLIGHTED_FILL_COLOR);
     }
-    
+
     w = Math.max(w, h) - 1;
-    
+
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
-    
+
     try {
       g2Temp.drawOval(x, y, w, w);
     } finally {

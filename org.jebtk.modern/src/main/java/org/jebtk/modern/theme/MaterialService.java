@@ -51,7 +51,7 @@ public class MaterialService {
   /** The Constant LOG. */
   private final static Logger LOG = LoggerFactory
       .getLogger(MaterialService.class);
-  
+
   public static final Color TEXT_COLOR = ThemeService.getInstance().colors()
       .getTextColor();
 
@@ -120,9 +120,8 @@ public class MaterialService {
 
       // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
 
-      //put("button", ColorUtils.getTransparentColor(get("ribbon"), 0.75));
+      // put("button", ColorUtils.getTransparentColor(get("ribbon"), 0.75));
 
-      
       put("ribbon-menu-font",
           ThemeService.getInstance().colors().getHighlight32(20));
       put("ribbon-menu-font-highlight",
@@ -131,59 +130,57 @@ public class MaterialService {
 
       put("card-border",
           ColorUtils.getTransparentColor25(ModernWidget.LIGHT_LINE_COLOR));
-      
-      put("theme-highlight", ThemeService.getInstance()
-          .colors().getColorHighlight32(14));
 
-      put("theme-selected", ThemeService.getInstance()
-          .colors().getColorHighlight32(16));
-      
-      put("theme-outline", ThemeService.getInstance()
-          .colors().getColorHighlight32(18));
-      
-      put("gray-highlight", ThemeService.getInstance()
-          .colors().getHighlight32(4));
+      put("theme-highlight",
+          ThemeService.getInstance().colors().getColorHighlight32(14));
 
-      put("gray-selected", ThemeService.getInstance()
-          .colors().getHighlight32(8));
-      
-      put("gray-outline", ThemeService.getInstance()
-          .colors().getHighlight32(15));
-      
-      put("dialog.button.gradient.start", ThemeService.getInstance()
-          .colors().getHighlight32(2));
-      
-      put("dialog.button.gradient.end", ThemeService.getInstance()
-          .colors().getHighlight32(3));
-      
-      put("dialog.button.outline", ThemeService.getInstance()
-          .colors().getHighlight32(8));
-      
-      put("dialog.button.highlight", ThemeService.getInstance()
-          .colors().getHighlight32(12));
-      
-      
-      put("color.dialog.button.gradient.start", ThemeService.getInstance()
-          .colors().getColorHighlight32(15));
-      
-      put("color.dialog.button.gradient.end", ThemeService.getInstance()
-          .colors().getColorHighlight32(16));
-      
-      put("color.dialog.button.outline", ThemeService.getInstance()
-          .colors().getColorHighlight32(20));
-      
-      put("color.dialog.button.highlight", ThemeService.getInstance()
-          .colors().getColorHighlight32(28));
-      
-      put("window.background", ThemeService.getInstance().colors()
-          .getHighlight32(0));
-      
+      put("theme-selected",
+          ThemeService.getInstance().colors().getColorHighlight32(16));
+
+      put("theme-outline",
+          ThemeService.getInstance().colors().getColorHighlight32(18));
+
+      put("gray-highlight",
+          ThemeService.getInstance().colors().getHighlight32(4));
+
+      put("gray-selected",
+          ThemeService.getInstance().colors().getHighlight32(8));
+
+      put("gray-outline",
+          ThemeService.getInstance().colors().getHighlight32(15));
+
+      put("dialog.button.gradient.start",
+          ThemeService.getInstance().colors().getHighlight32(2));
+
+      put("dialog.button.gradient.end",
+          ThemeService.getInstance().colors().getHighlight32(3));
+
+      put("dialog.button.outline",
+          ThemeService.getInstance().colors().getHighlight32(8));
+
+      put("dialog.button.highlight",
+          ThemeService.getInstance().colors().getHighlight32(12));
+
+      put("color.dialog.button.gradient.start",
+          ThemeService.getInstance().colors().getColorHighlight32(15));
+
+      put("color.dialog.button.gradient.end",
+          ThemeService.getInstance().colors().getColorHighlight32(16));
+
+      put("color.dialog.button.outline",
+          ThemeService.getInstance().colors().getColorHighlight32(20));
+
+      put("color.dialog.button.highlight",
+          ThemeService.getInstance().colors().getColorHighlight32(28));
+
+      put("window.background",
+          ThemeService.getInstance().colors().getHighlight32(0));
+
       put("window.background.gradient.start", get("window.background"));
-      
-      put("window.background.gradient.end", ThemeService.getInstance().colors()
-          .getHighlight32(1));
-      
-      
+
+      put("window.background.gradient.end",
+          ThemeService.getInstance().colors().getHighlight32(1));
+
       put("line", ThemeService.getInstance().colors().getHighlight32(7));
     }
 

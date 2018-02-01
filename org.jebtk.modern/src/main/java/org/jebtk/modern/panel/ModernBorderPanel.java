@@ -95,7 +95,7 @@ public class ModernBorderPanel extends ModernWidget {
   @Override
   public void drawBackground(Graphics2D g2) {
     fillBackground(g2);
-    
+
     g2.setColor(LINE_COLOR);
     g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
   }

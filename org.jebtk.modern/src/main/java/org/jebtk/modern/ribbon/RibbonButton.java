@@ -42,7 +42,7 @@ public class RibbonButton extends ModernButton {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
-  
+
   /**
    * Instantiates a new ribbon button.
    *
@@ -95,7 +95,7 @@ public class RibbonButton extends ModernButton {
 
     setup();
   }
-  
+
   public RibbonButton(ModernIcon icon, String toolTipTitle,
       String toolTipText) {
     this(icon);

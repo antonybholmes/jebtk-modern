@@ -47,7 +47,7 @@ public interface ModernToolTipListener extends EventListener {
    * @param e
    */
   public void tooltipShown(ModernToolTipEvent e);
-  
+
   /**
    * Add a tooltip to the existing display without removing the others.
    * 
@@ -61,9 +61,10 @@ public interface ModernToolTipListener extends EventListener {
    * @param e
    */
   public void tooltipHidden(ModernToolTipEvent e);
-  
+
   /**
    * Hide all tooltips
+   * 
    * @param e
    */
   public void tooltipsHidden(ModernToolTipEvent e);

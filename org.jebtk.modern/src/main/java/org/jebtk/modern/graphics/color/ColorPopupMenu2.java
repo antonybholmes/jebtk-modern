@@ -105,22 +105,22 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
    * Setup.
    */
   private void setup() {
-    //setBackground(COLOR_PICKER_BACKGROUND);
+    // setBackground(COLOR_PICKER_BACKGROUND);
 
-    //setBorder(BorderFactory.createCompoundBorder(ModernWidget.LINE_BORDER,
-    //    BorderService.getInstance().createBorder(4)));
+    // setBorder(BorderFactory.createCompoundBorder(ModernWidget.LINE_BORDER,
+    // BorderService.getInstance().createBorder(4)));
 
     // Dimension size = new Dimension(mColorPicker.getPreferredSize().width,
     // ModernWidget.WIDGET_HEIGHT);
 
     Box box = new VBox();
     box.setBorder(BORDER);
-    
+
     box.add(new ModernDialogHeadingLabel("Theme Colors"));
     box.add(mColorPicker);
     box.add(new ModernDialogHeadingLabel("Standard Colors"));
     box.add(mStandardColorPicker);
-    
+
     add(box);
 
     // add(new ModernIconMenuItem("No Color",
@@ -129,10 +129,10 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
 
     // add(new ModernMenuDivider());
 
-    //add(new ModernIconMenuItem("More Colors...",
-    //    UIService.getInstance().loadIcon("color_wheel", 16))
-    //        .setBackgroundAnimations("color-menu-fade"));
-    
+    // add(new ModernIconMenuItem("More Colors...",
+    // UIService.getInstance().loadIcon("color_wheel", 16))
+    // .setBackgroundAnimations("color-menu-fade"));
+
     add(new ModernIconMenuItem("More Colors...",
         UIService.getInstance().loadIcon("color_wheel", 16)));
 

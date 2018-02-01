@@ -59,9 +59,8 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  */
 public class ModernCanvas extends ModernFocusableWidget
     implements ModernCanvasEventProducer, ModernCanvasMouseEventProducer,
-    CanvasMouseWheelEventProducer,
-    ModernCanvasMouseListener, CanvasMouseWheelListener,
-    ModernCanvasKeyEventProducer,
+    CanvasMouseWheelEventProducer, ModernCanvasMouseListener,
+    CanvasMouseWheelListener, ModernCanvasKeyEventProducer,
     ModernCanvasKeyListener, CanvasCursorEventProducer {
 
   /** The Constant serialVersionUID. */
@@ -99,7 +98,7 @@ public class ModernCanvas extends ModernFocusableWidget
 
   /** The m canvas cursor listeners. */
   private CanvasCursorListeners mCanvasCursorListeners = new CanvasCursorListeners();
-  
+
   private CanvasMouseWheelListeners mCanvasMouseWheelListeners = new CanvasMouseWheelListeners();
 
   /**
@@ -288,14 +287,14 @@ public class ModernCanvas extends ModernFocusableWidget
       fireCanvasKeyTyped(e);
     }
   }
-  
+
   private class MouseWheelEvents implements MouseWheelListener {
 
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
       fireCanvasMouseWheelMoved(e);
     }
-    
+
   }
 
   /**
@@ -1494,7 +1493,7 @@ public class ModernCanvas extends ModernFocusableWidget
   @Override
   public void canvasMouseWheelMoved(CanvasMouseWheelEvent e) {
     // TODO Auto-generated method stub
-    
+
   }
 
   @Override
@@ -1511,11 +1510,11 @@ public class ModernCanvas extends ModernFocusableWidget
   public void fireCanvasMouseWheelMoved(CanvasMouseWheelEvent e) {
     mCanvasMouseWheelListeners.fireCanvasMouseWheelMoved(e);
   }
-  
+
   public void fireCanvasMouseWheelMoved(MouseWheelEvent e) {
     fireCanvasMouseWheelMoved(createCanvasMouseWheelEvent(e));
   }
-  
+
   public CanvasMouseWheelEvent createCanvasMouseWheelEvent(MouseWheelEvent e) {
     return new CanvasMouseWheelEvent(this, e, translateCoordinate(e));
   }

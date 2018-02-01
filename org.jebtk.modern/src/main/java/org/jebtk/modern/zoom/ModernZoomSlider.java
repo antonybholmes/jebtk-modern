@@ -86,15 +86,15 @@ public class ModernZoomSlider extends HBox implements Zoom {
    * The member zoom in button.
    */
   private ModernButton mZoomInButton = new ModernCircleButton(
-      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16),
-      "Zoom In", "Zoom in.");
+      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16), "Zoom In",
+      "Zoom in.");
 
   /**
    * The member zoom out button.
    */
   private ModernButton mZoomOutButton = new ModernCircleButton(
-      UIService.getInstance().loadIcon(MinusVectorIcon.class, 16),
-      "Zoom Out", "Zoom out.");
+      UIService.getInstance().loadIcon(MinusVectorIcon.class, 16), "Zoom Out",
+      "Zoom out.");
 
   // private double[] mZooms;
 
@@ -234,9 +234,9 @@ public class ModernZoomSlider extends HBox implements Zoom {
   private void setup() {
     UI.setSize(mZoomOutButton, ModernButton.SMALL_BUTTON_SIZE);
     add(mZoomOutButton);
-    //add(UI.createHGap(5));
+    // add(UI.createHGap(5));
     add(mSlider);
-    //add(UI.createHGap(5));
+    // add(UI.createHGap(5));
     UI.setSize(mZoomInButton, ModernButton.SMALL_BUTTON_SIZE);
     add(mZoomInButton);
 

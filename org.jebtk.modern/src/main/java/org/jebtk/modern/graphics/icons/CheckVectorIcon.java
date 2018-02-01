@@ -47,8 +47,9 @@ public class CheckVectorIcon extends ModernVectorScalableIcon {
       int w,
       int h,
       Object... params) {
-    //WidgetRendererService.getInstance().getRenderer().drawCheck(g2, x, y, w, h);
-    
+    // WidgetRendererService.getInstance().getRenderer().drawCheck(g2, x, y, w,
+    // h);
+
     UIDrawService.getInstance().get("content-box").draw(g2, x, y, w, h);
   }
 }

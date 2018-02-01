@@ -61,8 +61,8 @@ public class ModernTableHeader extends ModernScrollPaneHeader
   /**
    * The constant HEADER_BACKGROUND.
    */
-  public static final Color HEADER_BACKGROUND = 
-      ThemeService.getInstance().colors().getHighlight(1);
+  public static final Color HEADER_BACKGROUND = ThemeService.getInstance()
+      .colors().getHighlight(1);
 
   /** The Constant HEADER_SELECTED_COLOR. */
   public static final Color HEADER_SELECTED_COLOR = ThemeService.getInstance()

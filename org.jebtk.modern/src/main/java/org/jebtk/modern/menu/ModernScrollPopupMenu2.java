@@ -85,7 +85,7 @@ public class ModernScrollPopupMenu2 extends ModernPopupMenu2 {
    */
   private void setup() {
 
-   mScrollPane = new ModernScrollPane(mScrollMenuPanel);
+    mScrollPane = new ModernScrollPane(mScrollMenuPanel);
     // scrollPane.setScrollbarMarginWidth(Resources.ICON_SIZE_16);
 
     // scrollPane.getViewport().setBackground(Color.WHITE);
@@ -135,7 +135,7 @@ public class ModernScrollPopupMenu2 extends ModernPopupMenu2 {
     // menuItem.setMaximumSize(menuItemSize);
 
     mScrollMenuPanel.add(menuItem);
-    
+
     setSize();
   }
 

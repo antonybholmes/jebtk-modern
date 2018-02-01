@@ -8,7 +8,7 @@ import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class ComboBoxAnimation extends WidgetAnimation {
-  
+
   public ComboBoxAnimation(ModernWidget combo) {
     super(combo);
   }
@@ -22,7 +22,7 @@ public class ComboBoxAnimation extends WidgetAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     IntRect rect = widget.getInternalRect();
-    
+
     UIDrawService.getInstance().get("content").draw(g2, rect);
   }
 }

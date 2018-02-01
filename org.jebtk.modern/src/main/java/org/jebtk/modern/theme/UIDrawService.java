@@ -61,15 +61,14 @@ public class UIDrawService implements Iterable<String> {
     return UIRendererServiceLoader.INSTANCE;
   }
 
-  private IterMap<String, UIRenderer> mRenderMap = 
-      new IterHashMap<String, UIRenderer>();
+  private IterMap<String, UIRenderer> mRenderMap = new IterHashMap<String, UIRenderer>();
 
   private UIDrawService() {
     // Do nothing
-    
+
     add(new ContentUI());
     add(new ContentBoxUI());
-    
+
     add(new TextBorderUI());
     add(new ButtonHighlightUI());
     add(new ButtonSelectedUI());
@@ -79,27 +78,27 @@ public class UIDrawService implements Iterable<String> {
     add(new PillHighlightUI());
     add(new CheckUI());
     add(new CheckedBoxUI());
-    
+
     add("checkbox", get("content-box"));
-    
+
     add(new ColorButtonHighlightUI());
     add(new ColorButtonSelectedUI());
     add(new ColorCircleHighlightUI());
-    
+
     add(new DialogButtonUI());
     add(new ColorDialogButtonUI());
     add(new ButtonOutlineUI());
-    //add(new DUI());
+    // add(new DUI());
   }
-  
+
   public void add(UIRenderer renderer) {
     add(renderer.getName(), renderer);
   }
-  
+
   public void add(String name, UIRenderer renderer) {
     mRenderMap.put(name, renderer);
   }
-  
+
   /**
    * Return a named UI rendering component.
    * 

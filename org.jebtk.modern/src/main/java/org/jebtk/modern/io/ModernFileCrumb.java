@@ -91,7 +91,7 @@ public class ModernFileCrumb extends ModernWidget
     add(mTextField);
 
     mTextField.setVisible(false);
-    //mTextField.setBackground(MaterialService); // ColorUtils.TRANS_COLOR);
+    // mTextField.setBackground(MaterialService); // ColorUtils.TRANS_COLOR);
 
     addComponentListener(new ResizeEvents());
     addMouseListener(new MouseAdapter() {

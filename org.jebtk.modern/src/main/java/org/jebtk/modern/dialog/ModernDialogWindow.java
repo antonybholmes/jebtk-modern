@@ -63,7 +63,8 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernDialogWindow extends JDialog implements ModernToolTipListener {
+public class ModernDialogWindow extends JDialog
+    implements ModernToolTipListener {
 
   /**
    * The constant serialVersionUID.
@@ -420,11 +421,11 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipListener
   private void showToolTip(Component source, Component tooltip) {
     showToolTip(source, tooltip, toolTipP(source, tooltip));
   }
-  
+
   private void addToolTip(Component source, Component tooltip) {
     addToolTip(source, tooltip, toolTipP(source, tooltip));
   }
-  
+
   private Point toolTipP(Component source, Component tooltip) {
     Point p = source.getLocationOnScreen();
 
@@ -470,7 +471,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipListener
 
     addToolTip(source, tooltip, p);
   }
-  
+
   private synchronized void addToolTip(Component source,
       Component tooltip,
       Point p) {
@@ -493,7 +494,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipListener
     validate();
     repaint();
   }
-  
+
   @Override
   public void tooltipShown(ModernToolTipEvent e) {
     if (e.getP() != null) {
@@ -502,7 +503,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipListener
       showToolTip(e.getSource(), e.getTooltip());
     }
   }
-  
+
   @Override
   public void tooltipAdded(ModernToolTipEvent e) {
     if (e.getP() != null) {
@@ -511,11 +512,11 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipListener
       addToolTip(e.getSource(), e.getTooltip());
     }
   }
-  
+
   @Override
   public void tooltipHidden(ModernToolTipEvent e) {
     getLayeredPane().remove(e.getTooltip());
-  
+
     validate();
     repaint();
   }
@@ -529,7 +530,7 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipListener
         .getComponentsInLayer(JLayeredPane.POPUP_LAYER)) {
       getLayeredPane().remove(c);
     }
-    
+
     validate();
     repaint();
   }

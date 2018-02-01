@@ -37,7 +37,6 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.text.ModernSubHeadingLabel;
 import org.jebtk.modern.widget.ModernWidget;
 
-
 // TODO: Auto-generated Javadoc
 /**
  * The Class VTabToolbar creates a simple toolbar with a title above it.
@@ -80,16 +79,18 @@ public class VTabToolbar extends VBox {
 
     // setBody(mBox);
 
-    //setBorder(ModernWidget.BORDER);
+    // setBorder(ModernWidget.BORDER);
   }
-  
-  /* (non-Javadoc)
+
+  /*
+   * (non-Javadoc)
+   * 
    * @see java.awt.Container#add(java.awt.Component)
    */
   @Override
   public Component add(Component c) {
     mBox.add(c);
-    
+
     return c;
   }
 

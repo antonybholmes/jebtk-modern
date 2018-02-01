@@ -36,11 +36,10 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
   private ModernClickWidget mButton;
   private String mType;
 
-  
   public RibbonButtonHighlightAnimation(ModernWidget button) {
     this(button, "button");
   }
-  
+
   /**
    * Instantiates a new ribbon button animation.
    *
@@ -49,12 +48,13 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
   public RibbonButtonHighlightAnimation(ModernWidget button, String type) {
     super(button);
 
-    
     mButton = (ModernClickWidget) button;
     mType = type;
-    
-    setFadeColor("outline", MaterialService.getInstance().color("gray-outline"));
-    setFadeColor("highlight", MaterialService.getInstance().color("gray-highlight"));
+
+    setFadeColor("outline",
+        MaterialService.getInstance().color("gray-outline"));
+    setFadeColor("highlight",
+        MaterialService.getInstance().color("gray-highlight"));
     setFadeColor("fill", MaterialService.getInstance().color("gray-selected"));
   }
 
@@ -120,28 +120,26 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
       RenderMode mode,
       boolean hasFocus) {
     /*
-    if (mode == RenderMode.SELECTED) {
-      g2.setColor(ModernWidgetRenderer.RIBBON_SELECTED_FILL_COLOR);
+     * if (mode == RenderMode.SELECTED) {
+     * g2.setColor(ModernWidgetRenderer.RIBBON_SELECTED_FILL_COLOR);
+     * 
+     * // getWidgetRenderer().drawRibbonButton(g2, mRect, RenderMode.SELECTED);
+     * 
+     * } else { // System.err.println("fade " + getFadeColor("fill"));
+     * 
+     * g2.setColor(getFadeColor("highlight")); }
+     * 
+     * if (mode != RenderMode.NONE) { getWidget().getWidgetRenderer().fill(g2,
+     * x, y, w, h); }
+     */
 
-      // getWidgetRenderer().drawRibbonButton(g2, mRect, RenderMode.SELECTED);
-
-    } else {
-      // System.err.println("fade " + getFadeColor("fill"));
-
-      g2.setColor(getFadeColor("highlight"));
-    }
-
-    if (mode != RenderMode.NONE) {
-      getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
-    }
-    */
-       
     switch (mode) {
     case SELECTED:
       UIDrawService.getInstance().get(mType + ".selected").draw(g2, x, y, w, h);
       break;
     case HIGHLIGHT:
-      UIDrawService.getInstance().get(mType + ".highlight").draw(g2, x, y, w, h, getFadeColor("highlight"));
+      UIDrawService.getInstance().get(mType + ".highlight")
+          .draw(g2, x, y, w, h, getFadeColor("highlight"));
       break;
     default:
       break;

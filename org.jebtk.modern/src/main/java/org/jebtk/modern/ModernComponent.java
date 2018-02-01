@@ -94,8 +94,8 @@ public class ModernComponent extends JComponent {
   /**
    * The constant LINE_COLOR.
    */
-  public static final Color LINE_COLOR = 
-      MaterialService.getInstance().color("line");
+  public static final Color LINE_COLOR = MaterialService.getInstance()
+      .color("line");
 
   /** The Constant LIGHT_LINE_COLOR. */
   public static final Color LIGHT_LINE_COLOR = ThemeService.getInstance()
@@ -544,7 +544,7 @@ public class ModernComponent extends JComponent {
 
     // Graphics2D g2 = (Graphics2D)g.create();
 
-    draw((Graphics2D)g);
+    draw((Graphics2D) g);
 
     // g2.dispose();
   }
@@ -612,11 +612,11 @@ public class ModernComponent extends JComponent {
     if (mHeader != null) {
       remove(mHeader);
     }
-    
+
     mHeader = c;
-    
+
     add(c, BorderLayout.PAGE_START);
-    
+
     revalidate();
     repaint();
   }
@@ -656,11 +656,11 @@ public class ModernComponent extends JComponent {
     if (mFooter != null) {
       remove(mFooter);
     }
-    
+
     mFooter = c;
-    
+
     add(c, BorderLayout.PAGE_END);
-    
+
     revalidate();
     repaint();
   }

@@ -30,7 +30,6 @@ public class CheckUI extends RoundedUI {
       int h,
       Object... params) {
 
-
     double wf = w * CHECK_SCALE;
     double t = wf * TICK_SCALE;
 

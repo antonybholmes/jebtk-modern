@@ -300,10 +300,8 @@ public class ModernRibbonWindow extends ModernWindow {
    * @param c
    */
   public void setCard(Component c) {
-    getTabsPane().getModel()
-        .setCenterTab(new ModernComponent(
-            new CardPanel(c),
-            ModernWidget.DOUBLE_BORDER));
+    getTabsPane().getModel().setCenterTab(
+        new ModernComponent(new CardPanel(c), ModernWidget.DOUBLE_BORDER));
   }
 
   /**

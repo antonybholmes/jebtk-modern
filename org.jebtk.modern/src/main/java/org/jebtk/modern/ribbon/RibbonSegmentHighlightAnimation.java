@@ -74,14 +74,14 @@ public class RibbonSegmentHighlightAnimation extends HighlightAnimation {
                                                // &&
       y1 = y + mSegments.mHighlight * RibbonSegmentVertTabs.TAB_SIZE;
 
-      //g2.setColor(getFade().getFadeColor("highlight"));
-      //g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
-      
-      UIDrawService.getInstance().get("menu.highlight").draw(g2, 
-          x, 
-          y1, 
-          w, 
-          RibbonSegmentVertTabs.TAB_SIZE, 
+      // g2.setColor(getFade().getFadeColor("highlight"));
+      // g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
+
+      UIDrawService.getInstance().get("menu.highlight").draw(g2,
+          x,
+          y1,
+          w,
+          RibbonSegmentVertTabs.TAB_SIZE,
           getFade().getFadeColor("highlight"));
     }
   }

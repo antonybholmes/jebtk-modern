@@ -32,8 +32,8 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class SegmentAnimation extends WidgetAnimation {
 
-  private static final Color BG = 
-      ThemeService.getInstance().colors().getHighlight(2);
+  private static final Color BG = ThemeService.getInstance().colors()
+      .getHighlight(2);
 
   /**
    * Instantiates a new state animation.
@@ -52,6 +52,7 @@ public class SegmentAnimation extends WidgetAnimation {
    */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-   UIDrawService.getInstance().get("button.highlight").draw(g2, widget.getRect(), BG);
+    UIDrawService.getInstance().get("button.highlight")
+        .draw(g2, widget.getRect(), BG);
   }
 }

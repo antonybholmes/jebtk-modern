@@ -117,19 +117,22 @@ public class ZoomCanvas extends ModernCanvas {
 
     setSize(size);
   }
-  
+
   private void init() {
     addCanvasMouseWheelListener(new CanvasMouseWheelListener() {
 
       @Override
       public void canvasMouseWheelMoved(CanvasMouseWheelEvent e) {
-        if ((e.getModifiers() & ActionEvent.CTRL_MASK) == ActionEvent.CTRL_MASK) {
+        if ((e.getModifiers()
+            & ActionEvent.CTRL_MASK) == ActionEvent.CTRL_MASK) {
           if (mZoomModel != null) {
-            mZoomModel.setZoom(mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
+            mZoomModel.setZoom(
+                mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
           }
         }
-        
-      }});
+
+      }
+    });
   }
 
   /**

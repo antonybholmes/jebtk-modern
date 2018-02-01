@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016, Antony Holmes
+ * Copyright (C) 2018, Antony Holmes
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -32,9 +32,9 @@ import java.awt.event.MouseWheelEvent;
 
 import org.jebtk.core.geom.IntPos2D;
 
-// TODO: Auto-generated Javadoc
 /**
- * The class CanvasMouseEvent.
+ * The class CanvasMouseWheelEvent represents a mouse wheel event passed
+ * through canvas layers.
  */
 public class CanvasMouseWheelEvent extends MouseWheelEvent {
 
@@ -56,7 +56,8 @@ public class CanvasMouseWheelEvent extends MouseWheelEvent {
    */
   public CanvasMouseWheelEvent(MouseWheelEvent e, IntPos2D p) {
     this(e.getComponent(), e.getID(), e.getWhen(), e.getModifiers(), e.getX(),
-        e.getY(), p, e.getClickCount(), e.isPopupTrigger(), e.getScrollType(), e.getScrollAmount(), e.getWheelRotation());
+        e.getY(), p, e.getClickCount(), e.isPopupTrigger(), e.getScrollType(),
+        e.getScrollAmount(), e.getWheelRotation());
   }
 
   /**
@@ -66,9 +67,11 @@ public class CanvasMouseWheelEvent extends MouseWheelEvent {
    * @param e the e
    * @param p the p
    */
-  public CanvasMouseWheelEvent(Component source, MouseWheelEvent e, IntPos2D p) {
+  public CanvasMouseWheelEvent(Component source, MouseWheelEvent e,
+      IntPos2D p) {
     this(source, e.getID(), e.getWhen(), e.getModifiers(), e.getX(), e.getY(),
-        p, e.getClickCount(), e.isPopupTrigger(), e.getScrollType(), e.getScrollAmount(), e.getWheelRotation());
+        p, e.getClickCount(), e.isPopupTrigger(), e.getScrollType(),
+        e.getScrollAmount(), e.getWheelRotation());
   }
 
   /**
@@ -86,9 +89,12 @@ public class CanvasMouseWheelEvent extends MouseWheelEvent {
    * @param clickCount the click count
    * @param popupTrigger the popup trigger
    */
-  public CanvasMouseWheelEvent(Component source, int id, long when, int modifiers,
-      int x, int y, IntPos2D p, int clickCount, boolean popupTrigger, int scrollType, int scrollAmount, int wheelRotation) {
-    super(source, id, when, modifiers, x, y, clickCount, popupTrigger, scrollType, scrollAmount, wheelRotation);
+  public CanvasMouseWheelEvent(Component source, int id, long when,
+      int modifiers, int x, int y, IntPos2D p, int clickCount,
+      boolean popupTrigger, int scrollType, int scrollAmount,
+      int wheelRotation) {
+    super(source, id, when, modifiers, x, y, clickCount, popupTrigger,
+        scrollType, scrollAmount, wheelRotation);
 
     mP = p;
   }

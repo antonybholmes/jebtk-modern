@@ -22,7 +22,7 @@ import java.awt.Graphics2D;
  * The Class ModernRoundedWidgetRenderer.
  */
 public class ButtonSelectedUI extends ButtonUI {
-  
+
   @Override
   public String getName() {
     return "button.selected";
@@ -35,9 +35,9 @@ public class ButtonSelectedUI extends ButtonUI {
       int w,
       int h,
       Object... params) {
-    
+
     g2.setColor(SELECTED_FILL_COLOR);
-    
+
     fill(g2, x, y, w, h);
   }
 }

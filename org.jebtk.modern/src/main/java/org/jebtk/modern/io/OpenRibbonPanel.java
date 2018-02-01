@@ -237,8 +237,8 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
         .setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
     // scrollPane.setBackground(Color.WHITE);
 
-    //title.toUpperCase()
-    
+    // title.toUpperCase()
+
     mTabsModel.addTab("Recent " + TextUtils.sentenceCase(title),
         UIService.getInstance().loadIcon(ClockVectorIcon.class, 24),
         scrollPane);

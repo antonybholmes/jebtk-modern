@@ -32,7 +32,7 @@ public class BottomTabsPanel extends ModernComponent {
 
   private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE,
       ModernWidget.WIDGET_HEIGHT + 2);
-  
+
   /**
    * Instantiates a new segment tabs panel.
    *

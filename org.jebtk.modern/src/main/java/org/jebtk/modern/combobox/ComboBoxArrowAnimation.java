@@ -11,8 +11,8 @@ public class ComboBoxArrowAnimation extends WidgetAnimation {
 
   public ComboBoxArrowAnimation(ModernWidget combo) {
     super(combo);
-    
-    mCombo = (ModernComboBox)combo;
+
+    mCombo = (ModernComboBox) combo;
   }
 
   /*
@@ -24,7 +24,7 @@ public class ComboBoxArrowAnimation extends WidgetAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     IntRect rect = widget.getInternalRect();
-    
+
     IntRect buttonRect = new IntRect(mCombo.mButtonX, widget.getInsets().top,
         ModernComboBox.BUTTON_WIDTH, rect.getH());
 

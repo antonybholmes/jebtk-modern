@@ -19,10 +19,11 @@ public class MenuItemHighlightAnimation extends WidgetAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     if (mButton.isEnabled() && mButton.getHightlighted()) {
-      //widget.getWidgetRenderer()
-      //     .drawMenu(g2, widget.getRect(), RenderMode.HIGHLIGHT);
-      
-      UIDrawService.getInstance().get("menu.highlight").draw(g2, widget.getRect());
+      // widget.getWidgetRenderer()
+      // .drawMenu(g2, widget.getRect(), RenderMode.HIGHLIGHT);
+
+      UIDrawService.getInstance().get("menu.highlight").draw(g2,
+          widget.getRect());
     }
   }
 

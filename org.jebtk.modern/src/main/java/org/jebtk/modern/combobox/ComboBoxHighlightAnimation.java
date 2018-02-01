@@ -82,7 +82,8 @@ public class ComboBoxHighlightAnimation extends ButtonHighlightAnimation
       int h,
       RenderMode mode,
       boolean hasFocus) {
-    UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h, getFadeColor("fill"));
+    UIDrawService.getInstance().get("button.highlight")
+        .draw(g2, x, y, w, h, getFadeColor("fill"));
   }
 
   @Override

@@ -36,8 +36,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ToolTipListeners
-    extends EventProducer<ModernToolTipListener>
+public class ToolTipListeners extends EventProducer<ModernToolTipListener>
     implements ModernToolTipEventProducer {
 
   /**
@@ -66,7 +65,7 @@ public class ToolTipListeners
       l.tooltipShown(e);
     }
   }
-  
+
   @Override
   public void addToolTip(ModernToolTipEvent e) {
     for (ModernToolTipListener l : mListeners) {

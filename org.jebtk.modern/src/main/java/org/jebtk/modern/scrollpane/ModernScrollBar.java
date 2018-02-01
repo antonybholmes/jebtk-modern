@@ -302,7 +302,7 @@ public abstract class ModernScrollBar extends ModernWidget
       if (e.getModifiers() != 0) {
         return;
       }
-      
+
       int notches = e.getWheelRotation();
 
       mScroller.wheelScroll(notches, mView, mScrollBar);

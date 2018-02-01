@@ -82,13 +82,13 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
 
       x += (tabWidth - d) / 2;
 
-      //g2.setColor(mColor);
-      //g2.fillRect(x,
-      //    y + mHighlight * RibbonSegmentVertTabs.TAB_SIZE,
-      ///    d,
-      //    RibbonSegmentVertTabs.TAB_SIZE);
-      
-      UIDrawService.getInstance().get("menu.highlight").draw(g2, 
+      // g2.setColor(mColor);
+      // g2.fillRect(x,
+      // y + mHighlight * RibbonSegmentVertTabs.TAB_SIZE,
+      /// d,
+      // RibbonSegmentVertTabs.TAB_SIZE);
+
+      UIDrawService.getInstance().get("menu.highlight").draw(g2,
           x,
           y + mHighlight * RibbonSegmentVertTabs.TAB_SIZE,
           d,

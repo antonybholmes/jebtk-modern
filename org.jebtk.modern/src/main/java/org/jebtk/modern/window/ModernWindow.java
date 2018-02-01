@@ -77,7 +77,7 @@ import org.slf4j.LoggerFactory;
  * @author Antony Holmes Holmes
  */
 public class ModernWindow extends JFrame
-implements ModernDialogConstructor, ModernToolTipListener {
+    implements ModernDialogConstructor, ModernToolTipListener {
 
   /**
    * The constant serialVersionUID.
@@ -209,24 +209,24 @@ implements ModernDialogConstructor, ModernToolTipListener {
     @Override
     public void eventDispatched(AWTEvent e) {
       if (e.getID() == MouseEvent.MOUSE_PRESSED) {
-        //Point l = MouseInfo.getPointerInfo().getLocation();
+        // Point l = MouseInfo.getPointerInfo().getLocation();
 
-        //SwingUtilities.convertPointFromScreen(l, mContentPane);
+        // SwingUtilities.convertPointFromScreen(l, mContentPane);
 
-        //Component component =
-        //    SwingUtilities.getDeepestComponentAt(
-        //        mContentPane,
-        //        l.x,
-        //        l.y);
+        // Component component =
+        // SwingUtilities.getDeepestComponentAt(
+        // mContentPane,
+        // l.x,
+        // l.y);
 
         // If there is nothing underneath, or the component is different
         // to the one that generated the mouse event, assume that means we
         // are clicking outside the bounds of the tooltip so we can hide
         // all the tooltips to replicate a loss of focus event
-        //if (component == null || !component.equals(e.getSource())) {
-          // Hide all tooltips
-          doHideTooltips();
-        //}
+        // if (component == null || !component.equals(e.getSource())) {
+        // Hide all tooltips
+        doHideTooltips();
+        // }
       }
     }
   }
@@ -274,25 +274,23 @@ implements ModernDialogConstructor, ModernToolTipListener {
     //
 
     /*
-    Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener() {
-      public void eventDispatched(AWTEvent e) {
-        // System.out.println("get source" + e.getSource());
-
-        if (e.getID() == MouseEvent.MOUSE_PRESSED) {
-          // System.err.println("pressed");
-
-          // Point l = MouseInfo.getPointerInfo().getLocation();
-
-          // System.out.println("(" + l.x + ", " + l.y + ")");
-
-          // Hide all tooltips
-          doHideTooltips();
-        }
-      }
-    }, AWTEvent.MOUSE_EVENT_MASK);
+     * Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener() {
+     * public void eventDispatched(AWTEvent e) { //
+     * System.out.println("get source" + e.getSource());
+     * 
+     * if (e.getID() == MouseEvent.MOUSE_PRESSED) { //
+     * System.err.println("pressed");
+     * 
+     * // Point l = MouseInfo.getPointerInfo().getLocation();
+     * 
+     * // System.out.println("(" + l.x + ", " + l.y + ")");
+     * 
+     * // Hide all tooltips doHideTooltips(); } } }, AWTEvent.MOUSE_EVENT_MASK);
      */
-    
-    Toolkit.getDefaultToolkit().addAWTEventListener(new AllMouseEvents(getContentPane()), AWTEvent.MOUSE_EVENT_MASK);
+
+    Toolkit.getDefaultToolkit().addAWTEventListener(
+        new AllMouseEvents(getContentPane()),
+        AWTEvent.MOUSE_EVENT_MASK);
   }
 
   /*
@@ -467,7 +465,7 @@ implements ModernDialogConstructor, ModernToolTipListener {
   public ModernHContentPane getTabsPane() {
     return mTabsPane;
   }
-  
+
   public void setCenterTab(JComponent c) {
     getTabsPane().getModel().setCenterTab(c);
   }
@@ -495,7 +493,7 @@ implements ModernDialogConstructor, ModernToolTipListener {
    */
   @Override
   public void createUi() {
-    //Do nothing
+    // Do nothing
   }
 
   /*
@@ -505,7 +503,7 @@ implements ModernDialogConstructor, ModernToolTipListener {
    */
   @Override
   public void createMenus() {
-    //Do nothing
+    // Do nothing
   }
 
   @Override
@@ -516,7 +514,7 @@ implements ModernDialogConstructor, ModernToolTipListener {
       showToolTip(e.getSource(), e.getTooltip());
     }
   }
-  
+
   @Override
   public void tooltipAdded(ModernToolTipEvent e) {
     if (e.getP() != null) {
@@ -537,11 +535,11 @@ implements ModernDialogConstructor, ModernToolTipListener {
   private synchronized void showToolTip(Component source, Component tooltip) {
     showToolTip(source, tooltip, toolTipP(source, tooltip));
   }
-  
+
   private synchronized void addToolTip(Component source, Component tooltip) {
     addToolTip(source, tooltip, toolTipP(source, tooltip));
   }
-  
+
   /**
    * Where to position the tooltip on screen.
    * 
@@ -558,7 +556,7 @@ implements ModernDialogConstructor, ModernToolTipListener {
     Rectangle wb = getBounds();
 
     Dimension ps = tooltip.getPreferredSize();
-    
+
     int w = ps.width;
     int h = ps.height;
 
@@ -567,7 +565,7 @@ implements ModernDialogConstructor, ModernToolTipListener {
     }
 
     int sh = source.getHeight();
-    
+
     // Always show below the component
     p.y += sh;
 
@@ -589,26 +587,23 @@ implements ModernDialogConstructor, ModernToolTipListener {
   private synchronized void showToolTip(Component source,
       Component tooltip,
       Point p) {
-    
-    //System.err.println("show");
-    
+
+    // System.err.println("show");
+
     // Hide any current tips
     hideToolTips();
 
     addToolTip(source, tooltip, p);
   }
-  
+
   private synchronized void addToolTip(Component source,
       Component tooltip,
       Point p) {
     mTooltips.add(tooltip);
 
     Dimension ps = tooltip.getPreferredSize();
-    
-    tooltip.setBounds(p.x,
-        p.y,
-        ps.width,
-        ps.height);
+
+    tooltip.setBounds(p.x, p.y, ps.width, ps.height);
 
     getLayeredPane().add(tooltip, JLayeredPane.POPUP_LAYER);
 
@@ -624,8 +619,8 @@ implements ModernDialogConstructor, ModernToolTipListener {
    * ui. modern.ModernComponent)
    */
   private synchronized void hideToolTips() {
-    //System.err.println("hide");
-    
+    // System.err.println("hide");
+
     if (mTooltips.size() > 0) {
       for (Component c : mTooltips) {
         getLayeredPane().remove(c);
@@ -663,7 +658,8 @@ implements ModernDialogConstructor, ModernToolTipListener {
    * communicate to other components if the tooltips are hidden.
    */
   protected void doHideTooltips() {
-    ToolTipService.getInstance().hideToolTips(new ModernToolTipEvent(this, this));
+    ToolTipService.getInstance()
+        .hideToolTips(new ModernToolTipEvent(this, this));
   }
 
   /**

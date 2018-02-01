@@ -57,13 +57,13 @@ public interface ModernToolTipEventProducer {
   public void showToolTip(ModernToolTipEvent e);
 
   public void addToolTip(ModernToolTipEvent e);
-  
+
   /**
    * Hide tool tips.
    *
    * @param source the source
    */
   public void hideToolTip(ModernToolTipEvent e);
-  
+
   public void hideToolTips(ModernToolTipEvent e);
 }

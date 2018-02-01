@@ -20,10 +20,11 @@ public class FlatDropDownButtonAnimation extends DropDownButtonAnimation2 {
    */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-    //widget.getWidgetRenderer().drawContentBox(g2, widget.getInternalRect());
+    // widget.getWidgetRenderer().drawContentBox(g2, widget.getInternalRect());
 
-    UIDrawService.getInstance().get("content-box").draw(g2, widget.getInternalRect());
-    
+    UIDrawService.getInstance().get("content-box").draw(g2,
+        widget.getInternalRect());
+
     super.draw(widget, g2, params);
   }
 }

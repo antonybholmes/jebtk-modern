@@ -44,7 +44,7 @@ import org.jebtk.modern.panel.Card;
  *
  */
 public class ModernPopup2 extends Card
-implements ModernClickListener, ModernClickEventProducer {
+    implements ModernClickListener, ModernClickEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -56,7 +56,6 @@ implements ModernClickListener, ModernClickEventProducer {
    */
   protected ModernClickListeners mListeners = new ModernClickListeners();
 
-  
   /**
    * Clear.
    */
@@ -65,8 +64,6 @@ implements ModernClickListener, ModernClickEventProducer {
     revalidate();
     repaint();
   }
-  
-  
 
   /*
    * (non-Javadoc)

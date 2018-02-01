@@ -144,8 +144,8 @@ public class AnimationService {
     return AnimationServiceLoader.INSTANCE;
   }
 
-  private Map<String, AnimationCreator> mCreatorMap = 
-      DefaultHashMap.create(new EntryCreator<AnimationCreator>() {
+  private Map<String, AnimationCreator> mCreatorMap = DefaultHashMap
+      .create(new EntryCreator<AnimationCreator>() {
         @Override
         public AnimationCreator newEntry() {
           return new AnimationCreator();
@@ -178,21 +178,17 @@ public class AnimationService {
     get("segment-tabs")
         // .add(SegmentHighlightAnimation.class)
         // .add(SegmentPressedAnimation.class)
-        .add(SegmentChangeAnimation.class)
+        .add(SegmentChangeAnimation.class).add(SegmentTextAnimation.class);
+
+    get("bottom-tabs").add(SegmentAnimation.class)
         .add(SegmentTextAnimation.class);
-    
-    get("bottom-tabs")
-    .add(SegmentAnimation.class)
-    .add(SegmentTextAnimation.class);
 
     get("orb-tabs").add(OrbTabsHighlightAnimation.class)
-        .add(OrbTabsChangeAnimation.class)
-        .add(OrbTabsAnimation.class);
+        .add(OrbTabsChangeAnimation.class).add(OrbTabsAnimation.class);
 
     get("icon-tabs")
         // .add(IconTabsAnimation.class)
-        .add(IconTabsHighlightAnimation.class)
-        .add(IconTabsIconAnimation.class)
+        .add(IconTabsHighlightAnimation.class).add(IconTabsIconAnimation.class)
         .add(IconTabsChangeAnimation.class);
 
     get("block-vert-tabs").add(BlockVertHighlightAnimation.class)
@@ -204,16 +200,14 @@ public class AnimationService {
 
     get("help-button").add(HelpButtonHighlightAnimation.class);
 
-    get("dialog-button")
-      .add(DialogButtonAnimation.class)
-      .add(DialogButtonHighlightAnimation.class);
+    get("dialog-button").add(DialogButtonAnimation.class)
+        .add(DialogButtonHighlightAnimation.class);
 
     get("dialog-material-button")
         .add(DialogMaterialButtonHighlightAnimation.class);
 
-    get("primary-dialog-button")
-      .add(ColorDialogButtonAnimation.class)
-      .add(ColorDialogButtonHighlightAnimation.class);
+    get("primary-dialog-button").add(ColorDialogButtonAnimation.class)
+        .add(ColorDialogButtonHighlightAnimation.class);
 
     get("checkbox").add(CheckBoxAnimation.class)
         .add(CheckBoxSelectedAnimation.class)
@@ -228,8 +222,7 @@ public class AnimationService {
     get("menu").add(MenuItemHighlightAnimation.class);
 
     get("color-menu").add(MenuItemColorHighlightAnimation.class);
-    get("color-menu-fade")
-        .add(MenuItemColorHighlightFadeAnimation.class);
+    get("color-menu-fade").add(MenuItemColorHighlightFadeAnimation.class);
 
     get("sub-collapse-pane").add(CollapsePaneHighlightAnimation.class)
         .add(CollapsePaneExpandAnimation.class);
@@ -241,11 +234,9 @@ public class AnimationService {
 
     get("ribbon-button").add(RibbonButtonHighlightAnimation.class);
 
-    get("ribbon-dropdown-button")
-        .add(RibbonDropDownButtonAnimation.class);
+    get("ribbon-dropdown-button").add(RibbonDropDownButtonAnimation.class);
 
-    get("ribbon-dropdown-button-2")
-        .add(RibbonDropDownButtonAnimation2.class);
+    get("ribbon-dropdown-button-2").add(RibbonDropDownButtonAnimation2.class);
 
     get("ribbon-optional-dropdown-button")
         .add(RibbonLargeOptionalDropDownHighlightAnimation.class);
@@ -260,14 +251,12 @@ public class AnimationService {
 
     get("tree").add(TreeHighlightAnimation.class);
 
-    get("list").add(ListHighlightAnimation.class)
-        .add(ListChangeAnimation.class).add(ListAnimation.class);
+    get("list").add(ListHighlightAnimation.class).add(ListChangeAnimation.class)
+        .add(ListAnimation.class);
 
-    get("combobox").add(ComboBoxAnimation.class)
-      .add(ComboBoxAnimation.class)
-      .add(ComboBoxHighlightAnimation.class)
-      .add(ComboBoxArrowAnimation.class)
-      .add(DialogButtonHighlightAnimation.class);
+    get("combobox").add(ComboBoxAnimation.class).add(ComboBoxAnimation.class)
+        .add(ComboBoxHighlightAnimation.class).add(ComboBoxArrowAnimation.class)
+        .add(DialogButtonHighlightAnimation.class);
 
     get("text-border").add(TextBorderAnimation.class);
 

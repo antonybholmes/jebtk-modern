@@ -86,7 +86,7 @@ public class ModernDialogButton extends ModernButton {
   }
 
   private void setup() {
-    //setFont(BOLD_FONT);
+    // setFont(BOLD_FONT);
 
     setBackgroundAnimations("dialog-button");
   }

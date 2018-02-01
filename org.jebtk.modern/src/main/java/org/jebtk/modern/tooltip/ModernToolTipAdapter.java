@@ -6,7 +6,7 @@ public class ModernToolTipAdapter implements ModernToolTipListener {
   public void tooltipShown(ModernToolTipEvent e) {
     // Do nothing
   }
-  
+
   @Override
   public void tooltipAdded(ModernToolTipEvent e) {
     // Do nothing

@@ -23,7 +23,7 @@ import java.awt.Graphics2D;
  * The Class ModernRoundedWidgetRenderer.
  */
 public class ButtonOutlineUI extends ButtonUI {
-  
+
   @Override
   public String getName() {
     return "button.outline";
@@ -36,13 +36,13 @@ public class ButtonOutlineUI extends ButtonUI {
       int w,
       int h,
       Object... params) {
-    
+
     if (params.length > 0) {
       g2.setColor((Color) params[0]);
     } else {
       g2.setColor(HIGHLIGHTED_FILL_COLOR);
     }
-    
+
     outline(g2, x, y, w, h);
   }
 }

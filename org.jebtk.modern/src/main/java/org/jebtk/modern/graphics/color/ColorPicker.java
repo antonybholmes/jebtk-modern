@@ -203,7 +203,8 @@ public class ColorPicker extends ModernClickWidget {
     mColors = colors;
 
     setPreferredSize(new Dimension(
-        BLOCK_SIZE * mColors.size() + GAP * (mColors.size() - 1) + DOUBLE_PADDING,
+        BLOCK_SIZE * mColors.size() + GAP * (mColors.size() - 1)
+            + DOUBLE_PADDING,
         mColors.get(0).size() * BLOCK_SIZE + DOUBLE_PADDING));
   }
 

@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016, Antony Holmes
+ * Copyright (C) 2018, Antony Holmes
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.graphics;
 
-// TODO: Auto-generated Javadoc
 /**
  * For classes that generate ModernClickEvents.
  *

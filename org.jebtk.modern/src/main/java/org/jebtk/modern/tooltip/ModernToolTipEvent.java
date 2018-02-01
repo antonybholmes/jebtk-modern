@@ -51,29 +51,26 @@ public class ModernToolTipEvent extends Event {
   private Component mTooltip;
 
   private Component mSource;
-  
+
   private ModernToolTipListener mDest;
 
   private Point mP;
-  
+
   public ModernToolTipEvent(Component dest) {
-    this(dest, (ModernToolTipListener)dest);
+    this(dest, (ModernToolTipListener) dest);
   }
-  
+
   public ModernToolTipEvent(Component source, ModernToolTipListener dest) {
     this(source, dest, source);
   }
 
-  public ModernToolTipEvent(Component source, 
-      ModernToolTipListener dest,
+  public ModernToolTipEvent(Component source, ModernToolTipListener dest,
       Component tooltip) {
     this(source, dest, tooltip, null);
   }
-  
-  public ModernToolTipEvent(Component source, 
-      ModernToolTipListener dest,
-      Component tooltip,
-      Point p) {
+
+  public ModernToolTipEvent(Component source, ModernToolTipListener dest,
+      Component tooltip, Point p) {
     this(source, dest, tooltip, p, DEFAULT_MESSAGE);
   }
 
@@ -84,34 +81,29 @@ public class ModernToolTipEvent extends Event {
    * @param message the message
    * @param tooltip the tooltip
    */
-  public ModernToolTipEvent(Component source,
-      ModernToolTipListener dest,
-      Component tooltip,
-      Point p,
-      String message) {
+  public ModernToolTipEvent(Component source, ModernToolTipListener dest,
+      Component tooltip, Point p, String message) {
     super(source, message);
-    
+
     mSource = source;
     mDest = dest;
     mTooltip = tooltip;
     mP = p;
   }
-  
-  
 
   @Override
   public Component getSource() {
     return mSource;
   }
-  
+
   public ModernToolTipListener getDest() {
     return mDest;
   }
-  
+
   public Component getTooltip() {
     return mTooltip;
   }
-  
+
   public Point getP() {
     return mP;
   }

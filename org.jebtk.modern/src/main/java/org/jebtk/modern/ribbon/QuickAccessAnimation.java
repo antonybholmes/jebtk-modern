@@ -36,13 +36,16 @@ public class QuickAccessAnimation extends ButtonHighlightAnimation {
   public QuickAccessAnimation(ModernClickWidget button) {
     super(button);
 
-    setFadeColor("fill", MaterialUtils.HIGHLIGHT_COLOR); //RibbonHighlightTextAnimation.HIGHLIGHT_COLOR); // MaterialUtils.HIGHLIGHT_COLOR);
+    setFadeColor("fill", MaterialUtils.HIGHLIGHT_COLOR); // RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
+                                                         // //
+                                                         // MaterialUtils.HIGHLIGHT_COLOR);
   }
 
   @Override
   public void fill(Graphics2D g2, int x, int y, int w, int h) {
-    //g2.fillRect(x, y, w, h);
-    
-    UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h, getFadeColor("fill"));
+    // g2.fillRect(x, y, w, h);
+
+    UIDrawService.getInstance().get("button.highlight")
+        .draw(g2, x, y, w, h, getFadeColor("fill"));
   }
 }

@@ -41,7 +41,7 @@ public class RibbonLargeOptionalDropDownHighlightAnimation2
    * @param button the button
    */
   public RibbonLargeOptionalDropDownHighlightAnimation2(ModernWidget button) {
-    super((ModernOptionalDropDownMenuButton2)button);
+    super((ModernOptionalDropDownMenuButton2) button);
 
     mButton = (ModernOptionalDropDownMenuButton2) button;
 
@@ -73,18 +73,19 @@ public class RibbonLargeOptionalDropDownHighlightAnimation2
         w = rect.getW() - mButton.mDividerLocation;
       }
 
-      //g2.setColor(getFadeColor("fill"));
+      // g2.setColor(getFadeColor("fill"));
 
       if (mButton.isSelected() || mButton.mPopupShown) {
         // paintHighlighted(g2, rect);
 
-        //getWidget().getWidgetRenderer().fill(g2, rect);
+        // getWidget().getWidgetRenderer().fill(g2, rect);
         UIDrawService.getInstance().get("button.selected").draw(g2, rect);
 
       } else if (mButton.getHightlighted()) {
         // getWidget().getWidgetRenderer().outline(g2, rect);
-        //getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
-        UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h, getFadeColor("fill"));
+        // getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
+        UIDrawService.getInstance().get("button.highlight")
+            .draw(g2, x, y, w, h, getFadeColor("fill"));
 
         // getWidgetRenderer().drawRibbonButtonOutline(g2, rect,
         // RenderMode.SELECTED);

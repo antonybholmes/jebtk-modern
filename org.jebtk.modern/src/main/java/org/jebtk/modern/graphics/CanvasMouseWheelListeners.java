@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016, Antony Holmes
+ * Copyright (C) 2018, Antony Holmes
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -29,13 +29,6 @@ package org.jebtk.modern.graphics;
 
 import org.jebtk.core.event.EventProducer;
 
-// TODO: Auto-generated Javadoc
-/**
- * The basis for model controls in a model view controller setup.
- * 
- * @author Antony Holmes Holmes
- *
- */
 public class CanvasMouseWheelListeners
     extends EventProducer<CanvasMouseWheelListener>
     implements CanvasMouseWheelEventProducer {

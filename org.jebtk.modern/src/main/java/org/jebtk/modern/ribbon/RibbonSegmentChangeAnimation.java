@@ -92,14 +92,14 @@ public class RibbonSegmentChangeAnimation extends TranslateYAnimation {
      * RibbonSegmentVertTabs.TAB_SIZE, RenderMode.SELECTED, false);
      */
 
-    //g2.setColor(Ribbon.BAR_BACKGROUND);
+    // g2.setColor(Ribbon.BAR_BACKGROUND);
 
-    //g2.fillRect(0, 0, WIDTH, RibbonSegmentVertTabs.TAB_SIZE);
-    
+    // g2.fillRect(0, 0, WIDTH, RibbonSegmentVertTabs.TAB_SIZE);
+
     UIDrawService.getInstance().get("menu.highlight").draw(g2,
         0,
         0,
-        WIDTH, 
+        WIDTH,
         RibbonSegmentVertTabs.TAB_SIZE,
         Ribbon.BAR_BACKGROUND);
   }

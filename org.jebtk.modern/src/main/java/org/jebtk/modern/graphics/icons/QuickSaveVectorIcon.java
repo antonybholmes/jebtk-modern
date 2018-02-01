@@ -49,7 +49,7 @@ public class QuickSaveVectorIcon extends ModernVectorIcon {
   private Color mColor;
 
   public QuickSaveVectorIcon() {
-    this(Color.WHITE); //Ribbon.BAR_BACKGROUND);
+    this(Color.WHITE); // Ribbon.BAR_BACKGROUND);
   }
 
   public QuickSaveVectorIcon(Color color) {

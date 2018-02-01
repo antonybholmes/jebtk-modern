@@ -84,8 +84,6 @@ public class ModernHistoryPanel<T> extends ModernComponent
   protected ModernHistoryList<T> mHistoryList = new ModernHistoryList<T>(
       mHistoryModel);
 
-
-
   /**
    * Instantiates a new modern history panel.
    *
@@ -99,7 +97,6 @@ public class ModernHistoryPanel<T> extends ModernComponent
 
     mUpButton.addClickListener(this);
     mDownButton.addClickListener(this);
-
 
     // Sync ui
     mHistoryList.getModel().fireDataChanged();
@@ -115,7 +112,7 @@ public class ModernHistoryPanel<T> extends ModernComponent
     toolbar.add(mDownButton);
     // toolbar.setBorder(BOTTOM_BORDER);
 
-    //setHeader(toolbar);
+    // setHeader(toolbar);
 
     ModernScrollPane scrollPane = new ModernScrollPane(mHistoryList);
     scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);

@@ -230,7 +230,7 @@ public class ImageUtils {
     g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL,
         RenderingHints.VALUE_STROKE_PURE);
   }
-  
+
   public static void setQualityHints(Graphics2D g2) {
     g2.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION,
         RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);

@@ -47,7 +47,7 @@ public class ModernToolTipSuggestHelpPanel extends ModernBasicToolTipPanel {
   /**
    * The constant SIZE.
    */
-  //private static final Dimension SIZE = new Dimension(240, 100);
+  // private static final Dimension SIZE = new Dimension(240, 100);
 
   /**
    * Instantiates a new modern tool tip suggest help panel.
@@ -67,7 +67,7 @@ public class ModernToolTipSuggestHelpPanel extends ModernBasicToolTipPanel {
     // box.add(new ModernBoldLabel("Press F1 for more help."));
     // Ui.setSize(box, new Dimension(400, 24));
     // add(box);
-    
-    //setPreferredSize(SIZE);
+
+    // setPreferredSize(SIZE);
   }
 }

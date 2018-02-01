@@ -23,7 +23,7 @@ import java.awt.Graphics2D;
  * The Class ModernRoundedWidgetRenderer.
  */
 public class PillHighlightUI extends ButtonUI {
-  
+
   @Override
   public String getName() {
     return "pill.highlight";
@@ -36,13 +36,13 @@ public class PillHighlightUI extends ButtonUI {
       int w,
       int h,
       Object... params) {
-    
+
     if (params.length > 0) {
       g2.setColor((Color) params[0]);
     } else {
       g2.setColor(HIGHLIGHTED_FILL_COLOR);
     }
-    
+
     g2.fillRoundRect(x, y, w - 1, h - 1, h, h);
   }
 }

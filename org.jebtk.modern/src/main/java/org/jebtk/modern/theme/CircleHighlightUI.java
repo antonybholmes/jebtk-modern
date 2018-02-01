@@ -25,7 +25,7 @@ import org.jebtk.modern.graphics.ImageUtils;
  * The Class ModernRoundedWidgetRenderer.
  */
 public class CircleHighlightUI extends ButtonUI {
-  
+
   @Override
   public String getName() {
     return "circle.highlight";
@@ -38,22 +38,22 @@ public class CircleHighlightUI extends ButtonUI {
       int w,
       int h,
       Object... params) {
-    
+
     if (params.length > 0) {
       g2.setColor((Color) params[0]);
     } else {
       g2.setColor(HIGHLIGHTED_FILL_COLOR);
     }
-    
+
     int mw = Math.min(w, h);
-    
+
     x += (w - mw) / 2;
     y += (h - mw) / 2;
-    
+
     w = mw - 1;
-    
+
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
-    
+
     try {
       g2Temp.fillOval(x, y, w, w);
     } finally {

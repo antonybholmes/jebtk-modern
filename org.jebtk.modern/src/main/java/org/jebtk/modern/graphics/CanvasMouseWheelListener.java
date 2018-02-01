@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016, Antony Holmes
+ * Copyright (C) 2018, Antony Holmes
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -29,13 +29,10 @@ package org.jebtk.modern.graphics;
 
 import java.util.EventListener;
 
-// TODO: Auto-generated Javadoc
 /**
- * Notifies listeners that the canvas has changed (e.g. size) so should be
- * redrawn or the container control adjusted accordingly.
+ * Notifies listeners that the mouse wheel was moved on a canvas.
  * 
- * @author Antony Holmes Holmes
- *
+ * @author Antony Holmes
  */
 public interface CanvasMouseWheelListener extends EventListener {
 

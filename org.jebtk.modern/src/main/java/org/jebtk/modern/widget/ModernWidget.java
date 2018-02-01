@@ -374,8 +374,8 @@ public abstract class ModernWidget extends ModernComponent
       .createBorder(2);
 
   private Animations mBackgroundAnimations = new Animations();
-  
-  //private Animations mForegroundAnimations = new Animations();
+
+  // private Animations mForegroundAnimations = new Animations();
 
   static {
     // Create a default graphics context that can be used to size
@@ -492,9 +492,9 @@ public abstract class ModernWidget extends ModernComponent
     return this;
   }
 
-  //public Animations getForegroundAnimations() {
-   // return mForegroundAnimations;
-  //}
+  // public Animations getForegroundAnimations() {
+  // return mForegroundAnimations;
+  // }
 
   /**
    * Gets the widget renderer provider.

@@ -54,9 +54,9 @@ public class CheckedVectorIcon extends UnCheckedVectorIcon {
       int w,
       int h,
       Object... params) {
-    //WidgetRendererService.getInstance().getRenderer()
-    //    .drawChecked(g2, x, y, w, h, RenderMode.SELECTED);
-    
+    // WidgetRendererService.getInstance().getRenderer()
+    // .drawChecked(g2, x, y, w, h, RenderMode.SELECTED);
+
     UIDrawService.getInstance().get("checkbox.checked").draw(g2, x, y, w, h);
   }
 }

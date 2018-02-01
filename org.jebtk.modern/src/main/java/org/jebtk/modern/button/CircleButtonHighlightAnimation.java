@@ -10,8 +10,7 @@ public class CircleButtonHighlightAnimation extends ButtonHighlightAnimation {
   public CircleButtonHighlightAnimation(ModernWidget button) {
     super(button);
 
-    setFadeColor("fill",
-        MaterialService.getInstance().color("gray-highlight"));
+    setFadeColor("fill", MaterialService.getInstance().color("gray-highlight"));
   }
 
   @Override

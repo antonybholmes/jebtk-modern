@@ -33,18 +33,21 @@ public class Card extends ModernComponent {
 
   public static final double ALPHA = 0.85;
 
-  private static final Insets OFFSETS = 
-      new Insets(HALF_SHADOW_SIZE, HALF_SHADOW_SIZE, HALF_SHADOW_SIZE, HALF_SHADOW_SIZE);
+  private static final Insets OFFSETS = new Insets(HALF_SHADOW_SIZE,
+      HALF_SHADOW_SIZE, HALF_SHADOW_SIZE, HALF_SHADOW_SIZE);
 
   /**
    * Allow for space at the top so that items appear just below the rounded
    * corners rather than running into them.
    */
-  private static final Border CARD_BORDER = 
-      BorderService.getInstance().createBorder(HALF_SHADOW_SIZE + ROUNDING, HALF_SHADOW_SIZE, HALF_SHADOW_SIZE + ROUNDING, HALF_SHADOW_SIZE);
+  private static final Border CARD_BORDER = BorderService.getInstance()
+      .createBorder(HALF_SHADOW_SIZE + ROUNDING,
+          HALF_SHADOW_SIZE,
+          HALF_SHADOW_SIZE + ROUNDING,
+          HALF_SHADOW_SIZE);
 
-  public static final Color COLOR = 
-      ColorUtils.getTransparentColor(Color.BLACK, Card.ALPHA);
+  public static final Color COLOR = ColorUtils.getTransparentColor(Color.BLACK,
+      Card.ALPHA);
 
   private static BufferedImage C1;
 
@@ -62,23 +65,20 @@ public class Card extends ModernComponent {
 
   private static BufferedImage LB;
 
-  //private BufferedImage mShadow;
+  // private BufferedImage mShadow;
 
   /*
-  private class ComponentEvents extends ComponentAdapter {
-    @Override
-    public void componentResized(ComponentEvent e) {
-      mShadow = null;
-      //mBackground = null;
-    } 
-  }
-  */
-  
+   * private class ComponentEvents extends ComponentAdapter {
+   * 
+   * @Override public void componentResized(ComponentEvent e) { mShadow = null;
+   * //mBackground = null; } }
+   */
+
   static {
     //
     // Create images to make shadow
     //
-    
+
     BufferedImage shadow = shadow(200, 200);
 
     int o = 200 - SHADOW_SIZE;
@@ -129,7 +129,7 @@ public class Card extends ModernComponent {
   }
 
   public Card() {
-    //addComponentListener(new ComponentEvents());
+    // addComponentListener(new ComponentEvents());
 
     setBorder(CARD_BORDER);
   }
@@ -146,7 +146,8 @@ public class Card extends ModernComponent {
 
     Dimension s = c.getPreferredSize();
 
-    setPreferredSize(new Dimension(s.width + SHADOW_SIZE, s.height + SHADOW_SIZE + V_SPACE));
+    setPreferredSize(
+        new Dimension(s.width + SHADOW_SIZE, s.height + SHADOW_SIZE + V_SPACE));
   }
 
   @Override
@@ -155,17 +156,13 @@ public class Card extends ModernComponent {
     int height = getHeight() - 1;
 
     /*
-    if (mShadow == null) {
-      // Cache shadow as expensive operation to create
-      mShadow = shadow(width, height);
-
-      // Add the shadow
-      background(mShadow);
-    }
-
-    g2.drawImage(mShadow, 0, 0, this);
+     * if (mShadow == null) { // Cache shadow as expensive operation to create
+     * mShadow = shadow(width, height);
+     * 
+     * // Add the shadow background(mShadow); }
+     * 
+     * g2.drawImage(mShadow, 0, 0, this);
      */
-
 
     int w2 = width - 2 * SHADOW_SIZE;
     int h2 = height - 2 * SHADOW_SIZE;
@@ -183,17 +180,17 @@ public class Card extends ModernComponent {
     g2.drawImage(C4, 0, height - SHADOW_SIZE, null);
 
     // Draw the content box
-    
+
     Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
 
     try {
       g2Temp.setColor(Color.WHITE);
 
-      g2Temp.fillRoundRect(OFFSETS.left, 
+      g2Temp.fillRoundRect(OFFSETS.left,
           OFFSETS.top,
-          width - (OFFSETS.left + OFFSETS.right), 
-          height - (OFFSETS.top + OFFSETS.bottom), 
-          ROUNDING, 
+          width - (OFFSETS.left + OFFSETS.right),
+          height - (OFFSETS.top + OFFSETS.bottom),
+          ROUNDING,
           ROUNDING);
     } finally {
       g2Temp.dispose();
@@ -201,11 +198,11 @@ public class Card extends ModernComponent {
   }
 
   /*
-  public static GraphicsConfiguration getGraphicsConfiguration() {
-    return GraphicsEnvironment.getLocalGraphicsEnvironment()
-        .getDefaultScreenDevice().getDefaultConfiguration();
-
-  }
+   * public static GraphicsConfiguration getGraphicsConfiguration() { return
+   * GraphicsEnvironment.getLocalGraphicsEnvironment()
+   * .getDefaultScreenDevice().getDefaultConfiguration();
+   * 
+   * }
    */
 
   public static BufferedImage createCompatibleImage(int width, int height) {
@@ -219,13 +216,10 @@ public class Card extends ModernComponent {
     return ImageUtils.createImage(width, height);
 
     /*
-    BufferedImage image = GraphicsEnvironment
-        .getLocalGraphicsEnvironment()
-        .getDefaultScreenDevice()
-        .getDefaultConfiguration()
-        .createCompatibleImage(width, height, transparency);
-    image.coerceData(true);
-    return image;
+     * BufferedImage image = GraphicsEnvironment .getLocalGraphicsEnvironment()
+     * .getDefaultScreenDevice() .getDefaultConfiguration()
+     * .createCompatibleImage(width, height, transparency);
+     * image.coerceData(true); return image;
      */
 
   }
@@ -240,20 +234,16 @@ public class Card extends ModernComponent {
     bounds.width = width - (OFFSETS.left + OFFSETS.right);
     bounds.height = height - (OFFSETS.top + OFFSETS.bottom);
 
-    RoundRectangle2D shape = new RoundRectangle2D.Double(bounds.x, 
-        bounds.y,
-        bounds.width, 
-        bounds.height, 
-        ROUNDING, 
-        ROUNDING);
+    RoundRectangle2D shape = new RoundRectangle2D.Double(bounds.x, bounds.y,
+        bounds.width, bounds.height, ROUNDING, ROUNDING);
 
     Graphics2D g2 = img.createGraphics();
 
     try {
       ImageUtils.setQualityHints(g2);
 
-      //g2.setColor(Color.RED);
-      //g2.draw(shape);
+      // g2.setColor(Color.RED);
+      // g2.draw(shape);
       g2.setColor(Color.WHITE);
       g2.fill(shape);
     } finally {
@@ -261,51 +251,41 @@ public class Card extends ModernComponent {
     }
   }
 
-
-
   public static BufferedImage shadow(int width, int height) {
     BufferedImage img = createCompatibleImage(width, height);
 
     width -= OFFSETS.right + HALF_SHADOW_SIZE;
     height -= OFFSETS.bottom + HALF_SHADOW_SIZE;
 
-    RoundRectangle2D shape = new RoundRectangle2D.Double(HALF_SHADOW_SIZE, 
-        HALF_SHADOW_SIZE,
-        width, 
-        height, 
-        ROUNDING, 
-        ROUNDING);
+    RoundRectangle2D shape = new RoundRectangle2D.Double(HALF_SHADOW_SIZE,
+        HALF_SHADOW_SIZE, width, height, ROUNDING, ROUNDING);
 
     Graphics2D g2 = img.createGraphics();
 
     try {
       ImageUtils.setQualityHints(g2);
       g2.setColor(COLOR);
-      //tg2.translate(-bounds.x, -bounds.y);
+      // tg2.translate(-bounds.x, -bounds.y);
       g2.fill(shape);
     } finally {
       g2.dispose();
     }
 
     /*
-    //int border = size * 2;
-
-    int imgWidth = imgSource.getWidth(); // + border;
-    int imgHeight = imgSource.getHeight(); // + border;
-
-    BufferedImage imgMask = createCompatibleImage(imgWidth, imgHeight);
-    Graphics2D g2 = imgMask.createGraphics();
-
-    try {
-      ImageUtils.setQualityHints(g2);
-
-      g2.drawImage(imgSource, 0, 0, null);
-    } finally {
-      g2.dispose();
-    }
+     * //int border = size * 2;
+     * 
+     * int imgWidth = imgSource.getWidth(); // + border; int imgHeight =
+     * imgSource.getHeight(); // + border;
+     * 
+     * BufferedImage imgMask = createCompatibleImage(imgWidth, imgHeight);
+     * Graphics2D g2 = imgMask.createGraphics();
+     * 
+     * try { ImageUtils.setQualityHints(g2);
+     * 
+     * g2.drawImage(imgSource, 0, 0, null); } finally { g2.dispose(); }
      */
 
-    return blur(img, SHADOW_SIZE); //imgMask; //blur(imgMask, size);
+    return blur(img, SHADOW_SIZE); // imgMask; //blur(imgMask, size);
   }
 
   /**
@@ -317,25 +297,22 @@ public class Card extends ModernComponent {
    */
   public static BufferedImage blur(BufferedImage img, int size) {
     /*
-    GaussianFilter filter = new GaussianFilter(size);
-
-    int imgWidth = imgSource.getWidth();
-    int imgHeight = imgSource.getHeight();
-
-    BufferedImage imgBlur = createCompatibleImage(imgWidth, imgHeight);
-    Graphics2D g2d = imgBlur.createGraphics();
-
-    try {
-      ImageUtils.setQualityHints(g2d);
-
-      g2d.drawImage(imgSource, 0, 0, null);
-      g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_IN, (float)alpha));
-      g2d.setColor(color);
-
-      g2d.fillRect(0, 0, imgSource.getWidth(), imgSource.getHeight());
-    } finally {
-      g2d.dispose();
-    }
+     * GaussianFilter filter = new GaussianFilter(size);
+     * 
+     * int imgWidth = imgSource.getWidth(); int imgHeight =
+     * imgSource.getHeight();
+     * 
+     * BufferedImage imgBlur = createCompatibleImage(imgWidth, imgHeight);
+     * Graphics2D g2d = imgBlur.createGraphics();
+     * 
+     * try { ImageUtils.setQualityHints(g2d);
+     * 
+     * g2d.drawImage(imgSource, 0, 0, null);
+     * g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_IN,
+     * (float)alpha)); g2d.setColor(color);
+     * 
+     * g2d.fillRect(0, 0, imgSource.getWidth(), imgSource.getHeight()); }
+     * finally { g2d.dispose(); }
      */
 
     return new GaussianFilter(size).filter(img, null);

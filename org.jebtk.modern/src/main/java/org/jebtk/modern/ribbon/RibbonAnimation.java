@@ -33,8 +33,8 @@ public class RibbonAnimation extends WidgetAnimation {
 
   private Ribbon mRibbon;
 
-  private static final Color RIBBON_LIGHT_COLOR =
-      ColorUtils.tint(Ribbon.BAR_BACKGROUND, 0.1);
+  private static final Color RIBBON_LIGHT_COLOR = ColorUtils
+      .tint(Ribbon.BAR_BACKGROUND, 0.1);
 
   /**
    * Instantiates a new state animation.

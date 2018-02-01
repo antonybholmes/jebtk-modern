@@ -189,7 +189,7 @@ public class WindowRibbonSection extends RibbonSection
           window.equals(mCurrentWindow));
       menuItem.addClickListener(new WindowRegistryListener(window));
 
-      //UI.setSize(menuItem, new Dimension(MENU_WIDTH, WIDGET_HEIGHT));
+      // UI.setSize(menuItem, new Dimension(MENU_WIDTH, WIDGET_HEIGHT));
 
       mWindowMenu.addScrollMenuItem(menuItem);
       group.add(menuItem);

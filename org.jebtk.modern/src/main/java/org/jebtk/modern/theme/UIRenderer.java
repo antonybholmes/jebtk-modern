@@ -15,7 +15,7 @@ public abstract class UIRenderer implements NameProperty {
     fill(g2, x, y, w, h, params);
     outline(g2, x, y, w, h, params);
   }
-  
+
   public void fill(Graphics2D g2,
       int x,
       int y,
@@ -24,7 +24,7 @@ public abstract class UIRenderer implements NameProperty {
       Object... params) {
     // Do nothing
   }
-  
+
   public void outline(Graphics2D g2,
       int x,
       int y,

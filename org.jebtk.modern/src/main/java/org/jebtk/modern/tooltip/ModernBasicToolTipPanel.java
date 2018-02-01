@@ -85,7 +85,7 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
     panel.add(mText, BorderLayout.CENTER);
 
     setPreferredSize(SIZE);
-    
+
     panel.setBorder(DOUBLE_BORDER);
 
     add(panel);
