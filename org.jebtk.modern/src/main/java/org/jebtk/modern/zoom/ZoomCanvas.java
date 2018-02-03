@@ -29,15 +29,15 @@ package org.jebtk.modern.zoom;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntPos2D;
+import org.jebtk.modern.MouseUtils;
 import org.jebtk.modern.graphics.CanvasMouseEvent;
-import org.jebtk.modern.graphics.CanvasMouseWheelEvent;
-import org.jebtk.modern.graphics.CanvasMouseWheelListener;
 import org.jebtk.modern.graphics.DrawingContext;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.ModernCanvas;
@@ -119,12 +119,12 @@ public class ZoomCanvas extends ModernCanvas {
   }
 
   private void init() {
+    /*
     addCanvasMouseWheelListener(new CanvasMouseWheelListener() {
 
       @Override
       public void canvasMouseWheelMoved(CanvasMouseWheelEvent e) {
-        if ((e.getModifiers()
-            & ActionEvent.CTRL_MASK) == ActionEvent.CTRL_MASK) {
+        if (MouseUtils.hasCtrlMod(e)) {
           if (mZoomModel != null) {
             mZoomModel.setZoom(
                 mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
@@ -133,6 +133,21 @@ public class ZoomCanvas extends ModernCanvas {
 
       }
     });
+     */
+
+    addMouseWheelListener(new MouseWheelListener() {
+
+      @Override
+      public void mouseWheelMoved(MouseWheelEvent e) {
+        if (MouseUtils.ctrlPressed(e)) {
+          wheelZoom(e);
+        }
+      }
+    });
+  }
+  
+  private void wheelZoom(MouseWheelEvent e) {
+    mZoomModel.setZoom(mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
   }
 
   /**

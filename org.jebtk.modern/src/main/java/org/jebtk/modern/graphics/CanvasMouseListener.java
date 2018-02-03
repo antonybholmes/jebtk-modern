@@ -29,49 +29,61 @@ package org.jebtk.modern.graphics;
 
 import java.util.EventListener;
 
-import org.jebtk.core.event.ChangeEvent;
-
 // TODO: Auto-generated Javadoc
 /**
- * Notifies listeners that the canvas has changed (e.g. size) so should be
- * redrawn or the container control adjusted accordingly.
+ * Adapted mouse listener for the canvas.
  * 
  * @author Antony Holmes Holmes
  *
  */
-public interface ModernCanvasListener extends EventListener {
+public interface CanvasMouseListener extends EventListener {
 
   /**
-   * Notify parents to revalidate as the canvas has changed. This implies the
-   * whole underlying structure and or size has changed so it should be
-   * completely re-rendered.
+   * Canvas mouse clicked.
    *
    * @param e the e
    */
-  public void canvasChanged(ChangeEvent e);
+  public void canvasMouseClicked(CanvasMouseEvent e);
 
   /**
-   * When the canvas has repainted but the content has not changed. This is used
-   * in a canvas hierarchy to notify parents to repaint the children. It is
-   * designed to be less intensive than canvasChanged which will cause
-   * revalidation of components.
+   * Canvas mouse entered.
    *
    * @param e the e
    */
-  public void redrawCanvas(ChangeEvent e);
+  public void canvasMouseEntered(CanvasMouseEvent e);
 
   /**
-   * Notify listeners that they should ensure the scroll point is visible.
+   * Canvas mouse exited.
    *
    * @param e the e
    */
-  public void canvasScrolled(ChangeEvent e);
+  public void canvasMouseExited(CanvasMouseEvent e);
 
   /**
-   * Notify the parents that the canvas has changed size, but the content is the
-   * same. This is designed to be less intensive than canvas changed.
+   * Canvas mouse pressed.
    *
    * @param e the e
    */
-  public void canvasResized(ChangeEvent e);
+  public void canvasMousePressed(CanvasMouseEvent e);
+
+  /**
+   * Canvas mouse released.
+   *
+   * @param e the e
+   */
+  public void canvasMouseReleased(CanvasMouseEvent e);
+
+  /**
+   * Canvas mouse dragged.
+   *
+   * @param e the e
+   */
+  public void canvasMouseDragged(CanvasMouseEvent e);
+
+  /**
+   * Canvas mouse moved.
+   *
+   * @param e the e
+   */
+  public void canvasMouseMoved(CanvasMouseEvent e);
 }

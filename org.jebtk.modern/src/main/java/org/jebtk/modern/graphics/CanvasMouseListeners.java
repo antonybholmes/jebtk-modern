@@ -36,9 +36,9 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernCanvasMouseListeners
-    extends EventProducer<ModernCanvasMouseListener>
-    implements ModernCanvasMouseEventProducer {
+public class CanvasMouseListeners
+    extends EventProducer<CanvasMouseListener>
+    implements CanvasMouseEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -52,7 +52,7 @@ public class ModernCanvasMouseListeners
    * addCanvasMouseListener(org.abh.lib.ui.modern.graphics.
    * ModernCanvasMouseListener)
    */
-  public void addCanvasMouseListener(ModernCanvasMouseListener l) {
+  public void addCanvasMouseListener(CanvasMouseListener l) {
     mListeners.add(l);
   }
 
@@ -63,7 +63,7 @@ public class ModernCanvasMouseListeners
    * removeCanvasMouseListener(org.abh.lib.ui.modern.graphics.
    * ModernCanvasMouseListener)
    */
-  public void removeCanvasMouseListener(ModernCanvasMouseListener l) {
+  public void removeCanvasMouseListener(CanvasMouseListener l) {
     mListeners.remove(l);
   }
 
@@ -75,7 +75,7 @@ public class ModernCanvasMouseListeners
    */
   @Override
   public void fireCanvasMouseClicked(CanvasMouseEvent e) {
-    for (ModernCanvasMouseListener l : mListeners) {
+    for (CanvasMouseListener l : mListeners) {
       l.canvasMouseClicked(e);
     }
   }
@@ -88,7 +88,7 @@ public class ModernCanvasMouseListeners
    */
   @Override
   public void fireCanvasMouseMoved(CanvasMouseEvent e) {
-    for (ModernCanvasMouseListener l : mListeners) {
+    for (CanvasMouseListener l : mListeners) {
       l.canvasMouseMoved(e);
     }
   }
@@ -101,7 +101,7 @@ public class ModernCanvasMouseListeners
    */
   @Override
   public void fireCanvasMouseDragged(CanvasMouseEvent e) {
-    for (ModernCanvasMouseListener l : mListeners) {
+    for (CanvasMouseListener l : mListeners) {
       l.canvasMouseDragged(e);
     }
   }
@@ -114,7 +114,7 @@ public class ModernCanvasMouseListeners
    */
   @Override
   public void fireCanvasMousePressed(CanvasMouseEvent e) {
-    for (ModernCanvasMouseListener l : mListeners) {
+    for (CanvasMouseListener l : mListeners) {
       l.canvasMousePressed(e);
     }
   }
@@ -127,7 +127,7 @@ public class ModernCanvasMouseListeners
    */
   @Override
   public void fireCanvasMouseReleased(CanvasMouseEvent e) {
-    for (ModernCanvasMouseListener l : mListeners) {
+    for (CanvasMouseListener l : mListeners) {
       l.canvasMouseReleased(e);
     }
   }
@@ -140,7 +140,7 @@ public class ModernCanvasMouseListeners
    */
   @Override
   public void fireCanvasMouseEntered(CanvasMouseEvent e) {
-    for (ModernCanvasMouseListener l : mListeners) {
+    for (CanvasMouseListener l : mListeners) {
       l.canvasMouseEntered(e);
     }
   }
@@ -153,7 +153,7 @@ public class ModernCanvasMouseListeners
    */
   @Override
   public void fireCanvasMouseExited(CanvasMouseEvent e) {
-    for (ModernCanvasMouseListener l : mListeners) {
+    for (CanvasMouseListener l : mListeners) {
       l.canvasMouseExited(e);
     }
   }

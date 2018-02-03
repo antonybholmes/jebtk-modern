@@ -33,8 +33,8 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.dataview.ModernDataViewListener;
 import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.graphics.CanvasMouseEvent;
-import org.jebtk.modern.graphics.ModernCanvasKeyListener;
-import org.jebtk.modern.graphics.ModernCanvasMouseListener;
+import org.jebtk.modern.graphics.CanvasKeyListener;
+import org.jebtk.modern.graphics.CanvasMouseListener;
 import org.jebtk.modern.scrollpane.ModernScrollPaneHeader;
 import org.jebtk.modern.table.ModernTable;
 import org.jebtk.modern.theme.ThemeService;
@@ -46,7 +46,7 @@ import org.jebtk.modern.window.ModernWindowContentPanel;
  */
 public class ModernTableHeader extends ModernScrollPaneHeader
     implements ModernSelectionListener, ModernDataViewListener,
-    ModernCanvasMouseListener, ModernCanvasKeyListener {
+    CanvasMouseListener, CanvasKeyListener {
 
   /**
    * The constant serialVersionUID.

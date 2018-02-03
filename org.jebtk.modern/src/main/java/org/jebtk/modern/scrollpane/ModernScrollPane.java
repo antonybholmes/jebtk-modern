@@ -59,6 +59,7 @@ import javax.swing.event.DocumentListener;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.MouseUtils;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.collapsepane.AbstractCollapsePane;
 import org.jebtk.modern.dataview.ModernData;
@@ -66,7 +67,7 @@ import org.jebtk.modern.dataview.ModernDataViewListener;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.ModernCanvas;
-import org.jebtk.modern.graphics.ModernCanvasListener;
+import org.jebtk.modern.graphics.CanvasListener;
 import org.jebtk.modern.list.ModernList;
 import org.jebtk.modern.table.ModernRowTable;
 import org.jebtk.modern.table.ModernSpreadsheet;
@@ -84,7 +85,7 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  */
 public class ModernScrollPane extends ModernFocusableWidget implements
     ModernClickListener, HierarchyBoundsListener, ModernDataViewListener,
-    DocumentListener, ModernCanvasListener, ChangeListener {
+    DocumentListener, CanvasListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -441,7 +442,7 @@ public class ModernScrollPane extends ModernFocusableWidget implements
      */
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
-      if (e.getModifiers() != 0) {
+      if (MouseUtils.hasModifiers(e)) {
         return;
       }
 

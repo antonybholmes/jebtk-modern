@@ -74,6 +74,10 @@ public class ColorPicker extends ModernClickWidget {
   private static final Color SELECTION_COLOR = ThemeService.getInstance()
       .colors().getHighlight(10);
 
+  private static final int OFFSET = 0; // PADDING
+
+  private static final int DOUBLE_OFFSET = OFFSET * 2;
+
   /**
    * The p.
    */
@@ -108,6 +112,8 @@ public class ColorPicker extends ModernClickWidget {
    * The selected color.
    */
   private Color mSelectedColor;
+
+  private Dimension mSize;
 
   /**
    * The class MouseEvents.
@@ -153,8 +159,8 @@ public class ColorPicker extends ModernClickWidget {
      */
     @Override
     public void mouseMoved(MouseEvent e) {
-      int r = ((e.getY() - PADDING) / BLOCK_SIZE);
-      int c = ((e.getX() - PADDING) / SPACE);
+      int r = ((e.getY() - OFFSET) / BLOCK_SIZE);
+      int c = ((e.getX() - OFFSET) / SPACE);
 
       if (c < 0 || c >= mColors.size()) {
         return;
@@ -167,8 +173,8 @@ public class ColorPicker extends ModernClickWidget {
       mRow = r;
       mCol = c;
 
-      mP.x = PADDING + SPACE * mCol;
-      mP.y = PADDING + BLOCK_SIZE * mRow;
+      mP.x = OFFSET + SPACE * mCol;
+      mP.y = OFFSET + BLOCK_SIZE * mRow;
 
       repaint();
     }
@@ -202,11 +208,13 @@ public class ColorPicker extends ModernClickWidget {
   public void setColors(List<List<Color>> colors) {
     mColors = colors;
 
-    setPreferredSize(new Dimension(
+    mSize = new Dimension(
         BLOCK_SIZE * mColors.size() + GAP * (mColors.size() - 1)
-            + DOUBLE_PADDING,
-        mColors.get(0).size() * BLOCK_SIZE + DOUBLE_PADDING));
+        + DOUBLE_OFFSET + 1,
+        mColors.get(0).size() * BLOCK_SIZE + DOUBLE_OFFSET + 1);
   }
+
+
 
   /**
    * Sets the selected color.
@@ -246,8 +254,8 @@ public class ColorPicker extends ModernClickWidget {
     mSelectedRow = row;
     mSelectedCol = col;
 
-    mSelectedP.x = PADDING + SPACE * mSelectedCol;
-    mSelectedP.y = PADDING + BLOCK_SIZE * mSelectedRow;
+    mSelectedP.x = OFFSET + SPACE * mSelectedCol;
+    mSelectedP.y = OFFSET + BLOCK_SIZE * mSelectedRow;
 
     if (mSelectedCol < 0 || mSelectedCol > mColors.size()) {
       return;
@@ -290,11 +298,11 @@ public class ColorPicker extends ModernClickWidget {
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
-    int x = PADDING;
-    int y = PADDING;
+    int x = OFFSET;
+    int y = OFFSET;
 
     for (List<Color> column : mColors) {
-      y = PADDING;
+      y = OFFSET;
 
       for (Color c : column) {
         if (c != null) {
@@ -319,8 +327,8 @@ public class ColorPicker extends ModernClickWidget {
 
     g2.setColor(LINE_COLOR);
 
-    x = PADDING;
-    y = PADDING;
+    x = OFFSET;
+    y = OFFSET;
 
     int h = BLOCK_SIZE * mColors.get(0).size();
 
@@ -341,5 +349,20 @@ public class ColorPicker extends ModernClickWidget {
       g2.setColor(SELECTION_COLOR);
       g2.drawRect(mSelectedP.x, mSelectedP.y, BLOCK_SIZE, BLOCK_SIZE);
     }
+  }
+
+  @Override
+  public Dimension getPreferredSize() {
+    return mSize;
+  }
+
+  @Override
+  public Dimension getMinimumSize() {
+    return getPreferredSize();
+  }
+
+  @Override
+  public Dimension getMaximumSize() {
+    return getPreferredSize();
   }
 }

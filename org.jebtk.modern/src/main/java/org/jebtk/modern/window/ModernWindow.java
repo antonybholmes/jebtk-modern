@@ -200,12 +200,6 @@ public class ModernWindow extends JFrame
   }
 
   private class AllMouseEvents implements AWTEventListener {
-    private Component mContentPane;
-
-    public AllMouseEvents(Container contentPane) {
-      mContentPane = contentPane;
-    }
-
     @Override
     public void eventDispatched(AWTEvent e) {
       if (e.getID() == MouseEvent.MOUSE_PRESSED) {
@@ -289,8 +283,7 @@ public class ModernWindow extends JFrame
      */
 
     Toolkit.getDefaultToolkit().addAWTEventListener(
-        new AllMouseEvents(getContentPane()),
-        AWTEvent.MOUSE_EVENT_MASK);
+        new AllMouseEvents(), AWTEvent.MOUSE_EVENT_MASK);
   }
 
   /*

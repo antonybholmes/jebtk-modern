@@ -61,7 +61,7 @@ public class ImageCanvas extends ModernCanvas {
   /**
    * The class CanvasEvents.
    */
-  private class CanvasEvents extends ModernCanvasAdapter {
+  private class CanvasEvents extends CanvasAdapter {
 
     /*
      * (non-Javadoc)

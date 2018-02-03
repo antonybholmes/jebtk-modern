@@ -149,6 +149,8 @@ public class MaterialService {
       put("gray-outline",
           ThemeService.getInstance().colors().getHighlight32(15));
 
+      put("dialog.button.fill", Color.WHITE);
+      
       put("dialog.button.gradient.start",
           ThemeService.getInstance().colors().getHighlight32(2));
 
@@ -156,22 +158,22 @@ public class MaterialService {
           ThemeService.getInstance().colors().getHighlight32(3));
 
       put("dialog.button.outline",
-          ThemeService.getInstance().colors().getHighlight32(8));
+          ThemeService.getInstance().colors().getHighlight32(5));
 
       put("dialog.button.highlight",
-          ThemeService.getInstance().colors().getHighlight32(12));
+          ThemeService.getInstance().colors().getHighlight32(10));
 
       put("color.dialog.button.gradient.start",
-          ThemeService.getInstance().colors().getColorHighlight32(15));
+          ThemeService.getInstance().colors().getColorHighlight32(16));
 
       put("color.dialog.button.gradient.end",
-          ThemeService.getInstance().colors().getColorHighlight32(16));
+          ThemeService.getInstance().colors().getColorHighlight32(18));
 
       put("color.dialog.button.outline",
           ThemeService.getInstance().colors().getColorHighlight32(20));
 
       put("color.dialog.button.highlight",
-          ThemeService.getInstance().colors().getColorHighlight32(28));
+          ThemeService.getInstance().colors().getColorHighlight32(27));
 
       put("window.background",
           ThemeService.getInstance().colors().getHighlight32(0));

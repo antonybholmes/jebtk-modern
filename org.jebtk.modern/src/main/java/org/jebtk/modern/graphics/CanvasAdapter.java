@@ -31,53 +31,55 @@ import org.jebtk.core.event.ChangeEvent;
 
 // TODO: Auto-generated Javadoc
 /**
- * Generate canvas events.
- *
- * @author Antony Holmes Holmes
- *
+ * The class ModernCanvasAdapter.
  */
-public interface ModernCanvasEventProducer {
+public class CanvasAdapter implements CanvasListener {
 
-  /**
-   * Add an action listener.
-   *
-   * @param l the l
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasChanged(org.abh.
+   * lib .event.ChangeEvent)
    */
-  public void addCanvasListener(ModernCanvasListener l);
+  @Override
+  public void canvasChanged(ChangeEvent e) {
+    // Do nothing
+  }
 
-  /**
-   * Remove an action listener.
-   *
-   * @param l the l
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#redrawCanvas(org.abh.
+   * lib. event.ChangeEvent)
    */
-  public void removeCanvasListener(ModernCanvasListener l);
+  @Override
+  public void redrawCanvas(ChangeEvent e) {
+    // Do nothing
+  }
 
-  /**
-   * Indicate that the canvas needs to be layed out again (this may require
-   * recalculating positions etc and is considered the more expensive option).
-   *
-   * @param e the e
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasScrolled(org.abh.
+   * lib.event.ChangeEvent)
    */
-  public void fireCanvasChanged(ChangeEvent e);
+  @Override
+  public void canvasScrolled(ChangeEvent e) {
+    // Do nothing
+  }
 
-  /**
-   * Indicate that the canvas needs to be redrawn.
-   *
-   * @param e the e
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.
+   * common. event.ChangeEvent)
    */
-  public void fireCanvasRedraw(ChangeEvent e);
+  @Override
+  public void canvasResized(ChangeEvent e) {
+    // TODO Auto-generated method stub
 
-  /**
-   * Indicate the canvas has been scrolled.
-   *
-   * @param e the e
-   */
-  public void fireCanvasScrolled(ChangeEvent e);
-
-  /**
-   * Fire canvas resized.
-   *
-   * @param e the e
-   */
-  public void fireCanvasResized(ChangeEvent e);
+  }
 }

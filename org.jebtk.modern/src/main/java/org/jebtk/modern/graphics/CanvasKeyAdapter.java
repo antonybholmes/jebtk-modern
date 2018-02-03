@@ -27,32 +27,23 @@
  */
 package org.jebtk.modern.graphics;
 
+import java.awt.event.KeyEvent;
+
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernCanvasMouseAdapter.
  */
-public class ModernCanvasMouseAdapter implements ModernCanvasMouseListener {
+public class CanvasKeyAdapter implements CanvasKeyListener {
 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
-   * canvasMouseClicked( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyTyped(java.awt.
+   * event.KeyEvent)
    */
   @Override
-  public void canvasMouseClicked(CanvasMouseEvent e) {
-    // TODO Auto-generated method stub
-
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
-   * canvasMouseEntered( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-   */
-  @Override
-  public void canvasMouseEntered(CanvasMouseEvent e) {
+  public void canvasKeyTyped(KeyEvent e) {
     // TODO Auto-generated method stub
 
   }
@@ -61,47 +52,11 @@ public class ModernCanvasMouseAdapter implements ModernCanvasMouseListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseExited(
-   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyPressed(java.
+   * awt. event.KeyEvent)
    */
   @Override
-  public void canvasMouseExited(CanvasMouseEvent e) {
-    // TODO Auto-generated method stub
-
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
-   * canvasMousePressed( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-   */
-  @Override
-  public void canvasMousePressed(CanvasMouseEvent e) {
-    // TODO Auto-generated method stub
-
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
-   * canvasMouseReleased( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-   */
-  @Override
-  public void canvasMouseReleased(CanvasMouseEvent e) {
-    // TODO Auto-generated method stub
-
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
-   * canvasMouseDragged( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
-   */
-  @Override
-  public void canvasMouseDragged(CanvasMouseEvent e) {
+  public void canvasKeyPressed(KeyEvent e) {
     // TODO Auto-generated method stub
 
   }
@@ -110,12 +65,13 @@ public class ModernCanvasMouseAdapter implements ModernCanvasMouseListener {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(
-   * org .abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyReleased(java.
+   * awt .event.KeyEvent)
    */
   @Override
-  public void canvasMouseMoved(CanvasMouseEvent e) {
+  public void canvasKeyReleased(KeyEvent e) {
     // TODO Auto-generated method stub
+
   }
 
 }

@@ -52,6 +52,7 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
+import org.jebtk.modern.MouseUtils;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -63,7 +64,7 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public abstract class ModernScrollBar extends ModernWidget
-    implements ChangeEventProducer {
+implements ChangeEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -299,13 +300,9 @@ public abstract class ModernScrollBar extends ModernWidget
     public void mouseWheelMoved(MouseWheelEvent e) {
       // Don't scroll if keyboard modifiers are pressed so that alterntive
       // actions can be implemented without the scrolling interfering.
-      if (e.getModifiers() != 0) {
-        return;
+      if (!MouseUtils.hasModifiers(e)) {
+        mScroller.wheelScroll(e.getWheelRotation(), mView, mScrollBar);
       }
-
-      int notches = e.getWheelRotation();
-
-      mScroller.wheelScroll(notches, mView, mScrollBar);
     }
   }
 

@@ -27,59 +27,48 @@
  */
 package org.jebtk.modern.graphics;
 
-import org.jebtk.core.event.ChangeEvent;
+import java.awt.event.KeyEvent;
 
 // TODO: Auto-generated Javadoc
 /**
- * The class ModernCanvasAdapter.
+ * For classes that generate ModernClickEvents.
+ *
+ * @author Antony Holmes Holmes
  */
-public class ModernCanvasAdapter implements ModernCanvasListener {
+public interface CanvasKeyEventProducer {
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasChanged(org.abh.
-   * lib .event.ChangeEvent)
+  /**
+   * Adds the canvas key listener.
+   *
+   * @param l the l
    */
-  @Override
-  public void canvasChanged(ChangeEvent e) {
-    // Do nothing
-  }
+  public void addCanvasKeyListener(CanvasKeyListener l);
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#redrawCanvas(org.abh.
-   * lib. event.ChangeEvent)
+  /**
+   * Removes the canvas key listener.
+   *
+   * @param l the l
    */
-  @Override
-  public void redrawCanvas(ChangeEvent e) {
-    // Do nothing
-  }
+  public void removeCanvasKeyListener(CanvasKeyListener l);
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvasListener#canvasScrolled(org.abh.
-   * lib.event.ChangeEvent)
+  /**
+   * Fire canvas key typed.
+   *
+   * @param e the e
    */
-  @Override
-  public void canvasScrolled(ChangeEvent e) {
-    // Do nothing
-  }
+  public void fireCanvasKeyTyped(KeyEvent e);
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.graphics.ModernCanvasListener#canvasResized(org.abh.
-   * common. event.ChangeEvent)
+  /**
+   * Fire canvas key pressed.
+   *
+   * @param e the e
    */
-  @Override
-  public void canvasResized(ChangeEvent e) {
-    // TODO Auto-generated method stub
+  public void fireCanvasKeyPressed(KeyEvent e);
 
-  }
+  /**
+   * Fire canvas key released.
+   *
+   * @param e the e
+   */
+  public void fireCanvasKeyReleased(KeyEvent e);
 }

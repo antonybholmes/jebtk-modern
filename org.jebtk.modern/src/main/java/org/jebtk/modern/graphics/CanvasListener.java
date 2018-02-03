@@ -27,36 +27,51 @@
  */
 package org.jebtk.modern.graphics;
 
-import java.awt.event.KeyEvent;
 import java.util.EventListener;
+
+import org.jebtk.core.event.ChangeEvent;
 
 // TODO: Auto-generated Javadoc
 /**
- * Adapted mouse listener for the canvas.
+ * Notifies listeners that the canvas has changed (e.g. size) so should be
+ * redrawn or the container control adjusted accordingly.
  * 
  * @author Antony Holmes Holmes
  *
  */
-public interface ModernCanvasKeyListener extends EventListener {
+public interface CanvasListener extends EventListener {
 
   /**
-   * Canvas key typed.
+   * Notify parents to revalidate as the canvas has changed. This implies the
+   * whole underlying structure and or size has changed so it should be
+   * completely re-rendered.
    *
    * @param e the e
    */
-  public void canvasKeyTyped(KeyEvent e);
+  public void canvasChanged(ChangeEvent e);
 
   /**
-   * Canvas key pressed.
+   * When the canvas has repainted but the content has not changed. This is used
+   * in a canvas hierarchy to notify parents to repaint the children. It is
+   * designed to be less intensive than canvasChanged which will cause
+   * revalidation of components.
    *
    * @param e the e
    */
-  public void canvasKeyPressed(KeyEvent e);
+  public void redrawCanvas(ChangeEvent e);
 
   /**
-   * Canvas key released.
+   * Notify listeners that they should ensure the scroll point is visible.
    *
    * @param e the e
    */
-  public void canvasKeyReleased(KeyEvent e);
+  public void canvasScrolled(ChangeEvent e);
+
+  /**
+   * Notify the parents that the canvas has changed size, but the content is the
+   * same. This is designed to be less intensive than canvas changed.
+   *
+   * @param e the e
+   */
+  public void canvasResized(ChangeEvent e);
 }

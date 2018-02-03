@@ -50,7 +50,7 @@ import org.jebtk.modern.clipboard.ClipboardService;
 import org.jebtk.modern.clipboard.ClipboardUiControl;
 import org.jebtk.modern.dataview.sort.ModernDataSortModel;
 import org.jebtk.modern.event.ModernSelectionListener;
-import org.jebtk.modern.graphics.ModernCanvasAdapter;
+import org.jebtk.modern.graphics.CanvasAdapter;
 import org.jebtk.modern.zoom.ZoomCanvas;
 import org.jebtk.modern.zoom.ZoomModel;
 
@@ -190,7 +190,7 @@ public abstract class ModernData extends ZoomCanvas implements
    * @author Antony Holmes Holmes
    *
    */
-  private class CanvasEvents extends ModernCanvasAdapter {
+  private class CanvasEvents extends CanvasAdapter {
 
     /*
      * (non-Javadoc)

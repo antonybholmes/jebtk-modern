@@ -58,9 +58,9 @@ import org.jebtk.modern.graphics.CanvasCursorListener;
 import org.jebtk.modern.graphics.CanvasMouseEvent;
 import org.jebtk.modern.graphics.DrawingContext;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.graphics.ModernCanvasKeyAdapter;
-import org.jebtk.modern.graphics.ModernCanvasListener;
-import org.jebtk.modern.graphics.ModernCanvasMouseAdapter;
+import org.jebtk.modern.graphics.CanvasKeyAdapter;
+import org.jebtk.modern.graphics.CanvasListener;
+import org.jebtk.modern.graphics.CanvasMouseAdapter;
 import org.jebtk.modern.table.header.ModernMatrixTableCorner;
 import org.jebtk.modern.table.header.ModernTableHeader;
 import org.jebtk.modern.table.header.ModernTableHeaderColumn;
@@ -78,7 +78,7 @@ import org.jebtk.modern.zoom.ZoomModel;
  *
  */
 public class ModernTable extends ModernData implements ClipboardUiControl,
-    ModernSelectionListener, ModernCanvasListener, CanvasCursorListener {
+    ModernSelectionListener, CanvasListener, CanvasCursorListener {
 
   /**
    * The constant serialVersionUID.
@@ -230,7 +230,7 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
   /**
    * The class KeyEvents.
    */
-  private class KeyEvents extends ModernCanvasKeyAdapter {
+  private class KeyEvents extends CanvasKeyAdapter {
 
     /*
      * (non-Javadoc)
@@ -280,7 +280,7 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
   /**
    * The Class CanvasMouseEvents.
    */
-  private class CanvasMouseEvents extends ModernCanvasMouseAdapter {
+  private class CanvasMouseEvents extends CanvasMouseAdapter {
     /*
      * (non-Javadoc)
      * 

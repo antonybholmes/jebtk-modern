@@ -27,6 +27,7 @@
  */
 package org.jebtk.modern.dialog;
 
+import java.awt.AWTEvent;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -34,6 +35,9 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.awt.event.AWTEventListener;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JComponent;
 import javax.swing.JDialog;
@@ -53,6 +57,7 @@ import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.tooltip.ModernToolTipEvent;
 import org.jebtk.modern.tooltip.ModernToolTipListener;
+import org.jebtk.modern.tooltip.ToolTipService;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
@@ -70,6 +75,15 @@ public class ModernDialogWindow extends JDialog
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
+  
+  private class AllMouseEvents implements AWTEventListener {
+    @Override
+    public void eventDispatched(AWTEvent e) {
+      if (e.getID() == MouseEvent.MOUSE_PRESSED) {
+        doHideTooltips();
+      }
+    }
+  }
 
   /**
    * The constant STANDARD_LABEL_SIZE.
@@ -236,6 +250,17 @@ public class ModernDialogWindow extends JDialog
     setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
     UI.centerWindowToScreen(this);
+    
+    // Receive tooltips
+    
+    ToolTipService.getInstance().addToolTipListener(this);
+
+    //
+    // Listen for clicking anywhere on the window to get rid of the tool tip
+    //
+
+    Toolkit.getDefaultToolkit().addAWTEventListener(
+        new AllMouseEvents(), AWTEvent.MOUSE_EVENT_MASK);
   }
 
   /**
@@ -458,16 +483,7 @@ public class ModernDialogWindow extends JDialog
 
     // Hide any current ones
 
-    JLayeredPane layeredPane = getLayeredPane();
-
-    if (layeredPane == null) {
-      return;
-    }
-
-    for (Component c : layeredPane
-        .getComponentsInLayer(JLayeredPane.POPUP_LAYER)) {
-      layeredPane.remove(c);
-    }
+    hideToolTips();
 
     addToolTip(source, tooltip, p);
   }
@@ -476,8 +492,9 @@ public class ModernDialogWindow extends JDialog
       Component tooltip,
       Point p) {
 
+    
     JLayeredPane layeredPane = getLayeredPane();
-
+    
     if (layeredPane == null) {
       return;
     }
@@ -493,6 +510,22 @@ public class ModernDialogWindow extends JDialog
 
     validate();
     repaint();
+  }
+  
+  private synchronized void hideToolTips() {
+    // System.err.println("hide");
+
+    JLayeredPane layeredPane = getLayeredPane();
+    
+    for (Component c : layeredPane
+        .getComponentsInLayer(JLayeredPane.POPUP_LAYER)) {
+      layeredPane.remove(c);
+    }
+  }
+  
+  protected void doHideTooltips() {
+    ToolTipService.getInstance()
+        .hideToolTips(new ModernToolTipEvent(this, this));
   }
 
   @Override

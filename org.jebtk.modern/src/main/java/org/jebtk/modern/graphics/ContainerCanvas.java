@@ -47,7 +47,7 @@ import org.jebtk.core.geom.IntRect;
  *
  */
 public class ContainerCanvas extends ModernCanvas
-    implements ModernCanvasListener, CanvasCursorListener {
+    implements CanvasListener, CanvasCursorListener {
 
   /**
    * The constant serialVersionUID.

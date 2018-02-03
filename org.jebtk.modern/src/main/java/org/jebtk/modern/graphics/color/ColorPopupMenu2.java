@@ -31,13 +31,14 @@ import java.awt.Color;
 
 import javax.swing.Box;
 
+import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.dialog.ModernDialogStatus;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernPopupMenu2;
 import org.jebtk.modern.panel.VBox;
-import org.jebtk.modern.text.ModernDialogHeadingLabel;
+import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.window.ModernWindow;
 
@@ -116,11 +117,14 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
     Box box = new VBox();
     box.setBorder(BORDER);
 
-    box.add(new ModernDialogHeadingLabel("Theme Colors"));
+    box.add(new ModernAutoSizeLabel("Theme Colors"));
+    box.add(UI.createVGap(5));
     box.add(mColorPicker);
-    box.add(new ModernDialogHeadingLabel("Standard Colors"));
+    box.add(UI.createVGap(10));
+    box.add(new ModernAutoSizeLabel("Standard Colors"));
+    box.add(UI.createVGap(5));
     box.add(mStandardColorPicker);
-
+    box.add(UI.createVGap(10));
     add(box);
 
     // add(new ModernIconMenuItem("No Color",

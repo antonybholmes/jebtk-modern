@@ -37,8 +37,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernCanvasListeners extends EventProducer<ModernCanvasListener>
-    implements ModernCanvasEventProducer {
+public class CanvasListeners extends EventProducer<CanvasListener>
+    implements CanvasEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -53,7 +53,7 @@ public class ModernCanvasListeners extends EventProducer<ModernCanvasListener>
    * org.abh.lib.ui.modern.graphics.ModernCanvasListener)
    */
   @Override
-  public void addCanvasListener(ModernCanvasListener l) {
+  public void addCanvasListener(CanvasListener l) {
     // System.err.println("mcl add " + this + " " + l);
 
     mListeners.add(l);
@@ -66,7 +66,7 @@ public class ModernCanvasListeners extends EventProducer<ModernCanvasListener>
    * removeCanvasListener (org.abh.lib.ui.modern.graphics.ModernCanvasListener)
    */
   @Override
-  public void removeCanvasListener(ModernCanvasListener l) {
+  public void removeCanvasListener(CanvasListener l) {
     mListeners.remove(l);
   }
 
@@ -86,7 +86,7 @@ public class ModernCanvasListeners extends EventProducer<ModernCanvasListener>
    */
   @Override
   public void fireCanvasChanged(ChangeEvent e) {
-    for (ModernCanvasListener l : mListeners) {
+    for (CanvasListener l : mListeners) {
       l.canvasChanged(e);
     }
   }
@@ -107,7 +107,7 @@ public class ModernCanvasListeners extends EventProducer<ModernCanvasListener>
    */
   @Override
   public void fireCanvasRedraw(ChangeEvent e) {
-    for (ModernCanvasListener l : mListeners) {
+    for (CanvasListener l : mListeners) {
       l.redrawCanvas(e);
     }
   }
@@ -127,7 +127,7 @@ public class ModernCanvasListeners extends EventProducer<ModernCanvasListener>
    */
   @Override
   public void fireCanvasScrolled(ChangeEvent e) {
-    for (ModernCanvasListener l : mListeners) {
+    for (CanvasListener l : mListeners) {
       l.canvasScrolled(e);
     }
   }
@@ -147,7 +147,7 @@ public class ModernCanvasListeners extends EventProducer<ModernCanvasListener>
    */
   @Override
   public void fireCanvasResized(ChangeEvent e) {
-    for (ModernCanvasListener l : mListeners) {
+    for (CanvasListener l : mListeners) {
       l.canvasResized(e);
     }
   }

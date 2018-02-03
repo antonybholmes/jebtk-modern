@@ -27,74 +27,57 @@
  */
 package org.jebtk.modern.graphics;
 
+import org.jebtk.core.event.ChangeEvent;
+
 // TODO: Auto-generated Javadoc
 /**
- * For classes that generate ModernClickEvents.
+ * Generate canvas events.
  *
  * @author Antony Holmes Holmes
+ *
  */
-public interface ModernCanvasMouseEventProducer {
+public interface CanvasEventProducer {
 
   /**
    * Add an action listener.
    *
    * @param l the l
    */
-  public void addCanvasMouseListener(ModernCanvasMouseListener l);
+  public void addCanvasListener(CanvasListener l);
 
   /**
    * Remove an action listener.
    *
    * @param l the l
    */
-  public void removeCanvasMouseListener(ModernCanvasMouseListener l);
+  public void removeCanvasListener(CanvasListener l);
 
   /**
-   * Fire canvas mouse moved.
+   * Indicate that the canvas needs to be layed out again (this may require
+   * recalculating positions etc and is considered the more expensive option).
    *
    * @param e the e
    */
-  public void fireCanvasMouseMoved(CanvasMouseEvent e);
+  public void fireCanvasChanged(ChangeEvent e);
 
   /**
-   * Fire canvas mouse dragged.
+   * Indicate that the canvas needs to be redrawn.
    *
    * @param e the e
    */
-  public void fireCanvasMouseDragged(CanvasMouseEvent e);
+  public void fireCanvasRedraw(ChangeEvent e);
 
   /**
-   * Fire canvas mouse clicked.
+   * Indicate the canvas has been scrolled.
    *
    * @param e the e
    */
-  public void fireCanvasMouseClicked(CanvasMouseEvent e);
+  public void fireCanvasScrolled(ChangeEvent e);
 
   /**
-   * Fire canvas mouse pressed.
+   * Fire canvas resized.
    *
    * @param e the e
    */
-  public void fireCanvasMousePressed(CanvasMouseEvent e);
-
-  /**
-   * Fire canvas mouse released.
-   *
-   * @param e the e
-   */
-  public void fireCanvasMouseReleased(CanvasMouseEvent e);
-
-  /**
-   * Fire canvas mouse entered.
-   *
-   * @param e the e
-   */
-  public void fireCanvasMouseEntered(CanvasMouseEvent e);
-
-  /**
-   * Fire canvas mouse exited.
-   *
-   * @param e the e
-   */
-  public void fireCanvasMouseExited(CanvasMouseEvent e);
+  public void fireCanvasResized(ChangeEvent e);
 }

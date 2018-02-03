@@ -38,14 +38,14 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.button.ModernCheckRadioButton;
-import org.jebtk.modern.combobox.ModernComboBox;
+import org.jebtk.modern.combobox.ModernComboBox2;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ListVectorIcon;
 import org.jebtk.modern.graphics.icons.TreeVectorIcon;
 import org.jebtk.modern.menu.ModernCheckBoxMenuItem;
 import org.jebtk.modern.menu.ModernIconMenuItem;
-import org.jebtk.modern.menu.ModernScrollPopupMenu;
+import org.jebtk.modern.menu.ModernScrollPopupMenu2;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.ribbon.RibbonSubSectionSeparator;
@@ -89,12 +89,12 @@ public class SortPanel<T extends NameProperty> extends HBox
   /**
    * The member popup.
    */
-  private ModernScrollPopupMenu mPopup;
+  private ModernScrollPopupMenu2 mPopup;
 
   /**
    * The member sort field menu button.
    */
-  private ModernComboBox mSortFieldMenuButton;
+  private ModernComboBox2 mSortFieldMenuButton;
 
   /**
    * The member sort direction button.
@@ -191,7 +191,7 @@ public class SortPanel<T extends NameProperty> extends HBox
 
     add(ModernPanel.createHGap());
 
-    mPopup = new ModernScrollPopupMenu(); // parentFrame);
+    mPopup = new ModernScrollPopupMenu2(); // parentFrame);
 
     ModernClickWidget menuItem;
 
@@ -216,7 +216,7 @@ public class SortPanel<T extends NameProperty> extends HBox
     // sortFieldMenuButton = new ModernHiddenComboBox("Array Design", popup);
     // mSortFieldMenuButton = new ModernDropDownMenuLabelButton("Sort by",
     // popup);
-    mSortFieldMenuButton = new ModernComboBox(mPopup);
+    mSortFieldMenuButton = new ModernComboBox2(mPopup);
     mSortFieldMenuButton.addClickListener(this);
     UI.setSize(mSortFieldMenuButton, 250, ModernWidget.WIDGET_HEIGHT);
 

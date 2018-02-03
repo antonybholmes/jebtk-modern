@@ -27,51 +27,74 @@
  */
 package org.jebtk.modern.graphics;
 
-import java.awt.event.KeyEvent;
-
 // TODO: Auto-generated Javadoc
 /**
- * The class ModernCanvasMouseAdapter.
+ * For classes that generate ModernClickEvents.
+ *
+ * @author Antony Holmes Holmes
  */
-public class ModernCanvasKeyAdapter implements ModernCanvasKeyListener {
+public interface CanvasMouseEventProducer {
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyTyped(java.awt.
-   * event.KeyEvent)
+  /**
+   * Add an action listener.
+   *
+   * @param l the l
    */
-  @Override
-  public void canvasKeyTyped(KeyEvent e) {
-    // TODO Auto-generated method stub
+  public void addCanvasMouseListener(CanvasMouseListener l);
 
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyPressed(java.
-   * awt. event.KeyEvent)
+  /**
+   * Remove an action listener.
+   *
+   * @param l the l
    */
-  @Override
-  public void canvasKeyPressed(KeyEvent e) {
-    // TODO Auto-generated method stub
+  public void removeCanvasMouseListener(CanvasMouseListener l);
 
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyListener#canvasKeyReleased(java.
-   * awt .event.KeyEvent)
+  /**
+   * Fire canvas mouse moved.
+   *
+   * @param e the e
    */
-  @Override
-  public void canvasKeyReleased(KeyEvent e) {
-    // TODO Auto-generated method stub
+  public void fireCanvasMouseMoved(CanvasMouseEvent e);
 
-  }
+  /**
+   * Fire canvas mouse dragged.
+   *
+   * @param e the e
+   */
+  public void fireCanvasMouseDragged(CanvasMouseEvent e);
 
+  /**
+   * Fire canvas mouse clicked.
+   *
+   * @param e the e
+   */
+  public void fireCanvasMouseClicked(CanvasMouseEvent e);
+
+  /**
+   * Fire canvas mouse pressed.
+   *
+   * @param e the e
+   */
+  public void fireCanvasMousePressed(CanvasMouseEvent e);
+
+  /**
+   * Fire canvas mouse released.
+   *
+   * @param e the e
+   */
+  public void fireCanvasMouseReleased(CanvasMouseEvent e);
+
+  /**
+   * Fire canvas mouse entered.
+   *
+   * @param e the e
+   */
+  public void fireCanvasMouseEntered(CanvasMouseEvent e);
+
+  /**
+   * Fire canvas mouse exited.
+   *
+   * @param e the e
+   */
+  public void fireCanvasMouseExited(CanvasMouseEvent e);
 }

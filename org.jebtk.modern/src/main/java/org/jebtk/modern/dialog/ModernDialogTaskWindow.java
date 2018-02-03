@@ -41,8 +41,6 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.panel.ModernPanel;
-import org.jebtk.modern.tabs.IconTabsPanel;
-import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.text.ModernDialogHeadingLabel;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.IconTabs;
@@ -78,10 +76,6 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
       UI.BUTTON_CANCEL);
 
   private ModernHContentPane mContentPane = new ModernHContentPane();
-
-  private TabsModel mLeftTabsModel;
-
-  private IconTabsPanel mViewPanel;
 
   private IconTabs mIconTabs;
 

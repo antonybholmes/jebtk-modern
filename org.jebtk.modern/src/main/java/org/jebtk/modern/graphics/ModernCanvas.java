@@ -58,10 +58,10 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  *
  */
 public class ModernCanvas extends ModernFocusableWidget
-    implements ModernCanvasEventProducer, ModernCanvasMouseEventProducer,
-    CanvasMouseWheelEventProducer, ModernCanvasMouseListener,
-    CanvasMouseWheelListener, ModernCanvasKeyEventProducer,
-    ModernCanvasKeyListener, CanvasCursorEventProducer {
+    implements CanvasEventProducer, CanvasMouseEventProducer,
+    CanvasMouseWheelEventProducer, CanvasMouseListener,
+    CanvasMouseWheelListener, CanvasKeyEventProducer,
+    CanvasKeyListener, CanvasCursorEventProducer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -86,15 +86,15 @@ public class ModernCanvas extends ModernFocusableWidget
   /**
    * The member canvas listeners.
    */
-  private ModernCanvasListeners mCanvasListeners = new ModernCanvasListeners();
+  private CanvasListeners mCanvasListeners = new CanvasListeners();
 
   /**
    * The member canvas mouse listeners.
    */
-  private ModernCanvasMouseListeners mCanvasMouseListeners = new ModernCanvasMouseListeners();
+  private CanvasMouseListeners mCanvasMouseListeners = new CanvasMouseListeners();
 
   /** The m canvas key listeners. */
-  private ModernCanvasKeyListeners mCanvasKeyListeners = new ModernCanvasKeyListeners();
+  private CanvasKeyListeners mCanvasKeyListeners = new CanvasKeyListeners();
 
   /** The m canvas cursor listeners. */
   private CanvasCursorListeners mCanvasCursorListeners = new CanvasCursorListeners();
@@ -941,11 +941,9 @@ public class ModernCanvas extends ModernFocusableWidget
     // Rectangle r = getVisibleRect();
     // IntPos2D p = new IntPos2D(x + r.x, y + r.y);
 
-    IntPos2D p = new IntPos2D(x, y);
-
     // System.err.println("mview " + x + " " + y + " " + p + " " + mViewRect);
 
-    return p;
+    return new IntPos2D(x, y);
 
     // return new Point(x, y);
   }
@@ -969,7 +967,7 @@ public class ModernCanvas extends ModernFocusableWidget
    * org.abh.lib.ui.modern.graphics.ModernCanvasListener)
    */
   @Override
-  public void addCanvasListener(ModernCanvasListener l) {
+  public void addCanvasListener(CanvasListener l) {
     mCanvasListeners.addCanvasListener(l);
   }
 
@@ -980,7 +978,7 @@ public class ModernCanvas extends ModernFocusableWidget
    * removeCanvasListener (org.abh.lib.ui.modern.graphics.ModernCanvasListener)
    */
   @Override
-  public void removeCanvasListener(ModernCanvasListener l) {
+  public void removeCanvasListener(CanvasListener l) {
     mCanvasListeners.removeCanvasListener(l);
   }
 
@@ -1103,7 +1101,7 @@ public class ModernCanvas extends ModernFocusableWidget
    * ModernCanvasMouseListener)
    */
   @Override
-  public void addCanvasMouseListener(ModernCanvasMouseListener l) {
+  public void addCanvasMouseListener(CanvasMouseListener l) {
     mCanvasMouseListeners.addCanvasMouseListener(l);
   }
 
@@ -1115,7 +1113,7 @@ public class ModernCanvas extends ModernFocusableWidget
    * ModernCanvasMouseListener)
    */
   @Override
-  public void removeCanvasMouseListener(ModernCanvasMouseListener l) {
+  public void removeCanvasMouseListener(CanvasMouseListener l) {
     mCanvasMouseListeners.removeCanvasMouseListener(l);
   }
 
@@ -1389,7 +1387,7 @@ public class ModernCanvas extends ModernFocusableWidget
    * addCanvasKeyListener( org.abh.common.ui.graphics.ModernCanvasKeyListener)
    */
   @Override
-  public void addCanvasKeyListener(ModernCanvasKeyListener l) {
+  public void addCanvasKeyListener(CanvasKeyListener l) {
     mCanvasKeyListeners.addCanvasKeyListener(l);
   }
 
@@ -1400,7 +1398,7 @@ public class ModernCanvas extends ModernFocusableWidget
    * removeCanvasKeyListener(org.abh.common.ui.graphics.ModernCanvasKeyListener)
    */
   @Override
-  public void removeCanvasKeyListener(ModernCanvasKeyListener l) {
+  public void removeCanvasKeyListener(CanvasKeyListener l) {
     mCanvasKeyListeners.removeCanvasKeyListener(l);
   }
 

@@ -27,86 +27,95 @@
  */
 package org.jebtk.modern.graphics;
 
-import java.awt.event.KeyEvent;
-
-import org.jebtk.core.event.EventProducer;
-
 // TODO: Auto-generated Javadoc
 /**
- * The basis for model controls in a model view controller setup.
- * 
- * @author Antony Holmes Holmes
- *
+ * The class ModernCanvasMouseAdapter.
  */
-public class ModernCanvasKeyListeners
-    extends EventProducer<ModernCanvasKeyListener>
-    implements ModernCanvasKeyEventProducer {
-
-  /**
-   * The constant serialVersionUID.
-   */
-  private static final long serialVersionUID = 1L;
+public class CanvasMouseAdapter implements CanvasMouseListener {
 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
-   * addCanvasKeyListener( org.abh.common.ui.graphics.ModernCanvasKeyListener)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseClicked( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
-  public void addCanvasKeyListener(ModernCanvasKeyListener l) {
-    mListeners.add(l);
+  public void canvasMouseClicked(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
+
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
-   * removeCanvasKeyListener(org.abh.common.ui.graphics.ModernCanvasKeyListener)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseEntered( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
-  public void removeCanvasKeyListener(ModernCanvasKeyListener l) {
-    mListeners.remove(l);
+  public void canvasMouseEntered(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
+
   }
 
   /*
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyTyped(
-   * java.awt.event.KeyEvent)
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseExited(
+   * org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
-  public void fireCanvasKeyTyped(KeyEvent e) {
-    for (ModernCanvasKeyListener l : mListeners) {
-      l.canvasKeyTyped(e);
-    }
+  public void canvasMouseExited(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
+
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
-   * fireCanvasKeyPressed( java.awt.event.KeyEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMousePressed( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
-  public void fireCanvasKeyPressed(KeyEvent e) {
-    for (ModernCanvasKeyListener l : mListeners) {
-      l.canvasKeyPressed(e);
-    }
+  public void canvasMousePressed(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
+
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
-   * fireCanvasKeyReleased (java.awt.event.KeyEvent)
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseReleased( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
    */
   @Override
-  public void fireCanvasKeyReleased(KeyEvent e) {
-    for (ModernCanvasKeyListener l : mListeners) {
-      l.canvasKeyReleased(e);
-    }
+  public void canvasMouseReleased(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#
+   * canvasMouseDragged( org.abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseDragged(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
+
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.graphics.ModernCanvasMouseListener#canvasMouseMoved(
+   * org .abh.lib.ui.modern.graphics.CanvasMouseEvent)
+   */
+  @Override
+  public void canvasMouseMoved(CanvasMouseEvent e) {
+    // TODO Auto-generated method stub
   }
 
 }

@@ -15,7 +15,9 @@
  */
 package org.jebtk.modern;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 
 import org.jebtk.core.geom.IntPos2D;
 
@@ -55,5 +57,27 @@ public class MouseUtils {
    */
   public static MouseEvent updateXY(final MouseEvent e, final IntPos2D p) {
     return updateXY(e, p.getX(), p.getY());
+  }
+  
+  /**
+   * Returns true if the Ctrl key is pressed whilst the mouse event is
+   * triggered.
+   * 
+   * @param e
+   * @return
+   */
+  public static boolean ctrlPressed(final MouseEvent e) {
+    return (e.getModifiers() & ActionEvent.CTRL_MASK) == ActionEvent.CTRL_MASK;
+  }
+
+  /**
+   * Returns true if the mouse event has modifiers, i.e. keys are also pressed
+   * whilst the event is triggered.
+   * 
+   * @param e
+   * @return
+   */
+  public static boolean hasModifiers(MouseEvent e) {
+    return e.getModifiers() != 0;
   }
 }

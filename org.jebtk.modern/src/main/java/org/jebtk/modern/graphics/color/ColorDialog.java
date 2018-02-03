@@ -32,15 +32,12 @@ import java.awt.Color;
 import javax.swing.Box;
 
 import org.jebtk.core.ColorValue;
-import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.button.ModernRadioButton;
 import org.jebtk.modern.dialog.ModernDialogTaskWindow;
-import org.jebtk.modern.dialog.ModernDialogWindow;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
-import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.panel.VBox;
@@ -215,10 +212,7 @@ public class ColorDialog extends ModernDialogTaskWindow
 
     box1.add(box2);
 
-    setContent(
-        new CardPanel(new ModernComponent(box1, ModernWidget.QUAD_BORDER)));
-
-    setBackground(ModernDialogWindow.DIALOG_BACKGROUND);
+    setDialogCardContent(box1);
 
     //
     // Non UI

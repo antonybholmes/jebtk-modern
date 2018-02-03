@@ -29,46 +29,84 @@ package org.jebtk.modern.graphics;
 
 import java.awt.event.KeyEvent;
 
+import org.jebtk.core.event.EventProducer;
+
 // TODO: Auto-generated Javadoc
 /**
- * For classes that generate ModernClickEvents.
- *
+ * The basis for model controls in a model view controller setup.
+ * 
  * @author Antony Holmes Holmes
+ *
  */
-public interface ModernCanvasKeyEventProducer {
+public class CanvasKeyListeners
+    extends EventProducer<CanvasKeyListener>
+    implements CanvasKeyEventProducer {
 
   /**
-   * Adds the canvas key listener.
-   *
-   * @param l the l
+   * The constant serialVersionUID.
    */
-  public void addCanvasKeyListener(ModernCanvasKeyListener l);
+  private static final long serialVersionUID = 1L;
 
-  /**
-   * Removes the canvas key listener.
-   *
-   * @param l the l
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
+   * addCanvasKeyListener( org.abh.common.ui.graphics.ModernCanvasKeyListener)
    */
-  public void removeCanvasKeyListener(ModernCanvasKeyListener l);
+  @Override
+  public void addCanvasKeyListener(CanvasKeyListener l) {
+    mListeners.add(l);
+  }
 
-  /**
-   * Fire canvas key typed.
-   *
-   * @param e the e
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
+   * removeCanvasKeyListener(org.abh.common.ui.graphics.ModernCanvasKeyListener)
    */
-  public void fireCanvasKeyTyped(KeyEvent e);
+  @Override
+  public void removeCanvasKeyListener(CanvasKeyListener l) {
+    mListeners.remove(l);
+  }
 
-  /**
-   * Fire canvas key pressed.
-   *
-   * @param e the e
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#fireCanvasKeyTyped(
+   * java.awt.event.KeyEvent)
    */
-  public void fireCanvasKeyPressed(KeyEvent e);
+  @Override
+  public void fireCanvasKeyTyped(KeyEvent e) {
+    for (CanvasKeyListener l : mListeners) {
+      l.canvasKeyTyped(e);
+    }
+  }
 
-  /**
-   * Fire canvas key released.
-   *
-   * @param e the e
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
+   * fireCanvasKeyPressed( java.awt.event.KeyEvent)
    */
-  public void fireCanvasKeyReleased(KeyEvent e);
+  @Override
+  public void fireCanvasKeyPressed(KeyEvent e) {
+    for (CanvasKeyListener l : mListeners) {
+      l.canvasKeyPressed(e);
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.graphics.ModernCanvasKeyEventProducer#
+   * fireCanvasKeyReleased (java.awt.event.KeyEvent)
+   */
+  @Override
+  public void fireCanvasKeyReleased(KeyEvent e) {
+    for (CanvasKeyListener l : mListeners) {
+      l.canvasKeyReleased(e);
+    }
+  }
+
 }
