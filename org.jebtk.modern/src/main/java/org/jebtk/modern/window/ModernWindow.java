@@ -61,12 +61,14 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.Raster32Icon;
 import org.jebtk.modern.help.GuiAppInfo;
+import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.ribbon.RibbonFileMenu;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.tooltip.ModernToolTipEvent;
 import org.jebtk.modern.tooltip.ModernToolTipListener;
 import org.jebtk.modern.tooltip.ToolTipService;
+import org.jebtk.modern.widget.ModernWidget;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -461,6 +463,15 @@ public class ModernWindow extends JFrame
 
   public void setCenterTab(JComponent c) {
     getTabsPane().getModel().setCenterTab(c);
+  }
+  
+  /**
+   * Set the center content on top of a simple white panel.
+   * 
+   * @param c
+   */
+  public void setPanel(Component c) {
+    setCenterTab(new ModernPanel(c, ModernWidget.DOUBLE_BORDER));
   }
 
   /**
