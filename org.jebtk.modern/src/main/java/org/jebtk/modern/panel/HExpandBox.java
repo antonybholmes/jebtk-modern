@@ -16,13 +16,9 @@
 package org.jebtk.modern.panel;
 
 import java.awt.Component;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.UI;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -32,17 +28,15 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class HExpandBox extends ModernComponent implements ComponentListener {
+public class HExpandBox extends ModernComponent {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
   public HExpandBox() {
-    setLayout(null);
+    setLayout(new HExpandBoxLayout());
 
-    UI.setSize(this, ModernWidget.MAX_SIZE_24);
-
-    addComponentListener(this);
+    //UI.setSize(this, ModernWidget.MAX_SIZE_24);
   }
 
   /**
@@ -91,83 +85,5 @@ public class HExpandBox extends ModernComponent implements ComponentListener {
     for (Component c : others) {
       add(c);
     }
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see java.awt.event.ComponentListener#componentHidden(java.awt.event.
-   * ComponentEvent)
-   */
-  @Override
-  public void componentHidden(ComponentEvent arg0) {
-    // TODO Auto-generated method stub
-
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see java.awt.event.ComponentListener#componentMoved(java.awt.event.
-   * ComponentEvent)
-   */
-  @Override
-  public void componentMoved(ComponentEvent e) {
-    // TODO Auto-generated method stub
-
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see java.awt.event.ComponentListener#componentResized(java.awt.event.
-   * ComponentEvent)
-   */
-  @Override
-  public void componentResized(ComponentEvent e) {
-
-    int h = mInternalRect.getH();
-
-    Component c;
-
-    c = getComponent(0);
-    c.setBounds(getInsets().left,
-        getInsets().top,
-        c.getPreferredSize().width,
-        h);
-
-    // Determine the offset of the right components
-    int w = 0;
-
-    for (int i = 1; i < getComponentCount(); ++i) {
-      c = getComponent(i);
-
-      w += c.getPreferredSize().width;
-    }
-
-    int x = mRect.getW() - getInsets().right - w;
-
-    for (int i = 1; i < getComponentCount(); ++i) {
-      c = getComponent(i);
-
-      w = c.getPreferredSize().width;
-
-      c.setBounds(x, getInsets().top, w, h);
-
-      x += w;
-    }
-
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see java.awt.event.ComponentListener#componentShown(java.awt.event.
-   * ComponentEvent)
-   */
-  @Override
-  public void componentShown(ComponentEvent e) {
-    // TODO Auto-generated method stub
-
   }
 }

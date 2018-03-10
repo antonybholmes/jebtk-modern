@@ -35,6 +35,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
 import org.jebtk.core.settings.SettingsService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
@@ -53,8 +54,7 @@ public class ModernTextField extends JTextField implements TextProperty {
   /**
    * The constant TEXT_BOX_SIZE.
    */
-  public static final Dimension TEXT_BOX_SIZE = new Dimension(100,
-      ModernWidget.WIDGET_HEIGHT);
+  public static final Dimension TEXT_BOX_SIZE = new Dimension(100, 24);
 
   /**
    * The constant DISABLED_COLOR.
@@ -116,12 +116,12 @@ public class ModernTextField extends JTextField implements TextProperty {
     setSelectionColor(SELECTION_COLOR);
 
     setBorder(BorderFactory.createEmptyBorder());
-
+    
     setMinimumSize(
-        new Dimension(UIService.ICON_SIZE_24, ModernWidget.WIDGET_HEIGHT));
-    setMaximumSize(new Dimension(Short.MAX_VALUE, ModernWidget.WIDGET_HEIGHT));
+        new Dimension(UIService.ICON_SIZE_24, TEXT_BOX_SIZE.height));
+    setMaximumSize(new Dimension(Short.MAX_VALUE, TEXT_BOX_SIZE.height));
 
-    // Ui.setSize(this, TEXT_BOX_SIZE);
+    UI.setSize(this, TEXT_BOX_SIZE);
   }
 
   /**

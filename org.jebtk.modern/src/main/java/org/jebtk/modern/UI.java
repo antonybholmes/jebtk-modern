@@ -407,6 +407,23 @@ public class UI {
 
   public static final String ASSET_RIBBON_HOME = "Home"; // HOME;
 
+  public static final String ASSET_UPPERCASE = "UPPERCASE";
+  
+  public static final String ASSET_LOWERCASE = "lowercase";
+
+  public static final String ASSET_NAME = "Name";
+
+  public static final String ASSET_OUTPUT = "Output";
+
+  public static final String ASSET_LOCATION = "Location";
+
+  public static final String ASSET_OPTIONS = "Options";
+
+  public static final String ASSET_COLOR = "Color";
+
+  public static final String ASSET_GROUP = "Group";
+  
+
   static {
     // Determine if we should mac style buttons or not.
     if (OpSys.isMac() || SettingsService.getInstance()
@@ -710,7 +727,7 @@ public class UI {
    * @return the j component
    */
   public static JComponent setSize(JComponent c, int width) {
-    return setSize(c, new Dimension(width, width));
+    return setSize(c, width, c.getPreferredSize().height);
   }
 
   /**
