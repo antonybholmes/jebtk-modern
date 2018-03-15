@@ -138,7 +138,7 @@ public class SearchDialog extends ModernDialogTaskWindow
 
     content.setFooter(box);
 
-    setDialogCardContent(content);
+    setCard(content);
   }
 
   /**

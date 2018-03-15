@@ -422,6 +422,8 @@ public class UI {
   public static final String ASSET_COLOR = "Color";
 
   public static final String ASSET_GROUP = "Group";
+
+  public static final String ASSET_MENU = "Menu";
   
 
   static {

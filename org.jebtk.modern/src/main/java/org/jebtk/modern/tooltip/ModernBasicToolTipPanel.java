@@ -31,8 +31,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.text.ModernAutoSizeLabel;
-import org.jebtk.modern.text.ModernLabelBold;
+import org.jebtk.modern.text.ModernLabel;
+import org.jebtk.modern.text.ModernSubHeadingLabel;
 import org.jebtk.modern.text.ModernTextArea;
 
 // TODO: Auto-generated Javadoc
@@ -58,7 +58,7 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
   /**
    * The member title.
    */
-  private ModernAutoSizeLabel mTitle = new ModernLabelBold("");
+  private ModernLabel mTitle = new ModernSubHeadingLabel("");
 
   /**
    * The member text.

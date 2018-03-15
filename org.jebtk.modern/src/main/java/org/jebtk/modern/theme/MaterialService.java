@@ -67,6 +67,7 @@ public class MaterialService {
       put("title", ThemeService.loadFont("theme.material.fonts.title"));
       put("subtext", ThemeService.loadFont("theme.material.fonts.subtext"));
       put("widget", ThemeService.loadFont("theme.material.fonts.widget"));
+      put("sub-heading", ThemeService.loadFont("theme.material.fonts.sub-heading"));
     }
 
     /**
@@ -94,6 +95,10 @@ public class MaterialService {
      */
     public Font widget() {
       return get("widget");
+    }
+    
+    public Font subHeading() {
+      return get("sub-heading");
     }
   }
 

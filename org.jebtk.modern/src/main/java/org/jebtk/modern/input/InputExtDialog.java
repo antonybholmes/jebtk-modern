@@ -103,7 +103,7 @@ public class InputExtDialog extends ModernDialogTaskWindow
     ModernScrollPane scrollPane = new ModernScrollPane(mText);
     scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
 
-    setDialogCardContent(scrollPane);
+    setCard(scrollPane);
   }
 
   /**

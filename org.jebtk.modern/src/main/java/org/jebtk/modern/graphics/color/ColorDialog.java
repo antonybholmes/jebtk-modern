@@ -212,7 +212,7 @@ public class ColorDialog extends ModernDialogTaskWindow
 
     box1.add(box2);
 
-    setDialogCardContent(box1);
+    setCard(box1);
 
     //
     // Non UI

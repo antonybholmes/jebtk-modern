@@ -107,7 +107,7 @@ public class ModernNumericalInputDialog extends ModernDialogTaskWindow {
     box.add(Box.createHorizontalGlue());
     box.add(mSpinner);
 
-    setDialogCardContent(box);
+    setCard(box);
   }
 
   /**

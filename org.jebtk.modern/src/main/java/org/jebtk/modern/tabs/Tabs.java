@@ -155,9 +155,16 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * @param pane the pane
    */
   public void addTab(Tab pane) {
-    mNameIndexMap.put(pane.getName(), mTabs.size());
-    mTabs.add(pane);
+    String name = pane.getName();
 
+    if (mNameIndexMap.containsKey(name)) {
+      // Over
+      mTabs.set(mNameIndexMap.get(name), pane);
+    } else {
+      mNameIndexMap.put(name, mTabs.size());
+      mTabs.add(pane);
+    }
+    
     pane.addTabListener(mTe);
 
     fireTabAdded(new TabEvent(this, pane));
@@ -264,6 +271,21 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
     }
 
     return mTabs.get(i);
+  }
+
+  /**
+   * Get a tab by name.
+   * 
+   * @param name
+   * @return
+   */
+  public Tab getTab(String name) {
+    if (!mNameIndexMap.containsKey(name)) {
+      return null;
+    }
+
+
+    return getTab(mNameIndexMap.get(name));
   }
 
   /**

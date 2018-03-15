@@ -177,7 +177,7 @@ public class ZoomDialog extends ModernDialogTaskWindow {
     hbox.add(new ModernAutoSizeLabel("%"));
     box.add(hbox);
 
-    setDialogCardContent(box);
+    setCard(box);
 
     mTextCustom.setText(Integer.toString((int) (model.getZoom() * 100)));
 

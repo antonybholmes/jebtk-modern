@@ -181,7 +181,7 @@
 				</setting>
 
 				<setting name="sub-heading">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Product Sans" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="14" />
 				</setting>
@@ -211,10 +211,15 @@
 					<setting name="style" value="plain" />
 					<setting name="size" value="12" />
 				</setting>
-				<setting name="widget">
+				  <setting name="widget">
+          <setting name="family" value="Product Sans" />
+          <setting name="style" value="plain" />
+          <setting name="size" value="12" />
+        </setting>
+				<setting name="sub-heading">
 					<setting name="family" value="Product Sans" />
 					<setting name="style" value="plain" />
-					<setting name="size" value="12" />
+					<setting name="size" value="14" />
 				</setting>
 			</setting>
 		</setting>

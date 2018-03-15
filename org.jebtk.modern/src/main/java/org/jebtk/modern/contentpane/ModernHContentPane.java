@@ -521,6 +521,21 @@ public class ModernHContentPane extends ModernWidget {
       int maxWidth) {
     getModel().addLeftTab(name, c, width, minWidth, maxWidth);
   }
+  
+  /**
+   * Returns the component associated
+   * @param name
+   * @param width
+   * @param minWidth
+   * @param maxWidth
+   * @return
+   */
+  public ModernComponent leftTab(String name,
+      int width,
+      int minWidth,
+      int maxWidth) {
+    return getModel().leftTab(name, width, minWidth, maxWidth);
+  }
 
   public void addRightTab(String name,
       ModernComponent c,

@@ -342,21 +342,8 @@ public class ModernDialogWindow extends JDialog
     setBackground(Color.WHITE);
   }
 
-  /**
-   * Set the dialog to contain a card panel.
-   * 
-   * @param c
-   */
-  public void setCardContent(JComponent c) {
-    setInternalContent(new CardPanel(c, ModernWidget.QUAD_BORDER));
-
-    // Auto set the background to dark so that the card contrasts.
-    setDarkBackground();
-  }
-
-  public void setDialogCardContent(JComponent c) {
-    setInternalContent(
-        new ModernComponent(new CardPanel(c), ModernWidget.DOUBLE_BORDER));
+  public void setCard(JComponent c) {
+    setInternalContent(new CardPanel(c, ModernWidget.DOUBLE_BORDER));
 
     // Auto set the background to dark so that the card contrasts.
     setDarkBackground();

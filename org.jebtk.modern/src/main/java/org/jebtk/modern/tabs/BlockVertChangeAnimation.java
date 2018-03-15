@@ -52,7 +52,6 @@ public class BlockVertChangeAnimation extends TranslateYAnimation {
     });
 
     mTabs.addComponentListener(new ComponentAdapter() {
-
       @Override
       public void componentResized(ComponentEvent arg0) {
         restart();

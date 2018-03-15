@@ -15,17 +15,13 @@
  */
 package org.jebtk.modern.dialog;
 
-import java.awt.Component;
-
 import javax.swing.JComponent;
 
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.panel.Card;
 import org.jebtk.modern.tabs.BlockVertTabs;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.tabs.TabsViewPanel;
-import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.WindowWidgetFocusEvents;
 
@@ -112,7 +108,7 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
 
     setDarkBackground();
 
-    createUi(type);
+    createUi();
 
     addWindowListener(new WindowWidgetFocusEvents(mOkButton));
 
@@ -147,55 +143,17 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
    *
    * @param type the type
    */
-  private final void createUi(ModernDialogTaskType type) {
-    // this.getWindowContentPanel().add(new JLabel("Change " +
-    // getProductDetails().getProductName() + " settings", JLabel.LEFT),
-    // BorderLayout.PAGE_START);
-
-    // VBox();
-
-    // Left Panel
-
+  private final void createUi() {
     BlockVertTabs tabs = new BlockVertTabs(mTabsModel, 40);
-
-    // ModernComponent leftPanel = new RightLineBorderComponent(tabs,
-    // ModernWidget.LIGHT_LINE_COLOR);
-
-    // ModernComponent leftPanel = new ModernComponent(tabs);
-
-    // LeftShadowPanel
-
-    // if (mHelpButton != null) {
-    // leftPanel.setFooter(new ModernComponent(mHelpButton,
-    // ModernWidget.DOUBLE_PADDING));
-    // }
-
-    UI.setSize(tabs, 160, Short.MAX_VALUE);
-
-    ModernComponent panel = new ModernComponent();
 
     mTabsPanel.setBody(tabs);
 
-    panel.setLeft(mTabsPanel);
+    setCard(mViewPanel);
 
-    // getButtonBar().addLeft(mHelpButton);
-
-    // ModernComponent content = new ModernPanel();
-
-    ModernComponent tabsPanel = new ModernComponent(
-        new Card(new ModernComponent(mViewPanel, ModernWidget.QUAD_BORDER)),
-        ModernWidget.DOUBLE_BORDER);
-
-    // content.setBody(tabsPanel);
-
-    panel.setBody(tabsPanel);
-
-    setInternalContent(panel);
-
-    // setup(type);
+    getTabsPane().leftTab(UI.ASSET_MENU, 160, 100, 300).setBody(mTabsPanel);
   }
-
-  public void setLeftSecondary(Component c) {
-    mTabsPanel.setFooter(c);
+  
+  public ModernComponent leftTab() {
+    return getTabsPane().leftTab(UI.ASSET_MENU, 160, 100, 300);
   }
 }

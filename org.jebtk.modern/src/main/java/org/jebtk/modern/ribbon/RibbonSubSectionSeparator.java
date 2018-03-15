@@ -86,9 +86,9 @@ public class RibbonSubSectionSeparator extends ModernWidget {
     g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
 
     g2.drawLine(MID_POINT,
-        mInternalRect.getY() + PADDING,
+        mInternalRect.getY() + DOUBLE_PADDING,
         MID_POINT,
-        mInternalRect.getY() + mInternalRect.getH() - PADDING);
+        mInternalRect.getY() + mInternalRect.getH() - DOUBLE_PADDING);
 
     /*
      * GradientPaint gradient = new GradientPaint(0, y, Color.WHITE, 0, h2 + y,

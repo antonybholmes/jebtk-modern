@@ -27,12 +27,12 @@
  */
 package org.jebtk.modern.tabs;
 
-import java.awt.Component;
 import java.util.Iterator;
 
 import javax.swing.JComponent;
 
 import org.jebtk.core.collections.CollectionUtils;
+import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.contentpane.CenterTab;
 import org.jebtk.modern.contentpane.SizableContentPane;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -281,6 +281,17 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
       int minWidth,
       int maxWidth) {
     addLeftTab(new SizableContentPane(name, c, width, minWidth, maxWidth));
+  }
+  
+  public ModernComponent leftTab(String name,
+      int width,
+      int minWidth,
+      int maxWidth) {
+    if (!getLeftTabs().containsTab(name)) {
+      getLeftTabs().addTab(new SizableContentPane(name, new ModernComponent(), width, minWidth, maxWidth));
+    }
+    
+    return (ModernComponent)getLeftTabs().getTab(name).getComponent();
   }
 
   /**

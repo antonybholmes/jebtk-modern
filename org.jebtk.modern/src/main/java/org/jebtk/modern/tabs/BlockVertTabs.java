@@ -171,7 +171,7 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
 
     g2.setColor(TEXT_COLOR);
 
-    int x = getWidth() / 4;
+    int x = getWidth() / 5;
 
     for (int i = 0; i < n; ++i) {
       // boolean selected = i == selectedIndex;

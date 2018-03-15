@@ -32,6 +32,7 @@ import java.awt.Font;
 
 import javax.swing.border.Border;
 
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ThemeService;
 
 // TODO: Auto-generated Javadoc
@@ -48,8 +49,8 @@ public class ModernSubHeadingLabel extends ModernAutoSizeLabel {
   /**
    * The constant SUB_HEADING_FONT.
    */
-  private static final Font SUB_HEADING_FONT = ThemeService
-      .loadFont("theme.widget.fonts.sub-heading");
+  private static final Font SUB_HEADING_FONT = MaterialService.getInstance()
+      .fonts().subHeading();
 
   /**
    * Instantiates a new modern sub heading label.
