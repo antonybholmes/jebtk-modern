@@ -28,14 +28,14 @@
 package org.jebtk.modern.zoom;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.combobox.ModernComboBox;
+import org.jebtk.modern.combobox.ModernComboBox2;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
  * The class ZoomComboBox.
  */
-public class ZoomComboBox extends ModernComboBox {
+public class ZoomComboBox extends ModernComboBox2 {
 
   /**
    * The constant serialVersionUID.

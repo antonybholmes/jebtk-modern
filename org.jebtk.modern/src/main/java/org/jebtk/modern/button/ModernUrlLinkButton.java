@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import org.jebtk.core.network.UrlUtils;
+import org.jebtk.core.network.URLUtils;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -96,7 +96,7 @@ public class ModernUrlLinkButton extends ModernLinkButton {
       @Override
       public void clicked(ModernClickEvent e) {
         try {
-          UrlUtils.launch(mUrl);
+          URLUtils.launch(mUrl);
         } catch (URISyntaxException e1) {
           e1.printStackTrace();
         } catch (IOException e1) {
@@ -122,7 +122,7 @@ public class ModernUrlLinkButton extends ModernLinkButton {
       @Override
       public void clicked(ModernClickEvent e) {
         try {
-          UrlUtils.mailto(mEmail);
+          URLUtils.mailto(mEmail);
         } catch (URISyntaxException e1) {
           e1.printStackTrace();
         } catch (IOException e1) {

@@ -33,7 +33,7 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.combobox.ModernComboBox;
+import org.jebtk.modern.combobox.ModernComboBox2;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.HBox;
@@ -59,7 +59,7 @@ public class ZoomRibbonPanel extends HBox
   /**
    * The member zoom combo.
    */
-  private ModernComboBox mZoomCombo = new ZoomComboBox();
+  private ModernComboBox2 mZoomCombo = new ZoomComboBox();
 
   /**
    * The member zoom.
@@ -119,11 +119,7 @@ public class ZoomRibbonPanel extends HBox
    * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
-    try {
-      parseZoom();
-    } catch (ParseException e1) {
-      e1.printStackTrace();
-    }
+    parseZoom();
   }
 
   /*
@@ -151,7 +147,7 @@ public class ZoomRibbonPanel extends HBox
    *
    * @throws ParseException the parse exception
    */
-  private void parseZoom() throws ParseException {
+  private void parseZoom() {
     setZoom(TextUtils.parseDouble(mZoomCombo.getText()) / 100.0);
   }
 

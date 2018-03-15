@@ -127,7 +127,7 @@
 
 			<setting name="fonts">
 				<setting name="text">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Product Sans" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="12" />
 				</setting>
@@ -197,22 +197,22 @@
 		<setting name="material">
 			<setting name="fonts">
 				<setting name="text">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Product Sans" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="14" />
 				</setting>
 				<setting name="title">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Product Sans" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="36" />
 				</setting>
 				<setting name="subtext">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Product Sans" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="12" />
 				</setting>
 				<setting name="widget">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Product Sans" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="12" />
 				</setting>
@@ -222,7 +222,7 @@
 		<setting name="ribbon">
 			<setting name="fonts">
 				<setting name="tab">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Product Sans" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="14" />
 				</setting>

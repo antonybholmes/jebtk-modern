@@ -294,9 +294,6 @@ public class Ribbon extends ModernClickWidget
   public static final Color SEPARATOR_COLOR = ThemeService.getInstance()
       .colors().getHighlight(3);
 
-  /** The default width of a tab to make ribbon tabs as uniform as possible. */
-  private static final int DEFAULT_TAB_WIDTH = 60;
-
   /**
    * The member tabs panel.
    */

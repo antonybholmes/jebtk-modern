@@ -28,13 +28,12 @@
 package org.jebtk.modern.panel;
 
 import java.awt.Component;
-import java.awt.Graphics2D;
+import java.awt.Insets;
 
 import javax.swing.border.Border;
 
 import org.jebtk.modern.BorderService;
-import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.theme.MaterialUtils;
+import org.jebtk.modern.ModernComponent;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -43,7 +42,7 @@ import org.jebtk.modern.theme.MaterialUtils;
  * @author Antony Holmes Holmes
  *
  */
-public class CardPanel extends Card {
+public class CardPanel extends ModernComponent {
 
   /**
    * The constant serialVersionUID.
@@ -51,10 +50,10 @@ public class CardPanel extends Card {
   private static final long serialVersionUID = 1L;
 
   public static final Border CARD_BORDER = BorderService.getInstance()
-      .createBorder(HALF_SHADOW_SIZE + QUAD_PADDING);
+      .createBorder(QUAD_PADDING);
 
   public CardPanel() {
-    setBorder(CARD_BORDER);
+   // setBorder(CARD_BORDER);
   }
 
   /**
@@ -64,8 +63,20 @@ public class CardPanel extends Card {
    * @param content the content
    */
   public CardPanel(Component content) {
+    this(content, CARD_BORDER);
+  }
+  
+  public CardPanel(Component content, Border border) {
+    super(new Card(content));
+
+    Insets insets = border.getBorderInsets(this);
+
+    setBorder(border);
+  }
+  
+  public CardPanel(Component content, int border) {
     super(content);
 
-    setBorder(CARD_BORDER);
+    setBorder(BorderService.getInstance().createBorder(border));
   }
 }

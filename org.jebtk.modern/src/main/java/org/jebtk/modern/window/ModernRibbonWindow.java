@@ -42,7 +42,6 @@ import javax.swing.border.Border;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.BorderService;
-import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.dialog.DialogEventListener;
 import org.jebtk.modern.dialog.MessageDialogOkCancelGlassPane;
 import org.jebtk.modern.dialog.MessageDialogTaskGlassPane;
@@ -300,7 +299,7 @@ public class ModernRibbonWindow extends ModernWindow {
    * @param c
    */
   public void setCard(Component c) {
-    setCenterTab(new ModernComponent(new CardPanel(c), ModernWidget.DOUBLE_BORDER));
+    setCenterTab(new CardPanel(c, ModernWidget.DOUBLE_BORDER));
   }
 
   /**

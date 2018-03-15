@@ -48,9 +48,7 @@ public class MaterialService {
     return MaterialServiceLoader.INSTANCE;
   }
 
-  /** The Constant LOG. */
-  private final static Logger LOG = LoggerFactory
-      .getLogger(MaterialService.class);
+
 
   public static final Color TEXT_COLOR = ThemeService.getInstance().colors()
       .getTextColor();

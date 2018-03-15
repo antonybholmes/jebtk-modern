@@ -33,7 +33,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import org.jebtk.core.network.UrlUtils;
+import org.jebtk.core.network.URLUtils;
 import org.jebtk.core.settings.Setting;
 
 // TODO: Auto-generated Javadoc
@@ -64,7 +64,7 @@ public class HelpManager {
    * @throws IOException Signals that an I/O exception has occurred.
    */
   public static void launchHelp(File file) throws IOException {
-    UrlUtils.launch(file.toURI());
+    URLUtils.launch(file.toURI());
   }
 
   /**
@@ -163,7 +163,7 @@ public class HelpManager {
       throws IOException, URISyntaxException {
     System.err.println("Help URL " + url);
 
-    UrlUtils.launch(url.toURI());
+    URLUtils.launch(url.toURI());
   }
 
   /**
@@ -175,7 +175,7 @@ public class HelpManager {
    */
   public static void launchHelp(URI url)
       throws IOException, URISyntaxException {
-    UrlUtils.launch(url);
+    URLUtils.launch(url);
   }
 
 }

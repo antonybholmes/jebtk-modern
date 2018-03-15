@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import org.jebtk.core.network.UrlUtils;
+import org.jebtk.core.network.URLUtils;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -126,7 +126,7 @@ public class ModernMenuHelpItem extends ModernIconMenuItem {
       @Override
       public void clicked(ModernClickEvent e) {
         try {
-          UrlUtils.launch(mUrl);
+          URLUtils.launch(mUrl);
         } catch (URISyntaxException e1) {
           e1.printStackTrace();
         } catch (IOException e1) {

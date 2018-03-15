@@ -36,7 +36,7 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernButton;
-import org.jebtk.modern.combobox.ModernComboBox;
+import org.jebtk.modern.combobox.ModernComboBox2;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.MinusVectorIcon;
@@ -76,7 +76,7 @@ public class ZoomToolsPanel extends ModernWidget
   /**
    * The member zoom combo.
    */
-  private ModernComboBox mZoomCombo = new ZoomComboBox();
+  private ModernComboBox2 mZoomCombo = new ZoomComboBox();
 
   /**
    * The member zoom.
@@ -146,11 +146,7 @@ public class ZoomToolsPanel extends ModernWidget
     } else if (e.getSource().equals(mZoomInButton)) {
       setZoom(mZoom + 0.25);
     } else if (e.getSource().equals(mZoomCombo)) {
-      try {
-        parseZoom();
-      } catch (ParseException e1) {
-        e1.printStackTrace();
-      }
+      parseZoom();
     } else {
       // do nothing
     }
@@ -171,7 +167,7 @@ public class ZoomToolsPanel extends ModernWidget
    *
    * @throws ParseException the parse exception
    */
-  private void parseZoom() throws ParseException {
+  private void parseZoom() {
     setZoom(TextUtils.parseDouble(mZoomCombo.getText()) / 100.0);
   }
 

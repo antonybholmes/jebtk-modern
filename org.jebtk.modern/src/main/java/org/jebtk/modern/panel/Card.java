@@ -41,9 +41,9 @@ public class Card extends ModernComponent {
    * corners rather than running into them.
    */
   private static final Border CARD_BORDER = BorderService.getInstance()
-      .createBorder(HALF_SHADOW_SIZE + ROUNDING,
+      .createBorder(HALF_SHADOW_SIZE,
           HALF_SHADOW_SIZE,
-          HALF_SHADOW_SIZE + ROUNDING,
+          HALF_SHADOW_SIZE,
           HALF_SHADOW_SIZE);
 
   public static final Color COLOR = ColorUtils.getTransparentColor(Color.BLACK,

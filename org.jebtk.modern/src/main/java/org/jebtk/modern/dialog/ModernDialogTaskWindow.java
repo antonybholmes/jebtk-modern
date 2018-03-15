@@ -164,8 +164,8 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
    */
   public void setCard(Component c) {
     getTabsPane().getModel()
-        .setCenterTab(new ModernComponent(
-            new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER)),
+        .setCenterTab(
+            new CardPanel(new ModernComponent(c, ModernWidget.QUAD_BORDER),
             ModernWidget.DOUBLE_BORDER));
 
     setDarkBackground();
@@ -250,9 +250,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
    */
   @Override
   public void setContent(JComponent c) {
-    setInternalContent(new ModernComponent(c, ModernWidget.QUAD_BORDER)); // c);
-                                                                          // //new
-                                                                          // ModernDialogContentPanel(c));
+    setInternalContent(new ModernComponent(c, ModernWidget.QUAD_BORDER));
   }
 
   /**

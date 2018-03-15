@@ -471,9 +471,12 @@ public class ModernComponent extends JComponent {
    * Set a uniform border of {@code border} pixels.
    *
    * @param border the new border
+   * @return 
    */
-  public void setBorder(int border) {
+  public ModernComponent setBorder(int border) {
     setBorder(BorderService.getInstance().createBorder(border));
+    
+    return this;
   }
 
   public ModernComponent border(Border border) {
@@ -496,6 +499,10 @@ public class ModernComponent extends JComponent {
     setInternalDimension(border.getBorderInsets(this));
 
     super.setBorder(border);
+  }
+  
+  public Component bottomBorder(int padding) {
+    return border(BorderService.getInstance().createBorder(getInsets().top, getInsets().left, padding, getInsets().right));
   }
 
   /*
@@ -942,4 +949,6 @@ public class ModernComponent extends JComponent {
   public void removeComponentListener(ComponentListener l) {
     mListeners.removeComponentListener(l);
   }
+
+  
 }
