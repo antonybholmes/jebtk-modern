@@ -87,12 +87,12 @@ public class CloseableHTab extends HTab {
    */
   public CloseableHTab(String title, Component content,
       ModernHContentPane viewer) {
-    this(title, content, viewer.getModel());
+    this(title, content, viewer.tabs());
   }
 
   public CloseableHTab(String title, Component content,
       ModernHContentPane viewer, Border border) {
-    this(title, content, viewer.getModel(), border);
+    this(title, content, viewer.tabs(), border);
   }
 
   /**

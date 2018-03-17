@@ -33,6 +33,8 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
@@ -52,6 +54,7 @@ import javax.swing.JWindow;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 
+import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.contentpane.ModernHContentPane;
@@ -61,7 +64,6 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.Raster32Icon;
 import org.jebtk.modern.help.GuiAppInfo;
-import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.ribbon.RibbonFileMenu;
 import org.jebtk.modern.theme.ThemeService;
@@ -234,7 +236,8 @@ public class ModernWindow extends JFrame
    */
   public ModernWindow(GuiAppInfo appInfo) {
     setAppInfo(appInfo);
-
+    
+    
     mRibbonMenu = new RibbonFileMenu(this);
 
     mCards.add(mRibbonMenu, MENU_CARD);
@@ -457,12 +460,12 @@ public class ModernWindow extends JFrame
    * 
    * @return
    */
-  public ModernHContentPane getTabsPane() {
+  public ModernHContentPane tabsPane() {
     return mTabsPane;
   }
 
   public void setCenterTab(JComponent c) {
-    getTabsPane().getModel().setCenterTab(c);
+    tabsPane().tabs().setCenterTab(c);
   }
   
   /**

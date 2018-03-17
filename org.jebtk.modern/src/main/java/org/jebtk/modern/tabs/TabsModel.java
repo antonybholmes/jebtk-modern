@@ -34,7 +34,6 @@ import javax.swing.JComponent;
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.contentpane.CenterTab;
-import org.jebtk.modern.contentpane.SizableContentPane;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
 // TODO: Auto-generated Javadoc
@@ -164,9 +163,9 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
     if (i == mLeftTabs.size()) {
       return mCenterTab;
     } else if (i > mLeftTabs.size()) {
-      return mRightTabs.getTab(i - mLeftTabs.size() - 1);
+      return mRightTabs.get(i - mLeftTabs.size() - 1);
     } else {
-      return mLeftTabs.getTab(i);
+      return mLeftTabs.get(i);
     }
   }
 
@@ -236,7 +235,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
     if (tab.getName().equals(TabsModel.CENTER_PANE)) {
       setCenterTab(tab);
     } else {
-      addLeftTab(tab);
+      left().add(tab);
     }
   }
 
@@ -262,81 +261,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
     fireTabAdded(new TabEvent(this, tab));
   }
 
-  public void addLeftTab(String name, JComponent c, int width) {
-    addLeftTab(name, c, width, width, width);
-  }
-
-  /**
-   * Add a resizable left tab.
-   * 
-   * @param name
-   * @param c
-   * @param width
-   * @param minWidth
-   * @param maxWidth
-   */
-  public void addLeftTab(String name,
-      JComponent c,
-      int width,
-      int minWidth,
-      int maxWidth) {
-    addLeftTab(new SizableContentPane(name, c, width, minWidth, maxWidth));
-  }
   
-  public ModernComponent leftTab(String name,
-      int width,
-      int minWidth,
-      int maxWidth) {
-    if (!getLeftTabs().containsTab(name)) {
-      getLeftTabs().addTab(new SizableContentPane(name, new ModernComponent(), width, minWidth, maxWidth));
-    }
-    
-    return (ModernComponent)getLeftTabs().getTab(name).getComponent();
-  }
-
-  /**
-   * Adds the left.
-   *
-   * @param tab the tab
-   */
-  public void addLeftTab(Tab tab) {
-    getLeftTabs().addTab(tab);
-
-    fireTabAdded(new TabEvent(this, tab));
-
-  }
-
-  public void addRightTab(String name, JComponent c, int width) {
-    addRightTab(name, c, width, width, width);
-  }
-
-  /**
-   * Add a resizable right tab.
-   * 
-   * @param name
-   * @param c
-   * @param width
-   * @param minWidth
-   * @param maxWidth
-   */
-  public void addRightTab(String name,
-      JComponent c,
-      int width,
-      int minWidth,
-      int maxWidth) {
-    addRightTab(new SizableContentPane(name, c, width, minWidth, maxWidth));
-  }
-
-  /**
-   * Adds a right tab.
-   *
-   * @param tab the tab
-   */
-  public void addRightTab(Tab tab) {
-    getRightTabs().addTab(tab);
-
-    fireTabAdded(new TabEvent(this, tab));
-  }
 
   /**
    * Gets the index of.
@@ -435,8 +360,8 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @param tab the tab
    */
   public void removeTab(String tab) {
-    mLeftTabs.removeTab(tab);
-    mRightTabs.removeTab(tab);
+    mLeftTabs.remove(tab);
+    mRightTabs.remove(tab);
   }
 
   /**
@@ -468,7 +393,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    *
    * @return the left tabs
    */
-  public Tabs getLeftTabs() {
+  public Tabs left() {
     return mLeftTabs;
   }
 
@@ -477,7 +402,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    *
    * @return the right tabs
    */
-  public Tabs getRightTabs() {
+  public Tabs right() {
     return mRightTabs;
   }
 
@@ -486,7 +411,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    *
    * @return the center tab
    */
-  public Tab getCenterTab() {
+  public Tab centerTab() {
     return mCenterTab;
   }
 
@@ -497,6 +422,6 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @param c the c
    */
   public void replaceTab(String name, JComponent c) {
-    getLeftTabs().replaceTab(name, c);
+    left().replace(name, c);
   }
 }

@@ -36,7 +36,6 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.tabs.Tab;
 import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabEventListener;
@@ -310,7 +309,7 @@ public class ModernHContentPane extends ModernWidget {
       tab.adjustWidth(selectedWidthLeft + dx);
       mModel.getTab(mSelectedDivider + 1).adjustWidth(selectedWidthRight - dx);
 
-      getModel().fireTabResized(new TabEvent(this, tab));
+      tabs().fireTabResized(new TabEvent(this, tab));
     }
 
     /*
@@ -361,7 +360,7 @@ public class ModernHContentPane extends ModernWidget {
    *
    * @return the model
    */
-  public TabsModel getModel() {
+  public TabsModel tabs() {
     return mModel;
   }
 
@@ -392,28 +391,28 @@ public class ModernHContentPane extends ModernWidget {
 
     mDividerLocations.clear();
 
-    for (Tab pane : mModel.getLeftTabs()) {
+    for (Tab pane : mModel.left()) {
       add(pane.getComponent());
     }
 
-    for (int i = 0; i < mModel.getLeftTabs().size() - 1; ++i) {
+    for (int i = 0; i < mModel.left().size() - 1; ++i) {
       mDividerLocations.add(0);
     }
 
-    if (mModel.getCenterTab() != null) {
-      add(mModel.getCenterTab().getComponent());
+    if (mModel.centerTab() != null) {
+      add(mModel.centerTab().getComponent());
       mDividerLocations.add(0);
 
-      if (mModel.getRightTabs().size() > 0) {
+      if (mModel.right().size() > 0) {
         mDividerLocations.add(0);
       }
     }
 
-    for (Tab pane : mModel.getRightTabs()) {
+    for (Tab pane : mModel.right()) {
       add(pane.getComponent());
     }
 
-    for (int i = 0; i < mModel.getRightTabs().size() - 1; ++i) {
+    for (int i = 0; i < mModel.right().size() - 1; ++i) {
       mDividerLocations.add(0);
     }
 
@@ -434,13 +433,13 @@ public class ModernHContentPane extends ModernWidget {
     // Get the width of all the panes not including the
     // center
 
-    for (Tab pane : mModel.getLeftTabs()) {
+    for (Tab pane : mModel.left()) {
       totalPaneWidth += pane.getWidth() + DIVIDER_WIDTH;
     }
 
     int rightPaneWidth = 0;
 
-    for (Tab pane : mModel.getRightTabs()) {
+    for (Tab pane : mModel.right()) {
       rightPaneWidth += pane.getWidth() + DIVIDER_WIDTH;
       totalPaneWidth += pane.getWidth() + DIVIDER_WIDTH;
     }
@@ -455,7 +454,7 @@ public class ModernHContentPane extends ModernWidget {
 
     int h = mInternalRect.getH();
 
-    for (Tab pane : mModel.getLeftTabs()) {
+    for (Tab pane : mModel.left()) {
       int w = pane.getWidth();
 
       pane.getComponent().setBounds(x, y, w, h);
@@ -473,12 +472,12 @@ public class ModernHContentPane extends ModernWidget {
       x += DIVIDER_WIDTH;
     }
 
-    if (mModel.getCenterTab() != null) {
-      mModel.getCenterTab().getComponent().setBounds(x, y, cw, h);
+    if (mModel.centerTab() != null) {
+      mModel.centerTab().getComponent().setBounds(x, y, cw, h);
 
       x += cw;
 
-      if (mModel.getRightTabs().size() > 0) {
+      if (mModel.right().size() > 0) {
         mDividerLocations.set(dc, x);
         ++dc;
         // x += DIVIDER_WIDTH;
@@ -487,14 +486,14 @@ public class ModernHContentPane extends ModernWidget {
 
     x = getInsets().left + width - rightPaneWidth + DIVIDER_WIDTH;
 
-    for (Tab pane : mModel.getRightTabs()) {
+    for (Tab pane : mModel.right()) {
       int w = pane.getWidth();
 
       pane.getComponent().setBounds(x, y, w, h);
 
       x += w;
 
-      if (dc < mModel.getRightTabs().size() - 1) {
+      if (dc < mModel.right().size() - 1) {
         mDividerLocations.set(dc, x);
         ++dc;
         x += DIVIDER_WIDTH;
@@ -503,46 +502,6 @@ public class ModernHContentPane extends ModernWidget {
 
     revalidate();
     repaint();
-  }
-
-  /**
-   * Add a tab to the left side of the display.
-   * 
-   * @param name
-   * @param c
-   * @param width
-   * @param minWidth
-   * @param maxWidth
-   */
-  public void addLeftTab(String name,
-      ModernComponent c,
-      int width,
-      int minWidth,
-      int maxWidth) {
-    getModel().addLeftTab(name, c, width, minWidth, maxWidth);
-  }
-  
-  /**
-   * Returns the component associated
-   * @param name
-   * @param width
-   * @param minWidth
-   * @param maxWidth
-   * @return
-   */
-  public ModernComponent leftTab(String name,
-      int width,
-      int minWidth,
-      int maxWidth) {
-    return getModel().leftTab(name, width, minWidth, maxWidth);
-  }
-
-  public void addRightTab(String name,
-      ModernComponent c,
-      int width,
-      int minWidth,
-      int maxWidth) {
-    getModel().addRightTab(name, c, width, minWidth, maxWidth);
   }
 
   /*

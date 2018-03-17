@@ -150,10 +150,21 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
 
     setCard(mViewPanel);
 
-    getTabsPane().leftTab(UI.ASSET_MENU, 160, 100, 300).setBody(mTabsPanel);
+    tabs().left().add(UI.ASSET_MENU, 160, 100, 300);
+    
+    left().setBody(mTabsPanel);
   }
   
-  public ModernComponent leftTab() {
-    return getTabsPane().leftTab(UI.ASSET_MENU, 160, 100, 300);
+  /**
+   * Returns the left tab component.
+   * 
+   * @return
+   */
+  public ModernComponent left() {
+    return tabs().left().component(UI.ASSET_MENU);
+  }
+  
+  public TabsModel tabs() {
+    return getTabsPane().tabs();
   }
 }

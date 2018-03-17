@@ -239,7 +239,7 @@ public class ModernRibbonWindow extends ModernWindow {
 
     setTitle(getTitle());
 
-    mIconTabs = new IconTabs(getTabsPane());
+    mIconTabs = new IconTabs(tabsPane());
   }
 
   /**

@@ -27,6 +27,8 @@
  */
 package org.jebtk.modern.window;
 
+import java.awt.Graphics2D;
+
 import org.jebtk.modern.panel.ModernGradientPanel;
 import org.jebtk.modern.theme.MaterialService;
 
@@ -55,5 +57,10 @@ public class ModernWindowContentPanel extends ModernGradientPanel {
     super(
         MaterialService.getInstance().color("window.background.gradient.start"),
         MaterialService.getInstance().color("window.background.gradient.end"));
+  }
+  
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    // Trans
   }
 }

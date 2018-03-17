@@ -25,20 +25,17 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.contentpane;
+package org.jebtk.modern.tabs;
 
 import javax.swing.JComponent;
 
-import org.jebtk.modern.tabs.Tab;
-
-// TODO: Auto-generated Javadoc
 /**
- * All content panes.
+ * Specifies a tab that can be resized
  * 
  * @author Antony Holmes Holmes
  *
  */
-public class SizableContentPane extends Tab {
+public class SizableTab extends Tab {
 
   /**
    * The constant serialVersionUID.
@@ -64,7 +61,7 @@ public class SizableContentPane extends Tab {
    * @param minWidth the min width
    * @param maxWidth the max width
    */
-  public SizableContentPane(String name, JComponent c, int width, int minWidth,
+  public SizableTab(String name, JComponent c, int width, int minWidth,
       int maxWidth) {
     super(name, c);
 
@@ -82,7 +79,7 @@ public class SizableContentPane extends Tab {
    * @param minWidth the min width
    * @param maxWidth the max width
    */
-  public SizableContentPane(String name, int width, int minWidth,
+  public SizableTab(String name, int width, int minWidth,
       int maxWidth) {
     super(name);
 

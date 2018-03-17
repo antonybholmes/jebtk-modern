@@ -40,6 +40,7 @@ import org.jebtk.modern.button.ModernSideButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.HBox;
+import org.jebtk.modern.tabs.SizableTab;
 import org.jebtk.modern.text.ModernColoredHeadingLabel;
 
 // TODO: Auto-generated Javadoc
@@ -59,7 +60,7 @@ public class CollapseHTab extends ModernComponent {
   /**
    * The member pane.
    */
-  private SizableContentPane mPane;
+  private SizableTab mPane;
 
   /**
    * The default width.
@@ -101,7 +102,7 @@ public class CollapseHTab extends ModernComponent {
    * @param pane the pane
    * @param c the c
    */
-  public CollapseHTab(SizableContentPane pane, JComponent c) {
+  public CollapseHTab(SizableTab pane, JComponent c) {
     mPane = pane;
 
     Box box = HBox.create();

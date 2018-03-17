@@ -35,6 +35,8 @@ import java.util.Map;
 
 import javax.swing.JComponent;
 
+import org.jebtk.modern.ModernComponent;
+
 // TODO: Auto-generated Javadoc
 /**
  * Stores content panes.
@@ -138,6 +140,36 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   public Tabs() {
     mTe = new TabEvents(this);
   }
+  
+  
+  public Tabs add(String name, JComponent c, int width) {
+    return add(name, c, width, width, width);
+  }
+
+  public Tabs add(String name,
+      int width,
+      int minWidth,
+      int maxWidth) {
+    return add(name, new ModernComponent(), width, minWidth, maxWidth);
+  }
+  
+  /**
+   * Add a resizable left tab.
+   * 
+   * @param name
+   * @param c
+   * @param width
+   * @param minWidth
+   * @param maxWidth
+   * @return 
+   */
+  public Tabs add(String name,
+      JComponent c,
+      int width,
+      int minWidth,
+      int maxWidth) {
+    return add(new SizableTab(name, c, width, minWidth, maxWidth));
+  }
 
   /**
    * Adds the tab.
@@ -145,16 +177,17 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * @param name the name
    * @param c the c
    */
-  public void addTab(String name, JComponent c) {
-    addTab(new Tab(name, c));
+  public void add(String name, JComponent c) {
+    add(new Tab(name, c));
   }
 
   /**
    * Adds the tab.
    *
    * @param pane the pane
+   * @return 
    */
-  public void addTab(Tab pane) {
+  public Tabs add(Tab pane) {
     String name = pane.getName();
 
     if (mNameIndexMap.containsKey(name)) {
@@ -168,7 +201,9 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
     pane.addTabListener(mTe);
 
     fireTabAdded(new TabEvent(this, pane));
-    // fireTabChanged(new TabEvent(this, pane));
+    
+
+    return this;
   }
 
   /**
@@ -177,8 +212,8 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * @param name the name
    * @param c the c
    */
-  public void replaceTab(String name, JComponent c) {
-    replaceTab(new Tab(name, c));
+  public void replace(String name, JComponent c) {
+    replace(new Tab(name, c));
   }
 
   /**
@@ -186,7 +221,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    *
    * @param tab the tab
    */
-  public void replaceTab(Tab tab) {
+  public void replace(Tab tab) {
     int index = indexOf(tab);
 
     if (index != -1) {
@@ -194,7 +229,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
       set(index, tab);
     } else {
       // Tab does not exist so add it
-      addTab(tab);
+      add(tab);
     }
   }
 
@@ -203,7 +238,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    *
    * @param index the index
    */
-  private void removeTab(int index) {
+  private void remove(int index) {
     if (index < 0 || index >= mTabs.size()) {
       return;
     }
@@ -221,7 +256,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * @param name the name
    * @return true, if successful
    */
-  public boolean containsTab(String name) {
+  public boolean contains(String name) {
     return mNameIndexMap.containsKey(name);
   }
 
@@ -265,7 +300,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * @param i the i
    * @return the tab
    */
-  public Tab getTab(int i) {
+  public Tab get(int i) {
     if (mTabs.size() == 0 || i < 0 || i >= mTabs.size()) {
       return null;
     }
@@ -279,14 +314,22 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * @param name
    * @return
    */
-  public Tab getTab(String name) {
-    if (!mNameIndexMap.containsKey(name)) {
+  public Tab get(String name) {
+    if (mNameIndexMap.containsKey(name)) {
+      return get(mNameIndexMap.get(name));
+    } else {
       return null;
     }
-
-
-    return getTab(mNameIndexMap.get(name));
   }
+  
+  public ModernComponent component(String name) {
+    return (ModernComponent) get(name).getComponent();
+  }
+  
+  public ModernComponent component(int i) {
+    return (ModernComponent) get(i).getComponent();
+  }
+
 
   /**
    * Size.
@@ -314,16 +357,9 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   }
 
   /**
-   * Remove all tabs.
-   */
-  public void clear() {
-    removeAllTabs();
-  }
-
-  /**
    * Removes the all tabs.
    */
-  public void removeAllTabs() {
+  public void clear() {
     mNameIndexMap.clear();
     mTabs.clear();
 
@@ -335,8 +371,8 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    *
    * @param tab the tab
    */
-  public void removeTab(Tab tab) {
-    removeTab(tab.getName());
+  public void remove(Tab tab) {
+    remove(tab.getName());
   }
 
   /**
@@ -344,17 +380,17 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    *
    * @param name the name
    */
-  public void removeTab(String name) {
+  public void remove(String name) {
     int index = indexOf(name);
 
     if (index != -1) {
-      Tab pane = mTabs.get(index);
+      Tab tab = mTabs.get(index);
 
-      removeTab(index);
+      remove(index);
 
       mNameIndexMap.remove(name);
 
-      fireTabRemoved(new TabEvent(this, pane));
+      fireTabRemoved(new TabEvent(this, tab));
     }
   }
 

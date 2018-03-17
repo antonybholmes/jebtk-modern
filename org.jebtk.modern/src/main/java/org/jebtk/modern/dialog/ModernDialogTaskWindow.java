@@ -164,7 +164,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
    */
   @Override
   public void setCard(JComponent c) {
-    getTabsPane().getModel()
+    getTabsPane().tabs()
         .setCenterTab(
             new CardPanel(new ModernComponent(c, ModernWidget.QUAD_BORDER),
             ModernWidget.DOUBLE_BORDER));

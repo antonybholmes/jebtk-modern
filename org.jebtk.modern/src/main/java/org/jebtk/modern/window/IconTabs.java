@@ -49,12 +49,6 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class IconTabs {
 
-  private static final Border BORDER = BorderService.getInstance().createBorder(
-      ModernWidget.DOUBLE_PADDING,
-      ModernWidget.PADDING,
-      ModernWidget.DOUBLE_PADDING,
-      ModernWidget.PADDING);
-
   private TabsModel mLeftTabsModel;
 
   private IconTabsPanel mViewPanel;
@@ -110,11 +104,11 @@ public class IconTabs {
    * Create the left pane to hold the left tabs if it does not exist.
    */
   public void addPane() {
-    if (getTabsPane().getModel().containsTab("Left Tabs")) {
+    if (getTabsPane().tabs().containsTab("Left Tabs")) {
       return;
     }
 
-    getTabsPane().addLeftTab("Left Tabs",
+    getTabsPane().tabs().left().add("Left Tabs",
         new AutoHidePanel(mViewPanel, 100),
         200,
         ModernWidget.WIDGET_HEIGHT,
