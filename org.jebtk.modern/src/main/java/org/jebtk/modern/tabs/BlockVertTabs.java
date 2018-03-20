@@ -96,7 +96,7 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
     mTabSize = tabSize;
     mOffset = tabSize / 2;
 
-    setFont(MaterialService.getInstance().fonts().text());
+    setFont(MaterialService.instance().fonts().text());
 
     addComponentListener(this);
 

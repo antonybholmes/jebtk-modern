@@ -21,7 +21,7 @@ public class ContinuousMacOrbAnimation extends HoverFadeAnimation {
     mButton = (ContinuousMacOrbSlider) button;
 
     setFadeColor("highlight",
-        MaterialService.getInstance().color("theme-selected"),
+        MaterialService.instance().color("theme-selected"),
         Ribbon.BAR_BACKGROUND);
     setFadeColor("line", ModernWidget.LINE_COLOR, ModernWidget.DARK_LINE_COLOR);
   }

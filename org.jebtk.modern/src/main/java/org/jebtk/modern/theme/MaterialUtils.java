@@ -16,7 +16,7 @@ import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class MaterialUtils {
-  public static final Font FONT = MaterialService.getInstance().fonts().text();
+  public static final Font FONT = MaterialService.instance().fonts().text();
 
   public static final Font TEXT_FONT = FONT;
 
@@ -49,10 +49,10 @@ public class MaterialUtils {
 
   public static final int SMALL_PADDING = ModernWidget.DOUBLE_PADDING;
 
-  public static final Color BUTTON_COLOR = MaterialService.getInstance()
+  public static final Color BUTTON_COLOR = MaterialService.instance()
       .color("theme-highlight"); // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
 
-  public static final Color LINE_COLOR = MaterialService.getInstance()
+  public static final Color LINE_COLOR = MaterialService.instance()
       .color("card-border"); // ColorUtils.getTransparentColor50(ModernWidget.LIGHT_LINE_COLOR);
 
   public static final Color SELECTED_FONT_COLOR = Color.BLACK;

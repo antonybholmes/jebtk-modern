@@ -602,23 +602,27 @@ public class ThemeService extends ModernTheme {
       throws FontFormatException, IOException {
     Resources.getInstance().registerFont("Inconsolata-Regular.ttf");
 
-    Resources.getInstance().registerFont("ProductSans-Regular.ttf");
+    //Resources.getInstance().registerFont("ProductSans-Regular.ttf");
     
     //Resources.getInstance().registerFont("Futura_LT_Book.ttf");
     
-    //Resources.getInstance().registerFont("Roboto-Light.ttf");
-    //Resources.getInstance().registerFont("Roboto-Regular.ttf");
+    Resources.getInstance().registerFont("Roboto-Light.ttf");
+    Resources.getInstance().registerFont("Roboto-Regular.ttf");
+    Resources.getInstance().registerFont("Roboto-Medium.ttf");
+    Resources.getInstance().registerFont("Roboto-Bold.ttf");
 
-    //Resources.getInstance().registerFont("SourceSansPro-Light.ttf");
-    //Resources.getInstance().registerFont("SourceSansPro-Regular.ttf");
+    Resources.getInstance().registerFont("SourceSansPro-Light.ttf");
+    Resources.getInstance().registerFont("SourceSansPro-Regular.ttf");
+    Resources.getInstance().registerFont("SourceSansPro-SemiBold.ttf");
 
     //Resources.getInstance().registerFont("Raleway-Light.ttf");
     //Resources.getInstance().registerFont("Raleway-Regular.ttf");
 
     //Resources.getInstance().registerFont("NotoSans-Regular.ttf");2202
 
-    // Resources.getInstance().registerFont("OpenSans-Regular.ttf");
-    // Resources.getInstance().registerFont("OpenSans-Light.ttf");
+    Resources.getInstance().registerFont("OpenSans-Regular.ttf");
+    Resources.getInstance().registerFont("OpenSans-Light.ttf");
+    Resources.getInstance().registerFont("OpenSans-SemiBold.ttf");
   }
 
   /**

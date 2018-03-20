@@ -259,11 +259,11 @@ public class AnimationService {
     get("combobox").add(ComboBoxAnimation.class).add(ComboBoxAnimation.class)
         .add(ComboBoxHighlightAnimation.class).add(ComboBoxArrowAnimation.class)
         .add(DialogButtonHighlightAnimation.class);
-    
+
     get("combobox2").add(ComboBoxAnimation.class).add(ComboBoxAnimation.class)
-    .add(ComboBoxHighlightAnimation2.class)
-    .add(ComboBoxArrowAnimation2.class)
-    .add(DialogButtonHighlightAnimation.class);
+        .add(ComboBoxHighlightAnimation2.class)
+        .add(ComboBoxArrowAnimation2.class)
+        .add(DialogButtonHighlightAnimation.class);
 
     get("text-border").add(TextBorderAnimation.class);
 

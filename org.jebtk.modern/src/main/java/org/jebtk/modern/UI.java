@@ -424,6 +424,8 @@ public class UI {
   public static final String ASSET_GROUP = "Group";
 
   public static final String ASSET_MENU = "Menu";
+
+  public static final String ACTION_ASSET_CLICKED = "clicked";
   
 
   static {

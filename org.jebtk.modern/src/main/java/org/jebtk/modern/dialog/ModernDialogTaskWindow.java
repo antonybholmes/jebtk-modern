@@ -27,8 +27,6 @@
  */
 package org.jebtk.modern.dialog;
 
-import java.awt.Component;
-
 import javax.swing.Box;
 import javax.swing.JComponent;
 

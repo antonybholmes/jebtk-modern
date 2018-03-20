@@ -59,6 +59,24 @@ public class SearchTermsService extends SearchTermEventListeners
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
+  
+
+  
+  
+  private static class SearchTermsServiceLoader {
+
+    /** The Constant INSTANCE. */
+    private static final SearchTermsService INSTANCE = new SearchTermsService();
+  }
+
+  /**
+   * Gets the single instance of SettingsService.
+   *
+   * @return single instance of SettingsService
+   */
+  public static SearchTermsService getInstance() {
+    return SearchTermsServiceLoader.INSTANCE;
+  }
 
   /**
    * The constant MAX_SIZE.
@@ -76,25 +94,15 @@ public class SearchTermsService extends SearchTermEventListeners
    */
   public static final File DEFAULT_XML_FILE = new File("search.terms.xml");
 
+
   /**
    * The member search terms.
    */
   private List<String> mSearchTerms = new CircularArray<String>(MAX_SIZE);
 
-  /**
-   * The instance.
-   */
-  private static SearchTermsService INSTANCE = new SearchTermsService();
+  private boolean mAutoLoad = true;
 
-  /**
-   * Gets the single instance of SearchTermsService.
-   *
-   * @return single instance of SearchTermsService
-   */
-  public static final SearchTermsService getInstance() {
-    return INSTANCE;
-  }
-
+  
   /**
    * Instantiates a new search terms service.
    */
@@ -102,6 +110,22 @@ public class SearchTermsService extends SearchTermEventListeners
     // do nothing
   }
 
+  private void autoLoad() {
+    if (mAutoLoad) {
+      // Set this here to stop recursive infinite calling
+      // of this method.
+      mAutoLoad = false;
+
+      try {
+        loadXml();
+      } catch (SAXException | IOException | ParserConfigurationException e) {
+        e.printStackTrace();
+      }
+      // autoLoadJson();
+
+    }
+  }
+  
   /**
    * Load xml.
    *
@@ -215,6 +239,8 @@ public class SearchTermsService extends SearchTermEventListeners
    * @see java.lang.Iterable#iterator()
    */
   public final Iterator<String> iterator() {
+    autoLoad();
+    
     return mSearchTerms.iterator();
   }
 
@@ -225,6 +251,8 @@ public class SearchTermsService extends SearchTermEventListeners
    * @return true, if successful
    */
   public final boolean contains(String query) {
+    autoLoad();
+    
     return mSearchTerms.contains(query);
   }
 }

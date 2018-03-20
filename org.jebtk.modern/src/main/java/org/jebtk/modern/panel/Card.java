@@ -14,6 +14,7 @@ import java.awt.image.BufferedImage;
 import javax.swing.border.Border;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.core.geom.IntDim;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.graphics.GaussianFilter;
@@ -28,6 +29,8 @@ public class Card extends ModernComponent {
   private static final int V_SPACE = ROUNDING * 2;
 
   public static final int SHADOW_SIZE = 8;
+  
+  private static final int SHADOW_SIZE_2X = SHADOW_SIZE * 2;
 
   public static final int HALF_SHADOW_SIZE = SHADOW_SIZE / 2;
 
@@ -35,6 +38,15 @@ public class Card extends ModernComponent {
 
   private static final Insets OFFSETS = new Insets(HALF_SHADOW_SIZE,
       HALF_SHADOW_SIZE, HALF_SHADOW_SIZE, HALF_SHADOW_SIZE);
+  
+  private static final IntDim SHADOW_PADDING = 
+      IntDim.create(OFFSETS.left + OFFSETS.right, OFFSETS.top + OFFSETS.bottom);
+  
+  private static final int IMAGE_SIZE = 200;
+  
+  private static final int SHADOW_WIDTH = IMAGE_SIZE / 2;
+  
+  private static final int CORNER_OFFSET = IMAGE_SIZE - SHADOW_SIZE;
 
   /**
    * Allow for space at the top so that items appear just below the rounded
@@ -48,6 +60,12 @@ public class Card extends ModernComponent {
 
   public static final Color COLOR = ColorUtils.getTransparentColor(Color.BLACK,
       Card.ALPHA);
+
+  /** 
+   * Pick a point in the image that is not a corner so that we can clone
+   * a straight edge section of the shadow
+   */
+  private static final int SHADOW_OFFSET = 50;
 
   private static BufferedImage C1;
 
@@ -79,9 +97,7 @@ public class Card extends ModernComponent {
     // Create images to make shadow
     //
 
-    BufferedImage shadow = shadow(200, 200);
-
-    int o = 200 - SHADOW_SIZE;
+    BufferedImage shadow = shadow(IMAGE_SIZE, IMAGE_SIZE);
 
     Graphics g;
 
@@ -92,39 +108,37 @@ public class Card extends ModernComponent {
 
     C2 = ImageUtils.createImage(SHADOW_SIZE);
     g = C2.getGraphics();
-    g.drawImage(shadow, -o, 0, null);
+    g.drawImage(shadow, -CORNER_OFFSET, 0, null);
     g.dispose();
 
     C3 = ImageUtils.createImage(SHADOW_SIZE);
     g = C3.getGraphics();
-    g.drawImage(shadow, -o, -o, null);
+    g.drawImage(shadow, -CORNER_OFFSET, -CORNER_OFFSET, null);
     g.dispose();
 
     C4 = ImageUtils.createImage(SHADOW_SIZE);
     g = C4.getGraphics();
-    g.drawImage(shadow, 0, -o, null);
+    g.drawImage(shadow, 0, -CORNER_OFFSET, null);
     g.dispose();
 
-    int o2 = 50;
-
-    TB = ImageUtils.createImage(100, SHADOW_SIZE);
+    TB = ImageUtils.createImage(SHADOW_WIDTH, SHADOW_SIZE);
     g = TB.getGraphics();
-    g.drawImage(shadow, -o2, 0, null);
+    g.drawImage(shadow, -SHADOW_OFFSET, 0, null);
     g.dispose();
 
-    RB = ImageUtils.createImage(SHADOW_SIZE, 100);
+    RB = ImageUtils.createImage(SHADOW_SIZE, SHADOW_WIDTH);
     g = RB.getGraphics();
-    g.drawImage(shadow, -o, -o2, null);
+    g.drawImage(shadow, -CORNER_OFFSET, -SHADOW_OFFSET, null);
     g.dispose();
 
-    BB = ImageUtils.createImage(100, SHADOW_SIZE);
+    BB = ImageUtils.createImage(SHADOW_WIDTH, SHADOW_SIZE);
     g = BB.getGraphics();
-    g.drawImage(shadow, -o2, -o, null);
+    g.drawImage(shadow, -SHADOW_OFFSET, -CORNER_OFFSET, null);
     g.dispose();
 
-    LB = ImageUtils.createImage(SHADOW_SIZE, 100);
+    LB = ImageUtils.createImage(SHADOW_SIZE, SHADOW_WIDTH);
     g = LB.getGraphics();
-    g.drawImage(shadow, 0, -o2, null);
+    g.drawImage(shadow, 0, -SHADOW_OFFSET, null);
     g.dispose();
   }
 
@@ -164,8 +178,8 @@ public class Card extends ModernComponent {
      * g2.drawImage(mShadow, 0, 0, this);
      */
 
-    int w2 = width - 2 * SHADOW_SIZE;
-    int h2 = height - 2 * SHADOW_SIZE;
+    int w2 = width - SHADOW_SIZE_2X;
+    int h2 = height - SHADOW_SIZE_2X;
 
     // Draw the borders
     g2.drawImage(TB, SHADOW_SIZE, 0, w2, SHADOW_SIZE, null);
@@ -188,8 +202,8 @@ public class Card extends ModernComponent {
 
       g2Temp.fillRoundRect(OFFSETS.left,
           OFFSETS.top,
-          width - (OFFSETS.left + OFFSETS.right),
-          height - (OFFSETS.top + OFFSETS.bottom),
+          width - SHADOW_PADDING.mW,
+          height - SHADOW_PADDING.mH,
           ROUNDING,
           ROUNDING);
     } finally {
@@ -231,8 +245,8 @@ public class Card extends ModernComponent {
     Rectangle bounds = new Rectangle();
     bounds.x = OFFSETS.left;
     bounds.y = OFFSETS.top;
-    bounds.width = width - (OFFSETS.left + OFFSETS.right);
-    bounds.height = height - (OFFSETS.top + OFFSETS.bottom);
+    bounds.width = width - SHADOW_PADDING.mW;
+    bounds.height = height - SHADOW_PADDING.mH;
 
     RoundRectangle2D shape = new RoundRectangle2D.Double(bounds.x, bounds.y,
         bounds.width, bounds.height, ROUNDING, ROUNDING);

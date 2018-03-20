@@ -172,8 +172,8 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant ALT_TEXT_COLOR.
    */
-  public static final Color ALT_TEXT_COLOR = ThemeService.getInstance().colors()
-      .getAltTextColor();
+  public static final Color ALT_TEXT_COLOR = MaterialService.instance().colors()
+      .altText();
 
   /** The Constant TEXT_DISABLED_COLOR. */
   public static final Color TEXT_DISABLED_COLOR = ThemeService.getInstance()
@@ -188,8 +188,8 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant FONT.
    */
-  public static final Font FONT = MaterialService.getInstance().fonts()
-      .widget(); // ThemeService.getInstance().fonts().getFont();
+  public static final Font FONT = MaterialService.instance().fonts()
+      .text(); // ThemeService.getInstance().fonts().getFont();
 
   /** The Constant UNDER_LINE_FONT. */
   public static final Font UNDER_LINE_FONT = FontUtils.underline(FONT);
@@ -231,10 +231,6 @@ public abstract class ModernWidget extends ModernComponent
    */
   public static final Font BOLD_FONT = ThemeService.getInstance().fonts()
       .getBoldFont();
-
-  /** The Constant MEDIUM_FONT. */
-  public static final Font MEDIUM_FONT = ThemeService
-      .loadFont("theme.widget.fonts.medium-text");
 
   /**
    * The constant MONOSPACE_FONT.

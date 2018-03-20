@@ -52,10 +52,10 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
     mType = type;
 
     setFadeColor("outline",
-        MaterialService.getInstance().color("gray-outline"));
+        MaterialService.instance().color("gray-outline"));
     setFadeColor("highlight",
-        MaterialService.getInstance().color("gray-highlight"));
-    setFadeColor("fill", MaterialService.getInstance().color("gray-selected"));
+        MaterialService.instance().color("gray-highlight"));
+    setFadeColor("fill", MaterialService.instance().color("gray-selected"));
   }
 
   /*

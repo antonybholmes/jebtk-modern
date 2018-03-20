@@ -367,9 +367,9 @@ public class ModernWidgetRenderer extends WidgetRenderer {
       boolean hasFocus) {
 
     if (mode == RenderMode.SELECTED) {
-      g2.setColor(MaterialService.getInstance().color("gray-selected"));
+      g2.setColor(MaterialService.instance().color("gray-selected"));
     } else {
-      g2.setColor(MaterialService.getInstance().color("gray-highlight"));
+      g2.setColor(MaterialService.instance().color("gray-highlight"));
     }
   }
 
@@ -442,8 +442,8 @@ public class ModernWidgetRenderer extends WidgetRenderer {
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
     try {
-      // g2Temp.setColor(Color.WHITE);
-      // g2Temp.fillOval(x, y, wf, wf);
+      g2Temp.setColor(Color.WHITE);
+      g2Temp.fillOval(x, y, wf, wf);
       g2Temp.setColor(LINE_COLOR);
       g2Temp.drawOval(x, y, wf, wf);
     } finally {
@@ -471,8 +471,8 @@ public class ModernWidgetRenderer extends WidgetRenderer {
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
     try {
-      // g2Temp.setColor(Color.WHITE);
-      // g2Temp.fillOval(x, y, wf, wf);
+      g2Temp.setColor(Color.WHITE);
+      g2Temp.fillOval(x, y, wf, wf);
       g2Temp.setColor(SELECTED_FILL_COLOR);
       g2Temp.fillOval(x + i, y + i, wf2, wf2);
       g2Temp.setColor(SELECTED_OUTLINE_COLOR);

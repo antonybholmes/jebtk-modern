@@ -44,7 +44,7 @@ public class MaterialService {
    *
    * @return single instance of SettingsService
    */
-  public static MaterialService getInstance() {
+  public static MaterialService instance() {
     return MaterialServiceLoader.INSTANCE;
   }
 
@@ -64,9 +64,9 @@ public class MaterialService {
      */
     public MaterialFonts() {
       put("text", ThemeService.loadFont("theme.material.fonts.text"));
+      put("bold", ThemeService.loadFont("theme.material.fonts.bold"));
       put("title", ThemeService.loadFont("theme.material.fonts.title"));
       put("subtext", ThemeService.loadFont("theme.material.fonts.subtext"));
-      put("widget", ThemeService.loadFont("theme.material.fonts.widget"));
       put("sub-heading", ThemeService.loadFont("theme.material.fonts.sub-heading"));
     }
 
@@ -78,6 +78,10 @@ public class MaterialService {
     public Font text() {
       return get("text");
     }
+    
+    public Font bold() {
+      return get("bold");
+    }
 
     /**
      * Subtext.
@@ -86,15 +90,6 @@ public class MaterialService {
      */
     public Font subtext() {
       return get("subtext");
-    }
-
-    /**
-     * Widget.
-     *
-     * @return the font
-     */
-    public Font widget() {
-      return get("widget");
     }
     
     public Font subHeading() {
@@ -187,8 +182,13 @@ public class MaterialService {
           ThemeService.getInstance().colors().getHighlight32(1));
 
       put("line", ThemeService.getInstance().colors().getHighlight32(7));
+      
+      put("alt.text", ThemeService.getInstance().colors().getHighlight32(24));
     }
 
+    public Color altText() {
+      return get("alt.txt");
+    }
   }
 
   /** The m fonts. */

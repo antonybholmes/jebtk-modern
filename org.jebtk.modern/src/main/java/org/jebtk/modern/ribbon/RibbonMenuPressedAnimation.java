@@ -31,6 +31,6 @@ public class RibbonMenuPressedAnimation extends ButtonPressedAnimation {
    * @param button the button
    */
   public RibbonMenuPressedAnimation(ModernWidget button) {
-    super(button, MaterialService.getInstance().color("gray-pressed"));
+    super(button, MaterialService.instance().color("gray-pressed"));
   }
 }

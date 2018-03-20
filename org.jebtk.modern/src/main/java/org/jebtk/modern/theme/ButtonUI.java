@@ -4,8 +4,8 @@ import java.awt.Color;
 
 public abstract class ButtonUI extends RoundedUI {
   public static final Color HIGHLIGHTED_FILL_COLOR = MaterialService
-      .getInstance().color("gray-highlight");
+      .instance().color("gray-highlight");
 
-  public static final Color SELECTED_FILL_COLOR = MaterialService.getInstance()
+  public static final Color SELECTED_FILL_COLOR = MaterialService.instance()
       .color("gray-selected");
 }

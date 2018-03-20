@@ -207,7 +207,7 @@ public class Ribbon extends ModernClickWidget
   /**
    * The constant TAB_FONT.
    */
-  public static final Font TAB_FONT = MaterialService.getInstance().fonts()
+  public static final Font TAB_FONT = MaterialService.instance().fonts()
       .text(); // ModernWidget.BOLD_FONT;
                // //MaterialUtils.TEXT_FONT;
                // //ModernWidget.FONT;
@@ -245,7 +245,7 @@ public class Ribbon extends ModernClickWidget
                                                // DOUBLE_PADDING;
 
   /** The Constant BAR_BACKGROUND. */
-  public static final Color BAR_BACKGROUND = MaterialService.getInstance()
+  public static final Color BAR_BACKGROUND = MaterialService.instance()
       .color("ribbon");
 
   /** The constant TAB_COLOR. */

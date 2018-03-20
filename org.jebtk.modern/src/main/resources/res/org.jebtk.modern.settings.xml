@@ -127,19 +127,13 @@
 
 			<setting name="fonts">
 				<setting name="text">
-					<setting name="family" value="Product Sans" />
-					<setting name="style" value="plain" />
-					<setting name="size" value="12" />
-				</setting>
-
-				<setting name="medium-text">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Source Sans Pro Light" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="12" />
 				</setting>
 
 				<setting name="bold-text">
-					<setting name="family" value="Roboto Bold" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="12" />
 				</setting>
@@ -151,43 +145,43 @@
 				</setting>
 
 				<setting name="sub-sub-heading">
-					<setting name="family" value="Roboto Light" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="14" />
 				</setting>
 
 				<setting name="title">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="42" />
 				</setting>
 
 				<setting name="title-bold">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="42" />
 				</setting>
 
 				<setting name="sub-title">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="30" />
 				</setting>
 
 				<setting name="heading">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="18" />
 				</setting>
 
 				<setting name="sub-heading">
-					<setting name="family" value="Product Sans" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="14" />
 				</setting>
 
 				<setting name="sub-heading-bold">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="14" />
 				</setting>
@@ -197,27 +191,27 @@
 		<setting name="material">
 			<setting name="fonts">
 				<setting name="text">
-					<setting name="family" value="Product Sans" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
-					<setting name="size" value="14" />
+					<setting name="size" value="12" />
 				</setting>
+				<setting name="bold">
+          <setting name="family" value="Source Sans Pro SemiBold" />
+          <setting name="style" value="plain" />
+          <setting name="size" value="12" />
+        </setting>
 				<setting name="title">
-					<setting name="family" value="Product Sans" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="36" />
 				</setting>
 				<setting name="subtext">
-					<setting name="family" value="Product Sans" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="12" />
 				</setting>
-				  <setting name="widget">
-          <setting name="family" value="Product Sans" />
-          <setting name="style" value="plain" />
-          <setting name="size" value="12" />
-        </setting>
 				<setting name="sub-heading">
-					<setting name="family" value="Product Sans" />
+					<setting name="family" value="Source Sans Pro SemiBold" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="14" />
 				</setting>
@@ -227,7 +221,7 @@
 		<setting name="ribbon">
 			<setting name="fonts">
 				<setting name="tab">
-					<setting name="family" value="Product Sans" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="14" />
 				</setting>
@@ -243,7 +237,7 @@
 		<setting name="ribbon-menu">
 			<setting name="fonts">
 				<setting name="text">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="12" />
 				</setting>
@@ -259,7 +253,7 @@
 			<setting name="background-color" value="#f9f9f9" />
 
 			<setting name="text-font">
-				<setting name="family" value="Roboto" />
+				<setting name="family" value="Source Sans Pro Light" />
 				<setting name="style" value="plain" />
 				<setting name="size" value="12" />
 			</setting>
@@ -268,7 +262,7 @@
 		<setting name="outlook-horizontal-tabs">
 			<setting name="fonts">
 				<setting name="text">
-					<setting name="family" value="Roboto" />
+					<setting name="family" value="Source Sans Pro" />
 					<setting name="style" value="plain" />
 					<setting name="size" value="18" />
 				</setting>
@@ -298,13 +292,13 @@
 			<setting name="gap-width" value="20" />
 
 			<setting name="text-font">
-				<setting name="family" value="Roboto" />
+				<setting name="family" value="Source Sans Pro" />
 				<setting name="style" value="plain" />
 				<setting name="size" value="14" />
 			</setting>
 
 			<setting name="text-font-bold">
-				<setting name="family" value="Roboto Bold" />
+				<setting name="family" value="Source Sans Pro" />
 				<setting name="style" value="plain" />
 				<setting name="size" value="14" />
 			</setting>

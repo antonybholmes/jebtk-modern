@@ -61,6 +61,8 @@ public class TreeHighlightAnimation extends HighlightAnimation {
         || mTree.mNodeDepthMap == null || mTree.mNodeRenderer == null) {
       return;
     }
+    
+    
 
     ModernTreeNodeRenderer renderer;
 
@@ -73,7 +75,7 @@ public class TreeHighlightAnimation extends HighlightAnimation {
     int h = 0;
 
     int y1 = mTree.getVisibleRect().y;
-    int maxY = y1 + mTree.getInternalRect().getH();
+    int maxY = y1 + mTree.getVisibleRect().height; //mTree.getInternalRect().getH();
 
     int c = 0;
 

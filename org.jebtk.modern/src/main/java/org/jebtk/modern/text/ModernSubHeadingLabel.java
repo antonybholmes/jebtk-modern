@@ -49,7 +49,7 @@ public class ModernSubHeadingLabel extends ModernAutoSizeLabel {
   /**
    * The constant SUB_HEADING_FONT.
    */
-  private static final Font SUB_HEADING_FONT = MaterialService.getInstance()
+  private static final Font SUB_HEADING_FONT = MaterialService.instance()
       .fonts().subHeading();
 
   /**

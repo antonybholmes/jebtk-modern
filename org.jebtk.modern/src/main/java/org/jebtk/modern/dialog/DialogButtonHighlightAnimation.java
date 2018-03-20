@@ -9,10 +9,10 @@ import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class DialogButtonHighlightAnimation extends HoverFadeAnimation {
-  public static final Color OUTLINE_COLOR_1 = MaterialService.getInstance()
+  public static final Color OUTLINE_COLOR_1 = MaterialService.instance()
       .color("dialog.button.outline");
 
-  public static final Color OUTLINE_COLOR_2 = MaterialService.getInstance()
+  public static final Color OUTLINE_COLOR_2 = MaterialService.instance()
       .color("dialog.button.highlight");
 
   public DialogButtonHighlightAnimation(ModernWidget button) {

@@ -94,7 +94,7 @@ public class ModernComponent extends JComponent {
   /**
    * The constant LINE_COLOR.
    */
-  public static final Color LINE_COLOR = MaterialService.getInstance()
+  public static final Color LINE_COLOR = MaterialService.instance()
       .color("line");
 
   /** The Constant LIGHT_LINE_COLOR. */
@@ -612,6 +612,16 @@ public class ModernComponent extends JComponent {
    * @param c the new header
    */
   public void setHeader(Component c) {
+    setTop(c);
+  }
+  
+  /**
+   * Set the component at the top of the this component. For compatability
+   * wit JavaFX.
+   * 
+   * @param c
+   */
+  public void setTop(Component c) {
     if (c == null) {
       return;
     }
@@ -634,6 +644,10 @@ public class ModernComponent extends JComponent {
    * @param c the new body
    */
   public void setBody(Component c) {
+    setCenter(c);
+  }
+  
+  public void setCenter(Component c) {
     if (c == null) {
       return;
     }
@@ -651,11 +665,15 @@ public class ModernComponent extends JComponent {
   }
 
   /**
-   * Sets the footer.
+   * Sets the footer. Equivalent to <code>setBottom()</code>.
    *
    * @param c the new footer
    */
   public void setFooter(Component c) {
+    setBottom(c);
+  }
+  
+  public void setBottom(Component c) {
     if (c == null) {
       return;
     }

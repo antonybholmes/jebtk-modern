@@ -245,7 +245,7 @@ public class FontService extends ModernTheme {
         .containsKey(strikethrough)) {
 
       Font f = new Font(family, style, size);
-
+      
       if (underline) {
         f = FontUtils.underline(f);
       }

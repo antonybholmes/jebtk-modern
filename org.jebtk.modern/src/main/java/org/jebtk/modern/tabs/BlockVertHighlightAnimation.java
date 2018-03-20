@@ -43,7 +43,7 @@ public class BlockVertHighlightAnimation extends HighlightAnimation {
     mTabs = (BlockVertTabs) segments;
 
     getFade().setFadeColor("fill",
-        MaterialService.getInstance().color("gray-highlight"));
+        MaterialService.instance().color("gray-highlight"));
   }
 
   /*

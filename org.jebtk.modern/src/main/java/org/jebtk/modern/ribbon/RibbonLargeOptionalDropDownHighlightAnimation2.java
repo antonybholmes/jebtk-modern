@@ -45,7 +45,7 @@ public class RibbonLargeOptionalDropDownHighlightAnimation2
 
     mButton = (ModernOptionalDropDownMenuButton2) button;
 
-    setFadeColor("fill", MaterialService.getInstance().color("gray-highlight"));
+    setFadeColor("fill", MaterialService.instance().color("gray-highlight"));
   }
 
   /*

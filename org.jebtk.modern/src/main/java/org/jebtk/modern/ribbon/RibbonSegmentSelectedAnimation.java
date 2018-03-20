@@ -77,7 +77,7 @@ public class RibbonSegmentSelectedAnimation extends WidgetAnimation {
           y1,
           w,
           RibbonSegmentVertTabs.TAB_SIZE,
-          MaterialService.getInstance().color("ribbon-selected"));
+          MaterialService.instance().color("ribbon-selected"));
     }
   }
 }

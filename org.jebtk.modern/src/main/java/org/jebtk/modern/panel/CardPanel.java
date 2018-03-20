@@ -69,8 +69,6 @@ public class CardPanel extends ModernComponent {
   public CardPanel(Component content, Border border) {
     super(new Card(content));
 
-    Insets insets = border.getBorderInsets(this);
-
     setBorder(border);
   }
   

@@ -25,7 +25,7 @@ public class ComboBoxHighlightAnimation extends ButtonHighlightAnimation
 
     setFadeColor("fill",
         Color.WHITE,
-        MaterialService.getInstance().color("dialog.button.outline"));
+        MaterialService.instance().color("dialog.button.outline"));
   }
 
   @Override

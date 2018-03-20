@@ -83,13 +83,13 @@ public class RibbonMenuItem extends ModernCheckButton
   /**
    * The constant MENU_SELECTED_COLOR.
    */
-  public static final Color MENU_SELECTED_COLOR = MaterialService.getInstance()
+  public static final Color MENU_SELECTED_COLOR = MaterialService.instance()
       .color("gray-selected"); // ColorUtils.getTransparentColor60(Color.WHITE);
 
   /**
    * The constant MENU_HIGHLIGHT_COLOR.
    */
-  public static final Color MENU_HIGHLIGHT_COLOR = MaterialService.getInstance()
+  public static final Color MENU_HIGHLIGHT_COLOR = MaterialService.instance()
       .color("gray-highlight");
 
   /** The Constant ROUNDING. */
@@ -197,12 +197,12 @@ public class RibbonMenuItem extends ModernCheckButton
 
     if (isSelected()) {
       g2.setColor(
-          MaterialService.getInstance().color("ribbon-menu-font-selected"));
+          MaterialService.instance().color("ribbon-menu-font-selected"));
     } else if (getHightlighted()) {
       g2.setColor(
-          MaterialService.getInstance().color("ribbon-menu-font-highlight"));
+          MaterialService.instance().color("ribbon-menu-font-highlight"));
     } else {
-      g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
+      g2.setColor(MaterialService.instance().color("ribbon-menu-font"));
     }
 
     int x = getWidth() / 5; // getTextXPosCenter(g2, mText1, getWidth());

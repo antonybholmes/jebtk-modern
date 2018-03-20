@@ -37,7 +37,7 @@ public class BlockVertPressedAnimation extends ButtonPressedAnimation {
    * @param button the button
    */
   public BlockVertPressedAnimation(ModernWidget w) {
-    super(w, MaterialService.getInstance().color("gray-pressed"));
+    super(w, MaterialService.instance().color("gray-pressed"));
 
     mTabs = (BlockVertTabs) w;
   }

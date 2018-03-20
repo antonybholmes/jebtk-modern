@@ -49,7 +49,7 @@ public class FileTitleMenuItem extends ModernMenuItem {
   /**
    * The constant TITLE_COLOR.
    */
-  private static final Color TITLE_COLOR = MaterialService.getInstance()
+  private static final Color TITLE_COLOR = MaterialService.instance()
       .color("ribbon"); // ThemeService.getInstance().colors().getColorHighlight32(16);
 
   /**

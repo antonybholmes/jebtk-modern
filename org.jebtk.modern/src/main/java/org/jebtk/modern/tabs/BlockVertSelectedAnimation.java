@@ -65,7 +65,7 @@ public class BlockVertSelectedAnimation extends HighlightAnimation {
     //
 
     if (selected != -1) { // && mTabs.mHighlight != selectedIndex) {
-      g2.setColor(MaterialService.getInstance().color("gray-selected"));
+      g2.setColor(MaterialService.instance().color("gray-selected"));
       g2.fillRect(x, y + selected * mTabs.mTabSize, w, mTabs.mTabSize);
     }
   }

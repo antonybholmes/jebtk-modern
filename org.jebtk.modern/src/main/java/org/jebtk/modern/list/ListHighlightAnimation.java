@@ -44,7 +44,7 @@ public class ListHighlightAnimation extends HighlightAnimation {
     mList = (ModernList<?>) list;
 
     getFade().setFadeColor("highlight",
-        MaterialService.getInstance().color("gray-highlight"));
+        MaterialService.instance().color("gray-highlight"));
   }
 
   /*
