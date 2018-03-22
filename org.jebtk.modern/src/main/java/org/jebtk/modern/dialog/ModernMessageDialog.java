@@ -151,8 +151,8 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
     content.setBody(c);
     // content.setBorder(ModernWidget.DOUBLE_BORDER);
 
-    // setContent(content);
-    setFlatCardContent(content);
+    setContent(content);
+    //setFlatCardContent(content);
 
     setSize(
         Math.min(Math.max(MIN_WIDTH, c.getPreferredSize().width) + FIXED_WIDTH,

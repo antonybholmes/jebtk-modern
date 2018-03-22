@@ -229,8 +229,8 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant BOLD_FONT.
    */
-  public static final Font BOLD_FONT = ThemeService.getInstance().fonts()
-      .getBoldFont();
+  public static final Font BOLD_FONT = 
+      MaterialService.instance().fonts().bold();
 
   /**
    * The constant MONOSPACE_FONT.
@@ -1511,7 +1511,7 @@ public abstract class ModernWidget extends ModernComponent
   }
 
   /**
-   * Gets the string width.
+   * Gets the string width based on the graphics context.
    *
    * @param g2 the g2
    * @param text the text

@@ -123,7 +123,7 @@ public class ModernLineBottomBorderPanel extends ModernComponent {
    */
   @Override
   public void drawBackground(Graphics2D g2) {
-    g2.setColor(getBackground());
+    g2.setColor(LINE_COLOR);
 
     int y = getHeight() - 1;
 

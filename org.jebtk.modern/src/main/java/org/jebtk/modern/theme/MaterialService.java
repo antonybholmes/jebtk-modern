@@ -183,7 +183,7 @@ public class MaterialService {
 
       put("line", ThemeService.getInstance().colors().getHighlight32(7));
       
-      put("alt.text", ThemeService.getInstance().colors().getHighlight32(24));
+      put("alt.text", ThemeService.getInstance().colors().getHighlight32(20));
     }
 
     public Color altText() {

@@ -27,10 +27,12 @@
  */
 package org.jebtk.modern.menu;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.UI;
+import org.jebtk.modern.theme.ThemeService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -48,8 +50,8 @@ public class ModernTitleMenuItem extends ModernMenuItem {
    *
    * @param text the text
    */
-  // private static final Color BACKGROUND =
-  // ThemeService.getInstance().colors().getHighlight(3);
+  private static final Color BACKGROUND = 
+      ThemeService.getInstance().colors().getHighlight(1);
 
   /**
    * Instantiates a new modern title menu item.
@@ -71,11 +73,7 @@ public class ModernTitleMenuItem extends ModernMenuItem {
    * @param size the size
    */
   public ModernTitleMenuItem(String text, Dimension size) {
-    super(text);
-
-    setEnabled(false);
-
-    setFont(BOLD_FONT);
+    this(text);
 
     UI.setSize(this, size);
   }
@@ -89,7 +87,7 @@ public class ModernTitleMenuItem extends ModernMenuItem {
    */
   @Override
   public void drawBackground(Graphics2D g2) {
-    // fill(g2, BACKGROUND, getRect());
+    fill(g2, BACKGROUND);
   }
 
   /*
@@ -100,8 +98,9 @@ public class ModernTitleMenuItem extends ModernMenuItem {
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
+    g2.setFont(BOLD_FONT);
     g2.setColor(TEXT_COLOR);
 
-    g2.drawString(getText(), PADDING, getTextYPosCenter(g2, getHeight()));
+    g2.drawString(getText(), getInsets().left + PADDING, getTextYPosCenter(g2, getHeight()));
   }
 }

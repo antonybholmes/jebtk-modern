@@ -33,6 +33,7 @@ import java.util.Map;
 
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.EntryCreator;
+import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 import org.slf4j.Logger;
@@ -196,7 +197,7 @@ public class ToolTipService implements ModernToolTipEventProducer {
     return null;
   }
 
-  public static ModernToolTipListener getToolTipWindow(ModernWidget source) {
+  public static ModernToolTipListener getToolTipWindow(ModernComponent source) {
     Window w = ModernWindow.getParentWindow(source);
 
     if (w instanceof ModernToolTipListener) {

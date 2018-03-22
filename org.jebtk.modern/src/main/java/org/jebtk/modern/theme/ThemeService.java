@@ -620,9 +620,9 @@ public class ThemeService extends ModernTheme {
 
     //Resources.getInstance().registerFont("NotoSans-Regular.ttf");2202
 
-    Resources.getInstance().registerFont("OpenSans-Regular.ttf");
-    Resources.getInstance().registerFont("OpenSans-Light.ttf");
-    Resources.getInstance().registerFont("OpenSans-SemiBold.ttf");
+    //Resources.getInstance().registerFont("OpenSans-Regular.ttf");
+    //Resources.getInstance().registerFont("OpenSans-Light.ttf");
+    //Resources.getInstance().registerFont("OpenSans-SemiBold.ttf");
   }
 
   /**

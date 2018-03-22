@@ -28,6 +28,7 @@
 package org.jebtk.modern.graphics.icons;
 
 import java.awt.Color;
+import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.graphics.ImageUtils;
@@ -95,21 +96,19 @@ public class HelpVectorIcon extends ModernMessageIcon {
       // Useful for drawing circles with sub-pixel accuracy.
       ImageUtils.setStrokeHints(g2Temp);
 
-      /*
-       * GradientPaint paint = new GradientPaint(0, yf, mColor1, 0, yf + size,
-       * mColor2);
-       * 
-       * //g2Temp.setPaint(paint);
-       */
+      GradientPaint paint = new GradientPaint(0, yf, mColor1, 0, yf + size,
+          mColor2);
 
-      g2Temp.setColor(Color.WHITE);
+      g2Temp.setPaint(paint);
+
+      //g2Temp.setColor(Color.WHITE);
       g2Temp.fillOval(xf, yf, size, size);
-      g2Temp.setColor(mColor2);
-      g2Temp.drawOval(xf, yf, size, size);
+      ///g2Temp.setColor(mColor2);
+      //g2Temp.drawOval(xf, yf, size, size);
     } finally {
       g2Temp.dispose();
     }
 
-    drawScaledText(g2, w, x, y, w, h, TEXT, mColor1);
+    drawScaledText(g2, w, x, y, w, h, TEXT, Color.WHITE);
   }
 }

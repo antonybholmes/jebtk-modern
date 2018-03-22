@@ -35,9 +35,11 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Insets;
 import java.awt.LayoutManager;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JComponent;
 import javax.swing.border.Border;
@@ -48,6 +50,9 @@ import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ModernTheme;
 import org.jebtk.modern.theme.ThemeService;
+import org.jebtk.modern.tooltip.ModernToolTipEvent;
+import org.jebtk.modern.tooltip.ModernToolTipListener;
+import org.jebtk.modern.tooltip.ToolTipService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -968,5 +973,27 @@ public class ModernComponent extends JComponent {
     mListeners.removeComponentListener(l);
   }
 
+  public ModernToolTipListener getToolTipDest() {
+    return ToolTipService.getToolTipWindow(this);
+  }
+
+  public ModernToolTipEvent createToolTipEvent() {
+    return createToolTipEvent(this);
+  }
+
+  public ModernToolTipEvent createToolTipEvent(Component tooltip) {
+    return createToolTipEvent(tooltip, (Point)null);
+  }
+
+  public ModernToolTipEvent createToolTipEvent(Component tooltip, Point p) {
+    return new ModernToolTipEvent(this, getToolTipDest(), tooltip, p);
+  }
   
+  public ModernToolTipEvent createToolTipEvent(Component tooltip, int x, int y) {
+    return createToolTipEvent(tooltip, new Point(x, y));
+  }
+  
+  public ModernToolTipEvent createToolTipEvent(Component tooltip, MouseEvent e) {
+    return createToolTipEvent(tooltip, e.getX(), e.getY());
+  }
 }

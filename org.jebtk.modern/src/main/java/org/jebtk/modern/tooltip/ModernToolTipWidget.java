@@ -27,9 +27,7 @@
  */
 package org.jebtk.modern.tooltip;
 
-import java.awt.Component;
 import java.awt.LayoutManager;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -272,27 +270,14 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
    * 
    * @return
    */
+  @Override
   public ModernToolTipListener getToolTipDest() {
-    if (mToolTipDest == null) {
-      mToolTipDest = ToolTipService.getToolTipWindow(this);
-    }
+    mToolTipDest = super.getToolTipDest();
 
     return mToolTipDest;
   }
 
   public void setToolTipDest(ModernToolTipListener dest) {
     mToolTipDest = dest;
-  }
-
-  public ModernToolTipEvent createToolTipEvent() {
-    return createToolTipEvent(this);
-  }
-
-  public ModernToolTipEvent createToolTipEvent(Component tooltip) {
-    return createToolTipEvent(tooltip, null);
-  }
-
-  public ModernToolTipEvent createToolTipEvent(Component tooltip, Point p) {
-    return new ModernToolTipEvent(this, getToolTipDest(), tooltip, p);
   }
 }

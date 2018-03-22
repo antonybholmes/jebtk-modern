@@ -32,8 +32,8 @@ import java.awt.Dimension;
 
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.text.ModernLabel;
-import org.jebtk.modern.text.ModernSubHeadingLabel;
-import org.jebtk.modern.text.ModernTextArea;
+import org.jebtk.modern.text.ModernLabelBold;
+import org.jebtk.modern.text.WrapLabel;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -58,12 +58,12 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
   /**
    * The member title.
    */
-  private ModernLabel mTitle = new ModernSubHeadingLabel("");
+  private ModernLabel mTitle = new ModernLabelBold("");
 
   /**
    * The member text.
    */
-  private ModernTextArea mText = new ModernTextArea("");
+  private WrapLabel mText = new WrapLabel();
 
   /**
    * Instantiates a new modern basic tool tip panel.
@@ -78,11 +78,11 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
     mTitle.setBorder(BOTTOM_BORDER);
     panel.add(mTitle, BorderLayout.PAGE_START);
 
-    mText.setEditable(false);
-    mText.setLineWrap(true);
-    mText.setWrapStyleWord(true);
+    //mText.setEditable(false);
+    //mText.setLineWrap(true);
+    //mText.setWrapStyleWord(true);
 
-    panel.add(mText, BorderLayout.CENTER);
+    panel.setCenter(mText);
 
     setPreferredSize(SIZE);
 

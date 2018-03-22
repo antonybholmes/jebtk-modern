@@ -240,6 +240,8 @@ public class ModernDialogWindow extends JDialog
     // getRootPane ().setOpaque (false);
     // getWindowContentPanel().setBackground (new Color(0, 0, 0, 0));
     // setBackground (new Color(0, 0, 0, 0));
+    
+    setDarkBackground();
 
     setIconImage(getAppInfo().getIcon().getImage());
 
@@ -346,14 +348,14 @@ public class ModernDialogWindow extends JDialog
     setInternalContent(new CardPanel(c, ModernWidget.DOUBLE_BORDER));
 
     // Auto set the background to dark so that the card contrasts.
-    setDarkBackground();
+    //setDarkBackground();
   }
 
   public void setBorderlessCardContent(JComponent c) {
     setInternalContent(new BorderlessCardPanel(c));
 
     // Auto set the background to dark so that the card contrasts.
-    setDarkBackground();
+    //setDarkBackground();
   }
 
   /**
@@ -362,12 +364,10 @@ public class ModernDialogWindow extends JDialog
    * @param c
    */
   public void setFlatCardContent(JComponent c) {
-    setInternalContent(new ModernComponent(new ModernLineBottomBorderPanel(
-        new ModernPanel(c, ModernWidget.QUAD_BORDER),
-        ModernWidget.LIGHT_LINE_COLOR), FLAT_BORDER));
+    setInternalContent(new ModernComponent(new ModernPanel(c, ModernWidget.QUAD_BORDER), FLAT_BORDER));
 
     // Auto set the background to dark so that the card contrasts.
-    setDarkBackground();
+    //setDarkBackground();
   }
 
   /**

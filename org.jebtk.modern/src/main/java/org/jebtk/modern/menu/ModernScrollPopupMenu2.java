@@ -68,7 +68,7 @@ public class ModernScrollPopupMenu2 extends ModernPopupMenu2 {
   public ModernScrollPopupMenu2() {
     this(260);
   }
-
+  
   /**
    * Instantiates a new modern scroll popup menu.
    *
@@ -188,5 +188,9 @@ public class ModernScrollPopupMenu2 extends ModernPopupMenu2 {
     super.clear();
 
     add(mScrollPane);
+  }
+  
+  public ModernComponent getScrollPanel() {
+    return mScrollMenuPanel;
   }
 }

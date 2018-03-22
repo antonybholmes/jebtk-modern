@@ -1527,11 +1527,11 @@ public class Ribbon extends ModernClickWidget
     Point p = source.getLocationOnScreen();
     SwingUtilities.convertPointFromScreen(p, mWindow.getLayeredPane());
 
-    Point p2 = getLocationOnScreen();
-    SwingUtilities.convertPointFromScreen(p2, mWindow.getLayeredPane());
+    Point p2 = new Point(); //getLocationOnScreen();
+    //SwingUtilities.convertPointFromScreen(p2, mWindow.getLayeredPane());
 
-    p2.x = p.x;
-    p2.y += getHeight();
+    p2.x = 0; //p.x;
+    p2.y = getHeight();
 
     int pw = tooltip.getPreferredSize().width;
 
