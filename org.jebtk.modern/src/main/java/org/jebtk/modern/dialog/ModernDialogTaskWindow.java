@@ -148,7 +148,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
       break;
     }
 
-    setLightBackground();
+    //setLightBackground();
 
     setInternalContent(mContentPane);
 
@@ -249,7 +249,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
    */
   @Override
   public void setContent(JComponent c) {
-    setInternalContent(new ModernComponent(c, ModernWidget.QUAD_BORDER));
+    setInternalContent(new ModernComponent(c, ModernWidget.DOUBLE_BORDER));
   }
 
   /**

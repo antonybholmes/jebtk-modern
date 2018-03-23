@@ -223,4 +223,8 @@ public class BorderService {
 
     return mLineBorderMap.get(color);
   }
+
+  public Border createBorder(int wp, int hp) {
+    return createBorder(hp, wp, hp, wp);
+  }
 }

@@ -527,12 +527,8 @@ public class ModernWindow extends JFrame
   @Override
   public void tooltipShown(ModernToolTipEvent e) {
     if (e.getP() != null) {
-      System.err.println("tool " + e.getP());
-      
       SwingUtilities.convertPointToScreen(e.getP(), e.getSource());
-      
-      System.err.println("tool " + e.getP() + " " + e.getSource());
-      
+       
       Point p = toolTipPFromScreen(e.getP(), e.getTooltip());
       
       showToolTip(e.getSource(), e.getTooltip(), p);

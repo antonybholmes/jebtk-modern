@@ -10,12 +10,6 @@ import org.jebtk.modern.widget.ModernWidget;
 
 public class MessageDialogCenterLayout extends VBoxCenterLayout {
 
-  private int mIconSize;
-
-  public MessageDialogCenterLayout(int iconSize) {
-    mIconSize = iconSize;
-  }
-
   @Override
   public void layoutContainer(Container parent) {
     Insets insets = parent.getInsets();

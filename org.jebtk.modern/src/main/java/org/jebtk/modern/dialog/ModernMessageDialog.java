@@ -35,6 +35,7 @@ import javax.swing.Box;
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.text.TextUtils;
+import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
@@ -45,6 +46,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.WarningVectorIcon;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.widget.ModernClickWidget;
+import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.WindowWidgetFocusEvents;
 
@@ -84,10 +86,10 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
 
   private static final int ICON_SIZE = 40;
 
-  private static final int FIXED_HEIGHT = 80;
+  private static final int FIXED_HEIGHT = 60;
 
   /** The Constant MIN_HEIGHT. */
-  private static final int MIN_HEIGHT = 80;
+  private static final int MIN_HEIGHT = 60;
 
   /** The Constant MAX_HEIGHT. */
   private static final int MAX_HEIGHT = 400;
@@ -122,8 +124,6 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
 
     setTitle(title);
 
-    setDarkBackground();
-
     ModernComponent content = new ModernComponent(); // (ModernTheme.getInstance().getClass("widget").getInt("padding"));
 
     // content.setBorder(ModernPanel.BORDER);
@@ -137,7 +137,7 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
     content.setLeft(iconLabel);
 
     ModernComponent c = new ModernComponent(
-        new MessageDialogCenterLayout(ICON_SIZE));
+        new MessageDialogCenterLayout());
 
     // box.add(Box.createVerticalGlue());
 
@@ -149,6 +149,7 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
 
     // box.setBorder(BorderService.getInstance().createLeftBorder(ModernWidget.TRIPLE_PADDING));
     content.setBody(c);
+    content.setBorder(BorderService.getInstance().createLeftRightBorder(ModernWidget.DOUBLE_PADDING));
     // content.setBorder(ModernWidget.DOUBLE_BORDER);
 
     setContent(content);
