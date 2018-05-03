@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Color;
 
-// TODO: Auto-generated Javadoc
 /**
  * This class should be sub-classed by icons that can be scaled to any size. It
  * is not strictly necessary to do this, but it indicates your intent to the

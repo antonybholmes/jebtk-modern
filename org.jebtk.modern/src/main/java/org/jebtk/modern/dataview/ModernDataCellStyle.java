@@ -32,7 +32,6 @@ import java.awt.Color;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.text.TextUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * A style element that can be used to theme cells in a dataview control.
  * 

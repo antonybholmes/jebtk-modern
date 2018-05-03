@@ -35,7 +35,6 @@ import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.settings.SettingsService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Warning icon.
  * 

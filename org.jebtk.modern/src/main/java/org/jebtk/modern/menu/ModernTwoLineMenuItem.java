@@ -36,7 +36,6 @@ import java.awt.event.MouseEvent;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.widget.TwoLineWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Extended menu item that displays two lines of text and an icon.
  *

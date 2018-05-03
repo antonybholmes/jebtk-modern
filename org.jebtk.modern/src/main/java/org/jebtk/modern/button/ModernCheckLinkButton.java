@@ -31,7 +31,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Simulates a hyperlink using a button.
  * 

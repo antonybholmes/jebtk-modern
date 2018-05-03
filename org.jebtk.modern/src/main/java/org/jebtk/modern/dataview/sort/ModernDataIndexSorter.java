@@ -30,7 +30,6 @@ package org.jebtk.modern.dataview.sort;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.dataview.ModernData;
 
-// TODO: Auto-generated Javadoc
 /**
  * The data sorter provides a mapping between an index and a sorted index so
  * that a dataview can arbitrary reorder a data model (e.g. sort all columns)

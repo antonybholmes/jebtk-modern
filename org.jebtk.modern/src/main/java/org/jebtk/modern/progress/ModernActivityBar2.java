@@ -37,7 +37,6 @@ import javax.swing.Timer;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Shows animated balls to indicate something is happening.
  * 

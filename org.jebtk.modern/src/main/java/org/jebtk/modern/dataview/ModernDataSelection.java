@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.dataview;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernDataSelection.
  */

@@ -29,7 +29,6 @@ package org.jebtk.modern.window;
 
 import org.jebtk.modern.UI;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernWindowTitleBar.
  */

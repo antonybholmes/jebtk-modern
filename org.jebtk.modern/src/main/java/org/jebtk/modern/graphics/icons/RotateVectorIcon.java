@@ -19,7 +19,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.graphics.ImageUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * Rotate an icon by a fixed number of degrees.
  */

@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.tabs;
 
-// TODO: Auto-generated Javadoc
 /**
  * The enum TabPosition.
  */

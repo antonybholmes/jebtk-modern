@@ -34,7 +34,6 @@ import java.awt.event.MouseEvent;
 
 import org.jebtk.core.Mathematics;
 
-// TODO: Auto-generated Javadoc
 /**
  * Vertical split pane i.e. add a horizontal line between two panels.
  * 

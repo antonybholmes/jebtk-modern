@@ -33,7 +33,6 @@ import java.awt.image.BufferedImage;
 
 import org.jebtk.modern.graphics.ImageUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * Creates a transparent icon from an existing rastorizable icon.
  * 

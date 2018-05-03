@@ -33,7 +33,6 @@ import java.awt.geom.GeneralPath;
 
 import org.jebtk.modern.ribbon.Ribbon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Vector based save icon.
  * 

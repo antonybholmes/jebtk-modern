@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics;
 
 import org.jebtk.core.event.EventProducer;
 
-// TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
  * 

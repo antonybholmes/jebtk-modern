@@ -29,7 +29,6 @@ package org.jebtk.modern.search;
 
 import org.jebtk.core.event.ChangeEvent;
 
-// TODO: Auto-generated Javadoc
 /**
  * For classes that generate experiment sort events for when an experiment sort
  * changes.

@@ -34,7 +34,6 @@ import java.awt.geom.GeneralPath;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class FilterVectorIcon.
  */

@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.graphics;
 
-// TODO: Auto-generated Javadoc
 /**
  * Simple 2d double precision coordinate object.
  *

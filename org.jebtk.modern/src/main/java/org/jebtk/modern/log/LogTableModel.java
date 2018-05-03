@@ -35,7 +35,6 @@ import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.log.LogEventListener;
 import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class LogTableModel.
  */

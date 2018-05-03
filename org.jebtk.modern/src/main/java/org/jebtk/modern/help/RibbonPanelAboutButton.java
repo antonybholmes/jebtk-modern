@@ -30,7 +30,6 @@ package org.jebtk.modern.help;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernTextLink;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class RibbonPanelAboutButton.
  */

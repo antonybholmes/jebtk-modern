@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.ribbon;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Enum RibbonSize.
  */

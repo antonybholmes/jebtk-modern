@@ -37,7 +37,6 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.core.geom.IntRect;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows a canvas to be stored and manipulated within another. For example a
  * zooming canvas might scale the draw canvas before presenting the image to the

@@ -29,7 +29,6 @@ package org.jebtk.modern.menu;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Special instance of a menu item to indicate that the ui should not respond to
  * it normally but instead pass on the action rather than setting text etc

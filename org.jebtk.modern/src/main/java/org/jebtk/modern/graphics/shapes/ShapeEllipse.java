@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.shapes;
 
 import java.awt.geom.Ellipse2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ShapeEllipse.
  */

@@ -52,7 +52,6 @@ import org.jebtk.modern.text.ModernTextArea;
 import org.jebtk.modern.text.ModernTitleLabel;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernAboutDialog.
  */

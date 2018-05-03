@@ -33,8 +33,8 @@ import java.awt.event.MouseWheelEvent;
 import org.jebtk.core.geom.IntPos2D;
 
 /**
- * The class CanvasMouseWheelEvent represents a mouse wheel event passed
- * through canvas layers.
+ * The class CanvasMouseWheelEvent represents a mouse wheel event passed through
+ * canvas layers.
  */
 public class CanvasMouseWheelEvent extends MouseWheelEvent {
 

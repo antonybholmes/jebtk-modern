@@ -39,7 +39,6 @@ import java.awt.event.MouseMotionListener;
 
 import org.jebtk.modern.BorderService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
  *

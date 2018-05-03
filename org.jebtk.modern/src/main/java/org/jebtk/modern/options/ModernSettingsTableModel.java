@@ -39,7 +39,6 @@ import org.jebtk.core.settings.SettingsService;
 import org.jebtk.core.tree.TreeNode;
 import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Displays key/value settings pairs and allows users to edit them.
  * 

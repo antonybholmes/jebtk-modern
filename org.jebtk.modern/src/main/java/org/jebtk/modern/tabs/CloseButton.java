@@ -22,7 +22,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.Raster16Icon;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Close button for side panels. The cross icon changes color rather than using
  * a highlighted background. This makes it a less obtrusive UI element.

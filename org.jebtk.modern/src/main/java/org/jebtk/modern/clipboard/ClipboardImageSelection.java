@@ -31,7 +31,6 @@ import java.awt.Image;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 
-// TODO: Auto-generated Javadoc
 /**
  * This class is used to hold an image while on the clipboard.
  *

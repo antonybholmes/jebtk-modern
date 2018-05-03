@@ -23,7 +23,6 @@ import java.util.List;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Animations.
  */

@@ -32,7 +32,6 @@ import java.awt.event.MouseEvent;
 
 import org.jebtk.core.geom.IntPos2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class CanvasMouseEvent.
  */

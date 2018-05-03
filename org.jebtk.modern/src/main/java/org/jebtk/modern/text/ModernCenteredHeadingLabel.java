@@ -31,7 +31,6 @@ import java.awt.Color;
 
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernCenteredHeadingLabel.
  */

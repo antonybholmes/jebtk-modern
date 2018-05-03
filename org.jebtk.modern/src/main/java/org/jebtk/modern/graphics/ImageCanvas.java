@@ -33,7 +33,6 @@ import java.awt.image.BufferedImage;
 
 import org.jebtk.core.event.ChangeEvent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Render child canvas as an image to improve display performance on the GUI of
  * complex shapes.

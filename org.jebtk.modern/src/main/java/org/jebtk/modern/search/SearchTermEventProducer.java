@@ -29,7 +29,6 @@ package org.jebtk.modern.search;
 
 import org.jebtk.core.event.ChangeEvent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Interface for notifying objects that search terms have changed.
  *

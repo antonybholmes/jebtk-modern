@@ -34,7 +34,6 @@ import org.jebtk.core.Mathematics;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Down arrow vector icon for combobox buttons etc.
  * 

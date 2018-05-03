@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.dialog;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Enum ModernDialogTaskType.
  */

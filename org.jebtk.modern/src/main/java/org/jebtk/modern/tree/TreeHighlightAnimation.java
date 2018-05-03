@@ -23,7 +23,6 @@ import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows for fade in/out animation on an element.
  *
@@ -61,8 +60,6 @@ public class TreeHighlightAnimation extends HighlightAnimation {
         || mTree.mNodeDepthMap == null || mTree.mNodeRenderer == null) {
       return;
     }
-    
-    
 
     ModernTreeNodeRenderer renderer;
 
@@ -75,7 +72,7 @@ public class TreeHighlightAnimation extends HighlightAnimation {
     int h = 0;
 
     int y1 = mTree.getVisibleRect().y;
-    int maxY = y1 + mTree.getVisibleRect().height; //mTree.getInternalRect().getH();
+    int maxY = y1 + mTree.getVisibleRect().height; // mTree.getInternalRect().getH();
 
     int c = 0;
 

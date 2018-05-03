@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.graphics.color;
 
-// TODO: Auto-generated Javadoc
 /**
  * The enum ColorChannel.
  */

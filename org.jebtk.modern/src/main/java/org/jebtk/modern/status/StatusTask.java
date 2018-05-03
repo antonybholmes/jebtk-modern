@@ -34,7 +34,6 @@ import javax.swing.SwingWorker;
 
 import org.jebtk.modern.UI;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class StatusTask.
  */

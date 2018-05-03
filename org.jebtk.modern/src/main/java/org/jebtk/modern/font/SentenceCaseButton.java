@@ -40,7 +40,6 @@ import org.jebtk.modern.menu.ModernMenuSeparator;
 import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.ribbon.RibbonDropDownIconButton;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class SentenceCaseButton.
  */

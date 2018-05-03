@@ -30,7 +30,6 @@ package org.jebtk.modern.text;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernCenteredLabelPanel.
  */

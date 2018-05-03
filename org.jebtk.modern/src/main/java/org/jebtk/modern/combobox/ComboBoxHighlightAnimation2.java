@@ -21,7 +21,7 @@ public class ComboBoxHighlightAnimation2 extends ButtonHighlightAnimation
 
     mCombo = (ModernComboBox2) combo;
 
-    //mCombo.addPopupClosedListener(this);
+    // mCombo.addPopupClosedListener(this);
 
     setFadeColor("fill",
         Color.WHITE,

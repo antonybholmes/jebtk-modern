@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.scrollpane;
 
-// TODO: Auto-generated Javadoc
 /**
  * The enum ScrollBarDisplayFeatures.
  */

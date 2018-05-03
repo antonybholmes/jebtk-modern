@@ -31,7 +31,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
-// TODO: Auto-generated Javadoc
 /**
  * Left arrow vector icon.
  * 

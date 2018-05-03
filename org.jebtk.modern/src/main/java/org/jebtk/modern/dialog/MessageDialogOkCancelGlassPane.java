@@ -43,7 +43,6 @@ import org.jebtk.modern.panel.HCenterBox;
 import org.jebtk.modern.ribbon.MessageButton;
 import org.jebtk.modern.text.ModernCenteredHeadingPanel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Used as a glass pane to present messages to the user in the current window
  * rather than a popup dialog.

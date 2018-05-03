@@ -36,7 +36,6 @@ import org.jebtk.modern.SelectionRangeModel;
 import org.jebtk.modern.event.ModernSelectionEventProducer;
 import org.jebtk.modern.event.ModernSelectionListener;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents a collection of rows or columns in the table specifying how they
  * should be rendered.

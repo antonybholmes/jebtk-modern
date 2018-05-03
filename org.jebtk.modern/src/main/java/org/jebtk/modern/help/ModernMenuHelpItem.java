@@ -41,7 +41,6 @@ import org.jebtk.modern.graphics.icons.ModernVectorScalableIcon;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provide help in dialogs.
  * 

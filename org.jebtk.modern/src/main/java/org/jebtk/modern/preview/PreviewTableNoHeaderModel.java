@@ -37,7 +37,6 @@ import java.util.List;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.table.ModernTableModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * A concrete implementation of a table model for displaying text.
  * 

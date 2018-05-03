@@ -31,7 +31,6 @@ import javax.swing.JComponent;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * All content panes.
  * 

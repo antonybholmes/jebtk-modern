@@ -44,7 +44,6 @@ import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.IconTabs;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standardized dialog window for dialogs that have buttons along the bottom
  * such as OK and Cancel for when user is performing a task.
@@ -148,7 +147,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
       break;
     }
 
-    //setLightBackground();
+    // setLightBackground();
 
     setInternalContent(mContentPane);
 
@@ -162,9 +161,8 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
    */
   @Override
   public void setCard(JComponent c) {
-    getTabsPane().tabs()
-        .setCenterTab(
-            new CardPanel(new ModernComponent(c, ModernWidget.QUAD_BORDER),
+    getTabsPane().tabs().setCenterTab(
+        new CardPanel(new ModernComponent(c, ModernWidget.QUAD_BORDER),
             ModernWidget.DOUBLE_BORDER));
 
     setDarkBackground();

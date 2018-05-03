@@ -23,7 +23,6 @@ import java.util.List;
 import org.jebtk.core.tree.CheckTreeNode;
 import org.jebtk.core.tree.TreeNode;
 
-// TODO: Auto-generated Javadoc
 /**
  * Tree for checkable nodes that will respond to mouse events and toggle whether
  * nodes are checked or not.

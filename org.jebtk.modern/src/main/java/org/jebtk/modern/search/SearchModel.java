@@ -29,7 +29,6 @@ package org.jebtk.modern.search;
 
 import org.jebtk.core.model.ItemModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class SearchModel.
  */

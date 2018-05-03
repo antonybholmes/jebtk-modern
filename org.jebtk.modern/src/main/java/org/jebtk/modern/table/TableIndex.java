@@ -29,7 +29,6 @@ package org.jebtk.modern.table;
 
 import org.jebtk.core.event.ChangeListeners;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents a column or row in a table.
  * 

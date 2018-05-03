@@ -33,7 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Mathematics;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class FolderVectorIcon.
  */

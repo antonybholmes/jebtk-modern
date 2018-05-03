@@ -34,7 +34,6 @@ import javax.swing.BoxLayout;
 
 import org.jebtk.modern.ribbon.Ribbon;
 
-// TODO: Auto-generated Javadoc
 /**
  * A padded panel for displaying cards in the UI.
  * 

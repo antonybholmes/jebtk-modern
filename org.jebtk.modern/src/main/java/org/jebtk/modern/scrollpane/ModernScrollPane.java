@@ -75,7 +75,6 @@ import org.jebtk.modern.table.ModernTable;
 import org.jebtk.modern.tree.ModernTree;
 import org.jebtk.modern.widget.ModernFocusableWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Scroll pane control for scrolling around components bigger than the on screen
  * view.
@@ -83,9 +82,9 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernScrollPane extends ModernFocusableWidget implements
-    ModernClickListener, HierarchyBoundsListener, ModernDataViewListener,
-    DocumentListener, CanvasListener, ChangeListener {
+public class ModernScrollPane extends ModernFocusableWidget
+    implements ModernClickListener, HierarchyBoundsListener,
+    ModernDataViewListener, DocumentListener, CanvasListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.

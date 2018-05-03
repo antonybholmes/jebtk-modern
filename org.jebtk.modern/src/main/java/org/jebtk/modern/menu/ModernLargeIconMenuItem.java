@@ -31,7 +31,6 @@ import java.awt.Dimension;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Default menu item for creating menu items with large icons.
  *

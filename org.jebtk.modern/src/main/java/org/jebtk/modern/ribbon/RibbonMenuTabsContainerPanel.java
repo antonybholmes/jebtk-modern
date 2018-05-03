@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.tabs.TabsViewPanel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides a sidebar with clickable tabs.
  * 

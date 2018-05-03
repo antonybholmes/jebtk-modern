@@ -36,7 +36,6 @@ import org.jebtk.modern.dialog.ModernDialogTaskType;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * User can enter an integer option value.
  * 

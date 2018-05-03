@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern;
 
-// TODO: Auto-generated Javadoc
 /**
  * For components that can be programatically selected.
  * 

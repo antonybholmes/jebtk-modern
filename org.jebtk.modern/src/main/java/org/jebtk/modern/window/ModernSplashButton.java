@@ -36,7 +36,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Outline button with white background for more contract on off-white panels.
  * 

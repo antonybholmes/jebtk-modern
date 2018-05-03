@@ -30,7 +30,6 @@ package org.jebtk.modern.tree;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.FolderVectorIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Renders both leaves and parents as folder icons.
  *

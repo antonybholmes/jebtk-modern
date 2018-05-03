@@ -36,7 +36,6 @@ import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.dataview.ModernDataGridModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Extended table model.
  *

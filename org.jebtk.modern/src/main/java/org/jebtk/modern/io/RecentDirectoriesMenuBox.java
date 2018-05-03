@@ -35,7 +35,6 @@ import java.util.Set;
 
 import org.jebtk.modern.menu.ModernMenuBox;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class RecentDirectoriesMenuBox.
  */

@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.tooltip;
 
-// TODO: Auto-generated Javadoc
 /**
  * For classes that generate ModernClickEvents.
  *

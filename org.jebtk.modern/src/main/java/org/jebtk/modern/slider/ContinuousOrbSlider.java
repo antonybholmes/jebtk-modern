@@ -35,7 +35,6 @@ import java.awt.event.MouseWheelListener;
 
 import org.jebtk.core.Mathematics;
 
-// TODO: Auto-generated Javadoc
 /**
  * Slider with an orb button and plus minus controls.
  *

@@ -31,7 +31,6 @@ import javax.swing.border.Border;
 
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Colored header using an appropriate color from the theme palette e.g. Dark
  * blue for the blue theme, dark green for the green theme.

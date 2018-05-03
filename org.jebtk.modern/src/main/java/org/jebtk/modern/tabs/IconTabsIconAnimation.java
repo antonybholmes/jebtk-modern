@@ -23,7 +23,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Draw all the icons except the selected.
  *

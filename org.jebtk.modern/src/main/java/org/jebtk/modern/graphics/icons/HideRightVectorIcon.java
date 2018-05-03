@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class HideRightVectorIcon.
  */

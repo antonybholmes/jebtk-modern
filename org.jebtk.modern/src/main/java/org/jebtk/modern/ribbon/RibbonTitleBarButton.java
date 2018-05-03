@@ -33,7 +33,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.window.ModernWindowTitleBarWinButton;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernWindowTitleBarButton.
  */

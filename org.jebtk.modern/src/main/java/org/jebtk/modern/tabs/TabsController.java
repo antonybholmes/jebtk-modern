@@ -34,7 +34,6 @@ import javax.swing.KeyStroke;
 
 import org.jebtk.modern.widget.ModernFocusableWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * A controller view of the tabs i.e. handles user input.
  * 

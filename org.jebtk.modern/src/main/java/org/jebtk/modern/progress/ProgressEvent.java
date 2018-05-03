@@ -29,7 +29,6 @@ package org.jebtk.modern.progress;
 
 import org.jebtk.core.event.Event;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ProgressEvent.
  */

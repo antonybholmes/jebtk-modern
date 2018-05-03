@@ -38,7 +38,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ForwardRequestMenuItem;
 import org.jebtk.modern.menu.ModernMenuDivider;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class RecentFilesComboBox.
  */

@@ -47,7 +47,6 @@ import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.text.ModernCenteredHeadingPanel;
 import org.jebtk.modern.window.FrostedGlassPane;
 
-// TODO: Auto-generated Javadoc
 /**
  * Used as a glass pane to present messages to the user in the current window
  * rather than a popup dialog.

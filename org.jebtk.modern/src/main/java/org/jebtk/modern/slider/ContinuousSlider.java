@@ -34,7 +34,6 @@ import java.awt.event.KeyListener;
 
 import org.jebtk.core.Mathematics;
 
-// TODO: Auto-generated Javadoc
 /**
  * Basic features of a slider control that jumps from step to step.
  *

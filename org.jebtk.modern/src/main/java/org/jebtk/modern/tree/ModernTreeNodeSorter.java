@@ -35,7 +35,6 @@ import java.util.Map;
 
 import org.jebtk.core.tree.TreeNode;
 
-// TODO: Auto-generated Javadoc
 /**
  * The experiment tree can be sorted in multiple ways. Given a list of
  * experiments and a tree, generate a custom sorted tree of experiments.

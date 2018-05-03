@@ -22,7 +22,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * A hyperlink style text link.
  * 

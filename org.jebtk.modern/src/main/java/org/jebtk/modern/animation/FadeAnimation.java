@@ -30,7 +30,6 @@ import org.jebtk.modern.graphics.colormap.ColorMap;
 import org.jebtk.modern.graphics.colormap.ColorMapColor;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows for fade in/out animation on an element.
  *

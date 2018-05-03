@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Outline button with white background for more contract on off-white panels.
  * 

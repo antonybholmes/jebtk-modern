@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.graphics.icons;
 
-// TODO: Auto-generated Javadoc
 /**
  * Rastorizes an icon to 32x32 pixels.
  * 

@@ -37,7 +37,6 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.menu.ModernScrollPopupMenu;
 
-// TODO: Auto-generated Javadoc
 /**
  * Specialised combobox for showing selecting search criteria.
  *

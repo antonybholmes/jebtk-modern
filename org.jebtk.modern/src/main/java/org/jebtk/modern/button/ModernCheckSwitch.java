@@ -24,7 +24,6 @@ import javax.swing.border.Border;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ModernCheckSwitch offers a sliding on/off switch similar to what
  * you might find in Android or iOS.

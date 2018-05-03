@@ -43,7 +43,6 @@ import org.jebtk.core.geom.DoubleDim;
 import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntRect;
 
-// TODO: Auto-generated Javadoc
 /**
  * ImageUtils provides methods for dealing with graphics and image objects.
  */

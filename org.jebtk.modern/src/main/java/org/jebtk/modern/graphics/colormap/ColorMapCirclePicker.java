@@ -30,7 +30,6 @@ import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ColorPicker.
  */

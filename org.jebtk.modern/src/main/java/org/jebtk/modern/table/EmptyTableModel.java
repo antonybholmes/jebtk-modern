@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.table;
 
-// TODO: Auto-generated Javadoc
 /**
  * Empty table model for use as table holder.
  *

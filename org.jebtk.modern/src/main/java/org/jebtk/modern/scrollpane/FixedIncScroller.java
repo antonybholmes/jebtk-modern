@@ -29,7 +29,6 @@ package org.jebtk.modern.scrollpane;
 
 import java.awt.Component;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class FixedIncScroller allows the scrollbars to move a fixed number of
  * pixels per scroll notch.

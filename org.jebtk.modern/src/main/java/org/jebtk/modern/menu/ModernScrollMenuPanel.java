@@ -17,7 +17,6 @@ package org.jebtk.modern.menu;
 
 import org.jebtk.modern.panel.VBoxAutoWidth;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ModernScrollMenuPanel.
  */

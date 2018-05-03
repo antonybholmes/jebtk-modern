@@ -50,7 +50,6 @@ import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.WindowWidgetFocusEvents;
 
-// TODO: Auto-generated Javadoc
 /**
  * Show a message dialog to the user.
  * 
@@ -86,10 +85,10 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
 
   private static final int ICON_SIZE = 40;
 
-  private static final int FIXED_HEIGHT = 60;
+  private static final int FIXED_HEIGHT = 70;
 
   /** The Constant MIN_HEIGHT. */
-  private static final int MIN_HEIGHT = 60;
+  private static final int MIN_HEIGHT = FIXED_HEIGHT;
 
   /** The Constant MAX_HEIGHT. */
   private static final int MAX_HEIGHT = 400;
@@ -136,8 +135,7 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
         ICON_SIZE);
     content.setLeft(iconLabel);
 
-    ModernComponent c = new ModernComponent(
-        new MessageDialogCenterLayout());
+    ModernComponent c = new ModernComponent(new MessageDialogCenterLayout());
 
     // box.add(Box.createVerticalGlue());
 
@@ -149,11 +147,12 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
 
     // box.setBorder(BorderService.getInstance().createLeftBorder(ModernWidget.TRIPLE_PADDING));
     content.setBody(c);
-    content.setBorder(BorderService.getInstance().createLeftRightBorder(ModernWidget.DOUBLE_PADDING));
+    content.setBorder(BorderService.getInstance()
+        .createLeftRightBorder(ModernWidget.DOUBLE_PADDING));
     // content.setBorder(ModernWidget.DOUBLE_BORDER);
 
     setContent(content);
-    //setFlatCardContent(content);
+    // setFlatCardContent(content);
 
     setSize(
         Math.min(Math.max(MIN_WIDTH, c.getPreferredSize().width) + FIXED_WIDTH,

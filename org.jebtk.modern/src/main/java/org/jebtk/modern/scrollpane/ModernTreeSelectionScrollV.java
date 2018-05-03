@@ -32,7 +32,6 @@ import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.tree.ModernTree;
 
-// TODO: Auto-generated Javadoc
 /**
  * Responds to tree selection changes by moving the scroll pane around.
  */

@@ -31,7 +31,6 @@ import java.awt.Dimension;
 
 import org.jebtk.modern.graphics.ModernCanvas;
 
-// TODO: Auto-generated Javadoc
 /**
  * Draws a layer on a layer canvas when directed. The LayerModel dictates if the
  * layer gets draw or not.

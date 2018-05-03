@@ -42,7 +42,6 @@ import org.jebtk.core.xml.XmlUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-// TODO: Auto-generated Javadoc
 /**
  * Settings factory for providing global settings to an application. Can load
  * settings from an XML file or a text file.

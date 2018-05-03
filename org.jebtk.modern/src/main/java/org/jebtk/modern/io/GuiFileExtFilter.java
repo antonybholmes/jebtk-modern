@@ -38,7 +38,6 @@ import javax.swing.filechooser.FileFilter;
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.io.PathUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class GuiFileExtFilter.
  *

@@ -31,7 +31,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.theme.UIDrawService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Check vector icon optimized for 16 pixel icons.
  * 

@@ -52,7 +52,6 @@ import org.jebtk.modern.event.ModernStateListeners;
 import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.tooltip.ModernToolTipWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides the foundation for all UI widgets but does not implement responses.
  * 

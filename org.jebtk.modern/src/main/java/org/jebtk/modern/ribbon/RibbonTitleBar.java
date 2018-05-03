@@ -37,7 +37,6 @@ import org.jebtk.modern.window.ModernWindowTitleBarMaxRoundButton;
 import org.jebtk.modern.window.ModernWindowTitleBarMinRoundButton;
 import org.jebtk.modern.window.ModernWindowTitleBarStyle;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernWindowTitleBar.
  */

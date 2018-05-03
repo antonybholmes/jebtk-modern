@@ -20,7 +20,6 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.text.ModernTextBorderPanel;
 import org.jebtk.modern.text.ModernTextField;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class InputFieldBox.
  */

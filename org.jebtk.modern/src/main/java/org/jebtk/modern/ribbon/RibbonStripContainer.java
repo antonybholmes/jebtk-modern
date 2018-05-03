@@ -34,7 +34,6 @@ import javax.swing.Box;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.VCenterBox;
 
-// TODO: Auto-generated Javadoc
 /**
  * For storing a strip of smaller buttons.
  *

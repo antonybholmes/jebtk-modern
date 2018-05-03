@@ -34,7 +34,6 @@ import javax.swing.border.Border;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents a non closable tab.
  *

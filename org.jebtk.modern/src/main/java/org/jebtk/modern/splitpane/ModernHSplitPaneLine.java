@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.splitpane;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents a horizontal split pane that uses a solid line to separate two
  * components.

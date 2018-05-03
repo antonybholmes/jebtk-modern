@@ -29,7 +29,6 @@ package org.jebtk.modern.tabs;
 
 import org.jebtk.core.event.ChangeEvent;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class TabEvent.
  */

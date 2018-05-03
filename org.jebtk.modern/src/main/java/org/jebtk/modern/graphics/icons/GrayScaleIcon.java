@@ -33,7 +33,6 @@ import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
 import java.awt.image.ColorConvertOp;
 
-// TODO: Auto-generated Javadoc
 /**
  * Rastorizes an icon (for example a vector based on) to reduce drawing
  * overhead.

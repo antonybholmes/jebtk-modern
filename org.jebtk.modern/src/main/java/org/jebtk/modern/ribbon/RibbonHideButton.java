@@ -19,7 +19,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.CheveronUpVectorIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Button to allow users to hide the ribbon.
  * 

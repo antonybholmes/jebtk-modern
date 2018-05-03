@@ -31,7 +31,6 @@ import org.jebtk.core.AppInfo;
 import org.jebtk.core.AppVersion;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Describes a product.
  * 

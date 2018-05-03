@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.settings.SettingsService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Run arrow icon, like the standard play button.
  * 

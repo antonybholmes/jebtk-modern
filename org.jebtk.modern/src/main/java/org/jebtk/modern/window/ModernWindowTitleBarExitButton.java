@@ -37,7 +37,6 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.CrossVectorIcon;
 import org.jebtk.modern.graphics.icons.Raster16Icon;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernWindowTitleBarCloseButton.
  */

@@ -38,7 +38,6 @@ import org.jebtk.core.path.StrictPath;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.BorderService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides shared resources for theming widgets in a consistent manner. This
  * allows widgets to be updated globally rather that through individual

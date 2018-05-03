@@ -30,7 +30,6 @@ package org.jebtk.modern.dialog;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernCleanDialogWindow.
  */

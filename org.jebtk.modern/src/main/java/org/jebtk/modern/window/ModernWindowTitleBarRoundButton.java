@@ -33,7 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.graphics.ImageUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernWindowTitleBarCloseButton.
  */

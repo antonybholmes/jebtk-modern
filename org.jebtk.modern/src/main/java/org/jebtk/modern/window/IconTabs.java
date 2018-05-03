@@ -39,7 +39,6 @@ import org.jebtk.modern.tabs.IconTabsVectorIcon;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standardized dialog window for dialogs that have buttons along the bottom
  * such as OK and Cancel for when user is performing a task.

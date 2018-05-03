@@ -33,7 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.graphics.icons.ModernVectorScalableIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class FolderVectorIcon.
  */

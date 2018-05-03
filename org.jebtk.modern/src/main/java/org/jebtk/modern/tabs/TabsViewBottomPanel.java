@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Companion tab view panel for the ModernHTabBottom so that they display a
  * seamless border.

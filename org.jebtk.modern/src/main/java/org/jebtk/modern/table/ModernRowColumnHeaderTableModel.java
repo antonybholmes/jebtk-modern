@@ -29,7 +29,6 @@ package org.jebtk.modern.table;
 
 import java.util.List;
 
-// TODO: Auto-generated Javadoc
 /**
  * Extended table model.
  *

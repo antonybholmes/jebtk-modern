@@ -32,7 +32,6 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.slider.ContinuousMacOrbSlider;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class AlphaSlider.
  */

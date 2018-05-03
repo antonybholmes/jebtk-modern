@@ -31,7 +31,6 @@ import java.awt.Component;
 
 import org.jebtk.modern.ModernComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows panel to switch between components.
  * 

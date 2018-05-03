@@ -33,7 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Down arrow vector icon for combobox buttons etc.
  * 

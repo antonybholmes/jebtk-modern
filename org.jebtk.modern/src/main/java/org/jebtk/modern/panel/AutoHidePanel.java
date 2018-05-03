@@ -27,7 +27,6 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.CheveronRightVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class AutoHidePanel automatically hides its contents when it gets too
  * thin.

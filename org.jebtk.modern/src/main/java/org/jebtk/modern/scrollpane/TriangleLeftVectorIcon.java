@@ -30,7 +30,6 @@ package org.jebtk.modern.scrollpane;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
-// TODO: Auto-generated Javadoc
 /**
  * Down arrow vector icon for combobox buttons etc.
  * 

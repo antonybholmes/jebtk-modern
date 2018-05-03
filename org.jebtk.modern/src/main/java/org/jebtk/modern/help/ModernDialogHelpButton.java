@@ -32,7 +32,6 @@ import java.net.URL;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.button.ModernUrlTextLink;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provide help in dialogs.
  * 

@@ -46,7 +46,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.ModernImageIcon;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows data from a JAR to be loaded into memory.
  *

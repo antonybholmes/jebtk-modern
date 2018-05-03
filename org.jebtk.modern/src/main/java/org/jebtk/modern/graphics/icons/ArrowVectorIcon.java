@@ -32,7 +32,6 @@ import java.awt.Color;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Left arrow vector icon.
  * 

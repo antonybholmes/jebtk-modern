@@ -33,7 +33,6 @@ import java.awt.geom.Area;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Rectangle2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * Vector based save icon.
  * 

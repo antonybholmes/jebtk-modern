@@ -33,7 +33,6 @@ import java.awt.Rectangle;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.ModernRoundedWidgetRenderer;
 
-// TODO: Auto-generated Javadoc
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
  *

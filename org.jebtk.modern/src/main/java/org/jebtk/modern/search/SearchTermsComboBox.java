@@ -35,7 +35,6 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.combobox.ModernComboBox;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 
-// TODO: Auto-generated Javadoc
 /**
  * Specialised combobox for showing selecting search criteria.
  *

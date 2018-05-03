@@ -20,7 +20,6 @@ import java.awt.Component;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Create a hbox containing two components, one aligned left, the other aligned
  * right that expands to fill horizontal space.
@@ -36,7 +35,7 @@ public class HExpandBox extends ModernComponent {
   public HExpandBox() {
     setLayout(new HExpandBoxLayout());
 
-    //UI.setSize(this, ModernWidget.MAX_SIZE_24);
+    // UI.setSize(this, ModernWidget.MAX_SIZE_24);
   }
 
   /**

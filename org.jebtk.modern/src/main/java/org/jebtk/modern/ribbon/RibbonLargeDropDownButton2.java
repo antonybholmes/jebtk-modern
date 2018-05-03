@@ -355,8 +355,8 @@ public class RibbonLargeDropDownButton2 extends ModernDropDownButton2
       if (!mIconOnly && mShowText && mText != null) {
         x += PADDING;
         y = ModernWidget.getTextYPosCenter(g2, mRect.getH());
-        int w = getWidth() - - PADDING - TRIANGLE_ICON.getWidth() - x;
-        
+        int w = getWidth() - -PADDING - TRIANGLE_ICON.getWidth() - x;
+
         g2.drawString(truncate(g2, mText, w), x, y);
       }
     }

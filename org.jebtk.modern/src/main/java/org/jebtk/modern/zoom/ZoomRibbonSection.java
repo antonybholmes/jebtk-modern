@@ -41,7 +41,6 @@ import org.jebtk.modern.ribbon.RibbonStripContainer;
 import org.jebtk.modern.window.ModernRibbonWindow;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standardized ribbon menu section for providing basic cut, copy and paste
  * functionality to the currently highlighted control that supports clipboard

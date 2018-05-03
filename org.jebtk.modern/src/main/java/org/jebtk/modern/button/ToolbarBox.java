@@ -36,7 +36,6 @@ import javax.swing.BoxLayout;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ToolbarBox.
  */

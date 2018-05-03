@@ -46,7 +46,6 @@ import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.slider.ContinuousMacOrbSlider;
 import org.jebtk.modern.slider.Slider;
 
-// TODO: Auto-generated Javadoc
 /**
  * Zoom slider for status bar.
  *

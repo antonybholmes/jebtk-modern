@@ -36,7 +36,6 @@ import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateListener;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Groups buttons and ensures only one at a time can be selected.
  * 

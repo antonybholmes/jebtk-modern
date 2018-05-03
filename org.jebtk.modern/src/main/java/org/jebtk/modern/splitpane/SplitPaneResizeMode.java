@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.splitpane;
 
-// TODO: Auto-generated Javadoc
 /**
  * The enum SplitPaneResizeMode.
  */

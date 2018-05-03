@@ -35,7 +35,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RasterIcon;
 import org.jebtk.modern.graphics.icons.ScaledRasterIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Displays an image.
  * 

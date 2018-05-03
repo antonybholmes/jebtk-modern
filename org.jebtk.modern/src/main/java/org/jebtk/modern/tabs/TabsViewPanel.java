@@ -29,7 +29,6 @@ package org.jebtk.modern.tabs;
 
 import javax.swing.border.Border;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides a tab container for boilerpoint displaying of tabbed content.
  * 

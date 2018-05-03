@@ -34,7 +34,6 @@ import org.jebtk.core.Mathematics;
 import org.jebtk.modern.button.ChipButtonHighlightAnimation;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class RoundelVectorIcon.
  */

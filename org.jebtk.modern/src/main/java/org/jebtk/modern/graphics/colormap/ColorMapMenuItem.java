@@ -20,7 +20,6 @@ import java.awt.Point;
 
 import org.jebtk.modern.menu.ModernIconMenuItem;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ColorMapMenuItem.
  */

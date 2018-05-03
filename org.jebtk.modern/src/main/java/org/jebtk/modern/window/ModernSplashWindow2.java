@@ -31,7 +31,6 @@ import java.awt.Color;
 
 import org.jebtk.modern.help.GuiAppInfo;
 
-// TODO: Auto-generated Javadoc
 /**
  * For displaying a splash screen.
  * 

@@ -35,7 +35,6 @@ import java.awt.Rectangle;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents a vector icon that can have its color and size specified. These
  * types of vector icons are designed to be scale invariant.

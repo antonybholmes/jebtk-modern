@@ -29,7 +29,6 @@ package org.jebtk.modern.history;
 
 import org.jebtk.modern.dataview.ModernDataModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Wrapper for providing a GUI to edit matrix transformations.
  * 

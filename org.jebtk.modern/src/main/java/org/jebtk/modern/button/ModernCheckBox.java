@@ -37,7 +37,6 @@ import org.jebtk.modern.graphics.icons.DisabledCheckedVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.UnCheckedVectorIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernCheckBox.
  */

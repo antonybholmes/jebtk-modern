@@ -33,7 +33,6 @@ import javax.swing.JComponent;
 
 import org.jebtk.modern.panel.ModernPanel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides a subRect.heighteading label and a control on the same line to save
  * space.

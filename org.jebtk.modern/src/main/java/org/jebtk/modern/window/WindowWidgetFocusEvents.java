@@ -32,7 +32,6 @@ import java.awt.event.WindowEvent;
 
 import javax.swing.JComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Sends focus to a widget on a window when it opens.
  * 

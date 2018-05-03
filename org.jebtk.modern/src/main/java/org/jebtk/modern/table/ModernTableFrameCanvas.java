@@ -34,7 +34,6 @@ import org.jebtk.modern.graphics.ContainerCanvas;
 import org.jebtk.modern.graphics.ModernCanvas;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Bottom, right sided frame for rendering tables in a scrollpane.
  *

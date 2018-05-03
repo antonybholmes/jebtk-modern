@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics;
 
 import org.jebtk.core.event.ChangeEvent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Generate canvas events.
  *

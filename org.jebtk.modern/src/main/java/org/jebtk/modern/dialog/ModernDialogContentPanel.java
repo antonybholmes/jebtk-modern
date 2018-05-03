@@ -31,7 +31,6 @@ import java.awt.Component;
 
 import org.jebtk.modern.ModernComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Creates a standardized UI for panels on a dialog.
  */

@@ -33,7 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.theme.MaterialUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * A padded panel for displaying cards in the UI.
  * 

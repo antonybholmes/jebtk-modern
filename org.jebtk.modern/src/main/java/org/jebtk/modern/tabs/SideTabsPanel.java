@@ -19,7 +19,6 @@ import java.awt.BorderLayout;
 
 import org.jebtk.modern.ModernComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SideTabsPanel.
  */

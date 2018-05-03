@@ -33,7 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ModernTheme;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class RoundelVectorIcon.
  */

@@ -33,7 +33,6 @@ import java.util.List;
 
 import org.jebtk.core.collections.CollectionUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class StandardColorPicker.
  */

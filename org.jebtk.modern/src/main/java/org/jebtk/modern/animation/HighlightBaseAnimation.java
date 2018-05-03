@@ -19,7 +19,6 @@ import java.awt.Color;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Base animation for highlighting animations.
  *

@@ -18,7 +18,6 @@ package org.jebtk.modern;
 import java.awt.GraphicsConfiguration;
 import java.awt.GraphicsDevice;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class DeviceConfig.
  */

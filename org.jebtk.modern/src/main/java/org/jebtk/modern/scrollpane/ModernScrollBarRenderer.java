@@ -18,7 +18,6 @@ package org.jebtk.modern.scrollpane;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ModernScrollBarRenderer.
  */

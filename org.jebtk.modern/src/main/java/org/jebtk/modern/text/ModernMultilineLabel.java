@@ -40,7 +40,6 @@ import org.jebtk.modern.graphics.DrawingContext;
 import org.jebtk.modern.graphics.ModernCanvas;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Displays multiple lines of text, breaking lines at a space break before the
  * line ends.

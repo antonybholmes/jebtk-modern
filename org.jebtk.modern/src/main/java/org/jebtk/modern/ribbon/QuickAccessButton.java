@@ -30,7 +30,6 @@ package org.jebtk.modern.ribbon;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * For adding quick access buttons to the ribbon.
  * 

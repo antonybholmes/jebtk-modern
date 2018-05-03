@@ -34,7 +34,6 @@ import java.awt.Point;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.button.ModernButton;
 
-// TODO: Auto-generated Javadoc
 /**
  * A Simple transparent button for splash screens that highlights the button
  * text when the mouse floats over it.

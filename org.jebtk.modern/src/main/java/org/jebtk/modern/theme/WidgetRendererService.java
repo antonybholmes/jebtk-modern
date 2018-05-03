@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.theme;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides the shared renderer to components. This is the default way to
  * control component look and feel and to ensure they share renderers as much as

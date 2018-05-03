@@ -32,7 +32,6 @@ import org.jebtk.modern.graphics.icons.MinusVectorIcon;
 import org.jebtk.modern.graphics.icons.PlusVectorIcon;
 import org.jebtk.modern.ribbon.RibbonBarButton;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernDialogSpinner.
  */

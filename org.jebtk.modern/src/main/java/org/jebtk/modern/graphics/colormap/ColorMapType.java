@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.graphics.colormap;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Enum ColorMapType.
  */

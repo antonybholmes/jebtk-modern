@@ -37,7 +37,6 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.Timer;
 
-// TODO: Auto-generated Javadoc
 /**
  * Slider with an orb button and plus minus controls.
  *

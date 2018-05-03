@@ -36,7 +36,6 @@ import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.contentpane.CenterTab;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides a centralized model for controlling tabs on a multi-tab display.
  * 
@@ -260,8 +259,6 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
 
     fireTabAdded(new TabEvent(this, tab));
   }
-
-  
 
   /**
    * Gets the index of.

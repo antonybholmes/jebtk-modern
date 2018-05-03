@@ -34,7 +34,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Large format button for side tabs on ribbon panels.
  * 

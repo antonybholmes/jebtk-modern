@@ -34,7 +34,6 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.ribbon.RibbonMenuItem;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class RibbonHelpMenuItem.
  */

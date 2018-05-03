@@ -38,7 +38,6 @@ import javax.swing.BoxLayout;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.panel.ModernPanel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Used as a glass pane to present messages to the user in the current window
  * rather than a popup dialog.

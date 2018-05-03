@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.tabs;
 
-// TODO: Auto-generated Javadoc
 /**
  * For classes that generate ModernClickEvents.
  *

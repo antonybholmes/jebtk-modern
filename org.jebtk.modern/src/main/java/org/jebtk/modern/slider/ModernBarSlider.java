@@ -30,7 +30,6 @@ package org.jebtk.modern.slider;
 import java.awt.Graphics2D;
 import java.util.List;
 
-// TODO: Auto-generated Javadoc
 /**
  * Slider with an orb button and plus minus controls.
  *

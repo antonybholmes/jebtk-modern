@@ -22,7 +22,6 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.text.ModernNumericalTextField;
 import org.jebtk.modern.text.ModernTextBorderPanel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class InputNumericalFieldBox.
  */

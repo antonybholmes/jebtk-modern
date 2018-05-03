@@ -29,7 +29,6 @@ package org.jebtk.modern.dialog;
 
 import org.jebtk.core.event.ChangeEvent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Modern UI controls such as buttons should fire ModernClickEvents.
  * 

@@ -23,7 +23,6 @@ import org.jebtk.modern.animation.TranslateYAnimation;
 import org.jebtk.modern.ribbon.RibbonChangeAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows for fade in/out animation on an element.
  *

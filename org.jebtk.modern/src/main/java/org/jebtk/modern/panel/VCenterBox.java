@@ -31,7 +31,6 @@ import java.awt.Component;
 
 import javax.swing.Box;
 
-// TODO: Auto-generated Javadoc
 /**
  * Horizontal box that centers whatever components are added to it.
  * 

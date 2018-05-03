@@ -24,7 +24,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.color.ColorSwatchButton;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allow users to select a color for an object etc.
  * 

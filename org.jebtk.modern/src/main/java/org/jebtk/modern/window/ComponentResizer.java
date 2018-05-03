@@ -45,7 +45,6 @@ import javax.swing.SwingUtilities;
 
 import org.jebtk.core.sys.SysUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The ComponentResizer allows you to resize a component by dragging a border of
  * the component.

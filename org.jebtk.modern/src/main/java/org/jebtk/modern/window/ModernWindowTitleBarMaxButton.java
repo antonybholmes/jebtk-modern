@@ -36,7 +36,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.Raster16Icon;
 import org.jebtk.modern.graphics.icons.WindowMaxVectorIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernWindowTitleBarMaxButton.
  */

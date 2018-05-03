@@ -41,7 +41,6 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ColorPicker.
  */
@@ -208,13 +207,10 @@ public class ColorPicker extends ModernClickWidget {
   public void setColors(List<List<Color>> colors) {
     mColors = colors;
 
-    mSize = new Dimension(
-        BLOCK_SIZE * mColors.size() + GAP * (mColors.size() - 1)
-        + DOUBLE_OFFSET + 1,
+    mSize = new Dimension(BLOCK_SIZE * mColors.size()
+        + GAP * (mColors.size() - 1) + DOUBLE_OFFSET + 1,
         mColors.get(0).size() * BLOCK_SIZE + DOUBLE_OFFSET + 1);
   }
-
-
 
   /**
    * Sets the selected color.

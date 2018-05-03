@@ -18,7 +18,6 @@ package org.jebtk.modern.tabs;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SegmentTabsPanel.
  */

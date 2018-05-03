@@ -30,7 +30,6 @@ package org.jebtk.modern;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-// TODO: Auto-generated Javadoc
 /**
  * To easily allow classes to listen for mouse events.
  * 

@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.text;
 
-// TODO: Auto-generated Javadoc
 /**
  * For components that can have a string property.
  * 

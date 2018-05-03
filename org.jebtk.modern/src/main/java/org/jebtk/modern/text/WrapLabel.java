@@ -56,7 +56,7 @@ public class WrapLabel extends ModernWidget implements TextProperty {
   public WrapLabel() {
     this(TextUtils.EMPTY_STRING);
   }
-  
+
   /**
    * Instantiates a new modern label panel.
    *
@@ -147,7 +147,7 @@ public class WrapLabel extends ModernWidget implements TextProperty {
     // System.err.println("sdf " + getInsets().top + " " + mInternalRect.getH()
     // + "
     // " + getTextVCenteredYPos(g2, mInternalRect.getH()));
-    
+
     int lx = getInsets().left;
     int x = lx;
     int lh = getStringHeight(g2);
@@ -155,27 +155,27 @@ public class WrapLabel extends ModernWidget implements TextProperty {
     int rx = x + mInternalRect.getW();
     int w;
     int x2;
-    
+
     int sw = getStringWidth(g2, TextUtils.SPACE_DELIMITER);
-    
+
     for (String word : mText) {
       w = getStringWidth(g2, word);
-      
+
       x2 = x + w;
-      
+
       if (x2 >= rx) {
         x = lx;
         y += lh;
       }
-      
+
       g2.drawString(word, x, y);
-      
+
       x += w + sw;
-      
-      //if (x >= rx) {
-      //  x = lx;
-      //  y += lh;
-      //}
+
+      // if (x >= rx) {
+      // x = lx;
+      // y += lh;
+      // }
     }
   }
 }

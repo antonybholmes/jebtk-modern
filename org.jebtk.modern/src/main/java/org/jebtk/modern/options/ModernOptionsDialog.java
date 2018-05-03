@@ -57,7 +57,6 @@ import org.jebtk.modern.tree.ModernTree;
 import org.jebtk.modern.tree.PathTree;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allow users to look at and modify program settings.
  * 

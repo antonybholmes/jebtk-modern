@@ -35,7 +35,6 @@ import org.jebtk.modern.graphics.icons.Raster16Icon;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.ModernWindowTitleBarExitButton;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernWindowTitleBarCloseButton.
  */

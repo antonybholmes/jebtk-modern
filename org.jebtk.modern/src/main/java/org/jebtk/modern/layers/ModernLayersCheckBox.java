@@ -35,7 +35,6 @@ import org.jebtk.modern.button.ModernCheckBox;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernLayersCheckBox.
  */

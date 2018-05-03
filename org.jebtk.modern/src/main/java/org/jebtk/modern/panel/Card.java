@@ -29,7 +29,7 @@ public class Card extends ModernComponent {
   private static final int V_SPACE = ROUNDING * 2;
 
   public static final int SHADOW_SIZE = 8;
-  
+
   private static final int SHADOW_SIZE_2X = SHADOW_SIZE * 2;
 
   public static final int HALF_SHADOW_SIZE = SHADOW_SIZE / 2;
@@ -38,14 +38,14 @@ public class Card extends ModernComponent {
 
   private static final Insets OFFSETS = new Insets(HALF_SHADOW_SIZE,
       HALF_SHADOW_SIZE, HALF_SHADOW_SIZE, HALF_SHADOW_SIZE);
-  
-  private static final IntDim SHADOW_PADDING = 
-      IntDim.create(OFFSETS.left + OFFSETS.right, OFFSETS.top + OFFSETS.bottom);
-  
+
+  private static final IntDim SHADOW_PADDING = IntDim
+      .create(OFFSETS.left + OFFSETS.right, OFFSETS.top + OFFSETS.bottom);
+
   private static final int IMAGE_SIZE = 200;
-  
+
   private static final int SHADOW_WIDTH = IMAGE_SIZE / 2;
-  
+
   private static final int CORNER_OFFSET = IMAGE_SIZE - SHADOW_SIZE;
 
   /**
@@ -61,9 +61,9 @@ public class Card extends ModernComponent {
   public static final Color COLOR = ColorUtils.getTransparentColor(Color.BLACK,
       Card.ALPHA);
 
-  /** 
-   * Pick a point in the image that is not a corner so that we can clone
-   * a straight edge section of the shadow
+  /**
+   * Pick a point in the image that is not a corner so that we can clone a
+   * straight edge section of the shadow
    */
   private static final int SHADOW_OFFSET = 50;
 

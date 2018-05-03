@@ -48,7 +48,6 @@ import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.widget.ModernFocusableWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * A panel designed for drawing operations/graphics that is scroll aware, the
  * graphics context is translated to match the scroll parameters. This removes
@@ -60,8 +59,8 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
 public class ModernCanvas extends ModernFocusableWidget
     implements CanvasEventProducer, CanvasMouseEventProducer,
     CanvasMouseWheelEventProducer, CanvasMouseListener,
-    CanvasMouseWheelListener, CanvasKeyEventProducer,
-    CanvasKeyListener, CanvasCursorEventProducer {
+    CanvasMouseWheelListener, CanvasKeyEventProducer, CanvasKeyListener,
+    CanvasCursorEventProducer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;

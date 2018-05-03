@@ -30,7 +30,6 @@ package org.jebtk.modern.status;
 import java.util.HashMap;
 import java.util.Map;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class StatusService.
  */

@@ -30,7 +30,6 @@ package org.jebtk.modern;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 
-// TODO: Auto-generated Javadoc
 /**
  * For classes that generate ModernClickEvents.
  *

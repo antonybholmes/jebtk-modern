@@ -31,7 +31,6 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ColorPicker.
  */

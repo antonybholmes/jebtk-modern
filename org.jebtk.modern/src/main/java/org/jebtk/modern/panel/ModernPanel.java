@@ -37,7 +37,6 @@ import javax.swing.border.Border;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standardized panel component.
  * 

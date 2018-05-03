@@ -34,7 +34,6 @@ import javax.swing.SwingWorker;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Shows animated balls to indicate something is happening.
  * 

@@ -44,7 +44,6 @@ import org.jebtk.modern.tabs.TabsController;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides a sidebar with clickable tabs on ribbon panels.
  * 

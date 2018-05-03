@@ -34,7 +34,6 @@ import java.awt.geom.GeneralPath;
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.ribbon.Ribbon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Run arrow icon, like the standard play button.
  * 

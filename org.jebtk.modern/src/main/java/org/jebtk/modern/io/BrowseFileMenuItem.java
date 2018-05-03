@@ -32,7 +32,6 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
 import org.jebtk.modern.menu.ModernLargeIconMenuItem;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class BrowseFileMenuItem.
  */

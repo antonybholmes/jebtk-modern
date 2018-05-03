@@ -36,7 +36,6 @@ import java.net.URL;
 import org.jebtk.core.network.URLUtils;
 import org.jebtk.core.settings.Setting;
 
-// TODO: Auto-generated Javadoc
 /**
  * Manage showing help to users.
  * 

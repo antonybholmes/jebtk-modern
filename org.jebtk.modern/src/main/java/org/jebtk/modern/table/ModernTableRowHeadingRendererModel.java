@@ -17,7 +17,6 @@ package org.jebtk.modern.table;
 
 import org.jebtk.modern.table.header.ModernTableHeaderRowCellRenderer;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ModernTableRowHeadingRendererModel.
  */

@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standardized way for launching an application.
  * 

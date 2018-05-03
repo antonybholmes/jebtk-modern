@@ -26,7 +26,6 @@ import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class RibbonButtonAnimation.
  */
@@ -51,8 +50,7 @@ public class RibbonButtonHighlightAnimation extends HoverFadeAnimation {
     mButton = (ModernClickWidget) button;
     mType = type;
 
-    setFadeColor("outline",
-        MaterialService.instance().color("gray-outline"));
+    setFadeColor("outline", MaterialService.instance().color("gray-outline"));
     setFadeColor("highlight",
         MaterialService.instance().color("gray-highlight"));
     setFadeColor("fill", MaterialService.instance().color("gray-selected"));

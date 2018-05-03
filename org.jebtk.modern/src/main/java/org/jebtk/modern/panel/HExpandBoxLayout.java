@@ -26,17 +26,13 @@ public class HExpandBoxLayout implements LayoutManager {
     Insets insets = parent.getInsets();
     int x = insets.left;
     int y = insets.top;
-    
+
     int maxWidth = parent.getWidth() - (x + insets.right);
     int maxHeight = parent.getHeight() - (y + insets.bottom);
     int nComps = parent.getComponentCount();
-    
 
     Component c = parent.getComponent(0);
-    c.setBounds(x,
-        y,
-        c.getPreferredSize().width,
-        maxHeight);
+    c.setBounds(x, y, c.getPreferredSize().width, maxHeight);
 
     // Determine the offset of the right components
     int w = 0;
@@ -50,14 +46,14 @@ public class HExpandBoxLayout implements LayoutManager {
     x = x + maxWidth - w;
 
     for (int i = 1; i < nComps; ++i) {
-      
+
       c = parent.getComponent(i);
       Dimension d = c.getPreferredSize();
-      
+
       int h = Math.min(maxHeight, d.height);
-      
+
       int y2 = y + (maxHeight - h) / 2;
-      
+
       w = d.width;
 
       c.setBounds(x, y2, w, h);

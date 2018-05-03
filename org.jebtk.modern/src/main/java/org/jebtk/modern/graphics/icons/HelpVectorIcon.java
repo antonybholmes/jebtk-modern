@@ -34,7 +34,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Help icon.
  * 
@@ -101,10 +100,10 @@ public class HelpVectorIcon extends ModernMessageIcon {
 
       g2Temp.setPaint(paint);
 
-      //g2Temp.setColor(Color.WHITE);
+      // g2Temp.setColor(Color.WHITE);
       g2Temp.fillOval(xf, yf, size, size);
-      ///g2Temp.setColor(mColor2);
-      //g2Temp.drawOval(xf, yf, size, size);
+      /// g2Temp.setColor(mColor2);
+      // g2Temp.drawOval(xf, yf, size, size);
     } finally {
       g2Temp.dispose();
     }

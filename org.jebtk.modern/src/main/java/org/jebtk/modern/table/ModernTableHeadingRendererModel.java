@@ -19,7 +19,6 @@ import org.jebtk.modern.dataview.ModernData1DModel;
 import org.jebtk.modern.dataview.ModernDataCellRenderer;
 import org.jebtk.modern.table.header.ModernTableHeaderColumnCellRenderer;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ModernTableHeadingRendererModel.
  */

@@ -38,7 +38,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.widget.TwoLineWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernTwoLineCheckButton.
  */

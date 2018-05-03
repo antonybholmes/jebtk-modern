@@ -35,7 +35,6 @@ import java.util.Map;
 import org.jebtk.core.Indexed;
 import org.jebtk.modern.dataview.ModernData;
 
-// TODO: Auto-generated Javadoc
 /**
  * The data sorter provides a mapping between an index and a sorted index so
  * that a dataview can arbitrary reorder a data model (e.g. sort all columns).

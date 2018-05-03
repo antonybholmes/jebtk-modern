@@ -33,7 +33,6 @@ import org.jebtk.modern.button.ModernCheckRadioButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.RenderMode;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class SideTabsButton.
  */

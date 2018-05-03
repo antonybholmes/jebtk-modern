@@ -27,7 +27,6 @@ import org.jebtk.modern.tooltip.ModernBasicToolTipPanel;
 import org.jebtk.modern.tooltip.ModernToolTip;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class RibbonViewPanel.
  */

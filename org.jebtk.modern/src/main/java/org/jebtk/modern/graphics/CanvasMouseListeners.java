@@ -29,15 +29,13 @@ package org.jebtk.modern.graphics;
 
 import org.jebtk.core.event.EventProducer;
 
-// TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
  * 
  * @author Antony Holmes Holmes
  *
  */
-public class CanvasMouseListeners
-    extends EventProducer<CanvasMouseListener>
+public class CanvasMouseListeners extends EventProducer<CanvasMouseListener>
     implements CanvasMouseEventProducer {
 
   /**

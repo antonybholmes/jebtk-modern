@@ -50,8 +50,8 @@ public class ModernTitleMenuItem extends ModernMenuItem {
    *
    * @param text the text
    */
-  private static final Color BACKGROUND = 
-      ThemeService.getInstance().colors().getHighlight(1);
+  private static final Color BACKGROUND = ThemeService.getInstance().colors()
+      .getHighlight(1);
 
   /**
    * Instantiates a new modern title menu item.
@@ -101,6 +101,8 @@ public class ModernTitleMenuItem extends ModernMenuItem {
     g2.setFont(BOLD_FONT);
     g2.setColor(TEXT_COLOR);
 
-    g2.drawString(getText(), getInsets().left + PADDING, getTextYPosCenter(g2, getHeight()));
+    g2.drawString(getText(),
+        getInsets().left + PADDING,
+        getTextYPosCenter(g2, getHeight()));
   }
 }

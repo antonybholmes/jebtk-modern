@@ -42,7 +42,6 @@ import org.jebtk.modern.tabs.TabEventListener;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Displays a center pane with surround left and right panes which can be
  * added/removed on the fly according to the UI needs.

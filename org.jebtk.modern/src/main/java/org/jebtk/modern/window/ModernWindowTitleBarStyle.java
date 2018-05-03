@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.window;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Enum ModernWindowTitleBarStyle.
  */

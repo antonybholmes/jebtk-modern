@@ -25,7 +25,6 @@ import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class RibbonButtonAnimation.
  */

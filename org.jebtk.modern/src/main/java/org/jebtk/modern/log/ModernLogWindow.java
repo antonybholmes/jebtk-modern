@@ -45,7 +45,6 @@ import org.jebtk.modern.window.ModernRibbonWindow;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.ModernWindowConstructor;
 
-// TODO: Auto-generated Javadoc
 /**
  * Window for viewing the event log.
  * 

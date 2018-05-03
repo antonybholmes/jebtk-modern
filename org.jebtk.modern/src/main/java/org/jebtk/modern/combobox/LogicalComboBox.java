@@ -35,7 +35,6 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernMenuDivider;
 
-// TODO: Auto-generated Javadoc
 /**
  * Preloaded combobox with logical stagements.
  *

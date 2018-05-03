@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics;
 
 import java.awt.event.KeyEvent;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernCanvasMouseAdapter.
  */

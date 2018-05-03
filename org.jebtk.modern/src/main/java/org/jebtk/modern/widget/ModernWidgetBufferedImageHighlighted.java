@@ -30,7 +30,6 @@ package org.jebtk.modern.widget;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * The basis for rendering a component as an image so it does not waste time
  * rendering drawing primitives on each refresh.

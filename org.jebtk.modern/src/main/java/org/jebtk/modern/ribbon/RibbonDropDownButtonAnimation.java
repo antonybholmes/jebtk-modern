@@ -20,7 +20,6 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.button.ModernDropDownWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class RibbonDropDownButtonAnimation.
  */

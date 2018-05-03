@@ -23,7 +23,6 @@ import org.jebtk.modern.tabs.SegmentTabs;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.tabs.TabsViewPanel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class RibbonVertTabsPanel.
  */

@@ -22,7 +22,6 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class BrowseButton.
  */

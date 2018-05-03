@@ -35,7 +35,6 @@ import org.jebtk.modern.SelectionRangeModel;
 import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.event.ModernSelectionListeners;
 
-// TODO: Auto-generated Javadoc
 /**
  * A 2D selection model for coping with row and column selections.
  * 

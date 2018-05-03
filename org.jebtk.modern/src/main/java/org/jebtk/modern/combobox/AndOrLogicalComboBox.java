@@ -30,7 +30,6 @@ package org.jebtk.modern.combobox;
 import org.jebtk.core.BooleanOperator;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 
-// TODO: Auto-generated Javadoc
 /**
  * Preloaded combobox for AND and OR.
  *

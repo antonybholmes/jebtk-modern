@@ -41,7 +41,6 @@ import org.jebtk.modern.graphics.icons.Raster32Icon;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.panel.ModernPanel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Window that is always floating.
  *

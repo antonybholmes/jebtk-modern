@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.progress;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides a status model for notifying status components.
  * 

@@ -30,7 +30,6 @@ package org.jebtk.modern.log;
 import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.log.LogEventListener;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class LogList.
  */

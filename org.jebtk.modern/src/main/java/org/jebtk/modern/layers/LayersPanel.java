@@ -36,7 +36,6 @@ import org.jebtk.modern.table.ModernTable;
 import org.jebtk.modern.table.ModernTableCheckboxCellEditor;
 import org.jebtk.modern.table.ModernTableCheckboxCellRenderer;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class LayersPanel.
  */

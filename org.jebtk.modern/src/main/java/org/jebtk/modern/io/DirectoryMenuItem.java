@@ -34,7 +34,6 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class DirectoryMenuItem.
  */

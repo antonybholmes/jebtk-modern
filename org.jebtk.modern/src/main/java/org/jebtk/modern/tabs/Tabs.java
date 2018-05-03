@@ -37,7 +37,6 @@ import javax.swing.JComponent;
 
 import org.jebtk.modern.ModernComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Stores content panes.
  * 
@@ -140,19 +139,15 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
   public Tabs() {
     mTe = new TabEvents(this);
   }
-  
-  
+
   public Tabs add(String name, JComponent c, int width) {
     return add(name, c, width, width, width);
   }
 
-  public Tabs add(String name,
-      int width,
-      int minWidth,
-      int maxWidth) {
+  public Tabs add(String name, int width, int minWidth, int maxWidth) {
     return add(name, new ModernComponent(), width, minWidth, maxWidth);
   }
-  
+
   /**
    * Add a resizable left tab.
    * 
@@ -161,7 +156,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * @param width
    * @param minWidth
    * @param maxWidth
-   * @return 
+   * @return
    */
   public Tabs add(String name,
       JComponent c,
@@ -185,7 +180,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * Adds the tab.
    *
    * @param pane the pane
-   * @return 
+   * @return
    */
   public Tabs add(Tab pane) {
     String name = pane.getName();
@@ -197,11 +192,10 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
       mNameIndexMap.put(name, mTabs.size());
       mTabs.add(pane);
     }
-    
+
     pane.addTabListener(mTe);
 
     fireTabAdded(new TabEvent(this, pane));
-    
 
     return this;
   }
@@ -321,15 +315,14 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
       return null;
     }
   }
-  
+
   public ModernComponent component(String name) {
     return (ModernComponent) get(name).getComponent();
   }
-  
+
   public ModernComponent component(int i) {
     return (ModernComponent) get(i).getComponent();
   }
-
 
   /**
    * Size.

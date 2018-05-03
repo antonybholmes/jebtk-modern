@@ -31,7 +31,6 @@ import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.FileVectorIcon;
 import org.jebtk.modern.graphics.icons.FolderVectorIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standard renderer that displays parents as folders and leaves as file icons.
  *

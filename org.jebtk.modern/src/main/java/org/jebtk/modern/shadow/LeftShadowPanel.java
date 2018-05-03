@@ -22,7 +22,6 @@ import java.awt.event.ComponentEvent;
 
 import org.jebtk.modern.theme.MaterialUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * For components on the left side, so draw shadowing on the right.
  * 

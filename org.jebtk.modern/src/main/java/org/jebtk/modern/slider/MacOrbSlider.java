@@ -34,7 +34,6 @@ import java.util.List;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Slider with an orb button and plus minus controls.
  *

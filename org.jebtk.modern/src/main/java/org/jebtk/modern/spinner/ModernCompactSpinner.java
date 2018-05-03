@@ -60,7 +60,6 @@ import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.text.TextProperty;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Editable numerical text box with controls to increment and decrement the
  * value. This is a compact version with the controls within the bounds of the

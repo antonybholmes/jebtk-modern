@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern;
 
-// TODO: Auto-generated Javadoc
 /**
  * Determines the selection mode in controls that allow multiple items to be
  * selected.

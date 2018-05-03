@@ -42,7 +42,6 @@ import java.util.Map;
 
 import javax.swing.SwingUtilities;
 
-// TODO: Auto-generated Javadoc
 /**
  * The ComponentResizer allows you to resize a component by dragging a border of
  * the component.

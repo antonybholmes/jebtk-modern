@@ -22,7 +22,6 @@ import org.jebtk.modern.button.ButtonPressedAnimation;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class RibbonMenuAnimation.
  */

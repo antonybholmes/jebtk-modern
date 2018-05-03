@@ -20,7 +20,6 @@ import java.awt.Rectangle;
 
 import javax.swing.Scrollable;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ModernVertWidget is designed for scrollable widgets showing
  * vertical content.

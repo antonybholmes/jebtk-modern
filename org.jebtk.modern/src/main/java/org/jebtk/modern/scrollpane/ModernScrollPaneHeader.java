@@ -29,7 +29,6 @@ package org.jebtk.modern.scrollpane;
 
 import org.jebtk.modern.graphics.ModernCanvas;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents a header element in a scroll pane. These can sit on the top,
  * bottom or left and sync with the main scroll pane content. They can be used

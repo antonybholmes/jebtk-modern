@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.widget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Interface for buttons that display two lines of text.
  * 

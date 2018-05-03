@@ -21,7 +21,6 @@ import java.awt.event.MouseWheelEvent;
 
 import org.jebtk.core.geom.IntPos2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class MouseUtils.
  */
@@ -58,7 +57,7 @@ public class MouseUtils {
   public static MouseEvent updateXY(final MouseEvent e, final IntPos2D p) {
     return updateXY(e, p.getX(), p.getY());
   }
-  
+
   /**
    * Returns true if the Ctrl key is pressed whilst the mouse event is
    * triggered.

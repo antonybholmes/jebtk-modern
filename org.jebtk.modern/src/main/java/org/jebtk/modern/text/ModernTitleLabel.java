@@ -32,7 +32,6 @@ import java.awt.Font;
 
 import org.jebtk.modern.theme.MaterialService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernTitleLabel.
  */

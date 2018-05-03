@@ -19,7 +19,6 @@ import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateListener;
 import org.jebtk.modern.widget.ModernClickWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows for fade in/out animation on an element.
  *

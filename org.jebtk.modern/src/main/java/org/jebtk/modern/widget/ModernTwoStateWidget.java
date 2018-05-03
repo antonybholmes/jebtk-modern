@@ -35,7 +35,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
 
-// TODO: Auto-generated Javadoc
 /**
  * For widgets that can toggle between a selected and unselected state.
  * 

@@ -38,7 +38,6 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.help.HelpManager;
 
-// TODO: Auto-generated Javadoc
 /**
  * Launches a web browser to a particular web page.
  * 

@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.text;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Enum ModernTextBoxAlignment.
  */

@@ -31,7 +31,6 @@ import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.log.LogEventListener;
 import org.jebtk.modern.status.StatusModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class StatusLog.
  */

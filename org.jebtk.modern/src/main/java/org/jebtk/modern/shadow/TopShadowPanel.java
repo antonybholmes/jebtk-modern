@@ -24,7 +24,6 @@ import java.awt.image.BufferedImage;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.panel.Card;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TopShadowPanel.
  */

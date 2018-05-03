@@ -35,7 +35,6 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.text.ModernSubHeadingLabel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class CloseableTab allows tabs to be closed by the user using a 'x'
  * button.

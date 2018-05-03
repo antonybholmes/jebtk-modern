@@ -29,7 +29,6 @@ package org.jebtk.modern.tabs;
 
 import org.jebtk.modern.dialog.ModernDialogWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides a sidebar with clickable tabs.
  * 

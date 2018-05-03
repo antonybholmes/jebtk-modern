@@ -38,7 +38,6 @@ import org.jebtk.modern.BorderService;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ToolbarBottomBox.
  */

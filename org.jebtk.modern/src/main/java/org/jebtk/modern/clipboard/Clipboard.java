@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.clipboard;
 
-// TODO: Auto-generated Javadoc
 /**
  * Controls that want to hook into the clipboard system must implement this.
  *

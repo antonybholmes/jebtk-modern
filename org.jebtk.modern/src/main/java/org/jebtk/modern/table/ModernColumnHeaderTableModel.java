@@ -31,7 +31,6 @@ import java.util.List;
 
 import org.jebtk.core.collections.CollectionUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * Extended table model.
  *

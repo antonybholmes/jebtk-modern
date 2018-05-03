@@ -29,7 +29,6 @@ package org.jebtk.modern.zoom;
 
 import org.jebtk.core.event.ChangeListeners;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides a zoom model for zoom components to communicate through. Zoom is
  * expressed as a percentage 0 = 0%, 1 = 100%.

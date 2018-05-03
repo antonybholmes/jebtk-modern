@@ -29,7 +29,6 @@ import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabEventAdapter;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows for fade in/out animation on an element.
  *

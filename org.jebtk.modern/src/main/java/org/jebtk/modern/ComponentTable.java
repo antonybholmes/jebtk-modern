@@ -40,7 +40,6 @@ import org.jebtk.modern.graphics.icons.DeleteVectorIcon;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.VBox;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows components, preferably horizontal flowing components such as boxes, to
  * be layed and and reordered.

@@ -30,7 +30,6 @@ package org.jebtk.modern.splitpane;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * Creates a horizontal split pane that uses three holds for the grab handle.
  * 

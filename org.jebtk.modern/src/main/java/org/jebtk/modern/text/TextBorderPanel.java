@@ -41,8 +41,7 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  * @author Antony Holmes Holmes
  */
-public class TextBorderPanel extends ModernWidget
-    implements TextProperty {
+public class TextBorderPanel extends ModernWidget implements TextProperty {
 
   /**
    * The constant serialVersionUID.
@@ -118,7 +117,7 @@ public class TextBorderPanel extends ModernWidget
 
   public TextBorderPanel(ModernTextField textField, int width) {
     this(textField);
-    
+
     UI.setSize(textField, width);
   }
 
@@ -147,28 +146,29 @@ public class TextBorderPanel extends ModernWidget
 
   @Override
   public void drawAnimatedBackground(Graphics2D g2) {
-    //UIDrawService.getInstance().get("content-box").draw(g2, mRect);
-    
+    // UIDrawService.getInstance().get("content-box").draw(g2, mRect);
+
     super.drawAnimatedBackground(g2);
   }
-  
+
   @Override
   public Dimension getPreferredSize() {
     return newSize(mComponent.getPreferredSize());
   }
-  
+
   @Override
   public Dimension getMinimumSize() {
     return newSize(mComponent.getMinimumSize());
   }
-  
+
   @Override
   public Dimension getMaximumSize() {
     return newSize(mComponent.getMaximumSize());
   }
-  
+
   private Dimension newSize(Dimension s) {
-    return new Dimension(s.width + getLinePadding(), s.height + getPagePadding());
+    return new Dimension(s.width + getLinePadding(),
+        s.height + getPagePadding());
   }
 
   /**

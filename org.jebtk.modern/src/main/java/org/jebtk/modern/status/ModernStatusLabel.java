@@ -33,7 +33,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Label for status bars, defaulting to upper case, white text.
  * 

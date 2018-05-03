@@ -30,7 +30,6 @@ package org.jebtk.modern.window;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.ribbon.QuickAccessButton;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernWindowTitleBarButton.
  */

@@ -34,7 +34,6 @@ import javax.swing.border.Border;
 
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernHeadingLabel.
  */

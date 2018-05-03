@@ -33,7 +33,6 @@ import java.awt.Font;
 import org.jebtk.core.text.SentenceCaseType;
 import org.jebtk.modern.window.ModernRibbonWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standardized ribbon menu section for providing basic cut, copy and paste
  * functionality to the currently highlighted control that supports clipboard

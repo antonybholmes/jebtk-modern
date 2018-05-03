@@ -31,7 +31,6 @@ import java.awt.Point;
 
 import javax.swing.JComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides a basic way to clip a panel that holds ui elements and not just
  * drawing code for the canvas.

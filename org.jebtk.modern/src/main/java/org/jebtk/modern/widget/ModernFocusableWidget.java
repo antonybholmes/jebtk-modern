@@ -33,7 +33,6 @@ import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-// TODO: Auto-generated Javadoc
 /**
  * The basis for all controls. Implements basic message handling.
  * 

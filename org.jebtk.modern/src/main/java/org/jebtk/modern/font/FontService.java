@@ -26,7 +26,6 @@ import org.jebtk.core.path.Path;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ModernTheme;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class FontService caches fonts.
  */
@@ -245,7 +244,7 @@ public class FontService extends ModernTheme {
         .containsKey(strikethrough)) {
 
       Font f = new Font(family, style, size);
-      
+
       if (underline) {
         f = FontUtils.underline(f);
       }

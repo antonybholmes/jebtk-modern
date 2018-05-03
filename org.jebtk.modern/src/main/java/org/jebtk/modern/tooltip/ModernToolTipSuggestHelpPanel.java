@@ -29,7 +29,6 @@ package org.jebtk.modern.tooltip;
 
 import java.awt.Dimension;
 
-// TODO: Auto-generated Javadoc
 /**
  * Extension of the basic tooltip that also suggests the user presses F1 to get
  * more help.

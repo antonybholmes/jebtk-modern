@@ -17,7 +17,6 @@ package org.jebtk.modern.graphics.colormap;
 
 import org.jebtk.modern.table.ModernRowTable;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ColorMapTable.
  */

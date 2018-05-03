@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Color;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents an icon that can have its color specified.
  * 

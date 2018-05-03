@@ -37,7 +37,6 @@ import javax.swing.Timer;
 
 import org.jebtk.modern.widget.ModernFocusableWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides the ability for a widget to display tool tips. By default the
  * control will look for an underlying window that supports tool tips and send

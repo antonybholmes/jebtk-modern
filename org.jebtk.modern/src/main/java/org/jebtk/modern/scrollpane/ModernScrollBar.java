@@ -56,7 +56,6 @@ import org.jebtk.modern.MouseUtils;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
  *
@@ -64,7 +63,7 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  */
 public abstract class ModernScrollBar extends ModernWidget
-implements ChangeEventProducer {
+    implements ChangeEventProducer {
 
   /**
    * The constant serialVersionUID.

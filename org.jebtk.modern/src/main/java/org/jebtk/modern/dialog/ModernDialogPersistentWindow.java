@@ -29,7 +29,6 @@ package org.jebtk.modern.dialog;
 
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Dialog box that does not auto dispose so it can be set to invisible and made
  * visible later.

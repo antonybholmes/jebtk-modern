@@ -38,7 +38,6 @@ import org.jebtk.modern.graphics.icons.HelpVectorIcon;
 import org.jebtk.modern.ribbon.RibbonPanelButton;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class RibbonPanelHelpButton.
  */

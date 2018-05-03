@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.shapes;
 
 import java.awt.Polygon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Create a triangle centered on x, y.
  * 

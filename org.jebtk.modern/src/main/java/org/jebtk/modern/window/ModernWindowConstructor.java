@@ -29,7 +29,6 @@ package org.jebtk.modern.window;
 
 import org.jebtk.modern.dialog.ModernDialogConstructor;
 
-// TODO: Auto-generated Javadoc
 /**
  * All JFrames should implement this to provide a consistent way to manage UI
  * code.

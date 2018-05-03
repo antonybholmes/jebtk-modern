@@ -54,7 +54,6 @@ import org.jebtk.modern.tooltip.ModernToolTipEvent;
 import org.jebtk.modern.tooltip.ModernToolTipListener;
 import org.jebtk.modern.tooltip.ToolTipService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standardized panel component.
  * 
@@ -476,11 +475,11 @@ public class ModernComponent extends JComponent {
    * Set a uniform border of {@code border} pixels.
    *
    * @param border the new border
-   * @return 
+   * @return
    */
   public ModernComponent setBorder(int border) {
     setBorder(BorderService.getInstance().createBorder(border));
-    
+
     return this;
   }
 
@@ -505,9 +504,12 @@ public class ModernComponent extends JComponent {
 
     super.setBorder(border);
   }
-  
+
   public Component bottomBorder(int padding) {
-    return border(BorderService.getInstance().createBorder(getInsets().top, getInsets().left, padding, getInsets().right));
+    return border(BorderService.getInstance().createBorder(getInsets().top,
+        getInsets().left,
+        padding,
+        getInsets().right));
   }
 
   /*
@@ -619,10 +621,10 @@ public class ModernComponent extends JComponent {
   public void setHeader(Component c) {
     setTop(c);
   }
-  
+
   /**
-   * Set the component at the top of the this component. For compatability
-   * wit JavaFX.
+   * Set the component at the top of the this component. For compatability wit
+   * JavaFX.
    * 
    * @param c
    */
@@ -651,7 +653,7 @@ public class ModernComponent extends JComponent {
   public void setBody(Component c) {
     setCenter(c);
   }
-  
+
   public void setCenter(Component c) {
     if (c == null) {
       return;
@@ -677,7 +679,7 @@ public class ModernComponent extends JComponent {
   public void setFooter(Component c) {
     setBottom(c);
   }
-  
+
   public void setBottom(Component c) {
     if (c == null) {
       return;
@@ -982,18 +984,21 @@ public class ModernComponent extends JComponent {
   }
 
   public ModernToolTipEvent createToolTipEvent(Component tooltip) {
-    return createToolTipEvent(tooltip, (Point)null);
+    return createToolTipEvent(tooltip, (Point) null);
   }
 
   public ModernToolTipEvent createToolTipEvent(Component tooltip, Point p) {
     return new ModernToolTipEvent(this, getToolTipDest(), tooltip, p);
   }
-  
-  public ModernToolTipEvent createToolTipEvent(Component tooltip, int x, int y) {
+
+  public ModernToolTipEvent createToolTipEvent(Component tooltip,
+      int x,
+      int y) {
     return createToolTipEvent(tooltip, new Point(x, y));
   }
-  
-  public ModernToolTipEvent createToolTipEvent(Component tooltip, MouseEvent e) {
+
+  public ModernToolTipEvent createToolTipEvent(Component tooltip,
+      MouseEvent e) {
     return createToolTipEvent(tooltip, e.getX(), e.getY());
   }
 }

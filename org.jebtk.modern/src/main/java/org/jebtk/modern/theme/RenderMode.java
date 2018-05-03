@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.theme;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Enum RenderMode.
  */

@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.tooltip;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides tooltip support for the ribbon. This is unrelated to the tool tip
  * mechanism standard with JComponents and is specifically for buttons and

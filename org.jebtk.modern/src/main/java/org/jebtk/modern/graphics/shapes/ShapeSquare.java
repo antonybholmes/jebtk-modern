@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.graphics.shapes;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ShapeSquare.
  */

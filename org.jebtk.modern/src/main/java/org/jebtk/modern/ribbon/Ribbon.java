@@ -207,11 +207,10 @@ public class Ribbon extends ModernClickWidget
   /**
    * The constant TAB_FONT.
    */
-  public static final Font TAB_FONT = MaterialService.instance().fonts()
-      .text(); // ModernWidget.BOLD_FONT;
-               // //MaterialUtils.TEXT_FONT;
-               // //ModernWidget.FONT;
-               // //ThemeService.loadFont("theme.ribbon.fonts.tab");
+  public static final Font TAB_FONT = MaterialService.instance().fonts().text(); // ModernWidget.BOLD_FONT;
+                                                                                 // //MaterialUtils.TEXT_FONT;
+                                                                                 // //ModernWidget.FONT;
+                                                                                 // //ThemeService.loadFont("theme.ribbon.fonts.tab");
 
   /**
    * The constant FILE_MENU_WIDTH.
@@ -1527,10 +1526,10 @@ public class Ribbon extends ModernClickWidget
     Point p = source.getLocationOnScreen();
     SwingUtilities.convertPointFromScreen(p, mWindow.getLayeredPane());
 
-    Point p2 = new Point(); //getLocationOnScreen();
-    //SwingUtilities.convertPointFromScreen(p2, mWindow.getLayeredPane());
+    Point p2 = new Point(); // getLocationOnScreen();
+    // SwingUtilities.convertPointFromScreen(p2, mWindow.getLayeredPane());
 
-    p2.x = 0; //p.x;
+    p2.x = 0; // p.x;
     p2.y = getHeight();
 
     int pw = tooltip.getPreferredSize().width;

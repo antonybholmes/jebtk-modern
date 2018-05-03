@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.colormap;
 
 import org.jebtk.core.model.ItemModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Model for sharing a color map.
  * 

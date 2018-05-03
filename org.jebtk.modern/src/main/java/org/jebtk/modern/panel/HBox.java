@@ -36,7 +36,6 @@ import javax.swing.border.Border;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.text.ModernLabel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class HBoxPanel.
  */

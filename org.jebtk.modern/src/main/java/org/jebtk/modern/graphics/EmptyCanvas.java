@@ -30,7 +30,6 @@ package org.jebtk.modern.graphics;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allow empty space to be inserted into figures.
  * 

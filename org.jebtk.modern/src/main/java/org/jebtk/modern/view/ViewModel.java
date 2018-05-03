@@ -29,7 +29,6 @@ package org.jebtk.modern.view;
 
 import org.jebtk.core.event.ChangeListeners;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides a view model for changing the view of tabular data.
  * 

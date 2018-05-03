@@ -29,7 +29,6 @@ package org.jebtk.modern.event;
 
 import org.jebtk.core.event.Event;
 
-// TODO: Auto-generated Javadoc
 /**
  * Modern UI controls such as buttons should fire ModernClickEvents.
  * 

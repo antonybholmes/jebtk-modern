@@ -34,7 +34,6 @@ import java.awt.event.MouseEvent;
 import org.jebtk.modern.dialog.ModernDialogFlatButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Simulates a hyperlink using a button.
  * 

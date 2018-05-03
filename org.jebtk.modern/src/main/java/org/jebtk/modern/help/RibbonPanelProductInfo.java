@@ -41,7 +41,6 @@ import org.jebtk.modern.text.ModernSubHeadingLabel;
 import org.jebtk.modern.text.ModernTitleLabel;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Displays about information for a software product.
  * 

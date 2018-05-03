@@ -59,10 +59,7 @@ public class SearchTermsService extends SearchTermEventListeners
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-  
 
-  
-  
   private static class SearchTermsServiceLoader {
 
     /** The Constant INSTANCE. */
@@ -94,7 +91,6 @@ public class SearchTermsService extends SearchTermEventListeners
    */
   public static final File DEFAULT_XML_FILE = new File("search.terms.xml");
 
-
   /**
    * The member search terms.
    */
@@ -102,7 +98,6 @@ public class SearchTermsService extends SearchTermEventListeners
 
   private boolean mAutoLoad = true;
 
-  
   /**
    * Instantiates a new search terms service.
    */
@@ -125,7 +120,7 @@ public class SearchTermsService extends SearchTermEventListeners
 
     }
   }
-  
+
   /**
    * Load xml.
    *
@@ -240,7 +235,7 @@ public class SearchTermsService extends SearchTermEventListeners
    */
   public final Iterator<String> iterator() {
     autoLoad();
-    
+
     return mSearchTerms.iterator();
   }
 
@@ -252,7 +247,7 @@ public class SearchTermsService extends SearchTermEventListeners
    */
   public final boolean contains(String query) {
     autoLoad();
-    
+
     return mSearchTerms.contains(query);
   }
 }

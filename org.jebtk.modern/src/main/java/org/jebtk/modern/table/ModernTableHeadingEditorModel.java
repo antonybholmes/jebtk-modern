@@ -18,7 +18,6 @@ package org.jebtk.modern.table;
 import org.jebtk.modern.dataview.ModernData1DModel;
 import org.jebtk.modern.dataview.ModernDataCellEditor;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ModernTableHeadingEditorModel.
  */

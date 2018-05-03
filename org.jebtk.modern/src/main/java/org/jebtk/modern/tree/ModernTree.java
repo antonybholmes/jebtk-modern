@@ -71,7 +71,6 @@ import org.jebtk.modern.event.ModernSelectionListeners;
 import org.jebtk.modern.graphics.DrawingContext;
 import org.jebtk.modern.graphics.ImageUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * Display objects in a graphical tree.
  *

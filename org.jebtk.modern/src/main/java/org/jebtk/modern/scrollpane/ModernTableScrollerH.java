@@ -32,7 +32,6 @@ import java.awt.Component;
 import org.jebtk.modern.dataview.ModernDataSelection;
 import org.jebtk.modern.table.ModernTable;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ModernTableScrollerH offers column based scrolling in a table.
  */

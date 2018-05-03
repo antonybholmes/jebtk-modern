@@ -43,7 +43,6 @@ import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernTitleBar.
  */

@@ -31,7 +31,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows collapsable panes to be created.
  * 

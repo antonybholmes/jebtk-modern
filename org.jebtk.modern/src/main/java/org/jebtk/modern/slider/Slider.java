@@ -35,7 +35,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernFocusableWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Basic features of a slider control without any ui elements.
  *

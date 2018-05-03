@@ -17,7 +17,6 @@ package org.jebtk.modern.window;
 
 import org.jebtk.modern.panel.VBoxAutoWidth;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class WindowVBoxAutoWidth.
  */

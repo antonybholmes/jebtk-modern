@@ -19,7 +19,6 @@ import java.awt.Dimension;
 
 import org.jebtk.modern.UI;
 
-// TODO: Auto-generated Javadoc
 /**
  * Generic control drop down button. Provides the basic button UI
  * 

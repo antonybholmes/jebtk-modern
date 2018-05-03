@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.settings.SettingsService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Group vector icon showing 3 colored balls spaced equally around a circle.
  * 

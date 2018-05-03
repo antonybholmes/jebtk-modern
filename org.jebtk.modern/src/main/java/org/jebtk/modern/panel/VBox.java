@@ -32,7 +32,6 @@ import java.awt.Component;
 import javax.swing.BoxLayout;
 import javax.swing.border.Border;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class VBoxPanel.
  */

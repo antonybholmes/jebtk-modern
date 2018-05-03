@@ -30,7 +30,6 @@ package org.jebtk.modern.dialog;
 import org.jebtk.modern.help.ModernDialogHelpButton;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standardized dialog that provides a help button to link to a URL, such as a
  * wiki, to offer more help.

@@ -33,7 +33,6 @@ import java.awt.image.BufferedImage;
 
 import org.jebtk.modern.graphics.ImageUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernScaleIcon.
  */

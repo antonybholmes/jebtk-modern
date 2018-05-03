@@ -79,8 +79,7 @@ public class SizableTab extends Tab {
    * @param minWidth the min width
    * @param maxWidth the max width
    */
-  public SizableTab(String name, int width, int minWidth,
-      int maxWidth) {
+  public SizableTab(String name, int width, int minWidth, int maxWidth) {
     super(name);
 
     mMinWidth = minWidth;

@@ -39,7 +39,6 @@ import org.jebtk.modern.panel.VBox;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.scrollpane.ScrollBarPolicy;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class LayersPanel.
  */

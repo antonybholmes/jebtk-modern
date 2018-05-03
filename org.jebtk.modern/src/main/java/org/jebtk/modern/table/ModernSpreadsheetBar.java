@@ -46,7 +46,6 @@ import org.jebtk.modern.text.ModernClipboardTextBox;
 import org.jebtk.modern.text.ModernTextBorderPanel;
 import org.jebtk.modern.text.ModernTextBox;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ModernSpreadsheetBar allows users to edit table cells.
  */

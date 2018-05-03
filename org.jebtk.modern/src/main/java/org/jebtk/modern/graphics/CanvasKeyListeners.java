@@ -31,15 +31,13 @@ import java.awt.event.KeyEvent;
 
 import org.jebtk.core.event.EventProducer;
 
-// TODO: Auto-generated Javadoc
 /**
  * The basis for model controls in a model view controller setup.
  * 
  * @author Antony Holmes Holmes
  *
  */
-public class CanvasKeyListeners
-    extends EventProducer<CanvasKeyListener>
+public class CanvasKeyListeners extends EventProducer<CanvasKeyListener>
     implements CanvasKeyEventProducer {
 
   /**

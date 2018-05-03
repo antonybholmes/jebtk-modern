@@ -31,7 +31,6 @@ import java.awt.Polygon;
 
 import org.jebtk.core.Mathematics;
 
-// TODO: Auto-generated Javadoc
 /**
  * Create a diamond centered on x, y.
  *

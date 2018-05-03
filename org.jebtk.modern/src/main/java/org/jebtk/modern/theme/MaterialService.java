@@ -24,7 +24,6 @@ import org.jebtk.modern.widget.ModernWidget;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ThemeService.
  */
@@ -48,8 +47,6 @@ public class MaterialService {
     return MaterialServiceLoader.INSTANCE;
   }
 
-
-
   public static final Color TEXT_COLOR = ThemeService.getInstance().colors()
       .getTextColor();
 
@@ -67,7 +64,8 @@ public class MaterialService {
       put("bold", ThemeService.loadFont("theme.material.fonts.bold"));
       put("title", ThemeService.loadFont("theme.material.fonts.title"));
       put("subtext", ThemeService.loadFont("theme.material.fonts.subtext"));
-      put("sub-heading", ThemeService.loadFont("theme.material.fonts.sub-heading"));
+      put("sub-heading",
+          ThemeService.loadFont("theme.material.fonts.sub-heading"));
     }
 
     /**
@@ -78,7 +76,7 @@ public class MaterialService {
     public Font text() {
       return get("text");
     }
-    
+
     public Font bold() {
       return get("bold");
     }
@@ -91,7 +89,7 @@ public class MaterialService {
     public Font subtext() {
       return get("subtext");
     }
-    
+
     public Font subHeading() {
       return get("sub-heading");
     }
@@ -148,7 +146,7 @@ public class MaterialService {
           ThemeService.getInstance().colors().getHighlight32(15));
 
       put("dialog.button.fill", Color.WHITE);
-      
+
       put("dialog.button.gradient.start",
           ThemeService.getInstance().colors().getHighlight32(2));
 
@@ -182,7 +180,7 @@ public class MaterialService {
           ThemeService.getInstance().colors().getHighlight32(1));
 
       put("line", ThemeService.getInstance().colors().getHighlight32(7));
-      
+
       put("alt.text", ThemeService.getInstance().colors().getHighlight32(20));
     }
 

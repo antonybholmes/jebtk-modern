@@ -35,7 +35,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Displays text.
  * 

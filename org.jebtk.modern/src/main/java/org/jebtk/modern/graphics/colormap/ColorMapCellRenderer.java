@@ -23,7 +23,6 @@ import java.awt.geom.Point2D;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.dataview.ModernDataCellRenderer;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ColorMapCellRenderer.
  */

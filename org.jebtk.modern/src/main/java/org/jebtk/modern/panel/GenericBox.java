@@ -29,7 +29,6 @@ package org.jebtk.modern.panel;
 
 import javax.swing.Box;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class BoxPanel.
  */

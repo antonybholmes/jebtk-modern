@@ -73,7 +73,6 @@ import org.jebtk.modern.widget.ModernWidget;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// TODO: Auto-generated Javadoc
 /**
  * All windowed apps should inherit from this.
  *
@@ -235,8 +234,7 @@ public class ModernWindow extends JFrame
    */
   public ModernWindow(GuiAppInfo appInfo) {
     setAppInfo(appInfo);
-    
-    
+
     mRibbonMenu = new RibbonFileMenu(this);
 
     mCards.add(mRibbonMenu, MENU_CARD);
@@ -286,9 +284,9 @@ public class ModernWindow extends JFrame
      * // Hide all tooltips doHideTooltips(); } } }, AWTEvent.MOUSE_EVENT_MASK);
      */
 
-    Toolkit.getDefaultToolkit().addAWTEventListener(
-        new AllMouseEvents(), AWTEvent.MOUSE_EVENT_MASK);
-    
+    Toolkit.getDefaultToolkit().addAWTEventListener(new AllMouseEvents(),
+        AWTEvent.MOUSE_EVENT_MASK);
+
     addComponentListener(new ComponentAdapter() {
 
       @Override
@@ -299,7 +297,8 @@ public class ModernWindow extends JFrame
       @Override
       public void componentHidden(ComponentEvent e) {
         doHideTooltips();
-      }});
+      }
+    });
   }
 
   /*
@@ -478,7 +477,7 @@ public class ModernWindow extends JFrame
   public void setCenterTab(JComponent c) {
     tabsPane().tabs().setCenterTab(c);
   }
-  
+
   /**
    * Set the center content on top of a simple white panel.
    * 
@@ -528,9 +527,9 @@ public class ModernWindow extends JFrame
   public void tooltipShown(ModernToolTipEvent e) {
     if (e.getP() != null) {
       SwingUtilities.convertPointToScreen(e.getP(), e.getSource());
-       
+
       Point p = toolTipPFromScreen(e.getP(), e.getTooltip());
-      
+
       showToolTip(e.getSource(), e.getTooltip(), p);
     } else {
       showToolTip(e.getSource(), e.getTooltip());
@@ -541,9 +540,9 @@ public class ModernWindow extends JFrame
   public void tooltipAdded(ModernToolTipEvent e) {
     if (e.getP() != null) {
       SwingUtilities.convertPointToScreen(e.getP(), e.getSource());
-      
+
       Point p = toolTipPFromScreen(e.getP(), e.getTooltip());
-      
+
       addToolTip(e.getSource(), e.getTooltip(), p);
     } else {
       addToolTip(e.getSource(), e.getTooltip());
@@ -576,17 +575,19 @@ public class ModernWindow extends JFrame
   private synchronized Point toolTipP(Component source, Component tooltip) {
     return toolTipPFromScreen(source, source.getLocationOnScreen(), tooltip);
   }
-  
+
   /**
-   * Calculate where the tooltip should be given a screen position which
-   * is assumed to be within the bounds of the window.
+   * Calculate where the tooltip should be given a screen position which is
+   * assumed to be within the bounds of the window.
    * 
    * @param source
    * @param p
    * @param tooltip
    * @return
    */
-  private synchronized Point toolTipPFromScreen(Component source, Point p, Component tooltip) {
+  private synchronized Point toolTipPFromScreen(Component source,
+      Point p,
+      Component tooltip) {
     // Put in the context of the window
     SwingUtilities.convertPointFromScreen(p, getLayeredPane());
 
@@ -612,7 +613,7 @@ public class ModernWindow extends JFrame
 
     return p;
   }
-  
+
   private synchronized Point toolTipPFromScreen(Point p, Component tooltip) {
     // Put in the context of the window
     SwingUtilities.convertPointFromScreen(p, getLayeredPane());
@@ -624,18 +625,18 @@ public class ModernWindow extends JFrame
     int w = ps.width;
     int h = ps.height;
 
-    //if (p.x + w > wb.width) {
-    //  p.x += source.getWidth() - w;
-    //}
+    // if (p.x + w > wb.width) {
+    // p.x += source.getWidth() - w;
+    // }
 
-    //int sh = source.getHeight();
+    // int sh = source.getHeight();
 
     // Always show below the component
-    //p.y += sh;
+    // p.y += sh;
 
-   // if (p.y + h > wb.height) {
-    //  p.y -= sh + h;
-    //}
+    // if (p.y + h > wb.height) {
+    // p.y -= sh + h;
+    // }
 
     return p;
   }

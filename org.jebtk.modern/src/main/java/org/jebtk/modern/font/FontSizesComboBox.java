@@ -32,7 +32,6 @@ import org.jebtk.modern.combobox.ModernComboBox;
 import org.jebtk.modern.menu.ModernMenuItem;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class FontSizesComboBox.
  */

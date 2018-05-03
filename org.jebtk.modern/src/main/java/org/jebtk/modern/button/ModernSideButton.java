@@ -33,7 +33,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ModernTheme;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernSideButton.
  */

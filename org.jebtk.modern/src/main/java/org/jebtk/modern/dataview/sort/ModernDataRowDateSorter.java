@@ -34,7 +34,6 @@ import java.util.List;
 import org.jebtk.core.Indexed;
 import org.jebtk.modern.dataview.ModernData;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernDataRowTextSorter.
  */

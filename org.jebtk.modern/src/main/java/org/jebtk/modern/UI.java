@@ -408,7 +408,7 @@ public class UI {
   public static final String ASSET_RIBBON_HOME = "Home"; // HOME;
 
   public static final String ASSET_UPPERCASE = "UPPERCASE";
-  
+
   public static final String ASSET_LOWERCASE = "lowercase";
 
   public static final String ASSET_NAME = "Name";
@@ -426,7 +426,6 @@ public class UI {
   public static final String ASSET_MENU = "Menu";
 
   public static final String ACTION_ASSET_CLICKED = "clicked";
-  
 
   static {
     // Determine if we should mac style buttons or not.

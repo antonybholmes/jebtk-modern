@@ -33,7 +33,6 @@ import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.tabs.Tab;
 import org.jebtk.modern.tabs.TabsModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * Pane for the center component.
  * 

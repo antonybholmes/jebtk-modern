@@ -112,7 +112,6 @@ import org.jebtk.modern.text.TextBorderAnimation;
 import org.jebtk.modern.tree.TreeHighlightAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents a vector icon that uses graphics primitives to create a scalable
  * image. Since vector icons require more computation, the RastorIcon class can

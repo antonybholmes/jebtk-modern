@@ -30,7 +30,6 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * Shows a simple tree icon.
  * 

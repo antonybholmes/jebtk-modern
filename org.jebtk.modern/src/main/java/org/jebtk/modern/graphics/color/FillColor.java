@@ -17,7 +17,6 @@ package org.jebtk.modern.graphics.color;
 
 import java.awt.Color;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class FillColor.
  */

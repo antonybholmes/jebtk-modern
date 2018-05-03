@@ -31,7 +31,6 @@ import java.nio.file.Path;
 
 import org.jebtk.modern.list.ModernList;
 
-// TODO: Auto-generated Javadoc
 /**
  * Default file list with appropriate display.
  * 

@@ -25,7 +25,6 @@ import org.jebtk.modern.tabs.TabsViewPanel;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.WindowWidgetFocusEvents;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class TTestDialog.
  */
@@ -151,10 +150,10 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
     setCard(mViewPanel);
 
     tabs().left().add(UI.ASSET_MENU, 160, 100, 300);
-    
+
     left().setBody(mTabsPanel);
   }
-  
+
   /**
    * Returns the left tab component.
    * 
@@ -163,7 +162,7 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
   public ModernComponent left() {
     return tabs().left().component(UI.ASSET_MENU);
   }
-  
+
   public TabsModel tabs() {
     return getTabsPane().tabs();
   }

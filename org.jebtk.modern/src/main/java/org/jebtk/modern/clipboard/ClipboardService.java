@@ -38,7 +38,6 @@ import javax.swing.JTable;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.text.TextUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * Provides a centralised mechanism for registering controls to send and receive
  * data from the clipboard.

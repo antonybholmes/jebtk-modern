@@ -31,7 +31,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.theme.WidgetRendererService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Unchecked box vector icon.
  *

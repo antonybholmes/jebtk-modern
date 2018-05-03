@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.tree;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class TreeNodeMove.
  */

@@ -52,7 +52,6 @@ import org.jebtk.modern.event.HighlightListeners;
 import org.jebtk.modern.widget.ModernVertWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * A collapsable pane consists of a header and an element. The element can be
  * visible or invisible triggered when the user clicks on the header. It

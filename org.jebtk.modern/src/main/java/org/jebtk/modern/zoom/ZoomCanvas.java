@@ -42,7 +42,6 @@ import org.jebtk.modern.graphics.DrawingContext;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.ModernCanvas;
 
-// TODO: Auto-generated Javadoc
 /**
  * Drawing panel that allows zooming.
  * 
@@ -120,19 +119,14 @@ public class ZoomCanvas extends ModernCanvas {
 
   private void init() {
     /*
-    addCanvasMouseWheelListener(new CanvasMouseWheelListener() {
-
-      @Override
-      public void canvasMouseWheelMoved(CanvasMouseWheelEvent e) {
-        if (MouseUtils.hasCtrlMod(e)) {
-          if (mZoomModel != null) {
-            mZoomModel.setZoom(
-                mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
-          }
-        }
-
-      }
-    });
+     * addCanvasMouseWheelListener(new CanvasMouseWheelListener() {
+     * 
+     * @Override public void canvasMouseWheelMoved(CanvasMouseWheelEvent e) { if
+     * (MouseUtils.hasCtrlMod(e)) { if (mZoomModel != null) {
+     * mZoomModel.setZoom( mZoomModel.getZoom() + WHEEL_ZOOM *
+     * e.getWheelRotation()); } }
+     * 
+     * } });
      */
 
     addMouseWheelListener(new MouseWheelListener() {
@@ -145,9 +139,10 @@ public class ZoomCanvas extends ModernCanvas {
       }
     });
   }
-  
+
   private void wheelZoom(MouseWheelEvent e) {
-    mZoomModel.setZoom(mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
+    mZoomModel
+        .setZoom(mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
   }
 
   /**

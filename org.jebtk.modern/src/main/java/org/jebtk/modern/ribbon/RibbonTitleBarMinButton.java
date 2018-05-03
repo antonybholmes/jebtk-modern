@@ -36,7 +36,6 @@ import org.jebtk.modern.graphics.icons.Raster16Icon;
 import org.jebtk.modern.graphics.icons.WindowMinVectorIcon;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernWindowTitleBarMinButton.
  */

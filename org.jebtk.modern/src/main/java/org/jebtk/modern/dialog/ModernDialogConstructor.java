@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.dialog;
 
-// TODO: Auto-generated Javadoc
 /**
  * All dialogs should create themselves in the same manner.
  *

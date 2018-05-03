@@ -30,7 +30,6 @@ package org.jebtk.modern.graphics;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * Draws the canvas over a colored background.
  * 

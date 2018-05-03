@@ -17,8 +17,7 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
     // mButton = (ModernClickWidget)button;
 
     // setFadeColor("outline", ModernWidgetRenderer.SELECTED_OUTLINE_COLOR);
-    setFadeColor("fill",
-        MaterialService.instance().color("theme-highlight"));
+    setFadeColor("fill", MaterialService.instance().color("theme-highlight"));
   }
 
   public void drawButton(Graphics2D g2,

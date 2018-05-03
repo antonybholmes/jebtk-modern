@@ -31,7 +31,6 @@ import java.awt.Dimension;
 
 import org.jebtk.modern.theme.MaterialUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows collapsable panes to be created.
  * 

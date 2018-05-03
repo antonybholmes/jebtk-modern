@@ -32,7 +32,6 @@ import java.util.List;
 
 import org.jebtk.core.event.ChangeListeners;
 
-// TODO: Auto-generated Javadoc
 /**
  * For re-arranging column headers.
  * 

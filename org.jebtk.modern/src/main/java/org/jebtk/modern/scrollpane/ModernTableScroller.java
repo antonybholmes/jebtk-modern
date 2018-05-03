@@ -31,7 +31,6 @@ import java.awt.Component;
 
 import org.jebtk.modern.table.ModernTable;
 
-// TODO: Auto-generated Javadoc
 /**
  * A specialized scroller for responding to vertical scroll keys. This only
  * instigates scrolling when the selection rectangle moves outside the view

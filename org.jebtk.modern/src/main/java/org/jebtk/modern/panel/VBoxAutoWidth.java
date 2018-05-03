@@ -35,7 +35,6 @@ import java.beans.PropertyChangeListener;
 
 import org.jebtk.modern.ModernComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Lay components out in a vertical box and auto size their width so they are
  * always the same width as the box itself.

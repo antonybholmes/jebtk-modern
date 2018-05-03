@@ -61,7 +61,6 @@ import org.jebtk.modern.tooltip.ToolTipService;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standardized modern dialog window.
  * 
@@ -75,7 +74,7 @@ public class ModernDialogWindow extends JDialog
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-  
+
   private class AllMouseEvents implements AWTEventListener {
     @Override
     public void eventDispatched(AWTEvent e) {
@@ -240,7 +239,7 @@ public class ModernDialogWindow extends JDialog
     // getRootPane ().setOpaque (false);
     // getWindowContentPanel().setBackground (new Color(0, 0, 0, 0));
     // setBackground (new Color(0, 0, 0, 0));
-    
+
     setDarkBackground();
 
     setIconImage(getAppInfo().getIcon().getImage());
@@ -252,17 +251,17 @@ public class ModernDialogWindow extends JDialog
     setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 
     UI.centerWindowToScreen(this);
-    
+
     // Receive tooltips
-    
+
     ToolTipService.getInstance().addToolTipListener(this);
 
     //
     // Listen for clicking anywhere on the window to get rid of the tool tip
     //
 
-    Toolkit.getDefaultToolkit().addAWTEventListener(
-        new AllMouseEvents(), AWTEvent.MOUSE_EVENT_MASK);
+    Toolkit.getDefaultToolkit().addAWTEventListener(new AllMouseEvents(),
+        AWTEvent.MOUSE_EVENT_MASK);
   }
 
   /**
@@ -345,17 +344,19 @@ public class ModernDialogWindow extends JDialog
   }
 
   public void setCard(JComponent c) {
-    setInternalContent(new CardPanel(c, ModernWidget.DOUBLE_BORDER));
+    setInternalContent(
+        new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER),
+            ModernWidget.DOUBLE_BORDER));
 
     // Auto set the background to dark so that the card contrasts.
-    //setDarkBackground();
+    // setDarkBackground();
   }
 
   public void setBorderlessCardContent(JComponent c) {
     setInternalContent(new BorderlessCardPanel(c));
 
     // Auto set the background to dark so that the card contrasts.
-    //setDarkBackground();
+    // setDarkBackground();
   }
 
   /**
@@ -364,10 +365,11 @@ public class ModernDialogWindow extends JDialog
    * @param c
    */
   public void setFlatCardContent(JComponent c) {
-    setInternalContent(new ModernComponent(new ModernPanel(c, ModernWidget.QUAD_BORDER), FLAT_BORDER));
+    setInternalContent(new ModernComponent(
+        new ModernPanel(c, ModernWidget.QUAD_BORDER), FLAT_BORDER));
 
     // Auto set the background to dark so that the card contrasts.
-    //setDarkBackground();
+    // setDarkBackground();
   }
 
   /**
@@ -478,9 +480,8 @@ public class ModernDialogWindow extends JDialog
       Component tooltip,
       Point p) {
 
-    
     JLayeredPane layeredPane = getLayeredPane();
-    
+
     if (layeredPane == null) {
       return;
     }
@@ -497,18 +498,18 @@ public class ModernDialogWindow extends JDialog
     validate();
     repaint();
   }
-  
+
   private synchronized void hideToolTips() {
     // System.err.println("hide");
 
     JLayeredPane layeredPane = getLayeredPane();
-    
+
     for (Component c : layeredPane
         .getComponentsInLayer(JLayeredPane.POPUP_LAYER)) {
       layeredPane.remove(c);
     }
   }
-  
+
   protected void doHideTooltips() {
     ToolTipService.getInstance()
         .hideToolTips(new ModernToolTipEvent(this, this));

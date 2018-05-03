@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.zoom;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standard methods that controls supporting zoom should implement.
  *

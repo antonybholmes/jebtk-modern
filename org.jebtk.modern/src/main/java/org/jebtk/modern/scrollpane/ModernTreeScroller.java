@@ -29,7 +29,6 @@ package org.jebtk.modern.scrollpane;
 
 import java.awt.Component;
 
-// TODO: Auto-generated Javadoc
 /**
  * Default behaviour for tree scroller.
  */

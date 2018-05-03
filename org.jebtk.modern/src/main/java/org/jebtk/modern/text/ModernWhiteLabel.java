@@ -29,7 +29,6 @@ package org.jebtk.modern.text;
 
 import java.awt.Color;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernWhiteLabel.
  */

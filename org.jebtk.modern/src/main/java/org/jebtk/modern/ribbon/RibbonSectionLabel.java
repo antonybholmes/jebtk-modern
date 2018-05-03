@@ -30,7 +30,6 @@ package org.jebtk.modern.ribbon;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class RibbonSectionLabel.
  */

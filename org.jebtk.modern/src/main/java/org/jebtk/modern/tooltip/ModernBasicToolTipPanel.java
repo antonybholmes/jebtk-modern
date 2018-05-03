@@ -35,7 +35,6 @@ import org.jebtk.modern.text.ModernLabel;
 import org.jebtk.modern.text.ModernLabelBold;
 import org.jebtk.modern.text.WrapLabel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The default tooltip panel provides a simple titled tooltip that appears below
  * the ribbon.
@@ -78,9 +77,9 @@ public class ModernBasicToolTipPanel extends ModernToolTipPanel {
     mTitle.setBorder(BOTTOM_BORDER);
     panel.add(mTitle, BorderLayout.PAGE_START);
 
-    //mText.setEditable(false);
-    //mText.setLineWrap(true);
-    //mText.setWrapStyleWord(true);
+    // mText.setEditable(false);
+    // mText.setLineWrap(true);
+    // mText.setWrapStyleWord(true);
 
     panel.setCenter(mText);
 

@@ -40,7 +40,6 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernMenuSeparator;
 import org.jebtk.modern.menu.ModernScrollPopupMenu;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class RecentFilesPopup.
  */

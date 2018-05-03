@@ -33,7 +33,6 @@ import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class LayersTableModel.
  */

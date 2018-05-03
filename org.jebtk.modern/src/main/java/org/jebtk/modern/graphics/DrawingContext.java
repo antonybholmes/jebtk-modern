@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.graphics;
 
-// TODO: Auto-generated Javadoc
 /**
  * The enum DrawingContext.
  */

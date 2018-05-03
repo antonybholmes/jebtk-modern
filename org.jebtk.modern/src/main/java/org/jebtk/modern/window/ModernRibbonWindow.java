@@ -57,7 +57,6 @@ import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * All windowed apps should inherit from this.
  *

@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.graphics.shapes;
 
-// TODO: Auto-generated Javadoc
 /**
  * Create a diamond centered on x, y.
  *

@@ -36,7 +36,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernWindowTitleBarCloseButton.
  */

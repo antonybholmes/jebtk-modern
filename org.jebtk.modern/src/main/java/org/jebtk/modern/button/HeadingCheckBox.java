@@ -29,7 +29,6 @@ package org.jebtk.modern.button;
 
 import java.awt.Font;
 
-// TODO: Auto-generated Javadoc
 /**
  * Default look for a heading label.
  *

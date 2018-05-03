@@ -29,7 +29,6 @@ package org.jebtk.modern.tree;
 
 import org.jebtk.core.tree.TreeNode;
 
-// TODO: Auto-generated Javadoc
 /**
  * Describes a drag event on a FlatTree control.
  *

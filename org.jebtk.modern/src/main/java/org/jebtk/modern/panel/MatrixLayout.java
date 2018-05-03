@@ -33,7 +33,6 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.LayoutManager;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class SimpleMatrixPanel.
  */

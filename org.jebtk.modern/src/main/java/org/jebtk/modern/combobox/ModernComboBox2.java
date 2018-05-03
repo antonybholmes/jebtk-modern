@@ -137,8 +137,7 @@ public class ModernComboBox2 extends ModernDropDownWidget2
   /**
    * The member item map.
    */
-  protected Map<String, ModernMenuItem> mItemMap = 
-      new HashMap<String, ModernMenuItem>();
+  protected Map<String, ModernMenuItem> mItemMap = new HashMap<String, ModernMenuItem>();
 
   /**
    * The member selected index.
@@ -471,15 +470,14 @@ public class ModernComboBox2 extends ModernDropDownWidget2
       return;
     }
 
-    //setHighlighted(false);
-    //mPopupShown = true;
+    // setHighlighted(false);
+    // mPopupShown = true;
 
-    //repaint();
+    // repaint();
 
     // fireModernClickEvent(new ModernClickEvent(this, SHOW_MENU));
-    //mMenu.showPopup(this);
-    
-    
+    // mMenu.showPopup(this);
+
     showMenu();
   }
 

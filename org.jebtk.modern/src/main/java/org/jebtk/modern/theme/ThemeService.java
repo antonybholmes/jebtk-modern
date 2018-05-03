@@ -50,7 +50,6 @@ import org.jebtk.modern.graphics.colormap.ColorMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ThemeService.
  */
@@ -602,10 +601,10 @@ public class ThemeService extends ModernTheme {
       throws FontFormatException, IOException {
     Resources.getInstance().registerFont("Inconsolata-Regular.ttf");
 
-    //Resources.getInstance().registerFont("ProductSans-Regular.ttf");
-    
-    //Resources.getInstance().registerFont("Futura_LT_Book.ttf");
-    
+    // Resources.getInstance().registerFont("ProductSans-Regular.ttf");
+
+    // Resources.getInstance().registerFont("Futura_LT_Book.ttf");
+
     Resources.getInstance().registerFont("Roboto-Light.ttf");
     Resources.getInstance().registerFont("Roboto-Regular.ttf");
     Resources.getInstance().registerFont("Roboto-Medium.ttf");
@@ -615,14 +614,14 @@ public class ThemeService extends ModernTheme {
     Resources.getInstance().registerFont("SourceSansPro-Regular.ttf");
     Resources.getInstance().registerFont("SourceSansPro-SemiBold.ttf");
 
-    //Resources.getInstance().registerFont("Raleway-Light.ttf");
-    //Resources.getInstance().registerFont("Raleway-Regular.ttf");
+    // Resources.getInstance().registerFont("Raleway-Light.ttf");
+    // Resources.getInstance().registerFont("Raleway-Regular.ttf");
 
-    //Resources.getInstance().registerFont("NotoSans-Regular.ttf");2202
+    // Resources.getInstance().registerFont("NotoSans-Regular.ttf");2202
 
-    //Resources.getInstance().registerFont("OpenSans-Regular.ttf");
-    //Resources.getInstance().registerFont("OpenSans-Light.ttf");
-    //Resources.getInstance().registerFont("OpenSans-SemiBold.ttf");
+    // Resources.getInstance().registerFont("OpenSans-Regular.ttf");
+    // Resources.getInstance().registerFont("OpenSans-Light.ttf");
+    // Resources.getInstance().registerFont("OpenSans-SemiBold.ttf");
   }
 
   /**

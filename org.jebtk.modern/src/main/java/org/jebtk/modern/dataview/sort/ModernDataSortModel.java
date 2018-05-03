@@ -30,7 +30,6 @@ package org.jebtk.modern.dataview.sort;
 import java.util.HashMap;
 import java.util.Map;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents a collection of sortIndex sorters for a dataview. This allows
  * specific columns to have independent sorters for example if one sortIndex is

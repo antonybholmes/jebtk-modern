@@ -29,7 +29,6 @@ package org.jebtk.modern.tooltip;
 
 import org.jebtk.modern.panel.Card;
 
-// TODO: Auto-generated Javadoc
 /**
  * The default tool tip panel provides a simple titled tool tip that appears
  * below the ribbon.

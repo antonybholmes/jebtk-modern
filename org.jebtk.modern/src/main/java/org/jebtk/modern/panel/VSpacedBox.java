@@ -20,7 +20,6 @@ import java.awt.Component;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * A vertical box that automatically adds a space between components. Can be
  * used to quickly create simple tool bars.

@@ -35,7 +35,6 @@ import javax.swing.ImageIcon;
 
 import org.jebtk.modern.graphics.ImageUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernImageIcon.
  */

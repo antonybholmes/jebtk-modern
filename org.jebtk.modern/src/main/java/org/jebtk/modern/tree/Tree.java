@@ -30,7 +30,6 @@ package org.jebtk.modern.tree;
 import org.jebtk.core.tree.TreeNode;
 import org.jebtk.modern.graphics.ModernVertCanvas;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class Tree.
  *

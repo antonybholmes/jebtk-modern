@@ -37,7 +37,6 @@ import org.jebtk.core.Mathematics;
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.math.Linspace;
 
-// TODO: Auto-generated Javadoc
 /**
  * Basic features of a slider control that jumps from step to step.
  *

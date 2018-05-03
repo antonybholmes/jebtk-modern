@@ -35,7 +35,6 @@ import javax.swing.border.Border;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * A padded panel for displaying cards in the UI.
  * 
@@ -53,7 +52,7 @@ public class CardPanel extends ModernComponent {
       .createBorder(QUAD_PADDING);
 
   public CardPanel() {
-   // setBorder(CARD_BORDER);
+    // setBorder(CARD_BORDER);
   }
 
   /**
@@ -65,13 +64,13 @@ public class CardPanel extends ModernComponent {
   public CardPanel(Component content) {
     this(content, CARD_BORDER);
   }
-  
+
   public CardPanel(Component content, Border border) {
     super(new Card(content));
 
     setBorder(border);
   }
-  
+
   public CardPanel(Component content, int border) {
     super(content);
 

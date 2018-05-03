@@ -31,7 +31,6 @@ import java.awt.Color;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents a vector icon that uses graphics primitives to create a scalable
  * image. Since vector icons require more computation, the RastorIcon class can

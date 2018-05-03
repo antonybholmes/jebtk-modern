@@ -29,7 +29,6 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Display a color map and allow users to edit the colors.
  */

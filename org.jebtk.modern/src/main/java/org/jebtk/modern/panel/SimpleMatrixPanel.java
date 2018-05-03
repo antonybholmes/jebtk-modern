@@ -39,7 +39,6 @@ import javax.swing.border.Border;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class SimpleMatrixPanel.
  */

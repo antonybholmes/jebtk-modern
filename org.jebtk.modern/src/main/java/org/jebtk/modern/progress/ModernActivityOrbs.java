@@ -36,7 +36,6 @@ import org.jebtk.core.Mathematics;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Shows animated balls to indicate something is happening.
  * 

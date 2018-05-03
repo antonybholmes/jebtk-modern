@@ -20,7 +20,6 @@ import org.jebtk.modern.event.HighlightEventProducer;
 import org.jebtk.modern.event.HighlightListener;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Highlight animation that automatically registers to respond to highlight
  * events.

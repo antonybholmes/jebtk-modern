@@ -31,7 +31,6 @@ import java.util.EventListener;
 
 import org.jebtk.core.event.ChangeEvent;
 
-// TODO: Auto-generated Javadoc
 /**
  * Control selection events.
  * 

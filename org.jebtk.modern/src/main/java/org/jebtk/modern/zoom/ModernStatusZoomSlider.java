@@ -30,7 +30,6 @@ package org.jebtk.modern.zoom;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.panel.HBox;
 
-// TODO: Auto-generated Javadoc
 /**
  * Zoom slider for status bar.
  *

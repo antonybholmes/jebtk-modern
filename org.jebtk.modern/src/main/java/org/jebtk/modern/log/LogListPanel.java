@@ -46,7 +46,6 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class LogListPanel.
  */

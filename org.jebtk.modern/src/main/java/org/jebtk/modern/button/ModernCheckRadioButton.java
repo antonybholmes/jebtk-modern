@@ -29,7 +29,6 @@ package org.jebtk.modern.button;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernCheckRadioButton.
  */

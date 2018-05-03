@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.ribbon.QuickAccessButton;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernHideButton.
  */

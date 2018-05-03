@@ -33,7 +33,6 @@ import javax.swing.BoxLayout;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class RibbonMultiItemPanel.
  */

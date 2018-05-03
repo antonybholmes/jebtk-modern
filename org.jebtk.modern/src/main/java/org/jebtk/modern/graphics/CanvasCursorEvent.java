@@ -32,7 +32,6 @@ import java.awt.Cursor;
 
 import org.jebtk.core.event.ChangeEvent;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class CanvasMouseEvent.
  */

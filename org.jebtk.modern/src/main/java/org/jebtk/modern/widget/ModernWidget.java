@@ -63,7 +63,6 @@ import org.jebtk.modern.theme.WidgetRenderer;
 import org.jebtk.modern.theme.WidgetRendererProvider;
 import org.jebtk.modern.theme.WidgetRendererService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The basis for all controls. Implements basic message handling.
  * 
@@ -188,8 +187,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant FONT.
    */
-  public static final Font FONT = MaterialService.instance().fonts()
-      .text(); // ThemeService.getInstance().fonts().getFont();
+  public static final Font FONT = MaterialService.instance().fonts().text(); // ThemeService.getInstance().fonts().getFont();
 
   /** The Constant UNDER_LINE_FONT. */
   public static final Font UNDER_LINE_FONT = FontUtils.underline(FONT);
@@ -229,8 +227,8 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant BOLD_FONT.
    */
-  public static final Font BOLD_FONT = 
-      MaterialService.instance().fonts().bold();
+  public static final Font BOLD_FONT = MaterialService.instance().fonts()
+      .bold();
 
   /**
    * The constant MONOSPACE_FONT.

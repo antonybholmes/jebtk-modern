@@ -38,7 +38,6 @@ import org.jebtk.modern.graphics.color.ColorSelectionModel;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allow users to select a color for an object etc.
  * 

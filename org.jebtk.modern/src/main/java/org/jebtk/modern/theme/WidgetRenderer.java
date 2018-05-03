@@ -20,7 +20,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class WidgetRenderer.
  */

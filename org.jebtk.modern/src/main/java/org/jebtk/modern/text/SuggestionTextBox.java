@@ -20,7 +20,6 @@ import java.awt.event.FocusListener;
 
 import org.jebtk.core.text.TextUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * Shows a suggestion of what to type before deleting it as the user selects it.
  * 

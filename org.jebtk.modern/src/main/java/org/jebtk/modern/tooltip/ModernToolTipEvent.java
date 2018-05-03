@@ -32,7 +32,6 @@ import java.awt.Point;
 
 import org.jebtk.core.event.Event;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernToolTipEvent.
  */

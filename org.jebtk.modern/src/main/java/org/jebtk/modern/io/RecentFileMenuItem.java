@@ -39,7 +39,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernTwoLineMenuItem;
 import org.jebtk.modern.theme.MaterialService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class FileMenuItem.
  */

@@ -38,7 +38,6 @@ import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.panel.VCenterBox;
 import org.jebtk.modern.ribbon.Ribbon;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class MessageDialogPanel.
  */

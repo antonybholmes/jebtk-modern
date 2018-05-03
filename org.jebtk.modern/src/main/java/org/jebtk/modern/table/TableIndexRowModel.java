@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.table;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class TableIndexRowModel.
  */

@@ -29,7 +29,6 @@ package org.jebtk.modern.dialog;
 
 import org.jebtk.modern.window.FrostedGlassPane;
 
-// TODO: Auto-generated Javadoc
 /**
  * Used as a glass pane to present messages to the user in the current window
  * rather than a popup dialog.

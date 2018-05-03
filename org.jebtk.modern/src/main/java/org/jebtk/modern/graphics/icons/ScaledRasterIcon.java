@@ -32,7 +32,6 @@ import java.awt.image.BufferedImage;
 
 import org.jebtk.modern.graphics.ImageUtils;
 
-// TODO: Auto-generated Javadoc
 /**
  * Rastorizes an icon (for example a vector based on) to reduce drawing
  * overhead.

@@ -33,7 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.theme.ModernRoundedWidgetRenderer;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Check vector icon optimized for 16 pixel icons.
  * 

@@ -24,7 +24,6 @@ import javax.swing.JLayeredPane;
 
 import org.jebtk.modern.ModernComponent;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class ShadowPanel.
  */

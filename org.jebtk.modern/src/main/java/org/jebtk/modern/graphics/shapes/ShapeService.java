@@ -34,7 +34,6 @@ import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.HashMapCreator;
 import org.jebtk.core.collections.IterMap;
 
-// TODO: Auto-generated Javadoc
 /**
  * Cache geometric shapes for drawing.
  *

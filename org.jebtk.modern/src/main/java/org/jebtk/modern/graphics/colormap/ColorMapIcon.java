@@ -23,7 +23,6 @@ import java.awt.geom.Point2D;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Displays a color bar.
  * 

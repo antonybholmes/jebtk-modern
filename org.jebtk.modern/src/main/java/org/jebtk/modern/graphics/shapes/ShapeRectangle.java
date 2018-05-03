@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.shapes;
 
 import java.awt.geom.Rectangle2D;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ShapeRectangle.
  */

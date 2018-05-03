@@ -35,7 +35,6 @@ import org.jebtk.modern.progress.ModernProgressBar;
 import org.jebtk.modern.progress.ProgressModel;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernStatusProgressBar.
  */

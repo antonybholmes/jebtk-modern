@@ -44,7 +44,6 @@ import org.jebtk.modern.graphics.icons.PlusVectorIcon;
 import org.jebtk.modern.ribbon.RibbonBarButton;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Standardized ribbon menu section for providing basic cut, copy and paste
  * functionality to the currently highlighted control that supports clipboard

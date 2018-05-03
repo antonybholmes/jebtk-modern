@@ -35,7 +35,6 @@ import org.jebtk.modern.graphics.icons.CheveronDownVectorIcon;
 import org.jebtk.modern.graphics.icons.CheveronUpVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
  *

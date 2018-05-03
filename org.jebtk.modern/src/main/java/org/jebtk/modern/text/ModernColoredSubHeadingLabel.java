@@ -29,7 +29,6 @@ package org.jebtk.modern.text;
 
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernColoredSubHeadingLabel.
  */

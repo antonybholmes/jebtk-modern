@@ -36,7 +36,6 @@ import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.table.ModernRowTable;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class LogTablePanel.
  */

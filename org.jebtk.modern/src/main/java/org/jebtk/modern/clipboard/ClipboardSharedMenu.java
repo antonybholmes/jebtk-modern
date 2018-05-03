@@ -34,7 +34,6 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernMenuSeparator;
 import org.jebtk.modern.menu.ModernPopupMenu;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows multiple controls to share an instance of a clipboard menu so it is
  * not duplicated on a per control basis.

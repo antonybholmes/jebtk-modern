@@ -31,7 +31,6 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.spinner.ModernCompactSpinner;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ColorSpinner.
  */

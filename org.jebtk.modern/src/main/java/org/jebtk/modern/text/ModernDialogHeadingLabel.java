@@ -29,7 +29,6 @@ package org.jebtk.modern.text;
 
 import javax.swing.border.Border;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernDialogHeadingLabel.
  */

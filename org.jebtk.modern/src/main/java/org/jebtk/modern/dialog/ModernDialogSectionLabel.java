@@ -32,7 +32,6 @@ import javax.swing.JLabel;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernDialogHeadingLabel.
  */

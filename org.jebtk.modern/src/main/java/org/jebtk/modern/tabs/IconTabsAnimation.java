@@ -22,7 +22,6 @@ import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows for fade in/out animation on an element.
  *

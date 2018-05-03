@@ -32,7 +32,6 @@ import org.jebtk.modern.button.ModernDropDownIconButton;
 import org.jebtk.modern.graphics.icons.FilterVectorIcon;
 import org.jebtk.modern.window.ModernWindow;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allow users to select a color for an object etc.
  * 

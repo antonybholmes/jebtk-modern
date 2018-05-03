@@ -32,7 +32,6 @@ import java.awt.Font;
 
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class ModernSubHeadingBoldLabel.
  */

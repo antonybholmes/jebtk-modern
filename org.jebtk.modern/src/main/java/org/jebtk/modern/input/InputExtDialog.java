@@ -40,7 +40,6 @@ import org.jebtk.modern.text.ModernTextArea;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.WindowWidgetFocusEvents;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class MatchDialog.
  */

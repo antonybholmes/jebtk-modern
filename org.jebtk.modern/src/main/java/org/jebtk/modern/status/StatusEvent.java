@@ -29,7 +29,6 @@ package org.jebtk.modern.status;
 
 import org.jebtk.core.event.Event;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class StatusEvent.
  */

@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.graphics.icons.ModernVectorScalableIcon;
 
-// TODO: Auto-generated Javadoc
 /**
  * Left arrow vector icon.
  * 

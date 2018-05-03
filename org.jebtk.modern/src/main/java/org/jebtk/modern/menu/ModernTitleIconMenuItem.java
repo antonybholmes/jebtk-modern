@@ -96,7 +96,7 @@ public class ModernTitleIconMenuItem extends ModernMenuItem {
   public void drawForegroundAAText(Graphics2D g2) {
     g2.setColor(TEXT_COLOR);
     g2.setFont(BOLD_FONT);
-    
+
     g2.drawString(mDisplayText,
         OFFSET + getHeight(),
         getTextYPosCenter(g2, getHeight()));

@@ -23,7 +23,6 @@ import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows for fade in/out animation on an element.
  *

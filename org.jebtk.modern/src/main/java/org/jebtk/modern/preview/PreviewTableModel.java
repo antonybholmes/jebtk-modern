@@ -39,7 +39,6 @@ import org.jebtk.core.io.Io;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.table.ModernColumnHeaderTableModel;
 
-// TODO: Auto-generated Javadoc
 /**
  * A concrete implementation of a table model for displaying text.
  * 

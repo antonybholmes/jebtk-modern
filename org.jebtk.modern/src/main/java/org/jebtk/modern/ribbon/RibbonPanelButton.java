@@ -36,7 +36,6 @@ import org.jebtk.modern.dialog.ModernDialogFlatButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ThemeService;
 
-// TODO: Auto-generated Javadoc
 /**
  * The class RibbonPanelButton.
  */

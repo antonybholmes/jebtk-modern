@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.table;
 
-// TODO: Auto-generated Javadoc
 /**
  * Table for listing items with the option to select them with a checkbox.
  * 

@@ -39,7 +39,6 @@ import org.jebtk.core.collections.DefaultHashMapCreator;
 import org.jebtk.core.collections.HashMapCreator;
 import org.jebtk.core.collections.IterMap;
 
-// TODO: Auto-generated Javadoc
 /**
  * Cache borders so they can be reused.
  *

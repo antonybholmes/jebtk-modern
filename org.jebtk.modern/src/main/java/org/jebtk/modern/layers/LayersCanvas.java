@@ -34,7 +34,6 @@ import java.util.List;
 import org.jebtk.modern.graphics.DrawingContext;
 import org.jebtk.modern.graphics.ModernCanvas;
 
-// TODO: Auto-generated Javadoc
 /**
  * A layer panel allows multiple graphical layers to be combined to form a
  * composite image. This makes it easier to generate complex plots.

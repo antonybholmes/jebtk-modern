@@ -49,7 +49,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-// TODO: Auto-generated Javadoc
 /**
  * Settings factory for providing global settings to an application. Can load
  * settings from an XML file or a text file.

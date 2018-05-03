@@ -38,7 +38,6 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.font.FontService;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Displays text and auto-resizes to fit the text.
  * 

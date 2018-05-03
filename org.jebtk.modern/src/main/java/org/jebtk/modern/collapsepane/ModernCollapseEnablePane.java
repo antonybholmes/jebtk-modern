@@ -39,7 +39,6 @@ import javax.swing.JComponent;
 
 import org.jebtk.modern.UIService;
 
-// TODO: Auto-generated Javadoc
 /**
  * Allows collapsable panes to be created. A tick box allows each pane to be
  * enabled or disabled.

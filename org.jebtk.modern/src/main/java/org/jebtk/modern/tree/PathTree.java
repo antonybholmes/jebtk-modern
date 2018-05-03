@@ -37,7 +37,6 @@ import org.jebtk.core.path.Path;
 import org.jebtk.core.tree.TreeNode;
 import org.jebtk.core.tree.TreeRootNode;
 
-// TODO: Auto-generated Javadoc
 /**
  * Specialized tree that renderer paths as a hieraracy.
  * 

@@ -49,7 +49,6 @@ import org.jebtk.core.xml.XmlRepresentation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents a color gradient using a specified number of colors.
  * 

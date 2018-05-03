@@ -34,7 +34,6 @@ import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.table.ModernTable;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Paints the corner of a table.
  *

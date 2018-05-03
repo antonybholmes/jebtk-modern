@@ -32,7 +32,6 @@ import java.awt.LayoutManager;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.widget.ModernWidget;
 
-// TODO: Auto-generated Javadoc
 /**
  * Layout components on a regular grid.
  * 
