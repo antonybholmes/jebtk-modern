@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.theme.ThemeService;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernTwoStateWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -32,6 +33,8 @@ public class ChipButtonHighlightAnimation extends ButtonHighlightAnimation {
       g2.setColor(getFadeColor("fill"));
     }
 
-    mButton.getWidgetRenderer().drawPillButtonFill(g2, x, y, w, h);
+    //mButton.getWidgetRenderer().drawPillButtonFill(g2, x, y, w, h);
+    
+    UIDrawService.getInstance().get("pill.highlight").draw(g2, x, y, w, h);
   }
 }

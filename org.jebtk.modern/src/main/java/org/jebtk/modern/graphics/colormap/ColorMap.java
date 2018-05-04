@@ -59,7 +59,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
     XmlRepresentation, JsonRepresentation {
 
   /** The Constant DEFAULT_COLORS. */
-  public static final int DEFAULT_COLORS = 65;
+  public static final int DEFAULT_COLORS = 64;
 
   /** The Constant GREEN. */
   public static final Color GREEN = ColorUtils.decodeHtmlColor("#00aa00");
@@ -579,13 +579,10 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
    */
   public int getColorIndex(double v) {
 
-    double s = Mathematics.bound(v, 0, 1); // / mRange; // Math.max(0,
-                                           // Math.min(1, (v - min) / range));
-    // double s = Mathematics.bound(v, mMin, mMax) / mRange;
-
+    double s = Mathematics.bound(v, 0, 1); 
     int index = (int) (mMaxIndex * s);
 
-    // System.err.println("v " + v + " " + s + " " + index);
+    // System.err.println("v " + v + " " + s + " " + index + mColors.get(index));
 
     return index;
   }
@@ -735,10 +732,12 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
       Color color2,
       int colors,
       boolean reverse) {
-    float[] r = new float[colors];
-    float[] g = new float[colors];
-    float[] b = new float[colors];
-    float[] a = new float[colors];
+    float[] r = Mathematics.floatRepeat(color2.getRed() / NF, colors);
+    float[] g = Mathematics.floatRepeat(color2.getGreen() / NF, colors);
+    float[] b = Mathematics.floatRepeat(color2.getBlue() / NF, colors);
+    float[] a = Mathematics.floatRepeat(color2.getAlpha() / NF, colors);
+    
+    int cols = colors / 2 * 2;
 
     float rinc = (color2.getRed() - color1.getRed()) / NF;
     float ginc = (color2.getGreen() - color1.getGreen()) / NF;
@@ -751,13 +750,16 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
     float af = color1.getAlpha() / NF;
 
     // fill in the gaps
-    for (int i = 0; i < colors - 1; ++i) {
-      float p = i / (float) colors;
+    
+    float bsf = cols - 1;
+    
+    for (int i = 0; i < cols; ++i) {
+      float p = i / bsf;
 
-      r[i] = rf + (rinc * p);
-      g[i] = gf + (ginc * p);
-      b[i] = bf + (binc * p);
-      a[i] = af + (ainc * p);
+      r[i] = bound(rf + rinc * p);
+      g[i] = bound(gf + ginc * p);
+      b[i] = bound(bf + binc * p);
+      a[i] = bound(af + ainc * p);
     }
 
     // Set the end color
@@ -832,16 +834,19 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
       Color color3,
       int colors,
       boolean reverse) {
-    float[] r = new float[colors];
-    float[] g = new float[colors];
-    float[] b = new float[colors];
-    float[] a = new float[colors];
+    float[] r = Mathematics.floatRepeat(color3.getRed() / NF, colors);
+    float[] g = Mathematics.floatRepeat(color3.getGreen() / NF, colors);
+    float[] b = Mathematics.floatRepeat(color3.getBlue() / NF, colors);
+    float[] a = Mathematics.floatRepeat(color3.getAlpha() / NF, colors);
 
     // Set the color reference points
 
-    int binSize = (int) Math.round(colors / 2.0); // colors / 2;
-
-    float bsf = binSize;
+    int binSize = colors / 2; //(int) Math.round(colors / 2.0); // colors / 2;
+    int cols = binSize * 2;
+    
+    //int mid = colors / 2;
+    
+    float bsf = binSize - 1; //binSize;
 
     float[] rinc = { (color2.getRed() - color1.getRed()) / NF,
         (color3.getRed() - color2.getRed()) / NF };
@@ -860,31 +865,54 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
     float[] bf = { color1.getBlue() / NF, color2.getBlue() / NF };
     float[] af = { color1.getAlpha() / NF, color2.getAlpha() / NF };
 
-    int e = colors - 1;
-
+    
+    
     // fill in the gaps
-    for (int i = 0; i < e; ++i) {
+    for (int i = 0; i < cols; ++i) {
+      // 0 = lower bin, 1 = upper bin
       int bin = i / binSize;
 
       // bound p within a block
       float p = (i % binSize) / bsf;
 
-      r[i] = rf[bin] + (rinc[bin] * p);
-      g[i] = gf[bin] + (ginc[bin] * p);
-      b[i] = bf[bin] + (binc[bin] * p);
-      a[i] = af[bin] + (ainc[bin] * p);
+      r[i] = bound(rf[bin] + rinc[bin] * p);
+      g[i] = bound(gf[bin] + ginc[bin] * p);
+      b[i] = bound(bf[bin] + binc[bin] * p);
+      a[i] = bound(af[bin] + ainc[bin] * p);
     }
+    
+    /*
+    int s = colors - mid;
 
-    // Set the end color
-    r[e] = color3.getRed() / NF;
-    g[e] = color3.getGreen() / NF;
-    b[e] = color3.getBlue() / NF;
-    a[e] = color3.getAlpha() / NF;
+    for (int i = 0; i < mid; ++i) {
+      int ix = i + s;
+      // 0 = lower bin, 1 = upper bin
+      //int bin = i / binSize;
+
+      // bound p within a block
+      float p = (i + 1) / bsf;
+
+      r[ix] = bound(rf[1] + rinc[1] * p);
+      g[ix] = bound(gf[1] + ginc[1] * p);
+      b[ix] = bound(bf[1] + binc[1] * p);
+      a[ix] = bound(af[1] + ainc[1] * p);
+    }
+    
+    // Set the mid point color
+    if (colors % 2 == 1) {
+      r[mid] = bound(color2.getRed() / NF);
+      g[mid] = bound(color2.getGreen() / NF);
+      b[mid] = bound(color2.getBlue() / NF);
+      a[mid] = bound(color2.getAlpha() / NF);
+    }
+    */
 
     List<ColorMapColor> ret = new ArrayList<ColorMapColor>();
 
     for (int i = 0; i < colors; ++i) {
-      ret.add(new ColorMapColor(r[i], g[i], b[i], a[i]));
+      ColorMapColor c = new ColorMapColor(r[i], g[i], b[i], a[i]);
+      ret.add(c);
+      //System.err.println(i + " " + c);
     }
 
     if (reverse) {
@@ -892,6 +920,10 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
     }
 
     return ret;
+  }
+  
+  private static float bound(float v) {
+    return Mathematics.bound(v, 0, 1);
   }
 
   /**
@@ -959,16 +991,17 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
       Color color4,
       int colors,
       boolean reverse) {
-    float[] r = new float[colors];
-    float[] g = new float[colors];
-    float[] b = new float[colors];
-    float[] a = new float[colors];
+    float[] r = Mathematics.floatRepeat(color4.getRed() / NF, colors);
+    float[] g = Mathematics.floatRepeat(color4.getGreen() / NF, colors);
+    float[] b = Mathematics.floatRepeat(color4.getBlue() / NF, colors);
+    float[] a = Mathematics.floatRepeat(color4.getAlpha() / NF, colors);
 
     // Set the color reference points
 
-    int binSize = (int) Math.round(colors / 3.0); // + (colors % 2 == 0 ? 0 :
-                                                  // 1);
-    float bsf = binSize;
+    int binSize = colors / 3; //(int) Math.round(colors / 3.0); // + (colors % 2 == 0 ? 0 :
+    int cols = binSize * 3;
+    
+    float bsf = binSize - 1;
 
     float[] rinc = { (color2.getRed() - color1.getRed()) / NF,
         (color3.getRed() - color2.getRed()) / NF,
@@ -999,7 +1032,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
         color3.getAlpha() / NF };
 
     // fill in the gaps
-    for (int i = 0; i < colors - 1; ++i) {
+    for (int i = 0; i < cols; ++i) {
       int bin = i / binSize;
 
       // System.err.println("cmap " + colors + " " + binSize + " " + i + " " +
@@ -1010,20 +1043,11 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
       // for each block.
       float p = (i % binSize) / bsf; // (i / (float)binSize) % 1.0f;
 
-      r[i] = rf[bin] + (rinc[bin] * p);
-      g[i] = gf[bin] + (ginc[bin] * p);
-      b[i] = bf[bin] + (binc[bin] * p);
-      a[i] = af[bin] + (ainc[bin] * p);
+      r[i] = bound(rf[bin] + rinc[bin] * p);
+      g[i] = bound(gf[bin] + ginc[bin] * p);
+      b[i] = bound(bf[bin] + binc[bin] * p);
+      a[i] = bound(af[bin] + ainc[bin] * p);
     }
-
-    // Set the end color because the bins tell you the color gradient
-    // from the start of the bin to the next bin. Since the end position
-    // is not part of a bin (it is only used to calculate the end point of
-    // the preceeding bin), we must set the end bin manually.
-    r[r.length - 1] = color4.getRed() / NF;
-    g[g.length - 1] = color4.getGreen() / NF;
-    b[b.length - 1] = color4.getBlue() / NF;
-    a[a.length - 1] = color4.getAlpha() / NF;
 
     List<ColorMapColor> ret = new ArrayList<ColorMapColor>();
 
@@ -1111,16 +1135,17 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
       Color color5,
       int colors,
       boolean reverse) {
-    float[] r = new float[colors];
-    float[] g = new float[colors];
-    float[] b = new float[colors];
-    float[] a = new float[colors];
+    float[] r = Mathematics.floatRepeat(color5.getRed() / NF, colors);
+    float[] g = Mathematics.floatRepeat(color5.getGreen() / NF, colors);
+    float[] b = Mathematics.floatRepeat(color5.getBlue() / NF, colors);
+    float[] a = Mathematics.floatRepeat(color5.getAlpha() / NF, colors);
 
     // Set the color reference points
 
-    int binSize = (int) Math.round(colors / 4.0); // + (colors % 2 == 0 ? 0 :
-                                                  // 1);
-    float bsf = binSize;
+    int binSize = colors / 4; //(int) Math.round(colors / 4.0); // + (colors % 2 == 0 ? 0 :
+    colors = binSize * 4;
+    
+    float bsf = binSize - 1;
 
     float[] rinc = { (color2.getRed() - color1.getRed()) / NF,
         (color3.getRed() - color2.getRed()) / NF,
@@ -1155,7 +1180,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
         color3.getAlpha() / NF, color4.getAlpha() / NF };
 
     // fill in the gaps
-    for (int i = 0; i < colors - 1; ++i) {
+    for (int i = 0; i < colors; ++i) {
       int bin = i / binSize;
 
       // System.err.println("cmap " + colors + " " + binSize + " " + i + " " +
@@ -1166,20 +1191,11 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
       // for each block.
       float p = (i % binSize) / bsf; // (i / (float)binSize) % 1.0f;
 
-      r[i] = rf[bin] + (rinc[bin] * p);
-      g[i] = gf[bin] + (ginc[bin] * p);
-      b[i] = bf[bin] + (binc[bin] * p);
-      a[i] = af[bin] + (ainc[bin] * p);
+      r[i] = bound(rf[bin] + rinc[bin] * p);
+      g[i] = bound(gf[bin] + ginc[bin] * p);
+      b[i] = bound(bf[bin] + binc[bin] * p);
+      a[i] = bound(af[bin] + ainc[bin] * p);
     }
-
-    // Set the end color because the bins tell you the color gradient
-    // from the start of the bin to the next bin. Since the end position
-    // is not part of a bin (it is only used to calculate the end point of
-    // the preceeding bin), we must set the end bin manually.
-    r[r.length - 1] = color5.getRed() / NF;
-    g[g.length - 1] = color5.getGreen() / NF;
-    b[b.length - 1] = color5.getBlue() / NF;
-    a[a.length - 1] = color5.getAlpha() / NF;
 
     List<ColorMapColor> ret = new ArrayList<ColorMapColor>();
 
