@@ -27,8 +27,12 @@
  */
 package org.jebtk.modern.theme;
 
+import java.awt.image.BufferedImage;
 import java.util.Iterator;
+import java.util.Map;
 
+import org.jebtk.core.collections.DefaultHashMap;
+import org.jebtk.core.collections.HashMapCreator;
 import org.jebtk.core.collections.IterHashMap;
 import org.jebtk.core.collections.IterMap;
 
@@ -60,14 +64,18 @@ public class UIDrawService implements Iterable<String> {
     return UIRendererServiceLoader.INSTANCE;
   }
 
-  private IterMap<String, UIRenderer> mRenderMap = new IterHashMap<String, UIRenderer>();
+  private IterMap<String, UIRenderer> mRenderMap = 
+      new IterHashMap<String, UIRenderer>();
+  
+  private Map<String, IterMap<String, BufferedImage>> mImageMap = 
+      DefaultHashMap.create(new HashMapCreator<String, BufferedImage>());
 
   private UIDrawService() {
     // Do nothing
 
     add(new ContentUI());
     add(new ContentBoxUI());
-
+    add(new ContentOutlineUI());
     add(new TextBorderUI());
     add(new ButtonHighlightUI());
     add(new ButtonSelectedUI());
@@ -88,6 +96,8 @@ public class UIDrawService implements Iterable<String> {
     add(new ColorDialogButtonUI());
     add(new ButtonOutlineUI());
     // add(new DUI());
+    
+    add(new DialogButtonHighlightUI());
   }
 
   public void add(UIRenderer renderer) {
@@ -96,6 +106,14 @@ public class UIDrawService implements Iterable<String> {
 
   public void add(String name, UIRenderer renderer) {
     mRenderMap.put(name, renderer);
+  }
+  
+  public void add(String group, int id, BufferedImage image) {
+    add(group, Integer.toString(id), image);
+  }
+  
+  public void add(String group, String name, BufferedImage image) {
+    mImageMap.get(group).put(name, image);
   }
 
   /**
@@ -106,6 +124,14 @@ public class UIDrawService implements Iterable<String> {
    */
   public UIRenderer get(String name) {
     return mRenderMap.get(name);
+  }
+  
+  public BufferedImage image(String group, int id) {
+    return image(group, Integer.toString(id));
+  }
+  
+  public BufferedImage image(String group, String name) {
+    return mImageMap.get(group).get(name);
   }
 
   @Override

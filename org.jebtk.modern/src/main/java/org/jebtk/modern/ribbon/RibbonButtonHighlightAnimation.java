@@ -20,7 +20,6 @@ import java.awt.Graphics2D;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernClickWidget;

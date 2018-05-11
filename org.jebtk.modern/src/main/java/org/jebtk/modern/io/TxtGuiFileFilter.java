@@ -31,21 +31,12 @@ package org.jebtk.modern.io;
 /**
  * The class TxtGuiFileFilter.
  */
-public class TxtGuiFileFilter extends GuiFileExtFilter {
+public class TxtGuiFileFilter extends SimpleGuiFileFilter {
 
   /**
    * Instantiates a new txt gui file filter.
    */
   public TxtGuiFileFilter() {
-    super("txt");
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see javax.swing.filechooser.FileFilter#getDescription()
-   */
-  public final String getDescription() {
-    return "Text File (*.txt)";
+    super("Text File", "txt");
   }
 }

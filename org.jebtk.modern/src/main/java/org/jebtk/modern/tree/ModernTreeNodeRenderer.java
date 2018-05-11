@@ -221,7 +221,7 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
 
       // getWidgetRenderer().drawButton(g2, mRect, RenderMode.SELECTED);
     } else if (mIsDragToNode) {
-      getWidgetRenderer().drawButtonOutline(g2, mRect, RenderMode.SELECTED);
+      UIDrawService.getInstance().get("button.outline").draw(g2, mRect);
     } else {
       // Do nothing
     }

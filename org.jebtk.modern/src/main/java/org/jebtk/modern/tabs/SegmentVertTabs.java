@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
 import java.awt.geom.GeneralPath;
 
-import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -102,7 +102,8 @@ public class SegmentVertTabs extends SegmentTabs {
 
     createEndShapes();
 
-    getWidgetRenderer().drawBackground(g2, x, y, w, h);
+    //getWidgetRenderer().drawBackground(g2, x, y, w, h);
+    UIDrawService.getInstance().get("content").draw(g2, x, y, w, h);
 
     //
     // Draw if highlighted
@@ -111,13 +112,15 @@ public class SegmentVertTabs extends SegmentTabs {
     if (mHighlight > -1 && mHighlight < n) {
       y += mHighlight * TAB_SIZE;
 
-      getWidgetRenderer().buttonFillPaint(g2,
-          x,
-          y,
-          w,
-          mTabSize,
-          RenderMode.HIGHLIGHT,
-          hasFocus());
+      //getWidgetRenderer().buttonFillPaint(g2,
+      //    x,
+      //    y,
+      //    w,
+       //   mTabSize,
+       //   RenderMode.HIGHLIGHT,
+       //   hasFocus());
+      
+      UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, mTabSize);
 
       if (mHighlight == 0) {
         g2.fill(mLeftEnd);
@@ -142,7 +145,7 @@ public class SegmentVertTabs extends SegmentTabs {
       y1 += TAB_SIZE;
     }
 
-    getWidgetRenderer().drawOutline(g2, x, y, w, h);
+    UIDrawService.getInstance().get("button.outline").draw(g2, x, y, w, h, LIGHT_LINE_COLOR);
 
     //
     // Draw the selected tab

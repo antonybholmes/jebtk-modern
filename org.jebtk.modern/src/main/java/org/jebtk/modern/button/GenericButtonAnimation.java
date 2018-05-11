@@ -44,7 +44,10 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
   }
 
   public void outline(Graphics2D g2, int x, int y, int w, int h) {
-    getWidget().getWidgetRenderer().outline(g2, x, y, w, h);
+    //getWidget().getWidgetRenderer().outline(g2, x, y, w, h);
+    
+    UIDrawService.getInstance().get("button.outline").draw(g2, x, y, w, h);
+    
   }
 
   public void drawButtonFill(Graphics2D g2,
@@ -80,7 +83,7 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
     }
   }
 
-  public void fill(Graphics2D g2, int x, int y, int w, int h) {
-    getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
-  }
+  //public void fill(Graphics2D g2, int x, int y, int w, int h) {
+  //  getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
+  //}
 }

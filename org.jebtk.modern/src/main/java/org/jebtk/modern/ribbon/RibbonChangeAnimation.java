@@ -15,11 +15,8 @@
  */
 package org.jebtk.modern.ribbon;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.util.HashMap;
-import java.util.Map;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.animation.TranslateXAnimation;
@@ -27,6 +24,7 @@ import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.panel.Card;
 import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabEventAdapter;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -40,7 +38,7 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
   public static final int BAR_HEIGHT = 2;
   private Ribbon mTabs;
 
-  private Map<Integer, BufferedImage> mTabShadowMap = new HashMap<Integer, BufferedImage>();
+  //private Map<Integer, BufferedImage> mTabShadowMap = new HashMap<Integer, BufferedImage>();
 
   /**
    * Instantiates a new state animation.
@@ -104,7 +102,7 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
 
     int w = mTabs.mTabWidths.get(s);
 
-    if (!mTabShadowMap.containsKey(s)) {
+    if (UIDrawService.getInstance().image("ribbon", s) == null) {
       // Cache shadow as expensive operation to create
       BufferedImage shadow = Card.shadow(w + Card.SHADOW_SIZE,
           Ribbon.TAB_HEIGHT + Card.ROUNDING + Card.SHADOW_SIZE);
@@ -112,10 +110,10 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
       // Add the shadow
       Card.background(shadow);
 
-      mTabShadowMap.put(s, shadow);
+      UIDrawService.getInstance().add("ribbon", s, shadow);
     }
 
-    BufferedImage img = mTabShadowMap.get(s);
+    BufferedImage img = UIDrawService.getInstance().image("ribbon", s);
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
 

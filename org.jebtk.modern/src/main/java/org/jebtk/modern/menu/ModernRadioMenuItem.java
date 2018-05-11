@@ -35,7 +35,7 @@ import org.jebtk.modern.button.ModernRadioButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RadioButtonSelectedVectorIcon;
 import org.jebtk.modern.graphics.icons.RadioButtonVectorIcon;
-import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -96,7 +96,8 @@ public class ModernRadioMenuItem extends ModernRadioButton {
   public void drawBackground(Graphics2D g2) {
     if (isEnabled()) {
       if (mHighlight) {
-        getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
+        //getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
+        UIDrawService.getInstance().get("menu.highlight").draw(g2, mInternalRect);
       }
     }
   }

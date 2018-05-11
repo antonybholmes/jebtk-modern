@@ -27,6 +27,8 @@
  */
 package org.jebtk.modern.io;
 
+import java.util.Collection;
+
 // TODO: Auto-generated Javadoc
 /**
  * Filter for GIF files.
@@ -34,12 +36,32 @@ package org.jebtk.modern.io;
  * @author Antony Holmes Holmes
  *
  */
-public class GifGuiFileFilter extends SimpleGuiFileFilter {
+public class SimpleGuiFileFilter extends GuiFileExtFilter {
+
+  private String mDescription;
 
   /**
    * Instantiates a new gif gui file filter.
    */
-  public GifGuiFileFilter() {
-    super("Graphics Interchange Format", "gif");
+  public SimpleGuiFileFilter(String description, String extension, String... extensions) {
+    super(extension, extensions);
+    
+    mDescription = description;
+  }
+
+  public SimpleGuiFileFilter(String description, Collection<String> extensions) {
+    super(extensions);
+    
+    mDescription = description;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see javax.swing.filechooser.FileFilter#getDescription()
+   */
+  @Override
+  public final String getDescription() {
+    return mDescription + " " + super.getDescription();
   }
 }

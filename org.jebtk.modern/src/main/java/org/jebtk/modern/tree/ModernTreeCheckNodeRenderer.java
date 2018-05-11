@@ -32,6 +32,7 @@ import java.awt.Graphics2D;
 import org.jebtk.core.tree.CheckTreeNode;
 import org.jebtk.core.tree.TreeNode;
 import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -77,9 +78,11 @@ public class ModernTreeCheckNodeRenderer extends TreeNodeFileRenderer {
       int y = (getHeight() - 16) / 2;
 
       if (mChecked) {
-        getWidgetRenderer().drawChecked(g2, x, y, 16, 16, RenderMode.SELECTED);
+        //getWidgetRenderer().drawChecked(g2, x, y, 16, 16, RenderMode.SELECTED);
+        UIDrawService.getInstance().get("checkbox.checked").draw(g2, x, y, 16 , 16);
       } else {
-        getWidgetRenderer().drawCheckBox(g2, x, y, 16, 16);
+        //getWidgetRenderer().drawCheckBox(g2, x, y, 16, 16);
+        UIDrawService.getInstance().get("checkbox").draw(g2, x, y, 16 , 16);
       }
     } else {
       super.drawNodeIcon(g2);

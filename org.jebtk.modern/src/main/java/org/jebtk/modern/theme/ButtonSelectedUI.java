@@ -15,6 +15,7 @@
  */
 package org.jebtk.modern.theme;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
@@ -35,7 +36,11 @@ public class ButtonSelectedUI extends ButtonUI {
       int h,
       Object... params) {
 
-    g2.setColor(SELECTED_FILL_COLOR);
+    if (params.length > 0) {
+      g2.setColor((Color) params[0]);
+    } else {
+      g2.setColor(SELECTED_FILL_COLOR);
+    }
 
     fill(g2, x, y, w, h);
   }

@@ -31,7 +31,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.button.ModernDropDownIconButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -62,8 +62,10 @@ public class RibbonDropDownIconButton extends ModernDropDownIconButton {
   public void drawBackgroundAA(Graphics2D g2) {
     if (isEnabled()) {
       if (mHighlight || mPopupShown) {
-        getWidgetRenderer()
-            .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+        //getWidgetRenderer()
+         //   .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+        
+        UIDrawService.getInstance().get("dialog.button.highlight").draw(g2, mInternalRect);
       }
     }
   }

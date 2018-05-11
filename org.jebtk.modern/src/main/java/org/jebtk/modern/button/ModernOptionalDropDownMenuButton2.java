@@ -42,7 +42,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.menu.ModernPopupMenu2;
 import org.jebtk.modern.theme.ModernTheme;
-import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -240,13 +240,16 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
     if (isSelected() || mPopupShown) {
       // paintHighlighted(g2, rect);
 
-      getWidgetRenderer().drawButton(g2, rect, RenderMode.SELECTED);
-
+      //getWidgetRenderer().drawButton(g2, rect, RenderMode.SELECTED);
+      UIDrawService.getInstance().get("button.selected").draw(g2, rect);
     } else if (mHighlight) {
-      getWidgetRenderer().drawContentBox(g2, rect);
-      getWidgetRenderer().drawButtonOutline(g2, rect, RenderMode.SELECTED);
-      getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
+      //getWidgetRenderer().drawContentBox(g2, rect);
+     // getWidgetRenderer().drawButtonOutline(g2, rect, RenderMode.SELECTED);
+      //getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
 
+      UIDrawService.getInstance().get("content-box").draw(g2, rect);
+      UIDrawService.getInstance().get("button.outline").draw(g2, rect);
+      UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h);
       // paintHighlightedBorder(g2, rect);
       // paintHighlighted(g2, x, y, w, h);
     } else {

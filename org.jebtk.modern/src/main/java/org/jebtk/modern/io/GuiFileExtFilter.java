@@ -28,8 +28,11 @@
 package org.jebtk.modern.io;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -37,6 +40,7 @@ import javax.swing.filechooser.FileFilter;
 
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.io.PathUtils;
+import org.jebtk.core.text.TextUtils;
 
 /**
  * The class GuiFileExtFilter.
@@ -44,12 +48,12 @@ import org.jebtk.core.io.PathUtils;
  * @author Antony Holmes Holmes
  */
 public abstract class GuiFileExtFilter extends FileFilter
-    implements Comparable<FileFilter> {
+    implements Comparable<FileFilter>, FilenameFilter {
 
   /**
    * The extensions.
    */
-  private List<String> mExtensions;
+  private List<String> mExtensions = new ArrayList<String>();
 
   /**
    * Instantiates a new gui file ext filter.
@@ -65,8 +69,13 @@ public abstract class GuiFileExtFilter extends FileFilter
    *
    * @param extensions the extensions
    */
-  public GuiFileExtFilter(List<String> extensions) {
-    mExtensions = extensions;
+  public GuiFileExtFilter(Collection<String> extensions) {
+    mExtensions.addAll(extensions);
+  }
+  
+  @Override
+  public String getDescription() {
+    return TextUtils.parenthesis(TextUtils.scJoin(TextUtils.prefix(mExtensions, "*."))); // "GenBank (*.gb)";
   }
 
   /*
@@ -120,6 +129,12 @@ public abstract class GuiFileExtFilter extends FileFilter
       }
     }
 
+    return false;
+  }
+  
+  @Override
+  public boolean accept(File dir, String name) {
+    // TODO Auto-generated method stub
     return false;
   }
 
@@ -185,16 +200,5 @@ public abstract class GuiFileExtFilter extends FileFilter
    */
   public static Path addExtension(Path file, GuiFileExtFilter filter) {
     return PathUtils.addExtension(file, filter.getExtension());
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see javax.swing.filechooser.FileFilter#getDescription()
-   */
-  @Override
-  public String getDescription() {
-    // TODO Auto-generated method stub
-    return null;
   }
 }

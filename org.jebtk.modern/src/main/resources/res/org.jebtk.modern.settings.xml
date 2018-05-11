@@ -527,6 +527,9 @@
 			</setting>
 		</setting>
 	</setting>
+	
+
+	
 	<!-- Determines how many chars are rendered in a table grid cell -->
 	<setting name="ui.dataview.grid.cell.max-display-chars" value="128" />
 

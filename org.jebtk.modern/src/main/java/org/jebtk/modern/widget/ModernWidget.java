@@ -387,8 +387,8 @@ public abstract class ModernWidget extends ModernComponent
   private int mId = NEXT_ID.getAndIncrement();
 
   /** The m widget renderer provider. */
-  private WidgetRendererProvider mWidgetRendererProvider = WidgetRendererService
-      .getInstance();
+  ///private WidgetRendererProvider mWidgetRendererProvider = WidgetRendererService
+  //    .getInstance();
 
   /**
    * Instantiates a new modern widget.
@@ -495,18 +495,18 @@ public abstract class ModernWidget extends ModernComponent
    *
    * @return the widget renderer provider
    */
-  public WidgetRendererProvider getWidgetRendererProvider() {
-    return mWidgetRendererProvider;
-  }
+  //public WidgetRendererProvider getWidgetRendererProvider() {
+  //  return mWidgetRendererProvider;
+  //}
 
   /**
    * Returns a renderer for generating common widget elements.
    *
    * @return the widget renderer
    */
-  public WidgetRenderer getWidgetRenderer() {
-    return mWidgetRendererProvider.getRenderer();
-  }
+  //public WidgetRenderer getWidgetRenderer() {
+  //  return mWidgetRendererProvider.getRenderer();
+  //}
 
   /*
    * (non-Javadoc)

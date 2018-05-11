@@ -34,6 +34,7 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.tabs.SegmentTabs;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -94,15 +95,17 @@ public class RibbonSegmentTabs extends SegmentTabs {
 
     createEndShapes();
 
-    getWidgetRenderer().drawContentBoxFill(g2, mLeftOffset, y, w, h);
-
+    //getWidgetRenderer().drawContentBoxFill(g2, mLeftOffset, y, w, h);
+    UIDrawService.getInstance().get("content").draw(g2, mLeftOffset, y, w, h);
     //
     // Draw if highlighted
     //
 
     if (mHighlight > -1 && mHighlight < n) {
-      getWidgetRenderer()
-          .drawButtonFill(g2, x, y, w, h, RenderMode.HIGHLIGHT, hasFocus());
+      //getWidgetRenderer()
+       //   .drawButtonFill(g2, x, y, w, h, RenderMode.HIGHLIGHT, hasFocus());
+      
+      UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h);
 
       if (mHighlight == 0) {
         g2.fill(mLeftEnd);
@@ -127,7 +130,8 @@ public class RibbonSegmentTabs extends SegmentTabs {
       x += mTabSize;
     }
 
-    getWidgetRenderer().drawContentBoxOutline(g2, mLeftOffset, y, w, h);
+    //getWidgetRenderer().drawContentBoxOutline(g2, mLeftOffset, y, w, h);
+    UIDrawService.getInstance().get("content.outline").draw(g2, mLeftOffset, y, w, h);
 
     //
     // Draw the selected tab

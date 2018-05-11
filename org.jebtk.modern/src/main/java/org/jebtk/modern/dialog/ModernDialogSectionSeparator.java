@@ -84,7 +84,7 @@ public class ModernDialogSectionSeparator extends ModernWidget {
    */
   @Override
   public void drawBackgroundAA(Graphics2D g2) {
-    getWidgetRenderer().fill(g2, BACKGROUND, getRect());
+    fill(g2, BACKGROUND, getRect());
   }
 
   /*

@@ -3,6 +3,7 @@ package org.jebtk.modern.widget;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.Animation;
+import org.jebtk.modern.theme.UIDrawService;
 
 public class SimpleButtonAnimation implements Animation {
 
@@ -14,10 +15,8 @@ public class SimpleButtonAnimation implements Animation {
     ModernClickWidget button = (ModernClickWidget) widget;
 
     if (button.isEnabled()) {
-      button.getWidgetRenderer().drawButton(g2,
-          button.getInternalRect(),
-          button.getRenderMode(),
-          button.hasFocus());
+      UIDrawService.getInstance().get("button.highlight")
+      .draw(g2, button.getInternalRect());
     }
   }
 }

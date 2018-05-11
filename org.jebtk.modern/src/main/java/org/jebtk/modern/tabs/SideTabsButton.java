@@ -32,6 +32,7 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.button.ModernCheckRadioButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 
 /**
  * The class SideTabsButton.
@@ -85,7 +86,9 @@ public class SideTabsButton extends ModernCheckRadioButton {
   public void drawBackground(Graphics2D g2) {
     if (isEnabled()) {
       if (isSelected() || mHighlight) {
-        getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
+        //getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
+        
+        UIDrawService.getInstance().get("button.highlight").draw(g2, mRect);
       }
     }
   }

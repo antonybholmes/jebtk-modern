@@ -2,6 +2,7 @@ package org.jebtk.modern.menu;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class MenuItemColorHighlightFadeAnimation
@@ -11,7 +12,12 @@ public class MenuItemColorHighlightFadeAnimation
   }
 
   @Override
-  public void fill(Graphics2D g2, int x, int y, int w, int h) {
-    g2.fillRect(x, y, w, h);
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+    IntRect rect = getWidget().getInternalRect();
+    
+    g2.fillRect(rect.getX(),
+        rect.getY(),
+        rect.getW(),
+        rect.getH());
   }
 }

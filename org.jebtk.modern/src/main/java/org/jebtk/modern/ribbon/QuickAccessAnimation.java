@@ -17,11 +17,12 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.button.ButtonHighlightAnimation;
 import org.jebtk.modern.theme.MaterialUtils;
-import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernClickWidget;
+import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Provides the fade animation for quick access buttons
@@ -37,15 +38,23 @@ public class QuickAccessAnimation extends ButtonHighlightAnimation {
     super(button);
 
     setFadeColor("fill", MaterialUtils.HIGHLIGHT_COLOR); // RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
-                                                         // //
-                                                         // MaterialUtils.HIGHLIGHT_COLOR);
+    // //
+    // MaterialUtils.HIGHLIGHT_COLOR);
   }
 
   @Override
-  public void fill(Graphics2D g2, int x, int y, int w, int h) {
+  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     // g2.fillRect(x, y, w, h);
+    if (getWidget().isEnabled()) {
 
-    UIDrawService.getInstance().get("button.highlight")
-        .draw(g2, x, y, w, h, getFadeColor("fill"));
+      IntRect rect = getWidget().getInternalRect(); 
+
+      UIDrawService.getInstance().get("button.highlight")
+      .draw(g2, rect.getX(),
+          rect.getY(),
+          rect.getW(),
+          rect.getH(),
+          getFadeColor("fill"));
+    }
   }
 }

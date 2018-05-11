@@ -34,6 +34,7 @@ import javax.swing.JComponent;
 
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -197,7 +198,9 @@ public class ModernTextBorderPanel extends ModernWidget
 
   @Override
   public void drawAnimatedBackground(Graphics2D g2) {
-    getWidgetRenderer().drawContentBox(g2, mRect);
+    //getWidgetRenderer().drawContentBox(g2, mRect);
+    
+    UIDrawService.getInstance().get("content-box").draw(g2, mRect);
 
     super.drawAnimatedBackground(g2);
   }

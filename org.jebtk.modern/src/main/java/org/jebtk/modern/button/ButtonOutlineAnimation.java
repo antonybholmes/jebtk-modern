@@ -6,6 +6,7 @@ import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -51,15 +52,19 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
     // if (mode == RenderMode.NONE && !hasFocus) {
     // return;
     // }
+    
+    UIDrawService.getInstance().get("button.outline").draw(g2, x, y, w, h, getFadeColor("outline"));
 
-    g2.setColor(getFadeColor("outline"));
+    //g2.setColor(getFadeColor("outline"));
 
-    outline(g2, x, y, w, h);
+    //outline(g2, x, y, w, h);
   }
 
-  public void outline(Graphics2D g2, int x, int y, int w, int h) {
-    getWidget().getWidgetRenderer().outline(g2, x, y, w, h);
-  }
+  //public void outline(Graphics2D g2, int x, int y, int w, int h) {
+  //  getWidget().getWidgetRenderer().outline(g2, x, y, w, h);
+  //  
+  //  UIDrawService.getInstance().get("button.outline").draw(g2, x, y, w, h, getFadeColor("outline"));
+  //}
 
   public ModernClickWidget getButton() {
     return mButton;

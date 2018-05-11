@@ -34,6 +34,7 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernRadioButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -85,8 +86,10 @@ public class RibbonChoiceButton extends ModernRadioButton {
   public void drawBackgroundAA(Graphics2D g2) {
     if (isEnabled()) {
       if (isSelected() || mHighlight) {
-        getWidgetRenderer()
-            .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+        //getWidgetRenderer()
+        //    .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+        
+        UIDrawService.getInstance().get("dialog.button.highlight").draw(g2, mInternalRect);
       }
     }
   }
