@@ -118,7 +118,7 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
   }
 
   private void setup() {
-    setBackgroundAnimation(new FlatDropDownButtonAnimation(this));
+    setAnimations(new FlatDropDownButtonAnimation(this));
   }
 
   /*

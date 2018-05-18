@@ -3,7 +3,6 @@ package org.jebtk.modern.button;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.WidgetAnimation;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;

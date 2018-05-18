@@ -56,17 +56,12 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
         restart();
       }
     });
-
-    mTabs.addComponentListener(new ComponentAdapter() {
-
-      @Override
-      public void componentResized(ComponentEvent arg0) {
-        restart();
-      }
-    });
   }
 
-  public void restart() {
+  @Override
+  public synchronized void restart() {
+    System.err.println("restart " + mTabs);
+    
     int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
     int previousIndex = mTabs.getTabsModel().getPreviousIndex();
 

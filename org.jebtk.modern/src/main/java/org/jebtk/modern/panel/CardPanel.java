@@ -28,7 +28,6 @@
 package org.jebtk.modern.panel;
 
 import java.awt.Component;
-import java.awt.Insets;
 
 import javax.swing.border.Border;
 

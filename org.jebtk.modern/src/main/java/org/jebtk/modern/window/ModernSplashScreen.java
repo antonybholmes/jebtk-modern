@@ -63,7 +63,7 @@ public class ModernSplashScreen extends ModernDialogWindow {
 
   /** The Constant COLOR. */
   public static final Color COLOR = ThemeService.getInstance().colors()
-      .getColorHighlight32(24); // new
+      .getTheme32(24); // new
                                 // Color(appInfo.getIcon().getImage().getRGB(1,
                                 // 1));
 

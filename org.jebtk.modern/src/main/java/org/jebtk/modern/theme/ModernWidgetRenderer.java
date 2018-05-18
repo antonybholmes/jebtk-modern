@@ -32,34 +32,34 @@ public class ModernWidgetRenderer extends WidgetRenderer {
 
   /** The Constant HIGHLIGHTED_FILL_COLOR. */
   public static final Color HIGHLIGHTED_FILL_COLOR = ThemeService.getInstance()
-      .colors().getColorHighlight32(10);
+      .colors().getTheme32(10);
 
   /** The Constant SELECTED_FILL_COLOR. */
   public static final Color SELECTED_FILL_COLOR = ThemeService.getInstance()
-      .colors().getColorHighlight32(16);
+      .colors().getTheme32(16);
 
   // public static final Color MENU_FILL_COLOR =
   // ThemeService.getInstance().colors().getHighlight32(4);
 
   /** The Constant HIGHLIGHTED_OUTLINE_COLOR. */
   public static final Color HIGHLIGHTED_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getColorHighlight32(14);
+      .getInstance().colors().getTheme32(14);
 
   /** The Constant SELECTED_OUTLINE_COLOR. */
   public static final Color SELECTED_OUTLINE_COLOR = ThemeService.getInstance()
-      .colors().getColorHighlight32(16);
+      .colors().getTheme32(16);
 
   /** The Constant DISABLED_OUTLINE_COLOR. */
   public static final Color DISABLED_OUTLINE_COLOR = ThemeService.getInstance()
-      .colors().getHighlight32(8);
+      .colors().getGray32(8);
 
   /** The Constant PRIMARY_DIALOG_BUTTON_OUTLINE_COLOR. */
   public static final Color PRIMARY_DIALOG_BUTTON_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getColorHighlight32(22);
+      .getInstance().colors().getTheme32(22);
 
   /** The Constant FOCUSED_PRIMARY_DIALOG_BUTTON_OUTLINE_COLOR. */
   public static final Color FOCUSED_PRIMARY_DIALOG_BUTTON_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getColorHighlight32(30);
+      .getInstance().colors().getTheme32(30);
 
   /** The Constant LINE_COLOR. */
   public static final Color LINE_COLOR = ThemeService.getInstance().colors()
@@ -74,25 +74,25 @@ public class ModernWidgetRenderer extends WidgetRenderer {
 
   /** The Constant DIALOG_CONTENT_COLOR. */
   private static final Color DIALOG_CONTENT_COLOR = ThemeService.getInstance()
-      .colors().getHighlight32(1);
+      .colors().getGray32(1);
 
   /** The Constant DIALOG_BUTTON_FILL_COLOR. */
   public static final Color DIALOG_BUTTON_FILL_COLOR = ThemeService
-      .getInstance().colors().getHighlight32(1);
+      .getInstance().colors().getGray32(1);
 
   /** The Constant DIALOG_BUTTON_OUTLINE_COLOR. */
   public static final Color DIALOG_BUTTON_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getHighlight32(8);
+      .getInstance().colors().getGray32(8);
 
   /** The Constant FOCUSED_DIALOG_BUTTON_OUTLINE_COLOR. */
   public static final Color FOCUSED_DIALOG_BUTTON_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getHighlight32(14);
+      .getInstance().colors().getGray32(14);
 
   public static final Color RIBBON_BACKGROUND = ThemeService.getInstance()
-      .colors().getColorHighlight32(24);
+      .colors().getTheme32(24);
 
   public static final Color RIBBON_SELECTED_COLOR = ThemeService.getInstance()
-      .colors().getHighlight32(31);
+      .colors().getGray32(31);
 
   /** The Constant RIBBON_SELECTED_FILL_COLOR. */
   public static final Color RIBBON_SELECTED_FILL_COLOR = ColorUtils
@@ -113,27 +113,27 @@ public class ModernWidgetRenderer extends WidgetRenderer {
 
   /** The Constant RADIO_COLOR. */
   public static final Color RADIO_COLOR = ThemeService.getInstance().colors()
-      .getColorHighlight32(14);
+      .getTheme32(14);
 
   /** The Constant COLLAPSE_FILL_COLOR_1. */
   public static final Color COLLAPSE_FILL_COLOR_1 = ThemeService.getInstance()
-      .colors().getHighlight32(1);
+      .colors().getGray32(1);
 
   /** The Constant COLLAPSE_FILL_COLOR_2. */
   public static final Color COLLAPSE_FILL_COLOR_2 = ThemeService.getInstance()
-      .colors().getHighlight32(4);
+      .colors().getGray32(4);
 
   /** The Constant PILL_BUTTON_HIGHLIGHT_FILL. */
   private static final Color PILL_BUTTON_HIGHLIGHT_FILL = ThemeService
-      .getInstance().colors().getHighlight32(2);
+      .getInstance().colors().getGray32(2);
 
   /** The Constant PILL_BUTTON_SELECTED_FILL. */
   private static final Color PILL_BUTTON_SELECTED_FILL = ThemeService
-      .getInstance().colors().getHighlight32(4);
+      .getInstance().colors().getGray32(4);
 
   /** The Constant PILL_BUTTON_OUTLINE. */
   private static final Color PILL_BUTTON_OUTLINE = ThemeService.getInstance()
-      .colors().getHighlight32(8);
+      .colors().getGray32(8);
 
   /**
    * The constant SCALE.

@@ -48,7 +48,7 @@ public class ModernCollapsePane extends ModernSubCollapsePane {
    * Instantiates a new modern collapse pane.
    */
   public ModernCollapsePane() {
-    setBackgroundAnimations("collapse-pane");
+    setAnimations("collapse-pane");
 
     setBorder(1);
   }

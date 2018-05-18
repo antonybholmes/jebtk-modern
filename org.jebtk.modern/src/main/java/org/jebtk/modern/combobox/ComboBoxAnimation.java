@@ -23,6 +23,6 @@ public class ComboBoxAnimation extends WidgetAnimation {
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     IntRect rect = widget.getInternalRect();
 
-    UIDrawService.getInstance().get("content").draw(g2, rect);
+    UIDrawService.getInstance().get("content-box").draw(g2, rect);
   }
 }

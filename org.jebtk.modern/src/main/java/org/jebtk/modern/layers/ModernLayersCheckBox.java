@@ -85,7 +85,7 @@ public class ModernLayersCheckBox extends ModernCheckBox {
       IMAGE_CHECKED.drawIcon(g2, iconX, iconY, UIService.ICON_SIZE_16);
     }
 
-    g2.setColor(ThemeService.getInstance().colors().getHighlight(5));
+    g2.setColor(ThemeService.getInstance().colors().getGray(5));
     g2.drawRect(iconX, iconY, 16, 16);
   }
 }

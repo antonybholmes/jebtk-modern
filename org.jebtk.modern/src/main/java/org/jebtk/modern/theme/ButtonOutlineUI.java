@@ -18,6 +18,8 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernComponent;
+
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
@@ -25,11 +27,12 @@ public class ButtonOutlineUI extends ButtonUI {
 
   @Override
   public String getName() {
-    return "button.outline";
+    return "button-outline";
   }
 
   @Override
-  public void fill(Graphics2D g2,
+  public void draw(Graphics2D g2,
+      ModernComponent c,
       int x,
       int y,
       int w,
@@ -42,6 +45,6 @@ public class ButtonOutlineUI extends ButtonUI {
       g2.setColor(HIGHLIGHTED_FILL_COLOR);
     }
 
-    outline(g2, x, y, w, h);
+    outline(g2, c, x, y, w, h);
   }
 }

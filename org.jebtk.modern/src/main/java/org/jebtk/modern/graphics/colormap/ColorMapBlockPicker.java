@@ -294,15 +294,15 @@ public class ColorMapBlockPicker extends ModernClickWidget {
 
         g2Temp.setPaint(paint);
         // g2.fillRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-        // ModernRoundedWidgetRenderer.ROUNDING,
-        // ModernRoundedWidgetRenderer.ROUNDING);
+        // MaterialService.instance().ints().cornerRadius();,
+        // MaterialService.instance().ints().cornerRadius(););
         // g2Temp.fillOval(x, y, HEAT_MAP_SIZE, HEAT_MAP_SIZE);
         g2Temp.fillRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
 
         // g2Temp.setColor(LIGHT_LINE_COLOR);
         // g2.drawRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-        // ModernRoundedWidgetRenderer.ROUNDING,
-        // ModernRoundedWidgetRenderer.ROUNDING);
+        // MaterialService.instance().ints().cornerRadius();,
+        // MaterialService.instance().ints().cornerRadius(););
         // g2Temp.drawOval(x, y, HEAT_MAP_SIZE, HEAT_MAP_SIZE);
         // g2Temp.drawRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
 

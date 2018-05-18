@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.menu.ModernPopupMenu2;
 
 // TODO: Auto-generated Javadoc

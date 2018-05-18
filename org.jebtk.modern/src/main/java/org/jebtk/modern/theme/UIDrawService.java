@@ -76,12 +76,12 @@ public class UIDrawService implements Iterable<String> {
     add(new ContentUI());
     add(new ContentBoxUI());
     add(new ContentOutlineUI());
-    add(new TextBorderUI());
-    add(new ButtonHighlightUI());
+    //add(new TextBorderUI());
+    add(new ButtonFillUI());
     add(new ButtonSelectedUI());
     add(new CircleOutlineUI());
-    add(new CircleHighlightUI());
-    add(new MenuHighlightUI());
+    add(new CircleFillUI());
+    //add(new MenuHighlightUI());
     add(new PillHighlightUI());
     add(new CheckUI());
     add(new CheckedBoxUI());
@@ -96,6 +96,9 @@ public class UIDrawService implements Iterable<String> {
     add(new ColorDialogButtonUI());
     add(new ButtonOutlineUI());
     // add(new DUI());
+    
+    add(new RadioUI());
+    add(new RadioSelectedUI());
     
     add(new DialogButtonHighlightUI());
   }

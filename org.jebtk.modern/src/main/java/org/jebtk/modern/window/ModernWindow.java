@@ -90,7 +90,7 @@ public class ModernWindow extends JFrame
    * The constant WINDOW_BORDER.
    */
   public static final Border WINDOW_BORDER = BorderService.getInstance()
-      .createLineBorder(ThemeService.getInstance().colors().getHighlight(6));
+      .createLineBorder(ThemeService.getInstance().colors().getGray(6));
 
   /**
    * The member layered pane.

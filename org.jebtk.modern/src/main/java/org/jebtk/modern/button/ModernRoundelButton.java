@@ -106,9 +106,9 @@ public class ModernRoundelButton extends ModernButton {
     g2.setStroke(new BasicStroke(2));
 
     if (mHighlight) {
-      g2.setPaint(ThemeService.getInstance().colors().getColorHighlight(4));
+      g2.setPaint(ThemeService.getInstance().colors().getTheme(4));
     } else {
-      g2.setPaint(ThemeService.getInstance().colors().getColorHighlight(2));
+      g2.setPaint(ThemeService.getInstance().colors().getTheme(2));
     }
 
     int x = (mRect.getW() - HEIGHT) / 2;

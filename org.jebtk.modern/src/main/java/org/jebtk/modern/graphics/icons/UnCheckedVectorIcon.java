@@ -29,7 +29,8 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.theme.WidgetRendererService;
+import org.jebtk.modern.theme.RenderMode;
+import org.jebtk.modern.theme.UIDrawService;
 
 /**
  * Unchecked box vector icon.
@@ -52,7 +53,6 @@ public class UnCheckedVectorIcon extends ModernVectorScalableIcon {
       int w,
       int h,
       Object... params) {
-    WidgetRendererService.getInstance().getRenderer()
-        .drawCheckBox(g2, x, y, w, h);
+    UIDrawService.getInstance().get("checkbox").draw(g2, x, y, w, h);
   }
 }

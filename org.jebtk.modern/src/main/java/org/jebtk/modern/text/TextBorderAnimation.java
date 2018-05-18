@@ -56,8 +56,8 @@ public class TextBorderAnimation extends HoverFadeAnimation {
       // widget.getWidgetRenderer()
       // .outline(g2, getFadeColor("outline"), x, y, w, h);
 
-      UIDrawService.getInstance().get("text.border.highlight")
-          .draw(g2, r, params);
+      UIDrawService.getInstance().get("content-box")
+          .draw(g2, r, getFadeColor("outline"));
     }
   }
 }

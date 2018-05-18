@@ -29,6 +29,7 @@ package org.jebtk.modern.dialog;
 
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.theme.KeyFrames;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -87,8 +88,11 @@ public class ModernDialogButton extends ModernButton {
 
   private void setup() {
     // setFont(BOLD_FONT);
+    
+    addStyleClass("dialog-button");
+    addStyleClass(KeyFrames.TO, "dialog-button");
 
-    setBackgroundAnimations("dialog-button");
+    setAnimations("button-fill", "button-outline");
   }
 
   /*

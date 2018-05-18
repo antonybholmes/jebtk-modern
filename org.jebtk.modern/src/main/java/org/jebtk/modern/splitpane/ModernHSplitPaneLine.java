@@ -42,6 +42,6 @@ public class ModernHSplitPaneLine extends HSplitPane {
   public ModernHSplitPaneLine() {
     setDividerWidth(0);
 
-    setBackgroundAnimations("splitpane-hoz-line");
+    setAnimations("splitpane-hoz-line");
   }
 }

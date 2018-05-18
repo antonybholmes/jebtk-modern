@@ -49,6 +49,8 @@ public class RibbonDropDownIconButton extends ModernDropDownIconButton {
    */
   public RibbonDropDownIconButton(ModernIcon icon) {
     super(icon);
+    
+    addToStyleClass("dialog-button");
   }
 
   /*
@@ -65,7 +67,7 @@ public class RibbonDropDownIconButton extends ModernDropDownIconButton {
         //getWidgetRenderer()
          //   .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
         
-        UIDrawService.getInstance().get("dialog.button.highlight").draw(g2, mInternalRect);
+        UIDrawService.getInstance().get("button-fill").draw(g2, mInternalRect);
       }
     }
   }

@@ -134,7 +134,7 @@ public class TextBorderPanel extends ModernWidget implements TextProperty {
 
     setBorder(SMALL_BORDER);
 
-    setBackgroundAnimations("text-border");
+    setAnimations("text-border");
   }
 
   /*

@@ -55,7 +55,7 @@ public abstract class ArrowVectorIcon extends ModernVectorIcon {
    * Instantiates a new arrow vector icon.
    */
   public ArrowVectorIcon() {
-    this(ThemeService.getInstance().colors().getColorHighlight(6));
+    this(ThemeService.getInstance().colors().getTheme(6));
   }
 
   /**

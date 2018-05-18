@@ -15,13 +15,13 @@
  */
 package org.jebtk.modern.tabs;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.animation.TranslateXAnimation;
-import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -71,7 +71,7 @@ public class OrbTabsChangeAnimation extends TranslateXAnimation {
           .bound(selectedIndex - 1, 0, mTabs.getTabsModel().getTabCount() - 1);
     }
 
-    int leftOffset = mTabs.getInsets().left;
+    int leftOffset = (mTabs.getWidth() - mTabs.mTabSize * mTabs.mTabWidths.size()) / 2; //mTabs.getInsets().left;
 
     int x1 = leftOffset + previousIndex * mTabs.mTabSize;
     int x2 = leftOffset + selectedIndex * mTabs.mTabSize;
@@ -90,7 +90,7 @@ public class OrbTabsChangeAnimation extends TranslateXAnimation {
      * mTabs.mTabSize, h, RenderMode.NONE, false);
      */
 
-    g2.setColor(Ribbon.BAR_BACKGROUND);
+    g2.setColor(mTabs.getToKeyFrame().getColor("background-color")); //Ribbon.BAR_BACKGROUND);
     g2.fillOval(0, mTabs.getInsets().top, h, h);
   }
 }

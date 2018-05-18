@@ -84,7 +84,7 @@ public class ModernDialogFlatButton extends ModernDialogButton {
   }
 
   private void setup() {
-    setBackgroundAnimations("dialog-flat-button");
+    setAnimations("dialog-flat-button");
   }
 
   /*

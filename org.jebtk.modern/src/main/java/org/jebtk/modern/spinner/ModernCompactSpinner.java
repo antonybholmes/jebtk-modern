@@ -626,7 +626,7 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
 
     UI.setSize(this, ModernWidget.SMALL_SIZE);
 
-    setBackgroundAnimations("spinner");
+    setAnimations("spinner");
 
     setValue(value);
   }

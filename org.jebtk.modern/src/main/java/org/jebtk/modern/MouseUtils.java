@@ -17,7 +17,6 @@ package org.jebtk.modern;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseWheelEvent;
 
 import org.jebtk.core.geom.IntPos2D;
 

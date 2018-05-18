@@ -617,7 +617,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
     // Set a default root
     setRoot(new TreeRootNode<T>());
 
-    setBackgroundAnimations("tree");
+    setAnimations("tree");
   }
 
   /**

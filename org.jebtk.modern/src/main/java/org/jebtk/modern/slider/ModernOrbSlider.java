@@ -48,11 +48,11 @@ public class ModernOrbSlider extends OrbSlider {
 
   /** The Constant HIGHLIGHT. */
   protected static final Color HIGHLIGHT = ThemeService.getInstance().colors()
-      .getHighlight(7);
+      .getGray(7);
 
   /** The Constant COLOR. */
   protected static final Color COLOR = ThemeService.getInstance().colors()
-      .getHighlight(9);
+      .getGray(9);
 
   /**
    * Instantiates a new modern orb slider.

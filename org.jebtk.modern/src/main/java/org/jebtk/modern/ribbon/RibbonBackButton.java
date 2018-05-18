@@ -62,7 +62,7 @@ public class RibbonBackButton extends ModernButton {
         RibbonBackAnimation.HEIGHT * 3,
         RibbonBackAnimation.HEIGHT);
 
-    setBackgroundAnimations("ribbon-back-button");
+    setAnimations("ribbon-back-button");
   }
 
   /*

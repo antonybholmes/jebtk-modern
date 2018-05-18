@@ -159,7 +159,7 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
     addFocusListener(new FocusEvents());
     // addMouseMotionListener(new MouseMotionEvents());
 
-    setBackgroundAnimations("button"); // new ButtonHighlightAnimation(this));
+    setAnimations("button-fill"); // new ButtonHighlightAnimation(this));
                                        // //SimpleButtonAnimation.BUTTON_ANIMATION);
   }
 

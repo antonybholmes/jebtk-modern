@@ -33,7 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernRadioButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.theme.UIDrawService;
 
 // TODO: Auto-generated Javadoc
@@ -71,6 +70,8 @@ public class RibbonChoiceButton extends ModernRadioButton {
   public RibbonChoiceButton(ModernIcon icon, String clickMessage) {
     mIcon = icon;
 
+    addToStyleClass("dialog-button");
+    
     setClickMessage(clickMessage);
 
     UI.setSize(this, SIZE);
@@ -89,7 +90,7 @@ public class RibbonChoiceButton extends ModernRadioButton {
         //getWidgetRenderer()
         //    .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
         
-        UIDrawService.getInstance().get("dialog.button.highlight").draw(g2, mInternalRect);
+        UIDrawService.getInstance().get("button-fill").draw(g2, mInternalRect);
       }
     }
   }

@@ -29,7 +29,7 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.theme.WidgetRendererService;
+import org.jebtk.modern.theme.UIDrawService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -53,7 +53,9 @@ public class RadioButtonSelectedVectorIcon extends RadioButtonVectorIcon {
       int w,
       int h,
       Object... params) {
-    WidgetRendererService.getInstance().getRenderer()
-        .drawRadioSelected(g2, x, y, w, h);
+    //WidgetRendererService.getInstance().getRenderer()
+    //    .drawRadioSelected(g2, x, y, w, h);
+    
+    UIDrawService.getInstance().get("radio.selected").draw(g2, x, y, w, h);
   }
 }

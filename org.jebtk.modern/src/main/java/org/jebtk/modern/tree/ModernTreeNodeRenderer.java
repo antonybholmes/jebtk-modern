@@ -31,7 +31,6 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.tree.TreeNode;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -215,13 +214,13 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
         // getWidgetRenderer()
         // .fill(g2, mRect.getX(), mRect.getY(), mRect.getW(), mRect.getH());
 
-        UIDrawService.getInstance().get("button.highlight")
+        UIDrawService.getInstance().get("button-fill")
             .draw(g2, mRect, mRenderer.getFade().getFadeColor("highlight"));
       }
 
       // getWidgetRenderer().drawButton(g2, mRect, RenderMode.SELECTED);
     } else if (mIsDragToNode) {
-      UIDrawService.getInstance().get("button.outline").draw(g2, mRect);
+      UIDrawService.getInstance().get("button-outline").draw(g2, mRect);
     } else {
       // Do nothing
     }

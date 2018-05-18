@@ -23,8 +23,6 @@ import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.tabs.ViewPanel;
-import org.jebtk.modern.tooltip.ModernBasicToolTipPanel;
-import org.jebtk.modern.tooltip.ModernToolTip;
 import org.jebtk.modern.widget.ModernClickWidget;
 
 /**

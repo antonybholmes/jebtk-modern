@@ -49,7 +49,7 @@ public class ModernDialogMutliOptionPanel extends ModernPanel {
 
   /** The Constant COLOR. */
   private static final Color COLOR = ThemeService.getInstance().colors()
-      .getHighlight32(1); // ColorUtils.getTransparentColor50(Color.WHITE);
+      .getGray32(1); // ColorUtils.getTransparentColor50(Color.WHITE);
 
   /**
    * Instantiates a new modern dialog border panel.

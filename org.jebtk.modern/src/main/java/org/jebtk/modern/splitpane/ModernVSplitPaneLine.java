@@ -41,7 +41,7 @@ public class ModernVSplitPaneLine extends VSplitPane {
   public ModernVSplitPaneLine() {
     setDividerWidth(0);
 
-    setBackgroundAnimations("splitpane-vert-line");
+    setAnimations("splitpane-vert-line");
   }
 
   /*

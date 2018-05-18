@@ -18,18 +18,22 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.graphics.ImageUtils;
+
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
-public class ButtonHighlightUI extends ButtonUI {
+public class CircleFillUI extends ButtonUI {
 
   @Override
   public String getName() {
-    return "button.highlight";
+    return "circle-fill";
   }
 
   @Override
-  public void fill(Graphics2D g2,
+  public void draw(Graphics2D g2,
+      ModernComponent c,
       int x,
       int y,
       int w,
@@ -42,6 +46,19 @@ public class ButtonHighlightUI extends ButtonUI {
       g2.setColor(HIGHLIGHTED_FILL_COLOR);
     }
 
-    fill(g2, x, y, w, h);
+    int mw = Math.min(w, h);
+
+    x += (w - mw) / 2;
+    y += (h - mw) / 2;
+
+    w = mw - 1;
+
+    Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+
+    try {
+      g2Temp.fillOval(x, y, w, w);
+    } finally {
+      g2Temp.dispose();
+    }
   }
 }

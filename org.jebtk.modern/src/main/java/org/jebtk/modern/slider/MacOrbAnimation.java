@@ -11,7 +11,7 @@ public class MacOrbAnimation extends HoverFadeAnimation {
   private MacOrbSlider mButton;
 
   protected static final Color HIGHLIGHT_2 = ThemeService.getInstance().colors()
-      .getColorHighlight32(24);
+      .getTheme32(24);
 
   public MacOrbAnimation(MacOrbSlider button) {
     super(button);

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classes>
+	<class name="component">
+		<property name="padding" value="5" />
+		<property name="border-radius" value="0" />
+	</class>
+
+	<class name="square-borders">
+		<property name="border-radius" value="0" />
+	</class>
+	
+	<class name="widget">
+    <property name="border-radius" value="6" />
+  </class>
+
+	<class name="content">
+		<property name="background-color" value="white" />
+	</class>
+
+	<class name="content-outline">
+		<property name="border-color" value="colors.material.dialog.button.outline" />
+	</class>
+	
+	<class name="gray-button">
+    <property name="background-color" value="colors.material.dialog.button.outline" />
+  </class>
+  
+  <class name="theme-button">
+    <property name="background-color" value="colors.theme32.color-28" />
+  </class>
+
+	<class name="primary-dialog-button">
+		<property name="border-color" value="colors.theme32.color-24" />
+		<property name="background-color" value="colors.theme32.color-20" />
+	</class>
+
+	<class name="dialog-button">
+		<property name="border-color" value="colors.material.dialog.button.outline" />
+		<property name="background-color" value="white" />
+	</class>
+
+	<keyframe index="to">
+		<class name="primary-dialog-button">
+			<property name="border-color" value="colors.theme32.color-28" />
+			<property name="background-color" value="colors.theme32.color-24" />
+		</class>
+		<class name="content-outline">
+			<property name="border-color" value="colors.material.dialog.button.highlight" />
+		</class>
+		<class name="dialog-button">
+			<property name="background-color" value="colors.material.dialog.button.outline" />
+		</class>
+	</keyframe>
+
+</classes>

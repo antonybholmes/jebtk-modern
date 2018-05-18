@@ -58,7 +58,7 @@ public class ModernDialogButtonBox extends ModernWidget {
    * The constant COLOR.
    */
   private static final Color COLOR = ThemeService.getInstance().colors()
-      .getHighlight(4);
+      .getGray(4);
 
   /**
    * Instantiates a new modern dialog button box.

@@ -30,7 +30,7 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.theme.RenderMode;
-import org.jebtk.modern.theme.WidgetRendererService;
+import org.jebtk.modern.theme.UIDrawService;
 
 /**
  * Check vector icon optimized for 16 pixel icons.
@@ -54,7 +54,6 @@ public class DisabledCheckedVectorIcon extends UnCheckedVectorIcon {
       int w,
       int h,
       Object... params) {
-    WidgetRendererService.getInstance().getRenderer()
-        .drawChecked(g2, x, y, w, h, RenderMode.DISABLED);
+    UIDrawService.getInstance().get("checkbox.checked").draw(g2, x, y, w, h, RenderMode.DISABLED);
   }
 }

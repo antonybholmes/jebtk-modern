@@ -296,7 +296,7 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
     // Listen for all
     ToolTipService.getInstance().addAllToolTipListener(l);
 
-    setBackgroundAnimations("dropdown-button-2");
+    setAnimations("dropdown-button-2");
   }
 
   @Override

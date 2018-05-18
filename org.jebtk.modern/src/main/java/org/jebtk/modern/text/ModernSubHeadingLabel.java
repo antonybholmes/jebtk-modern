@@ -33,7 +33,6 @@ import java.awt.Font;
 import javax.swing.border.Border;
 
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.theme.ThemeService;
 
 /**
  * The class ModernSubHeadingLabel.

@@ -27,9 +27,6 @@
  */
 package org.jebtk.modern.menu;
 
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickEventProducer;
 import org.jebtk.modern.event.ModernClickListener;

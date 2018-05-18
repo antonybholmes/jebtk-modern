@@ -140,7 +140,7 @@ public class ModernSeparatorMenuItem extends ModernIconMenuItem {
 
       int x = Math.max(UIService.ICON_SIZE_32, d);
 
-      g2.setColor(ThemeService.getInstance().colors().getHighlight(6));
+      g2.setColor(ThemeService.getInstance().colors().getGray(6));
       g2.setFont(ThemeService.loadFont("widget.bold-text"));
       g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
     }

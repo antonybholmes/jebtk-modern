@@ -65,7 +65,7 @@ public class ModernDialogHelpButton extends ModernUrlTextLink {
   public ModernDialogHelpButton(URL url) {
     super("Help...", url);
 
-    // setBackgroundAnimation(new HelpButtonHighlightAnimation(this));
+    // getBackgroundAnimations().set(new HelpButtonHighlightAnimation(this));
   }
 
   /*

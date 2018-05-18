@@ -52,7 +52,7 @@ public class ModernHScrollBarMac extends ModernHScrollBar {
     setInternalFixedDimension(10);
     setMinimumScrollBarSize(20);
 
-    setBackgroundAnimation(new MacScrollAnimation(this));
+    setAnimations(new MacScrollAnimation(this));
   }
 
   /*
@@ -93,7 +93,7 @@ public class ModernHScrollBarMac extends ModernHScrollBar {
 
     // g2.fillRoundRect(r.x, r.y, r.width, r.height, rounding, rounding);
 
-    getBackgroundAnimations().draw(this, g2, r, rounding);
+    getAnimations().draw(this, g2, r, rounding);
 
   }
 

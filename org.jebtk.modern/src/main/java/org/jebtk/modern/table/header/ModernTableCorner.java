@@ -93,7 +93,7 @@ public class ModernTableCorner extends ModernWidget {
         rect.getX() + rect.getW() - 1,
         rect.getY() + rect.getH());
 
-    g2.setColor(ThemeService.getInstance().colors().getHighlight(2));
+    g2.setColor(ThemeService.getInstance().colors().getGray(2));
 
     // Draw triangle in corner
 

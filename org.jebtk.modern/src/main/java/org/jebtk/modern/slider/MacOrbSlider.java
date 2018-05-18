@@ -49,7 +49,7 @@ public class MacOrbSlider extends OrbSlider {
 
   /** The Constant HIGHLIGHT. */
   protected static final Color HIGHLIGHT = ThemeService.getInstance().colors()
-      .getColorHighlight32(16);
+      .getTheme32(16);
 
   /** The m bar height. */
   protected int mBarHeight = 4;
@@ -99,7 +99,7 @@ public class MacOrbSlider extends OrbSlider {
 
     setBorder(BorderService.getInstance().createLeftRightBorder(1));
 
-    setBackgroundAnimation(new MacOrbAnimation(this));
+    setAnimations(new MacOrbAnimation(this));
   }
 
   /**

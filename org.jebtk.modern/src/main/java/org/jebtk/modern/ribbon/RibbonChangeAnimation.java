@@ -16,6 +16,8 @@
 package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.image.BufferedImage;
 
 import org.jebtk.core.Mathematics;
@@ -56,9 +58,11 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
         restart();
       }
     });
+    
   }
 
-  public void restart() {
+  @Override
+  public synchronized void restart() {
     int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
     int previousIndex = mTabs.getTabsModel().getPreviousIndex();
 

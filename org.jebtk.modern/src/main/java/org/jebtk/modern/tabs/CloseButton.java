@@ -48,7 +48,7 @@ public class CloseButton extends ModernButton {
   public CloseButton() {
     super(ICON);
 
-    setBackgroundAnimations("circular-button");
+    setAnimations("circle-fill");
 
     UI.setSize(this, ModernWidget.WIDGET_HEIGHT - 2);
   }

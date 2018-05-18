@@ -44,11 +44,11 @@ public class HelpVectorIcon extends ModernMessageIcon {
 
   /** The Constant COLOR1. */
   private static final Color COLOR1 = ThemeService.getInstance().colors()
-      .getColorHighlight32(14);
+      .getTheme32(14);
 
   /** The Constant COLOR2. */
   private static final Color COLOR2 = ThemeService.getInstance().colors()
-      .getColorHighlight32(16);
+      .getTheme32(16);
 
   /** The Constant TEXT. */
   private static final String TEXT = "?";

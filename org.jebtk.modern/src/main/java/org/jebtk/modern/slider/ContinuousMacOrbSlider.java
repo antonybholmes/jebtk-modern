@@ -48,7 +48,7 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
 
   /** The Constant HIGHLIGHT. */
   protected static final Color HIGHLIGHT = ThemeService.getInstance().colors()
-      .getColorHighlight32(16);
+      .getTheme32(16);
 
   /** The m bar height. */
   protected int mBarHeight = 4;
@@ -76,7 +76,7 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
 
     setBorder(BorderService.getInstance().createLeftRightBorder(1));
 
-    setBackgroundAnimations("continuous-orb-slider"); // setBackgroundAnimation(new
+    setAnimations("continuous-orb-slider"); // getBackgroundAnimations().set(new
                                                       // ContinuousMacOrbAnimation(this));
   }
 

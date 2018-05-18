@@ -65,7 +65,7 @@ public class ModernOutlookHorizontalTabs extends ModernWidget
    * The constant COLOR.
    */
   private static final Color COLOR = ThemeService.getInstance().colors()
-      .getHighlight(3);
+      .getGray(3);
 
   // protected List<ModernHTab> tabButtons = new ArrayList<ModernHTab>();
   /**
@@ -250,11 +250,11 @@ public class ModernOutlookHorizontalTabs extends ModernWidget
       }
 
       if (i == mSelectedIndex) {
-        g2.setColor(ThemeService.getInstance().colors().getColorHighlight(5));
+        g2.setColor(ThemeService.getInstance().colors().getTheme(5));
       } else if (i == highlightTab) {
-        g2.setColor(ThemeService.getInstance().colors().getColorHighlight(4));
+        g2.setColor(ThemeService.getInstance().colors().getTheme(4));
       } else {
-        g2.setColor(ThemeService.getInstance().colors().getHighlight(9));
+        g2.setColor(ThemeService.getInstance().colors().getGray(9));
       }
 
       g2.drawString(mItems.get(i), x, y);

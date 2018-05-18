@@ -66,7 +66,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    * Instantiates a new modern button widget.
    */
   public ModernButtonWidget() {
-    // Do nothing
+    //styleNames().add("button");
   }
 
   /**
@@ -75,10 +75,9 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    * @param text1 the text1
    */
   public ModernButtonWidget(String text1) {
+    this();
+    
     setText(text1);
-
-    // Ui.setSize(this,
-    // ModernTheme.getInstance().getClass("button").getDimension("default"));
   }
 
   /**
@@ -87,10 +86,9 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    * @param icon the icon
    */
   public ModernButtonWidget(ModernIcon icon) {
+    this();
+    
     setIcon(icon);
-
-    // Ui.setSize(this,
-    // ModernTheme.getInstance().getClass("button").getDimension("icon-only"));
   }
 
   /**
@@ -100,13 +98,12 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    * @param icon the icon
    */
   public ModernButtonWidget(String text1, ModernIcon icon) {
+    this();
+    
     setText(text1);
     setIcon(icon);
-
-    // Ui.setSize(this,
-    // ModernTheme.getInstance().getClass("button").getDimension("icon-text"));
   }
-
+  
   /**
    * Sets the icon.
    *

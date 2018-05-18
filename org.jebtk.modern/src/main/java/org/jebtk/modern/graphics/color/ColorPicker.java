@@ -71,7 +71,7 @@ public class ColorPicker extends ModernClickWidget {
 
   /** The Constant SELECTION_COLOR. */
   private static final Color SELECTION_COLOR = ThemeService.getInstance()
-      .colors().getHighlight(10);
+      .colors().getGray(10);
 
   private static final int OFFSET = 0; // PADDING
 

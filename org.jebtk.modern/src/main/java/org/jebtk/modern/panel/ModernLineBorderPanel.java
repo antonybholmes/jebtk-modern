@@ -110,7 +110,7 @@ public class ModernLineBorderPanel extends ModernWidget {
   private void init() {
     setBorder(ModernWidget.TWO_PIXEL_BORDER); // BorderService.getInstance().createBorder(2));
 
-    setBackgroundAnimations("text-border");
+    setAnimations("text-border");
   }
 
   /*

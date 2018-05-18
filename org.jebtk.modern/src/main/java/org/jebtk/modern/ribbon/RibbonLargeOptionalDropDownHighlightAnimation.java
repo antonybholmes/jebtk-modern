@@ -79,13 +79,13 @@ public class RibbonLargeOptionalDropDownHighlightAnimation
         ///getWidget().getWidgetRenderer().fill(g2, rect);
         
         
-        UIDrawService.getInstance().get("button.highlight").draw(g2, rect, getFadeColor("fill"));
+        UIDrawService.getInstance().get("button-fill").draw(g2, rect, getFadeColor("fill"));
 
       } else {
         // getWidget().getWidgetRenderer().outline(g2, rect);
         //getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
         
-        UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h, getFadeColor("fill"));
+        UIDrawService.getInstance().get("button-fill").draw(g2, x, y, w, h, getFadeColor("fill"));
 
         // getWidgetRenderer().drawRibbonButtonOutline(g2, rect,
         // RenderMode.SELECTED);

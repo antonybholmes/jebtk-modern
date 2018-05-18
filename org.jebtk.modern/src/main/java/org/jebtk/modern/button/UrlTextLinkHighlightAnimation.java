@@ -2,9 +2,10 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class UrlTextLinkHighlightAnimation extends GenericButtonAnimation {
+public class UrlTextLinkHighlightAnimation extends HoverFadeAnimation {
   private static final int OFFSET = 2;
   private ModernButton mButton;
 

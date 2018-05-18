@@ -25,7 +25,7 @@ public class CheckBoxHighlightAnimation extends ButtonFillAnimation {
        * ModernCheckBox.ICON_SIZE, getButton().getRenderMode(), false);
        */
 
-      UIDrawService.getInstance().get("button.highlight").draw(g2,
+      UIDrawService.getInstance().get("button-fill").draw(g2,
           x,
           y,
           ModernCheckBox.ICON_SIZE,

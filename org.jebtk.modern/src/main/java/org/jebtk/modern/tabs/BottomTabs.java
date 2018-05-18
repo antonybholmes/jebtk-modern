@@ -58,6 +58,6 @@ public class BottomTabs extends SegmentTabs {
   public BottomTabs(TabsModel model, int tabSize, boolean centered) {
     super(model, tabSize, centered);
 
-    setBackgroundAnimations("bottom-tabs");
+    setAnimations("bottom-tabs");
   }
 }

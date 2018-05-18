@@ -128,7 +128,7 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   }
 
   private void setup() {
-    setBackgroundAnimations("radio-button");
+    setAnimations("radio-button");
   }
 
   /**

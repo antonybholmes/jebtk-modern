@@ -16,8 +16,14 @@
 package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+
+import javax.swing.event.AncestorEvent;
 
 import org.jebtk.math.CubicBezier;
+import org.jebtk.modern.SingleUseAncestorAddedListener;
+import org.jebtk.modern.SingleUseAncestorMovedListener;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -52,8 +58,49 @@ public abstract class TranslateAnimation extends TimerAnimation {
    */
   public TranslateAnimation(ModernWidget widget) {
     super(widget);
+    
+    widget.addAncestorListener(new SingleUseAncestorMovedListener() {
+      @Override
+      public void action(AncestorEvent event) {
+        restart();
+      }
+    });
+    
+    widget.addAncestorListener(new SingleUseAncestorAddedListener() {
+      @Override
+      public void action(AncestorEvent event) {
+        restart();
+      }
+    });
+    
+    widget.addComponentListener(new ComponentListener() {
+
+      @Override
+      public void componentResized(ComponentEvent e) {
+        //restart();
+      }
+
+      @Override
+      public void componentMoved(ComponentEvent e) {
+        
+      }
+
+      @Override
+      public void componentShown(ComponentEvent e) {
+        //restart();
+      }
+
+      @Override
+      public void componentHidden(ComponentEvent e) {
+        // TODO Auto-generated method stub
+        
+      }});
   }
 
+  public synchronized void restart() {
+    // Do nothing
+  }
+  
   public synchronized void restart(int x1, int x2) {
     int mD = (x2 - x1); // / MAX_INDEX;
 

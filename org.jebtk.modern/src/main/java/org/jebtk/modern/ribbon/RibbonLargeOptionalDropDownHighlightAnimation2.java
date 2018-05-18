@@ -21,7 +21,6 @@ import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.button.DropDownButtonAnimation2;
 import org.jebtk.modern.button.ModernOptionalDropDownMenuButton2;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -83,7 +82,7 @@ public class RibbonLargeOptionalDropDownHighlightAnimation2
       } else if (mButton.getHightlighted()) {
         // getWidget().getWidgetRenderer().outline(g2, rect);
         // getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
-        UIDrawService.getInstance().get("button.highlight")
+        UIDrawService.getInstance().get("button-fill")
             .draw(g2, x, y, w, h, getFadeColor("fill"));
 
         // getWidgetRenderer().drawRibbonButtonOutline(g2, rect,

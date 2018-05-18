@@ -2,22 +2,24 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class CircleButtonHighlightAnimation extends ButtonHighlightAnimation {
-  public CircleButtonHighlightAnimation(ModernWidget button) {
+public class CircleFillAnimation extends ButtonFillAnimation {
+  public CircleFillAnimation(ModernWidget button) {
     super(button);
-
-    setFadeColor("fill", MaterialService.instance().color("gray-highlight"));
+  }
+  
+  @Override
+  public String getName() {
+    return "circle-fill";
   }
 
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     if (getWidget().isEnabled()) {
 
-      UIDrawService.getInstance().get("circle.highlight")
+      UIDrawService.getInstance().get("circle-fill")
           .draw(g2, getWidget().getInternalRect(), getFadeColor("fill"));
 
       /*

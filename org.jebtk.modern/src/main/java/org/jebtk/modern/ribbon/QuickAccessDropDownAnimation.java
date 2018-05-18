@@ -1,8 +1,9 @@
 package org.jebtk.modern.ribbon;
 
+import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.button.ModernDropDownWidget;
 
-public class QuickAccessDropDownAnimation extends QuickAccessAnimation {
+public class QuickAccessDropDownAnimation extends ButtonFillAnimation {
   public QuickAccessDropDownAnimation(ModernDropDownWidget button) {
     super(button);
   }

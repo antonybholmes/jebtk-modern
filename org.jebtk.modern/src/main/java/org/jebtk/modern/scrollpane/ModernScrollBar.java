@@ -79,25 +79,25 @@ public abstract class ModernScrollBar extends ModernWidget
    * The constant BASE_COLOR.
    */
   protected static final Color BASE_COLOR = ThemeService.getInstance().colors()
-      .getHighlight(3);
+      .getGray(3);
 
   /**
    * The constant SCROLLBAR_COLOR.
    */
   protected static final Color SCROLLBAR_COLOR = ThemeService.getInstance()
-      .colors().getHighlight(4);
+      .colors().getGray(4);
 
   /**
    * The constant SCROLLBAR_OUTLINE_COLOR.
    */
   protected static final Color SCROLLBAR_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getHighlight(5);
+      .getInstance().colors().getGray(5);
 
   /**
    * The constant SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR.
    */
   protected static final Color SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getHighlight32(16);
+      .getInstance().colors().getGray32(16);
 
   /** The Constant BASE_ROUNDED_COLOR. */
   protected static final Color BASE_ROUNDED_COLOR = Color.BLACK; // ThemeService.getInstance().colors().getHighlight32(31);
@@ -114,7 +114,7 @@ public abstract class ModernScrollBar extends ModernWidget
    * The constant SCROLLBAR_HIGHLIGHT_COLOR.
    */
   protected static final Color SCROLLBAR_HIGHLIGHT_COLOR = ThemeService
-      .getInstance().colors().getHighlight(2);
+      .getInstance().colors().getGray(2);
 
   /**
    * The constant SCROLLBAR_WIDTH.

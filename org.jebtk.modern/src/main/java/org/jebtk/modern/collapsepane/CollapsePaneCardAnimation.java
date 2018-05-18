@@ -19,6 +19,7 @@ public class CollapsePaneCardAnimation extends WidgetAnimation {
     // Insets insets = widget.getInsets();
 
     MaterialUtils.drawCard(g2,
+        widget,
         0,
         0,
         widget.getWidth(),

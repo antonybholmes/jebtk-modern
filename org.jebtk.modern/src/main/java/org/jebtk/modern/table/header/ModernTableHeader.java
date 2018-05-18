@@ -32,13 +32,12 @@ import java.awt.Color;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.dataview.ModernDataViewListener;
 import org.jebtk.modern.event.ModernSelectionListener;
-import org.jebtk.modern.graphics.CanvasMouseEvent;
 import org.jebtk.modern.graphics.CanvasKeyListener;
+import org.jebtk.modern.graphics.CanvasMouseEvent;
 import org.jebtk.modern.graphics.CanvasMouseListener;
 import org.jebtk.modern.scrollpane.ModernScrollPaneHeader;
 import org.jebtk.modern.table.ModernTable;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.window.ModernWindowContentPanel;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -62,11 +61,11 @@ public class ModernTableHeader extends ModernScrollPaneHeader
    * The constant HEADER_BACKGROUND.
    */
   public static final Color HEADER_BACKGROUND = ThemeService.getInstance()
-      .colors().getHighlight(1);
+      .colors().getGray(1);
 
   /** The Constant HEADER_SELECTED_COLOR. */
   public static final Color HEADER_SELECTED_COLOR = ThemeService.getInstance()
-      .colors().getColorHighlight(5);
+      .colors().getTheme(5);
 
   /** The m table. */
   protected ModernTable mTable;

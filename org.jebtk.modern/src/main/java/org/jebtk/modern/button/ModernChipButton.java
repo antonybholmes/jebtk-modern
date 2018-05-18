@@ -66,7 +66,7 @@ public class ModernChipButton extends ModernCheckButton {
         ModernButton.getButtonWidth(text1) + 16,
         ModernButton.getButtonHeight());
 
-    setBackgroundAnimations("chip-button");
+    setAnimations("chip-button");
   }
 
   /*

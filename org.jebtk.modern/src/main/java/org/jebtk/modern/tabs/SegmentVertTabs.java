@@ -120,7 +120,7 @@ public class SegmentVertTabs extends SegmentTabs {
        //   RenderMode.HIGHLIGHT,
        //   hasFocus());
       
-      UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, mTabSize);
+      UIDrawService.getInstance().get("button-fill").draw(g2, x, y, w, mTabSize);
 
       if (mHighlight == 0) {
         g2.fill(mLeftEnd);
@@ -145,7 +145,7 @@ public class SegmentVertTabs extends SegmentTabs {
       y1 += TAB_SIZE;
     }
 
-    UIDrawService.getInstance().get("button.outline").draw(g2, x, y, w, h, LIGHT_LINE_COLOR);
+    UIDrawService.getInstance().get("button-outline").draw(g2, x, y, w, h, LIGHT_LINE_COLOR);
 
     //
     // Draw the selected tab

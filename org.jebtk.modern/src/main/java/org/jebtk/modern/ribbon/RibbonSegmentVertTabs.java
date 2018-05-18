@@ -74,7 +74,7 @@ public class RibbonSegmentVertTabs extends SegmentTabs {
 
     setFont(SUB_HEADING_FONT);
 
-    setBackgroundAnimations("ribbon-segments");
+    setAnimations("ribbon-segments");
   }
 
   /*

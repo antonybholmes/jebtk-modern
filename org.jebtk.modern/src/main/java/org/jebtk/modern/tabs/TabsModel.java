@@ -32,7 +32,6 @@ import java.util.Iterator;
 import javax.swing.JComponent;
 
 import org.jebtk.core.collections.CollectionUtils;
-import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.contentpane.CenterTab;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 

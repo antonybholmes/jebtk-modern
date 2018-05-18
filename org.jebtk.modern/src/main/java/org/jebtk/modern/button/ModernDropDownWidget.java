@@ -311,7 +311,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
         "enter_pressed");
     getActionMap().put("enter_pressed", new ActionEvents());
 
-    setBackgroundAnimations("dropdown-button");
+    setAnimations("dropdown-button");
   }
 
   /*

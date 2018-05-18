@@ -55,7 +55,7 @@ public class ModernVScrollBarMac extends ModernVScrollBar {
     // Bind both scroll bar and the component to the animation so that
     // if the user moves over the component, the scroll bar will also
     // animate
-    setBackgroundAnimation(new MacScrollAnimation(this));
+    setAnimations(new MacScrollAnimation(this));
     // bind(scrollPane)
     // .bind(c));
   }
@@ -102,7 +102,7 @@ public class ModernVScrollBarMac extends ModernVScrollBar {
 
     // g2.fillRoundRect(r.x, r.y, r.width, r.height, rounding, rounding);
 
-    getBackgroundAnimations().draw(this, g2, r, rounding);
+    getAnimations().draw(this, g2, r, rounding);
 
     // } finally {
     // g2Temp.dispose();

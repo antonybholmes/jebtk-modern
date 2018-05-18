@@ -54,8 +54,8 @@ public class ColorMapCellRenderer extends ModernDataCellRenderer {
 
     /*
      * g2.fillRoundRect(x, 2, w, getHeight() - 4,
-     * ModernRoundedWidgetRenderer.ROUNDING,
-     * ModernRoundedWidgetRenderer.ROUNDING);
+     * MaterialService.instance().ints().cornerRadius();,
+     * MaterialService.instance().ints().cornerRadius(););
      */
 
     g2.fillRect(x, 2, w, getHeight() - 4);

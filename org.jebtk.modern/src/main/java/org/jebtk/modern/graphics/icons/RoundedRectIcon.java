@@ -30,7 +30,7 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.theme.ModernRoundedWidgetRenderer;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -42,7 +42,7 @@ import org.jebtk.modern.widget.ModernWidget;
 public class RoundedRectIcon extends ModernVectorScalableIcon {
 
   /** The Constant ROUNDING. */
-  private static final int ROUNDING = ModernRoundedWidgetRenderer.ROUNDING;
+  private static final int ROUNDING = MaterialService.instance().ints().cornerRadius();
 
   /**
    * Instantiates a new rounded rect icon.

@@ -44,11 +44,16 @@ import java.awt.event.MouseEvent;
 import javax.swing.JComponent;
 import javax.swing.border.Border;
 
+import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.graphics.ImageUtils;
+import org.jebtk.modern.theme.KeyFrames;
+import org.jebtk.modern.theme.KeyFramesService;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ModernTheme;
+import org.jebtk.modern.theme.KeyFrame;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.tooltip.ModernToolTipEvent;
 import org.jebtk.modern.tooltip.ModernToolTipListener;
@@ -87,13 +92,13 @@ public class ModernComponent extends JComponent {
    * The constant OUTLINE_BASE_COLOR.
    */
   public static final Color OUTLINE_BASE_COLOR = ThemeService.getInstance()
-      .colors().getHighlight(1);
+      .colors().getGray(1);
 
   /**
    * The constant OUTLINE_COLOR.
    */
   public static final Color OUTLINE_COLOR = ThemeService.getInstance().colors()
-      .getHighlight(6);
+      .getGray(6);
 
   /**
    * The constant LINE_COLOR.
@@ -227,6 +232,8 @@ public class ModernComponent extends JComponent {
   private Component mHeader;
 
   private Component mFooter;
+
+  private KeyFrames mKeyFrames = new KeyFrames();
 
   /**
    * The class ComponentEvents.
@@ -371,6 +378,16 @@ public class ModernComponent extends JComponent {
 
     setAlignmentX(LEFT_ALIGNMENT);
     // setAlignmentY(TOP_ALIGNMENT);
+    
+    // All components inherit the component class by default
+    addStyleClass("component"); //StyleClassService.instance().getCompStyleClass());
+    
+    // Respond to style changes
+    getKeyFrames().addChangeListener(new ChangeListener() {
+      @Override
+      public void changed(ChangeEvent e) {
+        repaint();
+      }});
 
     super.addComponentListener(new ComponentEvents());
 
@@ -511,6 +528,19 @@ public class ModernComponent extends JComponent {
         padding,
         getInsets().right));
   }
+  
+  /**
+   * Set the top border on the component as a number of pixels.
+   * 
+   * @param padding   how much padding to use for the top border.
+   * @return
+   */
+  public Component topBorder(int padding) {
+    return border(BorderService.getInstance().createBorder(padding,
+        getInsets().left,
+        getInsets().bottom,
+        getInsets().right));
+  }
 
   /*
    * (non-Javadoc)
@@ -532,6 +562,50 @@ public class ModernComponent extends JComponent {
   @Override
   public void setSize(Dimension dimension) {
     setSize(dimension.width, dimension.height);
+  }
+  
+  public KeyFrames getKeyFrames() {
+    return mKeyFrames;
+  }
+  
+  /**
+   * Returns the first key frame in the animation series.
+   * 
+   * @return
+   */
+  public KeyFrame getFromKeyFrame() {
+    return getKeyFrame(KeyFrames.FROM);
+  }
+  
+  /**
+   * Returns the last key frame in the animation series.
+   * 
+   * @return
+   */
+  public KeyFrame getToKeyFrame() {
+    return getKeyFrame(KeyFrames.TO);
+  }
+  
+  public KeyFrame getKeyFrame(int frame) {
+    return mKeyFrames.getKeyFrame(frame);
+  }
+  
+  public KeyFrame getStyleClasses() {
+    return getKeyFrames().getKeyFrame();
+  }
+  
+  public ModernComponent addStyleClass(String name, String... names) {
+    return addStyleClass(KeyFrames.FROM, name, names);
+  }
+  
+  public ModernComponent addToStyleClass(String name, String... names) {
+    return addStyleClass(KeyFrames.TO, name, names);
+  }
+  
+  public ModernComponent addStyleClass(int frame, String name, String... names) {
+    KeyFramesService.instance().addStyleClasses(this, frame, name, names);
+    
+    return this;
   }
 
   /**
@@ -1001,4 +1075,6 @@ public class ModernComponent extends JComponent {
       MouseEvent e) {
     return createToolTipEvent(tooltip, e.getX(), e.getY());
   }
+
+  
 }

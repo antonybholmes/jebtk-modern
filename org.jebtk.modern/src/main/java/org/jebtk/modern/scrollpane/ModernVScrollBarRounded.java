@@ -31,7 +31,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.theme.ModernRoundedWidgetRenderer;
+import org.jebtk.modern.theme.MaterialService;
 
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
@@ -78,7 +78,7 @@ public class ModernVScrollBarRounded extends ModernVScrollBar {
   public void paintScrollBarBase(Graphics2D g2) {
     Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
 
-    int rounding = ModernRoundedWidgetRenderer.ROUNDING;
+    int rounding = MaterialService.instance().ints().cornerRadius();
 
     try {
       g2Temp.setColor(ROUNDED_SCROLLBAR_BACKGROUND_COLOR);
@@ -104,7 +104,7 @@ public class ModernVScrollBarRounded extends ModernVScrollBar {
   public void paintScrollBar(Graphics2D g2, Rectangle r) {
     Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
 
-    int rounding = ModernRoundedWidgetRenderer.ROUNDING;
+    int rounding = MaterialService.instance().ints().cornerRadius();
 
     try {
       g2Temp.setColor(ROUNDED_SCROLLBAR_COLOR);

@@ -143,7 +143,7 @@ public class ZoomDialog extends ModernDialogTaskWindow {
 
     setResizable(false);
     setDarkBackground();
-    setSize(400, 400);
+    setSize(360, 400);
     setTitle("Zoom");
     mModel = model;
 

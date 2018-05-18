@@ -27,8 +27,6 @@
  */
 package org.jebtk.modern.tooltip;
 
-import java.awt.Dimension;
-
 /**
  * Extension of the basic tooltip that also suggests the user presses F1 to get
  * more help.

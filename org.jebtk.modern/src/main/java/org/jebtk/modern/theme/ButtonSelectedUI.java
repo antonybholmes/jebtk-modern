@@ -18,6 +18,8 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernComponent;
+
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
@@ -29,7 +31,8 @@ public class ButtonSelectedUI extends ButtonUI {
   }
 
   @Override
-  public void fill(Graphics2D g2,
+  public void draw(Graphics2D g2,
+      ModernComponent c,
       int x,
       int y,
       int w,
@@ -42,6 +45,6 @@ public class ButtonSelectedUI extends ButtonUI {
       g2.setColor(SELECTED_FILL_COLOR);
     }
 
-    fill(g2, x, y, w, h);
+    fill(g2, c, x, y, w, h);
   }
 }

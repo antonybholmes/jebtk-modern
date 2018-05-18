@@ -55,12 +55,12 @@ import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.font.FontUtils;
 import org.jebtk.modern.graphics.CanvasCursorEvent;
 import org.jebtk.modern.graphics.CanvasCursorListener;
-import org.jebtk.modern.graphics.CanvasMouseEvent;
-import org.jebtk.modern.graphics.DrawingContext;
-import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.CanvasKeyAdapter;
 import org.jebtk.modern.graphics.CanvasListener;
 import org.jebtk.modern.graphics.CanvasMouseAdapter;
+import org.jebtk.modern.graphics.CanvasMouseEvent;
+import org.jebtk.modern.graphics.DrawingContext;
+import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.table.header.ModernMatrixTableCorner;
 import org.jebtk.modern.table.header.ModernTableHeader;
 import org.jebtk.modern.table.header.ModernTableHeaderColumn;
@@ -94,7 +94,7 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
    * The constant SELECTION_RECT_COLOR.
    */
   public static final Color SELECTION_RECT_COLOR = ThemeService.getInstance()
-      .colors().getColorHighlight(5);
+      .colors().getTheme(5);
 
   /** The m heading render model. */
   protected ModernTableHeadingRendererModel mHeadingRenderModel = new ModernTableHeadingRendererModel();

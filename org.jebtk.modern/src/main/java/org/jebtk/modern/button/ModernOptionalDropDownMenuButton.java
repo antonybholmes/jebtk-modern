@@ -42,7 +42,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.theme.ModernTheme;
-import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.theme.UIDrawService;
 
 // TODO: Auto-generated Javadoc
@@ -250,8 +249,8 @@ public class ModernOptionalDropDownMenuButton extends ModernDropDownWidget {
       //getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
 
       UIDrawService.getInstance().get("content-box").draw(g2, rect);
-      UIDrawService.getInstance().get("button.outline").draw(g2, rect);
-      UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h);
+      UIDrawService.getInstance().get("button-outline").draw(g2, rect);
+      UIDrawService.getInstance().get("button-fill").draw(g2, x, y, w, h);
       
       // paintHighlightedBorder(g2, rect);
       // paintHighlighted(g2, x, y, w, h);

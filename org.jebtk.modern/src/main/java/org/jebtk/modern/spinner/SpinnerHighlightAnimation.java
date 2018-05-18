@@ -39,6 +39,6 @@ public class SpinnerHighlightAnimation extends HoverFadeAnimation {
 
     //g2.setColor(getFadeColor("outline"));
     //widget.getWidgetRenderer().outline(g2, intRect);
-    UIDrawService.getInstance().get("button.outline").draw(g2, intRect, getFadeColor("outline"));
+    UIDrawService.getInstance().get("button-outline").draw(g2, intRect, getFadeColor("outline"));
   }
 }

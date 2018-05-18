@@ -93,7 +93,7 @@ public class RibbonCheckButton extends ModernCheckButton {
   }
 
   private void setup() {
-    setBackgroundAnimations("ribbon-button");
+    setAnimations("ribbon-button");
   }
 
   /*

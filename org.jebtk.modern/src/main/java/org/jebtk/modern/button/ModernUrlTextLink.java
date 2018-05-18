@@ -41,7 +41,7 @@ public class ModernUrlTextLink extends ModernUrlLinkButton {
 
   /** The color2. */
   private static Color COLOR2 = ThemeService.getInstance().colors()
-      .getColorHighlight32(16);
+      .getTheme32(16);
 
   /** The m color 1. */
   private Color mColor1 = COLOR1;
@@ -120,7 +120,7 @@ public class ModernUrlTextLink extends ModernUrlLinkButton {
   }
 
   private void setup() {
-    setBackgroundAnimations("url-text-button");
+    setAnimations("url-text-button");
   }
 
   /**

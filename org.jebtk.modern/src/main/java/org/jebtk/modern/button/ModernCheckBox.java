@@ -32,7 +32,6 @@ import java.awt.Dimension;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.CheckVectorIcon;
-import org.jebtk.modern.graphics.icons.CheckedVectorIcon;
 import org.jebtk.modern.graphics.icons.DisabledCheckedVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.UnCheckedVectorIcon;
@@ -144,7 +143,7 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   }
 
   private void setup() {
-    setBackgroundAnimations("checkbox");
+    setAnimations("checkbox");
   }
 
   /*

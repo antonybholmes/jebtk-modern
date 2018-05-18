@@ -19,6 +19,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.widget.ModernWidget;
@@ -32,21 +33,44 @@ public class Animations extends ChangeListeners
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
+  private class AnimationIterator implements Iterator<Animation>, Iterable<Animation> {
+    private ListIterator<Object> mIt;
+
+    public AnimationIterator() {
+      mIt = mAnimations.listIterator(mAnimations.size());
+    }
+
+    @Override
+    public boolean hasNext() {
+      return mIt.hasNext();
+    }
+
+    @Override
+    public Animation next() {
+      return (Animation) mIt.next();
+    }
+
+    @Override
+    public Iterator<Animation> iterator() {
+      return this;
+    }
+
+    @Override
+    public void remove() {
+      // TODO Auto-generated method stub
+
+    }
+  }
+  
+  
   /** The m animations. */
-  private List<Animation> mAnimations = new ArrayList<Animation>();
+  private List<Object> mAnimations = new ArrayList<Object>();
 
-  /**
-   * Adds the.
-   *
-   * @param animation the animation
-   * @return
-   */
-  public Animations add(Animation animation) {
-    update(animation);
+  private ModernWidget mWidget = null;
+  private boolean mAutoLoad = false;
 
-    fireChanged();
-
-    return this;
+  public Animations(ModernWidget widget) {
+    mWidget = widget;
   }
 
   public Animations add(Animations animations) {
@@ -55,15 +79,6 @@ public class Animations extends ChangeListeners
     fireChanged();
 
     return this;
-  }
-
-  /**
-   * Update.
-   *
-   * @param animation the animation
-   */
-  public void update(Animation animation) {
-    mAnimations.add(animation);
   }
 
   /**
@@ -88,21 +103,67 @@ public class Animations extends ChangeListeners
    * @param animations the animations
    */
   public void update(Animation animation, Animation... animations) {
-    update(animation);
+    mAnimations.add(animation);
 
     for (Animation a : animations) {
-      update(a);
+      mAnimations.add(a);
     }
   }
 
   public void update(Animations animations) {
-    for (Animation a : animations) {
-      update(a);
+    for (Object a : animations.mAnimations) {
+      mAnimations.add(a);
     }
+  }
+  
+  public Animations set(String animation, String... animations) {
+    clear();
+
+    add(animation, animations);
+
+    return this;
+  }
+  
+  public Animations update(String animation, String... animations) {
+    /*
+    List<Animation> al = 
+        AnimationService.getInstance().create(animation, mWidget);
+  
+    for (Animation an : al) {
+      mAnimations.add(an);
+    }
+    
+    for (String a : animations) {
+      al = AnimationService.getInstance().create(a, mWidget);
+      
+      for (Animation an : al) {
+        mAnimations.add(an);
+      }
+    }
+    */
+    
+    mAnimations.add(animation);
+
+    for (String a : animations) {
+      mAnimations.add(a);
+    }
+    
+    mAutoLoad = true;
+    
+    return this;
+  }
+  
+  public Animations add(String animation, String... animations) {
+    update(animation, animations);
+
+    fireChanged();
+
+    return this;
   }
 
   /**
-   * Sets the.
+   * Sets the animations to use. 
+   * TODO: should initialize named animations in a lazy fasion
    *
    * @param animation the animation
    * @param animations the animations
@@ -129,10 +190,39 @@ public class Animations extends ChangeListeners
    * 
    * @return
    */
-  public Animations clear() {
+  private Animations clear() {
     mAnimations.clear();
 
     return this;
+  }
+  
+  private void autoLoad() {
+    if (mAutoLoad) {
+      // If there are string names in the list, we lazy load the corresponding
+      // animations as requested.
+      List<Object> newAnimations = new ArrayList<Object>(mAnimations.size());
+      
+      for (int i = 0; i < mAnimations.size(); ++i) {
+        Object o = mAnimations.get(i);
+        
+        if (o instanceof String) {
+          List<Animation> animations = 
+              AnimationService.getInstance().create((String) o, mWidget);
+        
+          for (Animation animation : animations) {
+            newAnimations.add(animation);
+          }
+        } else {
+          newAnimations.add(o);
+        }
+      }
+      
+      // Destroy the original to save memory and garbage collect
+      mAnimations.clear();
+      // Swap references
+      mAnimations = newAnimations;
+      mAutoLoad = false;
+    }
   }
 
   /*
@@ -143,21 +233,13 @@ public class Animations extends ChangeListeners
    */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-    for (Animation a : mAnimations) {
-      a.draw(widget, g2, params);
+    autoLoad();
+    
+    for (Object a : mAnimations) {
+      ((Animation)a).draw(widget, g2, params);
     }
   }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see java.lang.Iterable#iterator()
-   */
-  @Override
-  public Iterator<Animation> iterator() {
-    return mAnimations.iterator();
-  }
-
+  
   /**
    * Get a particular animation by index.
    * 
@@ -165,7 +247,20 @@ public class Animations extends ChangeListeners
    * @return
    */
   public Animation get(int index) {
-    return mAnimations.get(index);
+    autoLoad();
+    
+    return (Animation) mAnimations.get(index);
   }
 
+  @Override
+  public Iterator<Animation> iterator() {
+    autoLoad();
+    
+    return new AnimationIterator();
+  }
+
+  @Override
+  public String getName() {
+    return "animations";
+  }
 }

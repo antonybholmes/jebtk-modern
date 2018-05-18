@@ -54,7 +54,7 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
 
   /** The Constant COLOR_PICKER_BACKGROUND. */
   public static final Color COLOR_PICKER_BACKGROUND = ThemeService.getInstance()
-      .colors().getHighlight(1);
+      .colors().getGray(1);
 
   /**
    * The member color picker.
@@ -134,7 +134,7 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
 
     // add(new ModernIconMenuItem("More Colors...",
     // UIService.getInstance().loadIcon("color_wheel", 16))
-    // .setBackgroundAnimations("color-menu-fade"));
+    // .getBackgroundAnimations().set("color-menu-fade"));
 
     add(new ModernIconMenuItem("More Colors...",
         UIService.getInstance().loadIcon("color_wheel", 16)));

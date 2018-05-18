@@ -61,6 +61,7 @@ public class BorderlessCardPanel extends ModernPanel {
   @Override
   public void drawBackground(Graphics2D g2) {
     MaterialUtils.drawBorderlessCard(g2,
+        this,
         0,
         0,
         getWidth(),

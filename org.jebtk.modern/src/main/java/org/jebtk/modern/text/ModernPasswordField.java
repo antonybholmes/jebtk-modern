@@ -98,7 +98,7 @@ public class ModernPasswordField extends JPasswordField {
     setBackground(SettingsService.getInstance().getAsColor("theme.background"));
     setForeground(ModernWidget.TEXT_COLOR);
     setSelectedTextColor(Color.WHITE);
-    setSelectionColor(ThemeService.getInstance().colors().getColorHighlight(2));
+    setSelectionColor(ThemeService.getInstance().colors().getTheme(2));
 
     setBorder(BorderFactory.createEmptyBorder());
 

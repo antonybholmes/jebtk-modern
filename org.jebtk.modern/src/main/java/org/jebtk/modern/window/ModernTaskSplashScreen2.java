@@ -28,7 +28,6 @@
 package org.jebtk.modern.window;
 
 import java.awt.Color;
-import java.awt.Dimension;
 
 import javax.swing.Box;
 import javax.swing.SwingWorker;

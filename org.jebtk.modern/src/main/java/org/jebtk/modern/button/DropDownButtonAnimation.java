@@ -4,7 +4,7 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class DropDownButtonAnimation extends ButtonHighlightAnimation
+public class DropDownButtonAnimation extends ButtonFillAnimation
     implements ChangeListener {
   public DropDownButtonAnimation(ModernWidget button) {
     super(button);

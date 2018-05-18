@@ -27,11 +27,8 @@
  */
 package org.jebtk.modern.window;
 
-import java.awt.Dimension;
-
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.UI;
 import org.jebtk.modern.UIService;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.dialog.ArrangeWindowsDialog;
@@ -40,7 +37,6 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ArrangeWindows32VectorIcon;
 import org.jebtk.modern.graphics.icons.SwitchWindows32VectorIcon;
 import org.jebtk.modern.menu.ModernCheckBoxMenuItem;
-import org.jebtk.modern.menu.ModernScrollPopupMenu;
 import org.jebtk.modern.menu.ModernScrollPopupMenu2;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.ribbon.RibbonLargeButton;

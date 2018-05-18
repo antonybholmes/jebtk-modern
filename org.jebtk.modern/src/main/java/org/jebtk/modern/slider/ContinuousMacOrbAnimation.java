@@ -13,7 +13,7 @@ public class ContinuousMacOrbAnimation extends HoverFadeAnimation {
   private ContinuousMacOrbSlider mButton;
 
   protected static final Color HIGHLIGHT_2 = ThemeService.getInstance().colors()
-      .getColorHighlight32(24);
+      .getTheme32(24);
 
   public ContinuousMacOrbAnimation(ModernWidget button) {
     super(button);

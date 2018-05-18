@@ -75,7 +75,7 @@ public class ModernDialogTabButton extends ModernCheckButton {
       top = 3;
     }
 
-    g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
+    g2.setColor(ThemeService.getInstance().colors().getGray(4));
     int x = getWidth() - 1;
     int y = getHeight() - 1;
 

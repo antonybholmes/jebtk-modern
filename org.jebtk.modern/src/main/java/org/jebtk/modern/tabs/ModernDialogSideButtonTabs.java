@@ -118,7 +118,7 @@ public class ModernDialogSideButtonTabs extends TabsController
   public void drawBackground(Graphics2D g2) {
     fillBackground(g2);
 
-    g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
+    g2.setColor(ThemeService.getInstance().colors().getGray(4));
 
     g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
   }

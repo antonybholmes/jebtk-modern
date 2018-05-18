@@ -134,7 +134,9 @@ public class RibbonLargeOptionalDropDownButton
 
     setSize(RibbonSize.COMPACT);
 
-    setBackgroundAnimations("ribbon-optional-dropdown-button");
+    addToStyleClass("dialog-button");
+    
+    setAnimations("ribbon-optional-dropdown-button");
   }
 
   /**

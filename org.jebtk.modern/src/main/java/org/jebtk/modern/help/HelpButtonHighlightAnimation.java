@@ -2,7 +2,7 @@ package org.jebtk.modern.help;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.button.ButtonHighlightAnimation;
+import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.icons.ModernMessageIcon;
 import org.jebtk.modern.ribbon.Ribbon;
@@ -10,7 +10,7 @@ import org.jebtk.modern.ribbon.RibbonHighlightTextAnimation;
 import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class HelpButtonHighlightAnimation extends ButtonHighlightAnimation {
+public class HelpButtonHighlightAnimation extends ButtonFillAnimation {
 
   public HelpButtonHighlightAnimation(ModernWidget widget) {
     super(widget);
@@ -19,7 +19,7 @@ public class HelpButtonHighlightAnimation extends ButtonHighlightAnimation {
   }
 
   @Override
-  public void drawButton(Graphics2D g2,
+  public void fill(Graphics2D g2,
       int x,
       int y,
       int w,

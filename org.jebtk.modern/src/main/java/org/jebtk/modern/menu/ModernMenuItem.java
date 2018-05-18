@@ -189,7 +189,11 @@ public class ModernMenuItem extends ModernButton {
 
     UI.setSize(this, PREFERRED_SIZE);
 
-    setBackgroundAnimations("menu");
+    //setAnimations("menu");
+    
+    addStyleClass("square-borders");
+    addToStyleClass("dialog-button");
+    setAnimations("button-fill");
   }
 
   /**

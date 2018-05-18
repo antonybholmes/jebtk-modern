@@ -52,16 +52,12 @@ import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.animation.Animation;
-import org.jebtk.modern.animation.AnimationService;
 import org.jebtk.modern.animation.Animations;
 import org.jebtk.modern.font.FontUtils;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.theme.WidgetRenderer;
-import org.jebtk.modern.theme.WidgetRendererProvider;
-import org.jebtk.modern.theme.WidgetRendererService;
 
 /**
  * The basis for all controls. Implements basic message handling.
@@ -85,65 +81,65 @@ public abstract class ModernWidget extends ModernComponent
    * The constant HIGHLIGHT_COLOR.
    */
   public static final Color HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .colors().getHighlight(4);
+      .colors().getGray(4);
 
   /** The Constant HIGHLIGHT_BORDER_COLOR. */
   public static final Color HIGHLIGHT_BORDER_COLOR = ThemeService.getInstance()
-      .colors().getHighlight(6);
+      .colors().getGray(6);
 
   /**
    * The constant HIGHLIGHT_TEXT_COLOR.
    */
   public static final Color HIGHLIGHT_TEXT_COLOR = ThemeService.getInstance()
-      .colors().getColorHighlight(4);
+      .colors().getTheme(4);
 
   /**
    * The constant SELECTED_COLOR.
    */
   public static final Color SELECTED_COLOR = ThemeService.getInstance().colors()
-      .getHighlight(4);
+      .getGray(4);
 
   /**
    * The constant SELECTED_BORDER_COLOR.
    */
   public static final Color SELECTED_BORDER_COLOR = ThemeService.getInstance()
-      .colors().getHighlight(6);
+      .colors().getGray(6);
 
   /**
    * The constant THEME_HIGHLIGHT_COLOR.
    */
   public static final Color THEME_HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .colors().getColorHighlight(2);
+      .colors().getTheme(2);
 
   /**
    * The constant THEME_SELECTED_COLOR.
    */
   public static final Color THEME_SELECTED_COLOR = ThemeService.getInstance()
-      .colors().getColorHighlight(3);
+      .colors().getTheme(3);
 
   /**
    * The constant THEME_SELECTED_BORDER_COLOR.
    */
   public static final Color THEME_SELECTED_BORDER_COLOR = ThemeService
-      .getInstance().colors().getColorHighlight32(10);
+      .getInstance().colors().getTheme32(10);
 
   /**
    * The constant OUTLINE_HIGHLIGHT_COLOR.
    */
   public static final Color OUTLINE_HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .colors().getHighlight(6);
+      .colors().getGray(6);
 
   /**
    * The constant THEME_OUTLINE_HIGHLIGHT_COLOR.
    */
   public static final Color THEME_OUTLINE_HIGHLIGHT_COLOR = ThemeService
-      .getInstance().colors().getColorHighlight(6);
+      .getInstance().colors().getTheme(6);
 
   /**
    * The constant OUTLINE_BACKGROUND_COLOR.
    */
   public static final Color OUTLINE_BACKGROUND_COLOR = ThemeService
-      .getInstance().colors().getHighlight(1);
+      .getInstance().colors().getGray(1);
 
   /**
    * The constant MIN_WIDGET_HEIGHT.
@@ -160,7 +156,7 @@ public abstract class ModernWidget extends ModernComponent
    * The constant DIALOG_2_COLOR.
    */
   private static final Color DIALOG_2_COLOR = ThemeService.getInstance()
-      .colors().getHighlight(2);
+      .colors().getGray(2);
 
   /**
    * The constant TEXT_COLOR.
@@ -182,7 +178,7 @@ public abstract class ModernWidget extends ModernComponent
    * The constant DARK_OUTLINE_COLOR.
    */
   public static final Color DARK_OUTLINE_COLOR = ThemeService.getInstance()
-      .colors().getHighlight(8);
+      .colors().getGray(8);
 
   /**
    * The constant FONT.
@@ -343,13 +339,13 @@ public abstract class ModernWidget extends ModernComponent
    * The constant DIALOG_BUTTON_BASE.
    */
   private static final Color DIALOG_BUTTON_BASE = ThemeService.getInstance()
-      .colors().getHighlight(3);
+      .colors().getGray(3);
 
   /**
    * The constant DIALOG_BUTTON_BORDER_COLOR.
    */
   private static final Color DIALOG_BUTTON_BORDER_COLOR = ThemeService
-      .getInstance().colors().getHighlight(5);
+      .getInstance().colors().getGray(5);
 
   /**
    * The next id.
@@ -367,7 +363,7 @@ public abstract class ModernWidget extends ModernComponent
   public static final Border TWO_PIXEL_BORDER = BorderService.getInstance()
       .createBorder(2);
 
-  private Animations mBackgroundAnimations = new Animations();
+  private Animations mBackgroundAnimations = null;
 
   // private Animations mForegroundAnimations = new Animations();
 
@@ -426,7 +422,11 @@ public abstract class ModernWidget extends ModernComponent
     setFont(FONT);
     setBackground(BACKGROUND_COLOR);
     setForeground(TEXT_COLOR);
+    
+    addStyleClass("widget");
 
+    mBackgroundAnimations = new Animations(this);
+    
     mBackgroundAnimations.addChangeListener(new ChangeListener() {
       @Override
       public void changed(ChangeEvent e) {
@@ -456,33 +456,22 @@ public abstract class ModernWidget extends ModernComponent
   }
 
   public Animation getBackgroundAnimation() {
-    return getBackgroundAnimations().get(0);
+    return getAnimations().get(0);
   }
 
-  public Animations getBackgroundAnimations() {
+  public Animations getAnimations() {
     return mBackgroundAnimations;
   }
-
-  /**
-   * Bind a named set of animations to the widget.
-   * 
-   * @param name The name of predefined animations stored in AnimationService.
-   * @return
-   */
-  public ModernWidget setBackgroundAnimations(String name) {
-    return setBackgroundAnimations(
-        AnimationService.getInstance().create(name, this));
-  }
-
-  public ModernWidget setBackgroundAnimations(Animations animations) {
-    mBackgroundAnimations.set(animations);
-
+  
+  public ModernWidget setAnimations(String animation, String... animations) {
+    getAnimations().set(animation, animations);
+    
     return this;
   }
-
-  public ModernWidget setBackgroundAnimation(Animation animation) {
-    mBackgroundAnimations.set(animation);
-
+  
+  public ModernWidget setAnimations(Animation animation, Animation... animations) {
+    getAnimations().set(animation, animations);
+    
     return this;
   }
 
@@ -1708,4 +1697,6 @@ public abstract class ModernWidget extends ModernComponent
   public static Component setSize(JComponent c, int width) {
     return UI.setSize(c, width, WIDGET_HEIGHT);
   }
+
+  
 }

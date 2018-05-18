@@ -157,6 +157,6 @@ public class ModernSubCollapsePane extends AbstractCollapsePane {
 
     setHeaderHeight(36);
 
-    setBackgroundAnimations("sub-collapse-pane");
+    setAnimations("sub-collapse-pane");
   }
 }

@@ -272,14 +272,14 @@ public class ColorMapCirclePicker extends ModernClickWidget {
 
         g2Temp.setPaint(paint);
         // g2.fillRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-        // ModernRoundedWidgetRenderer.ROUNDING,
-        // ModernRoundedWidgetRenderer.ROUNDING);
+        // MaterialService.instance().ints().cornerRadius();,
+        // MaterialService.instance().ints().cornerRadius(););
         g2Temp.fillOval(x, y, HEAT_MAP_SIZE, HEAT_MAP_SIZE);
 
         // g2Temp.setColor(LINE_COLOR);
         // g2.drawRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-        // ModernRoundedWidgetRenderer.ROUNDING,
-        // ModernRoundedWidgetRenderer.ROUNDING);
+        // MaterialService.instance().ints().cornerRadius();,
+        // MaterialService.instance().ints().cornerRadius(););
         // g2Temp.drawOval(x, y, HEAT_MAP_SIZE, HEAT_MAP_SIZE);
 
         y = i / mCols * BLOCK_SIZE + OUTER_PADDING + SELECTED_OFFSET;

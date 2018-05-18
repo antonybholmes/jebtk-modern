@@ -44,15 +44,15 @@ public class IconTabs extends TabsPanel {
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_1. */
   public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService
-      .getInstance().colors().getColorHighlight(3);
+      .getInstance().colors().getTheme(3);
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_2. */
   protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService
-      .getInstance().colors().getColorHighlight(4);
+      .getInstance().colors().getTheme(4);
 
   /** The Constant TEXT_TAB_SELECTED_OUTLINE_COLOR. */
   protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getColorHighlight(5);
+      .getInstance().colors().getTheme(5);
 
   /** The m tab size. */
   protected int mTabSize = -1;
@@ -72,7 +72,7 @@ public class IconTabs extends TabsPanel {
     mTabSize = tabSize;
     mIconSize = iconSize;
 
-    setBackgroundAnimations("icon-tabs");
+    setAnimations("icon-tabs");
 
     model.addTabListener(new TabEventAdapter() {
 

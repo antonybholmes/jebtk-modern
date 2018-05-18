@@ -7,7 +7,7 @@ import java.awt.geom.GeneralPath;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.graphics.ImageUtils;
 
-public class CheckUI extends RoundedUI {
+public class CheckUI extends UIRenderer {
   public static final double CHECK_SCALE = SettingsService.getInstance()
       .getAsDouble("theme.icons.check-icon.width-scale");
 

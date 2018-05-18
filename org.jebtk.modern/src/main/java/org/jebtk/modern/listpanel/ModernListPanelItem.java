@@ -26,7 +26,7 @@ public class ModernListPanelItem extends ModernWidget {
 
     setBorder(ModernWidget.BORDER);
 
-    setBackgroundAnimations("listpanel");
+    setAnimations("listpanel");
 
     addMouseListener(new MouseAdapter() {
 

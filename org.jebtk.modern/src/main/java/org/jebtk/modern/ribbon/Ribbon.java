@@ -77,7 +77,6 @@ import org.jebtk.modern.tabs.TabEventListener;
 import org.jebtk.modern.tabs.TabEventProducer;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.theme.ModernRoundedWidgetRenderer;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.tooltip.ModernToolTipEvent;
 import org.jebtk.modern.tooltip.ModernToolTipListener;
@@ -249,29 +248,29 @@ public class Ribbon extends ModernClickWidget
 
   /** The constant TAB_COLOR. */
   public static final Color TAB_COLOR = ThemeService.getInstance().colors()
-      .getHighlight32(1);
+      .getGray32(1);
 
   /** The Constant TAB_COLOR_2. */
   public static final Color TAB_COLOR_2 = ThemeService.getInstance().colors()
-      .getHighlight32(3);
+      .getGray32(3);
 
   /**
    * The constant BORDER_COLOR.
    */
   public static final Color BORDER_COLOR = ThemeService.getInstance().colors()
-      .getHighlight(4);
+      .getGray(4);
 
   /**
    * The constant BUTTON_HIGHLIGHTED_COLOR.
    */
   public static final Color BUTTON_HIGHLIGHTED_COLOR = ThemeService
-      .getInstance().colors().getHighlight(5); // Color.WHITE;
+      .getInstance().colors().getGray(5); // Color.WHITE;
 
   /**
    * The constant BUTTON_SELECTED_COLOR.
    */
   public static final Color BUTTON_SELECTED_COLOR = ThemeService.getInstance()
-      .colors().getHighlight(5);
+      .colors().getGray(5);
 
   // ThemeService.getInstance().getThemeColor(4);
 
@@ -287,11 +286,11 @@ public class Ribbon extends ModernClickWidget
   // private static final String FILE_TOOLBAR = "FILE";
 
   /** The Constant ROUNDING. */
-  private static final int ROUNDING = ModernRoundedWidgetRenderer.ROUNDING;
+  private static final int ROUNDING = MaterialService.instance().ints().cornerRadius();
 
   /** The Constant SEPARATOR_COLOR. */
   public static final Color SEPARATOR_COLOR = ThemeService.getInstance()
-      .colors().getHighlight(3);
+      .colors().getGray(3);
 
   /**
    * The member tabs panel.
@@ -684,7 +683,7 @@ public class Ribbon extends ModernClickWidget
     // to respond to tooltips
     setToolTipsEnabled(false);
 
-    setBackgroundAnimations("ribbon");
+    setAnimations("ribbon");
 
     /*
      * getBackgroundAnimations() .set(new RibbonAnimation(this)) .add(new

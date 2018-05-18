@@ -42,7 +42,7 @@ public class ModernTextLink extends ModernLinkButton {
 
     setForeground(color);
 
-    setBackgroundAnimations("url-text-button");
+    setAnimations("url-text-button");
   }
 
   /*

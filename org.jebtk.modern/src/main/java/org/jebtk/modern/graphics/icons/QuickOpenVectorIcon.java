@@ -31,8 +31,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
-import org.jebtk.modern.ribbon.Ribbon;
-
 /**
  * Vector based save icon.
  * 

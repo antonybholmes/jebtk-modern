@@ -86,7 +86,7 @@ public class ListHighlightAnimation extends HighlightAnimation {
             // g2Table.setColor(getFade().getFadeColor("highlight"));
             // g2Table.fillRect(0, 0, mList.getWidth(), mList.mRowHeight);
 
-            UIDrawService.getInstance().get("button.highlight").draw(g2Table,
+            UIDrawService.getInstance().get("button-fill").draw(g2Table,
                 0,
                 0,
                 mList.getWidth(),

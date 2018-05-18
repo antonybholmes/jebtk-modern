@@ -165,13 +165,13 @@ public class ThemeService extends ModernTheme {
 
       setTheme(theme);
 
-      put("light-line", getHighlight32(3));
-      put("line", getHighlight32(7));
-      put("dark-line", getHighlight32(9));
+      put("light-line", getGray32(3));
+      put("line", getGray32(7));
+      put("dark-line", getGray32(9));
 
-      put("text", getHighlight32(31)); // Color.BLACK; //getHighlight32(31);
-      put("alt-text", getHighlight32(28));
-      put("disabled-text", getHighlight32(24));
+      put("text", getGray32(31)); // Color.BLACK; //getHighlight32(31);
+      put("alt-text", getGray32(28));
+      put("disabled-text", getGray32(24));
     }
 
     /**
@@ -193,7 +193,7 @@ public class ThemeService extends ModernTheme {
      * 
      * @return the color highlight
      */
-    public Color getColorHighlight(int i) {
+    public Color getTheme(int i) {
       return mColorHighlight.getColor(i);
     }
 
@@ -203,11 +203,11 @@ public class ThemeService extends ModernTheme {
      * @param i the i
      * @return the color highlight 32
      */
-    public Color getColorHighlight32(int i) {
+    public Color getTheme32(int i) {
       return mColorHighlight.getColor32(i);
     }
 
-    public int getColorHighlightIndex(Color color) {
+    public int getThemeIndex(Color color) {
       return mColorHighlight.getIndex(color);
     }
 
@@ -217,7 +217,7 @@ public class ThemeService extends ModernTheme {
      * @param i the i
      * @return the highlight
      */
-    public Color getHighlight(int i) {
+    public Color getGray(int i) {
       return mHighlight.getColor(i);
     }
 
@@ -227,11 +227,11 @@ public class ThemeService extends ModernTheme {
      * @param i An index from 0-31 inclusive.
      * @return the highlight 32
      */
-    public Color getHighlight32(int i) {
+    public Color getGray32(int i) {
       return mHighlight.getColor32(i);
     }
 
-    public int getHighlightIndex(Color color) {
+    public int getGrayIndex(Color color) {
       return mHighlight.getIndex(color);
     }
 
@@ -547,7 +547,7 @@ public class ThemeService extends ModernTheme {
     if (mSetup) {
       setLookAndFeel();
       registerFonts();
-      setWidgetRenderer();
+      //setWidgetRenderer();
 
       mSetup = false;
     }
@@ -563,10 +563,10 @@ public class ThemeService extends ModernTheme {
   /**
    * Sets the widget renderer.
    */
-  public static final void setWidgetRenderer() {
+  //public static final void setWidgetRenderer() {
     // Set the default way widgets are rendered.
-    WidgetRendererService.getInstance().set(new ModernRoundedWidgetRenderer());
-  }
+  //  WidgetRendererService.getInstance().set(new ModernRoundedWidgetRenderer());
+  //}
 
   /**
    * Sets the look and feel.
@@ -580,8 +580,12 @@ public class ThemeService extends ModernTheme {
   public static final void setLookAndFeel()
       throws ClassNotFoundException, InstantiationException,
       IllegalAccessException, UnsupportedLookAndFeelException {
+    
+    // Set some style properties
+    
+ 
+    
     List<String> looks = new ArrayList<String>();
-
     looks.add("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
     looks.add("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
     looks.add("com.sun.java.swing.plaf.gtk.GTK");
@@ -605,10 +609,10 @@ public class ThemeService extends ModernTheme {
 
     // Resources.getInstance().registerFont("Futura_LT_Book.ttf");
 
-    Resources.getInstance().registerFont("Roboto-Light.ttf");
-    Resources.getInstance().registerFont("Roboto-Regular.ttf");
-    Resources.getInstance().registerFont("Roboto-Medium.ttf");
-    Resources.getInstance().registerFont("Roboto-Bold.ttf");
+    //Resources.getInstance().registerFont("Roboto-Light.ttf");
+    //Resources.getInstance().registerFont("Roboto-Regular.ttf");
+    //Resources.getInstance().registerFont("Roboto-Medium.ttf");
+    //Resources.getInstance().registerFont("Roboto-Bold.ttf");
 
     Resources.getInstance().registerFont("SourceSansPro-Light.ttf");
     Resources.getInstance().registerFont("SourceSansPro-Regular.ttf");

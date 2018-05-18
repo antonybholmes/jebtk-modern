@@ -28,9 +28,7 @@
 package org.jebtk.modern.window;
 
 import javax.swing.JComponent;
-import javax.swing.border.Border;
 
-import org.jebtk.modern.BorderService;
 import org.jebtk.modern.contentpane.ModernHContentPane;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.panel.AutoHidePanel;

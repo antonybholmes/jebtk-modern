@@ -83,7 +83,7 @@ public class ModernList<T> extends ModernVertCanvas
    * The constant DRAG_LINE_COLOR.
    */
   static final Color DRAG_LINE_COLOR = ThemeService.getInstance().colors()
-      .getHighlight(6);
+      .getGray(6);
 
   /**
    * The member list model.
@@ -434,7 +434,7 @@ public class ModernList<T> extends ModernVertCanvas
       }
     });
 
-    setBackgroundAnimations("list");
+    setAnimations("list");
   }
 
   /**

@@ -186,7 +186,7 @@ public class ModernTextBorderPanel extends ModernWidget
 
     setBorder(SMALL_BORDER);
 
-    setBackgroundAnimations("text-border");
+    setAnimations("text-border");
   }
 
   /*

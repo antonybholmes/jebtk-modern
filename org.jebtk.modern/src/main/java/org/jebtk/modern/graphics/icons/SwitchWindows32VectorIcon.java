@@ -65,7 +65,7 @@ public class SwitchWindows32VectorIcon extends ModernVectorIcon {
    * Instantiates a new switch windows32 vector icon.
    */
   public SwitchWindows32VectorIcon() {
-    this(ThemeService.getInstance().colors().getColorHighlight(4));
+    this(ThemeService.getInstance().colors().getTheme(4));
   }
 
   /**

@@ -18,6 +18,8 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernComponent;
+
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
@@ -30,6 +32,7 @@ public class ColorCircleHighlightUI extends ColorButtonUI {
 
   @Override
   public void fill(Graphics2D g2,
+      ModernComponent c,
       int x,
       int y,
       int w,

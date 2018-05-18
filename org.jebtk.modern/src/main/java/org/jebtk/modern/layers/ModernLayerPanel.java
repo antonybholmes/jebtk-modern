@@ -110,7 +110,7 @@ public class ModernLayerPanel extends ModernWidget
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
-    g2.setColor(ThemeService.getInstance().colors().getHighlight(1));
+    g2.setColor(ThemeService.getInstance().colors().getGray(1));
 
     g2.drawLine(0, mRect.getH() - 1, mRect.getW(), mRect.getH() - 1);
   }

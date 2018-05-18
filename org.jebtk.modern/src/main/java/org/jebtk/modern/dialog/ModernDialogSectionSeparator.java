@@ -57,7 +57,7 @@ public class ModernDialogSectionSeparator extends ModernWidget {
    * The constant BACKGROUND.
    */
   private static final Color BACKGROUND = ThemeService.getInstance().colors()
-      .getHighlight(3);
+      .getGray(3);
 
   /**
    * The member text.

@@ -31,7 +31,7 @@ import org.jebtk.modern.widget.ModernWidget;
 public class RibbonBackMenuAnimation extends HoverFadeAnimation {
 
   private static final Color MENU_SELECTED_COLOR_2 = ThemeService.getInstance()
-      .colors().getHighlight32(12);
+      .colors().getGray32(12);
 
   /**
    * Instantiates a new quick access animation.

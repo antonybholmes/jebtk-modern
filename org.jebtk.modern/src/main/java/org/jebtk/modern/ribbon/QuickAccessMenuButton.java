@@ -30,6 +30,7 @@ package org.jebtk.modern.ribbon;
 import org.jebtk.modern.button.ModernMenuButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
+import org.jebtk.modern.theme.KeyFrames;
 
 /**
  * For adding quick access buttons to the ribbon.
@@ -53,7 +54,9 @@ public class QuickAccessMenuButton extends ModernMenuButton {
   public QuickAccessMenuButton(ModernIcon icon, ModernPopupMenu menu) {
     super(icon, menu);
 
-    setBackgroundAnimation(new QuickAccessDropDownAnimation(this));
+    addStyleClass(KeyFrames.TO, "quick-access-button");
+    
+    setAnimations(new QuickAccessDropDownAnimation(this));
   }
 
   /*

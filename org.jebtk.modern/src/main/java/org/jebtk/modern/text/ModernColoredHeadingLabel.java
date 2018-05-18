@@ -53,7 +53,7 @@ public class ModernColoredHeadingLabel extends ModernHeadingLabel {
   public ModernColoredHeadingLabel(String text) {
     super(text);
 
-    setForeground(ThemeService.getInstance().colors().getColorHighlight(5));
+    setForeground(ThemeService.getInstance().colors().getTheme(5));
   }
 
   /**

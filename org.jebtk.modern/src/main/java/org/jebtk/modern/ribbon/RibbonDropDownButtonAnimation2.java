@@ -15,13 +15,14 @@
  */
 package org.jebtk.modern.ribbon;
 
+import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The Class RibbonDropDownButtonAnimation.
  */
 public class RibbonDropDownButtonAnimation2
-    extends RibbonButtonHighlightAnimation {
+    extends ButtonFillAnimation {
 
   /**
    * Instantiates a new ribbon drop down button animation.

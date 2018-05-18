@@ -81,7 +81,7 @@ public class ModernCheckLinkButton extends ModernCheckButton {
     boolean underline = mHighlight || isSelected();
 
     g2.setColor(
-        underline ? ThemeService.getInstance().colors().getColorHighlight(4)
+        underline ? ThemeService.getInstance().colors().getTheme(4)
             : TEXT_COLOR);
     // g2.setFont(underline ? BOLD_FONT : FONT);
 

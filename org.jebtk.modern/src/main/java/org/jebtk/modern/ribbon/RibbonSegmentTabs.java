@@ -33,7 +33,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.tabs.SegmentTabs;
 import org.jebtk.modern.tabs.TabsModel;
-import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -105,7 +104,7 @@ public class RibbonSegmentTabs extends SegmentTabs {
       //getWidgetRenderer()
        //   .drawButtonFill(g2, x, y, w, h, RenderMode.HIGHLIGHT, hasFocus());
       
-      UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h);
+      UIDrawService.getInstance().get("button-fill").draw(g2, x, y, w, h);
 
       if (mHighlight == 0) {
         g2.fill(mLeftEnd);

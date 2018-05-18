@@ -157,7 +157,7 @@ public class RibbonMenuItem extends ModernCheckButton
 
     UI.setSize(this, RIBBON_MENU_ITEM_SIZE);
 
-    setBackgroundAnimations("ribbon-menu");
+    setAnimations("ribbon-menu");
 
     // g2.drawString(this.getText(), ICON_OFFSET + Resources.ICON_SIZE_16 +
     // TEXT_OFFSET, y);

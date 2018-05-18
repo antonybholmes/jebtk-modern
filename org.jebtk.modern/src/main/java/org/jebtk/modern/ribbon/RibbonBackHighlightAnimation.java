@@ -46,7 +46,7 @@ public class RibbonBackHighlightAnimation extends HoverFadeAnimation {
     int x = ModernWidget.DOUBLE_PADDING;
     int y = (widget.getHeight() - HEIGHT) / 2;
 
-    UIDrawService.getInstance().get("circle.highlight")
+    UIDrawService.getInstance().get("circle-fill")
         .draw(g2, x, y, HEIGHT, HEIGHT, getFadeColor("fill"));
   }
 }

@@ -2,6 +2,7 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.RenderMode;
@@ -17,40 +18,38 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
     // mButton = (ModernClickWidget)button;
 
     // setFadeColor("outline", ModernWidgetRenderer.SELECTED_OUTLINE_COLOR);
+    
     setFadeColor("fill", MaterialService.instance().color("theme-highlight"));
   }
 
   public void drawButton(Graphics2D g2,
+      ModernComponent c,
       int x,
       int y,
       int w,
       int h,
       RenderMode mode,
       boolean hasFocus) {
-    drawButtonFill(g2, x, y, w, h, mode, hasFocus);
+    fill(g2, c, x, y, w, h, mode, hasFocus);
 
-    drawButtonOutline(g2, x, y, w, h, mode, hasFocus);
+    outline(g2, c, x, y, w, h, mode, hasFocus);
   }
 
-  public void drawButtonOutline(Graphics2D g2,
+  public void outline(Graphics2D g2,
+      ModernComponent c,
       int x,
       int y,
       int w,
       int h,
       RenderMode mode,
       boolean hasFocus) {
-    // g2.setColor(getFadeColor("outline"));
-    // outline(g2, x, y, w, h);
-  }
-
-  public void outline(Graphics2D g2, int x, int y, int w, int h) {
     //getWidget().getWidgetRenderer().outline(g2, x, y, w, h);
     
-    UIDrawService.getInstance().get("button.outline").draw(g2, x, y, w, h);
-    
+    UIDrawService.getInstance().get("button-outline").draw(g2, c, x, y, w, h);
   }
 
-  public void drawButtonFill(Graphics2D g2,
+  public void fill(Graphics2D g2,
+      ModernComponent c,
       int x,
       int y,
       int w,
@@ -72,11 +71,12 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
 
     switch (mode) {
     case SELECTED:
-      UIDrawService.getInstance().get("button.selected").draw(g2, x, y, w, h);
+      UIDrawService.getInstance().get("button.selected")
+        .draw(g2, c, x, y, w, h);
       break;
     case HIGHLIGHT:
-      UIDrawService.getInstance().get("button.highlight")
-          .draw(g2, x, y, w, h, getFadeColor("fill"));
+      UIDrawService.getInstance().get("button-fill")
+        .draw(g2, c, x, y, w, h, getFadeColor("fill"));
       break;
     default:
       break;

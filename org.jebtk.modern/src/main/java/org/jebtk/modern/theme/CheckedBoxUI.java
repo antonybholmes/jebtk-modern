@@ -2,7 +2,7 @@ package org.jebtk.modern.theme;
 
 import java.awt.Graphics2D;
 
-public class CheckedBoxUI extends CheckUI {
+public class CheckedBoxUI extends UIRenderer {
 
   @Override
   public String getName() {

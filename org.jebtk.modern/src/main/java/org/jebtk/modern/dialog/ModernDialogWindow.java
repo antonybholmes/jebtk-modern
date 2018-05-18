@@ -52,7 +52,6 @@ import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.panel.BorderlessCardPanel;
 import org.jebtk.modern.panel.CardPanel;
-import org.jebtk.modern.panel.ModernLineBottomBorderPanel;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.tooltip.ModernToolTipEvent;
@@ -98,7 +97,7 @@ public class ModernDialogWindow extends JDialog
 
   /** The Constant DIALOG_BACKGROUND_1. */
   public static final Color DIALOG_BACKGROUND = ThemeService.getInstance()
-      .colors().getHighlight32(1);
+      .colors().getGray32(1);
 
   public static final Border FLAT_BORDER = BorderService.getInstance()
       .createBottomBorder(ModernWidget.DOUBLE_PADDING);

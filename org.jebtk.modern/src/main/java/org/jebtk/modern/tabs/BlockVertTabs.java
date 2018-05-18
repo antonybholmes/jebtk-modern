@@ -100,7 +100,7 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
 
     addComponentListener(this);
 
-    setBackgroundAnimations("block-vert-tabs");
+    setAnimations("block-vert-tabs");
   }
 
   /*

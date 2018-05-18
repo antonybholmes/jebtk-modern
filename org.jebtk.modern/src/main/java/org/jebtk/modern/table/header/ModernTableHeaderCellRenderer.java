@@ -46,11 +46,11 @@ public abstract class ModernTableHeaderCellRenderer
 
   /** The Constant SEL_LINE_COLOR. */
   public static final Color SEL_LINE_COLOR = ThemeService.getInstance().colors()
-      .getColorHighlight(5);
+      .getTheme(5);
 
   /** The Constant SEL_BACK_COLOR. */
   public static final Color SEL_BACK_COLOR = ThemeService.getInstance().colors()
-      .getHighlight(3);
+      .getGray(3);
 
   /** The m text. */
   protected String mText;

@@ -60,8 +60,8 @@ public class ModernMenuHelpItem extends ModernIconMenuItem {
   /** The Constant ICON. */
   private static final ModernIcon ICON = ModernVectorScalableIcon
       .createRastorIcon(HelpVectorIcon.class,
-          ThemeService.getInstance().colors().getColorHighlight(5),
-          ThemeService.getInstance().colors().getColorHighlight(6),
+          ThemeService.getInstance().colors().getTheme(5),
+          ThemeService.getInstance().colors().getTheme(6),
           SIZE);
 
   /** The m url. */

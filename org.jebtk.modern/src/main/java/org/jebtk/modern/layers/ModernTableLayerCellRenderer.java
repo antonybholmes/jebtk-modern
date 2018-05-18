@@ -91,7 +91,7 @@ public class ModernTableLayerCellRenderer
     y = (this.getHeight() - UIService.ICON_SIZE_20) / 2;
 
     drawRect(g2,
-        ThemeService.getInstance().colors().getColorHighlight(2),
+        ThemeService.getInstance().colors().getTheme(2),
         new Rectangle(x, y, 20, 20));
   }
 }

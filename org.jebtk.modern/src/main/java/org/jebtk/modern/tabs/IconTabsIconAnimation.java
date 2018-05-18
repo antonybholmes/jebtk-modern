@@ -32,7 +32,7 @@ import org.jebtk.modern.widget.ModernWidget;
 public class IconTabsIconAnimation extends WidgetAnimation {
 
   public static final Color ICON_COLOR = ThemeService.getInstance().colors()
-      .getHighlight(5);
+      .getGray(5);
 
   private IconTabs mTabs;
 

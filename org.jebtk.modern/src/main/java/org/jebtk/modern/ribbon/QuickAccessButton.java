@@ -29,6 +29,7 @@ package org.jebtk.modern.ribbon;
 
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.theme.KeyFrames;
 
 /**
  * For adding quick access buttons to the ribbon.
@@ -76,7 +77,9 @@ public class QuickAccessButton extends ModernButton {
    * Setup.
    */
   private void setup() {
-    setBackgroundAnimation(new QuickAccessAnimation(this));
+    addStyleClass(KeyFrames.TO, "quick-access-button");
+    
+    setAnimations("button-fill"); //new QuickAccessAnimation(this));
   }
 
   /*

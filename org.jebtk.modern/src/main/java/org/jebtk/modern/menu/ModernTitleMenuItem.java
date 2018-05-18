@@ -51,7 +51,7 @@ public class ModernTitleMenuItem extends ModernMenuItem {
    * @param text the text
    */
   private static final Color BACKGROUND = ThemeService.getInstance().colors()
-      .getHighlight(1);
+      .getGray(1);
 
   /**
    * Instantiates a new modern title menu item.

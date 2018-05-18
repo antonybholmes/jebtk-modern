@@ -76,7 +76,7 @@ public class ModernDataCellRenderer extends ModernClickWidget {
 
   /** The Constant DISABLED_COLOR. */
   public static final Color DISABLED_COLOR = ThemeService.getInstance().colors()
-      .getHighlight(2);
+      .getGray(2);
 
   /**
    * Sets the can highlight.

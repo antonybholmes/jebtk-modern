@@ -81,7 +81,7 @@ public class RibbonBackMenuItem extends RibbonMenuItem {
 
     super.setSelected(false);
 
-    setBackgroundAnimation(new RibbonBackMenuAnimation(this));
+    setAnimations(new RibbonBackMenuAnimation(this));
   }
 
   /*

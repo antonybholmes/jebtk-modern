@@ -37,4 +37,9 @@ public class NoAnimation implements Animation {
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     // Do nothing
   }
+  
+  @Override
+  public String getName() {
+    return "no-animation";
+  }
 }

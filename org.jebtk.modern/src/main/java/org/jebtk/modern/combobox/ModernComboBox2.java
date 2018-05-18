@@ -61,6 +61,7 @@ import org.jebtk.modern.menu.ModernPopupMenu2;
 import org.jebtk.modern.menu.ModernScrollPopupMenu2;
 import org.jebtk.modern.text.ModernClipboardTextField;
 import org.jebtk.modern.text.ModernTextField;
+import org.jebtk.modern.theme.KeyFrames;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -364,7 +365,9 @@ public class ModernComboBox2 extends ModernDropDownWidget2
 
     resize();
 
-    setBackgroundAnimations("combobox2");
+    addStyleClass("dialog-button");
+    addStyleClass(KeyFrames.TO, "content-outline");
+    setAnimations("combobox2", "button-outline");
   }
 
   /**

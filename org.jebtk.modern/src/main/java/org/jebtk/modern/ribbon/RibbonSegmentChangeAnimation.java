@@ -95,7 +95,7 @@ public class RibbonSegmentChangeAnimation extends TranslateYAnimation {
 
     // g2.fillRect(0, 0, WIDTH, RibbonSegmentVertTabs.TAB_SIZE);
 
-    UIDrawService.getInstance().get("menu.highlight").draw(g2,
+    UIDrawService.getInstance().get("button-fill").draw(g2,
         0,
         0,
         WIDTH,

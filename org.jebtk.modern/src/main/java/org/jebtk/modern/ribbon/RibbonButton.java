@@ -27,12 +27,8 @@ ColorSwatchButton.java * Copyright (C) 2016, Antony Holmes
  */
 package org.jebtk.modern.ribbon;
 
-import java.awt.Color;
-
-import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.theme.ThemeService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -109,7 +105,7 @@ public class RibbonButton extends ModernButton {
    * Setup.
    */
   private void setup() {
-    setBackgroundAnimations("ribbon-button");
+    setAnimations("ribbon-button");
   }
 
   /*

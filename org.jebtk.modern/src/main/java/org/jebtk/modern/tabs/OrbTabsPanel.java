@@ -34,16 +34,18 @@ public class OrbTabsPanel extends ModernComponent {
    * @param pagePadding the page padding
    * @param centered the centered
    */
-  public OrbTabsPanel(TabsModel model, int tabSize, int height) {
+  public OrbTabsPanel(TabsModel model, int tabSize) {
     OrbTabs tabs = new OrbTabs(model, tabSize);
 
-    UI.setSize(tabs, Short.MAX_VALUE, height);
+    UI.setSize(tabs, Short.MAX_VALUE, tabSize);
 
-    setFooter(tabs); // new TextTabsTriangle(model, centered));
+    setHeader(tabs); // new TextTabsTriangle(model, centered));
 
     TabsViewPanel panel = new TabsViewPanel(model);
     // panel.setBorder(0);
 
     setBody(panel);
   }
+
+  
 }

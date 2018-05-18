@@ -68,7 +68,7 @@ public class ModernTextField extends JTextField implements TextProperty {
 
   /** The Constant SELECTION_COLOR. */
   public static final Color SELECTION_COLOR = ThemeService.getInstance()
-      .colors().getColorHighlight32(12);
+      .colors().getTheme32(12);
 
   /**
    * Instantiates a new modern text field.

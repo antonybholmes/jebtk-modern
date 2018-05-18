@@ -2,11 +2,11 @@ package org.jebtk.modern.dialog;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.button.ButtonHighlightAnimation;
+import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.theme.UIDrawService;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class FlatButtonAnimation extends ButtonHighlightAnimation {
+public class FlatButtonAnimation extends ButtonFillAnimation {
   public FlatButtonAnimation(ModernWidget button) {
     super(button);
   }

@@ -17,6 +17,7 @@ package org.jebtk.modern.ribbon;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
+import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.button.ModernDropDownWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -24,7 +25,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * The Class RibbonDropDownButtonAnimation.
  */
 public class RibbonDropDownButtonAnimation
-    extends RibbonButtonHighlightAnimation implements ChangeListener {
+    extends ButtonFillAnimation implements ChangeListener {
 
   /**
    * Instantiates a new ribbon drop down button animation.

@@ -31,7 +31,7 @@ import org.jebtk.modern.widget.ModernWidget;
 public class OrbTabsAnimation extends WidgetAnimation {
 
   private static final Color TEXT_COLOR = ThemeService.getInstance().colors()
-      .getHighlight(10);
+      .getGray(10);
 
   private OrbTabs mTabs;
 
@@ -55,7 +55,7 @@ public class OrbTabsAnimation extends WidgetAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-    int x = mTabs.getInsets().left;
+    int x = (widget.getWidth() - mTabs.mTabSize * mTabs.getTabsModel().getTabCount()) / 2; //mTabs.getInsets().left;
     int h = mTabs.getInternalRect().getH();
     int n = mTabs.getTabsModel().getTabCount();
 

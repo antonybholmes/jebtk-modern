@@ -1,7 +1,5 @@
 package org.jebtk.modern.button;
 
-import org.jebtk.modern.button.CircleButtonHighlightAnimation;
-import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
 public class ModernCircleButton extends ModernButton {
@@ -11,7 +9,7 @@ public class ModernCircleButton extends ModernButton {
   public ModernCircleButton(ModernIcon icon) {
     super(icon);
 
-    setBackgroundAnimation(new CircleButtonHighlightAnimation(this));
+    setAnimations("circle-fill");
   }
 
   public ModernCircleButton(ModernIcon icon, String toolTipTitle,

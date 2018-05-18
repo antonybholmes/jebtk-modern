@@ -31,7 +31,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.widget.ModernWidget;
-import org.jebtk.modern.window.ModernWindowContentPanel;
 
 public class ModernFileCrumb extends ModernWidget
     implements ChangeEventProducer {
@@ -198,7 +197,7 @@ public class ModernFileCrumb extends ModernWidget
 
     // setBorder(SMALL_BORDER);
 
-    // setBackgroundAnimations("text-border");
+    // getBackgroundAnimations().set("text-border");
   }
 
   private int getIndex(int x) {

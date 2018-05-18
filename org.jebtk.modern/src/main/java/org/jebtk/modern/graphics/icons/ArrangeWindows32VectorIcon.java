@@ -65,7 +65,7 @@ public class ArrangeWindows32VectorIcon extends ModernVectorIcon {
    * Instantiates a new arrange windows32 vector icon.
    */
   public ArrangeWindows32VectorIcon() {
-    this(ThemeService.getInstance().colors().getColorHighlight(4));
+    this(ThemeService.getInstance().colors().getTheme(4));
   }
 
   /**

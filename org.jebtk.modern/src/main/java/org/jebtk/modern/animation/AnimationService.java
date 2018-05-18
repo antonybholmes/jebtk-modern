@@ -29,12 +29,16 @@ package org.jebtk.modern.animation;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.EntryCreator;
+import org.jebtk.modern.button.ButtonFillAnimation;
+import org.jebtk.modern.button.ButtonOutlineAnimation;
 import org.jebtk.modern.button.CheckBoxAnimation;
 import org.jebtk.modern.button.CheckBoxHighlightAnimation;
 import org.jebtk.modern.button.CheckBoxSelectedAnimation;
@@ -43,7 +47,7 @@ import org.jebtk.modern.button.CheckSwitchAnimation;
 import org.jebtk.modern.button.CheckSwitchChangeAnimation;
 import org.jebtk.modern.button.ChipButtonAnimation;
 import org.jebtk.modern.button.ChipButtonHighlightAnimation;
-import org.jebtk.modern.button.CircleButtonHighlightAnimation;
+import org.jebtk.modern.button.CircleFillAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation2;
 import org.jebtk.modern.button.RadioAnimation;
@@ -64,7 +68,6 @@ import org.jebtk.modern.dialog.ColorDialogButtonAnimation;
 import org.jebtk.modern.dialog.ColorDialogButtonHighlightAnimation;
 import org.jebtk.modern.dialog.DialogButtonAnimation;
 import org.jebtk.modern.dialog.DialogButtonHighlightAnimation;
-import org.jebtk.modern.dialog.DialogMaterialButtonHighlightAnimation;
 import org.jebtk.modern.dialog.FlatButtonAnimation;
 import org.jebtk.modern.help.HelpButtonHighlightAnimation;
 import org.jebtk.modern.list.ListAnimation;
@@ -72,13 +75,9 @@ import org.jebtk.modern.list.ListChangeAnimation;
 import org.jebtk.modern.list.ListHighlightAnimation;
 import org.jebtk.modern.listpanel.ListPanelItemAnimation;
 import org.jebtk.modern.listpanel.ListPanelItemPressedAnimation;
-import org.jebtk.modern.menu.MenuItemColorHighlightAnimation;
-import org.jebtk.modern.menu.MenuItemColorHighlightFadeAnimation;
-import org.jebtk.modern.menu.MenuItemHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonAnimation;
 import org.jebtk.modern.ribbon.RibbonBackAnimation;
 import org.jebtk.modern.ribbon.RibbonBackHighlightAnimation;
-import org.jebtk.modern.ribbon.RibbonButtonHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonChangeAnimation;
 import org.jebtk.modern.ribbon.RibbonDropDownButtonAnimation;
 import org.jebtk.modern.ribbon.RibbonDropDownButtonAnimation2;
@@ -159,9 +158,12 @@ public class AnimationService {
     // Load the default animations
     //
 
-    get("button").add(DialogMaterialButtonHighlightAnimation.class);
+    get("button-fill").add(ButtonFillAnimation.class);
+    get("button-outline").add(ButtonOutlineAnimation.class);
+    
+    //get("button").add(DialogButtonHighlightAnimation.class);
 
-    get("circular-button").add(CircleButtonHighlightAnimation.class);
+    get("circle-fill").add(CircleFillAnimation.class);
 
     get("dropdown-button").add(DropDownButtonAnimation.class);
     get("dropdown-button-2").add(DropDownButtonAnimation2.class);
@@ -184,12 +186,13 @@ public class AnimationService {
     get("bottom-tabs").add(SegmentAnimation.class)
         .add(SegmentTextAnimation.class);
 
-    get("orb-tabs").add(OrbTabsHighlightAnimation.class)
-        .add(OrbTabsChangeAnimation.class).add(OrbTabsAnimation.class);
+    get("orb-tabs")
+        .add(OrbTabsChangeAnimation.class).add(OrbTabsAnimation.class); //.add(OrbTabsHighlightAnimation.class)
 
     get("icon-tabs")
         // .add(IconTabsAnimation.class)
-        .add(IconTabsHighlightAnimation.class).add(IconTabsIconAnimation.class)
+        .add(IconTabsHighlightAnimation.class)
+        .add(IconTabsIconAnimation.class)
         .add(IconTabsChangeAnimation.class);
 
     get("block-vert-tabs").add(BlockVertHighlightAnimation.class)
@@ -204,8 +207,8 @@ public class AnimationService {
     get("dialog-button").add(DialogButtonAnimation.class)
         .add(DialogButtonHighlightAnimation.class);
 
-    get("dialog-material-button")
-        .add(DialogMaterialButtonHighlightAnimation.class);
+    //get("dialog-material-button")
+    //    .add(DialogMaterialButtonHighlightAnimation.class);
 
     get("primary-dialog-button").add(ColorDialogButtonAnimation.class)
         .add(ColorDialogButtonHighlightAnimation.class);
@@ -220,10 +223,10 @@ public class AnimationService {
     get("radio-button").add(RadioAnimation.class)
         .add(RadioSelectedAnimation.class).add(RadioOutlineAnimation.class);
 
-    get("menu").add(MenuItemHighlightAnimation.class);
+    //get("menu").add(MenuItemHighlightAnimation.class);
 
-    get("color-menu").add(MenuItemColorHighlightAnimation.class);
-    get("color-menu-fade").add(MenuItemColorHighlightFadeAnimation.class);
+    //get("color-menu").add(MenuItemColorHighlightAnimation.class);
+    //get("color-menu-fade").add(MenuItemColorHighlightFadeAnimation.class);
 
     get("sub-collapse-pane").add(CollapsePaneHighlightAnimation.class)
         .add(CollapsePaneExpandAnimation.class);
@@ -233,7 +236,7 @@ public class AnimationService {
         .add(CollapsePaneDividerAnimation.class)
         .add(CollapsePaneExpandAnimation.class);
 
-    get("ribbon-button").add(RibbonButtonHighlightAnimation.class);
+    //get("ribbon-button").add(RibbonButtonHighlightAnimation.class);
 
     get("ribbon-dropdown-button").add(RibbonDropDownButtonAnimation.class);
 
@@ -255,14 +258,15 @@ public class AnimationService {
     get("list").add(ListHighlightAnimation.class).add(ListChangeAnimation.class)
         .add(ListAnimation.class);
 
-    get("combobox").add(ComboBoxAnimation.class).add(ComboBoxAnimation.class)
-        .add(ComboBoxHighlightAnimation.class).add(ComboBoxArrowAnimation.class)
-        .add(DialogButtonHighlightAnimation.class);
+    get("combobox").add(ComboBoxAnimation.class)
+        .add(ComboBoxHighlightAnimation.class)
+        .add(ComboBoxArrowAnimation.class);
 
-    get("combobox2").add(ComboBoxAnimation.class).add(ComboBoxAnimation.class)
+    get("combobox2").add(ComboBoxAnimation.class)
         .add(ComboBoxHighlightAnimation2.class)
-        .add(ComboBoxArrowAnimation2.class)
-        .add(DialogButtonHighlightAnimation.class);
+        .add(ComboBoxArrowAnimation2.class);
+    
+        //.add(DialogButtonHighlightAnimation.class);
 
     get("text-border").add(TextBorderAnimation.class);
 
@@ -305,22 +309,24 @@ public class AnimationService {
    * @return The animations so that they can either be assigned to a widget's
    *         foreground or background.
    */
-  public Animations create(String name, ModernWidget widget) {
+  public List<Animation> create(String name, ModernWidget widget) {
 
     AnimationCreator creator = mCreatorMap.get(name);
 
     if (creator == null) {
-      return NoAnimations.NO_ANIMATIONS;
+      return Collections.emptyList();
     }
 
     WidgetAnimation animation = null;
 
-    Animations ret = new Animations();
+    List<Animation> ret = new ArrayList<Animation>();
 
     for (Class<?> c : creator) {
       try {
         Constructor<?> cons = c.getConstructor(ModernWidget.class);
 
+        System.err.println("Creating animation " + c);
+        
         animation = (WidgetAnimation) cons.newInstance(widget);
 
         ret.add(animation);

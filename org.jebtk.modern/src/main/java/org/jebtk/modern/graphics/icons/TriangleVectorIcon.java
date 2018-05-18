@@ -57,7 +57,7 @@ public abstract class TriangleVectorIcon extends ModernVectorScalableIcon {
    * The constant COLOR.
    */
   protected static final Color COLOR = ThemeService.getInstance().colors()
-      .getHighlight(10);
+      .getGray(10);
 
   /** The m wf. */
   protected double mWf;

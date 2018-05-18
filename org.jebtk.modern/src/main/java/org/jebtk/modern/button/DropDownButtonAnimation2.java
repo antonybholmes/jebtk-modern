@@ -2,7 +2,7 @@ package org.jebtk.modern.button;
 
 import org.jebtk.modern.widget.ModernWidget;
 
-public class DropDownButtonAnimation2 extends ButtonHighlightAnimation {
+public class DropDownButtonAnimation2 extends ButtonFillAnimation {
   public DropDownButtonAnimation2(ModernWidget button) {
     super(button);
   }

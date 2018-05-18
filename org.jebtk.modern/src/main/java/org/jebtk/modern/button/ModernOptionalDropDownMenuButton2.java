@@ -248,8 +248,8 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
       //getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
 
       UIDrawService.getInstance().get("content-box").draw(g2, rect);
-      UIDrawService.getInstance().get("button.outline").draw(g2, rect);
-      UIDrawService.getInstance().get("button.highlight").draw(g2, x, y, w, h);
+      UIDrawService.getInstance().get("button-outline").draw(g2, rect);
+      UIDrawService.getInstance().get("button-fill").draw(g2, x, y, w, h);
       // paintHighlightedBorder(g2, rect);
       // paintHighlighted(g2, x, y, w, h);
     } else {

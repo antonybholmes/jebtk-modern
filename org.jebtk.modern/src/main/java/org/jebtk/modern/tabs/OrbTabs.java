@@ -44,15 +44,15 @@ public class OrbTabs extends TabsPanel {
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_1. */
   public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService
-      .getInstance().colors().getColorHighlight(3);
+      .getInstance().colors().getTheme(3);
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_2. */
   protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService
-      .getInstance().colors().getColorHighlight(4);
+      .getInstance().colors().getTheme(4);
 
   /** The Constant TEXT_TAB_SELECTED_OUTLINE_COLOR. */
   protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getColorHighlight(5);
+      .getInstance().colors().getTheme(5);
 
   /** The m tab size. */
   protected int mTabSize = -1;
@@ -71,8 +71,8 @@ public class OrbTabs extends TabsPanel {
 
     createTabs();
 
-    setBackgroundAnimations("orb-tabs");
-
+    addToStyleClass("primary-dialog-button");
+    setAnimations("orb-tabs");
   }
 
   private void createTabs() {
@@ -101,6 +101,7 @@ public class OrbTabs extends TabsPanel {
    * @return the tab
    */
   protected int getTab(int x, int y) {
-    return (x - getInsets().left) / mTabSize;
+    int offset = (getWidth() - mTabSize * getTabsModel().getTabCount()) / 2;
+    return (x - offset) / mTabSize;
   }
 }

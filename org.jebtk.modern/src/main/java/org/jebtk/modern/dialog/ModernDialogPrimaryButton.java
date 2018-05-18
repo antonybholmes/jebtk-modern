@@ -30,6 +30,7 @@ package org.jebtk.modern.dialog;
 import java.awt.Color;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.theme.KeyFrames;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -82,8 +83,37 @@ public class ModernDialogPrimaryButton extends ModernDialogButton {
 
   private void setup() {
     setForeground(Color.WHITE);
+    
+    addStyleClass("primary-dialog-button");
+    addToStyleClass("primary-dialog-button");
+    
+    /*
+    public static final Color OUTLINE_COLOR_1 = ThemeService.getInstance()
+        .colors().getColorHighlight32(24);
 
-    setBackgroundAnimations("primary-dialog-button");
+    public static final Color OUTLINE_COLOR_2 = ThemeService.getInstance()
+        .colors().getColorHighlight32(28);
+
+    public static final Color FILL_1 = ThemeService.getInstance().colors()
+        .getColorHighlight32(20);
+
+    public static final Color FILL_2 = ThemeService.getInstance().colors()
+        .getColorHighlight32(24);
+    
+    getKeyFrames().getStyles(0).set("border-color", ThemeService.getInstance()
+        .colors().getColorHighlight32(24));
+    getKeyFrames().getStyles(0).set("background-color", ThemeService.getInstance().colors()
+        .getColorHighlight32(20));
+    
+    getKeyFrames().getStyles(100).set("border-color", ThemeService.getInstance()
+        .colors().getColorHighlight32(28));
+    getKeyFrames().getStyles(100).set("background-color", ThemeService.getInstance().colors()
+        .getColorHighlight32(24));
+    */
+
+    //getBackgroundAnimations().set("primary-dialog-button");
+    
+    setAnimations("button-fill", "button-outline");
   }
 
   /*

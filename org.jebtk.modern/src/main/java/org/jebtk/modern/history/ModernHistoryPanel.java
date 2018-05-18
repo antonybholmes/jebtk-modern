@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.history;
 
-import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import org.jebtk.modern.ModernComponent;

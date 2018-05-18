@@ -71,7 +71,7 @@ public class ModernDialogFlatDropDownIconButton
   }
 
   private void setup() {
-    setBackgroundAnimation(new FlatDropDownButtonAnimation(this));
+    setAnimations(new FlatDropDownButtonAnimation(this));
   }
 
   /*
