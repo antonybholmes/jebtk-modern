@@ -56,6 +56,8 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
         restart();
       }
     });
+    
+    restart();
   }
 
   @Override

@@ -59,6 +59,7 @@ public abstract class TranslateAnimation extends TimerAnimation {
   public TranslateAnimation(ModernWidget widget) {
     super(widget);
     
+    /*
     widget.addAncestorListener(new SingleUseAncestorMovedListener() {
       @Override
       public void action(AncestorEvent event) {
@@ -72,6 +73,7 @@ public abstract class TranslateAnimation extends TimerAnimation {
         restart();
       }
     });
+    */
     
     widget.addComponentListener(new ComponentListener() {
 
@@ -95,6 +97,8 @@ public abstract class TranslateAnimation extends TimerAnimation {
         // TODO Auto-generated method stub
         
       }});
+    
+    //restart();
   }
 
   public synchronized void restart() {

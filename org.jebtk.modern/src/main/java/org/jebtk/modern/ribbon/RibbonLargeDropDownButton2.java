@@ -166,6 +166,7 @@ public class RibbonLargeDropDownButton2 extends ModernDropDownButton2
 
     setSize(RibbonSize.COMPACT);
 
+    addToStyleClass("dialog-button");
     setAnimations("ribbon-dropdown-button-2");
   }
 

@@ -58,6 +58,8 @@ public class OrbTabsChangeAnimation extends TranslateXAnimation {
         restart();
       }
     });
+    
+    restart();
   }
 
   public void restart() {
