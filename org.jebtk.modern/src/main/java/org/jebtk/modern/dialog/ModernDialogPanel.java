@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 
 import org.jebtk.modern.panel.ModernBorderPanel;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -81,6 +81,6 @@ public class ModernDialogPanel extends ModernBorderPanel {
    */
   @Override
   public void drawBackgroundAA(Graphics2D g2) {
-    UIDrawService.getInstance().get("content").draw(g2, mRect);
+    DrawUIService.getInstance().getRenderer("content").draw(g2, mRect);
   }
 }

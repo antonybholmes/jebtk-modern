@@ -18,7 +18,7 @@ package org.jebtk.modern.ribbon;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.HighlightAnimation;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -41,7 +41,7 @@ public class RibbonSegmentHighlightAnimation extends HighlightAnimation {
 
     mSegments = (RibbonSegmentVertTabs) segments;
 
-    getFade().setFadeColor("highlight",
+    setFadeColor("highlight",
         RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
   }
 
@@ -76,12 +76,12 @@ public class RibbonSegmentHighlightAnimation extends HighlightAnimation {
       // g2.setColor(getFade().getFadeColor("highlight"));
       // g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
 
-      UIDrawService.getInstance().get("button-fill").draw(g2,
+      DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
           x,
           y1,
           w,
           RibbonSegmentVertTabs.TAB_SIZE,
-          getFade().getFadeColor("highlight"));
+          getFadeColor("highlight"));
     }
   }
 }

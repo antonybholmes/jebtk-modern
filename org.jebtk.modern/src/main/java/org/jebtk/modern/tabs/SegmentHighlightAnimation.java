@@ -42,8 +42,7 @@ public class SegmentHighlightAnimation extends HighlightAnimation {
 
     mTabs = (SegmentTabs) w;
 
-    getFade().setFadeColor("highlight",
-        RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
+    setFadeColor("highlight", RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
   }
 
   /*
@@ -70,7 +69,7 @@ public class SegmentHighlightAnimation extends HighlightAnimation {
     if (highlighted != selectedIndex && highlighted > -1 && highlighted < n) {
       x = mTabs.mLeftOffset + mTabs.mHighlight * mTabs.mTabSize;
 
-      g2.setColor(getFade().getFadeColor("highlight"));
+      g2.setColor(getFadeColor("highlight"));
 
       // g2.drawRect(x, mSegments.getInsets().top, mSegments.mTabSize, h - 1);
       // g2.fillRect(x, mSegments.getInsets().top, mSegments.mTabSize, h);

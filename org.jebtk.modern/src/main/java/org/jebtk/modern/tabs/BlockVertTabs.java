@@ -61,7 +61,7 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
       .getTransparentColor50(Color.BLACK); // Color.WHITE;
 
   // private static final Color BG_COLOR =
-  // ThemeService.getInstance().colors().getHighlight32(0);
+  // ThemeService.getInstance().getColors().getHighlight32(0);
   // //ColorUtils.getTransparentColor10(Color.WHITE);
 
   /** The m tab size. */
@@ -96,7 +96,7 @@ public class BlockVertTabs extends TextTabs implements ComponentListener {
     mTabSize = tabSize;
     mOffset = tabSize / 2;
 
-    setFont(MaterialService.instance().fonts().text());
+    setFont(MaterialService.getInstance().getFonts().text());
 
     addComponentListener(this);
 

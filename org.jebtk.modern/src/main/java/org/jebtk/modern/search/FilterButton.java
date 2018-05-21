@@ -27,7 +27,7 @@
  */
 package org.jebtk.modern.search;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernDropDownIconButton;
 import org.jebtk.modern.graphics.icons.FilterVectorIcon;
 import org.jebtk.modern.window.ModernWindow;
@@ -57,7 +57,7 @@ public class FilterButton extends ModernDropDownIconButton {
    * @param filterModel the filter model
    */
   public FilterButton(ModernWindow parent, FilterModel filterModel) {
-    super(UIService.getInstance().loadIcon(FilterVectorIcon.class, 16));
+    super(AssetService.getInstance().loadIcon(FilterVectorIcon.class, 16));
 
     mPopup = new FilterPopupMenu(parent, filterModel);
 

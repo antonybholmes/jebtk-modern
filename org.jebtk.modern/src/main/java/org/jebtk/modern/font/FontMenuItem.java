@@ -18,7 +18,7 @@ package org.jebtk.modern.font;
 import java.awt.Font;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.widget.ModernWidget;
@@ -32,8 +32,8 @@ public class FontMenuItem extends ModernIconMenuItem {
   private static final long serialVersionUID = 1L;
 
   /** The icon. */
-  public static ModernIcon ICON = UIService.getInstance().loadIcon("font",
-      UIService.ICON_SIZE_16);
+  public static ModernIcon ICON = AssetService.getInstance().loadIcon("font",
+      AssetService.ICON_SIZE_16);
 
   /** The m font. */
   private Font mFont;

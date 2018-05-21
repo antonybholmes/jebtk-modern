@@ -6,8 +6,6 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.button.ButtonFillAnimation;
-import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class ComboBoxHighlightAnimation2 extends ButtonFillAnimation
@@ -21,8 +19,8 @@ public class ComboBoxHighlightAnimation2 extends ButtonFillAnimation
 
     // mCombo.addPopupClosedListener(this);
 
-    setFadeColor("fill",
-        MaterialService.instance().color("dialog.button.outline"));
+    //setFadeColor("fill",
+     //   MaterialService.getInstance().getColor("dialog.button.outline"));
   }
 
   @Override
@@ -48,9 +46,6 @@ public class ComboBoxHighlightAnimation2 extends ButtonFillAnimation
     if (getWidget().isEnabled()) {
       IntRect rect = widget.getInternalRect();
 
-      // widget.getWidgetRenderer().drawOutline(g2, rect);
-
-      // if (getButton().getHightlighted() || getButton().getPopupShown()) {
       IntRect buttonRect = new IntRect(mCombo.mButtonX, widget.getInsets().top,
           ModernComboBox.BUTTON_WIDTH, rect.getH());
 
@@ -58,17 +53,8 @@ public class ComboBoxHighlightAnimation2 extends ButtonFillAnimation
           buttonRect.getX(),
           buttonRect.getY(),
           buttonRect.getW(),
-          buttonRect.getH(),
-          RenderMode.SELECTED,
-          widget.hasFocus());
+          buttonRect.getH());
     }
-
-    // Color c = ColorUtils.getTransparentColor(Color.RED, mTrans);
-
-    // int y = getHeight() / 2;
-    //
-    // g2.setColor(c);
-    // g2.drawLine(0, 0, getWidth(), y);
   }
 
   @Override

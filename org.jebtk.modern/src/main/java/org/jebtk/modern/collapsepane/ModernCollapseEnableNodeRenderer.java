@@ -30,7 +30,7 @@ package org.jebtk.modern.collapsepane;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.CheckedVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.UnCheckedVectorIcon;
@@ -53,11 +53,11 @@ public class ModernCollapseEnableNodeRenderer
   private static final long serialVersionUID = 1L;
 
   /** The checked icon. */
-  private static ModernIcon CHECKED_ICON = UIService.getInstance()
+  private static ModernIcon CHECKED_ICON = AssetService.getInstance()
       .loadIcon(CheckedVectorIcon.class, 16);
 
   /** The unchecked icon. */
-  private static ModernIcon UNCHECKED_ICON = UIService.getInstance()
+  private static ModernIcon UNCHECKED_ICON = AssetService.getInstance()
       .loadIcon(UnCheckedVectorIcon.class, 16);
 
   /**

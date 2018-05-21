@@ -16,7 +16,7 @@
 package org.jebtk.modern.ribbon;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.CheveronUpVectorIcon;
 
 /**
@@ -34,7 +34,7 @@ public class RibbonHideButton extends RibbonButton {
    * Instantiates a new ribbon hide button.
    */
   public RibbonHideButton() {
-    super(UIService.getInstance().loadIcon(CheveronUpVectorIcon.class, 12));
+    super(AssetService.getInstance().loadIcon(CheveronUpVectorIcon.class, 12));
 
     addToStyleClass("dialog-button");
     setAnimations("circle-fill"); //new RibbonButtonHighlightAnimation(this, "circle"));

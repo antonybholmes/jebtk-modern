@@ -61,11 +61,11 @@ public class ModernTableHeader extends ModernScrollPaneHeader
    * The constant HEADER_BACKGROUND.
    */
   public static final Color HEADER_BACKGROUND = ThemeService.getInstance()
-      .colors().getGray(1);
+      .getColors().getGray(1);
 
   /** The Constant HEADER_SELECTED_COLOR. */
   public static final Color HEADER_SELECTED_COLOR = ThemeService.getInstance()
-      .colors().getTheme(5);
+      .getColors().getTheme(5);
 
   /** The m table. */
   protected ModernTable mTable;
@@ -91,7 +91,7 @@ public class ModernTableHeader extends ModernScrollPaneHeader
 
   /*
    * @Override public void drawBackground(Graphics2D g2) { //fill(g2, getRect(),
-   * ThemeService.getInstance().colors().getHighlight(1));
+   * ThemeService.getInstance().getColors().getHighlight(1));
    * 
    * fillBackground(g2); }
    */

@@ -5,15 +5,15 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernTwoStateWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class ChipButtonHighlightAnimation extends ButtonFillAnimation {
-  public static final Color HIGHLIGHT = ThemeService.getInstance().colors()
+  public static final Color HIGHLIGHT = ThemeService.getInstance().getColors()
       .getGray32(4);
 
-  public static final Color SELECTED = ThemeService.getInstance().colors()
+  public static final Color SELECTED = ThemeService.getInstance().getColors()
       .getGray32(6);
 
   private ModernTwoStateWidget mButton;
@@ -40,7 +40,7 @@ public class ChipButtonHighlightAnimation extends ButtonFillAnimation {
 
       //mButton.getWidgetRenderer().drawPillButtonFill(g2, x, y, w, h);
 
-      UIDrawService.getInstance().get("pill.highlight").draw(g2, rect.getX(),
+      DrawUIService.getInstance().getRenderer("pill.highlight").draw(g2, rect.getX(),
           rect.getY(),
           rect.getW(),
           rect.getH(),

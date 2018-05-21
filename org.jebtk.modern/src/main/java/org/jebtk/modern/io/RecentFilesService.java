@@ -261,13 +261,13 @@ public class RecentFilesService extends RecentFilesModel {
 
         // System.err.println("file json " + fileJson.toString());
 
-        Path file = PathUtils.getPath(fileJson.get("file").getAsString());
+        Path file = PathUtils.getPath(fileJson.get("file").getString());
 
         if (FileUtils.exists(file)) {
           Date date = null;
 
           try {
-            date = df.parse(fileJson.get("date").getAsString());
+            date = df.parse(fileJson.get("date").getString());
           } catch (ParseException e) {
             e.printStackTrace();
           }
@@ -283,7 +283,7 @@ public class RecentFilesService extends RecentFilesModel {
       System.err.println("recent " + files);
 
       mFiles.addAll(files);
-      setPwd(PathUtils.getPath(json.get("pwd").getAsString()));
+      setPwd(PathUtils.getPath(json.get("pwd").getString()));
     }
   }
 

@@ -41,19 +41,19 @@ public abstract class HideVectorIcon extends ModernVectorIcon {
    * The constant COLOR.
    */
   protected static final Color COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.hide-icon.colors.foreground");
+      .getColor("theme.icons.hide-icon.colors.foreground");
 
   /**
    * The constant WIDTH_SCALE.
    */
   protected static final double WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.hide-icon.width-scale");
+      .getDouble("theme.icons.hide-icon.width-scale");
 
   /**
    * The constant HEIGHT_SCALE.
    */
   protected static final double HEIGHT_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.hide-icon.height-scale");
+      .getDouble("theme.icons.hide-icon.height-scale");
 
   /**
    * The member color.

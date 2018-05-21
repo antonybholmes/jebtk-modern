@@ -30,7 +30,7 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  * @author Antony Holmes
  */
-public abstract class MouseAnimation extends WidgetAnimation {
+public abstract class HoverAnimation extends WidgetAnimation {
 
   /** The m mouse over timer. */
   private Timer mMouseOverTimer;
@@ -42,7 +42,7 @@ public abstract class MouseAnimation extends WidgetAnimation {
   private boolean mEntryMode = true;
 
   /** The m pressed. */
-  protected boolean mPressed = false;
+  //protected boolean mPressed = false;
 
   /**
    * The Class MouseEvents.
@@ -82,12 +82,12 @@ public abstract class MouseAnimation extends WidgetAnimation {
      * 
      * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
      */
-    @Override
-    public void mousePressed(MouseEvent e) {
-      if (e.getButton() == MouseEvent.BUTTON1) {
-        mPressed = true;
-      }
-    }
+    //@Override
+    //public void mousePressed(MouseEvent e) {
+    //  if (e.getButton() == MouseEvent.BUTTON1) {
+    //    mPressed = true;
+    //  }
+    //}
 
     /*
      * (non-Javadoc)
@@ -95,14 +95,14 @@ public abstract class MouseAnimation extends WidgetAnimation {
      * @see
      * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
-    @Override
-    public void mouseReleased(MouseEvent e) {
-      mPressed = false;
-
-      if (!mEntryMode) {
-        pseudoMouseExited();
-      }
-    }
+    //@Override
+    //public void mouseReleased(MouseEvent e) {
+    //  mPressed = false;
+//
+    //  if (!mEntryMode) {
+    //    pseudoMouseExited();
+    //  }
+    //}
 
   }
 
@@ -132,7 +132,7 @@ public abstract class MouseAnimation extends WidgetAnimation {
    *
    * @param widget the widget
    */
-  public MouseAnimation(ModernWidget widget) {
+  public HoverAnimation(ModernWidget widget) {
     super(widget);
 
     mMouseOverTimer = new Timer(0, new HoverEvents());
@@ -150,7 +150,7 @@ public abstract class MouseAnimation extends WidgetAnimation {
    * @param widget
    * @return
    */
-  public MouseAnimation bind(Component c) {
+  public HoverAnimation bind(Component c) {
     c.addMouseListener(new MouseEvents());
 
     return this;
@@ -186,18 +186,18 @@ public abstract class MouseAnimation extends WidgetAnimation {
   /**
    * Animate mouse clicked.
    */
-  public void animateMouseClicked() {
-
-  }
+  //public void animateMouseClicked() {
+//
+  //}
 
   /**
    * Gets the pressed.
    *
    * @return the pressed
    */
-  public boolean getPressed() {
-    return mPressed;
-  }
+  //public boolean getPressed() {
+  //  return mPressed;
+  //}
 
   /**
    * Triggers the events an animation that a mouse exit event would, but without

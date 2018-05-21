@@ -30,7 +30,7 @@ package org.jebtk.modern.zoom;
 import javax.swing.Box;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -61,7 +61,7 @@ public class ZoomRibbonSection extends RibbonSection
    * The member zoom button.
    */
   private ModernButtonWidget mZoomButton = new RibbonLargeButton(
-      UIService.getInstance().loadIcon(SearchVectorIcon.class, 24)); // Resources.getInstance().loadIcon("zoom",
+      AssetService.getInstance().loadIcon(SearchVectorIcon.class, 24)); // Resources.getInstance().loadIcon("zoom",
                                                                      // Resources.ICON_SIZE_32));
 
   /**

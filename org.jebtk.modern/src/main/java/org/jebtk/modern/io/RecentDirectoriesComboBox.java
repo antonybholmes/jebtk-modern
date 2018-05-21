@@ -27,7 +27,7 @@
  */
 package org.jebtk.modern.io;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 
 /**
  * The class RecentDirectoriesComboBox.
@@ -46,7 +46,7 @@ public class RecentDirectoriesComboBox extends RecentFilesComboBox {
    */
   public RecentDirectoriesComboBox(RecentFilesService recentFiles) {
     super(recentFiles,
-        UIService.getInstance().loadIcon("folder", UIService.ICON_SIZE_32));
+        AssetService.getInstance().loadIcon("folder", AssetService.ICON_SIZE_32));
   }
 
   /**
@@ -57,7 +57,7 @@ public class RecentDirectoriesComboBox extends RecentFilesComboBox {
    */
   public RecentDirectoriesComboBox(RecentFilesService recentFiles, int max) {
     super(recentFiles,
-        UIService.getInstance().loadIcon("folder", UIService.ICON_SIZE_32),
+        AssetService.getInstance().loadIcon("folder", AssetService.ICON_SIZE_32),
         max);
   }
 }

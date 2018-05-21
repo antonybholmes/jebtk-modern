@@ -30,7 +30,7 @@ package org.jebtk.modern.history;
 import java.awt.Component;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.list.ModernList;
 
 /**
@@ -71,11 +71,11 @@ public class ModernDataModelTransformCellRenderer
 
     g2.setColor(mTextColor);
 
-    y += UIService.ICON_SIZE_20;
+    y += AssetService.ICON_SIZE_20;
 
     g2.drawString(mText1, x, y);
 
-    y += UIService.ICON_SIZE_20;
+    y += AssetService.ICON_SIZE_20;
     g2.drawString(mText2, x, y);
   }
 

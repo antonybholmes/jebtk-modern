@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Shape;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.shapes.ShapeService;
 
@@ -88,10 +88,10 @@ public class ModernShapeMenuItem extends ModernIconMenuItem {
     int d = 0;
 
     if (this.getIcon() != null) {
-      d = UIService.ICON_SIZE_16 + DOUBLE_PADDING;
+      d = AssetService.ICON_SIZE_16 + DOUBLE_PADDING;
     }
 
-    int x = Math.max(UIService.ICON_SIZE_32, d);
+    int x = Math.max(AssetService.ICON_SIZE_32, d);
 
     Point p = getStringCenterPlotCoordinates(g2, getRect(), mText1);
 

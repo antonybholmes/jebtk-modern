@@ -27,7 +27,7 @@
  */
 package org.jebtk.modern.dataview;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -57,21 +57,21 @@ public class RibbonViewSection extends RibbonSection
    */
   private RibbonLargeRadioButton mListButton = new RibbonLargeRadioButton(
       "List",
-      UIService.getInstance().loadIcon("view_list", UIService.ICON_SIZE_32));
+      AssetService.getInstance().loadIcon("view_list", AssetService.ICON_SIZE_32));
 
   /**
    * The tiles button.
    */
   private RibbonLargeRadioButton mTilesButton = new RibbonLargeRadioButton(
       "Tiles",
-      UIService.getInstance().loadIcon("view_tiles", UIService.ICON_SIZE_32));
+      AssetService.getInstance().loadIcon("view_tiles", AssetService.ICON_SIZE_32));
 
   /**
    * The details button.
    */
   private RibbonLargeRadioButton mDetailsButton = new RibbonLargeRadioButton(
       "Details",
-      UIService.getInstance().loadIcon("view_details", UIService.ICON_SIZE_32));
+      AssetService.getInstance().loadIcon("view_details", AssetService.ICON_SIZE_32));
 
   /**
    * The member model.

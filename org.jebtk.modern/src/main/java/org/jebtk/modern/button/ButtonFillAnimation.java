@@ -4,10 +4,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.animation.HoverFadeAnimation;
-import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
-import org.jebtk.modern.theme.RenderMode;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -19,20 +16,16 @@ public class ButtonFillAnimation extends HoverFadeAnimation {
 
     mButton = (ModernClickWidget) button;
 
-    if (button.getToKeyFrame().contains("background-color")) {
-      if (button.getKeyFrame(0).contains("background-color")) {
-        setFadeColor("fill", 
-            button.getKeyFrame(0).getColor("background-color"),
-            button.getToKeyFrame().getColor("background-color"));
-      } else {
-        setFadeColor("fill", 
-            button.getToKeyFrame().getColor("background-color"));
-      }
+    if (button.getFromKeyFrame().contains("background-color")) {
+      setFadeColor("fill", 
+          button.getFromKeyFrame().getColor("background-color"),
+          button.getToKeyFrame().getColor("background-color"));
     } else {
-      setFadeColor("fill", MaterialService.instance().color("theme-highlight"));
+      setFadeColor("fill", 
+          button.getToKeyFrame().getColor("background-color"));
     }
   }
-  
+
   @Override
   public String getName() {
     return "button-fill";
@@ -53,9 +46,7 @@ public class ButtonFillAnimation extends HoverFadeAnimation {
           rect.getX(),
           rect.getY(),
           rect.getW(),
-          rect.getH(),
-          mButton.getRenderMode(),
-          false);
+          rect.getH());
     }
   }
 
@@ -63,16 +54,14 @@ public class ButtonFillAnimation extends HoverFadeAnimation {
       int x,
       int y,
       int w,
-      int h,
-      RenderMode mode,
-      boolean hasFocus) {
+      int h) {
     // if (mode == RenderMode.NONE && !hasFocus) {
     // return;
     // }
 
-    UIDrawService.getInstance().get("button-fill").draw(g2, x, y, w, h, getFadeColor("fill"));
+    DrawUIService.getInstance().getRenderer("button-fill").draw(g2, x, y, w, h, getFadeColor("fill"));
 
-    
+
     //g2.setColor(getFadeColor("fill"));
 
     //fill(g2, x, y, w, h);

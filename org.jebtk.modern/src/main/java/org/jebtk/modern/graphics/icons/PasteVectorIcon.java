@@ -41,62 +41,62 @@ public class PasteVectorIcon extends ModernVectorIcon {
    * The constant WIDTH_SCALE.
    */
   private static final double WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.paste-icon.width-scale");
+      .getDouble("theme.icons.paste-icon.width-scale");
 
   /**
    * The constant BOARD_WIDTH_SCALE.
    */
   private static final double BOARD_WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.paste-icon.board-width-scale");
+      .getDouble("theme.icons.paste-icon.board-width-scale");
 
   /**
    * The constant BOARD_HEIGHT_SCALE.
    */
   private static final double BOARD_HEIGHT_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.paste-icon.board-height-scale");
+      .getDouble("theme.icons.paste-icon.board-height-scale");
 
   /**
    * The constant CLIP_WIDTH_SCALE.
    */
   private static final double CLIP_WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.paste-icon.clip-width-scale");
+      .getDouble("theme.icons.paste-icon.clip-width-scale");
 
   /**
    * The constant CLIP_HEIGHT_SCALE.
    */
   private static final double CLIP_HEIGHT_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.paste-icon.clip-height-scale");
+      .getDouble("theme.icons.paste-icon.clip-height-scale");
 
   /**
    * The constant CLIP_TOP_WIDTH_SCALE.
    */
   private static final double CLIP_TOP_WIDTH_SCALE = SettingsService
-      .getInstance().getAsDouble("theme.icons.paste-icon.clip-top-width-scale");
+      .getInstance().getDouble("theme.icons.paste-icon.clip-top-width-scale");
 
   /**
    * The constant CLIP_HOLE_WIDTH_SCALE.
    */
   private static final double CLIP_HOLE_WIDTH_SCALE = SettingsService
       .getInstance()
-      .getAsDouble("theme.icons.paste-icon.clip-hole-width-scale");
+      .getDouble("theme.icons.paste-icon.clip-hole-width-scale");
 
   /**
    * The constant FILE_WIDTH_SCALE.
    */
   private static final double FILE_WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.paste-icon.file-width-scale");
+      .getDouble("theme.icons.paste-icon.file-width-scale");
 
   /**
    * The constant BOARD_COLOR.
    */
   private static final Color BOARD_COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.paste-icon.colors.board");
+      .getColor("theme.icons.paste-icon.colors.board");
 
   /**
    * The constant CLIP_COLOR.
    */
   private static final Color CLIP_COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.paste-icon.colors.clip");
+      .getColor("theme.icons.paste-icon.colors.clip");
 
   /**
    * The constant FILE_ICON.

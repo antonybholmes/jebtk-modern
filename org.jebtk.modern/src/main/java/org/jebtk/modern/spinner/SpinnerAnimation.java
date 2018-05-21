@@ -2,7 +2,7 @@ package org.jebtk.modern.spinner;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
@@ -13,16 +13,16 @@ import org.jebtk.modern.widget.ModernWidget;
 public class SpinnerAnimation extends WidgetAnimation {
   private ModernCompactSpinner mSpinner;
 
-  private static final ModernIcon TRIANGLE_UP = UIService.getInstance()
+  private static final ModernIcon TRIANGLE_UP = AssetService.getInstance()
       .loadIcon(TriangleUpVectorIcon.class, 16);
 
-  private static final ModernIcon TRIANGLE_UP_HIGH = UIService.getInstance()
+  private static final ModernIcon TRIANGLE_UP_HIGH = AssetService.getInstance()
       .loadIcon(TriangleUpVectorIcon.class, Ribbon.BAR_BACKGROUND, 16);
 
-  private static final ModernIcon TRIANGLE_DOWN = UIService.getInstance()
+  private static final ModernIcon TRIANGLE_DOWN = AssetService.getInstance()
       .loadIcon(TriangleDownVectorIcon.class, 16);
 
-  private static final ModernIcon TRIANGLE_DOWN_HIGH = UIService.getInstance()
+  private static final ModernIcon TRIANGLE_DOWN_HIGH = AssetService.getInstance()
       .loadIcon(TriangleDownVectorIcon.class, Ribbon.BAR_BACKGROUND, 16);
 
   public SpinnerAnimation(ModernWidget widget) {

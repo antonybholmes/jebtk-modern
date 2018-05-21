@@ -27,10 +27,7 @@
  */
 package org.jebtk.modern.ribbon;
 
-import java.awt.Graphics2D;
-
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.window.ModernWindowTitleBarWinButton;
 
 /**
@@ -50,18 +47,5 @@ public class RibbonTitleBarButton extends ModernWindowTitleBarWinButton {
    */
   public RibbonTitleBarButton(ModernIcon icon) {
     super(icon);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.ribbon.QuickAccessButton#drawBackground(java.awt.
-   * Graphics2D)
-   */
-  @Override
-  public void drawBackground(Graphics2D g2) {
-    if (mHighlight) {
-      fill(g2, ModernWidgetRenderer.DIALOG_BUTTON_FILL_COLOR);
-    }
   }
 }

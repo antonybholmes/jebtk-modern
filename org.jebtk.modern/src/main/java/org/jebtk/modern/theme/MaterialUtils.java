@@ -16,7 +16,7 @@ import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class MaterialUtils {
-  public static final Font FONT = MaterialService.instance().fonts().text();
+  public static final Font FONT = MaterialService.getInstance().getFonts().text();
 
   public static final Font TEXT_FONT = FONT;
 
@@ -49,11 +49,11 @@ public class MaterialUtils {
 
   public static final int SMALL_PADDING = ModernWidget.DOUBLE_PADDING;
 
-  public static final Color BUTTON_COLOR = MaterialService.instance()
-      .color("theme-highlight"); // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
+  public static final Color BUTTON_COLOR = MaterialService.getInstance()
+      .getColor("theme-highlight"); // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
 
-  public static final Color LINE_COLOR = MaterialService.instance()
-      .color("card-border"); // ColorUtils.getTransparentColor50(ModernWidget.LIGHT_LINE_COLOR);
+  public static final Color LINE_COLOR = MaterialService.getInstance()
+      .getColor("card-border"); // ColorUtils.getTransparentColor50(ModernWidget.LIGHT_LINE_COLOR);
 
   public static final Color SELECTED_FONT_COLOR = Color.BLACK;
 
@@ -98,7 +98,7 @@ public class MaterialUtils {
     //WidgetRendererService.getInstance().getRenderer()
     //    .fill(g2, x + 1, y, w - 2, sh);
     
-    UIDrawService.getInstance().get("button-fill").fill(g2, c, x + 1, y, w - 2, sh);
+    DrawUIService.getInstance().getRenderer("button-fill").fill(g2, c, x + 1, y, w - 2, sh);
 
     // int a = Math.max(1, h / 2);
     // g2.fillRoundRect(x, y, w, h, a, a);

@@ -3,12 +3,16 @@ package org.jebtk.modern.button;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class RadioAnimation extends WidgetAnimation {
 
+  public static final double RADIO_SCALE = SettingsService.getInstance()
+      .getDouble("theme.icons.radio-icon.scale");
+  
   public static int RADIO_SIZE = ModernCheckSwitch.SLIDER_HEIGHT + 2;
   private int w2;
 

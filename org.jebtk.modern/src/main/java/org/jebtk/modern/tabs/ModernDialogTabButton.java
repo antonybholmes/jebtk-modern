@@ -30,7 +30,7 @@ package org.jebtk.modern.tabs;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.dialog.ModernDialogWindow;
 import org.jebtk.modern.theme.ThemeService;
@@ -75,7 +75,7 @@ public class ModernDialogTabButton extends ModernCheckButton {
       top = 3;
     }
 
-    g2.setColor(ThemeService.getInstance().colors().getGray(4));
+    g2.setColor(ThemeService.getInstance().getColors().getGray(4));
     int x = getWidth() - 1;
     int y = getHeight() - 1;
 
@@ -88,7 +88,7 @@ public class ModernDialogTabButton extends ModernCheckButton {
 
     if (mText1 != null) {
       x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
-      y = UIService.ICON_SIZE_20;
+      y = AssetService.ICON_SIZE_20;
       g2.setColor(getForeground());
       g2.drawString(mText1, x, y);
     }

@@ -53,7 +53,7 @@ public class ModernTableCorner extends ModernWidget {
    */
   @Override
   public void drawBackground(Graphics2D g2) {
-    // fill(g2, getRect(), ThemeService.getInstance().colors().getHighlight(1));
+    // fill(g2, getRect(), ThemeService.getInstance().getColors().getHighlight(1));
 
     fillBackground(g2);
   }
@@ -72,7 +72,7 @@ public class ModernTableCorner extends ModernWidget {
 
     /*
      * GradientPaint gradient = new GradientPaint(x, 0,
-     * ThemeService.getInstance().colors().getHighlight(1), x + w, 0,
+     * ThemeService.getInstance().getColors().getHighlight(1), x + w, 0,
      * LINE_COLOR, false);
      * 
      * g2.setPaint(gradient);
@@ -82,7 +82,7 @@ public class ModernTableCorner extends ModernWidget {
 
     /*
      * gradient = new GradientPaint(0, y,
-     * ThemeService.getInstance().colors().getHighlight(1), 0, y + h,
+     * ThemeService.getInstance().getColors().getHighlight(1), 0, y + h,
      * LINE_COLOR, false);
      * 
      * g2.setPaint(gradient);
@@ -93,7 +93,7 @@ public class ModernTableCorner extends ModernWidget {
         rect.getX() + rect.getW() - 1,
         rect.getY() + rect.getH());
 
-    g2.setColor(ThemeService.getInstance().colors().getGray(2));
+    g2.setColor(ThemeService.getInstance().getColors().getGray(2));
 
     // Draw triangle in corner
 

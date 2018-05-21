@@ -33,7 +33,7 @@ import java.util.Collection;
 import javax.swing.Box;
 
 import org.jebtk.core.text.Join;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -59,7 +59,7 @@ public class ModernInputExtPanel extends ModernLineBorderPanel
 
   /** The m ext button. */
   private ModernButton mExtButton = new ModernButton(
-      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
+      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
                                                                    // 16));
 
   /**

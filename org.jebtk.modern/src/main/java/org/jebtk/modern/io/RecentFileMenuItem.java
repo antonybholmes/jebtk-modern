@@ -33,7 +33,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.jebtk.core.io.PathUtils;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.FileVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernTwoLineMenuItem;
@@ -70,7 +70,7 @@ public class RecentFileMenuItem extends ModernTwoLineMenuItem {
    */
   public RecentFileMenuItem(Path file, Date date) {
     this(file, date,
-        UIService.getInstance().loadIcon(FileVectorIcon.class, 32));
+        AssetService.getInstance().loadIcon(FileVectorIcon.class, 32));
 
   }
 
@@ -118,7 +118,7 @@ public class RecentFileMenuItem extends ModernTwoLineMenuItem {
     }
 
     g2.setColor(TEXT_COLOR);
-    g2.setFont(MaterialService.instance().font("text"));
+    g2.setFont(MaterialService.getInstance().getFont("text"));
 
     int maxTextWidth = rightOffset - DOUBLE_PADDING - x;
 
@@ -127,7 +127,7 @@ public class RecentFileMenuItem extends ModernTwoLineMenuItem {
     g2.drawString(text, x, y);
 
     g2.setColor(ALT_TEXT_COLOR);
-    g2.setFont(MaterialService.instance().font("subtext"));
+    g2.setFont(MaterialService.getInstance().getFont("subtext"));
 
     y = h2 + (h2 + g2.getFontMetrics().getAscent()) / 2;
 

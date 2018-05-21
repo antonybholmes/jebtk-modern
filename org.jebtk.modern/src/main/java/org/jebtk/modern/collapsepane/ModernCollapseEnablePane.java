@@ -37,7 +37,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.swing.JComponent;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 
 /**
  * Allows collapsable panes to be created. A tick box allows each pane to be
@@ -63,7 +63,7 @@ public class ModernCollapseEnablePane extends ModernCollapsePane
   /**
    * The constant CLICK_REGION_X.
    */
-  private static final int CLICK_REGION_X = PADDING + UIService.ICON_SIZE_16;
+  private static final int CLICK_REGION_X = PADDING + AssetService.ICON_SIZE_16;
 
   /**
    * The enabled.

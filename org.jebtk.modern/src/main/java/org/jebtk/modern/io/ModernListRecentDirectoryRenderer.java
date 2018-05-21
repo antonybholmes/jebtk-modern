@@ -27,7 +27,7 @@
  */
 package org.jebtk.modern.io;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
 
 // TODO: Auto-generated Javadoc
@@ -49,6 +49,6 @@ public class ModernListRecentDirectoryRenderer
    * Instantiates a new modern list recent directory renderer.
    */
   public ModernListRecentDirectoryRenderer() {
-    super(UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
+    super(AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 16));
   }
 }

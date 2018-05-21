@@ -81,71 +81,71 @@ public abstract class ModernWidget extends ModernComponent
    * The constant HIGHLIGHT_COLOR.
    */
   public static final Color HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .colors().getGray(4);
+      .getColors().getGray(4);
 
   /** The Constant HIGHLIGHT_BORDER_COLOR. */
   public static final Color HIGHLIGHT_BORDER_COLOR = ThemeService.getInstance()
-      .colors().getGray(6);
+      .getColors().getGray(6);
 
   /**
    * The constant HIGHLIGHT_TEXT_COLOR.
    */
   public static final Color HIGHLIGHT_TEXT_COLOR = ThemeService.getInstance()
-      .colors().getTheme(4);
+      .getColors().getTheme(4);
 
   /**
    * The constant SELECTED_COLOR.
    */
-  public static final Color SELECTED_COLOR = ThemeService.getInstance().colors()
+  public static final Color SELECTED_COLOR = ThemeService.getInstance().getColors()
       .getGray(4);
 
   /**
    * The constant SELECTED_BORDER_COLOR.
    */
   public static final Color SELECTED_BORDER_COLOR = ThemeService.getInstance()
-      .colors().getGray(6);
+      .getColors().getGray(6);
 
   /**
    * The constant THEME_HIGHLIGHT_COLOR.
    */
   public static final Color THEME_HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .colors().getTheme(2);
+      .getColors().getTheme(2);
 
   /**
    * The constant THEME_SELECTED_COLOR.
    */
   public static final Color THEME_SELECTED_COLOR = ThemeService.getInstance()
-      .colors().getTheme(3);
+      .getColors().getTheme(3);
 
   /**
    * The constant THEME_SELECTED_BORDER_COLOR.
    */
   public static final Color THEME_SELECTED_BORDER_COLOR = ThemeService
-      .getInstance().colors().getTheme32(10);
+      .getInstance().getColors().getTheme32(10);
 
   /**
    * The constant OUTLINE_HIGHLIGHT_COLOR.
    */
   public static final Color OUTLINE_HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .colors().getGray(6);
+      .getColors().getGray(6);
 
   /**
    * The constant THEME_OUTLINE_HIGHLIGHT_COLOR.
    */
   public static final Color THEME_OUTLINE_HIGHLIGHT_COLOR = ThemeService
-      .getInstance().colors().getTheme(6);
+      .getInstance().getColors().getTheme(6);
 
   /**
    * The constant OUTLINE_BACKGROUND_COLOR.
    */
   public static final Color OUTLINE_BACKGROUND_COLOR = ThemeService
-      .getInstance().colors().getGray(1);
+      .getInstance().getColors().getGray(1);
 
   /**
    * The constant MIN_WIDGET_HEIGHT.
    */
   public static final int MIN_WIDGET_HEIGHT = SettingsService.getInstance()
-      .getAsInt("theme.widget.default-height");
+      .getInt("theme.widget.default-height");
 
   /**
    * The constant WIDGET_HEIGHT.
@@ -156,34 +156,34 @@ public abstract class ModernWidget extends ModernComponent
    * The constant DIALOG_2_COLOR.
    */
   private static final Color DIALOG_2_COLOR = ThemeService.getInstance()
-      .colors().getGray(2);
+      .getColors().getGray(2);
 
   /**
    * The constant TEXT_COLOR.
    */
-  public static final Color TEXT_COLOR = ThemeService.getInstance().colors()
+  public static final Color TEXT_COLOR = ThemeService.getInstance().getColors()
       .getTextColor();
 
   /**
    * The constant ALT_TEXT_COLOR.
    */
-  public static final Color ALT_TEXT_COLOR = MaterialService.instance().colors()
+  public static final Color ALT_TEXT_COLOR = MaterialService.getInstance().getColors()
       .altText();
 
   /** The Constant TEXT_DISABLED_COLOR. */
   public static final Color TEXT_DISABLED_COLOR = ThemeService.getInstance()
-      .colors().getDisabledTextColor();
+      .getColors().getDisabledTextColor();
 
   /**
    * The constant DARK_OUTLINE_COLOR.
    */
   public static final Color DARK_OUTLINE_COLOR = ThemeService.getInstance()
-      .colors().getGray(8);
+      .getColors().getGray(8);
 
   /**
    * The constant FONT.
    */
-  public static final Font FONT = MaterialService.instance().fonts().text(); // ThemeService.getInstance().fonts().getFont();
+  public static final Font FONT = MaterialService.getInstance().getFonts().text(); // ThemeService.getInstance().getFonts().getFont();
 
   /** The Constant UNDER_LINE_FONT. */
   public static final Font UNDER_LINE_FONT = FontUtils.underline(FONT);
@@ -191,7 +191,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant FONT.
    */
-  public static final Font TITLE_FONT = ThemeService.getInstance().fonts()
+  public static final Font TITLE_FONT = ThemeService.getInstance().getFonts()
       .getTitleFont();
 
   /** The Constant TITLE_FONT_BOLD. */
@@ -199,13 +199,13 @@ public abstract class ModernWidget extends ModernComponent
       .loadFont("theme.widget.fonts.title-bold");
 
   /** The Constant SUB_TITLE_FONT. */
-  public static final Font SUB_TITLE_FONT = ThemeService.getInstance().fonts()
+  public static final Font SUB_TITLE_FONT = ThemeService.getInstance().getFonts()
       .getSubTitleFont();
 
   /**
    * The constant HEADING_FONT.
    */
-  public static final Font HEADING_FONT = ThemeService.getInstance().fonts()
+  public static final Font HEADING_FONT = ThemeService.getInstance().getFonts()
       .getHeadingFont();
 
   /**
@@ -223,7 +223,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant BOLD_FONT.
    */
-  public static final Font BOLD_FONT = MaterialService.instance().fonts()
+  public static final Font BOLD_FONT = MaterialService.getInstance().getFonts()
       .bold();
 
   /**
@@ -339,13 +339,13 @@ public abstract class ModernWidget extends ModernComponent
    * The constant DIALOG_BUTTON_BASE.
    */
   private static final Color DIALOG_BUTTON_BASE = ThemeService.getInstance()
-      .colors().getGray(3);
+      .getColors().getGray(3);
 
   /**
    * The constant DIALOG_BUTTON_BORDER_COLOR.
    */
   private static final Color DIALOG_BUTTON_BORDER_COLOR = ThemeService
-      .getInstance().colors().getGray(5);
+      .getInstance().getColors().getGray(5);
 
   /**
    * The next id.
@@ -424,6 +424,7 @@ public abstract class ModernWidget extends ModernComponent
     setForeground(TEXT_COLOR);
     
     addStyleClass("widget");
+    addToStyleClass("widget");
 
     mBackgroundAnimations = new Animations(this);
     
@@ -1140,8 +1141,8 @@ public abstract class ModernWidget extends ModernComponent
 
     /*
      * GradientPaint gradient = new GradientPaint(0, y,
-     * ThemeService.getInstance().colors().getHighlight(2), 0, y + h,
-     * ThemeService.getInstance().colors().getHighlight(3), false);
+     * ThemeService.getInstance().getColors().getHighlight(2), 0, y + h,
+     * ThemeService.getInstance().getColors().getHighlight(3), false);
      * 
      * g2.setPaint(gradient);
      * 

@@ -62,7 +62,7 @@ public class TextTabs extends TabsController implements HighlightEventProducer {
    * The constant GAP_WIDTH.
    */
   protected static final int GAP_WIDTH = SettingsService.getInstance()
-      .getAsInt("theme.text-tabs.gap-width"); // ModernTheme.getInstance().getClass("text-tabs").getInt("gap-width");
+      .getInt("theme.text-tabs.gap-width"); // ModernTheme.getInstance().getClass("text-tabs").getInt("gap-width");
 
   /**
    * The member tab widths.

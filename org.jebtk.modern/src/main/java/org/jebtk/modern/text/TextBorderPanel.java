@@ -133,22 +133,10 @@ public class TextBorderPanel extends ModernWidget implements TextProperty {
     // UI.setSize(this, ModernWidget.STANDARD_SIZE);
 
     setBorder(SMALL_BORDER);
+    
+    addStyleClass("content", "content-outline");
 
-    setAnimations("text-border");
-  }
-
-  /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) {
-   * getWidgetRenderer().drawContentBox(g2, mRect);
-   * 
-   * //fill(g2, Color.RED); }
-   */
-
-  @Override
-  public void drawAnimatedBackground(Graphics2D g2) {
-    // UIDrawService.getInstance().get("content-box").draw(g2, mRect);
-
-    super.drawAnimatedBackground(g2);
+    setAnimations("button-outline");
   }
 
   @Override

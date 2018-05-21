@@ -43,11 +43,11 @@ import org.jebtk.modern.theme.ThemeService;
 public class HelpVectorIcon extends ModernMessageIcon {
 
   /** The Constant COLOR1. */
-  private static final Color COLOR1 = ThemeService.getInstance().colors()
+  private static final Color COLOR1 = ThemeService.getInstance().getColors()
       .getTheme32(14);
 
   /** The Constant COLOR2. */
-  private static final Color COLOR2 = ThemeService.getInstance().colors()
+  private static final Color COLOR2 = ThemeService.getInstance().getColors()
       .getTheme32(16);
 
   /** The Constant TEXT. */

@@ -15,6 +15,7 @@
  */
 package org.jebtk.modern.graphics.colormap;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.LinearGradientPaint;
@@ -26,7 +27,6 @@ import java.util.List;
 
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernClickWidget;
 
@@ -272,14 +272,14 @@ public class ColorMapCirclePicker extends ModernClickWidget {
 
         g2Temp.setPaint(paint);
         // g2.fillRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-        // MaterialService.instance().ints().cornerRadius();,
-        // MaterialService.instance().ints().cornerRadius(););
+        // MaterialService.getInstance().getInts().cornerRadius();,
+        // MaterialService.getInstance().getInts().cornerRadius(););
         g2Temp.fillOval(x, y, HEAT_MAP_SIZE, HEAT_MAP_SIZE);
 
         // g2Temp.setColor(LINE_COLOR);
         // g2.drawRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-        // MaterialService.instance().ints().cornerRadius();,
-        // MaterialService.instance().ints().cornerRadius(););
+        // MaterialService.getInstance().getInts().cornerRadius();,
+        // MaterialService.getInstance().getInts().cornerRadius(););
         // g2Temp.drawOval(x, y, HEAT_MAP_SIZE, HEAT_MAP_SIZE);
 
         y = i / mCols * BLOCK_SIZE + OUTER_PADDING + SELECTED_OFFSET;
@@ -293,7 +293,7 @@ public class ColorMapCirclePicker extends ModernClickWidget {
       g2Temp.setStroke(ThemeService.DOUBLE_LINE_STROKE);
 
       if (mSelectedRow != -1) {
-        g2Temp.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR);
+        g2Temp.setColor(Color.BLACK); //ModernWidgetRenderer.SELECTED_FILL_COLOR);
 
         g2Temp.drawOval(mSelectedP.getX(),
             mSelectedP.getY(),
@@ -302,7 +302,7 @@ public class ColorMapCirclePicker extends ModernClickWidget {
       }
 
       if (mRow != -1) {
-        g2Temp.setColor(ModernWidgetRenderer.HIGHLIGHTED_FILL_COLOR);
+        g2Temp.setColor(Color.BLACK); //ModernWidgetRenderer.HIGHLIGHTED_FILL_COLOR);
 
         g2Temp.drawOval(mP.getX(),
             mP.getY(),

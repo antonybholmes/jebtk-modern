@@ -18,7 +18,7 @@ package org.jebtk.modern.io;
 import java.awt.Dimension;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
 
@@ -38,7 +38,7 @@ public class BrowseButton extends ModernButton {
    */
   public BrowseButton() {
     super("Browse",
-        UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+        AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
 
     setFont(SUB_HEADING_FONT);
 

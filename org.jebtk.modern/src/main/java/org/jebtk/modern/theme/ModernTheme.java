@@ -137,11 +137,11 @@ public class ModernTheme {
   public static final Dimension loadDimension(Path path) {
     Path p = new Path(path).append("width");
 
-    int width = SettingsService.getInstance().getAsInt(p);
+    int width = SettingsService.getInstance().getInt(p);
 
     p = new Path(path).append("height");
 
-    int height = SettingsService.getInstance().getAsInt(p);
+    int height = SettingsService.getInstance().getInt(p);
 
     return new Dimension(width, height);
   }
@@ -165,19 +165,19 @@ public class ModernTheme {
   public static final Border loadBorder(Path path) {
     Path p = new Path(path).append("top");
 
-    int top = SettingsService.getInstance().getAsInt(p);
+    int top = SettingsService.getInstance().getInt(p);
 
     p = new Path(path).append("left");
 
-    int left = SettingsService.getInstance().getAsInt(p);
+    int left = SettingsService.getInstance().getInt(p);
 
     p = new Path(path).append("bottom");
 
-    int bottom = SettingsService.getInstance().getAsInt(p);
+    int bottom = SettingsService.getInstance().getInt(p);
 
     p = new Path(path).append("right");
 
-    int right = SettingsService.getInstance().getAsInt(p);
+    int right = SettingsService.getInstance().getInt(p);
 
     return BorderService.getInstance().createBorder(top, left, bottom, right);
   }

@@ -31,7 +31,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.button.ModernDropDownIconButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -67,7 +67,7 @@ public class RibbonDropDownIconButton extends ModernDropDownIconButton {
         //getWidgetRenderer()
          //   .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
         
-        UIDrawService.getInstance().get("button-fill").draw(g2, mInternalRect);
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mInternalRect);
       }
     }
   }

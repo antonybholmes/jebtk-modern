@@ -49,7 +49,7 @@ import javax.swing.event.DocumentListener;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernDropDownWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -92,7 +92,7 @@ public class ModernComboBox extends ModernDropDownWidget
   /**
    * The constant BUTTON_WIDTH.
    */
-  public static final int BUTTON_WIDTH = UIService.ICON_SIZE_16;
+  public static final int BUTTON_WIDTH = AssetService.ICON_SIZE_16;
 
   /**
    * The constant TEXT_OFFSET.
@@ -107,7 +107,7 @@ public class ModernComboBox extends ModernDropDownWidget
   /**
    * The constant DOWN_ARROW_ICON.
    */
-  public static final ModernIcon DOWN_ARROW_ICON = UIService.getInstance()
+  public static final ModernIcon DOWN_ARROW_ICON = AssetService.getInstance()
       .loadIcon(TriangleDownVectorIcon.class, 16);
 
   /**
@@ -366,7 +366,7 @@ public class ModernComboBox extends ModernDropDownWidget
     resize();
 
     addStyleClass("dialog-button");
-    addToStyleClass("content-outline");
+    addStyleClass("content-outline");
     setAnimations("combobox", "button-outline");
   }
 
@@ -465,7 +465,7 @@ public class ModernComboBox extends ModernDropDownWidget
    * Click.
    */
   private void click() {
-    if (!this.isEnabled()) {
+    if (!isEnabled()) {
       return;
     }
 

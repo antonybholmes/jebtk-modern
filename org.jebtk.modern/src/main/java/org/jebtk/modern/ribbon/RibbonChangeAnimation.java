@@ -24,7 +24,7 @@ import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.panel.Card;
 import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabEventAdapter;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -105,7 +105,7 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
 
     int w = mTabs.mTabWidths.get(s);
 
-    if (UIDrawService.getInstance().image("ribbon", s) == null) {
+    if (DrawUIService.getInstance().getImage("ribbon", s) == null) {
       // Cache shadow as expensive operation to create
       BufferedImage shadow = Card.shadow(w + Card.SHADOW_SIZE,
           Ribbon.TAB_HEIGHT + Card.ROUNDING + Card.SHADOW_SIZE);
@@ -113,10 +113,10 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
       // Add the shadow
       Card.background(shadow);
 
-      UIDrawService.getInstance().add("ribbon", s, shadow);
+      DrawUIService.getInstance().add("ribbon", s, shadow);
     }
 
-    BufferedImage img = UIDrawService.getInstance().image("ribbon", s);
+    BufferedImage img = DrawUIService.getInstance().getImage("ribbon", s);
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
 

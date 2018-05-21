@@ -50,7 +50,7 @@ public class RibbonMenuPanel extends ModernClickWidget {
   /**
    * The constant RIBBON_PANEL_COLOR.
    */
-  public static final Color RIBBON_PANEL_COLOR = Color.WHITE; // ThemeService.getInstance().colors().getHighlight(1);
+  public static final Color RIBBON_PANEL_COLOR = Color.WHITE; // ThemeService.getInstance().getColors().getHighlight(1);
 
   /** The border. */
   public static Border BORDER = BorderService.getInstance().createBorder(40);

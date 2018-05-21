@@ -39,7 +39,7 @@ import javax.swing.Box;
 
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -118,7 +118,7 @@ public class ModernDialogSideButtonTabs extends TabsController
   public void drawBackground(Graphics2D g2) {
     fillBackground(g2);
 
-    g2.setColor(ThemeService.getInstance().colors().getGray(4));
+    g2.setColor(ThemeService.getInstance().getColors().getGray(4));
 
     g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
   }
@@ -154,7 +154,7 @@ public class ModernDialogSideButtonTabs extends TabsController
   private final void addTab(ModernCheckButton button) {
     System.err.println("adding side tab");
 
-    UI.setSize(button, new Dimension(Short.MAX_VALUE, UIService.ICON_SIZE_32));
+    UI.setSize(button, new Dimension(Short.MAX_VALUE, AssetService.ICON_SIZE_32));
     button.addClickListener(this);
 
     buttonMap.put(button, buttons.size());

@@ -27,7 +27,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes
  * @param <T>
  */
-public abstract class HighlightAnimation extends HighlightBaseAnimation {
+public abstract class HighlightAnimation extends FadeAnimation {
 
   /**
    * The listener interface for receiving state events. The class that is
@@ -56,8 +56,6 @@ public abstract class HighlightAnimation extends HighlightBaseAnimation {
   public <T extends ModernWidget & HighlightEventProducer> HighlightAnimation(
       T widget) {
     super(widget);
-
-    mFade = new FadeAnimation(widget);
 
     widget.addHighlightListener(new Listener());
   }

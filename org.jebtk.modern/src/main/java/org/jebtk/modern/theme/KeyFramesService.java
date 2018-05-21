@@ -66,7 +66,7 @@ public class KeyFramesService {
    *
    * @return single instance of SettingsService
    */
-  public static KeyFramesService instance() {
+  public static KeyFramesService getInstance() {
     return KeyFramesServiceLoader.INSTANCE;
   }
 
@@ -125,12 +125,12 @@ public class KeyFramesService {
             o = ColorUtils.decodeHtmlColor(v);
           } else if (v.startsWith("colors.theme32")) {
             int i = Integer.parseInt(v.substring(v.lastIndexOf("-") + 1));
-            o = ThemeService.getInstance().colors().getTheme32(i);
+            o = ThemeService.getInstance().getColors().getTheme32(i);
           } else if (v.startsWith("colors.gray32")) {
             int i = Integer.parseInt(v.substring(v.lastIndexOf("-") + 1));
-            o = ThemeService.getInstance().colors().getGray32(i);
+            o = ThemeService.getInstance().getColors().getGray32(i);
           } else if (v.startsWith("colors.material")) {
-            o = MaterialService.instance().color(v.replace("colors.material.", TextUtils.EMPTY_STRING));
+            o = MaterialService.getInstance().getColor(v.replace("colors.material.", TextUtils.EMPTY_STRING));
           } else if (v.equals("white")) {
             o = Color.WHITE;
           } else if (v.equals("black")) {
@@ -184,15 +184,15 @@ public class KeyFramesService {
     /*
     get("primary-dialog-button-f0")
         .set("border-color",
-            ThemeService.getInstance().colors().getTheme32(24))
+            ThemeService.getInstance().getColors().getTheme32(24))
         .set("background-color",
-            ThemeService.getInstance().colors().getTheme32(20));
+            ThemeService.getInstance().getColors().getTheme32(20));
 
     get("primary-dialog-button-f100")
         .set("border-color",
-            ThemeService.getInstance().colors().getTheme32(28))
+            ThemeService.getInstance().getColors().getTheme32(28))
         .set("background-color",
-            ThemeService.getInstance().colors().getTheme32(24));
+            ThemeService.getInstance().getColors().getTheme32(24));
      */
   }
 
@@ -293,12 +293,27 @@ public class KeyFramesService {
     return getStyleClass(KeyFrames.FROM, name);
   }
   
+  public StyleClass getToStyleClass(String name) {
+    return getStyleClass(KeyFrames.TO, name);
+  }
+  
   public StyleClass getStyleClass(int frame, String name) {
-    if (!getStyleClass(frame).containsKey(name)) {
+    if (!contains(frame, name)) {
       getStyleClass(frame).put(name, new StyleClass(name));
     }
 
     return getStyleClass(frame).get(name);
+  }
+  
+  /**
+   * Returns true if the given keyframe contains a given style class.
+   * 
+   * @param frame     The keyframe (between 0 and 100 inclusive).
+   * @param name      The name of the style class.
+   * @return
+   */
+  public boolean contains(int frame, String name) {
+    return getStyleClass(frame).containsKey(name);
   }
   
   public Map<String, StyleClass> getStyleClass(int frame) {
@@ -307,21 +322,19 @@ public class KeyFramesService {
     return mStyleMap.get(frame);
   }
   
-  /**
-   * Add style classes from a given keyframe in the store to a component.
-   * 
-   * @param keyFrames
-   * @param frame
-   * @param name
-   * @param names
-   */
+  /*
   public void addStyleClasses(ModernComponent c, int frame, String name, String... names) {
-    c.getKeyFrames().getKeyFrame(frame).addStyleClass(getStyleClass(frame, name));
+    if (contains(frame, name)) {
+      c.getKeyFrames().getKeyFrame(frame).addStyleClass(getStyleClass(frame, name));
+    }
     
     for (String n : names) {
-      c.getKeyFrames().getKeyFrame(frame).addStyleClass(getStyleClass(frame, n));
+      if (contains(frame, n)) {
+        c.getKeyFrames().getKeyFrame(frame).addStyleClass(getStyleClass(frame, n));
+      }
     }
   }
+  */
 
   /*
    * public Style get(Collection<String> styles) { String name =

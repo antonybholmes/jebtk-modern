@@ -20,7 +20,8 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
- * The Class NoAnimation.
+ * The Class NoAnimation does nothing. Can act as a placeholder for drawing
+ * nothing or static animations
  */
 public class NoAnimation implements Animation {
 

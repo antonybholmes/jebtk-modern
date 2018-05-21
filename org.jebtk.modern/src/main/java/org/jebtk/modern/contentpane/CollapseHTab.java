@@ -34,7 +34,7 @@ import javax.swing.JComponent;
 
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.button.ModernSideButton;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -111,7 +111,7 @@ public class CollapseHTab extends ModernComponent {
     box.add(Box.createHorizontalGlue());
 
     ModernButtonWidget button = new ModernSideButton(
-        UIService.getInstance().loadIcon("left_arrow", 16));
+        AssetService.getInstance().loadIcon("left_arrow", 16));
     button.addClickListener(new ClickEvents());
 
     box.add(button);

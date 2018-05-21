@@ -42,19 +42,19 @@ public class RoundelVectorIcon extends ModernVectorIcon {
    * The constant WIDTH_SCALE.
    */
   private static final double WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.roundel-icon.width-scale");
+      .getDouble("theme.icons.roundel-icon.width-scale");
 
   /**
    * The constant LINE_SCALE.
    */
   private static final double LINE_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.roundel-icon.line-scale");
+      .getDouble("theme.icons.roundel-icon.line-scale");
 
   /**
    * The constant ARROW_SCALE.
    */
   private static final double ARROW_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.roundel-icon.arrow-scale");
+      .getDouble("theme.icons.roundel-icon.arrow-scale");
 
   /**
    * The member color.
@@ -66,7 +66,7 @@ public class RoundelVectorIcon extends ModernVectorIcon {
    */
   public RoundelVectorIcon() {
     this(SettingsService.getInstance()
-        .getAsColor("theme.icons.roundel-icon.colors.foreground"));
+        .getColor("theme.icons.roundel-icon.colors.foreground"));
   }
 
   /**

@@ -31,7 +31,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.dialog.ModernDialogFlatDropDownButton;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.widget.ModernWidget;
@@ -131,10 +131,10 @@ public class ColorSwatchButton extends ModernDialogFlatDropDownButton {
       g2.drawRect(x, y, 16, 6);
     }
 
-    // g2.setColor(ThemeService.getInstance().colors().getHighlight(4));
+    // g2.setColor(ThemeService.getInstance().getColors().getHighlight(4));
     // g2.drawRect(x, y, 32, Resources.ICON_SIZE_16);
 
-    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
+    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
         .drawIcon(g2, getWidth() - 16, (getHeight() - 16) / 2, 16);
   }
 

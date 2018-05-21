@@ -48,7 +48,7 @@ public class ModernDialogBorderButtonsBox extends ModernDialogButtonsBox {
   /**
    * The constant LINE_COLOR.
    */
-  private static final Color LINE_COLOR = ThemeService.getInstance().colors()
+  private static final Color LINE_COLOR = ThemeService.getInstance().getColors()
       .getGray(4);
 
   /*

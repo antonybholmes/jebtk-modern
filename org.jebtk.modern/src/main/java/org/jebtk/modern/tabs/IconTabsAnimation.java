@@ -31,7 +31,7 @@ import org.jebtk.modern.widget.ModernWidget;
 public class IconTabsAnimation extends HoverFadeAnimation {
 
   private static final Color BACKGROUND = ColorUtils
-      .getTransparentColor(Color.BLACK, 0.95); // ThemeService.getInstance().colors().getHighlight(2);
+      .getTransparentColor(Color.BLACK, 0.95); // ThemeService.getInstance().getColors().getHighlight(2);
 
   private IconTabs mTabs;
 

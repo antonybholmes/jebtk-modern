@@ -38,7 +38,7 @@ import java.util.Map;
 
 import javax.swing.border.Border;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -78,7 +78,7 @@ public class ModernOutlookVerticalTabs extends TabsController
   /**
    * The constant GAP.
    */
-  private static final int GAP = UIService.ICON_SIZE_24;
+  private static final int GAP = AssetService.ICON_SIZE_24;
 
   /**
    * The constant HALF_GAP.
@@ -138,7 +138,7 @@ public class ModernOutlookVerticalTabs extends TabsController
    */
   private final void addTab(String name) {
     addTab(name,
-        UIService.getInstance().loadIcon("blank", UIService.ICON_SIZE_16));
+        AssetService.getInstance().loadIcon("blank", AssetService.ICON_SIZE_16));
   }
 
   /**

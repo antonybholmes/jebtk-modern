@@ -57,7 +57,7 @@ public class ModernPopupMenu2 extends ModernPopup2 {
   /**
    * The member cons.
    */
-  // public static GridBagConstraints CONS = new GridBagConstraints();
+  // public static GridBagConstraints CONS = new GridBagConstragetInts();
 
   // static {
   // CONS.fill = GridBagConstraints.HORIZONTAL;

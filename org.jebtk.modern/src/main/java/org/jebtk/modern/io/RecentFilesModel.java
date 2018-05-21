@@ -89,7 +89,7 @@ public class RecentFilesModel extends ChangeListeners
    * The constant MAX_FILES.
    */
   public static final int MAX_FILES = SettingsService.getInstance()
-      .getAsInt("ui.recent-files.max-files");
+      .getInt("ui.recent-files.max-files");
 
   /** The m file type map. */
   protected Map<String, List<Path>> mFileTypeMap = DefaultTreeMap

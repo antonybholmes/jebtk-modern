@@ -29,7 +29,7 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 
 /**
  * Check vector icon optimized for 16 pixel icons.
@@ -49,6 +49,6 @@ public class CheckVectorIcon extends ModernVectorScalableIcon {
     // WidgetRendererService.getInstance().getRenderer().drawCheck(g2, x, y, w,
     // h);
 
-    UIDrawService.getInstance().get("content-box").draw(g2, x, y, w, h);
+    DrawUIService.getInstance().getRenderer("content-box").draw(g2, x, y, w, h);
   }
 }

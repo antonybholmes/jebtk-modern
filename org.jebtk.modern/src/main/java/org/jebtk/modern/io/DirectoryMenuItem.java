@@ -30,7 +30,7 @@ package org.jebtk.modern.io;
 import java.nio.file.Path;
 import java.util.Date;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
 
@@ -52,7 +52,7 @@ public class DirectoryMenuItem extends RecentFileMenuItem {
    */
   public DirectoryMenuItem(Path file, Date date) {
     this(file, date,
-        UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+        AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
 
   }
 

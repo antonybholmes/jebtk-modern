@@ -46,7 +46,7 @@ public class ChipCloseIcon extends ModernVectorIcon {
 
   private static final Color LINE_COLOR = ChipButtonHighlightAnimation.HIGHLIGHT;
 
-  private static final Color FILL_COLOR = ThemeService.getInstance().colors()
+  private static final Color FILL_COLOR = ThemeService.getInstance().getColors()
       .getGray32(16);
 
   /*

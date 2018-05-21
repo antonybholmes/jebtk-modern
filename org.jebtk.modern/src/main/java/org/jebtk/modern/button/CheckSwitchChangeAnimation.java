@@ -21,7 +21,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateListener;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -39,16 +38,16 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
   /**
    * Pick a color a few shades lighter than the background
    */
-  public static final Color SELECTED_COLOR = ModernWidgetRenderer.SELECTED_FILL_COLOR; // ThemeService.getInstance().colors().getColorHighlight32(ThemeService.getInstance().colors().getColorHighlightIndex(ModernWidgetRenderer.SELECTED_FILL_COLOR)
+  //public static final Color SELECTED_COLOR = ModernWidgetRenderer.SELECTED_FILL_COLOR; // ThemeService.getInstance().getColors().getColorHighlight32(ThemeService.getInstance().getColors().getColorHighlightIndex(ModernWidgetRenderer.SELECTED_FILL_COLOR)
                                                                                        // /
                                                                                        // 2);
 
   // public static final Color LINE_COLOR =
-  // ThemeService.getInstance().colors().getHighlight32(ThemeService.getInstance().colors().getHighlightIndex(ModernWidget.LINE_COLOR)
+  // ThemeService.getInstance().getColors().getHighlight32(ThemeService.getInstance().getColors().getHighlightIndex(ModernWidget.LINE_COLOR)
   // / 2);
 
   public CheckSwitchChangeAnimation(ModernWidget button) {
-    this(button, SELECTED_COLOR);
+    this(button, ModernWidget.LINE_COLOR);
   }
 
   /**

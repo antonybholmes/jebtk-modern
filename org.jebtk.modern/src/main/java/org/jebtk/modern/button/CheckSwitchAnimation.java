@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.WidgetAnimation;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class CheckSwitchAnimation extends WidgetAnimation {
@@ -14,7 +13,7 @@ public class CheckSwitchAnimation extends WidgetAnimation {
   private Color mColor;
 
   public CheckSwitchAnimation(ModernWidget widget) {
-    this(widget, ModernWidgetRenderer.SELECTED_FILL_COLOR);
+    this(widget, ModernWidget.LINE_COLOR);
   }
 
   public CheckSwitchAnimation(ModernWidget widget, Color color) {

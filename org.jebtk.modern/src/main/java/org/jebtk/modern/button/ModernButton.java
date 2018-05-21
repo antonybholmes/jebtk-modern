@@ -70,7 +70,7 @@ public class ModernButton extends ModernClickableButtonWidget {
 
   /** The Constant SMALL_BUTTON_HEIGHT. */
   public static final int SMALL_BUTTON_HEIGHT = SettingsService.getInstance()
-      .getAsInt("theme.button.small-button.height");
+      .getInt("theme.button.small-button.height");
 
   /** The Constant SMALL_BUTTON_SIZE. */
   public static final Dimension SMALL_BUTTON_SIZE = new Dimension(
@@ -93,9 +93,6 @@ public class ModernButton extends ModernClickableButtonWidget {
    */
   public ModernButton(String text1) {
     super(text1);
-
-    // UI.setSize(this, getButtonWidth(text1), getButtonHeight());
-    // //UI.setSize(this, getButtonSize(text1)); //DEFAULT_SIZE);
   }
 
   /**
@@ -105,8 +102,6 @@ public class ModernButton extends ModernClickableButtonWidget {
    */
   public ModernButton(ModernIcon icon) {
     super(icon);
-
-    // UI.setSize(this, ICON_ONLY_SIZE);
   }
 
   /**
@@ -152,7 +147,7 @@ public class ModernButton extends ModernClickableButtonWidget {
 
     UI.setSize(this, size); // ICON_TEXT_SIZE);
   }
-
+  
   /*
    * (non-Javadoc)
    * 

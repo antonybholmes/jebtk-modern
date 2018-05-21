@@ -52,7 +52,7 @@ public class RibbonBarPanel extends ModernPanel {
   public RibbonBarPanel() {
     setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
     setBorder(BORDER);
-    setBackground(SettingsService.getInstance().getAsColor("ribbon-bar.color"));
+    setBackground(SettingsService.getInstance().getColor("ribbon-bar.color"));
   }
 
   /*

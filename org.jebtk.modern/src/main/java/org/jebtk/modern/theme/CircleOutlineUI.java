@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.theme;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
@@ -24,27 +23,21 @@ import org.jebtk.modern.graphics.ImageUtils;
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
-public class CircleOutlineUI extends UIRenderer {
+public class CircleOutlineUI extends ButtonOutlineUI {
 
   @Override
   public String getName() {
-    return "circle.outline";
+    return "circle-outline";
   }
 
   @Override
-  public void draw(Graphics2D g2,
+  public void outline(Graphics2D g2,
       ModernComponent c,
       int x,
       int y,
       int w,
       int h,
       Object... params) {
-
-    if (params.length > 0) {
-      g2.setColor((Color) params[0]);
-    } else {
-      g2.setColor(ModernWidgetRenderer.HIGHLIGHTED_FILL_COLOR);
-    }
 
     w = Math.max(w, h) - 1;
 

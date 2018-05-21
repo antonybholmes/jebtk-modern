@@ -62,6 +62,7 @@ public class OrbTabsChangeAnimation extends TranslateXAnimation {
     restart();
   }
 
+  @Override
   public void restart() {
     int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
     int previousIndex = mTabs.getTabsModel().getPreviousIndex();

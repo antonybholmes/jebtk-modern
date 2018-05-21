@@ -31,7 +31,7 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.dialog.ModernDialogWindow;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ThemeService;
@@ -135,12 +135,12 @@ public class ModernSeparatorMenuItem extends ModernIconMenuItem {
       int d = 0;
 
       if (this.getIcon() != null) {
-        d = UIService.ICON_SIZE_16 + DOUBLE_PADDING;
+        d = AssetService.ICON_SIZE_16 + DOUBLE_PADDING;
       }
 
-      int x = Math.max(UIService.ICON_SIZE_32, d);
+      int x = Math.max(AssetService.ICON_SIZE_32, d);
 
-      g2.setColor(ThemeService.getInstance().colors().getGray(6));
+      g2.setColor(ThemeService.getInstance().getColors().getGray(6));
       g2.setFont(ThemeService.loadFont("widget.bold-text"));
       g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
     }
@@ -148,7 +148,7 @@ public class ModernSeparatorMenuItem extends ModernIconMenuItem {
     if (this.getIcon() != null) {
       int iconY = (getHeight() - getIcon().getHeight()) / 2;
 
-      this.getIcon().drawIcon(g2, PADDING, iconY, UIService.ICON_SIZE_16);
+      this.getIcon().drawIcon(g2, PADDING, iconY, AssetService.ICON_SIZE_16);
     }
   }
 }

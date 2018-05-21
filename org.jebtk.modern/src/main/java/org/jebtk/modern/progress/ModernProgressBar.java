@@ -104,7 +104,7 @@ public class ModernProgressBar extends ModernWidget
     g2.setColor(Color.WHITE);
     g2.fillRect(this.getInsets().left, this.getInsets().top, w - 1, h - 1);
 
-    g2.setColor(ThemeService.getInstance().colors().getGray(1));
+    g2.setColor(ThemeService.getInstance().getColors().getGray(1));
     g2.drawRect(this.getInsets().left, this.getInsets().top, w - 1, h - 1);
 
     int width = (int) (w * progressModel.getPercentComplete());

@@ -58,7 +58,7 @@ public class TableVectorIcon extends ModernVectorIcon {
    * Instantiates a new table vector icon.
    */
   public TableVectorIcon() {
-    this(ThemeService.getInstance().colors().getTheme(4));
+    this(ThemeService.getInstance().getColors().getTheme(4));
   }
 
   /**

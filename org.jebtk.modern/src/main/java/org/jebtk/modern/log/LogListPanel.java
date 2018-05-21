@@ -34,7 +34,7 @@ import java.awt.event.MouseListener;
 import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.clipboard.ClipboardService;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -92,14 +92,14 @@ public class LogListPanel extends ModernWidget
     add(scrollPane, BorderLayout.CENTER);
 
     ModernIconMenuItem menuItem = new ModernIconMenuItem(MENU_CLEAR,
-        UIService.getInstance().loadIcon("clear_log", UIService.ICON_SIZE_16));
+        AssetService.getInstance().loadIcon("clear_log", AssetService.ICON_SIZE_16));
     menuItem.addClickListener(this);
     logPopup.add(menuItem);
 
     logPopup.add(new ModernMenuSeparator());
 
     menuItem = new ModernIconMenuItem(UI.MENU_COPY,
-        UIService.getInstance().loadIcon("copy", UIService.ICON_SIZE_16));
+        AssetService.getInstance().loadIcon("copy", AssetService.ICON_SIZE_16));
     menuItem.addClickListener(this);
     logPopup.add(menuItem);
 

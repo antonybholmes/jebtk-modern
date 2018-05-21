@@ -24,8 +24,8 @@ import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.core.geom.IntBlock;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.PathUtils;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
 import org.jebtk.modern.graphics.icons.CheveronRightVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.ribbon.Ribbon;
@@ -46,7 +46,7 @@ public class ModernFileCrumb extends ModernWidget
 
   private static final int ICON_SIZE = 12;
 
-  private ModernIcon CRUMB_ICON = UIService.getInstance()
+  private ModernIcon CRUMB_ICON = AssetService.getInstance()
       .loadIcon(CheveronRightVectorIcon.class, ICON_SIZE);
 
   private ModernTextField mTextField = new ModernTextField();
@@ -197,7 +197,7 @@ public class ModernFileCrumb extends ModernWidget
 
     // setBorder(SMALL_BORDER);
 
-    // getBackgroundAnimations().set("text-border");
+    // getBackgroundAnimations().set("button-outline");
   }
 
   private int getIndex(int x) {

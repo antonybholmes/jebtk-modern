@@ -26,7 +26,7 @@ import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.modern.ComponentTable;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.dialog.ModernDialogStatus;
 import org.jebtk.modern.dialog.ModernMessageDialog;
@@ -48,11 +48,11 @@ public class ChooseFilesPanel extends ModernComponent {
 
   /** The m add button. */
   private ModernButton mAddButton = new ModernButton("Add",
-      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
   /** The m delete button. */
   private ModernButton mDeleteButton = new ModernButton("Delete",
-      UIService.getInstance().loadIcon(DeleteVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(DeleteVectorIcon.class, 16));
 
   /** The m filters. */
   private List<GuiFileExtFilter> mFilters;

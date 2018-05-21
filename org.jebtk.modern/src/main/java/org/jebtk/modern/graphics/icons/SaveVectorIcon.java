@@ -45,19 +45,19 @@ public class SaveVectorIcon extends ModernVectorScalableIcon {
    * The constant SCALE.
    */
   private static final double SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.save-icon.width-scale");
+      .getDouble("theme.icons.save-icon.width-scale");
 
   /**
    * The constant CORNER_SCALE.
    */
   private static final double CORNER_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.save-icon.corner-scale");
+      .getDouble("theme.icons.save-icon.corner-scale");
 
   /**
    * The constant COLOR.
    */
   private static final Color COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.save-icon.colors.background");
+      .getColor("theme.icons.save-icon.colors.background");
 
   /**
    * The member color.

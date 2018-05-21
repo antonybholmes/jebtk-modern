@@ -61,7 +61,7 @@ public class FileFilterService implements Iterable<String> {
    *
    * @return single instance of SettingsService
    */
-  public static FileFilterService instance() {
+  public static FileFilterService getInstance() {
     return FileFilterServiceLoader.INSTANCE;
   }
   
@@ -314,9 +314,9 @@ public class FileFilterService implements Iterable<String> {
     for (int i = 0; i < json.size(); ++i) {
       Json filterJson = json.get(i);
 
-      String name = filterJson.getAsString("name");
+      String name = filterJson.getString("name");
 
-      mFilterMap.put(name, new SimpleGuiFileFilter(filterJson.getAsString("description"),
+      mFilterMap.put(name, new SimpleGuiFileFilter(filterJson.getString("description"),
           JsonUtils.toStringList(filterJson.get("filters"))));
       
       

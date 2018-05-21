@@ -35,7 +35,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.jebtk.modern.CellSelectionType;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.font.FontUtils;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -92,14 +92,14 @@ public class ModernTableHeaderColumnCellRenderer
   /**
    * The constant UP_ICON.
    */
-  private static final ModernIcon UP_ICON = UIService.getInstance()
-      .loadIcon("up_scroll", UIService.ICON_SIZE_16);
+  private static final ModernIcon UP_ICON = AssetService.getInstance()
+      .loadIcon("up_scroll", AssetService.ICON_SIZE_16);
 
   /**
    * The constant DOWN_ICON.
    */
-  private static final ModernIcon DOWN_ICON = UIService.getInstance()
-      .loadIcon("down_scroll", UIService.ICON_SIZE_16);
+  private static final ModernIcon DOWN_ICON = AssetService.getInstance()
+      .loadIcon("down_scroll", AssetService.ICON_SIZE_16);
 
   /** The m img line cache. */
   private Map<Integer, BufferedImage> mImgLineCache = new HashMap<Integer, BufferedImage>();

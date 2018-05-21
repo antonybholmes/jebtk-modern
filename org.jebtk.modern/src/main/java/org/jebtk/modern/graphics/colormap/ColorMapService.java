@@ -390,18 +390,18 @@ public class ColorMapService extends ColorMaps {
 
     for (Json colorMapJson : json) {
       System.err.println(
-          "loading custom color map " + colorMapJson.getAsString("name"));
+          "loading custom color map " + colorMapJson.getString("name"));
 
       List<ColorMapColor> colors = new ArrayList<ColorMapColor>();
 
       for (Json colorsJson : colorMapJson.get("anchor-colors")) {
-        System.err.println("Colors " + colorsJson.getAsInt("r") + " "
-            + +colorsJson.getAsInt("g") + " " + +colorsJson.getAsInt("b") + " "
-            + +colorsJson.getAsInt("a"));
+        System.err.println("Colors " + colorsJson.getInt("r") + " "
+            + +colorsJson.getInt("g") + " " + +colorsJson.getInt("b") + " "
+            + +colorsJson.getInt("a"));
 
-        ColorMapColor color = new ColorMapColor(colorsJson.getAsInt("r"),
-            colorsJson.getAsInt("g"), colorsJson.getAsInt("b"),
-            colorsJson.getAsInt("a"));
+        ColorMapColor color = new ColorMapColor(colorsJson.getInt("r"),
+            colorsJson.getInt("g"), colorsJson.getInt("b"),
+            colorsJson.getInt("a"));
 
         colors.add(color);
       }
@@ -410,35 +410,35 @@ public class ColorMapService extends ColorMaps {
 
       switch (colors.size()) {
       case 5:
-        colorMap = ColorMap.createFiveColorMap(colorMapJson.getAsString("name"),
+        colorMap = ColorMap.createFiveColorMap(colorMapJson.getString("name"),
             colors.get(0),
             colors.get(1),
             colors.get(2),
             colors.get(3),
             colors.get(4),
-            colorMapJson.getAsInt("colors"));
+            colorMapJson.getInt("colors"));
         break;
       case 4:
-        colorMap = ColorMap.createFourColorMap(colorMapJson.getAsString("name"),
+        colorMap = ColorMap.createFourColorMap(colorMapJson.getString("name"),
             colors.get(0),
             colors.get(1),
             colors.get(2),
             colors.get(3),
-            colorMapJson.getAsInt("colors"));
+            colorMapJson.getInt("colors"));
         break;
       case 3:
         colorMap = ColorMap.createThreeColorMap(
-            colorMapJson.getAsString("name"),
+            colorMapJson.getString("name"),
             colors.get(0),
             colors.get(1),
             colors.get(2),
-            colorMapJson.getAsInt("colors"));
+            colorMapJson.getInt("colors"));
         break;
       default:
-        colorMap = ColorMap.createTwoColorMap(colorMapJson.getAsString("name"),
+        colorMap = ColorMap.createTwoColorMap(colorMapJson.getString("name"),
             colors.get(0),
             colors.get(1),
-            colorMapJson.getAsInt("colors"));
+            colorMapJson.getInt("colors"));
         break;
       }
 

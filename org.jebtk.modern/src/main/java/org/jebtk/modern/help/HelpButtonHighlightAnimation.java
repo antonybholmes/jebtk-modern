@@ -23,9 +23,7 @@ public class HelpButtonHighlightAnimation extends ButtonFillAnimation {
       int x,
       int y,
       int w,
-      int h,
-      RenderMode mode,
-      boolean hasFocus) {
+      int h) {
 
     int size = 20; // h - 2;
 

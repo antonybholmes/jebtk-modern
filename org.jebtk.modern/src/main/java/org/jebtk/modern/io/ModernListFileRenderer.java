@@ -33,7 +33,7 @@ import java.nio.file.Path;
 
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.FileVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.list.ModernList;
@@ -62,7 +62,7 @@ public class ModernListFileRenderer extends ModernListIconCellRenderer {
    * Instantiates a new modern list file renderer.
    */
   public ModernListFileRenderer() {
-    this(UIService.getInstance().loadIcon(FileVectorIcon.class, 32));
+    this(AssetService.getInstance().loadIcon(FileVectorIcon.class, 32));
   }
 
   /**

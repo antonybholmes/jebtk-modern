@@ -3,12 +3,11 @@ package org.jebtk.modern.spinner;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
-import org.jebtk.modern.animation.HoverFadeAnimation;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.button.ButtonOutlineAnimation;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class SpinnerHighlightAnimation extends HoverFadeAnimation {
+public class SpinnerHighlightAnimation extends ButtonOutlineAnimation {
   private ModernCompactSpinner mSpinner;
 
   public SpinnerHighlightAnimation(ModernWidget widget) {
@@ -17,10 +16,6 @@ public class SpinnerHighlightAnimation extends HoverFadeAnimation {
     mSpinner = (ModernCompactSpinner) widget;
 
     bind(mSpinner.mField);
-
-    setFadeColor("outline",
-        ModernWidget.LINE_COLOR,
-        ModernWidgetRenderer.SELECTED_FILL_COLOR);
   }
 
   @Override
@@ -35,10 +30,11 @@ public class SpinnerHighlightAnimation extends HoverFadeAnimation {
 
     //widget.getWidgetRenderer().drawBackground(g2, intRect);
     
-    UIDrawService.getInstance().get("content").draw(g2, intRect);
+    DrawUIService.getInstance().getRenderer("content").draw(g2, intRect);
 
     //g2.setColor(getFadeColor("outline"));
     //widget.getWidgetRenderer().outline(g2, intRect);
-    UIDrawService.getInstance().get("button-outline").draw(g2, intRect, getFadeColor("outline"));
+    DrawUIService.getInstance().getRenderer("button-outline").draw(g2, intRect, 
+        getFadeColor("outline"));
   }
 }

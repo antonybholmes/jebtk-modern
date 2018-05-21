@@ -3,7 +3,7 @@ package org.jebtk.modern.button;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.WidgetAnimation;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -25,7 +25,7 @@ public class CheckBoxSelectedAnimation extends WidgetAnimation {
       // getWidget().getWidgetRenderer()
       // .fill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
 
-      UIDrawService.getInstance().get("color.button.selected")
+      DrawUIService.getInstance().getRenderer("color.button.selected")
           .draw(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
     }
   }

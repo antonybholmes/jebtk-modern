@@ -86,41 +86,41 @@ public class ModernComponent extends JComponent {
    * The constant BACKGROUND_COLOR.
    */
   public static final Color BACKGROUND_COLOR = SettingsService.getInstance()
-      .getAsColor("theme.background");
+      .getColor("theme.background");
 
   /**
    * The constant OUTLINE_BASE_COLOR.
    */
   public static final Color OUTLINE_BASE_COLOR = ThemeService.getInstance()
-      .colors().getGray(1);
+      .getColors().getGray(1);
 
   /**
    * The constant OUTLINE_COLOR.
    */
-  public static final Color OUTLINE_COLOR = ThemeService.getInstance().colors()
-      .getGray(6);
+  public static final Color OUTLINE_COLOR = ThemeService.getInstance()
+      .getColors().getGray(6);
 
   /**
    * The constant LINE_COLOR.
    */
-  public static final Color LINE_COLOR = MaterialService.instance()
-      .color("line");
+  public static final Color LINE_COLOR = MaterialService.getInstance()
+      .getColor("line");
 
   /** The Constant LIGHT_LINE_COLOR. */
   public static final Color LIGHT_LINE_COLOR = ThemeService.getInstance()
-      .colors().getLightLineColor();
+      .getColors().getLightLineColor();
 
   /**
    * The constant DARK_LINE_COLOR.
    */
   public static final Color DARK_LINE_COLOR = ThemeService.getInstance()
-      .colors().getDarkLineColor();
+      .getColors().getDarkLineColor();
 
   /**
    * The constant PADDING.
    */
   public static final int PADDING = SettingsService.getInstance()
-      .getAsInt("theme.widget.padding");
+      .getInt("theme.widget.padding");
 
   /**
    * The constant OUTLINE_LINE_BORDER.
@@ -378,16 +378,17 @@ public class ModernComponent extends JComponent {
 
     setAlignmentX(LEFT_ALIGNMENT);
     // setAlignmentY(TOP_ALIGNMENT);
-    
+
     // All components inherit the component class by default
-    addStyleClass("component"); //StyleClassService.instance().getCompStyleClass());
-    
+    addStyleClass("component"); // StyleClassService.getInstance().getCompStyleClass());
+
     // Respond to style changes
     getKeyFrames().addChangeListener(new ChangeListener() {
       @Override
       public void changed(ChangeEvent e) {
         repaint();
-      }});
+      }
+    });
 
     super.addComponentListener(new ComponentEvents());
 
@@ -528,11 +529,11 @@ public class ModernComponent extends JComponent {
         padding,
         getInsets().right));
   }
-  
+
   /**
    * Set the top border on the component as a number of pixels.
    * 
-   * @param padding   how much padding to use for the top border.
+   * @param padding how much padding to use for the top border.
    * @return
    */
   public Component topBorder(int padding) {
@@ -563,11 +564,11 @@ public class ModernComponent extends JComponent {
   public void setSize(Dimension dimension) {
     setSize(dimension.width, dimension.height);
   }
-  
+
   public KeyFrames getKeyFrames() {
     return mKeyFrames;
   }
-  
+
   /**
    * Returns the first key frame in the animation series.
    * 
@@ -576,7 +577,7 @@ public class ModernComponent extends JComponent {
   public KeyFrame getFromKeyFrame() {
     return getKeyFrame(KeyFrames.FROM);
   }
-  
+
   /**
    * Returns the last key frame in the animation series.
    * 
@@ -585,26 +586,37 @@ public class ModernComponent extends JComponent {
   public KeyFrame getToKeyFrame() {
     return getKeyFrame(KeyFrames.TO);
   }
-  
+
   public KeyFrame getKeyFrame(int frame) {
     return mKeyFrames.getKeyFrame(frame);
   }
-  
+
   public KeyFrame getStyleClasses() {
     return getKeyFrames().getKeyFrame();
   }
-  
+
   public ModernComponent addStyleClass(String name, String... names) {
+    // Add both from and to classes (assuming they exist).
+
+    addFromStyleClass(name, names);
+    addToStyleClass(name, names);
+
+    return this;
+  }
+
+  public ModernComponent addFromStyleClass(String name, String... names) {
     return addStyleClass(KeyFrames.FROM, name, names);
   }
-  
+
   public ModernComponent addToStyleClass(String name, String... names) {
     return addStyleClass(KeyFrames.TO, name, names);
   }
-  
-  public ModernComponent addStyleClass(int frame, String name, String... names) {
-    KeyFramesService.instance().addStyleClasses(this, frame, name, names);
-    
+
+  public ModernComponent addStyleClass(int frame,
+      String name,
+      String... names) {
+    addStyleClasses(this, frame, name, names);
+
     return this;
   }
 
@@ -1076,5 +1088,30 @@ public class ModernComponent extends JComponent {
     return createToolTipEvent(tooltip, e.getX(), e.getY());
   }
 
-  
+  /**
+   * Add existing classes from the store to a given component.
+   * 
+   * @param c
+   * @param frame
+   * @param name
+   * @param names
+   */
+  public static void addStyleClasses(ModernComponent c,
+      int frame,
+      String name,
+      String... names) {
+    KeyFramesService kf = KeyFramesService.getInstance();
+
+    if (kf.contains(frame, name)) {
+      c.getKeyFrames().getKeyFrame(frame)
+          .addStyleClass(kf.getStyleClass(frame, name));
+    }
+
+    for (String n : names) {
+      if (kf.contains(frame, n)) {
+        c.getKeyFrames().getKeyFrame(frame)
+            .addStyleClass(kf.getStyleClass(frame, n));
+      }
+    }
+  }
 }

@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
 
-public class ContentOutlineUI extends UIRenderer {
+public class ContentOutlineUI extends DrawUI {
   @Override
   public String getName() {
     return "content.outline";

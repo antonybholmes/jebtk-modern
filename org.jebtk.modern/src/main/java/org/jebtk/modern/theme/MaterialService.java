@@ -42,11 +42,11 @@ public class MaterialService {
    *
    * @return single instance of SettingsService
    */
-  public static MaterialService instance() {
+  public static MaterialService getInstance() {
     return MaterialServiceLoader.INSTANCE;
   }
 
-  public static final Color TEXT_COLOR = ThemeService.getInstance().colors()
+  public static final Color TEXT_COLOR = ThemeService.getInstance().getColors()
       .getTextColor();
 
   /**
@@ -105,7 +105,7 @@ public class MaterialService {
      */
     public MaterialColors() {
       put("ribbon",
-          ThemeService.getInstance().colors().getTheme32(28));
+          ThemeService.getInstance().getColors().getTheme32(28));
       put("ribbon-highlight",
           ColorUtils.getTransparentColor(get("ribbon"), 0.92));
       put("ribbon-selected",
@@ -118,69 +118,69 @@ public class MaterialService {
       // put("button", ColorUtils.getTransparentColor(get("ribbon"), 0.75));
 
       put("ribbon-menu-font",
-          ThemeService.getInstance().colors().getGray32(20));
+          ThemeService.getInstance().getColors().getGray32(20));
       put("ribbon-menu-font-highlight",
-          ThemeService.getInstance().colors().getGray32(25));
+          ThemeService.getInstance().getColors().getGray32(25));
       put("ribbon-menu-font-selected", ModernWidget.TEXT_COLOR);
 
       put("card-border",
           ColorUtils.getTransparentColor25(ModernWidget.LIGHT_LINE_COLOR));
 
       put("theme-highlight",
-          ThemeService.getInstance().colors().getTheme32(14));
+          ThemeService.getInstance().getColors().getTheme32(14));
 
       put("theme-selected",
-          ThemeService.getInstance().colors().getTheme32(16));
+          ThemeService.getInstance().getColors().getTheme32(16));
 
       put("theme-outline",
-          ThemeService.getInstance().colors().getTheme32(18));
+          ThemeService.getInstance().getColors().getTheme32(18));
 
       put("gray-highlight",
-          ThemeService.getInstance().colors().getGray32(4));
+          ThemeService.getInstance().getColors().getGray32(4));
 
       put("gray-selected",
-          ThemeService.getInstance().colors().getGray32(8));
+          ThemeService.getInstance().getColors().getGray32(8));
 
       put("gray-outline",
-          ThemeService.getInstance().colors().getGray32(15));
+          ThemeService.getInstance().getColors().getGray32(15));
 
       put("dialog.button.fill", Color.WHITE);
 
       put("dialog.button.gradient.start",
-          ThemeService.getInstance().colors().getGray32(2));
+          ThemeService.getInstance().getColors().getGray32(2));
 
       put("dialog.button.gradient.end",
-          ThemeService.getInstance().colors().getGray32(3));
+          ThemeService.getInstance().getColors().getGray32(3));
 
       put("dialog.button.outline",
-          ThemeService.getInstance().colors().getGray32(5));
+          ThemeService.getInstance().getColors().getGray32(5));
 
       put("dialog.button.highlight",
-          ThemeService.getInstance().colors().getGray32(10));
+          ThemeService.getInstance().getColors().getGray32(10));
 
       put("color.dialog.button.gradient.start",
-          ThemeService.getInstance().colors().getTheme32(16));
+          ThemeService.getInstance().getColors().getTheme32(16));
 
       put("color.dialog.button.gradient.end",
-          ThemeService.getInstance().colors().getTheme32(18));
+          ThemeService.getInstance().getColors().getTheme32(18));
 
       put("color.dialog.button.outline",
-          ThemeService.getInstance().colors().getTheme32(20));
+          ThemeService.getInstance().getColors().getTheme32(20));
 
       put("color.dialog.button.highlight",
-          ThemeService.getInstance().colors().getTheme32(27));
+          ThemeService.getInstance().getColors().getTheme32(27));
 
       put("window.background",
-          ThemeService.getInstance().colors().getGray32(0));
+          ThemeService.getInstance().getColors().getGray32(0));
 
       put("window.background.gradient.start", get("window.background"));
 
       put("window.background.gradient.end",
-          ThemeService.getInstance().colors().getGray32(1));
+          ThemeService.getInstance().getColors().getGray32(1));
 
-      put("line", ThemeService.getInstance().colors().getGray32(7));
+      put("line", ThemeService.getInstance().getColors().getGray32(7));
 
-      put("alt.text", ThemeService.getInstance().colors().getGray32(20));
+      put("alt.text", ThemeService.getInstance().getColors().getGray32(20));
     }
 
     public Color altText() {
@@ -195,7 +195,7 @@ public class MaterialService {
      */
     public IntConstants() {
       put("corner-radius",
-          SettingsService.getInstance().getAsInt("theme.constants.corner-radius"));
+          SettingsService.getInstance().getInt("theme.constants.corner-radius"));
     }
 
     public int cornerRadius() {
@@ -216,7 +216,7 @@ public class MaterialService {
    *
    * @return the material fonts
    */
-  public MaterialFonts fonts() {
+  public MaterialFonts getFonts() {
     return mFonts;
   }
 
@@ -225,11 +225,11 @@ public class MaterialService {
    *
    * @return the material colors
    */
-  public MaterialColors colors() {
+  public MaterialColors getColors() {
     return mColors;
   }
   
-  public IntConstants ints() {
+  public IntConstants getInts() {
     return mIntConsts;
   }
 
@@ -239,8 +239,8 @@ public class MaterialService {
    * @param name the name
    * @return the color
    */
-  public Color color(String name) {
-    return colors().get(name);
+  public Color getColor(String name) {
+    return getColors().get(name);
   }
 
   /**
@@ -249,7 +249,7 @@ public class MaterialService {
    * @param name the name
    * @return the font
    */
-  public Font font(String name) {
-    return fonts().get(name);
+  public Font getFont(String name) {
+    return getFonts().get(name);
   }
 }

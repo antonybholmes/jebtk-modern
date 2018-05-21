@@ -103,11 +103,9 @@ import org.jebtk.modern.tabs.IconTabsHighlightAnimation;
 import org.jebtk.modern.tabs.IconTabsIconAnimation;
 import org.jebtk.modern.tabs.OrbTabsAnimation;
 import org.jebtk.modern.tabs.OrbTabsChangeAnimation;
-import org.jebtk.modern.tabs.OrbTabsHighlightAnimation;
 import org.jebtk.modern.tabs.SegmentAnimation;
 import org.jebtk.modern.tabs.SegmentChangeAnimation;
 import org.jebtk.modern.tabs.SegmentTextAnimation;
-import org.jebtk.modern.text.TextBorderAnimation;
 import org.jebtk.modern.tree.TreeHighlightAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -268,7 +266,7 @@ public class AnimationService {
     
         //.add(DialogButtonHighlightAnimation.class);
 
-    get("text-border").add(TextBorderAnimation.class);
+    //get("button-outline").add(TextBorderAnimation.class);
 
     get("ribbon-menu").add(RibbonMenuHighlightAnimation.class)
         .add(RibbonMenuPressedAnimation.class);

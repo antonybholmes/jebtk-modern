@@ -2,17 +2,12 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.ribbon.Ribbon;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class RadioOutlineAnimation extends HoverFadeAnimation {
+public class RadioOutlineAnimation extends ButtonOutlineAnimation {
   public RadioOutlineAnimation(ModernWidget button) {
     super(button);
-
-    setFadeColor("outline", Ribbon.BAR_BACKGROUND);
   }
 
   @Override
@@ -24,7 +19,7 @@ public class RadioOutlineAnimation extends HoverFadeAnimation {
       Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
       try {
-        drawOutline(g2Temp,
+        outline(g2Temp,
             x,
             y,
             RadioAnimation.RADIO_SIZE,
@@ -35,10 +30,11 @@ public class RadioOutlineAnimation extends HoverFadeAnimation {
     }
   }
 
-  public void drawOutline(Graphics2D g2, int x, int y, int w, int h) {
+  @Override
+  public void outline(Graphics2D g2, int x, int y, int w, int h) {
     // Do nothing
 
-    int wf = (int) (w * ModernWidgetRenderer.RADIO_SCALE / 2) * 2;
+    int wf = (int) (w * RadioAnimation.RADIO_SCALE / 2) * 2;
 
     x += (w - wf) / 2;
     y += (h - wf) / 2;

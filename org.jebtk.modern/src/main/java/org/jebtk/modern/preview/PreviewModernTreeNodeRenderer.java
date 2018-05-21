@@ -27,7 +27,7 @@
  */
 package org.jebtk.modern.preview;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.tree.TreeIconNodeCountRenderer;
 
 // TODO: Auto-generated Javadoc
@@ -49,7 +49,7 @@ public class PreviewModernTreeNodeRenderer extends TreeIconNodeCountRenderer {
    */
   public PreviewModernTreeNodeRenderer() {
 
-    super(UIService.getInstance().loadIcon("table", UIService.ICON_SIZE_16),
-        UIService.getInstance().loadIcon("table", UIService.ICON_SIZE_16));
+    super(AssetService.getInstance().loadIcon("table", AssetService.ICON_SIZE_16),
+        AssetService.getInstance().loadIcon("table", AssetService.ICON_SIZE_16));
   }
 }

@@ -31,7 +31,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernCheckButton;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -89,7 +89,7 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
     if (isEnabled() && mHighlight) {
       // getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.HIGHLIGHT);
 
-      UIDrawService.getInstance().get("button-fill").draw(g2, mInternalRect);
+      DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mInternalRect);
     }
   }
 
@@ -113,7 +113,7 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
     if (isSelected()) {
       // CHECKED_ICON.drawIcon(g2, x, y, ICON_SIZE);
 
-      UIDrawService.getInstance().get("check")
+      DrawUIService.getInstance().getRenderer("check")
           .draw(g2, x, y, ICON_SIZE, ICON_SIZE);
 
     }

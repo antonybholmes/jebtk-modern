@@ -45,25 +45,25 @@ public class ExpandVectorIcon extends ModernVectorIcon {
    * The constant COLOR.
    */
   private static final Color COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.expand-icon.colors.foreground");
+      .getColor("theme.icons.expand-icon.colors.foreground");
 
   /**
    * The constant SCALE.
    */
   private static final double SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.expand-icon.width-scale");
+      .getDouble("theme.icons.expand-icon.width-scale");
 
   /**
    * The constant HEIGHT_SCALE.
    */
   private static final double HEIGHT_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.expand-icon.height-scale");
+      .getDouble("theme.icons.expand-icon.height-scale");
 
   /**
    * The constant OFFSET.
    */
   private static final double OFFSET = SettingsService.getInstance()
-      .getAsDouble("theme.icons.expand-icon.offset");
+      .getDouble("theme.icons.expand-icon.offset");
 
   /*
    * (non-Javadoc)

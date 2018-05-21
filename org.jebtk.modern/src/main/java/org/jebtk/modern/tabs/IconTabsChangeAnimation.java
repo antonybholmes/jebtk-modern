@@ -18,7 +18,7 @@ package org.jebtk.modern.tabs;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.animation.HighlightBaseAnimation;
+import org.jebtk.modern.animation.FadeAnimation;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.widget.ModernWidget;
@@ -29,8 +29,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes
  * @param <T>
  */
-public class IconTabsChangeAnimation extends HighlightBaseAnimation {
-
+public class IconTabsChangeAnimation extends FadeAnimation {
   private IconTabs mTabs;
 
   /**
@@ -50,7 +49,7 @@ public class IconTabsChangeAnimation extends HighlightBaseAnimation {
       }
     });
 
-    getFade().setFadeColor("fill",
+    setFadeColor("fill",
         IconTabsIconAnimation.ICON_COLOR,
         Ribbon.BAR_BACKGROUND);
   }

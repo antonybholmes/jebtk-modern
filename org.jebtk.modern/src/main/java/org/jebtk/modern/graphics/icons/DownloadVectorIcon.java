@@ -44,7 +44,7 @@ public class DownloadVectorIcon extends ModernVectorColorIcon {
   /**
    * The constant COLOR.
    */
-  private static final Color COLOR = Color.BLACK; // SettingsService.getInstance().getAsColor("theme.icons.download-icon.colors.foreground");
+  private static final Color COLOR = Color.BLACK; // SettingsService.getInstance().getColor("theme.icons.download-icon.colors.foreground");
 
   /**
    * Instantiates a new download vector icon.

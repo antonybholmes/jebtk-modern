@@ -36,7 +36,7 @@ import javax.swing.JTextArea;
 import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.clipboard.ClipboardService;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -84,7 +84,7 @@ public class LogTextAreaPanel extends ModernWidget
     add(scrollPane, BorderLayout.CENTER);
 
     ModernMenuItem menuItem = new ModernIconMenuItem(UI.MENU_COPY,
-        UIService.getInstance().loadIcon("copy", UIService.ICON_SIZE_16));
+        AssetService.getInstance().loadIcon("copy", AssetService.ICON_SIZE_16));
     menuItem.addClickListener(this);
     logPopup.add(menuItem);
 

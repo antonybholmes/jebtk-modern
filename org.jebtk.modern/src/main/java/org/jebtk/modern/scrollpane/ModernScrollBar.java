@@ -78,33 +78,33 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * The constant BASE_COLOR.
    */
-  protected static final Color BASE_COLOR = ThemeService.getInstance().colors()
+  protected static final Color BASE_COLOR = ThemeService.getInstance().getColors()
       .getGray(3);
 
   /**
    * The constant SCROLLBAR_COLOR.
    */
   protected static final Color SCROLLBAR_COLOR = ThemeService.getInstance()
-      .colors().getGray(4);
+      .getColors().getGray(4);
 
   /**
    * The constant SCROLLBAR_OUTLINE_COLOR.
    */
   protected static final Color SCROLLBAR_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getGray(5);
+      .getInstance().getColors().getGray(5);
 
   /**
    * The constant SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR.
    */
   protected static final Color SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getGray32(16);
+      .getInstance().getColors().getGray32(16);
 
   /** The Constant BASE_ROUNDED_COLOR. */
-  protected static final Color BASE_ROUNDED_COLOR = Color.BLACK; // ThemeService.getInstance().colors().getHighlight32(31);
+  protected static final Color BASE_ROUNDED_COLOR = Color.BLACK; // ThemeService.getInstance().getColors().getHighlight32(31);
 
   /** The Constant ROUNDED_SCROLLBAR_COLOR. */
   protected static final Color ROUNDED_SCROLLBAR_COLOR = ColorUtils
-      .getTransparentColor60(BASE_ROUNDED_COLOR); // ThemeService.getInstance().colors().getHighlight32(31));
+      .getTransparentColor60(BASE_ROUNDED_COLOR); // ThemeService.getInstance().getColors().getHighlight32(31));
 
   /** The Constant ROUNDED_SCROLLBAR_BACKGROUND_COLOR. */
   protected static final Color ROUNDED_SCROLLBAR_BACKGROUND_COLOR = ColorUtils
@@ -114,23 +114,23 @@ public abstract class ModernScrollBar extends ModernWidget
    * The constant SCROLLBAR_HIGHLIGHT_COLOR.
    */
   protected static final Color SCROLLBAR_HIGHLIGHT_COLOR = ThemeService
-      .getInstance().colors().getGray(2);
+      .getInstance().getColors().getGray(2);
 
   /**
    * The constant SCROLLBAR_WIDTH.
    */
   protected static final int SCROLLBAR_SIZE = SettingsService.getInstance()
-      .getAsInt("theme.scrollpane.scrollbar.width"); // 15
+      .getInt("theme.scrollpane.scrollbar.width"); // 15
 
   /**
    * The constant SCROLL_TIMER_DELAY_MS.
    */
   public static final int SCROLL_TIMER_DELAY_MS = SettingsService.getInstance()
-      .getAsInt("theme.scrollpane.scrollbar.timer-delay-ms");
+      .getInt("theme.scrollpane.scrollbar.timer-delay-ms");
 
   /** The Constant MINOR_STEP_SCALE_FACTOR. */
   // private static final double MINOR_STEP_SCALE_FACTOR =
-  // SettingsService.getInstance().getAsDouble("theme.scrollpane.scrollbar.minor-step-size-scale");
+  // SettingsService.getInstance().getDouble("theme.scrollpane.scrollbar.minor-step-size-scale");
 
   /**
    * The member min scroll bar size.
@@ -235,7 +235,7 @@ public abstract class ModernScrollBar extends ModernWidget
   protected ScrollBarLocation mLocation;
 
   /** The Constant MIN_STEP_SIZE. */
-  private static final double MIN_STEP_SIZE = 0.1; // SettingsService.getInstance().getAsDouble("theme.scrollpane.scrollbar.min-step-size");
+  private static final double MIN_STEP_SIZE = 0.1; // SettingsService.getInstance().getDouble("theme.scrollpane.scrollbar.min-step-size");
 
   /**
    * The normalized amount the component must shift for each pixel the scroll

@@ -50,12 +50,12 @@ public class RunVectorIcon extends ModernVectorIcon {
   /**
    * The constant SCALE.
    */
-  private static final double SCALE = 1; // SettingsService.getInstance().getAsDouble("theme.icons.run-icon.width-scale");
+  private static final double SCALE = 1; // SettingsService.getInstance().getDouble("theme.icons.run-icon.width-scale");
 
   /**
    * The constant BACKGROUND.
    */
-  private static final Color BACKGROUND = Ribbon.BAR_BACKGROUND; // SettingsService.getInstance().getAsColor("theme.icons.run-icon.colors.foreground");
+  private static final Color BACKGROUND = Ribbon.BAR_BACKGROUND; // SettingsService.getInstance().getColor("theme.icons.run-icon.colors.foreground");
 
   /*
    * (non-Javadoc)

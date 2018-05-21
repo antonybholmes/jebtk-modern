@@ -31,7 +31,7 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RadioButtonSelectedVectorIcon;
 import org.jebtk.modern.graphics.icons.RadioButtonVectorIcon;
@@ -52,11 +52,11 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   private static final long serialVersionUID = 1L;
 
   /** The Constant ICON_1. */
-  public static final ModernIcon ICON_1 = UIService.getInstance()
+  public static final ModernIcon ICON_1 = AssetService.getInstance()
       .loadIcon(RadioButtonVectorIcon.class, 16);
 
   /** The Constant ICON_2. */
-  public static final ModernIcon ICON_2 = UIService.getInstance()
+  public static final ModernIcon ICON_2 = AssetService.getInstance()
       .loadIcon(RadioButtonSelectedVectorIcon.class, 16);
 
   /**

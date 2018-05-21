@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ComputerVectorIcon;
@@ -62,7 +62,7 @@ public class SaveAsRibbonPanel extends RibbonMenuPanel {
   public static final String DIRECTORY_SELECTED = "save_as_panel_directory_selected";
 
   /** The Constant THIS_PC_ICON. */
-  private static final ModernIcon THIS_PC_ICON = UIService.getInstance()
+  private static final ModernIcon THIS_PC_ICON = AssetService.getInstance()
       .loadIcon(ComputerVectorIcon.class, 24);
 
   /**
@@ -161,7 +161,7 @@ public class SaveAsRibbonPanel extends RibbonMenuPanel {
     mTabsModel.addTab(UI.ASSET_THIS_PC, THIS_PC_ICON, scrollPane);
 
     mTabsModel.addTab(UI.ASSET_BROWSE,
-        UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 24),
+        AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 24),
         null);
 
     mTabsModel.addTabListener(new TabEventAdapter() {

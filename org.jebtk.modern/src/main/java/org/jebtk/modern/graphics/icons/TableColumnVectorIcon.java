@@ -48,10 +48,10 @@ public class TableColumnVectorIcon extends TableVectorIcon {
    */
   public TableColumnVectorIcon() {
     super(SettingsService.getInstance()
-        .getAsColor("theme.icons.filter-rows-icon.colors.highlight-1"));
+        .getColor("theme.icons.filter-rows-icon.colors.highlight-1"));
 
     mColor2 = SettingsService.getInstance()
-        .getAsColor("theme.icons.filter-rows-icon.colors.highlight-2");
+        .getColor("theme.icons.filter-rows-icon.colors.highlight-2");
   }
 
   /*

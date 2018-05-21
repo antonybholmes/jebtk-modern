@@ -44,7 +44,7 @@ import org.jebtk.core.collections.IterMap;
  * @author Antony Holmes Holmes
  *
  */
-public class UIDrawService implements Iterable<String> {
+public class DrawUIService implements Iterable<String> {
 
   /**
    * The Class WidgetRendererServiceLoader.
@@ -52,7 +52,7 @@ public class UIDrawService implements Iterable<String> {
   private static class UIRendererServiceLoader {
 
     /** The Constant INSTANCE. */
-    private static final UIDrawService INSTANCE = new UIDrawService();
+    private static final DrawUIService INSTANCE = new DrawUIService();
   }
 
   /**
@@ -60,17 +60,17 @@ public class UIDrawService implements Iterable<String> {
    *
    * @return single instance of SettingsService
    */
-  public static UIDrawService getInstance() {
+  public static DrawUIService getInstance() {
     return UIRendererServiceLoader.INSTANCE;
   }
 
-  private IterMap<String, UIRenderer> mRenderMap = 
-      new IterHashMap<String, UIRenderer>();
+  private IterMap<String, DrawUI> mRenderMap = 
+      new IterHashMap<String, DrawUI>();
   
   private Map<String, IterMap<String, BufferedImage>> mImageMap = 
       DefaultHashMap.create(new HashMapCreator<String, BufferedImage>());
 
-  private UIDrawService() {
+  private DrawUIService() {
     // Do nothing
 
     add(new ContentUI());
@@ -78,7 +78,7 @@ public class UIDrawService implements Iterable<String> {
     add(new ContentOutlineUI());
     //add(new TextBorderUI());
     add(new ButtonFillUI());
-    add(new ButtonSelectedUI());
+    //add(new ButtonSelectedUI());
     add(new CircleOutlineUI());
     add(new CircleFillUI());
     //add(new MenuHighlightUI());
@@ -86,7 +86,7 @@ public class UIDrawService implements Iterable<String> {
     add(new CheckUI());
     add(new CheckedBoxUI());
 
-    add("checkbox", get("content-box"));
+    add("checkbox", getRenderer("content-box"));
 
     add(new ColorButtonHighlightUI());
     add(new ColorButtonSelectedUI());
@@ -103,11 +103,11 @@ public class UIDrawService implements Iterable<String> {
     add(new DialogButtonHighlightUI());
   }
 
-  public void add(UIRenderer renderer) {
+  public void add(DrawUI renderer) {
     add(renderer.getName(), renderer);
   }
 
-  public void add(String name, UIRenderer renderer) {
+  public void add(String name, DrawUI renderer) {
     mRenderMap.put(name, renderer);
   }
   
@@ -125,15 +125,15 @@ public class UIDrawService implements Iterable<String> {
    * @param name
    * @return
    */
-  public UIRenderer get(String name) {
+  public DrawUI getRenderer(String name) {
     return mRenderMap.get(name);
   }
   
-  public BufferedImage image(String group, int id) {
-    return image(group, Integer.toString(id));
+  public BufferedImage getImage(String group, int id) {
+    return getImage(group, Integer.toString(id));
   }
   
-  public BufferedImage image(String group, String name) {
+  public BufferedImage getImage(String group, String name) {
     return mImageMap.get(group).get(name);
   }
 

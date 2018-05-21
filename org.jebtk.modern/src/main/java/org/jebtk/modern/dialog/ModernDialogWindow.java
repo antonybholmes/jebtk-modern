@@ -97,7 +97,7 @@ public class ModernDialogWindow extends JDialog
 
   /** The Constant DIALOG_BACKGROUND_1. */
   public static final Color DIALOG_BACKGROUND = ThemeService.getInstance()
-      .colors().getGray32(1);
+      .getColors().getGray32(1);
 
   public static final Border FLAT_BORDER = BorderService.getInstance()
       .createBottomBorder(ModernWidget.DOUBLE_PADDING);

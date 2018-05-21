@@ -91,7 +91,7 @@ public class ModernMatrixTableCorner extends ModernWidget {
     g2.drawLine(w - 1, 0, w - 1, h - 1);
 
     /*
-     * g2.setColor(ThemeService.getInstance().colors().getHighlight(2));
+     * g2.setColor(ThemeService.getInstance().getColors().getHighlight(2));
      * 
      * 
      * // Draw triangle in corner

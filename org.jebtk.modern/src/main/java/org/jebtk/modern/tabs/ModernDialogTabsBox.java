@@ -65,7 +65,7 @@ public class ModernDialogTabsBox extends ModernWidget {
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
-    g2.setColor(ThemeService.getInstance().colors().getGray(4));
+    g2.setColor(ThemeService.getInstance().getColors().getGray(4));
     int x = getWidth() - 1;
     int y = getHeight() - 1;
 

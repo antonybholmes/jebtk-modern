@@ -30,7 +30,7 @@ package org.jebtk.modern.tabs;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
@@ -120,21 +120,21 @@ public class TabButton extends ModernCheckButton {
     int iconX = mRect.getX() + PADDING;
 
     if (this.getIcon() != null) {
-      int iconY = (mRect.getH() - UIService.ICON_SIZE_16) / 2;
+      int iconY = (mRect.getH() - AssetService.ICON_SIZE_16) / 2;
 
-      this.getIcon().drawIcon(g2, iconX, iconY, UIService.ICON_SIZE_16);
+      this.getIcon().drawIcon(g2, iconX, iconY, AssetService.ICON_SIZE_16);
     }
 
     if (mText1 != null) {
       int x;
 
       if (this.getIcon() != null) {
-        x = iconX + UIService.ICON_SIZE_16 + PADDING;
+        x = iconX + AssetService.ICON_SIZE_16 + PADDING;
       } else {
-        x = UIService.ICON_SIZE_16;
+        x = AssetService.ICON_SIZE_16;
       }
 
-      int y = UIService.ICON_SIZE_20;
+      int y = AssetService.ICON_SIZE_20;
       g2.setColor(getForeground());
       g2.drawString(mText1, x, y);
     }

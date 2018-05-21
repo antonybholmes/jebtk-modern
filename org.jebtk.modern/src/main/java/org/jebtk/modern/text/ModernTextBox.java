@@ -115,11 +115,11 @@ public class ModernTextBox extends ModernCanvas
   /**
    * The member selection color.
    */
-  private Color mSelectionColor = ThemeService.getInstance().colors()
+  private Color mSelectionColor = ThemeService.getInstance().getColors()
       .getGray(4);
 
   /** The m caret color. */
-  private Color mCaretColor = ThemeService.getInstance().colors()
+  private Color mCaretColor = ThemeService.getInstance().getColors()
       .getGray(10);
 
   /**

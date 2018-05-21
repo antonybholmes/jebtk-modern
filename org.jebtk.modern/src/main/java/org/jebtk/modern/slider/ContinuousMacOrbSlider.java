@@ -47,7 +47,7 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
   private static final long serialVersionUID = 1L;
 
   /** The Constant HIGHLIGHT. */
-  protected static final Color HIGHLIGHT = ThemeService.getInstance().colors()
+  protected static final Color HIGHLIGHT = ThemeService.getInstance().getColors()
       .getTheme32(16);
 
   /** The m bar height. */

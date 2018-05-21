@@ -52,15 +52,15 @@ import org.jebtk.modern.graphics.icons.ModernVectorIcon;
  * @author Antony Holmes Holmes
  *
  */
-public class UIService {
+public class AssetService {
 
   /**
    * The Class UIServiceLoader.
    */
-  private static class UIServiceLoader {
+  private static class AssetServiceLoader {
 
     /** The Constant INSTANCE. */
-    private static final UIService INSTANCE = new UIService();
+    private static final AssetService INSTANCE = new AssetService();
   }
 
   /**
@@ -68,8 +68,8 @@ public class UIService {
    *
    * @return single instance of SettingsService
    */
-  public static UIService getInstance() {
-    return UIServiceLoader.INSTANCE;
+  public static AssetService getInstance() {
+    return AssetServiceLoader.INSTANCE;
   }
 
   /**
@@ -171,8 +171,8 @@ public class UIService {
   /**
    * The member vector icon map.
    */
-  private Map<String, IterMap<Integer, ModernIcon>> mVectorIconMap = DefaultHashMap
-      .create(new HashMapCreator<Integer, ModernIcon>()); // .createnew
+  private Map<String, IterMap<Integer, ModernIcon>> mVectorIconMap = 
+      DefaultHashMap.create(new HashMapCreator<Integer, ModernIcon>()); // .createnew
                                                           // HashMap<Class<?>,
                                                           // Map<Integer,
                                                           // ModernIcon>>();
@@ -180,7 +180,7 @@ public class UIService {
   /**
    * Instantiates a new UI resources.
    */
-  private UIService() {
+  private AssetService() {
     // do nothing
   }
 

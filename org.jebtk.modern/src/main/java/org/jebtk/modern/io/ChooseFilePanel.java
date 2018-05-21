@@ -25,7 +25,7 @@ import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -51,7 +51,7 @@ public class ChooseFilePanel extends ModernComponent {
 
   /** The m choose button. */
   private ModernButton mChooseButton = new ModernButton(
-      UIService.getInstance().loadIcon(FolderVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(FolderVectorIcon.class, 16));
 
   // private ModernButton mDeleteButton =
   // new ModernButton(UIService.getInstance().loadIcon(DeleteVectorIcon.class,

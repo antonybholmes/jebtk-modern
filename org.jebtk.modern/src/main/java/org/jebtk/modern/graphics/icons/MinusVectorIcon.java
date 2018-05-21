@@ -41,7 +41,7 @@ public class MinusVectorIcon extends ModernVectorIcon {
    * The constant SCALE.
    */
   protected static final double SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.plus-icon.width-scale");
+      .getDouble("theme.icons.plus-icon.width-scale");
 
   /**
    * The color.
@@ -53,7 +53,7 @@ public class MinusVectorIcon extends ModernVectorIcon {
    */
   public MinusVectorIcon() {
     this(SettingsService.getInstance()
-        .getAsColor("theme.icons.plus-icon.colors.foreground"));
+        .getColor("theme.icons.plus-icon.colors.foreground"));
   }
 
   /**

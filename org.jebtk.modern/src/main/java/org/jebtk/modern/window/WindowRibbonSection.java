@@ -29,7 +29,7 @@ package org.jebtk.modern.window;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.dialog.ArrangeWindowsDialog;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -79,13 +79,13 @@ public class WindowRibbonSection extends RibbonSection
    */
   private RibbonLargeButton mArrangeWindowButton = new RibbonLargeButton(
       "Arrange All",
-      UIService.getInstance().loadIcon(ArrangeWindows32VectorIcon.class, 32));
+      AssetService.getInstance().loadIcon(ArrangeWindows32VectorIcon.class, 32));
 
   /**
    * The member switch window button.
    */
   private RibbonLargeDropDownButton2 mSwitchWindowButton = new RibbonLargeDropDownButton2(
-      UIService.getInstance().loadIcon(SwitchWindows32VectorIcon.class, 32),
+      AssetService.getInstance().loadIcon(SwitchWindows32VectorIcon.class, 32),
       mWindowMenu);
 
   /**

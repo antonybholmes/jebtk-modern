@@ -32,7 +32,7 @@ import java.awt.Color;
 import javax.swing.Box;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.dialog.ModernDialogStatus;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.menu.ModernIconMenuItem;
@@ -54,7 +54,7 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
 
   /** The Constant COLOR_PICKER_BACKGROUND. */
   public static final Color COLOR_PICKER_BACKGROUND = ThemeService.getInstance()
-      .colors().getGray(1);
+      .getColors().getGray(1);
 
   /**
    * The member color picker.
@@ -137,7 +137,7 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
     // .getBackgroundAnimations().set("color-menu-fade"));
 
     add(new ModernIconMenuItem("More Colors...",
-        UIService.getInstance().loadIcon("color_wheel", 16)));
+        AssetService.getInstance().loadIcon("color_wheel", 16)));
 
     mColorPicker.addClickListener(this);
     mStandardColorPicker.addClickListener(this);

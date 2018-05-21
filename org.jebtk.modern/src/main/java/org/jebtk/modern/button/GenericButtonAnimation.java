@@ -6,7 +6,7 @@ import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.RenderMode;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 public abstract class GenericButtonAnimation extends HoverFadeAnimation {
@@ -19,7 +19,7 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
 
     // setFadeColor("outline", ModernWidgetRenderer.SELECTED_OUTLINE_COLOR);
     
-    setFadeColor("fill", MaterialService.instance().color("theme-highlight"));
+    setFadeColor("fill", MaterialService.getInstance().getColor("theme-highlight"));
   }
 
   public void drawButton(Graphics2D g2,
@@ -45,7 +45,7 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
       boolean hasFocus) {
     //getWidget().getWidgetRenderer().outline(g2, x, y, w, h);
     
-    UIDrawService.getInstance().get("button-outline").draw(g2, c, x, y, w, h);
+    DrawUIService.getInstance().getRenderer("button-outline").draw(g2, c, x, y, w, h);
   }
 
   public void fill(Graphics2D g2,
@@ -71,11 +71,11 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
 
     switch (mode) {
     case SELECTED:
-      UIDrawService.getInstance().get("button.selected")
+      DrawUIService.getInstance().getRenderer("button-fill")
         .draw(g2, c, x, y, w, h);
       break;
     case HIGHLIGHT:
-      UIDrawService.getInstance().get("button-fill")
+      DrawUIService.getInstance().getRenderer("button-fill")
         .draw(g2, c, x, y, w, h, getFadeColor("fill"));
       break;
     default:

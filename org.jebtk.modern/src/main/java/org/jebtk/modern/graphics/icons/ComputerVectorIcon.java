@@ -42,58 +42,58 @@ public class ComputerVectorIcon extends ModernVectorScalableIcon {
    * The constant SCALE.
    */
   private static final double SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.computer-icon.width-scale");
+      .getDouble("theme.icons.computer-icon.width-scale");
 
   /**
    * The constant TOWER_SCALE.
    */
   private static final double TOWER_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.computer-icon.tower-scale");
+      .getDouble("theme.icons.computer-icon.tower-scale");
 
   /**
    * The constant MONITOR_WIDTH_SCALE.
    */
   private static final double MONITOR_WIDTH_SCALE = SettingsService
       .getInstance()
-      .getAsDouble("theme.icons.computer-icon.monitor-width-scale");
+      .getDouble("theme.icons.computer-icon.monitor-width-scale");
 
   /**
    * The constant MONITOR_HEIGHT_SCALE.
    */
   private static final double MONITOR_HEIGHT_SCALE = SettingsService
       .getInstance()
-      .getAsDouble("theme.icons.computer-icon.monitor-height-scale");
+      .getDouble("theme.icons.computer-icon.monitor-height-scale");
 
   /**
    * The constant MONITOR_BASE_WIDTH_SCALE.
    */
   private static final double MONITOR_BASE_WIDTH_SCALE = SettingsService
       .getInstance()
-      .getAsDouble("theme.icons.computer-icon.monitor-base-width-scale");
+      .getDouble("theme.icons.computer-icon.monitor-base-width-scale");
 
   /**
    * The constant TOWER_COLOR.
    */
   private static final Color TOWER_COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.computer-icon.colors.tower");
+      .getColor("theme.icons.computer-icon.colors.tower");
 
   /**
    * The constant BACKGROUND.
    */
   private static final Color BACKGROUND = SettingsService.getInstance()
-      .getAsColor("theme.icons.computer-icon.colors.background");
+      .getColor("theme.icons.computer-icon.colors.background");
 
   /**
    * The constant MONITOR_OUTLINE.
    */
   private static final Color MONITOR_OUTLINE = SettingsService.getInstance()
-      .getAsColor("theme.icons.computer-icon.colors.monitor-outline");
+      .getColor("theme.icons.computer-icon.colors.monitor-outline");
 
   /**
    * The constant MONITOR_BACKGROUND.
    */
   private static final Color MONITOR_BACKGROUND = SettingsService.getInstance()
-      .getAsColor("theme.icons.computer-icon.colors.monitor-background");
+      .getColor("theme.icons.computer-icon.colors.monitor-background");
 
   /*
    * (non-Javadoc)

@@ -36,7 +36,7 @@ import java.util.Date;
 
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.FileVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernTwoLineMenuItem;
@@ -70,7 +70,7 @@ public class FileMenuItem extends ModernTwoLineMenuItem {
    * @param file the file
    */
   public FileMenuItem(Path file) {
-    this(file, UIService.getInstance().loadIcon(FileVectorIcon.class, 32));
+    this(file, AssetService.getInstance().loadIcon(FileVectorIcon.class, 32));
 
   }
 
@@ -114,11 +114,11 @@ public class FileMenuItem extends ModernTwoLineMenuItem {
     String text = TextUtils.truncate(PathUtils.getName(mFile), 60);
 
     g2.setColor(TEXT_COLOR);
-    g2.setFont(MaterialService.instance().font("text"));
+    g2.setFont(MaterialService.getInstance().getFont("text"));
     g2.drawString(text, x, y);
 
     g2.setColor(ALT_TEXT_COLOR);
-    g2.setFont(MaterialService.instance().font("subtext"));
+    g2.setFont(MaterialService.getInstance().getFont("subtext"));
 
     y = h2 + (h2 + g2.getFontMetrics().getAscent()) / 2;
 

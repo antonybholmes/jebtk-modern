@@ -33,7 +33,7 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.dataview.ModernDataCellRenderer;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -84,11 +84,11 @@ public class ModernTableColorCellRenderer extends ModernDataCellRenderer
   public void drawForegroundAAText(Graphics2D g2) {
     // System.err.println("what bounds " + getBounds());
 
-    int x = (this.getWidth() - UIService.ICON_SIZE_16) / 2;
-    int y = (this.getHeight() - UIService.ICON_SIZE_16) / 2;
+    int x = (this.getWidth() - AssetService.ICON_SIZE_16) / 2;
+    int y = (this.getHeight() - AssetService.ICON_SIZE_16) / 2;
 
     g2.setColor(color);
-    g2.fillRect(x, y, UIService.ICON_SIZE_16, UIService.ICON_SIZE_16);
+    g2.fillRect(x, y, AssetService.ICON_SIZE_16, AssetService.ICON_SIZE_16);
   }
 
   /*

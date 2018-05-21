@@ -103,7 +103,7 @@ public class ModernActivityOrbs extends ModernWidget {
    * The constant COLOR.
    */
   private static final Color COLOR = SettingsService.getInstance()
-      .getAsColor("theme.activity-bar.dot-color");
+      .getColor("theme.activity-bar.dot-color");
 
   /**
    * The class ProgressWorker.

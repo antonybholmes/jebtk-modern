@@ -30,7 +30,7 @@ package org.jebtk.modern.combobox;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.menu.ModernScrollPopupMenu;
 
@@ -102,7 +102,7 @@ public class ModernHiddenComboBox extends ModernComboBox {
     // paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON,
     // buttonRect);
 
-    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(
+    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(
         g2,
         buttonRect.x,
         buttonRect.y + (buttonRect.height - 16) / 2,

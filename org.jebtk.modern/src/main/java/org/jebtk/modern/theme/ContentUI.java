@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
 
-public class ContentUI extends UIRenderer {
+public class ContentUI extends DrawUI {
   @Override
   public String getName() {
     return "content";

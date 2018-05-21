@@ -66,8 +66,8 @@ public class ModernGradientPanel extends ModernPanel {
    * Instantiates a new modern gradient panel.
    */
   public ModernGradientPanel() {
-    this(SettingsService.getInstance().getAsColor("gradient-panel.color-1"),
-        SettingsService.getInstance().getAsColor("gradient-panel.color-2"));
+    this(SettingsService.getInstance().getColor("gradient-panel.color-1"),
+        SettingsService.getInstance().getColor("gradient-panel.color-2"));
   }
 
   /**

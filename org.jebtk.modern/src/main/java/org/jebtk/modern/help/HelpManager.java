@@ -82,7 +82,7 @@ public class HelpManager {
 
     if (setting != null) {
       // If the setting is web or remote, use remote help.
-      local = setting.getAsString().equals("local");
+      local = setting.getString().equals("local");
     }
 
     launchHelp(product, local);
@@ -140,10 +140,10 @@ public class HelpManager {
     StringBuilder buffer = new StringBuilder();
 
     // System.err.println("aha" +
-    // SettingsService.getInstance().getAsString(product.getHelpName() +
+    // SettingsService.getInstance().getString(product.getHelpName() +
     // ".help.url"));
 
-    buffer.append(product.getSetting("help.url").getAsString());
+    buffer.append(product.getSetting("help.url").getString());
     // buffer.append("/help.html");
 
     URL url = new URL(buffer.toString());

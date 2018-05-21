@@ -34,7 +34,7 @@ import javax.swing.BorderFactory;
 import javax.swing.JPasswordField;
 
 import org.jebtk.core.settings.SettingsService;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -95,16 +95,16 @@ public class ModernPasswordField extends JPasswordField {
 
     setFont(ThemeService.loadFont("widget.text"));
 
-    setBackground(SettingsService.getInstance().getAsColor("theme.background"));
+    setBackground(SettingsService.getInstance().getColor("theme.background"));
     setForeground(ModernWidget.TEXT_COLOR);
     setSelectedTextColor(Color.WHITE);
-    setSelectionColor(ThemeService.getInstance().colors().getTheme(2));
+    setSelectionColor(ThemeService.getInstance().getColors().getTheme(2));
 
     setBorder(BorderFactory.createEmptyBorder());
 
     setMinimumSize(
-        new Dimension(UIService.ICON_SIZE_24, UIService.ICON_SIZE_24));
-    setMaximumSize(new Dimension(Short.MAX_VALUE, UIService.ICON_SIZE_24));
+        new Dimension(AssetService.ICON_SIZE_24, AssetService.ICON_SIZE_24));
+    setMaximumSize(new Dimension(Short.MAX_VALUE, AssetService.ICON_SIZE_24));
   }
 
   /*

@@ -30,7 +30,7 @@ package org.jebtk.modern.search;
 import java.awt.Dimension;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -55,14 +55,14 @@ public class SortDirectionButton extends ModernButton
   /**
    * The constant ASCENDING_ICON.
    */
-  private static final ModernIcon ASCENDING_ICON = UIService.getInstance()
-      .loadIcon("sort_ascending", UIService.ICON_SIZE_16);
+  private static final ModernIcon ASCENDING_ICON = AssetService.getInstance()
+      .loadIcon("sort_ascending", AssetService.ICON_SIZE_16);
 
   /**
    * The constant DESCENDING_ICON.
    */
-  private static final ModernIcon DESCENDING_ICON = UIService.getInstance()
-      .loadIcon("sort_descending", UIService.ICON_SIZE_16);
+  private static final ModernIcon DESCENDING_ICON = AssetService.getInstance()
+      .loadIcon("sort_descending", AssetService.ICON_SIZE_16);
 
   /**
    * The ascending.
@@ -134,7 +134,7 @@ public class SortDirectionButton extends ModernButton
    *
    * @return the ascending
    */
-  public boolean getAscending() {
+  public boolean getcending() {
     return ascending;
   }
 }

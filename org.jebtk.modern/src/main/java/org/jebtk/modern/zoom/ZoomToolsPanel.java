@@ -34,7 +34,7 @@ import java.text.ParseException;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.combobox.ModernComboBox2;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -64,13 +64,13 @@ public class ZoomToolsPanel extends ModernWidget
    * The member zoom out button.
    */
   private ModernButton mZoomOutButton = new RibbonBarButton(
-      UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(MinusVectorIcon.class, 16));
 
   /**
    * The member zoom in button.
    */
   private ModernButton mZoomInButton = new RibbonBarButton(
-      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
   /**
    * The member zoom combo.

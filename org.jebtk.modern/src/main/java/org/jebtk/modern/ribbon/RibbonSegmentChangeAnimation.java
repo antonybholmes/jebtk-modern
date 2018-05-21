@@ -22,7 +22,7 @@ import java.awt.event.ComponentEvent;
 import org.jebtk.modern.animation.TranslateYAnimation;
 import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabEventAdapter;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -95,7 +95,7 @@ public class RibbonSegmentChangeAnimation extends TranslateYAnimation {
 
     // g2.fillRect(0, 0, WIDTH, RibbonSegmentVertTabs.TAB_SIZE);
 
-    UIDrawService.getInstance().get("button-fill").draw(g2,
+    DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
         0,
         0,
         WIDTH,

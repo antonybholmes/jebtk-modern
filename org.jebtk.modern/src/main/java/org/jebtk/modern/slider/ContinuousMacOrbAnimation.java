@@ -12,7 +12,7 @@ import org.jebtk.modern.widget.ModernWidget;
 public class ContinuousMacOrbAnimation extends HoverFadeAnimation {
   private ContinuousMacOrbSlider mButton;
 
-  protected static final Color HIGHLIGHT_2 = ThemeService.getInstance().colors()
+  protected static final Color HIGHLIGHT_2 = ThemeService.getInstance().getColors()
       .getTheme32(24);
 
   public ContinuousMacOrbAnimation(ModernWidget button) {
@@ -21,7 +21,7 @@ public class ContinuousMacOrbAnimation extends HoverFadeAnimation {
     mButton = (ContinuousMacOrbSlider) button;
 
     setFadeColor("highlight",
-        MaterialService.instance().color("theme-selected"),
+        MaterialService.getInstance().getColor("theme-selected"),
         Ribbon.BAR_BACKGROUND);
     setFadeColor("line", ModernWidget.LINE_COLOR, ModernWidget.DARK_LINE_COLOR);
   }

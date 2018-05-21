@@ -31,7 +31,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.ribbon.RibbonColorSwatchButton;
 import org.jebtk.modern.widget.ModernWidget;
@@ -99,7 +99,7 @@ public class FontSwatchButton extends RibbonColorSwatchButton {
       g2.fillRect(x - 2, y + 1, w + 4, 4);
     }
 
-    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
+    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
         .drawIcon(g2, getWidth() - 16, (getHeight() - 16) / 2, 16);
   }
 }

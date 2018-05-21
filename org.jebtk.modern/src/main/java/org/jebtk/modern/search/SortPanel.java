@@ -35,7 +35,7 @@ import org.jebtk.core.NameProperty;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.button.ModernCheckRadioButton;
 import org.jebtk.modern.combobox.ModernComboBox2;
@@ -106,14 +106,14 @@ public class SortPanel<T extends NameProperty> extends HBox
    * The member list button.
    */
   private ModernCheckRadioButton mListButton = new ModernCheckRadioButton(
-      UIService.getInstance().loadIcon(ListVectorIcon.class, 16), "List view",
+      AssetService.getInstance().loadIcon(ListVectorIcon.class, 16), "List view",
       "Display data in a list.");
 
   /**
    * The member tree button.
    */
   private ModernCheckRadioButton mTreeButton = new ModernCheckRadioButton(
-      UIService.getInstance().loadIcon(TreeVectorIcon.class, 16), "Tree view",
+      AssetService.getInstance().loadIcon(TreeVectorIcon.class, 16), "Tree view",
       "Display data in a tree.");
 
   /**

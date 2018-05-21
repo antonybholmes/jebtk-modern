@@ -41,25 +41,25 @@ public class ViewVerticalVectorIcon extends ModernVectorIcon {
    * The constant WIDTH_SCALE.
    */
   private static final double WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.vertical-view-icon.width-scale");
+      .getDouble("theme.icons.vertical-view-icon.width-scale");
 
   /**
    * The constant BOX_SCALE.
    */
   private static final double BOX_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.vertical-view-icon.box-scale");
+      .getDouble("theme.icons.vertical-view-icon.box-scale");
 
   /**
    * The constant COLOR.
    */
   private static final Color COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.vertical-view-icon.colors.foreground");
+      .getColor("theme.icons.vertical-view-icon.colors.foreground");
 
   /**
    * The constant BACKGROUND.
    */
   private static final Color BACKGROUND = SettingsService.getInstance()
-      .getAsColor("theme.icons.vertical-view-icon.colors.background");
+      .getColor("theme.icons.vertical-view-icon.colors.background");
 
   /*
    * (non-Javadoc)

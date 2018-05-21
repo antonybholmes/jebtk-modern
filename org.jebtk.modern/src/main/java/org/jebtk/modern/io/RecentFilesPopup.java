@@ -33,7 +33,7 @@ import java.nio.file.Path;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ForwardRequestMenuItem;
 import org.jebtk.modern.menu.ModernIconMenuItem;
@@ -78,7 +78,7 @@ public class RecentFilesPopup extends ModernScrollPopupMenu
    */
   public RecentFilesPopup(RecentFilesService recentFiles) {
     setup(recentFiles,
-        UIService.getInstance().loadIcon("file", UIService.ICON_SIZE_32),
+        AssetService.getInstance().loadIcon("file", AssetService.ICON_SIZE_32),
         MAX_FILES);
   }
 
@@ -135,7 +135,7 @@ public class RecentFilesPopup extends ModernScrollPopupMenu
 
       ModernIconMenuItem item = new FileMenuItem(file, mIcon);
 
-      UI.setSize(item, new Dimension(400, UIService.ICON_SIZE_48));
+      UI.setSize(item, new Dimension(400, AssetService.ICON_SIZE_48));
 
       addScrollMenuItem(item);
 

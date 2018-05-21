@@ -30,7 +30,7 @@ package org.jebtk.modern.graphics;
 import java.awt.Color;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernOptionalDropDownMenuButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -63,7 +63,7 @@ public class FillColorButton extends ModernOptionalDropDownMenuButton
    * @param name the name
    */
   public FillColorButton(String name) {
-    this(name, UIService.getInstance().loadIcon("paint", 16));
+    this(name, AssetService.getInstance().loadIcon("paint", 16));
   }
 
   /**
@@ -102,7 +102,7 @@ public class FillColorButton extends ModernOptionalDropDownMenuButton
 
     mMenu.add(new ModernMenuSeparator());
     mMenu.add(new ModernIconMenuItem("More colors...",
-        UIService.getInstance().loadIcon("palette", UIService.ICON_SIZE_16)));
+        AssetService.getInstance().loadIcon("palette", AssetService.ICON_SIZE_16)));
 
     colorPicker.addClickListener(this);
   }

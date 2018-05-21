@@ -32,7 +32,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickEventProducer;
@@ -60,7 +60,7 @@ public class ModernSearchPanel extends ModernLineBorderPanel implements
    * The member search button.
    */
   private ModernButton mSearchButton = new ModernButton(
-      UIService.getInstance().loadIcon(SearchVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(SearchVectorIcon.class, 16));
 
   /**
    * The member search field.

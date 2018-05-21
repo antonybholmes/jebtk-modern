@@ -38,7 +38,7 @@ import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.graphics.icons.HelpVectorIcon;
@@ -400,12 +400,12 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
     case WARNING:
     case WARNING_OK_CANCEL:
     case WARNING_YES_NO_CANCEL:
-      icon = UIService.getInstance().loadIcon(WarningVectorIcon.class,
+      icon = AssetService.getInstance().loadIcon(WarningVectorIcon.class,
           ICON_SIZE); // Resources.getInstance().loadIcon("warning",
                       // Resources.ICON_SIZE_48);
       break;
     default:
-      icon = UIService.getInstance().loadIcon(HelpVectorIcon.class, ICON_SIZE); // Resources.getInstance().loadIcon("information",
+      icon = AssetService.getInstance().loadIcon(HelpVectorIcon.class, ICON_SIZE); // Resources.getInstance().loadIcon("information",
                                                                                 // Resources.ICON_SIZE_48);
       break;
     }

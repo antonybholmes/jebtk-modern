@@ -46,7 +46,7 @@ public class CloseVectorIcon extends CrossVectorIcon {
    */
   public CloseVectorIcon() {
     this(SettingsService.getInstance()
-        .getAsColor("theme.icons.close-icon.colors.foreground"));
+        .getColor("theme.icons.close-icon.colors.foreground"));
   }
 
   /**

@@ -31,7 +31,7 @@ import org.jebtk.modern.widget.ModernWidget;
 public class IconTabsHighlightAnimation extends HighlightAnimation {
 
   // protected static final Color HIGHLIGHT_COLOR =
-  // ThemeService.getInstance().colors().getHighlight(3);
+  // ThemeService.getInstance().getColors().getHighlight(3);
 
   private IconTabs mTabs;
 
@@ -45,7 +45,7 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
 
     mTabs = (IconTabs) w;
 
-    getFade().setFadeColor("highlight",
+    setFadeColor("highlight",
         ColorUtils.getTransparentColor(Color.BLACK, 0.95));
   }
 
@@ -70,7 +70,7 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
     //
 
     if (highlighted != -1 && highlighted != selected) {
-      g2.setColor(getFade().getFadeColor("highlight"));
+      g2.setColor(getFadeColor("highlight"));
       g2.fillRect(x + mTabs.mTabSize * highlighted, y, h, h);
 
       /*

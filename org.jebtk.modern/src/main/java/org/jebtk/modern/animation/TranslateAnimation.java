@@ -16,40 +16,20 @@
 package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 
-import javax.swing.event.AncestorEvent;
-
-import org.jebtk.math.CubicBezier;
-import org.jebtk.modern.SingleUseAncestorAddedListener;
-import org.jebtk.modern.SingleUseAncestorMovedListener;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
- * Allows for graphics to transition between two fixed points linearly.
+ * Allows for graphics to transition between two fixed points using a
+ * Bezier curve to control the speed of animation
  *
  * @author Antony Holmes
  */
-public abstract class TranslateAnimation extends TimerAnimation {
+public abstract class TranslateAnimation extends EasingAnimation {
 
-  // Lets define a material design bezier curve to animate transitions
-  public final static CubicBezier BEZIER = CubicBezier
-      .normCubicBezier(0.4, 0.0, 0.2, 1);
-
+  
   private int[] mXPos = new int[STEPS];
-  private int mStep = 0;
-  public static final double[] BEZ_T = new double[STEPS];
-
-  static {
-    BEZ_T[0] = 0; // BEZIER.eval(0).getY();
-    BEZ_T[MAX_STEP_INDEX] = 1; // BEZIER.eval(1).getY();
-
-    for (int i = 1; i < MAX_STEP_INDEX; ++i) {
-      BEZ_T[i] = BEZIER.eval((double) i / MAX_STEP_INDEX).getY();
-    }
-  }
 
   /**
    * Instantiates a new state animation.
@@ -75,6 +55,7 @@ public abstract class TranslateAnimation extends TimerAnimation {
     });
     */
     
+    /*
     widget.addComponentListener(new ComponentListener() {
 
       @Override
@@ -97,6 +78,7 @@ public abstract class TranslateAnimation extends TimerAnimation {
         // TODO Auto-generated method stub
         
       }});
+    */
     
     //restart();
   }
@@ -108,7 +90,7 @@ public abstract class TranslateAnimation extends TimerAnimation {
   public synchronized void restart(int x1, int x2) {
     int mD = (x2 - x1); // / MAX_INDEX;
 
-    mStep = 0;
+    reset();
 
     mXPos[0] = x1;
     mXPos[mXPos.length - 1] = x2;
@@ -119,17 +101,6 @@ public abstract class TranslateAnimation extends TimerAnimation {
     }
 
     start();
-  }
-
-  @Override
-  public synchronized void animate() {
-    super.animate();
-
-    // System.err.println("translate " + mStep);
-
-    if (++mStep == MAX_STEP_INDEX) {
-      stop();
-    }
   }
 
   public int getX() {

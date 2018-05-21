@@ -44,15 +44,15 @@ public class IconTabs extends TabsPanel {
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_1. */
   public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService
-      .getInstance().colors().getTheme(3);
+      .getInstance().getColors().getTheme(3);
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_2. */
   protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService
-      .getInstance().colors().getTheme(4);
+      .getInstance().getColors().getTheme(4);
 
   /** The Constant TEXT_TAB_SELECTED_OUTLINE_COLOR. */
   protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getTheme(5);
+      .getInstance().getColors().getTheme(5);
 
   /** The m tab size. */
   protected int mTabSize = -1;

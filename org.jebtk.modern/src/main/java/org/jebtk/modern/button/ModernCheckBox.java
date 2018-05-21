@@ -30,7 +30,7 @@ package org.jebtk.modern.button;
 import java.awt.Dimension;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.CheckVectorIcon;
 import org.jebtk.modern.graphics.icons.DisabledCheckedVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -45,11 +45,11 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
 
   public static int ICON_SIZE = 16;
 
-  public static final ModernIcon CHECK_ICON = UIService.getInstance()
+  public static final ModernIcon CHECK_ICON = AssetService.getInstance()
       .loadIcon(CheckVectorIcon.class, ICON_SIZE);
 
   /** The Constant CHECK_ICON. */
-  public static final ModernIcon UNCHECKED_ICON = UIService.getInstance()
+  public static final ModernIcon UNCHECKED_ICON = AssetService.getInstance()
       .loadIcon(UnCheckedVectorIcon.class, ICON_SIZE);
 
   /** The Constant CHECKED_ICON. */
@@ -57,7 +57,7 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   // .loadIcon(CheckedVectorIcon.class, ICON_SIZE);
 
   /** The Constant DISABLED_CHECKED_ICON. */
-  public static final ModernIcon DISABLED_CHECKED_ICON = UIService.getInstance()
+  public static final ModernIcon DISABLED_CHECKED_ICON = AssetService.getInstance()
       .loadIcon(DisabledCheckedVectorIcon.class, ICON_SIZE);
 
   /**

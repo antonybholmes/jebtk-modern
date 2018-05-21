@@ -31,7 +31,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.dialog.ModernDialogFlatButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ThemeService;
@@ -105,7 +105,7 @@ public class RibbonPanelButton extends ModernDialogFlatButton {
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
     int x = (mRect.getW() - getIcon().getWidth()) / 2;
-    int y = UIService.ICON_SIZE_16;
+    int y = AssetService.ICON_SIZE_16;
 
     mIcon.drawIcon(g2, x, y, 16);
 

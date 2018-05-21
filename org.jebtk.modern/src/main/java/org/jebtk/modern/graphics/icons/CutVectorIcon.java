@@ -42,31 +42,31 @@ public class CutVectorIcon extends ModernVectorIcon {
    * The constant SCALE.
    */
   private static final double SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.cut-icon.width-scale");
+      .getDouble("theme.icons.cut-icon.width-scale");
 
   /**
    * The constant HANDLE_SCALE.
    */
   private static final double HANDLE_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.cut-icon.handle-scale");
+      .getDouble("theme.icons.cut-icon.handle-scale");
 
   /**
    * The constant COLOR.
    */
   private static final Color COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.cut-icon.colors.foreground");
+      .getColor("theme.icons.cut-icon.colors.foreground");
 
   /**
    * The constant BACKGROUND.
    */
   private static final Color BACKGROUND = SettingsService.getInstance()
-      .getAsColor("theme.icons.cut-icon.colors.background");
+      .getColor("theme.icons.cut-icon.colors.background");
 
   /**
    * The constant HANDLE.
    */
   private static final Color HANDLE = SettingsService.getInstance()
-      .getAsColor("theme.icons.cut-icon.colors.handle");
+      .getColor("theme.icons.cut-icon.colors.handle");
 
   /*
    * (non-Javadoc)

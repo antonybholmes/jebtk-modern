@@ -57,7 +57,7 @@ public abstract class SelectedFadeAnimation extends SelectedAnimation {
   public void animate() {
     getWidget().repaint();
 
-    if (mFade.getTrans() <= 0) {
+    if (mFade.getCurrentStep() == 0) {
       stop();
     } else {
       mFade.fadeIn();

@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.animation.WidgetAnimation;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class ComboBoxAnimation extends WidgetAnimation {
@@ -23,6 +23,6 @@ public class ComboBoxAnimation extends WidgetAnimation {
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     IntRect rect = widget.getInternalRect();
 
-    UIDrawService.getInstance().get("content-box").draw(g2, rect);
+    DrawUIService.getInstance().getRenderer("content-box").draw(g2, rect);
   }
 }

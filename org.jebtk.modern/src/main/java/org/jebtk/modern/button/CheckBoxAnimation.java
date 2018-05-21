@@ -3,7 +3,7 @@ package org.jebtk.modern.button;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.WidgetAnimation;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class CheckBoxAnimation extends WidgetAnimation {
@@ -30,7 +30,7 @@ public class CheckBoxAnimation extends WidgetAnimation {
     // ModernCheckBox.UNCHECKED_ICON.drawIcon(g2, x, y,
     // ModernCheckBox.ICON_SIZE);
 
-    UIDrawService.getInstance().get("content-box")
+    DrawUIService.getInstance().getRenderer("content-box")
         .draw(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
     // }
   }

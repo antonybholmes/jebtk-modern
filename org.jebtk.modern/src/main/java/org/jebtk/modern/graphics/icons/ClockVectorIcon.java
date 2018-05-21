@@ -45,37 +45,37 @@ public class ClockVectorIcon extends ModernVectorScalableIcon {
    * The constant SCALE.
    */
   private static final double SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.clock-icon.width-scale");
+      .getDouble("theme.icons.clock-icon.width-scale");
 
   /**
    * The constant HAND_SCALE_1.
    */
   private static final double HAND_SCALE_1 = SettingsService.getInstance()
-      .getAsDouble("theme.icons.clock-icon.hand-scale-1");
+      .getDouble("theme.icons.clock-icon.hand-scale-1");
 
   /**
    * The constant HAND_SCALE_2.
    */
   private static final double HAND_SCALE_2 = SettingsService.getInstance()
-      .getAsDouble("theme.icons.clock-icon.hand-scale-2");
+      .getDouble("theme.icons.clock-icon.hand-scale-2");
 
   /**
    * The constant OUTLINE_COLOR.
    */
   private static final Color OUTLINE_COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.clock-icon.colors.outline");
+      .getColor("theme.icons.clock-icon.colors.outline");
 
   /**
    * The constant BACKGROUND.
    */
   private static final Color BACKGROUND = SettingsService.getInstance()
-      .getAsColor("theme.icons.clock-icon.colors.background");
+      .getColor("theme.icons.clock-icon.colors.background");
 
   /**
    * The constant HAND_COLOR.
    */
   private static final Color HAND_COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.clock-icon.colors.hand");
+      .getColor("theme.icons.clock-icon.colors.hand");
 
   /*
    * (non-Javadoc)

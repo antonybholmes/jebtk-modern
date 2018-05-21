@@ -37,10 +37,10 @@ public class ModernUrlTextLink extends ModernUrlLinkButton {
   private static final long serialVersionUID = 1L;
 
   /** The color1. */
-  private static Color COLOR1 = Ribbon.BAR_BACKGROUND; // ThemeService.getInstance().colors().getColorHighlight32(20);
+  private static Color COLOR1 = Ribbon.BAR_BACKGROUND; // ThemeService.getInstance().getColors().getColorHighlight32(20);
 
   /** The color2. */
-  private static Color COLOR2 = ThemeService.getInstance().colors()
+  private static Color COLOR2 = ThemeService.getInstance().getColors()
       .getTheme32(16);
 
   /** The m color 1. */

@@ -47,6 +47,6 @@ public class ModernColoredSubHeadingLabel extends ModernSubHeadingLabel {
   public ModernColoredSubHeadingLabel(String text) {
     super(text);
 
-    setForeground(ThemeService.getInstance().colors().getTheme(5));
+    setForeground(ThemeService.getInstance().getColors().getTheme(5));
   }
 }

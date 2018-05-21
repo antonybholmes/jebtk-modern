@@ -93,9 +93,9 @@ public class SettingsZoomModel extends ZoomModel {
     addChangeListener(new ZoomEvents());
 
     // Load the zoom settings from settings.
-    setZoom(SettingsService.getInstance().getAsDouble(mZoomSetting));
-    setMinZoom(SettingsService.getInstance().getAsDouble(mMinSetting));
-    setMaxZoom(SettingsService.getInstance().getAsDouble(mMaxSetting));
+    setZoom(SettingsService.getInstance().getDouble(mZoomSetting));
+    setMinZoom(SettingsService.getInstance().getDouble(mMinSetting));
+    setMaxZoom(SettingsService.getInstance().getDouble(mMaxSetting));
   }
 
   /**

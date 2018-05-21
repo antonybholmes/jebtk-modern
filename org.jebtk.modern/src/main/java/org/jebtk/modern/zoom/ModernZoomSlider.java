@@ -37,7 +37,7 @@ import javax.swing.Timer;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.button.ModernCircleButton;
 import org.jebtk.modern.graphics.icons.MinusVectorIcon;
@@ -85,14 +85,14 @@ public class ModernZoomSlider extends HBox implements Zoom {
    * The member zoom in button.
    */
   private ModernButton mZoomInButton = (ModernButton) new ModernCircleButton(
-      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16), "Zoom In",
+      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16), "Zoom In",
       "Zoom in.").addToStyleClass("dialog-button");
 
   /**
    * The member zoom out button.
    */
   private ModernButton mZoomOutButton = (ModernButton) new ModernCircleButton(
-      UIService.getInstance().loadIcon(MinusVectorIcon.class, 16), "Zoom Out",
+      AssetService.getInstance().loadIcon(MinusVectorIcon.class, 16), "Zoom Out",
       "Zoom out.").addToStyleClass("dialog-button");
 
   // private double[] mZooms;

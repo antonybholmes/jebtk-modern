@@ -45,11 +45,11 @@ public class WarningVectorIcon extends ModernMessageIcon {
 
   /** The Constant COLOR. */
   private static final Color COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.warning-icon.colors.background");
+      .getColor("theme.icons.warning-icon.colors.background");
 
   /** The Constant BORDER_COLOR. */
   private static final Color BORDER_COLOR = SettingsService.getInstance()
-      .getAsColor("theme.icons.warning-icon.colors.border");
+      .getColor("theme.icons.warning-icon.colors.border");
 
   /** The Constant TEXT. */
   private static final String TEXT = "!";

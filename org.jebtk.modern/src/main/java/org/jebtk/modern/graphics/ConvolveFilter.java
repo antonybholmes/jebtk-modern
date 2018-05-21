@@ -19,9 +19,9 @@ public class ConvolveFilter extends AbstractBufferedImageOp {
   public static final int CLAMP_EDGES = 1;
   public static final int WRAP_EDGES = 2;
 
-  protected Kernel kernel = null;
+  protected Kernel mKernel = null;
   public boolean alpha = true;
-  private int edgeAction = CLAMP_EDGES;
+  private int mEdgeAction = CLAMP_EDGES;
 
   /**
    * Construct a filter with a null kernel. This is only useful if you're going
@@ -57,23 +57,23 @@ public class ConvolveFilter extends AbstractBufferedImageOp {
    * @param matrix an array of 9 doubles containing the kernel
    */
   public ConvolveFilter(Kernel kernel) {
-    this.kernel = kernel;
+    setKernel(kernel);
   }
 
   public void setKernel(Kernel kernel) {
-    this.kernel = kernel;
+    mKernel = kernel;
   }
 
   public Kernel getKernel() {
-    return kernel;
+    return mKernel;
   }
 
   public void setEdgeAction(int edgeAction) {
-    this.edgeAction = edgeAction;
+    mEdgeAction = edgeAction;
   }
 
   public int getEdgeAction() {
-    return edgeAction;
+    return mEdgeAction;
   }
 
   public BufferedImage filter(BufferedImage src, BufferedImage dst) {
@@ -87,7 +87,7 @@ public class ConvolveFilter extends AbstractBufferedImageOp {
     int[] outPixels = new int[width * height];
     getRGB(src, 0, 0, width, height, inPixels);
 
-    convolve(kernel, inPixels, outPixels, width, height, alpha, edgeAction);
+    convolve(mKernel, inPixels, outPixels, width, height, alpha, mEdgeAction);
 
     setRGB(dst, 0, 0, width, height, outPixels);
     return dst;
@@ -113,6 +113,7 @@ public class ConvolveFilter extends AbstractBufferedImageOp {
     return dstPt;
   }
 
+  @Override
   public RenderingHints getRenderingHints() {
     return null;
   }

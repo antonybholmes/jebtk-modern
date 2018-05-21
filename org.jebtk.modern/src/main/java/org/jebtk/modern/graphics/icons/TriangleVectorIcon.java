@@ -46,7 +46,7 @@ public abstract class TriangleVectorIcon extends ModernVectorScalableIcon {
    * The constant WIDTH_SCALE.
    */
   public static final double WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.triangle-icon.width-scale");
+      .getDouble("theme.icons.triangle-icon.width-scale");
 
   /**
    * The constant ANGLE.
@@ -56,7 +56,7 @@ public abstract class TriangleVectorIcon extends ModernVectorScalableIcon {
   /**
    * The constant COLOR.
    */
-  protected static final Color COLOR = ThemeService.getInstance().colors()
+  protected static final Color COLOR = ThemeService.getInstance().getColors()
       .getGray(10);
 
   /** The m wf. */

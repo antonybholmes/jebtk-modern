@@ -44,19 +44,19 @@ public class SearchVectorIcon extends ModernVectorIcon {
   /**
    * The constant COLOR.
    */
-  private static final Color COLOR = Color.BLACK; // SettingsService.getInstance().getAsColor("theme.icons.search-icon.colors.foreground");
+  private static final Color COLOR = Color.BLACK; // SettingsService.getInstance().getColor("theme.icons.search-icon.colors.foreground");
 
   /**
    * The constant SCALE.
    */
   private static final double SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.search-icon.width-scale");
+      .getDouble("theme.icons.search-icon.width-scale");
 
   /**
    * The constant GLASS_SCALE.
    */
   private static final double GLASS_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.search-icon.glass-scale");
+      .getDouble("theme.icons.search-icon.glass-scale");
 
   /*
    * (non-Javadoc)

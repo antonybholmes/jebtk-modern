@@ -31,7 +31,7 @@ import java.awt.Dimension;
 
 import org.jebtk.core.BooleanOperator;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernMenuDivider;
 
@@ -123,30 +123,30 @@ public class LogicalComboBox extends ModernComboBox {
     ModernIconMenuItem item;
 
     item = new ModernIconMenuItem("AND",
-        UIService.getInstance().loadIcon("and", UIService.ICON_SIZE_48));
-    UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
+        AssetService.getInstance().loadIcon("and", AssetService.ICON_SIZE_48));
+    UI.setSize(item, new Dimension(WIDTH, AssetService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
     item = new ModernIconMenuItem("OR",
-        UIService.getInstance().loadIcon("or", UIService.ICON_SIZE_48));
-    UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
+        AssetService.getInstance().loadIcon("or", AssetService.ICON_SIZE_48));
+    UI.setSize(item, new Dimension(WIDTH, AssetService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
     addScrollMenuItem(new ModernMenuDivider());
 
     item = new ModernIconMenuItem("NOR",
-        UIService.getInstance().loadIcon("nor", UIService.ICON_SIZE_48));
-    UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
+        AssetService.getInstance().loadIcon("nor", AssetService.ICON_SIZE_48));
+    UI.setSize(item, new Dimension(WIDTH, AssetService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
     item = new ModernIconMenuItem("XOR",
-        UIService.getInstance().loadIcon("xor", UIService.ICON_SIZE_48));
-    UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
+        AssetService.getInstance().loadIcon("xor", AssetService.ICON_SIZE_48));
+    UI.setSize(item, new Dimension(WIDTH, AssetService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
     item = new ModernIconMenuItem("NAND",
-        UIService.getInstance().loadIcon("nand", UIService.ICON_SIZE_48));
-    UI.setSize(item, new Dimension(WIDTH, UIService.ICON_SIZE_48));
+        AssetService.getInstance().loadIcon("nand", AssetService.ICON_SIZE_48));
+    UI.setSize(item, new Dimension(WIDTH, AssetService.ICON_SIZE_48));
     addScrollMenuItem(item);
   }
 }

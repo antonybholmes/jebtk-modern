@@ -50,7 +50,7 @@ public class ModernTitleMenuItem extends ModernMenuItem {
    *
    * @param text the text
    */
-  private static final Color BACKGROUND = ThemeService.getInstance().colors()
+  private static final Color BACKGROUND = ThemeService.getInstance().getColors()
       .getGray(1);
 
   /**

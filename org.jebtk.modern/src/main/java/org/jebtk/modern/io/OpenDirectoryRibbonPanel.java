@@ -38,7 +38,7 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.dialog.ModernDialogTaskWindow;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -133,7 +133,7 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel
     // setHeader(label);
 
     sideTabs.addTab("Computer",
-        UIService.getInstance().loadIcon(ComputerVectorIcon.class, 32));
+        AssetService.getInstance().loadIcon(ComputerVectorIcon.class, 32));
 
     UI.setSize(sideTabs, new Dimension(300, Short.MAX_VALUE));
 
@@ -182,7 +182,7 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel
     box.add(UI.createVGap(20));
 
     ModernButtonWidget button = new RibbonPanelButton(UI.MENU_BROWSE,
-        UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+        AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
 
     button.setClickMessage(BROWSE_DIRECTORY);
     button.addClickListener(this);

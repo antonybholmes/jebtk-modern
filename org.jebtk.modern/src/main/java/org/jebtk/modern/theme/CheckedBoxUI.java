@@ -2,7 +2,7 @@ package org.jebtk.modern.theme;
 
 import java.awt.Graphics2D;
 
-public class CheckedBoxUI extends UIRenderer {
+public class CheckedBoxUI extends DrawUI {
 
   @Override
   public String getName() {
@@ -18,7 +18,7 @@ public class CheckedBoxUI extends UIRenderer {
       int h,
       Object... params) {
 
-    UIDrawService.getInstance().get("color.button.selected")
+    DrawUIService.getInstance().getRenderer("color.button.selected")
         .draw(g2, x, y, w, h, params);
 
     super.draw(g2, x, y, w, h, params);

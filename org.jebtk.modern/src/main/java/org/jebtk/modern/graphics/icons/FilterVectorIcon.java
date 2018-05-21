@@ -43,37 +43,37 @@ public class FilterVectorIcon extends ModernVectorScalableIcon {
    * The constant HEIGHT_SCALE.
    */
   private static final double HEIGHT_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.filter-icon.height-scale");
+      .getDouble("theme.icons.filter-icon.height-scale");
 
   /**
    * The constant WIDTH_SCALE.
    */
   private static final double WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.filter-icon.width-scale");
+      .getDouble("theme.icons.filter-icon.width-scale");
 
   /**
    * The constant LIP_SCALE.
    */
   private static final double LIP_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.filter-icon.lip-scale");
+      .getDouble("theme.icons.filter-icon.lip-scale");
 
   /**
    * The constant FUNNEL_WIDTH_SCALE.
    */
   private static final double FUNNEL_WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.filter-icon.funnel-width-scale");
+      .getDouble("theme.icons.filter-icon.funnel-width-scale");
 
   /**
    * The constant FUNNEL_HEIGHT_SCALE.
    */
   private static final double FUNNEL_HEIGHT_SCALE = SettingsService
-      .getInstance().getAsDouble("theme.icons.filter-icon.funnel-height-scale");
+      .getInstance().getDouble("theme.icons.filter-icon.funnel-height-scale");
 
   /**
    * The constant SPOUT_SCALE.
    */
   private static final double SPOUT_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.filter-icon.spout-scale");
+      .getDouble("theme.icons.filter-icon.spout-scale");
 
   /**
    * The member color.

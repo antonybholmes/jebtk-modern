@@ -42,19 +42,19 @@ public class FileVectorIcon extends ModernVectorIcon {
    * The constant HEIGHT_SCALE.
    */
   private static final double HEIGHT_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.file-icon.height-scale");
+      .getDouble("theme.icons.file-icon.height-scale");
 
   /**
    * The constant WIDTH_SCALE.
    */
   private static final double WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.file-icon.width-scale");
+      .getDouble("theme.icons.file-icon.width-scale");
 
   /**
    * The constant CORNER_SCALE.
    */
   private static final double CORNER_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.file-icon.corner-scale");
+      .getDouble("theme.icons.file-icon.corner-scale");
 
   /**
    * The member outline.
@@ -66,7 +66,7 @@ public class FileVectorIcon extends ModernVectorIcon {
    */
   public FileVectorIcon() {
     this(SettingsService.getInstance()
-        .getAsColor("theme.icons.file-icon.colors.foreground"));
+        .getColor("theme.icons.file-icon.colors.foreground"));
   }
 
   /**

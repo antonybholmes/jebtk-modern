@@ -30,7 +30,7 @@ package org.jebtk.modern.scrollpane;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.CheveronDownVectorIcon;
 import org.jebtk.modern.graphics.icons.CheveronUpVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -51,13 +51,13 @@ public class ModernVScrollBarOffice extends ModernVScrollBar {
   /**
    * The constant UP_ARROW_ICON.
    */
-  protected static final ModernIcon UP_ARROW_ICON = UIService.getInstance()
+  protected static final ModernIcon UP_ARROW_ICON = AssetService.getInstance()
       .loadIcon(CheveronUpVectorIcon.class, SCROLLBAR_SIZE);
 
   /**
    * The constant DOWN_ARROW_ICON.
    */
-  protected static final ModernIcon DOWN_ARROW_ICON = UIService.getInstance()
+  protected static final ModernIcon DOWN_ARROW_ICON = AssetService.getInstance()
       .loadIcon(CheveronDownVectorIcon.class, SCROLLBAR_SIZE); // Resources.getInstance().loadIcon("down_scroll",
                                                                // Resources.ICON_SIZE_16);
 

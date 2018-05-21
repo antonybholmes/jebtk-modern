@@ -56,7 +56,7 @@ import org.jebtk.core.Mathematics;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.event.HighlightEvent;
 import org.jebtk.modern.event.HighlightEventProducer;
@@ -206,10 +206,10 @@ public class Ribbon extends ModernClickWidget
   /**
    * The constant TAB_FONT.
    */
-  public static final Font TAB_FONT = MaterialService.instance().fonts().text(); // ModernWidget.BOLD_FONT;
+  public static final Font TAB_FONT = MaterialService.getInstance().getFonts().text(); // ModernWidget.BOLD_FONT;
                                                                                  // //MaterialUtils.TEXT_FONT;
                                                                                  // //ModernWidget.FONT;
-                                                                                 // //ThemeService.loadFont("theme.ribbon.fonts.tab");
+                                                                                 // //ThemeService.loadFont("theme.ribbon.getFonts.tab");
 
   /**
    * The constant FILE_MENU_WIDTH.
@@ -243,34 +243,34 @@ public class Ribbon extends ModernClickWidget
                                                // DOUBLE_PADDING;
 
   /** The Constant BAR_BACKGROUND. */
-  public static final Color BAR_BACKGROUND = MaterialService.instance()
-      .color("ribbon");
+  public static final Color BAR_BACKGROUND = MaterialService.getInstance()
+      .getColor("ribbon");
 
   /** The constant TAB_COLOR. */
-  public static final Color TAB_COLOR = ThemeService.getInstance().colors()
+  public static final Color TAB_COLOR = ThemeService.getInstance().getColors()
       .getGray32(1);
 
   /** The Constant TAB_COLOR_2. */
-  public static final Color TAB_COLOR_2 = ThemeService.getInstance().colors()
+  public static final Color TAB_COLOR_2 = ThemeService.getInstance().getColors()
       .getGray32(3);
 
   /**
    * The constant BORDER_COLOR.
    */
-  public static final Color BORDER_COLOR = ThemeService.getInstance().colors()
+  public static final Color BORDER_COLOR = ThemeService.getInstance().getColors()
       .getGray(4);
 
   /**
    * The constant BUTTON_HIGHLIGHTED_COLOR.
    */
   public static final Color BUTTON_HIGHLIGHTED_COLOR = ThemeService
-      .getInstance().colors().getGray(5); // Color.WHITE;
+      .getInstance().getColors().getGray(5); // Color.WHITE;
 
   /**
    * The constant BUTTON_SELECTED_COLOR.
    */
   public static final Color BUTTON_SELECTED_COLOR = ThemeService.getInstance()
-      .colors().getGray(5);
+      .getColors().getGray(5);
 
   // ThemeService.getInstance().getThemeColor(4);
 
@@ -286,11 +286,11 @@ public class Ribbon extends ModernClickWidget
   // private static final String FILE_TOOLBAR = "FILE";
 
   /** The Constant ROUNDING. */
-  private static final int ROUNDING = MaterialService.instance().ints().cornerRadius();
+  private static final int ROUNDING = MaterialService.getInstance().getInts().cornerRadius();
 
   /** The Constant SEPARATOR_COLOR. */
   public static final Color SEPARATOR_COLOR = ThemeService.getInstance()
-      .colors().getGray(3);
+      .getColors().getGray(3);
 
   /**
    * The member tabs panel.
@@ -757,7 +757,7 @@ public class Ribbon extends ModernClickWidget
         showTabsCommandsMenuItem);
 
     mModeButton = new QuickAccessMenuButton2(
-        UIService.getInstance().loadIcon(RibbonModeVectorIcon.class, 16), menu);
+        AssetService.getInstance().loadIcon(RibbonModeVectorIcon.class, 16), menu);
     mModeButton.setToolTip("Ribbon Display Options",
         "Configure ribbon behavior.");
     addRightToolbarButton(mModeButton);
@@ -1090,11 +1090,11 @@ public class Ribbon extends ModernClickWidget
    *           mSelectedTab ? BAR_BACKGROUND : TEXT_COLOR); //Color.WHITE); //}
    * 
    *           if (i == mSelectedTab) {
-   *           g2.setColor(MaterialService.getInstance().color("ribbon-menu-font-selected"));
+   *           g2.setColor(MaterialService.getInstance().getColor("ribbon-menu-font-selected"));
    *           } else if (i == mHighlightedTab) {
-   *           g2.setColor(MaterialService.getInstance().color("ribbon-menu-font-highlight"));
+   *           g2.setColor(MaterialService.getInstance().getColor("ribbon-menu-font-highlight"));
    *           } else {
-   *           g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
+   *           g2.setColor(MaterialService.getInstance().getColor("ribbon-menu-font"));
    *           }
    * 
    *           int textX = x + (tabWidth -

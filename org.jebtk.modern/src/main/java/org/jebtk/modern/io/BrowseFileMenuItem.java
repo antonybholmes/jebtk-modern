@@ -28,7 +28,7 @@
 package org.jebtk.modern.io;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
 import org.jebtk.modern.menu.ModernLargeIconMenuItem;
 
@@ -47,7 +47,7 @@ public class BrowseFileMenuItem extends ModernLargeIconMenuItem {
    */
   public BrowseFileMenuItem() {
     super(UI.MENU_BROWSE,
-        UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+        AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
 
     setFont(SUB_HEADING_FONT);
   }

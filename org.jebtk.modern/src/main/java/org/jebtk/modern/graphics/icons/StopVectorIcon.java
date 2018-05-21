@@ -44,13 +44,13 @@ public class StopVectorIcon extends ModernVectorIcon {
    * The constant SCALE.
    */
   private static final double SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.run-icon.width-scale");
+      .getDouble("theme.icons.run-icon.width-scale");
 
   /**
    * The constant BACKGROUND.
    */
   private static final Color BACKGROUND = SettingsService.getInstance()
-      .getAsColor("theme.icons.run-icon.colors.foreground");
+      .getColor("theme.icons.run-icon.colors.foreground");
 
   /*
    * (non-Javadoc)

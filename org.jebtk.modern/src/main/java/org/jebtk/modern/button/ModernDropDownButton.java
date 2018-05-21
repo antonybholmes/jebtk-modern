@@ -31,7 +31,7 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
@@ -53,7 +53,7 @@ public class ModernDropDownButton extends ModernDropDownWidget {
   private static final long serialVersionUID = 1L;
 
   /** The Constant TRIANGLE_ICON. */
-  protected static final ModernIcon TRIANGLE_ICON = UIService.getInstance()
+  protected static final ModernIcon TRIANGLE_ICON = AssetService.getInstance()
       .loadIcon(TriangleDownVectorIcon.class, 16);
 
   /**

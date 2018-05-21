@@ -30,7 +30,7 @@ package org.jebtk.modern.layers;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernCheckBox;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ThemeService;
@@ -48,7 +48,7 @@ public class ModernLayersCheckBox extends ModernCheckBox {
   /**
    * The constant IMAGE_CHECKED.
    */
-  public static final ModernIcon IMAGE_CHECKED = UIService.getInstance()
+  public static final ModernIcon IMAGE_CHECKED = AssetService.getInstance()
       .loadIcon("layer_visible", 16);
 
   /**
@@ -82,10 +82,10 @@ public class ModernLayersCheckBox extends ModernCheckBox {
     g2.fillRect(iconX, iconY, 16, 16);
 
     if (isSelected()) {
-      IMAGE_CHECKED.drawIcon(g2, iconX, iconY, UIService.ICON_SIZE_16);
+      IMAGE_CHECKED.drawIcon(g2, iconX, iconY, AssetService.ICON_SIZE_16);
     }
 
-    g2.setColor(ThemeService.getInstance().colors().getGray(5));
+    g2.setColor(ThemeService.getInstance().getColors().getGray(5));
     g2.drawRect(iconX, iconY, 16, 16);
   }
 }

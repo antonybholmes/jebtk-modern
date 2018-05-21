@@ -30,7 +30,7 @@ package org.jebtk.modern.history;
 import java.awt.event.MouseListener;
 
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.button.ModernCircleButton;
 import org.jebtk.modern.contentpane.HTabToolbar;
@@ -64,13 +64,13 @@ public class ModernHistoryPanel<T> extends ModernComponent
    * The member up button.
    */
   private ModernButton mUpButton = new ModernCircleButton(
-      UIService.getInstance().loadIcon(CheveronUpVectorIcon.class, 12));
+      AssetService.getInstance().loadIcon(CheveronUpVectorIcon.class, 12));
 
   /**
    * The member down button.
    */
   private ModernButton mDownButton = new ModernCircleButton(
-      UIService.getInstance().loadIcon(CheveronDownVectorIcon.class, 12));
+      AssetService.getInstance().loadIcon(CheveronDownVectorIcon.class, 12));
 
   /**
    * The member history model.

@@ -30,10 +30,10 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class OrbTabsHighlightAnimation extends ButtonFillAnimation {
 
-  protected static final Color ORB_COLOR = ThemeService.getInstance().colors()
+  protected static final Color ORB_COLOR = ThemeService.getInstance().getColors()
       .getGray(3);
 
-  protected static final Color ORB_COLOR_2 = ThemeService.getInstance().colors()
+  protected static final Color ORB_COLOR_2 = ThemeService.getInstance().getColors()
       .getGray(5);
 
   private OrbTabs mTabs;

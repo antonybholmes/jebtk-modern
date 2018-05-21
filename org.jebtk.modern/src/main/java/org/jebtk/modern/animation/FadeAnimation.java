@@ -17,12 +17,10 @@ package org.jebtk.modern.animation;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.jebtk.core.ColorUtils;
-import org.jebtk.core.Mathematics;
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.HashMapCreator;
 import org.jebtk.core.collections.IterMap;
@@ -35,25 +33,17 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  * @author Antony Holmes
  */
-public class FadeAnimation extends WidgetAnimation {
-
-  private static final int MAX_INDEX = TimerAnimation.STEPS - 1;
+public class FadeAnimation extends EasingAnimation {
 
   /** The Constant MD. */
-  protected static final double MD = 1.0 / TimerAnimation.STEPS;
-
-  /** The m trans. */
-  // private double mTrans = 1;
-
-  /** The m current step. */
-  private int mCurrentStep = MAX_INDEX;
+  protected static final double MD = 1.0 / STEPS;
 
   /** The m fade color map. */
   private Map<Integer, IterMap<String, Color>> mFadeColorMap = DefaultHashMap
       .create(new HashMapCreator<String, Color>());
 
   /** Map step to transparency level */
-  private Map<Integer, Double> mStepMap = new HashMap<Integer, Double>();
+  //private Map<Integer, Double> mStepMap = new HashMap<Integer, Double>();
 
   /**
    * Instantiates a new hover fade animation.
@@ -64,15 +54,35 @@ public class FadeAnimation extends WidgetAnimation {
     super(widget);
 
     // double t = 0;
+    
+    setStep(MAX_STEP_INDEX);
 
-    mStepMap.put(0, 0.0);
-    mStepMap.put(MAX_INDEX, 1.0);
+    //mStepMap.put(0, 0.0);
+    //mStepMap.put(MAX_STEP_INDEX, 1.0);
 
-    for (int i = 1; i < MAX_INDEX; ++i) {
-      mStepMap.put(i, TranslateAnimation.BEZ_T[i]);
+    //for (int i = 1; i < MAX_STEP_INDEX; ++i) {
+    //  mStepMap.put(i, BEZ_T[i]);
+    //}
+  }
+  
+  public void restart() {
+    reset();
+    start();
+  }
 
-      // mStepMap.put(i, t);
-      // t += MD;
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.common.ui.animation.TimerAnimation#animate()
+   */
+  @Override
+  public void animate() {
+    getWidget().repaint();
+
+    if (getCurrentStep() == 0) {
+      stop();
+    } else {
+      fadeIn();
     }
   }
 
@@ -88,9 +98,9 @@ public class FadeAnimation extends WidgetAnimation {
 
     double d = (1.0 - t); // / STEPS;
 
-    for (int i = 0; i < TimerAnimation.STEPS; ++i) {
+    for (int i = 0; i < STEPS; ++i) {
       Color c = ColorUtils.getTransparentColor(color,
-          t + d * TranslateAnimation.BEZ_T[i]);
+          t + d * BEZ_T[i]);
 
       mFadeColorMap.get(i).put(name, c);
 
@@ -105,9 +115,9 @@ public class FadeAnimation extends WidgetAnimation {
     // opaque once the animation begins. Therefore with a a color map,
     // the last color needs to be the starting color.
     List<ColorMapColor> colorMap = ColorMap
-        .createTwoColorMap(color1, color2, TimerAnimation.STEPS, true);
+        .createTwoColorMap(color1, color2, STEPS, true);
 
-    for (int i = 0; i < TimerAnimation.STEPS; ++i) {
+    for (int i = 0; i < STEPS; ++i) {
       mFadeColorMap.get(i).put(name, colorMap.get(i));
     }
   }
@@ -122,7 +132,7 @@ public class FadeAnimation extends WidgetAnimation {
    * @return the fade color map
    */
   public Map<String, Color> getFadeColorMap() {
-    return getFadeColorMap(mCurrentStep);
+    return getFadeColorMap(mStep);
   }
 
   /**
@@ -134,19 +144,44 @@ public class FadeAnimation extends WidgetAnimation {
   public Map<String, Color> getFadeColorMap(int step) {
     return mFadeColorMap.get(step);
   }
+  
+  public Map<String, Color> getToFadeColorMap() {
+    return getFadeColorMap(MAX_STEP_INDEX);
+  }
+  
+  public Map<String, Color> getFromFadeColorMap() {
+    return getFadeColorMap(0);
+  }
+  
+  /**
+   * Get the end color.
+   * 
+   * @param name    The color gradient name.
+   * @return
+   */
+  public Color getToColor(String name) {
+    return getToFadeColorMap().get(name);
+  }
+  
+  public Color getFromColor(String name) {
+    return getFromFadeColorMap().get(name);
+  }
 
+  /**
+   * Cause the color to fade in (get more opaque/darker) by one step.
+   */
   public void fadeIn() {
     // mTrans = Mathematics.bound(mTrans - MD, 0, 1);
     // mCurrentStep = Mathematics.bound(mCurrentStep - 1, 0, STEPS);
 
-    setStep(mCurrentStep - 1);
+    setStep(mStep - 1);
   }
 
   public void fadeOut() {
     // mTrans = Mathematics.bound(mTrans + MD, 0, 1);
     // mCurrentStep = Mathematics.bound(mCurrentStep + 1, 0, STEPS);
 
-    setStep(mCurrentStep + 1);
+    setStep(mStep + 1);
   }
 
   /**
@@ -154,9 +189,9 @@ public class FadeAnimation extends WidgetAnimation {
    *
    * @return the trans
    */
-  public double getTrans() {
-    return mStepMap.get(mCurrentStep);
-  }
+  //ublic double getTrans() {
+  //  return mStepMap.get(mStep);
+  //}
 
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
@@ -164,19 +199,12 @@ public class FadeAnimation extends WidgetAnimation {
 
   }
 
+  @Override
   public void reset() {
-    mCurrentStep = MAX_INDEX;
-  }
-
-  public int getCurrentStep() {
-    return mCurrentStep;
-  }
-
-  public void setStep(int step) {
-    mCurrentStep = Mathematics.bound(step, 0, MAX_INDEX);
+    mStep = MAX_STEP_INDEX;
   }
 
   public void opaque() {
-    mCurrentStep = 0;
+    mStep = 0;
   }
 }

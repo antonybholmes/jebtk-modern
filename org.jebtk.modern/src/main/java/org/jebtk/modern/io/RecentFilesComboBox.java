@@ -32,7 +32,7 @@ import java.nio.file.Path;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.io.PathUtils;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.combobox.ModernComboBox;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ForwardRequestMenuItem;
@@ -56,8 +56,8 @@ public class RecentFilesComboBox extends ModernComboBox {
   /**
    * The icon.
    */
-  private ModernIcon icon = UIService.getInstance().loadIcon("file",
-      UIService.ICON_SIZE_32);
+  private ModernIcon icon = AssetService.getInstance().loadIcon("file",
+      AssetService.ICON_SIZE_32);
 
   /**
    * The max.

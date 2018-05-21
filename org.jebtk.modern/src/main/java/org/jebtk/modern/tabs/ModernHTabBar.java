@@ -81,7 +81,7 @@ public class ModernHTabBar extends TabsController
 
   /** The Constant TAB_HIGHLIGHT_COLOR. */
   protected static final Color TAB_HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .colors().getTheme(4);
+      .getColors().getTheme(4);
 
   /**
    * The tab width.

@@ -30,7 +30,7 @@ package org.jebtk.modern.dataview;
 import java.awt.Component;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.FileVectorIcon;
 import org.jebtk.modern.panel.ModernPanel;
 
@@ -50,7 +50,7 @@ public class ModernDataTileCellRenderer
    * Instantiates a new modern data tile cell renderer.
    */
   public ModernDataTileCellRenderer() {
-    setIcon(UIService.getInstance().loadIcon(FileVectorIcon.class, 64));
+    setIcon(AssetService.getInstance().loadIcon(FileVectorIcon.class, 64));
   }
 
   /*

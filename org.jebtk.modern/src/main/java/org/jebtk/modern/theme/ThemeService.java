@@ -439,13 +439,13 @@ public class ThemeService extends ModernTheme {
     public ThemeColors(String theme) {
       String color = "theme.color-schemes.color-scheme-" + theme.toLowerCase();
 
-      // Mathematics.bound(SettingsService.getInstance().getAsDouble(color +
+      // Mathematics.bound(SettingsService.getInstance().getDouble(color +
       // ".scaling"), 0, 1);
 
       Color color1 = SettingsService.getInstance()
-          .getAsColor(color + ".start-color");
+          .getColor(color + ".start-color");
       Color color2 = SettingsService.getInstance()
-          .getAsColor(color + ".end-color");
+          .getColor(color + ".end-color");
 
       System.err
           .println("theme " + color + ".end-color" + " " + (SettingsService
@@ -496,7 +496,7 @@ public class ThemeService extends ModernTheme {
    *
    * @return the theme fonts
    */
-  public ThemeFonts fonts() {
+  public ThemeFonts getFonts() {
     return mFonts;
   }
 
@@ -505,7 +505,7 @@ public class ThemeService extends ModernTheme {
    *
    * @return the theme
    */
-  public Theme colors() {
+  public Theme getColors() {
     return mColors;
   }
 
@@ -542,7 +542,7 @@ public class ThemeService extends ModernTheme {
   public void setTheme(ColorTheme theme) throws FontFormatException,
       IOException, ClassNotFoundException, InstantiationException,
       IllegalAccessException, UnsupportedLookAndFeelException {
-    colors().setTheme(theme);
+    getColors().setTheme(theme);
 
     if (mSetup) {
       setLookAndFeel();
@@ -641,14 +641,14 @@ public class ThemeService extends ModernTheme {
   public static Font loadFont(Path path) {
     Path p = new Path(path).append("family");
 
-    String family = SettingsService.getInstance().getAsString(p);
+    String family = SettingsService.getInstance().getString(p);
 
     p = new Path(path).append("size");
 
-    int size = SettingsService.getInstance().getAsInt(p);
+    int size = SettingsService.getInstance().getInt(p);
 
     return FontService.getInstance().loadFont(family,
         size,
-        SettingsService.getInstance().getAsString(p).equals("bold"));
+        SettingsService.getInstance().getString(p).equals("bold"));
   }
 }

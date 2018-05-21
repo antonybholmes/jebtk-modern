@@ -48,7 +48,7 @@ public class ModernDialogMutliOptionPanel extends ModernPanel {
   private static final long serialVersionUID = 1L;
 
   /** The Constant COLOR. */
-  private static final Color COLOR = ThemeService.getInstance().colors()
+  private static final Color COLOR = ThemeService.getInstance().getColors()
       .getGray32(1); // ColorUtils.getTransparentColor50(Color.WHITE);
 
   /**

@@ -2,7 +2,7 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.graphics.icons.ChipCloseIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -13,7 +13,7 @@ public class ChipButtonAnimation extends WidgetAnimation {
 
   private static final int SIZE = 12;
 
-  private static final ModernIcon ICON = UIService.getInstance()
+  private static final ModernIcon ICON = AssetService.getInstance()
       .loadIcon(ChipCloseIcon.class, SIZE);
 
   private ModernTwoStateWidget mButton;

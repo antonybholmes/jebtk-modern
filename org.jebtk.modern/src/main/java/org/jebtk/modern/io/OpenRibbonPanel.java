@@ -39,7 +39,7 @@ import org.jebtk.core.collections.UniqueArrayList;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ClockVectorIcon;
@@ -173,7 +173,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
    * Instantiates a new open ribbon panel.
    */
   public OpenRibbonPanel() {
-    this("Files", UIService.getInstance().loadIcon(FileVectorIcon.class, 32));
+    this("Files", AssetService.getInstance().loadIcon(FileVectorIcon.class, 32));
   }
 
   /**
@@ -240,7 +240,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
     // title.toUpperCase()
 
     mTabsModel.addTab("Recent " + TextUtils.sentenceCase(title),
-        UIService.getInstance().loadIcon(ClockVectorIcon.class, 24),
+        AssetService.getInstance().loadIcon(ClockVectorIcon.class, 24),
         scrollPane);
 
     //
@@ -305,12 +305,12 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
     // scrollPane.setBackground(Color.WHITE);
 
     mTabsModel.addTab(UI.ASSET_THIS_PC,
-        UIService.getInstance().loadIcon(ComputerVectorIcon.class, 24),
+        AssetService.getInstance().loadIcon(ComputerVectorIcon.class, 24),
         scrollPane); // new
                      // ModernContentPanel(scrollPane));
 
     mTabsModel.addTab(UI.ASSET_BROWSE,
-        UIService.getInstance().loadIcon(OpenFolderVectorIcon.class, 24),
+        AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 24),
         null);
 
     mTabsModel.addTabListener(new TabEventAdapter() {

@@ -89,25 +89,25 @@ public class ModernDialogPrimaryButton extends ModernDialogButton {
     
     /*
     public static final Color OUTLINE_COLOR_1 = ThemeService.getInstance()
-        .colors().getColorHighlight32(24);
+        .getColors().getColorHighlight32(24);
 
     public static final Color OUTLINE_COLOR_2 = ThemeService.getInstance()
-        .colors().getColorHighlight32(28);
+        .getColors().getColorHighlight32(28);
 
-    public static final Color FILL_1 = ThemeService.getInstance().colors()
+    public static final Color FILL_1 = ThemeService.getInstance().getColors()
         .getColorHighlight32(20);
 
-    public static final Color FILL_2 = ThemeService.getInstance().colors()
+    public static final Color FILL_2 = ThemeService.getInstance().getColors()
         .getColorHighlight32(24);
     
     getKeyFrames().getStyles(0).set("border-color", ThemeService.getInstance()
-        .colors().getColorHighlight32(24));
-    getKeyFrames().getStyles(0).set("background-color", ThemeService.getInstance().colors()
+        .getColors().getColorHighlight32(24));
+    getKeyFrames().getStyles(0).set("background-color", ThemeService.getInstance().getColors()
         .getColorHighlight32(20));
     
     getKeyFrames().getStyles(100).set("border-color", ThemeService.getInstance()
-        .colors().getColorHighlight32(28));
-    getKeyFrames().getStyles(100).set("background-color", ThemeService.getInstance().colors()
+        .getColors().getColorHighlight32(28));
+    getKeyFrames().getStyles(100).set("background-color", ThemeService.getInstance().getColors()
         .getColorHighlight32(24));
     */
 

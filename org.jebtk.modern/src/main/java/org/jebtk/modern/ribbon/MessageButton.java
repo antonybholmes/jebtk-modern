@@ -48,7 +48,7 @@ public class MessageButton extends ModernButton {
   /**
    * The constant FOCUS_COLOR.
    */
-  private static final Color FOCUS_COLOR = ThemeService.getInstance().colors()
+  private static final Color FOCUS_COLOR = ThemeService.getInstance().getColors()
       .getTheme(4);
 
   /**

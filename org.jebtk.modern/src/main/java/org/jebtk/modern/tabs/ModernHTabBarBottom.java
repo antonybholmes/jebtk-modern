@@ -31,7 +31,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.theme.ModernTheme;
 import org.jebtk.modern.theme.ThemeService;
 
@@ -80,7 +80,7 @@ public class ModernHTabBarBottom extends ModernHTabBar {
     int h = TAB_HEIGHT;
 
     // bottom line
-    g2.setColor(ThemeService.getInstance().colors().getGray(4));
+    g2.setColor(ThemeService.getInstance().getColors().getGray(4));
 
     x = getWidth();
     y = 0;
@@ -90,10 +90,10 @@ public class ModernHTabBarBottom extends ModernHTabBar {
     int textX;
     int textY = getTextYPosCenter(g2, h);
 
-    Color highlight = ThemeService.getInstance().colors().getTheme(5);
+    Color highlight = ThemeService.getInstance().getColors().getTheme(5);
 
     for (int i = tabOffsetIndex; i < getTabsModel().getTabCount(); ++i) {
-      g2.setColor(ThemeService.getInstance().colors().getGray(4));
+      g2.setColor(ThemeService.getInstance().getColors().getGray(4));
       g2.drawLine(tabX, PADDING, tabX, h - PADDING);
 
       g2.setFont(i == getTabsModel().getSelectedIndex() ? BOLD_FONT : FONT);
@@ -106,7 +106,7 @@ public class ModernHTabBarBottom extends ModernHTabBar {
 
         // draw the selected tab
 
-        g2.setColor(ThemeService.getInstance().colors().getGray(4)); // new
+        g2.setColor(ThemeService.getInstance().getColors().getGray(4)); // new
                                                                           // Color(159,
                                                                           // 182,
                                                                           // 205));
@@ -140,7 +140,7 @@ public class ModernHTabBarBottom extends ModernHTabBar {
 
       String s = getTabsModel().getTab(i).getName();
 
-      x = tabX + UIService.ICON_SIZE_8;
+      x = tabX + AssetService.ICON_SIZE_8;
 
       textX = tabX + (TAB_WIDTH - g2.getFontMetrics().stringWidth(s)) / 2;
 
@@ -154,7 +154,7 @@ public class ModernHTabBarBottom extends ModernHTabBar {
     }
 
     if (getTabsModel().getTabCount() > 0) {
-      g2.setColor(ThemeService.getInstance().colors().getGray(4));
+      g2.setColor(ThemeService.getInstance().getColors().getGray(4));
       g2.drawLine(tabX, PADDING, tabX, h - PADDING);
     }
 
@@ -165,7 +165,7 @@ public class ModernHTabBarBottom extends ModernHTabBar {
       x = TAB_START_X + TAB_WIDTH * (tab + 1) - TAB_HEIGHT + y;
 
       if (activateCloseButton) {
-        g2.setColor(ThemeService.getInstance().colors().getTheme(2));
+        g2.setColor(ThemeService.getInstance().getColors().getTheme(2));
 
         g2.fillRect(x, y, 16, 16);
       }

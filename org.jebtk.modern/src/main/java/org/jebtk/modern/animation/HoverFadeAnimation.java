@@ -25,7 +25,7 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  * @author Antony Holmes
  */
-public abstract class HoverFadeAnimation extends MouseAnimation {
+public abstract class HoverFadeAnimation extends HoverAnimation {
 
   private FadeAnimation mFade;
 
@@ -68,6 +68,20 @@ public abstract class HoverFadeAnimation extends MouseAnimation {
   public Color getFadeColor(String name) {
     return mFade.getFadeColor(name);
   }
+  
+  /**
+   * Get the end color.
+   * 
+   * @param name
+   * @return
+   */
+  public Color getToColor(String name) {
+    return mFade.getToColor(name);
+  }
+  
+  public Color getFromColor(String name) {
+    return mFade.getFromColor(name);
+  }
 
   /**
    * Gets the fade color map.
@@ -97,7 +111,8 @@ public abstract class HoverFadeAnimation extends MouseAnimation {
   public void animateMouseEntered() {
     getWidget().repaint();
 
-    if (mFade.getTrans() <= 0) {
+    // Stop when the color is fully opaque
+    if (mFade.getCurrentStep() == 0) {
       stopMouseOverTimer();
     } else {
       mFade.fadeIn();
@@ -113,7 +128,8 @@ public abstract class HoverFadeAnimation extends MouseAnimation {
   public void animateMouseExited() {
     getWidget().repaint();
 
-    if (mFade.getTrans() >= 1) {
+    // Stop when the color is fully transparent.
+    if (mFade.getCurrentStep() == TimerAnimation.MAX_STEP_INDEX) {
       stopMouseOverTimer();
     } else {
       mFade.fadeOut();
@@ -125,9 +141,9 @@ public abstract class HoverFadeAnimation extends MouseAnimation {
    *
    * @return the trans
    */
-  public double getTrans() {
-    return mFade.getTrans();
-  }
+  //public double getTrans() {
+  //  return mFade.getTrans();
+  //}
 
   public void setStep(int step) {
     mFade.setStep(step);

@@ -42,31 +42,31 @@ public class OpenFolderVectorIcon extends ModernVectorScalableIcon {
    * The constant WIDTH_SCALE.
    */
   private static final double WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.folder-icon.width-scale");
+      .getDouble("theme.icons.folder-icon.width-scale");
 
   /**
    * The constant CORNER_SCALE.
    */
   private static final double CORNER_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.folder-icon.corner-scale");
+      .getDouble("theme.icons.folder-icon.corner-scale");
 
   /**
    * The constant HEIGHT_SCALE.
    */
   private static final double HEIGHT_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.folder-icon.height-scale");
+      .getDouble("theme.icons.folder-icon.height-scale");
 
   /**
    * The constant OFFSET.
    */
   private static final double OFFSET = SettingsService.getInstance()
-      .getAsDouble("theme.icons.folder-icon.offset");
+      .getDouble("theme.icons.folder-icon.offset");
 
   /**
    * The constant COLOR1.
    */
   private static final Color COLOR1 = SettingsService.getInstance()
-      .getAsColor("theme.icons.folder-icon.colors.color1");
+      .getColor("theme.icons.folder-icon.colors.color1");
 
   /**
    * Instantiates a new open folder vector icon.

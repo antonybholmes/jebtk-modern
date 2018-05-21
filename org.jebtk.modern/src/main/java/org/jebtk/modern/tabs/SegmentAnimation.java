@@ -20,7 +20,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -31,7 +31,7 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class SegmentAnimation extends WidgetAnimation {
 
-  private static final Color BG = ThemeService.getInstance().colors()
+  private static final Color BG = ThemeService.getInstance().getColors()
       .getGray(2);
 
   /**
@@ -51,7 +51,7 @@ public class SegmentAnimation extends WidgetAnimation {
    */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-    UIDrawService.getInstance().get("button-fill")
+    DrawUIService.getInstance().getRenderer("button-fill")
         .draw(g2, widget.getRect(), BG);
   }
 }

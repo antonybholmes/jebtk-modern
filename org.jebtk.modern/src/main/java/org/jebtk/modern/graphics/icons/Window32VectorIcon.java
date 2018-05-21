@@ -65,7 +65,7 @@ public class Window32VectorIcon extends ModernVectorIcon {
    * Instantiates a new window32 vector icon.
    */
   public Window32VectorIcon() {
-    this(ThemeService.getInstance().colors().getTheme(4));
+    this(ThemeService.getInstance().getColors().getTheme(4));
   }
 
   /**

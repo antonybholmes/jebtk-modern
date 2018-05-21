@@ -115,7 +115,7 @@ public class ModernSettingsTableModel extends ModernColumnHeaderTableModel {
     case 0:
       return mPaths.get(row);
     case 1:
-      return mValues.get(row).getAsString();
+      return mValues.get(row).getString();
     }
 
     return null;

@@ -41,7 +41,7 @@ public class CrossVectorIcon extends ModernVectorScalableIcon {
    * The constant SCALE.
    */
   protected static final double SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.cross-icon.width-scale");
+      .getDouble("theme.icons.cross-icon.width-scale");
 
   /** The m color. */
   private Color mColor;

@@ -232,7 +232,7 @@ public class ComponentTable extends ModernComponent
 
     /** The m delete button. */
     private ModernButton mDeleteButton = new ModernButton(
-        UIService.getInstance().loadIcon(DeleteVectorIcon.class, 16));
+        AssetService.getInstance().loadIcon(DeleteVectorIcon.class, 16));
 
     /** The m listeners. */
     private ModernClickListeners mListeners = new ModernClickListeners();
@@ -349,11 +349,11 @@ public class ComponentTable extends ModernComponent
 
   /** The m move up button. */
   private ModernButton mMoveUpButton = new ModernButton(
-      UIService.getInstance().loadIcon(ArrowUpVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(ArrowUpVectorIcon.class, 16));
 
   /** The m move down button. */
   private ModernButton mMoveDownButton = new ModernButton(
-      UIService.getInstance().loadIcon(ArrowDownVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(ArrowDownVectorIcon.class, 16));
 
   /**
    * Instantiates a new component table.

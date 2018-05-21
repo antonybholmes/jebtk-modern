@@ -30,7 +30,7 @@ package org.jebtk.modern.table;
 import java.awt.Component;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.dataview.ModernDataCellRenderer;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -79,9 +79,9 @@ public class ModernTableIconCellRenderer extends ModernDataCellRenderer {
   public void drawForegroundAAText(Graphics2D g2) {
 
     mIcon.drawIcon(g2,
-        (this.getWidth() - UIService.ICON_SIZE_16) / 2,
-        (this.getHeight() - UIService.ICON_SIZE_16) / 2,
-        UIService.ICON_SIZE_16);
+        (this.getWidth() - AssetService.ICON_SIZE_16) / 2,
+        (this.getHeight() - AssetService.ICON_SIZE_16) / 2,
+        AssetService.ICON_SIZE_16);
   }
 
   /*

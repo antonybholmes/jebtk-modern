@@ -54,7 +54,7 @@ public class ModernDialogHelpButton extends ModernUrlTextLink {
    * @param settingsUrl the settings url
    */
   public ModernDialogHelpButton(String settingsUrl) {
-    this(SettingsService.getInstance().getAsUrl(settingsUrl));
+    this(SettingsService.getInstance().getUrl(settingsUrl));
   }
 
   /**

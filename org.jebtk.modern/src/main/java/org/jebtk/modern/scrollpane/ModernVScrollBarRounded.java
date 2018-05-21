@@ -78,7 +78,7 @@ public class ModernVScrollBarRounded extends ModernVScrollBar {
   public void paintScrollBarBase(Graphics2D g2) {
     Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
 
-    int rounding = MaterialService.instance().ints().cornerRadius();
+    int rounding = MaterialService.getInstance().getInts().cornerRadius();
 
     try {
       g2Temp.setColor(ROUNDED_SCROLLBAR_BACKGROUND_COLOR);
@@ -104,7 +104,7 @@ public class ModernVScrollBarRounded extends ModernVScrollBar {
   public void paintScrollBar(Graphics2D g2, Rectangle r) {
     Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
 
-    int rounding = MaterialService.instance().ints().cornerRadius();
+    int rounding = MaterialService.getInstance().getInts().cornerRadius();
 
     try {
       g2Temp.setColor(ROUNDED_SCROLLBAR_COLOR);

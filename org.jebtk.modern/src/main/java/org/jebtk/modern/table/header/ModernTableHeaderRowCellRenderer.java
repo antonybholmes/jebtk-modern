@@ -99,7 +99,7 @@ public class ModernTableHeaderRowCellRenderer
 
     /*
      * gradient = new GradientPaint(0, 0,
-     * ThemeService.getInstance().colors().getHighlight(1), mRect.getW() - 1, 0,
+     * ThemeService.getInstance().getColors().getHighlight(1), mRect.getW() - 1, 0,
      * LINE_COLOR, false);
      * 
      * g2.setPaint(gradient);

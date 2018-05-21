@@ -2,22 +2,18 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.animation.SelectedFadeAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class RadioSelectedAnimation extends SelectedFadeAnimation {
+public class RadioSelectedAnimation extends ButtonFillAnimation {
 
   private ModernClickWidget mRadio;
 
   public RadioSelectedAnimation(ModernWidget widget) {
-    super((ModernClickWidget) widget);
+    super(widget);
 
     mRadio = (ModernClickWidget) widget;
-
-    setFadeColor("fill", ModernWidgetRenderer.SELECTED_FILL_COLOR);
   }
 
   @Override
@@ -29,7 +25,7 @@ public class RadioSelectedAnimation extends SelectedFadeAnimation {
       Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
       try {
-        drawOutline(g2Temp,
+        fill(g2Temp,
             x,
             y,
             RadioAnimation.RADIO_SIZE,
@@ -40,7 +36,8 @@ public class RadioSelectedAnimation extends SelectedFadeAnimation {
     }
   }
 
-  public void drawOutline(Graphics2D g2, int x, int y, int w, int h) {
+  @Override
+  public void fill(Graphics2D g2, int x, int y, int w, int h) {
     // Do nothing
 
     // int wf = (int)(w * ModernWidgetRenderer.RADIO_SCALE / 2) * 2;
@@ -53,7 +50,7 @@ public class RadioSelectedAnimation extends SelectedFadeAnimation {
     // g2.setColor(Color.WHITE);
     // g2.fillOval(x, y, w, w);
 
-    g2.setColor(getFadeColor("fill"));
+    g2.setColor(getFromColor("fill"));
 
     // g2.drawOval(x, y, wf, wf);
 

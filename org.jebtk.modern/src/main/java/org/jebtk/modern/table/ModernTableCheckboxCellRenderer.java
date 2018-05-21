@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.dataview.ModernDataCellRenderer;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -77,18 +77,18 @@ public class ModernTableCheckboxCellRenderer extends ModernDataCellRenderer
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
 
-    int iconX = (getWidth() - UIService.ICON_SIZE_16) / 2;
-    int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
+    int iconX = (getWidth() - AssetService.ICON_SIZE_16) / 2;
+    int iconY = (getHeight() - AssetService.ICON_SIZE_16) / 2;
 
     // g2.setColor(Color.WHITE);
     // g2.fillRect(0, 0, getWidth(), getHeight());
 
     if (selected) {
-      UIService.getInstance().loadIcon(CheckedVectorIcon.class, 16)
-          .drawIcon(g2, iconX, iconY, UIService.ICON_SIZE_16);
+      AssetService.getInstance().loadIcon(CheckedVectorIcon.class, 16)
+          .drawIcon(g2, iconX, iconY, AssetService.ICON_SIZE_16);
     } else {
-      UIService.getInstance().loadIcon(UnCheckedVectorIcon.class, 16)
-          .drawIcon(g2, iconX, iconY, UIService.ICON_SIZE_16);
+      AssetService.getInstance().loadIcon(UnCheckedVectorIcon.class, 16)
+          .drawIcon(g2, iconX, iconY, AssetService.ICON_SIZE_16);
     }
   }
 

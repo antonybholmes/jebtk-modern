@@ -90,7 +90,7 @@ public class ModernDialogButton extends ModernButton {
     // setFont(BOLD_FONT);
     
     addStyleClass("dialog-button");
-    addStyleClass(KeyFrames.TO, "dialog-button");
+    addToStyleClass("dialog-button");
 
     setAnimations("button-fill", "button-outline");
   }

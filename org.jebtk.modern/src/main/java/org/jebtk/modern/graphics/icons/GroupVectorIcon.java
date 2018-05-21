@@ -44,31 +44,31 @@ public class GroupVectorIcon extends ModernVectorIcon {
    * The constant COLOR1.
    */
   private static final Color COLOR1 = SettingsService.getInstance()
-      .getAsColor("theme.icons.group-icon.colors.color1");
+      .getColor("theme.icons.group-icon.colors.color1");
 
   /**
    * The constant COLOR2.
    */
   private static final Color COLOR2 = SettingsService.getInstance()
-      .getAsColor("theme.icons.group-icon.colors.color2");
+      .getColor("theme.icons.group-icon.colors.color2");
 
   /**
    * The constant COLOR3.
    */
   private static final Color COLOR3 = SettingsService.getInstance()
-      .getAsColor("theme.icons.group-icon.colors.color3");
+      .getColor("theme.icons.group-icon.colors.color3");
 
   /**
    * The constant RADIUS.
    */
   private static final double RADIUS = SettingsService.getInstance()
-      .getAsDouble("theme.icons.group-icon.radius-scale");
+      .getDouble("theme.icons.group-icon.radius-scale");
 
   /**
    * The constant BALL_RADIUS.
    */
   private static final double BALL_RADIUS = SettingsService.getInstance()
-      .getAsDouble("theme.icons.group-icon.ball-radius-scale");
+      .getDouble("theme.icons.group-icon.ball-radius-scale");
 
   /**
    * The constant ANGLE2.

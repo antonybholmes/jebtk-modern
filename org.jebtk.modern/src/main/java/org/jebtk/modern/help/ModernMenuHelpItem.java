@@ -60,8 +60,8 @@ public class ModernMenuHelpItem extends ModernIconMenuItem {
   /** The Constant ICON. */
   private static final ModernIcon ICON = ModernVectorScalableIcon
       .createRastorIcon(HelpVectorIcon.class,
-          ThemeService.getInstance().colors().getTheme(5),
-          ThemeService.getInstance().colors().getTheme(6),
+          ThemeService.getInstance().getColors().getTheme(5),
+          ThemeService.getInstance().getColors().getTheme(6),
           SIZE);
 
   /** The m url. */
@@ -76,7 +76,7 @@ public class ModernMenuHelpItem extends ModernIconMenuItem {
    * @param settingsUrl the settings url
    */
   public ModernMenuHelpItem(String settingsUrl) {
-    this("Help...", SettingsService.getInstance().getAsUrl(settingsUrl));
+    this("Help...", SettingsService.getInstance().getUrl(settingsUrl));
   }
 
   /**
@@ -86,7 +86,7 @@ public class ModernMenuHelpItem extends ModernIconMenuItem {
    * @param settingsUrl the settings url
    */
   public ModernMenuHelpItem(String name, String settingsUrl) {
-    this(name, SettingsService.getInstance().getAsUrl(settingsUrl));
+    this(name, SettingsService.getInstance().getUrl(settingsUrl));
   }
 
   /**

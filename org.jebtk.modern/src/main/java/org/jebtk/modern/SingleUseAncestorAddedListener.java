@@ -11,7 +11,6 @@ public abstract class SingleUseAncestorAddedListener extends AncestorAdapter {
     if (mFirst) {
       mFirst = false;
       
-      System.err.println("firsty");
       action(event);
     }
   }

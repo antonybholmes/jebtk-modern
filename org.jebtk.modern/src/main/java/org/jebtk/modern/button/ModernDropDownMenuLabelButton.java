@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
@@ -160,7 +160,7 @@ public class ModernDropDownMenuLabelButton extends ModernDropDownWidget {
     x = getWidth() - PADDING - 16;
 
     // Draw arrow at end of component
-    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
+    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
         .drawIcon(g2, x, (getHeight() - 16) / 2, 16);
   }
 }

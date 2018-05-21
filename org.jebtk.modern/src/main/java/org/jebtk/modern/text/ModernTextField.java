@@ -36,7 +36,7 @@ import javax.swing.JTextField;
 
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -68,7 +68,7 @@ public class ModernTextField extends JTextField implements TextProperty {
 
   /** The Constant SELECTION_COLOR. */
   public static final Color SELECTION_COLOR = ThemeService.getInstance()
-      .colors().getTheme32(12);
+      .getColors().getTheme32(12);
 
   /**
    * Instantiates a new modern text field.
@@ -110,14 +110,14 @@ public class ModernTextField extends JTextField implements TextProperty {
 
     setFont(ModernWidget.FONT);
 
-    setBackground(SettingsService.getInstance().getAsColor("theme.background"));
+    setBackground(SettingsService.getInstance().getColor("theme.background"));
     setForeground(ENABLED_COLOR);
     setSelectedTextColor(Color.WHITE);
     setSelectionColor(SELECTION_COLOR);
 
     setBorder(BorderFactory.createEmptyBorder());
 
-    setMinimumSize(new Dimension(UIService.ICON_SIZE_24, TEXT_BOX_SIZE.height));
+    setMinimumSize(new Dimension(AssetService.ICON_SIZE_24, TEXT_BOX_SIZE.height));
     setMaximumSize(new Dimension(Short.MAX_VALUE, TEXT_BOX_SIZE.height));
 
     UI.setSize(this, TEXT_BOX_SIZE);
@@ -147,7 +147,7 @@ public class ModernTextField extends JTextField implements TextProperty {
    * @return the as double
    * @throws ParseException the parse exception
    */
-  public double getAsDouble() {
+  public double getDouble() {
     return Double.parseDouble(getText());
   }
 
@@ -157,7 +157,7 @@ public class ModernTextField extends JTextField implements TextProperty {
    * @return the as int
    * @throws ParseException the parse exception
    */
-  public int getAsInt() {
+  public int getInt() {
     return Integer.parseInt(getText());
   }
 }

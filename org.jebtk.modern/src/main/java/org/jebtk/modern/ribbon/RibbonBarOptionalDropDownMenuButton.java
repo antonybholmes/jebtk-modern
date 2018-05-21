@@ -78,7 +78,7 @@ public class RibbonBarOptionalDropDownMenuButton
    * Setup.
    */
   private void setup() {
-    setBackground(SettingsService.getInstance().getAsColor("ribbon-bar.color"));
+    setBackground(SettingsService.getInstance().getColor("ribbon-bar.color"));
   }
 
   /*

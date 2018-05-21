@@ -19,7 +19,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -38,7 +38,7 @@ public class RibbonBackHighlightAnimation extends HoverFadeAnimation {
     super(button);
 
     // setFadeColor("fill", RibbonBackMenuItem.BASE_COLOR, Color.WHITE);
-    setFadeColor("fill", MaterialService.instance().color("gray-highlight"));
+    setFadeColor("fill", MaterialService.getInstance().getColor("gray-highlight"));
   }
 
   @Override
@@ -46,7 +46,7 @@ public class RibbonBackHighlightAnimation extends HoverFadeAnimation {
     int x = ModernWidget.DOUBLE_PADDING;
     int y = (widget.getHeight() - HEIGHT) / 2;
 
-    UIDrawService.getInstance().get("circle-fill")
+    DrawUIService.getInstance().getRenderer("circle-fill")
         .draw(g2, x, y, HEIGHT, HEIGHT, getFadeColor("fill"));
   }
 }

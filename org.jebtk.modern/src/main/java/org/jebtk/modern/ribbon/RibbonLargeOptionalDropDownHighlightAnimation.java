@@ -20,8 +20,7 @@ import java.awt.Graphics2D;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.button.DropDownButtonAnimation;
 import org.jebtk.modern.button.ModernOptionalDropDownMenuButton;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -42,8 +41,6 @@ public class RibbonLargeOptionalDropDownHighlightAnimation
     super((ModernOptionalDropDownMenuButton) button);
 
     mButton = (ModernOptionalDropDownMenuButton) button;
-
-    setFadeColor("fill", ModernWidgetRenderer.RIBBON_SELECTED_FILL_COLOR);
   }
 
   /*
@@ -79,13 +76,13 @@ public class RibbonLargeOptionalDropDownHighlightAnimation
         ///getWidget().getWidgetRenderer().fill(g2, rect);
         
         
-        UIDrawService.getInstance().get("button-fill").draw(g2, rect, getFadeColor("fill"));
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, rect, getFadeColor("fill"));
 
       } else {
         // getWidget().getWidgetRenderer().outline(g2, rect);
         //getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
         
-        UIDrawService.getInstance().get("button-fill").draw(g2, x, y, w, h, getFadeColor("fill"));
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, x, y, w, h, getFadeColor("fill"));
 
         // getWidgetRenderer().drawRibbonButtonOutline(g2, rect,
         // RenderMode.SELECTED);

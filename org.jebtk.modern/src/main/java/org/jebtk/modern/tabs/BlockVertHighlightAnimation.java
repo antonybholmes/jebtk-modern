@@ -41,8 +41,8 @@ public class BlockVertHighlightAnimation extends HighlightAnimation {
 
     mTabs = (BlockVertTabs) segments;
 
-    getFade().setFadeColor("fill",
-        MaterialService.instance().color("gray-highlight"));
+    setFadeColor("fill",
+        MaterialService.getInstance().getColor("gray-highlight"));
   }
 
   /*
@@ -72,7 +72,7 @@ public class BlockVertHighlightAnimation extends HighlightAnimation {
       // //getRenderer().getHighlightFillColor()); //TEXT_TAB_HIGHLIGHT_COLOR);
       // g2.fillRect(x, y + mHighlight * mTabSize, w, mTabSize);
 
-      g2.setColor(getFade().getFadeColor("fill"));
+      g2.setColor(getFadeColor("fill"));
       // g2.fillRect(x, y + mTabs.mHighlight * mTabs.mTabSize,
       // SegmentChangeAnimation.HEIGHT, mTabs.mTabSize);
       g2.fillRect(x, y + mTabs.mHighlight * mTabs.mTabSize, w, mTabs.mTabSize);

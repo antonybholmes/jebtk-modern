@@ -119,7 +119,7 @@ public class RibbonFileMenu extends ModernClickWidget
   private static final String CLOSE_MENU = "close_menu";
 
   private static final Color RIBBON_FILE_BACKGROUND = ThemeService.getInstance()
-      .colors().getGray32(1);
+      .getColors().getGray32(1);
 
   /**
    * The class CloseAction.

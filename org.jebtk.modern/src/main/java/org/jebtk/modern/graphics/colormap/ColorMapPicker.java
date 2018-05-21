@@ -264,14 +264,14 @@ public class ColorMapPicker extends ModernClickWidget {
 
       g2.setPaint(paint);
       // g2.fillRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-      // MaterialService.instance().ints().cornerRadius();,
-      // MaterialService.instance().ints().cornerRadius(););
+      // MaterialService.getInstance().getInts().cornerRadius();,
+      // MaterialService.getInstance().getInts().cornerRadius(););
       g2.fillRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
 
       g2.setColor(LINE_COLOR);
       // g2.drawRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-      // MaterialService.instance().ints().cornerRadius();,
-      // MaterialService.instance().ints().cornerRadius(););
+      // MaterialService.getInstance().getInts().cornerRadius();,
+      // MaterialService.getInstance().getInts().cornerRadius(););
       g2.drawRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
 
       /*
@@ -298,8 +298,8 @@ public class ColorMapPicker extends ModernClickWidget {
       /*
        * g2.drawRoundRect(mSelectedP.getX(), mSelectedP.getY(),
        * HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-       * MaterialService.instance().ints().cornerRadius();,
-       * MaterialService.instance().ints().cornerRadius(););
+       * MaterialService.getInstance().getInts().cornerRadius();,
+       * MaterialService.getInstance().getInts().cornerRadius(););
        */
 
       g2.drawRect(mSelectedP.getX(),
@@ -313,8 +313,8 @@ public class ColorMapPicker extends ModernClickWidget {
 
       /*
        * g2.drawRoundRect(mP.getX(), mP.getY(), HEAT_MAP_SIZE.getW(),
-       * HEAT_MAP_SIZE.getH(), MaterialService.instance().ints().cornerRadius();,
-       * MaterialService.instance().ints().cornerRadius(););
+       * HEAT_MAP_SIZE.getH(), MaterialService.getInstance().getInts().cornerRadius();,
+       * MaterialService.getInstance().getInts().cornerRadius(););
        */
 
       g2.drawRect(mP.getX(),

@@ -54,27 +54,27 @@ public class SegmentTabs extends TextTabs {
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_1. */
   public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService
-      .getInstance().colors().getTheme(3);
+      .getInstance().getColors().getTheme(3);
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_2. */
   protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService
-      .getInstance().colors().getTheme(4);
+      .getInstance().getColors().getTheme(4);
 
   /** The Constant TEXT_TAB_SELECTED_OUTLINE_COLOR. */
   protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService
-      .getInstance().colors().getTheme(5);
+      .getInstance().getColors().getTheme(5);
 
   // protected static final Color TEXT_TAB_OUTLINE_COLOR =
-  // ThemeService.getInstance().colors().getHighlight(5);
+  // ThemeService.getInstance().getColors().getHighlight(5);
 
   // protected static final Color TEXT_TAB_HIGHLIGHT_COLOR_1 =
-  // ThemeService.getInstance().colors().getColorHighlight(1);
+  // ThemeService.getInstance().getColors().getColorHighlight(1);
 
   // protected static final Color TEXT_TAB_HIGHLIGHT_COLOR_2 =
-  // ThemeService.getInstance().colors().getColorHighlight(2);
+  // ThemeService.getInstance().getColors().getColorHighlight(2);
 
   /** The Constant ROUNDING. */
-  protected static final int ROUNDING = MaterialService.instance().ints().cornerRadius();
+  protected static final int ROUNDING = MaterialService.getInstance().getInts().cornerRadius();
 
   /** The m tab size. */
   protected int mTabSize = -1;

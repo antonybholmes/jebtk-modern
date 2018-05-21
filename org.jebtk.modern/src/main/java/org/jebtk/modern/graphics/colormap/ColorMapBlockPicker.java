@@ -15,6 +15,7 @@
  */
 package org.jebtk.modern.graphics.colormap;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.LinearGradientPaint;
@@ -27,7 +28,6 @@ import java.util.List;
 import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.widget.ModernClickWidget;
 
 /**
@@ -294,15 +294,15 @@ public class ColorMapBlockPicker extends ModernClickWidget {
 
         g2Temp.setPaint(paint);
         // g2.fillRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-        // MaterialService.instance().ints().cornerRadius();,
-        // MaterialService.instance().ints().cornerRadius(););
+        // MaterialService.getInstance().getInts().cornerRadius();,
+        // MaterialService.getInstance().getInts().cornerRadius(););
         // g2Temp.fillOval(x, y, HEAT_MAP_SIZE, HEAT_MAP_SIZE);
         g2Temp.fillRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
 
         // g2Temp.setColor(LIGHT_LINE_COLOR);
         // g2.drawRoundRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH(),
-        // MaterialService.instance().ints().cornerRadius();,
-        // MaterialService.instance().ints().cornerRadius(););
+        // MaterialService.getInstance().getInts().cornerRadius();,
+        // MaterialService.getInstance().getInts().cornerRadius(););
         // g2Temp.drawOval(x, y, HEAT_MAP_SIZE, HEAT_MAP_SIZE);
         // g2Temp.drawRect(x, y, HEAT_MAP_SIZE.getW(), HEAT_MAP_SIZE.getH());
 
@@ -320,7 +320,7 @@ public class ColorMapBlockPicker extends ModernClickWidget {
       // g2Temp.setStroke(ThemeService.DOUBLE_LINE_STROKE);
 
       if (mSelectedRow != -1) {
-        g2Temp.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR);
+        g2Temp.setColor(Color.BLACK); //ModernWidgetRenderer.SELECTED_FILL_COLOR);
 
         g2Temp.drawRect(mSelectedP.getX(),
             mSelectedP.getY(),

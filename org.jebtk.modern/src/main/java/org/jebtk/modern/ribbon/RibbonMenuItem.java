@@ -36,7 +36,7 @@ import java.awt.geom.Arc2D;
 import java.awt.geom.GeneralPath;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.MaterialService;
@@ -62,7 +62,7 @@ public class RibbonMenuItem extends ModernCheckButton
    * The constant TEXT_OFFSET.
    */
   // private static final int ICON_WIDTH = 16;
-  protected static final int TEXT_OFFSET = 2 * PADDING + UIService.ICON_SIZE_16;
+  protected static final int TEXT_OFFSET = 2 * PADDING + AssetService.ICON_SIZE_16;
 
   /**
    * The constant SIZE.
@@ -83,14 +83,14 @@ public class RibbonMenuItem extends ModernCheckButton
   /**
    * The constant MENU_SELECTED_COLOR.
    */
-  public static final Color MENU_SELECTED_COLOR = MaterialService.instance()
-      .color("gray-selected"); // ColorUtils.getTransparentColor60(Color.WHITE);
+  public static final Color MENU_SELECTED_COLOR = MaterialService.getInstance()
+      .getColor("gray-selected"); // ColorUtils.getTransparentColor60(Color.WHITE);
 
   /**
    * The constant MENU_HIGHLIGHT_COLOR.
    */
-  public static final Color MENU_HIGHLIGHT_COLOR = MaterialService.instance()
-      .color("gray-highlight");
+  public static final Color MENU_HIGHLIGHT_COLOR = MaterialService.getInstance()
+      .getColor("gray-highlight");
 
   /** The Constant ROUNDING. */
   public static final int ROUNDING = 10;
@@ -197,12 +197,12 @@ public class RibbonMenuItem extends ModernCheckButton
 
     if (isSelected()) {
       g2.setColor(
-          MaterialService.instance().color("ribbon-menu-font-selected"));
+          MaterialService.getInstance().getColor("ribbon-menu-font-selected"));
     } else if (getHightlighted()) {
       g2.setColor(
-          MaterialService.instance().color("ribbon-menu-font-highlight"));
+          MaterialService.getInstance().getColor("ribbon-menu-font-highlight"));
     } else {
-      g2.setColor(MaterialService.instance().color("ribbon-menu-font"));
+      g2.setColor(MaterialService.getInstance().getColor("ribbon-menu-font"));
     }
 
     int x = getWidth() / 5; // getTextXPosCenter(g2, mText1, getWidth());

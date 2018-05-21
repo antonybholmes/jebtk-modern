@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.text.TextProperty;
 import org.jebtk.modern.widget.ModernWidget;
@@ -101,12 +101,12 @@ public class ModernListIconCellRenderer extends ModernListCellRenderer
     int x;
 
     if (mIcon != null) {
-      x = iconX + UIService.ICON_SIZE_16 + PADDING;
+      x = iconX + AssetService.ICON_SIZE_16 + PADDING;
     } else {
       x = PADDING;
     }
 
-    int y = UIService.ICON_SIZE_16;
+    int y = AssetService.ICON_SIZE_16;
 
     g2.setFont(ModernWidget.FONT);
     g2.setColor(TEXT_COLOR);
@@ -114,10 +114,10 @@ public class ModernListIconCellRenderer extends ModernListCellRenderer
 
     if (mIcon != null) {
       if (mText == null || mText.length() == 0) {
-        iconX = (getWidth() - UIService.ICON_SIZE_16) / 2;
+        iconX = (getWidth() - AssetService.ICON_SIZE_16) / 2;
       }
 
-      int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
+      int iconY = (getHeight() - AssetService.ICON_SIZE_16) / 2;
 
       mIcon.drawIcon(g2, new Rectangle(iconX, iconY, 16, 16));
     }

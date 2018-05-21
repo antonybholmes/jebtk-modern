@@ -118,7 +118,7 @@ public class ModernTableTextCellEditor extends ModernDataCellEditor
   @Override
   public final Object getCellEditorValue() {
     if (mIsNumber) {
-      return mNumberField.getAsDouble();
+      return mNumberField.getDouble();
     } else {
       return mTextField.getText();
     }

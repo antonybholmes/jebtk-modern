@@ -347,19 +347,19 @@ public class UI {
   /**
    * The constant CUT_ICON.
    */
-  public static final ModernIcon CUT_ICON = UIService.getInstance()
+  public static final ModernIcon CUT_ICON = AssetService.getInstance()
       .loadIcon("cut", 16);
 
   /**
    * The constant COPY_ICON.
    */
-  public static final ModernIcon COPY_ICON = UIService.getInstance()
+  public static final ModernIcon COPY_ICON = AssetService.getInstance()
       .loadIcon("copy", 16);
 
   /**
    * The constant PASTE_ICON.
    */
-  public static final ModernIcon PASTE_ICON = UIService.getInstance()
+  public static final ModernIcon PASTE_ICON = AssetService.getInstance()
       .loadIcon("paste", 16);
 
   /**
@@ -369,12 +369,12 @@ public class UI {
 
   /** The custom window decoration. */
   public static boolean CUSTOM_WINDOW_DECORATION = SettingsService.getInstance()
-      .getAsString("modern.ui.window.decoration.style").equals("modern");
+      .getString("modern.ui.window.decoration.style").equals("modern");
 
   /** The Constant TITLE_BUTTONS_ON_LEFT. */
   public static final boolean TITLE_BUTTONS_ON_LEFT = OpSys.isMac()
       || SettingsService.getInstance()
-          .getAsString("modern.ui.window.title-bar.buttons.location")
+          .getString("modern.ui.window.title-bar.buttons.location")
           .equals("left");
 
   /** The Constant WINDOW_TITLE_STYLE. */
@@ -430,7 +430,7 @@ public class UI {
   static {
     // Determine if we should mac style buttons or not.
     if (OpSys.isMac() || SettingsService.getInstance()
-        .getAsString("modern.ui.window.title-bar.buttons.style")
+        .getString("modern.ui.window.title-bar.buttons.style")
         .equals("mac")) {
       WINDOW_TITLE_STYLE = ModernWindowTitleBarStyle.MAC;
     } else {

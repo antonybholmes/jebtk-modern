@@ -38,7 +38,7 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JScrollPane;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -97,8 +97,8 @@ public class RecentSearchTermsPanel extends RibbonMenuPanel
     super("Recent searches");
 
     setup("Recent searches",
-        UIService.getInstance().loadIcon("recent_search",
-            UIService.ICON_SIZE_32));
+        AssetService.getInstance().loadIcon("recent_search",
+            AssetService.ICON_SIZE_32));
   }
 
   /**
@@ -147,7 +147,7 @@ public class RecentSearchTermsPanel extends RibbonMenuPanel
     ModernPanel buttonPanel = new ModernPanel(new FlowLayout(FlowLayout.RIGHT));
 
     ModernButtonWidget button = new ModernButton("Clear",
-        UIService.getInstance().loadIcon("clear", UIService.ICON_SIZE_16));
+        AssetService.getInstance().loadIcon("clear", AssetService.ICON_SIZE_16));
 
     button.addClickListener(this);
 

@@ -31,7 +31,7 @@ import java.awt.Graphics2D;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.HelpVectorIcon;
@@ -81,12 +81,12 @@ public class RibbonPanelHelpButton extends RibbonPanelButton
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
-    g2.setColor(ThemeService.getInstance().colors().getGray(4));
+    g2.setColor(ThemeService.getInstance().getColors().getGray(4));
 
     int x = (mRect.getW() - WIDTH) / 2;
     int y = 16;
 
-    UIService.getInstance().loadIcon(HelpVectorIcon.class, 32)
+    AssetService.getInstance().loadIcon(HelpVectorIcon.class, 32)
         .drawIcon(g2, x, y, 32);
 
     x = (mRect.getW() - WIDTH) / 2

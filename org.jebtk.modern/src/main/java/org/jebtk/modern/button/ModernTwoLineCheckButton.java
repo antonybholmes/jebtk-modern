@@ -33,7 +33,7 @@ import java.awt.Graphics2D;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.widget.TwoLineWidget;
@@ -111,7 +111,7 @@ public class ModernTwoLineCheckButton extends ModernCheckButton
    * The constant DEFAULT_SIZE.
    */
   public static final Dimension DEFAULT_SIZE = new Dimension(400,
-      UIService.ICON_SIZE_48);
+      AssetService.ICON_SIZE_48);
 
   /**
    * The color1.
@@ -223,25 +223,25 @@ public class ModernTwoLineCheckButton extends ModernCheckButton
    * Graphics2D)
    */
   public void drawForegroundAAText(Graphics2D g2) {
-    int x = UIService.ICON_SIZE_48;
+    int x = AssetService.ICON_SIZE_48;
     int y = 0;
 
     if (mText1 != null) {
-      y += UIService.ICON_SIZE_20;
+      y += AssetService.ICON_SIZE_20;
       g2.setColor(color1);
       g2.drawString(mText1, x, y);
     }
 
     if (text2 != null) {
-      y += UIService.ICON_SIZE_20;
+      y += AssetService.ICON_SIZE_20;
       g2.setColor(color2);
       g2.drawString(text2, x, y);
     }
 
     if (this.getIcon() != null) {
-      int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
+      int iconY = (getHeight() - AssetService.ICON_SIZE_16) / 2;
 
-      this.getIcon().drawIcon(g2, PADDING, iconY, UIService.ICON_SIZE_16);
+      this.getIcon().drawIcon(g2, PADDING, iconY, AssetService.ICON_SIZE_16);
     }
   }
 }

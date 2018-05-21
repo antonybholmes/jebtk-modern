@@ -94,7 +94,7 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
    * The constant SELECTION_RECT_COLOR.
    */
   public static final Color SELECTION_RECT_COLOR = ThemeService.getInstance()
-      .colors().getTheme(5);
+      .getColors().getTheme(5);
 
   /** The m heading render model. */
   protected ModernTableHeadingRendererModel mHeadingRenderModel = new ModernTableHeadingRendererModel();

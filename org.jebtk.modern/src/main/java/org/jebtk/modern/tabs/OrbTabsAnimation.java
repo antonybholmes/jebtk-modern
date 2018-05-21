@@ -30,7 +30,7 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class OrbTabsAnimation extends WidgetAnimation {
 
-  private static final Color TEXT_COLOR = ThemeService.getInstance().colors()
+  private static final Color TEXT_COLOR = ThemeService.getInstance().getColors()
       .getGray(10);
 
   private OrbTabs mTabs;

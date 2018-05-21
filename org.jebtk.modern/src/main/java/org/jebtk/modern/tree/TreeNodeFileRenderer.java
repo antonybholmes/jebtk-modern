@@ -27,7 +27,7 @@
  */
 package org.jebtk.modern.tree;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.FileVectorIcon;
 import org.jebtk.modern.graphics.icons.FolderVectorIcon;
 
@@ -48,8 +48,8 @@ public class TreeNodeFileRenderer extends TreeIconNodeRenderer {
    * Instantiates a new tree node file renderer.
    */
   public TreeNodeFileRenderer() {
-    super(UIService.getInstance().loadIcon(FolderVectorIcon.class, 16),
-        UIService.getInstance().loadIcon(FileVectorIcon.class, 16));
+    super(AssetService.getInstance().loadIcon(FolderVectorIcon.class, 16),
+        AssetService.getInstance().loadIcon(FileVectorIcon.class, 16));
   }
 
 }

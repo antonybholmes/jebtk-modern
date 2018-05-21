@@ -20,6 +20,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
+import org.jebtk.core.Mathematics;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -39,6 +40,8 @@ public abstract class TimerAnimation extends WidgetAnimation {
 
   /** The m timer. */
   private Timer mTimer;
+
+  protected int mStep = 0;
 
   /**
    * The Class StateEvents.
@@ -91,5 +94,25 @@ public abstract class TimerAnimation extends WidgetAnimation {
    */
   public void animate() {
     getWidget().repaint();
+    
+    if (++mStep == MAX_STEP_INDEX) {
+      stop();
+    }
+  }
+  
+  public void setStep(int step) {
+    mStep = Mathematics.bound(step, 0, MAX_STEP_INDEX);
+  }
+  
+  public void reset() {
+    mStep = 0;
+  }
+
+  public int getCurrentStep() {
+    return mStep;
+  }
+  
+  public boolean stopped() {
+    return mStep == MAX_STEP_INDEX;
   }
 }

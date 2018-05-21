@@ -4,31 +4,20 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.animation.HoverFadeAnimation;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
-import org.jebtk.modern.theme.RenderMode;
-import org.jebtk.modern.theme.UIDrawService;
-import org.jebtk.modern.widget.ModernClickWidget;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class ButtonOutlineAnimation extends HoverFadeAnimation {
-  private ModernClickWidget mButton;
-
   public ButtonOutlineAnimation(ModernWidget button) {
     super(button);
 
-    mButton = (ModernClickWidget) button;
-
-    if (button.getToKeyFrame().contains("border-color")) {
-      if (button.getKeyFrame(0).contains("border-color")) {
-        setFadeColor("outline", 
-            button.getKeyFrame(0).getColor("border-color"),
-            button.getToKeyFrame().getColor("border-color"));
-      } else {
-        setFadeColor("outline", 
-            button.getToKeyFrame().getColor("background-color"));
-      }
+    if (button.getFromKeyFrame().contains("border-color")) {
+      setFadeColor("outline", 
+          button.getFromKeyFrame().getColor("border-color"),
+          button.getToKeyFrame().getColor("border-color"));
     } else {
-      setFadeColor("outline", ModernWidgetRenderer.SELECTED_OUTLINE_COLOR);
+      setFadeColor("outline", 
+          button.getToKeyFrame().getColor("border-color"));
     }
   }
 
@@ -47,9 +36,7 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
           rect.getX(),
           rect.getY(),
           rect.getW(),
-          rect.getH(),
-          mButton.getRenderMode(),
-          false);
+          rect.getH());
     }
   }
 
@@ -57,14 +44,12 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
       int x,
       int y,
       int w,
-      int h,
-      RenderMode mode,
-      boolean hasFocus) {
+      int h) {
     // if (mode == RenderMode.NONE && !hasFocus) {
     // return;
     // }
-    
-    UIDrawService.getInstance().get("button-outline").draw(g2, x, y, w, h, getFadeColor("outline"));
+
+    DrawUIService.getInstance().getRenderer("button-outline").draw(g2, x, y, w, h, getFadeColor("outline"));
 
     //g2.setColor(getFadeColor("outline"));
 
@@ -76,8 +61,4 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
   //  
   //  UIDrawService.getInstance().get("button-outline").draw(g2, x, y, w, h, getFadeColor("outline"));
   //}
-
-  public ModernClickWidget getButton() {
-    return mButton;
-  }
 }

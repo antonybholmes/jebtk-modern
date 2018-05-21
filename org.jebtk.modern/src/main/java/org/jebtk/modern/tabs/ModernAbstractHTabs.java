@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.button.ModernButtonWidget;
@@ -59,7 +59,7 @@ public abstract class ModernAbstractHTabs extends TabsController
   /**
    * The constant TAB_START_X.
    */
-  protected static final int TAB_START_X = UIService.ICON_SIZE_64;
+  protected static final int TAB_START_X = AssetService.ICON_SIZE_64;
 
   /**
    * The constant TAB_WIDTH.
@@ -94,13 +94,13 @@ public abstract class ModernAbstractHTabs extends TabsController
    * The shift left button.
    */
   protected ModernButton shiftLeftButton = new ModernButton(
-      UIService.getInstance().loadIcon("arrow_left", UIService.ICON_SIZE_16));
+      AssetService.getInstance().loadIcon("arrow_left", AssetService.ICON_SIZE_16));
 
   /**
    * The shift right button.
    */
   protected ModernButton shiftRightButton = new ModernButton(
-      UIService.getInstance().loadIcon("arrow_right", UIService.ICON_SIZE_16));
+      AssetService.getInstance().loadIcon("arrow_right", AssetService.ICON_SIZE_16));
 
   /**
    * The tab start x.

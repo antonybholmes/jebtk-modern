@@ -20,7 +20,7 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.animation.TranslateAnimation;
 import org.jebtk.modern.button.ButtonPressedAnimation;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -37,7 +37,7 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
    * @param button the button
    */
   public RibbonSegmentPressedAnimation(ModernWidget w) {
-    super(w, MaterialService.instance().color("ribbon-pressed"));
+    super(w, MaterialService.getInstance().getColor("ribbon-pressed"));
 
     mTabs = (RibbonSegmentVertTabs) w;
   }
@@ -87,7 +87,7 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
       /// d,
       // RibbonSegmentVertTabs.TAB_SIZE);
 
-      UIDrawService.getInstance().get("button-fill").draw(g2,
+      DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
           x,
           y + mHighlight * RibbonSegmentVertTabs.TAB_SIZE,
           d,

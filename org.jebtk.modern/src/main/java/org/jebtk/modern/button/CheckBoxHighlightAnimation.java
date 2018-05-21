@@ -3,7 +3,7 @@ package org.jebtk.modern.button;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.ribbon.Ribbon;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -25,7 +25,7 @@ public class CheckBoxHighlightAnimation extends ButtonFillAnimation {
        * ModernCheckBox.ICON_SIZE, getButton().getRenderMode(), false);
        */
 
-      UIDrawService.getInstance().get("button-fill").draw(g2,
+      DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
           x,
           y,
           ModernCheckBox.ICON_SIZE,

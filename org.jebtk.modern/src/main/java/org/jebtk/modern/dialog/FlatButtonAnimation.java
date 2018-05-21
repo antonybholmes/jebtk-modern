@@ -3,7 +3,7 @@ package org.jebtk.modern.dialog;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.button.ButtonFillAnimation;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class FlatButtonAnimation extends ButtonFillAnimation {
@@ -19,7 +19,7 @@ public class FlatButtonAnimation extends ButtonFillAnimation {
    */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-    UIDrawService.getInstance().get("content-box").draw(g2, widget.getInternalRect());
+    DrawUIService.getInstance().getRenderer("content-box").draw(g2, widget.getInternalRect());
 
     super.draw(widget, g2, params);
   }

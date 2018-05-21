@@ -25,9 +25,7 @@
     <property name="background-color" value="colors.material.dialog.button.outline" />
   </class>
   
-  <class name="theme-button">
-    <property name="background-color" value="colors.theme32.color-28" />
-  </class>
+  
 
 	<class name="primary-dialog-button">
 		<property name="border-color" value="colors.theme32.color-24" />
@@ -44,12 +42,30 @@
 			<property name="border-color" value="colors.theme32.color-28" />
 			<property name="background-color" value="colors.theme32.color-24" />
 		</class>
+		
 		<class name="content-outline">
 			<property name="border-color" value="colors.material.dialog.button.highlight" />
 		</class>
+		
 		<class name="dialog-button">
 			<property name="background-color" value="colors.material.dialog.button.outline" />
+			<property name="border-color" value="colors.material.dialog.button.highlight" />
 		</class>
+		
+		<class name="theme-button">
+      <property name="background-color" value="colors.theme32.color-14" />
+      <property name="border-color" value="colors.theme32.color-14" />
+    </class>
+		
+		<class name="widget">
+		  <property name="border-color" value="colors.material.gray-highlight" />
+		  <property name="background-color" value="colors.material.gray-highlight" />
+		</class>
+		
+		<class name="quick-access-button">
+		  <property name="background-color" value="#FFFFFF40"/>
+		</class>
+		
 	</keyframe>
 
 </classes>

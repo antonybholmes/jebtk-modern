@@ -76,27 +76,26 @@ public class FontService extends ModernTheme {
   public Font loadFont(Path path) {
     Path p = path.append("family");
 
-    String family = SettingsService.getInstance().getAsString(p);
+    String family = SettingsService.getInstance().getString(p);
 
     p = path.append("size");
 
-    int size = SettingsService.getInstance().getAsInt(p);
+    int size = SettingsService.getInstance().getInt(p);
 
     p = path.append("style");
 
-    boolean bold = SettingsService.getInstance().getAsString(p)
-        .contains("bold");
+    boolean bold = SettingsService.getInstance().getString(p).contains("bold");
 
     // Second way of specifying bold
     p = path.append("bold");
-    bold |= SettingsService.getInstance().getAsBool(p);
+    bold |= SettingsService.getInstance().getBool(p);
 
-    boolean italic = SettingsService.getInstance().getAsString(p)
+    boolean italic = SettingsService.getInstance().getString(p)
         .contains("italic");
 
     // Second way of specifying italic
     p = path.append("italic");
-    italic |= SettingsService.getInstance().getAsBool(p);
+    italic |= SettingsService.getInstance().getBool(p);
 
     return loadFont(family, size, bold, italic);
   }
@@ -110,7 +109,7 @@ public class FontService extends ModernTheme {
   public Font loadFont(int size) {
     return loadFont(
         SettingsService.getInstance()
-            .getAsString("theme.widget.fonts.text.family"),
+            .getString("theme.widget.fonts.text.family"),
         size);
   }
 

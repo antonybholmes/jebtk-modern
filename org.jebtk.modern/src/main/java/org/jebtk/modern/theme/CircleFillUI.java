@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.theme;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
@@ -24,7 +23,7 @@ import org.jebtk.modern.graphics.ImageUtils;
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
-public class CircleFillUI extends ButtonUI {
+public class CircleFillUI extends ButtonFillUI {
 
   @Override
   public String getName() {
@@ -32,19 +31,13 @@ public class CircleFillUI extends ButtonUI {
   }
 
   @Override
-  public void draw(Graphics2D g2,
+  public void fill(Graphics2D g2,
       ModernComponent c,
       int x,
       int y,
       int w,
       int h,
       Object... params) {
-
-    if (params.length > 0) {
-      g2.setColor((Color) params[0]);
-    } else {
-      g2.setColor(HIGHLIGHTED_FILL_COLOR);
-    }
 
     int mw = Math.min(w, h);
 

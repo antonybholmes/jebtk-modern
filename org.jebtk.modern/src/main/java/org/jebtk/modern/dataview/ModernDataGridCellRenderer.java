@@ -47,7 +47,7 @@ public class ModernDataGridCellRenderer extends ModernDataCellRenderer {
 
   /** The Constant MAX_CHARS. */
   private static final int MAX_CHARS = SettingsService.getInstance()
-      .getAsInt("ui.dataview.grid.cell.max-display-chars");
+      .getInt("ui.dataview.grid.cell.max-display-chars");
 
   /**
    * The member default value.

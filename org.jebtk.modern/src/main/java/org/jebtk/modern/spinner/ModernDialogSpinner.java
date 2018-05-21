@@ -27,7 +27,7 @@
  */
 package org.jebtk.modern.spinner;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.MinusVectorIcon;
 import org.jebtk.modern.graphics.icons.PlusVectorIcon;
 import org.jebtk.modern.ribbon.RibbonBarButton;
@@ -70,10 +70,10 @@ public class ModernDialogSpinner extends ModernSpinner {
    */
   protected void setup() {
     mIncButton = new RibbonBarButton(
-        UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+        AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
     mDecButton = new RibbonBarButton(
-        UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+        AssetService.getInstance().loadIcon(MinusVectorIcon.class, 16));
 
     super.setup();
   }

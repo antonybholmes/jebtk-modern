@@ -30,7 +30,7 @@ package org.jebtk.modern.button;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
@@ -81,13 +81,13 @@ public class ModernDropDownIconButton extends ModernDropDownButton {
 
     g2.setColor(getForeground());
 
-    int iconY = (getHeight() - UIService.ICON_SIZE_16) / 2;
+    int iconY = (getHeight() - AssetService.ICON_SIZE_16) / 2;
 
     mIcon.drawIcon(g2,
-        new Rectangle(iconX, iconY, UIService.ICON_SIZE_16,
-            UIService.ICON_SIZE_16));
+        new Rectangle(iconX, iconY, AssetService.ICON_SIZE_16,
+            AssetService.ICON_SIZE_16));
 
-    UIService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
+    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
         .drawIcon(g2, mRect.getW() - 16, (getHeight() - 16) / 2, 16);
   }
 

@@ -37,7 +37,7 @@ import javax.swing.Box;
 import org.jebtk.core.text.Join;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickEventProducer;
@@ -68,11 +68,11 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel implements
    * The member search button.
    */
   private ModernButton mSearchButton = new ModernButton(
-      UIService.getInstance().loadIcon(SearchVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(SearchVectorIcon.class, 16));
 
   /** The m search 2 button. */
   private ModernButton mSearch2Button = new ModernButton(
-      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
+      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
                                                                    // 16));
 
   /**

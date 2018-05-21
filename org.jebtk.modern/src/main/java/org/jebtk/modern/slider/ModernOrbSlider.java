@@ -47,11 +47,11 @@ public class ModernOrbSlider extends OrbSlider {
   private static final long serialVersionUID = 1L;
 
   /** The Constant HIGHLIGHT. */
-  protected static final Color HIGHLIGHT = ThemeService.getInstance().colors()
+  protected static final Color HIGHLIGHT = ThemeService.getInstance().getColors()
       .getGray(7);
 
   /** The Constant COLOR. */
-  protected static final Color COLOR = ThemeService.getInstance().colors()
+  protected static final Color COLOR = ThemeService.getInstance().getColors()
       .getGray(9);
 
   /**

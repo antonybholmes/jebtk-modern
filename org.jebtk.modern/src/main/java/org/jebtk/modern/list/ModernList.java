@@ -82,7 +82,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * The constant DRAG_LINE_COLOR.
    */
-  static final Color DRAG_LINE_COLOR = ThemeService.getInstance().colors()
+  static final Color DRAG_LINE_COLOR = ThemeService.getInstance().getColors()
       .getGray(6);
 
   /**

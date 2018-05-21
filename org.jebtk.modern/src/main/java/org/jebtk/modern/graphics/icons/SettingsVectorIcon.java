@@ -42,15 +42,15 @@ public class SettingsVectorIcon extends ModernVectorScalableIcon {
    * The constant WIDTH_SCALE.
    */
   private static final double WIDTH_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.settings-icon.width-scale");
+      .getDouble("theme.icons.settings-icon.width-scale");
 
   /** The Constant LINE_WIDTH. */
   private static final double LINE_WIDTH = SettingsService.getInstance()
-      .getAsDouble("theme.icons.settings-icon.line-width");
+      .getDouble("theme.icons.settings-icon.line-width");
 
   /** The Constant COG_SCALE. */
   private static final double COG_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.settings-icon.cog-scale");
+      .getDouble("theme.icons.settings-icon.cog-scale");
 
   /** The Constant THETA_INC. */
   private static final double THETA_INC = Math.PI / 3;

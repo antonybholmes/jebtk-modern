@@ -34,7 +34,7 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeEventProducer;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -72,23 +72,23 @@ public class FontRibbonSection extends RibbonSection
    * The bold button.
    */
   private ModernCheckButton mBoldButton = new RibbonCheckButton(
-      UIService.getInstance().loadIcon("font_bold", 16));
+      AssetService.getInstance().loadIcon("font_bold", 16));
 
   /**
    * The italic button.
    */
   private ModernCheckButton mItalicButton = new RibbonCheckButton(
-      UIService.getInstance().loadIcon("font_italic", 16));
+      AssetService.getInstance().loadIcon("font_italic", 16));
 
   /**
    * The underline button.
    */
   private ModernCheckButton mUnderlineButton = new RibbonCheckButton(
-      UIService.getInstance().loadIcon("font_underline", 16));
+      AssetService.getInstance().loadIcon("font_underline", 16));
 
   /** The m strikethrough button. */
   private ModernCheckButton mStrikethroughButton = new RibbonCheckButton(
-      UIService.getInstance().loadIcon("font_strikethrough", 16));
+      AssetService.getInstance().loadIcon("font_strikethrough", 16));
 
   /**
    * The font color button.

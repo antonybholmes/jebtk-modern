@@ -28,7 +28,7 @@
 package org.jebtk.modern.clipboard;
 
 import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -56,19 +56,19 @@ public class ClipboardRibbonSection extends RibbonSection
    * The member paste button.
    */
   private ModernButtonWidget mPasteButton = new RibbonLargeButton("Paste",
-      UIService.getInstance().loadIcon("paste", 24));
+      AssetService.getInstance().loadIcon("paste", 24));
 
   /**
    * The member cut button.
    */
   private ModernButtonWidget mCutButton = new RibbonLargeButton("Cut",
-      UIService.getInstance().loadIcon("cut", 24));
+      AssetService.getInstance().loadIcon("cut", 24));
 
   /**
    * The member copy button.
    */
   private ModernButtonWidget mCopyButton = new RibbonLargeButton("Copy",
-      UIService.getInstance().loadIcon("copy", 24));
+      AssetService.getInstance().loadIcon("copy", 24));
 
   /**
    * Instantiates a new clipboard ribbon section2.

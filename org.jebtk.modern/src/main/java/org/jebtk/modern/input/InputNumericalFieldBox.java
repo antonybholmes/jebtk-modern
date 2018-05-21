@@ -88,8 +88,8 @@ public class InputNumericalFieldBox extends HBox {
    * @return the as double
    * @throws ParseException the parse exception
    */
-  public double getAsDouble() throws ParseException {
-    return mField.getAsDouble();
+  public double getDouble() throws ParseException {
+    return mField.getDouble();
   }
 
   /**
@@ -98,8 +98,8 @@ public class InputNumericalFieldBox extends HBox {
    * @return the as int
    * @throws ParseException the parse exception
    */
-  public int getAsInt() throws ParseException {
-    return mField.getAsInt();
+  public int getInt() throws ParseException {
+    return mField.getInt();
   }
 
 }

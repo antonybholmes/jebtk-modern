@@ -21,7 +21,7 @@ import org.jebtk.core.Mathematics;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.animation.TranslateYAnimation;
 import org.jebtk.modern.event.ModernSelectionListener;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -94,7 +94,7 @@ public class ListChangeAnimation extends TranslateYAnimation {
      * mTabs.mRowHeight, RenderMode.SELECTED, false);
      */
 
-    UIDrawService.getInstance().get("button.selected")
+    DrawUIService.getInstance().getRenderer("button-fill")
         .draw(g2, 0, 0, widget.getWidth(), mTabs.mRowHeight);
   }
 }

@@ -41,7 +41,7 @@ import javax.swing.Timer;
 
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.graphics.icons.MinusVectorIcon;
@@ -75,13 +75,13 @@ public class ModernSpinner extends ModernClickWidget {
    * The member inc button.
    */
   protected ModernButton mIncButton = new ModernButton(
-      UIService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
   /**
    * The member dec button.
    */
   protected ModernButton mDecButton = new ModernButton(
-      UIService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+      AssetService.getInstance().loadIcon(MinusVectorIcon.class, 16));
 
   /**
    * The member min.

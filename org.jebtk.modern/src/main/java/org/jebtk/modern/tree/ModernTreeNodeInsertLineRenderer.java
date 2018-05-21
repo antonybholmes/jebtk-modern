@@ -52,7 +52,7 @@ public class ModernTreeNodeInsertLineRenderer
   /**
    * The constant COLOR.
    */
-  private static final Color COLOR = ThemeService.getInstance().colors()
+  private static final Color COLOR = ThemeService.getInstance().getColors()
       .getTheme(9);
 
   /*

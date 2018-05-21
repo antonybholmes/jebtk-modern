@@ -20,7 +20,6 @@ import java.awt.Graphics2D;
 import org.jebtk.core.tree.TreeNode;
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.theme.ModernWidgetRenderer;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -38,13 +37,15 @@ public class TreeHighlightAnimation extends HighlightAnimation {
    *
    * @param ribbon the ribbon
    */
-  public TreeHighlightAnimation(ModernWidget tree) {
-    super((ModernTree<?>) tree);
+  public TreeHighlightAnimation(ModernWidget widget) {
+    super((ModernTree<?>) widget);
 
-    mTree = (ModernTree<?>) tree;
+    mTree = (ModernTree<?>) widget;
 
-    getFade().setFadeColor("highlight",
-        ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
+    System.err.println("wibble:"+ widget.getToKeyFrame().getColor("background-color"));
+    
+    setFadeColor("highlight",
+        widget.getToKeyFrame().getColor("background-color")); //ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
   }
 
   /*

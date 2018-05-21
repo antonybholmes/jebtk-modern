@@ -30,12 +30,12 @@ package org.jebtk.modern.menu;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernRadioButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RadioButtonSelectedVectorIcon;
 import org.jebtk.modern.graphics.icons.RadioButtonVectorIcon;
-import org.jebtk.modern.theme.UIDrawService;
+import org.jebtk.modern.theme.DrawUIService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -54,11 +54,11 @@ public class ModernRadioMenuItem extends ModernRadioButton {
   private static final int ICON_SIZE = 16;
 
   /** The Constant ICON_1. */
-  private static final ModernIcon ICON_1 = UIService.getInstance()
+  private static final ModernIcon ICON_1 = AssetService.getInstance()
       .loadIcon(RadioButtonVectorIcon.class, ICON_SIZE);
 
   /** The Constant ICON_2. */
-  private static final ModernIcon ICON_2 = UIService.getInstance()
+  private static final ModernIcon ICON_2 = AssetService.getInstance()
       .loadIcon(RadioButtonSelectedVectorIcon.class, ICON_SIZE);
 
   /**
@@ -97,7 +97,7 @@ public class ModernRadioMenuItem extends ModernRadioButton {
     if (isEnabled()) {
       if (mHighlight) {
         //getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
-        UIDrawService.getInstance().get("button-fill").draw(g2, mInternalRect);
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mInternalRect);
       }
     }
   }

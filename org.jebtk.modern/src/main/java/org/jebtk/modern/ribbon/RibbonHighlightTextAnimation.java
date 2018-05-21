@@ -29,8 +29,8 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RibbonHighlightTextAnimation extends HighlightAnimation {
 
-  public static final Color HIGHLIGHT_COLOR = MaterialService.instance()
-      .color("ribbon-highlight");
+  public static final Color HIGHLIGHT_COLOR = MaterialService.getInstance()
+      .getColor("ribbon-highlight");
 
   /** The m ribbon. */
   private Ribbon mRibbon;
@@ -46,8 +46,8 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
     mRibbon = (Ribbon) ribbon;
 
     setFadeColor("highlight",
-        MaterialService.instance().color("ribbon-menu-font"),
-        MaterialService.instance().color("ribbon"));
+        MaterialService.getInstance().getColor("ribbon-menu-font"),
+        MaterialService.getInstance().getColor("ribbon"));
   }
 
   /*
@@ -113,7 +113,7 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
       // } else if (i == mRibbon.mHighlightedTab) {
       // g2.setColor(getFadeColor("highlight"));
       // } else {
-      // g2.setColor(MaterialService.getInstance().color("ribbon-menu-font"));
+      // g2.setColor(MaterialService.getInstance().getColor("ribbon-menu-font"));
       // }
 
       if (i == mRibbon.mSelectedTab) {

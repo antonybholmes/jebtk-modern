@@ -33,7 +33,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.BorderFactory;
 
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -91,8 +91,8 @@ public class RibbonPanelTitle extends ModernWidget {
    */
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
-    int x = UIService.ICON_SIZE_8;
-    int y = UIService.ICON_SIZE_16;
+    int x = AssetService.ICON_SIZE_8;
+    int y = AssetService.ICON_SIZE_16;
 
     g2.setFont(mFont);
     g2.drawString(mName, x, y);

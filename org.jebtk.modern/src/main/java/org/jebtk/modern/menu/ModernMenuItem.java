@@ -57,13 +57,13 @@ public class ModernMenuItem extends ModernButton {
    * The constant HEIGHT.
    */
   public static final int HEIGHT = SettingsService.getInstance()
-      .getAsInt("theme.menu.height");
+      .getInt("theme.menu.height");
 
   /**
    * The constant WIDTH.
    */
   public static final int WIDTH = SettingsService.getInstance()
-      .getAsInt("theme.menu.width");
+      .getInt("theme.menu.width");
 
   /**
    * The constant MIN_SIZE.

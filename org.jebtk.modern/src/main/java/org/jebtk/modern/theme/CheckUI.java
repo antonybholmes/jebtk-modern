@@ -7,15 +7,15 @@ import java.awt.geom.GeneralPath;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.graphics.ImageUtils;
 
-public class CheckUI extends UIRenderer {
+public class CheckUI extends DrawUI {
   public static final double CHECK_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.check-icon.width-scale");
+      .getDouble("theme.icons.check-icon.width-scale");
 
   /**
    * The constant TICK_SCALE.
    */
   public static final double TICK_SCALE = SettingsService.getInstance()
-      .getAsDouble("theme.icons.check-icon.tick-scale");
+      .getDouble("theme.icons.check-icon.tick-scale");
 
   @Override
   public String getName() {

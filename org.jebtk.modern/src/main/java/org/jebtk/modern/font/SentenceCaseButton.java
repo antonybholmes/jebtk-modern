@@ -32,7 +32,7 @@ import java.awt.Dimension;
 import org.jebtk.core.text.SentenceCase;
 import org.jebtk.core.text.SentenceCaseType;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.UIService;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.menu.ModernIconMenuItem;
@@ -119,8 +119,8 @@ public class SentenceCaseButton extends RibbonDropDownIconButton {
    * Instantiates a new sentence case button.
    */
   public SentenceCaseButton() {
-    super(
-        UIService.getInstance().loadIcon("font_case", UIService.ICON_SIZE_16));
+    super(AssetService.getInstance().loadIcon("font_case",
+        AssetService.ICON_SIZE_16));
 
     setup();
   }

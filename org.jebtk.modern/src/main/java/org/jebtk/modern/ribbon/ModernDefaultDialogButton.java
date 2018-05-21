@@ -48,13 +48,13 @@ public class ModernDefaultDialogButton extends ModernButton {
    * The constant BUTTON_HIGHLIGHT_COLOR.
    */
   private static final Color BUTTON_HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .colors().getTheme(5);
+      .getColors().getTheme(5);
 
   /**
    * The constant BUTTON_BACKGROUND_COLOR.
    */
   private static final Color BUTTON_BACKGROUND_COLOR = ThemeService
-      .getInstance().colors().getTheme(4);
+      .getInstance().getColors().getTheme(4);
 
   /**
    * Instantiates a new modern default dialog button2.

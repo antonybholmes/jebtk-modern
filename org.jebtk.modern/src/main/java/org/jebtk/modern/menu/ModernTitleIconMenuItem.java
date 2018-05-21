@@ -55,7 +55,7 @@ public class ModernTitleIconMenuItem extends ModernMenuItem {
   /**
    * The constant BACKGROUND.
    */
-  private static final Color BACKGROUND = ThemeService.getInstance().colors()
+  private static final Color BACKGROUND = ThemeService.getInstance().getColors()
       .getGray(2);
 
   /**
