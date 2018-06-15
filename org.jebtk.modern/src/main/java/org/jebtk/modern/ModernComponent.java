@@ -49,11 +49,15 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.graphics.ImageUtils;
+import org.jebtk.modern.scrollpane.ScrollEvent;
+import org.jebtk.modern.scrollpane.ScrollEventProducer;
+import org.jebtk.modern.scrollpane.ScrollListener;
+import org.jebtk.modern.scrollpane.ScrollListeners;
+import org.jebtk.modern.theme.KeyFrame;
 import org.jebtk.modern.theme.KeyFrames;
 import org.jebtk.modern.theme.KeyFramesService;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ModernTheme;
-import org.jebtk.modern.theme.KeyFrame;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.tooltip.ModernToolTipEvent;
 import org.jebtk.modern.tooltip.ModernToolTipListener;
@@ -65,7 +69,7 @@ import org.jebtk.modern.tooltip.ToolTipService;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernComponent extends JComponent {
+public class ModernComponent extends JComponent implements ScrollEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -219,6 +223,9 @@ public class ModernComponent extends JComponent {
    * The member listeners.
    */
   protected ModernComponentListeners mListeners = new ModernComponentListeners();
+  
+  
+  protected ScrollListeners mScrollListeners = new ScrollListeners();
 
   /** The m center. */
   private Component mCenter = null;
@@ -564,6 +571,57 @@ public class ModernComponent extends JComponent {
   public void setSize(Dimension dimension) {
     setSize(dimension.width, dimension.height);
   }
+  
+  @Override
+  public void addScrollListener(ScrollListener l) {
+    getScrollListeners().addScrollListener(l);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.event.ModernSelectedEventProducer#
+   * removeSelectedListener(org.abh.lib.ui.modern.event.ModernSelectedListener)
+   */
+  @Override
+  public void removeScrollListener(ScrollListener l) {
+    getScrollListeners().removeScrollListener(l);
+  }
+  
+  public ScrollListeners getScrollListeners() {
+    return mScrollListeners;
+  }
+  
+  @Override
+  public void fireScrollTo(ScrollEvent e) {
+    getScrollListeners().fireScrollTo(e);
+  }
+  
+  @Override
+  public void scrollRectToVisible(Rectangle r) {
+    super.scrollRectToVisible(r);
+    
+    fireScrollTo(r);
+  }
+  
+  
+  public void scrollRectToVisible(IntRect r) {
+    super.scrollRectToVisible(IntRect.toRectangle(r));
+    
+    fireScrollTo(r);
+  }
+
+  public void fireScrollTo(Rectangle r) {
+    fireScrollTo(IntRect.createRect(r));
+  }
+  
+  public void fireScrollTo(int x, int y, int w, int h) {
+    fireScrollTo(new IntRect(x, y, w, h));
+  }
+  
+  public void fireScrollTo(IntRect r) {
+    fireScrollTo(new ScrollEvent(this, r));
+  }
 
   public KeyFrames getKeyFrames() {
     return mKeyFrames;
@@ -590,9 +648,9 @@ public class ModernComponent extends JComponent {
   public KeyFrame getKeyFrame(int frame) {
     return mKeyFrames.getKeyFrame(frame);
   }
-
-  public KeyFrame getStyleClasses() {
-    return getKeyFrames().getKeyFrame();
+  
+  public KeyFrame getKeyFrame() {
+    return getFromKeyFrame();
   }
 
   public ModernComponent addStyleClass(String name, String... names) {

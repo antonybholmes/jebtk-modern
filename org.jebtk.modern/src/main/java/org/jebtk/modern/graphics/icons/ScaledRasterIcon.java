@@ -67,7 +67,7 @@ public class ScaledRasterIcon extends ModernIcon {
   private void cache(RasterIcon icon, int size) {
     mBufferedImage = ImageUtils.createImage(size);
 
-    Graphics2D g2Temp = ImageUtils.createAAGraphics(mBufferedImage);
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(mBufferedImage);
 
     // System.err.println("scaled " + icon.getImage().getWidth() + " " + size);
 

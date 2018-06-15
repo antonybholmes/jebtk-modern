@@ -121,23 +121,11 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvas#drawCanvasForeground(java.awt.
-   * Graphics2D)
-   */
-  @Override
-  public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
-    // TODO Auto-generated method stub
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
    * @see org.abh.lib.ui.modern.graphics.ModernCanvas#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
     if (mTable == null) {
       return;
     }

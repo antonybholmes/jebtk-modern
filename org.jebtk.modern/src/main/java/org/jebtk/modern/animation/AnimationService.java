@@ -42,7 +42,7 @@ import org.jebtk.modern.button.ButtonOutlineAnimation;
 import org.jebtk.modern.button.CheckBoxAnimation;
 import org.jebtk.modern.button.CheckBoxHighlightAnimation;
 import org.jebtk.modern.button.CheckBoxSelectedAnimation;
-import org.jebtk.modern.button.CheckBoxSelectedTickAnimation;
+import org.jebtk.modern.button.CheckBoxTickAnimation;
 import org.jebtk.modern.button.CheckSwitchAnimation;
 import org.jebtk.modern.button.CheckSwitchChangeAnimation;
 import org.jebtk.modern.button.ChipButtonAnimation;
@@ -214,7 +214,7 @@ public class AnimationService {
     get("checkbox").add(CheckBoxAnimation.class)
         .add(CheckBoxSelectedAnimation.class)
         .add(CheckBoxHighlightAnimation.class)
-        .add(CheckBoxSelectedTickAnimation.class);
+        .add(CheckBoxTickAnimation.class);
 
     get("continuous-orb-slider").add(ContinuousMacOrbAnimation.class);
 

@@ -321,7 +321,7 @@ public abstract class ModernScrollBar extends ModernWidget
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-      incrementNormalizedScrollPosition(mInc);
+      incNormalizedScrollPosition(mInc);
     }
   }
 
@@ -476,6 +476,15 @@ public abstract class ModernScrollBar extends ModernWidget
   }
 
   /**
+   * Set the scroll position in pixels. Equivalent to
+   * <code>setNormalizedScrollPosition(normalize(p))</code>.
+   * 
+   * @param p     the position in pixels
+   */
+  public void setScrollPosition(int p) {
+    setNormalizedScrollPosition(normalize(p));
+  }
+  /**
    * Move the scrollbar n pixels. This will cause the content to move at least n
    * pixels.
    *
@@ -525,7 +534,7 @@ public abstract class ModernScrollBar extends ModernWidget
    *
    * @param pos the pos
    */
-  public void incrementNormalizedScrollPosition(double pos) {
+  public void incNormalizedScrollPosition(double pos) {
     setNormalizedScrollPosition(mNormalizedScrollPosition + pos);
   }
 
@@ -630,10 +639,11 @@ public abstract class ModernScrollBar extends ModernWidget
    *
    * @return the fixed dimension
    */
-  public abstract int getFixedDimension();
+  public abstract int getFixedDim();
 
   /**
-   * Gets the variable dim.
+   * Gets the variable dimension, e.g. for a vertical scroll bar that is
+   * its height and for a horizontal scroll bar, that is its width.
    *
    * @return the variable dim
    */
@@ -681,7 +691,7 @@ public abstract class ModernScrollBar extends ModernWidget
   }
 
   /**
-   * Gets the scroll distance.
+   * Returns the difference between the component size and the viewport size.
    *
    * @return the scroll distance
    */

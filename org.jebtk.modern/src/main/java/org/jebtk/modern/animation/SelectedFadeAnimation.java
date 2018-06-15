@@ -16,8 +16,8 @@
 package org.jebtk.modern.animation;
 
 import java.awt.Color;
-import java.util.Map;
 
+import org.jebtk.modern.graphics.colormap.NamedColors;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -57,7 +57,7 @@ public abstract class SelectedFadeAnimation extends SelectedAnimation {
   public void animate() {
     getWidget().repaint();
 
-    if (mFade.getCurrentStep() == 0) {
+    if (mFade.getStep() == 0) {
       stop();
     } else {
       mFade.fadeIn();
@@ -95,7 +95,7 @@ public abstract class SelectedFadeAnimation extends SelectedAnimation {
    *
    * @return the fade color map
    */
-  public Map<String, Color> getFadeColorMap() {
+  public NamedColors getFadeColorMap() {
     return mFade.getFadeColorMap();
   }
 
@@ -105,7 +105,7 @@ public abstract class SelectedFadeAnimation extends SelectedAnimation {
    * @param step the step
    * @return the fade color map
    */
-  public Map<String, Color> getFadeColorMap(int step) {
+  public NamedColors getFadeColorMap(int step) {
     return mFade.getFadeColorMap(step);
   }
 }

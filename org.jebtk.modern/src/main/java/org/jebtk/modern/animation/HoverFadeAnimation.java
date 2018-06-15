@@ -16,8 +16,8 @@
 package org.jebtk.modern.animation;
 
 import java.awt.Color;
-import java.util.Map;
 
+import org.jebtk.modern.graphics.colormap.NamedColors;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -88,7 +88,7 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
    *
    * @return the fade color map
    */
-  public Map<String, Color> getFadeColorMap() {
+  public NamedColors getFadeColorMap() {
     return mFade.getFadeColorMap();
   }
 
@@ -98,7 +98,7 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
    * @param step the step
    * @return the fade color map
    */
-  public Map<String, Color> getFadeColorMap(int step) {
+  public NamedColors getFadeColorMap(int step) {
     return mFade.getFadeColorMap(step);
   }
 
@@ -109,10 +109,10 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
    */
   @Override
   public void animateMouseEntered() {
-    getWidget().repaint();
+    super.animateMouseEntered();
 
     // Stop when the color is fully opaque
-    if (mFade.getCurrentStep() == 0) {
+    if (mFade.getStep() == TimerAnimation.MAX_STEP_INDEX) {
       stopMouseOverTimer();
     } else {
       mFade.fadeIn();
@@ -126,10 +126,10 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
    */
   @Override
   public void animateMouseExited() {
-    getWidget().repaint();
+    super.animateMouseExited();
 
     // Stop when the color is fully transparent.
-    if (mFade.getCurrentStep() == TimerAnimation.MAX_STEP_INDEX) {
+    if (mFade.getStep() == 0) {
       stopMouseOverTimer();
     } else {
       mFade.fadeOut();

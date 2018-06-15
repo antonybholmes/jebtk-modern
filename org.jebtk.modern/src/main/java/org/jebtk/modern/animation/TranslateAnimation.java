@@ -104,7 +104,7 @@ public abstract class TranslateAnimation extends EasingAnimation {
   }
 
   public int getX() {
-    return mXPos[mStep];
+    return mXPos[getStep()];
   }
 
   /*

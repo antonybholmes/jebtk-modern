@@ -27,14 +27,10 @@
  */
 package org.jebtk.modern;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
+import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.TreeSet;
 
-import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.event.ModernSelectionListeners;
@@ -65,17 +61,12 @@ public class SelectionRangeModel extends ModernSelectionListeners
   /**
    * The member selection set.
    */
-  private Set<Integer> mSelectionSet = new HashSet<Integer>(100);
+  private TreeSet<Integer> mSelectionSet = new TreeSet<Integer>();
 
   /**
    * The member selection.
    */
-  private List<Integer> mSelection = new ArrayList<Integer>(100);
-
-  /**
-   * The member fire.
-   */
-  private boolean mFire = true;
+  //private List<Integer> mSelection = new ArrayList<Integer>(100);
 
   /** The m enabled. */
   private boolean mEnabled = true;
@@ -85,40 +76,80 @@ public class SelectionRangeModel extends ModernSelectionListeners
 
   private int mPrevious = -1;
 
+  
+  public void setSelectionInterval(int s, int e) {
+    addSelectionInterval(s, e, SelectionRangeType.REPLACE);
+  }
+  
   /**
    * Sets the selection interval.
    *
    * @param s the s
    * @param e the e
    */
-  public void setSelectionInterval(int s, int e) {
-    int min = Math.min(s, e);
-
-    int max = Math.max(s, e);
-
-    removeAll();
-
-    addSelectionInterval(min, max);
+  public void addSelectionInterval(int s, int e, SelectionRangeType type) {
+    updateSelectionInterval(s, e, type);
+    
+    fireSelectionAdded();
   }
-
-  /**
-   * Adds the selection interval.
-   *
-   * @param s the s
-   * @param e the e
-   */
-  public void addSelectionInterval(int s, int e) {
+  
+  public void updateSelectionInterval(int s, int e, SelectionRangeType type) {
     if (!mEnabled) {
       return;
     }
+    
+    if (type == SelectionRangeType.REPLACE) {
+      removeAll();
+    }
 
-    for (int i = s; i <= e; ++i) {
+    
+    
+    int s1 = Math.min(s, e);
+    int e1 = Math.max(s, e);
+
+    for (int i = s1; i <= e1; ++i) {
       mSelectionSet.add(i);
     }
 
     mCurrent = e;
 
-    update();
+    //update();
+  }
+  
+  public void setSelection(final Collection<Integer> indices) {
+    addSelection(indices, SelectionRangeType.REPLACE);
+  }
+  
+  /**
+   * Sets the selection.
+   *
+   * @param indices the new selection
+   */
+  public void addSelection(final Collection<Integer> indices, SelectionRangeType type) {
+    updateSelection(indices, type);
+    
+    fireSelectionAdded();
+  }
+
+  /**
+   * Add multiple indices to the selection.
+   *
+   * @param indices the indices
+   */
+  public void updateSelection(final Collection<Integer> indices, SelectionRangeType type) {
+    if (!mEnabled) {
+      return;
+    }
+    
+    if (type == SelectionRangeType.REPLACE) {
+      removeAll();
+    }
+
+    for (int i : indices) {
+      mSelectionSet.add(i);
+    }
+
+    //update();
   }
 
   /**
@@ -127,13 +158,24 @@ public class SelectionRangeModel extends ModernSelectionListeners
    * @param index the index
    */
   public void remove(int index) {
+    delete(index);
+    
+    fireSelectionRemoved();
+  }
+  
+  /**
+   * Remove without triggering an event.
+   * 
+   * @param index
+   */
+  public void delete(int index) {
     if (mCurrent == index) {
       mCurrent = -1;
     }
 
     mSelectionSet.remove(index);
 
-    update();
+    //update();
   }
 
   /**
@@ -142,11 +184,11 @@ public class SelectionRangeModel extends ModernSelectionListeners
   public void clear() {
     removeAll();
 
-    update();
+    fireSelectionRemoved();
   }
 
   /**
-   * Removes the all.
+   * Remove all elements without triggering an event.
    */
   public void removeAll() {
     // mPrevious = -1;
@@ -157,32 +199,43 @@ public class SelectionRangeModel extends ModernSelectionListeners
   /**
    * Update.
    */
-  public void update() {
-    mSelection = CollectionUtils.sort(mSelectionSet);
-
-    if (mFire) {
-      // System.err.println("ModernSelection changed " + selection.toString());
-
-      fireSelectionChanged();
-    }
-  }
+  //private void update() {
+  ///  mSelection = CollectionUtils.sort(mSelectionSet);
+  //}
 
   /**
    * Fire selection changed.
    */
-  public void fireSelectionChanged() {
-    fireSelectionChanged(new ChangeEvent(this));
+  public void fireSelectionAdded() {
+    fireSelectionAdded(new ChangeEvent(this));
+  }
+  
+  public void fireSelectionRemoved() {
+    fireSelectionRemoved(new ChangeEvent(this));
   }
 
+  
+  public void add(int index) {
+    add(index, SelectionRangeType.ADD);
+  }
+  
+  public void setSelection(int index) {
+    set(index);
+  }
+  
+  public void set(int index) {
+    add(index, SelectionRangeType.REPLACE);
+  }
+  
   /**
    * Add a row to the selection.
    *
    * @param index the row
    */
-  public void add(int index) {
-    update(index);
+  public void add(int index, SelectionRangeType type) {
+    update(index, type);
 
-    update();
+    fireSelectionAdded();
   }
 
   /**
@@ -190,15 +243,21 @@ public class SelectionRangeModel extends ModernSelectionListeners
    *
    * @param index the index
    */
-  public void update(int index) {
+  public void update(int index, SelectionRangeType type) {
     if (!mEnabled) {
       return;
+    }
+    
+    if (type == SelectionRangeType.REPLACE) {
+      removeAll();
     }
 
     mSelectionSet.add(index);
 
     mPrevious = mCurrent;
     mCurrent = index;
+    
+    //update();
   }
 
   /**
@@ -217,11 +276,11 @@ public class SelectionRangeModel extends ModernSelectionListeners
    * @return the int
    */
   public int first() {
-    if (mSelection.size() == 0) {
+    if (mSelectionSet.size() == 0) {
       return -1;
     }
 
-    return mSelection.get(0);
+    return mSelectionSet.first();
   }
 
   /**
@@ -249,25 +308,11 @@ public class SelectionRangeModel extends ModernSelectionListeners
    * @return the int
    */
   public int last() {
-    if (mSelection.size() == 0) {
+    if (mSelectionSet.size() == 0) {
       return -1;
     }
 
-    return mSelection.get(mSelection.size() - 1);
-  }
-
-  /**
-   * Gets the.
-   *
-   * @param index the index
-   * @return the int
-   */
-  public int get(int index) {
-    if (index < 0 || index >= mSelection.size()) {
-      return -1;
-    }
-
-    return mSelection.get(index);
+    return mSelectionSet.last();
   }
 
   /**
@@ -285,7 +330,7 @@ public class SelectionRangeModel extends ModernSelectionListeners
    * @see java.lang.Iterable#iterator()
    */
   public Iterator<Integer> iterator() {
-    return mSelection.iterator();
+    return mSelectionSet.iterator();
   }
 
   /*
@@ -294,56 +339,10 @@ public class SelectionRangeModel extends ModernSelectionListeners
    * @see java.lang.Object#toString()
    */
   public String toString() {
-    return TextUtils.join(mSelection, TextUtils.COMMA_DELIMITER);
+    return TextUtils.join(mSelectionSet, TextUtils.COMMA_DELIMITER);
   }
 
-  /**
-   * Sets the selection.
-   *
-   * @param indices the new selection
-   */
-  public void setSelection(List<Integer> indices) {
-    removeAll();
 
-    addSelection(indices);
-  }
-
-  /**
-   * Sets the selection.
-   *
-   * @param i the new selection
-   */
-  public void setSelection(int i) {
-    removeAll();
-
-    add(i);
-  }
-
-  /**
-   * Add multiple indices to the selection.
-   *
-   * @param indices the indices
-   */
-  public void addSelection(List<Integer> indices) {
-    if (!mEnabled) {
-      return;
-    }
-
-    for (int i : indices) {
-      mSelectionSet.add(i);
-    }
-
-    update();
-  }
-
-  /**
-   * Sets whether the selection model reports changes or not.
-   *
-   * @param fire the new fire changes
-   */
-  public void setFireChanges(boolean fire) {
-    mFire = fire;
-  }
 
   /**
    * Sets the enabled.
@@ -352,18 +351,5 @@ public class SelectionRangeModel extends ModernSelectionListeners
    */
   public void setEnabled(boolean enabled) {
     mEnabled = enabled;
-  }
-
-  /**
-   * Returns a list of the indices.
-   *
-   * @return the selected indices
-   */
-  public List<Integer> getSelectedIndices() {
-    List<Integer> ret = new ArrayList<Integer>(mSelection);
-
-    Collections.sort(ret);
-
-    return ret;
   }
 }

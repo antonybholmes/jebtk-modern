@@ -117,8 +117,8 @@ public class ContainerCanvas extends ModernCanvas
    * Graphics2D)
    */
   @Override
-  public void drawTranslatedCanvas(Graphics2D g2) {
-    mCanvas.drawTranslatedCanvas(g2);
+  public void rasterCanvas(Graphics2D g2) {
+    mCanvas.rasterCanvas(g2);
   }
 
   /*
@@ -241,8 +241,8 @@ public class ContainerCanvas extends ModernCanvas
    * @see org.abh.common.ui.graphics.ModernCanvas#getIntViewRectangle()
    */
   @Override
-  public IntRect getIntViewRectangle() {
-    return mCanvas.getIntViewRectangle();
+  public IntRect getIntViewRect() {
+    return mCanvas.getIntViewRect();
   }
 
   /*

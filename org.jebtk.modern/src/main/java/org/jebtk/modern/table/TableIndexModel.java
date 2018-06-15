@@ -347,8 +347,13 @@ public class TableIndexModel extends ChangeListeners
    * fireSelectionChanged (org.abh.lib.event.ChangeEvent)
    */
   @Override
-  public void fireSelectionChanged(ChangeEvent e) {
-    mSelectionModel.fireSelectionChanged(new ChangeEvent(this, e.getMessage()));
+  public void fireSelectionAdded(ChangeEvent e) {
+    mSelectionModel.fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
+  }
+  
+  @Override
+  public void fireSelectionRemoved(ChangeEvent e) {
+    mSelectionModel.fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));
   }
 
   /**

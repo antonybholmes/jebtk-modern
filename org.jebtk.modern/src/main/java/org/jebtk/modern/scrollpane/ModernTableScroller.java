@@ -36,7 +36,7 @@ import org.jebtk.modern.table.ModernTable;
  * instigates scrolling when the selection rectangle moves outside the view
  * window.
  */
-public class ModernTableScroller extends Scroller {
+public abstract class ModernTableScroller extends Scroller {
 
   /** The m table. */
   protected ModernTable mTable;

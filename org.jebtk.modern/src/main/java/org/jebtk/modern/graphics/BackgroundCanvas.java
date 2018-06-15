@@ -83,7 +83,7 @@ public class BackgroundCanvas extends ContainerCanvas {
    * awt. Graphics2D)
    */
   @Override
-  public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
-    mCanvas.drawCanvasForeground(g2, context);
+  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
+    mCanvas.rasterCanvas(g2, context);
   }
 }

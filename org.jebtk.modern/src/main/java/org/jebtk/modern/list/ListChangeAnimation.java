@@ -47,7 +47,12 @@ public class ListChangeAnimation extends TranslateYAnimation {
     mTabs.getSelectionModel()
         .addSelectionListener(new ModernSelectionListener() {
           @Override
-          public void selectionChanged(ChangeEvent e) {
+          public void selectionAdded(ChangeEvent e) {
+            selectionRemoved(e);
+          }
+          
+          @Override
+          public void selectionRemoved(ChangeEvent e) {
             restart();
           }
         });

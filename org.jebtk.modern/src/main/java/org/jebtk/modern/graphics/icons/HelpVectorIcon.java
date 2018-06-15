@@ -93,7 +93,7 @@ public class HelpVectorIcon extends ModernMessageIcon {
 
     try {
       // Useful for drawing circles with sub-pixel accuracy.
-      ImageUtils.setStrokeHints(g2Temp);
+      ImageUtils.setAAStrokeHints(g2Temp);
 
       GradientPaint paint = new GradientPaint(0, yf, mColor1, 0, yf + size,
           mColor2);

@@ -195,7 +195,7 @@ public class Card extends ModernComponent {
 
     // Draw the content box
 
-    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     try {
       g2Temp.setColor(Color.WHITE);

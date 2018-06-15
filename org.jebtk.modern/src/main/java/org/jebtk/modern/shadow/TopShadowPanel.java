@@ -62,7 +62,7 @@ public class TopShadowPanel extends ShadowPanel {
      */
     @Override
     public void drawBackground(Graphics2D g2) {
-      // Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+      // Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
       // try {
       if (mImg == null) {

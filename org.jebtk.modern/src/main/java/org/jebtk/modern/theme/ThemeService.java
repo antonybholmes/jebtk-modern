@@ -165,13 +165,13 @@ public class ThemeService extends ModernTheme {
 
       setTheme(theme);
 
-      put("light-line", getGray32(3));
-      put("line", getGray32(7));
-      put("dark-line", getGray32(9));
+      add("light-line", getGray32(3));
+      add("line", getGray32(7));
+      add("dark-line", getGray32(9));
 
-      put("text", getGray32(31)); // Color.BLACK; //getHighlight32(31);
-      put("alt-text", getGray32(28));
-      put("disabled-text", getGray32(24));
+      add("text", getGray32(31)); // Color.BLACK; //getHighlight32(31);
+      add("alt-text", getGray32(28));
+      add("disabled-text", getGray32(24));
     }
 
     /**

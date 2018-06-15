@@ -55,15 +55,13 @@ public class ModernTreeSelectionScrollV implements ModernSelectionListener {
     mScrollbar = scrollbar;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.ui.event.ModernSelectionListener#selectionChanged(org.abh.
-   * common.event.ChangeEvent)
-   */
   @Override
-  public void selectionChanged(ChangeEvent e) {
+  public void selectionAdded(ChangeEvent e) {
+    selectionRemoved(e);
+  }
+  
+  @Override
+  public void selectionRemoved(ChangeEvent e) {
     int row = mTree.getSelectedIndex();
 
     if (row == -1) {
@@ -82,10 +80,10 @@ public class ModernTreeSelectionScrollV implements ModernSelectionListener {
 
     if (y < viewRect.getY()) {
       double p = -mScrollbar.normalize(height);
-      mScrollbar.incrementNormalizedScrollPosition(p);
+      mScrollbar.incNormalizedScrollPosition(p);
     } else if (y + height >= viewRect.getY() + viewRect.getH()) {
       double p = mScrollbar.normalize(height);
-      mScrollbar.incrementNormalizedScrollPosition(p);
+      mScrollbar.incNormalizedScrollPosition(p);
     } else {
       // Do nothing
     }

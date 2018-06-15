@@ -74,7 +74,7 @@ public class ModernVScrollBarMac extends ModernVScrollBar {
 
   /*
    * @Override public void paintScrollBarBase(Graphics2D g2) { Graphics2D g2Temp
-   * = ImageUtils.createAAGraphics(g2);
+   * = ImageUtils.createAATextGraphics(g2);
    * 
    * int rounding = mIternalFixedDim;
    * 
@@ -93,7 +93,7 @@ public class ModernVScrollBarMac extends ModernVScrollBar {
    */
   @Override
   public void paintScrollBar(Graphics2D g2, Rectangle r) {
-    // Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+    // Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     int rounding = mIternalFixedDim;
 

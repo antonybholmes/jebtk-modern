@@ -38,7 +38,9 @@ import java.awt.Stroke;
 import java.awt.font.FontRenderContext;
 import java.awt.font.GlyphVector;
 import java.awt.image.BufferedImage;
+import java.util.Collection;
 
+import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.geom.DoubleDim;
 import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntRect;
@@ -84,7 +86,7 @@ public class ImageUtils {
    * @param image the image
    * @return the graphics 2 D
    */
-  public static Graphics2D createAAGraphics(final BufferedImage image) {
+  public static Graphics2D createAATextGraphics(final BufferedImage image) {
     Graphics2D g2 = createGraphics(image);
 
     setAAHints(g2);
@@ -148,19 +150,53 @@ public class ImageUtils {
     return new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
   }
 
-  /**
-   * Create a temporary anti-aliased version of a graphics context.
-   *
-   * @param g the g
-   * @return A clone of the graphics object with anti-aliasing switched on.
-   */
+  public static Graphics2D createAAGraphics(final Graphics g, 
+      AAType type, 
+      AAType... types) {
+    Graphics2D g2 = clone(g);
+
+    //setAAHints(g2);
+
+    applyHints(type, g2);
+
+    for (AAType t : types) {
+      applyHints(t, g2);
+    }
+
+    return g2;
+  }
+
+  public static Graphics2D createGraphics(final Graphics g, 
+      final Collection<AAType> types) {
+    Graphics2D g2 = clone(g);
+
+    if (CollectionUtils.isNotNullOrEmpty(types)) {
+      //setAAHints(g2);
+
+      for (AAType t : types) {
+        applyHints(t, g2);
+      }
+    }
+
+    return g2;
+  }
+
+  private static void applyHints(AAType type, Graphics2D g) {
+    switch(type) {
+    case TEXT:
+      setAATextHints(g);
+      break;
+    case STROKE:
+      setAAStrokeHints(g);
+      break;
+    default:
+      setAAHints(g);
+      break;
+    }
+  }
+  
   public static Graphics2D createAAGraphics(final Graphics g) {
-    Graphics2D g2Temp = clone(g);
-
-    setAATextHints(g2Temp);
-    setAAHints(g2Temp);
-
-    return g2Temp;
+    return createAAGraphics(g);
   }
 
   /**
@@ -171,11 +207,7 @@ public class ImageUtils {
    * @return the graphics 2 D
    */
   public static Graphics2D createAATextGraphics(final Graphics g) {
-    Graphics2D g2 = clone(g);
-
-    setAATextHints(g2);
-
-    return g2;
+    return createAAGraphics(g, AAType.AA, AAType.TEXT);
   }
 
   /**
@@ -185,13 +217,7 @@ public class ImageUtils {
    * @return the graphics 2 D
    */
   public static Graphics2D createAAStrokeGraphics(final Graphics g) {
-    Graphics2D g2 = clone(g);
-
-    setAATextHints(g2);
-    setAAHints(g2);
-    setStrokeHints(g2);
-
-    return g2;
+    return createAAGraphics(g, AAType.AA, AAType.TEXT, AAType.STROKE);
   }
 
   /**
@@ -225,7 +251,7 @@ public class ImageUtils {
    *
    * @param g2 the new stroke hints
    */
-  public static final void setStrokeHints(Graphics2D g2) {
+  public static final void setAAStrokeHints(Graphics2D g2) {
     g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL,
         RenderingHints.VALUE_STROKE_PURE);
   }

@@ -39,10 +39,9 @@ import org.jebtk.core.event.ChangeEvent;
  */
 public interface ModernSelectionListener extends EventListener {
 
-  /**
-   * Selection changed.
-   *
-   * @param e the e
-   */
-  public void selectionChanged(ChangeEvent e);
+  //public void selectionChanged(ChangeEvent e);
+
+  public void selectionAdded(ChangeEvent e);
+  
+  public void selectionRemoved(ChangeEvent e);
 }

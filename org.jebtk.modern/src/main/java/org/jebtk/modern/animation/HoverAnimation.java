@@ -18,6 +18,8 @@ package org.jebtk.modern.animation;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ContainerEvent;
+import java.awt.event.ContainerListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -173,31 +175,15 @@ public abstract class HoverAnimation extends WidgetAnimation {
    * Animate mouse entered.
    */
   public void animateMouseEntered() {
-
+    getWidget().repaint();
   }
 
   /**
    * Animate mouse exited.
    */
   public void animateMouseExited() {
-
+    getWidget().repaint();
   }
-
-  /**
-   * Animate mouse clicked.
-   */
-  //public void animateMouseClicked() {
-//
-  //}
-
-  /**
-   * Gets the pressed.
-   *
-   * @return the pressed
-   */
-  //public boolean getPressed() {
-  //  return mPressed;
-  //}
 
   /**
    * Triggers the events an animation that a mouse exit event would, but without
@@ -207,5 +193,29 @@ public abstract class HoverAnimation extends WidgetAnimation {
     mEntryMode = false;
 
     startMouseOverTimer();
+  }
+  
+  @Override
+  public void bindChildren() {
+    getWidget().addContainerListener(new ContainerListener() {
+
+      @Override
+      public void componentAdded(ContainerEvent arg0) {
+        bind();
+      }
+
+      @Override
+      public void componentRemoved(ContainerEvent arg0) {
+        // bind();
+      }
+    });
+
+    bind();
+  }
+
+  private void bind() {
+    for (int i = 0; i < getWidget().getComponentCount(); ++i) {
+      bind(getWidget().getComponent(i));
+    }
   }
 }

@@ -377,7 +377,7 @@ public class ModernTextBox extends ModernCanvas
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawTranslatedCanvas(Graphics2D g2, DrawingContext context) {
+  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
     try {

@@ -52,7 +52,7 @@ public class Scroller {
    * @param scrollbar the scrollbar
    */
   public void wheelScroll(int notches, Component c, ModernScrollBar scrollbar) {
-    scrollbar.incrementNormalizedScrollPosition(notches * NOTCH_SCROLL);
+    scrollbar.incNormalizedScrollPosition(notches * NOTCH_SCROLL);
   }
 
   /**
@@ -82,6 +82,6 @@ public class Scroller {
    * @param scrollbar the scrollbar
    */
   public void keyScroll(boolean up, Component c, ModernScrollBar scrollbar) {
-    scrollbar.incrementNormalizedScrollPosition((up ? -1 : 1) * NOTCH_SCROLL);
+    scrollbar.incNormalizedScrollPosition((up ? -1 : 1) * NOTCH_SCROLL);
   }
 }

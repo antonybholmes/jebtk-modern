@@ -27,9 +27,6 @@
  */
 package org.jebtk.modern.button;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
 /**
@@ -83,35 +80,6 @@ public class ModernOutlineButton extends ModernButton {
    * Setup.
    */
   private void setup() {
-    setForeground(Color.WHITE);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#setEnabled(boolean)
-   */
-  @Override
-  public void setEnabled(boolean enabled) {
-    super.setEnabled(enabled);
-
-    setup();
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
-   * Graphics2D)
-   */
-  @Override
-  public void drawBackground(Graphics2D g2) {
-
-    if (mHighlight) {
-      drawWhiteOutline(g2, getRect());
-    } else {
-      // paintOutlined(g2, getRect());
-    }
+    setAnimations("button-outline");
   }
 }

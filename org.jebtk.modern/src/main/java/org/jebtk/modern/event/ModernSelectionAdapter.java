@@ -25,25 +25,25 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.graphics;
+package org.jebtk.modern.event;
+
+import org.jebtk.core.event.ChangeEvent;
 
 /**
- * The drawing context is used to indicate to graphics routines what they
- * are being displayed on. For example a routine might add extra details to
- * something renderered on screen which are not included on the output saved
- * to file.
+ * Control selection events.
+ * 
+ * @author Antony Holmes
+ *
  */
-public enum DrawingContext {
+public class ModernSelectionAdapter implements ModernSelectionListener {
 
-  /**
-   * Drawing is for use in a UI element such as a button
-   */
-  UI,
+  @Override
+  public void selectionAdded(ChangeEvent e) {
+    // Do nothing
+  }
 
-  SCREEN,
-  
-  /**
-   * Drawing is intended for output to a file such as an SVG image.
-   */
-  OUTPUT
+  @Override
+  public void selectionRemoved(ChangeEvent e) {
+    // Do nothing
+  }
 }

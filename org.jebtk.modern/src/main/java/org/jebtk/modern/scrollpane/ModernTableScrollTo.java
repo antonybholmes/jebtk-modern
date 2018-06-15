@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016, Antony Holmes
+ * Copyright (c) 2016, Antony Holmes
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,35 +25,44 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.graphics.icons;
+package org.jebtk.modern.scrollpane;
 
-import java.awt.Graphics2D;
-
-import org.jebtk.modern.theme.RenderMode;
-import org.jebtk.modern.theme.DrawUIService;
+import org.jebtk.core.geom.IntRect;
 
 /**
- * Check vector icon optimized for 16 pixel icons.
- * 
- * @author Antony Holmes Holmes
+ * Determines what happens when the component requests a scrollto action.
  *
+ * @see ModernTableSelectionScrollEvent
  */
-public class DisabledCheckedVectorIcon extends UnCheckedVectorIcon {
+public class ModernTableScrollTo {
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.icons.UnCheckedVectorIcon#drawForeground(java.awt.
-   * Graphics2D, java.awt.Rectangle)
+  private ModernScrollPane mScrollPane;
+
+  /**
+   * Instantiates a new modern table selection scroll listener.
+   *
+   * @param table the table
+   * @param vScrollbar the v scrollbar
+   * @param hScrollbar the h scrollbar
    */
-  @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Object... params) {
-    DrawUIService.getInstance().getRenderer("checkbox.checked").draw(g2, x, y, w, h, RenderMode.DISABLED);
+  public ModernTableScrollTo(ModernScrollPane scrollPane) {
+    mScrollPane = scrollPane;
+  }
+
+  public void scrollTo(IntRect rect) {
+    ModernScrollBar vscroll = mScrollPane.getVScrollBar();
+    ModernScrollBar hscroll = mScrollPane.getHScrollBar();
+
+    vscroll.setScrollPosition(normY(vscroll, rect.mY + 2 * rect.mH));
+    hscroll.setScrollPosition(normX(hscroll, rect.mX + 2 * rect.mW));
+  }
+  
+  private int normX(ModernScrollBar scrollbar, int d) {
+    return Math.max(0, d - mScrollPane.mViewport.getWidth()); //.getScrollDistance());
+  }
+  
+  private int normY(ModernScrollBar scrollbar, int d) {
+    System.err.println(" normY " + mScrollPane.mViewport.getHeight());
+    return Math.max(0, d - mScrollPane.mViewport.getHeight()); //.getScrollDistance());
   }
 }

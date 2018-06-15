@@ -18,6 +18,7 @@ package org.jebtk.modern.button;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.animation.FadeAnimation;
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateListener;
@@ -30,24 +31,13 @@ import org.jebtk.modern.widget.ModernWidget;
  * @param <T>
  */
 public class CheckSwitchChangeAnimation extends TranslateXAnimation {
-
   private ModernCheckSwitch mButton;
 
-  private Color mColor;
+  private FadeAnimation mFade;
 
-  /**
-   * Pick a color a few shades lighter than the background
-   */
-  //public static final Color SELECTED_COLOR = ModernWidgetRenderer.SELECTED_FILL_COLOR; // ThemeService.getInstance().getColors().getColorHighlight32(ThemeService.getInstance().getColors().getColorHighlightIndex(ModernWidgetRenderer.SELECTED_FILL_COLOR)
-                                                                                       // /
-                                                                                       // 2);
-
-  // public static final Color LINE_COLOR =
-  // ThemeService.getInstance().getColors().getHighlight32(ThemeService.getInstance().getColors().getHighlightIndex(ModernWidget.LINE_COLOR)
-  // / 2);
-
+  
   public CheckSwitchChangeAnimation(ModernWidget button) {
-    this(button, ModernWidget.LINE_COLOR);
+    this(button, button.getToKeyFrame().getColor("background-color"));
   }
 
   /**
@@ -59,14 +49,11 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
     super(button);
 
     mButton = (ModernCheckSwitch) button;
-    mColor = color;
 
-    /*
-     * mButton.addClickListener(new ModernClickListener() {
-     * 
-     * @Override public void clicked(ModernClickEvent e) { restart(); } });
-     */
-
+    mFade = new FadeAnimation(button).setFadeColor("fill",
+        button.getKeyFrame().getColor("background-color"),
+        color);
+ 
     // Animation should be triggered on a state change and not a click
     // event since we want the button to respond to setSelected events.
     mButton.addStateListener(new ModernStateListener() {
@@ -75,37 +62,27 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
         restart();
       }
     });
-
-    /*
-     * mButton.addComponentListener(new ComponentAdapter() {
-     * 
-     * @Override public void componentResized(ComponentEvent arg0) { restart();
-     * }});
-     */
+    
+    restart();
   }
 
+  @Override
   public void restart() {
     int x1;
     int x2;
 
-    int x = 0; // getWidget().getInsets().left;
-
     if (mButton.isSelected()) {
       // Off to on
 
-      x1 = x + ModernCheckSwitch.SWITCH_ICON_OFFSET;
-      x2 = x + ModernCheckSwitch.SWITCH_ON_OFFSET;
+      x1 = ModernCheckSwitch.SWITCH_ICON_OFFSET;
+      x2 = ModernCheckSwitch.SWITCH_ON_OFFSET;
     } else {
       // On to Off
-      x1 = x + ModernCheckSwitch.SWITCH_ON_OFFSET;
-      x2 = x + ModernCheckSwitch.SWITCH_ICON_OFFSET;
+      x1 = ModernCheckSwitch.SWITCH_ON_OFFSET;
+      x2 = ModernCheckSwitch.SWITCH_ICON_OFFSET;
     }
 
     restart(x1, x2);
-  }
-
-  public void setSelectedColor(Graphics2D g2) {
-    g2.setColor(mColor);
   }
 
   @Override
@@ -114,22 +91,13 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
       Object... params) {
     int s = ModernCheckSwitch.ORB_HEIGHT;
 
-    int y1 = (widget.getInternalRect().getH() - s) / 2;
-
-    // Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
-
-    // try {
-
+    int h = widget.getHeight();
+    int y1 = (h - s) / 2;
+   
     if (mButton.isSelected()) {
-      /*
-       * widget.getWidgetRenderer().buttonFillPaint(g2, 0, 0, s, s,
-       * RenderMode.SELECTED, false);
-       */
-
-      setSelectedColor(g2);
-
+      g2.setColor(mFade.getToColor("fill"));
     } else {
-      g2.setColor(ModernWidget.LINE_COLOR); // Color.WHITE);
+      g2.setColor(mFade.getFromColor("fill")); // Color.WHITE);
     }
 
     // g2.setColor(Color.WHITE);
@@ -138,14 +106,5 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
     g2.setColor(Color.WHITE);
     s -= 2;
     g2.fillOval(1, y1 + 1, s, s);
-    // } finally {
-    // g2Temp.dispose();
-    // }
-
-    // if (!mButton.isSelected()) {
-    // g2.setColor(ModernWidget.LINE_COLOR);
-    ///
-    // g2.drawOval(0, y1, s - 1, s - 1);
-    // }
   }
 }

@@ -175,8 +175,9 @@ public class RibbonLargeCheckButton extends ModernCheckButton
     }
 
     setSize(RibbonSize.COMPACT);
-
-    setAnimations("ribbon-button"); // new
+    
+    addToStyleClass("dialog-button");
+    //etAnimations("ribbon-button"); // new
                                               // RibbonButtonHighlightAnimation(this));
   }
 

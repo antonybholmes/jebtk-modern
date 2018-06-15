@@ -269,14 +269,13 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel
     return mSelectedDirectory;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.
-   * abh. lib.event.ChangeEvent)
-   */
-  public void selectionChanged(ChangeEvent e) {
+  @Override
+  public void selectionAdded(ChangeEvent e) {
+    selectionRemoved(e);
+  }
+  
+  @Override
+  public void selectionRemoved(ChangeEvent e) {
     if (e.getSource().equals(mCurrentDirectoryList)) {
       int i = mCurrentDirectoryList.getSelectedIndex();
 

@@ -30,14 +30,10 @@ package org.jebtk.modern.dataview;
 import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.Point;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 import javax.swing.SwingUtilities;
 
@@ -206,33 +202,6 @@ public abstract class ModernData extends ZoomCanvas implements
   }
 
   /**
-   * The Class MouseEvents.
-   */
-  private class MouseEvents extends MouseAdapter {
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
-     */
-    @Override
-    public void mousePressed(MouseEvent e) {
-      if (e.getButton() != MouseEvent.BUTTON1) {
-        return;
-      }
-
-      boolean multiSelect = (e.getModifiers()
-          & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) == Toolkit
-              .getDefaultToolkit().getMenuShortcutKeyMask();
-      boolean multiRangeSelect = (e.getModifiers()
-          & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
-
-      setSelectedCell(getCell(translateCoordinate(e)),
-          multiSelect,
-          multiRangeSelect);
-    }
-  }
-
-  /**
    * Instantiates a new modern data.
    */
   public ModernData() {
@@ -335,18 +304,14 @@ public abstract class ModernData extends ZoomCanvas implements
   public void adjustSize() {
     //
   }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.
-   * abh. lib.event.ChangeEvent)
-   */
+  
   @Override
-  public void selectionChanged(ChangeEvent e) {
-    // repaint();
-
+  public void selectionAdded(ChangeEvent e) {
+    selectionRemoved(e);
+  }
+  
+  @Override
+  public void selectionRemoved(ChangeEvent e) {
     fireCanvasRedraw();
   }
 
@@ -476,17 +441,15 @@ public abstract class ModernData extends ZoomCanvas implements
     return null;
   }
 
-  /**
-   * Translate a graphics context to the correct location for rendering.
-   *
-   * @param g2 the g2
-   */
-  protected void translate(Graphics2D g2) {
+  /*
+  @Override
+  public void translate(Graphics2D g2) {
     ModernDataSelection visibleCells = calculateVisibleCells();
 
     g2.translate(getX(visibleCells.getStartCol()) - getViewRect().getX(),
         getY(visibleCells.getStartRow()) - getViewRect().getY());
   }
+  */
 
   /**
    * Calculates the range of cells visible at any given time.

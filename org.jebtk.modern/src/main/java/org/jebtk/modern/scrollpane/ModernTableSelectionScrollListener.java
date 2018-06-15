@@ -65,15 +65,13 @@ public class ModernTableSelectionScrollListener
     mHScrollbar = hScrollbar;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.ui.event.ModernSelectionListener#selectionChanged(org.abh.
-   * common.event.ChangeEvent)
-   */
   @Override
-  public void selectionChanged(ChangeEvent e) {
+  public void selectionAdded(ChangeEvent e) {
+    selectionRemoved(e);
+  }
+  
+  @Override
+  public void selectionRemoved(ChangeEvent e) {
     IntRect viewRect = mTable.getViewRect();
 
     int row = mTable.getSelectedRow();

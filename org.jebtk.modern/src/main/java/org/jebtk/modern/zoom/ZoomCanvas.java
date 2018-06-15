@@ -141,8 +141,7 @@ public class ZoomCanvas extends ModernCanvas {
   }
 
   private void wheelZoom(MouseWheelEvent e) {
-    mZoomModel
-        .setZoom(mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
+    mZoomModel.setZoom(mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
   }
 
   /**
@@ -411,8 +410,8 @@ public class ZoomCanvas extends ModernCanvas {
   }
 
   @Override
-  public void drawTranslatedCanvas(Graphics2D g2, DrawingContext context) {
-    if (context == DrawingContext.SCREEN) {
+  public void zoomCanvas(Graphics2D g2, DrawingContext context) {
+    if (context == DrawingContext.UI) {
       Graphics2D g2Temp = ImageUtils.clone(g2);
 
       try {
@@ -426,13 +425,13 @@ public class ZoomCanvas extends ModernCanvas {
 
         // mCanvas.drawTranslatedCanvas(g2Temp);
 
-        drawCanvasForeground(g2Temp, context);
+        drawCanvas(g2Temp, context);
 
       } finally {
         g2Temp.dispose();
       }
     } else {
-      drawCanvasForeground(g2, context);
+      drawCanvas(g2, context);
     }
   }
 }

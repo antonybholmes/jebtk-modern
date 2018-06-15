@@ -118,7 +118,7 @@ public class ModernScrollPaneLayout implements LayoutManager {
       if (scrollPane.mVScrollBarLocation == ScrollBarLocation.SIDE) {
         if (scrollPane.mVScrollBar.isVisible()
             || scrollPane.mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-          b.width -= scrollPane.mVScrollBar.getFixedDimension();
+          b.width -= scrollPane.mVScrollBar.getFixedDim();
         }
       }
 
@@ -133,7 +133,7 @@ public class ModernScrollPaneLayout implements LayoutManager {
       if (scrollPane.mHScrollBarPosition == ScrollBarLocation.SIDE) {
         if (scrollPane.mHScrollBar.isVisible()
             || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-          b.height -= scrollPane.mHScrollBar.getFixedDimension();
+          b.height -= scrollPane.mHScrollBar.getFixedDim();
         }
 
         if (scrollPane.mFooter != null) {
@@ -153,12 +153,12 @@ public class ModernScrollPaneLayout implements LayoutManager {
       if (scrollPane.mVScrollBarLocation == ScrollBarLocation.SIDE) {
         if (scrollPane.mVScrollBar.isVisible()
             || scrollPane.mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-          b.width -= scrollPane.mVScrollBar.getFixedDimension();
+          b.width -= scrollPane.mVScrollBar.getFixedDim();
         }
 
         if (scrollPane.mHScrollBar.isVisible()
             || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-          b.y -= scrollPane.mHScrollBar.getFixedDimension();
+          b.y -= scrollPane.mHScrollBar.getFixedDim();
         }
       }
 
@@ -181,7 +181,7 @@ public class ModernScrollPaneLayout implements LayoutManager {
       if (scrollPane.mHScrollBarPosition == ScrollBarLocation.SIDE) {
         if (scrollPane.mHScrollBar.isVisible()
             || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-          b.y -= scrollPane.mHScrollBar.getFixedDimension();
+          b.y -= scrollPane.mHScrollBar.getFixedDim();
         }
       }
 
@@ -204,7 +204,7 @@ public class ModernScrollPaneLayout implements LayoutManager {
     if (scrollPane.mVScrollBarLocation == ScrollBarLocation.SIDE) {
       if (scrollPane.mVScrollBar.isVisible()
           || scrollPane.mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-        b.width -= scrollPane.mVScrollBar.getFixedDimension()
+        b.width -= scrollPane.mVScrollBar.getFixedDim()
             + scrollPane.mVScrollSep;
       }
     }
@@ -212,7 +212,7 @@ public class ModernScrollPaneLayout implements LayoutManager {
     if (scrollPane.mHScrollBarPosition == ScrollBarLocation.SIDE) {
       if (scrollPane.mHScrollBar.isVisible()
           || scrollPane.mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-        b.height -= scrollPane.mHScrollBar.getFixedDimension()
+        b.height -= scrollPane.mHScrollBar.getFixedDim()
             + scrollPane.mHScrollSep;
       }
     }
@@ -234,10 +234,10 @@ public class ModernScrollPaneLayout implements LayoutManager {
     // if (mVScrollBar.isVisible()) {
     Rectangle r = new Rectangle(
         scrollPane.mInternalRect.getW()
-            - scrollPane.mVScrollBar.getFixedDimension(),
-        0, scrollPane.mVScrollBar.getFixedDimension(),
+            - scrollPane.mVScrollBar.getFixedDim(),
+        0, scrollPane.mVScrollBar.getFixedDim(),
         scrollPane.mInternalRect.getH() - (scrollPane.mHScrollBar.isVisible()
-            ? scrollPane.mHScrollBar.getFixedDimension()
+            ? scrollPane.mHScrollBar.getFixedDim()
             : 0));
 
     // if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
@@ -256,7 +256,7 @@ public class ModernScrollPaneLayout implements LayoutManager {
       scrollPane.mIntH = scrollPane.getInternalHeight();
 
       if (scrollPane.mHScrollBarNeeded) {
-        scrollPane.mIntH -= scrollPane.mHScrollBar.getFixedDimension();
+        scrollPane.mIntH -= scrollPane.mHScrollBar.getFixedDim();
       }
 
       // How much space we need to scroll through
@@ -288,11 +288,11 @@ public class ModernScrollPaneLayout implements LayoutManager {
     // if (mHScrollBar.isVisible()) {
     Rectangle r = new Rectangle(0,
         scrollPane.mInternalRect.getH()
-            - scrollPane.mHScrollBar.getFixedDimension(),
+            - scrollPane.mHScrollBar.getFixedDim(),
         scrollPane.mInternalRect.getW() - (scrollPane.mVScrollBar.isVisible()
-            ? scrollPane.mVScrollBar.getFixedDimension()
+            ? scrollPane.mVScrollBar.getFixedDim()
             : 0),
-        scrollPane.mHScrollBar.getFixedDimension());
+        scrollPane.mHScrollBar.getFixedDim());
 
     // if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
     // r.width -= (mVScrollBar.isVisible() ? mVScrollBar.getFixedDimension() :
@@ -309,7 +309,7 @@ public class ModernScrollPaneLayout implements LayoutManager {
 
       if (scrollPane.mVScrollBarNeeded) {
         // Subtract the fixed dimension if the v scroll bar is visible
-        scrollPane.mIntW -= scrollPane.mVScrollBar.getFixedDimension();
+        scrollPane.mIntW -= scrollPane.mVScrollBar.getFixedDim();
       }
 
       // if (mCanvas != null) {

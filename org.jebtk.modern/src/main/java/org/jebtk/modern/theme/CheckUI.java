@@ -42,7 +42,7 @@ public class CheckUI extends DrawUI {
     gp.lineTo(xf + t, yf + wf);
     gp.lineTo(xf + wf, yf);
 
-    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     try {
       if (params.length > 0) {

@@ -45,6 +45,7 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.modern.MouseUtils;
 import org.jebtk.modern.SelectionPolicy;
+import org.jebtk.modern.SelectionRangeType;
 import org.jebtk.modern.clipboard.ClipboardUiControl;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.dataview.ModernDataCell;
@@ -78,7 +79,7 @@ import org.jebtk.modern.zoom.ZoomModel;
  *
  */
 public class ModernTable extends ModernData implements ClipboardUiControl,
-    ModernSelectionListener, CanvasListener, CanvasCursorListener {
+ModernSelectionListener, CanvasListener, CanvasCursorListener {
 
   /**
    * The constant serialVersionUID.
@@ -302,7 +303,7 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
 
       boolean multiSelect = (e.getModifiers()
           & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) == Toolkit
-              .getDefaultToolkit().getMenuShortcutKeyMask();
+          .getDefaultToolkit().getMenuShortcutKeyMask();
       boolean multiRangeSelect = (e.getModifiers()
           & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
 
@@ -424,6 +425,30 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
     }
   }
 
+  private class SelectionEvents implements ModernSelectionListener {
+    @Override
+    public void selectionAdded(ChangeEvent e) {
+      int row = getSelectedRow();
+      int col = getSelectedCol();
+
+      //if (row > 0 || col > 0) {
+      int x = getColumnModel().getCumOffset(col);
+      int w = getColumnModel().getWidth(col);
+
+      int y = getRowModel().getCumOffset(row);
+      int h = getRowModel().getWidth(row);
+
+      scrollRectToVisible(new Rectangle(x, y, w, h));
+      //}
+    }
+
+    @Override
+    public void selectionRemoved(ChangeEvent e) {
+      // TODO Auto-generated method stub
+
+    }
+  }
+
   /**
    * Instantiates a new modern table.
    */
@@ -467,6 +492,9 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
    * Inits the.
    */
   private void init() {
+    // Listen for changes so we can update location
+    getCellSelectionModel().addSelectionListener(new SelectionEvents());
+
     addCanvasMouseListener(new CanvasMouseEvents());
 
     getEditorModel().setDefault(new ModernTableTextCellEditor());
@@ -479,7 +507,7 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
     addCanvasKeyListener(new KeyEvents());
 
     getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)
-        .put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "enter_pressed");
+    .put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "enter_pressed");
     getActionMap().put("enter_pressed", new EnterKeyEvents());
 
     /*
@@ -663,14 +691,14 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
     }
 
     mRowModel.setSize(mModel.getRowCount()); // = new
-                                             // TableIndexModel(model.getRowCount(),
-                                             // new
-                                             // ModernTableRow(rowHeight));
+    // TableIndexModel(model.getRowCount(),
+    // new
+    // ModernTableRow(rowHeight));
 
     mColumnModel.setSize(mModel.getColumnCount()); // = new
-                                                   // TableIndexModel(model.getColumnCount(),
-                                                   // new
-                                                   // ModernTableColumn(defaultColumnWidth));
+    // TableIndexModel(model.getColumnCount(),
+    // new
+    // ModernTableColumn(defaultColumnWidth));
 
     int width = 0;
 
@@ -921,28 +949,6 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
     return mShowHeader;
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.graphics.ModernCanvas#canvasTranslate(java.awt.
-   * Graphics2D)
-   */
-  @Override
-  public void canvasTranslate(Graphics2D g2) {
-    // Tables remain statically located and vary their content by
-    // the view window, hence we need to disable the canvas translate
-  }
-
-  /**
-   * Translate a graphics context to the correct location for rendering.
-   *
-   * @param g2 the g2
-   */
-  @Override
-  protected void translate(Graphics2D g2) {
-    // translate(g2, calculateVisibleCells(), mShowHeader, mShowRowHeader);
-  }
-
   /**
    * Translate.
    *
@@ -1019,7 +1025,7 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
   private void translateX(Graphics2D g2, boolean showHeader) {
 
     double x = getVisibleRect().x; // 0; //getX(visibleCells.getStartCol()); //
-                                   // - getViewRect().getX();
+    // - getViewRect().getX();
 
     if (showHeader) {
       x += scale(mRowModel.getHeaderSize());
@@ -1192,11 +1198,6 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
     return new ModernDataSelection(startRow, endRow, startCol, endCol);
   }
 
-  @Override
-  public void drawTranslatedCanvas(Graphics2D g2, DrawingContext context) {
-    drawCanvasForeground(g2, context);
-  }
-
   /*
    * (non-Javadoc)
    * 
@@ -1204,7 +1205,7 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
    * Graphics2D, org.abh.common.ui.graphics.DrawingContext)
    */
   @Override
-  public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
+  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
     if (mModel == null || mModel.getRowCount() == 0
         || mModel.getColumnCount() == 0) {
       return;
@@ -1316,7 +1317,7 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
 
               ec.setSize(w, h);
 
-              ec.drawTranslatedCanvas(g2Temp2, context);
+              ec.rasterCanvas(g2Temp2, context);
             } else {
               renderer = mCellRendererModel.get(i, j);
 
@@ -1580,14 +1581,14 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
       int y = 0; // getY(visibleCells.getStartRow()); //invTranslateY(getY(0));
       int x = getX(mColumnModel.getSelectionModel().first(), zoom)
           - getX(visibleCells.getStartCol(), zoom); // invTranslateX(getX(mColumnModel.getSelectionModel().first()));
-                                                    // // -
-                                                    // getViewRectangle().getY();
+      // // -
+      // getViewRectangle().getY();
       int h = getY(visibleCells.getEndRow(), zoom)
           - getY(visibleCells.getStartRow(), zoom)
           + mRowModel.getWidth(visibleCells.getEndRow(), zoom); // getColumnCount()
-                                                                // - 1) +
-                                                                // mColumnModel.getWidth(getColumnCount()
-                                                                // - 1) + 1;
+      // - 1) +
+      // mColumnModel.getWidth(getColumnCount()
+      // - 1) + 1;
       int w = getX(mColumnModel.getSelectionModel().last(), zoom)
           - getX(mColumnModel.getSelectionModel().first())
           + mColumnModel.getWidth(mColumnModel.getSelectionModel().last(), zoom)
@@ -1664,14 +1665,14 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
     int x = 0; // getX(visibleCells.getStartCol()); //invTranslateX(getX(0));
     int y = getY(mRowModel.getSelectionModel().first())
         - getY(visibleCells.getStartRow()); // invTranslateY(getY(mRowModel.getSelectionModel().first()));
-                                            // // -
-                                            // getViewRectangle().getY();
+    // // -
+    // getViewRectangle().getY();
     int w = getX(visibleCells.getEndCol()) - getX(visibleCells.getStartCol())
         + mColumnModel.getWidth(visibleCells.getEndCol(), zoom) - 1; // getColumnCount()
-                                                                     // - 1) +
-                                                                     // mColumnModel.getWidth(getColumnCount()
-                                                                     // - 1) +
-                                                                     // 1;
+    // - 1) +
+    // mColumnModel.getWidth(getColumnCount()
+    // - 1) +
+    // 1;
     int h = getY(mRowModel.getSelectionModel().last())
         - getY(mRowModel.getSelectionModel().first())
         + mRowModel.getWidth(mRowModel.getSelectionModel().last(), zoom);
@@ -2018,6 +2019,9 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
       mSelectionModel.clear();
     }
 
+    // For the rows, use updates to prevent triggering multiple selection
+    // events
+
     if (multiRowSelect) {
       if (mSelectionModel.getRowSelectionModel().contains(row)) {
         // If we are multi selecting and pick something we have
@@ -2025,7 +2029,7 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
 
         mSelectionModel.getRowSelectionModel().remove(row);
       } else {
-        mSelectionModel.getRowSelectionModel().add(row);
+        mSelectionModel.getRowSelectionModel().update(row, SelectionRangeType.ADD);
       }
     } else if (multiRangeSelect
         && mSelectionModel.getRowSelectionModel().size() > 0) {
@@ -2033,12 +2037,15 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
       // add the current first and last in duplicate,
       // hence the index begins one past the min and
       // ends one before the max
-      mSelectionModel.getRowSelectionModel().setSelectionInterval(
+      mSelectionModel.getRowSelectionModel().updateSelectionInterval(
           mSelectionModel.getRowSelectionModel().first(),
-          row);
+          row,
+          SelectionRangeType.REPLACE);
     } else {
-      mSelectionModel.getRowSelectionModel().add(row);
+      mSelectionModel.getRowSelectionModel().update(row, SelectionRangeType.REPLACE);
     }
+
+    // Updating the column causes a selection event to be triggered.
 
     if (multiRowSelect) {
       if (mSelectionModel.getColumnSelectionModel().contains(column)) {
@@ -2047,7 +2054,7 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
 
         mSelectionModel.getColumnSelectionModel().remove(column);
       } else {
-        mSelectionModel.getColumnSelectionModel().add(column);
+        mSelectionModel.getColumnSelectionModel().add(column, SelectionRangeType.ADD);
       }
     } else if (multiRangeSelect
         && mSelectionModel.getColumnSelectionModel().size() > 0) {
@@ -2055,11 +2062,12 @@ public class ModernTable extends ModernData implements ClipboardUiControl,
       // add the current first and last in duplicate,
       // hence the index begins one past the min and
       // ends one before the max
-      mSelectionModel.getColumnSelectionModel().setSelectionInterval(
+      mSelectionModel.getColumnSelectionModel().addSelectionInterval(
           mSelectionModel.getColumnSelectionModel().first(),
-          column);
+          column,
+          SelectionRangeType.REPLACE);
     } else {
-      mSelectionModel.getColumnSelectionModel().add(column);
+      mSelectionModel.getColumnSelectionModel().add(column, SelectionRangeType.REPLACE);
     }
 
     updateSelectedCell();

@@ -134,7 +134,7 @@ public class RasterIcon extends ModernIcon {
   private void cache(ModernIcon icon, IntRect iconRect, IntDim imageSize) {
     mBufferedImage = ImageUtils.createImage(imageSize);
 
-    Graphics2D g2Temp = ImageUtils.createAAGraphics(mBufferedImage);
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(mBufferedImage);
 
     try {
       icon.drawIcon(g2Temp, iconRect);

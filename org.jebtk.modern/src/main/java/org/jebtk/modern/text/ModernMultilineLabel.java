@@ -126,7 +126,7 @@ public class ModernMultilineLabel extends ModernCanvas implements TextProperty {
    * Graphics2D)
    */
   @Override
-  public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
+  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
     if (mLines == null) {
       return;
     }

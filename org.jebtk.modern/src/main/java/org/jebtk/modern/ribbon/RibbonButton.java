@@ -105,7 +105,7 @@ public class RibbonButton extends ModernButton {
    * Setup.
    */
   private void setup() {
-    setAnimations("ribbon-button");
+    addStyleClass("dialog-button");
   }
 
   /*

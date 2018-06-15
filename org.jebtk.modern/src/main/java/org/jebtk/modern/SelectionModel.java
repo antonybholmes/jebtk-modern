@@ -55,7 +55,7 @@ public class SelectionModel<T> extends ModernSelectionListeners
   /**
    * The items.
    */
-  private List<T> items = new ArrayList<T>();
+  private List<T> mItems = new ArrayList<T>();
 
   /**
    * The fire.
@@ -126,10 +126,10 @@ public class SelectionModel<T> extends ModernSelectionListeners
     }
 
     for (T item : items) {
-      this.items.add(item);
+      this.mItems.add(item);
     }
 
-    update();
+    fireSelectionAdded(new ChangeEvent(this));
   }
 
   /**
@@ -143,10 +143,10 @@ public class SelectionModel<T> extends ModernSelectionListeners
     }
 
     for (T item : items) {
-      this.items.add(item);
+      mItems.add(item);
     }
 
-    update();
+    fireSelectionAdded(new ChangeEvent(this));
   }
 
   /**
@@ -160,10 +160,10 @@ public class SelectionModel<T> extends ModernSelectionListeners
     }
 
     for (T item : items) {
-      this.items.add(item);
+      mItems.add(item);
     }
 
-    update();
+    fireSelectionAdded(new ChangeEvent(this));
   }
 
   /**
@@ -174,7 +174,7 @@ public class SelectionModel<T> extends ModernSelectionListeners
   public List<T> getItems() {
     List<T> ret = new ArrayList<T>();
 
-    for (T item : items) {
+    for (T item : mItems) {
       ret.add(item);
     }
 
@@ -187,7 +187,7 @@ public class SelectionModel<T> extends ModernSelectionListeners
    * @param index the index
    */
   public void remove(int index) {
-    items.remove(index);
+    mItems.remove(index);
   }
 
   /**
@@ -196,7 +196,7 @@ public class SelectionModel<T> extends ModernSelectionListeners
    * @param item the item
    */
   public void remove(T item) {
-    items.remove(item);
+    mItems.remove(item);
   }
 
   /**
@@ -205,23 +205,14 @@ public class SelectionModel<T> extends ModernSelectionListeners
   public final void clear() {
     clearNoUpdate();
 
-    update();
+    fireSelectionRemoved(new ChangeEvent(this));
   }
 
   /**
    * Clear no update.
    */
   public final void clearNoUpdate() {
-    items.clear();
-  }
-
-  /**
-   * Update.
-   */
-  private final void update() {
-    if (fire) {
-      fireSelectionChanged(new ChangeEvent(this));
-    }
+    mItems.clear();
   }
 
   /**
@@ -240,11 +231,11 @@ public class SelectionModel<T> extends ModernSelectionListeners
    * @return the t
    */
   public T get(int index) {
-    if (items.size() == 0 || index < 0 || index >= items.size()) {
+    if (mItems.size() == 0 || index < 0 || index >= mItems.size()) {
       return null;
     }
 
-    return items.get(index);
+    return mItems.get(index);
   }
 
   /**
@@ -253,7 +244,7 @@ public class SelectionModel<T> extends ModernSelectionListeners
    * @return the int
    */
   public int size() {
-    return items.size();
+    return mItems.size();
   }
 
   /*
@@ -263,7 +254,7 @@ public class SelectionModel<T> extends ModernSelectionListeners
    */
   @Override
   public Iterator<T> iterator() {
-    return items.iterator();
+    return mItems.iterator();
   }
 
   /*
@@ -273,7 +264,7 @@ public class SelectionModel<T> extends ModernSelectionListeners
    */
   @Override
   public String toString() {
-    return TextUtils.join(items, TextUtils.COMMA_DELIMITER);
+    return TextUtils.join(mItems, TextUtils.COMMA_DELIMITER);
   }
 
   /**

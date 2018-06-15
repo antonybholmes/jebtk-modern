@@ -115,13 +115,13 @@ public class LayersCanvas extends ModernCanvas {
    * Graphics2D)
    */
   @Override
-  public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
+  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
     for (LayerCanvas c : layers) {
       if (!mLayerModel.isVisible(c.getName())) {
         continue;
       }
 
-      c.drawCanvasForeground(g2, context);
+      c.rasterCanvas(g2, context);
     }
   }
 

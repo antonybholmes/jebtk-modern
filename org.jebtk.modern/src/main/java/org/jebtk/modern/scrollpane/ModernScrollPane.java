@@ -159,9 +159,12 @@ public class ModernScrollPane extends ModernFocusableWidget
   ModernScrollBar mHScrollBar = null; // new ModernHScrollBarOffice(); //new
                                       // ModernHScrollBar();
 
+  
   //
   // Common
   //
+  
+  private ModernTableScrollTo mScrollTo = null;
 
   /**
    * For when users hold down on a scroll button, the scroll will auto scroll.
@@ -571,10 +574,10 @@ public class ModernScrollPane extends ModernFocusableWidget
 
       if (mHScrollBar.getScrollDistance() > 0) {
         mHScrollBar.getScroller().keyScroll(up, mComponent, mHScrollBar);
-      } else if (mVScrollBar.getScrollDistance() > 0) {
-        mVScrollBar.getScroller().keyScroll(up, mComponent, mVScrollBar);
       } else {
-        // do nothing
+        if (mVScrollBar.getScrollDistance() > 0) {
+          mVScrollBar.getScroller().keyScroll(up, mComponent, mVScrollBar);
+        }
       }
     }
   }
@@ -651,6 +654,17 @@ public class ModernScrollPane extends ModernFocusableWidget
 
       }
     }
+  }
+  
+  private class ScrollEvents implements ScrollListener {
+
+    @Override
+    public void scrollTo(ScrollEvent e) {
+      System.err.println("scroll to " + e.getSource() + " " + e.mRect);
+      
+      mScrollTo.scrollTo(e.mRect);
+    }
+    
   }
 
   /**
@@ -812,12 +826,19 @@ public class ModernScrollPane extends ModernFocusableWidget
   private void setup() {
     // setLayout(null);
     setBody(mLayerPanel);
+    
+    mScrollTo = new ModernTableScrollTo(this);
 
     mScrollTimer = new Timer(0, new IncrementScroll());
     mScrollTimer.setDelay(ModernScrollBar.SCROLL_TIMER_DELAY_MS);
 
     if (mComponent instanceof ModernCanvas) {
       ((ModernCanvas) mComponent).addCanvasListener(this);
+    }
+    
+    if (mComponent instanceof ModernComponent) {
+      ModernComponent mc = (ModernComponent) mComponent;
+      mc.getScrollListeners().addScrollListener(new ScrollEvents());
     }
 
     // else {
@@ -860,6 +881,7 @@ public class ModernScrollPane extends ModernFocusableWidget
     mComponent.addMouseMotionListener(new InnerComponentMouseMotionEvents());
     mComponent.addMouseWheelListener(new InnerComponentMouseWheelEvents());
     mComponent.addKeyListener(new InnerCompKeyEvents());
+ 
 
     addComponentListener(new ComponentEvents());
 
@@ -1148,7 +1170,7 @@ public class ModernScrollPane extends ModernFocusableWidget
       if (mVScrollBarLocation == ScrollBarLocation.SIDE) {
         if (mVScrollBar.isVisible()
             || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-          b.width -= mVScrollBar.getFixedDimension();
+          b.width -= mVScrollBar.getFixedDim();
         }
       }
 
@@ -1162,7 +1184,7 @@ public class ModernScrollPane extends ModernFocusableWidget
       if (mHScrollBarPosition == ScrollBarLocation.SIDE) {
         if (mHScrollBar.isVisible()
             || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-          b.height -= mHScrollBar.getFixedDimension();
+          b.height -= mHScrollBar.getFixedDim();
         }
 
         if (mFooter != null) {
@@ -1181,12 +1203,12 @@ public class ModernScrollPane extends ModernFocusableWidget
       if (mVScrollBarLocation == ScrollBarLocation.SIDE) {
         if (mVScrollBar.isVisible()
             || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-          b.width -= mVScrollBar.getFixedDimension();
+          b.width -= mVScrollBar.getFixedDim();
         }
 
         if (mHScrollBar.isVisible()
             || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-          b.y -= mHScrollBar.getFixedDimension();
+          b.y -= mHScrollBar.getFixedDim();
         }
       }
 
@@ -1207,7 +1229,7 @@ public class ModernScrollPane extends ModernFocusableWidget
       if (mHScrollBarPosition == ScrollBarLocation.SIDE) {
         if (mHScrollBar.isVisible()
             || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-          b.y -= mHScrollBar.getFixedDimension();
+          b.y -= mHScrollBar.getFixedDim();
         }
       }
 
@@ -1226,14 +1248,14 @@ public class ModernScrollPane extends ModernFocusableWidget
     if (mVScrollBarLocation == ScrollBarLocation.SIDE) {
       if (mVScrollBar.isVisible()
           || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-        b.width -= mVScrollBar.getFixedDimension() + mVScrollSep;
+        b.width -= mVScrollBar.getFixedDim() + mVScrollSep;
       }
     }
 
     if (mHScrollBarPosition == ScrollBarLocation.SIDE) {
       if (mHScrollBar.isVisible()
           || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
-        b.height -= mHScrollBar.getFixedDimension() + mHScrollSep;
+        b.height -= mHScrollBar.getFixedDim() + mHScrollSep;
       }
     }
 
@@ -1292,8 +1314,8 @@ public class ModernScrollPane extends ModernFocusableWidget
     // setNormalizedScrollBarPosition(mNormalizedHScrollBarPosition + x,
     // mNormalizedVScrollBarPosition + y);
 
-    mHScrollBar.incrementNormalizedScrollPosition(x);
-    mVScrollBar.incrementNormalizedScrollPosition(y);
+    mHScrollBar.incNormalizedScrollPosition(x);
+    mVScrollBar.incNormalizedScrollPosition(y);
 
     setDisplay();
   }
@@ -1435,9 +1457,9 @@ public class ModernScrollPane extends ModernFocusableWidget
 
     // if (mVScrollBar.isVisible()) {
     Rectangle r = new Rectangle(
-        mInternalRect.getW() - mVScrollBar.getFixedDimension(), 0,
-        mVScrollBar.getFixedDimension(), mInternalRect.getH()
-            - (mHScrollBar.isVisible() ? mHScrollBar.getFixedDimension() : 0));
+        mInternalRect.getW() - mVScrollBar.getFixedDim(), 0,
+        mVScrollBar.getFixedDim(), mInternalRect.getH()
+            - (mHScrollBar.isVisible() ? mHScrollBar.getFixedDim() : 0));
 
     // if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
     // r.height -= (mHScrollBar.isVisible() ? mHScrollBar.getFixedDimension() :
@@ -1455,7 +1477,7 @@ public class ModernScrollPane extends ModernFocusableWidget
       mIntH = getInternalHeight();
 
       if (mHScrollBarNeeded) {
-        mIntH -= mHScrollBar.getFixedDimension();
+        mIntH -= mHScrollBar.getFixedDim();
       }
 
       // How much space we need to scroll through
@@ -1548,10 +1570,10 @@ public class ModernScrollPane extends ModernFocusableWidget
 
     // if (mHScrollBar.isVisible()) {
     Rectangle r = new Rectangle(0,
-        mInternalRect.getH() - mHScrollBar.getFixedDimension(),
+        mInternalRect.getH() - mHScrollBar.getFixedDim(),
         mInternalRect.getW()
-            - (mVScrollBar.isVisible() ? mVScrollBar.getFixedDimension() : 0),
-        mHScrollBar.getFixedDimension());
+            - (mVScrollBar.isVisible() ? mVScrollBar.getFixedDim() : 0),
+        mHScrollBar.getFixedDim());
 
     // if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
     // r.width -= (mVScrollBar.isVisible() ? mVScrollBar.getFixedDimension() :
@@ -1568,7 +1590,7 @@ public class ModernScrollPane extends ModernFocusableWidget
 
       if (mVScrollBarNeeded) {
         // Subtract the fixed dimension if the v scroll bar is visible
-        mIntW -= mVScrollBar.getFixedDimension();
+        mIntW -= mVScrollBar.getFixedDim();
       }
 
       // if (mCanvas != null) {
@@ -1992,9 +2014,4 @@ public class ModernScrollPane extends ModernFocusableWidget
   public void changed(ChangeEvent e) {
     adjustDisplay();
   }
-
-  /*
-   * @Override public void drawBackground(Graphics2D g2) { fill(g2, Color.RED,
-   * getRect()); }
-   */
 }

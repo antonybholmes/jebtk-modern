@@ -188,20 +188,11 @@ public class ModernTextBorderPanel extends ModernWidget
 
     addStyleClass("content", "content-outline");
     
-    setAnimations("button-outline");
+    setAnimations(new TextBorderAnimation(this));
   }
-
-  /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) {
-   * getWidgetRenderer().drawContentBox(g2, mRect);
-   * 
-   * //fill(g2, Color.RED); }
-   */
 
   @Override
   public void drawAnimatedBackground(Graphics2D g2) {
-    //getWidgetRenderer().drawContentBox(g2, mRect);
-    
     DrawUIService.getInstance().getRenderer("content-box").draw(g2, mRect);
 
     super.drawAnimatedBackground(g2);

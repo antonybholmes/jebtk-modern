@@ -135,7 +135,7 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
     }
 
     /*
-     * Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+     * Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
      * 
      * try { g2Temp.setColor(Color.WHITE); g2Temp.fillRoundRect(0,
      * Ribbon.Y_OFFSET, w, Ribbon.TAB_HEIGHT + Card.ROUNDING, Card.ROUNDING,

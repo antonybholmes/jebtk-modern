@@ -284,7 +284,7 @@ public abstract class ModernHScrollBar extends ModernScrollBar {
    * @see org.abh.lib.ui.modern.scrollpane.ModernScrollBar#getFixedDimension()
    */
   @Override
-  public int getFixedDimension() {
+  public int getFixedDim() {
     return getPreferredSize().height;
   }
 

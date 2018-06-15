@@ -22,10 +22,10 @@ import java.util.Map;
 
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.collections.DefaultHashMap;
-import org.jebtk.core.collections.HashMapCreator;
-import org.jebtk.core.collections.IterMap;
+import org.jebtk.core.collections.EntryCreator;
 import org.jebtk.modern.graphics.colormap.ColorMap;
 import org.jebtk.modern.graphics.colormap.ColorMapColor;
+import org.jebtk.modern.graphics.colormap.NamedColors;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -39,8 +39,12 @@ public class FadeAnimation extends EasingAnimation {
   protected static final double MD = 1.0 / STEPS;
 
   /** The m fade color map. */
-  private Map<Integer, IterMap<String, Color>> mFadeColorMap = DefaultHashMap
-      .create(new HashMapCreator<String, Color>());
+  private Map<Integer, NamedColors> mFadeColorMap = DefaultHashMap
+      .create(new EntryCreator<NamedColors>() {
+        @Override
+        public NamedColors newEntry() {
+          return new NamedColors();
+        }});
 
   /** Map step to transparency level */
   //private Map<Integer, Double> mStepMap = new HashMap<Integer, Double>();
@@ -55,7 +59,7 @@ public class FadeAnimation extends EasingAnimation {
 
     // double t = 0;
     
-    setStep(MAX_STEP_INDEX);
+    //setStep(0);
 
     //mStepMap.put(0, 0.0);
     //mStepMap.put(MAX_STEP_INDEX, 1.0);
@@ -79,7 +83,7 @@ public class FadeAnimation extends EasingAnimation {
   public void animate() {
     getWidget().repaint();
 
-    if (getCurrentStep() == 0) {
+    if (getStep() == MAX_STEP_INDEX) {
       stop();
     } else {
       fadeIn();
@@ -92,34 +96,38 @@ public class FadeAnimation extends EasingAnimation {
    *
    * @param name the name
    * @param color the color
+   * @return 
    */
-  public void setFadeColor(String name, Color color) {
-    double t = ColorUtils.getTrans(color);
+  public FadeAnimation setFadeColor(String name, Color color) {
+    double t = ColorUtils.getAlpha(color);
 
-    double d = (1.0 - t); // / STEPS;
+    //double d = (1.0 - t); // / STEPS;
 
     for (int i = 0; i < STEPS; ++i) {
-      Color c = ColorUtils.getTransparentColor(color,
-          t + d * BEZ_T[i]);
+      Color c = ColorUtils.getColor(color, t * BEZ_T[i]);
 
-      mFadeColorMap.get(i).put(name, c);
+      mFadeColorMap.get(i).add(name, c);
 
       // t += d;
     }
+    
+    return this;
   }
 
-  public void setFadeColor(String name, Color color1, Color color2) {
+  public FadeAnimation setFadeColor(String name, Color color1, Color color2) {
     // We need to reverse the color map because we are using the
     // transparent fade logic. This means that the default is to start
     // in the transparent state (the last step) and work backwards to
-    // opaque once the animation begins. Therefore with a a color map,
+    // opaque once the animation begins. Therefore with a color map,
     // the last color needs to be the starting color.
     List<ColorMapColor> colorMap = ColorMap
-        .createTwoColorMap(color1, color2, STEPS, true);
+        .createTwoColorMap(color1, color2, STEPS, false);
 
     for (int i = 0; i < STEPS; ++i) {
-      mFadeColorMap.get(i).put(name, colorMap.get(i));
+      mFadeColorMap.get(i).add(name, colorMap.get(i));
     }
+    
+    return this;
   }
 
   public Color getFadeColor(String name) {
@@ -131,7 +139,7 @@ public class FadeAnimation extends EasingAnimation {
    *
    * @return the fade color map
    */
-  public Map<String, Color> getFadeColorMap() {
+  public NamedColors getFadeColorMap() {
     return getFadeColorMap(mStep);
   }
 
@@ -141,15 +149,15 @@ public class FadeAnimation extends EasingAnimation {
    * @param step the step
    * @return the fade color map
    */
-  public Map<String, Color> getFadeColorMap(int step) {
+  public NamedColors getFadeColorMap(int step) {
     return mFadeColorMap.get(step);
   }
   
-  public Map<String, Color> getToFadeColorMap() {
+  public NamedColors getToFadeColorMap() {
     return getFadeColorMap(MAX_STEP_INDEX);
   }
   
-  public Map<String, Color> getFromFadeColorMap() {
+  public NamedColors getFromFadeColorMap() {
     return getFadeColorMap(0);
   }
   
@@ -174,14 +182,14 @@ public class FadeAnimation extends EasingAnimation {
     // mTrans = Mathematics.bound(mTrans - MD, 0, 1);
     // mCurrentStep = Mathematics.bound(mCurrentStep - 1, 0, STEPS);
 
-    setStep(mStep - 1);
+    setStep(mStep + 1);
   }
 
   public void fadeOut() {
     // mTrans = Mathematics.bound(mTrans + MD, 0, 1);
     // mCurrentStep = Mathematics.bound(mCurrentStep + 1, 0, STEPS);
 
-    setStep(mStep + 1);
+    setStep(mStep - 1);
   }
 
   /**
@@ -199,12 +207,7 @@ public class FadeAnimation extends EasingAnimation {
 
   }
 
-  @Override
-  public void reset() {
-    mStep = MAX_STEP_INDEX;
-  }
-
   public void opaque() {
-    mStep = 0;
+    mStep = MAX_STEP_INDEX;
   }
 }

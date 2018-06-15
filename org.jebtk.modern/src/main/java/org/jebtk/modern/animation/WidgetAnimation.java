@@ -49,4 +49,8 @@ public abstract class WidgetAnimation implements Animation {
   public String getName() {
     return "widget";
   }
+
+  public void bindChildren() {
+    // Do nothing
+  }
 }

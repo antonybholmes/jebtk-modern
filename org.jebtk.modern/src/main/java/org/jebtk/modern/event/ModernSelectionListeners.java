@@ -51,6 +51,7 @@ public class ModernSelectionListeners
    * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
    * addSelectionListener (org.abh.lib.ui.modern.event.ModernSelectionListener)
    */
+  @Override
   public void addSelectionListener(ModernSelectionListener l) {
     mListeners.add(l);
   }
@@ -62,19 +63,31 @@ public class ModernSelectionListeners
    * removeSelectionListener(org.abh.lib.ui.modern.event.
    * ModernSelectionListener)
    */
+  @Override
   public void removeSelectionListener(ModernSelectionListener l) {
     mListeners.remove(l);
   }
 
   /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
-   * fireSelectionChanged (org.abh.lib.event.ChangeEvent)
-   */
+  @Override
   public void fireSelectionChanged(ChangeEvent e) {
     for (ModernSelectionListener l : mListeners) {
       l.selectionChanged(e);
+    }
+  }
+  */
+  
+  @Override
+  public void fireSelectionAdded(ChangeEvent e) {
+    for (ModernSelectionListener l : mListeners) {
+      l.selectionAdded(e);
+    }
+  }
+  
+  @Override
+  public void fireSelectionRemoved(ChangeEvent e) {
+    for (ModernSelectionListener l : mListeners) {
+      l.selectionRemoved(e);
     }
   }
 }

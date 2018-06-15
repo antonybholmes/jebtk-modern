@@ -25,7 +25,9 @@
     <property name="background-color" value="colors.material.dialog.button.outline" />
   </class>
   
-  
+  <class name="check-switch">
+    <property name="background-color" value="colors.material.line" />
+  </class>
 
 	<class name="primary-dialog-button">
 		<property name="border-color" value="colors.theme32.color-24" />
@@ -36,12 +38,22 @@
 		<property name="border-color" value="colors.material.dialog.button.outline" />
 		<property name="background-color" value="white" />
 	</class>
+	
+	<class name="checkbox">
+    <property name="background-color" value="colors.theme32.color-16" />
+  </class>
+  
+
 
 	<keyframe index="to">
 		<class name="primary-dialog-button">
 			<property name="border-color" value="colors.theme32.color-28" />
 			<property name="background-color" value="colors.theme32.color-24" />
 		</class>
+		
+		<class name="checkbox">
+      <property name="background-color" value="colors.theme32.color-20" />
+    </class>
 		
 		<class name="content-outline">
 			<property name="border-color" value="colors.material.dialog.button.highlight" />

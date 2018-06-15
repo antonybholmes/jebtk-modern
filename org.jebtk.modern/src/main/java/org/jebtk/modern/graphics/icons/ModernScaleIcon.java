@@ -152,7 +152,7 @@ public class ModernScaleIcon extends ModernIcon {
 
     Graphics2D g2 = resizedImage.createGraphics();
 
-    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     try {
       g2Temp.drawImage(image, 0, 0, w, h, null);

@@ -29,6 +29,8 @@ package org.jebtk.modern.scrollpane;
 
 import java.awt.Component;
 
+import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.dataview.ModernDataSelection;
 import org.jebtk.modern.table.ModernTable;
 
@@ -69,6 +71,6 @@ public class ModernTableScrollerV extends ModernTableScroller {
     // width
     // + " " + p);
 
-    scrollBar.incrementNormalizedScrollPosition(p); // .setNormalizedScrollPosition(p);
+    scrollBar.incNormalizedScrollPosition(p); // .setNormalizedScrollPosition(p);
   }
 }

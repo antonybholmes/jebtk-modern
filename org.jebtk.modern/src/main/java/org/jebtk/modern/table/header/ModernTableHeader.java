@@ -104,7 +104,12 @@ public class ModernTableHeader extends ModernScrollPaneHeader
    * abh. lib.event.ChangeEvent)
    */
   @Override
-  public void selectionChanged(ChangeEvent e) {
+  public void selectionAdded(ChangeEvent e) {
+    repaint();
+  }
+  
+  @Override
+  public void selectionRemoved(ChangeEvent e) {
     repaint();
   }
 

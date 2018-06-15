@@ -40,7 +40,7 @@ public class ButtonFillAnimation extends HoverFadeAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     if (widget.isEnabled()) {
-      IntRect rect = widget.getInternalRect();
+      IntRect rect = widget.getRect(); //getInternalRect();
 
       fill(g2,
           rect.getX(),

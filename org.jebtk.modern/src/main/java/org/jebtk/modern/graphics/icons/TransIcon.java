@@ -54,7 +54,7 @@ public class TransIcon extends ModernIcon {
   public TransIcon(ModernIcon icon, float alpha) {
     mBufferedImage = ImageUtils.createImage(icon.getWidth(), icon.getHeight());
 
-    Graphics2D g2Temp = ImageUtils.createAAGraphics(mBufferedImage);
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(mBufferedImage);
 
     try {
       g2Temp.setComposite(

@@ -525,7 +525,7 @@ public abstract class ModernWidget extends ModernComponent
    */
   @Override
   public void drawBackground(Graphics2D g2) {
-    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     try {
       drawBackgroundAA(g2Temp);
@@ -575,7 +575,7 @@ public abstract class ModernWidget extends ModernComponent
    * @param g2 the g2
    */
   public void drawForegroundAAText(Graphics2D g2) {
-    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     try {
       drawForegroundAA(g2Temp);
@@ -595,7 +595,7 @@ public abstract class ModernWidget extends ModernComponent
 
   /*
    * @Override public void drawBackground(Graphics2D g2) { Graphics2D g2Temp =
-   * ImageUtils.createAAGraphics(g2);
+   * ImageUtils.createAATextGraphics(g2);
    * 
    * try { drawBackgroundAA(g2Temp); } finally { g2Temp.dispose(); } }
    */

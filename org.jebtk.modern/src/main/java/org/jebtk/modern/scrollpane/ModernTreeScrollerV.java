@@ -58,6 +58,6 @@ public class ModernTreeScrollerV extends ModernTreeScroller {
     // Normalize the height of the table row
     double p = scrollBar.normalize(h, notches); // * notches;
 
-    scrollBar.incrementNormalizedScrollPosition(p); // .setNormalizedScrollPosition(p);
+    scrollBar.incNormalizedScrollPosition(p); // .setNormalizedScrollPosition(p);
   }
 }

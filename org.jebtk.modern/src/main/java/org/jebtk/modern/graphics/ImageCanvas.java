@@ -107,7 +107,7 @@ public class ImageCanvas extends ModernCanvas {
     image = new BufferedImage(size.width, size.height,
         BufferedImage.TYPE_INT_ARGB);
 
-    Graphics2D g2Temp = ImageUtils.createAAGraphics(image);
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(image);
 
     try {
       mCanvas.drawForegroundAA(g2Temp);
@@ -136,7 +136,7 @@ public class ImageCanvas extends ModernCanvas {
    * Graphics2D)
    */
   @Override
-  public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
+  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
     g2.drawImage(image, 0, 0, null);
   }
 }

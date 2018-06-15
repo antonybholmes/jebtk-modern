@@ -110,6 +110,9 @@ public class ModernLineBorderPanel extends ModernWidget {
   private void init() {
     setBorder(ModernWidget.TWO_PIXEL_BORDER); // BorderService.getInstance().createBorder(2));
 
+    addStyleClass("content", "content-outline");
+    //addStyleClass("content-outline");
+    
     setAnimations("button-outline");
   }
 

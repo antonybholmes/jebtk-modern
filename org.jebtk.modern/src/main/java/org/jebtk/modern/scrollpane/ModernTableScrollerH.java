@@ -62,7 +62,7 @@ public class ModernTableScrollerH extends ModernTableScroller {
 
     double p = scrollBar.normalize(width) * Math.signum(notches); // * notches;
 
-    scrollBar.incrementNormalizedScrollPosition(p);
+    scrollBar.incNormalizedScrollPosition(p);
 
   }
 }

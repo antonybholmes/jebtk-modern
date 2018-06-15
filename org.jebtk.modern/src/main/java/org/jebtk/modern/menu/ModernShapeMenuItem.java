@@ -98,7 +98,7 @@ public class ModernShapeMenuItem extends ModernIconMenuItem {
     g2.setColor(getForeground());
     g2.drawString(mText1, x, p.y);
 
-    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     try {
       g2Temp.translate(PADDING, PADDING);

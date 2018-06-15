@@ -23,11 +23,12 @@ import java.util.List;
 import javax.swing.Box;
 
 import org.jebtk.core.collections.CollectionUtils;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.ComponentTable;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButton;
+import org.jebtk.modern.button.ModernOutlineButton;
 import org.jebtk.modern.dialog.ModernDialogStatus;
 import org.jebtk.modern.dialog.ModernMessageDialog;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -47,11 +48,11 @@ public class ChooseFilesPanel extends ModernComponent {
   private static final long serialVersionUID = 1L;
 
   /** The m add button. */
-  private ModernButton mAddButton = new ModernButton("Add",
+  private ModernButton mAddButton = new ModernOutlineButton("Add",
       AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
   /** The m delete button. */
-  private ModernButton mDeleteButton = new ModernButton("Delete",
+  private ModernButton mDeleteButton = new ModernOutlineButton("Remove",
       AssetService.getInstance().loadIcon(DeleteVectorIcon.class, 16));
 
   /** The m filters. */
@@ -150,7 +151,7 @@ public class ChooseFilesPanel extends ModernComponent {
    */
   private void delete() {
     if (ModernMessageDialog.createOkCancelWarningDialog(mParent,
-        "Are you sure you want to delete the selected files?") == ModernDialogStatus.OK) {
+        "Are you sure you want to remove the selected files?") == ModernDialogStatus.OK) {
       mComponentTable.delete();
     }
   }

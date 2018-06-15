@@ -108,7 +108,7 @@ public abstract class TimerAnimation extends WidgetAnimation {
     mStep = 0;
   }
 
-  public int getCurrentStep() {
+  public int getStep() {
     return mStep;
   }
   

@@ -28,11 +28,11 @@
 package org.jebtk.modern.button;
 
 import java.awt.Dimension;
+import java.awt.Graphics2D;
 
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.CheckVectorIcon;
-import org.jebtk.modern.graphics.icons.DisabledCheckedVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.UnCheckedVectorIcon;
 
@@ -43,7 +43,7 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
 
   private static final long serialVersionUID = 1L;
 
-  public static int ICON_SIZE = 16;
+  public static int ICON_SIZE = 18;
 
   public static final ModernIcon CHECK_ICON = AssetService.getInstance()
       .loadIcon(CheckVectorIcon.class, ICON_SIZE);
@@ -55,10 +55,6 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   /** The Constant CHECKED_ICON. */
   // public static final ModernIcon CHECKED_ICON = UIService.getInstance()
   // .loadIcon(CheckedVectorIcon.class, ICON_SIZE);
-
-  /** The Constant DISABLED_CHECKED_ICON. */
-  public static final ModernIcon DISABLED_CHECKED_ICON = AssetService.getInstance()
-      .loadIcon(DisabledCheckedVectorIcon.class, ICON_SIZE);
 
   /**
    * Instantiates a new modern check box.
@@ -143,7 +139,18 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   }
 
   private void setup() {
+    addStyleClass("checkbox");
     setAnimations("checkbox");
+  }
+  
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    if (mText1 != null) {
+      int x = mInternalRect.getX() + ICON_SIZE + PADDING;
+
+      g2.setColor(isEnabled() ? TEXT_COLOR : ALT_TEXT_COLOR);
+      g2.drawString(mText1, x, getTextYPosCenter(g2, getHeight()));
+    }
   }
 
   /*

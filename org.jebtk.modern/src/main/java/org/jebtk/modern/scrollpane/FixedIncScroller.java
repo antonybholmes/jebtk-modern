@@ -59,6 +59,6 @@ public class FixedIncScroller extends Scroller {
 
     double p = scrollBar.normalize(mInc) * Math.signum(notches); // * notches;
 
-    scrollBar.incrementNormalizedScrollPosition(p); // .setNormalizedScrollPosition(p);
+    scrollBar.incNormalizedScrollPosition(p); // .setNormalizedScrollPosition(p);
   }
 }

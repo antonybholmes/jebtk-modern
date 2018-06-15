@@ -202,19 +202,18 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
    */
   private class SelectionEvents implements ModernSelectionListener {
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.
-     * abh. lib.event.ChangeEvent)
-     */
     @Override
-    public void selectionChanged(ChangeEvent e) {
+    public void selectionAdded(ChangeEvent e) {
       repaint();
-
-      mSelectionListeners
-          .fireSelectionChanged(new ChangeEvent(this, e.getMessage()));
+      
+      mSelectionListeners.fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
+    }
+    
+    @Override
+    public void selectionRemoved(ChangeEvent e) {
+      repaint();
+      
+      mSelectionListeners.fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));
     }
   }
 
@@ -498,7 +497,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
      * @see java.awt.event.KeyListener#keyTyped(java.awt.event.KeyEvent)
      */
     @Override
-    public void keyTyped(KeyEvent arg0) {
+    public void keyTyped(KeyEvent e) {
       // TODO Auto-generated method stub
 
     }
@@ -970,7 +969,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
    */
 
   @Override
-  public void drawTranslatedCanvas(Graphics2D g2, DrawingContext context) {
+  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
     if (mDragEnabled && mDragTo != null && mDragTo.insertBetween) {
 
       g2 = ImageUtils.clone(g2);
@@ -1043,8 +1042,8 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
    *
    * @return the selected indexes
    */
-  public List<Integer> getSelectedIndexes() {
-    return mSelectionModel.getSelectedIndices();
+  public Iterable<Integer> getSelectedIndexes() {
+    return mSelectionModel;
   }
 
   /**

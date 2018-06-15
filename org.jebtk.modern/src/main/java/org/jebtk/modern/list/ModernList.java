@@ -290,8 +290,13 @@ public class ModernList<T> extends ModernVertCanvas
      * abh. lib.event.ChangeEvent)
      */
     @Override
-    public void selectionChanged(ChangeEvent e) {
-      fireSelectionChanged(new ChangeEvent(mList));
+    public void selectionAdded(ChangeEvent e) {
+      fireSelectionAdded(new ChangeEvent(mList));
+    }
+    
+    @Override
+    public void selectionRemoved(ChangeEvent e) {
+      fireSelectionRemoved(new ChangeEvent(mList));
     }
   }
 
@@ -783,17 +788,18 @@ public class ModernList<T> extends ModernVertCanvas
     mSelectionListeners.removeSelectionListener(l);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
-   * fireSelectionChanged (org.abh.lib.event.ChangeEvent)
-   */
   @Override
-  public void fireSelectionChanged(ChangeEvent e) {
+  public void fireSelectionAdded(ChangeEvent e) {
     repaint();
-
-    mSelectionListeners.fireSelectionChanged(e);
+    
+    mSelectionListeners.fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
+  }
+  
+  @Override
+  public void fireSelectionRemoved(ChangeEvent e) {
+    repaint();
+    
+    mSelectionListeners.fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));
   }
 
   /**

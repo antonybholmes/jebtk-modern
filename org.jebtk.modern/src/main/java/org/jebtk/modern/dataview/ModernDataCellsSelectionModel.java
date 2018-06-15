@@ -192,18 +192,6 @@ public class ModernDataCellsSelectionModel extends ModernSelectionListeners
         && mColumnsSelectionModel.contains(column);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernSelectionListener#selectionChanged(org.
-   * abh. lib.event.ChangeEvent)
-   */
-  @Override
-  public void selectionChanged(ChangeEvent e) {
-    fireSelectionChanged(new ChangeEvent(this));
-  }
-
   /**
    * Sets the modern selection.
    *
@@ -239,11 +227,14 @@ public class ModernDataCellsSelectionModel extends ModernSelectionListeners
     mColumnsSelectionModel.add(c);
   }
 
-  /**
-   * Fire selection changed.
-   */
-  public void fireSelectionChanged() {
-    fireSelectionChanged(new ChangeEvent(this));
+  @Override
+  public void selectionAdded(ChangeEvent e) {
+    fireSelectionAdded(new ChangeEvent(this));
+  }
+
+  @Override
+  public void selectionRemoved(ChangeEvent e) {
+    fireSelectionRemoved(new ChangeEvent(this));
   }
 
 }

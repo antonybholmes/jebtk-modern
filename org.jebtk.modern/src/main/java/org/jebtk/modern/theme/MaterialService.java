@@ -59,11 +59,11 @@ public class MaterialService {
      * Instantiates a new material fonts.
      */
     public MaterialFonts() {
-      put("text", ThemeService.loadFont("theme.material.fonts.text"));
-      put("bold", ThemeService.loadFont("theme.material.fonts.bold"));
-      put("title", ThemeService.loadFont("theme.material.fonts.title"));
-      put("subtext", ThemeService.loadFont("theme.material.fonts.subtext"));
-      put("sub-heading",
+      add("text", ThemeService.loadFont("theme.material.fonts.text"));
+      add("bold", ThemeService.loadFont("theme.material.fonts.bold"));
+      add("title", ThemeService.loadFont("theme.material.fonts.title"));
+      add("subtext", ThemeService.loadFont("theme.material.fonts.subtext"));
+      add("sub-heading",
           ThemeService.loadFont("theme.material.fonts.sub-heading"));
     }
 
@@ -104,83 +104,83 @@ public class MaterialService {
      * Instantiates a new material colors.
      */
     public MaterialColors() {
-      put("ribbon",
+      add("ribbon",
           ThemeService.getInstance().getColors().getTheme32(28));
-      put("ribbon-highlight",
+      add("ribbon-highlight",
           ColorUtils.getTransparentColor(get("ribbon"), 0.92));
-      put("ribbon-selected",
+      add("ribbon-selected",
           ColorUtils.getTransparentColor(get("ribbon"), 0.87));
-      put("ribbon-pressed",
+      add("ribbon-pressed",
           ColorUtils.getTransparentColor(get("ribbon"), 0.82));
 
       // ColorUtils.getTransparentColor75(Ribbon.BAR_BACKGROUND);
 
       // put("button", ColorUtils.getTransparentColor(get("ribbon"), 0.75));
 
-      put("ribbon-menu-font",
+      add("ribbon-menu-font",
           ThemeService.getInstance().getColors().getGray32(20));
-      put("ribbon-menu-font-highlight",
+      add("ribbon-menu-font-highlight",
           ThemeService.getInstance().getColors().getGray32(25));
-      put("ribbon-menu-font-selected", ModernWidget.TEXT_COLOR);
+      add("ribbon-menu-font-selected", ModernWidget.TEXT_COLOR);
 
-      put("card-border",
+      add("card-border",
           ColorUtils.getTransparentColor25(ModernWidget.LIGHT_LINE_COLOR));
 
-      put("theme-highlight",
+      add("theme-highlight",
           ThemeService.getInstance().getColors().getTheme32(14));
 
-      put("theme-selected",
+      add("theme-selected",
           ThemeService.getInstance().getColors().getTheme32(16));
 
-      put("theme-outline",
+      add("theme-outline",
           ThemeService.getInstance().getColors().getTheme32(18));
 
-      put("gray-highlight",
+      add("gray-highlight",
           ThemeService.getInstance().getColors().getGray32(4));
 
-      put("gray-selected",
+      add("gray-selected",
           ThemeService.getInstance().getColors().getGray32(8));
 
-      put("gray-outline",
+      add("gray-outline",
           ThemeService.getInstance().getColors().getGray32(15));
 
-      put("dialog.button.fill", Color.WHITE);
+      add("dialog.button.fill", Color.WHITE);
 
-      put("dialog.button.gradient.start",
+      add("dialog.button.gradient.start",
           ThemeService.getInstance().getColors().getGray32(2));
 
-      put("dialog.button.gradient.end",
+      add("dialog.button.gradient.end",
           ThemeService.getInstance().getColors().getGray32(3));
 
-      put("dialog.button.outline",
+      add("dialog.button.outline",
           ThemeService.getInstance().getColors().getGray32(5));
 
-      put("dialog.button.highlight",
+      add("dialog.button.highlight",
           ThemeService.getInstance().getColors().getGray32(10));
 
-      put("color.dialog.button.gradient.start",
+      add("color.dialog.button.gradient.start",
           ThemeService.getInstance().getColors().getTheme32(16));
 
-      put("color.dialog.button.gradient.end",
+      add("color.dialog.button.gradient.end",
           ThemeService.getInstance().getColors().getTheme32(18));
 
-      put("color.dialog.button.outline",
+      add("color.dialog.button.outline",
           ThemeService.getInstance().getColors().getTheme32(20));
 
-      put("color.dialog.button.highlight",
+      add("color.dialog.button.highlight",
           ThemeService.getInstance().getColors().getTheme32(27));
 
-      put("window.background",
+      add("window.background",
           ThemeService.getInstance().getColors().getGray32(0));
 
-      put("window.background.gradient.start", get("window.background"));
+      add("window.background.gradient.start", get("window.background"));
 
-      put("window.background.gradient.end",
+      add("window.background.gradient.end",
           ThemeService.getInstance().getColors().getGray32(1));
 
-      put("line", ThemeService.getInstance().getColors().getGray32(7));
+      add("line", ThemeService.getInstance().getColors().getGray32(7));
 
-      put("alt.text", ThemeService.getInstance().getColors().getGray32(20));
+      add("alt.text", ThemeService.getInstance().getColors().getGray32(20));
     }
 
     public Color altText() {
@@ -194,7 +194,7 @@ public class MaterialService {
      * Instantiates a new material colors.
      */
     public IntConstants() {
-      put("corner-radius",
+      add("corner-radius",
           SettingsService.getInstance().getInt("theme.constants.corner-radius"));
     }
 

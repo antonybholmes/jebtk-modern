@@ -30,6 +30,7 @@ import javax.swing.Box;
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.button.ModernCheckBox;
+import org.jebtk.modern.button.ModernOutlineButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickEventProducer;
 import org.jebtk.modern.event.ModernClickListener;
@@ -231,7 +232,7 @@ public class ComponentTable extends ModernComponent
     private ModernCheckBox mCheckSelected = new ModernCheckBox();
 
     /** The m delete button. */
-    private ModernButton mDeleteButton = new ModernButton(
+    private ModernButton mDeleteButton = new ModernOutlineButton(
         AssetService.getInstance().loadIcon(DeleteVectorIcon.class, 16));
 
     /** The m listeners. */
@@ -249,7 +250,7 @@ public class ComponentTable extends ModernComponent
 
       Box box = HBox.create();
       box.add(mCheckSelected);
-      box.add(UI.createHGap(PADDING));
+      //box.add(UI.createHGap(PADDING));
       setLeft(box);
 
       box = HBox.create();
@@ -348,11 +349,11 @@ public class ComponentTable extends ModernComponent
   private ComponentList mBox = new ComponentList();
 
   /** The m move up button. */
-  private ModernButton mMoveUpButton = new ModernButton(
+  private ModernButton mMoveUpButton = new ModernOutlineButton(
       AssetService.getInstance().loadIcon(ArrowUpVectorIcon.class, 16));
 
   /** The m move down button. */
-  private ModernButton mMoveDownButton = new ModernButton(
+  private ModernButton mMoveDownButton = new ModernOutlineButton(
       AssetService.getInstance().loadIcon(ArrowDownVectorIcon.class, 16));
 
   /**
@@ -465,8 +466,6 @@ public class ComponentTable extends ModernComponent
 
     for (CContainer c : ret) {
       int index = mCMap.get(c);
-
-      System.err.println("ret " + index);
 
       mCMap.remove(c);
       mOrderMap.remove(index);

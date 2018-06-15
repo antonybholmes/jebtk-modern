@@ -2,7 +2,6 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
@@ -11,7 +10,7 @@ public class CheckBoxHighlightAnimation extends ButtonFillAnimation {
   public CheckBoxHighlightAnimation(ModernWidget button) {
     super((ModernClickWidget) button);
 
-    setFadeColor("fill", Ribbon.BAR_BACKGROUND);
+    setFadeColor("fill", button.getFromKeyFrame().getColor("background-color"));
   }
 
   @Override

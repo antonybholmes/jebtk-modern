@@ -93,7 +93,8 @@ public class RibbonCheckButton extends ModernCheckButton {
   }
 
   private void setup() {
-    setAnimations("ribbon-button");
+    addToStyleClass("dialog-button");
+    //setAnimations("ribbon-button");
   }
 
   /*

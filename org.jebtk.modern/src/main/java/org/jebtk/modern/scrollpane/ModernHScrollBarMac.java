@@ -67,7 +67,7 @@ public class ModernHScrollBarMac extends ModernHScrollBar {
 
   /*
    * @Override public void paintScrollBarBase(Graphics2D g2) { Graphics2D g2Temp
-   * = ImageUtils.createAAGraphics(g2);
+   * = ImageUtils.createAATextGraphics(g2);
    * 
    * int rounding = getInternalFixedDimension();
    * 

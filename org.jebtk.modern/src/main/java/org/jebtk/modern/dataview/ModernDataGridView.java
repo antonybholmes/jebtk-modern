@@ -205,7 +205,7 @@ public class ModernDataGridView extends ModernData {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
     if (mModel == null) {
       return;
     }
@@ -215,19 +215,6 @@ public class ModernDataGridView extends ModernData {
     }
 
     createImage(g2);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvas#drawCanvasForeground(java.awt.
-   * Graphics2D)
-   */
-  @Override
-  public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
-    // TODO Auto-generated method stub
-
   }
 
   /**
@@ -246,7 +233,7 @@ public class ModernDataGridView extends ModernData {
 
     // translate to the start of the rendering rectangle so that we skip
     // all non visible cells
-    translate(g2Table);
+    //translate(g2Table);
 
     for (int i = visibleCells.getStartRow(); i <= visibleCells
         .getEndRow(); ++i) {

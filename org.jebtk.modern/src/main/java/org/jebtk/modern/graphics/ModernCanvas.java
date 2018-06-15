@@ -57,10 +57,10 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  *
  */
 public class ModernCanvas extends ModernFocusableWidget
-    implements CanvasEventProducer, CanvasMouseEventProducer,
-    CanvasMouseWheelEventProducer, CanvasMouseListener,
-    CanvasMouseWheelListener, CanvasKeyEventProducer, CanvasKeyListener,
-    CanvasCursorEventProducer {
+implements CanvasEventProducer, CanvasMouseEventProducer,
+CanvasMouseWheelEventProducer, CanvasMouseListener,
+CanvasMouseWheelListener, CanvasKeyEventProducer, CanvasKeyListener,
+CanvasCursorEventProducer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -138,7 +138,7 @@ public class ModernCanvas extends ModernFocusableWidget
   private ChangeEvent mBufferResized = null;
 
   /** The m cache view rect. */
-  protected IntRect mCacheViewRect;
+  protected Rectangle mCacheViewRect;
 
   /** The m buffered image. */
   protected BufferedImage mBufferedImage;
@@ -149,6 +149,8 @@ public class ModernCanvas extends ModernFocusableWidget
    * Internal cache of preferred size which can be different to the public
    */
   protected IntDim mAbsPrefSize = DEFAULT_SIZE;
+
+  private boolean mRasterEnabled = false;
 
   /**
    * The class MouseEvents.
@@ -394,6 +396,10 @@ public class ModernCanvas extends ModernFocusableWidget
     updateCanvasSize();
 
     fireCanvasChanged();
+  }
+  
+  public void setRastorMode(boolean enabled) {
+    mRasterEnabled = enabled;
   }
 
   /**
@@ -644,9 +650,7 @@ public class ModernCanvas extends ModernFocusableWidget
   public void updateViewRectangle(IntRect rect) {
     mIntViewRect = rect;
 
-    System.err.println("scroll to " + rect);
-
-    scrollRectToVisible(IntRect.toRectangle(rect));
+    scrollRectToVisible(rect);
 
     /*
      * mViewRect = new IntRect(mIntViewRect.getX() + getInsets().left,
@@ -669,7 +673,7 @@ public class ModernCanvas extends ModernFocusableWidget
    *
    * @return the int view rectangle
    */
-  public IntRect getIntViewRectangle() {
+  public IntRect getIntViewRect() {
     return mIntViewRect;
   }
 
@@ -714,16 +718,7 @@ public class ModernCanvas extends ModernFocusableWidget
   // Do nothing
   // }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.widget.ModernWidget#drawForegroundAAText(java.awt.
-   * Graphics2D)
-   */
-  @Override
-  public void drawForegroundAAText(Graphics2D g2) {
-    drawTranslatedCanvas(g2);
-  }
+
 
   /*
    * (non-Javadoc)
@@ -738,62 +733,23 @@ public class ModernCanvas extends ModernFocusableWidget
   }
 
   /*
-   * public void drawClippedCanvas(Graphics2D g2) { Graphics2D g2Temp =
-   * (Graphics2D)g2.create();
+   * (non-Javadoc)
    * 
-   * // adjust where the canvas is rendered
-   * 
-   * try { g2Temp.setClip(getInsets().left, getInsets().top,
-   * mInternalRect.getW(), mInternalRect.getH());
-   * 
-   * drawTranslatedCanvas(g2Temp); } finally { g2Temp.dispose(); } }
+   * @see org.abh.common.ui.widget.ModernWidget#drawForegroundAAText(java.awt.
+   * Graphics2D)
    */
-
-  /**
-   * Draw translated canvas.
-   *
-   * @param g2 the g 2
-   */
-  public void drawTranslatedCanvas(Graphics2D g2) {
-    drawTranslatedCanvas(g2, DrawingContext.SCREEN);
+  @Override
+  public void drawForegroundAAText(Graphics2D g2) {
+    rasterCanvas(g2);
   }
 
   /**
    * Draw translated canvas.
    *
    * @param g2 the g 2
-   * @param context the context
    */
-  public void drawTranslatedCanvas(Graphics2D g2, DrawingContext context) {
-    drawCanvasForeground(g2, context);
-
-    /*
-     * Graphics2D g2Temp = ImageUtils.clone(g2);
-     * 
-     * // adjust where the canvas is rendered
-     * 
-     * try { //canvasBorderTranslate(g2Temp); canvasTranslate(g2Temp);
-     * 
-     * drawCanvasForeground(g2Temp, context); } finally { g2Temp.dispose(); }
-     */
-  }
-
-  // public void canvasBorderTranslate(Graphics2D g2Temp) {
-  // g2Temp.translate(getInsets().left, getInsets().top);
-  // }
-
-  /**
-   * Should translate the graphics context to the current view window
-   * coordinates.
-   *
-   * @param g2Temp the g 2 temp
-   */
-  public void canvasTranslate(Graphics2D g2Temp) {
-    Rectangle r = getVisibleRect();
-
-    // System.err.println("translate " + r);
-
-    g2Temp.translate(-r.x, -r.y);
+  public void rasterCanvas(Graphics2D g2) {
+    rasterCanvas(g2, DrawingContext.UI);
   }
 
   /**
@@ -804,9 +760,9 @@ public class ModernCanvas extends ModernFocusableWidget
    * @param g2 the g2
    * @param context the context
    */
-  public void drawCanvasForeground(Graphics2D g2, DrawingContext context) {
-    cacheCanvas(g2, context);
-  }
+  //public void drawTranslatedCanvas(Graphics2D g2, DrawingContext context) {
+  // cacheCanvas(g2, context);
+  //}
 
   /**
    * Cache canvas.
@@ -814,31 +770,44 @@ public class ModernCanvas extends ModernFocusableWidget
    * @param g2 the g 2
    * @param context the context
    */
-  public void cacheCanvas(Graphics2D g2, DrawingContext context) {
-    if (context == DrawingContext.PRINT) {
-      drawCanvas(g2, context);
-    } else {
+  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
+    if (context == DrawingContext.UI) {
+
       // Create an image version of the canvas and draw that to spped
       // up operations
-      if (mBufferedImage == null || mCacheViewRect == null
-          || !mCacheViewRect.equals(getViewRect())) {
-        // The canvas need only be the size of the available display
-        mBufferedImage = ImageUtils.createImage(getSize());
 
-        Graphics2D g2Temp = ImageUtils.createAAGraphics(mBufferedImage);
+      if (mRasterEnabled) {
 
-        try {
-          canvasTranslate(g2Temp);
-          drawCanvas(g2Temp, context);
-        } finally {
-          g2Temp.dispose();
+        Rectangle vr = getVisibleRect();
+
+        if (mBufferedImage == null || mCacheViewRect == null
+            || !mCacheViewRect.equals(vr)) {
+          // The canvas need only be the size of the available display
+          mBufferedImage = ImageUtils.createImage(getSize());
+
+          Graphics2D g2Temp = ImageUtils.createAATextGraphics(mBufferedImage);
+
+          try {
+            //translate(g2Temp);
+            zoomCanvas(g2Temp, context);
+          } finally {
+            g2Temp.dispose();
+          }
+
+          mCacheViewRect = vr;
         }
 
-        mCacheViewRect = getViewRect();
+        g2.drawImage(mBufferedImage, 0, 0, null);
+      } else {
+        zoomCanvas(g2, context);
       }
-
-      g2.drawImage(mBufferedImage, 0, 0, null);
+    } else {
+      drawCanvas(g2, context);
     }
+  }
+
+  public void zoomCanvas(Graphics2D g2, DrawingContext context) {
+    drawCanvas(g2, context);
   }
 
   /**
@@ -851,16 +820,30 @@ public class ModernCanvas extends ModernFocusableWidget
     // Do nothing
   }
 
+  /**
+   * Should translate the graphics context to the current view window
+   * coordinates.
+   *
+   * @param g2 the g 2 temp
+   */
+  //public void translate(Graphics2D g2) {
+  //  Rectangle r = getVisibleRect();
+  //
+  //  g2.translate(-r.x, -r.y);
+  // }
+
+
+
   public void setPreferredSize() {
     setPreferredSize(IntDim.toDimension(mAbsPrefSize));
   }
 
   public void setPreferredSize(IntDim d) {
-    mAbsPrefSize = d;
+    //mAbsPrefSize = d;
 
     setPreferredSize(IntDim.toDimension(d));
 
-    fireCanvasResized();
+    //fireCanvasResized();
   }
 
   @Override
@@ -891,7 +874,7 @@ public class ModernCanvas extends ModernFocusableWidget
    */
   public IntPos2D translateCoordinate(MouseEvent e) {
     return translateCoordinate(e.getX(), e.getY()); // translateCoordinate(e.getX(),
-                                                    // e.getY());
+    // e.getY());
   }
 
   /**
@@ -904,7 +887,7 @@ public class ModernCanvas extends ModernFocusableWidget
     IntPos2D p = e.getScaledPos();
 
     return translateCoordinate(p.getX(), p.getY()); // translateCoordinate(e.getX(),
-                                                    // e.getY());
+    // e.getY());
   }
 
   /**
