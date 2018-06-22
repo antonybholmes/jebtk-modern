@@ -17,8 +17,6 @@ package org.jebtk.modern.tabs;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.event.ComponentAdapter;
-import java.awt.event.ComponentEvent;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.animation.TranslateXAnimation;

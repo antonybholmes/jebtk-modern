@@ -31,8 +31,8 @@ import java.awt.Color;
 
 import javax.swing.Box;
 
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.dialog.ModernDialogStatus;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.menu.ModernIconMenuItem;

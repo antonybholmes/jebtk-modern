@@ -54,9 +54,9 @@ import javax.swing.SwingUtilities;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.core.text.TextUtils;
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.event.HighlightEvent;
 import org.jebtk.modern.event.HighlightEventProducer;

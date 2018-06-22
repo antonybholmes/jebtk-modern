@@ -22,8 +22,8 @@ import java.awt.event.ComponentEvent;
 
 import javax.swing.border.Border;
 
-import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.graphics.icons.CheveronRightVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 

@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.tabs;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;

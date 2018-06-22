@@ -18,8 +18,8 @@ package org.jebtk.modern.ribbon;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.WidgetAnimation;
-import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.DrawUIService;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**

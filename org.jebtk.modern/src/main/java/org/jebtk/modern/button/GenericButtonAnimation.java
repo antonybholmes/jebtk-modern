@@ -4,9 +4,9 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.animation.HoverFadeAnimation;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.RenderMode;
-import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 public abstract class GenericButtonAnimation extends HoverFadeAnimation {

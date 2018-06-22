@@ -19,8 +19,8 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.animation.TranslateAnimation;
 import org.jebtk.modern.button.ButtonPressedAnimation;
-import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.DrawUIService;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**

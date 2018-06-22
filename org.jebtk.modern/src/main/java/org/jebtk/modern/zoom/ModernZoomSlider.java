@@ -36,8 +36,8 @@ import javax.swing.Timer;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.button.ModernCircleButton;
 import org.jebtk.modern.graphics.icons.MinusVectorIcon;

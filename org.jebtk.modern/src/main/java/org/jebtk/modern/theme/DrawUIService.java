@@ -101,6 +101,9 @@ public class DrawUIService implements Iterable<String> {
     add(new RadioSelectedUI());
     
     add(new DialogButtonHighlightUI());
+    
+    
+    add(new FillUI());
   }
 
   public void add(DrawUI renderer) {

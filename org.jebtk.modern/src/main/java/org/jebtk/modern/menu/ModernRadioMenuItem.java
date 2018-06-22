@@ -29,8 +29,8 @@ package org.jebtk.modern.menu;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernRadioButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RadioButtonSelectedVectorIcon;

@@ -7,7 +7,6 @@ import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.icons.ModernMessageIcon;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.ribbon.RibbonHighlightTextAnimation;
-import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class HelpButtonHighlightAnimation extends ButtonFillAnimation {

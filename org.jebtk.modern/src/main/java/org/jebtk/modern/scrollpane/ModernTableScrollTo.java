@@ -38,13 +38,6 @@ public class ModernTableScrollTo {
 
   private ModernScrollPane mScrollPane;
 
-  /**
-   * Instantiates a new modern table selection scroll listener.
-   *
-   * @param table the table
-   * @param vScrollbar the v scrollbar
-   * @param hScrollbar the h scrollbar
-   */
   public ModernTableScrollTo(ModernScrollPane scrollPane) {
     mScrollPane = scrollPane;
   }
@@ -53,16 +46,27 @@ public class ModernTableScrollTo {
     ModernScrollBar vscroll = mScrollPane.getVScrollBar();
     ModernScrollBar hscroll = mScrollPane.getHScrollBar();
 
-    vscroll.setScrollPosition(normY(vscroll, rect.mY + 2 * rect.mH));
-    hscroll.setScrollPosition(normX(hscroll, rect.mX + 2 * rect.mW));
+    vscroll.setScrollPosition(scrollY(rect.mY + 2 * rect.mH));
+    hscroll.setScrollPosition(scrollX(rect.mX + 2 * rect.mW));
   }
   
-  private int normX(ModernScrollBar scrollbar, int d) {
-    return Math.max(0, d - mScrollPane.mViewport.getWidth()); //.getScrollDistance());
+  private int scrollX(int d) {
+    return scroll(mScrollPane.mViewport.getWidth(), d);
   }
   
-  private int normY(ModernScrollBar scrollbar, int d) {
-    System.err.println(" normY " + mScrollPane.mViewport.getHeight());
-    return Math.max(0, d - mScrollPane.mViewport.getHeight()); //.getScrollDistance());
+  private int scrollY(int d) {
+    return scroll(mScrollPane.mViewport.getHeight(), d);
+  }
+  
+  private static int scroll(int h, int d) {
+    // The view port must have positive size for the scroll to work
+    if (h < 1) {
+      return 0;
+    }
+    
+    //h = Math.max(0, h);
+    
+    System.err.println(" normY " + h);
+    return Math.max(0, d - h); //.getScrollDistance());
   }
 }

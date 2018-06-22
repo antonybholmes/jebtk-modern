@@ -30,8 +30,8 @@ package org.jebtk.modern.button;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RadioButtonSelectedVectorIcon;
 import org.jebtk.modern.graphics.icons.RadioButtonVectorIcon;
@@ -128,20 +128,21 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   }
 
   private void setup() {
+    addStyleClass("checkbox");
     setAnimations("radio-button");
   }
 
   /**
-   * Gets the text.
+   * Gets the button text.
    *
-   * @return the text
+   * @return the button text.
    */
   public String getText() {
     return mText1;
   }
 
   /**
-   * Sets the text.
+   * Sets the button text.
    *
    * @param text the new text
    */

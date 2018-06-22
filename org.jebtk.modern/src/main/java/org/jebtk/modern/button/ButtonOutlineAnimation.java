@@ -3,6 +3,7 @@ package org.jebtk.modern.button;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
+import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
@@ -33,6 +34,7 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
       IntRect rect = widget.getRect(); //getInternalRect();
 
       outline(g2,
+          widget,
           rect.getX(),
           rect.getY(),
           rect.getW(),
@@ -41,6 +43,7 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
   }
 
   public void outline(Graphics2D g2,
+      ModernComponent c,
       int x,
       int y,
       int w,
@@ -49,7 +52,7 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
     // return;
     // }
 
-    DrawUIService.getInstance().getRenderer("button-outline").draw(g2, x, y, w, h, getFadeColor("outline"));
+    DrawUIService.getInstance().getRenderer("button-outline").draw(g2, c, x, y, w, h, getFadeColor("outline"));
 
     //g2.setColor(getFadeColor("outline"));
 

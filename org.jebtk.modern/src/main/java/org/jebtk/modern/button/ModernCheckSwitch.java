@@ -97,7 +97,7 @@ public class ModernCheckSwitch extends CheckBox {
   public ModernCheckSwitch(String text, boolean selected) {
     setText(text);
 
-    addFromStyleClass("check-switch");
+    addStyleClass("checkbox", "content-outline");
     
     setAnimations("check-switch");
 

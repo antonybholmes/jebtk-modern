@@ -15,8 +15,8 @@
  */
 package org.jebtk.modern.ribbon;
 
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.CheveronUpVectorIcon;
 
 /**

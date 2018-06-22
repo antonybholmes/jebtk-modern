@@ -35,8 +35,8 @@ import javax.swing.JTextArea;
 
 import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.clipboard.ClipboardService;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;

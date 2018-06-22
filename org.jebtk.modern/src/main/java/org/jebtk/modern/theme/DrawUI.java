@@ -163,7 +163,7 @@ public abstract class DrawUI implements NameProperty {
    */
   public static StyleProperties getStyle(ModernComponent c) {
     if (c != null) {
-      return c.getKeyFrame();
+      return c.getFromKeyFrame();
     } else {
       // Return the reference style class if all else fails
       return KeyFramesService.getInstance().getStyleClass("widget");

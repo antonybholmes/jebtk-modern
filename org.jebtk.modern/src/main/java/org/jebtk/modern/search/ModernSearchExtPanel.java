@@ -36,8 +36,8 @@ import javax.swing.Box;
 
 import org.jebtk.core.text.Join;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickEventProducer;

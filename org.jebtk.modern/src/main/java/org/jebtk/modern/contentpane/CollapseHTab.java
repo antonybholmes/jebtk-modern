@@ -32,9 +32,9 @@ import java.awt.BorderLayout;
 import javax.swing.Box;
 import javax.swing.JComponent;
 
+import org.jebtk.modern.AssetService;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.button.ModernSideButton;
 import org.jebtk.modern.event.ModernClickEvent;

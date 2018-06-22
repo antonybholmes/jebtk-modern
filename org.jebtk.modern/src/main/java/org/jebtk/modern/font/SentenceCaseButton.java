@@ -31,8 +31,8 @@ import java.awt.Dimension;
 
 import org.jebtk.core.text.SentenceCase;
 import org.jebtk.core.text.SentenceCaseType;
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.menu.ModernIconMenuItem;

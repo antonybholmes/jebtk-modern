@@ -20,6 +20,8 @@ public interface StyleProperties {
   
   public Color getColor(String name);
   
+  public ColorGradient getColorGradient(String name);
+  
   public Border getBorder(String name);
   
   public Font getFont(String name);

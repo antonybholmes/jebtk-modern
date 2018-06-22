@@ -30,8 +30,8 @@ package org.jebtk.modern.combobox;
 import java.awt.Dimension;
 
 import org.jebtk.core.BooleanOperator;
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.menu.ModernIconMenuItem;
 import org.jebtk.modern.menu.ModernMenuDivider;
 

@@ -2,6 +2,7 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -20,6 +21,7 @@ public class RadioOutlineAnimation extends ButtonOutlineAnimation {
 
       try {
         outline(g2Temp,
+            widget,
             x,
             y,
             RadioAnimation.RADIO_SIZE,
@@ -31,7 +33,7 @@ public class RadioOutlineAnimation extends ButtonOutlineAnimation {
   }
 
   @Override
-  public void outline(Graphics2D g2, int x, int y, int w, int h) {
+  public void outline(Graphics2D g2, ModernComponent c, int x, int y, int w, int h) {
     // Do nothing
 
     int wf = (int) (w * RadioAnimation.RADIO_SCALE / 2) * 2;

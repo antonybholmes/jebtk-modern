@@ -2,15 +2,14 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class CheckBoxHighlightAnimation extends ButtonFillAnimation {
+public class CheckBoxHighlightAnimation extends ButtonOutlineAnimation {
   public CheckBoxHighlightAnimation(ModernWidget button) {
     super((ModernClickWidget) button);
 
-    setFadeColor("fill", button.getFromKeyFrame().getColor("background-color"));
+    setFadeColor("fill", button.getToKeyFrame().getColor("background-color"));
   }
 
   @Override
@@ -23,13 +22,20 @@ public class CheckBoxHighlightAnimation extends ButtonFillAnimation {
        * drawButtonFill(g2, x, y, ModernCheckBox.ICON_SIZE,
        * ModernCheckBox.ICON_SIZE, getButton().getRenderMode(), false);
        */
-
-      DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
+      
+      outline(g2,
+          widget,
           x,
           y,
           ModernCheckBox.ICON_SIZE,
-          ModernCheckBox.ICON_SIZE,
-          getFadeColor("fill"));
+          ModernCheckBox.ICON_SIZE);
+
+      //DrawUIService.getInstance().getRenderer("button-outline").draw(g2,
+      //    x,
+      //    y,
+      //    ModernCheckBox.ICON_SIZE,
+       //   ModernCheckBox.ICON_SIZE,
+       //   getFadeColor("fill"));
     }
   }
 }

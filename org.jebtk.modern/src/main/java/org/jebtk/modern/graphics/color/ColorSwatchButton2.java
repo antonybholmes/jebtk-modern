@@ -30,8 +30,8 @@ package org.jebtk.modern.graphics.color;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.dialog.ModernDialogFlatDropDownButton2;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.widget.ModernWidget;

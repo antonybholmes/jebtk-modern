@@ -29,7 +29,6 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.theme.DrawUIService;
 
 /**

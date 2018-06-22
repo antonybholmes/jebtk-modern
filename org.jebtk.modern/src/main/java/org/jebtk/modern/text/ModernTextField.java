@@ -35,8 +35,8 @@ import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
 import org.jebtk.core.settings.SettingsService;
-import org.jebtk.modern.UI;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.UI;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 

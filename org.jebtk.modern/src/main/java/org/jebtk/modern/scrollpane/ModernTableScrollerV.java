@@ -29,8 +29,6 @@ package org.jebtk.modern.scrollpane;
 
 import java.awt.Component;
 
-import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.dataview.ModernDataSelection;
 import org.jebtk.modern.table.ModernTable;
 

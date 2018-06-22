@@ -40,7 +40,8 @@
 	</class>
 	
 	<class name="checkbox">
-    <property name="background-color" value="colors.theme32.color-16" />
+    <property name="background-color" value="colors.theme32.color-15" />
+    <property name="border-radius" value="0" />
   </class>
   
 
@@ -52,7 +53,7 @@
 		</class>
 		
 		<class name="checkbox">
-      <property name="background-color" value="colors.theme32.color-20" />
+      <property name="background-color" value="colors.theme32.color-24" />
     </class>
 		
 		<class name="content-outline">

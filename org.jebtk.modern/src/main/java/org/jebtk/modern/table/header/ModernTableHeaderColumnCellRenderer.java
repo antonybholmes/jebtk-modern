@@ -34,8 +34,8 @@ import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jebtk.modern.CellSelectionType;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.CellSelectionType;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.font.FontUtils;
 import org.jebtk.modern.graphics.icons.ModernIcon;

@@ -51,7 +51,7 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
     mButton = (ModernCheckSwitch) button;
 
     mFade = new FadeAnimation(button).setFadeColor("fill",
-        button.getKeyFrame().getColor("background-color"),
+        button.getToKeyFrame().getColor("background-color"),
         color);
  
     // Animation should be triggered on a state change and not a click
@@ -103,8 +103,8 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
     // g2.setColor(Color.WHITE);
     g2.fillOval(0, y1, s, s);
 
-    g2.setColor(Color.WHITE);
-    s -= 2;
-    g2.fillOval(1, y1 + 1, s, s);
+    //g2.setColor(Color.WHITE);
+    //s -= 2;
+    //g2.fillOval(1, y1 + 1, s, s);
   }
 }
