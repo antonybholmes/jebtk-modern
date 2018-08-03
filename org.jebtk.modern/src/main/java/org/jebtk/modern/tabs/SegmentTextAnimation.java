@@ -16,6 +16,8 @@
 package org.jebtk.modern.tabs;
 
 import java.awt.Graphics2D;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.ribbon.Ribbon;
@@ -40,6 +42,23 @@ public class SegmentTextAnimation extends WidgetAnimation {
     super(w);
 
     mSegments = (SegmentTabs) w;
+
+    mSegments.getTabsModel().addTabListener(new TabEventAdapter() {
+      @Override
+      public void tabChanged(TabEvent e) {
+        mSegments.repaint();
+      }
+    });
+    
+    mSegments.addComponentListener(new ComponentAdapter() {
+
+      @Override
+      public void componentResized(ComponentEvent e) {
+        mSegments.repaint();
+      }
+    });
+    
+    mSegments.resize();
   }
 
   /*
@@ -59,11 +78,11 @@ public class SegmentTextAnimation extends WidgetAnimation {
     // Draw the labels
     //
 
-    x = mSegments.mLeftOffset;
-
     g2.setColor(ModernWidget.TEXT_COLOR);
     g2.setFont(TextTabs.TEXT_TABS_FONT);
 
+    int textY = ModernWidget.getTextYPosCenter(g2, mSegments.getHeight());
+    
     for (int i = 0; i < n; ++i) {
       boolean selected = i == selectedIndex;
 
@@ -71,12 +90,13 @@ public class SegmentTextAnimation extends WidgetAnimation {
 
       // g2.setFont(selected ? ModernWidget.BOLD_FONT : ModernWidget.FONT);
 
-      int textY = ModernWidget.getTextYPosCenter(g2, mSegments.getHeight());
-
+      
       String s = mSegments.getTabsModel().getTab(i).getName(); // .toUpperCase();
 
+      int textX = x + (mSegments.mTabSize - g2.getFontMetrics().stringWidth(s)) / 2;
+      
       g2.drawString(s,
-          x + (mSegments.mTabSize - g2.getFontMetrics().stringWidth(s)) / 2,
+          textX,
           textY);
 
       x += mSegments.mTabSize;

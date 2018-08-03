@@ -21,6 +21,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.border.Border;
 
+import org.jebtk.core.ColorUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
 
@@ -97,8 +98,8 @@ public class ModernCheckSwitch extends CheckBox {
   public ModernCheckSwitch(String text, boolean selected) {
     setText(text);
 
-    addStyleClass("checkbox", "content-outline");
-    
+    addStyleClass("check-switch", "content-outline");
+
     setAnimations("check-switch");
 
     setSelected(selected);
@@ -114,8 +115,11 @@ public class ModernCheckSwitch extends CheckBox {
 
     mTextColor = textColor;
 
-    getAnimations().set(new CheckSwitchAnimation(this, color),
-        new CheckSwitchChangeAnimation(this, color));
+    getAnimations().set(
+        new CheckSwitchAnimation(this,
+            getFromKeyFrame().getColor("background-color"), color),
+        new CheckSwitchChangeAnimation(this,
+            getFromKeyFrame().getColor("color"), color));
 
     setSelected(selected);
   }

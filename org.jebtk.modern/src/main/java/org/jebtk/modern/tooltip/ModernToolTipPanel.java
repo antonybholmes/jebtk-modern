@@ -27,7 +27,17 @@
  */
 package org.jebtk.modern.tooltip;
 
+import org.jebtk.modern.UI;
+import org.jebtk.modern.button.ModernButton;
+import org.jebtk.modern.dialog.ModernDialogButton;
+import org.jebtk.modern.dialog.ModernDialogButtonsBox;
+import org.jebtk.modern.dialog.ModernDialogPrimaryButton;
+import org.jebtk.modern.dialog.ModernDialogStatus;
+import org.jebtk.modern.dialog.ModernDialogTaskType;
+import org.jebtk.modern.event.ModernClickEvent;
+import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.Card;
+import org.jebtk.modern.panel.ModernPanel;
 
 /**
  * The default tool tip panel provides a simple titled tool tip that appears
@@ -42,4 +52,102 @@ public abstract class ModernToolTipPanel extends Card {
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
+  
+  private boolean mAutoHide = true;
+  
+  /** The m buttons. */
+  protected ModernDialogButtonsBox mButtons = new ModernDialogButtonsBox();
+
+  /** The m ok button. */
+  protected ModernButton mOkButton = new ModernDialogPrimaryButton(
+      UI.BUTTON_OK);
+
+  /**
+   * The close button.
+   */
+  protected ModernButton mCancelButton = 
+      new ModernDialogButton(UI.BUTTON_CANCEL);
+
+  private ModernDialogStatus mStatus = ModernDialogStatus.CANCEL;
+  
+  public ModernToolTipPanel() {
+    setBorder(DOUBLE_BORDER);
+  }
+  
+  public void setAutoHide(boolean hide) {
+    mAutoHide = hide;
+  }
+  
+  protected void setup(ModernDialogTaskType type) {
+    setAutoHide(false);
+    
+    add(mButtons);
+    
+    switch (type) {
+    case CLOSE:
+      // No break as we want to run the OK case as well.
+      mOkButton.setText(UI.MENU_CLOSE);
+    case OK:
+      addOkButton();
+      break;
+    case CANCEL:
+      addCancelButton();
+      break;
+    case OK_CANCEL:
+      addOkCancelButtons();
+      break;
+    default:
+      break;
+    }
+  }
+  
+  public void addOkButton() {
+    mButtons.add(mOkButton);
+
+    mOkButton.addClickListener(new ModernClickListener() {
+      @Override
+      public void clicked(ModernClickEvent e) {
+        hide(e);
+      }});
+  }
+
+  /**
+   * Add standard OK and Cancel buttons to the dialog. Use clicked method to
+   * respond.
+   */
+  public void addCancelButton() {
+    mButtons.add(mCancelButton);
+
+    mCancelButton.addClickListener(new ModernClickListener() {
+      @Override
+      public void clicked(ModernClickEvent e) {
+        hide(e);
+      }});
+  }
+  
+  public void addOkCancelButtons() {
+    addOkButton();
+    mButtons.add(ModernPanel.createHGap());
+    addCancelButton();
+  }
+
+  public boolean getAutoHide() {
+    return mAutoHide;
+  }
+  
+  public void hideToolTip() {
+    ToolTipService.getInstance().hideToolTip(this, ToolTipLevel.FORCE);
+  }
+  
+  public ModernDialogStatus getStatus() {
+    return mStatus;
+  }
+  
+  private void hide(ModernClickEvent e) {
+    if (e.getSource().equals(mOkButton)) {
+      mStatus = ModernDialogStatus.OK;
+    }
+
+    hideToolTip();
+  }
 }

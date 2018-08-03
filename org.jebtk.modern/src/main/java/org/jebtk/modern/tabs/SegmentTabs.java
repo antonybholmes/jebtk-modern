@@ -77,7 +77,7 @@ public class SegmentTabs extends TextTabs {
   protected static final int ROUNDING = MaterialService.getInstance().getInts().cornerRadius();
 
   /** The m tab size. */
-  protected int mTabSize = -1;
+  protected final int mTabSize;
 
   /** The m left end. */
   protected GeneralPath mLeftEnd;
@@ -130,6 +130,8 @@ public class SegmentTabs extends TextTabs {
     // resize();
 
     setAnimations("segment-tabs");
+    
+    resize();
   }
 
   @Override
@@ -292,7 +294,7 @@ public class SegmentTabs extends TextTabs {
   /**
    * Resize.
    */
-  private void resize() {
+  public void resize() {
     // mTabSize = mInternalRect.getW() / Math.max(1,
     // getTabsModel().getTabCount());
 

@@ -26,4 +26,9 @@ public class AbstractStyleProperties extends Properties implements StyleProperti
   public void clear() {
     // Do nothing
   }
+
+  @Override
+  public ColorGradient getColorGradient(String name) {
+    return (ColorGradient) getValue(name);
+  }
 }

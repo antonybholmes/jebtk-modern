@@ -143,4 +143,9 @@ public class KeyFrames extends ChangeListeners implements StyleProperties, Chang
   public void changed(ChangeEvent e) {
     fireChanged();
   }
+
+  @Override
+  public ColorGradient getColorGradient(String name) {
+    return getKeyFrame().getColorGradient(name);
+  }
 }

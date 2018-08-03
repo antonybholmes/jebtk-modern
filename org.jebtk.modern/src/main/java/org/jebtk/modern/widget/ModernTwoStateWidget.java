@@ -145,8 +145,6 @@ public abstract class ModernTwoStateWidget extends ModernClickWidget {
    * @param selected the selected
    */
   protected void toggleSelected(boolean selected) {
-    
-
     if (selected != mSelected) {
       mSelected = selected;
 
@@ -158,8 +156,6 @@ public abstract class ModernTwoStateWidget extends ModernClickWidget {
         fireSelected();
       }
     }
-    
-    System.err.println("toggle selected " + selected);
   }
 
   /*

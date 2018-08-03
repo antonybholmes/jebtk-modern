@@ -323,6 +323,8 @@ public class UI {
    * The constant BUTTON_IMPORT.
    */
   public static final String BUTTON_IMPORT = "Import...";
+  
+  public static final String BUTTON_LOAD = "Load...";
 
   /**
    * The constant BUTTON_EXPORT.

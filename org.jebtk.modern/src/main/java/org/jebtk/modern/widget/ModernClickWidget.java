@@ -244,14 +244,7 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
     repaint();
   }
 
-  /**
-   * Checks if is selected.
-   *
-   * @return true, if is selected
-   */
-  public boolean isSelected() {
-    return false;
-  }
+
 
   /**
    * Simulate a button click. Should be overridden.

@@ -8,10 +8,10 @@
 	<class name="square-borders">
 		<property name="border-radius" value="0" />
 	</class>
-	
+
 	<class name="widget">
-    <property name="border-radius" value="6" />
-  </class>
+		<property name="border-radius" value="6" />
+	</class>
 
 	<class name="content">
 		<property name="background-color" value="white" />
@@ -20,14 +20,14 @@
 	<class name="content-outline">
 		<property name="border-color" value="colors.material.dialog.button.outline" />
 	</class>
-	
+
 	<class name="gray-button">
-    <property name="background-color" value="colors.material.dialog.button.outline" />
-  </class>
-  
-  <class name="check-switch">
-    <property name="background-color" value="colors.material.line" />
-  </class>
+		<property name="background-color" value="colors.material.dialog.button.outline" />
+	</class>
+
+	<class name="check-switch">
+		<property name="background-color" value="colors.material.line" />
+	</class>
 
 	<class name="primary-dialog-button">
 		<property name="border-color" value="colors.theme32.color-24" />
@@ -38,47 +38,59 @@
 		<property name="border-color" value="colors.material.dialog.button.outline" />
 		<property name="background-color" value="white" />
 	</class>
-	
+
 	<class name="checkbox">
-    <property name="background-color" value="colors.theme32.color-15" />
+		<property name="background-color" value="colors.theme32.color-12" />
+		<property name="color" value="colors.theme32.color-20" />
+		<property name="border-radius" value="0" />
+	</class>
+	
+	<class name="check-switch">
+    <property name="background-color" value="colors.gray32.color-8" />
+    <property name="color" value="colors.gray32.color-8" />
     <property name="border-radius" value="0" />
   </class>
-  
-
 
 	<keyframe index="to">
 		<class name="primary-dialog-button">
 			<property name="border-color" value="colors.theme32.color-28" />
 			<property name="background-color" value="colors.theme32.color-24" />
 		</class>
-		
+
 		<class name="checkbox">
-      <property name="background-color" value="colors.theme32.color-24" />
-    </class>
+			<property name="background-color" value="colors.gray32.color-10" />
+			<property name="color" value="colors.gray32.color-20" />
+		</class>
 		
+		<class name="check-switch">
+      <property name="background-color" value="colors.theme32.color-12" />
+      <property name="color" value="colors.theme32.color-12" />
+      <property name="border-radius" value="0" />
+    </class>
+
 		<class name="content-outline">
 			<property name="border-color" value="colors.material.dialog.button.highlight" />
 		</class>
-		
+
 		<class name="dialog-button">
 			<property name="background-color" value="colors.material.dialog.button.outline" />
 			<property name="border-color" value="colors.material.dialog.button.highlight" />
 		</class>
-		
+
 		<class name="theme-button">
-      <property name="background-color" value="colors.theme32.color-14" />
-      <property name="border-color" value="colors.theme32.color-14" />
-    </class>
-		
+			<property name="background-color" value="colors.theme32.color-14" />
+			<property name="border-color" value="colors.theme32.color-14" />
+		</class>
+
 		<class name="widget">
-		  <property name="border-color" value="colors.material.gray-highlight" />
-		  <property name="background-color" value="colors.material.gray-highlight" />
+			<property name="border-color" value="colors.material.gray-highlight" />
+			<property name="background-color" value="colors.material.gray-highlight" />
 		</class>
-		
+
 		<class name="quick-access-button">
-		  <property name="background-color" value="#FFFFFF40"/>
+			<property name="background-color" value="#FFFFFF40" />
 		</class>
-		
+
 	</keyframe>
 
 </classes>

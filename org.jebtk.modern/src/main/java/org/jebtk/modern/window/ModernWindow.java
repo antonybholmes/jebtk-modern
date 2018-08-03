@@ -68,6 +68,8 @@ import org.jebtk.modern.ribbon.RibbonFileMenu;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.tooltip.ModernToolTipEvent;
 import org.jebtk.modern.tooltip.ModernToolTipListener;
+import org.jebtk.modern.tooltip.ModernToolTipPanel;
+import org.jebtk.modern.tooltip.ToolTipLevel;
 import org.jebtk.modern.tooltip.ToolTipService;
 import org.jebtk.modern.widget.ModernWidget;
 import org.slf4j.Logger;
@@ -79,7 +81,7 @@ import org.slf4j.LoggerFactory;
  * @author Antony Holmes Holmes
  */
 public class ModernWindow extends JFrame
-    implements ModernDialogConstructor, ModernToolTipListener {
+implements ModernDialogConstructor, ModernToolTipListener {
 
   /**
    * The constant serialVersionUID.
@@ -528,7 +530,7 @@ public class ModernWindow extends JFrame
     if (e.getP() != null) {
       SwingUtilities.convertPointToScreen(e.getP(), e.getSource());
 
-      Point p = toolTipPFromScreen(e.getP(), e.getTooltip());
+      Point p = toolTipPosFromScreen(e.getP(), e.getTooltip());
 
       showToolTip(e.getSource(), e.getTooltip(), p);
     } else {
@@ -541,7 +543,7 @@ public class ModernWindow extends JFrame
     if (e.getP() != null) {
       SwingUtilities.convertPointToScreen(e.getP(), e.getSource());
 
-      Point p = toolTipPFromScreen(e.getP(), e.getTooltip());
+      Point p = toolTipPosFromScreen(e.getP(), e.getTooltip());
 
       addToolTip(e.getSource(), e.getTooltip(), p);
     } else {
@@ -558,11 +560,11 @@ public class ModernWindow extends JFrame
    * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel)
    */
   private synchronized void showToolTip(Component source, Component tooltip) {
-    showToolTip(source, tooltip, toolTipP(source, tooltip));
+    showToolTip(source, tooltip, toolTipPos(source, tooltip));
   }
 
   private synchronized void addToolTip(Component source, Component tooltip) {
-    addToolTip(source, tooltip, toolTipP(source, tooltip));
+    addToolTip(source, tooltip, toolTipPos(source, tooltip));
   }
 
   /**
@@ -572,8 +574,8 @@ public class ModernWindow extends JFrame
    * @param tooltip
    * @return
    */
-  private synchronized Point toolTipP(Component source, Component tooltip) {
-    return toolTipPFromScreen(source, source.getLocationOnScreen(), tooltip);
+  private synchronized Point toolTipPos(Component source, Component tooltip) {
+    return toolTipPosFromScreen(source, source.getLocationOnScreen(), tooltip);
   }
 
   /**
@@ -585,7 +587,7 @@ public class ModernWindow extends JFrame
    * @param tooltip
    * @return
    */
-  private synchronized Point toolTipPFromScreen(Component source,
+  private synchronized Point toolTipPosFromScreen(Component source,
       Point p,
       Component tooltip) {
     // Put in the context of the window
@@ -614,16 +616,16 @@ public class ModernWindow extends JFrame
     return p;
   }
 
-  private synchronized Point toolTipPFromScreen(Point p, Component tooltip) {
+  private synchronized Point toolTipPosFromScreen(Point p, Component tooltip) {
     // Put in the context of the window
     SwingUtilities.convertPointFromScreen(p, getLayeredPane());
 
-    Rectangle wb = getBounds();
+    //Rectangle wb = getBounds();
 
-    Dimension ps = tooltip.getPreferredSize();
+    //Dimension ps = tooltip.getPreferredSize();
 
-    int w = ps.width;
-    int h = ps.height;
+    //int w = ps.width;
+    //int h = ps.height;
 
     // if (p.x + w > wb.width) {
     // p.x += source.getWidth() - w;
@@ -656,7 +658,7 @@ public class ModernWindow extends JFrame
     // System.err.println("show");
 
     // Hide any current tips
-    hideToolTips();
+    hideToolTips(ToolTipLevel.NORMAL);
 
     addToolTip(source, tooltip, p);
   }
@@ -683,27 +685,44 @@ public class ModernWindow extends JFrame
    * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#hideToolTips(org.abh.lib.
    * ui. modern.ModernComponent)
    */
-  private synchronized void hideToolTips() {
+  private synchronized void hideToolTips(ToolTipLevel l) {
     // System.err.println("hide");
 
     if (mTooltips.size() > 0) {
       for (Component c : mTooltips) {
-        getLayeredPane().remove(c);
+        removeToolTip(c, l);
       }
 
       mTooltips.clear();
     }
+    
+    revalidate();
+    repaint();
   }
 
   @Override
   public void tooltipHidden(ModernToolTipEvent e) {
-    Component c = e.getTooltip();
-
-    getLayeredPane().remove(c);
-    mTooltips.remove(c);
+    System.err.println("hide tooltip");
+    
+    removeToolTip(e.getTooltip(), e.getLevel());
 
     revalidate();
     repaint();
+  }
+  
+  /**
+   * Remove a tooltip from the cache.
+   * @param e 
+   * @param c
+   */
+  private void removeToolTip(Component c, ToolTipLevel level) {
+    if (c instanceof ModernToolTipPanel) {
+      if (level == ToolTipLevel.FORCE || ((ModernToolTipPanel)c).getAutoHide()) {
+        getLayeredPane().remove(c);
+      }
+    } else {
+      getLayeredPane().remove(c);
+    }
   }
 
   /**
@@ -711,7 +730,7 @@ public class ModernWindow extends JFrame
    */
   @Override
   public synchronized void tooltipsHidden(ModernToolTipEvent e) {
-    hideToolTips();
+    hideToolTips(e.getLevel());
 
     validate();
     repaint();
@@ -724,7 +743,7 @@ public class ModernWindow extends JFrame
    */
   protected void doHideTooltips() {
     ToolTipService.getInstance()
-        .hideToolTips(new ModernToolTipEvent(this, this));
+    .hideToolTips(new ModernToolTipEvent(this, this));
   }
 
   /**

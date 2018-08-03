@@ -83,6 +83,7 @@ public class DrawUIService implements Iterable<String> {
     add(new CircleFillUI());
     //add(new MenuHighlightUI());
     add(new PillHighlightUI());
+    add(new PillOutlineUI());
     add(new CheckUI());
     add(new CheckedBoxUI());
 

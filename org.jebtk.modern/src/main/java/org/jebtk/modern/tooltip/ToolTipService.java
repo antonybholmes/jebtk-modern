@@ -33,7 +33,6 @@ import java.util.Map;
 
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.EntryCreator;
-import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 import org.slf4j.Logger;
@@ -153,6 +152,12 @@ public class ToolTipService implements ModernToolTipEventProducer {
     mListenerMap.get(dest).removeToolTipListener(l);
   }
 
+  public void showToolTip(Component c) {
+    // Automatically search for destination component by assuming it is
+    // the underlying window this component belongs to
+    showToolTip(new ModernToolTipEvent(c, ToolTipService.getToolTipWindow(c)));
+  }
+  
   @Override
   public void showToolTip(ModernToolTipEvent e) {
     mListenerMap.get(e.getDest()).showToolTip(e);
@@ -165,6 +170,14 @@ public class ToolTipService implements ModernToolTipEventProducer {
     mListenerMap.get(ALL_EVENTS).addToolTip(e);
   }
 
+  public void hideToolTip(Component c) {
+    hideToolTip(c, ToolTipLevel.NORMAL);
+  }
+  
+  public void hideToolTip(Component c, ToolTipLevel l) {
+    hideToolTip(new ModernToolTipEvent(c, ToolTipService.getToolTipWindow(c), l));
+  }
+  
   @Override
   public void hideToolTip(ModernToolTipEvent e) {
     mListenerMap.get(e.getDest()).hideToolTip(e);
@@ -197,7 +210,14 @@ public class ToolTipService implements ModernToolTipEventProducer {
     return null;
   }
 
-  public static ModernToolTipListener getToolTipWindow(ModernComponent source) {
+  /**
+   * Returns the underlying window of a component that accepts tooltip events.
+   * If no window is found, returns null.
+   * 
+   * @param source
+   * @return
+   */
+  public static ModernToolTipListener getToolTipWindow(Component source) {
     Window w = ModernWindow.getParentWindow(source);
 
     if (w instanceof ModernToolTipListener) {

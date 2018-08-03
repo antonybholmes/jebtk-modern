@@ -31,7 +31,7 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickEventProducer;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.event.ModernClickListeners;
-import org.jebtk.modern.panel.Card;
+import org.jebtk.modern.tooltip.ModernToolTipPanel;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -40,7 +40,7 @@ import org.jebtk.modern.panel.Card;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernPopup2 extends Card
+public class ModernPopup2 extends ModernToolTipPanel
     implements ModernClickListener, ModernClickEventProducer {
 
   /**
@@ -71,7 +71,6 @@ public class ModernPopup2 extends Card
    */
   @Override
   public void clicked(ModernClickEvent e) {
-    System.err.println("click to " + this + " " + e.getSource());
     fireClicked(e);
   }
 

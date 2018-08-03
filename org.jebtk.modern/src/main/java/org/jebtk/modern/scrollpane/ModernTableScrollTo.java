@@ -66,7 +66,10 @@ public class ModernTableScrollTo {
     
     //h = Math.max(0, h);
     
-    System.err.println(" normY " + h);
+    //TODO: Are there too many scroll events?
+    //System.err.println(" normY " + h);
+    
+    
     return Math.max(0, d - h); //.getScrollDistance());
   }
 }

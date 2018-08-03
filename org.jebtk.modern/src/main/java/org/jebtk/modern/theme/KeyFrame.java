@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.jebtk.core.collections.ReverseIterator;
 
@@ -40,8 +41,8 @@ public class KeyFrame extends AbstractStyleProperties {
    * @param style
    */
   private void clear(StyleClass style) {
-    for (String name : style) {
-      mPropertyMap.remove(name);
+    for (Entry<String, Object> f : style) {
+      mPropertyMap.remove(f.getKey());
     }
   }
   
@@ -89,7 +90,6 @@ public class KeyFrame extends AbstractStyleProperties {
     // First check if we created a custom property return that
     
     if (super.contains(name)) {
-      System.err.println("custom style contains " + name);
       return super.getValue(name);
     }
     
@@ -101,7 +101,6 @@ public class KeyFrame extends AbstractStyleProperties {
       StyleClass s = iter.next();
       
       if (s.contains(name)) {
-        System.err.println("sub style " + s.getName() + " contains " + name);
         return s.getValue(name);
       }
     }

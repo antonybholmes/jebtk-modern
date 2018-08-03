@@ -65,11 +65,13 @@ public class OrbTabsAnimation extends WidgetAnimation {
     // Draw the labels
     //
 
+    int textY = ModernWidget.getTextYPosCenter(g2, mTabs.getHeight());
+    
     for (int i = 0; i < n; ++i) {
       g2.setColor(i == selectedIndex ? Color.WHITE : TEXT_COLOR);
       // g2.setFont(selected ? ModernWidget.BOLD_FONT : ModernWidget.FONT);
 
-      int textY = ModernWidget.getTextYPosCenter(g2, mTabs.getHeight());
+      
 
       String s = mTabs.getTabsModel().getTab(i).getName().toUpperCase()
           .substring(0, 1);

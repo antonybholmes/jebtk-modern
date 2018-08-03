@@ -39,6 +39,7 @@ import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.EntryCreator;
 import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.button.ButtonOutlineAnimation;
+import org.jebtk.modern.button.ButtonSelectedAnimation;
 import org.jebtk.modern.button.CheckBoxAnimation;
 import org.jebtk.modern.button.CheckBoxHighlightAnimation;
 import org.jebtk.modern.button.CheckBoxSelectedAnimation;
@@ -158,7 +159,8 @@ public class AnimationService {
 
     get("button-fill").add(ButtonFillAnimation.class);
     get("button-outline").add(ButtonOutlineAnimation.class);
-
+    get("button-selected").add(ButtonSelectedAnimation.class);
+    
     //get("button").add(DialogButtonHighlightAnimation.class);
 
     get("circle-fill").add(CircleFillAnimation.class);
@@ -324,7 +326,7 @@ public class AnimationService {
       try {
         Constructor<?> cons = c.getConstructor(ModernWidget.class);
 
-        System.err.println("Creating animation " + c);
+        //System.err.println("Creating animation " + c);
 
         animation = (WidgetAnimation) cons.newInstance(widget);
 

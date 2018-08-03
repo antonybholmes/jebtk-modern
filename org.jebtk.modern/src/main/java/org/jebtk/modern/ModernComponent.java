@@ -125,6 +125,9 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    */
   public static final int PADDING = SettingsService.getInstance()
       .getInt("theme.widget.padding");
+  
+  
+  public static final int SMALL_PADDING = PADDING / 2;
 
   /**
    * The constant OUTLINE_LINE_BORDER.
@@ -157,7 +160,7 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    * The constant SMALL_BORDER.
    */
   public static final Border SMALL_BORDER = BorderService.getInstance()
-      .createBorder(PADDING / 2);
+      .createBorder(SMALL_PADDING);
 
   /** The Constant DOUBLE_BORDER. */
   public static final Border DOUBLE_BORDER = BorderService.getInstance()

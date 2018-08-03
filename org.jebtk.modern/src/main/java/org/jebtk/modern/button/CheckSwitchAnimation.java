@@ -14,17 +14,17 @@ public class CheckSwitchAnimation extends WidgetAnimation {
   private FadeAnimation mFade;
 
   public CheckSwitchAnimation(ModernWidget widget) {
-    this(widget, widget.getKeyFrame().getColor("background-color"));
+    this(widget, widget.getFromKeyFrame().getColor("background-color"), widget.getToKeyFrame().getColor("background-color"));
   }
 
-  public CheckSwitchAnimation(ModernWidget widget, Color color) {
+  public CheckSwitchAnimation(ModernWidget widget, Color color1, Color color2) {
     super(widget);
 
     mButton = (ModernCheckSwitch) widget;
 
     mFade = new FadeAnimation(widget).setFadeColor("fill",
-        widget.getKeyFrame().getColor("border-color"),
-        color);
+        color1,
+        color2);
   }
 
   @Override

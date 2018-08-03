@@ -28,10 +28,12 @@
 package org.jebtk.modern.panel;
 
 import java.awt.Component;
+import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -53,8 +55,7 @@ public class ModernContentPanel extends ModernComponent {
    * @param c the c
    */
   public ModernContentPanel(Component c) {
-    super(new ModernBorderPanel(
-        new ModernComponent(c, ModernWidget.DOUBLE_BORDER)));
+    super(new ModernComponent(c, ModernWidget.DOUBLE_BORDER));
   }
 
   /**
@@ -68,5 +69,10 @@ public class ModernContentPanel extends ModernComponent {
     this(c);
 
     UI.setSize(this, w, h);
+  }
+  
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    DrawUIService.getInstance().getRenderer("content-box").draw(g2, mRect);
   }
 }

@@ -613,6 +613,16 @@ public abstract class ModernWidget extends ModernComponent
   public void drawBorder(Graphics2D g2, Color color) {
     drawBorder(g2, color, getRect());
   }
+  
+  /**
+   * Returns true if widget is selected. This method should be overridden
+   * in widgets that have a selected response (such as a check box).
+   *
+   * @return true, if is selected
+   */
+  public boolean isSelected() {
+    return false;
+  }
 
   //
   // Static methods
