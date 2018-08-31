@@ -98,6 +98,7 @@ public abstract class ModernDataModel
    * @return the value at
    */
   public Object getValueAt(int row, String heading) {
+    System.err.println("mod data heading " + heading + " "+ getHeadingIndex(heading));
     return getValueAt(row, getHeadingIndex(heading));
   }
 

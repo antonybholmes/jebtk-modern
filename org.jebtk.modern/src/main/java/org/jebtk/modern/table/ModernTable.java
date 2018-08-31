@@ -98,10 +98,12 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
       .getColors().getTheme(5);
 
   /** The m heading render model. */
-  protected ModernTableHeadingRendererModel mHeadingRenderModel = new ModernTableHeadingRendererModel();
+  protected ModernTableHeadingRendererModel mHeadingRenderModel = 
+      new ModernTableHeadingRendererModel();
 
   /** The m row heading render model. */
-  protected ModernTableHeadingRendererModel mRowHeadingRenderModel = new ModernTableRowHeadingRendererModel();
+  protected ModernTableHeadingRendererModel mRowHeadingRenderModel = 
+      new ModernTableRowHeadingRendererModel();
 
   /**
    * Keep track of rows, for example which are selected.
@@ -1206,10 +1208,13 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
    */
   @Override
   public void rasterCanvas(Graphics2D g2, DrawingContext context) {
+    
     if (mModel == null || mModel.getRowCount() == 0
         || mModel.getColumnCount() == 0) {
       return;
     }
+    
+    
 
     // required for smooth offsetting
     // g2Table.translate(viewOffset.x, viewOffset.y);
@@ -1222,6 +1227,8 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
     // visibleModernSelection.getEndCol());
 
     ModernDataSelection visibleCells = calculateVisibleCells();
+    
+   
 
     createTableImage(g2, context, visibleCells);
 
