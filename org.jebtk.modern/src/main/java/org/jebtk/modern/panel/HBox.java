@@ -34,6 +34,7 @@ import javax.swing.BoxLayout;
 import javax.swing.border.Border;
 
 import org.jebtk.modern.UI;
+import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.text.ModernLabel;
 
 /**
@@ -58,12 +59,18 @@ public class HBox extends GenericBox {
    *
    * @param components the components
    */
-  public HBox(Component... components) {
+  public HBox(Component component, Component... components) {
     this();
 
+    add(component);
+    
     for (Component c : components) {
       add(c);
     }
+  }
+  
+  public HBox(String title, Component... components) {
+    this(new ModernAutoSizeLabel(title), components);
   }
 
   /**

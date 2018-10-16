@@ -85,6 +85,7 @@ public class HExpandBoxLayout implements LayoutManager {
 
     for (int i = 0; i < nComps; i++) {
       Component c = parent.getComponent(i);
+      
       if (c.isVisible()) {
         d = c.getPreferredSize();
 

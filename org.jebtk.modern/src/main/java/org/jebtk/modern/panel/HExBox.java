@@ -41,6 +41,14 @@ public class HExBox extends HBox {
    */
   private static final long serialVersionUID = 1L;
 
+  public HExBox() {
+    // Do nothing
+  }
+  
+  public HExBox(String title, Component... components) {
+    super(title, components);
+  }
+  
   @Override
   public Component add(Component c) {
     super.add(c);
