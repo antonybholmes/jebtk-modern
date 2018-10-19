@@ -31,7 +31,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import org.jebtk.core.network.URLUtils;
+import org.jebtk.core.http.URLUtils;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;

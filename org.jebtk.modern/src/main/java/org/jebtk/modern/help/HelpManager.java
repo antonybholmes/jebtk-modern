@@ -33,7 +33,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-import org.jebtk.core.network.URLUtils;
+import org.jebtk.core.http.URLUtils;
 import org.jebtk.core.settings.Setting;
 
 /**
