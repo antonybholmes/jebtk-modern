@@ -44,7 +44,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public abstract class ModernApplicationIcon extends ModernVectorScalableIcon {
+public class ModernApplicationIcon extends ModernVectorScalableIcon {
 
   /** The Constant FONT_SCALE. */
   private static final double FONT_SCALE = 0.7;

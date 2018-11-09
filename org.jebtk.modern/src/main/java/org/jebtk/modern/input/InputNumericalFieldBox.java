@@ -88,7 +88,7 @@ public class InputNumericalFieldBox extends HBox {
    * @return the as double
    * @throws ParseException the parse exception
    */
-  public double getDouble() throws ParseException {
+  public double getDouble() {
     return mField.getDouble();
   }
 
@@ -98,7 +98,7 @@ public class InputNumericalFieldBox extends HBox {
    * @return the as int
    * @throws ParseException the parse exception
    */
-  public int getInt() throws ParseException {
+  public int getInt() {
     return mField.getInt();
   }
 
