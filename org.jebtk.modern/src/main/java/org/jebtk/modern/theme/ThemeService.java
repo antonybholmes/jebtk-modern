@@ -547,7 +547,7 @@ public class ThemeService extends ModernTheme {
     if (mSetup) {
       setLookAndFeel();
       registerFonts();
-      //setWidgetRenderer();
+      // setWidgetRenderer();
 
       mSetup = false;
     }
@@ -563,10 +563,10 @@ public class ThemeService extends ModernTheme {
   /**
    * Sets the widget renderer.
    */
-  //public static final void setWidgetRenderer() {
-    // Set the default way widgets are rendered.
-  //  WidgetRendererService.getInstance().set(new ModernRoundedWidgetRenderer());
-  //}
+  // public static final void setWidgetRenderer() {
+  // Set the default way widgets are rendered.
+  // WidgetRendererService.getInstance().set(new ModernRoundedWidgetRenderer());
+  // }
 
   /**
    * Sets the look and feel.
@@ -580,11 +580,9 @@ public class ThemeService extends ModernTheme {
   public static final void setLookAndFeel()
       throws ClassNotFoundException, InstantiationException,
       IllegalAccessException, UnsupportedLookAndFeelException {
-    
+
     // Set some style properties
-    
- 
-    
+
     List<String> looks = new ArrayList<String>();
     looks.add("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
     looks.add("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
@@ -609,10 +607,10 @@ public class ThemeService extends ModernTheme {
 
     // Resources.getInstance().registerFont("Futura_LT_Book.ttf");
 
-    //Resources.getInstance().registerFont("Roboto-Light.ttf");
-    //Resources.getInstance().registerFont("Roboto-Regular.ttf");
-    //Resources.getInstance().registerFont("Roboto-Medium.ttf");
-    //Resources.getInstance().registerFont("Roboto-Bold.ttf");
+    // Resources.getInstance().registerFont("Roboto-Light.ttf");
+    // Resources.getInstance().registerFont("Roboto-Regular.ttf");
+    // Resources.getInstance().registerFont("Roboto-Medium.ttf");
+    // Resources.getInstance().registerFont("Roboto-Bold.ttf");
 
     Resources.getInstance().registerFont("SourceSansPro-Light.ttf");
     Resources.getInstance().registerFont("SourceSansPro-Regular.ttf");

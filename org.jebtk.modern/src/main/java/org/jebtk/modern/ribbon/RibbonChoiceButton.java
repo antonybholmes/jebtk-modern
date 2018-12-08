@@ -71,7 +71,7 @@ public class RibbonChoiceButton extends ModernRadioButton {
     mIcon = icon;
 
     addToStyleClass("dialog-button");
-    
+
     setClickMessage(clickMessage);
 
     UI.setSize(this, SIZE);
@@ -87,10 +87,11 @@ public class RibbonChoiceButton extends ModernRadioButton {
   public void drawBackgroundAA(Graphics2D g2) {
     if (isEnabled()) {
       if (isSelected() || mHighlight) {
-        //getWidgetRenderer()
-        //    .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
-        
-        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mInternalRect);
+        // getWidgetRenderer()
+        // .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
+            mInternalRect);
       }
     }
   }

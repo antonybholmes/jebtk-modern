@@ -20,7 +20,7 @@ public class RadioSelectedUI extends RadioUI {
       Object... params) {
 
     super.draw(g2, x, y, w, h, params);
-    
+
     int w2 = w - 8;
 
     // x += (w - wf) / 2;

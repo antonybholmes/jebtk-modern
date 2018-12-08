@@ -15,7 +15,8 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 
-public class KeyFrames extends ChangeListeners implements StyleProperties, ChangeListener {
+public class KeyFrames extends ChangeListeners
+    implements StyleProperties, ChangeListener {
   /**
    * 
    */
@@ -30,11 +31,11 @@ public class KeyFrames extends ChangeListeners implements StyleProperties, Chang
    */
   private IterMap<Integer, KeyFrame> mFrameMap = new DefaultTreeMap<Integer, KeyFrame>(
       new Comparator<Integer>() {
-        @Override public int compare(Integer i1, Integer i2) {
+        @Override
+        public int compare(Integer i1, Integer i2) {
           return i2.compareTo(i1);
-        }           
-      },
-      new EntryCreator<KeyFrame>() {
+        }
+      }, new EntryCreator<KeyFrame>() {
         @Override
         public KeyFrame newEntry() {
           return new KeyFrame();
@@ -42,11 +43,9 @@ public class KeyFrames extends ChangeListeners implements StyleProperties, Chang
       });
 
   /*
-  private String mName;
-
-  public KeyFrames(String name) {
-    mName = name;
-  }
+   * private String mName;
+   * 
+   * public KeyFrames(String name) { mName = name; }
    */
 
   /**
@@ -124,7 +123,7 @@ public class KeyFrames extends ChangeListeners implements StyleProperties, Chang
         return entry.getValue().getValue(name);
       }
     }
-    
+
     return null;
   }
 
@@ -135,7 +134,7 @@ public class KeyFrames extends ChangeListeners implements StyleProperties, Chang
         return true;
       }
     }
-    
+
     return false;
   }
 

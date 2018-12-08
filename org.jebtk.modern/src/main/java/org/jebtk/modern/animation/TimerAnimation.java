@@ -94,16 +94,16 @@ public abstract class TimerAnimation extends WidgetAnimation {
    */
   public void animate() {
     getWidget().repaint();
-    
+
     if (++mStep == MAX_STEP_INDEX) {
       stop();
     }
   }
-  
+
   public void setStep(int step) {
     mStep = Mathematics.bound(step, 0, MAX_STEP_INDEX);
   }
-  
+
   public void reset() {
     mStep = 0;
   }
@@ -111,7 +111,7 @@ public abstract class TimerAnimation extends WidgetAnimation {
   public int getStep() {
     return mStep;
   }
-  
+
   public boolean stopped() {
     return mStep == MAX_STEP_INDEX;
   }

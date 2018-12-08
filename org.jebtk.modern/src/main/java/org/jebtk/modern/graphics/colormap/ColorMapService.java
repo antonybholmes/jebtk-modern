@@ -427,8 +427,7 @@ public class ColorMapService extends ColorMaps {
             colorMapJson.getInt("colors"));
         break;
       case 3:
-        colorMap = ColorMap.createThreeColorMap(
-            colorMapJson.getString("name"),
+        colorMap = ColorMap.createThreeColorMap(colorMapJson.getString("name"),
             colors.get(0),
             colors.get(1),
             colors.get(2),

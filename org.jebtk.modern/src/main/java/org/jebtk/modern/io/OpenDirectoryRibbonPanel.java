@@ -273,7 +273,7 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel
   public void selectionAdded(ChangeEvent e) {
     selectionRemoved(e);
   }
-  
+
   @Override
   public void selectionRemoved(ChangeEvent e) {
     if (e.getSource().equals(mCurrentDirectoryList)) {

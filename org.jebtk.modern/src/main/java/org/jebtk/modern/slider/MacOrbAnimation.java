@@ -10,8 +10,8 @@ import org.jebtk.modern.widget.ModernWidget;
 public class MacOrbAnimation extends HoverFadeAnimation {
   private MacOrbSlider mButton;
 
-  protected static final Color HIGHLIGHT_2 = ThemeService.getInstance().getColors()
-      .getTheme32(24);
+  protected static final Color HIGHLIGHT_2 = ThemeService.getInstance()
+      .getColors().getTheme32(24);
 
   public MacOrbAnimation(MacOrbSlider button) {
     super(button);

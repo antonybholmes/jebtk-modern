@@ -53,7 +53,8 @@ public class ModernTableCorner extends ModernWidget {
    */
   @Override
   public void drawBackground(Graphics2D g2) {
-    // fill(g2, getRect(), ThemeService.getInstance().getColors().getHighlight(1));
+    // fill(g2, getRect(),
+    // ThemeService.getInstance().getColors().getHighlight(1));
 
     fillBackground(g2);
   }

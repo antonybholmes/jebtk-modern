@@ -233,8 +233,7 @@ public class ModernScrollPaneLayout implements LayoutManager {
 
     // if (mVScrollBar.isVisible()) {
     Rectangle r = new Rectangle(
-        scrollPane.mInternalRect.getW()
-            - scrollPane.mVScrollBar.getFixedDim(),
+        scrollPane.mInternalRect.getW() - scrollPane.mVScrollBar.getFixedDim(),
         0, scrollPane.mVScrollBar.getFixedDim(),
         scrollPane.mInternalRect.getH() - (scrollPane.mHScrollBar.isVisible()
             ? scrollPane.mHScrollBar.getFixedDim()
@@ -287,8 +286,7 @@ public class ModernScrollPaneLayout implements LayoutManager {
 
     // if (mHScrollBar.isVisible()) {
     Rectangle r = new Rectangle(0,
-        scrollPane.mInternalRect.getH()
-            - scrollPane.mHScrollBar.getFixedDim(),
+        scrollPane.mInternalRect.getH() - scrollPane.mHScrollBar.getFixedDim(),
         scrollPane.mInternalRect.getW() - (scrollPane.mVScrollBar.isVisible()
             ? scrollPane.mVScrollBar.getFixedDim()
             : 0),

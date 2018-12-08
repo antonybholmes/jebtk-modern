@@ -87,7 +87,7 @@ public class KeyFramesService {
 
       if (qName.equals("keyframe")) {
         String index = attributes.getValue("index");
-        
+
         if (index.equals("from")) {
           mKeyFrame = KeyFrames.FROM;
         } else if (index.equals("to")) {
@@ -97,11 +97,11 @@ public class KeyFramesService {
         }
       } else if (qName.equals("class")) {
         mClass = attributes.getValue("name");
-        
-        //String inherits = attributes.getValue("inherits");
-        //if (inherits != null) {
-        //  getStyleClass(mClass).inherits(getStyleClass(inherits));
-        //}
+
+        // String inherits = attributes.getValue("inherits");
+        // if (inherits != null) {
+        // getStyleClass(mClass).inherits(getStyleClass(inherits));
+        // }
       } else if (qName.equals("property")) {
         String name = attributes.getValue("name");
 
@@ -129,7 +129,8 @@ public class KeyFramesService {
             int i = Integer.parseInt(v.substring(v.lastIndexOf("-") + 1));
             o = ThemeService.getInstance().getColors().getGray32(i);
           } else if (v.startsWith("colors.material")) {
-            o = MaterialService.getInstance().getColor(v.replace("colors.material.", TextUtils.EMPTY_STRING));
+            o = MaterialService.getInstance().getColor(
+                v.replace("colors.material.", TextUtils.EMPTY_STRING));
           } else if (v.equals("white")) {
             o = Color.WHITE;
           } else if (v.equals("black")) {
@@ -162,36 +163,35 @@ public class KeyFramesService {
 
   public static final String COMPONENT = "component";
 
-  private static final Logger LOG = LoggerFactory.getLogger(KeyFramesService.class);
+  private static final Logger LOG = LoggerFactory
+      .getLogger(KeyFramesService.class);
 
-  private static final Path DEFAULT_XML_FILE = 
-      PathUtils.getPath("res/style.xml");
+  private static final Path DEFAULT_XML_FILE = PathUtils
+      .getPath("res/style.xml");
 
-  private Map<Integer, IterMap<String, StyleClass>> mStyleMap = 
-      DefaultHashMap.create(new HashMapCreator<String, StyleClass>());
+  private Map<Integer, IterMap<String, StyleClass>> mStyleMap = DefaultHashMap
+      .create(new HashMapCreator<String, StyleClass>());
 
   private boolean mAutoLoad = true;
 
   private KeyFramesService() {
-    //mStyleMap.put(COMPONENT, COMPONENT_STYLE);
+    // mStyleMap.put(COMPONENT, COMPONENT_STYLE);
 
-    //set("border-radius", 6);
+    // set("border-radius", 6);
 
     getStyleClass("quick-access-button").set("background-color",
         ColorUtils.getTransparentColor75(Color.WHITE));
 
     /*
-    get("primary-dialog-button-f0")
-        .set("border-color",
-            ThemeService.getInstance().getColors().getTheme32(24))
-        .set("background-color",
-            ThemeService.getInstance().getColors().getTheme32(20));
-
-    get("primary-dialog-button-f100")
-        .set("border-color",
-            ThemeService.getInstance().getColors().getTheme32(28))
-        .set("background-color",
-            ThemeService.getInstance().getColors().getTheme32(24));
+     * get("primary-dialog-button-f0") .set("border-color",
+     * ThemeService.getInstance().getColors().getTheme32(24))
+     * .set("background-color",
+     * ThemeService.getInstance().getColors().getTheme32(20));
+     * 
+     * get("primary-dialog-button-f100") .set("border-color",
+     * ThemeService.getInstance().getColors().getTheme32(28))
+     * .set("background-color",
+     * ThemeService.getInstance().getColors().getTheme32(24));
      */
   }
 
@@ -219,7 +219,7 @@ public class KeyFramesService {
    * @throws ParserConfigurationException the parser configuration exception
    */
   private synchronized void autoLoadXml() throws IOException,
-  URISyntaxException, SAXException, ParserConfigurationException {
+      URISyntaxException, SAXException, ParserConfigurationException {
     LOG.info("Auto loading styles...");
 
     for (String res : Resources.getInstance()) {
@@ -230,7 +230,7 @@ public class KeyFramesService {
       LOG.info("Loading styles from {}...", res);
 
       InputStream is = Resources.getResInputStream(res);
-      
+
       try {
         loadXml(is);
       } finally {
@@ -244,21 +244,22 @@ public class KeyFramesService {
     // Load any per user settings. We flag these as being updated so
     // that on the next write cycle, they will be written back to the
     // settings file.
-    //loadXml(SettingsReaderUserXml.USER_XML_FILE, true);
+    // loadXml(SettingsReaderUserXml.USER_XML_FILE, true);
 
     LOG.info("Finished loading styles.");
   }
-  
-  private synchronized boolean loadXml(Path file) throws SAXException, IOException, ParserConfigurationException {
+
+  private synchronized boolean loadXml(Path file)
+      throws SAXException, IOException, ParserConfigurationException {
     if (FileUtils.exists(file)) {
       InputStream is = FileUtils.newBufferedInputStream(file);
-      
+
       try {
         loadXml(is);
       } finally {
         is.close();
       }
-      
+
       return true;
     } else {
       return false;
@@ -282,8 +283,8 @@ public class KeyFramesService {
   }
 
   /**
-   * Return the style class from the default <code>KeyFrames.FROM</code>
-   * key frame.
+   * Return the style class from the default <code>KeyFrames.FROM</code> key
+   * frame.
    * 
    * @param name
    * @return
@@ -291,11 +292,11 @@ public class KeyFramesService {
   public StyleClass getStyleClass(String name) {
     return getStyleClass(KeyFrames.FROM, name);
   }
-  
+
   public StyleClass getToStyleClass(String name) {
     return getStyleClass(KeyFrames.TO, name);
   }
-  
+
   public StyleClass getStyleClass(int frame, String name) {
     if (!contains(frame, name)) {
       getStyleClass(frame).put(name, new StyleClass(name));
@@ -303,37 +304,34 @@ public class KeyFramesService {
 
     return getStyleClass(frame).get(name);
   }
-  
+
   /**
    * Returns true if the given keyframe contains a given style class.
    * 
-   * @param frame     The keyframe (between 0 and 100 inclusive).
-   * @param name      The name of the style class.
+   * @param frame The keyframe (between 0 and 100 inclusive).
+   * @param name The name of the style class.
    * @return
    */
   public boolean contains(int frame, String name) {
     return getStyleClass(frame).containsKey(name);
   }
-  
+
   public Map<String, StyleClass> getStyleClass(int frame) {
     autoLoad();
 
     return mStyleMap.get(frame);
   }
-  
+
   /*
-  public void addStyleClasses(ModernComponent c, int frame, String name, String... names) {
-    if (contains(frame, name)) {
-      c.getKeyFrames().getKeyFrame(frame).addStyleClass(getStyleClass(frame, name));
-    }
-    
-    for (String n : names) {
-      if (contains(frame, n)) {
-        c.getKeyFrames().getKeyFrame(frame).addStyleClass(getStyleClass(frame, n));
-      }
-    }
-  }
-  */
+   * public void addStyleClasses(ModernComponent c, int frame, String name,
+   * String... names) { if (contains(frame, name)) {
+   * c.getKeyFrames().getKeyFrame(frame).addStyleClass(getStyleClass(frame,
+   * name)); }
+   * 
+   * for (String n : names) { if (contains(frame, n)) {
+   * c.getKeyFrames().getKeyFrame(frame).addStyleClass(getStyleClass(frame, n));
+   * } } }
+   */
 
   /*
    * public Style get(Collection<String> styles) { String name =

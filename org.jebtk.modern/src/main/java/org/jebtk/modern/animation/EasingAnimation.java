@@ -19,17 +19,18 @@ import org.jebtk.math.CubicBezier;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
- * Allows for graphics to transition between two fixed points using a
- * Bezier curve to control the speed of animation
+ * Allows for graphics to transition between two fixed points using a Bezier
+ * curve to control the speed of animation
  *
  * @author Antony Holmes
  */
 public abstract class EasingAnimation extends TimerAnimation {
 
-  // Material Design recommended easing https://material.io/design/motion/speed.html#easing
-  //public final static CubicBezier BEZIER = CubicBezier
-  //    .normCubicBezier(0.4, 0.0, 0.2, 1);
-  
+  // Material Design recommended easing
+  // https://material.io/design/motion/speed.html#easing
+  // public final static CubicBezier BEZIER = CubicBezier
+  // .normCubicBezier(0.4, 0.0, 0.2, 1);
+
   // CSS default
   public static final CubicBezier BEZIER = CubicBezier
       .normCubicBezier(0.25, 0.1, 0.25, 1);

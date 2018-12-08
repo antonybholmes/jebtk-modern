@@ -30,8 +30,12 @@ public class CheckBoxAnimation extends WidgetAnimation {
     // ModernCheckBox.UNCHECKED_ICON.drawIcon(g2, x, y,
     // ModernCheckBox.ICON_SIZE);
 
-    DrawUIService.getInstance().getRenderer("content-box")
-        .draw(g2, widget, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
+    DrawUIService.getInstance().getRenderer("content-box").draw(g2,
+        widget,
+        x,
+        y,
+        ModernCheckBox.ICON_SIZE,
+        ModernCheckBox.ICON_SIZE);
     // }
   }
 }

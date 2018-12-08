@@ -30,7 +30,6 @@ package org.jebtk.modern.ribbon;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -83,12 +82,12 @@ public class RibbonSubSectionSeparator extends ModernWidget {
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
 
-    g2.setColor(ThemeService.getInstance().getColors().getGray(4));
+    g2.setColor(Ribbon.SEPARATOR_COLOR);
 
-    g2.drawLine(MID_POINT,
-        mInternalRect.getY() + DOUBLE_PADDING,
-        MID_POINT,
-        mInternalRect.getY() + mInternalRect.getH() - DOUBLE_PADDING);
+    int x = mRect.getW() - 1;
+    int y = (mRect.getH() - RibbonSection.SEPARATOR_HEIGHT) / 2;
+
+    g2.drawLine(x, y, x, y + RibbonSection.SEPARATOR_HEIGHT);
 
     /*
      * GradientPaint gradient = new GradientPaint(0, y, Color.WHITE, 0, h2 + y,

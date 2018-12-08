@@ -65,7 +65,7 @@ public class ModernSimpleTable extends ModernRowTable {
     try {
       // translate to the start of the rendering rectangle so that we skip
       // all non visible cells
-      //translate(g2Table);
+      // translate(g2Table);
 
       ModernDataCellRenderer renderer;
 
@@ -81,7 +81,7 @@ public class ModernSimpleTable extends ModernRowTable {
 
         for (int j = visibleCells.getStartCol(); j <= visibleCells
             .getEndCol(); ++j) {
-          if (j >= getColumnCount()) {
+          if (j >= getColCount()) {
             continue;
           }
 

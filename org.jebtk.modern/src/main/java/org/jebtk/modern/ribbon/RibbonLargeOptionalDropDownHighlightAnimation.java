@@ -68,21 +68,22 @@ public class RibbonLargeOptionalDropDownHighlightAnimation
         w = rect.getW() - mButton.mDividerLocation;
       }
 
-      //g2.setColor(getFadeColor("fill"));
+      // g2.setColor(getFadeColor("fill"));
 
       if (mButton.isSelected() || mButton.mPopupShown) {
         // paintHighlighted(g2, rect);
 
-        ///getWidget().getWidgetRenderer().fill(g2, rect);
-        
-        
-        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, rect, getFadeColor("fill"));
+        /// getWidget().getWidgetRenderer().fill(g2, rect);
+
+        DrawUIService.getInstance().getRenderer("button-fill")
+            .draw(g2, rect, getFadeColor("fill"));
 
       } else {
         // getWidget().getWidgetRenderer().outline(g2, rect);
-        //getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
-        
-        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, x, y, w, h, getFadeColor("fill"));
+        // getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
+
+        DrawUIService.getInstance().getRenderer("button-fill")
+            .draw(g2, x, y, w, h, getFadeColor("fill"));
 
         // getWidgetRenderer().drawRibbonButtonOutline(g2, rect,
         // RenderMode.SELECTED);

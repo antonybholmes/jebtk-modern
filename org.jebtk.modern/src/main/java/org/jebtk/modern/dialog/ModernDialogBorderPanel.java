@@ -81,7 +81,7 @@ public class ModernDialogBorderPanel extends ModernBorderPanel {
    */
   @Override
   public void drawBackgroundAA(Graphics2D g2) {
-    //getWidgetRenderer().drawDialogContentBox(g2, mRect);
+    // getWidgetRenderer().drawDialogContentBox(g2, mRect);
     DrawUIService.getInstance().getRenderer("content-box").draw(g2, mRect);
   }
 }

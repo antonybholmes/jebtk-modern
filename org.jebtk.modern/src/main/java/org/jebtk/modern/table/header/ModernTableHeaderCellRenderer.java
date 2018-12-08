@@ -45,12 +45,12 @@ public abstract class ModernTableHeaderCellRenderer
   private static final long serialVersionUID = 1L;
 
   /** The Constant SEL_LINE_COLOR. */
-  public static final Color SEL_LINE_COLOR = ThemeService.getInstance().getColors()
-      .getTheme(5);
+  public static final Color SEL_LINE_COLOR = ThemeService.getInstance()
+      .getColors().getTheme(5);
 
   /** The Constant SEL_BACK_COLOR. */
-  public static final Color SEL_BACK_COLOR = ThemeService.getInstance().getColors()
-      .getGray(3);
+  public static final Color SEL_BACK_COLOR = ThemeService.getInstance()
+      .getColors().getGray(3);
 
   /** The m text. */
   protected String mText;

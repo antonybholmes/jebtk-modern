@@ -104,8 +104,7 @@ public class MaterialService {
      * Instantiates a new material colors.
      */
     public MaterialColors() {
-      add("ribbon",
-          ThemeService.getInstance().getColors().getTheme32(28));
+      add("ribbon", ThemeService.getInstance().getColors().getTheme32(28));
       add("ribbon-highlight",
           ColorUtils.getTransparentColor(get("ribbon"), 0.92));
       add("ribbon-selected",
@@ -138,11 +137,9 @@ public class MaterialService {
       add("gray-highlight",
           ThemeService.getInstance().getColors().getGray32(4));
 
-      add("gray-selected",
-          ThemeService.getInstance().getColors().getGray32(8));
+      add("gray-selected", ThemeService.getInstance().getColors().getGray32(8));
 
-      add("gray-outline",
-          ThemeService.getInstance().getColors().getGray32(15));
+      add("gray-outline", ThemeService.getInstance().getColors().getGray32(15));
 
       add("dialog.button.fill", Color.WHITE);
 
@@ -178,6 +175,9 @@ public class MaterialService {
       add("window.background.gradient.end",
           ThemeService.getInstance().getColors().getGray32(1));
 
+      add("ribbon.separator",
+          ThemeService.getInstance().getColors().getGray(3));
+
       add("line", ThemeService.getInstance().getColors().getGray32(7));
 
       add("alt.text", ThemeService.getInstance().getColors().getGray32(20));
@@ -187,7 +187,7 @@ public class MaterialService {
       return get("alt.txt");
     }
   }
-  
+
   public static class IntConstants extends KeyStore<String, Integer> {
 
     /**
@@ -195,7 +195,8 @@ public class MaterialService {
      */
     public IntConstants() {
       add("corner-radius",
-          SettingsService.getInstance().getInt("theme.constants.corner-radius"));
+          SettingsService.getInstance()
+              .getInt("theme.constants.corner-radius"));
     }
 
     public int cornerRadius() {
@@ -208,7 +209,7 @@ public class MaterialService {
 
   /** The m colors. */
   private MaterialColors mColors = new MaterialColors();
-  
+
   private IntConstants mIntConsts = new IntConstants();
 
   /**
@@ -228,7 +229,7 @@ public class MaterialService {
   public MaterialColors getColors() {
     return mColors;
   }
-  
+
   public IntConstants getInts() {
     return mIntConsts;
   }

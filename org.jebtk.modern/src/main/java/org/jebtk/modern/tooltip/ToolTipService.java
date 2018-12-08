@@ -157,7 +157,7 @@ public class ToolTipService implements ModernToolTipEventProducer {
     // the underlying window this component belongs to
     showToolTip(new ModernToolTipEvent(c, ToolTipService.getToolTipWindow(c)));
   }
-  
+
   @Override
   public void showToolTip(ModernToolTipEvent e) {
     mListenerMap.get(e.getDest()).showToolTip(e);
@@ -173,11 +173,12 @@ public class ToolTipService implements ModernToolTipEventProducer {
   public void hideToolTip(Component c) {
     hideToolTip(c, ToolTipLevel.NORMAL);
   }
-  
+
   public void hideToolTip(Component c, ToolTipLevel l) {
-    hideToolTip(new ModernToolTipEvent(c, ToolTipService.getToolTipWindow(c), l));
+    hideToolTip(
+        new ModernToolTipEvent(c, ToolTipService.getToolTipWindow(c), l));
   }
-  
+
   @Override
   public void hideToolTip(ModernToolTipEvent e) {
     mListenerMap.get(e.getDest()).hideToolTip(e);

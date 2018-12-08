@@ -175,7 +175,7 @@ public class ModernRowTable extends ModernTable {
         g2Temp.drawLine(x + 1, y - 1, x + 1, p);
       }
 
-      if (visibleCells.getEndCol() == (getColumnCount() - 1)) {
+      if (visibleCells.getEndCol() == (getColCount() - 1)) {
         p = x + w;
         g2Temp.drawLine(p, y - 1, p, y + h - 1);
       }

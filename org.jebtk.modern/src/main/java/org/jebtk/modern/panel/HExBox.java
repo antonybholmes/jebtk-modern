@@ -44,11 +44,11 @@ public class HExBox extends HBox {
   public HExBox() {
     // Do nothing
   }
-  
+
   public HExBox(String title, Component... components) {
     super(title, components);
   }
-  
+
   @Override
   public Component add(Component c) {
     super.add(c);

@@ -171,11 +171,11 @@ public class AssetService {
   /**
    * The member vector icon map.
    */
-  private Map<String, IterMap<Integer, ModernIcon>> mVectorIconMap = 
-      DefaultHashMap.create(new HashMapCreator<Integer, ModernIcon>()); // .createnew
-                                                          // HashMap<Class<?>,
-                                                          // Map<Integer,
-                                                          // ModernIcon>>();
+  private Map<String, IterMap<Integer, ModernIcon>> mVectorIconMap = DefaultHashMap
+      .create(new HashMapCreator<Integer, ModernIcon>()); // .createnew
+  // HashMap<Class<?>,
+  // Map<Integer,
+  // ModernIcon>>();
 
   /**
    * Instantiates a new UI resources.

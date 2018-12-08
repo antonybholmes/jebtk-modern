@@ -2,6 +2,7 @@ package org.jebtk.modern.help;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.icons.ModernMessageIcon;
@@ -19,6 +20,7 @@ public class HelpButtonHighlightAnimation extends ButtonFillAnimation {
 
   @Override
   public void fill(Graphics2D g2,
+      ModernComponent c,
       int x,
       int y,
       int w,

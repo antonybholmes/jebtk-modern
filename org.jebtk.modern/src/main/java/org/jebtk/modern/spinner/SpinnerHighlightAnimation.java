@@ -28,13 +28,13 @@ public class SpinnerHighlightAnimation extends ButtonOutlineAnimation {
     IntRect intRect = new IntRect(x, y,
         mSpinner.mMinButtonX - x - ModernCompactSpinner.BORDER, r.getH());
 
-    //widget.getWidgetRenderer().drawBackground(g2, intRect);
-    
+    // widget.getWidgetRenderer().drawBackground(g2, intRect);
+
     DrawUIService.getInstance().getRenderer("content").draw(g2, intRect);
 
-    //g2.setColor(getFadeColor("outline"));
-    //widget.getWidgetRenderer().outline(g2, intRect);
-    DrawUIService.getInstance().getRenderer("button-outline").draw(g2, intRect, 
-        getFadeColor("outline"));
+    // g2.setColor(getFadeColor("outline"));
+    // widget.getWidgetRenderer().outline(g2, intRect);
+    DrawUIService.getInstance().getRenderer("button-outline")
+        .draw(g2, intRect, getFadeColor("outline"));
   }
 }

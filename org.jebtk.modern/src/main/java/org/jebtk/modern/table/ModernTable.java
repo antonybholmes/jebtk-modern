@@ -35,6 +35,8 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
@@ -43,10 +45,12 @@ import org.jebtk.core.Mathematics;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntPos2D;
+import org.jebtk.core.text.Join;
+import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.MouseUtils;
 import org.jebtk.modern.SelectionPolicy;
 import org.jebtk.modern.SelectionRangeType;
-import org.jebtk.modern.clipboard.ClipboardUiControl;
+import org.jebtk.modern.clipboard.ClipboardService;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.dataview.ModernDataCell;
 import org.jebtk.modern.dataview.ModernDataCellRenderer;
@@ -78,8 +82,8 @@ import org.jebtk.modern.zoom.ZoomModel;
  * @author Antony Holmes Holmes
  *
  */
-public class ModernTable extends ModernData implements ClipboardUiControl,
-ModernSelectionListener, CanvasListener, CanvasCursorListener {
+public class ModernTable extends ModernData
+    implements ModernSelectionListener, CanvasListener, CanvasCursorListener {
 
   /**
    * The constant serialVersionUID.
@@ -98,12 +102,10 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
       .getColors().getTheme(5);
 
   /** The m heading render model. */
-  protected ModernTableHeadingRendererModel mHeadingRenderModel = 
-      new ModernTableHeadingRendererModel();
+  protected ModernTableHeadingRendererModel mHeadingRenderModel = new ModernTableHeadingRendererModel();
 
   /** The m row heading render model. */
-  protected ModernTableHeadingRendererModel mRowHeadingRenderModel = 
-      new ModernTableRowHeadingRendererModel();
+  protected ModernTableHeadingRendererModel mRowHeadingRenderModel = new ModernTableRowHeadingRendererModel();
 
   /**
    * Keep track of rows, for example which are selected.
@@ -258,7 +260,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
 
         if (cell != null) {
           setSelectedCell(cell.row,
-              Math.min(getColumnCount() - 1, cell.col + 1),
+              Math.min(getColCount() - 1, cell.col + 1),
               false,
               false);
         }
@@ -305,7 +307,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
 
       boolean multiSelect = (e.getModifiers()
           & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) == Toolkit
-          .getDefaultToolkit().getMenuShortcutKeyMask();
+              .getDefaultToolkit().getMenuShortcutKeyMask();
       boolean multiRangeSelect = (e.getModifiers()
           & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
 
@@ -433,7 +435,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
       int row = getSelectedRow();
       int col = getSelectedCol();
 
-      //if (row > 0 || col > 0) {
+      // if (row > 0 || col > 0) {
       int x = getColumnModel().getCumOffset(col);
       int w = getColumnModel().getWidth(col);
 
@@ -441,7 +443,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
       int h = getRowModel().getWidth(row);
 
       scrollRectToVisible(new Rectangle(x, y, w, h));
-      //}
+      // }
     }
 
     @Override
@@ -486,7 +488,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
   public void setModel(ModernDataModel model) {
     super.setModel(model);
 
-    mColumnHeaderSortModel = new ColumnHeaderSortModel(model.getColumnCount());
+    mColumnHeaderSortModel = new ColumnHeaderSortModel(model.getColCount());
     mColumnHeaderSortModel.addChangeListener(new ColumnHeaderChangeEvents());
   }
 
@@ -509,7 +511,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
     addCanvasKeyListener(new KeyEvents());
 
     getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT)
-    .put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "enter_pressed");
+        .put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "enter_pressed");
     getActionMap().put("enter_pressed", new EnterKeyEvents());
 
     /*
@@ -646,8 +648,9 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
    *
    * @return the column count
    */
-  public int getColumnCount() {
-    return mModel == null ? 0 : mModel.getColumnCount();
+  @Override
+  public int getColCount() {
+    return mModel == null ? 0 : mModel.getColCount();
   }
 
   /*
@@ -655,6 +658,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
    * 
    * @see org.abh.lib.ui.modern.dataview.ModernData#getRowCount()
    */
+  @Override
   public int getRowCount() {
     return mModel == null ? 0 : mModel.getRowCount();
   }
@@ -688,7 +692,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
       return;
     }
 
-    if (mModel.getRowCount() == 0 || mModel.getColumnCount() == 0) {
+    if (mModel.getRowCount() == 0 || mModel.getColCount() == 0) {
       return;
     }
 
@@ -697,7 +701,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
     // new
     // ModernTableRow(rowHeight));
 
-    mColumnModel.setSize(mModel.getColumnCount()); // = new
+    mColumnModel.setSize(mModel.getColCount()); // = new
     // TableIndexModel(model.getColumnCount(),
     // new
     // ModernTableColumn(defaultColumnWidth));
@@ -949,6 +953,51 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
    */
   public boolean getShowHeader() {
     return mShowHeader;
+  }
+
+  @Override
+  public void copy() {
+    if (mColumnModel.getSelectionModel().size() > 0) {
+      // Select every row from the selected columns
+      List<String> values = new ArrayList<String>(getRowCount());
+
+      Join tabJoin = Join.onTab();
+
+      for (int i = 0; i < getRowCount(); ++i) {
+        List<String> cells = new ArrayList<String>(
+            mColumnModel.getSelectionModel().size());
+
+        for (int j : mColumnModel.getSelectionModel()) {
+          cells.add(getValueAt(i, j) != null ? mModel.getValueAsString(i, j)
+              : TextUtils.EMPTY_STRING);
+        }
+
+        values.add(tabJoin.values(cells).toString());
+      }
+
+      ClipboardService
+          .copyToClipboard(Join.onNewLine().values(values).toString());
+    } else if (mRowModel.getSelectionModel().size() > 0) {
+      List<String> values = new ArrayList<String>(getColCount());
+
+      Join tabJoin = Join.onTab();
+
+      for (int i : mRowModel.getSelectionModel()) {
+        List<String> cells = new ArrayList<String>(getColCount());
+
+        for (int j = 0; j < getColCount(); ++j) {
+          cells.add(getValueAt(i, j) != null ? mModel.getValueAsString(i, j)
+              : TextUtils.EMPTY_STRING);
+        }
+
+        values.add(tabJoin.values(cells).toString());
+      }
+
+      ClipboardService
+          .copyToClipboard(Join.onNewLine().values(values).toString());
+    } else {
+      super.copy();
+    }
   }
 
   /**
@@ -1208,13 +1257,11 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
    */
   @Override
   public void rasterCanvas(Graphics2D g2, DrawingContext context) {
-    
+
     if (mModel == null || mModel.getRowCount() == 0
-        || mModel.getColumnCount() == 0) {
+        || mModel.getColCount() == 0) {
       return;
     }
-    
-    
 
     // required for smooth offsetting
     // g2Table.translate(viewOffset.x, viewOffset.y);
@@ -1227,8 +1274,6 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
     // visibleModernSelection.getEndCol());
 
     ModernDataSelection visibleCells = calculateVisibleCells();
-    
-   
 
     createTableImage(g2, context, visibleCells);
 
@@ -1301,7 +1346,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
         try {
           for (int j = visibleCells.getStartCol(); j <= visibleCells
               .getEndCol(); ++j) {
-            if (j >= getColumnCount()) {
+            if (j >= getColCount()) {
               break;
             }
 
@@ -1702,7 +1747,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
       // g2Temp.drawLine(x, y, x, p);
       // }
 
-      if (visibleCells.getEndCol() == (getColumnCount() - 1)) {
+      if (visibleCells.getEndCol() == (getColCount() - 1)) {
         p = x + w;
         g2Temp.drawLine(p, y - 1, p, y + h - 1);
       }
@@ -1882,7 +1927,7 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
       return null;
     }
 
-    if (!Mathematics.inBound(col, 0, getColumnCount())) {
+    if (!Mathematics.inBound(col, 0, getColCount())) {
       return null;
     }
 
@@ -2036,7 +2081,8 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
 
         mSelectionModel.getRowSelectionModel().remove(row);
       } else {
-        mSelectionModel.getRowSelectionModel().update(row, SelectionRangeType.ADD);
+        mSelectionModel.getRowSelectionModel().update(row,
+            SelectionRangeType.ADD);
       }
     } else if (multiRangeSelect
         && mSelectionModel.getRowSelectionModel().size() > 0) {
@@ -2049,7 +2095,8 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
           row,
           SelectionRangeType.REPLACE);
     } else {
-      mSelectionModel.getRowSelectionModel().update(row, SelectionRangeType.REPLACE);
+      mSelectionModel.getRowSelectionModel().update(row,
+          SelectionRangeType.REPLACE);
     }
 
     // Updating the column causes a selection event to be triggered.
@@ -2061,7 +2108,8 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
 
         mSelectionModel.getColumnSelectionModel().remove(column);
       } else {
-        mSelectionModel.getColumnSelectionModel().add(column, SelectionRangeType.ADD);
+        mSelectionModel.getColumnSelectionModel().add(column,
+            SelectionRangeType.ADD);
       }
     } else if (multiRangeSelect
         && mSelectionModel.getColumnSelectionModel().size() > 0) {
@@ -2074,7 +2122,8 @@ ModernSelectionListener, CanvasListener, CanvasCursorListener {
           column,
           SelectionRangeType.REPLACE);
     } else {
-      mSelectionModel.getColumnSelectionModel().add(column, SelectionRangeType.REPLACE);
+      mSelectionModel.getColumnSelectionModel().add(column,
+          SelectionRangeType.REPLACE);
     }
 
     updateSelectedCell();

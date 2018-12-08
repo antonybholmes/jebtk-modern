@@ -138,7 +138,8 @@ public class ModernOutlookVerticalTabs extends TabsController
    */
   private final void addTab(String name) {
     addTab(name,
-        AssetService.getInstance().loadIcon("blank", AssetService.ICON_SIZE_16));
+        AssetService.getInstance().loadIcon("blank",
+            AssetService.ICON_SIZE_16));
   }
 
   /**

@@ -50,7 +50,7 @@ public class ListChangeAnimation extends TranslateYAnimation {
           public void selectionAdded(ChangeEvent e) {
             selectionRemoved(e);
           }
-          
+
           @Override
           public void selectionRemoved(ChangeEvent e) {
             restart();

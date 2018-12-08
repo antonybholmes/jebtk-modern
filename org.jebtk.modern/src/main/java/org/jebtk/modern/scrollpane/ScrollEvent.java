@@ -31,10 +31,10 @@ public class ScrollEvent extends Event {
    */
   public ScrollEvent(Object source, IntRect rect) {
     super(source, EVENT);
-    
+
     mRect = rect;
   }
-  
+
   public IntRect getRect() {
     return mRect;
   }

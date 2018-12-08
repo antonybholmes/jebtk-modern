@@ -31,16 +31,17 @@ public class ChipButtonHighlightAnimation extends ButtonFillAnimation {
     if (getWidget().isEnabled()) { // && (getButton().getHightlighted() ||
       // getButton().getPopupShown())) {
       IntRect rect = getWidget().getInternalRect();
-      
+
       if (mButton.isSelected()) {
         g2.setColor(SELECTED);
       } else {
         g2.setColor(getFadeColor("fill"));
       }
 
-      //mButton.getWidgetRenderer().drawPillButtonFill(g2, x, y, w, h);
+      // mButton.getWidgetRenderer().drawPillButtonFill(g2, x, y, w, h);
 
-      DrawUIService.getInstance().getRenderer("pill.highlight").draw(g2, rect.getX(),
+      DrawUIService.getInstance().getRenderer("pill-fill").draw(g2,
+          rect.getX(),
           rect.getY(),
           rect.getW(),
           rect.getH(),

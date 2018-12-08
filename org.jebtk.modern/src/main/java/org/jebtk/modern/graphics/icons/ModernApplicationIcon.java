@@ -86,7 +86,8 @@ public class ModernApplicationIcon extends ModernVectorScalableIcon {
    */
   public ModernApplicationIcon(String text1, String text2, ColorTheme theme) {
     this(text1, text2,
-        ThemeService.getInstance().getColors().getColorTheme(theme).getColor32(22),
+        ThemeService.getInstance().getColors().getColorTheme(theme)
+            .getColor32(22),
         ThemeService.getInstance().getColors().getColorTheme(theme)
             .getColor32(24));
 

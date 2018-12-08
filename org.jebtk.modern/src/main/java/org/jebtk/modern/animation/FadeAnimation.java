@@ -44,10 +44,11 @@ public class FadeAnimation extends EasingAnimation {
         @Override
         public NamedColors newEntry() {
           return new NamedColors();
-        }});
+        }
+      });
 
   /** Map step to transparency level */
-  //private Map<Integer, Double> mStepMap = new HashMap<Integer, Double>();
+  // private Map<Integer, Double> mStepMap = new HashMap<Integer, Double>();
 
   /**
    * Instantiates a new hover fade animation.
@@ -58,17 +59,17 @@ public class FadeAnimation extends EasingAnimation {
     super(widget);
 
     // double t = 0;
-    
-    //setStep(0);
 
-    //mStepMap.put(0, 0.0);
-    //mStepMap.put(MAX_STEP_INDEX, 1.0);
+    // setStep(0);
 
-    //for (int i = 1; i < MAX_STEP_INDEX; ++i) {
-    //  mStepMap.put(i, BEZ_T[i]);
-    //}
+    // mStepMap.put(0, 0.0);
+    // mStepMap.put(MAX_STEP_INDEX, 1.0);
+
+    // for (int i = 1; i < MAX_STEP_INDEX; ++i) {
+    // mStepMap.put(i, BEZ_T[i]);
+    // }
   }
-  
+
   public void restart() {
     reset();
     start();
@@ -96,12 +97,12 @@ public class FadeAnimation extends EasingAnimation {
    *
    * @param name the name
    * @param color the color
-   * @return 
+   * @return
    */
   public FadeAnimation setFadeColor(String name, Color color) {
     double t = ColorUtils.getAlpha(color);
 
-    //double d = (1.0 - t); // / STEPS;
+    // double d = (1.0 - t); // / STEPS;
 
     for (int i = 0; i < STEPS; ++i) {
       Color c = ColorUtils.getColor(color, t * BEZ_T[i]);
@@ -110,7 +111,7 @@ public class FadeAnimation extends EasingAnimation {
 
       // t += d;
     }
-    
+
     return this;
   }
 
@@ -126,7 +127,7 @@ public class FadeAnimation extends EasingAnimation {
     for (int i = 0; i < STEPS; ++i) {
       mFadeColorMap.get(i).add(name, colorMap.get(i));
     }
-    
+
     return this;
   }
 
@@ -152,25 +153,25 @@ public class FadeAnimation extends EasingAnimation {
   public NamedColors getFadeColorMap(int step) {
     return mFadeColorMap.get(step);
   }
-  
+
   public NamedColors getToFadeColorMap() {
     return getFadeColorMap(MAX_STEP_INDEX);
   }
-  
+
   public NamedColors getFromFadeColorMap() {
     return getFadeColorMap(0);
   }
-  
+
   /**
    * Get the end color.
    * 
-   * @param name    The color gradient name.
+   * @param name The color gradient name.
    * @return
    */
   public Color getToColor(String name) {
     return getToFadeColorMap().get(name);
   }
-  
+
   public Color getFromColor(String name) {
     return getFromFadeColorMap().get(name);
   }
@@ -197,9 +198,9 @@ public class FadeAnimation extends EasingAnimation {
    *
    * @return the trans
    */
-  //ublic double getTrans() {
-  //  return mStepMap.get(mStep);
-  //}
+  // ublic double getTrans() {
+  // return mStepMap.get(mStep);
+  // }
 
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {

@@ -57,6 +57,7 @@ import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
+import org.jebtk.modern.animation.AnimationService;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.event.HighlightEvent;
 import org.jebtk.modern.event.HighlightEventProducer;
@@ -99,14 +100,21 @@ public class Ribbon extends ModernClickWidget
    */
   private static final long serialVersionUID = 1L;
 
+  static {
+    AnimationService.getInstance().get("ribbon").add(RibbonAnimation.class)
+        // .add(RibbonPressedAnimation.class)
+        .add(RibbonChangeAnimation.class)
+        .add(RibbonHighlightTextAnimation.class);
+  }
+
   /** The Constant HOME_TOOLBAR. */
   public static final String HOME_TOOLBAR = UI.ASSET_RIBBON_HOME;
 
   /** The height of each tab. */
-  public static final int TAB_HEIGHT = 32; // WIDGET_HEIGHT; //28;
+  public static final int TAB_HEIGHT = 30; // WIDGET_HEIGHT; //28;
 
   /** The border between the window and where the ribbon starts. */
-  public static final int Y_OFFSET = 2; // (UI.CUSTOM_WINDOW_DECORATION ?
+  public static final int Y_OFFSET = 0; // (UI.CUSTOM_WINDOW_DECORATION ?
                                         // TAB_HEIGHT : 0); // +1;
 
   /** The y position where tabs start. */
@@ -206,10 +214,11 @@ public class Ribbon extends ModernClickWidget
   /**
    * The constant TAB_FONT.
    */
-  public static final Font TAB_FONT = MaterialService.getInstance().getFonts().text(); // ModernWidget.BOLD_FONT;
-                                                                                 // //MaterialUtils.TEXT_FONT;
-                                                                                 // //ModernWidget.FONT;
-                                                                                 // //ThemeService.loadFont("theme.ribbon.getFonts.tab");
+  public static final Font TAB_FONT = MaterialService.getInstance().getFonts()
+      .text(); // ModernWidget.BOLD_FONT;
+  // //MaterialUtils.TEXT_FONT;
+  // //ModernWidget.FONT;
+  // //ThemeService.loadFont("theme.ribbon.getFonts.tab");
 
   /**
    * The constant FILE_MENU_WIDTH.
@@ -257,8 +266,8 @@ public class Ribbon extends ModernClickWidget
   /**
    * The constant BORDER_COLOR.
    */
-  public static final Color BORDER_COLOR = ThemeService.getInstance().getColors()
-      .getGray(4);
+  public static final Color BORDER_COLOR = ThemeService.getInstance()
+      .getColors().getGray(4);
 
   /**
    * The constant BUTTON_HIGHLIGHTED_COLOR.
@@ -286,11 +295,12 @@ public class Ribbon extends ModernClickWidget
   // private static final String FILE_TOOLBAR = "FILE";
 
   /** The Constant ROUNDING. */
-  private static final int ROUNDING = MaterialService.getInstance().getInts().cornerRadius();
+  private static final int ROUNDING = MaterialService.getInstance().getInts()
+      .cornerRadius();
 
   /** The Constant SEPARATOR_COLOR. */
-  public static final Color SEPARATOR_COLOR = ThemeService.getInstance()
-      .getColors().getGray(3);
+  public static final Color SEPARATOR_COLOR = MaterialService.getInstance()
+      .getColor("ribbon.separator");
 
   /**
    * The member tabs panel.
@@ -757,7 +767,8 @@ public class Ribbon extends ModernClickWidget
         showTabsCommandsMenuItem);
 
     mModeButton = new QuickAccessMenuButton2(
-        AssetService.getInstance().loadIcon(RibbonModeVectorIcon.class, 16), menu);
+        AssetService.getInstance().loadIcon(RibbonModeVectorIcon.class, 16),
+        menu);
     mModeButton.setToolTip("Ribbon Display Options",
         "Configure ribbon behavior.");
     addRightToolbarButton(mModeButton);

@@ -81,7 +81,7 @@ import org.slf4j.LoggerFactory;
  * @author Antony Holmes Holmes
  */
 public class ModernWindow extends JFrame
-implements ModernDialogConstructor, ModernToolTipListener {
+    implements ModernDialogConstructor, ModernToolTipListener {
 
   /**
    * The constant serialVersionUID.
@@ -620,12 +620,12 @@ implements ModernDialogConstructor, ModernToolTipListener {
     // Put in the context of the window
     SwingUtilities.convertPointFromScreen(p, getLayeredPane());
 
-    //Rectangle wb = getBounds();
+    // Rectangle wb = getBounds();
 
-    //Dimension ps = tooltip.getPreferredSize();
+    // Dimension ps = tooltip.getPreferredSize();
 
-    //int w = ps.width;
-    //int h = ps.height;
+    // int w = ps.width;
+    // int h = ps.height;
 
     // if (p.x + w > wb.width) {
     // p.x += source.getWidth() - w;
@@ -695,7 +695,7 @@ implements ModernDialogConstructor, ModernToolTipListener {
 
       mTooltips.clear();
     }
-    
+
     revalidate();
     repaint();
   }
@@ -703,21 +703,23 @@ implements ModernDialogConstructor, ModernToolTipListener {
   @Override
   public void tooltipHidden(ModernToolTipEvent e) {
     System.err.println("hide tooltip");
-    
+
     removeToolTip(e.getTooltip(), e.getLevel());
 
     revalidate();
     repaint();
   }
-  
+
   /**
    * Remove a tooltip from the cache.
-   * @param e 
+   * 
+   * @param e
    * @param c
    */
   private void removeToolTip(Component c, ToolTipLevel level) {
     if (c instanceof ModernToolTipPanel) {
-      if (level == ToolTipLevel.FORCE || ((ModernToolTipPanel)c).getAutoHide()) {
+      if (level == ToolTipLevel.FORCE
+          || ((ModernToolTipPanel) c).getAutoHide()) {
         getLayeredPane().remove(c);
       }
     } else {
@@ -743,7 +745,7 @@ implements ModernDialogConstructor, ModernToolTipListener {
    */
   protected void doHideTooltips() {
     ToolTipService.getInstance()
-    .hideToolTips(new ModernToolTipEvent(this, this));
+        .hideToolTips(new ModernToolTipEvent(this, this));
   }
 
   /**

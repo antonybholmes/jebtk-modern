@@ -67,8 +67,7 @@ public class EmptyCanvas extends ModernCanvas {
    * Graphics2D)
    */
   @Override
-  public final void rasterCanvas(Graphics2D g2,
-      DrawingContext context) {
+  public final void rasterCanvas(Graphics2D g2, DrawingContext context) {
     // do nothing
   }
 }

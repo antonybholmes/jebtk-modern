@@ -240,16 +240,17 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
     if (isSelected() || mPopupShown) {
       // paintHighlighted(g2, rect);
 
-      //getWidgetRenderer().drawButton(g2, rect, RenderMode.SELECTED);
+      // getWidgetRenderer().drawButton(g2, rect, RenderMode.SELECTED);
       DrawUIService.getInstance().getRenderer("button-fill").draw(g2, rect);
     } else if (mHighlight) {
-      //getWidgetRenderer().drawContentBox(g2, rect);
-     // getWidgetRenderer().drawButtonOutline(g2, rect, RenderMode.SELECTED);
-      //getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
+      // getWidgetRenderer().drawContentBox(g2, rect);
+      // getWidgetRenderer().drawButtonOutline(g2, rect, RenderMode.SELECTED);
+      // getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
 
       DrawUIService.getInstance().getRenderer("content-box").draw(g2, rect);
       DrawUIService.getInstance().getRenderer("button-outline").draw(g2, rect);
-      DrawUIService.getInstance().getRenderer("button-fill").draw(g2, x, y, w, h);
+      DrawUIService.getInstance().getRenderer("button-fill")
+          .draw(g2, x, y, w, h);
       // paintHighlightedBorder(g2, rect);
       // paintHighlighted(g2, x, y, w, h);
     } else {

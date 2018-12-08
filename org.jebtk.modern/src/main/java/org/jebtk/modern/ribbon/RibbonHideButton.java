@@ -37,7 +37,8 @@ public class RibbonHideButton extends RibbonButton {
     super(AssetService.getInstance().loadIcon(CheveronUpVectorIcon.class, 12));
 
     addToStyleClass("dialog-button");
-    setAnimations("circle-fill"); //new RibbonButtonHighlightAnimation(this, "circle"));
+    setAnimations("circle-fill"); // new RibbonButtonHighlightAnimation(this,
+                                  // "circle"));
 
     UI.setSize(this, 24);
   }

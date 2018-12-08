@@ -293,7 +293,7 @@ public class ModernList<T> extends ModernVertCanvas
     public void selectionAdded(ChangeEvent e) {
       fireSelectionAdded(new ChangeEvent(mList));
     }
-    
+
     @Override
     public void selectionRemoved(ChangeEvent e) {
       fireSelectionRemoved(new ChangeEvent(mList));
@@ -791,15 +791,17 @@ public class ModernList<T> extends ModernVertCanvas
   @Override
   public void fireSelectionAdded(ChangeEvent e) {
     repaint();
-    
-    mSelectionListeners.fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
+
+    mSelectionListeners
+        .fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
   }
-  
+
   @Override
   public void fireSelectionRemoved(ChangeEvent e) {
     repaint();
-    
-    mSelectionListeners.fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));
+
+    mSelectionListeners
+        .fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));
   }
 
   /**

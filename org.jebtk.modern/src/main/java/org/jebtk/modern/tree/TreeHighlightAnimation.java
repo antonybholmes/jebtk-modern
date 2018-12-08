@@ -43,7 +43,7 @@ public class TreeHighlightAnimation extends HighlightAnimation {
     mTree = (ModernTree<?>) widget;
 
     setFadeColor("highlight",
-        widget.getToKeyFrame().getColor("background-color")); //ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
+        widget.getToKeyFrame().getColor("background-color")); // ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
   }
 
   /*

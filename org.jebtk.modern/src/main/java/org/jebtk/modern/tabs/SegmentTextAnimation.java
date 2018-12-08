@@ -49,7 +49,7 @@ public class SegmentTextAnimation extends WidgetAnimation {
         mSegments.repaint();
       }
     });
-    
+
     mSegments.addComponentListener(new ComponentAdapter() {
 
       @Override
@@ -57,7 +57,7 @@ public class SegmentTextAnimation extends WidgetAnimation {
         mSegments.repaint();
       }
     });
-    
+
     mSegments.resize();
   }
 
@@ -82,7 +82,7 @@ public class SegmentTextAnimation extends WidgetAnimation {
     g2.setFont(TextTabs.TEXT_TABS_FONT);
 
     int textY = ModernWidget.getTextYPosCenter(g2, mSegments.getHeight());
-    
+
     for (int i = 0; i < n; ++i) {
       boolean selected = i == selectedIndex;
 
@@ -90,14 +90,12 @@ public class SegmentTextAnimation extends WidgetAnimation {
 
       // g2.setFont(selected ? ModernWidget.BOLD_FONT : ModernWidget.FONT);
 
-      
       String s = mSegments.getTabsModel().getTab(i).getName(); // .toUpperCase();
 
-      int textX = x + (mSegments.mTabSize - g2.getFontMetrics().stringWidth(s)) / 2;
-      
-      g2.drawString(s,
-          textX,
-          textY);
+      int textX = x
+          + (mSegments.mTabSize - g2.getFontMetrics().stringWidth(s)) / 2;
+
+      g2.drawString(s, textX, textY);
 
       x += mSegments.mTabSize;
     }

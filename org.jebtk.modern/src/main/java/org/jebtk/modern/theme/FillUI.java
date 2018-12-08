@@ -28,7 +28,7 @@ public class FillUI extends ButtonUI {
   public String getName() {
     return "fill";
   }
-  
+
   @Override
   public void fill(Graphics2D g2,
       ModernComponent c,

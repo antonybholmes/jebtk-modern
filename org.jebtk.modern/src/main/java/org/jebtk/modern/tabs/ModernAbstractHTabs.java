@@ -93,14 +93,14 @@ public abstract class ModernAbstractHTabs extends TabsController
   /**
    * The shift left button.
    */
-  protected ModernButton shiftLeftButton = new ModernButton(
-      AssetService.getInstance().loadIcon("arrow_left", AssetService.ICON_SIZE_16));
+  protected ModernButton shiftLeftButton = new ModernButton(AssetService
+      .getInstance().loadIcon("arrow_left", AssetService.ICON_SIZE_16));
 
   /**
    * The shift right button.
    */
-  protected ModernButton shiftRightButton = new ModernButton(
-      AssetService.getInstance().loadIcon("arrow_right", AssetService.ICON_SIZE_16));
+  protected ModernButton shiftRightButton = new ModernButton(AssetService
+      .getInstance().loadIcon("arrow_right", AssetService.ICON_SIZE_16));
 
   /**
    * The tab start x.

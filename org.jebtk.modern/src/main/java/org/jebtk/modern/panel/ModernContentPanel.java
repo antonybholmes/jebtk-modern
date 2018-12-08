@@ -70,7 +70,7 @@ public class ModernContentPanel extends ModernComponent {
 
     UI.setSize(this, w, h);
   }
-  
+
   @Override
   public void drawBackground(Graphics2D g2) {
     DrawUIService.getInstance().getRenderer("content-box").draw(g2, mRect);

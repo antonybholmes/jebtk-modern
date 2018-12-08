@@ -64,11 +64,10 @@ public class DrawUIService implements Iterable<String> {
     return UIRendererServiceLoader.INSTANCE;
   }
 
-  private IterMap<String, DrawUI> mRenderMap = 
-      new IterHashMap<String, DrawUI>();
-  
-  private Map<String, IterMap<String, BufferedImage>> mImageMap = 
-      DefaultHashMap.create(new HashMapCreator<String, BufferedImage>());
+  private IterMap<String, DrawUI> mRenderMap = new IterHashMap<String, DrawUI>();
+
+  private Map<String, IterMap<String, BufferedImage>> mImageMap = DefaultHashMap
+      .create(new HashMapCreator<String, BufferedImage>());
 
   private DrawUIService() {
     // Do nothing
@@ -76,13 +75,13 @@ public class DrawUIService implements Iterable<String> {
     add(new ContentUI());
     add(new ContentBoxUI());
     add(new ContentOutlineUI());
-    //add(new TextBorderUI());
+    // add(new TextBorderUI());
     add(new ButtonFillUI());
-    //add(new ButtonSelectedUI());
+    // add(new ButtonSelectedUI());
     add(new CircleOutlineUI());
     add(new CircleFillUI());
-    //add(new MenuHighlightUI());
-    add(new PillHighlightUI());
+    // add(new MenuHighlightUI());
+    add(new PillFillUI());
     add(new PillOutlineUI());
     add(new CheckUI());
     add(new CheckedBoxUI());
@@ -97,13 +96,12 @@ public class DrawUIService implements Iterable<String> {
     add(new ColorDialogButtonUI());
     add(new ButtonOutlineUI());
     // add(new DUI());
-    
+
     add(new RadioUI());
     add(new RadioSelectedUI());
-    
+
     add(new DialogButtonHighlightUI());
-    
-    
+
     add(new FillUI());
   }
 
@@ -114,11 +112,11 @@ public class DrawUIService implements Iterable<String> {
   public void add(String name, DrawUI renderer) {
     mRenderMap.put(name, renderer);
   }
-  
+
   public void add(String group, int id, BufferedImage image) {
     add(group, Integer.toString(id), image);
   }
-  
+
   public void add(String group, String name, BufferedImage image) {
     mImageMap.get(group).put(name, image);
   }
@@ -132,11 +130,11 @@ public class DrawUIService implements Iterable<String> {
   public DrawUI getRenderer(String name) {
     return mRenderMap.get(name);
   }
-  
+
   public BufferedImage getImage(String group, int id) {
     return getImage(group, Integer.toString(id));
   }
-  
+
   public BufferedImage getImage(String group, String name) {
     return mImageMap.get(group).get(name);
   }

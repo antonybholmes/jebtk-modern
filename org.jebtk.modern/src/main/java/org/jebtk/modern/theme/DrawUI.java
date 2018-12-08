@@ -24,8 +24,8 @@ import org.jebtk.modern.ModernComponent;
 
 /**
  * The Class DrawUI provides reusable drawing routines that can be shared by
- * multiple widgets. For example a button renderer can be used by a button or 
- * to highlight the items in a list view for example.
+ * multiple widgets. For example a button renderer can be used by a button or to
+ * highlight the items in a list view for example.
  */
 public abstract class DrawUI implements NameProperty {
 
@@ -155,8 +155,8 @@ public abstract class DrawUI implements NameProperty {
   }
 
   /**
-   * Gets the style class of the component or defaults to the widget style
-   * class if the component is null.
+   * Gets the style class of the component or defaults to the widget style class
+   * if the component is null.
    *
    * @param c the c
    * @return the style

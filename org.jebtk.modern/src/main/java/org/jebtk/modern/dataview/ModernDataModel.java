@@ -69,15 +69,15 @@ public abstract class ModernDataModel
    *
    * @return the column count
    */
-  public abstract int getColumnCount();
+  public abstract int getColCount();
 
   /**
-   * Returns the total number of items in the matrix.
+   * Returns the total number of items in the table.
    *
    * @return the item count
    */
   public int getItemCount() {
-    return getRowCount() * getColumnCount();
+    return getRowCount() * getColCount();
   }
 
   /**
@@ -98,7 +98,8 @@ public abstract class ModernDataModel
    * @return the value at
    */
   public Object getValueAt(int row, String heading) {
-    System.err.println("mod data heading " + heading + " "+ getHeadingIndex(heading));
+    System.err.println(
+        "mod data heading " + heading + " " + getHeadingIndex(heading));
     return getValueAt(row, getHeadingIndex(heading));
   }
 
@@ -346,11 +347,26 @@ public abstract class ModernDataModel
    * @return the row as text
    */
   public List<String> getRowAsText(int row) {
-    List<String> values = new ArrayList<String>();
+    List<String> values = new ArrayList<String>(getColCount());
 
-    for (int i = 0; i < getColumnCount(); ++i) {
-      values
-          .add(getValueAt(row, i) != null ? getValueAt(row, i).toString() : "");
+    for (int i = 0; i < getColCount(); ++i) {
+      values.add(getValueAt(row, i) != null ? getValueAsString(row, i) : "");
+    }
+
+    return values;
+  }
+
+  /**
+   * Extract all the values in a column as strings.
+   * 
+   * @param col
+   * @return
+   */
+  public List<String> getColAsText(int col) {
+    List<String> values = new ArrayList<String>(getRowCount());
+
+    for (int i = 0; i < getRowCount(); ++i) {
+      values.add(getValueAt(i, col) != null ? getValueAsString(i, col) : "");
     }
 
     return values;
@@ -560,7 +576,7 @@ public abstract class ModernDataModel
   public static int findFirst(ModernDataModel model, String text) {
     String lc = text.toLowerCase();
 
-    for (int i = 0; i < model.getColumnCount(); ++i) {
+    for (int i = 0; i < model.getColCount(); ++i) {
       if (model.getColumnName(i).toLowerCase().contains(lc)) {
         return i;
       }
@@ -579,7 +595,7 @@ public abstract class ModernDataModel
   public static int matchFirst(ModernDataModel model, String text) {
     String lc = text.toLowerCase();
 
-    for (int i = 0; i < model.getColumnCount(); ++i) {
+    for (int i = 0; i < model.getColCount(); ++i) {
       if (model.getColumnName(i).toLowerCase().equals(lc)) {
         return i;
       }
@@ -607,7 +623,7 @@ public abstract class ModernDataModel
               TextUtils.emptyCells(model.getRowAnnotationNames().size()));
         }
 
-        for (int i = 0; i < model.getColumnCount(); ++i) {
+        for (int i = 0; i < model.getColCount(); ++i) {
           writer.write(TextUtils.TAB_DELIMITER);
           writer.write(model.getColumnName(i));
         }
@@ -616,12 +632,12 @@ public abstract class ModernDataModel
       }
 
       for (int i = 0; i < model.getRowCount(); ++i) {
-        for (int j = 0; j < model.getColumnCount(); ++j) {
+        for (int j = 0; j < model.getColCount(); ++j) {
           writer.write(model.getValueAsString(i, j)); // != null ?
                                                       // model.getValueAt(i,
                                                       // j).toString() : "";
 
-          if (j < model.getColumnCount() - 1) {
+          if (j < model.getColCount() - 1) {
             writer.write(TextUtils.TAB_DELIMITER);
           }
         }

@@ -15,21 +15,21 @@ import org.jebtk.core.Properties;
  */
 public interface StyleProperties {
   public int getInt(String name);
-  
+
   public double getDouble(String name);
-  
+
   public Color getColor(String name);
-  
+
   public ColorGradient getColorGradient(String name);
-  
+
   public Border getBorder(String name);
-  
+
   public Font getFont(String name);
-  
+
   public String toString(String name);
 
   public Properties set(String name, Object value);
-  
+
   /**
    * Returns the property with a given name as its original object.
    * 
@@ -37,6 +37,6 @@ public interface StyleProperties {
    * @return
    */
   public Object getValue(String name);
-  
+
   public boolean contains(String name);
 }

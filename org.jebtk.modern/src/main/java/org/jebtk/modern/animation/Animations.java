@@ -33,7 +33,8 @@ public class Animations extends ChangeListeners
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
-  private class AnimationIterator implements Iterator<Animation>, Iterable<Animation> {
+  private class AnimationIterator
+      implements Iterator<Animation>, Iterable<Animation> {
     private ListIterator<Object> mIt;
 
     public AnimationIterator() {
@@ -61,8 +62,7 @@ public class Animations extends ChangeListeners
 
     }
   }
-  
-  
+
   /** The m animations. */
   private List<Object> mAnimations = new ArrayList<Object>();
 
@@ -115,7 +115,7 @@ public class Animations extends ChangeListeners
       mAnimations.add(a);
     }
   }
-  
+
   public Animations set(String animation, String... animations) {
     clear();
 
@@ -123,36 +123,31 @@ public class Animations extends ChangeListeners
 
     return this;
   }
-  
+
   public Animations update(String animation, String... animations) {
     /*
-    List<Animation> al = 
-        AnimationService.getInstance().create(animation, mWidget);
-  
-    for (Animation an : al) {
-      mAnimations.add(an);
-    }
-    
-    for (String a : animations) {
-      al = AnimationService.getInstance().create(a, mWidget);
-      
-      for (Animation an : al) {
-        mAnimations.add(an);
-      }
-    }
-    */
-    
+     * List<Animation> al = AnimationService.getInstance().create(animation,
+     * mWidget);
+     * 
+     * for (Animation an : al) { mAnimations.add(an); }
+     * 
+     * for (String a : animations) { al =
+     * AnimationService.getInstance().create(a, mWidget);
+     * 
+     * for (Animation an : al) { mAnimations.add(an); } }
+     */
+
     mAnimations.add(animation);
 
     for (String a : animations) {
       mAnimations.add(a);
     }
-    
+
     mAutoLoad = true;
-    
+
     return this;
   }
-  
+
   public Animations add(String animation, String... animations) {
     update(animation, animations);
 
@@ -162,8 +157,8 @@ public class Animations extends ChangeListeners
   }
 
   /**
-   * Sets the animations to use. 
-   * TODO: should initialize named animations in a lazy fasion
+   * Sets the animations to use. TODO: should initialize named animations in a
+   * lazy fasion
    *
    * @param animation the animation
    * @param animations the animations
@@ -190,25 +185,25 @@ public class Animations extends ChangeListeners
    * 
    * @return
    */
-  private Animations clear() {
+  public Animations clear() {
     mAnimations.clear();
 
     return this;
   }
-  
+
   private void autoLoad() {
     if (mAutoLoad) {
       // If there are string names in the list, we lazy load the corresponding
       // animations as requested.
       List<Object> newAnimations = new ArrayList<Object>(mAnimations.size());
-      
+
       for (int i = 0; i < mAnimations.size(); ++i) {
         Object o = mAnimations.get(i);
-        
+
         if (o instanceof String) {
-          List<Animation> animations = 
-              AnimationService.getInstance().create((String) o, mWidget);
-        
+          List<Animation> animations = AnimationService.getInstance()
+              .create((String) o, mWidget);
+
           for (Animation animation : animations) {
             newAnimations.add(animation);
           }
@@ -216,7 +211,7 @@ public class Animations extends ChangeListeners
           newAnimations.add(o);
         }
       }
-      
+
       // Destroy the original to save memory and garbage collect
       mAnimations.clear();
       // Swap references
@@ -234,12 +229,12 @@ public class Animations extends ChangeListeners
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     autoLoad();
-    
+
     for (Object a : mAnimations) {
-      ((Animation)a).draw(widget, g2, params);
+      ((Animation) a).draw(widget, g2, params);
     }
   }
-  
+
   /**
    * Get a particular animation by index.
    * 
@@ -248,14 +243,14 @@ public class Animations extends ChangeListeners
    */
   public Animation get(int index) {
     autoLoad();
-    
+
     return (Animation) mAnimations.get(index);
   }
 
   @Override
   public Iterator<Animation> iterator() {
     autoLoad();
-    
+
     return new AnimationIterator();
   }
 

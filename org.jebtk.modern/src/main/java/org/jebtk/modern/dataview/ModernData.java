@@ -29,11 +29,14 @@ package org.jebtk.modern.dataview;
 
 import java.awt.Component;
 import java.awt.Point;
+import java.awt.event.ActionEvent;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
+import javax.swing.AbstractAction;
+import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 
 import org.jebtk.core.event.ChangeEvent;
@@ -42,7 +45,7 @@ import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.SelectionPolicy;
 import org.jebtk.modern.clipboard.ClipboardService;
-import org.jebtk.modern.clipboard.ClipboardUiControl;
+import org.jebtk.modern.clipboard.ClipboardUI;
 import org.jebtk.modern.dataview.sort.ModernDataSortModel;
 import org.jebtk.modern.event.ModernSelectionListener;
 import org.jebtk.modern.graphics.CanvasAdapter;
@@ -57,7 +60,7 @@ import org.jebtk.modern.zoom.ZoomModel;
  *
  */
 public abstract class ModernData extends ZoomCanvas implements
-    ModernDataViewEventProducer, ClipboardUiControl, ModernSelectionListener,
+    ModernDataViewEventProducer, ClipboardUI, ModernSelectionListener,
     ModernDataViewListener, FocusListener, ComponentListener {
 
   /**
@@ -205,6 +208,8 @@ public abstract class ModernData extends ZoomCanvas implements
    */
   public ModernData() {
 
+    setFocusable(true);
+
     // addMouseListener(new MouseEvents());
 
     addComponentListener(this);
@@ -216,10 +221,28 @@ public abstract class ModernData extends ZoomCanvas implements
     mCellEditorModel.addDataViewListener(this);
 
     mSelectionModel.addSelectionListener(this);
+
+    // Register so we know this component responds to clipboard events.
+
+    ClipboardService.getInstance().register(this);
+
+    // Enable copy via keyboard
+    getInputMap().put(KeyStroke.getKeyStroke("ctrl C"), "copy");
+    getActionMap().put("copy", new AbstractAction() {
+
+      private static final long serialVersionUID = 1L;
+
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        copy();
+      }
+    });
   }
 
   public ModernData(ZoomModel zoomModel) {
-    super(zoomModel);
+    this();
+
+    setZoomModel(zoomModel);
   }
 
   /**
@@ -303,12 +326,12 @@ public abstract class ModernData extends ZoomCanvas implements
   public void adjustSize() {
     //
   }
-  
+
   @Override
   public void selectionAdded(ChangeEvent e) {
     selectionRemoved(e);
   }
-  
+
   @Override
   public void selectionRemoved(ChangeEvent e) {
     fireCanvasRedraw();
@@ -441,14 +464,12 @@ public abstract class ModernData extends ZoomCanvas implements
   }
 
   /*
-  @Override
-  public void translate(Graphics2D g2) {
-    ModernDataSelection visibleCells = calculateVisibleCells();
-
-    g2.translate(getX(visibleCells.getStartCol()) - getViewRect().getX(),
-        getY(visibleCells.getStartRow()) - getViewRect().getY());
-  }
-  */
+   * @Override public void translate(Graphics2D g2) { ModernDataSelection
+   * visibleCells = calculateVisibleCells();
+   * 
+   * g2.translate(getX(visibleCells.getStartCol()) - getViewRect().getX(),
+   * getY(visibleCells.getStartRow()) - getViewRect().getY()); }
+   */
 
   /**
    * Calculates the range of cells visible at any given time.
@@ -811,6 +832,7 @@ public abstract class ModernData extends ZoomCanvas implements
    * 
    * @see org.abh.lib.ui.modern.clipboard.Clipboard#copy()
    */
+  @Override
   public void copy() {
     ModernDataCell cell = mSelectionModel.last();
 
@@ -818,7 +840,7 @@ public abstract class ModernData extends ZoomCanvas implements
       return;
     }
 
-    ClipboardService.copyToClipboard(getValueAt(cell.row, cell.col).toString());
+    ClipboardService.copyToClipboard(getValueAt(cell).toString());
   }
 
   /*

@@ -36,6 +36,7 @@ import javax.swing.JComponent;
 
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
+import org.jebtk.modern.animation.PillBorderAnimation;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
@@ -151,20 +152,6 @@ public class SearchTextBorderPanel extends ModernWidget
   /**
    * Instantiates a new modern text border panel.
    *
-   * @param textArea the text area
-   */
-  public SearchTextBorderPanel(ModernTextArea textArea) {
-
-    mComponent = textArea;
-
-    setBody(textArea);
-
-    setup();
-  }
-
-  /**
-   * Instantiates a new modern text border panel.
-   *
    * @param textField the text field
    */
   public SearchTextBorderPanel(ModernPasswordField textField) {
@@ -187,18 +174,19 @@ public class SearchTextBorderPanel extends ModernWidget
 
     // UI.setSize(this, ModernWidget.STANDARD_SIZE);
 
-    
     addStyleClass("content", "content-outline");
-    
-    setAnimations(new SearchTextBorderAnimation(this));
-    
+
+    setAnimations(new PillBorderAnimation(this));
+
     addComponentListener(new ComponentAdapter() {
 
       @Override
       public void componentResized(ComponentEvent e) {
         int h = getHeight() / 2;
-        setBorder(BorderService.getInstance().createBorder(SMALL_PADDING, h, SMALL_PADDING, h));
-      }});
+        setBorder(BorderService.getInstance()
+            .createBorder(SMALL_PADDING, h, SMALL_PADDING, h));
+      }
+    });
   }
 
   @Override

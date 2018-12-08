@@ -51,6 +51,8 @@ import org.jebtk.modern.button.ChipButtonHighlightAnimation;
 import org.jebtk.modern.button.CircleFillAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation2;
+import org.jebtk.modern.button.PillFillAnimation;
+import org.jebtk.modern.button.PillOutlineAnimation;
 import org.jebtk.modern.button.RadioAnimation;
 import org.jebtk.modern.button.RadioOutlineAnimation;
 import org.jebtk.modern.button.RadioSelectedAnimation;
@@ -76,13 +78,10 @@ import org.jebtk.modern.list.ListChangeAnimation;
 import org.jebtk.modern.list.ListHighlightAnimation;
 import org.jebtk.modern.listpanel.ListPanelItemAnimation;
 import org.jebtk.modern.listpanel.ListPanelItemPressedAnimation;
-import org.jebtk.modern.ribbon.RibbonAnimation;
 import org.jebtk.modern.ribbon.RibbonBackAnimation;
 import org.jebtk.modern.ribbon.RibbonBackHighlightAnimation;
-import org.jebtk.modern.ribbon.RibbonChangeAnimation;
 import org.jebtk.modern.ribbon.RibbonDropDownButtonAnimation;
 import org.jebtk.modern.ribbon.RibbonDropDownButtonAnimation2;
-import org.jebtk.modern.ribbon.RibbonHighlightTextAnimation;
 import org.jebtk.modern.ribbon.RibbonLargeOptionalDropDownHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonLargeOptionalDropDownHighlightAnimation2;
 import org.jebtk.modern.ribbon.RibbonMenuHighlightAnimation;
@@ -160,8 +159,11 @@ public class AnimationService {
     get("button-fill").add(ButtonFillAnimation.class);
     get("button-outline").add(ButtonOutlineAnimation.class);
     get("button-selected").add(ButtonSelectedAnimation.class);
-    
-    //get("button").add(DialogButtonHighlightAnimation.class);
+
+    get("pill-fill").add(PillFillAnimation.class);
+    get("pill-outline").add(PillOutlineAnimation.class);
+
+    // get("button").add(DialogButtonHighlightAnimation.class);
 
     get("circle-fill").add(CircleFillAnimation.class);
 
@@ -169,113 +171,110 @@ public class AnimationService {
     get("dropdown-button-2").add(DropDownButtonAnimation2.class);
 
     get("chip-button").add(ChipButtonHighlightAnimation.class)
-    .add(ChipButtonAnimation.class);
+        .add(ChipButtonAnimation.class);
 
     get("dialog-flat-button").add(FlatButtonAnimation.class);
 
-    get("ribbon").add(RibbonAnimation.class)
+    // get("ribbon").add(RibbonAnimation.class)
     // .add(RibbonPressedAnimation.class)
-    .add(RibbonChangeAnimation.class)
-    .add(RibbonHighlightTextAnimation.class);
+    // .add(RibbonChangeAnimation.class)
+    // .add(RibbonHighlightTextAnimation.class);
 
     get("segment-tabs")
-    // .add(SegmentHighlightAnimation.class)
-    // .add(SegmentPressedAnimation.class)
-    .add(SegmentChangeAnimation.class).add(SegmentTextAnimation.class);
+        // .add(SegmentHighlightAnimation.class)
+        // .add(SegmentPressedAnimation.class)
+        .add(SegmentChangeAnimation.class).add(SegmentTextAnimation.class);
 
     get("bottom-tabs").add(SegmentAnimation.class)
-    .add(SegmentTextAnimation.class);
+        .add(SegmentTextAnimation.class);
 
-    get("orb-tabs")
-    .add(OrbTabsChangeAnimation.class).add(OrbTabsAnimation.class); //.add(OrbTabsHighlightAnimation.class)
+    get("orb-tabs").add(OrbTabsChangeAnimation.class)
+        .add(OrbTabsAnimation.class); // .add(OrbTabsHighlightAnimation.class)
 
     get("icon-tabs")
-    // .add(IconTabsAnimation.class)
-    .add(IconTabsHighlightAnimation.class)
-    .add(IconTabsIconAnimation.class)
-    .add(IconTabsChangeAnimation.class);
+        // .add(IconTabsAnimation.class)
+        .add(IconTabsHighlightAnimation.class).add(IconTabsIconAnimation.class)
+        .add(IconTabsChangeAnimation.class);
 
     get("block-vert-tabs").add(BlockVertHighlightAnimation.class)
-    .add(BlockVertSelectedAnimation.class)
-    .add(BlockVertPressedAnimation.class); // .add(BlockVertChangeAnimation.class);
+        .add(BlockVertSelectedAnimation.class)
+        .add(BlockVertPressedAnimation.class); // .add(BlockVertChangeAnimation.class);
 
     get("spinner").add(SpinnerAnimation.class)
-    .add(SpinnerHighlightAnimation.class);
+        .add(SpinnerHighlightAnimation.class);
 
     get("help-button").add(HelpButtonHighlightAnimation.class);
 
     get("dialog-button").add(DialogButtonAnimation.class)
-    .add(DialogButtonHighlightAnimation.class);
+        .add(DialogButtonHighlightAnimation.class);
 
-    //get("dialog-material-button")
-    //    .add(DialogMaterialButtonHighlightAnimation.class);
+    // get("dialog-material-button")
+    // .add(DialogMaterialButtonHighlightAnimation.class);
 
     get("primary-dialog-button").add(ColorDialogButtonAnimation.class)
-    .add(ColorDialogButtonHighlightAnimation.class);
+        .add(ColorDialogButtonHighlightAnimation.class);
 
     get("checkbox").add(CheckBoxAnimation.class)
-    .add(CheckBoxHighlightAnimation.class)
-    .add(CheckBoxSelectedAnimation.class)
-    .add(CheckBoxTickAnimation.class);
+        .add(CheckBoxHighlightAnimation.class)
+        .add(CheckBoxSelectedAnimation.class).add(CheckBoxTickAnimation.class);
 
     get("continuous-orb-slider").add(ContinuousMacOrbAnimation.class);
 
     get("radio-button").add(RadioAnimation.class)
-    .add(RadioOutlineAnimation.class)
-    .add(RadioSelectedAnimation.class);
+        .add(RadioOutlineAnimation.class).add(RadioSelectedAnimation.class);
 
-    //get("menu").add(MenuItemHighlightAnimation.class);
+    // get("menu").add(MenuItemHighlightAnimation.class);
 
-    //get("color-menu").add(MenuItemColorHighlightAnimation.class);
-    //get("color-menu-fade").add(MenuItemColorHighlightFadeAnimation.class);
+    // get("color-menu").add(MenuItemColorHighlightAnimation.class);
+    // get("color-menu-fade").add(MenuItemColorHighlightFadeAnimation.class);
 
     get("sub-collapse-pane").add(CollapsePaneHighlightAnimation.class)
-    .add(CollapsePaneExpandAnimation.class);
+        .add(CollapsePaneExpandAnimation.class);
 
     get("collapse-pane").add(CollapsePaneCardAnimation.class)
-    .add(CollapsePaneHighlightAnimation.class)
-    .add(CollapsePaneDividerAnimation.class)
-    .add(CollapsePaneExpandAnimation.class);
+        .add(CollapsePaneHighlightAnimation.class)
+        .add(CollapsePaneDividerAnimation.class)
+        .add(CollapsePaneExpandAnimation.class);
 
-    //get("ribbon-button").add(RibbonButtonHighlightAnimation.class);
+    // get("ribbon-button").add(RibbonButtonHighlightAnimation.class);
 
     get("ribbon-dropdown-button").add(RibbonDropDownButtonAnimation.class);
 
     get("ribbon-dropdown-button-2").add(RibbonDropDownButtonAnimation2.class);
 
     get("ribbon-optional-dropdown-button")
-    .add(RibbonLargeOptionalDropDownHighlightAnimation.class);
+        .add(RibbonLargeOptionalDropDownHighlightAnimation.class);
 
     get("ribbon-optional-dropdown-button-2")
-    .add(RibbonLargeOptionalDropDownHighlightAnimation2.class);
+        .add(RibbonLargeOptionalDropDownHighlightAnimation2.class);
 
     get("ribbon-segments").add(RibbonSegmentHighlightAnimation.class)
-    .add(RibbonSegmentSelectedAnimation.class)
-    .add(RibbonSegmentPressedAnimation.class)
-    .add(RibbonSegmentAnimation.class);
+        .add(RibbonSegmentSelectedAnimation.class)
+        .add(RibbonSegmentPressedAnimation.class)
+        .add(RibbonSegmentAnimation.class);
 
     get("tree").add(TreeHighlightAnimation.class);
 
     get("list").add(ListHighlightAnimation.class).add(ListChangeAnimation.class)
-    .add(ListAnimation.class);
+        .add(ListAnimation.class);
 
     get("combobox").add(ComboBoxAnimation.class)
-    .add(ComboBoxHighlightAnimation.class)
-    .add(ComboBoxArrowAnimation.class);
+        .add(ComboBoxHighlightAnimation.class)
+        .add(ComboBoxArrowAnimation.class);
 
     get("combobox2").add(ComboBoxAnimation.class)
-    .add(ComboBoxHighlightAnimation2.class)
-    .add(ComboBoxArrowAnimation2.class);
+        .add(ComboBoxHighlightAnimation2.class)
+        .add(ComboBoxArrowAnimation2.class);
 
-    //.add(DialogButtonHighlightAnimation.class);
+    // .add(DialogButtonHighlightAnimation.class);
 
-    //get("button-outline").add(TextBorderAnimation.class);
+    // get("button-outline").add(TextBorderAnimation.class);
 
     get("ribbon-menu").add(RibbonMenuHighlightAnimation.class)
-    .add(RibbonMenuPressedAnimation.class);
+        .add(RibbonMenuPressedAnimation.class);
 
     get("ribbon-back-button").add(RibbonBackHighlightAnimation.class)
-    .add(RibbonBackAnimation.class);
+        .add(RibbonBackAnimation.class);
 
     get("hoz-content-pane").add(ModernHContentPaneAnimation.class);
 
@@ -285,10 +284,10 @@ public class AnimationService {
     get("splitpane-hoz-line").add(ModernHSplitPaneLineAnimation.class);
 
     get("check-switch").add(CheckSwitchAnimation.class)
-    .add(CheckSwitchChangeAnimation.class);
+        .add(CheckSwitchChangeAnimation.class);
 
     get("listpanel").add(ListPanelItemPressedAnimation.class)
-    .add(ListPanelItemAnimation.class);
+        .add(ListPanelItemAnimation.class);
 
   }
 
@@ -326,7 +325,7 @@ public class AnimationService {
       try {
         Constructor<?> cons = c.getConstructor(ModernWidget.class);
 
-        //System.err.println("Creating animation " + c);
+        // System.err.println("Creating animation " + c);
 
         animation = (WidgetAnimation) cons.newInstance(widget);
 

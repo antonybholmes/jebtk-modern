@@ -36,17 +36,17 @@ package org.jebtk.modern.clipboard;
 public interface Clipboard {
 
   /**
-   * Copy.
+   * Copy data to clipboard.
    */
   public void copy();
 
   /**
-   * Paste.
+   * Paste data from clipboard.
    */
   public void paste();
 
   /**
-   * Cut.
+   * Cut data to clipboard.
    */
   public void cut();
 }

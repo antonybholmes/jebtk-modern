@@ -15,8 +15,8 @@
  */
 package org.jebtk.modern.ribbon;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.animation.TranslateXAnimation;
@@ -24,7 +24,6 @@ import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.panel.Card;
 import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabEventAdapter;
-import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -38,7 +37,8 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
   public static final int BAR_HEIGHT = 2;
   private Ribbon mTabs;
 
-  //private Map<Integer, BufferedImage> mTabShadowMap = new HashMap<Integer, BufferedImage>();
+  // private Map<Integer, BufferedImage> mTabShadowMap = new HashMap<Integer,
+  // BufferedImage>();
 
   /**
    * Instantiates a new state animation.
@@ -56,7 +56,7 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
         restart();
       }
     });
-    
+
     restart();
   }
 
@@ -105,41 +105,35 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
 
     int w = mTabs.mTabWidths.get(s);
 
-    if (DrawUIService.getInstance().getImage("ribbon", s) == null) {
-      // Cache shadow as expensive operation to create
-      BufferedImage shadow = Card.shadow(w + Card.SHADOW_SIZE,
-          Ribbon.TAB_HEIGHT + Card.ROUNDING + Card.SHADOW_SIZE);
+    /*
+     * if (DrawUIService.getInstance().getImage("ribbon", s) == null) { // Cache
+     * shadow as expensive operation to create BufferedImage shadow =
+     * Card.shadow(w + Card.SHADOW_SIZE, Ribbon.TAB_HEIGHT + Card.ROUNDING +
+     * Card.SHADOW_SIZE);
+     * 
+     * // Add the shadow Card.background(shadow);
+     * 
+     * DrawUIService.getInstance().add("ribbon", s, shadow); }
+     * 
+     * BufferedImage img = DrawUIService.getInstance().getImage("ribbon", s);
+     * 
+     * Graphics2D g2Temp = ImageUtils.clone(g2);
+     * 
+     * try { g2Temp.clipRect(-Card.HALF_SHADOW_SIZE, 0, img.getWidth(),
+     * Ribbon.TAB_BODY_Y); g2Temp.drawImage(img, -Card.HALF_SHADOW_SIZE,
+     * Ribbon.Y_OFFSET - Card.HALF_SHADOW_SIZE, null);
+     * 
+     * } finally { g2Temp.dispose(); }
+     */
 
-      // Add the shadow
-      Card.background(shadow);
-
-      DrawUIService.getInstance().add("ribbon", s, shadow);
-    }
-
-    BufferedImage img = DrawUIService.getInstance().getImage("ribbon", s);
-
-    Graphics2D g2Temp = ImageUtils.clone(g2);
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     try {
-      g2Temp.clipRect(-Card.HALF_SHADOW_SIZE,
-          0,
-          img.getWidth(),
-          Ribbon.TAB_BODY_Y);
-      g2Temp.drawImage(img,
-          -Card.HALF_SHADOW_SIZE,
-          Ribbon.Y_OFFSET - Card.HALF_SHADOW_SIZE,
-          null);
+      g2Temp.setColor(Color.WHITE);
 
+      g2Temp.fillRect(0, Ribbon.Y_OFFSET, w, Ribbon.TAB_HEIGHT);
     } finally {
       g2Temp.dispose();
     }
-
-    /*
-     * Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
-     * 
-     * try { g2Temp.setColor(Color.WHITE); g2Temp.fillRoundRect(0,
-     * Ribbon.Y_OFFSET, w, Ribbon.TAB_HEIGHT + Card.ROUNDING, Card.ROUNDING,
-     * Card.ROUNDING); } finally { g2Temp.dispose(); }
-     */
   }
 }

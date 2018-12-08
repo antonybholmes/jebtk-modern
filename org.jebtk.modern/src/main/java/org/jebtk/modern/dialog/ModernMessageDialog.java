@@ -405,8 +405,9 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
                       // Resources.ICON_SIZE_48);
       break;
     default:
-      icon = AssetService.getInstance().loadIcon(HelpVectorIcon.class, ICON_SIZE); // Resources.getInstance().loadIcon("information",
-                                                                                // Resources.ICON_SIZE_48);
+      icon = AssetService.getInstance().loadIcon(HelpVectorIcon.class,
+          ICON_SIZE); // Resources.getInstance().loadIcon("information",
+      // Resources.ICON_SIZE_48);
       break;
     }
 

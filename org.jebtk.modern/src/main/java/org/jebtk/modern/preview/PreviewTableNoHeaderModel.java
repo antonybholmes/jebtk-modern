@@ -123,7 +123,7 @@ public class PreviewTableNoHeaderModel extends ModernTableModel {
    * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
    */
   @Override
-  public final int getColumnCount() {
+  public final int getColCount() {
     return maxColumns;
   }
 

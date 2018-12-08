@@ -35,7 +35,7 @@ import java.awt.event.MouseEvent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.clipboard.ClipboardService;
 import org.jebtk.modern.clipboard.ClipboardSharedMenu;
-import org.jebtk.modern.clipboard.ClipboardUiControl;
+import org.jebtk.modern.clipboard.ClipboardUI;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.menu.ModernPopupMenu;
@@ -45,7 +45,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
  * The class ModernClipboardTextBox.
  */
 public class ModernClipboardTextBox extends ModernTextBox
-    implements ClipboardUiControl {
+    implements ClipboardUI {
 
   /**
    * The constant serialVersionUID.
@@ -97,14 +97,14 @@ public class ModernClipboardTextBox extends ModernTextBox
     /**
      * The member c.
      */
-    private ClipboardUiControl mC;
+    private ClipboardUI mC;
 
     /**
      * Instantiates a new focus events.
      *
      * @param c the c
      */
-    public FocusEvents(ClipboardUiControl c) {
+    public FocusEvents(ClipboardUI c) {
       mC = c;
     }
 

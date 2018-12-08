@@ -45,7 +45,8 @@ public class ButtonOutlineUI extends ButtonUI {
       if (c != null) {
         g2.setColor(c.getToKeyFrame().getColor("border-color"));
       } else {
-        g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget").getColor("border-color"));
+        g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget")
+            .getColor("border-color"));
       }
     }
 

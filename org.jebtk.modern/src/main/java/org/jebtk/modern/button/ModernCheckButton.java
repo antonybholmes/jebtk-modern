@@ -247,9 +247,9 @@ public class ModernCheckButton extends ModernTwoStateWidget
    * Setup.
    */
   private void setup() {
-    
+
     getAnimations().add("button-selected");
-    
+
     addMouseListener(new MouseEvents());
     addFocusListener(new FocusEvents());
     addClickListener(new ModernClickEvents());

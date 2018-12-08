@@ -96,8 +96,9 @@ public class ModernRadioMenuItem extends ModernRadioButton {
   public void drawBackground(Graphics2D g2) {
     if (isEnabled()) {
       if (mHighlight) {
-        //getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
-        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mInternalRect);
+        // getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
+            mInternalRect);
       }
     }
   }

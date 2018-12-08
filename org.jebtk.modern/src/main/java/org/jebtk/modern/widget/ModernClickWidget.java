@@ -160,9 +160,30 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
     // addMouseMotionListener(new MouseMotionEvents());
 
     addStyleClass("theme-button");
-    
-    setAnimations("button-fill"); // new ButtonHighlightAnimation(this));
-                                       // //SimpleButtonAnimation.BUTTON_ANIMATION);
+
+    // setAnimations("button-fill"); // new ButtonHighlightAnimation(this));
+    // //SimpleButtonAnimation.BUTTON_ANIMATION);
+
+    setButtonStyle(ButtonStyle.BUTTON);
+  }
+
+  public ModernClickWidget setButtonStyle(ButtonStyle style) {
+    switch (style) {
+    case PILL:
+      setAnimations("pill-fill");
+      break;
+    case ROUND:
+      setAnimations("circle-fill");
+      break;
+    case NONE:
+      getAnimations().clear();
+      break;
+    default:
+      setAnimations("button-fill");
+      break;
+    }
+
+    return this;
   }
 
   /**
@@ -243,8 +264,6 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
   public void setSelected(boolean selected) {
     repaint();
   }
-
-
 
   /**
    * Simulate a button click. Should be overridden.

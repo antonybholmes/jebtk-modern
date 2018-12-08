@@ -94,17 +94,19 @@ public class RibbonSegmentTabs extends SegmentTabs {
 
     createEndShapes();
 
-    //getWidgetRenderer().drawContentBoxFill(g2, mLeftOffset, y, w, h);
-    DrawUIService.getInstance().getRenderer("content").draw(g2, mLeftOffset, y, w, h);
+    // getWidgetRenderer().drawContentBoxFill(g2, mLeftOffset, y, w, h);
+    DrawUIService.getInstance().getRenderer("content")
+        .draw(g2, mLeftOffset, y, w, h);
     //
     // Draw if highlighted
     //
 
     if (mHighlight > -1 && mHighlight < n) {
-      //getWidgetRenderer()
-       //   .drawButtonFill(g2, x, y, w, h, RenderMode.HIGHLIGHT, hasFocus());
-      
-      DrawUIService.getInstance().getRenderer("button-fill").draw(g2, x, y, w, h);
+      // getWidgetRenderer()
+      // .drawButtonFill(g2, x, y, w, h, RenderMode.HIGHLIGHT, hasFocus());
+
+      DrawUIService.getInstance().getRenderer("button-fill")
+          .draw(g2, x, y, w, h);
 
       if (mHighlight == 0) {
         g2.fill(mLeftEnd);
@@ -129,8 +131,9 @@ public class RibbonSegmentTabs extends SegmentTabs {
       x += mTabSize;
     }
 
-    //getWidgetRenderer().drawContentBoxOutline(g2, mLeftOffset, y, w, h);
-    DrawUIService.getInstance().getRenderer("content.outline").draw(g2, mLeftOffset, y, w, h);
+    // getWidgetRenderer().drawContentBoxOutline(g2, mLeftOffset, y, w, h);
+    DrawUIService.getInstance().getRenderer("content.outline")
+        .draw(g2, mLeftOffset, y, w, h);
 
     //
     // Draw the selected tab

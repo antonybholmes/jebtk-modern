@@ -78,8 +78,8 @@ public class WindowRibbonSection extends RibbonSection
    * The member arrange window button.
    */
   private RibbonLargeButton mArrangeWindowButton = new RibbonLargeButton(
-      "Arrange All",
-      AssetService.getInstance().loadIcon(ArrangeWindows32VectorIcon.class, 32));
+      "Arrange All", AssetService.getInstance()
+          .loadIcon(ArrangeWindows32VectorIcon.class, 32));
 
   /**
    * The member switch window button.

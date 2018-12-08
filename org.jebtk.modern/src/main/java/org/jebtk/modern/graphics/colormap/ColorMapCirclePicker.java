@@ -293,7 +293,7 @@ public class ColorMapCirclePicker extends ModernClickWidget {
       g2Temp.setStroke(ThemeService.DOUBLE_LINE_STROKE);
 
       if (mSelectedRow != -1) {
-        g2Temp.setColor(Color.BLACK); //ModernWidgetRenderer.SELECTED_FILL_COLOR);
+        g2Temp.setColor(Color.BLACK); // ModernWidgetRenderer.SELECTED_FILL_COLOR);
 
         g2Temp.drawOval(mSelectedP.getX(),
             mSelectedP.getY(),
@@ -302,7 +302,7 @@ public class ColorMapCirclePicker extends ModernClickWidget {
       }
 
       if (mRow != -1) {
-        g2Temp.setColor(Color.BLACK); //ModernWidgetRenderer.HIGHLIGHTED_FILL_COLOR);
+        g2Temp.setColor(Color.BLACK); // ModernWidgetRenderer.HIGHLIGHTED_FILL_COLOR);
 
         g2Temp.drawOval(mP.getX(),
             mP.getY(),

@@ -69,8 +69,8 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
   /**
    * The close button.
    */
-  protected ModernButton mCancelButton = 
-      new ModernDialogButton(UI.BUTTON_CANCEL);
+  protected ModernButton mCancelButton = new ModernDialogButton(
+      UI.BUTTON_CANCEL);
 
   private ModernHContentPane mContentPane = new ModernHContentPane();
 

@@ -142,7 +142,7 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
     addStyleClass("checkbox");
     setAnimations("checkbox");
   }
-  
+
   @Override
   public void drawForegroundAAText(Graphics2D g2) {
     if (mText1 != null) {

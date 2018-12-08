@@ -53,9 +53,10 @@ public class RadioButtonSelectedVectorIcon extends RadioButtonVectorIcon {
       int w,
       int h,
       Object... params) {
-    //WidgetRendererService.getInstance().getRenderer()
-    //    .drawRadioSelected(g2, x, y, w, h);
-    
-    DrawUIService.getInstance().getRenderer("radio.selected").draw(g2, x, y, w, h);
+    // WidgetRendererService.getInstance().getRenderer()
+    // .drawRadioSelected(g2, x, y, w, h);
+
+    DrawUIService.getInstance().getRenderer("radio.selected")
+        .draw(g2, x, y, w, h);
   }
 }

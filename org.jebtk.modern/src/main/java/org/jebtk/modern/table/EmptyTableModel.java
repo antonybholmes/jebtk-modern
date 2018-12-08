@@ -69,7 +69,7 @@ public class EmptyTableModel extends ModernTableModel {
    * 
    * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
    */
-  public int getColumnCount() {
+  public int getColCount() {
     return mCols;
   }
 

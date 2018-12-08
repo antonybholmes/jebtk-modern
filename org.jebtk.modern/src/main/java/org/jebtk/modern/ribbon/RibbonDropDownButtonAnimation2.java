@@ -21,8 +21,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The Class RibbonDropDownButtonAnimation.
  */
-public class RibbonDropDownButtonAnimation2
-    extends ButtonFillAnimation {
+public class RibbonDropDownButtonAnimation2 extends ButtonFillAnimation {
 
   /**
    * Instantiates a new ribbon drop down button animation.

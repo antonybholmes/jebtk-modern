@@ -52,9 +52,9 @@ public abstract class ModernToolTipPanel extends Card {
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-  
+
   private boolean mAutoHide = true;
-  
+
   /** The m buttons. */
   protected ModernDialogButtonsBox mButtons = new ModernDialogButtonsBox();
 
@@ -65,24 +65,24 @@ public abstract class ModernToolTipPanel extends Card {
   /**
    * The close button.
    */
-  protected ModernButton mCancelButton = 
-      new ModernDialogButton(UI.BUTTON_CANCEL);
+  protected ModernButton mCancelButton = new ModernDialogButton(
+      UI.BUTTON_CANCEL);
 
   private ModernDialogStatus mStatus = ModernDialogStatus.CANCEL;
-  
+
   public ModernToolTipPanel() {
     setBorder(DOUBLE_BORDER);
   }
-  
+
   public void setAutoHide(boolean hide) {
     mAutoHide = hide;
   }
-  
+
   protected void setup(ModernDialogTaskType type) {
     setAutoHide(false);
-    
+
     add(mButtons);
-    
+
     switch (type) {
     case CLOSE:
       // No break as we want to run the OK case as well.
@@ -100,7 +100,7 @@ public abstract class ModernToolTipPanel extends Card {
       break;
     }
   }
-  
+
   public void addOkButton() {
     mButtons.add(mOkButton);
 
@@ -108,7 +108,8 @@ public abstract class ModernToolTipPanel extends Card {
       @Override
       public void clicked(ModernClickEvent e) {
         hide(e);
-      }});
+      }
+    });
   }
 
   /**
@@ -122,9 +123,10 @@ public abstract class ModernToolTipPanel extends Card {
       @Override
       public void clicked(ModernClickEvent e) {
         hide(e);
-      }});
+      }
+    });
   }
-  
+
   public void addOkCancelButtons() {
     addOkButton();
     mButtons.add(ModernPanel.createHGap());
@@ -134,15 +136,15 @@ public abstract class ModernToolTipPanel extends Card {
   public boolean getAutoHide() {
     return mAutoHide;
   }
-  
+
   public void hideToolTip() {
     ToolTipService.getInstance().hideToolTip(this, ToolTipLevel.FORCE);
   }
-  
+
   public ModernDialogStatus getStatus() {
     return mStatus;
   }
-  
+
   private void hide(ModernClickEvent e) {
     if (e.getSource().equals(mOkButton)) {
       mStatus = ModernDialogStatus.OK;

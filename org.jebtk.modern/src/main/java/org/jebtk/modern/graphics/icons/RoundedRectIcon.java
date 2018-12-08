@@ -42,7 +42,8 @@ import org.jebtk.modern.widget.ModernWidget;
 public class RoundedRectIcon extends ModernVectorScalableIcon {
 
   /** The Constant ROUNDING. */
-  private static final int ROUNDING = MaterialService.getInstance().getInts().cornerRadius();
+  private static final int ROUNDING = MaterialService.getInstance().getInts()
+      .cornerRadius();
 
   /**
    * Instantiates a new rounded rect icon.

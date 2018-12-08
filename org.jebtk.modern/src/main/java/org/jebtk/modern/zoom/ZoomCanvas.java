@@ -141,7 +141,8 @@ public class ZoomCanvas extends ModernCanvas {
   }
 
   private void wheelZoom(MouseWheelEvent e) {
-    mZoomModel.setZoom(mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
+    mZoomModel
+        .setZoom(mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
   }
 
   /**

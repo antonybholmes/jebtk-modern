@@ -23,15 +23,15 @@ import org.jebtk.modern.ModernComponent;
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
-public class PillHighlightUI extends ButtonUI {
+public class PillFillUI extends ButtonUI {
 
   @Override
   public String getName() {
-    return "pill.highlight";
+    return "pill-fill";
   }
 
   @Override
-  public void fill(Graphics2D g2,
+  public void draw(Graphics2D g2,
       ModernComponent c,
       int x,
       int y,

@@ -173,7 +173,8 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
    * Instantiates a new open ribbon panel.
    */
   public OpenRibbonPanel() {
-    this("Files", AssetService.getInstance().loadIcon(FileVectorIcon.class, 32));
+    this("Files",
+        AssetService.getInstance().loadIcon(FileVectorIcon.class, 32));
   }
 
   /**

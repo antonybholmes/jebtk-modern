@@ -12,8 +12,8 @@ import org.jebtk.modern.widget.ModernWidget;
 public class ContinuousMacOrbAnimation extends HoverFadeAnimation {
   private ContinuousMacOrbSlider mButton;
 
-  protected static final Color HIGHLIGHT_2 = ThemeService.getInstance().getColors()
-      .getTheme32(24);
+  protected static final Color HIGHLIGHT_2 = ThemeService.getInstance()
+      .getColors().getTheme32(24);
 
   public ContinuousMacOrbAnimation(ModernWidget button) {
     super(button);

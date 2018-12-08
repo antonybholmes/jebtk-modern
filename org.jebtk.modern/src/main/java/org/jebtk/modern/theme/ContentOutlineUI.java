@@ -19,13 +19,13 @@ public class ContentOutlineUI extends DrawUI {
       int w,
       int h,
       Object... params) {
-    
+
     if (params.length > 0) {
       g2.setColor((Color) params[0]);
     } else {
       g2.setColor(LINE_COLOR);
     }
-    
+
     outline(g2, c, x, y, w, h);
   }
 }

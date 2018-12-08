@@ -41,8 +41,7 @@ public class RibbonSegmentHighlightAnimation extends HighlightAnimation {
 
     mSegments = (RibbonSegmentVertTabs) segments;
 
-    setFadeColor("highlight",
-        RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
+    setFadeColor("highlight", RibbonHighlightTextAnimation.HIGHLIGHT_COLOR);
   }
 
   /*

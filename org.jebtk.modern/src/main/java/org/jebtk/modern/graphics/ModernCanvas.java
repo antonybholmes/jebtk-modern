@@ -57,10 +57,10 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  *
  */
 public class ModernCanvas extends ModernFocusableWidget
-implements CanvasEventProducer, CanvasMouseEventProducer,
-CanvasMouseWheelEventProducer, CanvasMouseListener,
-CanvasMouseWheelListener, CanvasKeyEventProducer, CanvasKeyListener,
-CanvasCursorEventProducer {
+    implements CanvasEventProducer, CanvasMouseEventProducer,
+    CanvasMouseWheelEventProducer, CanvasMouseListener,
+    CanvasMouseWheelListener, CanvasKeyEventProducer, CanvasKeyListener,
+    CanvasCursorEventProducer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -397,7 +397,7 @@ CanvasCursorEventProducer {
 
     fireCanvasChanged();
   }
-  
+
   public void setRastorMode(boolean enabled) {
     mRasterEnabled = enabled;
   }
@@ -718,8 +718,6 @@ CanvasCursorEventProducer {
   // Do nothing
   // }
 
-
-
   /*
    * (non-Javadoc)
    * 
@@ -760,9 +758,9 @@ CanvasCursorEventProducer {
    * @param g2 the g2
    * @param context the context
    */
-  //public void drawTranslatedCanvas(Graphics2D g2, DrawingContext context) {
+  // public void drawTranslatedCanvas(Graphics2D g2, DrawingContext context) {
   // cacheCanvas(g2, context);
-  //}
+  // }
 
   /**
    * Cache canvas.
@@ -788,7 +786,7 @@ CanvasCursorEventProducer {
           Graphics2D g2Temp = ImageUtils.createAATextGraphics(mBufferedImage);
 
           try {
-            //translate(g2Temp);
+            // translate(g2Temp);
             zoomCanvas(g2Temp, context);
           } finally {
             g2Temp.dispose();
@@ -826,24 +824,22 @@ CanvasCursorEventProducer {
    *
    * @param g2 the g 2 temp
    */
-  //public void translate(Graphics2D g2) {
-  //  Rectangle r = getVisibleRect();
+  // public void translate(Graphics2D g2) {
+  // Rectangle r = getVisibleRect();
   //
-  //  g2.translate(-r.x, -r.y);
+  // g2.translate(-r.x, -r.y);
   // }
-
-
 
   public void setPreferredSize() {
     setPreferredSize(IntDim.toDimension(mAbsPrefSize));
   }
 
   public void setPreferredSize(IntDim d) {
-    //mAbsPrefSize = d;
+    // mAbsPrefSize = d;
 
     setPreferredSize(IntDim.toDimension(d));
 
-    //fireCanvasResized();
+    // fireCanvasResized();
   }
 
   @Override

@@ -31,11 +31,13 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.StringSelection;
 import java.awt.datatransfer.Transferable;
+import java.util.Collection;
 
 import javax.swing.JList;
 import javax.swing.JTable;
 
 import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.text.Join;
 import org.jebtk.core.text.TextUtils;
 
 /**
@@ -89,7 +91,7 @@ public class ClipboardService extends ClipboardEventListeners
   /**
    * The member control.
    */
-  private ClipboardUiControl mControl;
+  private ClipboardUI mControl;
 
   /**
    * Instantiates a new clipboard service.
@@ -103,7 +105,7 @@ public class ClipboardService extends ClipboardEventListeners
    *
    * @param control the control
    */
-  public synchronized void register(ClipboardUiControl control) {
+  public synchronized void register(ClipboardUI control) {
     mControl = control;
 
     fireClipboardChanged(new ChangeEvent(this, CLIPBOARD_CONTROL_CHANGED));
@@ -114,7 +116,7 @@ public class ClipboardService extends ClipboardEventListeners
    *
    * @param control the control
    */
-  public synchronized void unregister(ClipboardUiControl control) {
+  public synchronized void unregister(ClipboardUI control) {
     if (!control.equals(mControl)) {
       return;
     }
@@ -159,7 +161,7 @@ public class ClipboardService extends ClipboardEventListeners
    *
    * @return the control
    */
-  public synchronized ClipboardUiControl getControl() {
+  public synchronized ClipboardUI getControl() {
     return mControl;
   }
 
@@ -225,7 +227,7 @@ public class ClipboardService extends ClipboardEventListeners
    *
    * @param list the list
    */
-  public static final void copy(JList list) {
+  public static final void copy(JList<?> list) {
     StringBuilder builder = new StringBuilder();
 
     for (int i = 0; i < list.getModel().getSize(); ++i) {
@@ -293,5 +295,9 @@ public class ClipboardService extends ClipboardEventListeners
     }
 
     return result;
+  }
+
+  public static void copyToClipboard(Collection<String> l) {
+    copyToClipboard(Join.onNewLine().values(l).toString());
   }
 }

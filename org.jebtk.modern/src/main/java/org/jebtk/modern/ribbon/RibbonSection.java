@@ -36,6 +36,7 @@ import javax.swing.BoxLayout;
 import javax.swing.border.Border;
 
 import org.jebtk.core.NameProperty;
+import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.text.ModernLabel;
@@ -82,7 +83,10 @@ public class RibbonSection extends ModernClickWidget
       .createBorder(0, PADDING, 0, PADDING);
 
   /** The Constant SEPARATOR_PADDING. */
-  private static final int SEPARATOR_PADDING = 2;
+  // public static final int SEPARATOR_PADDING = DOUBLE_PADDING;
+
+  public static final int SEPARATOR_HEIGHT = 20;
+
   // private static final int SEPARATOR_PADDING = 2;
 
   /** The m mode. */
@@ -94,7 +98,7 @@ public class RibbonSection extends ModernClickWidget
   /** The m ribbon. */
   protected Ribbon mRibbon;
 
-  private ModernLabel mLabel = new RibbonSectionLabel("");
+  private ModernLabel mLabel = new RibbonSectionLabel(TextUtils.EMPTY_STRING);
   private Component mGap = UI.createHGap(10);
 
   /**
@@ -104,7 +108,11 @@ public class RibbonSection extends ModernClickWidget
    * @param title the title
    */
   public RibbonSection(Ribbon ribbon, String title) {
-    this(ribbon, title, ribbon.getRibbonSize());
+    this(ribbon, title, false);
+  }
+
+  public RibbonSection(Ribbon ribbon, String title, boolean showLabel) {
+    this(ribbon, title, ribbon.getRibbonSize(), showLabel);
   }
 
   /**
@@ -115,15 +123,22 @@ public class RibbonSection extends ModernClickWidget
    * @param mode the mode
    */
   public RibbonSection(Ribbon ribbon, String title, RibbonSize mode) {
+    this(ribbon, title, mode, false);
+  }
+
+  public RibbonSection(Ribbon ribbon, String title, RibbonSize mode,
+      boolean showLabel) {
     mRibbon = ribbon;
     mTitle = title;
 
     setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 
-    add(mLabel);
-    add(mGap);
+    if (showLabel) {
+      add(mLabel);
+      add(mGap);
 
-    mLabel.setText(getName());
+      mLabel.setText(getName());
+    }
 
     setSize(mode);
   }
@@ -218,10 +233,11 @@ public class RibbonSection extends ModernClickWidget
   @Override
   public void drawBackground(Graphics2D g2) {
     g2.setColor(Ribbon.SEPARATOR_COLOR);
-    g2.drawLine(mRect.getW() - 1,
-        SEPARATOR_PADDING,
-        mRect.getW() - 1,
-        mRect.getH() - SEPARATOR_PADDING);
+
+    int x = mRect.getW() - 1;
+    int y = (mRect.getH() - SEPARATOR_HEIGHT) / 2;
+
+    g2.drawLine(x, y, x, y + SEPARATOR_HEIGHT);
   }
 
   /*

@@ -19,7 +19,8 @@ public class FlatButtonAnimation extends ButtonFillAnimation {
    */
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-    DrawUIService.getInstance().getRenderer("content-box").draw(g2, widget.getInternalRect());
+    DrawUIService.getInstance().getRenderer("content-box").draw(g2,
+        widget.getInternalRect());
 
     super.draw(widget, g2, params);
   }

@@ -16,7 +16,8 @@ import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.widget.ModernWidget;
 
 public class MaterialUtils {
-  public static final Font FONT = MaterialService.getInstance().getFonts().text();
+  public static final Font FONT = MaterialService.getInstance().getFonts()
+      .text();
 
   public static final Font TEXT_FONT = FONT;
 
@@ -63,7 +64,12 @@ public class MaterialUtils {
     // Do nothing
   }
 
-  public static void drawDropShadow(Graphics2D g2, ModernComponent c, int x, int y, int w, int h) {
+  public static void drawDropShadow(Graphics2D g2,
+      ModernComponent c,
+      int x,
+      int y,
+      int w,
+      int h) {
     drawDropShadow(g2, c, x, y, w, h, SHADOW_HEIGHT);
   }
 
@@ -95,17 +101,23 @@ public class MaterialUtils {
 
     // g2.setPaint(Color.RED);
 
-    //WidgetRendererService.getInstance().getRenderer()
-    //    .fill(g2, x + 1, y, w - 2, sh);
-    
-    DrawUIService.getInstance().getRenderer("button-fill").fill(g2, c, x + 1, y, w - 2, sh);
+    // WidgetRendererService.getInstance().getRenderer()
+    // .fill(g2, x + 1, y, w - 2, sh);
+
+    DrawUIService.getInstance().getRenderer("button-fill")
+        .fill(g2, c, x + 1, y, w - 2, sh);
 
     // int a = Math.max(1, h / 2);
     // g2.fillRoundRect(x, y, w, h, a, a);
     // g2.fillRect(x + 1, y, w - 2, h);
   }
 
-  public static void drawCard(Graphics2D g2, ModernComponent c, int x, int y, int w, int h) {
+  public static void drawCard(Graphics2D g2,
+      ModernComponent c,
+      int x,
+      int y,
+      int w,
+      int h) {
     drawBorderlessCard(g2, c, x, y, w, h);
 
     g2.setColor(LINE_COLOR);

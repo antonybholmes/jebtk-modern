@@ -22,7 +22,7 @@ public class CheckBoxHighlightAnimation extends ButtonOutlineAnimation {
        * drawButtonFill(g2, x, y, ModernCheckBox.ICON_SIZE,
        * ModernCheckBox.ICON_SIZE, getButton().getRenderMode(), false);
        */
-      
+
       outline(g2,
           widget,
           x,
@@ -30,12 +30,12 @@ public class CheckBoxHighlightAnimation extends ButtonOutlineAnimation {
           ModernCheckBox.ICON_SIZE,
           ModernCheckBox.ICON_SIZE);
 
-      //DrawUIService.getInstance().getRenderer("button-outline").draw(g2,
-      //    x,
-      //    y,
-      //    ModernCheckBox.ICON_SIZE,
-       //   ModernCheckBox.ICON_SIZE,
-       //   getFadeColor("fill"));
+      // DrawUIService.getInstance().getRenderer("button-outline").draw(g2,
+      // x,
+      // y,
+      // ModernCheckBox.ICON_SIZE,
+      // ModernCheckBox.ICON_SIZE,
+      // getFadeColor("fill"));
     }
   }
 }

@@ -102,7 +102,7 @@ public class SegmentVertTabs extends SegmentTabs {
 
     createEndShapes();
 
-    //getWidgetRenderer().drawBackground(g2, x, y, w, h);
+    // getWidgetRenderer().drawBackground(g2, x, y, w, h);
     DrawUIService.getInstance().getRenderer("content").draw(g2, x, y, w, h);
 
     //
@@ -112,15 +112,16 @@ public class SegmentVertTabs extends SegmentTabs {
     if (mHighlight > -1 && mHighlight < n) {
       y += mHighlight * TAB_SIZE;
 
-      //getWidgetRenderer().buttonFillPaint(g2,
-      //    x,
-      //    y,
-      //    w,
-       //   mTabSize,
-       //   RenderMode.HIGHLIGHT,
-       //   hasFocus());
-      
-      DrawUIService.getInstance().getRenderer("button-fill").draw(g2, x, y, w, mTabSize);
+      // getWidgetRenderer().buttonFillPaint(g2,
+      // x,
+      // y,
+      // w,
+      // mTabSize,
+      // RenderMode.HIGHLIGHT,
+      // hasFocus());
+
+      DrawUIService.getInstance().getRenderer("button-fill")
+          .draw(g2, x, y, w, mTabSize);
 
       if (mHighlight == 0) {
         g2.fill(mLeftEnd);
@@ -145,7 +146,8 @@ public class SegmentVertTabs extends SegmentTabs {
       y1 += TAB_SIZE;
     }
 
-    DrawUIService.getInstance().getRenderer("button-outline").draw(g2, x, y, w, h, LIGHT_LINE_COLOR);
+    DrawUIService.getInstance().getRenderer("button-outline")
+        .draw(g2, x, y, w, h, LIGHT_LINE_COLOR);
 
     //
     // Draw the selected tab

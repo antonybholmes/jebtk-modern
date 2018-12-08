@@ -268,7 +268,7 @@ public class TableIndexModel extends ChangeListeners
    * @param i the new selected
    */
   public void setSelected(int i) {
-    mSelectionModel.add(i);
+    getSelectionModel().add(i);
   }
 
   /**
@@ -278,7 +278,7 @@ public class TableIndexModel extends ChangeListeners
    * @return true, if is selected
    */
   public boolean isSelected(int i) {
-    return mSelectionModel.contains(i);
+    return getSelectionModel().contains(i);
   }
 
   /**
@@ -350,7 +350,7 @@ public class TableIndexModel extends ChangeListeners
   public void fireSelectionAdded(ChangeEvent e) {
     mSelectionModel.fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
   }
-  
+
   @Override
   public void fireSelectionRemoved(ChangeEvent e) {
     mSelectionModel.fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));

@@ -89,7 +89,8 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
     if (isEnabled() && mHighlight) {
       // getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.HIGHLIGHT);
 
-      DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mInternalRect);
+      DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
+          mInternalRect);
     }
   }
 

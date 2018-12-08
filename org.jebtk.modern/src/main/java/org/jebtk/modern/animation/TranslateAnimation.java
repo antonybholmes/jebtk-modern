@@ -21,14 +21,13 @@ import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
- * Allows for graphics to transition between two fixed points using a
- * Bezier curve to control the speed of animation
+ * Allows for graphics to transition between two fixed points using a Bezier
+ * curve to control the speed of animation
  *
  * @author Antony Holmes
  */
 public abstract class TranslateAnimation extends EasingAnimation {
 
-  
   private int[] mXPos = new int[STEPS];
 
   /**
@@ -38,55 +37,41 @@ public abstract class TranslateAnimation extends EasingAnimation {
    */
   public TranslateAnimation(ModernWidget widget) {
     super(widget);
-    
+
     /*
-    widget.addAncestorListener(new SingleUseAncestorMovedListener() {
-      @Override
-      public void action(AncestorEvent event) {
-        restart();
-      }
-    });
-    
-    widget.addAncestorListener(new SingleUseAncestorAddedListener() {
-      @Override
-      public void action(AncestorEvent event) {
-        restart();
-      }
-    });
-    */
-    
+     * widget.addAncestorListener(new SingleUseAncestorMovedListener() {
+     * 
+     * @Override public void action(AncestorEvent event) { restart(); } });
+     * 
+     * widget.addAncestorListener(new SingleUseAncestorAddedListener() {
+     * 
+     * @Override public void action(AncestorEvent event) { restart(); } });
+     */
+
     /*
-    widget.addComponentListener(new ComponentListener() {
+     * widget.addComponentListener(new ComponentListener() {
+     * 
+     * @Override public void componentResized(ComponentEvent e) { //restart(); }
+     * 
+     * @Override public void componentMoved(ComponentEvent e) {
+     * 
+     * }
+     * 
+     * @Override public void componentShown(ComponentEvent e) { //restart(); }
+     * 
+     * @Override public void componentHidden(ComponentEvent e) { // TODO
+     * Auto-generated method stub
+     * 
+     * }});
+     */
 
-      @Override
-      public void componentResized(ComponentEvent e) {
-        //restart();
-      }
-
-      @Override
-      public void componentMoved(ComponentEvent e) {
-        
-      }
-
-      @Override
-      public void componentShown(ComponentEvent e) {
-        //restart();
-      }
-
-      @Override
-      public void componentHidden(ComponentEvent e) {
-        // TODO Auto-generated method stub
-        
-      }});
-    */
-    
-    //restart();
+    // restart();
   }
 
   public synchronized void restart() {
     // Do nothing
   }
-  
+
   public synchronized void restart(int x1, int x2) {
     int mD = (x2 - x1); // / MAX_INDEX;
 

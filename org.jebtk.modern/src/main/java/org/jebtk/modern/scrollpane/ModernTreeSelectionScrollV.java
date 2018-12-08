@@ -59,7 +59,7 @@ public class ModernTreeSelectionScrollV implements ModernSelectionListener {
   public void selectionAdded(ChangeEvent e) {
     selectionRemoved(e);
   }
-  
+
   @Override
   public void selectionRemoved(ChangeEvent e) {
     int row = mTree.getSelectedIndex();

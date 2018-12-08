@@ -72,10 +72,12 @@ public abstract class GuiFileExtFilter extends FileFilter
   public GuiFileExtFilter(Collection<String> extensions) {
     mExtensions.addAll(extensions);
   }
-  
+
   @Override
   public String getDescription() {
-    return TextUtils.parenthesis(TextUtils.scJoin(TextUtils.prefix(mExtensions, "*."))); // "GenBank (*.gb)";
+    return TextUtils
+        .parenthesis(TextUtils.scJoin(TextUtils.prefix(mExtensions, "*."))); // "GenBank
+                                                                             // (*.gb)";
   }
 
   /*
@@ -131,7 +133,7 @@ public abstract class GuiFileExtFilter extends FileFilter
 
     return false;
   }
-  
+
   @Override
   public boolean accept(File dir, String name) {
     // TODO Auto-generated method stub

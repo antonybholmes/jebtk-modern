@@ -69,21 +69,17 @@ public class ModernSelectionListeners
   }
 
   /*
-  @Override
-  public void fireSelectionChanged(ChangeEvent e) {
-    for (ModernSelectionListener l : mListeners) {
-      l.selectionChanged(e);
-    }
-  }
-  */
-  
+   * @Override public void fireSelectionChanged(ChangeEvent e) { for
+   * (ModernSelectionListener l : mListeners) { l.selectionChanged(e); } }
+   */
+
   @Override
   public void fireSelectionAdded(ChangeEvent e) {
     for (ModernSelectionListener l : mListeners) {
       l.selectionAdded(e);
     }
   }
-  
+
   @Override
   public void fireSelectionRemoved(ChangeEvent e) {
     for (ModernSelectionListener l : mListeners) {

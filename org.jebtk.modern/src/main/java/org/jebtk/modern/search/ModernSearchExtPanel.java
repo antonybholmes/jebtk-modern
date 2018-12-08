@@ -73,7 +73,7 @@ public class ModernSearchExtPanel extends ModernLineBorderPanel implements
   /** The m search 2 button. */
   private ModernButton mSearch2Button = new ModernButton(
       AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
-                                                                   // 16));
+  // 16));
 
   /**
    * The member search field.

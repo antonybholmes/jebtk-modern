@@ -218,7 +218,7 @@ public class ModernSpreadsheetBar extends ModernComponent
   public void selectionAdded(ChangeEvent e) {
     selectionRemoved(e);
   }
-  
+
   @Override
   public void selectionRemoved(ChangeEvent e) {
     ModernDataCell cell = mTable.getCellSelectionModel().last();

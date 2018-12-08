@@ -62,7 +62,7 @@ public class ZoomRibbonSection extends RibbonSection
    */
   private ModernButtonWidget mZoomButton = new RibbonLargeButton(
       AssetService.getInstance().loadIcon(SearchVectorIcon.class, 24)); // Resources.getInstance().loadIcon("zoom",
-                                                                     // Resources.ICON_SIZE_32));
+  // Resources.ICON_SIZE_32));
 
   /**
    * The member zoom panel.

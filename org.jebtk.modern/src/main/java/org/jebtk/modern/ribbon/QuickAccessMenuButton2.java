@@ -55,7 +55,7 @@ public class QuickAccessMenuButton2 extends ModernMenuButton2 {
     super(icon, menu);
 
     addStyleClass(KeyFrames.TO, "quick-access-button");
-    
+
     setAnimations(new QuickAccessDropDownAnimation2(this));
   }
 

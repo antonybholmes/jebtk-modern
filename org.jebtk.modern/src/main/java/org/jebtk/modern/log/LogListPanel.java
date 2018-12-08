@@ -92,7 +92,8 @@ public class LogListPanel extends ModernWidget
     add(scrollPane, BorderLayout.CENTER);
 
     ModernIconMenuItem menuItem = new ModernIconMenuItem(MENU_CLEAR,
-        AssetService.getInstance().loadIcon("clear_log", AssetService.ICON_SIZE_16));
+        AssetService.getInstance().loadIcon("clear_log",
+            AssetService.ICON_SIZE_16));
     menuItem.addClickListener(this);
     logPopup.add(menuItem);
 

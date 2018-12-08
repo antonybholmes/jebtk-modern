@@ -19,8 +19,8 @@ public class ComboBoxHighlightAnimation extends ButtonFillAnimation
 
     mCombo.addPopupClosedListener(this);
 
-    //setFadeColor("fill",
-     //   MaterialService.getInstance().getColor("dialog.button.outline"));
+    // setFadeColor("fill",
+    // MaterialService.getInstance().getColor("dialog.button.outline"));
   }
 
   @Override
@@ -53,6 +53,7 @@ public class ComboBoxHighlightAnimation extends ButtonFillAnimation
           ModernComboBox.BUTTON_WIDTH, rect.getH());
 
       fill(g2,
+          widget,
           buttonRect.getX(),
           buttonRect.getY(),
           buttonRect.getW(),

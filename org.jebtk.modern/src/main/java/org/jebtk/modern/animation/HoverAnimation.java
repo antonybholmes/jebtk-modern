@@ -44,7 +44,7 @@ public abstract class HoverAnimation extends WidgetAnimation {
   private boolean mEntryMode = true;
 
   /** The m pressed. */
-  //protected boolean mPressed = false;
+  // protected boolean mPressed = false;
 
   /**
    * The Class MouseEvents.
@@ -84,12 +84,12 @@ public abstract class HoverAnimation extends WidgetAnimation {
      * 
      * @see java.awt.event.MouseListener#mousePressed(java.awt.event.MouseEvent)
      */
-    //@Override
-    //public void mousePressed(MouseEvent e) {
-    //  if (e.getButton() == MouseEvent.BUTTON1) {
-    //    mPressed = true;
-    //  }
-    //}
+    // @Override
+    // public void mousePressed(MouseEvent e) {
+    // if (e.getButton() == MouseEvent.BUTTON1) {
+    // mPressed = true;
+    // }
+    // }
 
     /*
      * (non-Javadoc)
@@ -97,14 +97,14 @@ public abstract class HoverAnimation extends WidgetAnimation {
      * @see
      * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
-    //@Override
-    //public void mouseReleased(MouseEvent e) {
-    //  mPressed = false;
-//
-    //  if (!mEntryMode) {
-    //    pseudoMouseExited();
-    //  }
-    //}
+    // @Override
+    // public void mouseReleased(MouseEvent e) {
+    // mPressed = false;
+    //
+    // if (!mEntryMode) {
+    // pseudoMouseExited();
+    // }
+    // }
 
   }
 
@@ -194,7 +194,7 @@ public abstract class HoverAnimation extends WidgetAnimation {
 
     startMouseOverTimer();
   }
-  
+
   @Override
   public void bindChildren() {
     getWidget().addContainerListener(new ContainerListener() {

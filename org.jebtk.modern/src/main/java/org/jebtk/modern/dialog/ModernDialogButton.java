@@ -87,7 +87,7 @@ public class ModernDialogButton extends ModernButton {
 
   private void setup() {
     // setFont(BOLD_FONT);
-    
+
     addStyleClass("dialog-button");
     addToStyleClass("dialog-button");
 

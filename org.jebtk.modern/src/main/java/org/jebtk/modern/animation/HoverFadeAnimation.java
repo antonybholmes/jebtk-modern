@@ -68,7 +68,7 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
   public Color getFadeColor(String name) {
     return mFade.getFadeColor(name);
   }
-  
+
   /**
    * Get the end color.
    * 
@@ -78,7 +78,7 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
   public Color getToColor(String name) {
     return mFade.getToColor(name);
   }
-  
+
   public Color getFromColor(String name) {
     return mFade.getFromColor(name);
   }
@@ -141,9 +141,9 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
    *
    * @return the trans
    */
-  //public double getTrans() {
-  //  return mFade.getTrans();
-  //}
+  // public double getTrans() {
+  // return mFade.getTrans();
+  // }
 
   public void setStep(int step) {
     mFade.setStep(step);

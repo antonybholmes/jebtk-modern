@@ -323,7 +323,7 @@ public class UI {
    * The constant BUTTON_IMPORT.
    */
   public static final String BUTTON_IMPORT = "Import...";
-  
+
   public static final String BUTTON_LOAD = "Load...";
 
   /**
@@ -432,8 +432,7 @@ public class UI {
   static {
     // Determine if we should mac style buttons or not.
     if (OpSys.isMac() || SettingsService.getInstance()
-        .getString("modern.ui.window.title-bar.buttons.style")
-        .equals("mac")) {
+        .getString("modern.ui.window.title-bar.buttons.style").equals("mac")) {
       WINDOW_TITLE_STYLE = ModernWindowTitleBarStyle.MAC;
     } else {
       WINDOW_TITLE_STYLE = ModernWindowTitleBarStyle.WINDOWS;
@@ -1151,6 +1150,21 @@ public class UI {
       int h,
       Color c1,
       Color c2) {
+    GradientPaint gradient = ColorUtils.getVGradient(0, h, c1, c2);
+
+    g2.setPaint(gradient);
+    // g2.setColor(ModernMenuItem.HIGHLIGHT_COLOR);
+
+    g2.fillRect(x, y, w, h);
+  }
+
+  public static void fillGradient(Graphics2D g2,
+      Color c1,
+      Color c2,
+      int x,
+      int y,
+      int w,
+      int h) {
     GradientPaint gradient = ColorUtils.getVGradient(0, h, c1, c2);
 
     g2.setPaint(gradient);

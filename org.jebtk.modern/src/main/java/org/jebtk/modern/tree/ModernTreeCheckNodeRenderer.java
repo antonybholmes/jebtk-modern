@@ -77,11 +77,14 @@ public class ModernTreeCheckNodeRenderer extends TreeNodeFileRenderer {
       int y = (getHeight() - 16) / 2;
 
       if (mChecked) {
-        //getWidgetRenderer().drawChecked(g2, x, y, 16, 16, RenderMode.SELECTED);
-        DrawUIService.getInstance().getRenderer("checkbox.checked").draw(g2, x, y, 16 , 16);
+        // getWidgetRenderer().drawChecked(g2, x, y, 16, 16,
+        // RenderMode.SELECTED);
+        DrawUIService.getInstance().getRenderer("checkbox.checked")
+            .draw(g2, x, y, 16, 16);
       } else {
-        //getWidgetRenderer().drawCheckBox(g2, x, y, 16, 16);
-        DrawUIService.getInstance().getRenderer("checkbox").draw(g2, x, y, 16 , 16);
+        // getWidgetRenderer().drawCheckBox(g2, x, y, 16, 16);
+        DrawUIService.getInstance().getRenderer("checkbox")
+            .draw(g2, x, y, 16, 16);
       }
     } else {
       super.drawNodeIcon(g2);

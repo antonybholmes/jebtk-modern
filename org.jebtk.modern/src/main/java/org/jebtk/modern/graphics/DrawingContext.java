@@ -28,10 +28,10 @@
 package org.jebtk.modern.graphics;
 
 /**
- * The drawing context is used to indicate to graphics routines what they
- * are being displayed on. For example a routine might add extra details to
- * something renderered on screen which are not included on the output saved
- * to file.
+ * The drawing context is used to indicate to graphics routines what they are
+ * being displayed on. For example a routine might add extra details to
+ * something renderered on screen which are not included on the output saved to
+ * file.
  */
 public enum DrawingContext {
 
@@ -41,7 +41,7 @@ public enum DrawingContext {
   UI,
 
   SCREEN,
-  
+
   /**
    * Drawing is intended for output to a file such as an SVG image.
    */

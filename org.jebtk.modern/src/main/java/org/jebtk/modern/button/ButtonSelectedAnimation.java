@@ -32,30 +32,22 @@ public class ButtonSelectedAnimation extends SelectedAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     if (widget.isSelected()) {
-      IntRect rect = widget.getRect(); //getInternalRect();
+      IntRect rect = widget.getRect(); // getInternalRect();
 
-      fill(g2,
-          rect.getX(),
-          rect.getY(),
-          rect.getW(),
-          rect.getH());
+      fill(g2, rect.getX(), rect.getY(), rect.getW(), rect.getH());
     }
   }
 
-  public void fill(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h) {
+  public void fill(Graphics2D g2, int x, int y, int w, int h) {
     // if (mode == RenderMode.NONE && !hasFocus) {
     // return;
     // }
 
-    DrawUIService.getInstance().getRenderer("button-fill").draw(g2, x, y, w, h, mColor);
+    DrawUIService.getInstance().getRenderer("button-fill")
+        .draw(g2, x, y, w, h, mColor);
 
+    // g2.setColor(getFadeColor("fill"));
 
-    //g2.setColor(getFadeColor("fill"));
-
-    //fill(g2, x, y, w, h);
+    // fill(g2, x, y, w, h);
   }
 }

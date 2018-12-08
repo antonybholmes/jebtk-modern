@@ -85,8 +85,8 @@ public class SideTabsButton extends ModernCheckRadioButton {
   public void drawBackground(Graphics2D g2) {
     if (isEnabled()) {
       if (isSelected() || mHighlight) {
-        //getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
-        
+        // getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
+
         DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mRect);
       }
     }

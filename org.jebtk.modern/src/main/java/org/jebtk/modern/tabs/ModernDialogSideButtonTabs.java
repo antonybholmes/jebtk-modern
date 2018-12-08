@@ -154,7 +154,8 @@ public class ModernDialogSideButtonTabs extends TabsController
   private final void addTab(ModernCheckButton button) {
     System.err.println("adding side tab");
 
-    UI.setSize(button, new Dimension(Short.MAX_VALUE, AssetService.ICON_SIZE_32));
+    UI.setSize(button,
+        new Dimension(Short.MAX_VALUE, AssetService.ICON_SIZE_32));
     button.addClickListener(this);
 
     buttonMap.put(button, buttons.size());

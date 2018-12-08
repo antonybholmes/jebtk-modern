@@ -69,7 +69,7 @@ public class ModernTableSelectionScrollListener
   public void selectionAdded(ChangeEvent e) {
     selectionRemoved(e);
   }
-  
+
   @Override
   public void selectionRemoved(ChangeEvent e) {
     IntRect viewRect = mTable.getViewRect();

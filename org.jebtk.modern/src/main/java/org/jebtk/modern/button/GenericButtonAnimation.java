@@ -18,8 +18,9 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
     // mButton = (ModernClickWidget)button;
 
     // setFadeColor("outline", ModernWidgetRenderer.SELECTED_OUTLINE_COLOR);
-    
-    setFadeColor("fill", MaterialService.getInstance().getColor("theme-highlight"));
+
+    setFadeColor("fill",
+        MaterialService.getInstance().getColor("theme-highlight"));
   }
 
   public void drawButton(Graphics2D g2,
@@ -43,9 +44,10 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
       int h,
       RenderMode mode,
       boolean hasFocus) {
-    //getWidget().getWidgetRenderer().outline(g2, x, y, w, h);
-    
-    DrawUIService.getInstance().getRenderer("button-outline").draw(g2, c, x, y, w, h);
+    // getWidget().getWidgetRenderer().outline(g2, x, y, w, h);
+
+    DrawUIService.getInstance().getRenderer("button-outline")
+        .draw(g2, c, x, y, w, h);
   }
 
   public void fill(Graphics2D g2,
@@ -72,18 +74,18 @@ public abstract class GenericButtonAnimation extends HoverFadeAnimation {
     switch (mode) {
     case SELECTED:
       DrawUIService.getInstance().getRenderer("button-fill")
-        .draw(g2, c, x, y, w, h);
+          .draw(g2, c, x, y, w, h);
       break;
     case HIGHLIGHT:
       DrawUIService.getInstance().getRenderer("button-fill")
-        .draw(g2, c, x, y, w, h, getFadeColor("fill"));
+          .draw(g2, c, x, y, w, h, getFadeColor("fill"));
       break;
     default:
       break;
     }
   }
 
-  //public void fill(Graphics2D g2, int x, int y, int w, int h) {
-  //  getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
-  //}
+  // public void fill(Graphics2D g2, int x, int y, int w, int h) {
+  // getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
+  // }
 }

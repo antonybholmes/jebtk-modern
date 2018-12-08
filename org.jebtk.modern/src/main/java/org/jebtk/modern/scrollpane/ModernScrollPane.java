@@ -159,11 +159,10 @@ public class ModernScrollPane extends ModernFocusableWidget
   ModernScrollBar mHScrollBar = null; // new ModernHScrollBarOffice(); //new
                                       // ModernHScrollBar();
 
-  
   //
   // Common
   //
-  
+
   private ModernTableScrollTo mScrollTo = null;
 
   /**
@@ -655,16 +654,16 @@ public class ModernScrollPane extends ModernFocusableWidget
       }
     }
   }
-  
+
   private class ScrollEvents implements ScrollListener {
 
     @Override
     public void scrollTo(ScrollEvent e) {
-      //System.err.println("scroll to " + e.getSource() + " " + e.mRect);
-      
+      // System.err.println("scroll to " + e.getSource() + " " + e.mRect);
+
       mScrollTo.scrollTo(e.mRect);
     }
-    
+
   }
 
   /**
@@ -826,7 +825,7 @@ public class ModernScrollPane extends ModernFocusableWidget
   private void setup() {
     // setLayout(null);
     setBody(mLayerPanel);
-    
+
     mScrollTo = new ModernTableScrollTo(this);
 
     mScrollTimer = new Timer(0, new IncrementScroll());
@@ -835,7 +834,7 @@ public class ModernScrollPane extends ModernFocusableWidget
     if (mComponent instanceof ModernCanvas) {
       ((ModernCanvas) mComponent).addCanvasListener(this);
     }
-    
+
     if (mComponent instanceof ModernComponent) {
       ModernComponent mc = (ModernComponent) mComponent;
       mc.getScrollListeners().addScrollListener(new ScrollEvents());
@@ -881,7 +880,6 @@ public class ModernScrollPane extends ModernFocusableWidget
     mComponent.addMouseMotionListener(new InnerComponentMouseMotionEvents());
     mComponent.addMouseWheelListener(new InnerComponentMouseWheelEvents());
     mComponent.addKeyListener(new InnerCompKeyEvents());
- 
 
     addComponentListener(new ComponentEvents());
 

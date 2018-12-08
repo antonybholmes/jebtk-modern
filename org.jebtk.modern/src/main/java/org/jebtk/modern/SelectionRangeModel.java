@@ -66,7 +66,7 @@ public class SelectionRangeModel extends ModernSelectionListeners
   /**
    * The member selection.
    */
-  //private List<Integer> mSelection = new ArrayList<Integer>(100);
+  // private List<Integer> mSelection = new ArrayList<Integer>(100);
 
   /** The m enabled. */
   private boolean mEnabled = true;
@@ -76,11 +76,10 @@ public class SelectionRangeModel extends ModernSelectionListeners
 
   private int mPrevious = -1;
 
-  
   public void setSelectionInterval(int s, int e) {
     addSelectionInterval(s, e, SelectionRangeType.REPLACE);
   }
-  
+
   /**
    * Sets the selection interval.
    *
@@ -89,21 +88,19 @@ public class SelectionRangeModel extends ModernSelectionListeners
    */
   public void addSelectionInterval(int s, int e, SelectionRangeType type) {
     updateSelectionInterval(s, e, type);
-    
+
     fireSelectionAdded();
   }
-  
+
   public void updateSelectionInterval(int s, int e, SelectionRangeType type) {
     if (!mEnabled) {
       return;
     }
-    
+
     if (type == SelectionRangeType.REPLACE) {
       removeAll();
     }
 
-    
-    
     int s1 = Math.min(s, e);
     int e1 = Math.max(s, e);
 
@@ -113,21 +110,22 @@ public class SelectionRangeModel extends ModernSelectionListeners
 
     mCurrent = e;
 
-    //update();
+    // update();
   }
-  
+
   public void setSelection(final Collection<Integer> indices) {
     addSelection(indices, SelectionRangeType.REPLACE);
   }
-  
+
   /**
    * Sets the selection.
    *
    * @param indices the new selection
    */
-  public void addSelection(final Collection<Integer> indices, SelectionRangeType type) {
+  public void addSelection(final Collection<Integer> indices,
+      SelectionRangeType type) {
     updateSelection(indices, type);
-    
+
     fireSelectionAdded();
   }
 
@@ -136,11 +134,12 @@ public class SelectionRangeModel extends ModernSelectionListeners
    *
    * @param indices the indices
    */
-  public void updateSelection(final Collection<Integer> indices, SelectionRangeType type) {
+  public void updateSelection(final Collection<Integer> indices,
+      SelectionRangeType type) {
     if (!mEnabled) {
       return;
     }
-    
+
     if (type == SelectionRangeType.REPLACE) {
       removeAll();
     }
@@ -149,7 +148,7 @@ public class SelectionRangeModel extends ModernSelectionListeners
       mSelectionSet.add(i);
     }
 
-    //update();
+    // update();
   }
 
   /**
@@ -159,10 +158,10 @@ public class SelectionRangeModel extends ModernSelectionListeners
    */
   public void remove(int index) {
     delete(index);
-    
+
     fireSelectionRemoved();
   }
-  
+
   /**
    * Remove without triggering an event.
    * 
@@ -175,7 +174,7 @@ public class SelectionRangeModel extends ModernSelectionListeners
 
     mSelectionSet.remove(index);
 
-    //update();
+    // update();
   }
 
   /**
@@ -199,9 +198,9 @@ public class SelectionRangeModel extends ModernSelectionListeners
   /**
    * Update.
    */
-  //private void update() {
-  ///  mSelection = CollectionUtils.sort(mSelectionSet);
-  //}
+  // private void update() {
+  /// mSelection = CollectionUtils.sort(mSelectionSet);
+  // }
 
   /**
    * Fire selection changed.
@@ -209,24 +208,23 @@ public class SelectionRangeModel extends ModernSelectionListeners
   public void fireSelectionAdded() {
     fireSelectionAdded(new ChangeEvent(this));
   }
-  
+
   public void fireSelectionRemoved() {
     fireSelectionRemoved(new ChangeEvent(this));
   }
 
-  
   public void add(int index) {
     add(index, SelectionRangeType.ADD);
   }
-  
+
   public void setSelection(int index) {
     set(index);
   }
-  
+
   public void set(int index) {
     add(index, SelectionRangeType.REPLACE);
   }
-  
+
   /**
    * Add a row to the selection.
    *
@@ -247,7 +245,7 @@ public class SelectionRangeModel extends ModernSelectionListeners
     if (!mEnabled) {
       return;
     }
-    
+
     if (type == SelectionRangeType.REPLACE) {
       removeAll();
     }
@@ -256,8 +254,8 @@ public class SelectionRangeModel extends ModernSelectionListeners
 
     mPrevious = mCurrent;
     mCurrent = index;
-    
-    //update();
+
+    // update();
   }
 
   /**
@@ -316,7 +314,7 @@ public class SelectionRangeModel extends ModernSelectionListeners
   }
 
   /**
-   * Size.
+   * Returns the number of selected indices.
    *
    * @return the int
    */
@@ -341,8 +339,6 @@ public class SelectionRangeModel extends ModernSelectionListeners
   public String toString() {
     return TextUtils.join(mSelectionSet, TextUtils.COMMA_DELIMITER);
   }
-
-
 
   /**
    * Sets the enabled.

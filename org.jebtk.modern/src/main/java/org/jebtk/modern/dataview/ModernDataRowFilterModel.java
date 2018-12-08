@@ -57,8 +57,8 @@ public class ModernDataRowFilterModel extends ModernDataModel {
    * @see org.abh.common.ui.dataview.ModernDataModel#getColumnCount()
    */
   @Override
-  public int getColumnCount() {
-    return mModel.getColumnCount();
+  public int getColCount() {
+    return mModel.getColCount();
   }
 
   /*

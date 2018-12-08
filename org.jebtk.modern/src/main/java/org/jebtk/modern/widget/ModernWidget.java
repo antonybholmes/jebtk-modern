@@ -96,8 +96,8 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant SELECTED_COLOR.
    */
-  public static final Color SELECTED_COLOR = ThemeService.getInstance().getColors()
-      .getGray(4);
+  public static final Color SELECTED_COLOR = ThemeService.getInstance()
+      .getColors().getGray(4);
 
   /**
    * The constant SELECTED_BORDER_COLOR.
@@ -167,8 +167,8 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant ALT_TEXT_COLOR.
    */
-  public static final Color ALT_TEXT_COLOR = MaterialService.getInstance().getColors()
-      .altText();
+  public static final Color ALT_TEXT_COLOR = MaterialService.getInstance()
+      .getColors().altText();
 
   /** The Constant TEXT_DISABLED_COLOR. */
   public static final Color TEXT_DISABLED_COLOR = ThemeService.getInstance()
@@ -183,7 +183,8 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant FONT.
    */
-  public static final Font FONT = MaterialService.getInstance().getFonts().text(); // ThemeService.getInstance().getFonts().getFont();
+  public static final Font FONT = MaterialService.getInstance().getFonts()
+      .text(); // ThemeService.getInstance().getFonts().getFont();
 
   /** The Constant UNDER_LINE_FONT. */
   public static final Font UNDER_LINE_FONT = FontUtils.underline(FONT);
@@ -199,8 +200,8 @@ public abstract class ModernWidget extends ModernComponent
       .loadFont("theme.widget.fonts.title-bold");
 
   /** The Constant SUB_TITLE_FONT. */
-  public static final Font SUB_TITLE_FONT = ThemeService.getInstance().getFonts()
-      .getSubTitleFont();
+  public static final Font SUB_TITLE_FONT = ThemeService.getInstance()
+      .getFonts().getSubTitleFont();
 
   /**
    * The constant HEADING_FONT.
@@ -383,8 +384,9 @@ public abstract class ModernWidget extends ModernComponent
   private int mId = NEXT_ID.getAndIncrement();
 
   /** The m widget renderer provider. */
-  ///private WidgetRendererProvider mWidgetRendererProvider = WidgetRendererService
-  //    .getInstance();
+  /// private WidgetRendererProvider mWidgetRendererProvider =
+  /// WidgetRendererService
+  // .getInstance();
 
   /**
    * Instantiates a new modern widget.
@@ -422,12 +424,12 @@ public abstract class ModernWidget extends ModernComponent
     setFont(FONT);
     setBackground(BACKGROUND_COLOR);
     setForeground(TEXT_COLOR);
-    
+
     addStyleClass("widget");
     addToStyleClass("widget");
 
     mBackgroundAnimations = new Animations(this);
-    
+
     mBackgroundAnimations.addChangeListener(new ChangeListener() {
       @Override
       public void changed(ChangeEvent e) {
@@ -463,16 +465,17 @@ public abstract class ModernWidget extends ModernComponent
   public Animations getAnimations() {
     return mBackgroundAnimations;
   }
-  
+
   public ModernWidget setAnimations(String animation, String... animations) {
     getAnimations().set(animation, animations);
-    
+
     return this;
   }
-  
-  public ModernWidget setAnimations(Animation animation, Animation... animations) {
+
+  public ModernWidget setAnimations(Animation animation,
+      Animation... animations) {
     getAnimations().set(animation, animations);
-    
+
     return this;
   }
 
@@ -485,18 +488,18 @@ public abstract class ModernWidget extends ModernComponent
    *
    * @return the widget renderer provider
    */
-  //public WidgetRendererProvider getWidgetRendererProvider() {
-  //  return mWidgetRendererProvider;
-  //}
+  // public WidgetRendererProvider getWidgetRendererProvider() {
+  // return mWidgetRendererProvider;
+  // }
 
   /**
    * Returns a renderer for generating common widget elements.
    *
    * @return the widget renderer
    */
-  //public WidgetRenderer getWidgetRenderer() {
-  //  return mWidgetRendererProvider.getRenderer();
-  //}
+  // public WidgetRenderer getWidgetRenderer() {
+  // return mWidgetRendererProvider.getRenderer();
+  // }
 
   /*
    * (non-Javadoc)
@@ -613,10 +616,10 @@ public abstract class ModernWidget extends ModernComponent
   public void drawBorder(Graphics2D g2, Color color) {
     drawBorder(g2, color, getRect());
   }
-  
+
   /**
-   * Returns true if widget is selected. This method should be overridden
-   * in widgets that have a selected response (such as a check box).
+   * Returns true if widget is selected. This method should be overridden in
+   * widgets that have a selected response (such as a check box).
    *
    * @return true, if is selected
    */
@@ -1709,5 +1712,4 @@ public abstract class ModernWidget extends ModernComponent
     return UI.setSize(c, width, WIDGET_HEIGHT);
   }
 
-  
 }

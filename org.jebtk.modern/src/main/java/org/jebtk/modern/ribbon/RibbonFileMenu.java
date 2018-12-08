@@ -49,9 +49,8 @@ import org.jebtk.modern.options.ModernOptionsRibbonPanel;
 import org.jebtk.modern.panel.Card;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.panel.Toolbar;
-import org.jebtk.modern.shadow.TopShadowPanel;
 import org.jebtk.modern.tabs.TabsModel;
-import org.jebtk.modern.theme.ThemeService;
+import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
@@ -118,8 +117,13 @@ public class RibbonFileMenu extends ModernClickWidget
    */
   private static final String CLOSE_MENU = "close_menu";
 
-  private static final Color RIBBON_FILE_BACKGROUND = ThemeService.getInstance()
-      .getColors().getGray32(1);
+  private static final Color RIBBON_FILE_BACKGROUND = MaterialService
+      .getInstance().getColor("window.background.gradient.end"); // ThemeService.getInstance().getColors().getGray32(1);
+
+  private static final Color C1 = MaterialService.getInstance()
+      .getColor("window.background.gradient.start");
+  private static final Color C2 = MaterialService.getInstance()
+      .getColor("window.background.gradient.end");
 
   /**
    * The class CloseAction.
@@ -173,7 +177,8 @@ public class RibbonFileMenu extends ModernClickWidget
 
     // panel.setBorder(BorderService.getInstance().createBorder(20));
 
-    setBody(new TopShadowPanel(panel));
+    // setBody(new TopShadowPanel(panel));
+    setBody(panel);
 
     // menuPanel.add(new TabbedBarSeparator());
     mMenuPanel.add(UI.createVGap(40));
@@ -370,6 +375,8 @@ public class RibbonFileMenu extends ModernClickWidget
 
   @Override
   public void drawBackground(Graphics2D g2) {
-    fill(g2, RIBBON_FILE_BACKGROUND);
+    // fill(g2, RIBBON_FILE_BACKGROUND);
+
+    fill(g2, C1, C2);
   }
 }

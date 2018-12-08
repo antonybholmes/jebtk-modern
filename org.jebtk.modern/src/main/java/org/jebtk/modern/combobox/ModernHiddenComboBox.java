@@ -102,10 +102,10 @@ public class ModernHiddenComboBox extends ModernComboBox {
     // paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON,
     // buttonRect);
 
-    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(
-        g2,
-        buttonRect.x,
-        buttonRect.y + (buttonRect.height - 16) / 2,
-        16);
+    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
+        .drawIcon(g2,
+            buttonRect.x,
+            buttonRect.y + (buttonRect.height - 16) / 2,
+            16);
   }
 }

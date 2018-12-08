@@ -107,9 +107,9 @@ public class ModernHTabBarBottom extends ModernHTabBar {
         // draw the selected tab
 
         g2.setColor(ThemeService.getInstance().getColors().getGray(4)); // new
-                                                                          // Color(159,
-                                                                          // 182,
-                                                                          // 205));
+                                                                        // Color(159,
+                                                                        // 182,
+                                                                        // 205));
 
         // top line
         /*

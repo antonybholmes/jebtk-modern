@@ -10,9 +10,9 @@ import org.jebtk.modern.widget.ModernWidget;
 
 public class CheckBoxTickAnimation extends WidgetAnimation {
   private static final int TICK_SIZE = 16;
-  
+
   private static final int OFFSET = (ModernCheckBox.ICON_SIZE - TICK_SIZE) / 2;
-  
+
   public CheckBoxTickAnimation(ModernWidget widget) {
     super((ModernClickWidget) widget);
   }

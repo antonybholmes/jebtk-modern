@@ -68,9 +68,7 @@ public class ModernStatusProgressBar extends ModernProgressBar {
    */
   @Override
   public void drawBackground(Graphics2D g2) {
-    fill(g2,
-        ThemeService.getInstance().getColors().getTheme(5),
-        getRect());
+    fill(g2, ThemeService.getInstance().getColors().getTheme(5), getRect());
   }
 
   /*

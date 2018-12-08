@@ -33,7 +33,7 @@ package org.jebtk.modern.clipboard;
  * @author Antony Holmes Holmes
  *
  */
-public interface ClipboardUiControl extends Clipboard {
+public interface ClipboardUI extends Clipboard {
 
   /**
    * Returns true if the control is editable, false otherwise.

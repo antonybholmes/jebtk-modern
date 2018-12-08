@@ -77,8 +77,7 @@ public class PasteVectorIcon extends ModernVectorIcon {
    * The constant CLIP_HOLE_WIDTH_SCALE.
    */
   private static final double CLIP_HOLE_WIDTH_SCALE = SettingsService
-      .getInstance()
-      .getDouble("theme.icons.paste-icon.clip-hole-width-scale");
+      .getInstance().getDouble("theme.icons.paste-icon.clip-hole-width-scale");
 
   /**
    * The constant FILE_WIDTH_SCALE.

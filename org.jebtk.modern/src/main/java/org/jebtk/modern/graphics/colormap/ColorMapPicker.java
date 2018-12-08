@@ -313,7 +313,8 @@ public class ColorMapPicker extends ModernClickWidget {
 
       /*
        * g2.drawRoundRect(mP.getX(), mP.getY(), HEAT_MAP_SIZE.getW(),
-       * HEAT_MAP_SIZE.getH(), MaterialService.getInstance().getInts().cornerRadius();,
+       * HEAT_MAP_SIZE.getH(),
+       * MaterialService.getInstance().getInts().cornerRadius();,
        * MaterialService.getInstance().getInts().cornerRadius(););
        */
 

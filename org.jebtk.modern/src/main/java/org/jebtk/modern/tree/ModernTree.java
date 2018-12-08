@@ -205,15 +205,17 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
     @Override
     public void selectionAdded(ChangeEvent e) {
       repaint();
-      
-      mSelectionListeners.fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
+
+      mSelectionListeners
+          .fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
     }
-    
+
     @Override
     public void selectionRemoved(ChangeEvent e) {
       repaint();
-      
-      mSelectionListeners.fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));
+
+      mSelectionListeners
+          .fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));
     }
   }
 

@@ -49,7 +49,7 @@ public class RibbonDropDownIconButton extends ModernDropDownIconButton {
    */
   public RibbonDropDownIconButton(ModernIcon icon) {
     super(icon);
-    
+
     addToStyleClass("dialog-button");
   }
 
@@ -64,10 +64,11 @@ public class RibbonDropDownIconButton extends ModernDropDownIconButton {
   public void drawBackgroundAA(Graphics2D g2) {
     if (isEnabled()) {
       if (mHighlight || mPopupShown) {
-        //getWidgetRenderer()
-         //   .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
-        
-        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mInternalRect);
+        // getWidgetRenderer()
+        // .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
+            mInternalRect);
       }
     }
   }

@@ -101,8 +101,8 @@ public class FillColorButton extends ModernOptionalDropDownMenuButton
     mMenu.add(colorPicker);
 
     mMenu.add(new ModernMenuSeparator());
-    mMenu.add(new ModernIconMenuItem("More colors...",
-        AssetService.getInstance().loadIcon("palette", AssetService.ICON_SIZE_16)));
+    mMenu.add(new ModernIconMenuItem("More colors...", AssetService
+        .getInstance().loadIcon("palette", AssetService.ICON_SIZE_16)));
 
     colorPicker.addClickListener(this);
   }

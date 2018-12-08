@@ -10,7 +10,8 @@ public class CheckBoxSelectedAnimation extends ButtonFillAnimation {
   public CheckBoxSelectedAnimation(ModernWidget widget) {
     super((ModernClickWidget) widget);
 
-    //setFadeColor("fill", widget.getFromKeyFrame().getColor("background-color"));
+    // setFadeColor("fill",
+    // widget.getFromKeyFrame().getColor("background-color"));
   }
 
   @Override
@@ -19,21 +20,24 @@ public class CheckBoxSelectedAnimation extends ButtonFillAnimation {
       int x = widget.getInsets().left;
       int y = (widget.getHeight() - ModernCheckBox.ICON_SIZE) / 2;
 
-
       // g2.setColor(ModernWidgetRenderer.SELECTED_FILL_COLOR); //
       // getFadeColor("fill"));
       // getWidget().getWidgetRenderer()
       // .fill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
 
-      DrawUIService.getInstance().getRenderer("button-fill")
-      .draw(g2, widget, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE, 
+      DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
+          widget,
+          x,
+          y,
+          ModernCheckBox.ICON_SIZE,
+          ModernCheckBox.ICON_SIZE,
           widget.getKeyFrame().getColor("background-color"));
 
-      //fill(g2, 
-      //    x,
-      //     y,
-      //    ModernCheckBox.ICON_SIZE,
-      //    ModernCheckBox.ICON_SIZE);
+      // fill(g2,
+      // x,
+      // y,
+      // ModernCheckBox.ICON_SIZE,
+      // ModernCheckBox.ICON_SIZE);
     }
   }
 }

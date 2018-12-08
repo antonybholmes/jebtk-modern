@@ -30,11 +30,11 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class OrbTabsHighlightAnimation extends ButtonFillAnimation {
 
-  protected static final Color ORB_COLOR = ThemeService.getInstance().getColors()
-      .getGray(3);
+  protected static final Color ORB_COLOR = ThemeService.getInstance()
+      .getColors().getGray(3);
 
-  protected static final Color ORB_COLOR_2 = ThemeService.getInstance().getColors()
-      .getGray(5);
+  protected static final Color ORB_COLOR_2 = ThemeService.getInstance()
+      .getColors().getGray(5);
 
   private OrbTabs mTabs;
 
@@ -48,7 +48,7 @@ public class OrbTabsHighlightAnimation extends ButtonFillAnimation {
 
     mTabs = (OrbTabs) w;
 
-    //getFade().setFadeColor("highlight", ORB_COLOR, ORB_COLOR_2);
+    // getFade().setFadeColor("highlight", ORB_COLOR, ORB_COLOR_2);
   }
 
   /*
@@ -60,7 +60,7 @@ public class OrbTabsHighlightAnimation extends ButtonFillAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-    int x = (mTabs.getWidth() - mTabs.mTabSize * mTabs.mTabWidths.size()) / 2; //mTabs.getInsets().left;
+    int x = (mTabs.getWidth() - mTabs.mTabSize * mTabs.mTabWidths.size()) / 2; // mTabs.getInsets().left;
     int h = mTabs.getInternalRect().getH();
     int n = mTabs.getTabsModel().getTabCount();
     int y = mTabs.getInsets().top;
@@ -81,8 +81,7 @@ public class OrbTabsHighlightAnimation extends ButtonFillAnimation {
      */
 
     for (int i = 0; i < n; ++i) {
-      g2.setColor(
-          i == highlighted ? getFadeColor("fill") : ORB_COLOR);
+      g2.setColor(i == highlighted ? getFadeColor("fill") : ORB_COLOR);
       g2.fillOval(x, y, h, h);
 
       x += mTabs.mTabSize;

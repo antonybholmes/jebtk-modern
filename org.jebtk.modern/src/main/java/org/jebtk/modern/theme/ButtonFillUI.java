@@ -31,7 +31,7 @@ public class ButtonFillUI extends ButtonUI {
   }
 
   @Override
-  public void draw(Graphics2D g2, 
+  public void draw(Graphics2D g2,
       ModernComponent c,
       int x,
       int y,
@@ -44,18 +44,17 @@ public class ButtonFillUI extends ButtonUI {
     } else {
       if (c != null) {
         ColorGradient lp = c.getToKeyFrame().getColorGradient("background");
-        
+
         if (lp != null) {
           lp.paint(g2, c);
         } else {
           g2.setColor(c.getToKeyFrame().getColor("background-color"));
         }
       } else {
-        g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget").getColor("background-color"));
+        g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget")
+            .getColor("background-color"));
       }
     }
-    
-    
 
     fill(g2, c, x, y, w, h);
   }

@@ -250,7 +250,7 @@ public class ComponentTable extends ModernComponent
 
       Box box = HBox.create();
       box.add(mCheckSelected);
-      //box.add(UI.createHGap(PADDING));
+      // box.add(UI.createHGap(PADDING));
       setLeft(box);
 
       box = HBox.create();

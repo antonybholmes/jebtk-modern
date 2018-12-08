@@ -55,7 +55,8 @@ public class OrbTabsAnimation extends WidgetAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
 
-    int x = (widget.getWidth() - mTabs.mTabSize * mTabs.getTabsModel().getTabCount()) / 2; //mTabs.getInsets().left;
+    int x = (widget.getWidth()
+        - mTabs.mTabSize * mTabs.getTabsModel().getTabCount()) / 2; // mTabs.getInsets().left;
     int h = mTabs.getInternalRect().getH();
     int n = mTabs.getTabsModel().getTabCount();
 
@@ -66,12 +67,10 @@ public class OrbTabsAnimation extends WidgetAnimation {
     //
 
     int textY = ModernWidget.getTextYPosCenter(g2, mTabs.getHeight());
-    
+
     for (int i = 0; i < n; ++i) {
       g2.setColor(i == selectedIndex ? Color.WHITE : TEXT_COLOR);
       // g2.setFont(selected ? ModernWidget.BOLD_FONT : ModernWidget.FONT);
-
-      
 
       String s = mTabs.getTabsModel().getTab(i).getName().toUpperCase()
           .substring(0, 1);

@@ -106,15 +106,15 @@ public class SortPanel<T extends NameProperty> extends HBox
    * The member list button.
    */
   private ModernCheckRadioButton mListButton = new ModernCheckRadioButton(
-      AssetService.getInstance().loadIcon(ListVectorIcon.class, 16), "List view",
-      "Display data in a list.");
+      AssetService.getInstance().loadIcon(ListVectorIcon.class, 16),
+      "List view", "Display data in a list.");
 
   /**
    * The member tree button.
    */
   private ModernCheckRadioButton mTreeButton = new ModernCheckRadioButton(
-      AssetService.getInstance().loadIcon(TreeVectorIcon.class, 16), "Tree view",
-      "Display data in a tree.");
+      AssetService.getInstance().loadIcon(TreeVectorIcon.class, 16),
+      "Tree view", "Display data in a tree.");
 
   /**
    * The member filter button.
@@ -180,6 +180,8 @@ public class SortPanel<T extends NameProperty> extends HBox
     add(mListButton);
 
     add(new RibbonSubSectionSeparator());
+
+    add(ModernPanel.createHGap());
 
     group = new ModernButtonGroup();
 

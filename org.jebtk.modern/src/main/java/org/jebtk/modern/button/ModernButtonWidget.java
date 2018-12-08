@@ -66,7 +66,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    * Instantiates a new modern button widget.
    */
   public ModernButtonWidget() {
-    //styleNames().add("button");
+    // styleNames().add("button");
   }
 
   /**
@@ -76,7 +76,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    */
   public ModernButtonWidget(String text1) {
     this();
-    
+
     setText(text1);
   }
 
@@ -87,7 +87,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    */
   public ModernButtonWidget(ModernIcon icon) {
     this();
-    
+
     setIcon(icon);
   }
 
@@ -99,11 +99,11 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    */
   public ModernButtonWidget(String text1, ModernIcon icon) {
     this();
-    
+
     setText(text1);
     setIcon(icon);
   }
-  
+
   /**
    * Sets the icon.
    *

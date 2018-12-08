@@ -146,8 +146,8 @@ public class RecentSearchTermsPanel extends RibbonMenuPanel
 
     ModernPanel buttonPanel = new ModernPanel(new FlowLayout(FlowLayout.RIGHT));
 
-    ModernButtonWidget button = new ModernButton("Clear",
-        AssetService.getInstance().loadIcon("clear", AssetService.ICON_SIZE_16));
+    ModernButtonWidget button = new ModernButton("Clear", AssetService
+        .getInstance().loadIcon("clear", AssetService.ICON_SIZE_16));
 
     button.addClickListener(this);
 

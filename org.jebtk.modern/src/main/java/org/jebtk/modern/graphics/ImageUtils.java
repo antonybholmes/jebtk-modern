@@ -150,12 +150,12 @@ public class ImageUtils {
     return new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
   }
 
-  public static Graphics2D createAAGraphics(final Graphics g, 
-      AAType type, 
+  public static Graphics2D createAAGraphics(final Graphics g,
+      AAType type,
       AAType... types) {
     Graphics2D g2 = clone(g);
 
-    //setAAHints(g2);
+    // setAAHints(g2);
 
     applyHints(type, g2);
 
@@ -166,12 +166,12 @@ public class ImageUtils {
     return g2;
   }
 
-  public static Graphics2D createGraphics(final Graphics g, 
+  public static Graphics2D createGraphics(final Graphics g,
       final Collection<AAType> types) {
     Graphics2D g2 = clone(g);
 
     if (CollectionUtils.isNotNullOrEmpty(types)) {
-      //setAAHints(g2);
+      // setAAHints(g2);
 
       for (AAType t : types) {
         applyHints(t, g2);
@@ -182,7 +182,7 @@ public class ImageUtils {
   }
 
   private static void applyHints(AAType type, Graphics2D g) {
-    switch(type) {
+    switch (type) {
     case TEXT:
       setAATextHints(g);
       break;
@@ -194,7 +194,7 @@ public class ImageUtils {
       break;
     }
   }
-  
+
   public static Graphics2D createAAGraphics(final Graphics g) {
     return createAAGraphics(g);
   }

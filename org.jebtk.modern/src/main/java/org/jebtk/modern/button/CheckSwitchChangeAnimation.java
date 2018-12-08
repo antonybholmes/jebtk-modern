@@ -35,9 +35,9 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 
   private FadeAnimation mFade;
 
-  
   public CheckSwitchChangeAnimation(ModernWidget button) {
-    this(button, button.getFromKeyFrame().getColor("color"), button.getToKeyFrame().getColor("color"));
+    this(button, button.getFromKeyFrame().getColor("color"),
+        button.getToKeyFrame().getColor("color"));
   }
 
   /**
@@ -45,15 +45,14 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
    *
    * @param ribbon the ribbon
    */
-  public CheckSwitchChangeAnimation(ModernWidget button, Color color1, Color color2) {
+  public CheckSwitchChangeAnimation(ModernWidget button, Color color1,
+      Color color2) {
     super(button);
 
     mButton = (ModernCheckSwitch) button;
 
-    mFade = new FadeAnimation(button).setFadeColor("fill",
-        color1,
-        color2);
- 
+    mFade = new FadeAnimation(button).setFadeColor("fill", color1, color2);
+
     // Animation should be triggered on a state change and not a click
     // event since we want the button to respond to setSelected events.
     mButton.addStateListener(new ModernStateListener() {
@@ -62,7 +61,7 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
         restart();
       }
     });
-    
+
     restart();
   }
 
@@ -93,28 +92,28 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 
     int h = widget.getHeight();
     int y1 = (h - s) / 2;
-   
+
     g2.setColor(Color.WHITE);
     g2.fillOval(0, y1, s, s);
-    
+
     if (mButton.isSelected()) {
       g2.setColor(mFade.getToColor("fill"));
-      //g2.fillOval(0, y1, s, s);
-      //g2.drawOval(0, y1, s, s);
+      // g2.fillOval(0, y1, s, s);
+      // g2.drawOval(0, y1, s, s);
     } else {
-      //g2.setColor(Color.WHITE);
-      //g2.fillOval(0, y1, s, s);
-      g2.setColor(mFade.getFromColor("fill")); 
-      //g2.drawOval(0, y1, s, s);
+      // g2.setColor(Color.WHITE);
+      // g2.fillOval(0, y1, s, s);
+      g2.setColor(mFade.getFromColor("fill"));
+      // g2.drawOval(0, y1, s, s);
     }
-    
+
     g2.drawOval(0, y1, s, s);
 
     // g2.setColor(Color.WHITE);
-    //g2.fillOval(0, y1, s, s);
+    // g2.fillOval(0, y1, s, s);
 
-    //g2.setColor(Color.WHITE);
-    //s -= 2;
-    //g2.fillOval(1, y1 + 1, s, s);
+    // g2.setColor(Color.WHITE);
+    // s -= 2;
+    // g2.fillOval(1, y1 + 1, s, s);
   }
 }

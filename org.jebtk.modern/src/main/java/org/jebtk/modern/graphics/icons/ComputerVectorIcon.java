@@ -54,8 +54,7 @@ public class ComputerVectorIcon extends ModernVectorScalableIcon {
    * The constant MONITOR_WIDTH_SCALE.
    */
   private static final double MONITOR_WIDTH_SCALE = SettingsService
-      .getInstance()
-      .getDouble("theme.icons.computer-icon.monitor-width-scale");
+      .getInstance().getDouble("theme.icons.computer-icon.monitor-width-scale");
 
   /**
    * The constant MONITOR_HEIGHT_SCALE.

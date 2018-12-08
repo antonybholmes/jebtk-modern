@@ -60,7 +60,7 @@ public class ModernInputExtPanel extends ModernLineBorderPanel
   /** The m ext button. */
   private ModernButton mExtButton = new ModernButton(
       AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16)); // UIResources.getInstance().loadIcon("binoculars",
-                                                                   // 16));
+  // 16));
 
   /**
    * The member search field.

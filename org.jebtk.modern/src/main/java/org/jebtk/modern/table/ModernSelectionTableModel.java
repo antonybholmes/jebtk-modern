@@ -62,7 +62,7 @@ public class ModernSelectionTableModel extends ModernTableModel {
    * @see org.abh.common.ui.dataview.ModernDataModel#getColumnCount()
    */
   @Override
-  public int getColumnCount() {
+  public int getColCount() {
     return 2;
   }
 

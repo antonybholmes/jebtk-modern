@@ -54,7 +54,7 @@ public class ModernTextBorderPanel extends ModernWidget
   /**
    * The member component.
    */
-  private JComponent mComponent;
+  private JComponent mComponent = null;
 
   /**
    * The constant STANDARD_SIZE.
@@ -187,7 +187,7 @@ public class ModernTextBorderPanel extends ModernWidget
     setBorder(SMALL_BORDER);
 
     addStyleClass("content", "content-outline");
-    
+
     setAnimations(new TextBorderAnimation(this));
   }
 

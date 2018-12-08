@@ -43,15 +43,17 @@ public class SimpleGuiFileFilter extends GuiFileExtFilter {
   /**
    * Instantiates a new gif gui file filter.
    */
-  public SimpleGuiFileFilter(String description, String extension, String... extensions) {
+  public SimpleGuiFileFilter(String description, String extension,
+      String... extensions) {
     super(extension, extensions);
-    
+
     mDescription = description;
   }
 
-  public SimpleGuiFileFilter(String description, Collection<String> extensions) {
+  public SimpleGuiFileFilter(String description,
+      Collection<String> extensions) {
     super(extensions);
-    
+
     mDescription = description;
   }
 

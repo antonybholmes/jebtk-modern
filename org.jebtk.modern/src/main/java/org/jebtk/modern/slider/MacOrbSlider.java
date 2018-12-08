@@ -48,8 +48,8 @@ public class MacOrbSlider extends OrbSlider {
   private static final long serialVersionUID = 1L;
 
   /** The Constant HIGHLIGHT. */
-  protected static final Color HIGHLIGHT = ThemeService.getInstance().getColors()
-      .getTheme32(16);
+  protected static final Color HIGHLIGHT = ThemeService.getInstance()
+      .getColors().getTheme32(16);
 
   /** The m bar height. */
   protected int mBarHeight = 4;

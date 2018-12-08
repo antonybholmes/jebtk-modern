@@ -3,6 +3,7 @@ package org.jebtk.modern.button;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
+import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernClickWidget;
@@ -17,12 +18,11 @@ public class ButtonFillAnimation extends HoverFadeAnimation {
     mButton = (ModernClickWidget) button;
 
     if (button.getFromKeyFrame().contains("background-color")) {
-      setFadeColor("fill", 
+      setFadeColor("fill",
           button.getFromKeyFrame().getColor("background-color"),
           button.getToKeyFrame().getColor("background-color"));
     } else {
-      setFadeColor("fill", 
-          button.getToKeyFrame().getColor("background-color"));
+      setFadeColor("fill", button.getToKeyFrame().getColor("background-color"));
     }
   }
 
@@ -40,17 +40,14 @@ public class ButtonFillAnimation extends HoverFadeAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     if (widget.isEnabled()) {
-      IntRect rect = widget.getRect(); //getInternalRect();
+      IntRect rect = widget.getRect(); // getInternalRect();
 
-      fill(g2,
-          rect.getX(),
-          rect.getY(),
-          rect.getW(),
-          rect.getH());
+      fill(g2, widget, rect.getX(), rect.getY(), rect.getW(), rect.getH());
     }
   }
 
   public void fill(Graphics2D g2,
+      ModernComponent c,
       int x,
       int y,
       int w,
@@ -59,17 +56,17 @@ public class ButtonFillAnimation extends HoverFadeAnimation {
     // return;
     // }
 
-    DrawUIService.getInstance().getRenderer("button-fill").draw(g2, x, y, w, h, getFadeColor("fill"));
+    DrawUIService.getInstance().getRenderer("button-fill")
+        .draw(g2, x, y, w, h, getFadeColor("fill"));
 
+    // g2.setColor(getFadeColor("fill"));
 
-    //g2.setColor(getFadeColor("fill"));
-
-    //fill(g2, x, y, w, h);
+    // fill(g2, x, y, w, h);
   }
 
-  //public void fill(Graphics2D g2, int x, int y, int w, int h) {
-  //  getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
-  //}
+  // public void fill(Graphics2D g2, int x, int y, int w, int h) {
+  // getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
+  // }
 
   public ModernClickWidget getButton() {
     return mButton;

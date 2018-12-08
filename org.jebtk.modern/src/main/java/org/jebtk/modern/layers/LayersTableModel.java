@@ -66,7 +66,7 @@ public class LayersTableModel extends ModernColumnHeaderTableModel
    * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
    */
   @Override
-  public final int getColumnCount() {
+  public final int getColCount() {
     return HEADER.length;
   }
 

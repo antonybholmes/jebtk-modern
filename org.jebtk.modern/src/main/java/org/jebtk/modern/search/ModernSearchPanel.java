@@ -28,10 +28,13 @@
 package org.jebtk.modern.search;
 
 import java.awt.BorderLayout;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -39,16 +42,18 @@ import org.jebtk.modern.event.ModernClickEventProducer;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.event.ModernClickListeners;
 import org.jebtk.modern.graphics.icons.SearchVectorIcon;
-import org.jebtk.modern.panel.ModernLineBorderPanel;
+import org.jebtk.modern.panel.ModernPillBorderPanel;
 import org.jebtk.modern.text.ModernClipboardTextField;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.text.TextProperty;
+import org.jebtk.modern.widget.ButtonStyle;
+import org.jebtk.modern.widget.ModernClickWidget;
 
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernSearchPanel.
  */
-public class ModernSearchPanel extends ModernLineBorderPanel implements
+public class ModernSearchPanel extends ModernPillBorderPanel implements
     ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
 
   /**
@@ -59,8 +64,9 @@ public class ModernSearchPanel extends ModernLineBorderPanel implements
   /**
    * The member search button.
    */
-  private ModernButton mSearchButton = new ModernButton(
-      AssetService.getInstance().loadIcon(SearchVectorIcon.class, 16));
+  private ModernClickWidget mSearchButton = new ModernButton(
+      AssetService.getInstance().loadIcon(SearchVectorIcon.class, 16))
+          .setButtonStyle(ButtonStyle.NONE);
 
   /**
    * The member search field.
@@ -92,7 +98,7 @@ public class ModernSearchPanel extends ModernLineBorderPanel implements
   public ModernSearchPanel(SearchModel model) {
     mModel = model;
 
-    mSearchField.setBorder(LEFT_BORDER);
+    // mSearchField.setBorder(BorderService.getInstance().createLeftBorder(20));
     add(mSearchField);
     add(mSearchButton, BorderLayout.LINE_END);
 
@@ -101,6 +107,13 @@ public class ModernSearchPanel extends ModernLineBorderPanel implements
 
     mSearchField.setText(mModel.get());
 
+    addComponentListener(new ComponentAdapter() {
+      @Override
+      public void componentResized(ComponentEvent e) {
+        setBorder(
+            BorderService.getInstance().createBorder(3, getHeight() / 2, 2, 2));
+      }
+    });
   }
 
   /*

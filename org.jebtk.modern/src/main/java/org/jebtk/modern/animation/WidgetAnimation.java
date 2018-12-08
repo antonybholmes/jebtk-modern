@@ -44,7 +44,7 @@ public abstract class WidgetAnimation implements Animation {
   public ModernWidget getWidget() {
     return mWidget;
   }
-  
+
   @Override
   public String getName() {
     return "widget";

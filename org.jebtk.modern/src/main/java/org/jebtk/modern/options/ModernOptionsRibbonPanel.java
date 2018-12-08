@@ -197,7 +197,7 @@ public class ModernOptionsRibbonPanel extends RibbonMenuPanel
   public void selectionAdded(ChangeEvent e) {
     selectionRemoved(e);
   }
-  
+
   @Override
   public void selectionRemoved(ChangeEvent e) {
     if (mTree.getSelectedNode() == null) {

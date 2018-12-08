@@ -320,7 +320,7 @@ public class ColorMapBlockPicker extends ModernClickWidget {
       // g2Temp.setStroke(ThemeService.DOUBLE_LINE_STROKE);
 
       if (mSelectedRow != -1) {
-        g2Temp.setColor(Color.BLACK); //ModernWidgetRenderer.SELECTED_FILL_COLOR);
+        g2Temp.setColor(Color.BLACK); // ModernWidgetRenderer.SELECTED_FILL_COLOR);
 
         g2Temp.drawRect(mSelectedP.getX(),
             mSelectedP.getY(),

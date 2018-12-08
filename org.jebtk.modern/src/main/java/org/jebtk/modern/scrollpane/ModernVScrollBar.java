@@ -226,19 +226,19 @@ public abstract class ModernVScrollBar extends ModernScrollBar {
 
     addMouseMotionListener(new MouseMotionEvents(c, this));
   }
-  
+
   @Override
   public double normalize(double d) {
     double ret = super.normalize(d);
 
     return ret;
   }
-  
+
   @Override
   public void updateNormalizedScrollPosition(double p) {
     super.updateNormalizedScrollPosition(p);
   }
-  
+
   /*
    * (non-Javadoc)
    * 

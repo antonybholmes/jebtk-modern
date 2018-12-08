@@ -33,7 +33,12 @@ public class RadioOutlineAnimation extends ButtonOutlineAnimation {
   }
 
   @Override
-  public void outline(Graphics2D g2, ModernComponent c, int x, int y, int w, int h) {
+  public void outline(Graphics2D g2,
+      ModernComponent c,
+      int x,
+      int y,
+      int w,
+      int h) {
     // Do nothing
 
     int wf = (int) (w * RadioAnimation.RADIO_SCALE / 2) * 2;

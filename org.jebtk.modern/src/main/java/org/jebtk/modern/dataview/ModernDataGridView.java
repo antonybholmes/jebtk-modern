@@ -210,7 +210,7 @@ public class ModernDataGridView extends ModernData {
       return;
     }
 
-    if (mModel.getRowCount() == 0 || mModel.getColumnCount() == 0) {
+    if (mModel.getRowCount() == 0 || mModel.getColCount() == 0) {
       return;
     }
 
@@ -233,7 +233,7 @@ public class ModernDataGridView extends ModernData {
 
     // translate to the start of the rendering rectangle so that we skip
     // all non visible cells
-    //translate(g2Table);
+    // translate(g2Table);
 
     for (int i = visibleCells.getStartRow(); i <= visibleCells
         .getEndRow(); ++i) {

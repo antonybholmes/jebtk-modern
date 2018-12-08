@@ -64,14 +64,13 @@ public class FileFilterService implements Iterable<String> {
   public static FileFilterService getInstance() {
     return FileFilterServiceLoader.INSTANCE;
   }
-  
+
   protected final Logger LOG = LoggerFactory.getLogger(FileFilterService.class);
 
   /**
    * The member settings.
    */
-  protected Map<String, GuiFileExtFilter> mFilterMap =
-      new IterHashMap<String, GuiFileExtFilter>();
+  protected Map<String, GuiFileExtFilter> mFilterMap = new IterHashMap<String, GuiFileExtFilter>();
 
   /** The m update map. */
   // protected Map<Path, Boolean> mUpdateMap = new HashMap<Path, Boolean>();
@@ -92,7 +91,7 @@ public class FileFilterService implements Iterable<String> {
         String qName,
         Attributes attributes) throws SAXException {
 
-      if (qName.equals("setting")) { 
+      if (qName.equals("setting")) {
       }
     }
 
@@ -104,7 +103,7 @@ public class FileFilterService implements Iterable<String> {
      */
     @Override
     public void endElement(String uri, String localName, String qName) {
-      
+
     }
   }
 
@@ -192,7 +191,7 @@ public class FileFilterService implements Iterable<String> {
     // Load any per user settings. We flag these as being updated so
     // that on the next write cycle, they will be written back to the
     // settings file.
-    //loadXml(SettingsReaderUserXml.USER_XML_FILE, true);
+    // loadXml(SettingsReaderUserXml.USER_XML_FILE, true);
 
     LOG.info("Finished loading file filters.");
   }
@@ -218,7 +217,7 @@ public class FileFilterService implements Iterable<String> {
 
     LOG.info("Finished loading file filters.");
   }
-  
+
   /**
    * Load xml.
    *
@@ -264,9 +263,9 @@ public class FileFilterService implements Iterable<String> {
     SAXParserFactory factory = SAXParserFactory.newInstance();
     SAXParser saxParser = factory.newSAXParser();
 
-    //FileFilterXmlHandler handler = new FileFilterXmlHandler(update);
+    // FileFilterXmlHandler handler = new FileFilterXmlHandler(update);
 
-    //saxParser.parse(is, handler);
+    // saxParser.parse(is, handler);
 
     return true;
   }
@@ -303,8 +302,7 @@ public class FileFilterService implements Iterable<String> {
    * @return true, if successful
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  private synchronized boolean loadJson(InputStream is)
-      throws IOException {
+  private synchronized boolean loadJson(InputStream is) throws IOException {
     if (is == null) {
       return false;
     }
@@ -316,10 +314,10 @@ public class FileFilterService implements Iterable<String> {
 
       String name = filterJson.getString("name");
 
-      mFilterMap.put(name, new SimpleGuiFileFilter(filterJson.getString("description"),
-          JsonUtils.toStringList(filterJson.get("filters"))));
-      
-      
+      mFilterMap.put(name,
+          new SimpleGuiFileFilter(filterJson.getString("description"),
+              JsonUtils.toStringList(filterJson.get("filters"))));
+
     }
 
     return true;

@@ -147,7 +147,7 @@ public class ModernButton extends ModernClickableButtonWidget {
 
     UI.setSize(this, size); // ICON_TEXT_SIZE);
   }
-  
+
   /*
    * (non-Javadoc)
    * 

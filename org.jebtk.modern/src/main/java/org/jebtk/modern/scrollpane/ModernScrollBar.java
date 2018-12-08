@@ -78,8 +78,8 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * The constant BASE_COLOR.
    */
-  protected static final Color BASE_COLOR = ThemeService.getInstance().getColors()
-      .getGray(3);
+  protected static final Color BASE_COLOR = ThemeService.getInstance()
+      .getColors().getGray(3);
 
   /**
    * The constant SCROLLBAR_COLOR.
@@ -479,11 +479,12 @@ public abstract class ModernScrollBar extends ModernWidget
    * Set the scroll position in pixels. Equivalent to
    * <code>setNormalizedScrollPosition(normalize(p))</code>.
    * 
-   * @param p     the position in pixels
+   * @param p the position in pixels
    */
   public void setScrollPosition(int p) {
     setNormalizedScrollPosition(normalize(p));
   }
+
   /**
    * Move the scrollbar n pixels. This will cause the content to move at least n
    * pixels.
@@ -642,8 +643,8 @@ public abstract class ModernScrollBar extends ModernWidget
   public abstract int getFixedDim();
 
   /**
-   * Gets the variable dimension, e.g. for a vertical scroll bar that is
-   * its height and for a horizontal scroll bar, that is its width.
+   * Gets the variable dimension, e.g. for a vertical scroll bar that is its
+   * height and for a horizontal scroll bar, that is its width.
    *
    * @return the variable dim
    */

@@ -38,7 +38,8 @@ public class RibbonBackHighlightAnimation extends HoverFadeAnimation {
     super(button);
 
     // setFadeColor("fill", RibbonBackMenuItem.BASE_COLOR, Color.WHITE);
-    setFadeColor("fill", MaterialService.getInstance().getColor("gray-highlight"));
+    setFadeColor("fill",
+        MaterialService.getInstance().getColor("gray-highlight"));
   }
 
   @Override

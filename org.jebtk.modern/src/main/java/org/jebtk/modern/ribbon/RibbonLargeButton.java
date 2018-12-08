@@ -194,8 +194,8 @@ public class RibbonLargeButton extends ModernButton
     setSize(RibbonSize.COMPACT);
 
     addToStyleClass("dialog-button");
-    //setAnimations("button-fill"); // new
-                                              // RibbonButtonHighlightAnimation(this));
+    // setAnimations("button-fill"); // new
+    // RibbonButtonHighlightAnimation(this));
   }
 
   /**

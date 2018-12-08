@@ -50,10 +50,7 @@ import org.jebtk.modern.dialog.ModernMessageDialog;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.ribbon.Ribbon;
-import org.jebtk.modern.shadow.TopShadowPanel;
 import org.jebtk.modern.status.ModernStatusBar;
-import org.jebtk.modern.tabs.IconTabsPanel;
-import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -199,9 +196,9 @@ public class ModernRibbonWindow extends ModernWindow {
   /** The m status bar. */
   protected ModernStatusBar mStatusBar = new ModernStatusBar();
 
-  private TabsModel mLeftTabsModel;
+  // private TabsModel mLeftTabsModel;
 
-  private IconTabsPanel mViewPanel;
+  // private IconTabsPanel mViewPanel;
 
   private IconTabs mIconTabs;
 
@@ -287,10 +284,10 @@ public class ModernRibbonWindow extends ModernWindow {
    * 
    * @see org.abh.common.ui.window.ModernWindow#setBody(java.awt.Component)
    */
-  @Override
-  public void setBody(Component c) {
-    super.setBody(new TopShadowPanel(c));
-  }
+  // @Override
+  // public void setBody(Component c) {
+  // super.setBody(new TopShadowPanel(c));
+  // }
 
   /**
    * Set the center card panel.

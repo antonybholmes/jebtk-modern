@@ -37,7 +37,7 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  * The class ModernClipboardWidget.
  */
 public abstract class ModernClipboardWidget extends ModernFocusableWidget
-    implements ClipboardUiControl {
+    implements ClipboardUI {
 
   /**
    * The constant serialVersionUID.
@@ -52,14 +52,14 @@ public abstract class ModernClipboardWidget extends ModernFocusableWidget
     /**
      * The member c.
      */
-    private ClipboardUiControl mC;
+    private ClipboardUI mC;
 
     /**
      * Instantiates a new focus events.
      *
      * @param c the c
      */
-    public FocusEvents(ClipboardUiControl c) {
+    public FocusEvents(ClipboardUI c) {
       mC = c;
     }
 

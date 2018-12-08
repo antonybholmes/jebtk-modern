@@ -13,12 +13,11 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
     super(button);
 
     if (button.getFromKeyFrame().contains("border-color")) {
-      setFadeColor("outline", 
+      setFadeColor("outline",
           button.getFromKeyFrame().getColor("border-color"),
           button.getToKeyFrame().getColor("border-color"));
     } else {
-      setFadeColor("outline", 
-          button.getToKeyFrame().getColor("border-color"));
+      setFadeColor("outline", button.getToKeyFrame().getColor("border-color"));
     }
   }
 
@@ -31,14 +30,9 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
   @Override
   public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
     if (widget.isEnabled()) {
-      IntRect rect = widget.getRect(); //getInternalRect();
+      IntRect rect = widget.getRect(); // getInternalRect();
 
-      outline(g2,
-          widget,
-          rect.getX(),
-          rect.getY(),
-          rect.getW(),
-          rect.getH());
+      outline(g2, widget, rect.getX(), rect.getY(), rect.getW(), rect.getH());
     }
   }
 
@@ -52,16 +46,18 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
     // return;
     // }
 
-    DrawUIService.getInstance().getRenderer("button-outline").draw(g2, c, x, y, w, h, getFadeColor("outline"));
+    DrawUIService.getInstance().getRenderer("button-outline")
+        .draw(g2, c, x, y, w, h, getFadeColor("outline"));
 
-    //g2.setColor(getFadeColor("outline"));
+    // g2.setColor(getFadeColor("outline"));
 
-    //outline(g2, x, y, w, h);
+    // outline(g2, x, y, w, h);
   }
 
-  //public void outline(Graphics2D g2, int x, int y, int w, int h) {
-  //  getWidget().getWidgetRenderer().outline(g2, x, y, w, h);
-  //  
-  //  UIDrawService.getInstance().get("button-outline").draw(g2, x, y, w, h, getFadeColor("outline"));
-  //}
+  // public void outline(Graphics2D g2, int x, int y, int w, int h) {
+  // getWidget().getWidgetRenderer().outline(g2, x, y, w, h);
+  //
+  // UIDrawService.getInstance().get("button-outline").draw(g2, x, y, w, h,
+  // getFadeColor("outline"));
+  // }
 }

@@ -56,7 +56,7 @@ public class SegmentChangeAnimation extends TranslateXAnimation {
         restart();
       }
     });
-    
+
     mTabs.addComponentListener(new ComponentAdapter() {
 
       @Override

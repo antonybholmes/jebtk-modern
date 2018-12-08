@@ -63,12 +63,12 @@ public class HBox extends GenericBox {
     this();
 
     add(component);
-    
+
     for (Component c : components) {
       add(c);
     }
   }
-  
+
   public HBox(String title, Component... components) {
     this(new ModernAutoSizeLabel(title), components);
   }

@@ -54,17 +54,17 @@ public class ModernToolTipEvent extends Event {
   private ModernToolTipListener mDest;
 
   private Point mP;
-  
+
   private ToolTipLevel mLevel = ToolTipLevel.NORMAL;
 
-  //public ModernToolTipEvent(Component dest) {
-  //  this(dest, (ModernToolTipListener) dest);
-  //}
+  // public ModernToolTipEvent(Component dest) {
+  // this(dest, (ModernToolTipListener) dest);
+  // }
 
   public ModernToolTipEvent(Component source, ModernToolTipListener dest) {
     this(source, dest, ToolTipLevel.NORMAL);
   }
-  
+
   public ModernToolTipEvent(Component source, ModernToolTipListener dest,
       ToolTipLevel l) {
     this(source, dest, source, l);
@@ -74,7 +74,7 @@ public class ModernToolTipEvent extends Event {
       Component tooltip) {
     this(source, dest, tooltip, ToolTipLevel.NORMAL);
   }
-  
+
   public ModernToolTipEvent(Component source, ModernToolTipListener dest,
       Component tooltip, ToolTipLevel l) {
     this(source, dest, tooltip, null, l);
@@ -84,7 +84,7 @@ public class ModernToolTipEvent extends Event {
       Component tooltip, Point p) {
     this(source, dest, tooltip, p, ToolTipLevel.NORMAL);
   }
-  
+
   public ModernToolTipEvent(Component source, ModernToolTipListener dest,
       Component tooltip, Point p, ToolTipLevel l) {
     this(source, dest, tooltip, p, l, DEFAULT_MESSAGE);
@@ -124,7 +124,7 @@ public class ModernToolTipEvent extends Event {
   public Point getP() {
     return mP;
   }
-  
+
   public ToolTipLevel getLevel() {
     return mLevel;
   }

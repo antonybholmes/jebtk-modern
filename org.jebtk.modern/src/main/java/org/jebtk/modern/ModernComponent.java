@@ -125,8 +125,7 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    */
   public static final int PADDING = SettingsService.getInstance()
       .getInt("theme.widget.padding");
-  
-  
+
   public static final int SMALL_PADDING = PADDING / 2;
 
   /**
@@ -226,8 +225,7 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    * The member listeners.
    */
   protected ModernComponentListeners mListeners = new ModernComponentListeners();
-  
-  
+
   protected ScrollListeners mScrollListeners = new ScrollListeners();
 
   /** The m center. */
@@ -378,6 +376,12 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
     this(c);
 
     setLayout(layout);
+  }
+
+  public ModernComponent(Component c, Border border, Dimension size) {
+    this(c, border);
+
+    UI.setSize(this, size);
   }
 
   /**
@@ -574,7 +578,7 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   public void setSize(Dimension dimension) {
     setSize(dimension.width, dimension.height);
   }
-  
+
   @Override
   public void addScrollListener(ScrollListener l) {
     getScrollListeners().addScrollListener(l);
@@ -590,38 +594,37 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   public void removeScrollListener(ScrollListener l) {
     getScrollListeners().removeScrollListener(l);
   }
-  
+
   public ScrollListeners getScrollListeners() {
     return mScrollListeners;
   }
-  
+
   @Override
   public void fireScrollTo(ScrollEvent e) {
     getScrollListeners().fireScrollTo(e);
   }
-  
+
   @Override
   public void scrollRectToVisible(Rectangle r) {
     super.scrollRectToVisible(r);
-    
+
     fireScrollTo(r);
   }
-  
-  
+
   public void scrollRectToVisible(IntRect r) {
     super.scrollRectToVisible(IntRect.toRectangle(r));
-    
+
     fireScrollTo(r);
   }
 
   public void fireScrollTo(Rectangle r) {
     fireScrollTo(IntRect.createRect(r));
   }
-  
+
   public void fireScrollTo(int x, int y, int w, int h) {
     fireScrollTo(new IntRect(x, y, w, h));
   }
-  
+
   public void fireScrollTo(IntRect r) {
     fireScrollTo(new ScrollEvent(this, r));
   }
@@ -651,7 +654,7 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   public KeyFrame getKeyFrame(int frame) {
     return mKeyFrames.getKeyFrame(frame);
   }
-  
+
   public KeyFrame getKeyFrame() {
     return getFromKeyFrame();
   }
@@ -1043,6 +1046,39 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
     g2.setColor(color);
 
     g2.fillRect(rect.x, rect.y, rect.width, rect.height);
+  }
+
+  public void fill(Graphics2D g2, Color color1, Color color2) {
+    fill(g2, color1, color2, getRect());
+  }
+
+  /**
+   * Gradient fill an area vertically.
+   *
+   * @param g2 the g2
+   * @param color the color
+   * @param rect the rect
+   */
+  public static void fill(Graphics2D g2, Color c1, Color c2, Rectangle rect) {
+    UI.fillGradient(g2, c1, c2, rect.x, rect.y, rect.width, rect.height);
+  }
+
+  /**
+   * Gradient fill an area vertically.
+   * 
+   * @param g2
+   * @param c1
+   * @param c2
+   * @param rect
+   */
+  public static void fill(Graphics2D g2, Color c1, Color c2, IntRect rect) {
+    UI.fillGradient(g2,
+        c1,
+        c2,
+        rect.getX(),
+        rect.getY(),
+        rect.getW(),
+        rect.getH());
   }
 
   /**

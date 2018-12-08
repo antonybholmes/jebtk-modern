@@ -62,7 +62,8 @@ public class RibbonMenuItem extends ModernCheckButton
    * The constant TEXT_OFFSET.
    */
   // private static final int ICON_WIDTH = 16;
-  protected static final int TEXT_OFFSET = 2 * PADDING + AssetService.ICON_SIZE_16;
+  protected static final int TEXT_OFFSET = 2 * PADDING
+      + AssetService.ICON_SIZE_16;
 
   /**
    * The constant SIZE.

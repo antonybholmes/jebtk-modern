@@ -9,7 +9,7 @@ public class CircleFillAnimation extends ButtonFillAnimation {
   public CircleFillAnimation(ModernWidget button) {
     super(button);
   }
-  
+
   @Override
   public String getName() {
     return "circle-fill";

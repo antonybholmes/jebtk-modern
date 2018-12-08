@@ -117,7 +117,8 @@ public class ModernTextField extends JTextField implements TextProperty {
 
     setBorder(BorderFactory.createEmptyBorder());
 
-    setMinimumSize(new Dimension(AssetService.ICON_SIZE_24, TEXT_BOX_SIZE.height));
+    setMinimumSize(
+        new Dimension(AssetService.ICON_SIZE_24, TEXT_BOX_SIZE.height));
     setMaximumSize(new Dimension(Short.MAX_VALUE, TEXT_BOX_SIZE.height));
 
     UI.setSize(this, TEXT_BOX_SIZE);

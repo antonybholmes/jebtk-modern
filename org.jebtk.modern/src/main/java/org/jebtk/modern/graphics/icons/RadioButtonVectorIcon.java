@@ -54,8 +54,10 @@ public class RadioButtonVectorIcon extends ModernVectorScalableIcon {
       int w,
       int h,
       Object... params) {
-    //WidgetRendererService.getInstance().getRenderer().drawRadio(g2, x, y, w, h);
-    
-    DrawUIService.getInstance().getRenderer("radio").draw(g2, x, y, w, h, RenderMode.DISABLED);
+    // WidgetRendererService.getInstance().getRenderer().drawRadio(g2, x, y, w,
+    // h);
+
+    DrawUIService.getInstance().getRenderer("radio")
+        .draw(g2, x, y, w, h, RenderMode.DISABLED);
   }
 }

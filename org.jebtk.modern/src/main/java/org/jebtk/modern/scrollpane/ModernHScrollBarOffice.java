@@ -57,9 +57,9 @@ public class ModernHScrollBarOffice extends ModernHScrollBar {
   /**
    * The constant RIGHT_ARROW_ICON.
    */
-  protected static final ModernIcon RIGHT_ARROW_ICON = AssetService.getInstance()
-      .loadIcon(CheveronRightVectorIcon.class, SCROLLBAR_SIZE); // Resources.getInstance().loadIcon("right_scroll",
-                                                                // Resources.ICON_SIZE_16);
+  protected static final ModernIcon RIGHT_ARROW_ICON = AssetService
+      .getInstance().loadIcon(CheveronRightVectorIcon.class, SCROLLBAR_SIZE); // Resources.getInstance().loadIcon("right_scroll",
+                                                                              // Resources.ICON_SIZE_16);
 
   /**
    * Instantiates a new modern H scroll bar office.

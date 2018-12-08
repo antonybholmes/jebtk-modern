@@ -106,16 +106,24 @@ public class RibbonToolbar extends HBox implements RibbonModeProperty {
   }
 
   /**
-   * Adds the section.
+   * Adds the section to the ribbon, if a section of the same name does not
+   * already exist.
    *
-   * @param ribbonSection the ribbon section
+   * @param section the ribbon section
+   * @return
    */
-  public void addSection(RibbonSection ribbonSection) {
-    ribbonSection.setSize(mMode);
+  public RibbonSection addSection(RibbonSection section) {
+    String name = section.getName();
 
-    mSectionMap.put(ribbonSection.getName(), ribbonSection);
+    if (!mSectionMap.containsKey(name)) {
+      section.setSize(mMode);
 
-    super.add(ribbonSection);
+      mSectionMap.put(section.getName(), section);
+
+      super.add(section);
+    }
+
+    return mSectionMap.get(name);
   }
 
   // public RibbonSection getSection(String name) {
@@ -129,15 +137,16 @@ public class RibbonToolbar extends HBox implements RibbonModeProperty {
    * @return the section
    */
   public RibbonSection getSection(String name) {
-    RibbonSection section = mSectionMap.get(name);
+    return getSection(name, false);
+  }
 
-    if (section != null) {
-      return section;
+  public RibbonSection getSection(String name, boolean showLabel) {
+
+    if (!mSectionMap.containsKey(name)) {
+      addSection(new RibbonSection(mRibbon, name, showLabel));
     }
 
-    addSection(new RibbonSection(mRibbon, name));
-
-    return getSection(name);
+    return mSectionMap.get(name);
   }
 
   /**

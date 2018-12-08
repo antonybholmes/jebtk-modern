@@ -22,7 +22,8 @@ public class SpinnerAnimation extends WidgetAnimation {
   private static final ModernIcon TRIANGLE_DOWN = AssetService.getInstance()
       .loadIcon(TriangleDownVectorIcon.class, 16);
 
-  private static final ModernIcon TRIANGLE_DOWN_HIGH = AssetService.getInstance()
+  private static final ModernIcon TRIANGLE_DOWN_HIGH = AssetService
+      .getInstance()
       .loadIcon(TriangleDownVectorIcon.class, Ribbon.BAR_BACKGROUND, 16);
 
   public SpinnerAnimation(ModernWidget widget) {

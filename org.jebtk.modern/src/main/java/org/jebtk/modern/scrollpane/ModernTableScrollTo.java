@@ -49,27 +49,26 @@ public class ModernTableScrollTo {
     vscroll.setScrollPosition(scrollY(rect.mY + 2 * rect.mH));
     hscroll.setScrollPosition(scrollX(rect.mX + 2 * rect.mW));
   }
-  
+
   private int scrollX(int d) {
     return scroll(mScrollPane.mViewport.getWidth(), d);
   }
-  
+
   private int scrollY(int d) {
     return scroll(mScrollPane.mViewport.getHeight(), d);
   }
-  
+
   private static int scroll(int h, int d) {
     // The view port must have positive size for the scroll to work
     if (h < 1) {
       return 0;
     }
-    
-    //h = Math.max(0, h);
-    
-    //TODO: Are there too many scroll events?
-    //System.err.println(" normY " + h);
-    
-    
-    return Math.max(0, d - h); //.getScrollDistance());
+
+    // h = Math.max(0, h);
+
+    // TODO: Are there too many scroll events?
+    // System.err.println(" normY " + h);
+
+    return Math.max(0, d - h); // .getScrollDistance());
   }
 }
