@@ -113,12 +113,12 @@ public class ContainerCanvas extends ModernCanvas
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvas#drawCanvasForeground(java.awt.
+   * org.abh.lib.ui.modern.graphics.ModernCanvas#rasterCanvas(java.awt.
    * Graphics2D)
    */
   @Override
-  public void rasterCanvas(Graphics2D g2) {
-    mCanvas.rasterCanvas(g2);
+  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
+    mCanvas.rasterCanvas(g2, context);
   }
 
   /*

@@ -63,7 +63,7 @@ public class ModernMenuDashedDivider extends ModernMenuSeparator {
    * org.abh.lib.ui.modern.menu.ModernMenuSeparator#drawForegroundAA(java.awt.
    * Graphics2D)
    */
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     g2.setColor(LINE_COLOR);
 
     g2.setStroke(STROKE);

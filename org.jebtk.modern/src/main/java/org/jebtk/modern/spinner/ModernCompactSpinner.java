@@ -695,7 +695,7 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
    */
 
   /*
-   * @Override public void drawForegroundAAText(Graphics2D g2) { int x =
+   * @Override public void drawForegroundAA(Graphics2D g2) { int x =
    * getWidth() - 16; int y = (mButtonYDivider - 16) / 2;
    * 
    * UIService.getInstance().loadIcon(TriangleUpVectorIcon.class,

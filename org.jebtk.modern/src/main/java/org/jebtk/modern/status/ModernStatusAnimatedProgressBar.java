@@ -132,7 +132,7 @@ public class ModernStatusAnimatedProgressBar extends ModernStatusProgressBar
    * org.abh.lib.ui.modern.status.ModernStatusProgressBar#drawForegroundAA(java.
    * awt.Graphics2D)
    */
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int y1 = getHeight() - this.getInsets().top;
 
     int h = y1 - this.getInsets().bottom;

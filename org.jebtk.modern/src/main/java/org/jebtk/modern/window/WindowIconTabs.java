@@ -35,6 +35,7 @@ import org.jebtk.modern.panel.AutoHidePanel;
 import org.jebtk.modern.tabs.IconTabsPanel;
 import org.jebtk.modern.tabs.IconTabsVectorIcon;
 import org.jebtk.modern.tabs.TabsModel;
+import org.jebtk.modern.tabs.vert.IconTabsVertPanel;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -44,11 +45,11 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes Holmes
  *
  */
-public class IconTabs {
+public class WindowIconTabs {
 
   private TabsModel mLeftTabsModel;
 
-  private IconTabsPanel mViewPanel;
+  private IconTabsVertPanel mViewPanel;
 
   private ModernHContentPane mTabsPane;
 
@@ -57,7 +58,7 @@ public class IconTabs {
    *
    * @param parent the parent
    */
-  public IconTabs(ModernHContentPane tabsPane) {
+  public WindowIconTabs(ModernHContentPane tabsPane) {
     mTabsPane = tabsPane;
   }
 
@@ -91,7 +92,7 @@ public class IconTabs {
   public TabsModel getModel() {
     if (mLeftTabsModel == null) {
       mLeftTabsModel = new TabsModel();
-      mViewPanel = new IconTabsPanel(mLeftTabsModel, 40, 22);
+      mViewPanel = new IconTabsVertPanel(mLeftTabsModel, 40, 22);
     }
 
     return mLeftTabsModel;

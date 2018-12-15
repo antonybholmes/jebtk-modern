@@ -343,7 +343,7 @@ public class ModernDialogWindow extends JDialog
   }
 
   public void setCard(JComponent c) {
-    setInternalContent(
+    setBody(
         new CardPanel(new ModernComponent(c, ModernWidget.DOUBLE_BORDER),
             ModernWidget.DOUBLE_BORDER));
 
@@ -352,7 +352,7 @@ public class ModernDialogWindow extends JDialog
   }
 
   public void setBorderlessCardContent(JComponent c) {
-    setInternalContent(new BorderlessCardPanel(c));
+    setBody(new BorderlessCardPanel(c));
 
     // Auto set the background to dark so that the card contrasts.
     // setDarkBackground();
@@ -364,7 +364,7 @@ public class ModernDialogWindow extends JDialog
    * @param c
    */
   public void setFlatCardContent(JComponent c) {
-    setInternalContent(new ModernComponent(
+    setBody(new ModernComponent(
         new ModernPanel(c, ModernWidget.QUAD_BORDER), FLAT_BORDER));
 
     // Auto set the background to dark so that the card contrasts.
@@ -378,21 +378,9 @@ public class ModernDialogWindow extends JDialog
    * @param c the new content
    */
   public void setContent(JComponent c) {
-    setInternalContent(new ModernComponent(c, ModernWidget.QUAD_BORDER)); // c);
+    setBody(new ModernComponent(c, ModernWidget.QUAD_BORDER)); // c);
                                                                           // //new
                                                                           // ModernDialogContentPanel(c));
-  }
-
-  /**
-   * Sets the content of the dialog with an appropriate amount of space around
-   * the edge.
-   *
-   * @param c the new internal content
-   */
-  public void setInternalContent(JComponent c) {
-    setBody(c); // new ModernDialogMutliOptionPanel(c)); //new
-                // ModernComponent(c,
-                // ModernWidget.QUAD_BORDER));
   }
 
   /**

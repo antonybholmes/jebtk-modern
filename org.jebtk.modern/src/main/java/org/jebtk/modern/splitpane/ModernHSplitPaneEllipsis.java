@@ -77,7 +77,7 @@ public class ModernHSplitPaneEllipsis extends HSplitPane {
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int x = getInsets().left; // mDividerMidPoint - WIDTH / 2;
 
     int w = getInternalRect().getW();

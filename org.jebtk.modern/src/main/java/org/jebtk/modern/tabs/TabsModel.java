@@ -286,7 +286,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   public void changeTab(int index) {
     index = CollectionUtils.cyclicIndex(index, mLeftTabs.size());
 
-    // System.err.println("change tab " + index + " " + mSelectedIndex);
+    //System.err.println("change tab " + index + " " + mSelectedIndex);
 
     if (index != mSelectedIndex) {
       selectedTab = getTab(index);

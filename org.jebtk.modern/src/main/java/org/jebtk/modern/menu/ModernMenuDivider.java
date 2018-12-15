@@ -52,7 +52,7 @@ public class ModernMenuDivider extends ModernMenuSeparator {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     g2.setColor(LINE_COLOR);
 
     g2.drawLine(getInsets().left + ModernMenuItem.HEIGHT,

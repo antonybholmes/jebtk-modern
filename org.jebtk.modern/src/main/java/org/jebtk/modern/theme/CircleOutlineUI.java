@@ -15,6 +15,7 @@
  */
 package org.jebtk.modern.theme;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
@@ -38,13 +39,20 @@ public class CircleOutlineUI extends ButtonOutlineUI {
       int w,
       int h,
       Object... params) {
+    
+    if (params.length > 0) {
+      if (params[0] instanceof Color) {
+        g2.setColor((Color) params[0]);
+      }
+    }
 
-    w = Math.max(w, h) - 1;
+    // Allow for antialiasing at edges
+    w = Math.max(w, h) - 2;
 
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
     try {
-      g2Temp.drawOval(x, y, w, w);
+      g2Temp.drawOval(x + 1, y + 1, w, w);
     } finally {
       g2Temp.dispose();
     }

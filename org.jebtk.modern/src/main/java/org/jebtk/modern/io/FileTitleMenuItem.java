@@ -83,7 +83,7 @@ public class FileTitleMenuItem extends ModernMenuItem {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     if (mDisplayText == null) {
       return;
     }

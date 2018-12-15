@@ -82,11 +82,11 @@ public class ModernWindowTitleBarMaxRoundButton
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.button.ModernButton#drawForegroundAAText(java.awt.
+   * @see org.abh.common.ui.button.ModernButton#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     if (mHighlight) {
       g2.setColor(Color.BLACK);
 

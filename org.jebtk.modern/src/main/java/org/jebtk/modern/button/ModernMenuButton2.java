@@ -77,7 +77,7 @@ public class ModernMenuButton2 extends ModernDropDownWidget2 {
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int x = (getWidth() - 16) / 2;
     int y = (getHeight() - 16) / 2;
 

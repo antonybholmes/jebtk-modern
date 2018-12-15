@@ -27,6 +27,8 @@
  */
 package org.jebtk.modern.dialog;
 
+import java.awt.Component;
+
 import javax.swing.Box;
 import javax.swing.JComponent;
 
@@ -39,10 +41,11 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.CardPanel;
 import org.jebtk.modern.panel.ModernPanel;
+import org.jebtk.modern.panel.VBoxAutoWidth;
 import org.jebtk.modern.text.ModernDialogHeadingLabel;
 import org.jebtk.modern.widget.ModernWidget;
-import org.jebtk.modern.window.IconTabs;
 import org.jebtk.modern.window.ModernWindow;
+import org.jebtk.modern.window.WindowIconTabs;
 
 /**
  * Standardized dialog window for dialogs that have buttons along the bottom
@@ -52,7 +55,7 @@ import org.jebtk.modern.window.ModernWindow;
  *
  */
 public class ModernDialogTaskWindow extends ModernDialogWindow
-    implements ModernClickListener {
+implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -74,7 +77,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
 
   private ModernHContentPane mContentPane = new ModernHContentPane();
 
-  private IconTabs mIconTabs;
+  private WindowIconTabs mIconTabs;
 
   /**
    * Instantiates a new modern dialog window.
@@ -149,13 +152,17 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
 
     // setLightBackground();
 
-    setInternalContent(mContentPane);
+    setBody(mContentPane);
 
-    mIconTabs = new IconTabs(getTabsPane());
+    mIconTabs = new WindowIconTabs(getTabsPane());
+
+
+    getTabsPane().tabs().setCenterTab(new VBoxAutoWidth(ModernWidget.DOUBLE_BORDER));
   }
 
   /**
-   * Set the center card panel.
+   * Set the center card panel. This is will destroy any cards added using
+   * the {@code addCard()} method.
    * 
    * @param c
    */
@@ -166,6 +173,41 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
             ModernWidget.DOUBLE_BORDER));
 
     setDarkBackground();
+
+    //addCard(c);
+  }
+
+  /**
+   * Add a vertical card to the center UI.
+   * 
+   * @param c
+   */
+  public void addCard(Component c) {
+    //getTabsPane().tabs().setCenterTab(
+    //   new CardPanel(new ModernComponent(c, ModernWidget.TRIPLE_BORDER),
+    //        ModernWidget.DOUBLE_BORDER));
+
+    addBlock(new CardPanel(new ModernComponent(c, ModernWidget.TRIPLE_BORDER)));
+
+    setDarkBackground();
+  }
+
+  /**
+   * Add a vertical block to the center UI. This could be space or a non card
+   * item.
+   * 
+   * @param c
+   */
+  public void addBlock(Component c) {
+    //getTabsPane().tabs().setCenterTab(
+    //   new CardPanel(new ModernComponent(c, ModernWidget.TRIPLE_BORDER),
+    //        ModernWidget.DOUBLE_BORDER));
+
+    getCenterComp().add(c);
+  }
+
+  public JComponent getCenterComp() {
+    return getTabsPane().tabs().centerTab().getComponent();
   }
 
   /**
@@ -187,7 +229,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
     return mContentPane;
   }
 
-  public IconTabs getIconTabs() {
+  public WindowIconTabs getIconTabs() {
     return mIconTabs;
   }
 
@@ -247,7 +289,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow
    */
   @Override
   public void setContent(JComponent c) {
-    setInternalContent(new ModernComponent(c, ModernWidget.DOUBLE_BORDER));
+    setBody(new ModernComponent(c, ModernWidget.DOUBLE_BORDER));
   }
 
   /**

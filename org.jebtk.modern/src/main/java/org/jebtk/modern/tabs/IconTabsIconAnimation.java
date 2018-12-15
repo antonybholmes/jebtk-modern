@@ -63,8 +63,11 @@ public class IconTabsIconAnimation extends WidgetAnimation {
 
     ModernIcon icon;
 
-    int offset = (mTabs.mTabSize - mTabs.mIconSize) / 2;
-    int yoffset = (mTabs.getHeight() - mTabs.mIconSize) / 2;
+    int is = mTabs.getIconSize();
+    int ts = mTabs.getTabSize();
+    
+    int offset = (ts - is) / 2;
+    int yoffset = (mTabs.getHeight() - is) / 2;
 
     for (int i = 0; i < n; ++i) {
       if (i != selectedIndex) {
@@ -74,10 +77,10 @@ public class IconTabsIconAnimation extends WidgetAnimation {
 
         Color color = ICON_COLOR;
 
-        icon.drawIcon(g2, x1, yoffset, mTabs.mIconSize, mTabs.mIconSize, color);
+        icon.drawIcon(g2, x1, yoffset, is, is, color);
       }
 
-      x += mTabs.mTabSize;
+      x += ts;
     }
   }
 }

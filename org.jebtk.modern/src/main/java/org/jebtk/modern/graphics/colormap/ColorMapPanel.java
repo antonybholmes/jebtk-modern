@@ -53,7 +53,7 @@ public class ColorMapPanel extends ModernWidget {
    * org.abh.common.ui.ui.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int x = getInsets().left;
 
     int w = mInternalRect.getW();

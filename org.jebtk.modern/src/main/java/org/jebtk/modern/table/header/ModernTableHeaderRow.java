@@ -140,7 +140,7 @@ public class ModernTableHeaderRow extends ModernTableHeader {
    * Graphics2D)
    */
   @Override
-  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
+  public void zoomCanvas(Graphics2D g2, DrawingContext context) {
     if (mTable == null || mTable.getModel() == null) {
       return;
     }

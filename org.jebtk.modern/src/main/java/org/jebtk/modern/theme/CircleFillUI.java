@@ -15,6 +15,7 @@
  */
 package org.jebtk.modern.theme;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
@@ -38,6 +39,12 @@ public class CircleFillUI extends ButtonFillUI {
       int w,
       int h,
       Object... params) {
+    
+    if (params.length > 0) {
+      if (params[0] instanceof Color) {
+        g2.setColor((Color) params[0]);
+      }
+    }
 
     int mw = Math.min(w, h);
 

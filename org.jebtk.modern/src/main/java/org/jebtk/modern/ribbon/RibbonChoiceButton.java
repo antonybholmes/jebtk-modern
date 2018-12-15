@@ -104,7 +104,7 @@ public class RibbonChoiceButton extends ModernRadioButton {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int x = (mRect.getW() - Ribbon.COMPACT_ICON_SIZE) / 2;
     int y = (mRect.getH() - Ribbon.COMPACT_ICON_SIZE) / 2;
 

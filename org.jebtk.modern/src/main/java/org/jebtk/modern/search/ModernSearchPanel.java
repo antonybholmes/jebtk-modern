@@ -66,7 +66,7 @@ public class ModernSearchPanel extends ModernPillBorderPanel implements
    */
   private ModernClickWidget mSearchButton = new ModernButton(
       AssetService.getInstance().loadIcon(SearchVectorIcon.class, 16))
-          .setButtonStyle(ButtonStyle.NONE);
+          .setButtonStyle(ButtonStyle.CIRCLE_OUTLINE);
 
   /**
    * The member search field.

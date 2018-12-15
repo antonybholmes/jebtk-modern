@@ -76,7 +76,7 @@ public class ModernDropDownIconButton extends ModernDropDownButton {
    * awt. Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int iconX = PADDING;
 
     g2.setColor(getForeground());

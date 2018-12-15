@@ -93,6 +93,14 @@ public class ImageUtils {
 
     return g2;
   }
+  
+  public static Graphics2D createAAGraphics(final BufferedImage image, AAModes modes) {
+    Graphics2D g2 = createGraphics(image);
+
+    setAAHints(g2, modes);
+
+    return g2;
+  }
 
   /**
    * Creates the graphics.
@@ -151,49 +159,52 @@ public class ImageUtils {
   }
 
   public static Graphics2D createAAGraphics(final Graphics g,
-      AAType type,
-      AAType... types) {
+      AAMode type,
+      AAMode... types) {
     Graphics2D g2 = clone(g);
 
     // setAAHints(g2);
 
-    applyHints(type, g2);
+    applyHints(g2, type);
 
-    for (AAType t : types) {
-      applyHints(t, g2);
+    for (AAMode t : types) {
+      applyHints(g2, t);
+    }
+
+    return g2;
+  }
+  
+  public static Graphics2D createAAGraphics(final Graphics g,
+      AAModes modes) {
+    if (modes.size() == 0) {
+      return (Graphics2D) g;
+    }
+    
+    Graphics2D g2 = clone(g);
+
+    for (AAMode t : modes) {
+      applyHints(g2, t);
     }
 
     return g2;
   }
 
   public static Graphics2D createGraphics(final Graphics g,
-      final Collection<AAType> types) {
+      final Collection<AAMode> types) {
     Graphics2D g2 = clone(g);
 
     if (CollectionUtils.isNotNullOrEmpty(types)) {
       // setAAHints(g2);
 
-      for (AAType t : types) {
-        applyHints(t, g2);
+      for (AAMode t : types) {
+        applyHints(g2, t);
       }
     }
 
     return g2;
   }
 
-  private static void applyHints(AAType type, Graphics2D g) {
-    switch (type) {
-    case TEXT:
-      setAATextHints(g);
-      break;
-    case STROKE:
-      setAAStrokeHints(g);
-      break;
-    default:
-      setAAHints(g);
-      break;
-    }
-  }
+
 
   public static Graphics2D createAAGraphics(final Graphics g) {
     return createAAGraphics(g);
@@ -207,7 +218,7 @@ public class ImageUtils {
    * @return the graphics 2 D
    */
   public static Graphics2D createAATextGraphics(final Graphics g) {
-    return createAAGraphics(g, AAType.AA, AAType.TEXT);
+    return createAAGraphics(g, AAMode.AA, AAMode.TEXT);
   }
 
   /**
@@ -217,9 +228,34 @@ public class ImageUtils {
    * @return the graphics 2 D
    */
   public static Graphics2D createAAStrokeGraphics(final Graphics g) {
-    return createAAGraphics(g, AAType.AA, AAType.TEXT, AAType.STROKE);
+    return createAAGraphics(g, AAMode.AA, AAMode.TEXT, AAMode.STROKE);
   }
 
+  public static void setAAHints(final Graphics2D g2,
+      AAModes modes) {
+    if (modes.size() == 0) {
+      return;
+    }
+    
+    for (AAMode t : modes) {
+      applyHints(g2, t);
+    }
+  }
+  
+  private static void applyHints(Graphics2D g, AAMode type) {
+    switch (type) {
+    case TEXT:
+      setAATextHints(g);
+      break;
+    case STROKE:
+      setAAStrokeHints(g);
+      break;
+    default:
+      setAAHints(g);
+      break;
+    }
+  }
+  
   /**
    * Sets a default set of rendering hints for high quality, anti-aliased
    * graphics.

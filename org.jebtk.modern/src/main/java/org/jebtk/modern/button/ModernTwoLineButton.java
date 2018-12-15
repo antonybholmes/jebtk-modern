@@ -212,7 +212,7 @@ public class ModernTwoLineButton extends ModernButton implements TwoLineWidget {
    * @see org.abh.lib.ui.modern.button.ModernButton#drawForegroundAA(java.awt.
    * Graphics2D)
    */
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int x = AssetService.ICON_SIZE_48;
     int y = 0;
 

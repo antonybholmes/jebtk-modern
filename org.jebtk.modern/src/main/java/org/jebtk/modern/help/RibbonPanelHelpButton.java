@@ -80,7 +80,7 @@ public class RibbonPanelHelpButton extends RibbonPanelButton
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     g2.setColor(ThemeService.getInstance().getColors().getGray(4));
 
     int x = (mRect.getW() - WIDTH) / 2;

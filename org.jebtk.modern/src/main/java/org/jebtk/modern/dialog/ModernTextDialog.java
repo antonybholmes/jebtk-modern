@@ -96,7 +96,7 @@ public class ModernTextDialog extends ModernDialogTaskWindow
 
     scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
 
-    setInternalContent(new ModernContentPanel(scrollPane));
+    setBody(new ModernContentPanel(scrollPane));
   }
 
   /**

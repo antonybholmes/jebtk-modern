@@ -110,7 +110,7 @@ public class ImageCanvas extends ModernCanvas {
     Graphics2D g2Temp = ImageUtils.createAATextGraphics(image);
 
     try {
-      mCanvas.drawForegroundAA(g2Temp);
+      mCanvas.drawForeground(g2Temp);
     } finally {
       g2Temp.dispose();
     }

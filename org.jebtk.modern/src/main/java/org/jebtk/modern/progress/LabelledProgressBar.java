@@ -55,8 +55,8 @@ public class LabelledProgressBar extends ModernProgressBar {
    * org.abh.lib.ui.modern.progress.ModernProgressBar#drawForegroundAA(java.awt.
    * Graphics2D)
    */
-  public void drawForegroundAAText(Graphics2D g2) {
-    super.drawForegroundAAText(g2);
+  public void drawForegroundAA(Graphics2D g2) {
+    super.drawForegroundAA(g2);
 
     String text = Integer
         .toString((int) (progressModel.getPercentComplete() * 100));

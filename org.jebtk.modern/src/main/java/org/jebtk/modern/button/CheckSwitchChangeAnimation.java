@@ -73,12 +73,12 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
     if (mButton.isSelected()) {
       // Off to on
 
-      x1 = ModernCheckSwitch.SWITCH_ICON_OFFSET;
+      x1 = ModernCheckSwitch.SLIDER_OFFSET;
       x2 = ModernCheckSwitch.SWITCH_ON_OFFSET;
     } else {
       // On to Off
       x1 = ModernCheckSwitch.SWITCH_ON_OFFSET;
-      x2 = ModernCheckSwitch.SWITCH_ICON_OFFSET;
+      x2 = ModernCheckSwitch.SLIDER_OFFSET;
     }
 
     restart(x1, x2);
@@ -107,7 +107,7 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
       // g2.drawOval(0, y1, s, s);
     }
 
-    g2.drawOval(0, y1, s, s);
+    //g2.drawOval(0, y1, s, s);
 
     // g2.setColor(Color.WHITE);
     // g2.fillOval(0, y1, s, s);

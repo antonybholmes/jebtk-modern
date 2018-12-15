@@ -247,7 +247,7 @@ public class TopTabs extends TabsController implements ModernClickListener {
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     g2.setColor(ModernWidget.LINE_COLOR);
 
     int y = getHeight() - 1;

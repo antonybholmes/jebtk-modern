@@ -155,7 +155,7 @@ public class ModernActivityOrbs extends ModernWidget {
    * @see
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int y = getInsets().top + (mInternalRect.getH() - w) / 2;
 
     g2.setColor(COLOR);

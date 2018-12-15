@@ -93,9 +93,9 @@ public class ModernTableFrameCanvas extends ContainerCanvas {
    * awt. Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     // Render the rest of the table
-    super.drawForegroundAAText(g2);
+    super.drawForegroundAA(g2);
 
     g2.setColor(mColor);
 

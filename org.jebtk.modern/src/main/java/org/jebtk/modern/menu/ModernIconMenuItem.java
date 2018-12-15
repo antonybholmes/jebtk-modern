@@ -136,7 +136,7 @@ public class ModernIconMenuItem extends ModernMenuItem {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     if (mIcon != null) {
       int iconX = (mTextOffset - mIcon.getHeight()) / 2;
       int iconY = (getHeight() - mIcon.getHeight()) / 2;

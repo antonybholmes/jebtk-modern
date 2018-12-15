@@ -47,8 +47,7 @@ public class CardPanel extends ModernComponent {
    */
   private static final long serialVersionUID = 1L;
 
-  public static final Border CARD_BORDER = BorderService.getInstance()
-      .createBorder(QUAD_PADDING);
+  public static final Border CARD_BORDER = DOUBLE_BORDER; // QUAD_BORDER
 
   public CardPanel() {
     // setBorder(CARD_BORDER);
@@ -61,17 +60,17 @@ public class CardPanel extends ModernComponent {
    * @param content the content
    */
   public CardPanel(Component content) {
-    this(content, CARD_BORDER);
+    super(new Card(content));
   }
 
   public CardPanel(Component content, Border border) {
-    super(new Card(content));
+    this(content);
 
     setBorder(border);
   }
 
   public CardPanel(Component content, int border) {
-    super(content);
+    this(content);
 
     setBorder(BorderService.getInstance().createBorder(border));
   }

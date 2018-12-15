@@ -102,7 +102,7 @@ public class ModernDialogTabSeparator extends ModernWidget {
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
 
     // g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
     // RenderingHints.VALUE_ANTIALIAS_ON);

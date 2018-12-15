@@ -102,7 +102,7 @@ public class ModernRoundelButton extends ModernButton {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     g2.setStroke(new BasicStroke(2));
 
     if (mHighlight) {

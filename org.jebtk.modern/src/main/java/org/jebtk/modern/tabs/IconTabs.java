@@ -55,9 +55,9 @@ public class IconTabs extends TabsPanel {
       .getInstance().getColors().getTheme(5);
 
   /** The m tab size. */
-  protected int mTabSize = -1;
+  private int mTabSize = -1;
 
-  public int mIconSize = -1;
+  private int mIconSize = -1;
 
   /**
    * Instantiates a new segment tabs.
@@ -88,6 +88,14 @@ public class IconTabs extends TabsPanel {
     });
 
     createTabs();
+  }
+  
+  public int getTabSize() {
+    return mTabSize;
+  }
+  
+  public int getIconSize() {
+    return mIconSize;
   }
 
   private void createTabs() {
@@ -121,4 +129,6 @@ public class IconTabs extends TabsPanel {
   protected int getTab(int x, int y) {
     return (x - getInsets().left) / mTabSize;
   }
+
+  
 }

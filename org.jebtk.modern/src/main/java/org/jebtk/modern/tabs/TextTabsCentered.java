@@ -65,7 +65,7 @@ public class TextTabsCentered extends TextTabs {
    * org.abh.lib.ui.modern.tabs.TextTabs#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     if (mTabWidths.size() == 0) {
       g2.setFont(BOLD_FONT);
 

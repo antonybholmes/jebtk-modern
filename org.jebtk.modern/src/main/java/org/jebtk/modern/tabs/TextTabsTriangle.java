@@ -77,8 +77,8 @@ public class TextTabsTriangle extends TextTabs {
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
-    super.drawForegroundAAText(g2);
+  public void drawForegroundAA(Graphics2D g2) {
+    super.drawForegroundAA(g2);
 
     g2.setColor(LIGHT_LINE_COLOR);
 

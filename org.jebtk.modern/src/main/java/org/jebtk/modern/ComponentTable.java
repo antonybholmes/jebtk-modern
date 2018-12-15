@@ -66,7 +66,8 @@ public class ComponentTable extends ModernComponent
     private List<Component> mComList = new ArrayList<Component>();
 
     /** The m check all. */
-    private ModernCheckBox mCheckAll = new ModernCheckBox(UI.MENU_SELECT_ALL);
+    private ModernCheckBox mCheckAll = 
+        new ModernCheckBox(UI.MENU_SELECT_ALL, true);
 
     /**
      * Instantiates a new component list.
@@ -229,7 +230,7 @@ public class ComponentTable extends ModernComponent
     private Component mC;
 
     /** The m check selected. */
-    private ModernCheckBox mCheckSelected = new ModernCheckBox();
+    private ModernCheckBox mCheckSelected = new ModernCheckBox(true);
 
     /** The m delete button. */
     private ModernButton mDeleteButton = new ModernOutlineButton(

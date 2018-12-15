@@ -144,7 +144,7 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   }
 
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     if (mText1 != null) {
       int x = mInternalRect.getX() + ICON_SIZE + PADDING;
 

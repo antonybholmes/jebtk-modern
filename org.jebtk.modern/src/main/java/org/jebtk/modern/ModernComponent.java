@@ -40,6 +40,7 @@ import java.awt.Rectangle;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JComponent;
 import javax.swing.border.Border;
@@ -48,6 +49,8 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
+import org.jebtk.modern.graphics.AAMode;
+import org.jebtk.modern.graphics.AAModes;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.scrollpane.ScrollEvent;
 import org.jebtk.modern.scrollpane.ScrollEventProducer;
@@ -243,6 +246,12 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
 
   private KeyFrames mKeyFrames = new KeyFrames();
 
+  protected AAModes mAAModes = new AAModes();
+
+  protected boolean mRasterMode = false;
+
+  protected BufferedImage mBufferedImage;
+
   /**
    * The class ComponentEvents.
    */
@@ -409,6 +418,30 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
     setOpaque(false);
 
     setDoubleBuffered(true);
+
+    // Set defaults for components
+    getAAModes().add(AAMode.AA).add(AAMode.TEXT);
+
+    getAAModes().addChangeListener(new ChangeListener() {
+      @Override
+      public void changed(ChangeEvent e) {
+        repaint();
+      }});
+  }
+
+  public void setRasterMode(boolean on) {
+    mRasterMode = on;
+
+    repaint();
+  }
+
+  /**
+   * Set how the component uses anti-aliasing.
+   * 
+   * @return
+   */
+  public AAModes getAAModes() {
+    return mAAModes;
   }
 
   /**
@@ -700,15 +733,9 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    */
   @Override
   public final void paintComponent(Graphics g) {
-    if (!isVisible()) {
-      return;
+    if (isVisible()) {
+      draw((Graphics2D) g);
     }
-
-    // super.paintComponent(g);
-
-    // Graphics2D g2 = (Graphics2D)g.create();
-
-    draw((Graphics2D) g);
 
     // g2.dispose();
   }
@@ -759,9 +786,74 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    *
    * @param g2 the g2
    */
-  protected void drawForeground(Graphics2D g2) {
-    // do nothing
+  public void drawForeground(Graphics2D g2) {
+    rasterForeground(g2);
   }
+
+  /**
+   * Create a rastered version of the foreground.
+   * 
+   * @param g2
+   */
+  public void rasterForeground(Graphics2D g2) {
+    if (mRasterMode) {
+      // Create an image version of the canvas and draw that to spped
+      // up operations
+      if (mBufferedImage == null) {
+        // The canvas need only be the size of the available display
+
+        Dimension s = getPreferredSize();
+
+        // Make it one pixel bigger to account for borders being drawn
+        mBufferedImage = ImageUtils.createImage(s.width + 1, s.height + 1);
+
+        Graphics2D g2Temp = ImageUtils.createGraphics(mBufferedImage);
+
+        try {
+          aaForeground(g2Temp);
+        } finally {
+          g2Temp.dispose();
+        }
+      }
+
+      g2.drawImage(mBufferedImage, 0, 0, null);
+    } else {
+      aaForeground(g2);
+    }
+  }
+
+  /**
+   * Optionally plot using anti-aliasing.
+   * 
+   * @param g2
+   * @param offset
+   * @param context
+   * @param params
+   */
+  public void aaForeground(Graphics2D g2) {
+    if (getAAModes().size() > 0) {
+      Graphics2D g2Temp = ImageUtils.createAAGraphics(g2, getAAModes());
+
+      try {
+        drawForegroundAA(g2Temp);
+      } finally {
+        g2Temp.dispose();
+      }
+    } else {
+      drawForegroundAA(g2);
+    }
+  }
+
+  /**
+   * Responsible for drawing the foreground content.
+   * 
+   * @param g2
+   */
+  public void drawForegroundAA(Graphics2D g2) {
+    // Do nothing
+  }
+
+
 
   /**
    * Sets the header.
@@ -1201,13 +1293,13 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
 
     if (kf.contains(frame, name)) {
       c.getKeyFrames().getKeyFrame(frame)
-          .addStyleClass(kf.getStyleClass(frame, name));
+      .addStyleClass(kf.getStyleClass(frame, name));
     }
 
     for (String n : names) {
       if (kf.contains(frame, n)) {
         c.getKeyFrames().getKeyFrame(frame)
-            .addStyleClass(kf.getStyleClass(frame, n));
+        .addStyleClass(kf.getStyleClass(frame, n));
       }
     }
   }

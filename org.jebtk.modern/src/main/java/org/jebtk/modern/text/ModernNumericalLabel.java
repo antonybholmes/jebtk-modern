@@ -90,7 +90,7 @@ public class ModernNumericalLabel extends ModernLabel {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     // System.err.println("sdf " + getInsets().top + " " + mInternalRect.getH()
     // + "
     // " + getTextVCenteredYPos(g2, mInternalRect.getH()));

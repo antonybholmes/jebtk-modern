@@ -120,7 +120,7 @@ public class ModernCollapseEnablePane extends ModernCollapsePane
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     Rectangle r = new Rectangle(getInsets().left, getInsets().top,
         getWidth() - getInsets().left - getInsets().right, WIDGET_HEIGHT);
 

@@ -167,7 +167,9 @@ public abstract class ModernHScrollBar extends ModernScrollBar {
         mHighlightButton2 = false;
       }
 
-      repaint();
+      if (mHighlightScroll || mScrollBarDrag || mHighlightButton1 || mHighlightButton2) {
+        repaint();
+      }
     }
   }
 

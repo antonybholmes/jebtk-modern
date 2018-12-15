@@ -61,7 +61,7 @@ public class RibbonPanelAboutButton extends ModernTextLink {
   }
 
   /*
-   * @Override public void drawForegroundAAText(Graphics2D g2) { int x =
+   * @Override public void drawForegroundAA(Graphics2D g2) { int x =
    * (mRect.getW() - 32) / 2; int y = 10;
    * 
    * UIService.getInstance().loadIcon(HelpVectorIcon.class, 32).drawIcon(g2, x,

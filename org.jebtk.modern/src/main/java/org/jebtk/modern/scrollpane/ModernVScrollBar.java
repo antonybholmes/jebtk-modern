@@ -173,7 +173,9 @@ public abstract class ModernVScrollBar extends ModernScrollBar {
         mHighlightButton2 = false;
       }
 
-      repaint();
+      if (mHighlightScroll || mScrollBarDrag || mHighlightButton1 || mHighlightButton2) {
+        repaint();
+      }
     }
   }
 
@@ -242,7 +244,7 @@ public abstract class ModernVScrollBar extends ModernScrollBar {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.widget.ModernWidget#drawForegroundAAText(java.awt.
+   * @see org.abh.common.ui.widget.ModernWidget#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   @Override

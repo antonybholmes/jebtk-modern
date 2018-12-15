@@ -152,7 +152,7 @@ public class ModernDropDownMenuLabelButton2 extends ModernDropDownWidget2 {
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int x = PADDING;
 
     g2.drawString(mTruncText, x, getTextYPosCenter(g2, getHeight()));

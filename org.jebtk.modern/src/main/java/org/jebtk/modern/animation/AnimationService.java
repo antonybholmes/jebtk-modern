@@ -49,6 +49,7 @@ import org.jebtk.modern.button.CheckSwitchChangeAnimation;
 import org.jebtk.modern.button.ChipButtonAnimation;
 import org.jebtk.modern.button.ChipButtonHighlightAnimation;
 import org.jebtk.modern.button.CircleFillAnimation;
+import org.jebtk.modern.button.CircleOutlineAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation2;
 import org.jebtk.modern.button.PillFillAnimation;
@@ -106,6 +107,9 @@ import org.jebtk.modern.tabs.OrbTabsChangeAnimation;
 import org.jebtk.modern.tabs.SegmentAnimation;
 import org.jebtk.modern.tabs.SegmentChangeAnimation;
 import org.jebtk.modern.tabs.SegmentTextAnimation;
+import org.jebtk.modern.tabs.vert.IconTabsVertChangeAnimation;
+import org.jebtk.modern.tabs.vert.IconTabsVertHighlightAnimation;
+import org.jebtk.modern.tabs.vert.IconTabsVertIconAnimation;
 import org.jebtk.modern.tree.TreeHighlightAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -166,6 +170,7 @@ public class AnimationService {
     // get("button").add(DialogButtonHighlightAnimation.class);
 
     get("circle-fill").add(CircleFillAnimation.class);
+    get("circle-outline").add(CircleOutlineAnimation.class);
 
     get("dropdown-button").add(DropDownButtonAnimation.class);
     get("dropdown-button-2").add(DropDownButtonAnimation2.class);
@@ -195,6 +200,12 @@ public class AnimationService {
         // .add(IconTabsAnimation.class)
         .add(IconTabsHighlightAnimation.class).add(IconTabsIconAnimation.class)
         .add(IconTabsChangeAnimation.class);
+    
+    get("icon-vert-tabs")
+    // .add(IconTabsAnimation.class)
+    //.add(IconTabsVertHighlightAnimation.class)
+    .add(IconTabsVertChangeAnimation.class)
+    .add(IconTabsVertIconAnimation.class);
 
     get("block-vert-tabs").add(BlockVertHighlightAnimation.class)
         .add(BlockVertSelectedAnimation.class)

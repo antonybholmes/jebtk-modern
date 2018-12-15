@@ -91,7 +91,7 @@ public class ModernDefaultDialogButton extends ModernButton {
    * awt. Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
 
     g2.setColor(Color.WHITE);

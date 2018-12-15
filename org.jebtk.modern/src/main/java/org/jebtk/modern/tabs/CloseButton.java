@@ -56,7 +56,7 @@ public class CloseButton extends ModernButton {
   /*
    * @Override public void drawBackground(Graphics2D g2) { // do nothing }
    * 
-   * @Override public void drawForegroundAAText(Graphics2D g2) {
+   * @Override public void drawForegroundAA(Graphics2D g2) {
    * 
    * if (mHighlight) { drawIconCentered(g2, HIGHLIGHT_ICON, this); } else {
    * drawIconCentered(g2, ICON, this); } }

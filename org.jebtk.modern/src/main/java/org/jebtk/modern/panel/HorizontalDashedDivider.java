@@ -101,7 +101,7 @@ public class HorizontalDashedDivider extends ModernWidget
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     g2.setColor(LINE_COLOR);
 
     g2.setStroke(STROKE);

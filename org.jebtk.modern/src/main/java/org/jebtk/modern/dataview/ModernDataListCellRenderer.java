@@ -58,7 +58,7 @@ public class ModernDataListCellRenderer
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int x = getHeight();
 
     int w = mRect.getW() - x;

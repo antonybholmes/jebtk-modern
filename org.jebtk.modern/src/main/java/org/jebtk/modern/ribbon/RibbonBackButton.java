@@ -72,7 +72,7 @@ public class RibbonBackButton extends ModernButton {
    */
 
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
 
     int x = RibbonBackAnimation.HEIGHT + ModernWidget.QUAD_PADDING;
 

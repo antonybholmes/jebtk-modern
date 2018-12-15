@@ -68,10 +68,14 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
     //
     // Draw if highlighted
     //
+    
+    int is = mTabs.getIconSize();
+    int ts = mTabs.getTabSize();
+    
 
     if (highlighted != -1 && highlighted != selected) {
       g2.setColor(getFadeColor("highlight"));
-      g2.fillRect(x + mTabs.mTabSize * highlighted, y, h, h);
+      g2.fillRect(x + ts * highlighted, y, h, h);
 
       /*
        * Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);

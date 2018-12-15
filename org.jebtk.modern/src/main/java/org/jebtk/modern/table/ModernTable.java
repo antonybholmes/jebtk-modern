@@ -1256,7 +1256,7 @@ public class ModernTable extends ModernData
    * Graphics2D, org.abh.common.ui.graphics.DrawingContext)
    */
   @Override
-  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
+  public void zoomCanvas(Graphics2D g2, DrawingContext context) {
 
     if (mModel == null || mModel.getRowCount() == 0
         || mModel.getColCount() == 0) {
@@ -1459,7 +1459,7 @@ public class ModernTable extends ModernData
       translateX(g2Temp, visibleCells, mShowRowHeader);
       translateY(g2Temp, false);
 
-      mHeader.drawForegroundAAText(g2Temp);
+      mHeader.drawForeground(g2Temp);
     } finally {
       g2Temp.dispose();
     }
@@ -1511,7 +1511,7 @@ public class ModernTable extends ModernData
       try {
         translate(g2Temp, false, false);
 
-        mCorner.drawForegroundAAText(g2Temp);
+        mCorner.drawForeground(g2Temp);
       } finally {
         g2Temp.dispose();
       }
@@ -1559,12 +1559,12 @@ public class ModernTable extends ModernData
 
       // g2Temp.clipRect(0, rect.y + y, w, h);
 
-      mRowHeader.drawForegroundAAText(g2Temp);
+      mRowHeader.drawForeground(g2Temp);
     } finally {
       g2Temp.dispose();
     }
 
-    // mRowHeader.drawForegroundAAText(g2);
+    // mRowHeader.drawForeground(g2);
 
     /*
      * ModernDataSelection visibleCells = calculateVisibleCells();

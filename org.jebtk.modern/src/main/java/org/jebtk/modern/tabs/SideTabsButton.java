@@ -100,7 +100,7 @@ public class SideTabsButton extends ModernCheckRadioButton {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     // Rectangle rect = new Rectangle(0, 0, getWidth(), getHeight());
 
     g2.setColor(getForeground());

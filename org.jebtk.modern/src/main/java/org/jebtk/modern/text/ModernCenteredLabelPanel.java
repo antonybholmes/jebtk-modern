@@ -66,7 +66,7 @@ public class ModernCenteredLabelPanel extends ModernLabel {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int x = (getWidth() - g2.getFontMetrics().stringWidth(mText)) / 2;
     int y = getTextYPosCenter(g2, getHeight());
 

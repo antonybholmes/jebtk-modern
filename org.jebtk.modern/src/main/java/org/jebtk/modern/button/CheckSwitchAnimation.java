@@ -40,7 +40,7 @@ public class CheckSwitchAnimation extends WidgetAnimation {
         widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET,
         y2,
         ModernCheckSwitch.SLIDER_WIDTH
-            - 2 * ModernCheckSwitch.SWITCH_ICON_OFFSET,
+            - ModernCheckSwitch.SWITCH_ICON_OFFSET_2,
         HEIGHT,
         HEIGHT,
         HEIGHT);

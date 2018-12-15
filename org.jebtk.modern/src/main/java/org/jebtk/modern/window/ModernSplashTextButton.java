@@ -82,7 +82,7 @@ public class ModernSplashTextButton extends ModernButton {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     if (mHighlight) {
       g2.setColor(COLOR2);
     } else {

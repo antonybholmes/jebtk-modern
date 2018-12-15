@@ -222,7 +222,7 @@ public class ModernTwoLineCheckButton extends ModernCheckButton
    * org.abh.lib.ui.modern.button.ModernCheckButton#drawForegroundAA(java.awt.
    * Graphics2D)
    */
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int x = AssetService.ICON_SIZE_48;
     int y = 0;
 

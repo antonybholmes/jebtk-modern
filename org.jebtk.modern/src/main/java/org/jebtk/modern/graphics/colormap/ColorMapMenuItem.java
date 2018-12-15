@@ -55,7 +55,7 @@ public class ColorMapMenuItem extends ModernIconMenuItem {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     Point p = getStringCenterPlotCoordinates(g2, getRect(), mText1);
 
     g2.setColor(getForeground());

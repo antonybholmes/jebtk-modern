@@ -198,4 +198,9 @@ public class TabsPanel extends TabsController
   public void fireHighlighted(HighlightEvent e) {
     mHighlightListeners.fireHighlighted(e);
   }
+  
+
+  public int getHighlightIndex() {
+    return mHighlight;
+  }
 }

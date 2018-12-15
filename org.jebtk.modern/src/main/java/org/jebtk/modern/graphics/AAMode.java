@@ -1,5 +1,5 @@
 package org.jebtk.modern.graphics;
 
-public enum AAType {
+public enum AAMode {
   AA, TEXT, STROKE
 }

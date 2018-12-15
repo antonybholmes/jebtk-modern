@@ -422,7 +422,7 @@ public class ModernComboBox extends ModernDropDownWidget
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     g2.setColor(TEXT_COLOR);
     g2.drawString(getText(),
         ModernWidget.PADDING,

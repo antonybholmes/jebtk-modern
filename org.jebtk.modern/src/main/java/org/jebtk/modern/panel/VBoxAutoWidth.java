@@ -27,11 +27,15 @@
  */
 package org.jebtk.modern.panel;
 
+import java.awt.Color;
 import java.awt.Component;
+import java.awt.Graphics2D;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+
+import javax.swing.border.Border;
 
 import org.jebtk.modern.ModernComponent;
 
@@ -78,13 +82,19 @@ public class VBoxAutoWidth extends ModernComponent {
 
     // addComponentListener(new ComponentEvents());
   }
+  
+  public VBoxAutoWidth(Border border) {
+    this();
+    
+    setBorder(border);
+  }
 
   public VBoxAutoWidth(Component c) {
     this(); // new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
     setBody(c);
 
-    c.addComponentListener(new ComponentEvents());
+    //c.addComponentListener(new ComponentEvents());
 
     c.addPropertyChangeListener("preferredSize", new PropertyChangeListener() {
 
@@ -103,4 +113,13 @@ public class VBoxAutoWidth extends ModernComponent {
   public static ModernComponent create() {
     return new VBoxAutoWidth();
   }
+  
+  /*
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    g2.setColor(Color.RED);
+    
+    g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
+  }
+  */
 }

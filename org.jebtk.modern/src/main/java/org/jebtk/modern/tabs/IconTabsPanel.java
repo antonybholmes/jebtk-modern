@@ -34,17 +34,16 @@ public class IconTabsPanel extends ModernComponent {
    * @param iconSize The icon size
    */
   public IconTabsPanel(TabsModel model, int tabSize, int iconSize) {
-    IconTabs tabs = new IconTabs(model, tabSize, iconSize);
-
-    UI.setSize(tabs, Short.MAX_VALUE, tabSize);
-
-    setFooter(tabs); // new TextTabsTriangle(model, centered));
+    
 
     TabsViewPanel panel = new TabsViewPanel(model, BORDER);
     // panel.setBorder(0);
 
     setBody(panel);
 
-    // setBorder(BORDER);
+    IconTabs tabs = new IconTabs(model, tabSize, iconSize);
+    UI.setSize(tabs, Short.MAX_VALUE, tabSize);
+    setFooter(tabs); // new TextTabsTriangle(model, centered));
+
   }
 }

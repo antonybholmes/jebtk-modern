@@ -76,7 +76,7 @@ public class ModernTableIconCellRenderer extends ModernDataCellRenderer {
    * @see
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
 
     mIcon.drawIcon(g2,
         (this.getWidth() - AssetService.ICON_SIZE_16) / 2,

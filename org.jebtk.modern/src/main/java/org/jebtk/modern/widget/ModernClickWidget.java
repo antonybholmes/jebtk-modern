@@ -172,8 +172,11 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
     case PILL:
       setAnimations("pill-fill");
       break;
-    case ROUND:
+    case CIRCLE:
       setAnimations("circle-fill");
+      break;
+    case CIRCLE_OUTLINE:
+      setAnimations("circle-outline");
       break;
     case NONE:
       getAnimations().clear();

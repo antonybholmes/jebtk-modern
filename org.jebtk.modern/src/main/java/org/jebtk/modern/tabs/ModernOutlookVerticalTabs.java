@@ -235,7 +235,7 @@ public class ModernOutlookVerticalTabs extends TabsController
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     Rectangle r = new Rectangle(mInternalRect.getX(),
         getInsets().top + mInternalRect.getH()
             - TOTAL_TAB_HEIGHT * buttons.size() - HALF_GAP,

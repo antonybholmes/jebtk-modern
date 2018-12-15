@@ -111,7 +111,7 @@ public class ModernRadioMenuItem extends ModernRadioButton {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     if (mText1 != null) {
       g2.setColor(getForeground());
       g2.drawString(mText1, getHeight(), getTextYPosCenter(g2, getHeight()));

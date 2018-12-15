@@ -103,7 +103,7 @@ public class RibbonPanelButton extends ModernDialogFlatButton {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int x = (mRect.getW() - getIcon().getWidth()) / 2;
     int y = AssetService.ICON_SIZE_16;
 

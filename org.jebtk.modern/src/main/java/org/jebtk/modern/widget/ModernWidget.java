@@ -557,27 +557,8 @@ public abstract class ModernWidget extends ModernComponent
   }
 
   /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.ModernComponent#drawForeground(java.awt.Graphics2D)
-   */
   @Override
   public void drawForeground(Graphics2D g2) {
-    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
-
-    try {
-      drawForegroundAAText(g2Temp);
-    } finally {
-      g2Temp.dispose();
-    }
-  }
-
-  /**
-   * Should be in charge of rendering the foreground using anti-aliasing.
-   *
-   * @param g2 the g2
-   */
-  public void drawForegroundAAText(Graphics2D g2) {
     Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     try {
@@ -587,14 +568,26 @@ public abstract class ModernWidget extends ModernComponent
     }
   }
 
+  public void drawForegroundAA(Graphics2D g2) {
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
+
+    try {
+      drawForegroundAA(g2Temp);
+    } finally {
+      g2Temp.dispose();
+    }
+  }
+  */
+
   /**
    * Renders the foreground with antialiasing on by default.
    *
    * @param g2 the g2
    */
-  public void drawForegroundAA(Graphics2D g2) {
-    // Do nothing
-  }
+  //@Override
+  //public void drawForegroundAA(Graphics2D g2) {
+  //  // Do nothing
+  //}
 
   /*
    * @Override public void drawBackground(Graphics2D g2) { Graphics2D g2Temp =

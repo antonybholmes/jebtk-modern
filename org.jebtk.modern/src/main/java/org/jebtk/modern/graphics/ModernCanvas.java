@@ -40,7 +40,6 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
-import java.awt.image.BufferedImage;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.geom.IntDim;
@@ -57,10 +56,10 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  *
  */
 public class ModernCanvas extends ModernFocusableWidget
-    implements CanvasEventProducer, CanvasMouseEventProducer,
-    CanvasMouseWheelEventProducer, CanvasMouseListener,
-    CanvasMouseWheelListener, CanvasKeyEventProducer, CanvasKeyListener,
-    CanvasCursorEventProducer {
+implements CanvasEventProducer, CanvasMouseEventProducer,
+CanvasMouseWheelEventProducer, CanvasMouseListener,
+CanvasMouseWheelListener, CanvasKeyEventProducer, CanvasKeyListener,
+CanvasCursorEventProducer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -140,17 +139,12 @@ public class ModernCanvas extends ModernFocusableWidget
   /** The m cache view rect. */
   protected Rectangle mCacheViewRect;
 
-  /** The m buffered image. */
-  protected BufferedImage mBufferedImage;
-
   private static final IntDim DEFAULT_SIZE = new IntDim(100, 100);
 
   /**
    * Internal cache of preferred size which can be different to the public
    */
   protected IntDim mAbsPrefSize = DEFAULT_SIZE;
-
-  private boolean mRasterEnabled = false;
 
   /**
    * The class MouseEvents.
@@ -325,6 +319,9 @@ public class ModernCanvas extends ModernFocusableWidget
     addMouseWheelListener(new MouseWheelEvents());
     // addComponentListener(new ComponentEvents());
     addKeyListener(new KeyEvents());
+    
+    // Draw as fast as possible
+    getAAModes().clear();
   }
 
   /*
@@ -396,10 +393,6 @@ public class ModernCanvas extends ModernFocusableWidget
     updateCanvasSize();
 
     fireCanvasChanged();
-  }
-
-  public void setRastorMode(boolean enabled) {
-    mRasterEnabled = enabled;
   }
 
   /**
@@ -733,20 +726,21 @@ public class ModernCanvas extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.widget.ModernWidget#drawForegroundAAText(java.awt.
+   * @see org.abh.common.ui.widget.ModernWidget#drawForegroundAA(java.awt.
    * Graphics2D)
    */
-  @Override
-  public void drawForegroundAAText(Graphics2D g2) {
-    rasterCanvas(g2);
-  }
+  //@Override
+  //public void drawForegroundAA(Graphics2D g2) {
+  ////  rasterCanvas(g2);
+  //}
 
   /**
    * Draw translated canvas.
    *
    * @param g2 the g 2
    */
-  public void rasterCanvas(Graphics2D g2) {
+  @Override
+  public void rasterForeground(Graphics2D g2) {
     rasterCanvas(g2, DrawingContext.UI);
   }
 
@@ -774,8 +768,7 @@ public class ModernCanvas extends ModernFocusableWidget
       // Create an image version of the canvas and draw that to spped
       // up operations
 
-      if (mRasterEnabled) {
-
+      if (mRasterMode) {
         Rectangle vr = getVisibleRect();
 
         if (mBufferedImage == null || mCacheViewRect == null
@@ -783,11 +776,11 @@ public class ModernCanvas extends ModernFocusableWidget
           // The canvas need only be the size of the available display
           mBufferedImage = ImageUtils.createImage(getSize());
 
-          Graphics2D g2Temp = ImageUtils.createAATextGraphics(mBufferedImage);
+          Graphics2D g2Temp = ImageUtils.createGraphics(mBufferedImage);
 
           try {
             // translate(g2Temp);
-            zoomCanvas(g2Temp, context);
+            aaCanvas(g2Temp, context);
           } finally {
             g2Temp.dispose();
           }
@@ -797,13 +790,39 @@ public class ModernCanvas extends ModernFocusableWidget
 
         g2.drawImage(mBufferedImage, 0, 0, null);
       } else {
-        zoomCanvas(g2, context);
+        aaCanvas(g2, context);
       }
     } else {
       drawCanvas(g2, context);
     }
   }
 
+  /**
+   * Anti-alias the canvas.
+   * 
+   * @param g2
+   * @param context
+   */
+  public void aaCanvas(Graphics2D g2, DrawingContext context) {
+    if (getAAModes().size() > 0 && context == DrawingContext.UI) {
+      Graphics2D g2Temp = ImageUtils.createAAGraphics(g2, getAAModes());
+
+      try {
+        zoomCanvas(g2Temp, context);
+      } finally {
+        g2Temp.dispose();
+      }
+    } else {
+      zoomCanvas(g2, context);
+    }
+  }
+
+  /**
+   * Responsible for zoom on canvas.
+   * 
+   * @param g2
+   * @param context
+   */
   public void zoomCanvas(Graphics2D g2, DrawingContext context) {
     drawCanvas(g2, context);
   }

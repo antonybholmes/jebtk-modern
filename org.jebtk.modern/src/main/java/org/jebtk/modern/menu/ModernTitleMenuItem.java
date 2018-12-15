@@ -97,7 +97,7 @@ public class ModernTitleMenuItem extends ModernMenuItem {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     g2.setFont(BOLD_FONT);
     g2.setColor(TEXT_COLOR);
 

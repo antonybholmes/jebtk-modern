@@ -94,7 +94,7 @@ public class ModernProgressBar extends ModernWidget
    * @see
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int w = getWidth() - this.getInsets().left - this.getInsets().right;
 
     int y1 = getHeight() - this.getInsets().top;

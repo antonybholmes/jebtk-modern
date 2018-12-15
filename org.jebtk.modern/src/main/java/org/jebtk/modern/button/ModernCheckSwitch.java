@@ -21,7 +21,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.border.Border;
 
-import org.jebtk.core.ColorUtils;
+import org.jebtk.core.Mathematics;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
 
@@ -44,20 +44,23 @@ public class ModernCheckSwitch extends CheckBox {
   // outside the boundary from antialiasing etc.
   protected static final int SWITCH_ICON_OFFSET = 1;
 
+  protected static final int SWITCH_ICON_OFFSET_2 = 2 * SWITCH_ICON_OFFSET;
+  
   /** The Constant SLIDER_OFFSET. */
   protected static final int SLIDER_OFFSET = 2;
 
   /** The Constant ORB_HEIGHT. */
   protected static final int ORB_HEIGHT = 20;
 
-  protected static final int SLIDER_HEIGHT = ORB_HEIGHT - 4;
+  protected static final int SLIDER_HEIGHT = ORB_HEIGHT + 2; // - 4;
 
   /** The Constant SLIDER_WIDTH. */
-  protected static final int SLIDER_WIDTH = ORB_HEIGHT * 3 / 2;
+  protected static final int SLIDER_WIDTH = 
+      (int) Math.round(ORB_HEIGHT * Mathematics.GOLDEN_RATIO); //3 / 2;
 
   /** The Constant SWITCH_ON_OFFSET. */
   protected static final int SWITCH_ON_OFFSET = SLIDER_WIDTH - ORB_HEIGHT
-      - SWITCH_ICON_OFFSET;
+      - SLIDER_OFFSET;
 
   private Color mTextColor;
 
@@ -195,7 +198,7 @@ public class ModernCheckSwitch extends CheckBox {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     g2.setColor(mTextColor); // isSelected() ? TEXT_COLOR :
                              // TEXT_DISABLED_COLOR);
     g2.drawString(mText1,

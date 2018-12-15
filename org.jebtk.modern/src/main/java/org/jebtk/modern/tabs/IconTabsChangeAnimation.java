@@ -52,6 +52,8 @@ public class IconTabsChangeAnimation extends FadeAnimation {
     setFadeColor("fill",
         IconTabsIconAnimation.ICON_COLOR,
         Ribbon.BAR_BACKGROUND);
+    
+    restart();
   }
 
   @Override
@@ -63,19 +65,23 @@ public class IconTabsChangeAnimation extends FadeAnimation {
     if (selectedIndex == -1) {
       return;
     }
+    
+    int is = mTabs.getIconSize();
+    int ts = mTabs.getTabSize();
+    
 
     ModernIcon icon = mTabs.getTabsModel().getSelectedTab().getIcon();
 
-    int offset = (mTabs.mTabSize - mTabs.mIconSize) / 2;
-    int yoffset = (mTabs.getInternalRect().getH() - mTabs.mIconSize) / 2;
+    int offset = (ts - is) / 2;
+    int yoffset = (mTabs.getInternalRect().getH() - is) / 2;
 
     Color color = getFadeColor("fill");
-
+    
     icon.drawIcon(g2,
-        x + mTabs.mTabSize * selectedIndex + offset,
+        x + ts * selectedIndex + offset,
         yoffset,
-        mTabs.mIconSize,
-        mTabs.mIconSize,
+        is,
+        is,
         color);
   }
 }

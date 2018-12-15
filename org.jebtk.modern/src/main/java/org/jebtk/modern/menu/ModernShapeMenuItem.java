@@ -84,7 +84,7 @@ public class ModernShapeMenuItem extends ModernIconMenuItem {
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int d = 0;
 
     if (this.getIcon() != null) {

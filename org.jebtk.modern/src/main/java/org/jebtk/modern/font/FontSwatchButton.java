@@ -79,7 +79,7 @@ public class FontSwatchButton extends RibbonColorSwatchButton {
    * awt. Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     g2.setFont(BOLD_FONT);
 
     int x = getTextXPosCenter(g2, "A", 24);

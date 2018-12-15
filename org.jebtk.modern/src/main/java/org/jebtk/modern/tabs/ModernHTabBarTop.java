@@ -62,7 +62,7 @@ public class ModernHTabBarTop extends ModernHTabBar {
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     int tabX = TAB_START_X;
     // int x;
     int y;

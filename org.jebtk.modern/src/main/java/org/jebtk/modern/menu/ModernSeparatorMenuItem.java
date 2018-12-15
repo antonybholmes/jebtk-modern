@@ -129,7 +129,7 @@ public class ModernSeparatorMenuItem extends ModernIconMenuItem {
    * org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
    * Graphics2D)
    */
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
 
     if (mText1 != null) {
       int d = 0;

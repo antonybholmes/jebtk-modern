@@ -54,6 +54,7 @@ import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.clipboard.Clipboard;
 import org.jebtk.modern.clipboard.ClipboardService;
+import org.jebtk.modern.graphics.AAMode;
 import org.jebtk.modern.graphics.DrawingContext;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.ModernCanvas;
@@ -354,6 +355,8 @@ public class ModernTextBox extends ModernCanvas
 
     mViewDecTimer = new Timer(0, new ViewDecTask());
     mViewDecTimer.setDelay(INC_TIMER_SPEED_MS);
+    
+    getAAModes().add(AAMode.TEXT);
   }
 
   /*
@@ -377,7 +380,7 @@ public class ModernTextBox extends ModernCanvas
    * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void rasterCanvas(Graphics2D g2, DrawingContext context) {
+  public void zoomCanvas(Graphics2D g2, DrawingContext context) {
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
     try {

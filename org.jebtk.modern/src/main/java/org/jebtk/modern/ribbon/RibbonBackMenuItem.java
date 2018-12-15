@@ -101,7 +101,7 @@ public class RibbonBackMenuItem extends RibbonMenuItem {
    */
 
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     /*
      * Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
      * 

@@ -53,16 +53,16 @@ public class FontMenuItem extends ModernIconMenuItem {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.menu.ModernIconMenuItem#drawForegroundAAText(java.awt.
+   * org.abh.common.ui.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   @Override
-  public void drawForegroundAAText(Graphics2D g2) {
+  public void drawForegroundAA(Graphics2D g2) {
     Graphics2D g2Temp = (Graphics2D) g2.create();
 
     g2Temp.setFont(mFont);
 
-    super.drawForegroundAAText(g2Temp);
+    super.drawForegroundAA(g2Temp);
 
     g2Temp.dispose();
   }
