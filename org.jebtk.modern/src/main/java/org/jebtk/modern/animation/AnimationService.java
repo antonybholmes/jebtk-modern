@@ -108,8 +108,8 @@ import org.jebtk.modern.tabs.SegmentAnimation;
 import org.jebtk.modern.tabs.SegmentChangeAnimation;
 import org.jebtk.modern.tabs.SegmentTextAnimation;
 import org.jebtk.modern.tabs.vert.IconTabsVertChangeAnimation;
-import org.jebtk.modern.tabs.vert.IconTabsVertHighlightAnimation;
 import org.jebtk.modern.tabs.vert.IconTabsVertIconAnimation;
+import org.jebtk.modern.theme.PillContentAnimation;
 import org.jebtk.modern.tree.TreeHighlightAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -166,6 +166,7 @@ public class AnimationService {
 
     get("pill-fill").add(PillFillAnimation.class);
     get("pill-outline").add(PillOutlineAnimation.class);
+    get("pill-content").add(PillContentAnimation.class);
 
     // get("button").add(DialogButtonHighlightAnimation.class);
 

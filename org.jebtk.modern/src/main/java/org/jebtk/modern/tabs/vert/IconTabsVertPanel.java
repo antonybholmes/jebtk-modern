@@ -17,7 +17,6 @@ package org.jebtk.modern.tabs.vert;
 
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.tabs.IconTabs;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.tabs.TabsViewPanel;
 

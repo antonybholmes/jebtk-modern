@@ -133,7 +133,7 @@ public class ModernWindow extends JFrame
    * All content is ultimately a child of this. Content is never directly
    * added to the JFrame. This is the default view.
    */
-  protected ModernPanel mWindowContentPanel = new ModernWindowContentPanel(); // ModernGradientPanel();
+  protected ModernPanel mWindowPanel = new ModernWindowPanel(); // ModernGradientPanel();
 
   private ModernComponent mContentPanel = new ModernComponent();
 
@@ -246,7 +246,7 @@ public class ModernWindow extends JFrame
 
     mCards.add(mRibbonMenu, MENU_CARD);
     mRibbonMenu.addClickListener(new MenuActions());
-    mCards.add(mWindowContentPanel, CONTENT_CARD);
+    mCards.add(mWindowPanel, CONTENT_CARD);
 
     // Window uses card layout
     getContentPane().add(mCards, BorderLayout.CENTER);
@@ -256,6 +256,7 @@ public class ModernWindow extends JFrame
 
     // By default, 
     mContentPanel.setBody(mTabsPane);
+    mContentPanel.setBorder(ModernWidget.BORDER);
     
     setBody(mContentPanel);
 
@@ -380,7 +381,7 @@ public class ModernWindow extends JFrame
    */
   protected void setHeader(Component c) {
     // mHeaderContainer.add(c);
-    getWindowContentPanel().add(c, BorderLayout.PAGE_START);
+    getWindowPanel().add(c, BorderLayout.PAGE_START);
   }
 
   protected void setContentHeader(Component c) {
@@ -396,14 +397,14 @@ public class ModernWindow extends JFrame
    */
   public void setBody(Component c) {
     if (mCenter != null) {
-      getWindowContentPanel().remove(mCenter);
+      getWindowPanel().remove(mCenter);
     }
 
     mCenter = c;
 
-    getWindowContentPanel().add(c, BorderLayout.CENTER);
-    getWindowContentPanel().validate();
-    getWindowContentPanel().repaint();
+    getWindowPanel().add(c, BorderLayout.CENTER);
+    getWindowPanel().validate();
+    getWindowPanel().repaint();
   }
 
   /**
@@ -424,11 +425,7 @@ public class ModernWindow extends JFrame
    * @param c the new footer
    */
   public void setFooter(Component c) {
-    getWindowContentPanel().add(c, BorderLayout.PAGE_END);
-  }
-
-  public void setContentFooter(Component c) {
-    getContentPanel().setFooter(c);
+    getWindowPanel().add(c, BorderLayout.PAGE_END);
   }
 
   /**
@@ -443,8 +440,8 @@ public class ModernWindow extends JFrame
    *
    * @return the content panel
    */
-  public ModernPanel getWindowContentPanel() {
-    return mWindowContentPanel;
+  public ModernPanel getWindowPanel() {
+    return mWindowPanel;
   }
 
   /**

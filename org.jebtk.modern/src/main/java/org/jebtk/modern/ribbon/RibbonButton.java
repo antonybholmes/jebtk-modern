@@ -39,6 +39,12 @@ public class RibbonButton extends ModernButton {
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
+  public RibbonButton(String text1) {
+    super(text1);
+
+    setup();
+  }
+  
   /**
    * Instantiates a new ribbon button.
    *

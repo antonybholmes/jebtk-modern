@@ -49,7 +49,7 @@ import org.jebtk.modern.event.HighlightEvent;
 import org.jebtk.modern.event.HighlightEventProducer;
 import org.jebtk.modern.event.HighlightListener;
 import org.jebtk.modern.event.HighlightListeners;
-import org.jebtk.modern.widget.ModernVertWidget;
+import org.jebtk.modern.scrollpane.VertScrollWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -62,7 +62,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes
  *
  */
-public abstract class AbstractCollapsePane extends ModernVertWidget
+public abstract class AbstractCollapsePane extends VertScrollWidget
     implements ChangeEventProducer, HighlightEventProducer {
 
   /**

@@ -38,7 +38,7 @@ import org.jebtk.modern.theme.MaterialService;
  * @author Antony Holmes
  *
  */
-public class ModernWindowContentPanel extends ModernGradientPanel {
+public class ModernWindowPanel extends ModernGradientPanel {
 
   /**
    * The constant serialVersionUID.
@@ -52,7 +52,7 @@ public class ModernWindowContentPanel extends ModernGradientPanel {
   /**
    * Instantiates a new modern window content panel.
    */
-  public ModernWindowContentPanel() {
+  public ModernWindowPanel() {
     super(
         MaterialService.getInstance()
             .getColor("window.background.gradient.start"),

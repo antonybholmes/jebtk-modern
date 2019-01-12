@@ -28,7 +28,6 @@
 package org.jebtk.modern.tabs.vert;
 
 import java.awt.Color;
-import java.awt.Graphics2D;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.tabs.TabEvent;

@@ -58,8 +58,8 @@ import org.jebtk.modern.tooltip.ModernToolTipWidget;
  * @author Antony Holmes
  */
 public abstract class ModernClickWidget extends ModernToolTipWidget
-    implements ModernClickEventProducer, ModernStateEventProducer,
-    ModernSelectedEventProducer, HighlightEventProducer {
+implements ModernClickEventProducer, ModernStateEventProducer,
+ModernSelectedEventProducer, HighlightEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -173,23 +173,30 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
    * @param style
    * @return
    */
-  public ModernClickWidget setButtonStyle(ButtonStyle style) {
-    switch (style) {
-    case PILL:
-      setAnimations("pill-fill");
-      break;
-    case CIRCLE:
-      setAnimations("circle-fill");
-      break;
-    case CIRCLE_OUTLINE:
-      setAnimations("circle-outline");
-      break;
-    case NONE:
-      getAnimations().clear();
-      break;
-    default:
-      setAnimations("button-fill");
-      break;
+  public ModernClickWidget setButtonStyle(ButtonStyle... styles) {
+    getAnimations().clear();
+
+    for (ButtonStyle style : styles) {
+      switch (style) {
+      case PILL:
+        addAnimations("pill-fill");
+        break;
+      case PILL_CONTENT:
+        addStyleClass("content-outline");
+        addAnimations("pill-content");
+        break;
+      case CIRCLE:
+        addAnimations("circle-fill");
+        break;
+      case CIRCLE_OUTLINE:
+        addAnimations("circle-outline");
+        break;
+      case BUTTON:
+        addAnimations("button-fill");
+        break;
+      default:
+        break;
+      }
     }
 
     return this;

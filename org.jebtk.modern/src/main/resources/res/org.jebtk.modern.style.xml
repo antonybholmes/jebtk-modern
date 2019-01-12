@@ -47,7 +47,6 @@
 
 	<class name="dialog-button">
 		<property name="border-color" value="colors.material.dialog.button.outline" />
-		<property name="background-color" value="white" />
 	</class>
 
 	<class name="checkbox">

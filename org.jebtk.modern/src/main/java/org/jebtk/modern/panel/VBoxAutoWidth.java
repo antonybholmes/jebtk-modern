@@ -27,21 +27,19 @@
  */
 package org.jebtk.modern.panel;
 
-import java.awt.Component;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 
 import javax.swing.border.Border;
 
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.scrollpane.VertScrollComponent;
 
 /**
  * Lay components out in a vertical box and auto size their width so they are
  * always the same width as the box itself.
  */
-public class VBoxAutoWidth extends ModernComponent {
+public class VBoxAutoWidth extends VertScrollComponent {
 
   /**
    * The constant serialVersionUID.
@@ -64,37 +62,7 @@ public class VBoxAutoWidth extends ModernComponent {
     setBorder(border);
   }
 
-  public VBoxAutoWidth(Component c) {
-    this(); // new BoxLayout(this, BoxLayout.PAGE_AXIS));
-
-    setBody(c);
-
-    //c.addComponentListener(new ComponentEvents());
-
-    c.addPropertyChangeListener("preferredSize", new PropertyChangeListener() {
-
-      @Override
-      public void propertyChange(PropertyChangeEvent e) {
-        refresh();
-      }
-    });
-  }
-
-  private void refresh() {
-    revalidate();
-    repaint();
-  }
-
   public static ModernComponent create() {
     return new VBoxAutoWidth();
   }
-  
-  /*
-  @Override
-  public void drawBackground(Graphics2D g2) {
-    g2.setColor(Color.RED);
-    
-    g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
-  }
-  */
 }

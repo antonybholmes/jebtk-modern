@@ -13,38 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.theme;
-
-import java.awt.Color;
-import java.awt.Graphics2D;
-
-import org.jebtk.modern.ModernComponent;
+package org.jebtk.modern.scrollpane;
 
 /**
- * The Class ModernRoundedWidgetRenderer.
+ * The Class ModernVertWidget is designed for scrollable widgets showing
+ * vertical content.
+ * 
  */
-public class PillFillUI extends ButtonUI {
+public abstract class VertScrollWidget extends ScrollWidget {
+
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
 
   @Override
-  public String getName() {
-    return "pill-fill";
-  }
-
-  @Override
-  public void draw(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
-      Object... params) {
-
-    if (params.length > 0) {
-      g2.setColor((Color) params[0]);
-    } else {
-      g2.setColor(HIGHLIGHTED_FILL_COLOR);
-    }
-
-    g2.fillRoundRect(x, y, w, h, h, h);
+  public boolean getScrollableTracksViewportWidth() {
+    return true;
   }
 }

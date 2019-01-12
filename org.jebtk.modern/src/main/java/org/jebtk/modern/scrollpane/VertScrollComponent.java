@@ -13,38 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.theme;
-
-import java.awt.Color;
-import java.awt.Graphics2D;
-
-import org.jebtk.modern.ModernComponent;
+package org.jebtk.modern.scrollpane;
 
 /**
- * The Class ModernRoundedWidgetRenderer.
+ * Should be subclassed by components that have vertically scrolling content.
+ * 
  */
-public class PillFillUI extends ButtonUI {
+public abstract class VertScrollComponent extends ScrollComponent {
 
+  /** The Constant serialVersionUID. */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Gets the scrollable tracks viewport width.
+   *
+   * @return the scrollable tracks viewport width
+   */
   @Override
-  public String getName() {
-    return "pill-fill";
-  }
-
-  @Override
-  public void draw(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
-      Object... params) {
-
-    if (params.length > 0) {
-      g2.setColor((Color) params[0]);
-    } else {
-      g2.setColor(HIGHLIGHTED_FILL_COLOR);
-    }
-
-    g2.fillRoundRect(x, y, w, h, h, h);
+  public boolean getScrollableTracksViewportWidth() {
+    return true;
   }
 }

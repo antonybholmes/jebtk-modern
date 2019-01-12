@@ -54,7 +54,7 @@ public class ModernFloatingWindow extends JFrame {
   /**
    * The member content panel.
    */
-  private ModernPanel mContentPanel = new ModernWindowContentPanel();
+  private ModernPanel mContentPanel = new ModernWindowPanel();
 
   /**
    * The member status.

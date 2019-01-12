@@ -46,7 +46,7 @@ import java.util.TreeMap;
 import javax.swing.SwingUtilities;
 
 import org.jebtk.core.Mathematics;
-import org.jebtk.modern.widget.ModernVertWidget;
+import org.jebtk.modern.scrollpane.VertScrollWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -55,7 +55,7 @@ import org.jebtk.modern.widget.ModernVertWidget;
  *
  * @author Antony Holmes
  */
-public class ModernListPanel extends ModernVertWidget
+public class ModernListPanel extends VertScrollWidget
     implements Iterable<ModernListPanelItem> {
 
   /**

@@ -23,11 +23,11 @@ import org.jebtk.modern.ModernComponent;
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
-public class PillFillUI extends ButtonUI {
+public class PillContentUI extends PillFillUI {
 
   @Override
   public String getName() {
-    return "pill-fill";
+    return "pill-content";
   }
 
   @Override
@@ -38,13 +38,15 @@ public class PillFillUI extends ButtonUI {
       int w,
       int h,
       Object... params) {
+    
+    super.draw(g2, c, x, y, w, h, Color.WHITE);
 
     if (params.length > 0) {
       g2.setColor((Color) params[0]);
     } else {
-      g2.setColor(HIGHLIGHTED_FILL_COLOR);
+      g2.setColor(getStyle(c).getColor("border-color"));
     }
-
-    g2.fillRoundRect(x, y, w, h, h, h);
+    
+    g2.drawRoundRect(x, y, w - 1, h - 1, h, h);
   }
 }

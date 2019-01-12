@@ -471,6 +471,12 @@ public abstract class ModernWidget extends ModernComponent
 
     return this;
   }
+  
+  public ModernWidget addAnimations(String animation, String... animations) {
+    getAnimations().add(animation, animations);
+
+    return this;
+  }
 
   public ModernWidget setAnimations(Animation animation,
       Animation... animations) {

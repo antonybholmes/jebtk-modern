@@ -13,19 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.widget;
+package org.jebtk.modern.scrollpane;
 
 import java.awt.Dimension;
 import java.awt.Rectangle;
 
 import javax.swing.Scrollable;
 
+import org.jebtk.modern.ModernComponent;
+
 /**
- * The Class ModernVertWidget is designed for scrollable widgets showing
- * vertical content.
+ * Should be implemented by components designed for scrolling.
  * 
  */
-public abstract class ModernVertWidget extends ModernWidget
+public abstract class ScrollComponent extends ModernComponent
     implements Scrollable {
 
   /** The Constant serialVersionUID. */
@@ -51,7 +52,6 @@ public abstract class ModernVertWidget extends ModernWidget
    */
   @Override
   public int getScrollableBlockIncrement(Rectangle arg0, int arg1, int arg2) {
-    // TODO Auto-generated method stub
     return 0;
   }
 
@@ -62,7 +62,6 @@ public abstract class ModernVertWidget extends ModernWidget
    */
   @Override
   public boolean getScrollableTracksViewportHeight() {
-    // TODO Auto-generated method stub
     return false;
   }
 
@@ -73,7 +72,7 @@ public abstract class ModernVertWidget extends ModernWidget
    */
   @Override
   public boolean getScrollableTracksViewportWidth() {
-    return true;
+    return false;
   }
 
   /**
