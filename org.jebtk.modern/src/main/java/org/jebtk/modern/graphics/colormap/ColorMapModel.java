@@ -32,7 +32,7 @@ import org.jebtk.core.model.ItemModel;
 /**
  * Model for sharing a color map.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ColorMapModel extends ItemModel<ColorMap> {

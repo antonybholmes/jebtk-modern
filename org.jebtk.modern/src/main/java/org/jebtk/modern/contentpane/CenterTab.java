@@ -36,7 +36,7 @@ import org.jebtk.modern.tabs.TabsModel;
 /**
  * Pane for the center component.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class CenterTab extends Tab {

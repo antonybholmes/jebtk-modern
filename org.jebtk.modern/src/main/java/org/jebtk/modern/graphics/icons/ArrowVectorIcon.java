@@ -35,7 +35,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Left arrow vector icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ArrowVectorIcon extends ModernVectorIcon {

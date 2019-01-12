@@ -38,7 +38,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * Provides a flat look table renderer for the flat table although it can be
  * used with standard JTables as well.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernListTwoLineCellRenderer extends ModernListIconCellRenderer {

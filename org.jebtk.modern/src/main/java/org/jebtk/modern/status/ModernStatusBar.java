@@ -44,7 +44,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Status bar for updating users.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernStatusBar extends ModernComponent {

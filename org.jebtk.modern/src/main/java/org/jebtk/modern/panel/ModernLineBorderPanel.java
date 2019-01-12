@@ -40,7 +40,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Replacement ModernButton with a common skin.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernLineBorderPanel extends ModernWidget {

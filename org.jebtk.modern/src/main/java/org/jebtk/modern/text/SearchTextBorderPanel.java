@@ -45,7 +45,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Adds a border around text boxes so they are more visible to the user.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class SearchTextBorderPanel extends ModernWidget
     implements TextProperty {

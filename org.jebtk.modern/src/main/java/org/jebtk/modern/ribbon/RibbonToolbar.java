@@ -39,7 +39,7 @@ import org.jebtk.modern.panel.HBox;
  * Represents a toolbar (with associated tab) on the ribbon control. Each
  * toolbar consists of sections containing buttons.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonToolbar extends HBox implements RibbonModeProperty {

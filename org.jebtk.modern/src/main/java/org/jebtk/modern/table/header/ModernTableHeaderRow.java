@@ -31,7 +31,6 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
-import java.util.List;
 
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.modern.dataview.ModernDataSelection;
@@ -46,7 +45,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Draws table row headers.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernTableHeaderRow extends ModernTableHeader {
 
@@ -155,9 +154,9 @@ public class ModernTableHeaderRow extends ModernTableHeader {
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
     int w = (int) mTable.scale(mTable.getRowModel().getHeaderSize()); // mRect.getW();
-                                                                      // ///getWidth()
-                                                                      // /
-                                                                      // rowNames.size();
+    // ///getWidth()
+    // /
+    // rowNames.size();
 
     int i = visibleCells.getStartRow();
     int y = mTable.getY(i);
@@ -186,33 +185,27 @@ public class ModernTableHeaderRow extends ModernTableHeader {
 
         int row = mTable.getModelRowIndex(i);
 
-        List<String> rowNames = mTable.getModel().getRowAnnotationText(row);
-
-        if (rowNames.size() == 0) {
-          // If no labels are being returned, then stop the rendering
-          // as we no longer have any labels.
-          break;
-        }
+        String name = mTable.getRowName(row);
 
         Graphics2D g2Temp2 = (Graphics2D) g2Temp.create();
 
         try {
-          for (String name : rowNames) {
-            Component c = mTable.getRowHeadingRenderer(i)
-                .getCellRendererComponent(mTable,
-                    name,
-                    highlight,
-                    selected,
-                    highlight,
-                    i,
-                    0);
+          //for (String name : rowNames) {
+          Component c = mTable.getRowHeadingRenderer(i)
+              .getCellRendererComponent(mTable,
+                  name,
+                  highlight,
+                  selected,
+                  highlight,
+                  i,
+                  0);
 
-            c.setSize(w, hc);
+          c.setSize(w, hc);
 
-            c.print(g2Temp2);
+          c.print(g2Temp2);
 
-            g2Temp2.translate(w, 0);
-          }
+          //g2Temp2.translate(w, 0);
+          //}
         } finally {
           g2Temp2.dispose();
         }

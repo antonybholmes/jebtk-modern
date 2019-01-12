@@ -38,7 +38,7 @@ import org.jebtk.modern.theme.DrawUIService;
 /**
  * Mac Style tabs.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class SegmentVertTabs extends SegmentTabs {
 

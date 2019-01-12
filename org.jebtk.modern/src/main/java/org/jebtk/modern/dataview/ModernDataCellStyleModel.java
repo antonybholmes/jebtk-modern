@@ -32,7 +32,7 @@ package org.jebtk.modern.dataview;
  * Model for controlling the appearance of cells such as the font and color. It
  * is up to the renderer to use these cues to present the cell properly.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDataCellStyleModel

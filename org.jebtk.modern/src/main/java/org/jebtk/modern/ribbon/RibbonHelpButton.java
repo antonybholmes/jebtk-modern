@@ -41,7 +41,7 @@ import org.jebtk.modern.help.HelpManager;
 /**
  * Launches a web browser to a particular web page.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonHelpButton extends QuickAccessButton

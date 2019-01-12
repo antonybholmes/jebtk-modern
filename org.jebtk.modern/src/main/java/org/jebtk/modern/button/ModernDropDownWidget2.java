@@ -49,7 +49,7 @@ import org.jebtk.modern.tooltip.ToolTipService;
  * Implementation of a drop down widget for showing a menu, but without the UI
  * in place.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDropDownWidget2 extends ModernButtonWidget {

@@ -46,7 +46,7 @@ import org.jebtk.modern.text.ModernColoredHeadingLabel;
 /**
  * All content panes.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class CollapseHTab extends ModernComponent {

@@ -40,7 +40,7 @@ import org.jebtk.modern.graphics.shapes.ShapeService;
 /**
  * Draws a shape outline rather than an icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernShapeMenuItem extends ModernIconMenuItem {

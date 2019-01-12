@@ -48,7 +48,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Provides a sidebar with clickable tabs.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class TopTabs extends TabsController implements ModernClickListener {

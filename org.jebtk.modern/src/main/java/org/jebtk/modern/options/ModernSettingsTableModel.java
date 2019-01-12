@@ -36,16 +36,17 @@ import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.path.Path;
 import org.jebtk.core.settings.Setting;
 import org.jebtk.core.settings.SettingsService;
+import org.jebtk.core.text.TextUtils;
 import org.jebtk.core.tree.TreeNode;
-import org.jebtk.modern.table.ModernColumnHeaderTableModel;
+import org.jebtk.modern.table.ModernTableModel;
 
 /**
  * Displays key/value settings pairs and allows users to edit them.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
-public class ModernSettingsTableModel extends ModernColumnHeaderTableModel {
+public class ModernSettingsTableModel extends ModernTableModel {
 
   /**
    * The constant HEADER.
@@ -125,14 +126,14 @@ public class ModernSettingsTableModel extends ModernColumnHeaderTableModel {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(int)
    */
   @Override
-  public final List<String> getColumnAnnotationText(int column) {
+  public final String getColumnName(int column) {
     if (Mathematics.inBound(column, 0, HEADER.length)) {
-      return CollectionUtils.asList(HEADER[column]);
+      return HEADER[column];
     } else {
-      return Collections.emptyList();
+      return TextUtils.EMPTY_STRING;
     }
   }
 

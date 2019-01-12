@@ -36,7 +36,7 @@ import org.jebtk.modern.theme.ModernTheme;
 /**
  * Help icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ClockVectorIcon extends ModernVectorScalableIcon {

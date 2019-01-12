@@ -12,6 +12,12 @@
 	<class name="widget">
 		<property name="border-radius" value="6" />
 	</class>
+	
+	<class name="card">
+    <property name="border-radius" value="16" />
+    <property name="border-color" value="colors.gray32.color-3" />
+    <property name="background-color" value="white" />
+  </class>
 
 	<class name="content">
 		<property name="background-color" value="white" />
@@ -20,6 +26,11 @@
 	<class name="content-outline">
 		<property name="border-color" value="colors.material.dialog.button.outline" />
 	</class>
+	
+	<class name="content-box">
+    <property name="background-color" value="white" />
+    <property name="border-color" value="colors.material.dialog.button.outline" />
+  </class>
 
 	<class name="gray-button">
 		<property name="background-color" value="colors.material.dialog.button.outline" />
@@ -40,15 +51,14 @@
 	</class>
 
 	<class name="checkbox">
-		<property name="background-color" value="colors.theme32.color-12" />
-		<property name="color" value="colors.theme32.color-20" />
+	  <property name="background-color" value="white" />
+	  <property name="border-color" value="colors.gray32.color-6" />
 		<property name="border-radius" value="0" />
 	</class>
 	
 	<class name="check-switch">
-    <property name="background-color" value="colors.gray32.color-8" />
-    <property name="color" value="colors.gray32.color-8" />
-    <property name="border-radius" value="0" />
+    <property name="background-color" value="white" />
+    <property name="border-color" value="colors.gray32.color-8" />
   </class>
 
 	<keyframe index="to">
@@ -56,15 +66,17 @@
 			<property name="border-color" value="colors.theme32.color-28" />
 			<property name="background-color" value="colors.theme32.color-24" />
 		</class>
+		
+		<class name="content-box">
+      <property name="background-color" value="white" />
+    </class>
 
 		<class name="checkbox">
-			<property name="background-color" value="colors.gray32.color-10" />
-			<property name="color" value="colors.gray32.color-20" />
+			<property name="background-color" value="colors.theme32.color-14" />
 		</class>
 		
 		<class name="check-switch">
-      <property name="background-color" value="colors.theme32.color-12" />
-      <property name="color" value="colors.theme32.color-12" />
+      <property name="background-color" value="colors.theme32.color-14" />
       <property name="border-radius" value="0" />
     </class>
 

@@ -41,7 +41,7 @@ import org.jebtk.modern.theme.ThemeService;
  * A disabled menu item for breaking up a large menu to indicate the function of
  * a block of menu items.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernSeparatorMenuItem extends ModernIconMenuItem {

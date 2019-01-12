@@ -34,7 +34,7 @@ import java.util.EventListener;
 /**
  * Adapted mouse listener for the canvas.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface CanvasKeyListener extends EventListener {

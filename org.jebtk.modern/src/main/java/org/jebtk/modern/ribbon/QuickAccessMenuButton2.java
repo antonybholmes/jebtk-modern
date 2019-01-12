@@ -35,7 +35,7 @@ import org.jebtk.modern.theme.KeyFrames;
 /**
  * For adding quick access buttons to the ribbon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class QuickAccessMenuButton2 extends ModernMenuButton2 {

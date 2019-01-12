@@ -33,7 +33,7 @@ package org.jebtk.modern.tooltip;
  * controls appearing on the ribbon to provide a standardized and more visually
  * appealing tooltip.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernToolTip {

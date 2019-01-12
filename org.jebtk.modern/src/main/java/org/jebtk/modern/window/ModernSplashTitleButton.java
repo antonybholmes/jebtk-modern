@@ -32,7 +32,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Outline button with white background for more contract on off-white panels.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernSplashTitleButton extends ModernSplashButton {

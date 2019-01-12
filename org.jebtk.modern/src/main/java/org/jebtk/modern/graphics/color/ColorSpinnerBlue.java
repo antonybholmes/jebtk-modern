@@ -30,7 +30,7 @@ package org.jebtk.modern.graphics.color;
 /**
  * Color spinner that responds to the blue channel.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ColorSpinnerBlue extends ColorSpinner {

@@ -36,7 +36,7 @@ import org.jebtk.modern.panel.ModernPanel;
 /**
  * Provides Excel like bar for the top of a page.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonBarPanel extends ModernPanel {

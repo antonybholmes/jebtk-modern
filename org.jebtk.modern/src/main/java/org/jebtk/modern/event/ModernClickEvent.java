@@ -32,7 +32,7 @@ import org.jebtk.core.event.Event;
 /**
  * Modern UI controls such as buttons should fire ModernClickEvents.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernClickEvent extends Event {

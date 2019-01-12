@@ -35,7 +35,7 @@ import org.jebtk.core.settings.SettingsService;
  * Configurable zoom model that loads and saves its settings to the Settings
  * system.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SettingsZoomModel extends ZoomModel {

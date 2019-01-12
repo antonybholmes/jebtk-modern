@@ -37,7 +37,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Title menu item offset for icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernTitleIconMenuItem extends ModernMenuItem {

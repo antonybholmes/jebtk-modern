@@ -32,7 +32,7 @@ import org.jebtk.modern.UI;
 /**
  * Provides a status model for notifying status components.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class StatusModel extends StatusEventListeners {

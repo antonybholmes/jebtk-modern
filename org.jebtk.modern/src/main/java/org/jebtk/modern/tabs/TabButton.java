@@ -38,7 +38,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Low height button for small form factor toolbar buttons.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class TabButton extends ModernCheckButton {
 

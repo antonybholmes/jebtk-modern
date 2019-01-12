@@ -31,7 +31,7 @@ package org.jebtk.modern;
  * Determines the selection mode in controls that allow multiple items to be
  * selected.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public enum SelectionPolicy {

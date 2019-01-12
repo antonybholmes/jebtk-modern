@@ -44,7 +44,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Drop down button for showing menu items.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonLargeDropDownButton extends ModernDropDownButton

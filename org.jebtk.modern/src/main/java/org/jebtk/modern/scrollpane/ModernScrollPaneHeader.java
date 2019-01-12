@@ -34,7 +34,7 @@ import org.jebtk.modern.graphics.ModernCanvas;
  * bottom or left and sync with the main scroll pane content. They can be used
  * to display table headers for example.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernScrollPaneHeader extends ModernCanvas {

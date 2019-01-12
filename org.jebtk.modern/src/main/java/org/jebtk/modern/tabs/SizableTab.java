@@ -32,7 +32,7 @@ import javax.swing.JComponent;
 /**
  * Specifies a tab that can be resized
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SizableTab extends Tab {

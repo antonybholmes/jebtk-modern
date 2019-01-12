@@ -36,7 +36,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Simple pane icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class Window32VectorIcon extends ModernVectorIcon {

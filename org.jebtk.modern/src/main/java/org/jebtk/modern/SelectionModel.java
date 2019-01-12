@@ -41,7 +41,7 @@ import org.jebtk.modern.event.ModernSelectionListeners;
 /**
  * Generic model for storing items and notifying of changes.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class SelectionModel<T> extends ModernSelectionListeners

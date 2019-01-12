@@ -39,7 +39,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The class ModernDialogTabsBox.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernDialogTabsBox extends ModernWidget {
 

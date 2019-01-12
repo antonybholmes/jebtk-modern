@@ -34,7 +34,7 @@ import java.awt.event.MouseMotionAdapter;
 /**
  * Allows collapsable panes to be created.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernSubCollapsePane extends AbstractCollapsePane {

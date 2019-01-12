@@ -32,7 +32,7 @@ import java.awt.Color;
 /**
  * Represents an icon that can have its color specified.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernVectorColorIcon extends ModernVectorIcon {

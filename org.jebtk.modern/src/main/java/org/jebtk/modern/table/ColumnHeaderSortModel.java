@@ -35,7 +35,7 @@ import org.jebtk.core.event.ChangeListeners;
 /**
  * For re-arranging column headers.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ColumnHeaderSortModel extends ChangeListeners {

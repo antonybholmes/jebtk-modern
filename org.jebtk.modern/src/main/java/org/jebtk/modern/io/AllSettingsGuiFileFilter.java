@@ -31,7 +31,7 @@ package org.jebtk.modern.io;
 /**
  * Filter for GIF files.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class AllSettingsGuiFileFilter extends GuiFileExtFilter {

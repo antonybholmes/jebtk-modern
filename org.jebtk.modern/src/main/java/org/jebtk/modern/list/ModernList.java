@@ -67,7 +67,7 @@ import org.jebtk.modern.theme.ThemeService;
  * Specialized implementation of a data grid that shows items in a one column
  * list.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernList<T> extends ModernVertCanvas

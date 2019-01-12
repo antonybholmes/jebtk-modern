@@ -31,7 +31,6 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
-import java.util.List;
 
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.modern.dataview.ModernDataSelection;
@@ -169,32 +168,27 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
 
         int wc = (int) mTable.scale(mTable.getColumnModel().getWidth(i));
 
-        List<String> columnNames = mTable.getModel().getColumnAnnotationText(i);
-
-        // Stop if no more labels are returned
-        if (columnNames.size() == 0) {
-          break;
-        }
+        String name = mTable.getColumnName(i);
 
         Graphics2D g2Temp2 = (Graphics2D) g2Temp.create();
 
         try {
-          for (String name : columnNames) {
-            Component c = mTable.getHeadingRenderer(i).getCellRendererComponent(
-                mTable,
-                name,
-                highlight,
-                selected,
-                highlight,
-                0,
-                i);
+          //for (String name : columnNames) {
+          Component c = mTable.getHeadingRenderer(i).getCellRendererComponent(
+              mTable,
+              name,
+              highlight,
+              selected,
+              highlight,
+              0,
+              i);
 
-            c.setSize(wc, h);
+          c.setSize(wc, h);
 
-            c.print(g2Temp2);
+          c.print(g2Temp2);
 
-            g2Temp2.translate(0, h);
-          }
+          //g2Temp2.translate(0, h);
+          //}
         } finally {
           g2Temp2.dispose();
         }

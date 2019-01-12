@@ -51,7 +51,7 @@ import org.jebtk.modern.BorderService;
  * after parsing the XML theme files to prevent alterations during gui drawing
  * operations.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernTheme {

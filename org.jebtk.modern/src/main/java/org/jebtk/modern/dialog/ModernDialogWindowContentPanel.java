@@ -33,7 +33,7 @@ import org.jebtk.modern.panel.ModernPanel;
 /**
  * The default background look of a dialog.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogWindowContentPanel extends ModernPanel {

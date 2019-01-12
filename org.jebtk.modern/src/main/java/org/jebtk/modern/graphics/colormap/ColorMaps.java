@@ -46,7 +46,7 @@ import org.w3c.dom.Element;
  * Settings factory for providing global settings to an application. Can load
  * settings from an XML file or a text file.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ColorMaps extends NameListModel<ColorMap>

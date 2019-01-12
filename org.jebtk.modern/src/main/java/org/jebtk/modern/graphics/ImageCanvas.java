@@ -37,7 +37,7 @@ import org.jebtk.core.event.ChangeEvent;
  * Render child canvas as an image to improve display performance on the GUI of
  * complex shapes.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ImageCanvas extends ModernCanvas {

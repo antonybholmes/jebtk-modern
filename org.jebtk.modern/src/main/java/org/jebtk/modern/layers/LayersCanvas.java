@@ -38,7 +38,7 @@ import org.jebtk.modern.graphics.ModernCanvas;
  * A layer panel allows multiple graphical layers to be combined to form a
  * composite image. This makes it easier to generate complex plots.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class LayersCanvas extends ModernCanvas {

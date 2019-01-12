@@ -40,7 +40,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Shows animated balls to indicate something is happening.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernActivityBar2 extends ModernWidget {

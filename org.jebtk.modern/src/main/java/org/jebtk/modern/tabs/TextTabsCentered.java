@@ -34,7 +34,7 @@ import java.awt.Graphics2D;
  * Simple horizontal tabs using labels as buttons.
  * 
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class TextTabsCentered extends TextTabs {

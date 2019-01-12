@@ -39,7 +39,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Low height button for small form factor toolbar buttons.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernDialogTabButton extends ModernCheckButton {
 

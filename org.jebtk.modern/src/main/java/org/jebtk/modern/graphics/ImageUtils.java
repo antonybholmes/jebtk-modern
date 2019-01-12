@@ -207,7 +207,7 @@ public class ImageUtils {
 
 
   public static Graphics2D createAAGraphics(final Graphics g) {
-    return createAAGraphics(g);
+    return createAAGraphics(g, AAMode.AA);
   }
 
   /**

@@ -44,7 +44,7 @@ import org.jebtk.modern.AssetService;
  * enabled or disabled.
  * 
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernCollapseEnablePane extends ModernCollapsePane

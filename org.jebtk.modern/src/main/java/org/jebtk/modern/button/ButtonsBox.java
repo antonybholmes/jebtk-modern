@@ -40,7 +40,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Default layout for buttons in a dialog box.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ButtonsBox extends HBox {
 

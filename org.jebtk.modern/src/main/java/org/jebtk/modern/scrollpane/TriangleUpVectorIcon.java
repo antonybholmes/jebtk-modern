@@ -33,7 +33,7 @@ import java.awt.geom.GeneralPath;
 /**
  * Down arrow vector icon for combobox buttons etc.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class TriangleUpVectorIcon extends TriangleVectorIcon {

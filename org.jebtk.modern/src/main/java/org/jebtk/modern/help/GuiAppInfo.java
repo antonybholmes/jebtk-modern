@@ -34,7 +34,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Describes a product.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class GuiAppInfo extends AppInfo {

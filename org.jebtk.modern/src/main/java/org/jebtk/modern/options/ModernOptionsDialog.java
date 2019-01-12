@@ -60,7 +60,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * Allow users to look at and modify program settings.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernOptionsDialog extends ModernDialogTaskWindow

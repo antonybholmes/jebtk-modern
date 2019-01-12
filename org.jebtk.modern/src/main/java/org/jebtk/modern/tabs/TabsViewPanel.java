@@ -32,7 +32,7 @@ import javax.swing.border.Border;
 /**
  * Provides a tab container for boilerpoint displaying of tabbed content.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class TabsViewPanel extends ViewPanel implements TabEventListener {

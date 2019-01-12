@@ -33,7 +33,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Flat button for dialogs.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogFlatButton extends ModernDialogButton {

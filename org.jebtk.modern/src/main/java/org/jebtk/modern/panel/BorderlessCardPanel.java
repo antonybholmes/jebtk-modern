@@ -36,7 +36,7 @@ import org.jebtk.modern.theme.MaterialUtils;
 /**
  * A padded panel for displaying cards in the UI.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class BorderlessCardPanel extends ModernPanel {

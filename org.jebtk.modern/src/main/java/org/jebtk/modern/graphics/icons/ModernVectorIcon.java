@@ -40,7 +40,7 @@ import java.lang.reflect.InvocationTargetException;
  * This class contains multiple static icon constants that can be shared amongst
  * multiple classes.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernVectorIcon extends ModernIcon {

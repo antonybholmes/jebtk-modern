@@ -40,7 +40,7 @@ import org.jebtk.core.event.ChangeEvent;
  * an assignment. We further allow row and column association so that individual
  * cells do not need an object.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernData1DModel<T> extends ModernDataViewListeners {

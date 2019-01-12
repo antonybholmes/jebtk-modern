@@ -33,7 +33,7 @@ import org.jebtk.modern.list.ModernListCellRenderer;
 /**
  * Interface for list renderers. These assume the same data type within each row
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernHistoryListCellRenderer extends ModernListCellRenderer {

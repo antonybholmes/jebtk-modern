@@ -41,7 +41,7 @@ import org.jebtk.modern.zoom.ZoomCanvas;
  * Provides a flat look table renderer for the flat table although it can be
  * used with standard JTables as well.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDataCellRenderer extends ModernClickWidget {

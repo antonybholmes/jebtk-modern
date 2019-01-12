@@ -43,7 +43,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * selected and what the tree branching depth is. This forms the basis of
  * concrete implementations of renderers.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernCollapseNodeRenderer extends ModernWidget {
 

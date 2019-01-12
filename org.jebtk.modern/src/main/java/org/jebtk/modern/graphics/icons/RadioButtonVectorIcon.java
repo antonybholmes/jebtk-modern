@@ -36,7 +36,7 @@ import org.jebtk.modern.theme.RenderMode;
 /**
  * Radio version of a check box.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class RadioButtonVectorIcon extends ModernVectorScalableIcon {
 

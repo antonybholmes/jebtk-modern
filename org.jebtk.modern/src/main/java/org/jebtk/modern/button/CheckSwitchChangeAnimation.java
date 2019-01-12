@@ -18,7 +18,6 @@ package org.jebtk.modern.button;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.animation.FadeAnimation;
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateListener;
@@ -32,26 +31,23 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class CheckSwitchChangeAnimation extends TranslateXAnimation {
   private ModernCheckSwitch mButton;
+  private Color mColor;
 
-  private FadeAnimation mFade;
+  //private FadeAnimation mFade;
 
-  public CheckSwitchChangeAnimation(ModernWidget button) {
-    this(button, button.getFromKeyFrame().getColor("color"),
-        button.getToKeyFrame().getColor("color"));
+
+  public CheckSwitchChangeAnimation(ModernWidget widget) {
+    this(widget, widget.getToKeyFrame().getColor("background-color"));
   }
 
-  /**
-   * Instantiates a new state animation.
-   *
-   * @param ribbon the ribbon
-   */
-  public CheckSwitchChangeAnimation(ModernWidget button, Color color1,
-      Color color2) {
-    super(button);
+  public CheckSwitchChangeAnimation(ModernWidget widget, Color color) {
+    super(widget);
 
-    mButton = (ModernCheckSwitch) button;
+    mColor = color;
 
-    mFade = new FadeAnimation(button).setFadeColor("fill", color1, color2);
+    mButton = (ModernCheckSwitch) widget;
+
+    //mFade = new FadeAnimation(button).setFadeColor("fill", color1, color2);
 
     // Animation should be triggered on a state change and not a click
     // event since we want the button to respond to setSelected events.
@@ -93,21 +89,25 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
     int h = widget.getHeight();
     int y1 = (h - s) / 2;
 
-    g2.setColor(Color.WHITE);
-    g2.fillOval(0, y1, s, s);
+   
 
     if (mButton.isSelected()) {
-      g2.setColor(mFade.getToColor("fill"));
-      // g2.fillOval(0, y1, s, s);
-      // g2.drawOval(0, y1, s, s);
+      int w = s - ModernCheckSwitch.SWITCH_MARGIN_2X;
+      g2.setColor(Color.WHITE);
+      g2.fillOval(ModernCheckSwitch.SWITCH_MARGIN, y1 + ModernCheckSwitch.SWITCH_MARGIN, w, w);
+      
     } else {
+      g2.setColor(Color.WHITE);
+      g2.fillOval(0, y1, s, s);
+      g2.setColor(widget.getFromKeyFrame().getColor("border-color"));
+      g2.drawOval(0, y1, s, s);
       // g2.setColor(Color.WHITE);
       // g2.fillOval(0, y1, s, s);
-      g2.setColor(mFade.getFromColor("fill"));
+      //g2.setColor(mFade.getFromColor("fill"));
       // g2.drawOval(0, y1, s, s);
     }
 
-    //g2.drawOval(0, y1, s, s);
+    
 
     // g2.setColor(Color.WHITE);
     // g2.fillOval(0, y1, s, s);

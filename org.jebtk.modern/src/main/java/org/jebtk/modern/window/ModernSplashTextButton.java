@@ -38,7 +38,7 @@ import org.jebtk.modern.button.ModernButton;
  * A Simple transparent button for splash screens that highlights the button
  * text when the mouse floats over it.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernSplashTextButton extends ModernButton {

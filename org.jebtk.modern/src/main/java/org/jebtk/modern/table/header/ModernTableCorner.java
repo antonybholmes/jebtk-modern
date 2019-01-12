@@ -37,7 +37,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Paints the corner of a table.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernTableCorner extends ModernWidget {
 

@@ -40,7 +40,7 @@ import org.jebtk.modern.theme.DrawUIService;
  * Large radio button for selecting from options. Designed to be more graphical
  * than a radio button.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonChoiceButton extends ModernRadioButton {

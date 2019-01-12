@@ -41,7 +41,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Adds a border around text boxes so they are more visible to the user.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernTextBorderPanel extends ModernWidget
     implements TextProperty {
@@ -193,7 +193,7 @@ public class ModernTextBorderPanel extends ModernWidget
 
   @Override
   public void drawAnimatedBackground(Graphics2D g2) {
-    DrawUIService.getInstance().getRenderer("content-box").draw(g2, mRect);
+    DrawUIService.getInstance().getRenderer("content-box").draw(g2, this, mRect);
 
     super.drawAnimatedBackground(g2);
   }

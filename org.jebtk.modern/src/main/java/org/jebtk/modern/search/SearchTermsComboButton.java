@@ -40,7 +40,7 @@ import org.jebtk.modern.menu.ModernScrollPopupMenu;
 /**
  * Specialised combobox for showing selecting search criteria.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class SearchTermsComboButton extends ModernDropDownMenuComboButton
     implements SearchTermEventListener {

@@ -36,7 +36,7 @@ import org.jebtk.modern.graphics.ImageUtils;
 /**
  * Search vector icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SearchVectorIcon extends ModernVectorIcon {

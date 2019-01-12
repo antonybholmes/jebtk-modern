@@ -36,7 +36,7 @@ import java.awt.image.BufferedImage;
  * The basis for rendering a component as an image so it does not waste time
  * rendering drawing primitives on each refresh.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernWidgetBufferedImage {
 

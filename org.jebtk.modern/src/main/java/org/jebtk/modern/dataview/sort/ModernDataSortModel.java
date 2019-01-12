@@ -35,7 +35,7 @@ import java.util.Map;
  * specific columns to have independent sorters for example if one sortIndex is
  * known to contain only numbers.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDataSortModel {

@@ -23,7 +23,7 @@ import org.jebtk.core.text.TextUtils;
 /**
  * Shows a suggestion of what to type before deleting it as the user selects it.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SuggestionTextBox extends ModernClipboardTextField

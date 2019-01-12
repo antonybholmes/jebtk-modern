@@ -37,7 +37,7 @@ import org.jebtk.modern.event.ModernClickListener;
  * Used as a listener to respond to a click in the window menu to activate a
  * window.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class WindowRegistryListener implements ModernClickListener {

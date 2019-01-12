@@ -34,7 +34,7 @@ import javax.swing.Box;
 /**
  * Horizontal box that centers whatever components are added to it.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class VCenterBox extends VBox {

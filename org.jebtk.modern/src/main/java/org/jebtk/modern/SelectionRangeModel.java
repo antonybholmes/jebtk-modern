@@ -40,7 +40,7 @@ import org.jebtk.modern.event.ModernSelectionListeners;
  * ModernSelection model to determine which rows are selected in a list, table,
  * tree etc.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SelectionRangeModel extends ModernSelectionListeners

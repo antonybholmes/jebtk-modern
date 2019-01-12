@@ -37,7 +37,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Represents a non closable tab.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class HTab extends ModernComponent {
 

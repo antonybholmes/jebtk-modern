@@ -49,7 +49,7 @@ import org.jebtk.modern.graphics.icons.ModernVectorIcon;
 /**
  * Allows data from a JAR to be loaded into memory.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class AssetService {

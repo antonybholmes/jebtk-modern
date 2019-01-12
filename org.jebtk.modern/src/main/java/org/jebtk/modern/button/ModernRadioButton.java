@@ -42,7 +42,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Radio version of a check box.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernRadioButton extends ModernTwoStateWidget {
 

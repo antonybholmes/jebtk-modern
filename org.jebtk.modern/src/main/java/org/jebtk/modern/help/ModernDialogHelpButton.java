@@ -35,7 +35,7 @@ import org.jebtk.modern.button.ModernUrlTextLink;
 /**
  * Provide help in dialogs.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogHelpButton extends ModernUrlTextLink {

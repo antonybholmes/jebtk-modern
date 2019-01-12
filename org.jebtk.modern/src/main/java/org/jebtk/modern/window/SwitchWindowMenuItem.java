@@ -33,7 +33,7 @@ import org.jebtk.modern.menu.ModernCheckBoxMenuItem;
 /**
  * Specialized menu item for switching between windows.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SwitchWindowMenuItem extends ModernCheckBoxMenuItem {

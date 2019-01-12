@@ -34,7 +34,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Simulates a hyperlink using a button.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernCheckLinkButton extends ModernCheckButton {

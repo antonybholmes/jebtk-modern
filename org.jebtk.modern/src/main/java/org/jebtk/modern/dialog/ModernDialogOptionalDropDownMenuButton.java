@@ -38,7 +38,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * Replacement ModernButton with a common skin.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogOptionalDropDownMenuButton

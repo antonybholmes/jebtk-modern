@@ -42,7 +42,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * Standardized dialog window for dialogs that have buttons along the bottom
  * such as OK and Cancel for when user is performing a task.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class WindowIconTabs {

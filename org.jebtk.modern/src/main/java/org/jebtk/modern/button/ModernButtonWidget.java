@@ -36,7 +36,7 @@ import org.jebtk.modern.widget.ModernClickWidget;
  * Provides the basic functionality of a button and some rendering, but does not
  * provide a concrete implementation of the button.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernButtonWidget extends ModernClickWidget

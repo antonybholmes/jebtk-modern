@@ -60,7 +60,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * allowing the lists to be shared amongst multiple windows/apps in the same
  * process.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RecentFilesService extends RecentFilesModel {

@@ -34,7 +34,7 @@ import org.jebtk.modern.graphics.icons.FolderVectorIcon;
 /**
  * Standard renderer that displays parents as folders and leaves as file icons.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class TreeNodeFileCountRenderer extends TreeIconNodeCountRenderer {

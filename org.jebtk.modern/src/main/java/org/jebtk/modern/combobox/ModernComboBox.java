@@ -366,6 +366,7 @@ public class ModernComboBox extends ModernDropDownWidget
 
     addStyleClass("dialog-button");
     addStyleClass("content-outline");
+    addStyleClass("content-box");
     setAnimations("combobox", "button-outline");
   }
 

@@ -38,7 +38,7 @@ import org.jebtk.modern.event.ModernSelectionListeners;
 /**
  * A 2D selection model for coping with row and column selections.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDataCellsSelectionModel extends ModernSelectionListeners

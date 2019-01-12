@@ -43,7 +43,7 @@ import org.jebtk.modern.list.ModernListIconCellRenderer;
 /**
  * Renders a file as a list item.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernListFileRenderer extends ModernListIconCellRenderer {

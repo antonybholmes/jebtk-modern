@@ -37,7 +37,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Provides a layout panel with side padding.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernPaddedPanel extends ModernWidget {
 

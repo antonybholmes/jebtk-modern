@@ -41,7 +41,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Specialised popup for displaying menus.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernPopupMenu extends ModernPopup {
 

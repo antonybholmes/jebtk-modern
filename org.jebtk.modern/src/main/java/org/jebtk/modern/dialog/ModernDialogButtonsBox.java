@@ -33,7 +33,7 @@ import org.jebtk.modern.button.ButtonsBox;
 /**
  * Default layout for buttons in a dialog box.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernDialogButtonsBox extends ButtonsBox {
 

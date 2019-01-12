@@ -37,7 +37,7 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
 /**
  * A controller view of the tabs i.e. handles user input.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class TabsController extends ModernFocusableWidget

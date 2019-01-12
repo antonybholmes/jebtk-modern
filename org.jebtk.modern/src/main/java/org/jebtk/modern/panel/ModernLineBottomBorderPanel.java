@@ -41,7 +41,7 @@ import org.jebtk.modern.UI;
 /**
  * Replacement ModernButton with a common skin.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernLineBottomBorderPanel extends ModernComponent {

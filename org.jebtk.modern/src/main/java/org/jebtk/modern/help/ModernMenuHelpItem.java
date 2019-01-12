@@ -44,7 +44,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Provide help in dialogs.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernMenuHelpItem extends ModernIconMenuItem {

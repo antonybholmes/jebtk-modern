@@ -30,7 +30,7 @@ package org.jebtk.modern;
 /**
  * Standardized way for launching an application.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface Launcher {

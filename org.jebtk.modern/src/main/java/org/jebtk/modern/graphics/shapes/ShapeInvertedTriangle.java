@@ -32,7 +32,7 @@ import java.awt.Polygon;
 /**
  * Create a triangle centered on x, y.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ShapeInvertedTriangle extends Polygon {

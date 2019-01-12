@@ -53,7 +53,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * Settings factory for providing global settings to an application. Can load
  * settings from an XML file or a text file.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ColorMapService extends ColorMaps {

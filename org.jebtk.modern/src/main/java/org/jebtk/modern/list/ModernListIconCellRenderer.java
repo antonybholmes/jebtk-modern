@@ -42,7 +42,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * Provides a flat look table renderer for the flat table although it can be
  * used with standard JTables as well.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernListIconCellRenderer extends ModernListCellRenderer

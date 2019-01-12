@@ -398,7 +398,7 @@ public class ThemeService extends ModernTheme {
   /**
    * Creates a set of graded theme colors.
    * 
-   * @author Antony Holmes Holmes
+   * @author Antony Holmes
    *
    */
   public static class ThemeColors {

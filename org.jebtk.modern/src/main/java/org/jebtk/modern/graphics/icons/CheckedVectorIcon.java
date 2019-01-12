@@ -34,7 +34,7 @@ import org.jebtk.modern.theme.DrawUIService;
 /**
  * Check vector icon optimized for 16 pixel icons.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class CheckedVectorIcon extends UnCheckedVectorIcon {

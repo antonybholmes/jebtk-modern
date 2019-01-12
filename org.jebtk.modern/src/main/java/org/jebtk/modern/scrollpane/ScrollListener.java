@@ -5,7 +5,7 @@ import java.util.EventListener;
 /**
  * Listen for scroll events
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface ScrollListener extends EventListener {

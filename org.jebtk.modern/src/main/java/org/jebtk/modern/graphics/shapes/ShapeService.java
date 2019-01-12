@@ -37,7 +37,7 @@ import org.jebtk.core.collections.IterMap;
 /**
  * Cache geometric shapes for drawing.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ShapeService {

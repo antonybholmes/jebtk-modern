@@ -32,30 +32,27 @@ import java.io.IOException;
 import java.nio.file.Path;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.math.matrix.MatrixAnnotations;
 
 // TODO: Auto-generated Javadoc
 /**
  * Provides an underlying model of tabular data for the control. This model
  * controls content whereas the dataview and other models control presentation.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
-public abstract class ModernDataModel
-    implements ModernDataViewEventProducer, MatrixAnnotations {
+public abstract class ModernDataModel implements ModernDataViewEventProducer {
 
   /**
    * The member listeners.
    */
   private ModernDataViewListeners mListeners = new ModernDataViewListeners();
+
 
   /**
    * Gets the row count.
@@ -63,7 +60,6 @@ public abstract class ModernDataModel
    * @return the row count
    */
   public abstract int getRowCount();
-
   /**
    * Gets the column count.
    *
@@ -88,6 +84,14 @@ public abstract class ModernDataModel
    */
   public Object getValueAt(ModernDataCell cell) {
     return getValueAt(cell.row, cell.col);
+  }
+
+  public String getColumnName(int col) {
+    return TextUtils.EMPTY_STRING;
+  }
+  
+  public String getRowName(int row) {
+    return TextUtils.EMPTY_STRING;
   }
 
   /**
@@ -466,100 +470,7 @@ public abstract class ModernDataModel
     return TextUtils.parseDouble(getValueAsString(row, column));
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.math.matrix.MatrixAnnotations#getRowName(int)
-   */
-  @Override
-  public final String getRowName(int row) {
-    List<String> names = getRowAnnotationText(row);
 
-    if (!names.isEmpty()) {
-      return names.get(0);
-    } else {
-      return null;
-    }
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.math.matrix.MatrixAnnotations#getRowAnnotationNames()
-   */
-  @Override
-  public List<String> getRowAnnotationNames() {
-    return Collections.emptyList();
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.math.matrix.MatrixAnnotations#getColumnName(int)
-   */
-  @Override
-  public String getColumnName(int column) {
-    List<String> names = getColumnAnnotationText(column);
-
-    if (!CollectionUtils.isNullOrEmpty(names)) {
-      return names.get(0);
-    } else {
-      return TextUtils.EMPTY_STRING;
-    }
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.math.matrix.MatrixAnnotations#getColumnAnnotationNames()
-   */
-  @Override
-  public List<String> getColumnAnnotationNames() {
-    return Collections.emptyList();
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.math.matrix.MatrixAnnotations#getColumnAnnotationValues(int)
-   */
-  @Override
-  public List<Double> getColumnAnnotationValues(int column) {
-    return Collections.emptyList();
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.math.matrix.MatrixAnnotations#getColumnAnnotationText(int)
-   */
-  @Override
-  public List<String> getColumnAnnotationText(int column) {
-    return Collections.emptyList();
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.math.matrix.MatrixAnnotations#getRowAnnotationValues(int)
-   */
-  @Override
-  public List<Double> getRowAnnotationValues(int row) {
-    return Collections.emptyList();
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.math.matrix.MatrixAnnotations#getRowAnnotationText(int)
-   */
-  @Override
-  public List<String> getRowAnnotationText(int row) {
-    return Collections.emptyList();
-  }
 
   //
   // Static methods
@@ -616,26 +527,21 @@ public abstract class ModernDataModel
     BufferedWriter writer = FileUtils.newBufferedWriter(file);
 
     try {
-      if (model.getColumnAnnotationNames() != null) {
-
-        if (model.getRowAnnotationNames() != null) {
-          writer.write(
-              TextUtils.emptyCells(model.getRowAnnotationNames().size()));
-        }
-
-        for (int i = 0; i < model.getColCount(); ++i) {
+      for (int i = 0; i < model.getColCount(); ++i) {
+        if (i > 0) {
           writer.write(TextUtils.TAB_DELIMITER);
-          writer.write(model.getColumnName(i));
         }
-
-        writer.newLine();
+        
+        writer.write(model.getColumnName(i));
       }
+
+      writer.newLine();
 
       for (int i = 0; i < model.getRowCount(); ++i) {
         for (int j = 0; j < model.getColCount(); ++j) {
           writer.write(model.getValueAsString(i, j)); // != null ?
-                                                      // model.getValueAt(i,
-                                                      // j).toString() : "";
+          // model.getValueAt(i,
+          // j).toString() : "";
 
           if (j < model.getColCount() - 1) {
             writer.write(TextUtils.TAB_DELIMITER);
@@ -648,5 +554,6 @@ public abstract class ModernDataModel
       writer.close();
     }
   }
+  
 
 }

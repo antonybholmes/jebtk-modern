@@ -39,7 +39,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Clickable button that launches a web browser to display a URL.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernUrlLinkButton extends ModernLinkButton {

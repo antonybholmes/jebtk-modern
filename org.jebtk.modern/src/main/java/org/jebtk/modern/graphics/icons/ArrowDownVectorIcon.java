@@ -34,7 +34,7 @@ import java.awt.geom.GeneralPath;
 /**
  * Download arrow vector icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ArrowDownVectorIcon extends ArrowVectorIcon {

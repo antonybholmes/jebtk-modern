@@ -35,7 +35,7 @@ import org.jebtk.modern.graphics.icons.ModernVectorScalableIcon;
 /**
  * Left arrow vector icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonModeVectorIcon extends ModernVectorScalableIcon {

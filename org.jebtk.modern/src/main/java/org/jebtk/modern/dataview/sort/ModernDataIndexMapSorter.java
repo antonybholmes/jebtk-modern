@@ -39,7 +39,7 @@ import org.jebtk.modern.dataview.ModernData;
  * The data sorter provides a mapping between an index and a sorted index so
  * that a dataview can arbitrary reorder a data model (e.g. sort all columns).
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernDataIndexMapSorter extends ModernDataIndexSorter {

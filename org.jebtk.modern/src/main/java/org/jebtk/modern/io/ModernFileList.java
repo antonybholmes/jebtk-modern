@@ -34,7 +34,7 @@ import org.jebtk.modern.list.ModernList;
 /**
  * Default file list with appropriate display.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernFileList extends ModernList<Path> {

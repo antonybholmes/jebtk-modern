@@ -41,7 +41,7 @@ import org.jebtk.core.event.ChangeListeners;
  * Allows sort objects to be shared between entities that control how samples
  * and experiments are sorted.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class SortModel<T extends NameProperty> extends ChangeListeners

@@ -39,7 +39,7 @@ import org.jebtk.modern.panel.ModernGradientPanel;
 /**
  * Standard gradient panel for main ui window.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class DialogGradientPanel extends ModernGradientPanel {

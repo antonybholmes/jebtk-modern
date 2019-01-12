@@ -33,7 +33,7 @@ import org.jebtk.modern.panel.HBox;
 /**
  * Zoom slider for status bar.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernStatusZoomSlider extends HBox {
 

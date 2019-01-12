@@ -22,7 +22,7 @@ import org.jebtk.modern.UI;
 /**
  * Generic control drop down button. Provides the basic button UI
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ControlDropDownButton

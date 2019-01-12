@@ -34,7 +34,7 @@ import org.jebtk.modern.help.GuiAppInfo;
 /**
  * For displaying a splash screen.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernSplashWindow2 extends ModernWindow {

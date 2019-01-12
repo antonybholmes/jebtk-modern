@@ -31,7 +31,7 @@ package org.jebtk.modern;
 /**
  * The component contains an accessible selection model.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface SelectionModelComponent {

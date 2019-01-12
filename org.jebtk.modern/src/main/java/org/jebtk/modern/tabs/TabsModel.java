@@ -38,7 +38,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Provides a centralized model for controlling tabs on a multi-tab display.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class TabsModel extends TabEventListeners implements Iterable<Tab> {

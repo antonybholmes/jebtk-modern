@@ -34,7 +34,7 @@ import org.jebtk.core.Mathematics;
 /**
  * Create a diamond centered on x, y.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ShapePentagon extends Polygon {
 

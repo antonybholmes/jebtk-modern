@@ -45,7 +45,7 @@ import org.xml.sax.SAXException;
  * allowing the lists to be shared amongst multiple windows/apps in the same
  * process.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class PwdModel extends ChangeListeners {

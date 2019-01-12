@@ -36,7 +36,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Display current zoom settings.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernZoomLabel extends ModernAutoSizeLabel {

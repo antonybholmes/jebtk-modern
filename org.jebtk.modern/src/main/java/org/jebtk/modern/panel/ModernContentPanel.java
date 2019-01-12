@@ -40,7 +40,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * The default look of the background.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernContentPanel extends ModernComponent {
 
@@ -56,6 +56,8 @@ public class ModernContentPanel extends ModernComponent {
    */
   public ModernContentPanel(Component c) {
     super(new ModernComponent(c, ModernWidget.DOUBLE_BORDER));
+    
+    init();
   }
 
   /**
@@ -67,12 +69,18 @@ public class ModernContentPanel extends ModernComponent {
    */
   public ModernContentPanel(ModernScrollPane c, int w, int h) {
     this(c);
+    
+    init();
 
     UI.setSize(this, w, h);
+  }
+  
+  private void init() {
+    addStyleClass("content-box");
   }
 
   @Override
   public void drawBackground(Graphics2D g2) {
-    DrawUIService.getInstance().getRenderer("content-box").draw(g2, mRect);
+    DrawUIService.getInstance().getRenderer("content-box").draw(g2, this, mRect);
   }
 }

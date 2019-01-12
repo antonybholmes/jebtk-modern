@@ -39,7 +39,7 @@ import org.jebtk.core.Mathematics;
 /**
  * Slider with an orb button and plus minus controls.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class OrbSlider extends SteppedSlider {

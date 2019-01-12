@@ -35,7 +35,7 @@ import org.jebtk.core.event.ChangeListeners;
 /**
  * For widgets that change values.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernChangeWidget extends ModernClickWidget

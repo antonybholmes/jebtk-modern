@@ -39,7 +39,7 @@ import org.jebtk.core.tree.TreeNode;
  * The experiment tree can be sorted in multiple ways. Given a list of
  * experiments and a tree, generate a custom sorted tree of experiments.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public abstract class ModernTreeNodeSorter<T>

@@ -39,7 +39,7 @@ import org.jebtk.modern.theme.ModernTheme;
 /**
  * Provides similar functionality to the JTable.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernRowTable extends ModernTable {

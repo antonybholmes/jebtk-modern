@@ -30,7 +30,7 @@ package org.jebtk.modern.text;
 /**
  * For components that can have a string property.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface TextProperty {

@@ -37,7 +37,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Replacement ModernButton with a common skin.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogMutliOptionPanel extends ModernPanel {

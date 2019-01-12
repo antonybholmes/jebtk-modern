@@ -35,7 +35,7 @@ import org.jebtk.modern.graphics.ModernCanvas;
  * Draws a layer on a layer canvas when directed. The LayerModel dictates if the
  * layer gets draw or not.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class LayerCanvas extends ModernCanvas {

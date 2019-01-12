@@ -37,7 +37,7 @@ import org.jebtk.core.Mathematics;
 /**
  * Horizonal split pane i.e. add a vertical line between two panels.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class HSplitPane extends SplitPane {

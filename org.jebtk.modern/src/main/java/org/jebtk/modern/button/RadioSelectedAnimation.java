@@ -56,7 +56,7 @@ public class RadioSelectedAnimation extends ButtonFillAnimation {
      * w2 = w - 2; g2.drawOval(x + 1, y + 1, w2, w2);
      */
 
-    g2.setColor(getFromColor("fill"));
+    g2.setColor(getToColor("fill"));
     g2.fillOval(x, y, w, w);
 
     int w2 = w - 10;

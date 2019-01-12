@@ -40,7 +40,7 @@ import org.jebtk.math.Linspace;
 /**
  * Basic features of a slider control that jumps from step to step.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class SteppedSlider extends Slider {

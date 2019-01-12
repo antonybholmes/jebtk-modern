@@ -30,7 +30,7 @@ package org.jebtk.modern.tabs;
 /**
  * For classes that generate ModernClickEvents.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public interface TabEventProducer {
 

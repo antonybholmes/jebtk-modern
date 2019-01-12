@@ -36,7 +36,7 @@ import org.jebtk.modern.graphics.ImageUtils;
 /**
  * Creates a transparent icon from an existing rastorizable icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class TransIcon extends ModernIcon {
 

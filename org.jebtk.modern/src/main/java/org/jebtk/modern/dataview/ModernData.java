@@ -56,7 +56,7 @@ import org.jebtk.modern.zoom.ZoomModel;
 /**
  * Represents a UI view onto a data model (a row/col matrix of data).
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernData extends ZoomCanvas implements
@@ -185,7 +185,7 @@ public abstract class ModernData extends ZoomCanvas implements
   /**
    * If the user scrolls, stop all editing.
    * 
-   * @author Antony Holmes Holmes
+   * @author Antony Holmes
    *
    */
   private class CanvasEvents extends CanvasAdapter {

@@ -122,7 +122,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * This class contains multiple static icon constants that can be shared amongst
  * multiple classes.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T>
  *
  */
@@ -336,7 +336,7 @@ public class AnimationService {
       try {
         Constructor<?> cons = c.getConstructor(ModernWidget.class);
 
-        // System.err.println("Creating animation " + c);
+        //System.err.println("Creating animation " + c);
 
         animation = (WidgetAnimation) cons.newInstance(widget);
 

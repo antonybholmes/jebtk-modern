@@ -25,7 +25,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * A hyperlink style text link.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernTextLink extends ModernLinkButton {

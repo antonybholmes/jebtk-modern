@@ -60,7 +60,7 @@ import org.jebtk.modern.window.WindowMover;
 /**
  * Ribbon menu system.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonFileMenu extends ModernClickWidget

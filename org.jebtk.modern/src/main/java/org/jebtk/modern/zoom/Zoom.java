@@ -30,7 +30,7 @@ package org.jebtk.modern.zoom;
 /**
  * Standard methods that controls supporting zoom should implement.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface Zoom {

@@ -34,7 +34,7 @@ import java.awt.geom.GeneralPath;
 /**
  * Vector based save icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class QuickOpenVectorIcon extends ModernVectorIcon {

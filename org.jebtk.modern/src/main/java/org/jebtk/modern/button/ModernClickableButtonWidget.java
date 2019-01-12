@@ -41,7 +41,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * Provides a clickable button widget with highlighting but does not provide the
  * rest of the gui.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public abstract class ModernClickableButtonWidget extends ModernButtonWidget {
 

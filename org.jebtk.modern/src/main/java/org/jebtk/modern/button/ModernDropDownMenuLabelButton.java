@@ -44,7 +44,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * Drop down without highlighting; just shows the selection text and the drop
  * down arrow.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDropDownMenuLabelButton extends ModernDropDownWidget {

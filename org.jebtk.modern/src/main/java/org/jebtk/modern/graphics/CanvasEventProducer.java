@@ -32,7 +32,7 @@ import org.jebtk.core.event.ChangeEvent;
 /**
  * Generate canvas events.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface CanvasEventProducer {

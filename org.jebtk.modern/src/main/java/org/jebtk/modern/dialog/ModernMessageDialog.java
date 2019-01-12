@@ -53,7 +53,7 @@ import org.jebtk.modern.window.WindowWidgetFocusEvents;
 /**
  * Show a message dialog to the user.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernMessageDialog extends ModernDialogTaskWindow {

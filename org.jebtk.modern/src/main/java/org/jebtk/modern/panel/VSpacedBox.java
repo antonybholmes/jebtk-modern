@@ -24,7 +24,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * A vertical box that automatically adds a space between components. Can be
  * used to quickly create simple tool bars.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class VSpacedBox extends VBox {

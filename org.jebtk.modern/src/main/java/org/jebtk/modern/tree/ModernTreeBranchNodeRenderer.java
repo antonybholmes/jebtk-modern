@@ -39,7 +39,7 @@ import org.jebtk.modern.graphics.icons.RasterIcon;
  * selected and what the tree branching depth is. This forms the basis of
  * concrete implementations of renderers.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public abstract class ModernTreeBranchNodeRenderer

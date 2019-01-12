@@ -59,7 +59,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernScrollBar extends ModernWidget
@@ -308,7 +308,7 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * Increments vertical scroll, should only be used by a timer.
    *
-   * @author Antony Holmes Holmes
+   * @author Antony Holmes
    *
    */
   private class IncrementScroll implements ActionListener {

@@ -5,7 +5,7 @@ import org.jebtk.core.event.EventProducer;
 /**
  * Listen for scroll events and forward to listeners.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ScrollListeners extends EventProducer<ScrollListener>

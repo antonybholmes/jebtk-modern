@@ -17,8 +17,6 @@ package org.jebtk.modern.dataview;
 
 import java.util.List;
 
-import org.jebtk.core.collections.CollectionUtils;
-
 /**
  * The Class ModernDataRowFilterModel.
  */
@@ -84,62 +82,10 @@ public class ModernDataRowFilterModel extends ModernDataModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.dataview.ModernDataModel#getRowAnnotationText(int)
+   * @see org.abh.common.ui.dataview.ModernDataModel#getColumns().getNames()
    */
   @Override
-  public List<String> getRowAnnotationText(int row) {
-    return mModel.getRowAnnotationText(mRows.get(row));
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.dataview.ModernDataModel#getRowAnnotationValues(int)
-   */
-  @Override
-  public List<Double> getRowAnnotationValues(int row) {
-    return mModel.getRowAnnotationValues(mRows.get(row));
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.math.matrix.MatrixAnnotations#getRowAnnotationNames()
-   */
-  @Override
-  public List<String> getRowAnnotationNames() {
-    return CollectionUtils.subList(mModel.getRowAnnotationNames(), mRows);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.ui.dataview.ModernDataModel#getColumnAnnotationText(int)
-   */
-  @Override
-  public List<String> getColumnAnnotationText(int column) {
-    return mModel.getColumnAnnotationText(column);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.ui.dataview.ModernDataModel#getColumnAnnotationValues(int)
-   */
-  @Override
-  public List<Double> getColumnAnnotationValues(int column) {
-    return mModel.getColumnAnnotationValues(column);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.dataview.ModernDataModel#getColumnAnnotationNames()
-   */
-  @Override
-  public List<String> getColumnAnnotationNames() {
-    return mModel.getColumnAnnotationNames();
+  public String getColumnName(int col) {
+    return mModel.getColumnName(col);
   }
 }

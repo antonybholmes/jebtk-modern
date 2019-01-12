@@ -39,7 +39,7 @@ import org.jebtk.modern.theme.ThemeService;
  * Creates a large roundel button to indicate user should press it to do
  * something.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernRoundelButton extends ModernButton {

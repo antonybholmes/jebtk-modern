@@ -22,7 +22,7 @@ import org.jebtk.modern.graphics.icons.CheveronUpVectorIcon;
 /**
  * Button to allow users to hide the ribbon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonHideButton extends RibbonButton {

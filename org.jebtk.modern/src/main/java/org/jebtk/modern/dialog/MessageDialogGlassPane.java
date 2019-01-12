@@ -51,7 +51,7 @@ import org.jebtk.modern.window.FrostedGlassPane;
  * Used as a glass pane to present messages to the user in the current window
  * rather than a popup dialog.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class MessageDialogGlassPane extends FrostedGlassPane
@@ -66,7 +66,7 @@ public class MessageDialogGlassPane extends FrostedGlassPane
    * Used as a glass pane to present messages to the user in the current window
    * rather than a popup dialog.
    * 
-   * @author Antony Holmes Holmes
+   * @author Antony Holmes
    *
    */
   private class MessageDialogPanel extends ModernPanel

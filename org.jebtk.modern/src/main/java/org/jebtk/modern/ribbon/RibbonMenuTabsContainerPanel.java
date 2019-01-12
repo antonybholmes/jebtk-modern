@@ -35,7 +35,7 @@ import org.jebtk.modern.tabs.TabsViewPanel;
 /**
  * Provides a sidebar with clickable tabs.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonMenuTabsContainerPanel extends TabsViewPanel {

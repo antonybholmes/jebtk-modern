@@ -33,7 +33,7 @@ import java.awt.Graphics2D;
 /**
  * Allow empty space to be inserted into figures.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class EmptyCanvas extends ModernCanvas {

@@ -49,7 +49,7 @@ import org.jebtk.modern.theme.ModernTheme;
  * Represents a button with a click action and an optional drop down menu
  * component.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
@@ -200,6 +200,8 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
     // addMouseListener(new MouseEvents());
     addMouseMotionListener(new MouseMotionEvents());
     addComponentListener(new ComponentEvents());
+    
+    addStyleClass("content-box");
   }
 
   /**
@@ -247,7 +249,7 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
       // getWidgetRenderer().drawButtonOutline(g2, rect, RenderMode.SELECTED);
       // getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
 
-      DrawUIService.getInstance().getRenderer("content-box").draw(g2, rect);
+      DrawUIService.getInstance().getRenderer("content-box").draw(g2, this, rect);
       DrawUIService.getInstance().getRenderer("button-outline").draw(g2, rect);
       DrawUIService.getInstance().getRenderer("button-fill")
           .draw(g2, x, y, w, h);
@@ -268,19 +270,19 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
   public void drawForegroundAA(Graphics2D g2) {
     if (mText1 != null) {
       int x = (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2;
-      int y = AssetService.ICON_SIZE_16;
+      int y = 16;
       g2.setColor(getForeground());
       g2.drawString(mText1, x, y);
     }
 
     if (this.getIcon() != null) {
-      int iconY = (getHeight() - AssetService.ICON_SIZE_16) / 2;
+      int iconY = (getHeight() - 16) / 2;
 
       getIcon().drawIcon(g2, PADDING, iconY, 16);
     }
 
     Rectangle subRect = new Rectangle(
-        getWidth() - getInsets().right - AssetService.ICON_SIZE_16, 0, 16,
+        getWidth() - getInsets().right - 16, 0, 16,
         getHeight());
 
     // UIService.getInstance().loadIcon(TriangleDownVectorIcon.class,

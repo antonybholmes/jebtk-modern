@@ -33,7 +33,7 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
 /**
  * Preloaded combobox for AND and OR.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class AndOrLogicalComboBox extends LogicalComboBox {
 

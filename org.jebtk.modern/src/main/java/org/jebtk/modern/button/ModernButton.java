@@ -41,7 +41,7 @@ import org.jebtk.modern.theme.ModernTheme;
 /**
  * Concrete implementation of a button which responds to click events.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernButton extends ModernClickableButtonWidget {
 

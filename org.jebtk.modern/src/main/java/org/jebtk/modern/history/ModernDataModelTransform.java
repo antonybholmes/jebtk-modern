@@ -32,7 +32,7 @@ import org.jebtk.modern.dataview.ModernDataModel;
 /**
  * Wrapper for providing a GUI to edit matrix transformations.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDataModelTransform {

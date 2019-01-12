@@ -33,7 +33,7 @@ import org.jebtk.core.event.ChangeEvent;
  * For classes that generate experiment sort events for when an experiment sort
  * changes.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface FilterEventProducer {

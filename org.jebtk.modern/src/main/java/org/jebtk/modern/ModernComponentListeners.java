@@ -35,7 +35,7 @@ import org.jebtk.core.event.EventProducer;
 /**
  * The basis for model controls in a model view controller setup.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernComponentListeners extends EventProducer<ComponentListener>

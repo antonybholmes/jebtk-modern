@@ -41,7 +41,7 @@ import org.jebtk.core.collections.IterMap;
  * control component look and feel and to ensure they share renderers as much as
  * possible.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class DrawUIService implements Iterable<String> {
@@ -72,6 +72,8 @@ public class DrawUIService implements Iterable<String> {
   private DrawUIService() {
     // Do nothing
 
+    add(new CardUI());
+    
     add(new ContentUI());
     add(new ContentBoxUI());
     add(new ContentOutlineUI());

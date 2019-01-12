@@ -39,7 +39,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * Represents a vector icon that can have its color and size specified. These
  * types of vector icons are designed to be scale invariant.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernMessageIcon extends ModernVectorScalableIcon {

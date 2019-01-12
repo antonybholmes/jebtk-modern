@@ -42,7 +42,7 @@ import org.xml.sax.helpers.DefaultHandler;
 /**
  * Provides a service of file filters for use in designing dialogs etc.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class FileFilterService implements Iterable<String> {

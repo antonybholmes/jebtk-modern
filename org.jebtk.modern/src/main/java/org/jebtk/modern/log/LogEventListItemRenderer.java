@@ -37,7 +37,7 @@ import org.jebtk.modern.list.ModernListIconCellRenderer;
 /**
  * Renders a list item with an icon and glossy selection.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class LogEventListItemRenderer extends ModernListIconCellRenderer {

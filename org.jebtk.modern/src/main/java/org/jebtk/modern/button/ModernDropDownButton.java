@@ -42,7 +42,7 @@ import org.jebtk.modern.theme.ModernTheme;
 /**
  * Drop down button that displays a menu.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDropDownButton extends ModernDropDownWidget {

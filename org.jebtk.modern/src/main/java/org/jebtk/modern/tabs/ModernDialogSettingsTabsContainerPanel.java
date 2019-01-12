@@ -32,7 +32,7 @@ import org.jebtk.modern.dialog.ModernDialogWindow;
 /**
  * Provides a sidebar with clickable tabs.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogSettingsTabsContainerPanel extends TabsViewPanel {

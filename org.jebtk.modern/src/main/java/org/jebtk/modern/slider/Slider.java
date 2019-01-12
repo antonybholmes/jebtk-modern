@@ -38,7 +38,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Basic features of a slider control without any ui elements.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class Slider extends ModernFocusableWidget

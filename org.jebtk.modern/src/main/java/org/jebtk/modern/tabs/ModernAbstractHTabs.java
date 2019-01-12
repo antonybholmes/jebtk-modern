@@ -45,7 +45,7 @@ import org.jebtk.modern.event.ModernClickListener;
 /**
  * Provides horizontal tabs along the top or bottom of the control.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernAbstractHTabs extends TabsController

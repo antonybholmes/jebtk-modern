@@ -38,7 +38,7 @@ import org.jebtk.modern.graphics.icons.ScaledRasterIcon;
 /**
  * Displays an image.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernImagePanel extends ModernComponent {

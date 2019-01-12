@@ -36,7 +36,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Check vector icon optimized for 16 pixel icons.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RoundedRectIcon extends ModernVectorScalableIcon {

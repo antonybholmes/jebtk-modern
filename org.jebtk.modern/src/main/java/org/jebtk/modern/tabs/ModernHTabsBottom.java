@@ -35,7 +35,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Provides horizontal tabs along the bottom of the control.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernHTabsBottom extends ModernWidget {

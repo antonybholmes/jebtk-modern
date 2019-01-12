@@ -38,7 +38,7 @@ import javax.swing.KeyStroke;
 /**
  * For widgets that can toggle between a selected and unselected state.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernTwoStateWidget extends ModernClickWidget {

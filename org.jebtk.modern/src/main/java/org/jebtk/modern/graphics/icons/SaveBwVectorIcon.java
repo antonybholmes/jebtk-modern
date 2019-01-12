@@ -32,7 +32,7 @@ import java.awt.Color;
 /**
  * Vector based save icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SaveBwVectorIcon extends SaveVectorIcon {

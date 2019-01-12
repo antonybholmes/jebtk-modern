@@ -55,7 +55,7 @@ import org.jebtk.modern.tooltip.ModernToolTipWidget;
 /**
  * Provides the foundation for all UI widgets but does not implement responses.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public abstract class ModernClickWidget extends ModernToolTipWidget
     implements ModernClickEventProducer, ModernStateEventProducer,
@@ -167,6 +167,12 @@ public abstract class ModernClickWidget extends ModernToolTipWidget
     setButtonStyle(ButtonStyle.BUTTON);
   }
 
+  /**
+   * Set the drawing style of the button.
+   * 
+   * @param style
+   * @return
+   */
   public ModernClickWidget setButtonStyle(ButtonStyle style) {
     switch (style) {
     case PILL:

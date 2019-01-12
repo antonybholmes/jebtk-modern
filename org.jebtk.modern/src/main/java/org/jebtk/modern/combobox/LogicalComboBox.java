@@ -38,7 +38,7 @@ import org.jebtk.modern.menu.ModernMenuDivider;
 /**
  * Preloaded combobox with logical stagements.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class LogicalComboBox extends ModernComboBox {
 

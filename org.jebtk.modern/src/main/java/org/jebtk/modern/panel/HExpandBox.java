@@ -24,7 +24,7 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
  * Create a hbox containing two components, one aligned left, the other aligned
  * right that expands to fill horizontal space.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class HExpandBox extends ModernComponent {

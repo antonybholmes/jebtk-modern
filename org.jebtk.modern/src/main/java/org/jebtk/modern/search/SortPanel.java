@@ -59,7 +59,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * Allows user to sort samples.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class SortPanel<T extends NameProperty> extends HBox

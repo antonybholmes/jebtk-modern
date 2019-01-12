@@ -37,7 +37,7 @@ import org.jebtk.modern.theme.DrawUIService;
 /**
  * Renders the icon as a checkbox.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernTreeCheckNodeRenderer extends TreeNodeFileRenderer {

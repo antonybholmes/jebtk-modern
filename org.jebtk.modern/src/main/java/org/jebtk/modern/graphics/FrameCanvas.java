@@ -35,7 +35,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Drawing panel that allows frames a drawing.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class FrameCanvas extends ContainerCanvas {

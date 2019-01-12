@@ -36,7 +36,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Default layout for buttons in a dialog box.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernDialogBorderButtonsBox extends ModernDialogButtonsBox {
 

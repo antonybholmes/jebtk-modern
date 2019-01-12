@@ -42,7 +42,7 @@ import org.jebtk.core.geom.IntRect;
  * zooming canvas might scale the draw canvas before presenting the image to the
  * UI.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ContainerCanvas extends ModernCanvas

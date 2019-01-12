@@ -36,7 +36,7 @@ import org.xml.sax.helpers.DefaultHandler;
  * Allows search terms to be loaded from an XML file. Each term is stored
  * between a <term></term> tag pair.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SearchTermsXmlHandler extends DefaultHandler {

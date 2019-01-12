@@ -33,7 +33,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * For adding quick access buttons to the ribbon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class QuickAccessButton extends ModernButton {

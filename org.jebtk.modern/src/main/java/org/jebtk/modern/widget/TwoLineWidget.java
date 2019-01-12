@@ -30,7 +30,7 @@ package org.jebtk.modern.widget;
 /**
  * Interface for buttons that display two lines of text.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface TwoLineWidget {

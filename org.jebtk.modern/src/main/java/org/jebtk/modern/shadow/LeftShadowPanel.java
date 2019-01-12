@@ -25,7 +25,7 @@ import org.jebtk.modern.theme.MaterialUtils;
 /**
  * For components on the left side, so draw shadowing on the right.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class LeftShadowPanel extends ShadowPanel {

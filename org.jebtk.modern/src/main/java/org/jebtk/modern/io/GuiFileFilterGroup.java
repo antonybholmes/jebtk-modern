@@ -38,7 +38,7 @@ import org.jebtk.core.stream.Stream;
 /**
  * A group of file filters.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class GuiFileFilterGroup extends GuiFileExtFilter

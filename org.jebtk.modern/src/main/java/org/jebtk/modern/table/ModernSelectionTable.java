@@ -18,7 +18,7 @@ package org.jebtk.modern.table;
 /**
  * Table for listing items with the option to select them with a checkbox.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernSelectionTable extends ModernRowTable {

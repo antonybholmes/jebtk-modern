@@ -34,7 +34,7 @@ import java.awt.Rectangle;
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernVScrollBarMac extends ModernVScrollBar {

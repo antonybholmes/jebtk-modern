@@ -37,7 +37,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Large format button for side tabs on ribbon panels.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonPanelSideTabsButton extends ModernCheckButton {

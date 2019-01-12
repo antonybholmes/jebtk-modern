@@ -40,7 +40,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Provides horizontal tabs along the top or bottom of the control.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernHTabBar extends TabsController

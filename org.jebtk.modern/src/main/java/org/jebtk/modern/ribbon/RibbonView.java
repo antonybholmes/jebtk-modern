@@ -37,7 +37,7 @@ import org.jebtk.modern.tabs.TabsModel;
  * The ribbon consists of one or more views. Each view contains the toolbars
  * associated with that view.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonView extends TabsModel {

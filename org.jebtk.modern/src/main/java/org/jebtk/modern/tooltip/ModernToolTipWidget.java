@@ -42,7 +42,7 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  * control will look for an underlying window that supports tool tips and send
  * tooltip events to this; however, this can be easily overridden if necessary.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernToolTipWidget extends ModernFocusableWidget

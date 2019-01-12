@@ -33,7 +33,7 @@ import java.awt.Graphics2D;
 /**
  * Draws the canvas over a colored background.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class BackgroundCanvas extends ContainerCanvas {

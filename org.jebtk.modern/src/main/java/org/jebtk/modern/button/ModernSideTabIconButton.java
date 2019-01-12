@@ -36,7 +36,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Concrete implementation of a button which responds to click events.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernSideTabIconButton extends ModernButton {
 

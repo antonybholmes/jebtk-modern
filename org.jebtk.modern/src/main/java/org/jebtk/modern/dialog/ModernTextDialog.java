@@ -38,7 +38,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * Simple dialog for displaying non-editable text to a user.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernTextDialog extends ModernDialogTaskWindow

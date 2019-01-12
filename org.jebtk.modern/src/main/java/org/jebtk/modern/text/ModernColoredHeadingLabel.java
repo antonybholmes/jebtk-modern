@@ -35,7 +35,7 @@ import org.jebtk.modern.theme.ThemeService;
  * Colored header using an appropriate color from the theme palette e.g. Dark
  * blue for the blue theme, dark green for the green theme.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernColoredHeadingLabel extends ModernHeadingLabel {

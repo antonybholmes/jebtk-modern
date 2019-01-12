@@ -46,7 +46,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Functions for creating and saving files.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class FileDialog {

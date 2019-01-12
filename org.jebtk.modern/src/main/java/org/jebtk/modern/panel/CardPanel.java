@@ -37,7 +37,7 @@ import org.jebtk.modern.ModernComponent;
 /**
  * A padded panel for displaying cards in the UI.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class CardPanel extends ModernComponent {

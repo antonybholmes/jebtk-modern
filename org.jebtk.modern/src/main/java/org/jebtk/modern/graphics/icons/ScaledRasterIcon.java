@@ -36,7 +36,7 @@ import org.jebtk.modern.graphics.ImageUtils;
  * Rastorizes an icon (for example a vector based on) to reduce drawing
  * overhead.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ScaledRasterIcon extends ModernIcon {
 

@@ -53,7 +53,7 @@ import org.jebtk.modern.widget.ModernVertWidget;
  * Specialized implementation of a data grid that shows items in a one column
  * list.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernListPanel extends ModernVertWidget
     implements Iterable<ModernListPanelItem> {

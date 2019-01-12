@@ -38,7 +38,7 @@ import org.jebtk.modern.graphics.DrawingContext;
 /**
  * Simple table that does not highlight rows or columns.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernSimpleTable extends ModernRowTable {
 

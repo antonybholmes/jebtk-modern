@@ -45,7 +45,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Mac Style tabs.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class SegmentTabs extends TextTabs {
 

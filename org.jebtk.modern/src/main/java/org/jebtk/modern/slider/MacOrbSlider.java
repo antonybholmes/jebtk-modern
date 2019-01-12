@@ -37,7 +37,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Slider with an orb button and plus minus controls.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class MacOrbSlider extends OrbSlider {

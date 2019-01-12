@@ -35,7 +35,7 @@ import org.jebtk.modern.theme.DrawUIService;
 /**
  * Radio version of a check box.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class RadioButtonSelectedVectorIcon extends RadioButtonVectorIcon {
 

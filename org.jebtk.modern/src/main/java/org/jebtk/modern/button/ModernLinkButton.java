@@ -37,7 +37,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Simulates a hyperlink using a button.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernLinkButton extends ModernDialogFlatButton {

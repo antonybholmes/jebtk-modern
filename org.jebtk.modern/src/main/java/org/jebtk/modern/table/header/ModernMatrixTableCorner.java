@@ -37,7 +37,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Paints the corner of a table.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernMatrixTableCorner extends ModernWidget {
 
@@ -108,6 +108,7 @@ public class ModernMatrixTableCorner extends ModernWidget {
      * polygon.closePath(); g2.fill(polygon);
      */
 
+    /*
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
     try {
@@ -115,8 +116,8 @@ public class ModernMatrixTableCorner extends ModernWidget {
 
       // g2Temp.translate(w, 0);
 
-      if (mTable.getModel().getRowAnnotationNames() != null) {
-        for (String name : mTable.getModel().getRowAnnotationNames()) {
+      if (mTable.getModel().getIndex().getNames() != null) {
+        for (String name : mTable.getModel().getIndex().getNames()) {
           String text = getTruncatedText(g2Temp, name, w);
 
           int x = (w - g2Temp.getFontMetrics().stringWidth(text)) / 2;
@@ -130,5 +131,6 @@ public class ModernMatrixTableCorner extends ModernWidget {
     } finally {
       g2Temp.dispose();
     }
+    */
   }
 }

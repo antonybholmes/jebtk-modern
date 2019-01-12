@@ -31,12 +31,12 @@ import java.util.List;
 
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.modern.table.ModernColumnHeaderTableModel;
+import org.jebtk.modern.table.ModernTableModel;
 
 /**
  * The class LayersTableModel.
  */
-public class LayersTableModel extends ModernColumnHeaderTableModel
+public class LayersTableModel extends ModernTableModel
     implements LayerEventListener {
 
   /**
@@ -99,11 +99,11 @@ public class LayersTableModel extends ModernColumnHeaderTableModel
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(int)
    */
   @Override
-  public final List<String> getColumnAnnotationText(int column) {
-    return CollectionUtils.asList(HEADER[column]);
+  public final String getColumnName(int column) {
+    return HEADER[column];
   }
 
   /*

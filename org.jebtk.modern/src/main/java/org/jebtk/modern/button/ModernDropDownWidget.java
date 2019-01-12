@@ -50,7 +50,7 @@ import org.jebtk.modern.theme.RenderMode;
  * Implementation of a drop down widget for showing a menu, but without the UI
  * in place.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernDropDownWidget extends ModernButtonWidget {

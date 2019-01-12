@@ -36,7 +36,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Horizontal tab control for top.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernHTabBarTop extends ModernHTabBar {

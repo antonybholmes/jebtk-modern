@@ -27,16 +27,15 @@
  */
 package org.jebtk.modern.window;
 
-import java.awt.Graphics2D;
-
 import org.jebtk.modern.panel.ModernGradientPanel;
 import org.jebtk.modern.theme.MaterialService;
 
 // TODO: Auto-generated Javadoc
 /**
- * The default background look of a window.
+ * Instead of the default grey background of a window, this panel is used
+ * to give a subtle gradient look.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernWindowContentPanel extends ModernGradientPanel {

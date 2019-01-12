@@ -36,7 +36,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * Companion tab view panel for the ModernHTabBottom so that they display a
  * seamless border.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class TabsViewBottomPanel extends TabsViewPanel {

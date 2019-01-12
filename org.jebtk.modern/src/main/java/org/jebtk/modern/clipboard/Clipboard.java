@@ -30,7 +30,7 @@ package org.jebtk.modern.clipboard;
 /**
  * Controls that want to hook into the clipboard system must implement this.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface Clipboard {

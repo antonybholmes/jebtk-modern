@@ -32,7 +32,7 @@ import org.jebtk.modern.graphics.icons.CheveronDownVectorIcon;
 /**
  * Vector icon representing a tree with an open branch.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernBranchOpenVectorIcon extends CheveronDownVectorIcon {

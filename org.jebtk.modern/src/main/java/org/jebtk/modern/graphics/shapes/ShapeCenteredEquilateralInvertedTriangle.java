@@ -32,7 +32,7 @@ import java.awt.Polygon;
 /**
  * Create a diamond centered on x, y.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ShapeCenteredEquilateralInvertedTriangle extends Polygon {
 

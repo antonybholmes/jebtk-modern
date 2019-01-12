@@ -33,7 +33,7 @@ import org.jebtk.modern.dialog.ModernDialogConstructor;
  * All JFrames should implement this to provide a consistent way to manage UI
  * code.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface ModernWindowConstructor extends ModernDialogConstructor {

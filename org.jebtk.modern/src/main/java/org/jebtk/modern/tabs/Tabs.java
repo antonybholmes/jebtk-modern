@@ -40,7 +40,7 @@ import org.jebtk.modern.ModernComponent;
 /**
  * Stores content panes.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class Tabs extends TabEventListeners implements Iterable<Tab> {

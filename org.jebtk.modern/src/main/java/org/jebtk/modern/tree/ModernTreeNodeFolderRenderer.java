@@ -33,7 +33,7 @@ import org.jebtk.modern.graphics.icons.FolderVectorIcon;
 /**
  * Renders both leaves and parents as folder icons.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernTreeNodeFolderRenderer extends TreeIconNodeCountRenderer {

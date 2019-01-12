@@ -35,7 +35,7 @@ import javax.swing.JComponent;
  * Provides a basic way to clip a panel that holds ui elements and not just
  * drawing code for the canvas.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ClipBox extends JComponent {

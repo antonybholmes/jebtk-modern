@@ -45,7 +45,7 @@ import org.jebtk.modern.widget.ModernClickWidget;
  * Allows multiple menu items to be added to a grid that behaves like a single
  * menu item.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernMenuItemGridBlock extends ModernMenuItem

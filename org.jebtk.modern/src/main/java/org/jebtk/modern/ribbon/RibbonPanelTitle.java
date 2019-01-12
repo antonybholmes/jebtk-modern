@@ -41,7 +41,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * Provides a line separator for menus with a theme consistent with
  * ModernMenuItem.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonPanelTitle extends ModernWidget {

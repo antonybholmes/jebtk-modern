@@ -38,7 +38,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Draws a title separator for dialog sections.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogSectionSeparator extends ModernWidget {

@@ -32,7 +32,7 @@ import org.jebtk.modern.graphics.icons.CheveronRightVectorIcon;
 /**
  * Vector icon representing a tree with a closed branch.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernBranchClosedVectorIcon extends CheveronRightVectorIcon {

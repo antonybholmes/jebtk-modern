@@ -27,7 +27,7 @@ import org.jebtk.core.tree.TreeNode;
  * Tree for checkable nodes that will respond to mouse events and toggle whether
  * nodes are checked or not.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernCheckTree<T> extends ModernTree<T> {

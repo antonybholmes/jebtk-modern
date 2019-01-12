@@ -52,7 +52,7 @@ import org.w3c.dom.Element;
 /**
  * Represents a color gradient using a specified number of colors.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,

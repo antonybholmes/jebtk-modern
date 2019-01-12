@@ -68,7 +68,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * rendering and you cannot control the background color easily. In this
  * implementation is is transparent.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernTextBox extends ModernCanvas
@@ -196,7 +196,7 @@ public class ModernTextBox extends ModernCanvas
   /**
    * Handle when textbox gets focus.
    * 
-   * @author Antony Holmes Holmes
+   * @author Antony Holmes
    *
    */
   private class FocusEvents implements FocusListener {

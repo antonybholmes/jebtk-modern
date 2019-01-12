@@ -34,7 +34,7 @@ import java.awt.Graphics2D;
  * The basis for rendering a component as an image so it does not waste time
  * rendering drawing primitives on each refresh.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernWidgetBufferedImageHighlighted
     extends ModernWidgetBufferedImage {

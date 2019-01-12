@@ -42,25 +42,31 @@ public class ModernCheckSwitch extends CheckBox {
   // How many pixels we offset the slider to account for rendering going
   /** The Constant SWITCH_ICON_OFFSET. */
   // outside the boundary from antialiasing etc.
-  protected static final int SWITCH_ICON_OFFSET = 1;
+  protected static final int SWITCH_ICON_OFFSET = 0; //1;
+  
+  protected static final int SWITCH_MARGIN = 1; //1;
+  
+  public static final int SWITCH_MARGIN_2X = 2 * SWITCH_MARGIN;
 
   protected static final int SWITCH_ICON_OFFSET_2 = 2 * SWITCH_ICON_OFFSET;
   
   /** The Constant SLIDER_OFFSET. */
-  protected static final int SLIDER_OFFSET = 2;
+  protected static final int SLIDER_OFFSET = 0;
 
   /** The Constant ORB_HEIGHT. */
-  protected static final int ORB_HEIGHT = 20;
+  protected static final int ORB_HEIGHT = 24;
 
-  protected static final int SLIDER_HEIGHT = ORB_HEIGHT + 2; // - 4;
+  protected static final int SLIDER_HEIGHT = ORB_HEIGHT;// + 2; // - 4;
 
   /** The Constant SLIDER_WIDTH. */
   protected static final int SLIDER_WIDTH = 
-      (int) Math.round(ORB_HEIGHT * Mathematics.GOLDEN_RATIO); //3 / 2;
+      ORB_HEIGHT * 3 / 2; //(int) Math.round(ORB_HEIGHT * Mathematics.GOLDEN_RATIO); //3 / 2;
 
   /** The Constant SWITCH_ON_OFFSET. */
   protected static final int SWITCH_ON_OFFSET = SLIDER_WIDTH - ORB_HEIGHT
       - SLIDER_OFFSET;
+
+  
 
   private Color mTextColor;
 
@@ -119,10 +125,8 @@ public class ModernCheckSwitch extends CheckBox {
     mTextColor = textColor;
 
     getAnimations().set(
-        new CheckSwitchAnimation(this,
-            getFromKeyFrame().getColor("background-color"), color),
-        new CheckSwitchChangeAnimation(this,
-            getFromKeyFrame().getColor("color"), color));
+        new CheckSwitchAnimation(this, color),
+        new CheckSwitchChangeAnimation(this));
 
     setSelected(selected);
   }

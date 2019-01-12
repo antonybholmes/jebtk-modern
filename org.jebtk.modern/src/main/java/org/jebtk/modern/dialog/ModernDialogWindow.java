@@ -63,7 +63,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * Standardized modern dialog window.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogWindow extends JDialog

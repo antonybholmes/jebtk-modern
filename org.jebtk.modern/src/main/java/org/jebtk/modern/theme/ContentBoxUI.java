@@ -1,6 +1,5 @@
 package org.jebtk.modern.theme;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
@@ -19,7 +18,9 @@ public class ContentBoxUI extends ContentOutlineUI {
       int w,
       int h,
       Object... params) {
-    g2.setColor(Color.WHITE);
+    //g2.setColor(Color.WHITE);
+    g2.setColor(getStyle(c).getColor("background-color"));
+    
     fill(g2, c, x, y, w, h);
 
     super.draw(g2, c, x, y, w, h, params);

@@ -30,7 +30,7 @@ package org.jebtk.modern;
 /**
  * For components that can be programatically selected.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface Selectable {

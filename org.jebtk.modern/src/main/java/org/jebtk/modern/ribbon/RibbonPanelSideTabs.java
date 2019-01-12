@@ -47,7 +47,7 @@ import org.jebtk.modern.widget.ModernClickWidget;
 /**
  * Provides a sidebar with clickable tabs on ribbon panels.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonPanelSideTabs extends TabsController

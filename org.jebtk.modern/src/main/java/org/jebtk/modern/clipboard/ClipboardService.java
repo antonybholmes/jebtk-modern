@@ -44,7 +44,7 @@ import org.jebtk.core.text.TextUtils;
  * Provides a centralised mechanism for registering controls to send and receive
  * data from the clipboard.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ClipboardService extends ClipboardEventListeners

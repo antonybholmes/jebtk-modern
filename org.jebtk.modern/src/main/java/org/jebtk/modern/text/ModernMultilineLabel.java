@@ -44,7 +44,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * Displays multiple lines of text, breaking lines at a space break before the
  * line ends.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernMultilineLabel extends ModernCanvas implements TextProperty {

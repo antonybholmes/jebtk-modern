@@ -33,12 +33,12 @@ import org.jebtk.core.collections.CircularArray;
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.log.LogEventListener;
-import org.jebtk.modern.table.ModernColumnHeaderTableModel;
+import org.jebtk.modern.table.ModernTableModel;
 
 /**
  * The class LogTableModel.
  */
-public class LogTableModel extends ModernColumnHeaderTableModel
+public class LogTableModel extends ModernTableModel
     implements LogEventListener {
 
   /**
@@ -62,19 +62,14 @@ public class LogTableModel extends ModernColumnHeaderTableModel
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
-   */
-  public final int getColCount() {
-    return HEADER.length;
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
    * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
    */
   public final int getRowCount() {
     return mEvents.size();
+  }
+  
+  public final int getColCount() {
+    return HEADER.length;
   }
 
   /*
@@ -118,11 +113,11 @@ public class LogTableModel extends ModernColumnHeaderTableModel
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(int)
    */
   @Override
-  public final List<String> getColumnAnnotationText(int column) {
-    return CollectionUtils.asList(HEADER[column]);
+  public final String getColumnName(int column) {
+    return HEADER[column];
   }
 
   /*

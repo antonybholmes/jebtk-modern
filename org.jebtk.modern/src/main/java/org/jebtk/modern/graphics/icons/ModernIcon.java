@@ -38,7 +38,7 @@ import org.jebtk.core.geom.IntRect;
 /**
  * Abstraction for icon rendering so icons can either be bitmaps or vectors.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernIcon {

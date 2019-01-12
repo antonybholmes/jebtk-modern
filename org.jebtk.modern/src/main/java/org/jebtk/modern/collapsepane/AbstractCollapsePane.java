@@ -59,7 +59,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * allows for more disparate and complex UI items, whereas FlatTree renders
  * nodes uniformly with a renderer.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class AbstractCollapsePane extends ModernVertWidget

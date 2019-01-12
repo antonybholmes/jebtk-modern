@@ -34,7 +34,7 @@ import org.jebtk.modern.theme.DrawUIService;
 /**
  * Unchecked box vector icon.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class UnCheckedVectorIcon extends ModernVectorScalableIcon {
 

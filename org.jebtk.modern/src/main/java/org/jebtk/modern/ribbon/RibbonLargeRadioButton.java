@@ -39,7 +39,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * API or else have the button in a ModernButtonGroup so that selection of
  * another button causes it to become unselected.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class RibbonLargeRadioButton extends RibbonLargeCheckButton {
 

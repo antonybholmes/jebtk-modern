@@ -36,7 +36,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Down arrow vector icon for combobox buttons etc.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class TriangleVectorIcon extends ModernVectorIcon {

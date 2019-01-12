@@ -40,7 +40,7 @@ import org.jebtk.modern.event.ModernSelectionListener;
  * Represents a collection of rows or columns in the table specifying how they
  * should be rendered.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class TableIndexModel extends ChangeListeners

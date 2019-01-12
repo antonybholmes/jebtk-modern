@@ -32,7 +32,7 @@ import java.awt.Font;
 /**
  * Default look for a heading label.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class HeadingCheckBox extends ModernCheckBox {

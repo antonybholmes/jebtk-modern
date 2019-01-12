@@ -40,7 +40,7 @@ import javax.swing.Timer;
 /**
  * Slider with an orb button and plus minus controls.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class BarButtonSlider extends SteppedSlider {

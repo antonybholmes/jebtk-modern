@@ -30,7 +30,7 @@ package org.jebtk.modern.dialog;
 /**
  * All dialogs should create themselves in the same manner.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface ModernDialogConstructor {

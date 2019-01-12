@@ -32,7 +32,7 @@ import org.jebtk.core.event.ChangeListeners;
 /**
  * Provides a view model for changing the view of tabular data.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ViewModel extends ChangeListeners {

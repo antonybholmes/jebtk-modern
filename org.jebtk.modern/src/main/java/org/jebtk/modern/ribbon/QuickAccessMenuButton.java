@@ -34,7 +34,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * For adding quick access buttons to the ribbon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class QuickAccessMenuButton extends ModernMenuButton {

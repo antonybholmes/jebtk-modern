@@ -32,7 +32,7 @@ import org.jebtk.core.event.ChangeEvent;
 /**
  * Extended table model.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public abstract class ModernDataGridModel extends ModernDataModel {
 
@@ -72,9 +72,6 @@ public abstract class ModernDataGridModel extends ModernDataModel {
 
   }
 
-  /**
-   * Instantiates a new modern data grid model.
-   */
   public ModernDataGridModel() {
     mCellStyleModel.addDataViewListener(new StyleEvents());
   }

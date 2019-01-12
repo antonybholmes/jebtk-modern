@@ -34,7 +34,7 @@ import org.jebtk.modern.dataview.ModernDataCellEditor;
  * Provides a flat look table renderer for the flat table although it can be
  * used with standard JTables as well.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class AbstractModernTableCellEditor

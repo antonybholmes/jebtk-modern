@@ -49,7 +49,7 @@ import org.jebtk.modern.widget.ModernClickWidget;
  * delineated region containing buttons with a title displayed at the bottom to
  * indicate what the buttons in the section are for.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonSection extends ModernClickWidget

@@ -33,7 +33,7 @@ import java.awt.Graphics2D;
 /**
  * Left arrow vector icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class CheveronRightVectorIcon extends CheveronVectorIcon {

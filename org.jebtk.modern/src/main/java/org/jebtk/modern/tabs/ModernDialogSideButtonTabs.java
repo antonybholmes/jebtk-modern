@@ -49,7 +49,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Provides a sidebar with clickable tabs.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogSideButtonTabs extends TabsController

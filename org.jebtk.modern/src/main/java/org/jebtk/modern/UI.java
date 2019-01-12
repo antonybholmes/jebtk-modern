@@ -74,7 +74,7 @@ import org.jebtk.modern.window.ModernWindowTitleBarStyle;
 /**
  * Contains constant strings for commonly used command names within the program.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class UI {

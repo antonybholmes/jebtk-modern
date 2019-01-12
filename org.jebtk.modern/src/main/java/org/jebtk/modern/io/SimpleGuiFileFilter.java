@@ -33,7 +33,7 @@ import java.util.Collection;
 /**
  * Filter for GIF files.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SimpleGuiFileFilter extends GuiFileExtFilter {

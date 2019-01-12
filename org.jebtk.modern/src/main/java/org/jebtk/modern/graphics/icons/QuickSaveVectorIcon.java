@@ -36,7 +36,7 @@ import java.awt.geom.Rectangle2D;
 /**
  * Vector based save icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class QuickSaveVectorIcon extends ModernVectorIcon {

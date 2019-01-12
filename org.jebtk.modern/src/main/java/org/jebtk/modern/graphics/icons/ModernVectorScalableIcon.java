@@ -34,7 +34,7 @@ import java.awt.Color;
  * is not strictly necessary to do this, but it indicates your intent to the
  * icon rendering sub-system.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernVectorScalableIcon extends ModernVectorIcon {

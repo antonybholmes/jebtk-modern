@@ -36,7 +36,7 @@ import org.jebtk.core.settings.SettingsService;
 /**
  * Vector based save icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SaveVectorIcon extends ModernVectorScalableIcon {

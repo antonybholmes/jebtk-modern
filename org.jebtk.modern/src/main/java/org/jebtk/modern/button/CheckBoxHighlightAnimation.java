@@ -9,7 +9,7 @@ public class CheckBoxHighlightAnimation extends ButtonOutlineAnimation {
   public CheckBoxHighlightAnimation(ModernWidget button) {
     super((ModernClickWidget) button);
 
-    setFadeColor("fill", button.getKeyFrame().getColor("background-color"));
+    setFadeColor("fill", button.getToKeyFrame().getColor("background-color"));
   }
 
   @Override

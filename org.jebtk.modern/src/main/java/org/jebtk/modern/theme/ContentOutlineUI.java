@@ -23,7 +23,8 @@ public class ContentOutlineUI extends DrawUI {
     if (params.length > 0) {
       g2.setColor((Color) params[0]);
     } else {
-      g2.setColor(LINE_COLOR);
+      //g2.setColor(LINE_COLOR);
+      g2.setColor(getStyle(c).getColor("border-color"));
     }
 
     outline(g2, c, x, y, w, h);

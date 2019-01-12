@@ -49,7 +49,7 @@ import org.jebtk.modern.dataview.ModernDataViewListeners;
  * ModernSelection model to determine which rows are selected in a list, table,
  * tree etc.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernListModel<T>

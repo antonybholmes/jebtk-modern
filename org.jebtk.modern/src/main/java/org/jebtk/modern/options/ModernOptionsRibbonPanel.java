@@ -53,7 +53,7 @@ import org.jebtk.modern.tree.PathTree;
 /**
  * Display the program settings tree inline within the Ribbon menu.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernOptionsRibbonPanel extends RibbonMenuPanel

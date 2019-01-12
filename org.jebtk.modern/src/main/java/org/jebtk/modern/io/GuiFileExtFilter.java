@@ -45,7 +45,7 @@ import org.jebtk.core.text.TextUtils;
 /**
  * The class GuiFileExtFilter.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public abstract class GuiFileExtFilter extends FileFilter
     implements Comparable<FileFilter>, FilenameFilter {

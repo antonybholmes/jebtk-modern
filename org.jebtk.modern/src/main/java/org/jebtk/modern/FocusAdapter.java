@@ -33,7 +33,7 @@ import java.awt.event.FocusListener;
 /**
  * To easily allow classes to listen for mouse events.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class FocusAdapter implements FocusListener {

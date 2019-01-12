@@ -34,7 +34,7 @@ import org.jebtk.modern.graphics.icons.OpenFolderVectorIcon;
 /**
  * Renders a file as a list item.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernListRecentDirectoryRenderer

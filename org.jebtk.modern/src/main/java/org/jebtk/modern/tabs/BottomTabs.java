@@ -31,7 +31,7 @@ package org.jebtk.modern.tabs;
 /**
  * Mac Style tabs.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class BottomTabs extends SegmentTabs {
 

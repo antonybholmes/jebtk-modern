@@ -36,7 +36,7 @@ import org.jebtk.modern.theme.MaterialService;
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernHScrollBarRounded extends ModernHScrollBar {

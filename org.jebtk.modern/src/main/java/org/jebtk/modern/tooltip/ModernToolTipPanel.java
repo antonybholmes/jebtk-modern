@@ -43,7 +43,7 @@ import org.jebtk.modern.panel.ModernPanel;
  * The default tool tip panel provides a simple titled tool tip that appears
  * below the ribbon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernToolTipPanel extends Card {

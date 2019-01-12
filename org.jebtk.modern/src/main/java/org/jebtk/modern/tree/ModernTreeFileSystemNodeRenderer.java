@@ -36,7 +36,7 @@ import org.jebtk.core.tree.TreeNode;
 /**
  * Basic renderer for displaying directories and files.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernTreeFileSystemNodeRenderer

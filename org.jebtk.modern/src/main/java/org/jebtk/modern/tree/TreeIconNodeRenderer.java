@@ -37,7 +37,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * Provides a basic renderer that displays the node name, a collapse icon for
  * parent nodes and an icon depending on whether the node is a parent or a leaf.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class TreeIconNodeRenderer extends ModernTreeIconTextNodeRenderer {

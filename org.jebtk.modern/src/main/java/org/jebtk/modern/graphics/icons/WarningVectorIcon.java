@@ -38,7 +38,7 @@ import org.jebtk.core.settings.SettingsService;
 /**
  * Warning icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class WarningVectorIcon extends ModernMessageIcon {

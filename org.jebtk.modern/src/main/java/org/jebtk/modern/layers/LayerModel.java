@@ -37,7 +37,7 @@ import java.util.Map;
 /**
  * Layer model for layer panels.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class LayerModel extends LayerEventListeners
     implements Iterable<String> {

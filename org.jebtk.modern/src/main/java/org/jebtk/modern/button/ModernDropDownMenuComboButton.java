@@ -36,7 +36,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * Acts like a flat drop down menu button, but alters the button text.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDropDownMenuComboButton extends ModernDropDownButton {

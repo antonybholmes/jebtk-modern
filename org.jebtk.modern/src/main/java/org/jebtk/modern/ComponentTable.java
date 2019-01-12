@@ -45,7 +45,7 @@ import org.jebtk.modern.panel.VBox;
  * Allows components, preferably horizontal flowing components such as boxes, to
  * be layed and and reordered.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ComponentTable extends ModernComponent
     implements Iterable<Component> {

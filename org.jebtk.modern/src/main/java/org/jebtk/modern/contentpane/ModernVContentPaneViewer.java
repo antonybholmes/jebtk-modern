@@ -47,7 +47,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * Displays a center pane with surround left and right panes which can be
  * added/removed on the fly according to the UI needs.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernVContentPaneViewer extends ModernWidget {

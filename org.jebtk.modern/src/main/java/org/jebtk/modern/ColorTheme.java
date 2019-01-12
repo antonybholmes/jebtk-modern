@@ -31,7 +31,7 @@ package org.jebtk.modern;
  * The theme engine provides some predefined theming elements to give the UI a
  * distinctive look.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public enum ColorTheme {

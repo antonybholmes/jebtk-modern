@@ -35,7 +35,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Layout components on a regular grid.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class MatrixPanel extends ModernWidget {

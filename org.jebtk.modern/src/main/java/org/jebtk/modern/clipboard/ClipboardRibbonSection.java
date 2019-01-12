@@ -41,7 +41,7 @@ import org.jebtk.modern.ribbon.RibbonSection;
  * functionality to the currently highlighted control that supports clipboard
  * operations.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ClipboardRibbonSection extends RibbonSection

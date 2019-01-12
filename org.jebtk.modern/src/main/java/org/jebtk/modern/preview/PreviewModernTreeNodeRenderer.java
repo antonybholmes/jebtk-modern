@@ -34,7 +34,7 @@ import org.jebtk.modern.tree.TreeIconNodeCountRenderer;
 /**
  * Basic renderer for displaying directories and files.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class PreviewModernTreeNodeRenderer extends TreeIconNodeCountRenderer {

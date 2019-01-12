@@ -27,9 +27,7 @@
  */
 package org.jebtk.modern.panel;
 
-import java.awt.Color;
 import java.awt.Component;
-import java.awt.Graphics2D;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.beans.PropertyChangeEvent;
@@ -49,29 +47,6 @@ public class VBoxAutoWidth extends ModernComponent {
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-
-  private class ComponentEvents implements ComponentListener {
-
-    @Override
-    public void componentHidden(ComponentEvent arg0) {
-      refresh();
-    }
-
-    @Override
-    public void componentMoved(ComponentEvent arg0) {
-      refresh();
-    }
-
-    @Override
-    public void componentResized(ComponentEvent arg0) {
-      refresh();
-    }
-
-    @Override
-    public void componentShown(ComponentEvent arg0) {
-      refresh();
-    }
-  }
 
   /**
    * Instantiates a new v box auto width panel.

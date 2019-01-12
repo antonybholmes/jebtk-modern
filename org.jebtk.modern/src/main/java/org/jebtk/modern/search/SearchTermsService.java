@@ -49,7 +49,7 @@ import org.xml.sax.SAXException;
  * into text/comboboxes, their search terms can be logged and suggested the next
  * time they perform a search.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SearchTermsService extends SearchTermEventListeners

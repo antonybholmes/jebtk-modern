@@ -37,7 +37,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Bottom, right sided frame for rendering tables in a scrollpane.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernTableFrameCanvas extends ContainerCanvas {
 

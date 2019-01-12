@@ -31,7 +31,7 @@ package org.jebtk.modern.tree;
 /**
  * Renderer for drawing between nodes when user is dragging.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernTreeNodeInsertRenderer extends ModernTreeNodeRenderer {

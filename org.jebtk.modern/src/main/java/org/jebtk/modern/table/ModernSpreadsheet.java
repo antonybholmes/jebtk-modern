@@ -35,7 +35,7 @@ import org.jebtk.modern.zoom.ZoomModel;
  * Provides a spreadsheet Property view of a table. Replacement for JTable
  * without all the bulk associated with it.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernSpreadsheet extends ModernTable {

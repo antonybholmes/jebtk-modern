@@ -38,7 +38,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernHScrollBarOffice extends ModernHScrollBar {

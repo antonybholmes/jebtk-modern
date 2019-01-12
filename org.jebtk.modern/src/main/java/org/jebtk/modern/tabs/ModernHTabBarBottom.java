@@ -39,7 +39,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Horizontal tab control for top.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernHTabBarBottom extends ModernHTabBar {

@@ -30,7 +30,7 @@ package org.jebtk.modern.graphics;
 /**
  * Simple 2d double precision coordinate object.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class Coordinate {

@@ -40,7 +40,7 @@ import org.jebtk.modern.table.ModernTableModel;
 /**
  * A concrete implementation of a table model for displaying text.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class PreviewTableNoHeaderModel extends ModernTableModel {
@@ -165,5 +165,10 @@ public class PreviewTableNoHeaderModel extends ModernTableModel {
   @Override
   public final boolean getIsCellEditable(int row, int column) {
     return false; // true;
+  }
+
+  @Override
+  public String getColumnName(int columns) {
+    return TextUtils.EMPTY_STRING;
   }
 }

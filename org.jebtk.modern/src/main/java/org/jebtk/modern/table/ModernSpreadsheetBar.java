@@ -233,7 +233,7 @@ public class ModernSpreadsheetBar extends ModernComponent
         mText.setText(v.toString());
 
         mLocText.setText(mTable.getModel().getColumnName(cell.col)
-            + mTable.getModel().getRowName(cell.row));
+            + mTable.getRowName(cell.row));
       }
     }
   }

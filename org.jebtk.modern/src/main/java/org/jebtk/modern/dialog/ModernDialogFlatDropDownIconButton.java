@@ -35,7 +35,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * Flat button for dialogs.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogFlatDropDownIconButton

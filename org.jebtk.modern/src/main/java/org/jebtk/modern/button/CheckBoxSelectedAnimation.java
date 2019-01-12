@@ -31,7 +31,7 @@ public class CheckBoxSelectedAnimation extends ButtonFillAnimation {
           y,
           ModernCheckBox.ICON_SIZE,
           ModernCheckBox.ICON_SIZE,
-          widget.getKeyFrame().getColor("background-color"));
+          widget.getToKeyFrame().getColor("background-color"));
 
       // fill(g2,
       // x,

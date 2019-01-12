@@ -47,7 +47,7 @@ import org.jebtk.modern.text.ModernCenteredHeadingPanel;
  * Used as a glass pane to present messages to the user in the current window
  * rather than a popup dialog.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
@@ -62,7 +62,7 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
    * Used as a glass pane to present messages to the user in the current window
    * rather than a popup dialog.
    * 
-   * @author Antony Holmes Holmes
+   * @author Antony Holmes
    *
    */
   private class OKCancelPanel extends MessageDialogPanel

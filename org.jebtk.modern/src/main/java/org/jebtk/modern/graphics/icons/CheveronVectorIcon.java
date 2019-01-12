@@ -35,7 +35,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Left arrow vector icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class CheveronVectorIcon extends ModernVectorIcon {

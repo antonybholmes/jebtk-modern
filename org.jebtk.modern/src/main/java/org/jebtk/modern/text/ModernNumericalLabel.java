@@ -34,7 +34,7 @@ import java.awt.Graphics2D;
 /**
  * Displays text.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernNumericalLabel extends ModernLabel {

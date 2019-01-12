@@ -36,7 +36,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * A dialog button appears on dialogs and typically represents the OK and Cancel
  * buttons etc.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogPrimaryButton extends ModernDialogButton {

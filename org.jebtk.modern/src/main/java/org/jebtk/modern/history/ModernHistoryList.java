@@ -35,7 +35,7 @@ import org.jebtk.modern.list.ModernListModel;
 /**
  * A flowchart style control similar to a modern list, but indicates stages etc.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernHistoryList<T> extends ModernList<T>

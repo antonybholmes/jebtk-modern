@@ -37,7 +37,7 @@ import org.jebtk.modern.list.ModernList;
  * Generate a view of the DataModel transform so that users can see what it
  * represents in their history list.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDataModelTransformCellRenderer

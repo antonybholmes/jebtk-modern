@@ -42,7 +42,7 @@ import org.jebtk.modern.theme.MaterialService;
 /**
  * Mac Style tabs.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class BlockVertTabs extends TextTabs implements ComponentListener {
 

@@ -37,7 +37,7 @@ import org.jebtk.modern.panel.VBoxAutoWidth;
 /**
  * A popup is a component that will appear in a popup window.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernMenuBox extends VBoxAutoWidth

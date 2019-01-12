@@ -32,7 +32,7 @@ import org.jebtk.core.event.ChangeEvent;
 /**
  * The interface ModernDataViewEventProducer.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public interface ModernDataViewEventProducer {
 

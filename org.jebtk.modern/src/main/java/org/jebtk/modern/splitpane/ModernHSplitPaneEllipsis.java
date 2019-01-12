@@ -33,7 +33,7 @@ import java.awt.Graphics2D;
 /**
  * Creates a horizontal split pane that uses three holds for the grab handle.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernHSplitPaneEllipsis extends HSplitPane {

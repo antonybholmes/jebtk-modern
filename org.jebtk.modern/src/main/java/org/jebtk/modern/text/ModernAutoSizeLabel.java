@@ -41,7 +41,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Displays text and auto-resizes to fit the text.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernAutoSizeLabel extends ModernLabel {

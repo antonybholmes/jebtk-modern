@@ -38,7 +38,7 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
 /**
  * Specialised combobox for showing selecting search criteria.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class SearchTermsComboBox extends ModernComboBox
     implements SearchTermEventListener {

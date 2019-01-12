@@ -41,7 +41,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Lets a user pick a sort direction.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SortDirectionButton extends ModernButton

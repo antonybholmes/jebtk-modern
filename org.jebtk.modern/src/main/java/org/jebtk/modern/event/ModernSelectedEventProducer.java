@@ -30,7 +30,7 @@ package org.jebtk.modern.event;
 /**
  * For classes that generate ModernSelectedEvents.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public interface ModernSelectedEventProducer {
 

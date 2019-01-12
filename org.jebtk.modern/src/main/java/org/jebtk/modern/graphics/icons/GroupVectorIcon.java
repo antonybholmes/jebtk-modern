@@ -35,7 +35,7 @@ import org.jebtk.core.settings.SettingsService;
 /**
  * Group vector icon showing 3 colored balls spaced equally around a circle.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class GroupVectorIcon extends ModernVectorIcon {

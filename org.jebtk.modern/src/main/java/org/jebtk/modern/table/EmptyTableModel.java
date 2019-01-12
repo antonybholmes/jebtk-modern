@@ -27,59 +27,22 @@
  */
 package org.jebtk.modern.table;
 
+import org.jebtk.core.text.TextUtils;
+
 /**
  * Empty table model for use as table holder.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class EmptyTableModel extends ModernTableModel {
 
-  /**
-   * The member rows.
-   */
-  private int mRows = 50;
+  private int mRows;
+  private int mCols;
 
-  /**
-   * The member cols.
-   */
-  private int mCols = 50;
-
-  /**
-   * Creates an empty table that reports a certain size, but displays nothing.
-   * Useful for scenarios where the ui is initialised to a blank table.
-   *
-   * @param rows the rows
-   * @param columns the columns
-   */
-  public EmptyTableModel(int rows, int columns) {
+  public EmptyTableModel(int rows, int cols) {
     mRows = rows;
-    mCols = columns;
-  }
-
-  /**
-   * Instantiates a new empty table model.
-   */
-  public EmptyTableModel() {
-    // do nothing
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnCount()
-   */
-  public int getColCount() {
-    return mCols;
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.dataview.ModernDataModel#getRowCount()
-   */
-  public int getRowCount() {
-    return mRows;
+    mCols = cols;
   }
 
   /*
@@ -102,5 +65,20 @@ public class EmptyTableModel extends ModernTableModel {
   @Override
   public boolean getIsCellEditable(int row, int column) {
     return false;
+  }
+
+  @Override
+  public int getRowCount() {
+    return mRows;
+  }
+
+  @Override
+  public int getColCount() {
+    return mCols;
+  }
+
+  @Override
+  public String getColumnName(int columns) {
+    return TextUtils.EMPTY_STRING;
   }
 }

@@ -38,7 +38,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * process text files where it is desirable to show the results to the user so
  * they can quickly determine if a tool has worked correctly.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class PreviewPanel extends ModernWidget {

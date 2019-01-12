@@ -26,7 +26,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * Close button for side panels. The cross icon changes color rather than using
  * a highlighted background. This makes it a less obtrusive UI element.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class CloseButton extends ModernButton {

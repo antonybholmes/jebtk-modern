@@ -37,7 +37,7 @@ import org.jebtk.core.event.EventListeners;
  * controls and provides standard functions to interface with {
  * EventListenerList by taking care of casting etc.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class PopupMenuListeners {

@@ -16,7 +16,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Create a panel with a pill shaped border
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernPillBorderPanel extends ModernWidget {

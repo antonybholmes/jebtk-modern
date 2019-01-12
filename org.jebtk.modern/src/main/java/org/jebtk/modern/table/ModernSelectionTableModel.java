@@ -15,10 +15,10 @@
  */
 package org.jebtk.modern.table;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.jebtk.core.collections.CollectionUtils;
+import org.jebtk.core.text.TextUtils;
 
 /**
  * The Class ModernSelectionTableModel.
@@ -32,7 +32,7 @@ public class ModernSelectionTableModel extends ModernTableModel {
   private List<Boolean> mSelected;
 
   /** The m heading. */
-  private List<String> mHeading;
+  private String mHeading;
 
   /**
    * Instantiates a new modern selection table model.
@@ -41,7 +41,7 @@ public class ModernSelectionTableModel extends ModernTableModel {
    * @param values the values
    */
   public ModernSelectionTableModel(String heading, List<?> values) {
-    mHeading = CollectionUtils.toList(heading);
+    mHeading = heading;
     mValues = values;
     mSelected = CollectionUtils.replicate(false, values.size());
   }
@@ -109,12 +109,12 @@ public class ModernSelectionTableModel extends ModernTableModel {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.table.ModernTableModel#getColumnAnnotationText(int)
+   * @see org.abh.common.ui.table.ModernTableModel#getColumns().getAnnotation(int)
    */
   @Override
-  public final List<String> getColumnAnnotationText(int column) {
+  public final String getColumnName(int column) {
     if (column == 0) {
-      return Collections.emptyList();
+      return TextUtils.EMPTY_STRING;
     } else {
       return mHeading;
     }

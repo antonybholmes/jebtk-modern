@@ -34,7 +34,7 @@ import org.jebtk.modern.theme.MaterialUtils;
 /**
  * Allows collapsable panes to be created.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernCollapsePane extends ModernSubCollapsePane {

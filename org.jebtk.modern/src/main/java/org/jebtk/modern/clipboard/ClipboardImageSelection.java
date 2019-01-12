@@ -34,7 +34,7 @@ import java.awt.datatransfer.Transferable;
 /**
  * This class is used to hold an image while on the clipboard.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ClipboardImageSelection implements Transferable {

@@ -52,7 +52,7 @@ import org.slf4j.LoggerFactory;
  * Keeps track of the windows associated with an application so they can be
  * switched between if necessary.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class WindowService extends ModernWindowEventListeners

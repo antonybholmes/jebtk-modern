@@ -46,7 +46,7 @@ import org.jebtk.modern.window.ModernWindow;
  * functionality to the currently highlighted control that supports clipboard
  * operations.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ZoomRibbonSection extends RibbonSection

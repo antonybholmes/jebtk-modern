@@ -45,7 +45,7 @@ import org.jebtk.modern.graphics.ModernCanvas;
 /**
  * Drawing panel that allows zooming.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ZoomCanvas extends ModernCanvas {

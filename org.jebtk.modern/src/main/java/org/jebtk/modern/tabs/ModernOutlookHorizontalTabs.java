@@ -45,7 +45,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Provides horizontal tabs along the top or bottom of the control.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernOutlookHorizontalTabs extends ModernWidget

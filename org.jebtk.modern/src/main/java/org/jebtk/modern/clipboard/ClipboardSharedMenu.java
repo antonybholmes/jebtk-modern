@@ -38,7 +38,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
  * Allows multiple controls to share an instance of a clipboard menu so it is
  * not duplicated on a per control basis.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ClipboardSharedMenu implements ModernClickListener {

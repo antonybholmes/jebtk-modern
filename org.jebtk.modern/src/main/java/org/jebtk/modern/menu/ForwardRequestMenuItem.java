@@ -34,7 +34,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * it normally but instead pass on the action rather than setting text etc
  * directly.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ForwardRequestMenuItem extends ModernIconMenuItem {

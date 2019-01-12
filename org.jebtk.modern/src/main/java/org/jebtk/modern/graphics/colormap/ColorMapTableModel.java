@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.graphics.colormap;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.jebtk.core.Mathematics;
@@ -23,15 +22,15 @@ import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.table.ModernColumnHeaderTableModel;
+import org.jebtk.modern.table.ModernTableModel;
 
 /**
  * Provides a view onto an excel workbook.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
-public class ColorMapTableModel extends ModernColumnHeaderTableModel
+public class ColorMapTableModel extends ModernTableModel
     implements ChangeListener {
 
   /**
@@ -55,14 +54,14 @@ public class ColorMapTableModel extends ModernColumnHeaderTableModel
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.ui.dataview.ModernDataModel#getColumnAnnotations(int)
+   * org.abh.common.ui.ui.dataview.ModernDataModel#getColumn().getAnnotations(int)
    */
   @Override
-  public List<String> getColumnAnnotationText(int column) {
+  public String getColumnName(int column) {
     if (Mathematics.inBound(column, 0, HEADER.length)) {
-      return CollectionUtils.toList(HEADER[column]);
+      return HEADER[column];
     } else {
-      return Collections.emptyList();
+      return TextUtils.EMPTY_STRING;
     }
   }
 

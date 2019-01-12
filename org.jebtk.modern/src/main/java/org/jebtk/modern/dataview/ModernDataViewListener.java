@@ -34,7 +34,7 @@ import org.jebtk.core.event.ChangeEvent;
 /**
  * Modern UI controls such as buttons should fire ModernClickEvents.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface ModernDataViewListener extends EventListener {

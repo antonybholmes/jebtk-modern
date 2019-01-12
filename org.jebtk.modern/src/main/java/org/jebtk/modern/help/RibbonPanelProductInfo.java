@@ -44,7 +44,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * Displays about information for a software product.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonPanelProductInfo extends RibbonMenuPanel

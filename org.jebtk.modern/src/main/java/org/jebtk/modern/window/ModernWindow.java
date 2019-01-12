@@ -78,7 +78,7 @@ import org.slf4j.LoggerFactory;
 /**
  * All windowed apps should inherit from this.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernWindow extends JFrame
     implements ModernDialogConstructor, ModernToolTipListener {
@@ -130,7 +130,8 @@ public class ModernWindow extends JFrame
   // private ModernPanel mHeaderPanel = new ModernPanel();
 
   /**
-   * The member content panel.
+   * All content is ultimately a child of this. Content is never directly
+   * added to the JFrame. This is the default view.
    */
   protected ModernPanel mWindowContentPanel = new ModernWindowContentPanel(); // ModernGradientPanel();
 
@@ -237,6 +238,10 @@ public class ModernWindow extends JFrame
   public ModernWindow(GuiAppInfo appInfo) {
     setAppInfo(appInfo);
 
+    // To implement the card interface we use a card layout with two cards
+    // MENU and CONTENT. CONTENT is the default view for adding UI elements
+    // whereas MENU offers a ribbon like file menu for import/export etc.
+    
     mRibbonMenu = new RibbonFileMenu(this);
 
     mCards.add(mRibbonMenu, MENU_CARD);
@@ -249,7 +254,9 @@ public class ModernWindow extends JFrame
     mCl = (CardLayout) mCards.getLayout();
     mCl.show(mCards, CONTENT_CARD);
 
+    // By default, 
     mContentPanel.setBody(mTabsPane);
+    
     setBody(mContentPanel);
 
     // mHeaderContainer = new WindowVBoxAutoWidth(this);
@@ -257,35 +264,19 @@ public class ModernWindow extends JFrame
 
     addWindowListener(new WindowEvents());
 
+    // We hook into the close event so that cleanup can be done before 
+    // triggering a close
     setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
-    // setHeader(mHeaderPanel);
-
-    // register existence
+    // Register existence
     WindowService.getInstance().register(this);
 
-    // Register to receive tooltips
+    // Register to receive tooltips. The tooltip system can directly messages
+    // to multiple sources. Normally the current window captures the events
+    // and shows a tooltip
     ToolTipService.getInstance().addToolTipListener(this);
 
-    //
     // Listen for clicking anywhere on the window to get rid of the tool tip
-    //
-
-    /*
-     * Toolkit.getDefaultToolkit().addAWTEventListener(new AWTEventListener() {
-     * public void eventDispatched(AWTEvent e) { //
-     * System.out.println("get source" + e.getSource());
-     * 
-     * if (e.getID() == MouseEvent.MOUSE_PRESSED) { //
-     * System.err.println("pressed");
-     * 
-     * // Point l = MouseInfo.getPointerInfo().getLocation();
-     * 
-     * // System.out.println("(" + l.x + ", " + l.y + ")");
-     * 
-     * // Hide all tooltips doHideTooltips(); } } }, AWTEvent.MOUSE_EVENT_MASK);
-     */
-
     Toolkit.getDefaultToolkit().addAWTEventListener(new AllMouseEvents(),
         AWTEvent.MOUSE_EVENT_MASK);
 
@@ -364,15 +355,6 @@ public class ModernWindow extends JFrame
     super.setTitle(title);
   }
 
-  /*
-   * public void setRibbonMenu(RibbonFileMenu ribbonMenu) { mRibbonMenu =
-   * ribbonMenu;
-   * 
-   * //mMenuPanel.setBody(ribbonMenu); mCards.add(ribbonMenu, MENU_CARD);
-   * 
-   * ribbonMenu.addClickListener(new MenuActions()); }
-   */
-
   /**
    * Gets the ribbon menu.
    *
@@ -406,7 +388,9 @@ public class ModernWindow extends JFrame
   }
 
   /**
-   * Sets the body.
+   * Sets the body UI content of the main window. This method should only
+   * be used for overriding the default behaviour and use of tabs. It is
+   * better to call the setContent methods.
    *
    * @param c the new body
    */
@@ -422,6 +406,14 @@ public class ModernWindow extends JFrame
     getWindowContentPanel().repaint();
   }
 
+  /**
+   * Set the body of the content panel. The body is normally a tabbed pane
+   * element to allow for multi-column layouts which can be accessed via the 
+   * {@code tabsPane()} method. Calling this method will destroy the tabbed
+   * layout.
+   * 
+   * @param c
+   */
   public void setContentBody(Component c) {
     getContentPanel().setBody(c);
   }

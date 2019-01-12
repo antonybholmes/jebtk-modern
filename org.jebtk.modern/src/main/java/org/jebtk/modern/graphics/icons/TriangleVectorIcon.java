@@ -37,7 +37,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Down arrow vector icon for combobox buttons etc.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class TriangleVectorIcon extends ModernVectorScalableIcon {

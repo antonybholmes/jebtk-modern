@@ -37,7 +37,7 @@ import org.jebtk.modern.theme.DrawUIService;
 /**
  * Check box menu item.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernCheckBoxMenuItem extends ModernCheckButton {
 

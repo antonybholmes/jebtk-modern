@@ -36,7 +36,7 @@ import org.jebtk.core.event.ChangeEvent;
  * Notifies listeners that the canvas has changed (e.g. size) so should be
  * redrawn or the container control adjusted accordingly.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface CanvasListener extends EventListener {

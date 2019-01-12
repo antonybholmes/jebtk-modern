@@ -38,7 +38,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * Drop down button that displays a menu.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernMenuButton extends ModernDropDownWidget {

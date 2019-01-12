@@ -33,7 +33,7 @@ import java.awt.event.ComponentListener;
 /**
  * For classes that generate ModernClickEvents.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public interface ModernComponentEventProducer {
 

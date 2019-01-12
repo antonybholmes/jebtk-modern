@@ -40,7 +40,7 @@ import org.jebtk.modern.ModernComponent;
 /**
  * Standardized panel component.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernPanel extends ModernComponent {

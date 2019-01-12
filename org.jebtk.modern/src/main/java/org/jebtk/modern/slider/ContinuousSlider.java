@@ -37,7 +37,7 @@ import org.jebtk.core.Mathematics;
 /**
  * Basic features of a slider control that jumps from step to step.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ContinuousSlider extends Slider {

@@ -74,7 +74,7 @@ import org.jebtk.modern.graphics.ImageUtils;
 /**
  * Display objects in a graphical tree.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,

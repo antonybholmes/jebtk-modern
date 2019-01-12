@@ -40,7 +40,7 @@ import org.jebtk.core.tree.TreeRootNode;
 /**
  * Specialized tree that renderer paths as a hieraracy.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class PathTree extends ModernTree<List<Path>> {

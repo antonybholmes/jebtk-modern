@@ -50,7 +50,7 @@ import org.jebtk.modern.window.WindowWidgetFocusEvents;
 /**
  * User can enter an integer option value.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernFindDialog extends ModernDialogTaskWindow

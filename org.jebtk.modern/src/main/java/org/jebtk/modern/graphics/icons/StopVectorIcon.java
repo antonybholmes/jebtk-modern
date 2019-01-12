@@ -35,7 +35,7 @@ import org.jebtk.core.settings.SettingsService;
 /**
  * Run arrow icon, like the standard play button.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class StopVectorIcon extends ModernVectorIcon {

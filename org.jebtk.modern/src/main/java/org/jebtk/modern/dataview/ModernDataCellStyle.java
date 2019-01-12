@@ -35,7 +35,7 @@ import org.jebtk.core.text.TextUtils;
 /**
  * A style element that can be used to theme cells in a dataview control.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDataCellStyle {

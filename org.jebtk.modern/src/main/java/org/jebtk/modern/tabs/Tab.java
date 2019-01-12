@@ -34,7 +34,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * All content panes.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class Tab extends TabEventListeners implements Comparable<Tab> {

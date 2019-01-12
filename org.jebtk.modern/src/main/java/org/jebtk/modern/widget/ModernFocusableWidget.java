@@ -34,9 +34,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 /**
- * The basis for all controls. Implements basic message handling.
+ * The basis of widgets that can grab focus.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernFocusableWidget extends ModernWidget {

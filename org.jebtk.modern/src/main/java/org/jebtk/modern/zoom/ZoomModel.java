@@ -33,7 +33,7 @@ import org.jebtk.core.event.ChangeListeners;
  * Provides a zoom model for zoom components to communicate through. Zoom is
  * expressed as a percentage 0 = 0%, 1 = 100%.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ZoomModel extends ChangeListeners implements Zoom {

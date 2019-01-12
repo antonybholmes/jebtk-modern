@@ -37,7 +37,7 @@ import org.jebtk.modern.ribbon.Ribbon;
 /**
  * Run arrow icon, like the standard play button.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RunVectorIcon extends ModernVectorIcon {

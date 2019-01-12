@@ -51,7 +51,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * For displaying a splash screen.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernSplashScreen extends ModernDialogWindow {

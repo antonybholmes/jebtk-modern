@@ -35,7 +35,7 @@ import javax.swing.JComponent;
 /**
  * Sends focus to a widget on a window when it opens.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class WindowWidgetFocusEvents extends WindowAdapter {

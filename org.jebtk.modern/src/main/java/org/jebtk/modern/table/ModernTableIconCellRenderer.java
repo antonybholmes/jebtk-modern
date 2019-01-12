@@ -39,7 +39,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Displays an icon in a table cell.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernTableIconCellRenderer extends ModernDataCellRenderer {

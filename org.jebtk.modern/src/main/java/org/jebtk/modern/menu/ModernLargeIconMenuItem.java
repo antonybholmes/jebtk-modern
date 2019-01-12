@@ -34,7 +34,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * Default menu item for creating menu items with large icons.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernLargeIconMenuItem extends ModernIconMenuItem {

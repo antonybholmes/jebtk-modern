@@ -37,7 +37,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * Help icon.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class HelpVectorIcon extends ModernMessageIcon {

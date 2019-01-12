@@ -46,7 +46,7 @@ import org.jebtk.modern.graphics.DrawingContext;
 /**
  * Provides a grid view of data in the data model.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernDataGridView extends ModernData {
 

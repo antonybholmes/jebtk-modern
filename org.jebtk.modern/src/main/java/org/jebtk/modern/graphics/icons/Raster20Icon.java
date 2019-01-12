@@ -30,7 +30,7 @@ package org.jebtk.modern.graphics.icons;
 /**
  * Rastorizes an icon to 16x16 pixels.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class Raster20Icon extends RasterIcon {

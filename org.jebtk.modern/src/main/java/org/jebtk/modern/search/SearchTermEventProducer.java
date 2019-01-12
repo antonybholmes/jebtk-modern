@@ -32,7 +32,7 @@ import org.jebtk.core.event.ChangeEvent;
 /**
  * Interface for notifying objects that search terms have changed.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface SearchTermEventProducer {

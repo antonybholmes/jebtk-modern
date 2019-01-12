@@ -48,7 +48,7 @@ import org.jebtk.modern.window.ModernWindowConstructor;
 /**
  * Window for viewing the event log.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernLogWindow extends ModernRibbonWindow

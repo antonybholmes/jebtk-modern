@@ -65,7 +65,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * value. This is a compact version with the controls within the bounds of the
  * text box, so it remains the normal widget height.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernCompactSpinner extends Slider implements TextProperty {

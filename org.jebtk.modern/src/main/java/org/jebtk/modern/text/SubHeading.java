@@ -37,7 +37,7 @@ import org.jebtk.modern.panel.ModernPanel;
  * Provides a subRect.heighteading label and a control on the same line to save
  * space.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class SubHeading extends Box {

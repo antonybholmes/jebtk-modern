@@ -30,7 +30,7 @@ package org.jebtk.modern.graphics.icons;
 /**
  * Rastorizes an icon to 64x64 pixels.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class Raster64Icon extends RasterIcon {

@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.table;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,61 +38,34 @@ import org.jebtk.modern.dataview.ModernDataGridModel;
 /**
  * Extended table model.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public abstract class ModernTableModel extends ModernDataGridModel {
 
   /** The m header map. */
-  private Map<Integer, List<String>> mHeaderMap = new HashMap<Integer, List<String>>();
+  private Map<Integer, String> mHeaderMap = new HashMap<Integer, String>();
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.dataview.ModernDataModel#getRowAnnotationText(int)
-   */
   @Override
-  public List<String> getRowAnnotationText(int row) {
-    return CollectionUtils.toList(Integer.toString(row + 1));
+  public String getColumnName(int col) {
+    return getAutoColumnName(col);
   }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.common.ui.dataview.ModernDataModel#getColumnAnnotationText(int)
-   */
+  
   @Override
-  public List<String> getColumnAnnotationText(int column) {
-    // Use the auto names A,B,C... etc
-    return getAutoColumnName(column);
+  public String getRowName(int row) {
+    return Integer.toString(row);
   }
-
-  /**
-   * Convert a header array into a column annotation list.
-   * 
-   * @param header
-   * @param column
-   * @return
-   */
-  public List<String> getColumnAnnotationText(String[] header, int column) {
-    if (column < header.length) {
-      return CollectionUtils.toList(header[column]);
-    } else {
-      return Collections.emptyList();
-    }
-  }
-
+  
   /**
    * Gets the auto header name.
    *
    * @param column the column
    * @return the auto header name
    */
-  public List<String> getAutoColumnName(int column) {
+  public String getAutoColumnName(int column) {
 
     if (!mHeaderMap.containsKey(column)) {
       mHeaderMap.put(column,
-          CollectionUtils.toList(getAutoColumnHeading(column)));
+          getAutoColumnHeading(column));
     }
 
     return mHeaderMap.get(column);

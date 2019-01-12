@@ -37,7 +37,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * User can enter an integer option value.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernTextInputDialog extends ModernDialogTaskWindow {

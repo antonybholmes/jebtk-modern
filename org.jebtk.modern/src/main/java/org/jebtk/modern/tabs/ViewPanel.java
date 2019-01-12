@@ -34,7 +34,7 @@ import org.jebtk.modern.ModernComponent;
 /**
  * Allows panel to switch between components.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ViewPanel extends ModernComponent {

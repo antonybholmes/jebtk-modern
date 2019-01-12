@@ -40,7 +40,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * Displays text in a label that wraps text at word breaks.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class WrapLabel extends ModernWidget implements TextProperty {

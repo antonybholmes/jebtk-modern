@@ -39,7 +39,7 @@ import org.jebtk.core.settings.Setting;
 /**
  * Manage showing help to users.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class HelpManager {

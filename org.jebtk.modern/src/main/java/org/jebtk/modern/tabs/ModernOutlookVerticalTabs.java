@@ -49,7 +49,7 @@ import org.jebtk.modern.widget.ModernClickWidget;
 /**
  * Create tabs similar to Outlook 2007.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernOutlookVerticalTabs extends TabsController

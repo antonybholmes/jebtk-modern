@@ -69,7 +69,7 @@ import org.jebtk.modern.tooltip.ToolTipService;
 /**
  * Standardized panel component.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernComponent extends JComponent implements ScrollEventProducer {

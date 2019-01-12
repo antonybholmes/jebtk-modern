@@ -39,7 +39,7 @@ import org.jebtk.modern.widget.ModernClickWidget;
 /**
  * Groups buttons and ensures only one at a time can be selected.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernButtonGroup

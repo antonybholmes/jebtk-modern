@@ -37,7 +37,7 @@ import org.jebtk.modern.event.ModernClickListener;
 /**
  * Launches a web browser to a particular web page.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonHelpLinkButton extends ModernTextLink

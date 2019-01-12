@@ -32,7 +32,7 @@ import java.awt.event.KeyEvent;
 /**
  * For classes that generate ModernClickEvents.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public interface CanvasKeyEventProducer {
 

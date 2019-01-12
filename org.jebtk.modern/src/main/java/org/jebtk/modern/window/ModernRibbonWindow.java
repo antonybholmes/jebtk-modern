@@ -48,7 +48,7 @@ import org.jebtk.modern.dialog.MessageDialogTaskGlassPane;
 import org.jebtk.modern.dialog.MessageDialogType;
 import org.jebtk.modern.dialog.ModernMessageDialog;
 import org.jebtk.modern.help.GuiAppInfo;
-import org.jebtk.modern.panel.CardPanel;
+import org.jebtk.modern.panel.CardPanel2;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.status.ModernStatusBar;
 import org.jebtk.modern.widget.ModernClickWidget;
@@ -57,7 +57,7 @@ import org.jebtk.modern.widget.ModernWidget;
 /**
  * All windowed apps should inherit from this.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernRibbonWindow extends ModernWindow {
 
@@ -291,7 +291,7 @@ public class ModernRibbonWindow extends ModernWindow {
    * @param c
    */
   public void setCard(Component c) {
-    setCenterTab(new CardPanel(c, ModernWidget.DOUBLE_BORDER));
+    setCenterTab(new CardPanel2(c, ModernWidget.DOUBLE_BORDER));
   }
 
   /**

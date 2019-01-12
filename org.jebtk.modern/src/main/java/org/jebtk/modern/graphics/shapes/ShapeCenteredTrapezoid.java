@@ -30,7 +30,7 @@ package org.jebtk.modern.graphics.shapes;
 /**
  * Create a diamond centered on x, y.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ShapeCenteredTrapezoid extends ShapeParallelogram {
 

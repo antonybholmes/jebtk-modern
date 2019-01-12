@@ -79,7 +79,7 @@ import org.jebtk.modern.zoom.ZoomModel;
 /**
  * Represents a 2D table/grid view of data.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernTable extends ModernData
@@ -954,6 +954,14 @@ public class ModernTable extends ModernData
   public boolean getShowHeader() {
     return mShowHeader;
   }
+  
+  public String getColumnName(int col) {
+    return mModel.getColumnName(col);
+  }
+  
+  public String getRowName(int col) {
+    return mModel.getRowName(col);
+  }
 
   @Override
   public void copy() {
@@ -1484,7 +1492,7 @@ public class ModernTable extends ModernData
      * renderer = mHeadingRenderModel.get(i);
      * 
      * Component c = renderer.getCellRendererComponent(this,
-     * mModel.getColumnName(i), false, false, false, 0, i);
+     * mmodel.getColumnHeader().getHeader(i), false, false, false, 0, i);
      * 
      * w = mColumnModel.getWidth(i);
      * 

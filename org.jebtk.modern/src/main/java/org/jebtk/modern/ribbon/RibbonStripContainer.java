@@ -37,7 +37,7 @@ import org.jebtk.modern.panel.VCenterBox;
 /**
  * For storing a strip of smaller buttons.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class RibbonStripContainer extends VCenterBox {
 

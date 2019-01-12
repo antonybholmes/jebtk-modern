@@ -38,7 +38,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * Simple horizontal tabs using labels as buttons.
  * 
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class TabsVertPanel extends TabsPanel

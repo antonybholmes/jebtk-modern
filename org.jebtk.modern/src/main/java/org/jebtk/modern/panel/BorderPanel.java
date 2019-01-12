@@ -35,7 +35,7 @@ import java.awt.LayoutManager;
 /**
  * Replacement ModernButton with a common skin.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class BorderPanel extends ModernPanel {

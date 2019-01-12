@@ -45,7 +45,7 @@ import org.jebtk.modern.widget.ModernTwoStateWidget;
 /**
  * Low height button for small form factor toolbar buttons.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernCheckButton extends ModernTwoStateWidget
     implements TextProperty {
@@ -58,7 +58,7 @@ public class ModernCheckButton extends ModernTwoStateWidget
   /**
    * Deals with mouse events specifically for buttons.
    * 
-   * @author Antony Holmes Holmes
+   * @author Antony Holmes
    *
    */
   private class MouseEvents extends MouseAdapter {

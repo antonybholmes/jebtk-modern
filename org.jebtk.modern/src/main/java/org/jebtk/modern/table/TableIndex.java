@@ -32,7 +32,7 @@ import org.jebtk.core.event.ChangeListeners;
 /**
  * Represents a column or row in a table.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class TableIndex extends ChangeListeners

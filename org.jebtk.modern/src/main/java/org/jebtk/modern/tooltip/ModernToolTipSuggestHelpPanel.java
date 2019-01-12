@@ -31,7 +31,7 @@ package org.jebtk.modern.tooltip;
  * Extension of the basic tooltip that also suggests the user presses F1 to get
  * more help.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernToolTipSuggestHelpPanel extends ModernBasicToolTipPanel {

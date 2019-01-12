@@ -79,7 +79,7 @@ import org.jebtk.modern.widget.ModernFocusableWidget;
  * Scroll pane control for scrolling around components bigger than the on screen
  * view.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernScrollPane extends ModernFocusableWidget
@@ -271,7 +271,7 @@ public class ModernScrollPane extends ModernFocusableWidget
   /**
    * Increments vertical scroll, should only be used by a timer.
    *
-   * @author Antony Holmes Holmes
+   * @author Antony Holmes
    */
   private class IncrementScroll implements ActionListener {
 
@@ -290,7 +290,7 @@ public class ModernScrollPane extends ModernFocusableWidget
   /**
    * Deal with dragging on the component to force the the list to scroll.
    * 
-   * @author Antony Holmes Holmes
+   * @author Antony Holmes
    *
    */
   private class InnerComponentMouseMotionEvents extends MouseAdapter {

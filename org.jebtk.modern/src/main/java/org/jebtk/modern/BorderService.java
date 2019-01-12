@@ -42,7 +42,7 @@ import org.jebtk.core.collections.IterMap;
 /**
  * Cache borders so they can be reused.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class BorderService {

@@ -37,15 +37,15 @@ import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.Io;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.table.ModernColumnHeaderTableModel;
+import org.jebtk.modern.table.ModernTableModel;
 
 /**
  * A concrete implementation of a table model for displaying text.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
-public class PreviewTableModel extends ModernColumnHeaderTableModel {
+public class PreviewTableModel extends ModernTableModel {
 
   /**
    * The header.
@@ -65,28 +65,10 @@ public class PreviewTableModel extends ModernColumnHeaderTableModel {
    * @throws IOException Signals that an I/O exception has occurred.
    */
   public PreviewTableModel(final Path file) throws IOException {
-    setup(file, -1);
+    this(file, -1);
   }
-
-  /**
-   * Instantiates a new preview table model.
-   *
-   * @param file the file
-   * @param rows the rows
-   * @throws IOException Signals that an I/O exception has occurred.
-   */
+  
   public PreviewTableModel(final Path file, int rows) throws IOException {
-    setup(file, rows);
-  }
-
-  /**
-   * Setup.
-   *
-   * @param file the file
-   * @param rows the rows
-   * @throws IOException Signals that an I/O exception has occurred.
-   */
-  private void setup(final Path file, int rows) throws IOException {
     BufferedReader reader = FileUtils.newBufferedReader(file);
 
     int c = 0;
@@ -172,11 +154,11 @@ public class PreviewTableModel extends ModernColumnHeaderTableModel {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumnAnnotations(int)
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(int)
    */
   @Override
-  public final List<String> getColumnAnnotationText(int columnIndex) {
-    return CollectionUtils.asList(header.get(columnIndex));
+  public final String getColumnName(int columnIndex) {
+    return header.get(columnIndex);
   }
 
   /*

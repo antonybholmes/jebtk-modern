@@ -30,7 +30,7 @@ package org.jebtk.modern.graphics.icons;
 /**
  * Rastorizes an icon to 48x48 pixels.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class Raster48Icon extends RasterIcon {

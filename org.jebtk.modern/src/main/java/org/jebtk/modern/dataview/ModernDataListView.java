@@ -39,7 +39,7 @@ import org.jebtk.core.geom.IntRect;
  * Represents a list view of a grid similar to the list view on a file explorer.
  * Items are rendered row first.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDataListView extends ModernDataGridView {

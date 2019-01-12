@@ -48,7 +48,7 @@ import javax.swing.TransferHandler;
 /**
  * Default to a large tile view.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDataTileView extends ModernDataGridView

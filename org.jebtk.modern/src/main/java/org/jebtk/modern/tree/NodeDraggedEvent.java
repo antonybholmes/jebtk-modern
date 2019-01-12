@@ -32,7 +32,7 @@ import org.jebtk.core.tree.TreeNode;
 /**
  * Describes a drag event on a FlatTree control.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  * @param <T> the generic type
  */
 public class NodeDraggedEvent<T> {

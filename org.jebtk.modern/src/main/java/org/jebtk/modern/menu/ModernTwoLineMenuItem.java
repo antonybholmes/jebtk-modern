@@ -39,7 +39,7 @@ import org.jebtk.modern.widget.TwoLineWidget;
 /**
  * Extended menu item that displays two lines of text and an icon.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernTwoLineMenuItem extends ModernIconMenuItem
     implements TwoLineWidget {

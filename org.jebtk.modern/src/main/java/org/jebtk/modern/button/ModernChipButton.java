@@ -35,7 +35,7 @@ import org.jebtk.modern.UI;
 /**
  * Low height button for small form factor toolbar buttons.
  *
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  */
 public class ModernChipButton extends ModernCheckButton {
 

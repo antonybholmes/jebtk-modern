@@ -33,7 +33,7 @@ import org.jebtk.modern.window.ModernWindow;
  * Dialog box that does not auto dispose so it can be set to invisible and made
  * visible later.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class ModernDialogPersistentWindow extends ModernDialogWindow {

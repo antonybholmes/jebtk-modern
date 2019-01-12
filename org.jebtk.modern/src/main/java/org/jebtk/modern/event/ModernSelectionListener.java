@@ -34,7 +34,7 @@ import org.jebtk.core.event.ChangeEvent;
 /**
  * Control selection events.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public interface ModernSelectionListener extends EventListener {

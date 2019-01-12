@@ -46,7 +46,7 @@ import org.jebtk.modern.window.FrostedGlassPane;
  * Search dialog to notify users that a search is underway and to make it
  * obvious they should wait for the search to finish.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class MessageDialogTaskGlassPane extends FrostedGlassPane {

@@ -38,7 +38,7 @@ import org.jebtk.modern.ribbon.RibbonMenuItem;
 /**
  * Launches a web browser to a particular web page.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class RibbonWebMenuItem extends RibbonMenuItem

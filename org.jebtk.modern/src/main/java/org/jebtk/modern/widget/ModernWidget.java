@@ -62,7 +62,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * The basis for all controls. Implements basic message handling.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public abstract class ModernWidget extends ModernComponent

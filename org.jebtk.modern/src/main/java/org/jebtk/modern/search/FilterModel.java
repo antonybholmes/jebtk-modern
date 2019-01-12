@@ -40,7 +40,7 @@ import org.jebtk.core.collections.UniqueArrayList;
 /**
  * Model to determine which items to display.
  * 
- * @author Antony Holmes Holmes
+ * @author Antony Holmes
  *
  */
 public class FilterModel extends FilterEventListeners
