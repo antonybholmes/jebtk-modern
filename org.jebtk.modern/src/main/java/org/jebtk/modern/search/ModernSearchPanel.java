@@ -46,6 +46,7 @@ import org.jebtk.modern.panel.ModernPillBorderPanel;
 import org.jebtk.modern.text.ModernClipboardTextField;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.text.TextProperty;
+import org.jebtk.modern.theme.ColorStyle;
 import org.jebtk.modern.widget.ButtonStyle;
 import org.jebtk.modern.widget.ModernClickWidget;
 
@@ -66,7 +67,7 @@ public class ModernSearchPanel extends ModernPillBorderPanel implements
    */
   private ModernClickWidget mSearchButton = new ModernButton(
       AssetService.getInstance().loadIcon(SearchVectorIcon.class, 16))
-          .setButtonStyle(ButtonStyle.CIRCLE_OUTLINE);
+          .setColorStyle(ColorStyle.RIBBON).setButtonStyle(ButtonStyle.CIRCLE);
 
   /**
    * The member search field.
@@ -101,17 +102,20 @@ public class ModernSearchPanel extends ModernPillBorderPanel implements
     // mSearchField.setBorder(BorderService.getInstance().createLeftBorder(20));
     add(mSearchField);
     add(mSearchButton, BorderLayout.LINE_END);
-
+    
     mSearchField.addKeyListener(this);
     mSearchButton.addClickListener(this);
 
     mSearchField.setText(mModel.get());
+    
+    //UI.setSize(mSearchButton, 24, 24);
 
     addComponentListener(new ComponentAdapter() {
       @Override
       public void componentResized(ComponentEvent e) {
+        int b = (getHeight() - mSearchButton.getHeight()) / 2;
         setBorder(
-            BorderService.getInstance().createBorder(3, getHeight() / 2, 2, 2));
+            BorderService.getInstance().createBorder(b, getHeight() / 2, b, b));
       }
     });
   }

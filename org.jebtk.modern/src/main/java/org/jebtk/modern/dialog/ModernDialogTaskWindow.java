@@ -39,13 +39,13 @@ import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.contentpane.ModernHContentPane;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
-import org.jebtk.modern.panel.CardPanel;
+import org.jebtk.modern.panel.CardPanel2;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.panel.VBoxAutoWidth;
 import org.jebtk.modern.text.ModernDialogHeadingLabel;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
-import org.jebtk.modern.window.WindowIconTabs;
+import org.jebtk.modern.window.WindowLeftTabNav;
 
 /**
  * Standardized dialog window for dialogs that have buttons along the bottom
@@ -77,7 +77,7 @@ implements ModernClickListener {
 
   private ModernHContentPane mContentPane = new ModernHContentPane();
 
-  private WindowIconTabs mIconTabs;
+  private WindowLeftTabNav mIconTabs;
 
   /**
    * Instantiates a new modern dialog window.
@@ -154,7 +154,7 @@ implements ModernClickListener {
 
     setBody(mContentPane);
 
-    mIconTabs = new WindowIconTabs(getTabsPane());
+    mIconTabs = new WindowLeftTabNav(getTabsPane());
 
 
     getTabsPane().tabs().setCenterTab(new VBoxAutoWidth(ModernWidget.DOUBLE_BORDER));
@@ -169,8 +169,7 @@ implements ModernClickListener {
   @Override
   public void setCard(JComponent c) {
     getTabsPane().tabs().setCenterTab(
-        new CardPanel(new ModernComponent(c, ModernWidget.TRIPLE_BORDER),
-            ModernWidget.DOUBLE_BORDER));
+        new ModernComponent(new CardPanel2(c, ModernWidget.QUAD_BORDER), ModernWidget.DOUBLE_BORDER));
 
     setDarkBackground();
 
@@ -187,7 +186,7 @@ implements ModernClickListener {
     //   new CardPanel(new ModernComponent(c, ModernWidget.TRIPLE_BORDER),
     //        ModernWidget.DOUBLE_BORDER));
 
-    addBlock(new CardPanel(new ModernComponent(c, ModernWidget.TRIPLE_BORDER)));
+    addBlock(new CardPanel2(new ModernComponent(c, ModernWidget.TRIPLE_BORDER)));
 
     setDarkBackground();
   }
@@ -229,7 +228,7 @@ implements ModernClickListener {
     return mContentPane;
   }
 
-  public WindowIconTabs getIconTabs() {
+  public WindowLeftTabNav getIconTabs() {
     return mIconTabs;
   }
 

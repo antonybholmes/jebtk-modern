@@ -1,15 +1,12 @@
 package org.jebtk.modern.panel;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.animation.PillBorderAnimation;
-import org.jebtk.modern.theme.DrawUIService;
+import org.jebtk.modern.theme.CSSWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -19,7 +16,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes
  *
  */
-public class ModernPillBorderPanel extends ModernWidget {
+public class ModernPillBorderPanel extends CSSWidget {
 
   /**
    * The constant serialVersionUID.
@@ -30,17 +27,6 @@ public class ModernPillBorderPanel extends ModernWidget {
    * Instantiates a new modern line border panel.
    */
   public ModernPillBorderPanel() {
-    init();
-  }
-
-  /**
-   * Instantiates a new modern line border panel.
-   *
-   * @param color the color
-   */
-  public ModernPillBorderPanel(Color color) {
-    setBackground(color);
-
     init();
   }
 
@@ -85,17 +71,9 @@ public class ModernPillBorderPanel extends ModernWidget {
    */
   private void init() {
     setBorder(ModernWidget.TWO_PIXEL_BORDER); // BorderService.getInstance().createBorder(2));
-
-    addStyleClass("content", "content-outline");
-    // addStyleClass("content-outline");
-
-    setAnimations(new PillBorderAnimation(this));
-  }
-
-  @Override
-  public void drawAnimatedBackground(Graphics2D g2) {
-    DrawUIService.getInstance().getRenderer("pill-outline").draw(g2, mRect);
-
-    super.drawAnimatedBackground(g2);
+    
+    addStyleClass("content", "content-outline", "pill");
+    
+    getAnimations().add("button-outline");
   }
 }

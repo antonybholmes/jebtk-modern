@@ -23,8 +23,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabEventAdapter;
-import org.jebtk.modern.theme.DrawUIService;
-import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
@@ -61,7 +59,7 @@ public class IconTabsVertChangeAnimation extends FadeAnimation {
   }
 
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     
 
     int selectedIndex = mTabs.getTabsModel().getSelectedIndex();

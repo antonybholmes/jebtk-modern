@@ -108,8 +108,6 @@ public class FadeAnimation extends EasingAnimation {
       Color c = ColorUtils.getColor(color, t * BEZ_T[i]);
 
       mFadeColorMap.get(i).add(name, c);
-
-      // t += d;
     }
 
     return this;
@@ -203,7 +201,7 @@ public class FadeAnimation extends EasingAnimation {
   // }
 
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     // TODO Auto-generated method stub
 
   }

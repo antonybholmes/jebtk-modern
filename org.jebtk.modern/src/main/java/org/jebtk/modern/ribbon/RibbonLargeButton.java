@@ -33,7 +33,7 @@ import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.graphics.icons.ModernScaleIcon;
+import org.jebtk.modern.graphics.icons.RasterIcon;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -189,11 +189,11 @@ public class RibbonLargeButton extends ModernButton
   private void setup() {
     mText = mText1;
 
-    mCompactIcon = new ModernScaleIcon(mIcon, 24);
+    mCompactIcon = new RasterIcon(mIcon, 24);
 
     setSize(RibbonSize.COMPACT);
 
-    addToStyleClass("dialog-button");
+    addToStyleClass("ribbon-button");
     // setAnimations("button-fill"); // new
     // RibbonButtonHighlightAnimation(this));
   }

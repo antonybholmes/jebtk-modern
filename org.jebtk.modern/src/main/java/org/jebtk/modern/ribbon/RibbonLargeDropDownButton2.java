@@ -36,7 +36,7 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernDropDownButton2;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.graphics.icons.ModernScaleIcon;
+import org.jebtk.modern.graphics.icons.RasterIcon;
 import org.jebtk.modern.menu.ModernPopupMenu2;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -56,7 +56,7 @@ public class RibbonLargeDropDownButton2 extends ModernDropDownButton2
   private static final long serialVersionUID = 1L;
 
   /** The m compact icon. */
-  protected ModernScaleIcon mCompactIcon;
+  protected ModernIcon mCompactIcon;
 
   /** The m mode. */
   private RibbonSize mMode;
@@ -161,13 +161,13 @@ public class RibbonLargeDropDownButton2 extends ModernDropDownButton2
     mMinSizeMap.put(RibbonSize.COMPACT, Ribbon.MIN_COMPACT_BUTTON_WIDTH);
 
     if (mIcon != null) {
-      mCompactIcon = new ModernScaleIcon(mIcon, Ribbon.COMPACT_ICON_SIZE);
+      mCompactIcon = new RasterIcon(mIcon, Ribbon.COMPACT_ICON_SIZE);
     }
 
     setSize(RibbonSize.COMPACT);
 
-    addToStyleClass("dialog-button");
-    setAnimations("ribbon-dropdown-button-2");
+    addStyleClass("ribbon-button");
+    //setAnimations("ribbon-dropdown-button-2");
   }
 
   /**

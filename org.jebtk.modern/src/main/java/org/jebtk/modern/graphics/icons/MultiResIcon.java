@@ -27,88 +27,40 @@
  */
 package org.jebtk.modern.graphics.icons;
 
-import java.awt.AlphaComposite;
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-
-import org.jebtk.modern.graphics.ImageUtils;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * Creates a transparent icon from an existing rastorizable icon.
- * 
- * @author Antony Holmes
+ * Cache icon at multiple resolutions.
  */
-public class TransIcon extends ModernIcon {
+public class MultiResIcon extends ModernIcon {
 
   /**
-   * The buffered image.
+   * The member icons.
    */
-  private BufferedImage mBufferedImage;
+  private Map<Integer, ModernIcon> mIcons = new HashMap<Integer, ModernIcon>();
 
   /**
-   * Instantiates a new raster icon.
+   * The member icon.
+   */
+  private ModernIcon mIcon;
+
+  /**
+   * Adds the icon.
    *
    * @param icon the icon
-   * @param alpha the alpha
    */
-  public TransIcon(ModernIcon icon, float alpha) {
-    mBufferedImage = ImageUtils.createImage(icon.getWidth(), icon.getHeight());
+  public MultiResIcon(ModernIcon icon) {
+    mIcon = icon;
+  }
 
-    Graphics2D g2Temp = ImageUtils.createAATextGraphics(mBufferedImage);
-
-    try {
-      g2Temp.setComposite(
-          AlphaComposite.getInstance(AlphaComposite.SRC, 1 - alpha));
-      icon.drawIcon(g2Temp, 0, 0, icon.getWidth());
-    } finally {
-      g2Temp.dispose();
+  @Override
+  public BufferedImage getImage(int w, Object... params) {
+    if (!mIcons.containsKey(w)) {
+      mIcons.put(w, new RasterIcon(mIcon, w));
     }
-  }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
-   * java.awt.Rectangle)
-   */
-  @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Object... params) {
-    g2.drawImage(mBufferedImage, x, y, null);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
-   */
-  @Override
-  public BufferedImage getImage() {
-    return mBufferedImage;
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.graphics.icons.ModernIcon#getWidth()
-   */
-  @Override
-  public int getWidth() {
-    return mBufferedImage.getWidth();
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.graphics.icons.ModernIcon#getHeight()
-   */
-  @Override
-  public int getHeight() {
-    return mBufferedImage.getHeight();
+    return mIcons.get(w).getImage(w, params);
   }
 }

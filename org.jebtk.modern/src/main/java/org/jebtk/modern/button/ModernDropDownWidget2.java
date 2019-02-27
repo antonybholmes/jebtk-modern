@@ -189,7 +189,7 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
   public ModernDropDownWidget2(String text1, ModernIcon icon) {
     super(text1, icon);
 
-    setup();
+    init();
   }
 
   /**
@@ -203,7 +203,7 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
 
     setMenu(menu);
 
-    setup();
+    init();
   }
 
   /**
@@ -217,7 +217,7 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
 
     setMenu(menu);
 
-    setup();
+    init();
   }
 
   /**
@@ -228,7 +228,7 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
   public ModernDropDownWidget2(String text1) {
     super(text1);
 
-    setup();
+    init();
   }
 
   /**
@@ -239,13 +239,13 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
   public ModernDropDownWidget2(ModernIcon icon) {
     super(icon);
 
-    setup();
+    init();
   }
 
   /**
    * Setup.
    */
-  private void setup() {
+  private void init() {
     // Only the button can respond to the click event
 
     // Disable tooltips so that we are not bothered by popups over popups.
@@ -296,7 +296,7 @@ public class ModernDropDownWidget2 extends ModernButtonWidget {
     // Listen for all
     ToolTipService.getInstance().addAllToolTipListener(l);
 
-    setAnimations("dropdown-button-2");
+    //setAnimations("dropdown-button-2");
   }
 
   @Override

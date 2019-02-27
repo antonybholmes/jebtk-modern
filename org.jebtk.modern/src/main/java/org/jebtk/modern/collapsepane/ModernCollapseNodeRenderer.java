@@ -191,7 +191,7 @@ public class ModernCollapseNodeRenderer extends ModernWidget {
 
     g2.setColor(ModernWidget.TEXT_COLOR);
 
-    g2.setFont(MaterialService.getInstance().getFont("text")); // SUB_SUB_HEADING_FONT);
+    g2.setFont(MaterialService.instance().getFont("text")); // SUB_SUB_HEADING_FONT);
 
     g2.drawString(ModernWidget
         .getTruncatedText(g2, name, rect.getX(), rect.getW()), xt, yt);

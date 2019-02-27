@@ -84,7 +84,6 @@ public class ModernDialogPrimaryButton extends ModernDialogButton {
     setForeground(Color.WHITE);
 
     addStyleClass("primary-dialog-button");
-    addToStyleClass("primary-dialog-button");
 
     /*
      * public static final Color OUTLINE_COLOR_1 = ThemeService.getInstance()
@@ -112,7 +111,7 @@ public class ModernDialogPrimaryButton extends ModernDialogButton {
 
     // getBackgroundAnimations().set("primary-dialog-button");
 
-    setAnimations("button-fill", "button-outline");
+    //setAnimations("button-fill", "button-outline");
   }
 
   /*

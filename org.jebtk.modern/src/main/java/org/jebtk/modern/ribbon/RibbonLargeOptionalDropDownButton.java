@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernOptionalDropDownMenuButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.graphics.icons.ModernScaleIcon;
+import org.jebtk.modern.graphics.icons.RasterIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -52,7 +52,7 @@ public class RibbonLargeOptionalDropDownButton
   private static final long serialVersionUID = 1L;
 
   /** The m compact icon. */
-  protected ModernScaleIcon mCompactIcon;
+  protected ModernIcon mCompactIcon;
 
   /** The m mode. */
   private RibbonSize mMode;
@@ -129,12 +129,12 @@ public class RibbonLargeOptionalDropDownButton
    */
   private void setup() {
     if (mIcon != null) {
-      mCompactIcon = new ModernScaleIcon(mIcon, Ribbon.COMPACT_ICON_SIZE);
+      mCompactIcon = new RasterIcon(mIcon, Ribbon.COMPACT_ICON_SIZE);
     }
 
     setSize(RibbonSize.COMPACT);
 
-    addToStyleClass("dialog-button");
+    addToStyleClass("ribbon-button");
 
     setAnimations("ribbon-optional-dropdown-button");
   }

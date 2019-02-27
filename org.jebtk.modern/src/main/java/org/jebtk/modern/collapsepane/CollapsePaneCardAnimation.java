@@ -14,7 +14,7 @@ public class CollapsePaneCardAnimation extends WidgetAnimation {
   }
 
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     Dimension s = widget.getPreferredSize();
     // Insets insets = widget.getInsets();
 

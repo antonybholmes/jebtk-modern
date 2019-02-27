@@ -40,7 +40,6 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.CrossVectorIcon;
 import org.jebtk.modern.graphics.icons.Raster24Icon;
-import org.jebtk.modern.graphics.icons.Raster32Icon;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.help.HelpManager;
 import org.jebtk.modern.panel.HBox;
@@ -149,7 +148,7 @@ public class ModernSplashScreen extends ModernDialogWindow {
   private void init() {
 
     setUndecorated(true);
-    setIconImage(new Raster32Icon(getAppInfo().getIcon()).getImage());
+    setIconImage(getAppInfo().getIcon().getImage(32));
     setTitle(getAppInfo().getName());
 
     // determine the color of the icon

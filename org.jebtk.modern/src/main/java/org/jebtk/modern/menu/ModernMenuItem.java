@@ -191,9 +191,11 @@ public class ModernMenuItem extends ModernButton {
 
     // setAnimations("menu");
 
-    addStyleClass("square-borders");
-    addToStyleClass("dialog-button");
-    setAnimations("button-fill");
+    //update("square-borders");
+    //addToStyleClass("gray-button");
+    //setAnimations("button-fill");
+    
+    addStyleClass("ribbon-button");
   }
 
   /**

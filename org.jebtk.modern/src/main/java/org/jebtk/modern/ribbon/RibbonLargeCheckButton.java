@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.graphics.icons.ModernScaleIcon;
+import org.jebtk.modern.graphics.icons.RasterIcon;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -57,7 +57,7 @@ public class RibbonLargeCheckButton extends ModernCheckButton
   private String mText;
 
   /** The m compact icon. */
-  private ModernScaleIcon mCompactIcon;
+  private ModernIcon mCompactIcon;
 
   /** The m show text. */
   private boolean mShowText = true;
@@ -171,7 +171,7 @@ public class RibbonLargeCheckButton extends ModernCheckButton
     mText = mText1;
 
     if (mIcon != null) {
-      mCompactIcon = new ModernScaleIcon(mIcon, 24);
+      mCompactIcon = new RasterIcon(mIcon, 24);
     }
 
     setSize(RibbonSize.COMPACT);

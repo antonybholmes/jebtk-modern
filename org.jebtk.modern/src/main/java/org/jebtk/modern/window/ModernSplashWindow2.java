@@ -54,7 +54,7 @@ public class ModernSplashWindow2 extends ModernWindow {
 
     // determine the color of the icon
 
-    Color color = new Color(appInfo.getIcon().getImage().getRGB(1, 1));
+    Color color = new Color(appInfo.getIcon().getImage(32).getRGB(1, 1));
 
     getWindowPanel().setBackground(color);
 

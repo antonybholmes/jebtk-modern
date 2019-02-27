@@ -227,11 +227,11 @@ public class Animations extends ChangeListeners
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     autoLoad();
 
     for (Object a : mAnimations) {
-      ((Animation) a).draw(widget, g2, params);
+      ((Animation) a).draw(g2, widget, params);
     }
   }
 

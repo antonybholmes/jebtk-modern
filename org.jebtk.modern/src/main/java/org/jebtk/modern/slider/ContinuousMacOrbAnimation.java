@@ -21,7 +21,7 @@ public class ContinuousMacOrbAnimation extends HoverFadeAnimation {
     mButton = (ContinuousMacOrbSlider) button;
 
     setFadeColor("highlight",
-        MaterialService.getInstance().getColor("theme-selected"),
+        MaterialService.instance().getColor("theme-selected"),
         Ribbon.BAR_BACKGROUND);
     setFadeColor("line", ModernWidget.LINE_COLOR, ModernWidget.DARK_LINE_COLOR);
   }
@@ -33,7 +33,7 @@ public class ContinuousMacOrbAnimation extends HoverFadeAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     int p = (int) (widget.getInsets().left + mButton.mSliderDiameter % 2
         + mButton.vToX());
 

@@ -43,7 +43,7 @@ public class ListHighlightAnimation extends HighlightAnimation {
     mList = (ModernList<?>) list;
 
     setFadeColor("highlight",
-        MaterialService.getInstance().getColor("gray-highlight"));
+        MaterialService.instance().getColor("gray-highlight"));
   }
 
   /*
@@ -53,7 +53,7 @@ public class ListHighlightAnimation extends HighlightAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
 
     if (mList.mListModel == null) {
       return;

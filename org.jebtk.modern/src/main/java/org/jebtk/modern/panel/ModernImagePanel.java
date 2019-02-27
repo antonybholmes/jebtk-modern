@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016, Antony Holmes
+ * Copyright (C) 2019, Antony Holmes
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -33,7 +33,6 @@ import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RasterIcon;
-import org.jebtk.modern.graphics.icons.ScaledRasterIcon;
 
 /**
  * Displays an image.
@@ -51,7 +50,7 @@ public class ModernImagePanel extends ModernComponent {
   /**
    * The member image.
    */
-  private ModernIcon mImage;
+  private RasterIcon mImage;
 
   /** The m size. */
   private int mSize;
@@ -94,7 +93,7 @@ public class ModernImagePanel extends ModernComponent {
    * @param size the size
    */
   public void setImage(ModernIcon image, int iconSize, int size) {
-    mImage = new ScaledRasterIcon(new RasterIcon(image, iconSize), size);
+    mImage = new RasterIcon(image, size);
     mSize = size;
 
     UI.setSize(this, size, size);

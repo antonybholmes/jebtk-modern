@@ -28,12 +28,15 @@
 package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
-import java.awt.Image;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 
 import org.jebtk.modern.graphics.ImageUtils;
+
+import javafx.scene.image.Image;
 
 /**
  * The class ModernImageIcon.
@@ -44,51 +47,13 @@ public class ModernImageIcon extends ModernIcon {
    * The member buffered image.
    */
   private BufferedImage mBufferedImage;
+  private URL mUrl;
+  private int mSize;
+  private Image mImage;
 
-  /** The m W. */
-  private int mW;
-
-  /** The m H. */
-  private int mH;
-
-  /**
-   * Instantiates a new modern image icon.
-   *
-   * @param icon the icon
-   */
-  public ModernImageIcon(ImageIcon icon) {
-    this(icon.getImage());
-  }
-
-  /**
-   * Instantiates a new modern image icon.
-   *
-   * @param icon the icon
-   */
-  public ModernImageIcon(Image icon) {
-    mW = icon.getWidth(null);
-    mH = icon.getHeight(null);
-
-    cache(icon);
-  }
-
-  /**
-   * Cache.
-   *
-   * @param image the image
-   */
-  private void cache(Image image) {
-    mBufferedImage = ImageUtils.createImage(mW, mH);
-
-    Graphics2D g2 = (Graphics2D) mBufferedImage.createGraphics();
-
-    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
-
-    try {
-      g2Temp.drawImage(image, 0, 0, null);
-    } finally {
-      g2Temp.dispose();
-    }
+  public ModernImageIcon(URL url, int size) {
+    mUrl = url;
+    mSize = size;
   }
 
   /*
@@ -105,10 +70,10 @@ public class ModernImageIcon extends ModernIcon {
       int w,
       int h,
       Object... params) {
-    x = x + (w - mW) / 2;
-    y = y + (h - mH) / 2;
+    x = x + (w - mSize) / 2;
+    y = y + (h - mSize) / 2;
 
-    g2.drawImage(mBufferedImage, x, y, null);
+    g2.drawImage(getImage(mSize, params), x, y, null);
   }
 
   /*
@@ -118,7 +83,7 @@ public class ModernImageIcon extends ModernIcon {
    */
   @Override
   public int getWidth() {
-    return mW;
+    return mSize;
   }
 
   /*
@@ -128,7 +93,7 @@ public class ModernImageIcon extends ModernIcon {
    */
   @Override
   public int getHeight() {
-    return mH;
+    return mSize;
   }
 
   /*
@@ -137,7 +102,64 @@ public class ModernImageIcon extends ModernIcon {
    * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
    */
   @Override
-  public BufferedImage getImage() {
+  public BufferedImage getImage(int w, Object... params) {
+    if (mBufferedImage == null) {
+      mBufferedImage = ImageUtils.createImage(mSize, mSize);
+
+      Graphics2D g2 = (Graphics2D) mBufferedImage.createGraphics();
+
+      Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
+
+      try {
+
+        java.awt.Image image = new ImageIcon(mUrl).getImage();
+
+        w = image.getWidth(null);
+        
+        if (w == mSize) {
+          g2Temp.drawImage(image, 0, 0, null);
+        } else {
+          // scale
+          ImageUtils.setQualityHints(g2Temp);
+         
+
+     
+          /*
+          g2Temp.drawImage(image,
+              0,
+              0,
+              mSize,
+              mSize,
+              0,
+              0,
+              w,
+              image.getHeight(null),
+              null);
+          */
+          
+          g2Temp.drawImage(image,
+              0,
+              0,
+              mSize,
+              mSize,
+              null);
+        }
+
+      } finally {
+        g2Temp.dispose();
+      }
+    }
+
     return mBufferedImage;
+  }
+
+  @Override
+  public javafx.scene.image.Image getFxImage(int w) {
+    if (mImage == null) {
+      mImage = new javafx.scene.image.Image(mUrl.toString(), mSize, mSize, true,
+          true);
+    }
+
+    return mImage;
   }
 }

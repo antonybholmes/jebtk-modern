@@ -42,7 +42,11 @@ public class PillFillUI extends ButtonUI {
     if (params.length > 0) {
       g2.setColor((Color) params[0]);
     } else {
-      g2.setColor(HIGHLIGHTED_FILL_COLOR);
+      if (c != null) {
+        g2.setColor(c.getToKeyFrame().getColor("background-color"));
+      } else {
+        g2.setColor(HIGHLIGHTED_FILL_COLOR);
+      }
     }
 
     g2.fillRoundRect(x, y, w, h, h, h);

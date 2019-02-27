@@ -241,7 +241,7 @@ public class ModernDialogWindow extends JDialog
 
     setDarkBackground();
 
-    setIconImage(getAppInfo().getIcon().getImage());
+    setIconImage(getAppInfo().getIcon().getImage(32));
 
     super.getContentPane().add(mContentPanel, BorderLayout.CENTER);
 

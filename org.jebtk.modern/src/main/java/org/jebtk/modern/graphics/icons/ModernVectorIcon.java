@@ -112,6 +112,8 @@ public abstract class ModernVectorIcon extends ModernIcon {
   public int getHeight() {
     return -1;
   }
+  
+  
 
   //
   // Static methods

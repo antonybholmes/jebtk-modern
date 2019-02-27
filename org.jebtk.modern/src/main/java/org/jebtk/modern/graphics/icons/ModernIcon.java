@@ -29,10 +29,15 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
 import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntRect;
+import org.jebtk.modern.graphics.ImageUtils;
+
+import javafx.embed.swing.SwingFXUtils;
+import javafx.scene.image.Image;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -122,35 +127,81 @@ public abstract class ModernIcon {
    * @param w the w
    * @param h the h
    */
-  public abstract void drawIcon(Graphics2D g2,
+  public void drawIcon(Graphics2D g2,
       int x,
       int y,
       int w,
       int h,
-      Object... params);
+      Object... params) {
+    g2.drawImage(getImage(w, params), x, y, null);
+  }
 
   /**
    * Returns the width of the icon.
    *
    * @return The width.
    */
-  public abstract int getWidth();
+  public int getWidth() {
+    return -1;
+  }
 
   /**
    * Returns the height of the icon.
    *
    * @return The height.
    */
-  public abstract int getHeight();
+  public int getHeight() {
+    return -1;
+  }
 
+  
+  //public BufferedImage getImage() {
+  //  return getImage(getWidth());
+  //}
+  
   /**
    * Should return a buffered image of the icon. Note that vector icons will
    * return null, unless they have been rastorized.
    *
    * @return the image
    */
-  public BufferedImage getImage() {
-    return null;
+  public BufferedImage getImage(int w, Object... params) {
+    return getImage(this, w, params);
+  }
+  
+  /**
+   * Draws icon onto a buffered image.
+   * 
+   * @param icon
+   * @param w
+   * @param params
+   * @return
+   */
+  public static BufferedImage getImage(ModernIcon icon, 
+      int w, 
+      Object... params) {
+    BufferedImage img = ImageUtils.createImage(w, w);
+
+    Graphics2D g2Temp = ImageUtils.createAATextGraphics(img);
+    
+    g2Temp.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
+        RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+
+    try {
+      icon.drawIcon(g2Temp, 0, 0, w, w, params);
+    } finally {
+      g2Temp.dispose();
+    }
+    
+    return img;
+  }
+  
+  public Image getFxImage(int w) {
+    return getFxImage(this, w);
+  }
+  
+  public Image getFxImage(ModernIcon icon, int w) {
+    return SwingFXUtils.toFXImage(icon.getImage(w), null);
   }
 
   /**

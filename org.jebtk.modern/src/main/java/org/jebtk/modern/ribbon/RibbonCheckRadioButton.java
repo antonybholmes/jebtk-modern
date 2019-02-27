@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2016, Antony Holmes
+ColorSwatchButton.java * Copyright (C) 2016, Antony Holmes
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -25,72 +25,33 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.dialog;
+package org.jebtk.modern.ribbon;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
 // TODO: Auto-generated Javadoc
 /**
- * Flat button for dialogs.
- *
- * @author Antony Holmes
- *
+ * The class RibbonButton2.
  */
-public class ModernDialogFlatButton extends ModernDialogButton {
+public class RibbonCheckRadioButton extends RibbonCheckButton {
 
-  /**
-   * The constant serialVersionUID.
-   */
+  /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
-  /**
-   * Instantiates a new modern dialog flat button.
-   *
-   * @param text1 the text1
-   */
-  public ModernDialogFlatButton(String text1) {
+  public RibbonCheckRadioButton(String text1) {
     super(text1);
-
-    setup();
   }
 
-  /**
-   * Instantiates a new modern dialog flat button.
-   *
-   * @param icon the icon
-   */
-  public ModernDialogFlatButton(ModernIcon icon) {
-    super(icon);
-
-    setup();
-  }
-
-  /**
-   * Instantiates a new modern dialog flat button.
-   *
-   * @param text1 the text1
-   * @param icon the icon
-   */
-  public ModernDialogFlatButton(String text1, ModernIcon icon) {
+  public RibbonCheckRadioButton(String text1, ModernIcon icon) {
     super(text1, icon);
-
-    setup();
   }
+  
+  
 
-  public ModernDialogFlatButton(String text1, ModernIcon icon, int width) {
-    super(text1, icon, width);
-
-    setup();
+  @Override
+  protected final void toggleSelected() {
+    // The radio button can only toggle to the
+    // on state
+    toggleSelected(true);
   }
-
-  private void setup() {
-    setAnimations("dialog-flat-button");
-  }
-
-  /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
-   * if (isSelected() || mHighlight) { getWidgetRenderer().drawButton(g2,
-   * mInternalRect, RenderMode.SELECTED, hasFocus()); } else {
-   * getWidgetRenderer().drawContentBox(g2, mInternalRect); } } }
-   */
 }

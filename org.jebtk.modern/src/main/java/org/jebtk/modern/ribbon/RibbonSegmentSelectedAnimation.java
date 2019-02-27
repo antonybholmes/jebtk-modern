@@ -50,7 +50,7 @@ public class RibbonSegmentSelectedAnimation extends WidgetAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
 
     int x = mSegments.getInsets().left;
     int y = mSegments.getInsets().top;
@@ -76,7 +76,7 @@ public class RibbonSegmentSelectedAnimation extends WidgetAnimation {
           y1,
           w,
           RibbonSegmentVertTabs.TAB_SIZE,
-          MaterialService.getInstance().getColor("ribbon-selected"));
+          MaterialService.instance().getColor("ribbon-selected"));
     }
   }
 }

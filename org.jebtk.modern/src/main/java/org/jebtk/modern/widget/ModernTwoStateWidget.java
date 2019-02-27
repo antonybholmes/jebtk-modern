@@ -129,6 +129,8 @@ public abstract class ModernTwoStateWidget extends ModernClickWidget {
     getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("SPACE"),
         "space_pressed");
     getActionMap().put("space_pressed", new ActionEvents());
+    
+    
   }
 
   /**

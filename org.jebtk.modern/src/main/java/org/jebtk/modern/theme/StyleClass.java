@@ -2,7 +2,7 @@ package org.jebtk.modern.theme;
 
 import org.jebtk.core.NameProperty;
 
-public class StyleClass extends AbstractStyleProperties
+public class StyleClass extends CSSProps
     implements NameProperty {
 
   private static final long serialVersionUID = 1L;
@@ -17,4 +17,11 @@ public class StyleClass extends AbstractStyleProperties
   public String getName() {
     return mName;
   }
+  
+  @Override
+  public String toString() {
+    return getName();
+  }
+  
+  
 }

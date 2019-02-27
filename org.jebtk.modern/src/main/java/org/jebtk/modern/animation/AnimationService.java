@@ -160,7 +160,10 @@ public class AnimationService {
     // Load the default animations
     //
 
-    get("button-fill").add(ButtonFillAnimation.class);
+    get("button-fill").add(ButtonFillAnimation.class); //.add(DrawUIAnimation.class);
+    
+    get("draw-ui").add(DrawUIAnimation.class);
+    
     get("button-outline").add(ButtonOutlineAnimation.class);
     get("button-selected").add(ButtonSelectedAnimation.class);
 

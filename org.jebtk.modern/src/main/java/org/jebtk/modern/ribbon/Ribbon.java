@@ -66,7 +66,7 @@ import org.jebtk.modern.event.HighlightListeners;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.graphics.icons.ModernScaleIcon;
+import org.jebtk.modern.graphics.icons.RasterIcon;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.menu.ModernPopupMenu2;
 import org.jebtk.modern.menu.ModernRadioMenuItem;
@@ -214,7 +214,7 @@ public class Ribbon extends ModernClickWidget
   /**
    * The constant TAB_FONT.
    */
-  public static final Font TAB_FONT = MaterialService.getInstance().getFonts()
+  public static final Font TAB_FONT = MaterialService.instance().getFonts()
       .text(); // ModernWidget.BOLD_FONT;
   // //MaterialUtils.TEXT_FONT;
   // //ModernWidget.FONT;
@@ -252,7 +252,7 @@ public class Ribbon extends ModernClickWidget
                                                // DOUBLE_PADDING;
 
   /** The Constant BAR_BACKGROUND. */
-  public static final Color BAR_BACKGROUND = MaterialService.getInstance()
+  public static final Color BAR_BACKGROUND = MaterialService.instance()
       .getColor("ribbon");
 
   /** The constant TAB_COLOR. */
@@ -295,11 +295,11 @@ public class Ribbon extends ModernClickWidget
   // private static final String FILE_TOOLBAR = "FILE";
 
   /** The Constant ROUNDING. */
-  private static final int ROUNDING = MaterialService.getInstance().getInts()
+  private static final int ROUNDING = MaterialService.instance().getInts()
       .cornerRadius();
 
   /** The Constant SEPARATOR_COLOR. */
-  public static final Color SEPARATOR_COLOR = MaterialService.getInstance()
+  public static final Color SEPARATOR_COLOR = MaterialService.instance()
       .getColor("ribbon.separator");
 
   /**
@@ -1386,7 +1386,7 @@ public class Ribbon extends ModernClickWidget
     if (icon.getWidth() <= Ribbon.COMPACT_ICON_SIZE) {
       return icon;
     } else {
-      return new ModernScaleIcon(icon, Ribbon.COMPACT_ICON_SIZE);
+      return new RasterIcon(icon, Ribbon.COMPACT_ICON_SIZE);
     }
   }
 

@@ -37,7 +37,7 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
    * @param button the button
    */
   public RibbonSegmentPressedAnimation(ModernWidget w) {
-    super(w, MaterialService.getInstance().getColor("ribbon-pressed"));
+    super(w, MaterialService.instance().getColor("ribbon-pressed"));
 
     mTabs = (RibbonSegmentVertTabs) w;
   }
@@ -58,7 +58,7 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     // System.err.println("hmm " + isRunning() + " " + isPressed());
 
     if (getStep() == -1) {

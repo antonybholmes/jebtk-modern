@@ -35,8 +35,6 @@ import java.awt.datatransfer.Transferable;
 import java.net.URL;
 import java.util.Map;
 
-import javax.swing.ImageIcon;
-
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Resources;
 import org.jebtk.core.collections.DefaultHashMap;
@@ -45,6 +43,8 @@ import org.jebtk.core.collections.IterMap;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.ModernImageIcon;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
+
+import javafx.scene.image.ImageView;
 
 /**
  * Allows data from a JAR to be loaded into memory.
@@ -202,7 +202,19 @@ public class AssetService {
    * @return the modern icon
    */
   public ModernIcon loadIcon(String name, int size) {
-    if (!map.containsKey(size) || !map.containsKey(name)) {
+    return loadIcon(name, size, size);
+  }
+  
+  /**
+   * Load icon of a particular size and scale.
+   * 
+   * @param name        Name of bitmapped icon.
+   * @param size        Original size.
+   * @param iconSize    Scaled size.
+   * @return
+   */
+  public ModernIcon loadIcon(String name, int size, int iconSize) {
+    if (!map.containsKey(size) || !map.get(size).containsKey(name)) {
       // If the icon is not cached, cache it
 
       StringBuilder resource = new StringBuilder(PATH).append(name).append("_")
@@ -213,13 +225,21 @@ public class AssetService {
       ModernIcon icon = null;
 
       if (imgURL != null) {
-        icon = new ModernImageIcon(new ImageIcon(imgURL));
+        icon = new ModernImageIcon(imgURL, iconSize);
 
-        map.get(size).put(name, icon);
+        map.get(iconSize).put(name, icon);
       }
     }
 
-    return map.get(size).get(name);
+    return map.get(iconSize).get(name);
+  }
+  
+  public ImageView loadFxIcon(String name, int size) {
+    return new ImageView(loadIcon(name, size).getFxImage(size));
+  }
+  
+  public <T extends ModernVectorIcon> ImageView loadFxIcon(Class<T> iconClass, int size) {
+    return new ImageView(loadIcon(iconClass, size).getFxImage(size));
   }
 
   /**
@@ -321,6 +341,7 @@ public class AssetService {
       ModernIcon rastorIcon = ModernVectorIcon.createRastorIcon(iconClass,
           size);
 
+      System.err.println("icon " + name + " " + size);
       mVectorIconMap.get(name).put(size, rastorIcon);
     }
 
@@ -421,8 +442,8 @@ public class AssetService {
    * @param name the name
    * @return the modern icon
    */
-  public static ModernIcon loadImage(String name) {
-    return loadImage(name, "res/images");
+  public static ModernIcon loadImage(String name, int size) {
+    return loadImage(name, "res/images", size);
   }
 
   /**
@@ -432,7 +453,7 @@ public class AssetService {
    * @param path the path
    * @return the modern icon
    */
-  public static final ModernIcon loadImage(String name, String path) {
+  public static final ModernIcon loadImage(String name, String path, int size) {
     String resource = path + "/" + name + ".png";
 
     // System.out.println("Loading icon: " + resource);
@@ -440,7 +461,7 @@ public class AssetService {
     URL imgURL = ClassLoader.getSystemClassLoader().getResource(resource);
 
     if (imgURL != null) {
-      return new ModernImageIcon(new ImageIcon(imgURL));
+      return new ModernImageIcon(imgURL, size);
     } else {
       System.err.println("Couldn't find file: " + resource);
 

@@ -1,50 +1,76 @@
-package org.jebtk.modern.theme;
+package org.jebtk.modern.animation;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import org.jebtk.core.collections.ReverseIterator;
+import org.jebtk.core.IdProperty;
+import org.jebtk.core.Properties;
+import org.jebtk.core.collections.DefaultHashMap;
+import org.jebtk.core.collections.UniqueArrayListCreator;
+import org.jebtk.modern.theme.StyleClass;
 
-public class KeyFrame extends AbstractStyleProperties {
+public class KeyFrame extends StyleClass implements IdProperty {
 
   /**
    * 
    */
   private static final long serialVersionUID = 1L;
 
-  private List<StyleClass> mStyles = new ArrayList<StyleClass>();
-  private Map<String, Integer> mIndexMap = new HashMap<String, Integer>();
+  //private List<StyleClass> mStyles = new ArrayList<StyleClass>();
+  //private Map<String, Integer> mIndexMap = new HashMap<String, Integer>();
+  
+  private Map<String, List<Properties>> mClassHierarchyMap =
+      DefaultHashMap.create(new UniqueArrayListCreator<Properties>());
 
+  private int mId;
+
+  
+  public KeyFrame(int id) {
+    super(Integer.toString(id));
+    
+    mId = id;
+  }
+  
+  
   /**
    * Inherit properties from a parent style.
    * 
    * @param parent
    * @return
    */
-  public KeyFrame addStyleClass(StyleClass style) {
-    mIndexMap.put(style.getName(), mStyles.size());
-    mStyles.add(style);
-    style.addChangeListener(this);
-
-    clear(style);
-
+  @Override
+  public KeyFrame update(Properties style) {
+    super.update(style);
+    
+    for (Entry<String, Object> item : style) {
+      // Map styles to properties in order they are applied
+      mClassHierarchyMap.get(item.getKey()).add(style);
+    }
+    
     return this;
   }
-
+  
   /**
-   * Remove existing custom settings and replace with inherited style.
+   * Return the classes associated with a property to understand the
+   * hierarchy.
    * 
-   * @param style
+   * @param name    Name of property, e.g "background-color".
+   * @return
    */
+  public Iterable<Properties> getStyles(String name) {
+    return mClassHierarchyMap.get(name);
+  }
+
+  /*
   private void clear(StyleClass style) {
     for (Entry<String, Object> f : style) {
       mPropertyMap.remove(f.getKey());
     }
   }
+  */
 
+  /*
   public KeyFrame removeStyleClass(String name) {
     if (mIndexMap.containsKey(name)) {
       mStyles.remove((int) mIndexMap.get(name));
@@ -55,7 +81,9 @@ public class KeyFrame extends AbstractStyleProperties {
 
     return this;
   }
+  */
 
+  /*
   @Override
   public boolean contains(String name) {
     if (super.contains(name)) {
@@ -74,16 +102,9 @@ public class KeyFrame extends AbstractStyleProperties {
 
     return false;
   }
+  */
 
-  /**
-   * Returns the most uptodate property value. If a custom property was added,
-   * return that, else work backwards through the style list until a style
-   * containing the property of interest is found. Styles are added in order so
-   * the last style added is considered the latest.
-   * 
-   * @param name
-   * @return
-   */
+  /*
   @Override
   public Object getValue(String name) {
     // First check if we created a custom property return that
@@ -100,10 +121,17 @@ public class KeyFrame extends AbstractStyleProperties {
       StyleClass s = iter.next();
 
       if (s.contains(name)) {
+        System.err.println("Found " + name + " in " + s.getName() + " in keyframe " + getId());
         return s.getValue(name);
       }
     }
 
     return null;
+  }
+  */
+
+  @Override
+  public int getId() {
+    return mId;
   }
 }

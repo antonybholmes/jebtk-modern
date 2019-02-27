@@ -39,7 +39,7 @@ public class CollapsePaneDividerAnimation extends HighlightAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
 
     Rectangle r = new Rectangle(widget.getInsets().left, widget.getInsets().top,
         widget.getWidth() - widget.getInsets().left - widget.getInsets().right,

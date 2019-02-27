@@ -27,10 +27,7 @@
  */
 package org.jebtk.modern.log;
 
-import java.util.List;
-
 import org.jebtk.core.collections.CircularArray;
-import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.log.LogEventListener;
 import org.jebtk.modern.table.ModernTableModel;

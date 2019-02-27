@@ -21,6 +21,7 @@ import java.awt.Graphics2D;
 import org.jebtk.core.NameProperty;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.animation.KeyFramesService;
 
 /**
  * The Class DrawUI provides reusable drawing routines that can be shared by
@@ -100,6 +101,11 @@ public abstract class DrawUI implements NameProperty {
     outline(g2, c, x, y, w, h, params);
   }
 
+  public static final void fill(Graphics2D g2, ModernComponent c, IntRect rect, Object... params) {
+    fill(g2, c, rect, params);
+  }
+  
+  
   /**
    * Fill the widget UI.
    *
@@ -118,15 +124,27 @@ public abstract class DrawUI implements NameProperty {
       int w,
       int h,
       Object... params) {
-    int rounding = getStyle(c).getInt("border-radius");
-
+    if (g2.getColor() == null || g2.getColor().getAlpha() == 0) {
+      return;
+    }
+    
+    int rounding = rounding(c, h);
+     
     if (rounding > 0) {
-      g2.fillRoundRect(x, y, w, h, rounding, rounding);
+      if (w == h && rounding >= h / 2) {
+        g2.fillOval(x, y, h - 1, h - 1);
+      } else {
+        g2.fillRoundRect(x, y, w, h, rounding, rounding);
+      }
     } else {
       g2.fillRect(x, y, w, h);
     }
   }
 
+  public final void outline(Graphics2D g2, ModernComponent c, IntRect rect, Object... params) {
+    outline(g2, c, rect, params);
+  }
+  
   /**
    * Draw an outline around the widget.
    *
@@ -145,13 +163,33 @@ public abstract class DrawUI implements NameProperty {
       int w,
       int h,
       Object... params) {
-    int rounding = getStyle(c).getInt("border-radius");
+    int rounding = rounding(c, h);
 
     if (rounding > 0) {
-      g2.drawRoundRect(x, y, w - 1, h - 1, rounding, rounding);
+      if (w == h && rounding >= h / 2) {
+        g2.drawOval(x + 1, y + 1, w - 2, w - 2);
+      } else {
+        g2.drawRoundRect(x, y, w - 1, h - 1, rounding, rounding);
+      }
     } else {
       g2.drawRect(x, y, w - 1, h - 1);
     }
+  }
+  
+  public int rounding(ModernComponent c, int h) {
+    Object o = getStyle(c).getValue("border-radius");
+
+    int rounding;
+    
+    if (o instanceof Number) {
+      rounding = ((Number)o).intValue();
+    } else if (o instanceof CSSPercentProp) {
+      rounding = Math.min(h, (int)Math.round(((CSSPercentProp)o).getDouble() / 50 * h));
+    } else {
+      rounding = 0;
+    }
+    
+    return rounding;
   }
 
   /**
@@ -161,9 +199,9 @@ public abstract class DrawUI implements NameProperty {
    * @param c the c
    * @return the style
    */
-  public static StyleProperties getStyle(ModernComponent c) {
+  public CSSProps getStyle(ModernComponent c) {
     if (c != null) {
-      return c.getFromKeyFrame();
+      return c.getCSSProps(); //getFromKeyFrame();
     } else {
       // Return the reference style class if all else fails
       return KeyFramesService.getInstance().getStyleClass("widget");

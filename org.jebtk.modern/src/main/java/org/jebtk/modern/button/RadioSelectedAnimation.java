@@ -3,7 +3,6 @@ package org.jebtk.modern.button;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
@@ -19,7 +18,7 @@ public class RadioSelectedAnimation extends ButtonFillAnimation {
   }
 
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     if (widget.isEnabled() && mRadio.isSelected()) {
       int x = widget.getInsets().left;
       int y = (widget.getHeight() - RadioAnimation.RADIO_SIZE) / 2;
@@ -41,7 +40,7 @@ public class RadioSelectedAnimation extends ButtonFillAnimation {
 
   @Override
   public void fill(Graphics2D g2,
-      ModernComponent c,
+      ModernWidget c,
       int x,
       int y,
       int w,

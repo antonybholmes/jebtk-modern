@@ -74,7 +74,7 @@ public class SegmentTabs extends TextTabs {
   // ThemeService.getInstance().getColors().getColorHighlight(2);
 
   /** The Constant ROUNDING. */
-  protected static final int ROUNDING = MaterialService.getInstance().getInts()
+  protected static final int ROUNDING = MaterialService.instance().getInts()
       .cornerRadius();
 
   /** The m tab size. */

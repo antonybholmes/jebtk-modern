@@ -43,7 +43,7 @@ public class ModernHContentPaneAnimation extends HoverFadeAnimation {
   }
 
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     if (mPane.mDividerLocations.size() == 0) {
       return;
     }

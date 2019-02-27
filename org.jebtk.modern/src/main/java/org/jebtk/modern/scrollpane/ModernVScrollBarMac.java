@@ -102,7 +102,7 @@ public class ModernVScrollBarMac extends ModernVScrollBar {
 
     // g2.fillRoundRect(r.x, r.y, r.width, r.height, rounding, rounding);
 
-    getAnimations().draw(this, g2, r, rounding);
+    getAnimations().draw(g2, this, r, rounding);
 
     // } finally {
     // g2Temp.dispose();

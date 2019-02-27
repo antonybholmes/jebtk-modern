@@ -42,7 +42,7 @@ public class RibbonMenuHighlightAnimation extends HoverFadeAnimation {
     // setFadeColor("selected",
     // MaterialService.getInstance().getColor("ribbon-selected"));
     setFadeColor("highlight",
-        MaterialService.getInstance().getColor("gray-highlight"));
+        MaterialService.instance().getColor("gray-highlight"));
   }
 
   /*
@@ -52,10 +52,10 @@ public class RibbonMenuHighlightAnimation extends HoverFadeAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     if (mButton.isSelected()) {
       ModernWidget.fill(g2,
-          MaterialService.getInstance().getColor("gray-selected"),
+          MaterialService.instance().getColor("gray-selected"),
           getWidget().getRect());
     } else {
       ModernWidget.fill(g2, getFadeColor("highlight"), getWidget().getRect());

@@ -49,6 +49,9 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
+import org.jebtk.modern.animation.KeyFrame;
+import org.jebtk.modern.animation.KeyFrames;
+import org.jebtk.modern.animation.KeyFramesService;
 import org.jebtk.modern.graphics.AAMode;
 import org.jebtk.modern.graphics.AAModes;
 import org.jebtk.modern.graphics.ImageUtils;
@@ -56,9 +59,7 @@ import org.jebtk.modern.scrollpane.ScrollEvent;
 import org.jebtk.modern.scrollpane.ScrollEventProducer;
 import org.jebtk.modern.scrollpane.ScrollListener;
 import org.jebtk.modern.scrollpane.ScrollListeners;
-import org.jebtk.modern.theme.KeyFrame;
-import org.jebtk.modern.theme.KeyFrames;
-import org.jebtk.modern.theme.KeyFramesService;
+import org.jebtk.modern.theme.CSSProps;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ModernTheme;
 import org.jebtk.modern.theme.ThemeService;
@@ -110,7 +111,7 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   /**
    * The constant LINE_COLOR.
    */
-  public static final Color LINE_COLOR = MaterialService.getInstance()
+  public static final Color LINE_COLOR = MaterialService.instance()
       .getColor("line");
 
   /** The Constant LIGHT_LINE_COLOR. */
@@ -251,6 +252,11 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   protected boolean mRasterMode = false;
 
   protected BufferedImage mBufferedImage;
+
+  /**
+   * Represents current properties of the component 
+   */
+  private CSSProps mCSSProps = new CSSProps();
 
   /**
    * The class ComponentEvents.
@@ -405,6 +411,15 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
     // All components inherit the component class by default
     addStyleClass("component"); // StyleClassService.getInstance().getCompStyleClass());
 
+    getCSSProps().addChangeListener(new ChangeListener() {
+      @Override
+      public void changed(ChangeEvent e) {
+        repaint();
+      }
+    });
+    
+    
+    
     // Respond to style changes
     getKeyFrames().addChangeListener(new ChangeListener() {
       @Override
@@ -661,6 +676,10 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   public void fireScrollTo(IntRect r) {
     fireScrollTo(new ScrollEvent(this, r));
   }
+  
+  public CSSProps getCSSProps() {
+    return mCSSProps;
+  }
 
   public KeyFrames getKeyFrames() {
     return mKeyFrames;
@@ -702,6 +721,8 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   }
 
   public ModernComponent addFromStyleClass(String name, String... names) {
+    addCSSProps(this, name, names);
+    
     return addStyleClass(KeyFrames.FROM, name, names);
   }
 
@@ -712,8 +733,8 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   public ModernComponent addStyleClass(int frame,
       String name,
       String... names) {
-    addStyleClasses(this, frame, name, names);
-
+    updatees(this, frame, name, names);
+    
     return this;
   }
 
@@ -1285,7 +1306,7 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    * @param name
    * @param names
    */
-  public static void addStyleClasses(ModernComponent c,
+  public static void updatees(ModernComponent c,
       int frame,
       String name,
       String... names) {
@@ -1293,13 +1314,36 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
 
     if (kf.contains(frame, name)) {
       c.getKeyFrames().getKeyFrame(frame)
-      .addStyleClass(kf.getStyleClass(frame, name));
+      .update(kf.getStyleClass(frame, name));
     }
 
     for (String n : names) {
       if (kf.contains(frame, n)) {
         c.getKeyFrames().getKeyFrame(frame)
-        .addStyleClass(kf.getStyleClass(frame, n));
+        .update(kf.getStyleClass(frame, n));
+      }
+    }
+  }
+  
+  /**
+   * Add CSS properties to a component.
+   * 
+   * @param c
+   * @param name
+   * @param names
+   */
+  public static void addCSSProps(ModernComponent c,
+      String name,
+      String... names) {
+    KeyFramesService kf = KeyFramesService.getInstance();
+
+    if (kf.contains(KeyFrames.FROM, name)) {
+      c.getCSSProps().update(kf.getStyleClass(KeyFrames.FROM, name));
+    }
+
+    for (String n : names) {
+      if (kf.contains(KeyFrames.FROM, n)) {
+        c.getCSSProps().update(kf.getStyleClass(KeyFrames.FROM, n));
       }
     }
   }

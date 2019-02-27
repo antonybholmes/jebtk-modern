@@ -30,6 +30,7 @@ package org.jebtk.modern.help;
 import org.jebtk.core.AppInfo;
 import org.jebtk.core.AppVersion;
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.graphics.icons.MultiResIcon;
 
 /**
  * Describes a product.
@@ -49,6 +50,10 @@ public class GuiAppInfo extends AppInfo {
    */
   private ModernIcon mIcon128;
 
+  public GuiAppInfo(String name) {
+    this(name, AppVersion.DEFAULT_VERSION, null, null);
+  }
+  
   /**
    * Instantiates a new application information.
    *
@@ -124,7 +129,7 @@ public class GuiAppInfo extends AppInfo {
       String description) {
     super(name, version, copyright, helpName, description);
 
-    mIcon = icon;
+    mIcon = new MultiResIcon(icon);
     mIcon128 = icon128;
   }
 

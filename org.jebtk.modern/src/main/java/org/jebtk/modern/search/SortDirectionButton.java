@@ -31,10 +31,10 @@ import java.awt.Dimension;
 
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.ribbon.RibbonButton;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -44,7 +44,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes
  *
  */
-public class SortDirectionButton extends ModernButton
+public class SortDirectionButton extends RibbonButton
     implements ModernClickListener {
 
   /**

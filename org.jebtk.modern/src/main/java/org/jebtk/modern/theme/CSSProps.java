@@ -8,8 +8,7 @@ import javax.swing.border.Border;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Properties;
 
-public class AbstractStyleProperties extends Properties
-    implements StyleProperties {
+public class CSSProps extends Properties {
   /**
    * 
    */
@@ -27,22 +26,14 @@ public class AbstractStyleProperties extends Properties
     return color;
   }
   
-  @Override
   public Border getBorder(String name) {
     return (Border) getValue(name);
   }
 
-  @Override
   public Font getFont(String name) {
     return (Font) getValue(name);
   }
 
-  @Override
-  public void clear() {
-    // Do nothing
-  }
-
-  @Override
   public ColorGradient getColorGradient(String name) {
     return (ColorGradient) getValue(name);
   }

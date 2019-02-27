@@ -31,8 +31,8 @@ import java.awt.Cursor;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import org.jebtk.modern.dialog.ModernDialogFlatButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.ribbon.RibbonButton;
 
 /**
  * Simulates a hyperlink using a button.
@@ -40,7 +40,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * @author Antony Holmes
  *
  */
-public class ModernLinkButton extends ModernDialogFlatButton {
+public class ModernLinkButton extends RibbonButton {
 
   /**
    * The constant serialVersionUID.

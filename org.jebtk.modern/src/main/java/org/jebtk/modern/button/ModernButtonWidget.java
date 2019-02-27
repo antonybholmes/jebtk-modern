@@ -29,6 +29,7 @@ package org.jebtk.modern.button;
 
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.text.TextProperty;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernClickWidget;
 
 // TODO: Auto-generated Javadoc
@@ -66,7 +67,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    * Instantiates a new modern button widget.
    */
   public ModernButtonWidget() {
-    // styleNames().add("button");
+    init();
   }
 
   /**
@@ -199,10 +200,9 @@ public abstract class ModernButtonWidget extends ModernClickWidget
     setForeground(isEnabled() ? TEXT_COLOR : ALT_TEXT_COLOR);
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
-   */
-
+  private void init() {
+    // Add support for CSS style rendering that responds to property changes.
+    getDrawStates().add(DrawUIService.getInstance().getRenderer("css-widget-draw"));
+    getAnimations().add("draw-ui");
+  }
 }

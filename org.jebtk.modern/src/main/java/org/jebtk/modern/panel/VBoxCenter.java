@@ -43,6 +43,6 @@ public class VBoxCenter extends ModernComponent {
    * Instantiates a new v box auto width panel.
    */
   public VBoxCenter() {
-    setLayout(new VBoxCenterLayout());
+    setLayout(new VCenterLayout());
   }
 }

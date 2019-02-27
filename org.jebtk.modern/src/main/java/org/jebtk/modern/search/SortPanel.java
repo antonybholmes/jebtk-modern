@@ -50,6 +50,7 @@ import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.ribbon.RibbonSubSectionSeparator;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
+import org.jebtk.modern.theme.ColorStyle;
 import org.jebtk.modern.view.ViewModel;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
@@ -105,16 +106,18 @@ public class SortPanel<T extends NameProperty> extends HBox
   /**
    * The member list button.
    */
-  private ModernCheckRadioButton mListButton = new ModernCheckRadioButton(
+  private ModernClickWidget mListButton = new ModernCheckRadioButton(
       AssetService.getInstance().loadIcon(ListVectorIcon.class, 16),
-      "List view", "Display data in a list.");
+      "List view", "Display data in a list.")
+      .setColorStyle(ColorStyle.RIBBON);
 
   /**
    * The member tree button.
    */
-  private ModernCheckRadioButton mTreeButton = new ModernCheckRadioButton(
+  private ModernClickWidget mTreeButton = new ModernCheckRadioButton(
       AssetService.getInstance().loadIcon(TreeVectorIcon.class, 16),
-      "Tree view", "Display data in a tree.");
+      "Tree view", "Display data in a tree.")
+      .setColorStyle(ColorStyle.RIBBON);
 
   /**
    * The member filter button.

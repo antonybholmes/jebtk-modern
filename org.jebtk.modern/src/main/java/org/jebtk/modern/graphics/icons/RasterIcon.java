@@ -30,10 +30,6 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import org.jebtk.core.geom.IntDim;
-import org.jebtk.core.geom.IntRect;
-import org.jebtk.modern.graphics.ImageUtils;
-
 /**
  * Rastorizes an icon (for example a vector based on) to reduce drawing
  * overhead.
@@ -46,6 +42,8 @@ public class RasterIcon extends ModernIcon {
    * The buffered image.
    */
   private BufferedImage mBufferedImage;
+  private ModernIcon mIcon;
+  private int mSize;
 
   /**
    * Instantiates a new raster icon.
@@ -53,7 +51,7 @@ public class RasterIcon extends ModernIcon {
    * @param icon the icon
    */
   public RasterIcon(ModernIcon icon) {
-    this(icon, new IntDim(icon.getWidth(), icon.getHeight()));
+    this(icon, icon.getWidth());
   }
 
   /**
@@ -63,101 +61,13 @@ public class RasterIcon extends ModernIcon {
    * @param size the size
    */
   public RasterIcon(ModernIcon icon, int size) {
-    this(icon, new IntDim(size, size));
+    mIcon = icon;
+    mSize = size;
   }
-
-  /**
-   * Instantiates a new raster icon.
-   *
-   * @param icon the icon
-   * @param size the size
-   */
-  public RasterIcon(ModernIcon icon, IntDim size) {
-    this(icon, new IntRect(0, 0, size.getW(), size.getH()));
-  }
-
-  /**
-   * Instantiates a new raster icon.
-   *
-   * @param icon the icon
-   * @param rect the rect
-   */
-  public RasterIcon(ModernIcon icon, IntRect rect) {
-    this(icon, rect, new IntDim(rect.getW(), rect.getH()));
-  }
-
-  /**
-   * Instantiates a new raster icon.
-   *
-   * @param icon the icon
-   * @param iconSize the icon size
-   * @param imageSize the image size
-   */
-  public RasterIcon(ModernIcon icon, int iconSize, int imageSize) {
-    this(
-        icon, new IntRect((imageSize - iconSize) / 2,
-            (imageSize - iconSize) / 2, iconSize, iconSize),
-        new IntDim(imageSize, imageSize));
-  }
-
-  /**
-   * Instantiates a new raster icon.
-   *
-   * @param icon the icon
-   * @param iconRect the icon rect
-   * @param imageSize the image size
-   */
-  public RasterIcon(ModernIcon icon, IntRect iconRect, int imageSize) {
-    this(icon, iconRect, new IntDim(imageSize, imageSize));
-  }
-
-  /**
-   * Creates a rastorized version of the icon of a given size in an image of a
-   * given size. This allows the icon to be scaled inside the image if
-   * necessary.
-   *
-   * @param icon the icon
-   * @param iconRect the dimensions of the icon
-   * @param imageSize the size of this image (which will become an icon).
-   */
-  public RasterIcon(ModernIcon icon, IntRect iconRect, IntDim imageSize) {
-    cache(icon, iconRect, imageSize);
-  }
-
-  /**
-   * Cache the image.
-   *
-   * @param icon the icon
-   * @param iconRect the icon rect
-   * @param imageSize the image size
-   */
-  private void cache(ModernIcon icon, IntRect iconRect, IntDim imageSize) {
-    mBufferedImage = ImageUtils.createImage(imageSize);
-
-    Graphics2D g2Temp = ImageUtils.createAATextGraphics(mBufferedImage);
-
-    try {
-      icon.drawIcon(g2Temp, iconRect);
-    } finally {
-      g2Temp.dispose();
-    }
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
-   * java.awt.Rectangle)
-   */
-  @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Object... params) {
-    g2.drawImage(mBufferedImage, x, y, null);
+  
+  public RasterIcon(BufferedImage icon) {
+    mBufferedImage = icon;
+    mSize = icon.getWidth();
   }
 
   /*
@@ -166,27 +76,35 @@ public class RasterIcon extends ModernIcon {
    * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
    */
   @Override
-  public BufferedImage getImage() {
+  public BufferedImage getImage(int w, Object... params) {
+    if (mBufferedImage == null) {
+      mBufferedImage = mIcon.getImage(mSize, params);
+    }
+
     return mBufferedImage;
   }
+  
+
 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.graphics.icons.ModernIcon#getWidth()
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getWidth()
    */
   @Override
   public int getWidth() {
-    return mBufferedImage.getWidth();
+    return mSize;
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.graphics.icons.ModernIcon#getHeight()
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getHeight()
    */
   @Override
   public int getHeight() {
-    return mBufferedImage.getHeight();
+    return mSize;
   }
+
+
 }

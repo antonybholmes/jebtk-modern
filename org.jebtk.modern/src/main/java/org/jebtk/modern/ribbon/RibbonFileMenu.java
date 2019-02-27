@@ -118,11 +118,11 @@ public class RibbonFileMenu extends ModernClickWidget
   private static final String CLOSE_MENU = "close_menu";
 
   private static final Color RIBBON_FILE_BACKGROUND = MaterialService
-      .getInstance().getColor("window.background.gradient.end"); // ThemeService.getInstance().getColors().getGray32(1);
+      .instance().getColor("window.background.gradient.end"); // ThemeService.getInstance().getColors().getGray32(1);
 
-  private static final Color C1 = MaterialService.getInstance()
+  private static final Color C1 = MaterialService.instance()
       .getColor("window.background.gradient.start");
-  private static final Color C2 = MaterialService.getInstance()
+  private static final Color C2 = MaterialService.instance()
       .getColor("window.background.gradient.end");
 
   /**
@@ -378,5 +378,13 @@ public class RibbonFileMenu extends ModernClickWidget
     // fill(g2, RIBBON_FILE_BACKGROUND);
 
     fill(g2, C1, C2);
+  }
+
+  public RibbonMenuItem addTabbedMenuItem(String text) {
+    RibbonMenuItem item = new RibbonMenuItem(text);
+    
+    addTabbedMenuItem(item);
+    
+    return item;
   }
 }

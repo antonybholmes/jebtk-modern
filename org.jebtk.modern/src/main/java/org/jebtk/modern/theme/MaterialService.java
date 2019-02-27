@@ -42,7 +42,7 @@ public class MaterialService {
    *
    * @return single instance of SettingsService
    */
-  public static MaterialService getInstance() {
+  public static MaterialService instance() {
     return MaterialServiceLoader.INSTANCE;
   }
 

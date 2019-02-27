@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.graphics.icons;
 
-import java.awt.Image;
 import java.awt.color.ColorSpace;
 import java.awt.image.BufferedImage;
 import java.awt.image.BufferedImageOp;
@@ -39,7 +38,11 @@ import java.awt.image.ColorConvertOp;
  * 
  * @author Antony Holmes
  */
-public class GrayScaleIcon {
+public class GrayScaleIcon extends RasterIcon {
+
+  public GrayScaleIcon(ModernIcon icon) {
+    super(convert(icon));
+  }
 
   /**
    * Convert.
@@ -48,13 +51,13 @@ public class GrayScaleIcon {
    * @return the modern icon
    */
   public static ModernIcon convert(ModernIcon icon) {
-    Image image = convert(icon.getImage());
+    BufferedImage image = convert(icon.getImage(icon.getHeight()));
 
     if (image == null) {
       return null;
     }
 
-    return new ModernImageIcon(image);
+    return new RasterIcon(image);
   }
 
   /**
@@ -63,7 +66,7 @@ public class GrayScaleIcon {
    * @param image the image
    * @return the image
    */
-  public static Image convert(BufferedImage image) {
+  public static BufferedImage convert(BufferedImage image) {
     if (image == null) {
       return null;
     }
@@ -75,7 +78,7 @@ public class GrayScaleIcon {
 
     BufferedImageOp op = new ColorConvertOp(
         ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
-    Image grayImage = op.filter(image, null);
+    BufferedImage grayImage = op.filter(image, null);
 
     return grayImage;
   }

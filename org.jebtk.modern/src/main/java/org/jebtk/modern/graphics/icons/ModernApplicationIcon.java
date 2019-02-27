@@ -107,6 +107,8 @@ public class ModernApplicationIcon extends ModernVectorScalableIcon {
       int w,
       int h,
       Object... params) {
+    
+    System.err.println("app icon " + w + " " + h + " " + mText1);
 
     GradientPaint p = new GradientPaint(0, y, mColor1, 0, y + h, mColor2);
 

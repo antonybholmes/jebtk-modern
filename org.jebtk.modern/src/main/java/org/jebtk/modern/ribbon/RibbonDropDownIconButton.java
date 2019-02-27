@@ -50,7 +50,7 @@ public class RibbonDropDownIconButton extends ModernDropDownIconButton {
   public RibbonDropDownIconButton(ModernIcon icon) {
     super(icon);
 
-    addToStyleClass("dialog-button");
+    addStyleClass("ribbon-button");
   }
 
   /*

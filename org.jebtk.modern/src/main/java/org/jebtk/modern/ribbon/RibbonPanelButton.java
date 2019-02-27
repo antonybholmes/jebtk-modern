@@ -32,14 +32,13 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.dialog.ModernDialogFlatButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.theme.ThemeService;
 
 /**
  * The class RibbonPanelButton.
  */
-public class RibbonPanelButton extends ModernDialogFlatButton {
+public class RibbonPanelButton extends RibbonButton {
 
   /**
    * The constant serialVersionUID.

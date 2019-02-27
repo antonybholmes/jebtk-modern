@@ -110,8 +110,8 @@ public class MultiIcon extends ModernIcon {
    * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
    */
   @Override
-  public BufferedImage getImage() {
-    return mIcon.getImage();
+  public BufferedImage getImage(int w, Object... params) {
+    return mIcon.getImage(w, params);
   }
 
 }

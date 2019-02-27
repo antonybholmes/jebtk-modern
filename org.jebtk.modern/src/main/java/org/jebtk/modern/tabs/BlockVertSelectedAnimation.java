@@ -49,7 +49,7 @@ public class BlockVertSelectedAnimation extends HighlightAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
 
     int x = mTabs.getInsets().left; // + widget.getWidth() -
                                     // SegmentChangeAnimation.HEIGHT;
@@ -64,7 +64,7 @@ public class BlockVertSelectedAnimation extends HighlightAnimation {
     //
 
     if (selected != -1) { // && mTabs.mHighlight != selectedIndex) {
-      g2.setColor(MaterialService.getInstance().getColor("gray-selected"));
+      g2.setColor(MaterialService.instance().getColor("gray-selected"));
       g2.fillRect(x, y + selected * mTabs.mTabSize, w, mTabs.mTabSize);
     }
   }

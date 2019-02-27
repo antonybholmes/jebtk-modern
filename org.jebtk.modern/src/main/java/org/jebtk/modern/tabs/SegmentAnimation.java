@@ -50,7 +50,7 @@ public class SegmentAnimation extends WidgetAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     DrawUIService.getInstance().getRenderer("button-fill")
         .draw(g2, widget.getRect(), BG);
   }

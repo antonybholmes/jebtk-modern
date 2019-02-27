@@ -118,7 +118,7 @@ public class RecentFileMenuItem extends ModernTwoLineMenuItem {
     }
 
     g2.setColor(TEXT_COLOR);
-    g2.setFont(MaterialService.getInstance().getFont("text"));
+    g2.setFont(MaterialService.instance().getFont("text"));
 
     int maxTextWidth = rightOffset - DOUBLE_PADDING - x;
 
@@ -127,7 +127,7 @@ public class RecentFileMenuItem extends ModernTwoLineMenuItem {
     g2.drawString(text, x, y);
 
     g2.setColor(ALT_TEXT_COLOR);
-    g2.setFont(MaterialService.getInstance().getFont("subtext"));
+    g2.setFont(MaterialService.instance().getFont("subtext"));
 
     y = h2 + (h2 + g2.getFontMetrics().getAscent()) / 2;
 

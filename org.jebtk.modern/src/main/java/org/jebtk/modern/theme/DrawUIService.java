@@ -78,7 +78,11 @@ public class DrawUIService implements Iterable<String> {
     add(new ContentBoxUI());
     add(new ContentOutlineUI());
     // add(new TextBorderUI());
+    add(new ButtonDrawUI());
     add(new ButtonFillUI());
+    
+    add(new CSSWidgetDrawUI());
+    
     // add(new ButtonSelectedUI());
     add(new CircleOutlineUI());
     add(new CircleFillUI());

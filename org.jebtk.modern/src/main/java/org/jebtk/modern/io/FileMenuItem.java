@@ -114,11 +114,11 @@ public class FileMenuItem extends ModernTwoLineMenuItem {
     String text = TextUtils.truncate(PathUtils.getName(mFile), 60);
 
     g2.setColor(TEXT_COLOR);
-    g2.setFont(MaterialService.getInstance().getFont("text"));
+    g2.setFont(MaterialService.instance().getFont("text"));
     g2.drawString(text, x, y);
 
     g2.setColor(ALT_TEXT_COLOR);
-    g2.setFont(MaterialService.getInstance().getFont("subtext"));
+    g2.setFont(MaterialService.instance().getFont("subtext"));
 
     y = h2 + (h2 + g2.getFontMetrics().getAscent()) / 2;
 

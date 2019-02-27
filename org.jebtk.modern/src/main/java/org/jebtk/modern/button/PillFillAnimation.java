@@ -2,7 +2,6 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
@@ -13,7 +12,7 @@ public class PillFillAnimation extends ButtonFillAnimation {
 
   @Override
   public void fill(Graphics2D g2,
-      ModernComponent c,
+      ModernWidget c,
       int x,
       int y,
       int w,

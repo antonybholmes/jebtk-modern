@@ -53,9 +53,9 @@ public class QuickAccessMenuButton extends ModernMenuButton {
   public QuickAccessMenuButton(ModernIcon icon, ModernPopupMenu menu) {
     super(icon, menu);
 
-    addToStyleClass("quick-access-button");
+    addStyleClass("quick-access-button");
 
-    setAnimations(new QuickAccessDropDownAnimation(this));
+    //setAnimations(new QuickAccessDropDownAnimation(this));
   }
 
   /*

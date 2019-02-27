@@ -32,7 +32,12 @@ import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.modern.FxUtils;
 import org.jebtk.modern.ribbon.Ribbon;
+
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 /**
  * Run arrow icon, like the standard play button.
@@ -88,5 +93,31 @@ public class RunVectorIcon extends ModernVectorIcon {
 
     g2.setColor(BACKGROUND);
     g2.fill(gp);
+  }
+  
+  @Override
+  public Image getFxImage(int w) {
+    Canvas canvas = new Canvas(w, w);
+    
+    GraphicsContext gc = canvas.getGraphicsContext2D();
+    
+    
+    double hf = w * SCALE;
+    double h2 = hf / 2.0;
+    double wf = w * ANGLE;
+
+    double xf = (w - wf) / 2.0;
+
+    gc.setFill(FxUtils.toFxColor(BACKGROUND));
+    
+    gc.beginPath();
+
+    gc.moveTo(xf, xf);
+    gc.lineTo(xf + wf, xf + h2);
+    gc.lineTo(xf, xf + hf);
+    gc.fill();
+    gc.closePath();
+    
+    return canvas.snapshot(null, null);
   }
 }

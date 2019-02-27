@@ -33,7 +33,7 @@ public class CheckSwitchAnimation extends WidgetAnimation {
   }
 
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     int y2 = (widget.getHeight() - HEIGHT) / 2;
 
     if (mButton.isSelected()) {
@@ -49,6 +49,9 @@ public class CheckSwitchAnimation extends WidgetAnimation {
           HEIGHT);
       
     } else {
+      //System.err.println("switch bg1 " + widget.getFromKeyFrame().getStyles("background-color") + " " + widget.getFromKeyFrame().getColor("background-color"));
+      
+      
       g2.setColor(widget.getFromKeyFrame().getColor("background-color")); //mFade.getFromColor("fill")); // Color.WHITE);
       
       g2.fillRoundRect(

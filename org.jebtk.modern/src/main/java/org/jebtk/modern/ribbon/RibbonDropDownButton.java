@@ -92,7 +92,7 @@ public class RibbonDropDownButton extends ModernDropDownButton {
    * Setup.
    */
   private void setup() {
-    addToStyleClass("dialog-button");
+    addStyleClass("ribbon-button");
     setAnimations(new RibbonDropDownButtonAnimation(this));
   }
 

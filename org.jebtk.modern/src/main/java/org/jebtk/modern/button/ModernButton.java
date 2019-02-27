@@ -35,6 +35,7 @@ import org.jebtk.core.settings.SettingsService;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.theme.ModernTheme;
 
 // TODO: Auto-generated Javadoc
@@ -84,6 +85,8 @@ public class ModernButton extends ModernClickableButtonWidget {
    */
   public ModernButton() {
     UI.setSize(this, ICON_ONLY_SIZE);
+    
+    //init();
   }
 
   /**
@@ -93,6 +96,8 @@ public class ModernButton extends ModernClickableButtonWidget {
    */
   public ModernButton(String text1) {
     super(text1);
+    
+    //init();
   }
 
   /**
@@ -102,6 +107,8 @@ public class ModernButton extends ModernClickableButtonWidget {
    */
   public ModernButton(ModernIcon icon) {
     super(icon);
+    
+    //init();
   }
 
   /**
@@ -115,11 +122,7 @@ public class ModernButton extends ModernClickableButtonWidget {
 
     setIcon(icon);
 
-    // The width of the button is at least the text width plus the
-    // icon width plus padding
-    // int w = getButtonWidth(text1) + icon.getWidth();
-
-    // UI.setSize(this, Math.max(MIN_BUTTON_WIDTH, w), getButtonHeight());
+    //init();
   }
 
   /**
@@ -133,6 +136,8 @@ public class ModernButton extends ModernClickableButtonWidget {
     super(text1, icon);
 
     UI.setSize(this, new Dimension(width, getButtonHeight()));
+    
+    //init();
   }
 
   /**
@@ -146,7 +151,15 @@ public class ModernButton extends ModernClickableButtonWidget {
     super(text1, icon);
 
     UI.setSize(this, size); // ICON_TEXT_SIZE);
+    
+    //init();
   }
+  
+  //private void init() {
+    // Add support for CSS style rendering that responds to property changes.
+  //  getDrawStates().add(DrawUIService.getInstance().getRenderer("css-widget-draw"));
+  //  getAnimations().add("draw-ui");
+  //}
 
   /*
    * (non-Javadoc)

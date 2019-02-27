@@ -28,7 +28,6 @@
 package org.jebtk.modern.options;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.jebtk.core.Mathematics;

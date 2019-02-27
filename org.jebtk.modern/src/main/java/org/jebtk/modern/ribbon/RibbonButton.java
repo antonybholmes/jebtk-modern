@@ -42,7 +42,7 @@ public class RibbonButton extends ModernButton {
   public RibbonButton(String text1) {
     super(text1);
 
-    setup();
+    init();
   }
   
   /**
@@ -54,7 +54,7 @@ public class RibbonButton extends ModernButton {
   public RibbonButton(String text1, ModernIcon icon) {
     super(text1, icon);
 
-    setup();
+    init();
   }
 
   /**
@@ -67,7 +67,7 @@ public class RibbonButton extends ModernButton {
   public RibbonButton(String text1, String text2, ModernIcon icon) {
     super(text1, icon);
 
-    setup();
+    init();
   }
 
   /**
@@ -78,7 +78,7 @@ public class RibbonButton extends ModernButton {
   public RibbonButton(ModernIcon icon) {
     super(icon);
 
-    setup();
+    init();
   }
 
   /**
@@ -95,7 +95,7 @@ public class RibbonButton extends ModernButton {
 
     setToolTip(toolTipTitle, toolTipText);
 
-    setup();
+    init();
   }
 
   public RibbonButton(ModernIcon icon, String toolTipTitle,
@@ -104,14 +104,14 @@ public class RibbonButton extends ModernButton {
 
     setToolTip(toolTipTitle, toolTipText);
 
-    setup();
+    init();
   }
 
   /**
    * Setup.
    */
-  private void setup() {
-    addStyleClass("dialog-button");
+  private void init() {
+    addStyleClass("ribbon-button");
   }
 
   /*

@@ -41,7 +41,7 @@ public class ModernHSplitPaneLineAnimation extends HoverFadeAnimation {
   }
 
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     int y = widget.getInsets().top;
     int w = widget.getInternalRect().getW();
     int x = widget.getInsets().left;

@@ -30,7 +30,7 @@ public class ButtonSelectedAnimation extends SelectedAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     if (widget.isSelected()) {
       IntRect rect = widget.getRect(); // getInternalRect();
 

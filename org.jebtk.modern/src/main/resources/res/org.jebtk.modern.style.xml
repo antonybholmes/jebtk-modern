@@ -9,15 +9,25 @@
 		<property name="border-radius" value="0" />
 	</class>
 
-	<class name="widget">
-		<property name="border-radius" value="6" />
+
+	<class name="rounded-rect">
+		<property name="border-radius" value="6px" />
 	</class>
-	
+
+	<class name="pill">
+		<property name="border-radius" value="50%" />
+	</class>
+
+	<class name="widget">
+		<inherits class="rounded-rect" />
+	</class>
+
 	<class name="card">
-    <property name="border-radius" value="16" />
-    <property name="border-color" value="colors.gray32.color-3" />
-    <property name="background-color" value="white" />
-  </class>
+		<property name="border-radius" value="16" />
+		<property name="border-color" value="colors.gray32.color-3" />
+		<property name="background-color" value="white" />
+	</class>
+
 
 	<class name="content">
 		<property name="background-color" value="white" />
@@ -26,18 +36,14 @@
 	<class name="content-outline">
 		<property name="border-color" value="colors.material.dialog.button.outline" />
 	</class>
-	
+
 	<class name="content-box">
-    <property name="background-color" value="white" />
-    <property name="border-color" value="colors.material.dialog.button.outline" />
-  </class>
+	  <inherits class="content" />
+	  <inherits class="content-outline" />
+	</class>
 
 	<class name="gray-button">
 		<property name="background-color" value="colors.material.dialog.button.outline" />
-	</class>
-
-	<class name="check-switch">
-		<property name="background-color" value="colors.material.line" />
 	</class>
 
 	<class name="primary-dialog-button">
@@ -46,51 +52,55 @@
 	</class>
 
 	<class name="dialog-button">
-		<property name="border-color" value="colors.material.dialog.button.outline" />
+		<inherits class="content-box" />
 	</class>
 
 	<class name="checkbox">
-	  <property name="background-color" value="white" />
-	  <property name="border-color" value="colors.gray32.color-6" />
+		<property name="background-color" value="white" />
+		<property name="border-color" value="colors.gray32.color-6" />
 		<property name="border-radius" value="0" />
 	</class>
-	
+
 	<class name="check-switch">
-    <property name="background-color" value="white" />
-    <property name="border-color" value="colors.gray32.color-8" />
-  </class>
+	  <property name="background-color" value="colors.gray32.color-4" />
+		<property name="border-color" value="colors.gray32.color-8" />
+	</class>
+
+	<class name="quick-access-button">
+		<property name="border-radius" value="0" />
+	</class>
 
 	<keyframe index="to">
 		<class name="primary-dialog-button">
 			<property name="border-color" value="colors.theme32.color-28" />
 			<property name="background-color" value="colors.theme32.color-24" />
 		</class>
-		
-		<class name="content-box">
-      <property name="background-color" value="white" />
-    </class>
+
 
 		<class name="checkbox">
 			<property name="background-color" value="colors.theme32.color-14" />
 		</class>
-		
+
 		<class name="check-switch">
-      <property name="background-color" value="colors.theme32.color-14" />
-      <property name="border-radius" value="0" />
-    </class>
+			<property name="background-color" value="colors.theme32.color-14" />
+			<property name="border-radius" value="0" />
+		</class>
 
 		<class name="content-outline">
 			<property name="border-color" value="colors.material.dialog.button.highlight" />
 		</class>
 
-		<class name="dialog-button">
+		<class name="ribbon-button">
 			<property name="background-color" value="colors.material.dialog.button.outline" />
+		</class>
+
+		<class name="dialog-button">
+			<inherits class="ribbon-button" />
 			<property name="border-color" value="colors.material.dialog.button.highlight" />
 		</class>
 
 		<class name="theme-button">
 			<property name="background-color" value="colors.theme32.color-14" />
-			<property name="border-color" value="colors.theme32.color-14" />
 		</class>
 
 		<class name="widget">
@@ -99,7 +109,8 @@
 		</class>
 
 		<class name="quick-access-button">
-			<property name="background-color" value="#FFFFFF40" />
+			<property name="background-color" value="#ffffff40" />
+			<property name="border-radius" value="0" />
 		</class>
 
 	</keyframe>

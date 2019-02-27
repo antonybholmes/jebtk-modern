@@ -34,7 +34,6 @@ import javax.swing.Box;
 import org.jebtk.core.Resources;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
-import org.jebtk.modern.dialog.ModernDialogFlatButton;
 import org.jebtk.modern.dialog.ModernDialogMultiCardWindow;
 import org.jebtk.modern.dialog.ModernDialogTaskType;
 import org.jebtk.modern.dialog.ModernDialogWindow;
@@ -44,6 +43,7 @@ import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.ModernImagePanel;
 import org.jebtk.modern.panel.VBox;
+import org.jebtk.modern.ribbon.RibbonButton;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.scrollpane.ScrollBarPolicy;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
@@ -66,10 +66,10 @@ public class ModernAboutDialog extends ModernDialogMultiCardWindow {
   private ModernButton mHelpButton;
 
   /** The m license button. */
-  private ModernButton mLicenseButton = new ModernDialogFlatButton("License");
+  private ModernButton mLicenseButton = new RibbonButton("License");
 
   /** The m changes button. */
-  private ModernButton mChangesButton = new ModernDialogFlatButton("Changes");
+  private ModernButton mChangesButton = new RibbonButton("Changes");
 
   /**
    * Instantiates a new modern about dialog.

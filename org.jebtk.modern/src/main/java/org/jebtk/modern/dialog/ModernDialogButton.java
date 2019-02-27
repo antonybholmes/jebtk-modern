@@ -53,7 +53,7 @@ public class ModernDialogButton extends ModernButton {
   public ModernDialogButton(String text1) {
     super(text1);
 
-    setup();
+    init();
   }
 
   /**
@@ -64,7 +64,7 @@ public class ModernDialogButton extends ModernButton {
   public ModernDialogButton(ModernIcon icon) {
     super(icon);
 
-    setup();
+    init();
   }
 
   /**
@@ -76,22 +76,21 @@ public class ModernDialogButton extends ModernButton {
   public ModernDialogButton(String text1, ModernIcon icon) {
     super(text1, icon);
 
-    setup();
+    init();
   }
 
   public ModernDialogButton(String text1, ModernIcon icon, int width) {
     super(text1, icon, width);
 
-    setup();
+    init();
   }
 
-  private void setup() {
+  private void init() {
     // setFont(BOLD_FONT);
 
     addStyleClass("dialog-button");
-    addToStyleClass("dialog-button");
 
-    setAnimations("button-fill", "button-outline");
+    //setAnimations("button-fill", "button-outline");
   }
 
   /*

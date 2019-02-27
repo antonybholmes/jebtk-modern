@@ -27,9 +27,6 @@
  */
 package org.jebtk.modern.panel;
 
-import java.awt.Dimension;
-import java.awt.Rectangle;
-
 import javax.swing.border.Border;
 
 import org.jebtk.modern.ModernComponent;

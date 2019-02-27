@@ -28,10 +28,8 @@
 package org.jebtk.modern.table;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.dataview.ModernDataGridModel;
 

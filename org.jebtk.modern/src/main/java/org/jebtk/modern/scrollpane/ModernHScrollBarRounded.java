@@ -77,7 +77,7 @@ public class ModernHScrollBarRounded extends ModernHScrollBar {
   public void paintScrollBarBase(Graphics2D g2) {
     Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
-    int rounding = MaterialService.getInstance().getInts().cornerRadius();
+    int rounding = MaterialService.instance().getInts().cornerRadius();
 
     try {
       g2Temp.setColor(ROUNDED_SCROLLBAR_BACKGROUND_COLOR);
@@ -107,7 +107,7 @@ public class ModernHScrollBarRounded extends ModernHScrollBar {
     try {
       g2Temp.setColor(ROUNDED_SCROLLBAR_COLOR);
 
-      int rounding = MaterialService.getInstance().getInts().cornerRadius();
+      int rounding = MaterialService.instance().getInts().cornerRadius();
 
       g2Temp.fillRoundRect(r.x, r.y, r.width, r.height, rounding, rounding);
     } finally {

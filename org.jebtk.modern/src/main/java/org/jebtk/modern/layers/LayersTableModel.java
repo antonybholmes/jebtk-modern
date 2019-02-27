@@ -27,9 +27,6 @@
  */
 package org.jebtk.modern.layers;
 
-import java.util.List;
-
-import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.modern.table.ModernTableModel;
 

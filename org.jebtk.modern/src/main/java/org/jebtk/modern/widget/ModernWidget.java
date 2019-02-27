@@ -56,6 +56,7 @@ import org.jebtk.modern.animation.Animations;
 import org.jebtk.modern.font.FontUtils;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.icons.ModernIcon;
+import org.jebtk.modern.theme.DrawUIStates;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ThemeService;
 
@@ -167,7 +168,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant ALT_TEXT_COLOR.
    */
-  public static final Color ALT_TEXT_COLOR = MaterialService.getInstance()
+  public static final Color ALT_TEXT_COLOR = MaterialService.instance()
       .getColors().altText();
 
   /** The Constant TEXT_DISABLED_COLOR. */
@@ -183,7 +184,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant FONT.
    */
-  public static final Font FONT = MaterialService.getInstance().getFonts()
+  public static final Font FONT = MaterialService.instance().getFonts()
       .text(); // ThemeService.getInstance().getFonts().getFont();
 
   /** The Constant UNDER_LINE_FONT. */
@@ -224,7 +225,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant BOLD_FONT.
    */
-  public static final Font BOLD_FONT = MaterialService.getInstance().getFonts()
+  public static final Font BOLD_FONT = MaterialService.instance().getFonts()
       .bold();
 
   /**
@@ -366,7 +367,7 @@ public abstract class ModernWidget extends ModernComponent
 
   private Animations mBackgroundAnimations = null;
 
-  // private Animations mForegroundAnimations = new Animations();
+  private DrawUIStates mDrawStates = new DrawUIStates();
 
   static {
     // Create a default graphics context that can be used to size
@@ -426,7 +427,6 @@ public abstract class ModernWidget extends ModernComponent
     setForeground(TEXT_COLOR);
 
     addStyleClass("widget");
-    addToStyleClass("widget");
 
     mBackgroundAnimations = new Animations(this);
 
@@ -465,7 +465,11 @@ public abstract class ModernWidget extends ModernComponent
   public Animations getAnimations() {
     return mBackgroundAnimations;
   }
-
+  
+  public DrawUIStates getDrawStates() {
+    return mDrawStates;
+  }
+  
   public ModernWidget setAnimations(String animation, String... animations) {
     getAnimations().set(animation, animations);
 
@@ -559,7 +563,7 @@ public abstract class ModernWidget extends ModernComponent
    * @param g2 The widget's graphics context.
    */
   public void drawAnimatedBackground(Graphics2D g2) {
-    mBackgroundAnimations.draw(this, g2);
+    mBackgroundAnimations.draw(g2, this);
   }
 
   /*

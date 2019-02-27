@@ -33,7 +33,7 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
-import org.jebtk.modern.ribbon.RibbonColorSwatchButton;
+import org.jebtk.modern.ribbon.RibbonColorSwatchButton2;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
@@ -43,7 +43,7 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes
  *
  */
-public class FontSwatchButton extends RibbonColorSwatchButton {
+public class FontSwatchButton extends RibbonColorSwatchButton2 {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;

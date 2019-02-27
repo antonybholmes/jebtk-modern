@@ -47,7 +47,7 @@ public class QuickAccessButton extends ModernButton {
    * Instantiates a new quick access button.
    */
   public QuickAccessButton() {
-    setup();
+    init();
   }
 
   /**
@@ -58,7 +58,7 @@ public class QuickAccessButton extends ModernButton {
   public QuickAccessButton(ModernIcon icon) {
     super(icon);
 
-    setup();
+    init();
   }
 
   /**
@@ -69,16 +69,16 @@ public class QuickAccessButton extends ModernButton {
   public QuickAccessButton(String text) {
     super(text);
 
-    setup();
+    init();
   }
 
   /**
    * Setup.
    */
-  private void setup() {
-    addToStyleClass("quick-access-button");
+  private void init() {
+    addStyleClass("quick-access-button");
 
-    setAnimations("button-fill"); // new QuickAccessAnimation(this));
+    //setAnimations("button-fill"); // new QuickAccessAnimation(this));
   }
 
   /*

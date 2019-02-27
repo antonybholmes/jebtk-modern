@@ -320,7 +320,7 @@ public class ModernWindow extends JFrame
    */
   public void setAppInfo(GuiAppInfo appInfo) {
     mAppInfo = appInfo;
-    setIconImage(new Raster32Icon(getAppInfo().getIcon()).getImage());
+    setIconImage(new Raster32Icon(getAppInfo().getIcon()).getImage(32));
     setTitle(getAppInfo().getName());
   }
 

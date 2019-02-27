@@ -21,7 +21,6 @@ import java.awt.Graphics2D;
 
 import javax.swing.border.Border;
 
-import org.jebtk.core.Mathematics;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.UI;
 
@@ -107,7 +106,7 @@ public class ModernCheckSwitch extends CheckBox {
   public ModernCheckSwitch(String text, boolean selected) {
     setText(text);
 
-    addStyleClass("check-switch", "content-outline");
+    addStyleClass("content-outline", "check-switch");
 
     setAnimations("check-switch");
 

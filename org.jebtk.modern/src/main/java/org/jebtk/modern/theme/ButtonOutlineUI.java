@@ -19,6 +19,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.animation.KeyFramesService;
 
 /**
  * The Class ModernRoundedWidgetRenderer.
@@ -39,17 +40,24 @@ public class ButtonOutlineUI extends ButtonUI {
       int h,
       Object... params) {
 
+    Color color;
+    
     if (params.length > 0) {
-      g2.setColor((Color) params[0]);
+      color = (Color) params[0];
     } else {
       if (c != null) {
-        g2.setColor(c.getToKeyFrame().getColor("border-color"));
+        color = c.getCSSProps().getColor("border-color");
       } else {
-        g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget")
-            .getColor("border-color"));
+        color = KeyFramesService.getInstance().getToStyleClass("widget")
+            .getColor("border-color");
       }
     }
 
+    if (color == null || color.getAlpha() == 0) {
+      return;
+    }
+    
+    g2.setColor(color);
     outline(g2, c, x, y, w, h);
   }
 }

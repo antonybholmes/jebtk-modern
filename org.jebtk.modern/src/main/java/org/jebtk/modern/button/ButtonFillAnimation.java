@@ -2,8 +2,6 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.core.geom.IntRect;
-import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernClickWidget;
@@ -38,35 +36,34 @@ public class ButtonFillAnimation extends HoverFadeAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
-    if (widget.isEnabled()) {
-      IntRect rect = widget.getRect(); // getInternalRect();
-
-      fill(g2, widget, rect.getX(), rect.getY(), rect.getW(), rect.getH());
+  public void draw(Graphics2D g2, ModernWidget c, Object... params) {
+    if (c.isEnabled()) {
+      // update so that we don't keep triggering repaints()
+      
+      if (c.isSelected()) {
+        //c.getToKeyFrame().update("background-color", getToColor("fill"));
+        
+        c.getCSSProps().update("background-color", getToColor("fill"));
+      } else {
+        //c.getToKeyFrame().update("background-color", getFadeColor("fill"));
+        c.getCSSProps().update("background-color", getFadeColor("fill"));
+      }
+      
+      //IntRect rect = widget.getRect();
+      //fill(g2, widget, rect.getX(), rect.getY(), rect.getW(), rect.getH());
     }
   }
 
   public void fill(Graphics2D g2,
-      ModernComponent c,
+      ModernWidget c,
       int x,
       int y,
       int w,
       int h) {
-    // if (mode == RenderMode.NONE && !hasFocus) {
-    // return;
-    // }
-
     DrawUIService.getInstance().getRenderer("button-fill")
-        .draw(g2, x, y, w, h, getFadeColor("fill"));
-
-    // g2.setColor(getFadeColor("fill"));
-
-    // fill(g2, x, y, w, h);
+    .draw(g2, x, y, w, h, getFadeColor("fill"));
+    
   }
-
-  // public void fill(Graphics2D g2, int x, int y, int w, int h) {
-  // getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
-  // }
 
   public ModernClickWidget getButton() {
     return mButton;

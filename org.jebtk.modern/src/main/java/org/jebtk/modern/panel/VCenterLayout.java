@@ -14,7 +14,7 @@ import java.awt.LayoutManager;
  * @author antony
  *
  */
-public class VBoxCenterLayout implements LayoutManager {
+public class VCenterLayout implements LayoutManager {
 
   private static final Dimension MIN_SIZE = new Dimension(1, 1);
 

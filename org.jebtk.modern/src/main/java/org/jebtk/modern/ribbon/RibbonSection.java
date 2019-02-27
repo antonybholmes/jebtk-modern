@@ -39,6 +39,8 @@ import org.jebtk.core.NameProperty;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
+import org.jebtk.modern.button.ModernButton;
+import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.text.ModernLabel;
 import org.jebtk.modern.tooltip.ModernToolTipWidget;
 import org.jebtk.modern.widget.ModernClickWidget;
@@ -284,5 +286,21 @@ public class RibbonSection extends ModernClickWidget
    */
   public void addSeparator() {
     add(new RibbonSubSectionSeparator());
+  }
+
+  public ModernButton createButton(String text, ModernIcon icon) {
+    ModernButton button =  new RibbonLargeButton(text, icon);
+    
+    add(button);
+    
+    return button;
+  }
+
+  public ModernButton createButton(ModernIcon icon) {
+    ModernButton button =  new RibbonLargeButton(icon);
+    
+    add(button);
+    
+    return button;
   }
 }

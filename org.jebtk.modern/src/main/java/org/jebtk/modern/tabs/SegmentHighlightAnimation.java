@@ -52,7 +52,7 @@ public class SegmentHighlightAnimation extends HighlightAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
 
     int x = mTabs.mLeftOffset;
     int h = mTabs.getInternalRect().getH();

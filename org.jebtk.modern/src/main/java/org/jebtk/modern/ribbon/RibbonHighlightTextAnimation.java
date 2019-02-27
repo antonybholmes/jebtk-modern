@@ -29,7 +29,7 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public class RibbonHighlightTextAnimation extends HighlightAnimation {
 
-  public static final Color HIGHLIGHT_COLOR = MaterialService.getInstance()
+  public static final Color HIGHLIGHT_COLOR = MaterialService.instance()
       .getColor("ribbon-highlight");
 
   /** The m ribbon. */
@@ -46,8 +46,8 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
     mRibbon = (Ribbon) ribbon;
 
     setFadeColor("highlight",
-        MaterialService.getInstance().getColor("ribbon-menu-font"),
-        MaterialService.getInstance().getColor("ribbon"));
+        MaterialService.instance().getColor("ribbon-menu-font"),
+        MaterialService.instance().getColor("ribbon"));
   }
 
   /*
@@ -57,7 +57,7 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
 
     /*
      * int x; int tabWidth;

@@ -54,9 +54,9 @@ public class ModernWindowPanel extends ModernGradientPanel {
    */
   public ModernWindowPanel() {
     super(
-        MaterialService.getInstance()
+        MaterialService.instance()
             .getColor("window.background.gradient.start"),
-        MaterialService.getInstance()
+        MaterialService.instance()
             .getColor("window.background.gradient.end"));
   }
 

@@ -47,7 +47,7 @@ public class ButtonPressedAnimation extends MousePressedStepAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     // System.err.println("hmm " + isRunning() + " " + isPressed());
 
     if (getStep() == -1) {

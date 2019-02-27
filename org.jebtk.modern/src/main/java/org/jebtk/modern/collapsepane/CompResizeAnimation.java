@@ -21,7 +21,7 @@ public class CompResizeAnimation extends ChangeAnimation {
   }
 
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     // Do nothing
   }
 

@@ -35,7 +35,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
 import org.jebtk.core.settings.SettingsService;
-import org.jebtk.modern.AssetService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.widget.ModernWidget;
@@ -118,7 +117,7 @@ public class ModernTextField extends JTextField implements TextProperty {
     setBorder(BorderFactory.createEmptyBorder());
 
     setMinimumSize(
-        new Dimension(AssetService.ICON_SIZE_24, TEXT_BOX_SIZE.height));
+        new Dimension(22, TEXT_BOX_SIZE.height));
     setMaximumSize(new Dimension(Short.MAX_VALUE, TEXT_BOX_SIZE.height));
 
     UI.setSize(this, TEXT_BOX_SIZE);

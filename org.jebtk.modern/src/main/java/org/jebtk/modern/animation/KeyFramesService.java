@@ -25,7 +25,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.theme;
+package org.jebtk.modern.animation;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -46,6 +46,10 @@ import org.jebtk.core.collections.IterMap;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.text.TextUtils;
+import org.jebtk.modern.theme.CSSPercentProp;
+import org.jebtk.modern.theme.MaterialService;
+import org.jebtk.modern.theme.StyleClass;
+import org.jebtk.modern.theme.ThemeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.Attributes;
@@ -95,6 +99,9 @@ public class KeyFramesService {
         } else {
           mKeyFrame = Integer.parseInt(attributes.getValue("index"));
         }
+      } else if (qName.equals("inherits")) {
+        // Copy properties from one class to another
+        getStyleClass(mKeyFrame, mClass).update(getStyleClass(mKeyFrame, attributes.getValue("class")));
       } else if (qName.equals("class")) {
         mClass = attributes.getValue("name");
 
@@ -115,6 +122,11 @@ public class KeyFramesService {
           o = Integer.parseInt(v);
         } else if (TextUtils.isDouble(v)) {
           o = Double.parseDouble(v);
+        } else if (v.endsWith("%")) {
+          o = new CSSPercentProp(Integer.parseInt(v.substring(0, v.length() - 1)));
+          System.err.println("pc " + o + " " + name);
+        } else if (v.endsWith("px")) {
+          o = Integer.parseInt(v.substring(0, v.length() - 2));
         } else if (v.equals("true")) {
           o = true;
         } else if (v.equals("false")) {
@@ -129,12 +141,18 @@ public class KeyFramesService {
             int i = Integer.parseInt(v.substring(v.lastIndexOf("-") + 1));
             o = ThemeService.getInstance().getColors().getGray32(i);
           } else if (v.startsWith("colors.material")) {
-            o = MaterialService.getInstance().getColor(
+            o = MaterialService.instance().getColor(
                 v.replace("colors.material.", TextUtils.EMPTY_STRING));
           } else if (v.equals("white")) {
             o = Color.WHITE;
           } else if (v.equals("black")) {
             o = Color.BLACK;
+          } else if (v.equals("red")) {
+            o = Color.RED;
+          } else if (v.equals("blue")) {
+            o = Color.BLUE;
+          } else if (v.equals("grenn")) {
+            o = Color.GREEN;
           } else {
             o = value;
           }
@@ -179,8 +197,8 @@ public class KeyFramesService {
 
     // set("border-radius", 6);
 
-    getStyleClass("quick-access-button").set("background-color",
-        ColorUtils.getTransparentColor75(Color.WHITE));
+    //getStyleClass("quick-access-button").set("background-color",
+    //    ColorUtils.getTransparentColor75(Color.WHITE));
 
     /*
      * get("primary-dialog-button-f0") .set("border-color",
@@ -321,59 +339,6 @@ public class KeyFramesService {
 
     return mStyleMap.get(frame);
   }
-
-  /*
-   * public void addStyleClasses(ModernComponent c, int frame, String name,
-   * String... names) { if (contains(frame, name)) {
-   * c.getKeyFrames().getKeyFrame(frame).addStyleClass(getStyleClass(frame,
-   * name)); }
-   * 
-   * for (String n : names) { if (contains(frame, n)) {
-   * c.getKeyFrames().getKeyFrame(frame).addStyleClass(getStyleClass(frame, n));
-   * } } }
-   */
-
-  /*
-   * public Style get(Collection<String> styles) { String name =
-   * getName(styles);
-   * 
-   * if (!mStyleMap.containsKey(name)) { Iterator<String> iter =
-   * styles.iterator();
-   * 
-   * Style ret = get(iter.next());
-   * 
-   * while (iter.hasNext()) { ret = new Style(iter.next(), ret); }
-   * 
-   * mStyleMap.put(name, ret); }
-   * 
-   * return mStyleMap.get(name); }
-   */
-
-  /*
-   * public Style get(StyleNames styles) { String name = getName(styles);
-   * 
-   * if (!mStyleMap.containsKey(name)) { Iterator<String> iter =
-   * styles.iterator();
-   * 
-   * Style ret = get(iter.next());
-   * 
-   * while (iter.hasNext()) { ret = new Style().inherit(ret); }
-   * 
-   * mStyleMap.put(name, ret); }
-   * 
-   * return mStyleMap.get(name); }
-   */
-
-  /*
-   * private static final String getName(StyleNames styles) { Iterator<String>
-   * iter = styles.iterator();
-   * 
-   * StringBuilder buffer = new StringBuilder(iter.next());
-   * 
-   * while (iter.hasNext()) { buffer.append("-").append(iter.next()); }
-   * 
-   * return buffer.toString(); }
-   */
 
   public void set(String name, Object o) {
     getStyleClass(COMPONENT).set(name, o);

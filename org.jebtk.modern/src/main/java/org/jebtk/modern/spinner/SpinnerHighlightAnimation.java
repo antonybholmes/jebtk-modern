@@ -19,7 +19,7 @@ public class SpinnerHighlightAnimation extends ButtonOutlineAnimation {
   }
 
   @Override
-  public void draw(ModernWidget widget, Graphics2D g2, Object... params) {
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
     IntRect r = widget.getInternalRect();
 
     int x = r.getX();

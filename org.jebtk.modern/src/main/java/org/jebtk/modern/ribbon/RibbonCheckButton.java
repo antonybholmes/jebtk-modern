@@ -39,6 +39,12 @@ public class RibbonCheckButton extends ModernCheckButton {
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
+  public RibbonCheckButton(String text1) {
+    super(text1);
+
+    setup();
+  }
+  
   /**
    * Instantiates a new ribbon check button.
    *

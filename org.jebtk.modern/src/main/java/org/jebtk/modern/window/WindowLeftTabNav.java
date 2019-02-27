@@ -33,22 +33,16 @@ import org.jebtk.modern.contentpane.ModernHContentPane;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.panel.AutoHidePanel;
 import org.jebtk.modern.tabs.IconTabsVectorIcon;
+import org.jebtk.modern.tabs.OutlookTabsPanel;
 import org.jebtk.modern.tabs.TabsModel;
-import org.jebtk.modern.tabs.vert.IconTabsVertPanel;
 import org.jebtk.modern.widget.ModernWidget;
 
-/**
- * Standardized dialog window for dialogs that have buttons along the bottom
- * such as OK and Cancel for when user is performing a task.
- * 
- * @author Antony Holmes
- *
- */
-public class WindowIconTabs {
+
+public class WindowLeftTabNav {
 
   private TabsModel mLeftTabsModel;
 
-  private IconTabsVertPanel mViewPanel;
+  private OutlookTabsPanel mViewPanel;
 
   private ModernHContentPane mTabsPane;
 
@@ -57,7 +51,7 @@ public class WindowIconTabs {
    *
    * @param parent the parent
    */
-  public WindowIconTabs(ModernHContentPane tabsPane) {
+  public WindowLeftTabNav(ModernHContentPane tabsPane) {
     mTabsPane = tabsPane;
   }
 
@@ -91,7 +85,7 @@ public class WindowIconTabs {
   public TabsModel getModel() {
     if (mLeftTabsModel == null) {
       mLeftTabsModel = new TabsModel();
-      mViewPanel = new IconTabsVertPanel(mLeftTabsModel, 40, 22);
+      mViewPanel = new OutlookTabsPanel(mLeftTabsModel); //new IconTabsVertPanel(mLeftTabsModel, 40, 22);
     }
 
     return mLeftTabsModel;
