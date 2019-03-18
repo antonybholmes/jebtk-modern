@@ -17,7 +17,6 @@ package org.jebtk.modern.animation;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.util.List;
 import java.util.Map;
 
 import org.jebtk.core.ColorUtils;
@@ -119,11 +118,11 @@ public class FadeAnimation extends EasingAnimation {
     // in the transparent state (the last step) and work backwards to
     // opaque once the animation begins. Therefore with a color map,
     // the last color needs to be the starting color.
-    List<ColorMapColor> colorMap = ColorMap
+    ColorMapColor colorMap[] = ColorMap
         .createTwoColorMap(color1, color2, STEPS, false);
 
     for (int i = 0; i < STEPS; ++i) {
-      mFadeColorMap.get(i).add(name, colorMap.get(i));
+      mFadeColorMap.get(i).add(name, colorMap[i]);
     }
 
     return this;

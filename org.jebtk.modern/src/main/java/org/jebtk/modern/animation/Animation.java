@@ -27,8 +27,8 @@ import org.jebtk.modern.widget.ModernWidget;
 public interface Animation extends NameProperty {
 
   /**
-   * The animation becomes responsible handling the drawing for the widget. This
-   * method this called on each animation refresh.
+   * The animation becomes responsible handling the drawing for the widget. 
+   * This method this called on each animation refresh.
    *
    * @param widget the widget
    * @param g2 the g 2

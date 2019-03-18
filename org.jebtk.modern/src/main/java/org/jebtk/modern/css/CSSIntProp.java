@@ -1,4 +1,4 @@
-package org.jebtk.modern.theme;
+package org.jebtk.modern.css;
 
 public class CSSIntProp implements CSSNumProp {
   

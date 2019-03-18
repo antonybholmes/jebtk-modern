@@ -50,6 +50,7 @@ import org.jebtk.modern.event.ModernStateEventProducer;
 import org.jebtk.modern.event.ModernStateListener;
 import org.jebtk.modern.event.ModernStateListeners;
 import org.jebtk.modern.theme.ColorStyle;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.tooltip.ModernToolTipWidget;
 
@@ -159,76 +160,11 @@ ModernSelectedEventProducer, HighlightEventProducer {
     addMouseListener(new MouseEvents());
     addFocusListener(new FocusEvents());
     // addMouseMotionListener(new MouseMotionEvents());
+    
+    // Add support for CSS style rendering that responds to property changes.
+    getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
+    getAnimations().add("draw-ui");
 
-    // setAnimations("button-fill"); // new ButtonHighlightAnimation(this));
-    // //SimpleButtonAnimation.BUTTON_ANIMATION);
-
-    //getDrawStates().set(DrawUIService.getInstance().getRenderer("button-draw"));
-    addAnimations("button-fill");
-    
-    setButtonStyle(ButtonStyle.BUTTON);
-    setColorStyle(ColorStyle.THEME);
-  }
-  
-  public ModernClickWidget setColorStyle(ColorStyle style) {
-    switch(style) {
-    case RIBBON:
-      addStyleClass("ribbon-button");
-      break;
-    default:
-      addStyleClass("theme-button");
-      break;
-    }
-    
-    return this;
-  }
- 
-  /**
-   * Set the drawing style of the button.
-   * 
-   * @param style
-   * @return
-   */
-  public ModernClickWidget setButtonStyle(ButtonStyle... styles) {
-    //getAnimations().clear();
-    //getDrawStates().clear();
-    
-    
-    
-    
-    for (ButtonStyle style : styles) {
-      switch (style) {
-      case PILL:
-        addStyleClass("pill");
-        //getDrawStates().set("fill", DrawUIService.getInstance().getRenderer("pill-fill"));
-        break;
-      case PILL_CONTENT:
-        addStyleClass("content-box", "pill");
-        
-        //addAnimations("pill-content");
-        //addAnimations("button-fill");
-        
-        //getDrawStates().set(DrawUIService.getInstance().getRenderer("pill-content"))
-        //  .add(DrawUIService.getInstance().getRenderer("button-fill"));
-        break;
-      case CIRCLE:
-        addStyleClass("pill");
-        //addAnimations("button-fill");
-        //getDrawStates().set("fill", DrawUIService.getInstance().getRenderer("circle-fill"));
-        break;
-      case CIRCLE_OUTLINE:
-        //addAnimations("circle-outline");
-        break;
-      case BUTTON:
-        addStyleClass("rounded-rect");
-        
-        break;
-      default:
-        break;
-      }
-    }
-
-    return this;
   }
 
   /**

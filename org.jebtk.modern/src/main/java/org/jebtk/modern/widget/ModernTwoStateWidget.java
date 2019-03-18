@@ -35,13 +35,15 @@ import java.awt.event.MouseEvent;
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
 
+import org.jebtk.modern.button.ModernButtonWidget;
+
 /**
  * For widgets that can toggle between a selected and unselected state.
  * 
  * @author Antony Holmes
  *
  */
-public abstract class ModernTwoStateWidget extends ModernClickWidget {
+public abstract class ModernTwoStateWidget extends ModernButtonWidget {
 
   /**
    * The constant serialVersionUID.
@@ -103,7 +105,7 @@ public abstract class ModernTwoStateWidget extends ModernClickWidget {
    * Instantiates a new modern two state widget.
    */
   public ModernTwoStateWidget() {
-    setup();
+    init();
   }
 
   /**
@@ -114,13 +116,13 @@ public abstract class ModernTwoStateWidget extends ModernClickWidget {
   public ModernTwoStateWidget(LayoutManager manager) {
     super(manager);
 
-    setup();
+    init();
   }
 
   /**
    * Setup.
    */
-  private void setup() {
+  private void init() {
     addMouseListener(new MouseEvents());
 
     getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"),

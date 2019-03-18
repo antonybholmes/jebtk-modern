@@ -30,6 +30,8 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
+import org.jebtk.modern.graphics.ImageUtils;
+
 /**
  * Rastorizes an icon (for example a vector based on) to reduce drawing
  * overhead.
@@ -64,7 +66,7 @@ public class RasterIcon extends ModernIcon {
     mIcon = icon;
     mSize = size;
   }
-  
+
   public RasterIcon(BufferedImage icon) {
     mBufferedImage = icon;
     mSize = icon.getWidth();
@@ -79,11 +81,35 @@ public class RasterIcon extends ModernIcon {
   public BufferedImage getImage(int w, Object... params) {
     if (mBufferedImage == null) {
       mBufferedImage = mIcon.getImage(mSize, params);
+
+      if (mBufferedImage.getWidth() > mSize || mBufferedImage.getHeight() > mSize) {
+        BufferedImage bi = ImageUtils.createImage(mSize, mSize);
+        
+        Graphics2D g2 = (Graphics2D) bi.createGraphics();
+
+        Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+
+        try {
+          ImageUtils.setQualityHints(g2Temp);
+          
+          g2Temp.drawImage(mBufferedImage,
+                0,
+                0,
+                mSize,
+                mSize,
+                null);
+        } finally {
+          g2Temp.dispose();
+        }
+        
+        mBufferedImage = bi;
+      }
+
     }
 
     return mBufferedImage;
   }
-  
+
 
 
   /*

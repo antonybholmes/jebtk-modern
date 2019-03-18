@@ -1,4 +1,4 @@
-package org.jebtk.modern.animation;
+package org.jebtk.modern.css;
 
 import org.jebtk.core.collections.IterMap;
 import org.jebtk.core.collections.IterTreeMap;
@@ -6,7 +6,7 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 
-public class KeyFrames extends ChangeListeners
+public class CSSKeyFrames extends ChangeListeners
     implements ChangeListener {
   /**
    * 
@@ -20,7 +20,7 @@ public class KeyFrames extends ChangeListeners
    * Keep track of keyframes. Use a reverse order comparator since later
    * keyframes override earlier ones if no preference is given.
    */
-  private IterMap<Integer, KeyFrame> mFrameMap = new IterTreeMap<Integer, KeyFrame>();
+  private IterMap<Integer, CSSKeyFrame> mFrameMap = new IterTreeMap<Integer, CSSKeyFrame>();
 
   /*
    * private String mName;
@@ -35,9 +35,9 @@ public class KeyFrames extends ChangeListeners
    * @param frame
    * @return
    */
-  public KeyFrame getKeyFrame(int frame) {
+  public CSSKeyFrame getKeyFrame(int frame) {
     if (!mFrameMap.containsKey(frame)) {
-      KeyFrame styles = new KeyFrame(frame);
+      CSSKeyFrame styles = new CSSKeyFrame(frame);
 
       styles.addChangeListener(this);
 
@@ -47,11 +47,11 @@ public class KeyFrames extends ChangeListeners
     return mFrameMap.get(frame);
   }
 
-  public KeyFrame getKeyFrame() {
+  public CSSKeyFrame getKeyFrame() {
     return getFromFrame();
   }
   
-  public KeyFrame getFromFrame() {
+  public CSSKeyFrame getFromFrame() {
     return getKeyFrame(FROM);
   }
 
@@ -61,7 +61,7 @@ public class KeyFrames extends ChangeListeners
    * 
    * @return
    */
-  public KeyFrame getToKeyFrame() {
+  public CSSKeyFrame getToKeyFrame() {
     return getKeyFrame(TO);
   }
 

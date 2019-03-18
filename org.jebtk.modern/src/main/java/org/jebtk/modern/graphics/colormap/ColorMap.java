@@ -30,21 +30,17 @@ package org.jebtk.modern.graphics.colormap;
 import java.awt.Color;
 import java.awt.LinearGradientPaint;
 import java.awt.geom.Point2D;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Mathematics;
-import org.jebtk.core.collections.CollectionUtils;
+import org.jebtk.core.collections.ArrayUtils;
 import org.jebtk.core.json.Json;
 import org.jebtk.core.json.JsonArray;
 import org.jebtk.core.json.JsonObject;
 import org.jebtk.core.json.JsonRepresentation;
+import org.jebtk.core.sys.SysUtils;
 import org.jebtk.core.xml.XmlRepresentation;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -55,7 +51,7 @@ import org.w3c.dom.Element;
  * @author Antony Holmes
  *
  */
-public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
+public class ColorMap implements Comparable<ColorMap>,
     XmlRepresentation, JsonRepresentation {
 
   /** The Constant DEFAULT_COLORS. */
@@ -96,7 +92,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
   /**
    * The Class AnchorColors.
    */
-  public static class AnchorColors implements Iterable<ColorMapColor> {
+  public static class AnchorColors {
 
     /** The Constant GRADIENT_FIVE_POINT. */
     private static final float[] GRADIENT_FIVE_POINT = { 0.0f, 0.25f, 0.5f,
@@ -113,7 +109,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
     private static final float[] GRADIENT_TWO_POINT = { 0.0f, 1.0f };
 
     /** The m colors. */
-    private List<ColorMapColor> mColors = new ArrayList<ColorMapColor>();
+    private final ColorMapColor[] mColors;
 
     /**
      * Instantiates a new anchor colors.
@@ -132,7 +128,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
      * @param color2 the color 2
      */
     public AnchorColors(ColorMapColor color1, ColorMapColor color2) {
-      this(CollectionUtils.toList(color1, color2));
+      this(new ColorMapColor[]{color1, color2});
     }
 
     /**
@@ -156,7 +152,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
      */
     public AnchorColors(ColorMapColor color1, ColorMapColor color2,
         ColorMapColor color3) {
-      this(CollectionUtils.toList(color1, color2, color3));
+      this(new ColorMapColor[]{color1, color2, color3});
     }
 
     /**
@@ -183,7 +179,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
      */
     public AnchorColors(ColorMapColor color1, ColorMapColor color2,
         ColorMapColor color3, ColorMapColor color4) {
-      this(CollectionUtils.toList(color1, color2, color3, color4));
+      this(new ColorMapColor[]{color1, color2, color3, color4});
     }
 
     /**
@@ -213,16 +209,13 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
      */
     public AnchorColors(ColorMapColor color1, ColorMapColor color2,
         ColorMapColor color3, ColorMapColor color4, ColorMapColor color5) {
-      this(CollectionUtils.toList(color1, color2, color3, color4, color5));
+      this(new ColorMapColor[]{color1, color2, color3, color4, color5});
     }
-
-    /**
-     * Instantiates a new anchor colors.
-     *
-     * @param colors the colors
-     */
-    private AnchorColors(Collection<ColorMapColor> colors) {
-      mColors.addAll(colors);
+    
+    public AnchorColors(ColorMapColor[] colors) {
+      mColors = new ColorMapColor[colors.length];
+      
+      SysUtils.arraycopy(colors, mColors);
     }
 
     /**
@@ -232,10 +225,12 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
      * @param reverse the reverse
      */
     public AnchorColors(AnchorColors anchorColors, boolean reverse) {
-      mColors.addAll(anchorColors.mColors);
+      mColors = new ColorMapColor[anchorColors.mColors.length];
+      
+      SysUtils.arraycopy(anchorColors.mColors, mColors);
 
       if (reverse) {
-        CollectionUtils.reverse(mColors);
+        ArrayUtils.reverse(mColors);
       }
     }
 
@@ -246,7 +241,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
      * @return the anchor color
      */
     public Color getAnchorColor(int index) {
-      return mColors.get(index);
+      return mColors[index];
     }
 
     /**
@@ -258,17 +253,17 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
      */
     public LinearGradientPaint toGradientPaint(Point2D start, Point2D end) {
 
-      Color[] cl = mColors.toArray(new Color[mColors.size()]);
+      //Color[] cl = mColors.toArray(new Color[mColors.size()]);
 
-      switch (mColors.size()) {
+      switch (mColors.length) {
       case 5:
-        return new LinearGradientPaint(start, end, GRADIENT_FIVE_POINT, cl);
+        return new LinearGradientPaint(start, end, GRADIENT_FIVE_POINT, mColors);
       case 4:
-        return new LinearGradientPaint(start, end, GRADIENT_FOUR_POINT, cl);
+        return new LinearGradientPaint(start, end, GRADIENT_FOUR_POINT, mColors);
       case 3:
-        return new LinearGradientPaint(start, end, GRADIENT_THREE_POINT, cl);
+        return new LinearGradientPaint(start, end, GRADIENT_THREE_POINT, mColors);
       default:
-        return new LinearGradientPaint(start, end, GRADIENT_TWO_POINT, cl);
+        return new LinearGradientPaint(start, end, GRADIENT_TWO_POINT, mColors);
       }
     }
 
@@ -276,32 +271,22 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
         Point2D end,
         double trans) {
 
-      Color[] cl = mColors.toArray(new Color[mColors.size()]);
+      //Color[] cl = mColors.toArray(new Color[mColors.size()]);
 
-      switch (mColors.size()) {
+      switch (mColors.length) {
       case 5:
         return new LinearGradientPaint(start, end, GRADIENT_FIVE_POINT,
-            ColorUtils.trans(cl, trans));
+            ColorUtils.trans(mColors, trans));
       case 4:
         return new LinearGradientPaint(start, end, GRADIENT_FOUR_POINT,
-            ColorUtils.trans(cl, trans));
+            ColorUtils.trans(mColors, trans));
       case 3:
         return new LinearGradientPaint(start, end, GRADIENT_THREE_POINT,
-            ColorUtils.trans(cl, trans));
+            ColorUtils.trans(mColors, trans));
       default:
         return new LinearGradientPaint(start, end, GRADIENT_TWO_POINT,
-            ColorUtils.trans(cl, trans));
+            ColorUtils.trans(mColors, trans));
       }
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Iterable#iterator()
-     */
-    @Override
-    public Iterator<ColorMapColor> iterator() {
-      return mColors.iterator();
     }
 
     /**
@@ -310,7 +295,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
      * @return the color count
      */
     public int getColorCount() {
-      return mColors.size();
+      return mColors.length;
     }
   }
 
@@ -341,7 +326,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
   private AnchorColors mAnchorColors;
 
   /** The m colors. */
-  private List<ColorMapColor> mColors;
+  private final ColorMapColor[] mColors;
 
   private Map<ColorMapColor, Integer> mIndexMap = new HashMap<ColorMapColor, Integer>();
 
@@ -474,10 +459,12 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
   public ColorMap(String name, ColorMap colorMap, boolean reverse) {
     mAnchorColors = new AnchorColors(colorMap.mAnchorColors, reverse);
 
-    mColors = CollectionUtils.copy(colorMap.mColors);
+    mColors = new ColorMapColor[colorMap.mColors.length];
+    
+    SysUtils.arraycopy(colorMap.mColors, mColors);
 
     if (reverse) {
-      Collections.reverse(mColors);
+      ArrayUtils.reverse(mColors);
     }
 
     init(name);
@@ -491,10 +478,10 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
   private void init(String name) {
     mName = name;
 
-    mMaxIndex = mColors.size() - 1;
+    mMaxIndex = mColors.length - 1;
 
-    for (int i = 0; i < mColors.size(); ++i) {
-      mIndexMap.put(mColors.get(i), i);
+    for (int i = 0; i < mColors.length; ++i) {
+      mIndexMap.put(mColors[i], i);
     }
   }
 
@@ -510,11 +497,6 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
     } else {
       return -1;
     }
-  }
-
-  @Override
-  public Iterator<ColorMapColor> iterator() {
-    return mColors.iterator();
   }
 
   /*
@@ -595,7 +577,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
    * @return the color by index
    */
   public Color getColorByIndex(int index) {
-    return mColors.get(index);
+    return mColors[index];
   }
 
   /**
@@ -613,7 +595,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
    * @return the color count
    */
   public int getColorCount() {
-    return mColors.size();
+    return mColors.length;
   }
 
   /**
@@ -646,11 +628,11 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
   public Element toXml(Document doc) {
     Element element = doc.createElement("colormap");
     element.setAttribute("name", mName);
-    element.setAttribute("colors", Integer.toString(mColors.size()));
+    element.setAttribute("colors", Integer.toString(mColors.length));
 
     Element anchorElement = doc.createElement("anchor-colors");
 
-    for (ColorMapColor color : this) {
+    for (ColorMapColor color : this.mColors) {
       anchorElement.appendChild(color.toXml(doc));
     }
 
@@ -669,11 +651,11 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
     Json json = new JsonObject();
 
     json.add("name", mName);
-    json.add("colors", mColors.size());
+    json.add("colors", mColors.length);
 
     Json array = new JsonArray();
 
-    for (ColorMapColor color : mAnchorColors) {
+    for (ColorMapColor color : mAnchorColors.mColors) {
       array.add(color.toJson());
     }
 
@@ -729,7 +711,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
    * @param reverse the reverse
    * @return the list
    */
-  public static List<ColorMapColor> createTwoColorMap(Color color1,
+  public static ColorMapColor[] createTwoColorMap(Color color1,
       Color color2,
       int colors,
       boolean reverse) {
@@ -769,14 +751,14 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
     b[b.length - 1] = color2.getBlue() / NF;
     a[a.length - 1] = color2.getAlpha() / NF;
 
-    List<ColorMapColor> ret = new ArrayList<ColorMapColor>();
+    ColorMapColor[] ret = new ColorMapColor[colors];
 
     for (int i = 0; i < colors; ++i) {
-      ret.add(new ColorMapColor(r[i], g[i], b[i], a[i]));
+      ret[i] = new ColorMapColor(r[i], g[i], b[i], a[i]);
     }
 
     if (reverse) {
-      Collections.reverse(ret);
+      ArrayUtils.reverse(ret);
     }
 
     return ret;
@@ -830,7 +812,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
    * @param reverse the reverse
    * @return the list
    */
-  public static List<ColorMapColor> createThreeColorMap(Color color1,
+  public static ColorMapColor[] createThreeColorMap(Color color1,
       Color color2,
       Color color3,
       int colors,
@@ -897,16 +879,14 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
      * NF); }
      */
 
-    List<ColorMapColor> ret = new ArrayList<ColorMapColor>();
+    ColorMapColor[] ret = new ColorMapColor[colors];
 
     for (int i = 0; i < colors; ++i) {
-      ColorMapColor c = new ColorMapColor(r[i], g[i], b[i], a[i]);
-      ret.add(c);
-      // System.err.println(i + " " + c);
+      ret[i] = new ColorMapColor(r[i], g[i], b[i], a[i]);
     }
 
     if (reverse) {
-      Collections.reverse(ret);
+      ArrayUtils.reverse(ret);
     }
 
     return ret;
@@ -975,7 +955,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
    * @param reverse the reverse
    * @return the list
    */
-  public static List<ColorMapColor> createFourColorMap(Color color1,
+  public static ColorMapColor[] createFourColorMap(Color color1,
       Color color2,
       Color color3,
       Color color4,
@@ -1040,14 +1020,14 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
       a[i] = bound(af[bin] + ainc[bin] * p);
     }
 
-    List<ColorMapColor> ret = new ArrayList<ColorMapColor>();
+    ColorMapColor[] ret = new ColorMapColor[colors];
 
     for (int i = 0; i < colors; ++i) {
-      ret.add(new ColorMapColor(r[i], g[i], b[i], a[i]));
+      ret[i] = new ColorMapColor(r[i], g[i], b[i], a[i]);
     }
 
     if (reverse) {
-      Collections.reverse(ret);
+      ArrayUtils.reverse(ret);
     }
 
     return ret;
@@ -1119,7 +1099,7 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
    * @param reverse the reverse
    * @return the list
    */
-  public static List<ColorMapColor> createFiveColorMap(Color color1,
+  public static ColorMapColor[] createFiveColorMap(Color color1,
       Color color2,
       Color color3,
       Color color4,
@@ -1189,14 +1169,14 @@ public class ColorMap implements Iterable<ColorMapColor>, Comparable<ColorMap>,
       a[i] = bound(af[bin] + ainc[bin] * p);
     }
 
-    List<ColorMapColor> ret = new ArrayList<ColorMapColor>();
+    ColorMapColor[] ret = new ColorMapColor[colors];
 
     for (int i = 0; i < colors; ++i) {
-      ret.add(new ColorMapColor(r[i], g[i], b[i], a[i]));
+      ret[i] = new ColorMapColor(r[i], g[i], b[i], a[i]);
     }
 
     if (reverse) {
-      Collections.reverse(ret);
+      ArrayUtils.reverse(ret);
     }
 
     return ret;

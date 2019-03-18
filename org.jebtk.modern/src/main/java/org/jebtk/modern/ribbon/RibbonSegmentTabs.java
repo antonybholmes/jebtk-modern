@@ -132,7 +132,7 @@ public class RibbonSegmentTabs extends SegmentTabs {
     }
 
     // getWidgetRenderer().drawContentBoxOutline(g2, mLeftOffset, y, w, h);
-    DrawUIService.getInstance().getRenderer("content.outline")
+    DrawUIService.getInstance().getRenderer("content-outline")
         .draw(g2, mLeftOffset, y, w, h);
 
     //

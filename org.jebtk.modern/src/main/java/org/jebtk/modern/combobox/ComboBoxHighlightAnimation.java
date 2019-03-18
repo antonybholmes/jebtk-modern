@@ -5,10 +5,10 @@ import java.awt.Graphics2D;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntRect;
-import org.jebtk.modern.button.ButtonFillAnimation;
+import org.jebtk.modern.button.ButtonAltFillAnimation;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class ComboBoxHighlightAnimation extends ButtonFillAnimation
+public class ComboBoxHighlightAnimation extends ButtonAltFillAnimation
     implements ChangeListener {
   private ModernComboBox mCombo;
 

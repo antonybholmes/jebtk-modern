@@ -13,21 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.theme;
+package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.animation.KeyFramesService;
+import org.jebtk.modern.theme.ColorGradient;
 
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
-public class CSSWidgetDrawUI extends ButtonOutlineUI {
+public class CSSDrawUI extends CSSOutlineUI {
 
   @Override
   public String getName() {
-    return "css-widget-draw";
+    return "css-draw";
   }
 
   @Override
@@ -48,7 +48,7 @@ public class CSSWidgetDrawUI extends ButtonOutlineUI {
         g2.setColor(c.getCSSProps().getColor("background-color"));
       }
     } else {
-      g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget")
+      g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget")
           .getColor("background-color"));
     }
 

@@ -48,9 +48,9 @@ import javax.swing.event.DocumentListener;
 
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
+import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.animation.KeyFrames;
 import org.jebtk.modern.button.ModernDropDownWidget2;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -317,7 +317,7 @@ public class ModernComboBox2 extends ModernDropDownWidget2
    * @param popup the popup
    */
   public ModernComboBox2(ModernPopupMenu2 popup) {
-    this("", popup);
+    this(TextUtils.EMPTY_STRING, popup);
   }
 
   /**
@@ -365,8 +365,9 @@ public class ModernComboBox2 extends ModernDropDownWidget2
 
     resize();
 
-    addStyleClass("dialog-button");
-    addStyleClass("content-outline");
+    addStyleClass("content-box", "combobox", "content-outline-highlight");
+    
+    addAnimations("combobox2");
   }
 
   /**

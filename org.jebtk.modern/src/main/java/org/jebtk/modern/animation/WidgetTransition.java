@@ -13,17 +13,44 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.theme;
+package org.jebtk.modern.animation;
 
-import org.jebtk.modern.css.CSSOutlineUI;
+import org.jebtk.modern.widget.ModernWidget;
 
 /**
- * The Class ModernRoundedWidgetRenderer.
+ * Allows for fade in/out animation on an element.
+ *
+ * @author Antony Holmes
  */
-public class ButtonOutlineUI extends CSSOutlineUI {
+public abstract class WidgetTransition implements Transition {
+
+  /** The m widget. */
+  private ModernWidget mWidget;
+
+  /**
+   * Instantiates a new widget animation.
+   *
+   * @param widget the widget
+   */
+  public WidgetTransition(ModernWidget widget) {
+    mWidget = widget;
+  }
+
+  /**
+   * Gets the widget.
+   *
+   * @return the widget
+   */
+  public ModernWidget getWidget() {
+    return mWidget;
+  }
 
   @Override
   public String getName() {
-    return "button-outline";
+    return "widget";
+  }
+
+  public void bindChildren() {
+    // Do nothing
   }
 }

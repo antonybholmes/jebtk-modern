@@ -11,7 +11,7 @@
 
 
 	<class name="rounded-rect">
-		<property name="border-radius" value="6px" />
+		<property name="border-radius" value="4" />
 	</class>
 
 	<class name="pill">
@@ -23,11 +23,10 @@
 	</class>
 
 	<class name="card">
-		<property name="border-radius" value="16" />
+		<property name="border-radius" value="8" />
 		<property name="border-color" value="colors.gray32.color-3" />
 		<property name="background-color" value="white" />
 	</class>
-
 
 	<class name="content">
 		<property name="background-color" value="white" />
@@ -36,6 +35,10 @@
 	<class name="content-outline">
 		<property name="border-color" value="colors.material.dialog.button.outline" />
 	</class>
+	
+	<class name="content-outline-highlight">
+    <inherits class="content-outline" />
+  </class>
 
 	<class name="content-box">
 	  <inherits class="content" />
@@ -69,13 +72,16 @@
 	<class name="quick-access-button">
 		<property name="border-radius" value="0" />
 	</class>
+	
+	<class name="combobox">
+	  <property name="background-color" value="white" />
+  </class>
 
 	<keyframe index="to">
 		<class name="primary-dialog-button">
 			<property name="border-color" value="colors.theme32.color-28" />
 			<property name="background-color" value="colors.theme32.color-24" />
 		</class>
-
 
 		<class name="checkbox">
 			<property name="background-color" value="colors.theme32.color-14" />
@@ -86,13 +92,18 @@
 			<property name="border-radius" value="0" />
 		</class>
 
-		<class name="content-outline">
+		<class name="content-outline-highlight">
 			<property name="border-color" value="colors.material.dialog.button.highlight" />
 		</class>
 
 		<class name="ribbon-button">
 			<property name="background-color" value="colors.material.dialog.button.outline" />
 		</class>
+		
+		<class name="combobox">
+		  <property name="background-color" value="white" />
+      <property name="alt-background-color" value="colors.material.dialog.button.outline" />
+    </class>
 
 		<class name="dialog-button">
 			<inherits class="ribbon-button" />

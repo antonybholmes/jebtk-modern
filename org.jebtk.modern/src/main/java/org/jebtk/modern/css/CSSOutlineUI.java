@@ -13,21 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.theme;
+package org.jebtk.modern.css;
 
-import org.jebtk.modern.css.CSSDrawUI;
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+import org.jebtk.modern.ModernComponent;
 
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
-public class PillContentUI extends CSSDrawUI {
+public class CSSOutlineUI extends CSSBaseUI {
 
   @Override
   public String getName() {
-    return "pill-content";
+    return "css-outline";
   }
 
-  /*
   @Override
   public void draw(Graphics2D g2,
       ModernComponent c,
@@ -36,16 +38,25 @@ public class PillContentUI extends CSSDrawUI {
       int w,
       int h,
       Object... params) {
-    
-    super.draw(g2, c, x, y, w, h, Color.WHITE);
 
+    Color color;
+    
     if (params.length > 0) {
-      g2.setColor((Color) params[0]);
+      color = (Color) params[0];
     } else {
-      g2.setColor(getStyle(c).getColor("border-color"));
+      if (c != null) {
+        color = c.getCSSProps().getColor("border-color");
+      } else {
+        color = CSSKeyFramesService.getInstance().getToStyleClass("widget")
+            .getColor("border-color");
+      }
+    }
+
+    if (color == null || color.getAlpha() == 0) {
+      return;
     }
     
-    g2.drawRoundRect(x, y, w - 1, h - 1, h, h);
+    g2.setColor(color);
+    outline(g2, c, x, y, w, h);
   }
-  */
 }

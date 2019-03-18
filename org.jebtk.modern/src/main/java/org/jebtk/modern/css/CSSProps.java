@@ -1,4 +1,4 @@
-package org.jebtk.modern.theme;
+package org.jebtk.modern.css;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -7,6 +7,7 @@ import javax.swing.border.Border;
 
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Properties;
+import org.jebtk.modern.theme.ColorGradient;
 
 public class CSSProps extends Properties {
   /**

@@ -13,17 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.theme;
-
-import org.jebtk.modern.css.CSSOutlineUI;
+package org.jebtk.modern.animation;
 
 /**
- * The Class ModernRoundedWidgetRenderer.
+ * Allows for fade in/out animation on an element.
+ *
+ * @author Antony Holmes
  */
-public class ButtonOutlineUI extends CSSOutlineUI {
-
-  @Override
-  public String getName() {
-    return "button-outline";
-  }
+public interface Transition extends Animation {
+  /**
+   * Update the transition state based on the supplied time and direction.
+   * 
+   * @param t           Normalized time between 0 and 1
+   * @param forward     Whether time is moving forwards or backwards.
+   */
+  public void updateState(double t, boolean forward);
 }

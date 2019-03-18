@@ -49,9 +49,10 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
-import org.jebtk.modern.animation.KeyFrame;
-import org.jebtk.modern.animation.KeyFrames;
-import org.jebtk.modern.animation.KeyFramesService;
+import org.jebtk.modern.css.CSSKeyFrame;
+import org.jebtk.modern.css.CSSKeyFrames;
+import org.jebtk.modern.css.CSSKeyFramesService;
+import org.jebtk.modern.css.CSSProps;
 import org.jebtk.modern.graphics.AAMode;
 import org.jebtk.modern.graphics.AAModes;
 import org.jebtk.modern.graphics.ImageUtils;
@@ -59,7 +60,6 @@ import org.jebtk.modern.scrollpane.ScrollEvent;
 import org.jebtk.modern.scrollpane.ScrollEventProducer;
 import org.jebtk.modern.scrollpane.ScrollListener;
 import org.jebtk.modern.scrollpane.ScrollListeners;
-import org.jebtk.modern.theme.CSSProps;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ModernTheme;
 import org.jebtk.modern.theme.ThemeService;
@@ -245,7 +245,7 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
 
   private Component mFooter;
 
-  private KeyFrames mKeyFrames = new KeyFrames();
+  private CSSKeyFrames mKeyFrames = new CSSKeyFrames();
 
   protected AAModes mAAModes = new AAModes();
 
@@ -681,7 +681,7 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
     return mCSSProps;
   }
 
-  public KeyFrames getKeyFrames() {
+  public CSSKeyFrames getKeyFrames() {
     return mKeyFrames;
   }
 
@@ -690,8 +690,8 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    * 
    * @return
    */
-  public KeyFrame getFromKeyFrame() {
-    return getKeyFrame(KeyFrames.FROM);
+  public CSSKeyFrame getFromKeyFrame() {
+    return getKeyFrame(CSSKeyFrames.FROM);
   }
 
   /**
@@ -699,15 +699,15 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    * 
    * @return
    */
-  public KeyFrame getToKeyFrame() {
-    return getKeyFrame(KeyFrames.TO);
+  public CSSKeyFrame getToKeyFrame() {
+    return getKeyFrame(CSSKeyFrames.TO);
   }
 
-  public KeyFrame getKeyFrame(int frame) {
+  public CSSKeyFrame getKeyFrame(int frame) {
     return mKeyFrames.getKeyFrame(frame);
   }
 
-  public KeyFrame getKeyFrame() {
+  public CSSKeyFrame getKeyFrame() {
     return getFromKeyFrame();
   }
 
@@ -723,17 +723,17 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   public ModernComponent addFromStyleClass(String name, String... names) {
     addCSSProps(this, name, names);
     
-    return addStyleClass(KeyFrames.FROM, name, names);
+    return addStyleClass(CSSKeyFrames.FROM, name, names);
   }
 
   public ModernComponent addToStyleClass(String name, String... names) {
-    return addStyleClass(KeyFrames.TO, name, names);
+    return addStyleClass(CSSKeyFrames.TO, name, names);
   }
 
   public ModernComponent addStyleClass(int frame,
       String name,
       String... names) {
-    updatees(this, frame, name, names);
+    updateStyleClasses(this, frame, name, names);
     
     return this;
   }
@@ -1306,11 +1306,11 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    * @param name
    * @param names
    */
-  public static void updatees(ModernComponent c,
+  public static void updateStyleClasses(ModernComponent c,
       int frame,
       String name,
       String... names) {
-    KeyFramesService kf = KeyFramesService.getInstance();
+    CSSKeyFramesService kf = CSSKeyFramesService.getInstance();
 
     if (kf.contains(frame, name)) {
       c.getKeyFrames().getKeyFrame(frame)
@@ -1335,15 +1335,15 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   public static void addCSSProps(ModernComponent c,
       String name,
       String... names) {
-    KeyFramesService kf = KeyFramesService.getInstance();
+    CSSKeyFramesService kf = CSSKeyFramesService.getInstance();
 
-    if (kf.contains(KeyFrames.FROM, name)) {
-      c.getCSSProps().update(kf.getStyleClass(KeyFrames.FROM, name));
+    if (kf.contains(CSSKeyFrames.FROM, name)) {
+      c.getCSSProps().update(kf.getStyleClass(CSSKeyFrames.FROM, name));
     }
 
     for (String n : names) {
-      if (kf.contains(KeyFrames.FROM, n)) {
-        c.getCSSProps().update(kf.getStyleClass(KeyFrames.FROM, n));
+      if (kf.contains(CSSKeyFrames.FROM, n)) {
+        c.getCSSProps().update(kf.getStyleClass(CSSKeyFrames.FROM, n));
       }
     }
   }

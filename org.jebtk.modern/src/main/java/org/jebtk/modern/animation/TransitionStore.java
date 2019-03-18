@@ -1,5 +1,5 @@
 /**
- * Copyright 2017 Antony Holmes
+ * Copyright 2018 Antony Holmes
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.theme;
+package org.jebtk.modern.animation;
 
-import org.jebtk.modern.css.CSSOutlineUI;
+import java.awt.Graphics2D;
+
+import org.jebtk.modern.widget.ModernWidget;
 
 /**
- * The Class ModernRoundedWidgetRenderer.
+ * Stores all transitions objects
  */
-public class ButtonOutlineUI extends CSSOutlineUI {
+public class TransitionStore implements Transition {
+
+  @Override
+  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
+    // TODO Auto-generated method stub
+    
+  }
 
   @Override
   public String getName() {
-    return "button-outline";
+     return "transition-store";
   }
+
+  @Override
+  public void updateState(double t, boolean forward) {
+    // TODO Auto-generated method stub
+    
+  }
+
 }

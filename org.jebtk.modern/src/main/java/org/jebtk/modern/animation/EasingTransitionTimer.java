@@ -25,7 +25,7 @@ import org.jebtk.modern.widget.ModernWidget;
  *
  * @author Antony Holmes
  */
-public abstract class EasingAnimation extends TimerAnimation {
+public class EasingTransitionTimer implements TransitionTimer {
 
   // Material Design recommended easing
   // https://material.io/design/motion/speed.html#easing
@@ -36,23 +36,40 @@ public abstract class EasingAnimation extends TimerAnimation {
   public static final CubicBezier BEZIER = CubicBezier
       .normCubicBezier(0.25, 0.1, 0.25, 1);
 
-  public static final double[] BEZ_T = new double[STEPS];
+  private double[] mBezT;
+  
+  private int mStep = 0;
 
-  static {
-    BEZ_T[0] = 0; // BEZIER.eval(0).getY();
-    BEZ_T[MAX_STEP_INDEX] = 1; // BEZIER.eval(1).getY();
-
-    for (int i = 1; i < MAX_STEP_INDEX; ++i) {
-      BEZ_T[i] = Mathematics.bound(BEZIER.evalY((double) i / MAX_STEP_INDEX), 0, 1);
-    }
-  }
+  private int mSteps;
 
   /**
    * Instantiates a new state animation.
    *
    * @param ribbon the ribbon
    */
-  public EasingAnimation(ModernWidget widget) {
-    super(widget);
+  public EasingTransitionTimer(int steps) {
+    mSteps = steps;
+    
+    mBezT = new double[steps];
+    
+    int si = steps - 1;
+    
+    mBezT[0] = 0;
+    mBezT[si] = 1;
+
+    for (int i = 1; i < steps - 1; ++i) {
+      mBezT[i] = Mathematics.bound(BEZIER.evalY((double) i / si), 0, 1);
+    }
+  }
+
+  @Override
+  public double nextT(boolean forward) {
+    if (forward) {
+      mStep = Math.min(mStep + 1, mSteps);
+    } else {
+      mStep = Math.max(0, mSteps);
+    }
+    
+    return mBezT[mStep];
   }
 }

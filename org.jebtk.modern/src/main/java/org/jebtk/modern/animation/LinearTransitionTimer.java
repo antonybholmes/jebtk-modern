@@ -13,17 +13,36 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.theme;
-
-import org.jebtk.modern.css.CSSOutlineUI;
+package org.jebtk.modern.animation;
 
 /**
- * The Class ModernRoundedWidgetRenderer.
+ * Allows for graphics to transition between two fixed points using a Bezier
+ * curve to control the speed of animation
+ *
+ * @author Antony Holmes
  */
-public class ButtonOutlineUI extends CSSOutlineUI {
+public class LinearTransitionTimer implements TransitionTimer {
+
+  private double mInc;
+
+  private double mT = 0;
+
+  /**
+   * Instantiates a new state animation.
+   *
+   * @param ribbon the ribbon
+   */
+  public LinearTransitionTimer(int steps) {
+    mInc = 1.0 / (steps - 1);
+  }
 
   @Override
-  public String getName() {
-    return "button-outline";
+  public double nextT(boolean forward) {
+    if (forward) {
+      return Math.min(mT  + mInc, 1);
+    } else {
+      return Math.max(mT - mInc, 0);
+    }
+    
   }
 }

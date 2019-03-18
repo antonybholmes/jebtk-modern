@@ -25,7 +25,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.animation;
+package org.jebtk.modern.css;
 
 import java.awt.Color;
 import java.io.IOException;
@@ -46,7 +46,6 @@ import org.jebtk.core.collections.IterMap;
 import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.theme.CSSPercentProp;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.StyleClass;
 import org.jebtk.modern.theme.ThemeService;
@@ -56,12 +55,12 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-public class KeyFramesService {
+public class CSSKeyFramesService {
 
   private static class KeyFramesServiceLoader {
 
     /** The Constant INSTANCE. */
-    private static final KeyFramesService INSTANCE = new KeyFramesService();
+    private static final CSSKeyFramesService INSTANCE = new CSSKeyFramesService();
   }
 
   /**
@@ -69,7 +68,7 @@ public class KeyFramesService {
    *
    * @return single instance of SettingsService
    */
-  public static KeyFramesService getInstance() {
+  public static CSSKeyFramesService getInstance() {
     return KeyFramesServiceLoader.INSTANCE;
   }
 
@@ -93,9 +92,9 @@ public class KeyFramesService {
         String index = attributes.getValue("index");
 
         if (index.equals("from")) {
-          mKeyFrame = KeyFrames.FROM;
+          mKeyFrame = CSSKeyFrames.FROM;
         } else if (index.equals("to")) {
-          mKeyFrame = KeyFrames.TO;
+          mKeyFrame = CSSKeyFrames.TO;
         } else {
           mKeyFrame = Integer.parseInt(attributes.getValue("index"));
         }
@@ -151,8 +150,12 @@ public class KeyFramesService {
             o = Color.RED;
           } else if (v.equals("blue")) {
             o = Color.BLUE;
-          } else if (v.equals("grenn")) {
+          } else if (v.equals("green")) {
             o = Color.GREEN;
+          } else if (v.equals("null")) {
+            o = null;
+          } else if (v.equals("none")) {
+            o = null;
           } else {
             o = value;
           }
@@ -174,7 +177,7 @@ public class KeyFramesService {
     public void endElement(String uri, String localName, String qName) {
       if (qName.equals("keyframe")) {
         // reset to default
-        mKeyFrame = KeyFrames.FROM;
+        mKeyFrame = CSSKeyFrames.FROM;
       }
     }
   }
@@ -182,7 +185,7 @@ public class KeyFramesService {
   public static final String COMPONENT = "component";
 
   private static final Logger LOG = LoggerFactory
-      .getLogger(KeyFramesService.class);
+      .getLogger(CSSKeyFramesService.class);
 
   private static final Path DEFAULT_XML_FILE = PathUtils
       .getPath("res/style.xml");
@@ -192,7 +195,7 @@ public class KeyFramesService {
 
   private boolean mAutoLoad = true;
 
-  private KeyFramesService() {
+  private CSSKeyFramesService() {
     // mStyleMap.put(COMPONENT, COMPONENT_STYLE);
 
     // set("border-radius", 6);
@@ -308,11 +311,11 @@ public class KeyFramesService {
    * @return
    */
   public StyleClass getStyleClass(String name) {
-    return getStyleClass(KeyFrames.FROM, name);
+    return getStyleClass(CSSKeyFrames.FROM, name);
   }
 
   public StyleClass getToStyleClass(String name) {
-    return getStyleClass(KeyFrames.TO, name);
+    return getStyleClass(CSSKeyFrames.TO, name);
   }
 
   public StyleClass getStyleClass(int frame, String name) {

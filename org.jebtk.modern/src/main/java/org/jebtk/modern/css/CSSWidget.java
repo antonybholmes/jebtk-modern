@@ -1,8 +1,10 @@
-package org.jebtk.modern.theme;
+package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 
+import org.jebtk.modern.theme.DrawUI;
+import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -28,9 +30,9 @@ public class CSSWidget extends ModernWidget {
   
   private void init() {
     //getAnimations().add("draw-ui");
-    //getDrawStates().add(DrawUIService.getInstance().getRenderer("css-widget-draw"));
+    //getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
     
-    getDrawStates().add(DrawUIService.getInstance().getRenderer("css-widget-draw"));
+    getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
   }
   
   

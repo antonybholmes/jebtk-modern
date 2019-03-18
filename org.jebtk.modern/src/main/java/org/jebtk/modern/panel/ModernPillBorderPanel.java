@@ -6,7 +6,7 @@ import java.awt.Dimension;
 import java.awt.LayoutManager;
 
 import org.jebtk.modern.UI;
-import org.jebtk.modern.theme.CSSWidget;
+import org.jebtk.modern.css.CSSWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc

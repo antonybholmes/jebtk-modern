@@ -364,10 +364,8 @@ public class ModernComboBox extends ModernDropDownWidget
 
     resize();
 
-    addStyleClass("dialog-button");
-    addStyleClass("content-outline");
-    addStyleClass("content-box");
-    setAnimations("combobox", "button-outline");
+    addStyleClass("content-box", "combobox", "content-outline-highlight");
+    setAnimations("combobox");
   }
 
   /**

@@ -255,7 +255,7 @@ public class ModernCheckButton extends ModernTwoStateWidget
     addFocusListener(new FocusEvents());
     addClickListener(new ModernClickEvents());
     
-    getDrawStates().add(DrawUIService.getInstance().getRenderer("css-widget-draw"));
+    getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
     getAnimations().add("draw-ui");
   }
 

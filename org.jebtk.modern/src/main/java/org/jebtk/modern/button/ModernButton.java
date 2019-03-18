@@ -157,7 +157,7 @@ public class ModernButton extends ModernClickableButtonWidget {
   
   //private void init() {
     // Add support for CSS style rendering that responds to property changes.
-  //  getDrawStates().add(DrawUIService.getInstance().getRenderer("css-widget-draw"));
+  //  getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
   //  getAnimations().add("draw-ui");
   //}
 

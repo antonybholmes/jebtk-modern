@@ -13,21 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.theme;
+package org.jebtk.modern.css;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.css.CSSKeyFramesService;
+import org.jebtk.modern.theme.ColorGradient;
 
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
-public class ButtonDrawUI extends ButtonOutlineUI {
+public class CSSBackgroundUI extends CSSBaseUI {
 
   @Override
   public String getName() {
-    return "button-draw";
+    return "css-background";
   }
 
   @Override
@@ -39,39 +40,23 @@ public class ButtonDrawUI extends ButtonOutlineUI {
       int h,
       Object... params) {
 
-    if (c != null) {
-      ColorGradient lp = c.getCSSProps().getColorGradient("background");
-
-      if (lp != null) {
-        lp.paint(g2, c);
-      } else {
-        g2.setColor(c.getCSSProps().getColor("background-color"));
-      }
+    if (params.length > 0) {
+      g2.setColor((Color) params[0]);
     } else {
-      g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget")
-          .getColor("background-color"));
+      if (c != null) {
+        ColorGradient lp = c.getCSSProps().getColorGradient("background");
+
+        if (lp != null) {
+          lp.paint(g2, c);
+        } else {
+          g2.setColor(c.getCSSProps().getColor("background-color"));
+        }
+      } else {
+        g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget")
+            .getColor("background-color"));
+      }
     }
 
     fill(g2, c, x, y, w, h);
-    
-    /*
-    if (c != null) {
-      ColorGradient lp = c.getCSSProps().getColorGradient("alt-background-color");
-
-      if (lp != null) {
-        lp.paint(g2, c);
-      } else {
-        g2.setColor(c.getCSSProps().getColor("alt-background-color"));
-      }
-    } else {
-      g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget")
-          .getColor("fill-color"));
-    }
-
-    fill(g2, c, x, y, w, h);
-    */
-    
-    // outline
-    super.draw(g2, c, x, y, w, h, params);
   }
 }

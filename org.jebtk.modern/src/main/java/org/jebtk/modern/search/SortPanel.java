@@ -37,6 +37,7 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButtonGroup;
+import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.button.ModernCheckRadioButton;
 import org.jebtk.modern.combobox.ModernComboBox2;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -106,7 +107,7 @@ public class SortPanel<T extends NameProperty> extends HBox
   /**
    * The member list button.
    */
-  private ModernClickWidget mListButton = new ModernCheckRadioButton(
+  private ModernButtonWidget mListButton = new ModernCheckRadioButton(
       AssetService.getInstance().loadIcon(ListVectorIcon.class, 16),
       "List view", "Display data in a list.")
       .setColorStyle(ColorStyle.RIBBON);

@@ -53,6 +53,9 @@ import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.animation.Animation;
 import org.jebtk.modern.animation.Animations;
+import org.jebtk.modern.animation.EasingTransitionTimer;
+import org.jebtk.modern.animation.MouseOverTransitions;
+import org.jebtk.modern.animation.Transitions;
 import org.jebtk.modern.font.FontUtils;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -384,6 +387,8 @@ public abstract class ModernWidget extends ModernComponent
    */
   private int mId = NEXT_ID.getAndIncrement();
 
+  private MouseOverTransitions mMouseOverTransitions;
+
   /** The m widget renderer provider. */
   /// private WidgetRendererProvider mWidgetRendererProvider =
   /// WidgetRendererService
@@ -457,6 +462,16 @@ public abstract class ModernWidget extends ModernComponent
   public String getName() {
     return "Widget " + getId();
   }
+  
+  
+  public Transitions getMouseOverTransitions() {
+    if (mMouseOverTransitions == null) {
+      mMouseOverTransitions = new MouseOverTransitions(this, new EasingTransitionTimer(5));
+    }
+    
+    return mMouseOverTransitions;
+  }
+  
 
   public Animation getBackgroundAnimation() {
     return getAnimations().get(0);

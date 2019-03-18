@@ -1,4 +1,4 @@
-package org.jebtk.modern.animation;
+package org.jebtk.modern.css;
 
 import java.util.List;
 import java.util.Map;
@@ -10,7 +10,7 @@ import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.UniqueArrayListCreator;
 import org.jebtk.modern.theme.StyleClass;
 
-public class KeyFrame extends StyleClass implements IdProperty {
+public class CSSKeyFrame extends StyleClass implements IdProperty {
 
   /**
    * 
@@ -26,7 +26,7 @@ public class KeyFrame extends StyleClass implements IdProperty {
   private int mId;
 
   
-  public KeyFrame(int id) {
+  public CSSKeyFrame(int id) {
     super(Integer.toString(id));
     
     mId = id;
@@ -40,7 +40,7 @@ public class KeyFrame extends StyleClass implements IdProperty {
    * @return
    */
   @Override
-  public KeyFrame update(Properties style) {
+  public CSSKeyFrame update(Properties style) {
     super.update(style);
     
     for (Entry<String, Object> item : style) {

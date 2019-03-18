@@ -52,7 +52,7 @@ import org.jebtk.modern.tooltip.ToolTipService;
  * @author Antony Holmes
  *
  */
-public class ModernDropDownWidget2 extends ModernButtonWidget {
+public abstract class ModernDropDownWidget2 extends ModernButtonWidget {
 
   /**
    * The constant serialVersionUID.

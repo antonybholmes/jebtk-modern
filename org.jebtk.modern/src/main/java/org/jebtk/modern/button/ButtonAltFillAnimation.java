@@ -1,13 +1,13 @@
 package org.jebtk.modern.button;
 
-import org.jebtk.modern.css.CSSFillAnimation;
+import org.jebtk.modern.css.CSSAltFillAnimation;
 import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.widget.ModernWidget;
 
-public class ButtonFillAnimation extends CSSFillAnimation {
+public class ButtonAltFillAnimation extends CSSAltFillAnimation {
   private ModernClickWidget mButton;
 
-  public ButtonFillAnimation(ModernWidget button) {
+  public ButtonAltFillAnimation(ModernWidget button) {
     super(button);
 
     mButton = (ModernClickWidget) button;
@@ -15,7 +15,7 @@ public class ButtonFillAnimation extends CSSFillAnimation {
 
   @Override
   public String getName() {
-    return "button-fill";
+    return "button-alt-fill";
   }
 
   public ModernClickWidget getButton() {

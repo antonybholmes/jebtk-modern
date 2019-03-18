@@ -15,48 +15,15 @@
  */
 package org.jebtk.modern.theme;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-
-import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.animation.KeyFramesService;
+import org.jebtk.modern.css.CSSBackgroundUI;
 
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
-public class ButtonFillUI extends ButtonUI {
+public class ButtonFillUI extends CSSBackgroundUI {
 
   @Override
   public String getName() {
     return "button-fill";
-  }
-
-  @Override
-  public void draw(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
-      Object... params) {
-
-    if (params.length > 0) {
-      g2.setColor((Color) params[0]);
-    } else {
-      if (c != null) {
-        ColorGradient lp = c.getCSSProps().getColorGradient("background");
-
-        if (lp != null) {
-          lp.paint(g2, c);
-        } else {
-          g2.setColor(c.getCSSProps().getColor("background-color"));
-        }
-      } else {
-        g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget")
-            .getColor("background-color"));
-      }
-    }
-
-    fill(g2, c, x, y, w, h);
   }
 }
