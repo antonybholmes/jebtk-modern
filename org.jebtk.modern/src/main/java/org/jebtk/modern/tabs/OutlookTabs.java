@@ -67,7 +67,7 @@ public class OutlookTabs extends TabsController {
     
     setLayout(new VBoxAutoWidthLayout());
     
-    setBorder(DOUBLE_BORDER);
+    setBorder(BORDER);
   }
   
   @Override
@@ -98,7 +98,7 @@ public class OutlookTabs extends TabsController {
     ModernButtonGroup group = new ModernButtonGroup();
     
     for (Tab tab : getTabsModel()) {
-      ModernClickWidget button = new ModernCheckRadioButton(tab.getName()).setColorStyle(ColorStyle.RIBBON).setButtonStyle(ButtonStyle.PILL);
+      ModernClickWidget button = new ModernCheckRadioButton(tab.getName()).setColorStyle(ColorStyle.RIBBON).setButtonStyle(ButtonStyle.RECT);
       
       UI.setSize(button, 100, 32);
       

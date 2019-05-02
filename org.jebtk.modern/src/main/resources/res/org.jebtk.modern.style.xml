@@ -5,9 +5,13 @@
 		<property name="border-radius" value="0" />
 	</class>
 
-	<class name="square-borders">
+	<class name="rect">
 		<property name="border-radius" value="0" />
 	</class>
+	
+	<class name="square-borders">
+    <inherits class="rect" />
+  </class>
 
 
 	<class name="rounded-rect">

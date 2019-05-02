@@ -268,6 +268,9 @@ public abstract class ModernButtonWidget extends ModernClickWidget
       case CIRCLE_OUTLINE:
         //addAnimations("circle-outline");
         break;
+      case RECT:
+        addStyleClass("rect");
+        break;
       case BUTTON:
         addStyleClass("rounded-rect");
         
