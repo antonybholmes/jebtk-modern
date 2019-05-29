@@ -48,6 +48,11 @@
 	  <inherits class="content" />
 	  <inherits class="content-outline" />
 	</class>
+	
+	<class name="outlined-dialog-button">
+    <inherits class="content" />
+    <inherits class="content-outline" />
+  </class>
 
 	<class name="gray-button">
 		<property name="background-color" value="colors.material.dialog.button.outline" />
@@ -102,6 +107,10 @@
 
 		<class name="ribbon-button">
 			<property name="background-color" value="colors.material.dialog.button.outline" />
+		</class>
+		
+		<class name="outlined-dialog-button">
+		  <inherits class="ribbon-button" />
 		</class>
 		
 		<class name="combobox">

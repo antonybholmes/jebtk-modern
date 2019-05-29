@@ -27,18 +27,18 @@
  */
 package org.jebtk.modern.dialog;
 
+import org.jebtk.modern.button.ModernDropDownButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.menu.ModernPopupMenu2;
+import org.jebtk.modern.menu.ModernPopupMenu;
 
 // TODO: Auto-generated Javadoc
 /**
- * @deprecated use {@link #ModernOutlinedDialogButton2()} instead.  
+ * Flat button for dialogs.
  *
  * @author Antony Holmes
  *
  */
-@Deprecated
-public class ModernDialogFlatDropDownButton2 extends ModernOutlinedDialogButton2 {
+public class ModernOutlinedDialogButton extends ModernDropDownButton {
 
   /**
    * The constant serialVersionUID.
@@ -50,8 +50,10 @@ public class ModernDialogFlatDropDownButton2 extends ModernOutlinedDialogButton2
    *
    * @param text1 the text1
    */
-  public ModernDialogFlatDropDownButton2(String text1) {
+  public ModernOutlinedDialogButton(String text1) {
     super(text1);
+
+    setup();
   }
 
   /**
@@ -59,8 +61,10 @@ public class ModernDialogFlatDropDownButton2 extends ModernOutlinedDialogButton2
    *
    * @param icon the icon
    */
-  public ModernDialogFlatDropDownButton2(ModernIcon icon) {
+  public ModernOutlinedDialogButton(ModernIcon icon) {
     super(icon);
+
+    setup();
   }
 
   /**
@@ -69,8 +73,10 @@ public class ModernDialogFlatDropDownButton2 extends ModernOutlinedDialogButton2
    * @param text1 the text1
    * @param icon the icon
    */
-  public ModernDialogFlatDropDownButton2(String text1, ModernIcon icon) {
+  public ModernOutlinedDialogButton(String text1, ModernIcon icon) {
     super(text1, icon);
+
+    setup();
   }
 
   /**
@@ -79,9 +85,10 @@ public class ModernDialogFlatDropDownButton2 extends ModernOutlinedDialogButton2
    * @param icon the icon
    * @param menu the menu
    */
-  public ModernDialogFlatDropDownButton2(ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public ModernOutlinedDialogButton(ModernIcon icon, ModernPopupMenu menu) {
     super(icon, menu);
+
+    setup();
   }
 
   /**
@@ -91,9 +98,11 @@ public class ModernDialogFlatDropDownButton2 extends ModernOutlinedDialogButton2
    * @param icon the icon
    * @param menu the menu
    */
-  public ModernDialogFlatDropDownButton2(String text1, ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public ModernOutlinedDialogButton(String text1, ModernIcon icon,
+      ModernPopupMenu menu) {
     super(text1, icon, menu);
+
+    setup();
   }
 
   /**
@@ -102,7 +111,23 @@ public class ModernDialogFlatDropDownButton2 extends ModernOutlinedDialogButton2
    * @param text1 the text 1
    * @param menu the menu
    */
-  public ModernDialogFlatDropDownButton2(String text1, ModernPopupMenu2 menu) {
+  public ModernOutlinedDialogButton(String text1, ModernPopupMenu menu) {
     super(text1, menu);
+
+    setup();
   }
+
+  private void setup() {
+    addStyleClass("outlined-dialog-button");
+    
+    //setAnimations(new FlatDropDownButtonAnimation(this));
+  }
+
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
+   * if (isSelected() || mHighlight || mPopupShown) {
+   * getWidgetRenderer().drawButton(g2, mInternalRect, RenderMode.SELECTED,
+   * hasFocus()); } else { getWidgetRenderer().drawContentBox(g2,
+   * mInternalRect); } } }
+   */
 }

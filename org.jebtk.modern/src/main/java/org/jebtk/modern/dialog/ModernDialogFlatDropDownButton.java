@@ -27,18 +27,18 @@
  */
 package org.jebtk.modern.dialog;
 
-import org.jebtk.modern.button.ModernDropDownButton;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.menu.ModernPopupMenu;
 
 // TODO: Auto-generated Javadoc
 /**
- * Flat button for dialogs.
+ * @deprecated use {@link #ModernOutlinedDialogButton()} instead.  
  *
  * @author Antony Holmes
  *
  */
-public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
+@Deprecated
+public class ModernDialogFlatDropDownButton extends ModernOutlinedDialogButton {
 
   /**
    * The constant serialVersionUID.
@@ -52,8 +52,6 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
    */
   public ModernDialogFlatDropDownButton(String text1) {
     super(text1);
-
-    setup();
   }
 
   /**
@@ -63,8 +61,6 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
    */
   public ModernDialogFlatDropDownButton(ModernIcon icon) {
     super(icon);
-
-    setup();
   }
 
   /**
@@ -75,8 +71,6 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
    */
   public ModernDialogFlatDropDownButton(String text1, ModernIcon icon) {
     super(text1, icon);
-
-    setup();
   }
 
   /**
@@ -87,8 +81,6 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
    */
   public ModernDialogFlatDropDownButton(ModernIcon icon, ModernPopupMenu menu) {
     super(icon, menu);
-
-    setup();
   }
 
   /**
@@ -101,8 +93,6 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
   public ModernDialogFlatDropDownButton(String text1, ModernIcon icon,
       ModernPopupMenu menu) {
     super(text1, icon, menu);
-
-    setup();
   }
 
   /**
@@ -113,19 +103,5 @@ public class ModernDialogFlatDropDownButton extends ModernDropDownButton {
    */
   public ModernDialogFlatDropDownButton(String text1, ModernPopupMenu menu) {
     super(text1, menu);
-
-    setup();
   }
-
-  private void setup() {
-    setAnimations(new FlatDropDownButtonAnimation(this));
-  }
-
-  /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
-   * if (isSelected() || mHighlight || mPopupShown) {
-   * getWidgetRenderer().drawButton(g2, mInternalRect, RenderMode.SELECTED,
-   * hasFocus()); } else { getWidgetRenderer().drawContentBox(g2,
-   * mInternalRect); } } }
-   */
 }

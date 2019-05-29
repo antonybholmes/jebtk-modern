@@ -27,58 +27,35 @@
  */
 package org.jebtk.modern.input;
 
-import java.awt.BorderLayout;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.util.Collection;
 
-import javax.swing.Box;
-
-import org.jebtk.core.text.Join;
-import org.jebtk.modern.AssetService;
+import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.BorderService;
-import org.jebtk.modern.UI;
-import org.jebtk.modern.button.ModernButton;
-import org.jebtk.modern.button.ModernButtonWidget;
-import org.jebtk.modern.event.ModernClickEvent;
-import org.jebtk.modern.event.ModernClickListener;
-import org.jebtk.modern.graphics.icons.PlusVectorIcon;
-import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.ModernPillBorderPanel;
 import org.jebtk.modern.text.ModernClipboardTextField;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.text.TextProperty;
-import org.jebtk.modern.widget.ButtonStyle;
-import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernSearchPanel.
  */
-public class ModernInputExtPanel extends ModernPillBorderPanel
+public class ModernInputPanel extends ModernPillBorderPanel
     implements TextProperty {
 
   /**
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-
-  /** The m ext button. */
-  private ModernButtonWidget mExtButton = new ModernButton(
-      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16))
-      .setButtonStyle(ButtonStyle.CIRCLE); // UIResources.getInstance().loadIcon("binoculars",
-  // 16));
+  
+  public static final int BUTTON_SIZE = SettingsService.getInstance()
+      .getInt("theme.input-pane.internal-button-size");
 
   /**
    * The member search field.
    */
   private ModernTextField mTextField = new ModernClipboardTextField();
-
-  /** The m delimiter. */
-  private String mDelimiter;
-
-  /** The m window. */
-  private ModernWindow mWindow;
 
   /**
    * Instantiates a new modern search panel.
@@ -87,67 +64,25 @@ public class ModernInputExtPanel extends ModernPillBorderPanel
    * @param text the text
    * @param delimiter the delimiter
    */
-  public ModernInputExtPanel(ModernWindow window, String text,
-      String delimiter) {
-    mWindow = window;
-    mDelimiter = delimiter;
+  public ModernInputPanel(String text) {
 
-    UI.setSize(mExtButton, ModernInputPanel.BUTTON_SIZE, ModernInputPanel.BUTTON_SIZE);
-    
+
     //mTextField.setBorder(LEFT_BORDER);
     add(mTextField);
-
-    Box box = HBox.create();
-
-    box.add(mExtButton);
-
-    add(box, BorderLayout.LINE_END);
-
-    mExtButton.addClickListener(new ModernClickListener() {
-
-      @Override
-      public void clicked(ModernClickEvent e) {
-        inputExt();
-      }
-    });
 
     mTextField.setText(text);
     
     addComponentListener(new ComponentAdapter() {
       @Override
       public void componentResized(ComponentEvent e) {
-        int b = (getInternalRect().mH - ModernInputPanel.BUTTON_SIZE) / 2;
+        int b = (getInternalRect().mH - BUTTON_SIZE) / 2;
+        int l = getHeight() / 2;
         setBorder(
-            BorderService.getInstance().createBorder(b, getHeight() / 2, b, b));
+            BorderService.getInstance().createBorder(b, l, b, l));
       }
     });
   }
-
-  /**
-   * Input ext.
-   */
-  private void inputExt() {
-    InputExtDialog dialog = new InputExtDialog(mWindow, mTextField.getText(),
-        mDelimiter);
-
-    dialog.setVisible(true);
-
-    if (dialog.isCancelled()) {
-      return;
-    }
-
-    inputExt(dialog.getLines());
-  }
-
-  /**
-   * Input ext.
-   *
-   * @param items the items
-   */
-  public void inputExt(Collection<String> items) {
-    mTextField.setText(Join.on(mDelimiter).values(items).toString());
-  }
-
+  
   /*
    * (non-Javadoc)
    * 

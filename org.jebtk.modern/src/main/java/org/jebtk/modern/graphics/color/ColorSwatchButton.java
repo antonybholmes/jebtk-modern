@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.dialog.ModernDialogFlatDropDownButton;
+import org.jebtk.modern.dialog.ModernOutlinedDialogButton;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
@@ -43,7 +43,7 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes
  *
  */
-public class ColorSwatchButton extends ModernDialogFlatDropDownButton {
+public class ColorSwatchButton extends ModernOutlinedDialogButton {
 
   /**
    * The constant serialVersionUID.

@@ -113,7 +113,7 @@ public class ModernSearchPanel extends ModernPillBorderPanel implements
     addComponentListener(new ComponentAdapter() {
       @Override
       public void componentResized(ComponentEvent e) {
-        int b = (getHeight() - mSearchButton.getHeight()) / 2;
+        int b = (getInternalRect().mH - mSearchButton.getHeight()) / 2;
         setBorder(
             BorderService.getInstance().createBorder(b, getHeight() / 2, b, b));
       }
