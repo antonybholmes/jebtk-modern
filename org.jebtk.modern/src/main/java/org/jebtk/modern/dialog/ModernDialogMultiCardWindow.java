@@ -91,7 +91,7 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
    */
   public ModernDialogMultiCardWindow(ModernWindow parent, String title,
       ModernDialogTaskType type) {
-    super(parent, ModernDialogTaskType.CLOSE);
+    super(parent, type);
 
     init(title, type);
   }
