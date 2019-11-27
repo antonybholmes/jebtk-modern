@@ -27,7 +27,7 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(Graphics2D g2, ModernWidget c, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
     if (c.isEnabled()) {
       c.getCSSProps().update("border-color", getFadeColor("outline"));
       

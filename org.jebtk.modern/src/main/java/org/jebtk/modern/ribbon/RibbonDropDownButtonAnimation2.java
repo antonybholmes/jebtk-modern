@@ -43,7 +43,7 @@ public class RibbonDropDownButtonAnimation2 extends ButtonFillAnimation {
     // by making it opaque and stopping the timer
     if (getButton().getPopupShown()) {
       opaque();
-      stopMouseOverTimer();
+      stopTimer();
     } else {
       super.animateMouseExited();
     }

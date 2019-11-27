@@ -85,8 +85,7 @@ public abstract class MousePressedAnimation extends WidgetAnimation {
   public MousePressedAnimation(ModernWidget widget) {
     super(widget);
 
-    mTimer = new Timer(0, new PressedEvents());
-    mTimer.setDelay(TimerAnimation.DELAY_MS);
+    mTimer = new AnimationTimer(new PressedEvents());
     // mMouseClickedTimer = new Timer(0, new ClickedEvents());
     // mMouseClickedTimer.setDelay(DELAY_MS);
 
@@ -118,7 +117,7 @@ public abstract class MousePressedAnimation extends WidgetAnimation {
   public void stopTimer() {
     mTimer.stop();
 
-    getWidget().repaint();
+    repaint();
   }
 
   public void reset() {

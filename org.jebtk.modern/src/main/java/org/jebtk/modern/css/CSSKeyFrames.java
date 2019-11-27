@@ -6,8 +6,7 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 
-public class CSSKeyFrames extends ChangeListeners
-    implements ChangeListener {
+public class CSSKeyFrames extends ChangeListeners implements ChangeListener {
   /**
    * 
    */
@@ -50,7 +49,7 @@ public class CSSKeyFrames extends ChangeListeners
   public CSSKeyFrame getKeyFrame() {
     return getFromFrame();
   }
-  
+
   public CSSKeyFrame getFromFrame() {
     return getKeyFrame(FROM);
   }

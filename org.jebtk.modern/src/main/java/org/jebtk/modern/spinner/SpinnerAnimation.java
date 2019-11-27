@@ -33,7 +33,7 @@ public class SpinnerAnimation extends WidgetAnimation {
   }
 
   @Override
-  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
     int x = mSpinner.getWidth() - 16;
     int y = (mSpinner.mButtonYDivider - 16) / 2;
 

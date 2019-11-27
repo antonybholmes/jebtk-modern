@@ -40,7 +40,7 @@ public class CSSOutlineUI extends CSSBaseUI {
       Object... params) {
 
     Color color;
-    
+
     if (params.length > 0) {
       color = (Color) params[0];
     } else {
@@ -55,7 +55,7 @@ public class CSSOutlineUI extends CSSBaseUI {
     if (color == null || color.getAlpha() == 0) {
       return;
     }
-    
+
     g2.setColor(color);
     outline(g2, c, x, y, w, h);
   }

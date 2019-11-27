@@ -39,7 +39,7 @@ public class RibbonBackAnimation extends HoverFadeAnimation {
   }
 
   @Override
-  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
     try {

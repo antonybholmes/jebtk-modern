@@ -58,7 +58,7 @@ public class OrbTabsHighlightAnimation extends ButtonFillAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
 
     int x = (mTabs.getWidth() - mTabs.mTabSize * mTabs.mTabWidths.size()) / 2; // mTabs.getInsets().left;
     int h = mTabs.getInternalRect().getH();

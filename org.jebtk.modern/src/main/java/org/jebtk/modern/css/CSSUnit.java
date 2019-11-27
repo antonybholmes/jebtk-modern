@@ -1,14 +1,11 @@
 package org.jebtk.modern.css;
 
 public enum CSSUnit {
-  CM,
-  MM,
-  IN,
-  PX;
-  
+  CM, MM, IN, PX;
+
   public static CSSUnit parse(String unit) {
     unit = unit.toLowerCase();
-    
+
     if (unit.contains("cm")) {
       return CM;
     } else if (unit.contains("in")) {

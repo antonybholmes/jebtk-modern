@@ -46,17 +46,21 @@ public abstract class MousePressReleaseStepAnimation
     getWidget().repaint();
 
     if (mPressed) {
-      if (mStep == TimerAnimation.MAX_STEP_INDEX) {
-        stopTimer();
-      } else {
-        ++mStep;
-      }
+//      if (mStep == TimerAnimation.MAX_STEP_INDEX) {
+//        stopTimer();
+//      } else {
+//        ++mStep;
+//      }
+      
+      ++mStep;
     } else {
-      if (mStep == 0) {
-        stopTimer();
-      } else {
-        --mStep;
-      }
+//      if (mStep == 0) {
+//        stopTimer();
+//      } else {
+//        --mStep;
+//      }
+//      
+      --mStep;
     }
   }
 

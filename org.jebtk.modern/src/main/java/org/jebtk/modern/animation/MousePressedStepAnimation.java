@@ -42,13 +42,15 @@ public abstract class MousePressedStepAnimation extends MousePressedAnimation {
    */
   @Override
   public void animateMousePressed() {
-    getWidget().repaint();
-
-    if (mStep == TimerAnimation.MAX_STEP_INDEX) {
-      stopTimer();
-    } else {
-      ++mStep;
-    }
+    repaint();
+//
+//    if (mStep == TimerAnimation.MAX_STEP_INDEX) {
+//      stopTimer();
+//    } else {
+//      ++mStep;
+//    }
+    
+    ++mStep;
   }
 
   public int getStep() {

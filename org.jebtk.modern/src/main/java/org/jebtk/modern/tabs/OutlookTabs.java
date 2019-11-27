@@ -87,7 +87,11 @@ public class OutlookTabs extends TabsController {
   }
   
   public void tabChanged(TabEvent e) {
-    mTabMap.get(e.getTab().getName()).doClick();
+    String name = e.getTab().getName();
+    
+    if (mTabMap.containsKey(name)) {
+      mTabMap.get(name).doClick();
+    }
   }
   
   private void refresh() {

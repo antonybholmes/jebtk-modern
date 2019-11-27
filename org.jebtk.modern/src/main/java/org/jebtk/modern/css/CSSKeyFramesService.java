@@ -100,7 +100,8 @@ public class CSSKeyFramesService {
         }
       } else if (qName.equals("inherits")) {
         // Copy properties from one class to another
-        getStyleClass(mKeyFrame, mClass).update(getStyleClass(mKeyFrame, attributes.getValue("class")));
+        getStyleClass(mKeyFrame, mClass)
+            .update(getStyleClass(mKeyFrame, attributes.getValue("class")));
       } else if (qName.equals("class")) {
         mClass = attributes.getValue("name");
 
@@ -122,7 +123,8 @@ public class CSSKeyFramesService {
         } else if (TextUtils.isDouble(v)) {
           o = Double.parseDouble(v);
         } else if (v.endsWith("%")) {
-          o = new CSSPercentProp(Integer.parseInt(v.substring(0, v.length() - 1)));
+          o = new CSSPercentProp(
+              Integer.parseInt(v.substring(0, v.length() - 1)));
           System.err.println("pc " + o + " " + name);
         } else if (v.endsWith("px")) {
           o = Integer.parseInt(v.substring(0, v.length() - 2));
@@ -200,8 +202,8 @@ public class CSSKeyFramesService {
 
     // set("border-radius", 6);
 
-    //getStyleClass("quick-access-button").set("background-color",
-    //    ColorUtils.getTransparentColor75(Color.WHITE));
+    // getStyleClass("quick-access-button").set("background-color",
+    // ColorUtils.getTransparentColor75(Color.WHITE));
 
     /*
      * get("primary-dialog-button-f0") .set("border-color",

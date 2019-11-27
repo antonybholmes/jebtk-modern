@@ -28,11 +28,11 @@ public interface Animation extends NameProperty {
 
   /**
    * The animation becomes responsible handling the drawing for the widget. 
-   * This method this called on each animation refresh.
+   * This method is called on each repaint.
    *
    * @param widget the widget
    * @param g2 the g 2
    * @param params the params
    */
-  public void draw(Graphics2D g2, ModernWidget widget, Object... params);
+  public void draw(ModernWidget c, Graphics2D g2, Object... params);
 }

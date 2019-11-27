@@ -12,7 +12,7 @@ public class RadioOutlineAnimation extends ButtonOutlineAnimation {
   }
 
   @Override
-  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
     if (widget.isEnabled() && !widget.isSelected()) {
       int x = widget.getInsets().left;
       int y = (widget.getHeight() - RadioAnimation.RADIO_SIZE) / 2;

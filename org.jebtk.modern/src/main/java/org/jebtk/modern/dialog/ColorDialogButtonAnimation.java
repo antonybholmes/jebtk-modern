@@ -12,7 +12,7 @@ public class ColorDialogButtonAnimation extends WidgetAnimation {
   }
 
   @Override
-  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
     DrawUIService.getInstance().getRenderer("color.dialog.button").draw(g2,
         widget.getInternalRect());
   }

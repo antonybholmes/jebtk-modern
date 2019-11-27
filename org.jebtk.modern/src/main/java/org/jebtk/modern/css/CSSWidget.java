@@ -21,26 +21,25 @@ public class CSSWidget extends ModernWidget {
   public CSSWidget() {
     init();
   }
-  
+
   public CSSWidget(LayoutManager layout) {
     super(layout);
-    
+
     init();
   }
-  
+
   private void init() {
-    //getAnimations().add("draw-ui");
-    //getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
-    
+    // getAnimations().add("draw-ui");
+    // getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
+
     getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
   }
-  
-  
+
   @Override
   public void drawAnimatedBackground(Graphics2D g2) {
     // Run animation updates
     super.drawAnimatedBackground(g2);
-    
+
     // Run any drawing components that may have changed from animations
     for (DrawUI d : getDrawStates()) {
       d.draw(g2, this, getRect());

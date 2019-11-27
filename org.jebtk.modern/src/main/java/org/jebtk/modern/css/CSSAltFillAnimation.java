@@ -16,7 +16,8 @@ public class CSSAltFillAnimation extends HoverFadeAnimation {
           button.getFromKeyFrame().getColor("alt-background-color"),
           button.getToKeyFrame().getColor("alt-background-color"));
     } else {
-      setFadeColor("fill", button.getToKeyFrame().getColor("alt-background-color"));
+      setFadeColor("fill",
+          button.getToKeyFrame().getColor("alt-background-color"));
     }
   }
 
@@ -32,32 +33,27 @@ public class CSSAltFillAnimation extends HoverFadeAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(Graphics2D g2, ModernWidget c, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
     if (c.isEnabled()) {
       // update so that we don't keep triggering repaints()
-      
+
       if (c.isSelected()) {
-        //c.getToKeyFrame().update("background-color", getToColor("fill"));
-        
+        // c.getToKeyFrame().update("background-color", getToColor("fill"));
+
         c.getCSSProps().update("background-color", getToColor("fill"));
       } else {
-        //c.getToKeyFrame().update("background-color", getFadeColor("fill"));
+        // c.getToKeyFrame().update("background-color", getFadeColor("fill"));
         c.getCSSProps().update("background-color", getFadeColor("fill"));
       }
-      
-      //IntRect rect = widget.getRect();
-      //fill(g2, widget, rect.getX(), rect.getY(), rect.getW(), rect.getH());
+
+      // IntRect rect = widget.getRect();
+      // fill(g2, widget, rect.getX(), rect.getY(), rect.getW(), rect.getH());
     }
   }
 
-  public void fill(Graphics2D g2,
-      ModernWidget c,
-      int x,
-      int y,
-      int w,
-      int h) {
+  public void fill(ModernWidget c, Graphics2D g2, int x, int y, int w, int h) {
     DrawUIService.getInstance().getRenderer("css-background")
-    .draw(g2, x, y, w, h, getFadeColor("fill"));
-    
+        .draw(g2, x, y, w, h, getFadeColor("fill"));
+
   }
 }

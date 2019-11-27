@@ -18,8 +18,8 @@ public class HelpButtonHighlightAnimation extends ButtonFillAnimation {
   }
 
   @Override
-  public void fill(Graphics2D g2,
-      ModernWidget c,
+  public void fill(ModernWidget c,
+      Graphics2D g2,
       int x,
       int y,
       int w,

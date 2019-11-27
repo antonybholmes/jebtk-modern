@@ -49,7 +49,6 @@ import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateEventProducer;
 import org.jebtk.modern.event.ModernStateListener;
 import org.jebtk.modern.event.ModernStateListeners;
-import org.jebtk.modern.theme.ColorStyle;
 import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.theme.RenderMode;
 import org.jebtk.modern.tooltip.ModernToolTipWidget;

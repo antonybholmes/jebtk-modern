@@ -131,6 +131,10 @@
 			<property name="border-color" value="colors.material.gray-highlight" />
 			<property name="background-color" value="colors.material.gray-highlight" />
 		</class>
+		
+		<class name="outline">
+      <property name="background-color" value="none" />
+    </class>
 
 		<class name="quick-access-button">
 			<property name="background-color" value="#ffffff40" />

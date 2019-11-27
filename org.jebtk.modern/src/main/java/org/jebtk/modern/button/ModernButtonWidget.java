@@ -248,6 +248,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget
     for (ButtonStyle style : styles) {
       switch (style) {
       case PILL:
+      case CIRCLE:
         addStyleClass("pill");
         //getDrawStates().set("fill", DrawUIService.getInstance().getRenderer("pill-fill"));
         break;
@@ -260,11 +261,6 @@ public abstract class ModernButtonWidget extends ModernClickWidget
         //getDrawStates().set(DrawUIService.getInstance().getRenderer("pill-content"))
         //  .add(DrawUIService.getInstance().getRenderer("button-fill"));
         break;
-      case CIRCLE:
-        addStyleClass("pill");
-        //addAnimations("button-fill");
-        //getDrawStates().set("fill", DrawUIService.getInstance().getRenderer("circle-fill"));
-        break;
       case CIRCLE_OUTLINE:
         //addAnimations("circle-outline");
         break;
@@ -273,7 +269,9 @@ public abstract class ModernButtonWidget extends ModernClickWidget
         break;
       case BUTTON:
         addStyleClass("rounded-rect");
-        
+        break;
+      case OUTLINE:
+        addStyleClass("outline");  
         break;
       default:
         break;

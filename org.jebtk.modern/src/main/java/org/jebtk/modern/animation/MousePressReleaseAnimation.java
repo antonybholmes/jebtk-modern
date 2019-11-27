@@ -76,8 +76,8 @@ public abstract class MousePressReleaseAnimation extends WidgetAnimation {
   public MousePressReleaseAnimation(ModernWidget widget) {
     super(widget);
 
-    mTimer = new Timer(0, new PressedEvents());
-    mTimer.setDelay(TimerAnimation.DELAY_MS);
+    mTimer = new AnimationTimer(new PressedEvents());
+    //mTimer.setDelay(TimerAnimation.DELAY_MS);
     // mMouseClickedTimer = new Timer(0, new ClickedEvents());
     // mMouseClickedTimer.setDelay(DELAY_MS);
 

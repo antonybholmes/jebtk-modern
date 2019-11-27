@@ -38,7 +38,7 @@ public class CSSDrawUI extends CSSOutlineUI {
       int w,
       int h,
       Object... params) {
-    
+
     if (c != null) {
       ColorGradient lp = c.getCSSProps().getColorGradient("background");
 
@@ -53,24 +53,19 @@ public class CSSDrawUI extends CSSOutlineUI {
     }
 
     fill(g2, c, x, y, w, h);
-    
-    /*
-    if (c != null) {
-      ColorGradient lp = c.getCSSProps().getColorGradient("fill");
 
-      if (lp != null) {
-        lp.paint(g2, c);
-      } else {
-        g2.setColor(c.getCSSProps().getColor("fill-color"));
-      }
-    } else {
-      g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget")
-          .getColor("fill-color"));
-    }
-    
-    fill(g2, c, x, y, w, h);
-    */
-    
+    /*
+     * if (c != null) { ColorGradient lp =
+     * c.getCSSProps().getColorGradient("fill");
+     * 
+     * if (lp != null) { lp.paint(g2, c); } else {
+     * g2.setColor(c.getCSSProps().getColor("fill-color")); } } else {
+     * g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget")
+     * .getColor("fill-color")); }
+     * 
+     * fill(g2, c, x, y, w, h);
+     */
+
     // outline
     super.draw(g2, c, x, y, w, h, params);
   }

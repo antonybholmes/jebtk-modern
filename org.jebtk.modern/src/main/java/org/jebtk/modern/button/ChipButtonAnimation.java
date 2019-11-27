@@ -25,7 +25,7 @@ public class ChipButtonAnimation extends WidgetAnimation {
   }
 
   @Override
-  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
     if (mButton.isSelected()) {
       int y = (widget.getHeight() - SIZE) / 2;
       int x = widget.getWidth() - widget.getInsets().right - SIZE - y;

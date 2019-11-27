@@ -53,7 +53,7 @@ public class TreeHighlightAnimation extends HighlightAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
 
     if (mTree.mSelectionModel == null || mTree.mNodeIndexMap == null
         || mTree.mNodeDepthMap == null || mTree.mNodeRenderer == null) {
@@ -73,7 +73,7 @@ public class TreeHighlightAnimation extends HighlightAnimation {
     int y1 = mTree.getVisibleRect().y;
     int maxY = y1 + mTree.getVisibleRect().height; // mTree.getInternalRect().getH();
 
-    int c = 0;
+    int pc = 0;
 
     try {
       for (TreeNode<?> node : mTree.mFlatNodeList) {
@@ -83,7 +83,7 @@ public class TreeHighlightAnimation extends HighlightAnimation {
           break;
         }
 
-        boolean isDragToNode = mTree.mDragTo != null && mTree.mDragTo.index == c
+        boolean isDragToNode = mTree.mDragTo != null && mTree.mDragTo.index == pc
             && !mTree.mDragTo.insertBetween;
 
         renderer = mTree.mNodeRenderer.getRenderer(mTree,
@@ -93,7 +93,7 @@ public class TreeHighlightAnimation extends HighlightAnimation {
             mTree.isFocusOwner(),
             isDragToNode,
             mTree.mNodeDepthMap.get(node),
-            c);
+            pc);
 
         h = renderer.getHeight();
 
@@ -107,7 +107,7 @@ public class TreeHighlightAnimation extends HighlightAnimation {
 
         y += h;
 
-        ++c;
+        ++pc;
       }
     } finally {
       g2Temp.dispose();

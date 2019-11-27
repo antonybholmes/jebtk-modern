@@ -67,7 +67,7 @@ public class ModernSearchPanel extends ModernPillBorderPanel implements
    */
   private ModernClickWidget mSearchButton = new ModernButton(
       AssetService.getInstance().loadIcon(SearchVectorIcon.class, 16))
-          .setColorStyle(ColorStyle.RIBBON).setButtonStyle(ButtonStyle.CIRCLE);
+          .setColorStyle(ColorStyle.RIBBON).setButtonStyle(ButtonStyle.CIRCLE, ButtonStyle.OUTLINE);
 
   /**
    * The member search field.
@@ -113,9 +113,9 @@ public class ModernSearchPanel extends ModernPillBorderPanel implements
     addComponentListener(new ComponentAdapter() {
       @Override
       public void componentResized(ComponentEvent e) {
-        int b = (getInternalRect().mH - mSearchButton.getHeight()) / 2;
+        int b = 2; //mSearchButton.getHeight() + 4; //(getInternalRect().mH - mSearchButton.getHeight()) / 2;
         setBorder(
-            BorderService.getInstance().createBorder(b, getHeight() / 2, b, b));
+            BorderService.getInstance().createBorder(3, getHeight() / 2, b, b));
       }
     });
   }

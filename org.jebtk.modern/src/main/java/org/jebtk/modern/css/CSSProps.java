@@ -18,15 +18,15 @@ public class CSSProps extends Properties {
   @Override
   public Color getColor(String name) {
     Color color = super.getColor(name);
-    
+
     if (color == null) {
       // Assume we want to go from tranparent to opaque if color is missing
       color = ColorUtils.TRANS_COLOR;
     }
-    
+
     return color;
   }
-  
+
   public Border getBorder(String name) {
     return (Border) getValue(name);
   }

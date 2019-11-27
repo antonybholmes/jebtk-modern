@@ -60,7 +60,7 @@ public abstract class HoverAnimation extends WidgetAnimation {
     public void mouseEntered(MouseEvent e) {
       mEntryMode = true;
 
-      startMouseOverTimer();
+      startTimer();
     }
 
     /*
@@ -72,7 +72,7 @@ public abstract class HoverAnimation extends WidgetAnimation {
     public void mouseExited(MouseEvent e) {
       // System.err.println("mouse exit " + e.getSource());
 
-      mEntryMode = false;
+      //mEntryMode = false;
 
       // if (!mPressed) {
       pseudoMouseExited();
@@ -137,8 +137,7 @@ public abstract class HoverAnimation extends WidgetAnimation {
   public HoverAnimation(ModernWidget widget) {
     super(widget);
 
-    mMouseOverTimer = new Timer(0, new HoverEvents());
-    mMouseOverTimer.setDelay(TimerAnimation.DELAY_MS);
+    mMouseOverTimer = new AnimationTimer(new HoverEvents());
     // mMouseClickedTimer = new Timer(0, new ClickedEvents());
     // mMouseClickedTimer.setDelay(DELAY_MS);
 
@@ -158,16 +157,16 @@ public abstract class HoverAnimation extends WidgetAnimation {
     return this;
   }
 
-  public void startMouseOverTimer() {
-    if (!mMouseOverTimer.isRunning()) {
-      mMouseOverTimer.start();
-    }
+  public void startTimer() {
+    //if (!mMouseOverTimer.isRunning()) {
+    mMouseOverTimer.start();
+    //}
   }
 
   /**
    * Stop mouse over timer.
    */
-  public void stopMouseOverTimer() {
+  public void stopTimer() {
     mMouseOverTimer.stop();
   }
 
@@ -175,14 +174,14 @@ public abstract class HoverAnimation extends WidgetAnimation {
    * Animate mouse entered.
    */
   public void animateMouseEntered() {
-    getWidget().repaint();
+    repaint();
   }
 
   /**
    * Animate mouse exited.
    */
   public void animateMouseExited() {
-    getWidget().repaint();
+    repaint();
   }
 
   /**
@@ -192,7 +191,7 @@ public abstract class HoverAnimation extends WidgetAnimation {
   public void pseudoMouseExited() {
     mEntryMode = false;
 
-    startMouseOverTimer();
+    startTimer();
   }
 
   @Override

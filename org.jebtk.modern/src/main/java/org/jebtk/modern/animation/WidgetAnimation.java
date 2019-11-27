@@ -1,5 +1,5 @@
 /**
- * Copyright 2017 Antony Holmes
+ * Copyright 2019 Antony Holmes
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,14 +18,14 @@ package org.jebtk.modern.animation;
 import org.jebtk.modern.widget.ModernWidget;
 
 /**
- * Allows for fade in/out animation on an element.
+ * Base class for animations on widgets.
  *
  * @author Antony Holmes
  */
 public abstract class WidgetAnimation implements Animation {
 
   /** The m widget. */
-  private ModernWidget mWidget;
+  public final ModernWidget widget;
 
   /**
    * Instantiates a new widget animation.
@@ -33,7 +33,7 @@ public abstract class WidgetAnimation implements Animation {
    * @param widget the widget
    */
   public WidgetAnimation(ModernWidget widget) {
-    mWidget = widget;
+    this.widget = widget;
   }
 
   /**
@@ -42,7 +42,7 @@ public abstract class WidgetAnimation implements Animation {
    * @return the widget
    */
   public ModernWidget getWidget() {
-    return mWidget;
+    return this.widget;
   }
 
   @Override
@@ -52,5 +52,9 @@ public abstract class WidgetAnimation implements Animation {
 
   public void bindChildren() {
     // Do nothing
+  }
+  
+  public void repaint() {
+    this.widget.repaint();
   }
 }

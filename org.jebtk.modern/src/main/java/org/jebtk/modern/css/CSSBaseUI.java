@@ -38,11 +38,11 @@ public abstract class CSSBaseUI extends DrawUI {
     if (g2.getColor() == null || g2.getColor().getAlpha() == 0) {
       return;
     }
-    
+
     int rounding = rounding(c, h);
-    
-    //System.err.println("round " + rounding + " " + g2.getColor());
-     
+
+    // System.err.println("round " + rounding + " " + g2.getColor());
+
     if (rounding > 0) {
       if (w == h && rounding >= h / 2) {
         g2.fillOval(x, y, h - 1, h - 1);
@@ -54,7 +54,7 @@ public abstract class CSSBaseUI extends DrawUI {
       g2.fillRect(x, y, w, h);
     }
   }
-  
+
   @Override
   public void outline(Graphics2D g2,
       ModernComponent c,
@@ -66,7 +66,7 @@ public abstract class CSSBaseUI extends DrawUI {
     if (g2.getColor() == null || g2.getColor().getAlpha() == 0) {
       return;
     }
-    
+
     int rounding = rounding(c, h);
 
     if (rounding > 0) {
@@ -81,22 +81,23 @@ public abstract class CSSBaseUI extends DrawUI {
       g2.drawRect(x, y, w - 1, h - 1);
     }
   }
-  
+
   public int rounding(ModernComponent c, int h) {
     Object o = getStyle(c).getValue("border-radius");
 
     int rounding;
-    
+
     if (o instanceof Number) {
-      rounding = ((Number)o).intValue();
+      rounding = ((Number) o).intValue();
     } else if (o instanceof CSSPercentProp) {
-      rounding = Math.min(h, (int)Math.round(((CSSPercentProp)o).getDouble() / 100 * h));
+      rounding = Math.min(h,
+          (int) Math.round(((CSSPercentProp) o).getFloat() / 100 * h));
     } else {
       rounding = 0;
     }
-    
-    //Rounding cannot exceed
-    
+
+    // Rounding cannot exceed
+
     return rounding;
   }
 
@@ -109,7 +110,7 @@ public abstract class CSSBaseUI extends DrawUI {
    */
   public static CSSProps getStyle(ModernComponent c) {
     if (c != null) {
-      return c.getCSSProps(); //getFromKeyFrame();
+      return c.getCSSProps(); // getFromKeyFrame();
     } else {
       // Return the reference style class if all else fails
       return CSSKeyFramesService.getInstance().getStyleClass("widget");

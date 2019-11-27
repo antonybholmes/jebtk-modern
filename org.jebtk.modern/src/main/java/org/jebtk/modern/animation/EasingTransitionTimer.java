@@ -17,7 +17,6 @@ package org.jebtk.modern.animation;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.math.CubicBezier;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for graphics to transition between two fixed points using a Bezier

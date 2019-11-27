@@ -578,7 +578,7 @@ public abstract class ModernWidget extends ModernComponent
    * @param g2 The widget's graphics context.
    */
   public void drawAnimatedBackground(Graphics2D g2) {
-    mBackgroundAnimations.draw(g2, this);
+    mBackgroundAnimations.draw(this, g2);
   }
 
   /*

@@ -1,13 +1,13 @@
 package org.jebtk.modern.css;
 
 public class CSSFloatProp implements CSSNumProp {
-  
+
   protected final double mV;
 
   public CSSFloatProp(double v) {
     mV = v;
   }
-  
+
   @Override
   public Object getValue() {
     return mV;
@@ -15,11 +15,11 @@ public class CSSFloatProp implements CSSNumProp {
 
   @Override
   public int getInt() {
-    return (int)mV;
+    return (int) mV;
   }
 
   @Override
-  public double getDouble() {
+  public double getFloat() {
     return mV;
   }
 

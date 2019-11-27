@@ -29,7 +29,7 @@ public class ComboBoxHighlightAnimation2 extends ButtonAltFillAnimation
     // by making it opaque and stopping the timer
     if (getButton().getPopupShown()) {
       opaque();
-      stopMouseOverTimer();
+      stopTimer();
     } else {
       super.animateMouseExited();
     }
@@ -42,15 +42,15 @@ public class ComboBoxHighlightAnimation2 extends ButtonAltFillAnimation
    * Graphics2D)
    */
   @Override
-  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
     if (getWidget().isEnabled()) {
       IntRect rect = widget.getInternalRect();
 
       IntRect buttonRect = new IntRect(mCombo.mButtonX, widget.getInsets().top,
           ModernComboBox.BUTTON_WIDTH, rect.getH());
 
-      fill(g2,
-          widget,
+      fill(widget,
+          g2,
           buttonRect.getX(),
           buttonRect.getY(),
           buttonRect.getW(),

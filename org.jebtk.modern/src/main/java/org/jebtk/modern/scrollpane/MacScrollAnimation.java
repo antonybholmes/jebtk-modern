@@ -27,7 +27,7 @@ public class MacScrollAnimation extends HoverFadeAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
     Rectangle r = (Rectangle) params[0];
     int rounding = (Integer) params[1];
 

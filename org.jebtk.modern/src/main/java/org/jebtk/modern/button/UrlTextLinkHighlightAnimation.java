@@ -24,7 +24,7 @@ public class UrlTextLinkHighlightAnimation extends HoverFadeAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(Graphics2D g2, ModernWidget widget, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
     if (getWidget().isEnabled()) { // && (getButton().getHightlighted() ||
                                    // getButton().getPopupShown())) {
       String text = mButton.getText();

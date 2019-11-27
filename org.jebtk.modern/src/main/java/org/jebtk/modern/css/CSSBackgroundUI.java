@@ -42,6 +42,8 @@ public class CSSBackgroundUI extends CSSBaseUI {
 
     if (params.length > 0) {
       g2.setColor((Color) params[0]);
+
+      // System.err.println("d " + (Color) params[0]);
     } else {
       if (c != null) {
         ColorGradient lp = c.getCSSProps().getColorGradient("background");
@@ -54,6 +56,10 @@ public class CSSBackgroundUI extends CSSBaseUI {
       } else {
         g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget")
             .getColor("background-color"));
+
+        // System.err.println("key " +
+        // CSSKeyFramesService.getInstance().getToStyleClass("widget")
+        // .getColor("background-color"));
       }
     }
 

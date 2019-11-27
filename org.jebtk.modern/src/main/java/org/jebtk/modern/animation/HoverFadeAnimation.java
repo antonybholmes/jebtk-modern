@@ -112,11 +112,13 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
     super.animateMouseEntered();
 
     // Stop when the color is fully opaque
-    if (mFade.getStep() == TimerAnimation.MAX_STEP_INDEX) {
-      stopMouseOverTimer();
-    } else {
-      mFade.fadeIn();
-    }
+//    if (mFade.getStep() == TimerAnimation.MAX_STEP_INDEX) {
+//      stopMouseOverTimer();
+//    } else {
+//      mFade.fadeIn();
+//    }
+    
+    mFade.fadeIn();
   }
 
   /*
@@ -129,11 +131,13 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
     super.animateMouseExited();
 
     // Stop when the color is fully transparent.
-    if (mFade.getStep() == 0) {
-      stopMouseOverTimer();
-    } else {
-      mFade.fadeOut();
-    }
+//    if (mFade.getStep() == 0) {
+//      stopMouseOverTimer();
+//    } else {
+//      mFade.fadeOut();
+//    }
+//    
+    mFade.fadeOut();
   }
 
   /**

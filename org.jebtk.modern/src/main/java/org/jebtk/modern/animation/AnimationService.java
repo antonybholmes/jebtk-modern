@@ -39,7 +39,6 @@ import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.EntryCreator;
 import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.button.ButtonOutlineAnimation;
-import org.jebtk.modern.button.ButtonSelectedAnimation;
 import org.jebtk.modern.button.CheckBoxAnimation;
 import org.jebtk.modern.button.CheckBoxHighlightAnimation;
 import org.jebtk.modern.button.CheckBoxSelectedAnimation;
@@ -165,7 +164,7 @@ public class AnimationService {
     get("draw-ui").add(DrawUIAnimation.class);
     
     get("button-outline").add(ButtonOutlineAnimation.class);
-    get("button-selected").add(ButtonSelectedAnimation.class);
+    //get("button-selected").add(ButtonSelectedAnimation.class);
 
     get("pill-fill").add(PillFillAnimation.class);
     get("pill-outline").add(PillOutlineAnimation.class);

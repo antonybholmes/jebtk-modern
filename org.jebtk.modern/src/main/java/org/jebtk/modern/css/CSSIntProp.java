@@ -1,13 +1,13 @@
 package org.jebtk.modern.css;
 
 public class CSSIntProp implements CSSNumProp {
-  
+
   protected final int mV;
 
   public CSSIntProp(int v) {
     mV = v;
   }
-  
+
   @Override
   public Object getValue() {
     return mV;
@@ -19,7 +19,7 @@ public class CSSIntProp implements CSSNumProp {
   }
 
   @Override
-  public double getDouble() {
+  public double getFloat() {
     return mV;
   }
 
