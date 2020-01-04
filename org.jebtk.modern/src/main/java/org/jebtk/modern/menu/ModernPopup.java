@@ -36,11 +36,11 @@ import java.awt.Point;
 import javax.swing.JComponent;
 import javax.swing.JPopupMenu;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickEventProducer;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.event.ModernClickListeners;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

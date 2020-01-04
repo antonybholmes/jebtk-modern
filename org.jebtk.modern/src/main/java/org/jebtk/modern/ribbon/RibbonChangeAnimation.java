@@ -19,11 +19,11 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabEventAdapter;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.

@@ -35,7 +35,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 import org.jebtk.core.ColorUtils;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Shows animated balls to indicate something is happening.

@@ -42,6 +42,8 @@ import javax.swing.border.Border;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.BorderService;
+import org.jebtk.modern.ModernWidget;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.dialog.DialogEventListener;
 import org.jebtk.modern.dialog.MessageDialogOkCancelGlassPane;
 import org.jebtk.modern.dialog.MessageDialogTaskGlassPane;
@@ -51,8 +53,6 @@ import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.panel.CardPanel2;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.status.ModernStatusBar;
-import org.jebtk.modern.widget.ModernClickWidget;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * All windowed apps should inherit from this.

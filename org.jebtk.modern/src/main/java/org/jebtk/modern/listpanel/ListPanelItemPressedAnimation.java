@@ -19,12 +19,12 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.FadeAnimation;
-import org.jebtk.modern.animation.MousePressReleaseStepAnimation;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.animation.MousePressReleaseAnimation;
 
 public class ListPanelItemPressedAnimation
-    extends MousePressReleaseStepAnimation {
+    extends MousePressReleaseAnimation {
 
   private FadeAnimation mFade;
 
@@ -40,14 +40,14 @@ public class ListPanelItemPressedAnimation
   }
 
   @Override
-  public void animateMousePressed() {
+  public void animate() {
     if (mPressed) {
       mFade.fadeIn();
     } else {
       mFade.fadeOut();
     }
 
-    super.animateMousePressed();
+    super.animate();
   }
 
   /*
@@ -58,7 +58,7 @@ public class ListPanelItemPressedAnimation
    */
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Object... params) {
-    // System.err.println("hmm " + mStep + " " + mFade.getCurrentStep());
+    // System.err.println("hmm " + getStep() + " " + mFade.getCurrentStep());
 
     g2.setColor(mFade.getFadeColor("highlight"));
 

@@ -17,10 +17,10 @@ package org.jebtk.modern.tabs;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateAnimation;
 import org.jebtk.modern.button.ButtonPressedAnimation;
 import org.jebtk.modern.ribbon.RibbonHighlightTextAnimation;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class SegmentPressedAnimation extends ButtonPressedAnimation {
 
@@ -55,7 +55,7 @@ public class SegmentPressedAnimation extends ButtonPressedAnimation {
     }
 
     double r = TranslateAnimation.BEZ_T[getStep()]; // /
-                                                    // (double)TimerAnimation.STEPS;
+                                                    // (double)TimerAnimation.AnimationTimer.STEPS;
 
     int w = mTabs.mTabSize;
 

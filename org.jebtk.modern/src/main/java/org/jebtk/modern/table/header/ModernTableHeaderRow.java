@@ -33,13 +33,13 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 import org.jebtk.core.geom.IntPos2D;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.dataview.ModernDataSelection;
 import org.jebtk.modern.graphics.CanvasMouseEvent;
 import org.jebtk.modern.graphics.DrawingContext;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.table.ModernTable;
 import org.jebtk.modern.table.TableIndexModel;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

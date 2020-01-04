@@ -34,7 +34,7 @@ import java.awt.Graphics2D;
 import javax.swing.border.Border;
 
 import org.jebtk.modern.BorderService;
-import org.jebtk.modern.widget.ModernClickWidget;
+import org.jebtk.modern.button.ModernClickWidget;
 
 // TODO: Auto-generated Javadoc
 /**

@@ -35,7 +35,7 @@ import java.util.List;
 import org.jebtk.core.text.Join;
 import org.jebtk.core.text.Splitter;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Displays text in a label that wraps text at word breaks.

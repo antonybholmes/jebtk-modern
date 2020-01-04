@@ -36,7 +36,9 @@ import java.awt.event.KeyListener;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
+import org.jebtk.modern.button.ButtonStyle;
 import org.jebtk.modern.button.ModernButton;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickEventProducer;
 import org.jebtk.modern.event.ModernClickListener;
@@ -47,8 +49,6 @@ import org.jebtk.modern.text.ModernClipboardTextField;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.text.TextProperty;
 import org.jebtk.modern.theme.ColorStyle;
-import org.jebtk.modern.widget.ButtonStyle;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -98,7 +98,9 @@ public class ModernSearchPanel extends ModernPillBorderPanel implements
    */
   public ModernSearchPanel(SearchModel model) {
     mModel = model;
-
+    
+    System.err.println("search search " + mSearchButton.getPreferredSize() + " " + mSearchButton.getAspectRatio());
+    
     // mSearchField.setBorder(BorderService.getInstance().createLeftBorder(20));
     add(mSearchField);
     add(mSearchButton, BorderLayout.LINE_END);
@@ -115,7 +117,7 @@ public class ModernSearchPanel extends ModernPillBorderPanel implements
       public void componentResized(ComponentEvent e) {
         int b = 2; //mSearchButton.getHeight() + 4; //(getInternalRect().mH - mSearchButton.getHeight()) / 2;
         setBorder(
-            BorderService.getInstance().createBorder(3, getHeight() / 2, b, b));
+            BorderService.getInstance().createBorder(b, getHeight() / 2, b, b));
       }
     });
   }

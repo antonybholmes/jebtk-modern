@@ -2,9 +2,8 @@ package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
-import org.jebtk.modern.theme.DrawUIService;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class CSSFillAnimation extends HoverFadeAnimation {
   private static final String NAME = "css-background";
@@ -36,13 +35,20 @@ public class CSSFillAnimation extends HoverFadeAnimation {
   public void draw(ModernWidget c, Graphics2D g2, Object... params) {
     if (c.isEnabled()) {
       // update so that we don't keep triggering repaints()
-
+      
       if (c.isSelected()) {
         // c.getToKeyFrame().update("background-color", getToColor("fill"));
 
         c.getCSSProps().update("background-color", getToColor("fill"));
       } else {
         // c.getToKeyFrame().update("background-color", getFadeColor("fill"));
+        
+        System.err.println("css fill " + 
+            c.getName() + " " + c.isSelected() + " " + c.isEnabled() + " " + 
+            getFadeColor("fill") + " " +     
+            getFadeColor("fill").getAlpha() +
+            " " + mFade.getStep());
+        
         c.getCSSProps().update("background-color", getFadeColor("fill"));
       }
 
@@ -50,10 +56,10 @@ public class CSSFillAnimation extends HoverFadeAnimation {
       // fill(g2, widget, rect.getX(), rect.getY(), rect.getW(), rect.getH());
     }
   }
-
-  public void fill(ModernWidget c, Graphics2D g2, int x, int y, int w, int h) {
-    DrawUIService.getInstance().getRenderer(NAME)
-        .draw(g2, x, y, w, h, getFadeColor("fill"));
-
-  }
+  
+//  public void fill(ModernWidget c, Graphics2D g2, int x, int y, int w, int h) {
+//    DrawUIService.getInstance().getRenderer(NAME)
+//        .draw(g2, x, y, w, h, getFadeColor("fill"));
+//
+//  }
 }

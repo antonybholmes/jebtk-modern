@@ -37,9 +37,9 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 /**
  * The class ColorPicker.

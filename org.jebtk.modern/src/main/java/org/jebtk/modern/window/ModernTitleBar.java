@@ -35,13 +35,13 @@ import java.awt.Point;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 
+import org.jebtk.modern.ModernWidget;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.ribbon.Ribbon;
-import org.jebtk.modern.widget.ModernClickWidget;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class ModernTitleBar.

@@ -30,10 +30,10 @@ package org.jebtk.modern.preview;
 import java.awt.BorderLayout;
 
 import org.jebtk.core.tree.TreeNode;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.scrollpane.ScrollBarPolicy;
 import org.jebtk.modern.tree.ModernTree;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

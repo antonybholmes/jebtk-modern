@@ -32,8 +32,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Displays text.

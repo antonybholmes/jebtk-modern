@@ -25,26 +25,33 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget;
+package org.jebtk.modern.button;
 
 import java.awt.LayoutManager;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import javax.swing.AbstractAction;
+import javax.swing.KeyStroke;
+
 /**
- * The basis of widgets that can grab focus.
+ * For widgets that can toggle between a selected and unselected state.
  * 
  * @author Antony Holmes
  *
  */
-public abstract class ModernFocusableWidget extends ModernWidget {
+public abstract class ModernTwoStateWidget extends ModernButtonWidget {
 
   /**
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
+
+  /**
+   * The member selected.
+   */
+  private boolean mSelected = false;
 
   /**
    * The class MouseEvents.
@@ -62,86 +69,138 @@ public abstract class ModernFocusableWidget extends ModernWidget {
         return;
       }
 
-      if (!isFocusable()) {
+      if (!isEnabled()) {
         return;
       }
 
-      if (!mAutoFocus) {
-        return;
-      }
-
-      requestFocus();
+      click();
     }
   }
 
   /**
-   * The class FocusEvents.
+   * The class ActionEvents.
    */
-  private class FocusEvents implements FocusListener {
+  private class ActionEvents extends AbstractAction {
+
+    /**
+     * The constant serialVersionUID.
+     */
+    private static final long serialVersionUID = 1L;
 
     /*
      * (non-Javadoc)
      * 
-     * @see java.awt.event.FocusListener#focusGained(java.awt.event.FocusEvent)
+     * @see
+     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     @Override
-    public void focusGained(FocusEvent e) {
-      // System.err.println("focus " + getName());
-
-      repaint();
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.awt.event.FocusListener#focusLost(java.awt.event.FocusEvent)
-     */
-    @Override
-    public void focusLost(FocusEvent e) {
-      repaint();
+    public void actionPerformed(ActionEvent e) {
+      click();
     }
   }
 
   /**
-   * The member auto focus.
+   * Instantiates a new modern two state widget.
    */
-  private boolean mAutoFocus = true;
-
-  /**
-   * Instantiates a new modern focusable widget.
-   */
-  public ModernFocusableWidget() {
-    setup();
+  public ModernTwoStateWidget() {
+    init();
   }
 
   /**
-   * Instantiates a new modern focusable widget.
+   * Instantiates a new modern two state widget.
    *
    * @param manager the manager
    */
-  public ModernFocusableWidget(LayoutManager manager) {
+  public ModernTwoStateWidget(LayoutManager manager) {
     super(manager);
 
-    setup();
+    init();
   }
 
   /**
    * Setup.
    */
-  private void setup() {
-    setFocusable(true);
-
-    addFocusListener(new FocusEvents());
+  private void init() {
     addMouseListener(new MouseEvents());
+
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"),
+        "enter_pressed");
+    getActionMap().put("enter_pressed", new ActionEvents());
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("SPACE"),
+        "space_pressed");
+    getActionMap().put("space_pressed", new ActionEvents());
+
   }
 
   /**
-   * Sets whether the widget will automatically try to become focused when
-   * clicked.
-   *
-   * @param autoFocus the new auto focus
+   * Alternates control between two states.
    */
-  protected final void setAutoFocus(boolean autoFocus) {
-    mAutoFocus = autoFocus;
+  protected void toggleSelected() {
+
+    toggleSelected(!mSelected);
+  }
+
+  /**
+   * Toggle selected.
+   *
+   * @param selected the selected
+   */
+  protected void toggleSelected(boolean selected) {
+    if (selected != mSelected) {
+      mSelected = selected;
+
+      repaint();
+
+      fireStateChanged();
+
+      if (selected) {
+        fireSelected();
+      }
+    }
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernClickWidget#setSelected(boolean)
+   */
+  @Override
+  public void setSelected(boolean selected) {
+    toggleSelected(selected);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernClickWidget#isSelected()
+   */
+  @Override
+  public boolean isSelected() {
+    return mSelected;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.ModernClickWidget#doClick()
+   */
+  @Override
+  public void doClick() {
+    click();
+  }
+
+  /**
+   * Click.
+   */
+  public void click() {
+    toggleSelected();
+
+    fireClicked();
+  }
+
+  public void click(boolean selected) {
+    toggleSelected(selected);
+
+    fireClicked();
   }
 }

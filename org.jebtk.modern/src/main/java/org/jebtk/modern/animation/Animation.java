@@ -17,14 +17,14 @@ package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.core.NameProperty;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.core.NameGetter;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * An animation is a series of one or more widget drawings to indicate a sense
  * of flow or movement.
  */
-public interface Animation extends NameProperty {
+public interface Animation extends NameGetter {
 
   /**
    * The animation becomes responsible handling the drawing for the widget. 

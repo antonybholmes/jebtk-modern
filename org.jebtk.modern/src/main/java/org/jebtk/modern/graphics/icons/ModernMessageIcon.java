@@ -32,8 +32,8 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Represents a vector icon that can have its color and size specified. These

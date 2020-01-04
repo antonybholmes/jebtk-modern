@@ -13,18 +13,45 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.theme;
+package org.jebtk.modern.css;
 
-import org.jebtk.modern.css.CSSDrawUI;
+import java.awt.Graphics2D;
+
+import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.graphics.ImageUtils;
 
 /**
  * The Class ModernRoundedWidgetRenderer.
  */
-public class PillContentUI extends CSSDrawUI {
+public class CSSCircleDrawUI extends CSSDrawUI {
 
   @Override
   public String getName() {
-    return "pill-content";
+    return "css-circle";
+  }
+  
+  @Override
+  public void fill(Graphics2D g2,
+      ModernComponent c,
+      int x,
+      int y,
+      int w,
+      int h,
+      Object... params) {
+    int mw = Math.min(w, h);
+
+    x += (w - mw) / 2;
+    y += (h - mw) / 2;
+
+    w = mw - 1;
+
+    Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+
+    try {
+      g2Temp.fillOval(x, y, w, w);
+    } finally {
+      g2Temp.dispose();
+    }
   }
 
   /*

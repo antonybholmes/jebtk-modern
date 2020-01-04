@@ -37,8 +37,8 @@ import java.awt.event.MouseMotionListener;
 import org.jebtk.core.ColorValue;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class ColorMatrixPanel.

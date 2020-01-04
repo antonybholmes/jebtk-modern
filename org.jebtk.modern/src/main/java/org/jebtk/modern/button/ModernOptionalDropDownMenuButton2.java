@@ -35,13 +35,11 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 
-import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.menu.ModernPopupMenu2;
-import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.theme.ModernTheme;
 
 // TODO: Auto-generated Javadoc
@@ -200,8 +198,8 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
     // addMouseListener(new MouseEvents());
     addMouseMotionListener(new MouseMotionEvents());
     addComponentListener(new ComponentEvents());
-    
-    addStyleClass("content-box");
+
+    // addStyleClass("content-box");
   }
 
   /**
@@ -220,45 +218,24 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
    * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
-  @Override
-  public void drawBackgroundAA(Graphics2D g2) {
-    IntRect rect = new IntRect(0, 0, getWidth(), getHeight());
-
-    int x = 0;
-    int y = mRect.getY();
-    int h = mRect.getH();
-    int w = 0;
-
-    if (mPrimaryButton || mPopupShown) {
-      x = mRect.getX();
-      w = mDividerLocation - mRect.getX();
-    } else if (mHighlight) {
-      x = mDividerLocation;
-      w = mRect.getW() - mDividerLocation;
-    } else {
-      // do nothing
-    }
-
-    if (isSelected() || mPopupShown) {
-      // paintHighlighted(g2, rect);
-
-      // getWidgetRenderer().drawButton(g2, rect, RenderMode.SELECTED);
-      DrawUIService.getInstance().getRenderer("button-fill").draw(g2, rect);
-    } else if (mHighlight) {
-      // getWidgetRenderer().drawContentBox(g2, rect);
-      // getWidgetRenderer().drawButtonOutline(g2, rect, RenderMode.SELECTED);
-      // getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
-
-      DrawUIService.getInstance().getRenderer("content-box").draw(g2, this, rect);
-      DrawUIService.getInstance().getRenderer("button-outline").draw(g2, rect);
-      DrawUIService.getInstance().getRenderer("button-fill")
-          .draw(g2, x, y, w, h);
-      // paintHighlightedBorder(g2, rect);
-      // paintHighlighted(g2, x, y, w, h);
-    } else {
-      // do nothing
-    }
-  }
+  /*
+   * @Override public void drawBackgroundAA(Graphics2D g2) { IntRect rect = new
+   * IntRect(0, 0, getWidth(), getHeight());
+   * 
+   * int x = 0; int y = mRect.getY(); int h = mRect.getH(); int w = 0;
+   * 
+   * if (mPrimaryButton || mPopupShown) { x = mRect.getX(); w = mDividerLocation
+   * - mRect.getX(); } else if (mHighlight) { x = mDividerLocation; w =
+   * mRect.getW() - mDividerLocation; } else { // do nothing }
+   * 
+   * if (isSelected() || mPopupShown) {
+   * DrawUIService.getInstance().getRenderer("button-fill").draw(g2, rect); }
+   * else if (mHighlight) {
+   * DrawUIService.getInstance().getRenderer("content-box").draw(g2, this,
+   * rect); DrawUIService.getInstance().getRenderer("button-outline").draw(g2,
+   * rect); DrawUIService.getInstance().getRenderer("button-fill") .draw(g2, x,
+   * y, w, h); } else { // do nothing } }
+   */
 
   /*
    * (non-Javadoc)
@@ -281,9 +258,8 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
       getIcon().drawIcon(g2, PADDING, iconY, 16);
     }
 
-    Rectangle subRect = new Rectangle(
-        getWidth() - getInsets().right - 16, 0, 16,
-        getHeight());
+    Rectangle subRect = new Rectangle(getWidth() - getInsets().right - 16, 0,
+        16, getHeight());
 
     // UIService.getInstance().loadIcon(TriangleDownVectorIcon.class,
     // 16).drawIcon(g2, subRect.x, (subRect.height - 16) / 2, 16);

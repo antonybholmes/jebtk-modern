@@ -15,9 +15,9 @@
  */
 package org.jebtk.modern.ribbon;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.button.ButtonPressedAnimation;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The Class RibbonMenuAnimation.

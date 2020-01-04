@@ -33,8 +33,8 @@ import javax.swing.Box;
 import javax.swing.border.Border;
 
 import org.jebtk.modern.BorderService;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.panel.HBox;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

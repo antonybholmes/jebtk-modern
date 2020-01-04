@@ -35,7 +35,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.Timer;
 
-import org.jebtk.modern.widget.ModernFocusableWidget;
+import org.jebtk.modern.ModernFocusableWidget;
 
 /**
  * Provides the ability for a widget to display tool tips. By default the

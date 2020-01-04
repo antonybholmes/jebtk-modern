@@ -1,6 +1,6 @@
 package org.jebtk.modern.button;
 
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 public class DropDownButtonAnimation2 extends ButtonFillAnimation {
   public DropDownButtonAnimation2(ModernWidget button) {
@@ -12,8 +12,8 @@ public class DropDownButtonAnimation2 extends ButtonFillAnimation {
     // If the popup is show, force the animation to display the button
     // by making it opaque and stopping the timer
     if (getButton().getPopupShown()) {
+      // stop();
       opaque();
-      stopTimer();
     } else {
       super.animateMouseExited();
     }

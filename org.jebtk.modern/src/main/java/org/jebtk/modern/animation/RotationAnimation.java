@@ -18,8 +18,8 @@ package org.jebtk.modern.animation;
 import java.awt.Graphics2D;
 
 import org.jebtk.math.CubicBezier;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for graphics to transition between two fixed points linearly.
@@ -32,8 +32,8 @@ public abstract class RotationAnimation extends TimerAnimation {
   public final static CubicBezier BEZIER = CubicBezier
       .normCubicBezier(0.4, 0.0, 0.2, 1);
 
-  private static final int MAX_INDEX = STEPS - 1;
-  private double[] mAngle = new double[STEPS];
+  private static final int MAX_INDEX = AnimationTimer.STEPS - 1;
+  private double[] mAngle = new double[AnimationTimer.STEPS];
   private int mStep = 0;
   private boolean mForwardDir = false;
 
@@ -89,20 +89,12 @@ public abstract class RotationAnimation extends TimerAnimation {
   public synchronized void animate() {
     super.animate();
 
-    // System.err.println("translate " + mStep);
+    // System.err.println("translate " + getStep());
 
     if (mForwardDir) {
       mStep = Math.min(mStep + 1, MAX_INDEX);
-
-      if (mStep >= MAX_INDEX) {
-        stop();
-      }
     } else {
       mStep = Math.max(mStep - 1, 0);
-
-      if (mStep <= 0) {
-        stop();
-      }
     }
   }
 

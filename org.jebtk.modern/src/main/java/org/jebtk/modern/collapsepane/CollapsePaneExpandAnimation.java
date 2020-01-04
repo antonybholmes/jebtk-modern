@@ -5,9 +5,9 @@ import java.awt.Rectangle;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.RotationAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class CollapsePaneExpandAnimation extends RotationAnimation {
 

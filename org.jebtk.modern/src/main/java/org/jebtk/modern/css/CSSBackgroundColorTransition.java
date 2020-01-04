@@ -2,9 +2,9 @@ package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.ColorTransition;
 import org.jebtk.modern.theme.DrawUIService;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class CSSBackgroundColorTransition extends ColorTransition {
 

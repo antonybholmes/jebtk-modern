@@ -30,7 +30,7 @@ package org.jebtk.modern.panel;
 import java.awt.LayoutManager;
 
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Layout components on a regular grid.

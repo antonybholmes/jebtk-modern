@@ -5,8 +5,8 @@ import java.awt.Graphics2D;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntRect;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.button.ButtonAltFillAnimation;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class ComboBoxHighlightAnimation extends ButtonAltFillAnimation
     implements ChangeListener {
@@ -29,7 +29,7 @@ public class ComboBoxHighlightAnimation extends ButtonAltFillAnimation
     // by making it opaque and stopping the timer
     if (getButton().getPopupShown()) {
       opaque();
-      stopTimer();
+      stop();
     } else {
       super.animateMouseExited();
     }

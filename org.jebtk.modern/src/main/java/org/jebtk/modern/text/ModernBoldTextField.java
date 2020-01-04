@@ -27,7 +27,7 @@
  */
 package org.jebtk.modern.text;
 
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

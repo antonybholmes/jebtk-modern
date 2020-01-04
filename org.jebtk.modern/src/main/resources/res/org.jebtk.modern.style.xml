@@ -140,6 +140,10 @@
 			<property name="background-color" value="#ffffff40" />
 			<property name="border-radius" value="0" />
 		</class>
+		
+		<class name="content-outline">
+      <property name="border-color" value="red" />
+    </class>
 
 	</keyframe>
 

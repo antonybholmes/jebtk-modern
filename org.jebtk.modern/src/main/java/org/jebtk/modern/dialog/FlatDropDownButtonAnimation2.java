@@ -2,10 +2,10 @@ package org.jebtk.modern.dialog;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.button.DropDownButtonAnimation2;
 import org.jebtk.modern.button.ModernDropDownWidget2;
 import org.jebtk.modern.theme.DrawUIService;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class FlatDropDownButtonAnimation2 extends DropDownButtonAnimation2 {
   public FlatDropDownButtonAnimation2(ModernDropDownWidget2 button) {

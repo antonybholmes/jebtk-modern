@@ -18,10 +18,10 @@ package org.jebtk.modern.tabs;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.FadeAnimation;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.ribbon.Ribbon;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.

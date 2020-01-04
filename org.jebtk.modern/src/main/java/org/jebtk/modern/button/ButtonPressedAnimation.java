@@ -18,14 +18,14 @@ package org.jebtk.modern.button;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.animation.MousePressedStepAnimation;
+import org.jebtk.modern.ModernWidget;
+import org.jebtk.modern.animation.MousePressedAnimation;
 import org.jebtk.modern.animation.TranslateAnimation;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The Class RibbonMenuAnimation.
  */
-public class ButtonPressedAnimation extends MousePressedStepAnimation {
+public class ButtonPressedAnimation extends MousePressedAnimation {
 
   protected Color mColor;
 
@@ -55,7 +55,7 @@ public class ButtonPressedAnimation extends MousePressedStepAnimation {
     }
 
     double r = TranslateAnimation.BEZ_T[getStep()]; // /
-                                                    // (double)TimerAnimation.STEPS;
+                                                    // (double)TimerAnimation.AnimationTimer.STEPS;
 
     int w = widget.getWidth();
 

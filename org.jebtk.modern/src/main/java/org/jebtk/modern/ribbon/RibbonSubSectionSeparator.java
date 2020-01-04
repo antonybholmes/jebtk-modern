@@ -30,7 +30,7 @@ package org.jebtk.modern.ribbon;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

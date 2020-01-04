@@ -35,15 +35,15 @@ import java.util.List;
 import javax.swing.BoxLayout;
 import javax.swing.border.Border;
 
-import org.jebtk.core.NameProperty;
+import org.jebtk.core.NameGetter;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.text.ModernLabel;
 import org.jebtk.modern.tooltip.ModernToolTipWidget;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -55,7 +55,7 @@ import org.jebtk.modern.widget.ModernClickWidget;
  *
  */
 public class RibbonSection extends ModernClickWidget
-    implements RibbonModeProperty, NameProperty {
+    implements RibbonModeProperty, NameGetter {
 
   /**
    * The constant serialVersionUID.

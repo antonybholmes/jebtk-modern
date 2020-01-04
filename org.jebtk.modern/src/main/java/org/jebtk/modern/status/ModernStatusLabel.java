@@ -29,9 +29,9 @@ package org.jebtk.modern.status;
 
 import javax.swing.SwingUtilities;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Label for status bars, defaulting to upper case, white text.

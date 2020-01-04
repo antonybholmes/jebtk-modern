@@ -2,8 +2,7 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.widget.ModernClickWidget;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 public class CheckBoxHighlightAnimation extends ButtonOutlineAnimation {
   public CheckBoxHighlightAnimation(ModernWidget button) {

@@ -36,7 +36,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import org.jebtk.core.NameProperty;
+import org.jebtk.core.NameGetter;
 import org.jebtk.core.collections.ArrayListCreator;
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.collections.DefaultHashMap;
@@ -52,8 +52,8 @@ import org.jebtk.modern.tree.ModernTree;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public abstract class Sorter<T extends NameProperty>
-    implements Comparable<Sorter<T>>, NameProperty {
+public abstract class Sorter<T extends NameGetter>
+    implements Comparable<Sorter<T>>, NameGetter {
 
   public static final Comparator<String> STRING_NAT_SORTER = new NaturalComparator<String>();
 
@@ -140,7 +140,7 @@ public abstract class Sorter<T extends NameProperty>
    * @param ascending the ascending
    * @return the list
    */
-  public static <X extends NameProperty> List<X> sortByName(Iterable<X> items,
+  public static <X extends NameGetter> List<X> sortByName(Iterable<X> items,
       boolean ascending) {
     Map<String, List<X>> itemMap = DefaultHashMap
         .create(new ArrayListCreator<X>());

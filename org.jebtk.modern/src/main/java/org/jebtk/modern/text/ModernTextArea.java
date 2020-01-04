@@ -34,7 +34,7 @@ import javax.swing.JTextArea;
 
 import org.jebtk.core.stream.Stream;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

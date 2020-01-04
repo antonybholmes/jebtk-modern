@@ -18,9 +18,9 @@ package org.jebtk.modern.button;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.ribbon.Ribbon;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * A hyperlink style text link.

@@ -16,32 +16,25 @@
 package org.jebtk.modern.animation;
 
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ContainerEvent;
 import java.awt.event.ContainerListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.Timer;
-
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.
  *
  * @author Antony Holmes
  */
-public abstract class HoverAnimation extends WidgetAnimation {
-
-  /** The m mouse over timer. */
-  private Timer mMouseOverTimer;
+public abstract class HoverAnimation extends TimerAnimation {
 
   /** The m mouse clicked timer. */
   // private Timer mMouseClickedTimer;
 
   /** The m entry mode. */
-  private boolean mEntryMode = true;
+  private boolean mHoverMode = false;
 
   /** The m pressed. */
   // protected boolean mPressed = false;
@@ -58,9 +51,9 @@ public abstract class HoverAnimation extends WidgetAnimation {
      */
     @Override
     public void mouseEntered(MouseEvent e) {
-      mEntryMode = true;
+      mHoverMode = true;
 
-      startTimer();
+      restart();
     }
 
     /*
@@ -108,26 +101,6 @@ public abstract class HoverAnimation extends WidgetAnimation {
 
   }
 
-  /**
-   * The Class HoverEvents.
-   */
-  private class HoverEvents implements ActionListener {
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-      if (mEntryMode) {
-        animateMouseEntered();
-      } else {
-        animateMouseExited();
-      }
-    }
-  }
 
   /**
    * Instantiates a new mouse animation.
@@ -136,10 +109,6 @@ public abstract class HoverAnimation extends WidgetAnimation {
    */
   public HoverAnimation(ModernWidget widget) {
     super(widget);
-
-    mMouseOverTimer = new AnimationTimer(new HoverEvents());
-    // mMouseClickedTimer = new Timer(0, new ClickedEvents());
-    // mMouseClickedTimer.setDelay(DELAY_MS);
 
     bind(widget);
   }
@@ -156,18 +125,14 @@ public abstract class HoverAnimation extends WidgetAnimation {
 
     return this;
   }
-
-  public void startTimer() {
-    //if (!mMouseOverTimer.isRunning()) {
-    mMouseOverTimer.start();
-    //}
-  }
-
-  /**
-   * Stop mouse over timer.
-   */
-  public void stopTimer() {
-    mMouseOverTimer.stop();
+  
+  @Override
+  public void animate() {
+    if (mHoverMode) {
+      animateMouseEntered();
+    } else {
+      animateMouseExited();
+    }
   }
 
   /**
@@ -181,6 +146,7 @@ public abstract class HoverAnimation extends WidgetAnimation {
    * Animate mouse exited.
    */
   public void animateMouseExited() {
+    System.err.println("exiting " + getWidget());
     repaint();
   }
 
@@ -189,9 +155,13 @@ public abstract class HoverAnimation extends WidgetAnimation {
    * requiring an actual mouse event
    */
   public void pseudoMouseExited() {
-    mEntryMode = false;
+    System.err.println("ps exiting " + getWidget());
+    
+    mHoverMode = false;
+    
+    stop();
 
-    startTimer();
+    animateMouseExited(); //restart();
   }
 
   @Override
@@ -199,12 +169,12 @@ public abstract class HoverAnimation extends WidgetAnimation {
     getWidget().addContainerListener(new ContainerListener() {
 
       @Override
-      public void componentAdded(ContainerEvent arg0) {
+      public void componentAdded(ContainerEvent e) {
         bind();
       }
 
       @Override
-      public void componentRemoved(ContainerEvent arg0) {
+      public void componentRemoved(ContainerEvent e) {
         // bind();
       }
     });

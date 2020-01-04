@@ -29,6 +29,7 @@ package org.jebtk.modern.search;
 
 import javax.swing.Box;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.button.ModernButton;
@@ -43,7 +44,6 @@ import org.jebtk.modern.panel.VBox;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.text.ModernTextBorderPanel;
 import org.jebtk.modern.text.ModernTextField;
-import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.WindowWidgetFocusEvents;
 

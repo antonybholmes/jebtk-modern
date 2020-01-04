@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.ListIterator;
 
 import org.jebtk.core.event.ChangeListeners;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * The Class Animations.

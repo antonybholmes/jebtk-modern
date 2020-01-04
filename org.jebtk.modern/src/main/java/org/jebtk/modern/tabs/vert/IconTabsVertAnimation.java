@@ -19,9 +19,9 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.tabs.IconTabs;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.

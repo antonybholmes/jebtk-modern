@@ -40,8 +40,8 @@ import javax.swing.SwingUtilities;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class AbstractSplitPane.

@@ -34,7 +34,6 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateListener;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 /**
  * Groups buttons and ensures only one at a time can be selected.

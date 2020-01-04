@@ -45,6 +45,7 @@ import org.jebtk.modern.graphics.icons.PlusVectorIcon;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.slider.ContinuousMacOrbSlider;
 import org.jebtk.modern.slider.Slider;
+import org.jebtk.modern.theme.ColorStyle;
 
 /**
  * Zoom slider for status bar.
@@ -86,15 +87,15 @@ public class ModernZoomSlider extends HBox implements Zoom {
    */
   private ModernButton mZoomInButton = (ModernButton) new ModernCircleButton(
       AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16), "Zoom In",
-      "Zoom in.").addToStyleClass("dialog-button");
+      "Zoom in.").setColorStyle(ColorStyle.RIBBON);
 
   /**
    * The member zoom out button.
    */
   private ModernButton mZoomOutButton = (ModernButton) new ModernCircleButton(
       AssetService.getInstance().loadIcon(MinusVectorIcon.class, 16),
-      "Zoom Out", "Zoom out.").addToStyleClass("dialog-button");
-
+      "Zoom Out", "Zoom out.").setColorStyle(ColorStyle.RIBBON);
+  
   // private double[] mZooms;
 
   /**

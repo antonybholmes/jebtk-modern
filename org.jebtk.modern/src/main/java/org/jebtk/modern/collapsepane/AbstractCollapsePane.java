@@ -45,12 +45,12 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeEventProducer;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.event.HighlightEvent;
 import org.jebtk.modern.event.HighlightEventProducer;
 import org.jebtk.modern.event.HighlightListener;
 import org.jebtk.modern.event.HighlightListeners;
 import org.jebtk.modern.scrollpane.VertScrollWidget;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * A collapsable pane consists of a header and an element. The element can be

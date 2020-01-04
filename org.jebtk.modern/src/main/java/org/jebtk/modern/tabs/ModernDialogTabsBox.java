@@ -31,9 +31,9 @@ import java.awt.Graphics2D;
 
 import javax.swing.BoxLayout;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.dialog.ModernDialogWindow;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

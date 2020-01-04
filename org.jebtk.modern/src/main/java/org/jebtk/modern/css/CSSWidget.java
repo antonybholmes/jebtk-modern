@@ -5,7 +5,7 @@ import java.awt.LayoutManager;
 
 import org.jebtk.modern.theme.DrawUI;
 import org.jebtk.modern.theme.DrawUIService;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.tooltip.ModernToolTipWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -14,7 +14,7 @@ import org.jebtk.modern.widget.ModernWidget;
  * @author Antony Holmes
  *
  */
-public class CSSWidget extends ModernWidget {
+public abstract class CSSWidget extends ModernToolTipWidget {
 
   private static final long serialVersionUID = 1L;
 
@@ -30,8 +30,6 @@ public class CSSWidget extends ModernWidget {
 
   private void init() {
     // getAnimations().add("draw-ui");
-    // getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
-
     getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
   }
 

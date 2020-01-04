@@ -15,8 +15,8 @@
  */
 package org.jebtk.modern.ribbon;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.button.ButtonFillAnimation;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The Class RibbonDropDownButtonAnimation.
@@ -43,7 +43,7 @@ public class RibbonDropDownButtonAnimation2 extends ButtonFillAnimation {
     // by making it opaque and stopping the timer
     if (getButton().getPopupShown()) {
       opaque();
-      stopTimer();
+      stop();
     } else {
       super.animateMouseExited();
     }

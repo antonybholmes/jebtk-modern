@@ -33,10 +33,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.combobox.ModernComboBox;
 import org.jebtk.modern.menu.ModernIconMenuItem;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class FontsComboBox.

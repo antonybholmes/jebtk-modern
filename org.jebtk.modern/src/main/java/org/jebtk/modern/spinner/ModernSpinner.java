@@ -43,13 +43,13 @@ import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.graphics.icons.MinusVectorIcon;
 import org.jebtk.modern.graphics.icons.PlusVectorIcon;
 import org.jebtk.modern.text.ModernNumericalTextField;
 import org.jebtk.modern.text.ModernTextBorderPanel;
 import org.jebtk.modern.text.ModernTextField;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 /**
  * The class ModernSpinner.
@@ -97,11 +97,6 @@ public class ModernSpinner extends ModernClickWidget {
    * The value.
    */
   protected int mValue = mMin;
-
-  /**
-   * The step.
-   */
-  private int mStep = 1;
 
   /** The m inc. */
   private int mInc = 0;
@@ -216,7 +211,7 @@ public class ModernSpinner extends ModernClickWidget {
     mIncButton.addMouseListener(new MouseAdapter() {
       @Override
       public void mousePressed(MouseEvent e) {
-        mInc = mStep;
+        mInc = getStep();
 
         mScrollTimer.start();
       }
@@ -227,7 +222,7 @@ public class ModernSpinner extends ModernClickWidget {
     mDecButton.addMouseListener(new MouseAdapter() {
       @Override
       public void mousePressed(MouseEvent e) {
-        mInc = -mStep;
+        mInc = -getStep();
 
         mScrollTimer.start();
       }
@@ -299,7 +294,7 @@ public class ModernSpinner extends ModernClickWidget {
    * Decrement.
    */
   public void decrement() {
-    setValue(getValue() - mStep);
+    setValue(getValue() - getStep());
   }
 
   /**
@@ -308,13 +303,13 @@ public class ModernSpinner extends ModernClickWidget {
    * @return the step
    */
   public int getStep() {
-    return mStep;
+    return getStep();
   }
 
   /**
    * Increment.
    */
   public void increment() {
-    setValue(getValue() + mStep);
+    setValue(getValue() + getStep());
   }
 }

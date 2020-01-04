@@ -2,9 +2,9 @@ package org.jebtk.modern.dialog;
 
 import java.awt.Color;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class DialogButtonHighlightAnimation extends ButtonFillAnimation {
   public static final Color OUTLINE_COLOR_1 = MaterialService.instance()

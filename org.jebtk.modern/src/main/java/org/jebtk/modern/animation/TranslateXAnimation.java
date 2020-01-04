@@ -17,7 +17,7 @@ package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Allows for graphics to transition between two fixed points linearly.

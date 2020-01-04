@@ -43,6 +43,7 @@ import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.json.Json;
 import org.jebtk.core.json.JsonParser;
+import org.jebtk.modern.css.CSSColor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.xml.sax.Attributes;
@@ -114,7 +115,7 @@ public class ColorMapService extends ColorMaps {
     private String mName;
 
     /** The m anchor colors. */
-    private List<ColorMapColor> mAnchorColors = new ArrayList<ColorMapColor>();
+    private List<CSSColor> mAnchorColors = new ArrayList<CSSColor>();
 
     /** The m colors. */
     private int mColors = -1;
@@ -135,7 +136,7 @@ public class ColorMapService extends ColorMaps {
         mColors = Integer.parseInt(attributes.getValue("colors"));
       } else if (qName.equals("color")) {
         mAnchorColors
-            .add(new ColorMapColor(Integer.parseInt(attributes.getValue("r")),
+            .add(new CSSColor(Integer.parseInt(attributes.getValue("r")),
                 Integer.parseInt(attributes.getValue("g")),
                 Integer.parseInt(attributes.getValue("b")),
                 Integer.parseInt(attributes.getValue("a"))));
@@ -392,14 +393,14 @@ public class ColorMapService extends ColorMaps {
       System.err.println(
           "loading custom color map " + colorMapJson.getString("name"));
 
-      List<ColorMapColor> colors = new ArrayList<ColorMapColor>();
+      List<CSSColor> colors = new ArrayList<CSSColor>();
 
       for (Json colorsJson : colorMapJson.get("anchor-colors")) {
         System.err.println("Colors " + colorsJson.getInt("r") + " "
             + +colorsJson.getInt("g") + " " + +colorsJson.getInt("b") + " "
             + +colorsJson.getInt("a"));
 
-        ColorMapColor color = new ColorMapColor(colorsJson.getInt("r"),
+        CSSColor color = new CSSColor(colorsJson.getInt("r"),
             colorsJson.getInt("g"), colorsJson.getInt("b"),
             colorsJson.getInt("a"));
 

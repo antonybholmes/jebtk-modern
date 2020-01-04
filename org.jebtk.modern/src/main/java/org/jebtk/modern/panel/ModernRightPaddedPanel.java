@@ -31,7 +31,7 @@ import java.awt.Component;
 import java.awt.LayoutManager;
 
 import org.jebtk.modern.BorderService;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

@@ -18,10 +18,10 @@ package org.jebtk.modern.button;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateListener;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.
@@ -33,8 +33,7 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
   private ModernCheckSwitch mButton;
   private Color mColor;
 
-  //private FadeAnimation mFade;
-
+  // private FadeAnimation mFade;
 
   public CheckSwitchChangeAnimation(ModernWidget widget) {
     this(widget, widget.getToKeyFrame().getColor("background-color"));
@@ -47,7 +46,7 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
 
     mButton = (ModernCheckSwitch) widget;
 
-    //mFade = new FadeAnimation(button).setFadeColor("fill", color1, color2);
+    // mFade = new FadeAnimation(button).setFadeColor("fill", color1, color2);
 
     // Animation should be triggered on a state change and not a click
     // event since we want the button to respond to setSelected events.
@@ -89,13 +88,14 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
     int h = widget.getHeight();
     int y1 = (h - s) / 2;
 
-   
-
     if (mButton.isSelected()) {
       int w = s - ModernCheckSwitch.SWITCH_MARGIN_2X;
       g2.setColor(Color.WHITE);
-      g2.fillOval(ModernCheckSwitch.SWITCH_MARGIN, y1 + ModernCheckSwitch.SWITCH_MARGIN, w, w);
-      
+      g2.fillOval(ModernCheckSwitch.SWITCH_MARGIN,
+          y1 + ModernCheckSwitch.SWITCH_MARGIN,
+          w,
+          w);
+
     } else {
       g2.setColor(Color.WHITE);
       g2.fillOval(0, y1, s, s);
@@ -103,11 +103,9 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
       g2.drawOval(0, y1, s, s);
       // g2.setColor(Color.WHITE);
       // g2.fillOval(0, y1, s, s);
-      //g2.setColor(mFade.getFromColor("fill"));
+      // g2.setColor(mFade.getFromColor("fill"));
       // g2.drawOval(0, y1, s, s);
     }
-
-    
 
     // g2.setColor(Color.WHITE);
     // g2.fillOval(0, y1, s, s);

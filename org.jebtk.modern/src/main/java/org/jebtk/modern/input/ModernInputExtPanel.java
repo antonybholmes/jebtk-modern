@@ -38,6 +38,7 @@ import org.jebtk.core.text.Join;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
+import org.jebtk.modern.button.ButtonStyle;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -48,7 +49,6 @@ import org.jebtk.modern.panel.ModernPillBorderPanel;
 import org.jebtk.modern.text.ModernClipboardTextField;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.text.TextProperty;
-import org.jebtk.modern.widget.ButtonStyle;
 import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc

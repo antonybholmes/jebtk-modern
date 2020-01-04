@@ -17,7 +17,7 @@ package org.jebtk.modern.graphics.colormap;
 
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Displays a color bar.

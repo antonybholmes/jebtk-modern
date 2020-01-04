@@ -31,10 +31,10 @@ import java.awt.Component;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.theme.DrawUIService;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

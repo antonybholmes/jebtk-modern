@@ -18,7 +18,7 @@ package org.jebtk.modern.animation;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeEventProducer;
 import org.jebtk.core.event.ChangeListener;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.
@@ -53,7 +53,7 @@ public abstract class ChangeAnimation extends TimerAnimation {
    */
   public <T extends ModernWidget & ChangeEventProducer> ChangeAnimation(
       T widget) {
-    this(widget, DELAY_MS);
+    this(widget, AnimationTimer.DELAY_MS);
   }
 
   public <T extends ModernWidget & ChangeEventProducer> ChangeAnimation(

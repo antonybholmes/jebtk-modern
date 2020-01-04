@@ -25,10 +25,11 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.graphics.colormap;
+package org.jebtk.modern.css;
 
 import java.awt.Color;
 
+import org.jebtk.core.ColorUtils;
 import org.jebtk.core.json.Json;
 import org.jebtk.core.json.JsonObject;
 import org.jebtk.core.json.JsonRepresentation;
@@ -37,16 +38,21 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 /**
- * The class ColorMapColor.
+ * The class CSSColor represents a color with additional properties for
+ * use with HTML like elements.
  */
-public class ColorMapColor extends Color
+public class CSSColor extends Color
     implements XmlRepresentation, JsonRepresentation {
 
   /**
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-
+  
+  public CSSColor(Color c) {
+    super(c.getRed(), c.getGreen(), c.getBlue(), c.getAlpha());
+  }
+  
   /**
    * Instantiates a new color map color.
    *
@@ -54,7 +60,7 @@ public class ColorMapColor extends Color
    * @param g the g
    * @param b the b
    */
-  public ColorMapColor(int r, int g, int b) {
+  public CSSColor(int r, int g, int b) {
     super(r, g, b);
   }
 
@@ -66,7 +72,7 @@ public class ColorMapColor extends Color
    * @param b the b
    * @param a the a
    */
-  public ColorMapColor(int r, int g, int b, int a) {
+  public CSSColor(int r, int g, int b, int a) {
     super(r, g, b, a);
   }
 
@@ -77,7 +83,7 @@ public class ColorMapColor extends Color
    * @param g the g
    * @param b the b
    */
-  public ColorMapColor(float r, float g, float b) {
+  public CSSColor(float r, float g, float b) {
     super(r, g, b);
   }
 
@@ -89,7 +95,7 @@ public class ColorMapColor extends Color
    * @param b the b
    * @param a the a
    */
-  public ColorMapColor(float r, float g, float b, float a) {
+  public CSSColor(float r, float g, float b, float a) {
     super(r, g, b, a);
   }
 
@@ -126,6 +132,11 @@ public class ColorMapColor extends Color
 
     return element;
   }
+  
+  @Override
+  public String toString() {
+    return ColorUtils.toHtml(this);
+  }
 
   /**
    * Creates the.
@@ -133,8 +144,8 @@ public class ColorMapColor extends Color
    * @param c the c
    * @return the color map color
    */
-  public static ColorMapColor create(Color c) {
-    return new ColorMapColor(c.getRed(), c.getGreen(), c.getBlue(),
+  public static CSSColor create(Color c) {
+    return new CSSColor(c.getRed(), c.getGreen(), c.getBlue(),
         c.getAlpha());
   }
 }

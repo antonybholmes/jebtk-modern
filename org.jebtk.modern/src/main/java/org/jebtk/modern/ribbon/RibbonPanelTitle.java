@@ -34,7 +34,7 @@ import java.awt.Graphics2D;
 import javax.swing.BorderFactory;
 
 import org.jebtk.modern.AssetService;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

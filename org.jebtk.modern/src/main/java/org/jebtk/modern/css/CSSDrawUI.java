@@ -39,6 +39,7 @@ public class CSSDrawUI extends CSSOutlineUI {
       int h,
       Object... params) {
 
+
     if (c != null) {
       ColorGradient lp = c.getCSSProps().getColorGradient("background");
 
@@ -51,8 +52,8 @@ public class CSSDrawUI extends CSSOutlineUI {
       g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget")
           .getColor("background-color"));
     }
-
-    fill(g2, c, x, y, w, h);
+    
+    fill(g2, c, x, y, w, h, params);
 
     /*
      * if (c != null) { ColorGradient lp =
@@ -68,5 +69,9 @@ public class CSSDrawUI extends CSSOutlineUI {
 
     // outline
     super.draw(g2, c, x, y, w, h, params);
+    
+    // For testing only
+    //g2.setColor(Color.RED);
+    //g2.drawLine(0, 2, c.getWidth(), 2);
   }
 }

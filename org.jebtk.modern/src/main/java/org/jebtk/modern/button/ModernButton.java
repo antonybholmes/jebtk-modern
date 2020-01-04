@@ -84,8 +84,8 @@ public class ModernButton extends ModernClickableButtonWidget {
    */
   public ModernButton() {
     UI.setSize(this, ICON_ONLY_SIZE);
-    
-    //init();
+
+    // init();
   }
 
   /**
@@ -95,8 +95,8 @@ public class ModernButton extends ModernClickableButtonWidget {
    */
   public ModernButton(String text1) {
     super(text1);
-    
-    //init();
+
+    // init();
   }
 
   /**
@@ -106,8 +106,8 @@ public class ModernButton extends ModernClickableButtonWidget {
    */
   public ModernButton(ModernIcon icon) {
     super(icon);
-    
-    //init();
+
+    // init();
   }
 
   /**
@@ -121,7 +121,7 @@ public class ModernButton extends ModernClickableButtonWidget {
 
     setIcon(icon);
 
-    //init();
+    // init();
   }
 
   /**
@@ -135,8 +135,8 @@ public class ModernButton extends ModernClickableButtonWidget {
     super(text1, icon);
 
     UI.setSize(this, new Dimension(width, getButtonHeight()));
-    
-    //init();
+
+    // init();
   }
 
   /**
@@ -150,15 +150,15 @@ public class ModernButton extends ModernClickableButtonWidget {
     super(text1, icon);
 
     UI.setSize(this, size); // ICON_TEXT_SIZE);
-    
-    //init();
+
+    // init();
   }
-  
-  //private void init() {
-    // Add support for CSS style rendering that responds to property changes.
-  //  getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
-  //  getAnimations().add("draw-ui");
-  //}
+
+  // private void init() {
+  // Add support for CSS style rendering that responds to property changes.
+  // getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
+  // getAnimations().add("draw-ui");
+  // }
 
   /*
    * (non-Javadoc)
@@ -167,6 +167,8 @@ public class ModernButton extends ModernClickableButtonWidget {
    */
   @Override
   public void autoSize() {
+    setAspectRatio(NORMAL_RATIO);
+
     if (mText1 != null && mIcon != null) {
       UI.setSize(this,
           Math.max(MIN_BUTTON_WIDTH, getButtonWidth(mText1) + mIcon.getWidth()),
@@ -175,6 +177,10 @@ public class ModernButton extends ModernClickableButtonWidget {
       UI.setSize(this, getButtonWidth(mText1), getButtonHeight());
     } else {
       UI.setSize(this, ICON_ONLY_SIZE);
+
+      if (mIcon != null) {
+        setAspectRatio(SQUARE_RATIO);
+      }
     }
   }
 

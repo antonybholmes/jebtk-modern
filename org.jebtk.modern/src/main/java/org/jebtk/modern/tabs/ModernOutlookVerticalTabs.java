@@ -41,10 +41,10 @@ import javax.swing.border.Border;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.button.ModernCheckButton;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 /**
  * Create tabs similar to Outlook 2007.

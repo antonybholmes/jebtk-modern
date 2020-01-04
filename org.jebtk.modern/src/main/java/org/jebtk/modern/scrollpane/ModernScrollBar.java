@@ -52,9 +52,9 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.MouseUtils;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Flat, minimal chrome implementation of a scroll pane control.

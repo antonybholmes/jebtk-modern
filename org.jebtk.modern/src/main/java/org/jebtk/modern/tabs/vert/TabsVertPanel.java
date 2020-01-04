@@ -27,11 +27,11 @@
  */
 package org.jebtk.modern.tabs.vert;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.event.HighlightEventProducer;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.tabs.TabsPanel;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

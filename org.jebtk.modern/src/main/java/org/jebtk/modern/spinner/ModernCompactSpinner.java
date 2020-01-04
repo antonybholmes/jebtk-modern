@@ -53,12 +53,12 @@ import org.jebtk.core.text.Formatter.NumberFormatter;
 import org.jebtk.core.text.Parser;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.math.Linspace;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.slider.Slider;
 import org.jebtk.modern.text.ModernNumericalTextField;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.text.TextProperty;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Editable numerical text box with controls to increment and decrement the

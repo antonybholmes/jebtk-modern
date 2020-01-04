@@ -32,9 +32,9 @@ import java.awt.BorderLayout;
 import org.jebtk.core.log.Log;
 import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.log.LogEventListener;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.table.ModernRowTable;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class LogTablePanel.

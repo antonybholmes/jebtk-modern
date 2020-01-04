@@ -3,21 +3,21 @@ package org.jebtk.modern.button;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class CheckSwitchAnimation extends WidgetAnimation {
 
   private static final int HEIGHT = ModernCheckSwitch.SLIDER_HEIGHT; // ModernCheckSwitch.SLIDER_HEIGHT;
   private ModernCheckSwitch mButton;
   private Color mColor;
-  //private FadeAnimation mFade;
+  // private FadeAnimation mFade;
 
-  //public CheckSwitchAnimation(ModernWidget widget) {
-  //  this(widget, widget.getFromKeyFrame().getColor("background-color"),
-  //      widget.getToKeyFrame().getColor("background-color"));
-  //}
-  
+  // public CheckSwitchAnimation(ModernWidget widget) {
+  // this(widget, widget.getFromKeyFrame().getColor("background-color"),
+  // widget.getToKeyFrame().getColor("background-color"));
+  // }
+
   public CheckSwitchAnimation(ModernWidget widget) {
     this(widget, widget.getToKeyFrame().getColor("background-color"));
   }
@@ -26,10 +26,10 @@ public class CheckSwitchAnimation extends WidgetAnimation {
     super(widget);
 
     mColor = color;
-    
+
     mButton = (ModernCheckSwitch) widget;
 
-    //mFade = new FadeAnimation(widget).setFadeColor("fill", color1, color2);
+    // mFade = new FadeAnimation(widget).setFadeColor("fill", color1, color2);
   }
 
   @Override
@@ -37,8 +37,8 @@ public class CheckSwitchAnimation extends WidgetAnimation {
     int y2 = (widget.getHeight() - HEIGHT) / 2;
 
     if (mButton.isSelected()) {
-      g2.setColor(mColor); //mFade.getToColor("fill"));
-      
+      g2.setColor(mColor); // mFade.getToColor("fill"));
+
       g2.fillRoundRect(
           widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET,
           y2,
@@ -47,13 +47,16 @@ public class CheckSwitchAnimation extends WidgetAnimation {
           HEIGHT,
           HEIGHT,
           HEIGHT);
-      
+
     } else {
-      //System.err.println("switch bg1 " + widget.getFromKeyFrame().getStyles("background-color") + " " + widget.getFromKeyFrame().getColor("background-color"));
-      
-      
-      g2.setColor(widget.getFromKeyFrame().getColor("background-color")); //mFade.getFromColor("fill")); // Color.WHITE);
-      
+      // System.err.println("switch bg1 " +
+      // widget.getFromKeyFrame().getStyles("background-color") + " " +
+      // widget.getFromKeyFrame().getColor("background-color"));
+
+      g2.setColor(widget.getFromKeyFrame().getColor("background-color")); // mFade.getFromColor("fill"));
+                                                                          // //
+                                                                          // Color.WHITE);
+
       g2.fillRoundRect(
           widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET,
           y2,
@@ -62,9 +65,9 @@ public class CheckSwitchAnimation extends WidgetAnimation {
           HEIGHT,
           HEIGHT,
           HEIGHT);
-      
+
       g2.setColor(widget.getFromKeyFrame().getColor("border-color"));
-      
+
       g2.drawRoundRect(
           widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET,
           y2,

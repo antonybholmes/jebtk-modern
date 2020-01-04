@@ -31,14 +31,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.jebtk.modern.UI;
+import org.jebtk.modern.button.ButtonStyle;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.button.ModernCheckRadioButton;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.VBoxAutoWidthLayout;
 import org.jebtk.modern.theme.ColorStyle;
-import org.jebtk.modern.widget.ButtonStyle;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 /**
  * Create vertical buttons to change between tabs.

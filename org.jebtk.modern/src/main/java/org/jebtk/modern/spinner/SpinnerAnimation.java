@@ -3,12 +3,12 @@ package org.jebtk.modern.spinner;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.graphics.icons.TriangleUpVectorIcon;
 import org.jebtk.modern.ribbon.Ribbon;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class SpinnerAnimation extends WidgetAnimation {
   private ModernCompactSpinner mSpinner;

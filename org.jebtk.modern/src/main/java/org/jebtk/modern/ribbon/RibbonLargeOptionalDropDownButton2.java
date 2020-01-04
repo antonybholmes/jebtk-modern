@@ -29,12 +29,12 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernOptionalDropDownMenuButton2;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RasterIcon;
 import org.jebtk.modern.menu.ModernPopupMenu2;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -137,7 +137,7 @@ public class RibbonLargeOptionalDropDownButton2
 
     addToStyleClass("ribbon-button");
 
-    setAnimations("ribbon-optional-dropdown-button-2");
+    //setAnimations("ribbon-optional-dropdown-button-2");
   }
 
   /**

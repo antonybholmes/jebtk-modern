@@ -21,7 +21,7 @@ import java.awt.Font;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.model.KeyStore;
 import org.jebtk.core.settings.SettingsService;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * The Class ThemeService.

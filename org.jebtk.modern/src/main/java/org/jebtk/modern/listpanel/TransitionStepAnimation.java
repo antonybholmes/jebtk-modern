@@ -2,16 +2,14 @@ package org.jebtk.modern.listpanel;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
+import org.jebtk.modern.animation.AnimationTimer;
 import org.jebtk.modern.animation.TimerAnimation;
 import org.jebtk.modern.animation.TranslateAnimation;
-import org.jebtk.modern.widget.ModernWidget;
 
 public abstract class TransitionStepAnimation extends TimerAnimation {
   /** The m pos. */
-  private double[] mPos = new double[TranslateAnimation.STEPS];
-
-  /** The m step. */
-  private int mStep;
+  private double[] mPos = new double[AnimationTimer.STEPS];
 
   public TransitionStepAnimation(ModernWidget w) {
     super(w);
@@ -32,12 +30,10 @@ public abstract class TransitionStepAnimation extends TimerAnimation {
   public void setup(double y1, double y2) {
     double mD = y2 - y1;
 
-    mStep = 0;
-
     mPos[0] = y1;
     mPos[mPos.length - 1] = y2;
 
-    for (int i = 1; i < TranslateAnimation.MAX_STEP_INDEX; ++i) {
+    for (int i = 1; i < AnimationTimer.MAX_STEP_INDEX; ++i) {
       mPos[i] = y1 + TranslateAnimation.BEZ_T[i] * mD;
     }
   }
@@ -50,13 +46,7 @@ public abstract class TransitionStepAnimation extends TimerAnimation {
    */
   @Override
   public synchronized void animate() {
-    animate(mStep, mPos[mStep]);
-
-    if (++mStep == TranslateAnimation.STEPS) {
-      // Auto stop timer once we run out of steps
-      stop();
-    }
-
+    animate(getStep(), mPos[getStep()]);
   }
 
   public abstract void animate(int step, double x);

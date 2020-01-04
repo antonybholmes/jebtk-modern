@@ -17,8 +17,8 @@ package org.jebtk.modern.animation;
 
 import java.awt.Color;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.colormap.NamedColors;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.

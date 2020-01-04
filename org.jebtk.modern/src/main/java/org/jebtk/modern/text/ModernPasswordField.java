@@ -35,8 +35,8 @@ import javax.swing.JPasswordField;
 
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

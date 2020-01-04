@@ -21,8 +21,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.colormap.ColorMap;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.
@@ -58,9 +58,9 @@ public class ColorTransition implements Transition {
     // setStep(0);
 
     // mStepMap.put(0, 0.0);
-    // mStepMap.put(MAX_STEP_INDEX, 1.0);
+    // mStepMap.put(AnimationTimer.MAX_STEP_INDEX, 1.0);
 
-    // for (int i = 1; i < MAX_STEP_INDEX; ++i) {
+    // for (int i = 1; i < AnimationTimer.MAX_STEP_INDEX; ++i) {
     // mStepMap.put(i, BEZ_T[i]);
     // }
   }
@@ -105,7 +105,7 @@ public class ColorTransition implements Transition {
    * @return the trans
    */
   // ublic double getTrans() {
-  // return mStepMap.get(mStep);
+  // return mStepMap.get(getStep());
   // }
 
   @Override

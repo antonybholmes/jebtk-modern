@@ -1,10 +1,10 @@
 package org.jebtk.modern.theme;
 
-import org.jebtk.core.NameProperty;
+import org.jebtk.core.NameGetter;
 import org.jebtk.modern.css.CSSProps;
 
 public class StyleClass extends CSSProps
-    implements NameProperty {
+    implements NameGetter {
 
   private static final long serialVersionUID = 1L;
 

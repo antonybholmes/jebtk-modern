@@ -12,8 +12,8 @@ import javax.swing.border.Border;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.panel.CardPanel;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class MaterialUtils {
   public static final Font FONT = MaterialService.instance().getFonts()

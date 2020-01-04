@@ -4,9 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.settings.SettingsService;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class RadioAnimation extends WidgetAnimation {
 
@@ -52,6 +52,6 @@ public class RadioAnimation extends WidgetAnimation {
     w2 = w - 2;
 
     // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-    //g2.drawOval(x + 1, y + 1, w2, w2);
+    // g2.drawOval(x + 1, y + 1, w2, w2);
   }
 }

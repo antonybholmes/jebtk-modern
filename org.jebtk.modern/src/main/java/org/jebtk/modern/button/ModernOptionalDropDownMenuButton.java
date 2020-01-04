@@ -199,7 +199,7 @@ public class ModernOptionalDropDownMenuButton extends ModernDropDownWidget {
     // addMouseListener(new MouseEvents());
     addMouseMotionListener(new MouseMotionEvents());
     addComponentListener(new ComponentEvents());
-    
+
     addStyleClass("content-box");
   }
 
@@ -243,15 +243,18 @@ public class ModernOptionalDropDownMenuButton extends ModernDropDownWidget {
 
       // getWidgetRenderer().drawButton(g2, rect, RenderMode.SELECTED);
 
-      DrawUIService.getInstance().getRenderer("button-fill").draw(g2, this, rect);
+      DrawUIService.getInstance().getRenderer("button-fill")
+          .draw(g2, this, rect);
 
     } else if (mHighlight) {
       // getWidgetRenderer().drawContentBox(g2, rect);
       // getWidgetRenderer().drawButtonOutline(g2, rect, RenderMode.SELECTED);
       // getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
 
-      DrawUIService.getInstance().getRenderer("content-box").draw(g2, this, rect);
-      DrawUIService.getInstance().getRenderer("button-outline").draw(g2, this, rect);
+      DrawUIService.getInstance().getRenderer("content-box")
+          .draw(g2, this, rect);
+      DrawUIService.getInstance().getRenderer("button-outline")
+          .draw(g2, this, rect);
       DrawUIService.getInstance().getRenderer("button-fill")
           .draw(g2, this, x, y, w, h);
 
@@ -283,9 +286,8 @@ public class ModernOptionalDropDownMenuButton extends ModernDropDownWidget {
       getIcon().drawIcon(g2, PADDING, iconY, 16);
     }
 
-    Rectangle subRect = new Rectangle(
-        getWidth() - getInsets().right - 16, 0, 16,
-        getHeight());
+    Rectangle subRect = new Rectangle(getWidth() - getInsets().right - 16, 0,
+        16, getHeight());
 
     // UIService.getInstance().loadIcon(TriangleDownVectorIcon.class,
     // 16).drawIcon(g2, subRect.x, (subRect.height - 16) / 2, 16);

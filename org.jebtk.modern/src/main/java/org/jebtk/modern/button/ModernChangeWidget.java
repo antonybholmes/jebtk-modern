@@ -25,56 +25,71 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.graphics.icons;
+package org.jebtk.modern.button;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-
-import org.jebtk.core.Mathematics;
-import org.jebtk.modern.button.ChipButtonHighlightAnimation;
-import org.jebtk.modern.theme.ThemeService;
+import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.event.ChangeEventProducer;
+import org.jebtk.core.event.ChangeListener;
+import org.jebtk.core.event.ChangeListeners;
 
 /**
- * The class RoundelVectorIcon.
+ * For widgets that change values.
+ * 
+ * @author Antony Holmes
+ *
  */
-public class ChipCloseIcon extends ModernVectorIcon {
+public abstract class ModernChangeWidget extends ModernClickWidget
+    implements ChangeEventProducer {
 
   /**
-   * The constant WIDTH_SCALE.
+   * The constant serialVersionUID.
    */
-  private static final double WIDTH_SCALE = 0.5;
+  private static final long serialVersionUID = 1L;
 
-  private static final Color LINE_COLOR = ChipButtonHighlightAnimation.HIGHLIGHT;
+  /**
+   * The member listeners.
+   */
+  private ChangeListeners mListeners = new ChangeListeners();
 
-  private static final Color FILL_COLOR = ThemeService.getInstance().getColors()
-      .getGray32(16);
+  /**
+   * Fire item changed.
+   */
+  protected void fireItemChanged() {
+    fireChanged(new ChangeEvent(this));
+  }
 
   /*
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
-   * java.awt.Rectangle)
+   * org.abh.lib.event.ChangeEventProducer#addChangeListener(org.abh.lib.event.
+   * ChangeListener)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Object... params) {
+  public void addChangeListener(ChangeListener l) {
+    mListeners.addChangeListener(l);
+  }
 
-    int wf = (int) Mathematics.makeMult2(w * WIDTH_SCALE);
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.
+   * event. ChangeListener)
+   */
+  @Override
+  public void removeChangeListener(ChangeListener l) {
+    mListeners.removeChangeListener(l);
+  }
 
-    int xf = x + (w - wf) / 2;
-    int yf = y + (h - wf) / 2;
-
-    g2.setColor(FILL_COLOR);
-    g2.fillOval(x, y, w, w);
-
-    g2.setColor(LINE_COLOR);
-    g2.drawLine(xf, yf, xf + wf - 1, yf + wf - 1);
-    g2.drawLine(xf, yf + wf - 1, xf + wf - 1, yf);
-
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.event.ChangeEventProducer#fireChanged(org.abh.lib.event.
+   * ChangeEvent)
+   */
+  @Override
+  public void fireChanged(ChangeEvent event) {
+    mListeners.fireChanged(event);
   }
 }

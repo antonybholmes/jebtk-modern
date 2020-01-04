@@ -25,36 +25,38 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget;
+package org.jebtk.modern;
+
+import java.awt.Dimension;
+import java.awt.Graphics2D;
 
 /**
- * Interface for buttons that display two lines of text.
- * 
- * @author Antony Holmes
+ * The basis for rendering a component as an image so it does not waste time
+ * rendering drawing primitives on each refresh.
  *
+ * @author Antony Holmes
  */
-public interface TwoLineWidget {
+public class ModernWidgetBufferedImageHighlighted
+    extends ModernWidgetBufferedImage {
 
   /**
-   * Set the text for line 2.
+   * Instantiates a new modern widget buffered image highlighted.
    *
-   * @param text the new text2
+   * @param size the size
    */
-  void setText2(String text);
+  public ModernWidgetBufferedImageHighlighted(Dimension size) {
+    super(size);
+  }
 
-  /**
-   * Returns the text for line 2.
-   *
-   * @return the text2
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.ModernWidgetBufferedImage#drawBackground(java.awt.
+   * Graphics2D)
    */
-  String getText2();
-
-  /**
-   * Set both lines of text.
-   *
-   * @param text1 the text1
-   * @param text2 the text2
-   */
-  void setText(String text1, String text2);
-
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    ModernWidget.paintHighlighted(g2, size);
+  }
 }

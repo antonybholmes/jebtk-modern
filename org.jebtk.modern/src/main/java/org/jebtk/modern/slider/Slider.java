@@ -31,9 +31,9 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeEventProducer;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
+import org.jebtk.modern.ModernFocusableWidget;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.widget.ModernFocusableWidget;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Basic features of a slider control without any ui elements.

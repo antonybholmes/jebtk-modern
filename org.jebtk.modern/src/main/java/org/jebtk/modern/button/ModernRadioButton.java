@@ -31,12 +31,11 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.RadioButtonSelectedVectorIcon;
 import org.jebtk.modern.graphics.icons.RadioButtonVectorIcon;
-import org.jebtk.modern.widget.ModernTwoStateWidget;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

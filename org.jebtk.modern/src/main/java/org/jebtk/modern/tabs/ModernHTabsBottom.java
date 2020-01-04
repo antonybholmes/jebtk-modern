@@ -29,7 +29,7 @@ package org.jebtk.modern.tabs;
 
 import java.awt.BorderLayout;
 
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

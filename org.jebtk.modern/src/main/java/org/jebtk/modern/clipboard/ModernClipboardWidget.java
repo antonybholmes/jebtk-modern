@@ -30,7 +30,7 @@ package org.jebtk.modern.clipboard;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-import org.jebtk.modern.widget.ModernFocusableWidget;
+import org.jebtk.modern.ModernFocusableWidget;
 
 // TODO: Auto-generated Javadoc
 /**

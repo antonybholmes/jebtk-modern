@@ -30,8 +30,8 @@ package org.jebtk.modern.table.header;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.table.ModernTable;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Paints the corner of a table.

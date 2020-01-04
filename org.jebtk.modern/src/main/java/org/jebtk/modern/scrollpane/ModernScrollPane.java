@@ -59,6 +59,7 @@ import javax.swing.event.DocumentListener;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.ModernFocusableWidget;
 import org.jebtk.modern.MouseUtils;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.collapsepane.AbstractCollapsePane;
@@ -73,7 +74,6 @@ import org.jebtk.modern.table.ModernRowTable;
 import org.jebtk.modern.table.ModernSpreadsheet;
 import org.jebtk.modern.table.ModernTable;
 import org.jebtk.modern.tree.ModernTree;
-import org.jebtk.modern.widget.ModernFocusableWidget;
 
 /**
  * Scroll pane control for scrolling around components bigger than the on screen

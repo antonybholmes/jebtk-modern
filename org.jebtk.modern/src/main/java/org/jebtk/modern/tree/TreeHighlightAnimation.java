@@ -18,9 +18,9 @@ package org.jebtk.modern.tree;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.tree.TreeNode;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.

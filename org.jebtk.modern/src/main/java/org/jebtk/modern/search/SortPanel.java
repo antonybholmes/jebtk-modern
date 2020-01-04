@@ -31,14 +31,16 @@ import java.awt.Dimension;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.jebtk.core.NameProperty;
+import org.jebtk.core.NameGetter;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButtonGroup;
 import org.jebtk.modern.button.ModernButtonWidget;
 import org.jebtk.modern.button.ModernCheckRadioButton;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.combobox.ModernComboBox2;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -53,8 +55,6 @@ import org.jebtk.modern.ribbon.RibbonSubSectionSeparator;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.theme.ColorStyle;
 import org.jebtk.modern.view.ViewModel;
-import org.jebtk.modern.widget.ModernClickWidget;
-import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
 // TODO: Auto-generated Javadoc
@@ -64,7 +64,7 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public class SortPanel<T extends NameProperty> extends HBox
+public class SortPanel<T extends NameGetter> extends HBox
     implements ModernClickListener {
 
   /**

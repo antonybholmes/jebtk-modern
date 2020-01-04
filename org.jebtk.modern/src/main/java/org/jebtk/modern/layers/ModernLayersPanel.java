@@ -31,10 +31,10 @@ import java.awt.BorderLayout;
 
 import javax.swing.Box;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.collapsepane.ModernCollapsePane;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.scrollpane.ScrollBarPolicy;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class ModernLayersPanel.

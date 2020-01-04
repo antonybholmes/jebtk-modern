@@ -29,7 +29,7 @@ package org.jebtk.modern.text;
 
 import java.awt.Color;
 
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * The class ModernCenteredHeadingPanel.

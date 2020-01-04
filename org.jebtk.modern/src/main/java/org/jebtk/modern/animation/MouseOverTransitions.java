@@ -26,7 +26,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.Timer;
 
 import org.jebtk.core.Mathematics;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.
@@ -105,7 +105,7 @@ public class MouseOverTransitions extends Transitions {
     super(widget);
 
     mMouseOverTimer = new Timer(0, new HoverEvents());
-    mMouseOverTimer.setDelay(TimerAnimation.DELAY_MS);
+    mMouseOverTimer.setDelay(AnimationTimer.DELAY_MS);
     // mMouseClickedTimer = new Timer(0, new ClickedEvents());
     // mMouseClickedTimer.setDelay(DELAY_MS);
 
@@ -116,7 +116,7 @@ public class MouseOverTransitions extends Transitions {
     super(widget, timer);
 
     mMouseOverTimer = new Timer(0, new HoverEvents());
-    mMouseOverTimer.setDelay(TimerAnimation.DELAY_MS);
+    mMouseOverTimer.setDelay(AnimationTimer.DELAY_MS);
     // mMouseClickedTimer = new Timer(0, new ClickedEvents());
     // mMouseClickedTimer.setDelay(DELAY_MS);
 

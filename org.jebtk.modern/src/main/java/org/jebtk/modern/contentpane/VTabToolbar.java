@@ -31,11 +31,11 @@ import java.awt.Component;
 
 import javax.swing.Box;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.VBox;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.text.ModernSubHeadingLabel;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The Class VTabToolbar creates a simple toolbar with a title above it.

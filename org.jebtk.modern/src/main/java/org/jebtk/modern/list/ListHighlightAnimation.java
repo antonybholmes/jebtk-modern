@@ -17,10 +17,10 @@ package org.jebtk.modern.list;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.

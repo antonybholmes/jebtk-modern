@@ -34,9 +34,9 @@ import java.awt.Font;
 import javax.swing.border.Border;
 
 import org.jebtk.core.text.TextUtils;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.font.FontService;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Displays text and auto-resizes to fit the text.

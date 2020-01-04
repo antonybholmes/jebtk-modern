@@ -33,6 +33,7 @@ import javax.swing.Box;
 import javax.swing.JComponent;
 
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.button.ModernButton;
@@ -43,7 +44,6 @@ import org.jebtk.modern.panel.CardPanel2;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.panel.VBoxAutoWidth;
 import org.jebtk.modern.text.ModernDialogHeadingLabel;
-import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.WindowLeftTabNav;
 

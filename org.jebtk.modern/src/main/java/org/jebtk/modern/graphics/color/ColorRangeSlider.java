@@ -36,9 +36,9 @@ import java.awt.event.ComponentEvent;
 import org.jebtk.core.ColorValue;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.slider.ContinuousMacOrbSlider;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class ColorRangePanel.

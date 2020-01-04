@@ -33,7 +33,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.jebtk.core.NameProperty;
+import org.jebtk.core.NameGetter;
 import org.jebtk.core.event.ChangeListeners;
 
 // TODO: Auto-generated Javadoc
@@ -44,7 +44,7 @@ import org.jebtk.core.event.ChangeListeners;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public class SortModel<T extends NameProperty> extends ChangeListeners
+public class SortModel<T extends NameGetter> extends ChangeListeners
     implements Iterable<Sorter<T>> {
 
   /**

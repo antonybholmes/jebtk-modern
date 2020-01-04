@@ -3,9 +3,9 @@ package org.jebtk.modern.slider;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class MacOrbAnimation extends HoverFadeAnimation {
   private MacOrbSlider mButton;

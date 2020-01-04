@@ -27,8 +27,8 @@
  */
 package org.jebtk.modern.ribbon;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class RibbonSectionLabel.

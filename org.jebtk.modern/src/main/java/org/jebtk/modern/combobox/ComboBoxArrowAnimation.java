@@ -3,8 +3,8 @@ package org.jebtk.modern.combobox;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.geom.IntRect;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class ComboBoxArrowAnimation extends WidgetAnimation {
   private ModernComboBox mCombo;

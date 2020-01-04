@@ -33,9 +33,9 @@ import java.util.List;
 
 import javax.swing.Box;
 
+import org.jebtk.modern.ModernWidget;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.panel.VBoxAutoSizeLayout;
-import org.jebtk.modern.widget.ModernClickWidget;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

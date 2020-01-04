@@ -32,12 +32,12 @@ import java.text.ParseException;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.text.TextUtils;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.combobox.ModernComboBox2;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.HBox;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Standardized ribbon menu section for providing basic cut, copy and paste

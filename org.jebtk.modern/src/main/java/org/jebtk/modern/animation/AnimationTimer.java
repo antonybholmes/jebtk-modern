@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Timer;
 
+import org.jebtk.core.Mathematics;
+
 public class AnimationTimer extends javax.swing.Timer {
   /**
    * 
@@ -19,10 +21,12 @@ public class AnimationTimer extends javax.swing.Timer {
     private int mCounter = 0;
     private ActionListener mL;
     private int mSteps;
+    private int mMaxIndex;
     
     public AnimationTimerEvents(ActionListener l, int steps) {
       mL = l;
       mSteps = steps;
+      mMaxIndex = mSteps - 1;
     }
     
     /*
@@ -35,12 +39,14 @@ public class AnimationTimer extends javax.swing.Timer {
     public void actionPerformed(ActionEvent e) {
       mL.actionPerformed(e);
       
-      ++mCounter;
-      
       // Auto stop after mSteps
-      if (mCounter == mSteps) {
+      if (mCounter == mMaxIndex) {
           ((Timer)e.getSource()).stop();
-          mCounter = 0;
+          //mCounter = 0;
+      } else {
+        //++mCounter;
+        
+        setCounter(mCounter + 1);
       }
     }
     
@@ -49,7 +55,11 @@ public class AnimationTimer extends javax.swing.Timer {
     }
 
     public void setCounter(int counter) {
-      mCounter = counter;
+      mCounter = Mathematics.bound(counter, 0, mMaxIndex);
+    }
+    
+    public int getCounter() {
+      return mCounter;
     }
   }
 
@@ -69,9 +79,25 @@ public class AnimationTimer extends javax.swing.Timer {
     setDelay(DELAY_MS);
   }
   
+  public void reset() {
+    setCounter(0);
+  }
+  
+  public void setCounter(int counter) {
+    mE.setCounter(counter);
+  }
+  
+  public int getCounter() {
+    return mE.getCounter();
+  }
+
   @Override
   public void start() {
-    mE.reset();
     super.start();
+  }
+  
+  public void restart() {
+    reset();
+    start();
   }
 }

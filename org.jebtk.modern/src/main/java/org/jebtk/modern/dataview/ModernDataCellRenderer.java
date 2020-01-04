@@ -31,9 +31,9 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.font.FontUtils;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.widget.ModernClickWidget;
 import org.jebtk.modern.zoom.ZoomCanvas;
 
 // TODO: Auto-generated Javadoc

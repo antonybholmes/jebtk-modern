@@ -2,9 +2,8 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.widget.ModernClickWidget;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class RadioSelectedAnimation extends ButtonFillAnimation {
 
@@ -37,13 +36,7 @@ public class RadioSelectedAnimation extends ButtonFillAnimation {
     }
   }
 
-  @Override
-  public void fill(ModernWidget c,
-      Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h) {
+  public void fill(ModernWidget c, Graphics2D g2, int x, int y, int w, int h) {
     // Do nothing
 
     /*
@@ -55,7 +48,7 @@ public class RadioSelectedAnimation extends ButtonFillAnimation {
      */
 
     int w2 = w - 8;
-    
+
     g2.setColor(getToColor("fill"));
     g2.fillOval(x + 4, y + 4, w2, w2);
 
@@ -63,10 +56,10 @@ public class RadioSelectedAnimation extends ButtonFillAnimation {
 
     // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
     g2.drawOval(x + 1, y + 1, w2, w2);
-    
-    //int w2 = w - 10;
-    //g2.setColor(Color.WHITE);
-    //g2.fillOval(x + 5, y + 5, w2, w2);
+
+    // int w2 = w - 10;
+    // g2.setColor(Color.WHITE);
+    // g2.fillOval(x + 5, y + 5, w2, w2);
 
   }
 }

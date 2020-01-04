@@ -5,8 +5,8 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class MacScrollAnimation extends HoverFadeAnimation {
   protected static final Color ROUNDED_SCROLLBAR_COLOR_1 = ColorUtils

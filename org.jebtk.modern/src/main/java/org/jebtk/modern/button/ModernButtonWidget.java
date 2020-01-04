@@ -29,11 +29,10 @@ package org.jebtk.modern.button;
 
 import java.awt.LayoutManager;
 
+import org.jebtk.core.NameGetter;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.text.TextProperty;
 import org.jebtk.modern.theme.ColorStyle;
-import org.jebtk.modern.widget.ButtonStyle;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -44,7 +43,7 @@ import org.jebtk.modern.widget.ModernClickWidget;
  *
  */
 public abstract class ModernButtonWidget extends ModernClickWidget
-    implements TextProperty {
+    implements TextProperty, NameGetter {
 
   /**
    * The constant serialVersionUID.
@@ -55,7 +54,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    * The member text1.
    */
   // protected JLabel label1 = new JLabel();
-  protected String mText1 = null;
+  protected String mText1 = null; // TextUtils.EMPTY_STRING;
 
   /**
    * The member icon.
@@ -110,7 +109,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget
 
   public ModernButtonWidget(LayoutManager manager) {
     super(manager);
-    
+
     init();
   }
 
@@ -165,6 +164,11 @@ public abstract class ModernButtonWidget extends ModernClickWidget
     autoSize();
   }
 
+  @Override
+  public String getName() {
+    return getText();
+  }
+
   /**
    * Sets whether the button text is visible or not.
    * 
@@ -210,20 +214,19 @@ public abstract class ModernButtonWidget extends ModernClickWidget
   }
 
   private void init() {
-    
 
     // setAnimations("button-fill"); // new ButtonHighlightAnimation(this));
     // //SimpleButtonAnimation.BUTTON_ANIMATION);
 
-    //getDrawStates().set(DrawUIService.getInstance().getRenderer("button-draw"));
+    // getDrawStates().set(DrawUIService.getInstance().getRenderer("button-draw"));
     addAnimations("button-fill");
-    
+
     setButtonStyle(ButtonStyle.BUTTON);
     setColorStyle(ColorStyle.THEME);
   }
-  
+
   public ModernButtonWidget setColorStyle(ColorStyle style) {
-    switch(style) {
+    switch (style) {
     case RIBBON:
       addStyleClass("ribbon-button");
       break;
@@ -231,10 +234,10 @@ public abstract class ModernButtonWidget extends ModernClickWidget
       addStyleClass("theme-button");
       break;
     }
-    
+
     return this;
   }
- 
+
   /**
    * Set the drawing style of the button.
    * 
@@ -242,27 +245,28 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    * @return
    */
   public ModernButtonWidget setButtonStyle(ButtonStyle... styles) {
-    //getAnimations().clear();
-    //getDrawStates().clear();
-    
+    // getAnimations().clear();
+    // getDrawStates().clear();
+
     for (ButtonStyle style : styles) {
       switch (style) {
       case PILL:
       case CIRCLE:
         addStyleClass("pill");
-        //getDrawStates().set("fill", DrawUIService.getInstance().getRenderer("pill-fill"));
+        // getDrawStates().set("fill",
+        // DrawUIService.getInstance().getRenderer("pill-fill"));
         break;
       case PILL_CONTENT:
         addStyleClass("content-box", "pill");
-        
-        //addAnimations("pill-content");
-        //addAnimations("button-fill");
-        
-        //getDrawStates().set(DrawUIService.getInstance().getRenderer("pill-content"))
-        //  .add(DrawUIService.getInstance().getRenderer("button-fill"));
+
+        // addAnimations("pill-content");
+        // addAnimations("button-fill");
+
+        // getDrawStates().set(DrawUIService.getInstance().getRenderer("pill-content"))
+        // .add(DrawUIService.getInstance().getRenderer("button-fill"));
         break;
       case CIRCLE_OUTLINE:
-        //addAnimations("circle-outline");
+        // addAnimations("circle-outline");
         break;
       case RECT:
         addStyleClass("rect");
@@ -271,7 +275,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget
         addStyleClass("rounded-rect");
         break;
       case OUTLINE:
-        addStyleClass("outline");  
+        addStyleClass("outline");
         break;
       default:
         break;

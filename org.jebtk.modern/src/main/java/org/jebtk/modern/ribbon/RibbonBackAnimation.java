@@ -18,9 +18,9 @@ package org.jebtk.modern.ribbon;
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Provides the fade animation for quick access buttons

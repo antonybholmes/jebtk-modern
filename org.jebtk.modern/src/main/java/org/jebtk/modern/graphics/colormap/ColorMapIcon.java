@@ -20,8 +20,8 @@ import java.awt.LinearGradientPaint;
 import java.awt.Rectangle;
 import java.awt.geom.Point2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Displays a color bar.

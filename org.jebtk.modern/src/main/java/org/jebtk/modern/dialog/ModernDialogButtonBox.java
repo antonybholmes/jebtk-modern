@@ -32,8 +32,8 @@ import java.awt.Graphics2D;
 
 import javax.swing.JComponent;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

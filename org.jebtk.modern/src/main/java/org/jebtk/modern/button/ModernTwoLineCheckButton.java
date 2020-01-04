@@ -34,9 +34,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.ModernWidget;
+import org.jebtk.modern.TwoLineWidget;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.widget.ModernWidget;
-import org.jebtk.modern.widget.TwoLineWidget;
 
 /**
  * The class ModernTwoLineCheckButton.

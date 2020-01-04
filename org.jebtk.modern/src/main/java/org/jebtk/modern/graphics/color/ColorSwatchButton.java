@@ -31,10 +31,10 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.dialog.ModernOutlinedDialogButton;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
-import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
 /**

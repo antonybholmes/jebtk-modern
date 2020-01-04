@@ -17,7 +17,7 @@ package org.jebtk.modern.animation;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.math.CubicBezier;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Allows for graphics to transition between two fixed points using a Bezier
@@ -36,14 +36,14 @@ public abstract class EasingAnimation extends TimerAnimation {
   public static final CubicBezier BEZIER = CubicBezier
       .normCubicBezier(0.25, 0.1, 0.25, 1);
 
-  public static final double[] BEZ_T = new double[STEPS];
+  public static final double[] BEZ_T = new double[AnimationTimer.STEPS];
 
   static {
     BEZ_T[0] = 0; // BEZIER.eval(0).getY();
-    BEZ_T[MAX_STEP_INDEX] = 1; // BEZIER.eval(1).getY();
+    BEZ_T[AnimationTimer.MAX_STEP_INDEX] = 1; // BEZIER.eval(1).getY();
 
-    for (int i = 1; i < MAX_STEP_INDEX; ++i) {
-      BEZ_T[i] = Mathematics.bound(BEZIER.evalY((double) i / MAX_STEP_INDEX), 0, 1);
+    for (int i = 1; i < AnimationTimer.MAX_STEP_INDEX; ++i) {
+      BEZ_T[i] = Mathematics.bound(BEZIER.evalY((double) i / AnimationTimer.MAX_STEP_INDEX), 0, 1);
     }
   }
 

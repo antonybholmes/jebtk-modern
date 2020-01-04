@@ -31,9 +31,9 @@ import java.awt.Component;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.CellSelectionType;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.font.FontUtils;
-import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.zoom.ZoomCanvas;
 
 // TODO: Auto-generated Javadoc

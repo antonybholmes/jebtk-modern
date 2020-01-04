@@ -4,15 +4,15 @@ import java.awt.Component;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.event.ChangeEventProducer;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.ChangeAnimation;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class CompResizeAnimation extends ChangeAnimation {
 
   protected static final int STEPS = 3;
   protected int[] mSizes = new int[STEPS];
   private Component mC;
-  private int mStep;
+  private int mSteps;
   private int mDir = 1;
 
   public <T extends ModernWidget & ChangeEventProducer> CompResizeAnimation(
@@ -30,7 +30,7 @@ public class CompResizeAnimation extends ChangeAnimation {
 
     mC = c;
 
-    mStep = fdir ? 0 : STEPS - 1;
+    mSteps = fdir ? 0 : STEPS - 1;
     mDir = fdir ? 1 : -1;
 
     int inc = (max - min) / (STEPS - 1);
@@ -51,12 +51,12 @@ public class CompResizeAnimation extends ChangeAnimation {
     } else {
       animateExpand();
 
-      mStep += mDir;
+      mSteps += mDir;
     }
   }
 
   public int getDim() {
-    return mSizes[mStep];
+    return mSizes[getStep()];
   }
 
   public void animateExpand() {
@@ -65,7 +65,7 @@ public class CompResizeAnimation extends ChangeAnimation {
   }
 
   public boolean end() {
-    return (mDir == 1 && mStep == STEPS) || (mDir == -1 && mStep == -1);
+    return (mDir == 1 && getStep() == STEPS) || (mDir == -1 && getStep() == -1);
   }
 
   public Component getC() {

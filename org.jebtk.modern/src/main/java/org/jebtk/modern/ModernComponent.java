@@ -224,6 +224,13 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    */
   public static final Border LEFT_RIGHT_BORDER = BorderService.getInstance()
       .createLeftRightBorder(PADDING);
+  
+  public static final ModernComponentAspectRatio NORMAL_RATIO = 
+      new ModernComponentAspectRatio();
+  
+  public static final ModernComponentAspectRatio SQUARE_RATIO = 
+      new ModernComponentAspectRatioSquare();
+  
 
   /**
    * The member listeners.
@@ -257,6 +264,8 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    * Represents current properties of the component 
    */
   private CSSProps mCSSProps = new CSSProps();
+  
+  private ModernComponentAspectRatio mRatio = NORMAL_RATIO;
 
   /**
    * The class ComponentEvents.
@@ -442,6 +451,36 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
       public void changed(ChangeEvent e) {
         repaint();
       }});
+  }
+  
+  public void setAspectRatio(ModernComponentAspectRatio ratio) {
+    mRatio = ratio;
+    invalidate();
+  }
+  
+  public ModernComponentAspectRatio getAspectRatio() {
+    return mRatio;
+  }
+  
+  @Override
+  public Dimension getPreferredSize() {
+    return mRatio.getPreferredSize(super.getPreferredSize(),
+        super.getMinimumSize(),
+        super.getMaximumSize());
+  }
+  
+  @Override
+  public Dimension getMinimumSize() {
+    return mRatio.getMinimumSize(super.getPreferredSize(),
+        super.getMinimumSize(),
+        super.getMaximumSize());
+  }
+  
+  @Override
+  public Dimension getMaximumSize() {
+    return mRatio.getMaximumSize(super.getPreferredSize(),
+        super.getMinimumSize(),
+        super.getMaximumSize());
   }
 
   public void setRasterMode(boolean on) {

@@ -30,7 +30,7 @@ package org.jebtk.modern.list;
 import java.awt.Component;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.widget.ModernClickWidget;
+import org.jebtk.modern.button.ModernClickWidget;
 
 // TODO: Auto-generated Javadoc
 /**

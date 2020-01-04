@@ -16,24 +16,17 @@
 package org.jebtk.modern.animation;
 
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-import javax.swing.Timer;
-
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.
  *
  * @author Antony Holmes
  */
-public abstract class MousePressedAnimation extends WidgetAnimation {
-
-  /** The m mouse over timer. */
-  private Timer mTimer;
+public abstract class MousePressedAnimation extends TimerAnimation {
 
   protected boolean mPressed = false;
 
@@ -51,29 +44,12 @@ public abstract class MousePressedAnimation extends WidgetAnimation {
     public void mousePressed(MouseEvent e) {
       mPressed = true;
 
-      startTimer();
+      start();
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
       reset();
-    }
-  }
-
-  /**
-   * The Class HoverEvents.
-   */
-  private class PressedEvents implements ActionListener {
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-     */
-    @Override
-    public void actionPerformed(ActionEvent e) {
-      animateMousePressed();
     }
   }
 
@@ -84,11 +60,7 @@ public abstract class MousePressedAnimation extends WidgetAnimation {
    */
   public MousePressedAnimation(ModernWidget widget) {
     super(widget);
-
-    mTimer = new AnimationTimer(new PressedEvents());
-    // mMouseClickedTimer = new Timer(0, new ClickedEvents());
-    // mMouseClickedTimer.setDelay(DELAY_MS);
-
+    
     bind(widget);
   }
 
@@ -105,44 +77,13 @@ public abstract class MousePressedAnimation extends WidgetAnimation {
     return this;
   }
 
-  public void startTimer() {
-    if (!mTimer.isRunning()) {
-      mTimer.start();
-    }
-  }
-
-  /**
-   * Stop mouse over timer.
-   */
-  public void stopTimer() {
-    mTimer.stop();
-
-    repaint();
-  }
-
   public void reset() {
     mPressed = false;
 
-    stopTimer();
-  }
-
-  /**
-   * Returns true if the timer is running.
-   * 
-   * @return
-   */
-  public boolean isRunning() {
-    return mTimer.isRunning();
+    stop();
   }
 
   public boolean isPressed() {
     return mPressed;
-  }
-
-  /**
-   * Animate mouse entered.
-   */
-  public void animateMousePressed() {
-
   }
 }

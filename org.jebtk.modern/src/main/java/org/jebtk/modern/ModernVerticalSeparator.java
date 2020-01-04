@@ -30,8 +30,6 @@ package org.jebtk.modern;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.widget.ModernWidget;
-
 // TODO: Auto-generated Javadoc
 /**
  * The class ModernVerticalSeparator.

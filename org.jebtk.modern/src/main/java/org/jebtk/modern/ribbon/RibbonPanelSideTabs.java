@@ -36,13 +36,13 @@ import java.util.Map;
 import javax.swing.BoxLayout;
 
 import org.jebtk.modern.button.ModernButtonGroup;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabsController;
 import org.jebtk.modern.tabs.TabsModel;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 /**
  * Provides a sidebar with clickable tabs on ribbon panels.

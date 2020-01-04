@@ -47,6 +47,7 @@ import javax.swing.border.Border;
 
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.help.GuiAppInfo;
@@ -57,7 +58,6 @@ import org.jebtk.modern.theme.ThemeService;
 import org.jebtk.modern.tooltip.ModernToolTipEvent;
 import org.jebtk.modern.tooltip.ModernToolTipListener;
 import org.jebtk.modern.tooltip.ToolTipService;
-import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 
 /**

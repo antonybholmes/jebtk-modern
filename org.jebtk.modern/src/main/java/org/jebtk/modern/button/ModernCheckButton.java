@@ -39,8 +39,6 @@ import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.text.TextProperty;
-import org.jebtk.modern.theme.DrawUIService;
-import org.jebtk.modern.widget.ModernTwoStateWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -249,14 +247,14 @@ public class ModernCheckButton extends ModernTwoStateWidget
    */
   private void setup() {
 
-    //getAnimations().add("button-selected");
+    // getAnimations().add("button-selected");
 
     addMouseListener(new MouseEvents());
     addFocusListener(new FocusEvents());
     addClickListener(new ModernClickEvents());
-    
-    //getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
-    //getAnimations().add("draw-ui");
+
+    // getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
+    // getAnimations().add("draw-ui");
   }
 
   /**

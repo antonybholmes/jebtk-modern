@@ -36,10 +36,10 @@ import java.util.Map;
 
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.CellSelectionType;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.dataview.ModernData;
 import org.jebtk.modern.font.FontUtils;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.zoom.ZoomCanvas;
 
 // TODO: Auto-generated Javadoc

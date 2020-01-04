@@ -26,9 +26,9 @@ import java.awt.geom.Point2D;
 import java.util.List;
 
 import org.jebtk.core.geom.IntPos2D;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 /**
  * The class ColorPicker.

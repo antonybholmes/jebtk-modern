@@ -18,10 +18,7 @@ package org.jebtk.modern.animation;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Timer;
-
-import org.jebtk.core.Mathematics;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.
@@ -30,18 +27,8 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class TimerAnimation extends WidgetAnimation {
 
-  /**
-   * Default delay between animation steps
-   */
-  public static final int DELAY_MS = 30;
-
-  public static final int STEPS = 8;
-  public static final int MAX_STEP_INDEX = STEPS - 1;
-
   /** The m timer. */
-  private Timer mTimer;
-
-  protected int mStep = 0;
+  private AnimationTimer mTimer;
 
   /**
    * The Class StateEvents.
@@ -66,13 +53,13 @@ public abstract class TimerAnimation extends WidgetAnimation {
    * @param widget the widget
    */
   public TimerAnimation(ModernWidget w) {
-    this(w, DELAY_MS);
+    this(w, AnimationTimer.DELAY_MS);
   }
 
   public TimerAnimation(ModernWidget w, int delay) {
     super(w);
 
-    mTimer = new Timer(0, new TimerEvents());
+    mTimer = new AnimationTimer(new TimerEvents());
     mTimer.setDelay(delay);
   }
 
@@ -84,35 +71,35 @@ public abstract class TimerAnimation extends WidgetAnimation {
   }
 
   public void start() {
-    if (!mTimer.isRunning()) {
-      mTimer.start();
-    }
+    mTimer.start();
   }
+  
+  public void restart() {
+    mTimer.restart();
+  }
+  
+  
 
   /**
    * Animate state.
    */
   public void animate() {
-    getWidget().repaint();
-
-    if (++mStep == MAX_STEP_INDEX) {
-      stop();
-    }
+    repaint();
   }
 
   public void setStep(int step) {
-    mStep = Mathematics.bound(step, 0, MAX_STEP_INDEX);
+    mTimer.setCounter(step);
   }
 
   public void reset() {
-    mStep = 0;
+    mTimer.reset();
   }
 
   public int getStep() {
-    return mStep;
+    return mTimer.getCounter();
   }
 
   public boolean stopped() {
-    return mStep == MAX_STEP_INDEX;
+    return !mTimer.isRunning();
   }
 }

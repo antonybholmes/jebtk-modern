@@ -14,7 +14,7 @@ public class QuickAccessDropDownAnimation extends ButtonFillAnimation {
     // by making it opaque and stopping the timer
     if (getButton().getPopupShown()) {
       opaque();
-      stopTimer();
+      stop();
     } else {
       super.animateMouseExited();
     }

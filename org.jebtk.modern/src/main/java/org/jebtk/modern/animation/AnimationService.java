@@ -37,6 +37,7 @@ import java.util.Map;
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.EntryCreator;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.button.ButtonOutlineAnimation;
 import org.jebtk.modern.button.CheckBoxAnimation;
@@ -45,13 +46,10 @@ import org.jebtk.modern.button.CheckBoxSelectedAnimation;
 import org.jebtk.modern.button.CheckBoxTickAnimation;
 import org.jebtk.modern.button.CheckSwitchAnimation;
 import org.jebtk.modern.button.CheckSwitchChangeAnimation;
-import org.jebtk.modern.button.ChipButtonAnimation;
-import org.jebtk.modern.button.ChipButtonHighlightAnimation;
 import org.jebtk.modern.button.CircleFillAnimation;
 import org.jebtk.modern.button.CircleOutlineAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation;
 import org.jebtk.modern.button.DropDownButtonAnimation2;
-import org.jebtk.modern.button.PillFillAnimation;
 import org.jebtk.modern.button.PillOutlineAnimation;
 import org.jebtk.modern.button.RadioAnimation;
 import org.jebtk.modern.button.RadioOutlineAnimation;
@@ -68,11 +66,9 @@ import org.jebtk.modern.combobox.ComboBoxHighlightAnimation;
 import org.jebtk.modern.combobox.ComboBoxHighlightAnimation2;
 import org.jebtk.modern.contentpane.ModernHContentPaneAnimation;
 import org.jebtk.modern.dialog.ColorDialogButtonAnimation;
-import org.jebtk.modern.dialog.ColorDialogButtonHighlightAnimation;
 import org.jebtk.modern.dialog.DialogButtonAnimation;
 import org.jebtk.modern.dialog.DialogButtonHighlightAnimation;
 import org.jebtk.modern.dialog.FlatButtonAnimation;
-import org.jebtk.modern.help.HelpButtonHighlightAnimation;
 import org.jebtk.modern.list.ListAnimation;
 import org.jebtk.modern.list.ListChangeAnimation;
 import org.jebtk.modern.list.ListHighlightAnimation;
@@ -110,7 +106,6 @@ import org.jebtk.modern.tabs.vert.IconTabsVertChangeAnimation;
 import org.jebtk.modern.tabs.vert.IconTabsVertIconAnimation;
 import org.jebtk.modern.theme.PillContentAnimation;
 import org.jebtk.modern.tree.TreeHighlightAnimation;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Represents a vector icon that uses graphics primitives to create a scalable
@@ -166,7 +161,7 @@ public class AnimationService {
     get("button-outline").add(ButtonOutlineAnimation.class);
     //get("button-selected").add(ButtonSelectedAnimation.class);
 
-    get("pill-fill").add(PillFillAnimation.class);
+    //get("pill-fill").add(PillFillAnimation.class);
     get("pill-outline").add(PillOutlineAnimation.class);
     get("pill-content").add(PillContentAnimation.class);
 
@@ -178,8 +173,8 @@ public class AnimationService {
     get("dropdown-button").add(DropDownButtonAnimation.class);
     get("dropdown-button-2").add(DropDownButtonAnimation2.class);
 
-    get("chip-button").add(ChipButtonHighlightAnimation.class)
-        .add(ChipButtonAnimation.class);
+    //get("chip-button").add(ChipButtonHighlightAnimation.class)
+    //    .add(ChipButtonAnimation.class);
 
     get("dialog-flat-button").add(FlatButtonAnimation.class);
 
@@ -217,7 +212,7 @@ public class AnimationService {
     get("spinner").add(SpinnerAnimation.class)
         .add(SpinnerHighlightAnimation.class);
 
-    get("help-button").add(HelpButtonHighlightAnimation.class);
+    //get("help-button").add(HelpButtonHighlightAnimation.class);
 
     get("dialog-button").add(DialogButtonAnimation.class)
         .add(DialogButtonHighlightAnimation.class);
@@ -225,8 +220,8 @@ public class AnimationService {
     // get("dialog-material-button")
     // .add(DialogMaterialButtonHighlightAnimation.class);
 
-    get("primary-dialog-button").add(ColorDialogButtonAnimation.class)
-        .add(ColorDialogButtonHighlightAnimation.class);
+    get("primary-dialog-button").add(ColorDialogButtonAnimation.class);
+        //.add(ColorDialogButtonHighlightAnimation.class);
 
     get("checkbox").add(CheckBoxAnimation.class)
         .add(CheckBoxHighlightAnimation.class)

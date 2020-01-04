@@ -25,7 +25,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget;
+package org.jebtk.modern;
 
 import java.awt.Color;
 import java.awt.Component;
@@ -48,9 +48,6 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.core.text.TextUtils;
-import org.jebtk.modern.BorderService;
-import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.UI;
 import org.jebtk.modern.animation.Animation;
 import org.jebtk.modern.animation.Animations;
 import org.jebtk.modern.animation.EasingTransitionTimer;

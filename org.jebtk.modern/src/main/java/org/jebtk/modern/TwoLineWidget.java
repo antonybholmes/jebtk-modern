@@ -25,71 +25,36 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget;
-
-import org.jebtk.core.event.ChangeEvent;
-import org.jebtk.core.event.ChangeEventProducer;
-import org.jebtk.core.event.ChangeListener;
-import org.jebtk.core.event.ChangeListeners;
+package org.jebtk.modern;
 
 /**
- * For widgets that change values.
+ * Interface for buttons that display two lines of text.
  * 
  * @author Antony Holmes
  *
  */
-public abstract class ModernChangeWidget extends ModernClickWidget
-    implements ChangeEventProducer {
+public interface TwoLineWidget {
 
   /**
-   * The constant serialVersionUID.
+   * Set the text for line 2.
+   *
+   * @param text the new text2
    */
-  private static final long serialVersionUID = 1L;
+  void setText2(String text);
 
   /**
-   * The member listeners.
+   * Returns the text for line 2.
+   *
+   * @return the text2
    */
-  private ChangeListeners mListeners = new ChangeListeners();
+  String getText2();
 
   /**
-   * Fire item changed.
+   * Set both lines of text.
+   *
+   * @param text1 the text1
+   * @param text2 the text2
    */
-  protected void fireItemChanged() {
-    fireChanged(new ChangeEvent(this));
-  }
+  void setText(String text1, String text2);
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.event.ChangeEventProducer#addChangeListener(org.abh.lib.event.
-   * ChangeListener)
-   */
-  @Override
-  public void addChangeListener(ChangeListener l) {
-    mListeners.addChangeListener(l);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see
-   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.
-   * event. ChangeListener)
-   */
-  @Override
-  public void removeChangeListener(ChangeListener l) {
-    mListeners.removeChangeListener(l);
-  }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.event.ChangeEventProducer#fireChanged(org.abh.lib.event.
-   * ChangeEvent)
-   */
-  @Override
-  public void fireChanged(ChangeEvent event) {
-    mListeners.fireChanged(event);
-  }
 }

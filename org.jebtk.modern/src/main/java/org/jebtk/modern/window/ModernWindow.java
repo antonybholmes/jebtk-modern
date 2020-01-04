@@ -56,6 +56,7 @@ import javax.swing.border.Border;
 
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.contentpane.ModernHContentPane;
 import org.jebtk.modern.dialog.ModernDialogConstructor;
 import org.jebtk.modern.dialog.ModernDialogWindow;
@@ -71,7 +72,6 @@ import org.jebtk.modern.tooltip.ModernToolTipListener;
 import org.jebtk.modern.tooltip.ModernToolTipPanel;
 import org.jebtk.modern.tooltip.ToolTipLevel;
 import org.jebtk.modern.tooltip.ToolTipService;
-import org.jebtk.modern.widget.ModernWidget;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

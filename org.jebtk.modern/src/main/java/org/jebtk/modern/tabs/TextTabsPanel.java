@@ -16,8 +16,8 @@
 package org.jebtk.modern.tabs;
 
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The Class TextTabsPanel.

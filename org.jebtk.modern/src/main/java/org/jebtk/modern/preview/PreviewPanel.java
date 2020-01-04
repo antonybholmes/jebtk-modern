@@ -27,8 +27,8 @@
  */
 package org.jebtk.modern.preview;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.panel.ModernPanel;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

@@ -17,8 +17,8 @@ package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.theme.DrawUI;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Draws the DrawUI elements registered with the component

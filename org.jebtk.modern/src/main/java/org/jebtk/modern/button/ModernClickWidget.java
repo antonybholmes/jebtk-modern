@@ -25,7 +25,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.widget;
+package org.jebtk.modern.button;
 
 import java.awt.LayoutManager;
 import java.awt.event.FocusEvent;
@@ -33,6 +33,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import org.jebtk.modern.FocusAdapter;
+import org.jebtk.modern.css.CSSWidget;
 import org.jebtk.modern.event.HighlightEvent;
 import org.jebtk.modern.event.HighlightEventProducer;
 import org.jebtk.modern.event.HighlightListener;
@@ -49,18 +50,16 @@ import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateEventProducer;
 import org.jebtk.modern.event.ModernStateListener;
 import org.jebtk.modern.event.ModernStateListeners;
-import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.theme.RenderMode;
-import org.jebtk.modern.tooltip.ModernToolTipWidget;
 
 /**
  * Provides the foundation for all UI widgets but does not implement responses.
  * 
  * @author Antony Holmes
  */
-public abstract class ModernClickWidget extends ModernToolTipWidget
-implements ModernClickEventProducer, ModernStateEventProducer,
-ModernSelectedEventProducer, HighlightEventProducer {
+public abstract class ModernClickWidget extends CSSWidget
+    implements ModernClickEventProducer, ModernStateEventProducer,
+    ModernSelectedEventProducer, HighlightEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -104,7 +103,7 @@ ModernSelectedEventProducer, HighlightEventProducer {
      */
     @Override
     public void focusLost(FocusEvent e) {
-      setHighlighted(false);
+      // setHighlighted(false);
     }
   }
 
@@ -159,10 +158,10 @@ ModernSelectedEventProducer, HighlightEventProducer {
     addMouseListener(new MouseEvents());
     addFocusListener(new FocusEvents());
     // addMouseMotionListener(new MouseMotionEvents());
-    
+
     // Add support for CSS style rendering that responds to property changes.
-    getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
-    getAnimations().add("draw-ui");
+    // getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
+    // getAnimations().add("draw-ui");
 
   }
 

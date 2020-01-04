@@ -45,7 +45,7 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntPos2D;
 import org.jebtk.core.geom.IntRect;
-import org.jebtk.modern.widget.ModernFocusableWidget;
+import org.jebtk.modern.ModernFocusableWidget;
 
 /**
  * A panel designed for drawing operations/graphics that is scroll aware, the

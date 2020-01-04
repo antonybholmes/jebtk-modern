@@ -32,7 +32,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.AbstractAction;
 import javax.swing.KeyStroke;
 
-import org.jebtk.modern.widget.ModernFocusableWidget;
+import org.jebtk.modern.ModernFocusableWidget;
 
 /**
  * A controller view of the tabs i.e. handles user input.

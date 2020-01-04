@@ -35,10 +35,10 @@ import java.util.List;
 
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.panel.ModernPanel;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 // TODO: Auto-generated Javadoc
 /**

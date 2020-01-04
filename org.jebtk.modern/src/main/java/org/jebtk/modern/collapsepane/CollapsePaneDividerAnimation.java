@@ -18,9 +18,9 @@ package org.jebtk.modern.collapsepane;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class CollapsePaneDividerAnimation extends HighlightAnimation {
 

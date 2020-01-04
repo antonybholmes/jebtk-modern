@@ -17,8 +17,8 @@ package org.jebtk.modern.contentpane;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Provides the fade animation content panes

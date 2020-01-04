@@ -17,8 +17,8 @@ package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for graphics to transition between two fixed points using a Bezier
@@ -28,7 +28,7 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class TranslateAnimation extends EasingAnimation {
 
-  private int[] mXPos = new int[STEPS];
+  private int[] mXPos = new int[AnimationTimer.STEPS];
 
   /**
    * Instantiates a new state animation.
@@ -80,7 +80,7 @@ public abstract class TranslateAnimation extends EasingAnimation {
     mXPos[0] = x1;
     mXPos[mXPos.length - 1] = x2;
 
-    for (int i = 1; i < MAX_STEP_INDEX; ++i) {
+    for (int i = 1; i < AnimationTimer.MAX_STEP_INDEX; ++i) {
       mXPos[i] = x1 + (int) (BEZ_T[i] * mD); // BEZIER.eval(t) mXPos[i - 1] +
                                              // mD;
     }

@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
 
 import javax.swing.SwingWorker;
 
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Shows animated balls to indicate something is happening.

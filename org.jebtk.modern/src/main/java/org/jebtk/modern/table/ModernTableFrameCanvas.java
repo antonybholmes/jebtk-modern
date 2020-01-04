@@ -30,9 +30,9 @@ package org.jebtk.modern.table;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.ContainerCanvas;
 import org.jebtk.modern.graphics.ModernCanvas;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Bottom, right sided frame for rendering tables in a scrollpane.

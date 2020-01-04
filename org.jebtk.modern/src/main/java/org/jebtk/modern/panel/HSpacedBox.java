@@ -17,8 +17,8 @@ package org.jebtk.modern.panel;
 
 import java.awt.Component;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * A horizontal box that automatically adds a space between components. Can be

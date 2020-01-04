@@ -39,8 +39,10 @@ import javax.swing.KeyStroke;
 
 import org.jebtk.core.collections.CollectionUtils;
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButtonGroup;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.help.GuiAppInfo;
@@ -51,8 +53,6 @@ import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.panel.Toolbar;
 import org.jebtk.modern.tabs.TabsModel;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.widget.ModernClickWidget;
-import org.jebtk.modern.widget.ModernWidget;
 import org.jebtk.modern.window.ModernWindow;
 import org.jebtk.modern.window.WindowMover;
 

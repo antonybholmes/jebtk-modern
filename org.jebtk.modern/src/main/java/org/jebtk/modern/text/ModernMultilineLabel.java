@@ -36,9 +36,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.jebtk.core.text.TextUtils;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.DrawingContext;
 import org.jebtk.modern.graphics.ModernCanvas;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Displays multiple lines of text, breaking lines at a space break before the

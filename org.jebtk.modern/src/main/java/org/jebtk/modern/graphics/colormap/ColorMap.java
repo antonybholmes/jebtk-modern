@@ -42,6 +42,7 @@ import org.jebtk.core.json.JsonObject;
 import org.jebtk.core.json.JsonRepresentation;
 import org.jebtk.core.sys.SysUtils;
 import org.jebtk.core.xml.XmlRepresentation;
+import org.jebtk.modern.css.CSSColor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -109,7 +110,7 @@ public class ColorMap implements Comparable<ColorMap>,
     private static final float[] GRADIENT_TWO_POINT = { 0.0f, 1.0f };
 
     /** The m colors. */
-    private final ColorMapColor[] mColors;
+    private final CSSColor[] mColors;
 
     /**
      * Instantiates a new anchor colors.
@@ -118,7 +119,7 @@ public class ColorMap implements Comparable<ColorMap>,
      * @param color2 the color 2
      */
     public AnchorColors(Color color1, Color color2) {
-      this(ColorMapColor.create(color1), ColorMapColor.create(color2));
+      this(CSSColor.create(color1), CSSColor.create(color2));
     }
 
     /**
@@ -127,8 +128,8 @@ public class ColorMap implements Comparable<ColorMap>,
      * @param color1 the color 1
      * @param color2 the color 2
      */
-    public AnchorColors(ColorMapColor color1, ColorMapColor color2) {
-      this(new ColorMapColor[]{color1, color2});
+    public AnchorColors(CSSColor color1, CSSColor color2) {
+      this(new CSSColor[]{color1, color2});
     }
 
     /**
@@ -139,8 +140,8 @@ public class ColorMap implements Comparable<ColorMap>,
      * @param color3 the color 3
      */
     public AnchorColors(Color color1, Color color2, Color color3) {
-      this(ColorMapColor.create(color1), ColorMapColor.create(color2),
-          ColorMapColor.create(color3));
+      this(CSSColor.create(color1), CSSColor.create(color2),
+          CSSColor.create(color3));
     }
 
     /**
@@ -150,9 +151,9 @@ public class ColorMap implements Comparable<ColorMap>,
      * @param color2 the color 2
      * @param color3 the color 3
      */
-    public AnchorColors(ColorMapColor color1, ColorMapColor color2,
-        ColorMapColor color3) {
-      this(new ColorMapColor[]{color1, color2, color3});
+    public AnchorColors(CSSColor color1, CSSColor color2,
+        CSSColor color3) {
+      this(new CSSColor[]{color1, color2, color3});
     }
 
     /**
@@ -165,8 +166,8 @@ public class ColorMap implements Comparable<ColorMap>,
      */
     public AnchorColors(Color color1, Color color2, Color color3,
         Color color4) {
-      this(ColorMapColor.create(color1), ColorMapColor.create(color2),
-          ColorMapColor.create(color3), ColorMapColor.create(color4));
+      this(CSSColor.create(color1), CSSColor.create(color2),
+          CSSColor.create(color3), CSSColor.create(color4));
     }
 
     /**
@@ -177,9 +178,9 @@ public class ColorMap implements Comparable<ColorMap>,
      * @param color3 the color 3
      * @param color4 the color 4
      */
-    public AnchorColors(ColorMapColor color1, ColorMapColor color2,
-        ColorMapColor color3, ColorMapColor color4) {
-      this(new ColorMapColor[]{color1, color2, color3, color4});
+    public AnchorColors(CSSColor color1, CSSColor color2,
+        CSSColor color3, CSSColor color4) {
+      this(new CSSColor[]{color1, color2, color3, color4});
     }
 
     /**
@@ -193,9 +194,9 @@ public class ColorMap implements Comparable<ColorMap>,
      */
     public AnchorColors(Color color1, Color color2, Color color3, Color color4,
         Color color5) {
-      this(ColorMapColor.create(color1), ColorMapColor.create(color2),
-          ColorMapColor.create(color3), ColorMapColor.create(color4),
-          ColorMapColor.create(color5));
+      this(CSSColor.create(color1), CSSColor.create(color2),
+          CSSColor.create(color3), CSSColor.create(color4),
+          CSSColor.create(color5));
     }
 
     /**
@@ -207,13 +208,13 @@ public class ColorMap implements Comparable<ColorMap>,
      * @param color4 the color 4
      * @param color5 the color 5
      */
-    public AnchorColors(ColorMapColor color1, ColorMapColor color2,
-        ColorMapColor color3, ColorMapColor color4, ColorMapColor color5) {
-      this(new ColorMapColor[]{color1, color2, color3, color4, color5});
+    public AnchorColors(CSSColor color1, CSSColor color2,
+        CSSColor color3, CSSColor color4, CSSColor color5) {
+      this(new CSSColor[]{color1, color2, color3, color4, color5});
     }
     
-    public AnchorColors(ColorMapColor[] colors) {
-      mColors = new ColorMapColor[colors.length];
+    public AnchorColors(CSSColor[] colors) {
+      mColors = new CSSColor[colors.length];
       
       SysUtils.arraycopy(colors, mColors);
     }
@@ -225,7 +226,7 @@ public class ColorMap implements Comparable<ColorMap>,
      * @param reverse the reverse
      */
     public AnchorColors(AnchorColors anchorColors, boolean reverse) {
-      mColors = new ColorMapColor[anchorColors.mColors.length];
+      mColors = new CSSColor[anchorColors.mColors.length];
       
       SysUtils.arraycopy(anchorColors.mColors, mColors);
 
@@ -326,9 +327,9 @@ public class ColorMap implements Comparable<ColorMap>,
   private AnchorColors mAnchorColors;
 
   /** The m colors. */
-  private final ColorMapColor[] mColors;
+  private final CSSColor[] mColors;
 
-  private Map<ColorMapColor, Integer> mIndexMap = new HashMap<ColorMapColor, Integer>();
+  private Map<CSSColor, Integer> mIndexMap = new HashMap<CSSColor, Integer>();
 
   public ColorMap(ColorMap colorMap) {
     this(colorMap, false);
@@ -459,7 +460,7 @@ public class ColorMap implements Comparable<ColorMap>,
   public ColorMap(String name, ColorMap colorMap, boolean reverse) {
     mAnchorColors = new AnchorColors(colorMap.mAnchorColors, reverse);
 
-    mColors = new ColorMapColor[colorMap.mColors.length];
+    mColors = new CSSColor[colorMap.mColors.length];
     
     SysUtils.arraycopy(colorMap.mColors, mColors);
 
@@ -500,7 +501,7 @@ public class ColorMap implements Comparable<ColorMap>,
   }
 
   /*
-   * @Override public boolean add(ColorMapColor color) { super.add(color);
+   * @Override public boolean add(CSSColor color) { super.add(color);
    * 
    * mMaxIndex = getItemCount() - 1;
    * 
@@ -508,7 +509,7 @@ public class ColorMap implements Comparable<ColorMap>,
    */
 
   /*
-   * @Override public void add(Collection<ColorMapColor> colorMap) {
+   * @Override public void add(Collection<CSSColor> colorMap) {
    * super.add(colorMap);
    * 
    * mMaxIndex = getItemCount() - 1; }
@@ -632,7 +633,7 @@ public class ColorMap implements Comparable<ColorMap>,
 
     Element anchorElement = doc.createElement("anchor-colors");
 
-    for (ColorMapColor color : this.mColors) {
+    for (CSSColor color : this.mColors) {
       anchorElement.appendChild(color.toXml(doc));
     }
 
@@ -655,7 +656,7 @@ public class ColorMap implements Comparable<ColorMap>,
 
     Json array = new JsonArray();
 
-    for (ColorMapColor color : mAnchorColors.mColors) {
+    for (CSSColor color : mAnchorColors.mColors) {
       array.add(color.toJson());
     }
 
@@ -711,7 +712,7 @@ public class ColorMap implements Comparable<ColorMap>,
    * @param reverse the reverse
    * @return the list
    */
-  public static ColorMapColor[] createTwoColorMap(Color color1,
+  public static CSSColor[] createTwoColorMap(Color color1,
       Color color2,
       int colors,
       boolean reverse) {
@@ -751,10 +752,10 @@ public class ColorMap implements Comparable<ColorMap>,
     b[b.length - 1] = color2.getBlue() / NF;
     a[a.length - 1] = color2.getAlpha() / NF;
 
-    ColorMapColor[] ret = new ColorMapColor[colors];
+    CSSColor[] ret = new CSSColor[colors];
 
     for (int i = 0; i < colors; ++i) {
-      ret[i] = new ColorMapColor(r[i], g[i], b[i], a[i]);
+      ret[i] = new CSSColor(r[i], g[i], b[i], a[i]);
     }
 
     if (reverse) {
@@ -812,7 +813,7 @@ public class ColorMap implements Comparable<ColorMap>,
    * @param reverse the reverse
    * @return the list
    */
-  public static ColorMapColor[] createThreeColorMap(Color color1,
+  public static CSSColor[] createThreeColorMap(Color color1,
       Color color2,
       Color color3,
       int colors,
@@ -879,10 +880,10 @@ public class ColorMap implements Comparable<ColorMap>,
      * NF); }
      */
 
-    ColorMapColor[] ret = new ColorMapColor[colors];
+    CSSColor[] ret = new CSSColor[colors];
 
     for (int i = 0; i < colors; ++i) {
-      ret[i] = new ColorMapColor(r[i], g[i], b[i], a[i]);
+      ret[i] = new CSSColor(r[i], g[i], b[i], a[i]);
     }
 
     if (reverse) {
@@ -955,7 +956,7 @@ public class ColorMap implements Comparable<ColorMap>,
    * @param reverse the reverse
    * @return the list
    */
-  public static ColorMapColor[] createFourColorMap(Color color1,
+  public static CSSColor[] createFourColorMap(Color color1,
       Color color2,
       Color color3,
       Color color4,
@@ -1020,10 +1021,10 @@ public class ColorMap implements Comparable<ColorMap>,
       a[i] = bound(af[bin] + ainc[bin] * p);
     }
 
-    ColorMapColor[] ret = new ColorMapColor[colors];
+    CSSColor[] ret = new CSSColor[colors];
 
     for (int i = 0; i < colors; ++i) {
-      ret[i] = new ColorMapColor(r[i], g[i], b[i], a[i]);
+      ret[i] = new CSSColor(r[i], g[i], b[i], a[i]);
     }
 
     if (reverse) {
@@ -1099,7 +1100,7 @@ public class ColorMap implements Comparable<ColorMap>,
    * @param reverse the reverse
    * @return the list
    */
-  public static ColorMapColor[] createFiveColorMap(Color color1,
+  public static CSSColor[] createFiveColorMap(Color color1,
       Color color2,
       Color color3,
       Color color4,
@@ -1169,10 +1170,10 @@ public class ColorMap implements Comparable<ColorMap>,
       a[i] = bound(af[bin] + ainc[bin] * p);
     }
 
-    ColorMapColor[] ret = new ColorMapColor[colors];
+    CSSColor[] ret = new CSSColor[colors];
 
     for (int i = 0; i < colors; ++i) {
-      ret[i] = new ColorMapColor(r[i], g[i], b[i], a[i]);
+      ret[i] = new CSSColor(r[i], g[i], b[i], a[i]);
     }
 
     if (reverse) {

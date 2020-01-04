@@ -2,9 +2,8 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.theme.DrawUIService;
-import org.jebtk.modern.widget.ModernClickWidget;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class CheckBoxSelectedAnimation extends ButtonFillAnimation {
   public CheckBoxSelectedAnimation(ModernWidget widget) {

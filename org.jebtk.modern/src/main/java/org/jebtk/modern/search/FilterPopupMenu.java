@@ -41,11 +41,11 @@ import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ButtonsBox;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.button.ModernCheckSwitch;
+import org.jebtk.modern.button.ModernTwoStateWidget;
 import org.jebtk.modern.dialog.ModernDialogButton;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.menu.ModernPopup;
 import org.jebtk.modern.panel.ModernPanel;
-import org.jebtk.modern.widget.ModernTwoStateWidget;
 import org.jebtk.modern.window.ModernWindow;
 
 /**

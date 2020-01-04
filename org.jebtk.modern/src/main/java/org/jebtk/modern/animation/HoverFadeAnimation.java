@@ -17,8 +17,8 @@ package org.jebtk.modern.animation;
 
 import java.awt.Color;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.colormap.NamedColors;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Allows for fade in/out animation on an element.
@@ -27,7 +27,7 @@ import org.jebtk.modern.widget.ModernWidget;
  */
 public abstract class HoverFadeAnimation extends HoverAnimation {
 
-  private FadeAnimation mFade;
+  protected FadeAnimation mFade;
 
   /**
    * Instantiates a new hover fade animation.
@@ -109,16 +109,18 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
    */
   @Override
   public void animateMouseEntered() {
-    super.animateMouseEntered();
+    System.err.println("hover fade enter " + getStep() + " " + getWidget());
 
     // Stop when the color is fully opaque
-//    if (mFade.getStep() == TimerAnimation.MAX_STEP_INDEX) {
+//    if (mFade.getStep() == TimerAnimation.AnimationTimer.MAX_STEP_INDEX) {
 //      stopMouseOverTimer();
 //    } else {
 //      mFade.fadeIn();
 //    }
     
     mFade.fadeIn();
+    
+    super.animateMouseEntered();
   }
 
   /*
@@ -128,16 +130,12 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
    */
   @Override
   public void animateMouseExited() {
-    super.animateMouseExited();
+    mFade.setStep(0); //reset(); //fadeOut();
+    
+    System.err.println("hover fade exit " + getStep() + " " + mFade.getStep() +
+        " " + mFade.getFadeColor("fill"));
 
-    // Stop when the color is fully transparent.
-//    if (mFade.getStep() == 0) {
-//      stopMouseOverTimer();
-//    } else {
-//      mFade.fadeOut();
-//    }
-//    
-    mFade.fadeOut();
+    super.animateMouseExited();
   }
 
   /**
@@ -148,14 +146,14 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
   // public double getTrans() {
   // return mFade.getTrans();
   // }
+//
+//  public void setStep(int step) {
+//    mFade.setStep(step);
+//  }
 
-  public void setStep(int step) {
-    mFade.setStep(step);
-  }
-
-  public void reset() {
-    mFade.reset();
-  }
+  //public void reset() {
+  //  mFade.reset();
+  //}
 
   public void opaque() {
     mFade.opaque();

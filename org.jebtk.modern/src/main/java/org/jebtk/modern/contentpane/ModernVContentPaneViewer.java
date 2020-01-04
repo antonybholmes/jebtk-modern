@@ -37,11 +37,11 @@ import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.tabs.Tab;
 import org.jebtk.modern.tabs.TabEvent;
 import org.jebtk.modern.tabs.TabEventListener;
 import org.jebtk.modern.tabs.TabsModel;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Displays a center pane with surround left and right panes which can be

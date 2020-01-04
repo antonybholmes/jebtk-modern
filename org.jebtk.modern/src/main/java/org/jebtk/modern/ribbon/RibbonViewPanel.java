@@ -20,10 +20,10 @@ import javax.swing.Box;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.panel.HBox;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.tabs.ViewPanel;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 /**
  * The Class RibbonViewPanel.

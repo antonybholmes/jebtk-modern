@@ -32,7 +32,7 @@ import java.awt.Component;
 import javax.swing.border.Border;
 
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Represents a non closable tab.

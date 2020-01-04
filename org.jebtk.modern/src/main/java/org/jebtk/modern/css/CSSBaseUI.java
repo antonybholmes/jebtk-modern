@@ -17,7 +17,9 @@ package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.theme.DrawUI;
 
 /**
@@ -35,17 +37,43 @@ public abstract class CSSBaseUI extends DrawUI {
       int w,
       int h,
       Object... params) {
+    
+    cssFill(c,
+        g2,
+        x,
+        y,
+        w,
+        h);
+  }
+  
+  public static void cssFill(ModernWidget c,
+      Graphics2D g2,
+      IntRect rect,
+      Object... params) {
+    cssFill(c, g2, rect.mX, rect.mY, rect.mW, rect.mH);
+  }
+  
+  public static void cssFill(ModernComponent c,
+      Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h) {
+    
+    System.err.println("aha fill " + g2.getColor() + " " + g2.getColor().getAlpha());
+    
     if (g2.getColor() == null || g2.getColor().getAlpha() == 0) {
       return;
     }
 
-    int rounding = rounding(c, h);
+    int rounding = cssRounding(c, h);
 
-    // System.err.println("round " + rounding + " " + g2.getColor());
+    System.err.println("round " + rounding + " " + w + " " + h);
 
     if (rounding > 0) {
       if (w == h && rounding >= h / 2) {
-        g2.fillOval(x, y, h - 1, h - 1);
+        System.err.println("circle");
+        g2.fillOval(x, y, w - 1, w - 1);
       } else {
         int d = rounding * 2;
         g2.fillRoundRect(x, y, w, h, d, d);
@@ -63,6 +91,20 @@ public abstract class CSSBaseUI extends DrawUI {
       int w,
       int h,
       Object... params) {
+    cssOutline(c,
+        g2,
+        x,
+        y,
+        w,
+        h);
+  }
+  
+  public void cssOutline(ModernComponent c,
+      Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h) {
     if (g2.getColor() == null || g2.getColor().getAlpha() == 0) {
       return;
     }
@@ -83,6 +125,10 @@ public abstract class CSSBaseUI extends DrawUI {
   }
 
   public int rounding(ModernComponent c, int h) {
+    return cssRounding(c, h);
+  }
+  
+  public static int cssRounding(ModernComponent c, int h) {
     Object o = getStyle(c).getValue("border-radius");
 
     int rounding;
@@ -116,4 +162,6 @@ public abstract class CSSBaseUI extends DrawUI {
       return CSSKeyFramesService.getInstance().getStyleClass("widget");
     }
   }
+
+  
 }

@@ -34,7 +34,7 @@ import javax.swing.SwingWorker;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.core.settings.SettingsService;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Shows animated balls to indicate something is happening.

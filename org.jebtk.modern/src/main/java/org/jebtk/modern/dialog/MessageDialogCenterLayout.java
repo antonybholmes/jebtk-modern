@@ -5,8 +5,8 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Insets;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.panel.VCenterLayout;
-import org.jebtk.modern.widget.ModernWidget;
 
 public class MessageDialogCenterLayout extends VCenterLayout {
 

@@ -15,10 +15,10 @@
  */
 package org.jebtk.modern.animation;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.event.HighlightEvent;
 import org.jebtk.modern.event.HighlightEventProducer;
 import org.jebtk.modern.event.HighlightListener;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * Highlight animation that automatically registers to respond to highlight

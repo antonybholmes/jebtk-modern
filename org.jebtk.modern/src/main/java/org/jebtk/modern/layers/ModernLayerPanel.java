@@ -33,13 +33,13 @@ import java.awt.Graphics2D;
 import javax.swing.BoxLayout;
 
 import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernCheckBox;
 import org.jebtk.modern.event.ModernStateEvent;
 import org.jebtk.modern.event.ModernStateListener;
 import org.jebtk.modern.text.ModernAutoSizeLabel;
 import org.jebtk.modern.theme.ThemeService;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class ModernLayerPanel.

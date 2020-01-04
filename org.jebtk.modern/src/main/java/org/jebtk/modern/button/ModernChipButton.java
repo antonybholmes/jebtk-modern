@@ -27,9 +27,11 @@
  */
 package org.jebtk.modern.button;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.modern.UI;
+import org.jebtk.modern.theme.ThemeService;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -43,6 +45,12 @@ public class ModernChipButton extends ModernCheckButton {
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
+
+  public static final Color HIGHLIGHT = ThemeService.getInstance().getColors()
+      .getGray32(4);
+
+  public static final Color SELECTED = ThemeService.getInstance().getColors()
+      .getGray32(6);
 
   /**
    * Instantiates a new modern check button.
@@ -66,7 +74,7 @@ public class ModernChipButton extends ModernCheckButton {
         ModernButton.getButtonWidth(text1) + 16,
         ModernButton.getButtonHeight());
 
-    setAnimations("chip-button");
+    // setAnimations("chip-button");
   }
 
   /*

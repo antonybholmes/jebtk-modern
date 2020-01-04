@@ -18,7 +18,7 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.core.NameProperty;
+import org.jebtk.core.NameGetter;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 
@@ -27,7 +27,7 @@ import org.jebtk.modern.ModernComponent;
  * multiple widgets. For example a button renderer can be used by a button or to
  * highlight the items in a list view for example.
  */
-public abstract class DrawUI implements NameProperty {
+public abstract class DrawUI implements NameGetter {
 
   /** The Constant LINE_COLOR. */
   public static final Color LINE_COLOR = ThemeService.getInstance().getColors()
@@ -75,7 +75,13 @@ public abstract class DrawUI implements NameProperty {
       ModernComponent c,
       IntRect rect,
       Object... params) {
-    draw(g2, c, rect.getX(), rect.getY(), rect.getW(), rect.getH(), params);
+    draw(g2, 
+        c, 
+        rect.getX(), 
+        rect.getY(), 
+        rect.getW(), 
+        rect.getH(), 
+        params);
   }
 
   /**
@@ -100,7 +106,10 @@ public abstract class DrawUI implements NameProperty {
     outline(g2, c, x, y, w, h, params);
   }
 
-  public static final void fill(Graphics2D g2, ModernComponent c, IntRect rect, Object... params) {
+  public static final void fill(Graphics2D g2, 
+      ModernComponent c, 
+      IntRect rect, 
+      Object... params) {
     fill(g2, c, rect, params);
   }
   
@@ -130,7 +139,10 @@ public abstract class DrawUI implements NameProperty {
     g2.fillRect(x, y, w, h);
   }
 
-  public final void outline(Graphics2D g2, ModernComponent c, IntRect rect, Object... params) {
+  public final void outline(Graphics2D g2, 
+      ModernComponent c, 
+      IntRect rect, 
+      Object... params) {
     outline(g2, c, rect, params);
   }
   

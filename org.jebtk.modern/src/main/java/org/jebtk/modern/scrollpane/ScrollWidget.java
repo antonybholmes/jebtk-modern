@@ -20,7 +20,7 @@ import java.awt.Rectangle;
 
 import javax.swing.Scrollable;
 
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Should be implemented by components designed for scrolling.

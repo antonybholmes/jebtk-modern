@@ -32,9 +32,9 @@ import java.awt.Dimension;
 import java.util.List;
 
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.scrollpane.ScrollBarPolicy;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 // TODO: Auto-generated Javadoc
 /**

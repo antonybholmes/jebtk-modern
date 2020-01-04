@@ -35,8 +35,10 @@ import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.HashMapCreator;
 import org.jebtk.core.collections.IterHashMap;
 import org.jebtk.core.collections.IterMap;
-import org.jebtk.modern.css.CSSDrawUI;
 import org.jebtk.modern.css.CSSBackgroundUI;
+import org.jebtk.modern.css.CSSCircleDrawUI;
+import org.jebtk.modern.css.CSSDrawUI;
+import org.jebtk.modern.css.CSSPillContentUI;
 
 /**
  * Provides the shared renderer to components. This is the default way to
@@ -85,6 +87,7 @@ public class DrawUIService implements Iterable<String> {
     
     add(new CSSBackgroundUI());
     add(new CSSDrawUI());
+    add(new CSSCircleDrawUI());
     
     // add(new ButtonSelectedUI());
     add(new CircleOutlineUI());
@@ -92,7 +95,7 @@ public class DrawUIService implements Iterable<String> {
     // add(new MenuHighlightUI());
     add(new PillFillUI());
     add(new PillOutlineUI());
-    add(new PillContentUI());
+    add(new CSSPillContentUI());
     add(new CheckUI());
     add(new CheckedBoxUI());
 

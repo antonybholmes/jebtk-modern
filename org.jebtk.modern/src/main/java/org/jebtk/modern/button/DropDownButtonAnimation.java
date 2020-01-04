@@ -2,7 +2,7 @@ package org.jebtk.modern.button;
 
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 public class DropDownButtonAnimation extends ButtonFillAnimation
     implements ChangeListener {
@@ -18,7 +18,7 @@ public class DropDownButtonAnimation extends ButtonFillAnimation
     // by making it opaque and stopping the timer
     if (getButton().getPopupShown()) {
       opaque();
-      stopTimer();
+      stop();
     } else {
       super.animateMouseExited();
     }

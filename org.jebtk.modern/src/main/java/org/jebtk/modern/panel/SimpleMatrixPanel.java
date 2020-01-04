@@ -37,7 +37,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.swing.border.Border;
 
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * The class SimpleMatrixPanel.

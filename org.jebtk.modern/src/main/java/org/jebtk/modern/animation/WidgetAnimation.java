@@ -15,7 +15,7 @@
  */
 package org.jebtk.modern.animation;
 
-import org.jebtk.modern.widget.ModernWidget;
+import org.jebtk.modern.ModernWidget;
 
 /**
  * Base class for animations on widgets.

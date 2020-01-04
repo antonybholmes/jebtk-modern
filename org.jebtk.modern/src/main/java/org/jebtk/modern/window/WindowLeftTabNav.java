@@ -29,13 +29,13 @@ package org.jebtk.modern.window;
 
 import javax.swing.JComponent;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.contentpane.ModernHContentPane;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.panel.AutoHidePanel;
 import org.jebtk.modern.tabs.IconTabsVectorIcon;
 import org.jebtk.modern.tabs.OutlookTabsPanel;
 import org.jebtk.modern.tabs.TabsModel;
-import org.jebtk.modern.widget.ModernWidget;
 
 
 public class WindowLeftTabNav {

@@ -35,13 +35,13 @@ import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.menu.ModernMenuItem;
 import org.jebtk.modern.menu.ModernMenuPanel;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.text.ModernTextField;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The Class HelpAutoCompleteBox.

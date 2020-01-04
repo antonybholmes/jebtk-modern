@@ -39,9 +39,9 @@ import java.util.Map;
 
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButtonGroup;
+import org.jebtk.modern.button.ModernClickWidget;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
-import org.jebtk.modern.widget.ModernClickWidget;
 
 /**
  * Provides a sidebar with clickable tabs.

@@ -50,6 +50,7 @@ import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernDropDownWidget2;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -62,7 +63,6 @@ import org.jebtk.modern.menu.ModernPopupMenu2;
 import org.jebtk.modern.menu.ModernScrollPopupMenu2;
 import org.jebtk.modern.text.ModernClipboardTextField;
 import org.jebtk.modern.text.ModernTextField;
-import org.jebtk.modern.widget.ModernWidget;
 
 // TODO: Auto-generated Javadoc
 /**

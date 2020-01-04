@@ -17,10 +17,10 @@ package org.jebtk.modern.tabs;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateAnimation;
 import org.jebtk.modern.button.ButtonPressedAnimation;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The Class RibbonMenuAnimation.
@@ -42,12 +42,12 @@ public class BlockVertPressedAnimation extends ButtonPressedAnimation {
   }
 
   @Override
-  public void startTimer() {
+  public void start() {
     // We only want the tab highlighted at the time the mouse is pressed
     // to be animated.
     mHighlight = mTabs.mHighlight;
 
-    super.startTimer();
+    super.start();
   }
 
   /*
@@ -74,7 +74,7 @@ public class BlockVertPressedAnimation extends ButtonPressedAnimation {
       g2.setColor(mColor);
 
       double r = TranslateAnimation.BEZ_T[getStep()]; // /
-                                                      // (double)TimerAnimation.STEPS;
+                                                      // (double)TimerAnimation.AnimationTimer.STEPS;
 
       int d = (int) (tabWidth * r);
 

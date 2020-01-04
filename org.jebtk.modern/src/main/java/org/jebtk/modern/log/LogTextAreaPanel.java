@@ -36,6 +36,7 @@ import javax.swing.JTextArea;
 import org.jebtk.core.log.LogEvent;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.AssetService;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.clipboard.ClipboardService;
 import org.jebtk.modern.event.ModernClickEvent;
@@ -46,7 +47,6 @@ import org.jebtk.modern.menu.ModernMenuSeparator;
 import org.jebtk.modern.menu.ModernPopupMenu;
 import org.jebtk.modern.scrollpane.ModernScrollPane;
 import org.jebtk.modern.text.ModernTextArea;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class LogTextAreaPanel.

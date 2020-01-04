@@ -32,9 +32,8 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.text.TextUtils;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.widget.ModernTwoStateWidget;
-import org.jebtk.modern.widget.ModernWidget;
 
 /**
  * The class ModernCheckBox.
@@ -119,6 +118,9 @@ public abstract class CheckBox extends ModernTwoStateWidget {
     setSelected(selected);
 
     UI.setSize(this, size);
+    
+    // Remove css
+    getDrawStates().clear();
   }
 
   /*
