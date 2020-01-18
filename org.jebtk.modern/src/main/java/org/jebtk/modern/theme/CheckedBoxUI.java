@@ -3,6 +3,8 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
+
 public class CheckedBoxUI extends CheckUI {
 
   @Override
@@ -13,15 +15,12 @@ public class CheckedBoxUI extends CheckUI {
 
   @Override
   public void draw(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
+      IntRect rect,
       Object... params) {
 
     DrawUIService.getInstance().getRenderer("button-fill")
-        .draw(g2, x, y, w, h, params);
+        .draw(g2, rect, params);
 
-    super.draw(g2, x, y, w, h, Color.WHITE); // params);
+    super.draw(g2, rect, Color.WHITE); // params);
   }
 }

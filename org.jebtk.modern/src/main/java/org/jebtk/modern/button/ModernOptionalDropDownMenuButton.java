@@ -244,7 +244,7 @@ public class ModernOptionalDropDownMenuButton extends ModernDropDownWidget {
       // getWidgetRenderer().drawButton(g2, rect, RenderMode.SELECTED);
 
       DrawUIService.getInstance().getRenderer("button-fill")
-          .draw(g2, this, rect);
+          .draw(this, g2, rect);
 
     } else if (mHighlight) {
       // getWidgetRenderer().drawContentBox(g2, rect);
@@ -252,11 +252,11 @@ public class ModernOptionalDropDownMenuButton extends ModernDropDownWidget {
       // getWidgetRenderer().drawButton(g2, x, y, w, h, RenderMode.SELECTED);
 
       DrawUIService.getInstance().getRenderer("content-box")
-          .draw(g2, this, rect);
+          .draw(this, g2, rect);
       DrawUIService.getInstance().getRenderer("button-outline")
-          .draw(g2, this, rect);
+          .draw(this, g2, rect);
       DrawUIService.getInstance().getRenderer("button-fill")
-          .draw(g2, this, x, y, w, h);
+          .draw(this, g2, x, y, w, h);
 
       // paintHighlightedBorder(g2, rect);
       // paintHighlighted(g2, x, y, w, h);

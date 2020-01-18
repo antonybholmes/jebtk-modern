@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.graphics.ImageUtils;
 
@@ -24,17 +25,14 @@ public class CheckUI extends DrawUI {
 
   @Override
   public void draw(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
+      IntRect rect,
       Object... params) {
 
-    double wf = w * CHECK_SCALE;
+    double wf = rect.w * CHECK_SCALE;
     double t = wf * TICK_SCALE;
 
-    double xf = x + (w - wf) / 2;
-    double yf = y + (h - wf) / 2;
+    double xf = rect.x + (rect.w - wf) / 2;
+    double yf = rect.x + (rect.h - wf) / 2;
 
     GeneralPath gp = new GeneralPath();
 

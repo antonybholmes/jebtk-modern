@@ -56,6 +56,7 @@ import org.jebtk.core.Mathematics;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.ModernComponent;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.animation.AnimationService;
 import org.jebtk.modern.button.ModernButtonGroup;
@@ -103,6 +104,7 @@ public class Ribbon extends ModernClickWidget
   static {
     AnimationService.getInstance().get("ribbon").add(RibbonAnimation.class)
         // .add(RibbonPressedAnimation.class)
+        .add(RibbonHighlightAnimation.class)
         .add(RibbonChangeAnimation.class)
         .add(RibbonHighlightTextAnimation.class);
   }
@@ -111,7 +113,7 @@ public class Ribbon extends ModernClickWidget
   public static final String HOME_TOOLBAR = UI.ASSET_RIBBON_HOME;
 
   /** The height of each tab. */
-  public static final int TAB_HEIGHT = 30; // WIDGET_HEIGHT; //28;
+  public static final int TAB_HEIGHT = 32; // WIDGET_HEIGHT; //28;
 
   /** The border between the window and where the ribbon starts. */
   public static final int Y_OFFSET = 0; // (UI.CUSTOM_WINDOW_DECORATION ?
@@ -767,7 +769,9 @@ public class Ribbon extends ModernClickWidget
         showTabsCommandsMenuItem);
 
     mModeButton = new QuickAccessMenuButton2(
-        AssetService.getInstance().loadIcon(RibbonModeVectorIcon.class, 16),
+        AssetService.getInstance().loadIcon(RibbonModeVectorIcon.class, 
+            ModernWidget.TEXT_COLOR,
+            16),
         menu);
     mModeButton.setToolTip("Ribbon Display Options",
         "Configure ribbon behavior.");

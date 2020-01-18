@@ -63,7 +63,7 @@ public class RibbonHelpButton extends QuickAccessButton
   public RibbonHelpButton() {
     super("?");
 
-    setForeground(Color.WHITE); // Ribbon.BAR_BACKGROUND); //
+    setForeground(TEXT_COLOR); //Color.WHITE); // Ribbon.BAR_BACKGROUND); //
     setFont(BOLD_FONT);
 
     addClickListener(this);

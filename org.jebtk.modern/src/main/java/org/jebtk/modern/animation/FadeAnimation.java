@@ -138,7 +138,6 @@ public class FadeAnimation extends EasingAnimation {
    * @return the fade color map
    */
   public NamedColors getFadeColorMap() {
-    System.err.println("named colors " + getStep());
     return getFadeColorMap(getStep());
   }
 

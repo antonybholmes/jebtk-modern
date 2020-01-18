@@ -81,6 +81,6 @@ public class ModernContentPanel extends ModernComponent {
 
   @Override
   public void drawBackground(Graphics2D g2) {
-    DrawUIService.getInstance().getRenderer("content-box").draw(g2, this, mRect);
+    DrawUIService.getInstance().getRenderer("content-box").draw(this, g2, mRect);
   }
 }

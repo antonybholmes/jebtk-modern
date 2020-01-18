@@ -29,6 +29,7 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.theme.DrawUIService;
 
 /**
@@ -49,6 +50,6 @@ public class CheckVectorIcon extends ModernVectorScalableIcon {
     // WidgetRendererService.getInstance().getRenderer().drawCheck(g2, x, y, w,
     // h);
 
-    DrawUIService.getInstance().getRenderer("content-box").draw(g2, x, y, w, h);
+    DrawUIService.getInstance().getRenderer("content-box").draw(g2, new IntRect(x, y, w, h));
   }
 }

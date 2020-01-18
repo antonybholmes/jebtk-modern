@@ -10,6 +10,7 @@ import javax.swing.JComponent;
 import javax.swing.border.Border;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.ModernWidget;
@@ -105,7 +106,7 @@ public class MaterialUtils {
     // .fill(g2, x + 1, y, w - 2, sh);
 
     DrawUIService.getInstance().getRenderer("button-fill")
-        .fill(g2, c, x + 1, y, w - 2, sh);
+        .fill(c, g2, new IntRect(x + 1, y, w - 2, sh));
 
     // int a = Math.max(1, h / 2);
     // g2.fillRoundRect(x, y, w, h, a, a);

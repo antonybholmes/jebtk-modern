@@ -18,6 +18,7 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 
 /**
@@ -31,12 +32,9 @@ public class PillFillUI extends ButtonUI {
   }
 
   @Override
-  public void draw(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
+  public void draw(ModernComponent c,
+      Graphics2D g2,
+      IntRect rect,
       Object... params) {
 
     if (params.length > 0) {
@@ -49,6 +47,6 @@ public class PillFillUI extends ButtonUI {
       }
     }
 
-    g2.fillRoundRect(x, y, w, h, h, h);
+    g2.fillRoundRect(rect.x, rect.y, rect.w, rect.h, rect.h, rect.h);
   }
 }

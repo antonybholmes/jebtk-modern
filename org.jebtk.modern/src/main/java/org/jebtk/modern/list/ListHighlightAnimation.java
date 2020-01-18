@@ -17,6 +17,7 @@ package org.jebtk.modern.list;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.theme.DrawUIService;
@@ -87,10 +88,10 @@ public class ListHighlightAnimation extends HighlightAnimation {
             // g2Table.fillRect(0, 0, mList.getWidth(), mList.mRowHeight);
 
             DrawUIService.getInstance().getRenderer("button-fill").draw(g2Table,
-                0,
+                new IntRect(0,
                 0,
                 mList.getWidth(),
-                mList.mRowHeight,
+                mList.mRowHeight),
                 getFadeColor("highlight"));
 
             // getWidgetRenderer().drawButton(g2, getRect(),

@@ -19,6 +19,7 @@ import java.awt.Graphics2D;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateYAnimation;
 import org.jebtk.modern.tabs.TabEvent;
@@ -96,10 +97,10 @@ public class RibbonSegmentChangeAnimation extends TranslateYAnimation {
     // g2.fillRect(0, 0, WIDTH, RibbonSegmentVertTabs.TAB_SIZE);
 
     DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-        0,
+        new IntRect(0,
         0,
         WIDTH,
-        RibbonSegmentVertTabs.TAB_SIZE,
+        RibbonSegmentVertTabs.TAB_SIZE),
         Ribbon.BAR_BACKGROUND);
   }
 }

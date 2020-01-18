@@ -63,16 +63,16 @@ public class RibbonAnimation extends WidgetAnimation {
    */
   public void drawBackground(Graphics2D g2) {
 
-    g2.setColor(Color.WHITE); // Ribbon.BAR_BACKGROUND);
+    //g2.setColor(Color.WHITE); // Ribbon.BAR_BACKGROUND);
 
-    g2.fillRect(0, 0, mRibbon.getWidth(), mRibbon.getHeight()); // Ribbon.TAB_BODY_Y);
+    //g2.fillRect(0, 0, mRibbon.getWidth(), mRibbon.getHeight()); // Ribbon.TAB_BODY_Y);
 
     // GradientPaint paint = new GradientPaint(0, 0, RIBBON_LIGHT_COLOR, 0,
     // Ribbon.TAB_BODY_Y, Ribbon.BAR_BACKGROUND);
     // g2.setPaint(paint);
 
-    g2.setColor(Ribbon.BAR_BACKGROUND);
-    g2.fillRect(0, 0, mRibbon.getWidth(), Ribbon.TAB_BODY_Y);
+    //g2.setColor(Ribbon.BAR_BACKGROUND);
+    //g2.fillRect(0, 0, mRibbon.getWidth(), Ribbon.TAB_BODY_Y);
 
     // g2.setColor(Ribbon.TAB_COLOR);
     // g2.fillRect(0, Ribbon.TAB_BODY_Y, mRibbon.getWidth(),

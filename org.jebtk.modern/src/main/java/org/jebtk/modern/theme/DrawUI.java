@@ -40,27 +40,14 @@ public abstract class DrawUI implements NameGetter {
    * @param rect the rect
    * @param params the params
    */
-  public final void draw(Graphics2D g2, IntRect rect, Object... params) {
-    draw(g2, null, rect, params);
+  public void draw(Graphics2D g2, IntRect rect, Object... params) {
+    draw(null, g2, rect, params);
   }
 
-  /**
-   * Draw a portion of the widget UI.
-   *
-   * @param g2 the g 2
-   * @param x the x
-   * @param y the y
-   * @param w the w
-   * @param h the h
-   * @param params the params
-   */
-  public void draw(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
+  public void draw(ModernComponent c, 
+      Graphics2D g2, 
       Object... params) {
-    draw(g2, null, x, y, w, h, params);
+    draw(c, g2, c.getRect(), params);
   }
 
   /**
@@ -71,103 +58,29 @@ public abstract class DrawUI implements NameGetter {
    * @param rect the rect
    * @param params the params
    */
-  public final void draw(Graphics2D g2,
-      ModernComponent c,
+  public void draw(ModernComponent c,
+      Graphics2D g2,
       IntRect rect,
       Object... params) {
-    draw(g2, 
-        c, 
-        rect.getX(), 
-        rect.getY(), 
-        rect.getW(), 
-        rect.getH(), 
-        params);
+    fill(c, g2, rect, params);
+    outline(c, g2, rect, params);
   }
 
-  /**
-   * Draw a portion of the widget UI.
-   *
-   * @param g2 the g 2
-   * @param c the c
-   * @param x the x
-   * @param y the y
-   * @param w the w
-   * @param h the h
-   * @param params the params
-   */
-  public void draw(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
+  public void fill(ModernComponent c,
+      Graphics2D g2,
+      IntRect rect,
       Object... params) {
-    fill(g2, c, x, y, w, h, params);
-    outline(g2, c, x, y, w, h, params);
-  }
-
-  public static final void fill(Graphics2D g2, 
-      ModernComponent c, 
-      IntRect rect, 
-      Object... params) {
-    fill(g2, c, rect, params);
-  }
-  
-  
-  /**
-   * Fill the widget UI.
-   *
-   * @param g2 the g 2
-   * @param c the c
-   * @param x the x
-   * @param y the y
-   * @param w the w
-   * @param h the h
-   * @param params the params
-   */
-  public void fill(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
-      Object... params) {
-    if (g2.getColor() == null || g2.getColor().getAlpha() == 0) {
-      return;
+    if (g2.getColor() != null && g2.getColor().getAlpha() > 0) {
+      g2.fillRect(rect.x, rect.y, rect.w, rect.h);
     }
-    
-    g2.fillRect(x, y, w, h);
   }
 
-  public final void outline(Graphics2D g2, 
-      ModernComponent c, 
-      IntRect rect, 
+  public void outline(ModernComponent c,
+      Graphics2D g2,
+      IntRect rect,
       Object... params) {
-    outline(g2, c, rect, params);
-  }
-  
-  /**
-   * Draw an outline around the widget.
-   *
-   * @param g2 the g 2
-   * @param c the c
-   * @param x the x
-   * @param y the y
-   * @param w the w
-   * @param h the h
-   * @param params the params
-   */
-  public void outline(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
-      Object... params) {
-    if (g2.getColor() == null || g2.getColor().getAlpha() == 0) {
-      return;
+    if (g2.getColor() != null && g2.getColor().getAlpha() > 0) {
+      g2.drawRect(rect.x, rect.y, rect.w - 1, rect.h - 1);
     }
-
-    g2.drawRect(x, y, w - 1, h - 1);
   }
 }

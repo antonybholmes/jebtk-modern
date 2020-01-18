@@ -120,7 +120,8 @@ public abstract class CheckBox extends ModernTwoStateWidget {
     UI.setSize(this, size);
     
     // Remove css
-    getDrawStates().clear();
+    //getDrawStates().clear();
+    setCSSMode(false);
   }
 
   /*

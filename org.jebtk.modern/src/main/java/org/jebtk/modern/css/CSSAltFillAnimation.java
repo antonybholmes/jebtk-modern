@@ -2,6 +2,7 @@ package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.DrawUIService;
@@ -51,9 +52,9 @@ public class CSSAltFillAnimation extends HoverFadeAnimation {
     }
   }
 
-  public void fill(ModernWidget c, Graphics2D g2, int x, int y, int w, int h) {
+  public void fill(ModernWidget c, Graphics2D g2, IntRect rect) {
     DrawUIService.getInstance().getRenderer("css-background")
-        .draw(g2, x, y, w, h, getFadeColor("fill"));
+        .draw(g2, rect, getFadeColor("fill"));
 
   }
 }

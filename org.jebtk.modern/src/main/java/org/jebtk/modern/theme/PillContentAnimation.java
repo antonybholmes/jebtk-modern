@@ -23,7 +23,7 @@ public class PillContentAnimation extends WidgetAnimation {
     // return;
     // }
 
-    DrawUIService.getInstance().getRenderer("pill-content").draw(g2, widget, widget.getRect());
+    DrawUIService.getInstance().getRenderer("pill-content").draw(widget, g2);
 
     // g2.setColor(getFadeColor("outline"));
 

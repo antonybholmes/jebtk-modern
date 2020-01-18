@@ -17,6 +17,10 @@ import org.jebtk.modern.tooltip.ModernToolTipWidget;
 public abstract class CSSWidget extends ModernToolTipWidget {
 
   private static final long serialVersionUID = 1L;
+  
+  public static final DrawUI CSS_DRAW = new CSSDrawUI();
+  
+  private boolean mCSSMode = true;
 
   public CSSWidget() {
     init();
@@ -30,17 +34,33 @@ public abstract class CSSWidget extends ModernToolTipWidget {
 
   private void init() {
     // getAnimations().add("draw-ui");
-    getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
+    //getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
   }
 
   @Override
   public void drawAnimatedBackground(Graphics2D g2) {
     // Run animation updates
     super.drawAnimatedBackground(g2);
-
+    
+    if (mCSSMode) {
+      CSS_DRAW.draw(this, g2);
+    }
+    
     // Run any drawing components that may have changed from animations
     for (DrawUI d : getDrawStates()) {
-      d.draw(g2, this, getRect());
+      d.draw(this, g2);
     }
+  }
+  
+  /**
+   * Set whether to use the CSS renderer. For certain custom components it is
+   * necessary to disable this so that the CSS style does not conflict with
+   * the custom style.
+   * 
+   * @param cssMode
+   */
+  public void setCSSMode(boolean cssMode) {
+    mCSSMode = cssMode;
+    repaint();
   }
 }

@@ -109,8 +109,6 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
    */
   @Override
   public void animateMouseEntered() {
-    System.err.println("hover fade enter " + getStep() + " " + getWidget());
-
     // Stop when the color is fully opaque
 //    if (mFade.getStep() == TimerAnimation.AnimationTimer.MAX_STEP_INDEX) {
 //      stopMouseOverTimer();
@@ -131,9 +129,6 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
   @Override
   public void animateMouseExited() {
     mFade.setStep(0); //reset(); //fadeOut();
-    
-    System.err.println("hover fade exit " + getStep() + " " + mFade.getStep() +
-        " " + mFade.getFadeColor("fill"));
 
     super.animateMouseExited();
   }

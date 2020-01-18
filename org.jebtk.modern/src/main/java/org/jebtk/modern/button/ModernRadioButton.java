@@ -127,6 +127,7 @@ public class ModernRadioButton extends ModernTwoStateWidget {
   }
 
   private void setup() {
+    this.setCSSMode(false);
     addStyleClass("checkbox");
     setAnimations("radio-button");
   }

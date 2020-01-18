@@ -17,6 +17,7 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateAnimation;
 import org.jebtk.modern.button.ButtonPressedAnimation;
@@ -88,10 +89,10 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
       // RibbonSegmentVertTabs.TAB_SIZE);
 
       DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-          x,
+          new IntRect(x,
           y + mHighlight * RibbonSegmentVertTabs.TAB_SIZE,
           d,
-          RibbonSegmentVertTabs.TAB_SIZE,
+          RibbonSegmentVertTabs.TAB_SIZE),
           mColor);
     }
   }

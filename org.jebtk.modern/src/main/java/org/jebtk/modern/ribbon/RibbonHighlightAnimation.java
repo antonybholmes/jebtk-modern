@@ -27,7 +27,7 @@ import org.jebtk.modern.theme.MaterialService;
  *
  * @author Antony Holmes
  */
-public class RibbonHighlightTextAnimation extends HighlightAnimation {
+public class RibbonHighlightAnimation extends HighlightAnimation {
 
   public static final Color HIGHLIGHT_COLOR = MaterialService.instance()
       .getColor("ribbon-highlight");
@@ -40,14 +40,12 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
    *
    * @param ribbon the ribbon
    */
-  public RibbonHighlightTextAnimation(ModernWidget ribbon) {
+  public RibbonHighlightAnimation(ModernWidget ribbon) {
     super((Ribbon) ribbon);
 
     mRibbon = (Ribbon) ribbon;
 
-    setFadeColor("highlight",
-        MaterialService.instance().getColor("ribbon-menu-font"),
-        MaterialService.instance().getColor("ribbon"));
+    setFadeColor("highlight", new Color(242, 242, 242));
   }
 
   /*
@@ -75,10 +73,6 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
      * break; } }
      */
 
-    int x;
-    int y = Ribbon.TAB_BODY_Y - Ribbon.TAB_HEIGHT
-        + (Ribbon.TAB_HEIGHT + g2.getFontMetrics().getAscent()) / 2;
-    int tabWidth;
 
     //
     // Paint the file menu item
@@ -96,37 +90,13 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
     // x = mTabStartX;
 
     for (int i = 0; i < mRibbon.mTitles.size(); ++i) {
-      x = mRibbon.mTabStartX + mRibbon.mTabStarts.get(i);
-      tabWidth = mRibbon.mTabWidths.get(i);
+      int x = mRibbon.mTabStartX + mRibbon.mTabStarts.get(i);
+      Integer tabWidth = mRibbon.mTabWidths.get(i);
 
-      // Render the headings
-
-      // if (mToolbarVisible && i == mSelectedTab) {
-      // g2.setColor(BAR_BACKGROUND);
-      // } else {
-      // g2.setColor(i == mSelectedTab ? BAR_BACKGROUND : TEXT_COLOR);
-      // //Color.WHITE);
-      // }
-
-      // if (i == mRibbon.mSelectedTab) {
-      // g2.setColor(Ribbon.BAR_BACKGROUND);
-      // } else if (i == mRibbon.mHighlightedTab) {
-      // g2.setColor(getFadeColor("highlight"));
-      // } else {
-      // g2.setColor(MaterialService.getInstance().getColor("ribbon-menu-font"));
-      // }
-
-      if (i == mRibbon.mSelectedTab) {
-        g2.setColor(Ribbon.BAR_BACKGROUND);
-      } else {
-        g2.setColor(ModernWidget.TEXT_COLOR); //Color.WHITE);
+      if (i == mRibbon.mHighlightedTab && i != mRibbon.mSelectedTab) {
+        g2.setColor(getFadeColor("highlight"));
+        g2.fillRect(x, Ribbon.Y_OFFSET, tabWidth, Ribbon.TAB_HEIGHT);
       }
-
-      int textX = x
-          + (tabWidth - g2.getFontMetrics().stringWidth(mRibbon.mTitles.get(i)))
-              / 2;
-
-      g2.drawString(mRibbon.mTitles.get(i), textX, y);
     }
   }
 }

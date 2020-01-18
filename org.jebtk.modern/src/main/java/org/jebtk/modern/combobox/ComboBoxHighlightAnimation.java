@@ -52,12 +52,7 @@ public class ComboBoxHighlightAnimation extends ButtonAltFillAnimation
       IntRect buttonRect = new IntRect(mCombo.mButtonX, widget.getInsets().top,
           ModernComboBox.BUTTON_WIDTH, rect.getH());
 
-      fill(widget,
-          g2,
-          buttonRect.getX(),
-          buttonRect.getY(),
-          buttonRect.getW(),
-          buttonRect.getH());
+      fill(widget, g2, buttonRect);
     }
 
     // Color c = ColorUtils.getTransparentColor(Color.RED, mTrans);

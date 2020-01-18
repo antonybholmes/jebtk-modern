@@ -128,9 +128,9 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
     Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     try {
-      g2Temp.setColor(Color.WHITE);
+      g2Temp.setColor(Ribbon.BAR_BACKGROUND); //Color.WHITE);
 
-      g2Temp.fillRect(0, Ribbon.Y_OFFSET, w, Ribbon.TAB_HEIGHT);
+      g2Temp.fillRect(0, Ribbon.Y_OFFSET + Ribbon.TAB_HEIGHT - 3, w, 3);
     } finally {
       g2Temp.dispose();
     }

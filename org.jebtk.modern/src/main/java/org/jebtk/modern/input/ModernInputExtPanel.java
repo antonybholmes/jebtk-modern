@@ -116,7 +116,7 @@ public class ModernInputExtPanel extends ModernPillBorderPanel
     addComponentListener(new ComponentAdapter() {
       @Override
       public void componentResized(ComponentEvent e) {
-        int b = (getInternalRect().mH - ModernInputPanel.BUTTON_SIZE) / 2;
+        int b = (getInternalRect().h - ModernInputPanel.BUTTON_SIZE) / 2;
         setBorder(
             BorderService.getInstance().createBorder(b, getHeight() / 2, b, b));
       }

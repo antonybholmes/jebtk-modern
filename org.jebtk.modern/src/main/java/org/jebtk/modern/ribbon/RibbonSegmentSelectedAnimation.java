@@ -17,6 +17,7 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.theme.DrawUIService;
@@ -72,10 +73,10 @@ public class RibbonSegmentSelectedAnimation extends WidgetAnimation {
       // g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
 
       DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-          x,
+          new IntRect(x,
           y1,
           w,
-          RibbonSegmentVertTabs.TAB_SIZE,
+          RibbonSegmentVertTabs.TAB_SIZE),
           MaterialService.instance().getColor("ribbon-selected"));
     }
   }

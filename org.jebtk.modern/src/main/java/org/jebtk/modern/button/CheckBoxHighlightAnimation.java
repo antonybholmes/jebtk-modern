@@ -2,6 +2,7 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 
 public class CheckBoxHighlightAnimation extends ButtonOutlineAnimation {
@@ -22,12 +23,12 @@ public class CheckBoxHighlightAnimation extends ButtonOutlineAnimation {
        * ModernCheckBox.ICON_SIZE, getButton().getRenderMode(), false);
        */
 
-      outline(g2,
-          widget,
-          x,
+      outline(widget,
+          g2,
+          new IntRect(x,
           y,
           ModernCheckBox.ICON_SIZE,
-          ModernCheckBox.ICON_SIZE);
+          ModernCheckBox.ICON_SIZE));
 
       // DrawUIService.getInstance().getRenderer("button-outline").draw(g2,
       // x,

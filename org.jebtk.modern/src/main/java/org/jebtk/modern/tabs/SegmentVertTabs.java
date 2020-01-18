@@ -32,6 +32,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
 import java.awt.geom.GeneralPath;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.theme.DrawUIService;
 
 // TODO: Auto-generated Javadoc
@@ -103,7 +104,7 @@ public class SegmentVertTabs extends SegmentTabs {
     createEndShapes();
 
     // getWidgetRenderer().drawBackground(g2, x, y, w, h);
-    DrawUIService.getInstance().getRenderer("content").draw(g2, x, y, w, h);
+    DrawUIService.getInstance().getRenderer("content").draw(g2, new IntRect(x, y, w, h));
 
     //
     // Draw if highlighted
@@ -121,7 +122,7 @@ public class SegmentVertTabs extends SegmentTabs {
       // hasFocus());
 
       DrawUIService.getInstance().getRenderer("button-fill")
-          .draw(g2, x, y, w, mTabSize);
+          .draw(g2, new IntRect(x, y, w, mTabSize));
 
       if (mHighlight == 0) {
         g2.fill(mLeftEnd);
@@ -147,7 +148,7 @@ public class SegmentVertTabs extends SegmentTabs {
     }
 
     DrawUIService.getInstance().getRenderer("button-outline")
-        .draw(g2, x, y, w, h, LIGHT_LINE_COLOR);
+        .draw(g2, new IntRect(x, y, w, h), LIGHT_LINE_COLOR);
 
     //
     // Draw the selected tab

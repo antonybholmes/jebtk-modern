@@ -17,6 +17,7 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.theme.DrawUIService;
@@ -76,10 +77,7 @@ public class RibbonSegmentHighlightAnimation extends HighlightAnimation {
       // g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
 
       DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-          x,
-          y1,
-          w,
-          RibbonSegmentVertTabs.TAB_SIZE,
+          new IntRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE),
           getFadeColor("highlight"));
     }
   }

@@ -19,6 +19,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.theme.DrawUIService;
@@ -78,7 +79,7 @@ public class IconTabsVertHighlightAnimation extends HighlightAnimation {
       //g2.fillRect(x, y - mTabs.getTabSize() * highlighted, h, h);
       
       DrawUIService.getInstance().getRenderer("circle-fill")
-      .draw(g2, x, y - ts * highlighted, h, h, getFadeColor("highlight"));
+      .draw(g2, new IntRect(x, y - ts * highlighted, h, h), getFadeColor("highlight"));
 
       /*
        * Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);

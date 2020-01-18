@@ -486,16 +486,19 @@ public class ModernDataGridView extends ModernData {
    * @param e the e
    */
   public void keyPressed(KeyEvent e) {
-    if (e.getKeyCode() == KeyEvent.VK_A && e.isControlDown()) {
-      selectAll();
+    if(e.isControlDown() || e.isMetaDown()) {
+      switch(e.getKeyCode()) {
+      case  KeyEvent.VK_A:
+        selectAll();
 
-      return;
-    }
+        return;
+      case KeyEvent.VK_C:
+        copy();
 
-    if (e.getKeyCode() == KeyEvent.VK_C && e.isControlDown()) {
-      copy();
-
-      return;
+        return;
+      default:
+        // Do nothing
+      }
     }
 
     if (mSelectionPolicy != SelectionPolicy.MULTIPLE) {

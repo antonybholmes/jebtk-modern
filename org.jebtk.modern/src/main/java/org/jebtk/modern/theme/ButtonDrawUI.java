@@ -17,6 +17,7 @@ package org.jebtk.modern.theme;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.css.CSSKeyFramesService;
 
@@ -31,12 +32,9 @@ public class ButtonDrawUI extends ButtonOutlineUI {
   }
 
   @Override
-  public void draw(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
+  public void draw(ModernComponent c,
+      Graphics2D g2,
+      IntRect rect,
       Object... params) {
 
     if (c != null) {
@@ -52,7 +50,7 @@ public class ButtonDrawUI extends ButtonOutlineUI {
           .getColor("background-color"));
     }
 
-    fill(g2, c, x, y, w, h);
+    fill(c, g2, rect, params);
     
     /*
     if (c != null) {
@@ -72,6 +70,6 @@ public class ButtonDrawUI extends ButtonOutlineUI {
     */
     
     // outline
-    super.draw(g2, c, x, y, w, h, params);
+    super.draw(c, g2, rect, params);
   }
 }

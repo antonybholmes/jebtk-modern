@@ -84,7 +84,7 @@ extends DropDownButtonAnimation2 {
       System.err.println("what " + g2.getColor() + " " + getStep());
       
       
-      CSSBaseUI.cssFill(c, g2, x, y, w, h);
+      CSSBaseUI.cssFill(c, g2, new IntRect(x, y, w, h));
 
 
 

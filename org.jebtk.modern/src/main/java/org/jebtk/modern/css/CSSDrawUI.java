@@ -17,6 +17,7 @@ package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.theme.ColorGradient;
 
@@ -31,12 +32,9 @@ public class CSSDrawUI extends CSSOutlineUI {
   }
 
   @Override
-  public void draw(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
+  public void draw(ModernComponent c,
+      Graphics2D g2,
+      IntRect rect,
       Object... params) {
 
 
@@ -53,7 +51,7 @@ public class CSSDrawUI extends CSSOutlineUI {
           .getColor("background-color"));
     }
     
-    fill(g2, c, x, y, w, h, params);
+    fill(c, g2, rect, params);
 
     /*
      * if (c != null) { ColorGradient lp =
@@ -68,7 +66,7 @@ public class CSSDrawUI extends CSSOutlineUI {
      */
 
     // outline
-    super.draw(g2, c, x, y, w, h, params);
+    super.draw(c, g2, rect, params);
     
     // For testing only
     //g2.setColor(Color.RED);

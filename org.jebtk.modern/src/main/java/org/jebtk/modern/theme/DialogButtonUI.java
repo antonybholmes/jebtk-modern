@@ -18,6 +18,7 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 
 /**
@@ -43,12 +44,9 @@ public class DialogButtonUI extends ButtonUI {
   }
 
   @Override
-  public void draw(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
+  public void draw(ModernComponent c,
+      Graphics2D g2,
+      IntRect rect,
       Object... params) {
 
     // GradientPaint gradient = ColorUtils.getVGradient(0, h, C1, C2);
@@ -57,9 +55,9 @@ public class DialogButtonUI extends ButtonUI {
 
     g2.setColor(FILL);
 
-    fill(g2, c, x, y, w, h);
+    fill(c, g2, rect);
 
     g2.setColor(BORDER);
-    outline(g2, c, x, y, w, h);
+    outline(c, g2, rect);
   }
 }

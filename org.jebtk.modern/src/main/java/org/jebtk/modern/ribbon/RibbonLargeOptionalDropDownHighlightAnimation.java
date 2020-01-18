@@ -83,7 +83,7 @@ public class RibbonLargeOptionalDropDownHighlightAnimation
         // getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
 
         DrawUIService.getInstance().getRenderer("button-fill")
-            .draw(g2, x, y, w, h, getFadeColor("fill"));
+            .draw(g2, new IntRect(x, y, w, h), getFadeColor("fill"));
 
         // getWidgetRenderer().drawRibbonButtonOutline(g2, rect,
         // RenderMode.SELECTED);

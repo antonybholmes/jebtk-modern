@@ -17,6 +17,7 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.theme.DrawUIService;
@@ -48,6 +49,6 @@ public class RibbonBackHighlightAnimation extends HoverFadeAnimation {
     int y = (widget.getHeight() - HEIGHT) / 2;
 
     DrawUIService.getInstance().getRenderer("circle-fill")
-        .draw(g2, x, y, HEIGHT, HEIGHT, getFadeColor("fill"));
+        .draw(g2, new IntRect(x, y, HEIGHT, HEIGHT), getFadeColor("fill"));
   }
 }

@@ -3,6 +3,7 @@ package org.jebtk.modern.button;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.theme.DrawUIService;
@@ -28,7 +29,7 @@ public class CheckBoxTickAnimation extends WidgetAnimation {
         // ModernCheckBox.ICON_SIZE);
 
         DrawUIService.getInstance().getRenderer("check")
-            .draw(g2, x, y, TICK_SIZE, TICK_SIZE, Color.WHITE);
+            .draw(g2, new IntRect(x, y, TICK_SIZE, TICK_SIZE), Color.WHITE);
       }
     }
   }

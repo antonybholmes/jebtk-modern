@@ -46,8 +46,8 @@ public class ModernTableScrollTo {
     ModernScrollBar vscroll = mScrollPane.getVScrollBar();
     ModernScrollBar hscroll = mScrollPane.getHScrollBar();
 
-    vscroll.setScrollPosition(scrollY(rect.mY + 2 * rect.mH));
-    hscroll.setScrollPosition(scrollX(rect.mX + 2 * rect.mW));
+    vscroll.setScrollPosition(scrollY(rect.y + 2 * rect.h));
+    hscroll.setScrollPosition(scrollX(rect.x + 2 * rect.w));
   }
 
   private int scrollX(int d) {

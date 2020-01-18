@@ -17,6 +17,7 @@ package org.jebtk.modern.theme;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 
 /**
@@ -30,16 +31,13 @@ public class ColorButtonSelectedUI extends ColorButtonUI {
   }
 
   @Override
-  public void fill(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
+  public void fill(ModernComponent c,
+      Graphics2D g2,
+      IntRect rect,
       Object... params) {
 
     g2.setColor(SELECTED_FILL_COLOR);
 
-    super.fill(g2, c, x, y, w, h);
+    super.fill(c, g2, rect);
   }
 }

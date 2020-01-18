@@ -142,7 +142,7 @@
 		</class>
 		
 		<class name="content-outline">
-      <property name="border-color" value="red" />
+      <property name="border-color" value="colors.material.dialog.button.highlight" />
     </class>
 
 	</keyframe>

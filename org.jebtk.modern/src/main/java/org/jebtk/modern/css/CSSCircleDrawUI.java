@@ -17,6 +17,7 @@ package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.graphics.ImageUtils;
 
@@ -31,19 +32,15 @@ public class CSSCircleDrawUI extends CSSDrawUI {
   }
   
   @Override
-  public void fill(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
+  public void fill(ModernComponent c,
+      Graphics2D g2,
+      IntRect rect,
       Object... params) {
-    int mw = Math.min(w, h);
+    int mw = Math.min(rect.w, rect.h);
 
-    x += (w - mw) / 2;
-    y += (h - mw) / 2;
-
-    w = mw - 1;
+    int x = (rect.w - mw) / 2;
+    int y = (rect.h - mw) / 2;
+    int w = mw - 1;
 
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 

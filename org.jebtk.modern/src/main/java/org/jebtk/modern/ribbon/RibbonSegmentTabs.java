@@ -30,6 +30,7 @@ package org.jebtk.modern.ribbon;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.tabs.SegmentTabs;
@@ -96,7 +97,7 @@ public class RibbonSegmentTabs extends SegmentTabs {
 
     // getWidgetRenderer().drawContentBoxFill(g2, mLeftOffset, y, w, h);
     DrawUIService.getInstance().getRenderer("content")
-        .draw(g2, mLeftOffset, y, w, h);
+        .draw(g2, new IntRect(mLeftOffset, y, w, h));
     //
     // Draw if highlighted
     //
@@ -106,7 +107,7 @@ public class RibbonSegmentTabs extends SegmentTabs {
       // .drawButtonFill(g2, x, y, w, h, RenderMode.HIGHLIGHT, hasFocus());
 
       DrawUIService.getInstance().getRenderer("button-fill")
-          .draw(g2, x, y, w, h);
+          .draw(g2, new IntRect(x, y, w, h));
 
       if (mHighlight == 0) {
         g2.fill(mLeftEnd);
@@ -133,7 +134,7 @@ public class RibbonSegmentTabs extends SegmentTabs {
 
     // getWidgetRenderer().drawContentBoxOutline(g2, mLeftOffset, y, w, h);
     DrawUIService.getInstance().getRenderer("content-outline")
-        .draw(g2, mLeftOffset, y, w, h);
+        .draw(g2, new IntRect(mLeftOffset, y, w, h));
 
     //
     // Draw the selected tab

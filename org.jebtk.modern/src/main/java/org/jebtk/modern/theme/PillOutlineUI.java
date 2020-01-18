@@ -18,6 +18,7 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 
 /**
@@ -31,12 +32,9 @@ public class PillOutlineUI extends ButtonUI {
   }
 
   @Override
-  public void draw(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
+  public void draw(ModernComponent c,
+      Graphics2D g2,
+      IntRect rect,
       Object... params) {
 
     if (params.length > 0) {
@@ -45,6 +43,6 @@ public class PillOutlineUI extends ButtonUI {
       g2.setColor(HIGHLIGHTED_FILL_COLOR);
     }
 
-    g2.drawRoundRect(x, y, w - 1, h - 1, h, h);
+    g2.drawRoundRect(rect.x, rect.y, rect.w - 1, rect.h - 1, rect.h, rect.h);
   }
 }

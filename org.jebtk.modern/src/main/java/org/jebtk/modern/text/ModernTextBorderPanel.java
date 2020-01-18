@@ -193,7 +193,7 @@ public class ModernTextBorderPanel extends ModernWidget
 
   @Override
   public void drawAnimatedBackground(Graphics2D g2) {
-    DrawUIService.getInstance().getRenderer("content-box").draw(g2, this, mRect);
+    DrawUIService.getInstance().getRenderer("content-box").draw(this, g2, mRect);
 
     super.drawAnimatedBackground(g2);
   }

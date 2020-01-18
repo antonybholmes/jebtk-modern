@@ -19,6 +19,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.Mathematics;
 import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateYAnimation;
 import org.jebtk.modern.event.ModernSelectionListener;
@@ -100,6 +101,6 @@ public class ListChangeAnimation extends TranslateYAnimation {
      */
 
     DrawUIService.getInstance().getRenderer("button-fill")
-        .draw(g2, 0, 0, widget.getWidth(), mTabs.mRowHeight);
+        .draw(g2, new IntRect(0, 0, widget.getWidth(), mTabs.mRowHeight));
   }
 }

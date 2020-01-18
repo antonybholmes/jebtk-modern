@@ -20,7 +20,7 @@ public class CircleFillAnimation extends ButtonFillAnimation {
     if (widget.isEnabled()) {
 
       DrawUIService.getInstance().getRenderer("circle-fill")
-          .draw(g2, widget.getInternalRect(), getFadeColor("fill"));
+          .draw(widget, g2, getFadeColor("fill"));
 
       /*
        * Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);

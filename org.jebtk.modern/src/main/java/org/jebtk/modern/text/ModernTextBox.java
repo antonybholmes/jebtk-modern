@@ -954,7 +954,7 @@ public class ModernTextBox extends ModernCanvas
     int sc;
     int ec;
 
-    if (e.isControlDown()) {
+    if (e.isControlDown() || e.isMetaDown()) {
       switch (e.getKeyCode()) {
       case KeyEvent.VK_A:
         selectAll();

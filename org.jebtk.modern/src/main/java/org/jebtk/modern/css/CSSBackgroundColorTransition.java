@@ -2,6 +2,7 @@ package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.ColorTransition;
 import org.jebtk.modern.theme.DrawUIService;
@@ -50,9 +51,9 @@ public class CSSBackgroundColorTransition extends ColorTransition {
     }
   }
 
-  public void fill(ModernWidget c, Graphics2D g2, int x, int y, int w, int h) {
+  public void fill(ModernWidget c, Graphics2D g2, IntRect rect) {
     DrawUIService.getInstance().getRenderer("css-background")
-        .draw(g2, x, y, w, h, getColor("fill"));
+        .draw(g2, rect, getColor("fill"));
 
   }
 }

@@ -29,10 +29,10 @@ public class LinearGradient implements ColorGradient {
     int x2;
     if (mX > 0) {
       x1 = c.getInsets().left;
-      x2 = x1 + c.getInternalRect().mW;
+      x2 = x1 + c.getInternalRect().w;
     } else if (mX < 0) {
       x2 = c.getInsets().left;
-      x1 = x2 + c.getInternalRect().mW;
+      x1 = x2 + c.getInternalRect().w;
     } else {
       x1 = 0;
       x2 = 0;
@@ -42,10 +42,10 @@ public class LinearGradient implements ColorGradient {
     int y2;
     if (mY < 0) {
       y1 = c.getInsets().left;
-      y2 = x1 + c.getInternalRect().mW;
+      y2 = x1 + c.getInternalRect().w;
     } else if (mY > 0) {
       y2 = c.getInsets().left;
-      y1 = x2 + c.getInternalRect().mW;
+      y1 = x2 + c.getInternalRect().w;
     } else {
       y1 = 0;
       y2 = 0;

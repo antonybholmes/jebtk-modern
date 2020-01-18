@@ -29,6 +29,7 @@ package org.jebtk.modern.menu;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernCheckButton;
 import org.jebtk.modern.theme.DrawUIService;
@@ -115,7 +116,7 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
       // CHECKED_ICON.drawIcon(g2, x, y, ICON_SIZE);
 
       DrawUIService.getInstance().getRenderer("check")
-          .draw(g2, x, y, ICON_SIZE, ICON_SIZE);
+          .draw(g2, new IntRect(x, y, ICON_SIZE, ICON_SIZE));
 
     }
 

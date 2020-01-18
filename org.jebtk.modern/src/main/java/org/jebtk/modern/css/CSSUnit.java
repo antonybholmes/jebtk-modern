@@ -1,19 +1,22 @@
 package org.jebtk.modern.css;
 
 public enum CSSUnit {
-  CM, MM, IN, PX;
+  NONE, CM, MM, IN, PX, EM, REM, PC;
 
   public static CSSUnit parse(String unit) {
-    unit = unit.toLowerCase();
-
-    if (unit.contains("cm")) {
+    switch (unit.toLowerCase()) {
+    case "cm":
       return CM;
-    } else if (unit.contains("in")) {
+    case "in":
       return IN;
-    } else if (unit.contains("mm")) {
+    case "mm":
       return MM;
-    } else {
+    case "px":
       return PX;
+    case "pc":
+      return PC;
+    default:
+      return NONE;
     }
   }
 }

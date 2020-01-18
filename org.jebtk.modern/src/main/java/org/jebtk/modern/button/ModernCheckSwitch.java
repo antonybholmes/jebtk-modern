@@ -105,7 +105,7 @@ public class ModernCheckSwitch extends CheckBox {
    * @param selected the selected
    */
   public ModernCheckSwitch(String text, boolean selected) {
-    setText(text);
+    super(text);
 
     addStyleClass("content-outline", "check-switch");
 

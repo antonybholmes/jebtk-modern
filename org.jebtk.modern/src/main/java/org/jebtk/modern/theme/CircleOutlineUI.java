@@ -18,6 +18,7 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.graphics.ImageUtils;
 
@@ -32,12 +33,9 @@ public class CircleOutlineUI extends ButtonOutlineUI {
   }
 
   @Override
-  public void outline(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
+  public void outline(ModernComponent c,
+      Graphics2D g2,
+      IntRect rect,
       Object... params) {
     
     if (params.length > 0) {
@@ -47,12 +45,12 @@ public class CircleOutlineUI extends ButtonOutlineUI {
     }
 
     // Allow for antialiasing at edges
-    w = Math.max(w, h) - 2;
+    int w = Math.max(rect.w, rect.h) - 2;
 
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
     try {
-      g2Temp.drawOval(x + 1, y + 1, w, w);
+      g2Temp.drawOval(rect.x + 1, rect.y + 1, w, w);
     } finally {
       g2Temp.dispose();
     }

@@ -2,6 +2,7 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.theme.DrawUIService;
 
@@ -24,12 +25,12 @@ public class CheckBoxSelectedAnimation extends ButtonFillAnimation {
       // getWidget().getWidgetRenderer()
       // .fill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE);
 
-      DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-          widget,
-          x,
+      DrawUIService.getInstance().getRenderer("button-fill").draw(widget,
+          g2,
+          new IntRect(x,
           y,
           ModernCheckBox.ICON_SIZE,
-          ModernCheckBox.ICON_SIZE,
+          ModernCheckBox.ICON_SIZE),
           widget.getToKeyFrame().getColor("background-color"));
 
       // fill(g2,

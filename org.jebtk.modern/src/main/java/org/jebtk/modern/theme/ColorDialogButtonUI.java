@@ -20,6 +20,7 @@ import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 
 /**
@@ -39,19 +40,16 @@ public class ColorDialogButtonUI extends ButtonUI {
   }
 
   @Override
-  public void fill(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
+  public void fill(ModernComponent c,
+      Graphics2D g2,
+      IntRect rect,
       Object... params) {
 
-    GradientPaint gradient = ColorUtils.getVGradient(0, h, C1, C2);
+    GradientPaint gradient = ColorUtils.getVGradient(0, rect.h, C1, C2);
 
     g2.setPaint(gradient);
 
-    super.fill(g2, c, x, y, w, h);
+    super.fill(c, g2, rect);
 
     // g2.setColor(BORDER);
     // outline(g2, x, y, w, h);
