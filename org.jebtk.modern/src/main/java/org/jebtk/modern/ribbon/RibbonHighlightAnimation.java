@@ -21,6 +21,7 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.theme.MaterialService;
+import org.jebtk.modern.theme.ThemeService;
 
 /**
  * Allows for fade in/out animation on an element.
@@ -45,7 +46,8 @@ public class RibbonHighlightAnimation extends HighlightAnimation {
 
     mRibbon = (Ribbon) ribbon;
 
-    setFadeColor("highlight", new Color(242, 242, 242));
+    setFadeColor("highlight", 
+        MaterialService.instance().getColor("gray-highlight")); //new Color(242, 242, 242));
   }
 
   /*

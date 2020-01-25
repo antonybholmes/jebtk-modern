@@ -43,6 +43,7 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -256,7 +257,7 @@ public class ModernWindow extends JFrame
 
     // By default, 
     mContentPanel.setBody(mTabsPane);
-    mContentPanel.setBorder(ModernWidget.BORDER);
+    //mContentPanel.setBorder(ModernWidget.BORDER);
     
     setBody(mContentPanel);
 
@@ -320,7 +321,9 @@ public class ModernWindow extends JFrame
    */
   public void setAppInfo(GuiAppInfo appInfo) {
     mAppInfo = appInfo;
-    setIconImage(new Raster32Icon(getAppInfo().getIcon()).getImage(32));
+    
+    setIconImage(getAppInfo().getIcon().getImage(32));
+
     setTitle(getAppInfo().getName());
   }
 

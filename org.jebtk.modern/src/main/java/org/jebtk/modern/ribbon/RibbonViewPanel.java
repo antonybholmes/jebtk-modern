@@ -15,9 +15,12 @@
  */
 package org.jebtk.modern.ribbon;
 
+import java.awt.Graphics2D;
+
 import javax.swing.Box;
 
 import org.jebtk.modern.BorderService;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.button.ModernButton;
 import org.jebtk.modern.button.ModernClickWidget;
@@ -57,14 +60,14 @@ public class RibbonViewPanel extends ModernPanel {
         "Minimize the ribbon so it takes up less space.");
   }
 
-  /*
-   * @Override public void drawBackground(Graphics2D g2) { fill(g2,
-   * Ribbon.TAB_COLOR);
-   * 
-   * 
-   * //int y = getHeight() - 1; //g2.setColor(Ribbon.BORDER_COLOR);
-   * //g2.drawLine(0, y, getWidth(), y); }
-   */
+  @Override
+  public void drawBackground(Graphics2D g2) {
+    //fill(g2, Ribbon.TAB_COLOR);
+
+    int y = getHeight() - 1;
+    g2.setColor(ModernWidget.LIGHT_LINE_COLOR);
+    g2.drawLine(0, y, getWidth(), y);
+  }
 
   /**
    * Gets the view panel.

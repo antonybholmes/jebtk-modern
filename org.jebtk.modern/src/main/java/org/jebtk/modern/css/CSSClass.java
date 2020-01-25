@@ -1,16 +1,14 @@
-package org.jebtk.modern.theme;
+package org.jebtk.modern.css;
 
 import org.jebtk.core.NameGetter;
-import org.jebtk.modern.css.CSSProps;
 
-public class StyleClass extends CSSProps
-    implements NameGetter {
+public class CSSClass extends CSSProps implements NameGetter {
 
   private static final long serialVersionUID = 1L;
 
   private String mName;
 
-  public StyleClass(String name) {
+  public CSSClass(String name) {
     mName = name;
   }
 

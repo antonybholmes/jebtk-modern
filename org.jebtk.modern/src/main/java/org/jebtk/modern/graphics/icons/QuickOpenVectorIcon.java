@@ -31,6 +31,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
+import org.jebtk.modern.ModernWidget;
+
 /**
  * Vector based save icon.
  * 
@@ -46,7 +48,7 @@ public class QuickOpenVectorIcon extends ModernVectorIcon {
   private Color mColor;
 
   public QuickOpenVectorIcon() {
-    this(Color.WHITE); // Ribbon.BAR_BACKGROUND);
+    this(ModernWidget.TEXT_COLOR); // Ribbon.BAR_BACKGROUND);
   }
 
   public QuickOpenVectorIcon(Color color) {

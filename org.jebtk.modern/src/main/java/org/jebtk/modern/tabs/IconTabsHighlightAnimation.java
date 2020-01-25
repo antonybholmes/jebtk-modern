@@ -15,12 +15,11 @@
  */
 package org.jebtk.modern.tabs;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
+import org.jebtk.modern.theme.ThemeService;
 
 /**
  * Allows for fade in/out animation on an element.
@@ -46,7 +45,7 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
     mTabs = (IconTabs) w;
 
     setFadeColor("highlight",
-        ColorUtils.getTransparentColor(Color.BLACK, 0.95));
+        ThemeService.getInstance().getColors().getGray(3));
   }
 
   /*

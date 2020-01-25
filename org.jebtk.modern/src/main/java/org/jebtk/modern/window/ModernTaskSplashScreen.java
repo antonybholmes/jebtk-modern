@@ -111,8 +111,7 @@ public abstract class ModernTaskSplashScreen extends ModernSplashScreen {
 
     Box box2 = HBox.create();
 
-    ModernImagePanel image = new ModernImagePanel(getAppInfo().getIcon128(),
-        128);
+    ModernImagePanel image = new ModernImagePanel(getAppInfo().getIcon(), 128);
 
     box2.add(image);
 

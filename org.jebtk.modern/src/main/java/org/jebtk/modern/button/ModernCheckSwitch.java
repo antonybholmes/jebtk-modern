@@ -112,6 +112,8 @@ public class ModernCheckSwitch extends CheckBox {
     setAnimations("check-switch");
 
     setSelected(selected);
+    
+    setSize();
   }
 
   public ModernCheckSwitch(String text, boolean selected, Color color) {

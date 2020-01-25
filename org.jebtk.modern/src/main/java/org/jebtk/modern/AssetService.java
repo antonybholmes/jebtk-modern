@@ -234,13 +234,13 @@ public class AssetService {
     return map.get(iconSize).get(name);
   }
   
-  public ImageView loadFxIcon(String name, int size) {
-    return new ImageView(loadIcon(name, size).getFxImage(size));
-  }
-  
-  public <T extends ModernVectorIcon> ImageView loadFxIcon(Class<T> iconClass, int size) {
-    return new ImageView(loadIcon(iconClass, size).getFxImage(size));
-  }
+//  public ImageView loadFxIcon(String name, int size) {
+//    return new ImageView(loadIcon(name, size).getFxImage(size));
+//  }
+//  
+//  public <T extends ModernVectorIcon> ImageView loadFxIcon(Class<T> iconClass, int size) {
+//    return new ImageView(loadIcon(iconClass, size).getFxImage(size));
+//  }
 
   /**
    * Load icon.

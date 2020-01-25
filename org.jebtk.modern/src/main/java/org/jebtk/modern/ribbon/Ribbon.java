@@ -31,6 +31,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -1064,17 +1065,11 @@ public class Ribbon extends ModernClickWidget
    * 
    * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
    */
-  /*
-   * @Override public void drawBackground(Graphics2D g2) {
-   * g2.setColor(BAR_BACKGROUND);
-   * 
-   * g2.fillRect(0, 0, getWidth(), TAB_BODY_Y);
-   * 
-   * 
-   * g2.setColor(TAB_COLOR);
-   * 
-   * g2.fillRect(0, TAB_BODY_Y, getWidth(), mToolbarHeight); }
-   */
+
+   //@Override 
+   //public void drawBackground(Graphics2D g2) {
+   //  fill(g2, Color.WHITE);
+   //}
 
   /**
    * @Override public void drawForegroundAA(Graphics2D g2) {

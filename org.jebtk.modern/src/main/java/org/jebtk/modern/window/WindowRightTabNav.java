@@ -25,63 +25,19 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE 
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package org.jebtk.modern.graphics.icons;
+package org.jebtk.modern.window;
 
-import java.awt.color.ColorSpace;
-import java.awt.image.BufferedImage;
-import java.awt.image.BufferedImageOp;
-import java.awt.image.ColorConvertOp;
-import java.io.IOException;
+import org.jebtk.modern.contentpane.ModernHContentPane;
+import org.jebtk.modern.tabs.TabsModel;
 
-/**
- * Rastorizes an icon (for example a vector based on) to reduce drawing
- * overhead.
- * 
- * @author Antony Holmes
- */
-public class GrayScaleIcon extends RasterIcon {
 
-  public GrayScaleIcon(ModernIcon icon) throws IOException {
-    super(convert(icon));
-  }
-
+public class WindowRightTabNav extends WindowTabNav {
   /**
-   * Convert.
+   * Instantiates a new modern dialog window.
    *
-   * @param icon the icon
-   * @return the modern icon
-   * @throws IOException 
+   * @param parent the parent
    */
-  public static ModernIcon convert(ModernIcon icon) throws IOException {
-    BufferedImage image = convert(icon.getImage(icon.getHeight()));
-
-    if (image == null) {
-      return null;
-    }
-
-    return new RasterIcon(image);
-  }
-
-  /**
-   * Convert.
-   *
-   * @param image the image
-   * @return the image
-   */
-  public static BufferedImage convert(BufferedImage image) {
-    if (image == null) {
-      return null;
-    }
-
-    // ImageFilter filter = new GrayFilter(true, 50);
-    // ImageProducer producer = new FilteredImageSource(image.getSource(),
-    // filter);
-    // Image grayImg = Toolkit.getDefaultToolkit().createImage(producer);
-
-    BufferedImageOp op = new ColorConvertOp(
-        ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
-    BufferedImage grayImage = op.filter(image, null);
-
-    return grayImage;
+  public WindowRightTabNav(ModernHContentPane tabsPane) {
+    super("Right Tabs", TabsModel.RIGHT_TABS, tabsPane);
   }
 }

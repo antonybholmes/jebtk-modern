@@ -70,15 +70,13 @@ public class IconTabsIconAnimation extends WidgetAnimation {
     int yoffset = (mTabs.getHeight() - is) / 2;
 
     for (int i = 0; i < n; ++i) {
-      if (i != selectedIndex) {
-        icon = mTabs.getTabsModel().getTab(i).getIcon();
+      icon = mTabs.getTabsModel().getTab(i).getIcon();
 
-        int x1 = x + offset;
+      int x1 = x + offset;
 
-        Color color = ICON_COLOR;
+      Color color = ICON_COLOR;
 
-        icon.drawIcon(g2, x1, yoffset, is, is, color);
-      }
+      icon.drawImage(g2, x1, yoffset, is, is, color);
 
       x += ts;
     }

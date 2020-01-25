@@ -45,10 +45,6 @@ public class GuiAppInfo extends AppInfo {
    */
   private ModernIcon mIcon;
 
-  /**
-   * The member large icon.
-   */
-  private ModernIcon mIcon128;
 
   public GuiAppInfo(String name) {
     this(name, AppVersion.DEFAULT_VERSION, null, null);
@@ -64,8 +60,7 @@ public class GuiAppInfo extends AppInfo {
    */
   public GuiAppInfo(String name, AppVersion version, String copyright,
       ModernIcon icon) {
-    this(name, version, copyright, icon, icon,
-        name.toLowerCase().replaceAll("\\s", "_"), null);
+    this(name, version, copyright, icon, name.toLowerCase().replaceAll("\\s", "_"), null);
   }
 
   /**
@@ -76,40 +71,11 @@ public class GuiAppInfo extends AppInfo {
    * @param copyright the copyright
    * @param icon the icon
    * @param largeIcon the large icon
-   */
-  public GuiAppInfo(String name, AppVersion version, String copyright,
-      ModernIcon icon, ModernIcon largeIcon) {
-    this(name, version, copyright, icon, largeIcon,
-        name.toLowerCase().replaceAll("\\s", ""), null);
-  }
-
-  /**
-   * Instantiates a new application information.
-   *
-   * @param name the name
-   * @param version the version
-   * @param copyright the copyright
-   * @param icon the icon
    * @param description the description
    */
   public GuiAppInfo(String name, AppVersion version, String copyright,
       ModernIcon icon, String description) {
-    this(name, version, copyright, icon, icon, description);
-  }
-
-  /**
-   * Instantiates a new application information.
-   *
-   * @param name the name
-   * @param version the version
-   * @param copyright the copyright
-   * @param icon the icon
-   * @param largeIcon the large icon
-   * @param description the description
-   */
-  public GuiAppInfo(String name, AppVersion version, String copyright,
-      ModernIcon icon, ModernIcon largeIcon, String description) {
-    this(name, version, copyright, icon, largeIcon,
+    this(name, version, copyright, icon,
         name.toLowerCase().replaceAll("[\\.\\s]", ""), description);
   }
 
@@ -125,12 +91,11 @@ public class GuiAppInfo extends AppInfo {
    * @param description the description
    */
   public GuiAppInfo(String name, AppVersion version, String copyright,
-      ModernIcon icon, ModernIcon icon128, String helpName,
+      ModernIcon icon, String helpName,
       String description) {
     super(name, version, copyright, helpName, description);
 
-    mIcon = new MultiResIcon(icon);
-    mIcon128 = icon128;
+    mIcon = icon;
   }
 
   /**
@@ -140,14 +105,5 @@ public class GuiAppInfo extends AppInfo {
    */
   public ModernIcon getIcon() {
     return mIcon;
-  }
-
-  /**
-   * Gets the large icon.
-   *
-   * @return the large icon
-   */
-  public ModernIcon getIcon128() {
-    return mIcon128;
   }
 }

@@ -28,14 +28,17 @@
 package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
-import javax.swing.ImageIcon;
+import javax.imageio.ImageIO;
 
 import org.jebtk.modern.graphics.ImageUtils;
-
-import javafx.scene.image.Image;
 
 /**
  * The class ModernImageIcon.
@@ -45,10 +48,12 @@ public class ModernImageIcon extends ModernIcon {
   /**
    * The member buffered image.
    */
-  private BufferedImage mBufferedImage;
+
   private URL mUrl;
   private int mSize;
-  private Image mImage;
+  private Map<Integer, BufferedImage> mBufMap = 
+      new HashMap<Integer, BufferedImage>();
+  private BufferedImage mBuffered;
 
   public ModernImageIcon(URL url, int size) {
     mUrl = url;
@@ -72,8 +77,10 @@ public class ModernImageIcon extends ModernIcon {
     x = x + (w - mSize) / 2;
     y = y + (h - mSize) / 2;
 
-    g2.drawImage(getImage(mSize, params), x, y, null);
+    drawImage(g2, x, y, w);
   }
+  
+  
 
   /*
    * (non-Javadoc)
@@ -102,63 +109,75 @@ public class ModernImageIcon extends ModernIcon {
    */
   @Override
   public BufferedImage getImage(int w, Object... params) {
-    if (mBufferedImage == null) {
-      mBufferedImage = ImageUtils.createImage(mSize, mSize);
-
-      Graphics2D g2 = (Graphics2D) mBufferedImage.createGraphics();
-
-      Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
-
+    if (mBuffered == null) {
       try {
-
-        java.awt.Image image = new ImageIcon(mUrl).getImage();
-
-        w = image.getWidth(null);
-        
-        if (w == mSize) {
-          g2Temp.drawImage(image, 0, 0, null);
-        } else {
-          // scale
-          ImageUtils.setQualityHints(g2Temp);
-         
-
-     
-          /*
-          g2Temp.drawImage(image,
-              0,
-              0,
-              mSize,
-              mSize,
-              0,
-              0,
-              w,
-              image.getHeight(null),
-              null);
-          */
-          
-          g2Temp.drawImage(image,
-              0,
-              0,
-              mSize,
-              mSize,
-              null);
-        }
-
-      } finally {
-        g2Temp.dispose();
+        mBuffered = ImageIO.read(mUrl);
+      } catch (IOException e) {
+        e.printStackTrace();
       }
     }
-
-    return mBufferedImage;
-  }
-
-  @Override
-  public javafx.scene.image.Image getFxImage(int w) {
-    if (mImage == null) {
-      mImage = new javafx.scene.image.Image(mUrl.toString(), mSize, mSize, true,
-          true);
+    
+    // If we want the image at its native resolution, return the buffered copy
+    if (w == mSize) {
+      return mBuffered;
+    }
+    
+    // Scale image and cache at other resolutions
+    if (!mBufMap.containsKey(w)) {
+      
+      double f = (double)w / mSize;
+      
+      BufferedImage buf = ImageUtils.createImage(w, w);
+      
+      AffineTransform at = AffineTransform.getScaleInstance(f, f);
+      //AffineTransformOp ato = new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC);
+      //ato.filter(mBuffered, buf);
+      
+      Graphics2D g2 = (Graphics2D) buf.createGraphics();
+      ImageUtils.setQualityHints(g2);
+      
+      try {
+        g2.drawRenderedImage(mBuffered, at);
+      } finally {
+        g2.dispose();
+      }
+      
+//      
+//      
+//      
+//
+//      Graphics2D g2 = (Graphics2D) buf.createGraphics();
+//
+//      //Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
+//
+//      ImageUtils.setQualityHints(g2);
+//      
+//      System.err.println("scale " + this + " " + w);
+//      
+//      try {
+//        g2.drawImage(mBuffered,
+//                0,
+//                0,
+//                w,
+//                w,
+//                null);
+//      } finally {
+//        g2.dispose();
+//      }
+      
+      mBufMap.put(w, buf);
     }
 
-    return mImage;
+    return mBufMap.get(w);
   }
+
+//  @Override
+//  public javafx.scene.image.Image getFxImage(int w) {
+//    if (mImage == null) {
+//      mImage = new javafx.scene.image.Image(mUrl.toString(), mSize, mSize, true,
+//          true);
+//    }
+//
+//    return mImage;
+//  }
 }

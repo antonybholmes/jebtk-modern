@@ -82,7 +82,7 @@ public abstract class RotationAnimation extends TimerAnimation {
       mStep = MAX_INDEX;
     }
 
-    start();
+    super.restart();
   }
 
   @Override
@@ -126,7 +126,9 @@ public abstract class RotationAnimation extends TimerAnimation {
     }
   }
 
-  public abstract void drawRotation(ModernWidget widget,
+  public void drawRotation(ModernWidget widget,
       Graphics2D g2,
-      Object... params);
+      Object... params) {
+    
+  }
 }

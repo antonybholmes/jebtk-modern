@@ -88,7 +88,7 @@ public class ModernAboutDialog extends ModernDialogMultiCardWindow {
 
     Box box = HBox.create();
 
-    ModernImagePanel image = new ModernImagePanel(product.getIcon128(), 128);
+    ModernImagePanel image = new ModernImagePanel(product.getIcon(), 128);
 
     image.setAlignmentY(TOP_ALIGNMENT);
     box.add(image);

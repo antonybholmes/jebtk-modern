@@ -8,9 +8,8 @@ import org.jebtk.core.IdProperty;
 import org.jebtk.core.Properties;
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.UniqueArrayListCreator;
-import org.jebtk.modern.theme.StyleClass;
 
-public class CSSKeyFrame extends StyleClass implements IdProperty {
+public class CSSKeyFrame extends CSSClass implements IdProperty {
 
   /**
    * 

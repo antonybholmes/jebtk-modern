@@ -29,6 +29,7 @@ package org.jebtk.modern.window;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
+import java.io.IOException;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -85,7 +86,8 @@ public class ModernFloatingWindow extends JFrame {
 
     super.getContentPane().add(mContentPanel, BorderLayout.CENTER);
 
-    setIconImage(new Raster32Icon(appInfo.getIcon()).getImage(32));
+    setIconImage(appInfo.getIcon().getImage(32));
+    
     setTitle(appInfo.getName());
   }
 

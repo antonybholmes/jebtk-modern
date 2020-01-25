@@ -196,7 +196,9 @@ public class ModernRibbonWindow extends ModernWindow {
   /** The m status bar. */
   protected ModernStatusBar mStatusBar = new ModernStatusBar();
 
-  private WindowLeftTabNav mIconTabs;
+  private WindowTabNav mIconTabs;
+  
+  private WindowTabNav mIconTabsRight;
 
   /**
    * Instantiates a new modern window2.
@@ -232,6 +234,7 @@ public class ModernRibbonWindow extends ModernWindow {
     setTitle(getTitle());
 
     mIconTabs = new WindowLeftTabNav(tabsPane());
+    mIconTabsRight = new WindowRightTabNav(tabsPane());
   }
 
   /**
@@ -300,8 +303,12 @@ public class ModernRibbonWindow extends ModernWindow {
    * 
    * @return
    */
-  public WindowLeftTabNav getIconTabs() {
+  public WindowTabNav getIconTabs() {
     return mIconTabs;
+  }
+  
+  public WindowTabNav getIconTabsRight() {
+    return mIconTabsRight;
   }
 
   /**

@@ -33,6 +33,8 @@ import java.awt.geom.Area;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Rectangle2D;
 
+import org.jebtk.modern.ModernWidget;
+
 /**
  * Vector based save icon.
  * 
@@ -48,7 +50,7 @@ public class QuickSaveVectorIcon extends ModernVectorIcon {
   private Color mColor;
 
   public QuickSaveVectorIcon() {
-    this(Color.WHITE); // Ribbon.BAR_BACKGROUND);
+    this(ModernWidget.TEXT_COLOR); // Ribbon.BAR_BACKGROUND);
   }
 
   public QuickSaveVectorIcon(Color color) {

@@ -28,8 +28,14 @@
 package org.jebtk.modern.graphics.icons;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.jebtk.modern.graphics.ImageUtils;
 
 /**
  * Represents a vector icon that uses graphics primitives to create a scalable
@@ -93,6 +99,9 @@ public abstract class ModernVectorIcon extends ModernIcon {
   public static final ModernIcon RIGHT_16_ICON = new Raster16Icon(
       new HideRightVectorIcon());
 
+  private Map<Integer, BufferedImage> mBufMap = 
+      new HashMap<Integer, BufferedImage>();
+
   /**
    * Returns -1 since a vector icon has no intrinsic width.
    *
@@ -112,8 +121,29 @@ public abstract class ModernVectorIcon extends ModernIcon {
   public int getHeight() {
     return -1;
   }
+
+
+  @Override
+  public BufferedImage getImage(int w, Object... params) {
+    if (!mBufMap.containsKey(w)) {
+      BufferedImage buf = ImageUtils.createImage(w, w);
+
+      Graphics2D g2 = (Graphics2D) buf.createGraphics();
   
-  
+      ImageUtils.setQualityHints(g2);
+
+      try {
+        drawIcon(g2, w);
+      } finally {
+        g2.dispose();
+      }
+
+      mBufMap.put(w, buf);
+    }
+
+    return mBufMap.get(w);
+  }
+
 
   //
   // Static methods

@@ -57,7 +57,6 @@ public abstract class CSSBaseUI extends DrawUI {
 
     if (rounding > 0) {
       if (rect.w == rect.h && rounding >= rect.h / 2) {
-        System.err.println("circle");
         g2.fillOval(rect.x, rect.y, rect.w - 1, rect.w - 1);
       } else {
         int d = rounding * 2;

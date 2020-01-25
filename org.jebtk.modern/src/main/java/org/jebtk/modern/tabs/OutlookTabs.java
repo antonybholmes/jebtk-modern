@@ -67,7 +67,7 @@ public class OutlookTabs extends TabsController {
     
     setLayout(new VBoxAutoWidthLayout());
     
-    setBorder(BORDER);
+    //setBorder(BORDER);
   }
   
   @Override

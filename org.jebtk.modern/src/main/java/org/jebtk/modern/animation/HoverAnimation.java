@@ -146,7 +146,6 @@ public abstract class HoverAnimation extends TimerAnimation {
    * Animate mouse exited.
    */
   public void animateMouseExited() {
-    System.err.println("exiting " + getWidget());
     repaint();
   }
 
@@ -155,8 +154,6 @@ public abstract class HoverAnimation extends TimerAnimation {
    * requiring an actual mouse event
    */
   public void pseudoMouseExited() {
-    System.err.println("ps exiting " + getWidget());
-    
     mHoverMode = false;
     
     stop();

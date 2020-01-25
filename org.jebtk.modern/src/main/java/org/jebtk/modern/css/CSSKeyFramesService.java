@@ -47,7 +47,6 @@ import org.jebtk.core.io.FileUtils;
 import org.jebtk.core.io.PathUtils;
 import org.jebtk.core.text.TextUtils;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.theme.StyleClass;
 import org.jebtk.modern.theme.ThemeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -192,8 +191,8 @@ public class CSSKeyFramesService {
   private static final Path DEFAULT_XML_FILE = PathUtils
       .getPath("res/style.xml");
 
-  private Map<Integer, IterMap<String, StyleClass>> mStyleMap = DefaultHashMap
-      .create(new HashMapCreator<String, StyleClass>());
+  private Map<Integer, IterMap<String, CSSClass>> mStyleMap = DefaultHashMap
+      .create(new HashMapCreator<String, CSSClass>());
 
   private boolean mAutoLoad = true;
 
@@ -312,17 +311,17 @@ public class CSSKeyFramesService {
    * @param name
    * @return
    */
-  public StyleClass getStyleClass(String name) {
+  public CSSClass getStyleClass(String name) {
     return getStyleClass(CSSKeyFrames.FROM, name);
   }
 
-  public StyleClass getToStyleClass(String name) {
+  public CSSClass getToStyleClass(String name) {
     return getStyleClass(CSSKeyFrames.TO, name);
   }
 
-  public StyleClass getStyleClass(int frame, String name) {
+  public CSSClass getStyleClass(int frame, String name) {
     if (!contains(frame, name)) {
-      getStyleClass(frame).put(name, new StyleClass(name));
+      getStyleClass(frame).put(name, new CSSClass(name));
     }
 
     return getStyleClass(frame).get(name);
@@ -339,7 +338,7 @@ public class CSSKeyFramesService {
     return getStyleClass(frame).containsKey(name);
   }
 
-  public Map<String, StyleClass> getStyleClass(int frame) {
+  public Map<String, CSSClass> getStyleClass(int frame) {
     autoLoad();
 
     return mStyleMap.get(frame);
@@ -349,7 +348,7 @@ public class CSSKeyFramesService {
     getStyleClass(COMPONENT).set(name, o);
   }
 
-  public StyleClass getCompStyleClass() {
+  public CSSClass getCompStyleClass() {
     return getStyleClass(COMPONENT);
   }
 

@@ -28,10 +28,14 @@
 package org.jebtk.modern.tabs;
 
 import java.util.Iterator;
+import java.util.Map.Entry;
 
 import javax.swing.JComponent;
 
 import org.jebtk.core.collections.CollectionUtils;
+import org.jebtk.core.collections.DefaultHashMap;
+import org.jebtk.core.collections.EntryCreator;
+import org.jebtk.core.collections.IterMap;
 import org.jebtk.modern.contentpane.CenterTab;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
@@ -52,21 +56,35 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * The constant CENTER_PANE.
    */
   public static final String CENTER_PANE = "center_pane";
+  
+  public static final String CENTER_TABS = "center_tabs";
+  public static final String LEFT_TABS = "left_tabs";
+  public static final String RIGHT_TABS = "right_tabs";
 
+  private IterMap<String, Tabs> mTabsMap = 
+      DefaultHashMap.create(new EntryCreator<Tabs>() {
+
+        @Override
+        public Tabs newEntry() {
+          return new Tabs();
+        }
+      });
+  
+  
   /**
    * The member left tabs.
    */
-  private Tabs mLeftTabs = new Tabs();
+  //private Tabs mLeftTabs = new Tabs();
 
   /**
    * The member right tabs.
    */
-  private Tabs mRightTabs = new Tabs();
+  //private Tabs mRightTabs = new Tabs();
 
   /**
    * The member center tab.
    */
-  private Tab mCenterTab = null;
+  //private Tab mCenterTab = null;
 
   // private Map<String, Integer> mNameIndexMap = new HashMap<String,
   // Integer>();
@@ -147,8 +165,8 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
   public TabsModel() {
     TabEvents te = new TabEvents();
 
-    mLeftTabs.addTabListener(te);
-    mRightTabs.addTabListener(te);
+    tabSet(LEFT_TABS).addTabListener(te);
+    tabSet(RIGHT_TABS).addTabListener(te);
   }
 
   /**
@@ -158,12 +176,12 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @return the tab
    */
   public Tab getTab(int i) {
-    if (i == mLeftTabs.size()) {
-      return mCenterTab;
-    } else if (i > mLeftTabs.size()) {
-      return mRightTabs.get(i - mLeftTabs.size() - 1);
+    if (i == tabSet(LEFT_TABS).size()) {
+      return centerTab();
+    } else if (i > tabSet(LEFT_TABS).size()) {
+      return tabSet(RIGHT_TABS).get(i - tabSet(LEFT_TABS).size() - 1);
     } else {
-      return mLeftTabs.get(i);
+      return tabSet(LEFT_TABS).get(i);
     }
   }
 
@@ -252,7 +270,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @param tab the new center tab
    */
   public void setCenterTab(Tab tab) {
-    mCenterTab = tab;
+    tabSet(CENTER_TABS).replace(tab);
 
     tab.addTabListener(new TabEvents());
 
@@ -266,7 +284,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @return the index of
    */
   public int getIndexOf(String name) {
-    return mLeftTabs.indexOf(name);
+    return tabSet(LEFT_TABS).indexOf(name);
   }
 
   /**
@@ -284,7 +302,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @param index the index
    */
   public void changeTab(int index) {
-    index = CollectionUtils.cyclicIndex(index, mLeftTabs.size());
+    index = CollectionUtils.cyclicIndex(index, tabSet(LEFT_TABS).size());
 
     //System.err.println("change tab " + index + " " + mSelectedIndex);
 
@@ -347,7 +365,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @return the tab count
    */
   public int getTabCount() {
-    return mLeftTabs.size();
+    return tabSet(LEFT_TABS).size();
   }
 
   /**
@@ -356,17 +374,18 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @param tab the tab
    */
   public void removeTab(String tab) {
-    mLeftTabs.remove(tab);
-    mRightTabs.remove(tab);
+    for (Entry<String, Tabs> entry : mTabsMap) {
+      entry.getValue().remove(tab);
+    }
   }
 
   /**
    * Removes the all tabs.
    */
   public void removeAllTabs() {
-    mLeftTabs.clear();
-    mRightTabs.clear();
-    mCenterTab = null;
+    for (Entry<String, Tabs> entry : mTabsMap) {
+      entry.getValue().clear();
+    }
 
     selectedTab = null;
     mSelectedIndex = -1;
@@ -381,7 +400,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    */
   @Override
   public Iterator<Tab> iterator() {
-    return mLeftTabs.iterator();
+    return tabSet(LEFT_TABS).iterator();
   }
 
   /**
@@ -390,7 +409,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @return the left tabs
    */
   public Tabs left() {
-    return mLeftTabs;
+    return tabSet(LEFT_TABS);
   }
 
   /**
@@ -399,7 +418,11 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @return the right tabs
    */
   public Tabs right() {
-    return mRightTabs;
+    return tabSet(RIGHT_TABS);
+  }
+  
+  public Tabs tabSet(String name) {
+    return mTabsMap.get(name);
   }
 
   /**
@@ -408,7 +431,7 @@ public class TabsModel extends TabEventListeners implements Iterable<Tab> {
    * @return the center tab
    */
   public Tab centerTab() {
-    return mCenterTab;
+    return tabSet(CENTER_TABS).get(0);
   }
 
   /**

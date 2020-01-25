@@ -37,8 +37,8 @@ public class TabPanel extends ModernComponent {
   private static final long serialVersionUID = 1L;
 
   public TabPanel(String name, Component c) {
-    setHeader(new ModernSubHeadingLabel(name, BOTTOM_BORDER));
+    setHeader(new ModernSubHeadingLabel(name, BORDER));
     setBody(c);
-    setBorder(BORDER);
+    //setBorder(BORDER);
   }
 }

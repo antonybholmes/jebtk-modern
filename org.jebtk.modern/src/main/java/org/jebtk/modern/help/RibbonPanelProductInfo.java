@@ -97,8 +97,6 @@ public class RibbonPanelProductInfo extends RibbonMenuPanel
     box.add(UI.createVGap(40));
 
     Box box2 = HBox.create();
-    
-    System.err.println("prod info " + product.getIcon128().getWidth());
 
     ModernImagePanel image = new ModernImagePanel(product.getIcon(), 128,
         64);

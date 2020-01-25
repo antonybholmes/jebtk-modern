@@ -94,6 +94,8 @@ public class RibbonHighlightTextAnimation extends HighlightAnimation {
     //
 
     // x = mTabStartX;
+    
+    //g2.setFont(ModernWidget.BOLD_FONT);
 
     for (int i = 0; i < mRibbon.mTitles.size(); ++i) {
       x = mRibbon.mTabStartX + mRibbon.mTabStarts.get(i);

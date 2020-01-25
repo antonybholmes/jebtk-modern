@@ -27,90 +27,17 @@
  */
 package org.jebtk.modern.window;
 
-import javax.swing.JComponent;
-
-import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.contentpane.ModernHContentPane;
-import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.panel.AutoHidePanel;
-import org.jebtk.modern.tabs.IconTabsVectorIcon;
-import org.jebtk.modern.tabs.OutlookTabsPanel;
 import org.jebtk.modern.tabs.TabsModel;
 
 
-public class WindowLeftTabNav {
-
-  private TabsModel mLeftTabsModel;
-
-  private OutlookTabsPanel mViewPanel;
-
-  private ModernHContentPane mTabsPane;
-
+public class WindowLeftTabNav extends WindowTabNav {
   /**
    * Instantiates a new modern dialog window.
    *
    * @param parent the parent
    */
   public WindowLeftTabNav(ModernHContentPane tabsPane) {
-    mTabsPane = tabsPane;
-  }
-
-  /**
-   * Return the default tabs pane available in the dialog to create horizontally
-   * tabbed layouts such as a side bar and main panel.
-   * 
-   * @return
-   */
-  public ModernHContentPane getTabsPane() {
-    return mTabsPane;
-  }
-
-  public void addTab(String name, char t, JComponent c) {
-    addTab(name, new IconTabsVectorIcon(t), c);
-  }
-
-  /**
-   * Create a left pane with editable tabs to conserve space.
-   * 
-   * @param name
-   * @param icon
-   * @param c
-   */
-  public void addTab(String name, ModernIcon icon, JComponent c) {
-    getModel().addTab(name, icon, c);
-
-    addPane();
-  }
-
-  public TabsModel getModel() {
-    if (mLeftTabsModel == null) {
-      mLeftTabsModel = new TabsModel();
-      mViewPanel = new OutlookTabsPanel(mLeftTabsModel); //new IconTabsVertPanel(mLeftTabsModel, 40, 22);
-    }
-
-    return mLeftTabsModel;
-  }
-
-  /**
-   * Create the left pane to hold the left tabs if it does not exist.
-   */
-  public void addPane() {
-    if (getTabsPane().tabs().containsTab("Left Tabs")) {
-      return;
-    }
-
-    getTabsPane().tabs().left().add("Left Tabs",
-        new AutoHidePanel(mViewPanel, 100),
-        200,
-        ModernWidget.WIDGET_HEIGHT,
-        500);
-  }
-
-  public void changeTab(int index) {
-    getModel().changeTab(index);
-  }
-
-  public void removeTab(String name) {
-    getModel().removeTab(name);
+    super("Left Tabs", TabsModel.LEFT_TABS, tabsPane);
   }
 }

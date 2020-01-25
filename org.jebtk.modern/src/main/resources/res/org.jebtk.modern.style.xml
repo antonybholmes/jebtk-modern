@@ -137,7 +137,7 @@
     </class>
 
 		<class name="quick-access-button">
-			<property name="background-color" value="#ffffff40" />
+			<property name="background-color" value="colors.material.gray-highlight" />
 			<property name="border-radius" value="0" />
 		</class>
 		

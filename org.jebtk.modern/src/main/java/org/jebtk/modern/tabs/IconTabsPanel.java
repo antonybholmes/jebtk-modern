@@ -36,7 +36,7 @@ public class IconTabsPanel extends ModernComponent {
   public IconTabsPanel(TabsModel model, int tabSize, int iconSize) {
     
 
-    TabsViewPanel panel = new TabsViewPanel(model, BORDER);
+    TabsViewPanel panel = new TabsViewPanel(model);
     // panel.setBorder(0);
 
     setBody(panel);

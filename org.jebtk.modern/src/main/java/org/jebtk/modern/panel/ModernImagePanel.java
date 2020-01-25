@@ -32,7 +32,6 @@ import java.awt.Graphics2D;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.graphics.icons.RasterIcon;
 
 /**
  * Displays an image.
@@ -50,10 +49,12 @@ public class ModernImagePanel extends ModernComponent {
   /**
    * The member image.
    */
-  private RasterIcon mImage;
+  private ModernIcon mImage;
 
   /** The m size. */
   private int mSize;
+
+  private int mIconSize;
 
   /**
    * Instantiates a new modern image panel.
@@ -92,8 +93,9 @@ public class ModernImagePanel extends ModernComponent {
    * @param iconSize the icon size
    * @param size the size
    */
-  public void setImage(ModernIcon image, int iconSize, int size) {
-    mImage = new RasterIcon(image, size);
+  public void setImage(ModernIcon image, int size, int iconSize) {
+    mImage = image;
+    mIconSize = iconSize;
     mSize = size;
 
     UI.setSize(this, size, size);
@@ -109,9 +111,9 @@ public class ModernImagePanel extends ModernComponent {
    */
   @Override
   public void drawForeground(Graphics2D g2) {
-    int x = (getWidth() - mSize) / 2;
-    int y = (getHeight() - mSize) / 2;
+    int x = (getWidth() - mIconSize) / 2;
+    int y = (getHeight() - mIconSize) / 2;
 
-    mImage.drawIcon(g2, x, y, mSize, mSize);
+    mImage.drawImage(g2, x, y, mIconSize);
   }
 }

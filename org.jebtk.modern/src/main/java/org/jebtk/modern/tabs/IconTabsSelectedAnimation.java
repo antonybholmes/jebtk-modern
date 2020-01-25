@@ -13,36 +13,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jebtk.modern.ribbon;
+package org.jebtk.modern.tabs;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.core.ColorUtils;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
+import org.jebtk.modern.theme.ThemeService;
 
 /**
  * Allows for fade in/out animation on an element.
  *
  * @author Antony Holmes
+ * @param <T>
  */
-public class RibbonAnimation extends WidgetAnimation {
+public class IconTabsSelectedAnimation extends WidgetAnimation {
 
-  private Ribbon mRibbon;
+  protected static final Color HIGHLIGHT_COLOR =
+      ThemeService.getInstance().getColors().getGray(4);
 
-  private static final Color RIBBON_LIGHT_COLOR = ColorUtils
-      .tint(Ribbon.BAR_BACKGROUND, 0.1);
+  private IconTabs mTabs;
 
   /**
    * Instantiates a new state animation.
    *
    * @param ribbon the ribbon
    */
-  public RibbonAnimation(ModernWidget ribbon) {
-    super(ribbon);
+  public IconTabsSelectedAnimation(ModernWidget w) {
+    super((IconTabs) w);
 
-    mRibbon = (Ribbon) ribbon;
+    mTabs = (IconTabs) w;
   }
 
   /*
@@ -54,22 +55,17 @@ public class RibbonAnimation extends WidgetAnimation {
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Object... params) {
 
-    //g2.setColor(Color.WHITE); // Ribbon.BAR_BACKGROUND);
+    int x = mTabs.getInsets().left;
+    int h = mTabs.getInternalRect().getH();
+    int y = mTabs.getInsets().top;
 
-    //g2.fillRect(0, 0, mRibbon.getWidth(), mRibbon.getHeight()); // Ribbon.TAB_BODY_Y);
+    int selected = mTabs.getTabsModel().getSelectedIndex();
 
-    // GradientPaint paint = new GradientPaint(0, 0, RIBBON_LIGHT_COLOR, 0,
-    // Ribbon.TAB_BODY_Y, Ribbon.BAR_BACKGROUND);
-    // g2.setPaint(paint);
-
-    //g2.setColor(Ribbon.BAR_BACKGROUND);
-    //g2.fillRect(0, 0, mRibbon.getWidth(), Ribbon.TAB_BODY_Y);
-
-    // g2.setColor(Ribbon.TAB_COLOR);
-    // g2.fillRect(0, Ribbon.TAB_BODY_Y, mRibbon.getWidth(),
-    // mRibbon.mToolbarHeight);
+    int ts = mTabs.getTabSize();
     
-    g2.setColor(Color.WHITE);
-    g2.fillRect(0, 0, c.getWidth(), c.getHeight());
+    if (selected != -1) {
+      g2.setColor(HIGHLIGHT_COLOR);
+      g2.fillRect(x + ts * selected, y, h, h);
+    }
   }
 }

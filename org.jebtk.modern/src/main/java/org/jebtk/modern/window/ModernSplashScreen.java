@@ -148,7 +148,9 @@ public class ModernSplashScreen extends ModernDialogWindow {
   private void init() {
 
     setUndecorated(true);
+    
     setIconImage(getAppInfo().getIcon().getImage(32));
+    
     setTitle(getAppInfo().getName());
 
     // determine the color of the icon

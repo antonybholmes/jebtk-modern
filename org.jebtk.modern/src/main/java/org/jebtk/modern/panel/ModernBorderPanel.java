@@ -32,7 +32,8 @@ import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 
-import org.jebtk.modern.BorderService;
+import javax.swing.border.Border;
+
 import org.jebtk.modern.ModernWidget;
 
 // TODO: Auto-generated Javadoc
@@ -53,7 +54,7 @@ public class ModernBorderPanel extends ModernWidget {
    * Instantiates a new modern dialog border panel.
    */
   public ModernBorderPanel() {
-    init();
+    init(BORDER);
   }
 
   /**
@@ -64,7 +65,7 @@ public class ModernBorderPanel extends ModernWidget {
   public ModernBorderPanel(LayoutManager layout) {
     super(layout);
 
-    init();
+    init(BORDER);
   }
 
   /**
@@ -72,18 +73,22 @@ public class ModernBorderPanel extends ModernWidget {
    *
    * @param component the component
    */
-  public ModernBorderPanel(Component component) {
-    add(component);
+  public ModernBorderPanel(Component c) {
+    this(c, BORDER);
+  }
+  
+  public ModernBorderPanel(Component c, Border border) {
+    add(c);
 
-    init();
+    init(border);
   }
 
   /**
    * Inits the.
    */
-  private void init() {
+  private void init(Border b) {
     setBackground(Color.WHITE);
-    setBorder(BorderService.getInstance().createBorder(1));
+    setBorder(b);
   }
 
   /*
@@ -93,10 +98,10 @@ public class ModernBorderPanel extends ModernWidget {
    * org.abh.common.ui.widget.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
    */
   @Override
-  public void drawBackground(Graphics2D g2) {
+  public void drawBackgroundAA(Graphics2D g2) {
     fillBackground(g2);
 
-    g2.setColor(LINE_COLOR);
+    g2.setColor(LIGHT_LINE_COLOR);
     g2.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
   }
 }

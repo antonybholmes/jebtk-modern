@@ -90,12 +90,4 @@ public class CollapsePaneExpandAnimation extends RotationAnimation {
       g2Temp.dispose();
     }
   }
-
-  @Override
-  public void drawRotation(ModernWidget widget,
-      Graphics2D g2,
-      Object... params) {
-    // Do nothing
-  }
-
 }

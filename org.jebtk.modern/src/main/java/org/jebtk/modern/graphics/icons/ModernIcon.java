@@ -31,13 +31,11 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 import org.jebtk.core.geom.IntDim;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.graphics.ImageUtils;
-
-import javafx.embed.swing.SwingFXUtils;
-import javafx.scene.image.Image;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -133,7 +131,7 @@ public abstract class ModernIcon {
       int w,
       int h,
       Object... params) {
-    g2.drawImage(getImage(w, params), x, y, null);
+    drawImage(g2, x, y, w);
   }
 
   /**
@@ -154,16 +152,29 @@ public abstract class ModernIcon {
     return -1;
   }
 
-  
-  //public BufferedImage getImage() {
-  //  return getImage(getWidth());
-  //}
+  /**
+   * Draw a rasterized version of the icon at a given location and size.
+   * 
+   * @param g2
+   * @param x
+   * @param y
+   * @param w
+   * @param params
+   */
+  public void drawImage(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      Object... params) {
+    g2.drawImage(getImage(w, params), x, y, null);
+  }
   
   /**
-   * Should return a buffered image of the icon. Note that vector icons will
+   * Returns a buffered image of the icon. Note that vector icons will
    * return null, unless they have been rastorized.
    *
    * @return the image
+   * @throws IOException 
    */
   public BufferedImage getImage(int w, Object... params) {
     return getImage(this, w, params);
@@ -196,13 +207,13 @@ public abstract class ModernIcon {
     return img;
   }
   
-  public Image getFxImage(int w) {
-    return getFxImage(this, w);
-  }
-  
-  public Image getFxImage(ModernIcon icon, int w) {
-    return SwingFXUtils.toFXImage(icon.getImage(w), null);
-  }
+//  public Image getFxImage(int w) {
+//    return getFxImage(this, w);
+//  }
+//  
+//  public Image getFxImage(ModernIcon icon, int w) {
+//    return SwingFXUtils.toFXImage(icon.getImage(w), null);
+//  }
 
   /**
    * Returns a disabled form of the icon. This is stored along with the regular
@@ -212,7 +223,11 @@ public abstract class ModernIcon {
    */
   public ModernIcon getDisabledIcon() {
     if (mDisabledIcon == null) {
-      mDisabledIcon = GrayScaleIcon.convert(this);
+      try {
+        mDisabledIcon = GrayScaleIcon.convert(this);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
     }
 
     return mDisabledIcon;
