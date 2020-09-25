@@ -18,6 +18,7 @@ package org.jebtk.modern.button;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.event.ModernStateEvent;
@@ -82,7 +83,7 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
   @Override
   public void drawTranslation(ModernWidget widget,
       Graphics2D g2,
-      Object... params) {
+      Props props) {
     int s = ModernCheckSwitch.ORB_HEIGHT;
 
     int h = widget.getHeight();

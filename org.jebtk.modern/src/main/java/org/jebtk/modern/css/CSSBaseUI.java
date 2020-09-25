@@ -16,11 +16,10 @@
 package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.theme.DrawUI;
 
 /**
@@ -34,27 +33,22 @@ public abstract class CSSBaseUI extends DrawUI {
   public void fill(ModernComponent c,
       Graphics2D g2,
       IntRect rect,
-      Object... params) {
+      Props props) {
 
-    cssFill(c, g2, rect);
+    cssFill(c, g2, rect, props);
   }
 
-  public static void cssFill(ModernWidget c,
-      Graphics2D g2,
-      Rectangle rect,
-      Object... params) {
-    cssFill(c, g2, rect);
-  }
-
-  public static void cssFill(ModernComponent c, Graphics2D g2, IntRect rect) {
+  public static void cssFill(ModernComponent c, 
+      Graphics2D g2, 
+      IntRect rect,
+      Props props) {
     if (g2.getColor() == null || g2.getColor().getAlpha() == 0) {
       return;
     }
 
-    int rounding = cssRounding(c, rect.h);
+    int rounding = cssRounding(c, Math.min(rect.w, rect.h));
 
-    // System.err.println("round " + rounding + " " + w + " " + h);
-
+    
     if (rounding > 0) {
       if (rect.w == rect.h && rounding >= rect.h / 2) {
         g2.fillOval(rect.x, rect.y, rect.w - 1, rect.w - 1);
@@ -71,22 +65,25 @@ public abstract class CSSBaseUI extends DrawUI {
   public void outline(ModernComponent c,
       Graphics2D g2,
       IntRect rect,
-      Object... params) {
-    cssOutline(c, g2, rect);
+      Props props) {
+    cssOutline(c, g2, rect, props);
   }
 
-  public void cssOutline(ModernComponent c, Graphics2D g2, IntRect rect) {
+  public void cssOutline(ModernComponent c, 
+      Graphics2D g2, 
+      IntRect rect,
+      Props props) {
     if (g2.getColor() == null || g2.getColor().getAlpha() == 0) {
       return;
     }
 
-    int rounding = rounding(c, rect.h);
+    int rounding = rounding(c, Math.min(rect.w, rect.h));
 
     if (rounding > 0) {
       if (rect.w == rect.h && rounding >= rect.h / 2) {
         g2.drawOval(rect.x + 1, rect.y + 1, rect.w - 2, rect.w - 2);
       } else {
-        // radius to diamter
+        // radius to diameter
         int d = rounding * 2;
         g2.drawRoundRect(rect.x, rect.y, rect.w - 1, rect.h - 1, d, d);
       }
@@ -100,20 +97,21 @@ public abstract class CSSBaseUI extends DrawUI {
   }
 
   public static int cssRounding(ModernComponent c, int h) {
-    Object o = getStyle(c).getValue("border-radius");
+    CSSProp p = getStyle(c).getProp("border-radius");
 
     int rounding;
 
-    if (o instanceof Number) {
-      rounding = ((Number) o).intValue();
-    } else if (o instanceof CSSPercentProp) {
-      rounding = Math.min(h,
-          (int) Math.round(((CSSPercentProp) o).getFloat() / 100 * h));
-    } else {
+    switch (p.getType()) {
+    case NUM:
+      rounding = p.getInt();
+      break;
+    case PERCENT:
+      rounding = Math.min(h, (int) Math.round(p.getFloat() / 100 * h));
+      break;
+    default:
       rounding = 0;
+      break;
     }
-
-    // Rounding cannot exceed
 
     return rounding;
   }

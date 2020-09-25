@@ -17,6 +17,7 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateAnimation;
 import org.jebtk.modern.button.ButtonPressedAnimation;
@@ -56,7 +57,7 @@ public class RibbonPressedAnimation extends ButtonPressedAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     // System.err.println("hmm " + isRunning() + " " + isPressed());
 
     if (getStep() == -1) {

@@ -31,6 +31,7 @@ import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.graphics.ImageUtils;
 import org.jebtk.modern.theme.ThemeService;
 
@@ -83,7 +84,7 @@ public class HelpVectorIcon extends ModernMessageIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     int size = w - 2;
 
     int xf = x + (w - size) / 2;

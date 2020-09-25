@@ -33,12 +33,12 @@ public class CSSPillContentUI extends CSSDrawUI {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     
     super.draw(g2, c, x, y, w, h, Color.WHITE);
 
-    if (params.length > 0) {
-      g2.setColor((Color) params[0]);
+    if (props.length > 0) {
+      g2.setColor((Color) props[0]);
     } else {
       g2.setColor(getStyle(c).getColor("border-color"));
     }

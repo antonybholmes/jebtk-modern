@@ -32,6 +32,7 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.Props;
 
 /**
  * The class FolderVectorIcon.
@@ -91,7 +92,7 @@ public class FolderVectorIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     w = Mathematics.makeMult2(w * WIDTH_SCALE);
     h = Mathematics.makeMult2(w * HEIGHT_SCALE);
 

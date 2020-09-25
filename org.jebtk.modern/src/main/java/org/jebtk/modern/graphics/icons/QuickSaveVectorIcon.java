@@ -33,6 +33,7 @@ import java.awt.geom.Area;
 import java.awt.geom.GeneralPath;
 import java.awt.geom.Rectangle2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 
 /**
@@ -70,7 +71,7 @@ public class QuickSaveVectorIcon extends ModernVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
 
     GeneralPath gp = new GeneralPath();
 

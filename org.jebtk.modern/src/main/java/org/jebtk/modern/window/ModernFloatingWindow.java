@@ -29,7 +29,6 @@ package org.jebtk.modern.window;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
-import java.io.IOException;
 
 import javax.swing.JComponent;
 import javax.swing.JFrame;
@@ -37,7 +36,6 @@ import javax.swing.JFrame;
 import org.jebtk.modern.dialog.ModernDialogButtonBox;
 import org.jebtk.modern.dialog.ModernDialogContentPanel;
 import org.jebtk.modern.dialog.ModernDialogStatus;
-import org.jebtk.modern.graphics.icons.Raster32Icon;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.panel.ModernPanel;
 

@@ -17,6 +17,7 @@ package org.jebtk.modern.splitpane;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 
@@ -41,7 +42,7 @@ public class ModernVSplitPaneLineAnimation extends HoverFadeAnimation {
   }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     int x = widget.getInsets().left;
     int h = widget.getInternalRect().getH();
     int y = 0;

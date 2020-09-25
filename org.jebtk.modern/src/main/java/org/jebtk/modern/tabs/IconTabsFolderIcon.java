@@ -31,6 +31,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.Props;
 import org.jebtk.modern.graphics.icons.ModernVectorScalableIcon;
 
 /**
@@ -75,8 +76,8 @@ public class IconTabsFolderIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
-    Color c = (Color) params[0];
+      Props props) {
+    Color c = props.getColor("color");
 
     int wf = Mathematics.makeMult2(w * WIDTH_SCALE);
     int hf = Mathematics.makeMult2(w * HEIGHT_SCALE);

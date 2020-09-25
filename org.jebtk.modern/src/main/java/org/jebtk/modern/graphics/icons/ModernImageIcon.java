@@ -29,35 +29,35 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 import java.awt.geom.AffineTransform;
-import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.imageio.ImageIO;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.graphics.ImageUtils;
 
 /**
  * The class ModernImageIcon.
  */
-public class ModernImageIcon extends ModernIcon {
+public class ModernImageIcon extends MultiResIcon {
 
   /**
    * The member buffered image.
    */
 
-  private URL mUrl;
-  private int mSize;
-  private Map<Integer, BufferedImage> mBufMap = 
-      new HashMap<Integer, BufferedImage>();
+  public final URL mUrl;
+ 
   private BufferedImage mBuffered;
 
-  public ModernImageIcon(URL url, int size) {
+  public ModernImageIcon(URL url) {
     mUrl = url;
-    mSize = size;
+  }
+  
+  @Override
+  public URL getURL() {
+    return mUrl;
   }
 
   /*
@@ -73,11 +73,11 @@ public class ModernImageIcon extends ModernIcon {
       int y,
       int w,
       int h,
-      Object... params) {
-    x = x + (w - mSize) / 2;
-    y = y + (h - mSize) / 2;
+      Props props) {
+    //x = x + (w - getWidth()) / 2;
+    //y = y + (h - getHeight()) / 2;
 
-    drawImage(g2, x, y, w);
+    rasterIcon(g2, x, y, w, h, props);
   }
   
   
@@ -89,7 +89,7 @@ public class ModernImageIcon extends ModernIcon {
    */
   @Override
   public int getWidth() {
-    return mSize;
+    return getImage().getWidth();
   }
 
   /*
@@ -99,16 +99,10 @@ public class ModernImageIcon extends ModernIcon {
    */
   @Override
   public int getHeight() {
-    return mSize;
+    return getImage().getHeight();
   }
-
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
-   */
-  @Override
-  public BufferedImage getImage(int w, Object... params) {
+  
+  public BufferedImage getImage() {
     if (mBuffered == null) {
       try {
         mBuffered = ImageIO.read(mUrl);
@@ -117,15 +111,25 @@ public class ModernImageIcon extends ModernIcon {
       }
     }
     
+    return mBuffered;
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
+   */
+  @Override
+  public BufferedImage getImage(int w, int h, Props props) {
     // If we want the image at its native resolution, return the buffered copy
-    if (w == mSize) {
-      return mBuffered;
+    if (w == getWidth()) {
+      return getImage();
     }
     
     // Scale image and cache at other resolutions
     if (!mBufMap.containsKey(w)) {
       
-      double f = (double)w / mSize;
+      double f = (double)w / getWidth();
       
       BufferedImage buf = ImageUtils.createImage(w, w);
       
@@ -137,39 +141,18 @@ public class ModernImageIcon extends ModernIcon {
       ImageUtils.setQualityHints(g2);
       
       try {
-        g2.drawRenderedImage(mBuffered, at);
+        g2.drawRenderedImage(getImage(), at);
       } finally {
         g2.dispose();
       }
-      
-//      
-//      
-//      
-//
-//      Graphics2D g2 = (Graphics2D) buf.createGraphics();
-//
-//      //Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
-//
-//      ImageUtils.setQualityHints(g2);
-//      
-//      System.err.println("scale " + this + " " + w);
-//      
-//      try {
-//        g2.drawImage(mBuffered,
-//                0,
-//                0,
-//                w,
-//                w,
-//                null);
-//      } finally {
-//        g2.dispose();
-//      }
       
       mBufMap.put(w, buf);
     }
 
     return mBufMap.get(w);
   }
+  
+  
 
 //  @Override
 //  public javafx.scene.image.Image getFxImage(int w) {

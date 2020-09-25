@@ -31,6 +31,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.settings.SettingsService;
 
 /**
@@ -97,7 +98,7 @@ public class OpenFolderVectorIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     double wf = w * WIDTH_SCALE;
     double o = wf * OFFSET;
     double hf = wf * HEIGHT_SCALE;

@@ -115,55 +115,46 @@ public class CSSKeyFramesService {
 
         String v = value.toLowerCase();
 
-        Object o;
+        CSSClass cls = getStyleClass(mKeyFrame, mClass);
 
         if (TextUtils.isInt(v)) {
-          o = Integer.parseInt(v);
+          cls.set(name, Integer.parseInt(v));
         } else if (TextUtils.isDouble(v)) {
-          o = Double.parseDouble(v);
+          cls.set(name, Double.parseDouble(v));
         } else if (v.endsWith("%")) {
-          o = new CSSPercentProp(
-              Integer.parseInt(v.substring(0, v.length() - 1)));
-          System.err.println("pc " + o + " " + name);
+          cls.set(name, new CSSPercentProp(
+              Integer.parseInt(v.substring(0, v.length() - 1))));
         } else if (v.endsWith("px")) {
-          o = Integer.parseInt(v.substring(0, v.length() - 2));
+          cls.set(name, new CSSUnitProp(Integer.parseInt(v.substring(0, v.length() - 2)), CSSUnit.PX));
         } else if (v.equals("true")) {
-          o = true;
+          //cls.set(name, true);
         } else if (v.equals("false")) {
-          o = false;
+          //cls.set(name, false);
         } else {
           if (v.startsWith("#")) {
-            o = ColorUtils.decodeHtmlColor(v);
+            cls.set(name, ColorUtils.decodeHtmlColor(v));
           } else if (v.startsWith("colors.theme32")) {
             int i = Integer.parseInt(v.substring(v.lastIndexOf("-") + 1));
-            o = ThemeService.getInstance().getColors().getTheme32(i);
+            cls.set(name, ThemeService.getInstance().getColors().getTheme32(i));
           } else if (v.startsWith("colors.gray32")) {
             int i = Integer.parseInt(v.substring(v.lastIndexOf("-") + 1));
-            o = ThemeService.getInstance().getColors().getGray32(i);
+            cls.set(name, ThemeService.getInstance().getColors().getGray32(i));
           } else if (v.startsWith("colors.material")) {
-            o = MaterialService.instance().getColor(
-                v.replace("colors.material.", TextUtils.EMPTY_STRING));
+            cls.set(name, MaterialService.instance().getColor(
+                v.replace("colors.material.", TextUtils.EMPTY_STRING)));
           } else if (v.equals("white")) {
-            o = Color.WHITE;
+            cls.set(name, Color.WHITE);
           } else if (v.equals("black")) {
-            o = Color.BLACK;
+            cls.set(name, Color.BLACK);
           } else if (v.equals("red")) {
-            o = Color.RED;
+            cls.set(name, Color.RED);
           } else if (v.equals("blue")) {
-            o = Color.BLUE;
+            cls.set(name, Color.BLUE);
           } else if (v.equals("green")) {
-            o = Color.GREEN;
-          } else if (v.equals("null")) {
-            o = null;
-          } else if (v.equals("none")) {
-            o = null;
+            cls.set(name, Color.GREEN);
           } else {
-            o = value;
+           
           }
-        }
-
-        if (o != null) {
-          getStyleClass(mKeyFrame, mClass).set(name, o);
         }
       }
     }
@@ -344,8 +335,8 @@ public class CSSKeyFramesService {
     return mStyleMap.get(frame);
   }
 
-  public void set(String name, Object o) {
-    getStyleClass(COMPONENT).set(name, o);
+  public void set(String name, CSSProp p) {
+    getStyleClass(COMPONENT).set(name, p);
   }
 
   public CSSClass getCompStyleClass() {

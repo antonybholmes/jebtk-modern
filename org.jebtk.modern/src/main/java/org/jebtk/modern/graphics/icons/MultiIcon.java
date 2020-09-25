@@ -29,9 +29,10 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.jebtk.core.Props;
 
 /**
  * The class MultiIcon.
@@ -81,7 +82,7 @@ public class MultiIcon extends ModernIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     mIcon.drawIcon(g2, x, y, w, h);
   }
 
@@ -111,8 +112,8 @@ public class MultiIcon extends ModernIcon {
    * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
    */
   @Override
-  public BufferedImage getImage(int w, Object... params) {
-    return mIcon.getImage(w, params);
+  public BufferedImage getImage(int w, Props props) {
+    return mIcon.getImage(w, props);
   }
 
 }

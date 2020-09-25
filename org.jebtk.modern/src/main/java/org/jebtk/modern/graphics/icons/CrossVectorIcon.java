@@ -30,6 +30,7 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.settings.SettingsService;
 
 /**
@@ -46,21 +47,21 @@ public class CrossVectorIcon extends ModernVectorScalableIcon {
   /** The m color. */
   private Color mColor;
 
-  /**
-   * Instantiates a new cross vector icon.
-   */
-  public CrossVectorIcon() {
-    this(Color.BLACK);
-  }
-
-  /**
-   * Instantiates a new cross vector icon.
-   *
-   * @param color the color
-   */
-  public CrossVectorIcon(Color color) {
-    mColor = color;
-  }
+//  /**
+//   * Instantiates a new cross vector icon.
+//   */
+//  public CrossVectorIcon() {
+//    this(Color.BLACK);
+//  }
+//
+//  /**
+//   * Instantiates a new cross vector icon.
+//   *
+//   * @param color the color
+//   */
+//  public CrossVectorIcon(Color color) {
+//    mColor = color;
+//  }
 
   /*
    * (non-Javadoc)
@@ -75,8 +76,12 @@ public class CrossVectorIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
+    
+    if (props != null) {
+      g2.setColor(props.getColor("color", Color.BLACK));
+    }
 
     double wf = w * SCALE;
 

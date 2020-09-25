@@ -20,6 +20,7 @@ import java.awt.Graphics2D;
 import java.util.Map;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.core.Props;
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.EntryCreator;
 import org.jebtk.modern.ModernWidget;
@@ -200,7 +201,7 @@ public class FadeAnimation extends EasingAnimation {
   // }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     // TODO Auto-generated method stub
 
   }

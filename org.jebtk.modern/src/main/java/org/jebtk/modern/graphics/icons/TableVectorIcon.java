@@ -30,6 +30,7 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.theme.ThemeService;
 
@@ -83,7 +84,7 @@ public class TableVectorIcon extends ModernVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     double wf = w * WIDTH_SCALE;
     double hf = w * HEIGHT_SCALE;
 

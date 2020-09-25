@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.ModernWidget;
 
@@ -219,6 +220,10 @@ public class Animations extends ChangeListeners
       mAutoLoad = false;
     }
   }
+  
+  public void draw(ModernWidget c, Graphics2D g2) {
+    draw(c, g2, null);
+  }
 
   /*
    * (non-Javadoc)
@@ -227,11 +232,11 @@ public class Animations extends ChangeListeners
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     autoLoad();
 
     for (Object a : mAnimations) {
-      ((Animation) a).draw(c, g2, params);
+      ((Animation) a).draw(c, g2, props);
     }
   }
 

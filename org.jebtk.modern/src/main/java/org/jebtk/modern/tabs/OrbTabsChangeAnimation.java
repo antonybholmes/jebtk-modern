@@ -20,6 +20,7 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateXAnimation;
 
@@ -85,7 +86,7 @@ public class OrbTabsChangeAnimation extends TranslateXAnimation {
   @Override
   public void drawTranslation(ModernWidget widget,
       Graphics2D g2,
-      Object... params) {
+      Props props) {
     int h = mTabs.getInternalRect().getH();
 
     /*

@@ -74,14 +74,18 @@ import org.jebtk.modern.list.ListChangeAnimation;
 import org.jebtk.modern.list.ListHighlightAnimation;
 import org.jebtk.modern.listpanel.ListPanelItemAnimation;
 import org.jebtk.modern.listpanel.ListPanelItemPressedAnimation;
+import org.jebtk.modern.ribbon.RibbonAnimation;
 import org.jebtk.modern.ribbon.RibbonBackAnimation;
 import org.jebtk.modern.ribbon.RibbonBackHighlightAnimation;
+import org.jebtk.modern.ribbon.RibbonChangeAnimation;
 import org.jebtk.modern.ribbon.RibbonDropDownButtonAnimation;
 import org.jebtk.modern.ribbon.RibbonDropDownButtonAnimation2;
+import org.jebtk.modern.ribbon.RibbonHighlightTextAnimation;
 import org.jebtk.modern.ribbon.RibbonLargeOptionalDropDownHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonLargeOptionalDropDownHighlightAnimation2;
 import org.jebtk.modern.ribbon.RibbonMenuHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonMenuPressedAnimation;
+import org.jebtk.modern.ribbon.RibbonPressedAnimation;
 import org.jebtk.modern.ribbon.RibbonSegmentAnimation;
 import org.jebtk.modern.ribbon.RibbonSegmentHighlightAnimation;
 import org.jebtk.modern.ribbon.RibbonSegmentPressedAnimation;
@@ -95,10 +99,8 @@ import org.jebtk.modern.tabs.BlockVertHighlightAnimation;
 import org.jebtk.modern.tabs.BlockVertPressedAnimation;
 import org.jebtk.modern.tabs.BlockVertSelectedAnimation;
 import org.jebtk.modern.tabs.IconTabsAnimation;
-import org.jebtk.modern.tabs.IconTabsChangeAnimation;
 import org.jebtk.modern.tabs.IconTabsHighlightAnimation;
 import org.jebtk.modern.tabs.IconTabsIconAnimation;
-import org.jebtk.modern.tabs.IconTabsSelectedAnimation;
 import org.jebtk.modern.tabs.OrbTabsAnimation;
 import org.jebtk.modern.tabs.OrbTabsChangeAnimation;
 import org.jebtk.modern.tabs.SegmentAnimation;
@@ -180,10 +182,10 @@ public class AnimationService {
 
     get("dialog-flat-button").add(FlatButtonAnimation.class);
 
-    // get("ribbon").add(RibbonAnimation.class)
-    // .add(RibbonPressedAnimation.class)
-    // .add(RibbonChangeAnimation.class)
-    // .add(RibbonHighlightTextAnimation.class);
+     get("ribbon").add(RibbonAnimation.class)
+     .add(RibbonPressedAnimation.class)
+     .add(RibbonChangeAnimation.class)
+     .add(RibbonHighlightTextAnimation.class);
 
     get("segment-tabs")
         // .add(SegmentHighlightAnimation.class)
@@ -198,10 +200,10 @@ public class AnimationService {
 
     get("icon-tabs")
         .add(IconTabsAnimation.class)
-        .add(IconTabsSelectedAnimation.class)
+        //.add(IconTabsSelectedAnimation.class)
         .add(IconTabsHighlightAnimation.class)
-        .add(IconTabsIconAnimation.class)
-        .add(IconTabsChangeAnimation.class);
+        .add(IconTabsIconAnimation.class);
+        //.add(IconTabsChangeAnimation.class);
     
     get("icon-vert-tabs")
     // .add(IconTabsAnimation.class)

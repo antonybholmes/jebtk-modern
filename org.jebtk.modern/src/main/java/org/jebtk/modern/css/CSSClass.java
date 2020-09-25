@@ -21,6 +21,8 @@ public class CSSClass extends CSSProps implements NameGetter {
   public String toString() {
     return getName();
   }
+
+  
   
   
 }

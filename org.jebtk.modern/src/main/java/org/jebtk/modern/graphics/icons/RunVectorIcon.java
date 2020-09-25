@@ -32,6 +32,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.Props;
 import org.jebtk.modern.ribbon.Ribbon;
 
 /**
@@ -70,7 +71,7 @@ public class RunVectorIcon extends ModernVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
 
     double hf = w * SCALE;
     double h2 = hf / 2.0;

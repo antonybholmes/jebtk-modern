@@ -18,6 +18,7 @@ package org.jebtk.modern.animation;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.NameGetter;
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 
 /**
@@ -32,7 +33,7 @@ public interface Animation extends NameGetter {
    *
    * @param widget the widget
    * @param g2 the g 2
-   * @param params the params
+   * @param props the props
    */
-  public void draw(ModernWidget c, Graphics2D g2, Object... params);
+  public void draw(ModernWidget c, Graphics2D g2, Props props);
 }

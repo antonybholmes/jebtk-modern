@@ -2,6 +2,8 @@ package org.jebtk.modern.button;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.theme.DrawUIService;
@@ -12,7 +14,7 @@ public class CheckBoxAnimation extends WidgetAnimation {
   }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     int x = widget.getInsets().left;
     int y = (widget.getHeight() - ModernCheckBox.ICON_SIZE) / 2;
 
@@ -32,10 +34,10 @@ public class CheckBoxAnimation extends WidgetAnimation {
 
     DrawUIService.getInstance().getRenderer("content-box").draw(widget,
         g2,
-        x,
+        new IntRect(x,
         y,
         ModernCheckBox.ICON_SIZE,
-        ModernCheckBox.ICON_SIZE);
+        ModernCheckBox.ICON_SIZE));
     // }
   }
 }

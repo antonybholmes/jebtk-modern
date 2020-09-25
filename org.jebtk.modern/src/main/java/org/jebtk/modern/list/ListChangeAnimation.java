@@ -18,6 +18,7 @@ package org.jebtk.modern.list;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.Props;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
@@ -94,7 +95,7 @@ public class ListChangeAnimation extends TranslateYAnimation {
   @Override
   public void drawTranslation(ModernWidget widget,
       Graphics2D g2,
-      Object... params) {
+      Props props) {
     /*
      * widget.getWidgetRenderer().drawMenu(g2, 0, 0, widget.getWidth(),
      * mTabs.mRowHeight, RenderMode.SELECTED, false);

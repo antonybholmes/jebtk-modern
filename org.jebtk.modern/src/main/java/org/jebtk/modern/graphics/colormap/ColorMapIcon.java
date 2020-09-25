@@ -20,6 +20,7 @@ import java.awt.LinearGradientPaint;
 import java.awt.Rectangle;
 import java.awt.geom.Point2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
 
@@ -58,7 +59,7 @@ public class ColorMapIcon extends ModernVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
 
     w = w - 2;
     h = h / 3;

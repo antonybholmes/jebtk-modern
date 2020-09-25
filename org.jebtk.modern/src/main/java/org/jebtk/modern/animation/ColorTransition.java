@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.colormap.ColorMap;
 
@@ -109,7 +110,7 @@ public class ColorTransition implements Transition {
   // }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     // TODO Auto-generated method stub
 
   }

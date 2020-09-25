@@ -27,37 +27,41 @@
  */
 package org.jebtk.modern.graphics.icons;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.jebtk.core.Props;
-import org.jebtk.core.settings.SettingsService;
-import org.jebtk.modern.graphics.ImageUtils;
 
 /**
- * Search vector icon.
- * 
- * @author Antony Holmes
- *
+ * The class MultiStateIcon represents an icon 
  */
-public class SearchVectorIcon extends ModernVectorIcon {
+public class MultiStateIcon extends ModernIcon {
 
   /**
-   * The constant COLOR.
+   * The member icons.
    */
-  private static final Color COLOR = Color.BLACK; // SettingsService.getInstance().getColor("theme.icons.search-icon.colors.foreground");
+  private Map<String, ModernIcon> mIcons = new TreeMap<String, ModernIcon>();
 
   /**
-   * The constant SCALE.
+   * The member icon.
    */
-  private static final double SCALE = SettingsService.getInstance()
-      .getDouble("theme.icons.search-icon.width-scale");
+  private String mState = "default";
+  
+  
+  public void add(String state, ModernIcon icon) {
+    mIcons.put(state, icon);
+  }
 
   /**
-   * The constant GLASS_SCALE.
+   * Sets the icon.
+   *
+   * @param index the new icon
    */
-  private static final double GLASS_SCALE = SettingsService.getInstance()
-      .getDouble("theme.icons.search-icon.glass-scale");
+  public void setState(String state) {
+    mState = state;
+  }
 
   /*
    * (non-Javadoc)
@@ -73,40 +77,61 @@ public class SearchVectorIcon extends ModernVectorIcon {
       int w,
       int h,
       Props props) {
-
-    Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
-
-    double wf = w * SCALE;
-
-    double w2 = wf * GLASS_SCALE;
-
-    double xf = x + (w - wf) / 2.0;
-    double yf = y + (h - wf) / 2.0;
-
-    try {
-      // g2Temp.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
-      g2Temp.setColor(COLOR);
-
-      double w3 = w2 / 2.0;
-
-      g2Temp.drawLine((int) Math.round(xf + w3),
-          (int) Math.round(yf + w3),
-          (int) Math.round(xf + wf),
-          (int) Math.round(yf + wf));
-
-      g2Temp.setColor(Color.WHITE);
-      g2Temp.fillOval((int) Math.round(xf),
-          (int) Math.round(yf),
-          (int) Math.round(w2),
-          (int) Math.round(w2));
-      g2Temp.setColor(COLOR);
-      g2Temp.drawOval((int) Math.round(xf),
-          (int) Math.round(yf),
-          (int) Math.round(w2),
-          (int) Math.round(w2));
-    } finally {
-      g2Temp.dispose();
-    }
+    getState(mState).drawIcon(g2, x, y, w, h, props);
   }
 
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getWidth()
+   */
+  @Override
+  public int getWidth() {
+    return getState(mState).getWidth();
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getHeight()
+   */
+  @Override
+  public int getHeight() {
+    return getState(mState).getHeight();
+  }
+  
+  @Override
+  public void rasterIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Props props) {
+    getState(mState).rasterIcon(g2, x, y, w, h, props);
+  }
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
+   */
+  @Override
+  public BufferedImage getImage(int w, int h, Props props) {
+    return getState(mState).getImage(w, h, props);
+  }
+  
+  @Override
+  public ModernIcon getDisabledIcon() {
+    return getState(mState).getDisabledIcon();
+  }
+  
+  @Override
+  public ModernIcon getState(String state) {
+    return mIcons.get(state);
+  }
+  
+  @Override
+  public Iterable<String> getStates() {
+    return mIcons.keySet();
+  }
 }

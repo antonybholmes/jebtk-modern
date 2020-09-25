@@ -29,6 +29,7 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.theme.RenderMode;
@@ -54,11 +55,11 @@ public class RadioButtonVectorIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     // WidgetRendererService.getInstance().getRenderer().drawRadio(g2, x, y, w,
     // h);
 
     DrawUIService.getInstance().getRenderer("radio")
-        .draw(g2, new IntRect(x, y, w, h), RenderMode.DISABLED);
+        .draw(g2, new IntRect(x, y, w, h), new Props().set("mode", RenderMode.DISABLED));
   }
 }

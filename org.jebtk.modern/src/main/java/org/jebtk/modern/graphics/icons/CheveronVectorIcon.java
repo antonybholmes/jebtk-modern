@@ -30,7 +30,7 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
-import org.jebtk.modern.ModernWidget;
+import org.jebtk.core.Props;
 
 /**
  * Left arrow vector icon.
@@ -52,21 +52,21 @@ public abstract class CheveronVectorIcon extends ModernVectorIcon {
 
   protected int mW;
 
-  /**
-   * Instantiates a new cheveron vector icon.
-   */
-  public CheveronVectorIcon() {
-    this(ModernWidget.TEXT_COLOR);
-  }
-
-  /**
-   * Instantiates a new cheveron vector icon.
-   *
-   * @param color the color
-   */
-  public CheveronVectorIcon(Color color) {
-    mColor = color;
-  }
+//  /**
+//   * Instantiates a new cheveron vector icon.
+//   */
+//  public CheveronVectorIcon() {
+//    this(ModernWidget.TEXT_COLOR);
+//  }
+//
+//  /**
+//   * Instantiates a new cheveron vector icon.
+//   *
+//   * @param color the color
+//   */
+//  public CheveronVectorIcon(Color color) {
+//    mColor = color;
+//  }
 
   /*
    * (non-Javadoc)
@@ -81,8 +81,13 @@ public abstract class CheveronVectorIcon extends ModernVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
-    g2.setColor(mColor);
+      Props props) {
+    
+    if (props != null) {
+      g2.setColor(props.getColor("color", Color.BLACK));
+    }
+    
+    //g2.setColor(mColor);
 
     mW = (w - 4);
     mC = mW / 2;

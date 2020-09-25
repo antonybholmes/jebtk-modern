@@ -32,6 +32,7 @@ import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.Props;
 
 /**
  * Download arrow vector icon.
@@ -75,7 +76,7 @@ public class DownloadVectorIcon extends ModernVectorColorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
 
     double wf = Mathematics.makeMult2(Math.min(w, h) * 0.75);
     double w2 = wf * 0.5;

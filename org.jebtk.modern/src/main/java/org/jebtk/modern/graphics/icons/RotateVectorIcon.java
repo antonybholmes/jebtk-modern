@@ -17,6 +17,7 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.graphics.ImageUtils;
 
 /**
@@ -54,7 +55,7 @@ public class RotateVectorIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
     try {

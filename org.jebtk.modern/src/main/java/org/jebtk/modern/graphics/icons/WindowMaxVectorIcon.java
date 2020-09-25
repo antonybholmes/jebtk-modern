@@ -31,6 +31,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.Props;
 
 /**
  * The class MaxVectorIcon.
@@ -76,7 +77,7 @@ public class WindowMaxVectorIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
     g2.setColor(mColor);
 

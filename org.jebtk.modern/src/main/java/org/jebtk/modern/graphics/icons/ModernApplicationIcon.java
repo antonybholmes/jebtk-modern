@@ -32,6 +32,7 @@ import java.awt.Font;
 import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ColorTheme;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.ImageUtils;
@@ -106,7 +107,7 @@ public class ModernApplicationIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     
     System.err.println("app icon " + w + " " + h + " " + mText1);
 

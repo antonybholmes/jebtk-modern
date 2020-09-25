@@ -30,6 +30,8 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
+
 /**
  * Left arrow vector icon.
  * 
@@ -38,21 +40,21 @@ import java.awt.Graphics2D;
  */
 public class CheveronLeftVectorIcon extends CheveronVectorIcon {
 
-  /**
-   * Instantiates a new cheveron left vector icon.
-   */
-  public CheveronLeftVectorIcon() {
-    // do nothing
-  }
-
-  /**
-   * Instantiates a new cheveron left vector icon.
-   *
-   * @param color the color
-   */
-  public CheveronLeftVectorIcon(Color color) {
-    super(color);
-  }
+//  /**
+//   * Instantiates a new cheveron left vector icon.
+//   */
+//  public CheveronLeftVectorIcon() {
+//    // do nothing
+//  }
+//
+//  /**
+//   * Instantiates a new cheveron left vector icon.
+//   *
+//   * @param color the color
+//   */
+//  public CheveronLeftVectorIcon(Color color) {
+//    super(color);
+//  }
 
   /*
    * (non-Javadoc)
@@ -67,8 +69,8 @@ public class CheveronLeftVectorIcon extends CheveronVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
-    super.drawIcon(g2, x, y, w, h, params);
+      Props props) {
+    super.drawIcon(g2, x, y, w, h, props);
 
     x += (w - mH) / 2;
     y += (h - mW) / 2;

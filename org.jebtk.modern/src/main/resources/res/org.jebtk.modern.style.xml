@@ -25,6 +25,11 @@
 	<class name="widget">
 		<inherits class="rounded-rect" />
 	</class>
+	
+	<class name="ribbon">
+    <property name="background-color" value="white" />
+    <property name="border-radius" value="0" />
+  </class>
 
 	<class name="card">
 		<property name="border-radius" value="8" />

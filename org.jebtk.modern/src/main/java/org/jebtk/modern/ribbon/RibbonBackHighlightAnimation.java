@@ -17,6 +17,7 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
@@ -44,7 +45,7 @@ public class RibbonBackHighlightAnimation extends HoverFadeAnimation {
   }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     int x = ModernWidget.DOUBLE_PADDING;
     int y = (widget.getHeight() - HEIGHT) / 2;
 

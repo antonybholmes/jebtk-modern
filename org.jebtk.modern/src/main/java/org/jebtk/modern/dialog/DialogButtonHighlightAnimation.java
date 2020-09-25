@@ -21,7 +21,7 @@ public class DialogButtonHighlightAnimation extends ButtonFillAnimation {
 
   /*
    * @Override public void draw(ModernWidget c, Graphics2D g2, Object...
-   * params) { UIDrawService.getInstance().get("button-outline") .draw(g2,
+   * props) { UIDrawService.getInstance().get("button-outline") .draw(g2,
    * widget.getInternalRect(), getFadeColor("outline")); }
    */
 }

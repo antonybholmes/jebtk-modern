@@ -17,6 +17,7 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.button.DropDownButtonAnimation;
@@ -50,7 +51,7 @@ public class RibbonLargeOptionalDropDownHighlightAnimation
    * Graphics2D)
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     if (getWidget().isEnabled()) { // && (getButton().getHightlighted() ||
                                    // getButton().getPopupShown())) {
       IntRect rect = getWidget().getInternalRect();

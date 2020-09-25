@@ -31,6 +31,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.Props;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ThemeService;
 
@@ -103,7 +104,7 @@ public abstract class TriangleVectorIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
 
     mWf = w * WIDTH_SCALE;
 

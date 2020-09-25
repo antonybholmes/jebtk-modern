@@ -27,6 +27,8 @@
  */
 package org.jebtk.modern.graphics.icons;
 
+import org.jebtk.core.Props;
+
 /**
  * Rastorizes an icon to 24x24 pixels.
  * 
@@ -41,6 +43,10 @@ public class Raster24Icon extends RasterIcon {
    * @param icon the icon
    */
   public Raster24Icon(ModernIcon icon) {
-    super(icon, 24);
+    this(icon, null);
+  }
+
+  public Raster24Icon(ModernIcon icon, Props props) {
+    super(icon, 24, props);
   }
 }

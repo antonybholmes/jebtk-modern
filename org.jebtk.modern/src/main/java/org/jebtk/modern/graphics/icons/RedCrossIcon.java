@@ -30,6 +30,8 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
+
 /**
  * The class CloseVectorIcon.
  */
@@ -47,9 +49,9 @@ public class RedCrossIcon extends CrossVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     g2.setColor(Color.RED);
 
-    super.drawIcon(g2, x, y, w, h, params);
+    super.drawIcon(g2, x, y, w, h, props);
   }
 }

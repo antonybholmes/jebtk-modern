@@ -29,6 +29,7 @@ package org.jebtk.modern.ribbon;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.graphics.icons.CrossVectorIcon;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.Raster16Icon;
@@ -47,7 +48,8 @@ public class RibbonTitleBarExitButton extends ModernWindowTitleBarExitButton {
 
   /** The Constant ICON. */
   private static final ModernIcon ICON = new Raster16Icon(
-      new CrossVectorIcon(DARK_LINE_COLOR));
+      new CrossVectorIcon(), 
+      new Props().set("color", DARK_LINE_COLOR));
 
   /**
    * Instantiates a new ribbon title bar exit button.

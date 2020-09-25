@@ -18,6 +18,7 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 
@@ -35,14 +36,14 @@ public class ColorButtonHighlightUI extends ColorButtonUI {
   public void fill(ModernComponent c,
       Graphics2D g2,
       IntRect rect,
-      Object... params) {
+      Props props) {
 
-    if (params.length > 0) {
-      g2.setColor((Color) params[0]);
+    if (props != null) {
+      g2.setColor(props.getColor("color"));
     } else {
       g2.setColor(HIGHLIGHTED_FILL_COLOR);
     }
 
-    super.fill(c, g2, rect);
+    super.fill(c, g2, rect, props);
   }
 }

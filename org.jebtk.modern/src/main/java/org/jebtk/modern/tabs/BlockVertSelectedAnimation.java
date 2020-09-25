@@ -17,6 +17,7 @@ package org.jebtk.modern.tabs;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.theme.MaterialService;
@@ -49,7 +50,7 @@ public class BlockVertSelectedAnimation extends HighlightAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     int x = mTabs.getInsets().left; // + widget.getWidth() -
                                     // SegmentChangeAnimation.HEIGHT;

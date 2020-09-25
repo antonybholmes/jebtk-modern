@@ -17,6 +17,7 @@ package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 
 /**
@@ -35,7 +36,7 @@ public class NoAnimation implements Animation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     // Do nothing
   }
 

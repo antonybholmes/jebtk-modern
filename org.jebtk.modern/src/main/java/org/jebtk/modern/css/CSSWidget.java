@@ -4,7 +4,6 @@ import java.awt.Graphics2D;
 import java.awt.LayoutManager;
 
 import org.jebtk.modern.theme.DrawUI;
-import org.jebtk.modern.theme.DrawUIService;
 import org.jebtk.modern.tooltip.ModernToolTipWidget;
 
 // TODO: Auto-generated Javadoc

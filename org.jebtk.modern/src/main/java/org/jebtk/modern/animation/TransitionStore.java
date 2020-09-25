@@ -17,6 +17,7 @@ package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 
 /**
@@ -25,7 +26,7 @@ import org.jebtk.modern.ModernWidget;
 public class TransitionStore implements Transition {
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     // TODO Auto-generated method stub
     
   }

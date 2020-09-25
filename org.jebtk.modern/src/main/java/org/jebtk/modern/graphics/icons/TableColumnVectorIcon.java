@@ -30,6 +30,7 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.settings.SettingsService;
 
 /**
@@ -66,8 +67,8 @@ public class TableColumnVectorIcon extends TableVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
-    super.drawIcon(g2, x, y, w, h, params);
+      Props props) {
+    super.drawIcon(g2, x, y, w, h, props);
 
     double wf = w * WIDTH_SCALE;
     double hf = wf * HEIGHT_SCALE - 1;

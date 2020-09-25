@@ -28,7 +28,6 @@
 package org.jebtk.modern.window;
 
 import java.awt.Color;
-import java.io.IOException;
 
 import org.jebtk.modern.help.GuiAppInfo;
 

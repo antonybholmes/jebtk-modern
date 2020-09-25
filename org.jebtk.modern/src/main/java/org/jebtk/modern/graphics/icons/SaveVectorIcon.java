@@ -31,6 +31,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.settings.SettingsService;
 
 /**
@@ -93,7 +94,7 @@ public class SaveVectorIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     double wf = w * SCALE;
 
     double corner = wf * CORNER_SCALE;

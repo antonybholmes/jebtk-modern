@@ -3,6 +3,7 @@ package org.jebtk.modern.collapsepane;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.modern.ModernWidget;
@@ -38,7 +39,7 @@ public class CollapsePaneExpandAnimation extends RotationAnimation {
   }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     Rectangle r = new Rectangle(widget.getInsets().left, widget.getInsets().top,
         widget.getWidth() - widget.getInsets().left - widget.getInsets().right,
         mPane.mHeaderHeight);

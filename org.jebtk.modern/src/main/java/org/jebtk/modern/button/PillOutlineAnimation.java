@@ -19,6 +19,8 @@ public class PillOutlineAnimation extends ButtonOutlineAnimation {
     // if (mode == RenderMode.NONE && !hasFocus) {
     // return;
     // }
+    
+    System.err.println("pill " + rect + " " + getFadeColor("outline"));
 
     DrawUIService.getInstance().getRenderer("pill-outline")
         .draw(c, g2, rect, getFadeColor("outline"));

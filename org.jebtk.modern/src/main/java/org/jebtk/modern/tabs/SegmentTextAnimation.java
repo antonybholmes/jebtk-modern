@@ -19,6 +19,7 @@ import java.awt.Graphics2D;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.ribbon.Ribbon;
@@ -68,7 +69,7 @@ public class SegmentTextAnimation extends WidgetAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     int x = mSegments.mLeftOffset;
     int n = mSegments.getTabsModel().getTabCount();

@@ -19,6 +19,7 @@ import java.awt.Graphics2D;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 
 /**
@@ -52,7 +53,7 @@ public abstract class Transitions implements Transition {
   }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     // TODO Auto-generated method stub
 
   }

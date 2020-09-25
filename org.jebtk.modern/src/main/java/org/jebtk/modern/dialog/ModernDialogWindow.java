@@ -38,7 +38,6 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.awt.event.AWTEventListener;
 import java.awt.event.MouseEvent;
-import java.io.IOException;
 
 import javax.swing.JComponent;
 import javax.swing.JDialog;

@@ -31,6 +31,8 @@ import java.awt.Component;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import org.jebtk.core.Props;
+
 /**
  * Flat, minimal chrome implementation of a scroll pane control.
  *
@@ -93,7 +95,7 @@ public class ModernHScrollBarMac extends ModernHScrollBar {
 
     // g2.fillRoundRect(r.x, r.y, r.width, r.height, rounding, rounding);
 
-    getAnimations().draw(this, g2, r, rounding);
+    getAnimations().draw(this, g2, new Props().set("rect", r).set("rounding", rounding));
 
   }
 

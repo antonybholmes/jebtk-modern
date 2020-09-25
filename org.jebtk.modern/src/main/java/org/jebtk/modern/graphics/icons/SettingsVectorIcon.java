@@ -30,6 +30,7 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.graphics.ImageUtils;
 
@@ -84,7 +85,7 @@ public class SettingsVectorIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     int wf = (int) (w * WIDTH_SCALE);
     int wf2 = (int) (w * WIDTH_SCALE / 2);
 

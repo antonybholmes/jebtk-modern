@@ -38,13 +38,14 @@ import java.util.Map;
 import org.jebtk.core.ColorUtils;
 import org.jebtk.core.Resources;
 import org.jebtk.core.collections.DefaultHashMap;
+import org.jebtk.core.collections.DefaultHashMapCreator;
+import org.jebtk.core.collections.EntryCreator;
 import org.jebtk.core.collections.HashMapCreator;
 import org.jebtk.core.collections.IterMap;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.ModernImageIcon;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
-
-import javafx.scene.image.ImageView;
+import org.jebtk.modern.graphics.icons.MultiStateIcon;
 
 /**
  * Allows data from a JAR to be loaded into memory.
@@ -165,8 +166,13 @@ public class AssetService {
   /**
    * The map.
    */
-  private Map<Integer, IterMap<String, ModernIcon>> map = DefaultHashMap
-      .create(new HashMapCreator<String, ModernIcon>());
+  private Map<Integer, IterMap<String, MultiStateIcon>> mRasterIconMap = DefaultHashMap
+      .create(new DefaultHashMapCreator<String, MultiStateIcon>(new EntryCreator<MultiStateIcon>() {
+
+        @Override
+        public MultiStateIcon newEntry() {
+          return new MultiStateIcon();
+        }}));
 
   /**
    * The member vector icon map.
@@ -190,7 +196,7 @@ public class AssetService {
    * @param name the name
    * @return the modern icon
    */
-  public ModernIcon loadIcon64(String name) {
+  public MultiStateIcon loadIcon64(String name) {
     return loadIcon(name, 64);
   }
 
@@ -201,7 +207,7 @@ public class AssetService {
    * @param size the size
    * @return the modern icon
    */
-  public ModernIcon loadIcon(String name, int size) {
+  public MultiStateIcon loadIcon(String name, int size) {
     return loadIcon(name, size, size);
   }
   
@@ -213,25 +219,48 @@ public class AssetService {
    * @param iconSize    Scaled size.
    * @return
    */
-  public ModernIcon loadIcon(String name, int size, int iconSize) {
-    if (!map.containsKey(size) || !map.get(size).containsKey(name)) {
+  public MultiStateIcon loadIcon(String name, int size, int iconSize) {
+    if (!mRasterIconMap.containsKey(size) || !mRasterIconMap.get(size).containsKey(name)) {
       // If the icon is not cached, cache it
-
-      StringBuilder resource = new StringBuilder(PATH).append(name).append("_")
+      
+      StringBuilder resource;
+      URL imgURL;
+      
+      resource = new StringBuilder(PATH).append(name).append("_")
           .append(size).append("_").append(size).append(".png");
 
-      URL imgURL = Resources.getResource(resource.toString());
-
-      ModernIcon icon = null;
+      imgURL = Resources.getResource(resource.toString());
 
       if (imgURL != null) {
-        icon = new ModernImageIcon(imgURL, iconSize);
+        mRasterIconMap.get(iconSize).get(name).add("default", 
+            new ModernImageIcon(imgURL));
+        
+        //mRasterIconMap.get(iconSize).get(name).add("selected", mRasterIconMap.get(iconSize).get(name).getState("default"));
+        //mRasterIconMap.get(iconSize).get(name).add("highlight", mRasterIconMap.get(iconSize).get(name).getState("default"));
+      }
+      
+      resource = new StringBuilder(PATH).append(name).append("_selected").append("_")
+          .append(size).append("_").append(size).append(".png");
+      
+      imgURL = Resources.getResource(resource.toString());
 
-        map.get(iconSize).put(name, icon);
+      if (imgURL != null) {
+        mRasterIconMap.get(iconSize).get(name).add("selected", 
+            new ModernImageIcon(imgURL));
+      }
+      
+      resource = new StringBuilder(PATH).append(name).append("_highlight").append("_")
+          .append(size).append("_").append(size).append(".png");
+      
+      imgURL = Resources.getResource(resource.toString());
+
+      if (imgURL != null) {
+        mRasterIconMap.get(iconSize).get(name).add("highlight", 
+            new ModernImageIcon(imgURL));
       }
     }
 
-    return map.get(iconSize).get(name);
+    return mRasterIconMap.get(iconSize).get(name);
   }
   
 //  public ImageView loadFxIcon(String name, int size) {
@@ -461,7 +490,7 @@ public class AssetService {
     URL imgURL = ClassLoader.getSystemClassLoader().getResource(resource);
 
     if (imgURL != null) {
-      return new ModernImageIcon(imgURL, size);
+      return new ModernImageIcon(imgURL);
     } else {
       System.err.println("Couldn't find file: " + resource);
 

@@ -31,7 +31,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
@@ -696,8 +695,12 @@ public class Ribbon extends ModernClickWidget
     // to respond to tooltips
     setToolTipsEnabled(false);
 
+    //addStyleClass("ribbon");
+    
     setAnimations("ribbon");
 
+    setCSSMode(false);
+    
     /*
      * getBackgroundAnimations() .set(new RibbonAnimation(this)) .add(new
      * RibbonHighlightAnimation(this)) .add(new RibbonChangeAnimation(this));

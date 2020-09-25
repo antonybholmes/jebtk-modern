@@ -30,6 +30,8 @@ package org.jebtk.modern.scrollpane;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
+import org.jebtk.core.Props;
+
 /**
  * Down arrow vector icon for combobox buttons etc.
  * 
@@ -51,8 +53,8 @@ public class TriangleDownVectorIcon extends TriangleVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
-    super.drawIcon(g2, x, y, w, h, params);
+      Props props) {
+    super.drawIcon(g2, x, y, w, h, props);
 
     x = x + (w - WIDTH) / 2;
     y = y + (h - HEIGHT) / 2;

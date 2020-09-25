@@ -35,7 +35,6 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.panel.AutoHidePanel;
 import org.jebtk.modern.tabs.IconTabsPanel;
 import org.jebtk.modern.tabs.IconTabsVectorIcon;
-import org.jebtk.modern.tabs.OutlookTabsPanel;
 import org.jebtk.modern.tabs.TabsModel;
 
 

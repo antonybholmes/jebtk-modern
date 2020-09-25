@@ -114,6 +114,6 @@ public class ModernImagePanel extends ModernComponent {
     int x = (getWidth() - mIconSize) / 2;
     int y = (getHeight() - mIconSize) / 2;
 
-    mImage.drawImage(g2, x, y, mIconSize);
+    mImage.rasterIcon(g2, x, y, mIconSize, mIconSize, null);
   }
 }

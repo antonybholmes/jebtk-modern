@@ -888,7 +888,7 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
    * @param g2
    * @param offset
    * @param context
-   * @param params
+   * @param props
    */
   public void aaForeground(Graphics2D g2) {
     if (getAAModes().size() > 0) {

@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.ribbon;
 
-import java.awt.Color;
 import java.io.IOException;
 import java.net.URISyntaxException;
 

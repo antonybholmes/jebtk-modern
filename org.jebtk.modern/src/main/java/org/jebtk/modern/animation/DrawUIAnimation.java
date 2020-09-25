@@ -17,6 +17,7 @@ package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.theme.DrawUI;
 
@@ -36,9 +37,9 @@ public class DrawUIAnimation extends WidgetAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     for (DrawUI d : widget.getDrawStates()) {
-      d.draw(widget, g2, params);
+      d.draw(widget, g2, props);
     }
   }
 

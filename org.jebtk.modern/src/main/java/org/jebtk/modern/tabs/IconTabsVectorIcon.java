@@ -31,6 +31,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
 
@@ -61,9 +62,9 @@ public class IconTabsVectorIcon extends ModernVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
 
-    Color color = (Color) params[0];
+    Color color = props.getColor("color");
 
     g2.setColor(color);
     g2.fillOval(x, y, w, w);
@@ -76,7 +77,7 @@ public class IconTabsVectorIcon extends ModernVectorIcon {
     g2.drawString(mLetter, x + p.x, y + p.y);
 
     /*
-     * Color color = (Color)params[0];
+     * Color color = (Color)props[0];
      * 
      * int blockSize = (w - 2) / 3;
      * 

@@ -30,6 +30,7 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.theme.MaterialService;
 
@@ -77,7 +78,7 @@ public class RoundedRectIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     g2.setColor(mColor1);
     g2.fillRoundRect(x, y, w, h, ROUNDING, ROUNDING);
 

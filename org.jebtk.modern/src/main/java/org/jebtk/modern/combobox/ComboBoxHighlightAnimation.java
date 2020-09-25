@@ -2,6 +2,7 @@ package org.jebtk.modern.combobox;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntRect;
@@ -42,7 +43,7 @@ public class ComboBoxHighlightAnimation extends ButtonAltFillAnimation
    * Graphics2D)
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     if (getWidget().isEnabled()) {
       IntRect rect = widget.getInternalRect();
 

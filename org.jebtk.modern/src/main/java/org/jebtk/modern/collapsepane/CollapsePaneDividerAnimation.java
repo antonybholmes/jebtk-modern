@@ -18,6 +18,7 @@ package org.jebtk.modern.collapsepane;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
@@ -39,7 +40,7 @@ public class CollapsePaneDividerAnimation extends HighlightAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     Rectangle r = new Rectangle(widget.getInsets().left, widget.getInsets().top,
         widget.getWidth() - widget.getInsets().left - widget.getInsets().right,

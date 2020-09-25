@@ -3,6 +3,7 @@ package org.jebtk.modern.collapsepane;
 import java.awt.Component;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.event.ChangeEventProducer;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.ChangeAnimation;
@@ -21,7 +22,7 @@ public class CompResizeAnimation extends ChangeAnimation {
   }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     // Do nothing
   }
 

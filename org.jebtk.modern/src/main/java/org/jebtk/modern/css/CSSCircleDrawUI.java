@@ -17,6 +17,7 @@ package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.graphics.ImageUtils;
@@ -35,7 +36,7 @@ public class CSSCircleDrawUI extends CSSDrawUI {
   public void fill(ModernComponent c,
       Graphics2D g2,
       IntRect rect,
-      Object... params) {
+      Props props) {
     int mw = Math.min(rect.w, rect.h);
 
     int x = (rect.w - mw) / 2;
@@ -59,12 +60,12 @@ public class CSSCircleDrawUI extends CSSDrawUI {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     
     super.draw(g2, c, x, y, w, h, Color.WHITE);
 
-    if (params.length > 0) {
-      g2.setColor((Color) params[0]);
+    if (props.length > 0) {
+      g2.setColor((Color) props[0]);
     } else {
       g2.setColor(getStyle(c).getColor("border-color"));
     }

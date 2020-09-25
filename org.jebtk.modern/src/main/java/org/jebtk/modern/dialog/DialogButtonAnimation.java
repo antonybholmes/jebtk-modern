@@ -2,6 +2,7 @@ package org.jebtk.modern.dialog;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.theme.DrawUIService;
@@ -12,7 +13,7 @@ public class DialogButtonAnimation extends WidgetAnimation {
   }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     DrawUIService.getInstance().getRenderer("dialog.button").draw(g2,
         widget.getInternalRect());
   }

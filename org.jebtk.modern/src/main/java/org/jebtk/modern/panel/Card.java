@@ -202,8 +202,8 @@ public class Card extends ModernComponent {
 
       g2Temp.fillRoundRect(OFFSETS.left,
           OFFSETS.top,
-          width - SHADOW_PADDING.mW,
-          height - SHADOW_PADDING.mH,
+          width - SHADOW_PADDING.w,
+          height - SHADOW_PADDING.h,
           ROUNDING,
           ROUNDING);
     } finally {
@@ -245,8 +245,8 @@ public class Card extends ModernComponent {
     Rectangle bounds = new Rectangle();
     bounds.x = OFFSETS.left;
     bounds.y = OFFSETS.top;
-    bounds.width = width - SHADOW_PADDING.mW;
-    bounds.height = height - SHADOW_PADDING.mH;
+    bounds.width = width - SHADOW_PADDING.w;
+    bounds.height = height - SHADOW_PADDING.h;
 
     RoundRectangle2D shape = new RoundRectangle2D.Double(bounds.x, bounds.y,
         bounds.width, bounds.height, ROUNDING, ROUNDING);

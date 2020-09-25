@@ -30,6 +30,7 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.theme.ModernTheme;
 
@@ -91,7 +92,7 @@ public class RoundelVectorIcon extends ModernVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
 
     g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
 

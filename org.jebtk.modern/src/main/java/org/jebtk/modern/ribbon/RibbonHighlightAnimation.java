@@ -18,10 +18,10 @@ package org.jebtk.modern.ribbon;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
 import org.jebtk.modern.theme.MaterialService;
-import org.jebtk.modern.theme.ThemeService;
 
 /**
  * Allows for fade in/out animation on an element.
@@ -57,7 +57,7 @@ public class RibbonHighlightAnimation extends HighlightAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     /*
      * int x; int tabWidth;

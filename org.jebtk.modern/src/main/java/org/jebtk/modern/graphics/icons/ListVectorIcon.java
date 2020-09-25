@@ -30,6 +30,8 @@ package org.jebtk.modern.graphics.icons;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
+
 /**
  * The class ListVectorIcon.
  */
@@ -53,7 +55,7 @@ public class ListVectorIcon extends ModernVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     double wf = w * SCALE;
     double hf = h * SCALE / 5;
 

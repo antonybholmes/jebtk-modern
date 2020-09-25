@@ -17,6 +17,7 @@ package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.math.CubicBezier;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.ImageUtils;
@@ -113,14 +114,14 @@ public abstract class RotationAnimation extends TimerAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
     try {
       g2.rotate(getAngle());
 
-      drawRotation(widget, g2Temp, params);
+      drawRotation(widget, g2Temp, props);
     } finally {
       g2Temp.dispose();
     }
@@ -128,7 +129,7 @@ public abstract class RotationAnimation extends TimerAnimation {
 
   public void drawRotation(ModernWidget widget,
       Graphics2D g2,
-      Object... params) {
+      Props props) {
     
   }
 }

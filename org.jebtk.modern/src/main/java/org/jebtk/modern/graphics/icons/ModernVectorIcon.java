@@ -32,9 +32,8 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.Map;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.graphics.ImageUtils;
 
 /**
@@ -49,19 +48,19 @@ import org.jebtk.modern.graphics.ImageUtils;
  * @author Antony Holmes
  *
  */
-public abstract class ModernVectorIcon extends ModernIcon {
+public abstract class ModernVectorIcon extends MultiResIcon {
 
   /**
    * The constant HIDE_UP_16_ICON.
    */
   public static final ModernIcon HIDE_UP_16_ICON = new Raster16Icon(
-      new CheveronUpVectorIcon(Color.WHITE));
+      new CheveronUpVectorIcon(), WHITE_PROPS);
 
   /**
    * The constant HIDE_DOWN_16_ICON.
    */
   public static final ModernIcon HIDE_DOWN_16_ICON = new Raster16Icon(
-      new CheveronDownVectorIcon(Color.WHITE));
+      new CheveronDownVectorIcon(), WHITE_PROPS);
 
   /**
    * The constant HIDE_LEFT_ICON.
@@ -99,8 +98,6 @@ public abstract class ModernVectorIcon extends ModernIcon {
   public static final ModernIcon RIGHT_16_ICON = new Raster16Icon(
       new HideRightVectorIcon());
 
-  private Map<Integer, BufferedImage> mBufMap = 
-      new HashMap<Integer, BufferedImage>();
 
   /**
    * Returns -1 since a vector icon has no intrinsic width.
@@ -124,7 +121,7 @@ public abstract class ModernVectorIcon extends ModernIcon {
 
 
   @Override
-  public BufferedImage getImage(int w, Object... params) {
+  public BufferedImage getImage(int w, int h, Props props) {
     if (!mBufMap.containsKey(w)) {
       BufferedImage buf = ImageUtils.createImage(w, w);
 
@@ -133,7 +130,7 @@ public abstract class ModernVectorIcon extends ModernIcon {
       ImageUtils.setQualityHints(g2);
 
       try {
-        drawIcon(g2, w);
+        drawIcon(g2, w, h, props);
       } finally {
         g2.dispose();
       }
@@ -184,10 +181,10 @@ public abstract class ModernVectorIcon extends ModernIcon {
       Color color1,
       int size) {
 
-    ModernIcon icon = createIcon(iconClass, color1);
+    ModernIcon icon = createIcon(iconClass); //, color1);
 
     if (icon != null) {
-      return new RasterIcon(icon, size);
+      return new RasterIcon(icon, size, new Props().set("color", color1));
     } else {
       return null;
     }
@@ -209,10 +206,10 @@ public abstract class ModernVectorIcon extends ModernIcon {
       Color color2,
       int size) {
 
-    ModernIcon icon = createIcon(iconClass, color1, color2);
+    ModernIcon icon = createIcon(iconClass); //, color1, color2);
 
     if (icon != null) {
-      return new RasterIcon(icon, size);
+      return new RasterIcon(icon, size, new Props().set("color1", color1).set("color2", color2));
     } else {
       return null;
     }

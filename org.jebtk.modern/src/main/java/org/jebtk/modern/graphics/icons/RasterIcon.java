@@ -29,9 +29,8 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
 
-import org.jebtk.modern.graphics.ImageUtils;
+import org.jebtk.core.Props;
 
 /**
  * Rastorizes an icon (for example a vector based on) to reduce drawing
@@ -64,13 +63,26 @@ public class RasterIcon extends ModernIcon {
    * @param size the size
    */
   public RasterIcon(ModernIcon icon, int size) {
-    mIcon = icon;
-    mSize = size;
+    this(icon, size, null);
+  }
+  
+  public RasterIcon(ModernIcon icon, int size, Props props) {
+    this(icon.getImage(size, props));
   }
 
   public RasterIcon(BufferedImage icon) {
     mBufferedImage = icon;
     mSize = icon.getWidth();
+  }
+  
+  @Override
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Props props) {
+    rasterIcon(g2, x, y, w, h, props);
   }
 
   /*
@@ -79,11 +91,7 @@ public class RasterIcon extends ModernIcon {
    * @see org.abh.lib.ui.modern.icons.ModernIcon#getImage()
    */
   @Override
-  public BufferedImage getImage(int w, Object... params) {
-    if (mBufferedImage == null) {
-      mBufferedImage = mIcon.getImage(mSize, params);
-    }
-
+  public BufferedImage getImage(int w, int h, Props props) {
     return mBufferedImage;
   }
 

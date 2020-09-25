@@ -29,6 +29,7 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.theme.DrawUIService;
 
@@ -53,7 +54,7 @@ public class CheckedVectorIcon extends UnCheckedVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     // WidgetRendererService.getInstance().getRenderer()
     // .drawChecked(g2, x, y, w, h, RenderMode.SELECTED);
 

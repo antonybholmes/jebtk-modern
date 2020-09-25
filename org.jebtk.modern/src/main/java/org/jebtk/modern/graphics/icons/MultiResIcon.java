@@ -27,40 +27,43 @@
  */
 package org.jebtk.modern.graphics.icons;
 
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.jebtk.core.Props;
+
 /**
- * Cache icon at multiple resolutions.
+ * The class ModernImageIcon.
  */
 public class MultiResIcon extends ModernIcon {
 
   /**
-   * The member icons.
+   * The member buffered image.
    */
-  private Map<Integer, ModernIcon> mIcons = new HashMap<Integer, ModernIcon>();
 
-  /**
-   * The member icon.
+  protected Map<Integer, BufferedImage> mBufMap = 
+      new HashMap<Integer, BufferedImage>();
+  
+
+  /*
+   * (non-Javadoc)
+   * 
+   * @see
+   * org.abh.lib.ui.modern.icons.ModernIcon#drawForeground(java.awt.Graphics2D,
+   * java.awt.Rectangle)
    */
-  private ModernIcon mIcon;
-
-  /**
-   * Adds the icon.
-   *
-   * @param icon the icon
-   */
-  public MultiResIcon(ModernIcon icon) {
-    mIcon = icon;
-  }
-
   @Override
-  public BufferedImage getImage(int w, Object... params) {
-    if (!mIcons.containsKey(w)) {
-      mIcons.put(w, new RasterIcon(mIcon, w));
-    }
+  public void drawIcon(Graphics2D g2,
+      int x,
+      int y,
+      int w,
+      int h,
+      Props props) {
+    //x = x + (w - getWidth()) / 2;
+    //y = y + (h - getHeight()) / 2;
 
-    return mIcons.get(w).getImage(w, params);
+    rasterIcon(g2, x, y, w, h, props);
   }
 }

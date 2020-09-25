@@ -33,6 +33,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.geom.GeneralPath;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.settings.SettingsService;
 
 /**
@@ -67,7 +68,7 @@ public class WarningVectorIcon extends ModernMessageIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
 
     int height = (int) (Math.sin(Math.PI / 3.0) * w);
 

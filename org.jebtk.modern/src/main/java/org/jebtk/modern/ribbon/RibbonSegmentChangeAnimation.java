@@ -19,6 +19,7 @@ import java.awt.Graphics2D;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateYAnimation;
@@ -84,7 +85,7 @@ public class RibbonSegmentChangeAnimation extends TranslateYAnimation {
   @Override
   public void drawTranslation(ModernWidget widget,
       Graphics2D g2,
-      Object... params) {
+      Props props) {
     /*
      * int w = mTabs.getInternalRect().getW();
      * 

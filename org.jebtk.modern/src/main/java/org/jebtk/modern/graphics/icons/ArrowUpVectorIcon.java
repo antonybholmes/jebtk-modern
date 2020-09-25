@@ -31,6 +31,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
+import org.jebtk.core.Props;
+
 /**
  * Download arrow vector icon.
  * 
@@ -68,7 +70,7 @@ public class ArrowUpVectorIcon extends ArrowVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
 
     double wf = w * SCALE;
     double w2 = wf * 0.5;

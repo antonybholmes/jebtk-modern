@@ -2,6 +2,7 @@ package org.jebtk.modern.css;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.ColorTransition;
@@ -33,7 +34,7 @@ public class CSSBackgroundColorTransition extends ColorTransition {
    * Graphics2D)
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     if (c.isEnabled()) {
       // update so that we don't keep triggering repaints()
 

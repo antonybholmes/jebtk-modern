@@ -18,6 +18,7 @@ package org.jebtk.modern.tabs;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -54,7 +55,7 @@ public class IconTabsIconAnimation extends WidgetAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     int x = mTabs.getInsets().left;
     int n = mTabs.getTabsModel().getTabCount();
@@ -70,13 +71,17 @@ public class IconTabsIconAnimation extends WidgetAnimation {
     int yoffset = (mTabs.getHeight() - is) / 2;
 
     for (int i = 0; i < n; ++i) {
-      icon = mTabs.getTabsModel().getTab(i).getIcon();
-
+      if (i == selectedIndex) {
+        icon = mTabs.getTabsModel().getTab(i).getIcon().getState("selected");
+      } else {
+        icon = mTabs.getTabsModel().getTab(i).getIcon();
+      }
+      
       int x1 = x + offset;
 
-      Color color = ICON_COLOR;
+      //Color color = ICON_COLOR;
 
-      icon.drawImage(g2, x1, yoffset, is, is, color);
+      icon.rasterIcon(g2, x1, yoffset, is, is, props);
 
       x += ts;
     }

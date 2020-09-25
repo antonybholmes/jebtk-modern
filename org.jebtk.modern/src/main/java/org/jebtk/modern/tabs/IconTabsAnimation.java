@@ -18,6 +18,7 @@ package org.jebtk.modern.tabs;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.theme.ThemeService;
@@ -53,7 +54,7 @@ public class IconTabsAnimation extends WidgetAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     int x = mTabs.getInsets().left;
     int y = mTabs.getInsets().top;

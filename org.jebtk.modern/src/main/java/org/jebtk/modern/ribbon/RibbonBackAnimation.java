@@ -18,6 +18,7 @@ package org.jebtk.modern.ribbon;
 import java.awt.BasicStroke;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
@@ -39,7 +40,7 @@ public class RibbonBackAnimation extends HoverFadeAnimation {
   }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
     try {

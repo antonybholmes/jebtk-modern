@@ -2,6 +2,7 @@ package org.jebtk.modern.spinner;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.button.ButtonOutlineAnimation;
@@ -19,7 +20,7 @@ public class SpinnerHighlightAnimation extends ButtonOutlineAnimation {
   }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     IntRect r = widget.getInternalRect();
 
     int x = r.getX();

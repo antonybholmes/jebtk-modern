@@ -15,9 +15,9 @@
  */
 package org.jebtk.modern.css;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.theme.ColorGradient;
@@ -36,12 +36,12 @@ public class CSSBackgroundUI extends CSSBaseUI {
   public void draw(ModernComponent c,
       Graphics2D g2,
       IntRect rect,
-      Object... params) {
+      Props props) {
 
-    if (params.length > 0) {
-      g2.setColor((Color) params[0]);
+    if (props != null) {
+      g2.setColor(props.getColor("color"));
 
-      // System.err.println("d " + (Color) params[0]);
+      System.err.println("duh " + props.getColor("color"));
     } else {
       if (c != null) {
         ColorGradient lp = c.getCSSProps().getColorGradient("background");
@@ -49,9 +49,14 @@ public class CSSBackgroundUI extends CSSBaseUI {
         if (lp != null) {
           lp.paint(g2, c);
         } else {
+          System.err.println("sd " + c.getCSSProps().getColor("background-color"));
+          
           g2.setColor(c.getCSSProps().getColor("background-color"));
         }
       } else {
+        System.err.println("blob " + CSSKeyFramesService.getInstance().getToStyleClass("widget")
+            .getColor("background-color"));
+        
         g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget")
             .getColor("background-color"));
 
@@ -61,6 +66,6 @@ public class CSSBackgroundUI extends CSSBaseUI {
       }
     }
 
-    fill(c, g2, rect);
+    fill(c, g2, rect, props);
   }
 }

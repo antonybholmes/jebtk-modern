@@ -2,6 +2,7 @@ package org.jebtk.modern.spinner;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
@@ -33,7 +34,7 @@ public class SpinnerAnimation extends WidgetAnimation {
   }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     int x = mSpinner.getWidth() - 16;
     int y = (mSpinner.mButtonYDivider - 16) / 2;
 

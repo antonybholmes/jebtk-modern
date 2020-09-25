@@ -1,7 +1,7 @@
 package org.jebtk.modern.css;
 
 public enum CSSUnit {
-  NONE, CM, MM, IN, PX, EM, REM, PC;
+  NONE, CM, MM, IN, PX, EM, REM, PC, PERCENT;
 
   public static CSSUnit parse(String unit) {
     switch (unit.toLowerCase()) {
@@ -15,6 +15,9 @@ public enum CSSUnit {
       return PX;
     case "pc":
       return PC;
+    case "percent":
+    case "%":
+      return PERCENT;
     default:
       return NONE;
     }

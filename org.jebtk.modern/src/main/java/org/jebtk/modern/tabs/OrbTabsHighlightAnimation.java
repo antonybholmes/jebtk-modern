@@ -18,6 +18,7 @@ package org.jebtk.modern.tabs;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.theme.ThemeService;
@@ -58,7 +59,7 @@ public class OrbTabsHighlightAnimation extends ButtonFillAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     int x = (mTabs.getWidth() - mTabs.mTabSize * mTabs.mTabWidths.size()) / 2; // mTabs.getInsets().left;
     int h = mTabs.getInternalRect().getH();

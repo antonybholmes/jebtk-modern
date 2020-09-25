@@ -31,6 +31,8 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
+import org.jebtk.core.Props;
+
 /**
  * Down arrow vector icon for combobox buttons etc.
  * 
@@ -67,8 +69,8 @@ public class TriangleLeftVectorIcon extends TriangleVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
-    super.drawIcon(g2, x, y, w, h, params);
+      Props props) {
+    super.drawIcon(g2, x, y, w, h, props);
 
     mXf = x + (w - mHf) / 2.0;
     mYf = y + (h - mWf) / 2.0;

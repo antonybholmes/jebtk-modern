@@ -18,6 +18,7 @@ package org.jebtk.modern.theme;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.graphics.ImageUtils;
@@ -36,12 +37,10 @@ public class CircleFillUI extends ButtonFillUI {
   public void fill(ModernComponent c,
       Graphics2D g2,
       IntRect rect,
-      Object... params) {
+      Props props) {
     
-    if (params.length > 0) {
-      if (params[0] instanceof Color) {
-        g2.setColor((Color) params[0]);
-      }
+    if (props != null) {
+      g2.setColor(props.getColor("color"));
     }
 
     int mw = Math.min(rect.w, rect.h);

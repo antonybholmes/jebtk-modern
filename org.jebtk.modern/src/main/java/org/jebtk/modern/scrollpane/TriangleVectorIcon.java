@@ -30,6 +30,7 @@ package org.jebtk.modern.scrollpane;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.icons.ModernVectorIcon;
 
@@ -74,7 +75,7 @@ public class TriangleVectorIcon extends ModernVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     g2.setColor(COLOR);
   }
 

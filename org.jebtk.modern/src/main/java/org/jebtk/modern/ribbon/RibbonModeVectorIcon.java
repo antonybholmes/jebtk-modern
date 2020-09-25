@@ -30,6 +30,8 @@ package org.jebtk.modern.ribbon;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
+import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.icons.ModernVectorScalableIcon;
 
 /**
@@ -42,7 +44,7 @@ public class RibbonModeVectorIcon extends ModernVectorScalableIcon {
   private Color mColor;
 
   public RibbonModeVectorIcon() {
-    this(Color.WHITE); // Ribbon.BAR_BACKGROUND);
+    this(ModernWidget.TEXT_COLOR); // Ribbon.BAR_BACKGROUND);
   }
 
   public RibbonModeVectorIcon(Color color) {
@@ -62,7 +64,7 @@ public class RibbonModeVectorIcon extends ModernVectorScalableIcon {
       int y,
       int w,
       int h,
-      Object... params) {
+      Props props) {
     g2.setColor(mColor);
     g2.drawRect(x + 2, y + 5, w - 4, h - 10);
   }

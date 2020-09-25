@@ -1,9 +1,30 @@
 package org.jebtk.modern.css;
 
-public interface CSSNumProp extends CSSProp {
+public class CSSNumProp extends CSSProp {
 
-  public int getInt();
+  protected final double mV;
 
-  public double getFloat();
+  public CSSNumProp(double v) {
+    mV = v;
+  }
 
+  @Override
+  public int getInt() {
+    return (int) mV;
+  }
+
+  @Override
+  public double getFloat() {
+    return mV;
+  }
+  
+  @Override
+  public String toString() {
+    return Double.toString(mV);
+  }
+
+  @Override
+  public CSSPropType getType() {
+    return CSSPropType.NUM;
+  }
 }

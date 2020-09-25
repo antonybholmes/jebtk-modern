@@ -17,6 +17,7 @@ package org.jebtk.modern.tree;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.tree.TreeNode;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HighlightAnimation;
@@ -53,7 +54,7 @@ public class TreeHighlightAnimation extends HighlightAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     if (mTree.mSelectionModel == null || mTree.mNodeIndexMap == null
         || mTree.mNodeDepthMap == null || mTree.mNodeRenderer == null) {

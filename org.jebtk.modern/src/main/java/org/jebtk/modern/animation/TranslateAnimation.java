@@ -17,6 +17,7 @@ package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.ImageUtils;
 
@@ -99,14 +100,14 @@ public abstract class TranslateAnimation extends EasingAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
     try {
       translate(g2Temp);
 
-      drawTranslation(widget, g2Temp, params);
+      drawTranslation(widget, g2Temp, props);
     } finally {
       g2Temp.dispose();
     }
@@ -116,5 +117,5 @@ public abstract class TranslateAnimation extends EasingAnimation {
 
   public abstract void drawTranslation(ModernWidget widget,
       Graphics2D g2,
-      Object... params);
+      Props props);
 }

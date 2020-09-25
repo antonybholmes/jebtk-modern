@@ -15,10 +15,10 @@
  */
 package org.jebtk.modern.ribbon;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.Mathematics;
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.TranslateXAnimation;
 import org.jebtk.modern.graphics.ImageUtils;
@@ -93,7 +93,7 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
   @Override
   public void drawTranslation(ModernWidget widget,
       Graphics2D g2,
-      Object... params) {
+      Props props) {
     // g2.setColor(Ribbon.BAR_BACKGROUND);
     // g2.fillRect(0,
     // Ribbon.Y_OFFSET + Ribbon.TAB_HEIGHT - BAR_HEIGHT,

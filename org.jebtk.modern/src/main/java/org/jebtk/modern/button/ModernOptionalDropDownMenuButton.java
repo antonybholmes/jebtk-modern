@@ -256,7 +256,7 @@ public class ModernOptionalDropDownMenuButton extends ModernDropDownWidget {
       DrawUIService.getInstance().getRenderer("button-outline")
           .draw(this, g2, rect);
       DrawUIService.getInstance().getRenderer("button-fill")
-          .draw(this, g2, x, y, w, h);
+          .draw(this, g2, new IntRect(x, y, w, h));
 
       // paintHighlightedBorder(g2, rect);
       // paintHighlighted(g2, x, y, w, h);

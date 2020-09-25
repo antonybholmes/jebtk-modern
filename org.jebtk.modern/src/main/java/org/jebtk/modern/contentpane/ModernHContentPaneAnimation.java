@@ -17,6 +17,7 @@ package org.jebtk.modern.contentpane;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 
@@ -43,7 +44,7 @@ public class ModernHContentPaneAnimation extends HoverFadeAnimation {
   }
 
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     if (mPane.mDividerLocations.size() == 0) {
       return;
     }

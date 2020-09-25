@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.jebtk.core.IdProperty;
-import org.jebtk.core.Properties;
 import org.jebtk.core.collections.DefaultHashMap;
 import org.jebtk.core.collections.UniqueArrayListCreator;
 
@@ -19,8 +18,8 @@ public class CSSKeyFrame extends CSSClass implements IdProperty {
   // private List<StyleClass> mStyles = new ArrayList<StyleClass>();
   // private Map<String, Integer> mIndexMap = new HashMap<String, Integer>();
 
-  private Map<String, List<Properties>> mClassHierarchyMap = DefaultHashMap
-      .create(new UniqueArrayListCreator<Properties>());
+  private Map<String, List<CSSProp>> mClassHierarchyMap = DefaultHashMap
+      .create(new UniqueArrayListCreator<CSSProp>());
 
   private int mId;
 
@@ -37,12 +36,12 @@ public class CSSKeyFrame extends CSSClass implements IdProperty {
    * @return
    */
   @Override
-  public CSSKeyFrame update(Properties style) {
+  public CSSKeyFrame update(CSSProps style) {
     super.update(style);
 
-    for (Entry<String, Object> item : style) {
+    for (Entry<String, CSSProp> item : style) {
       // Map styles to properties in order they are applied
-      mClassHierarchyMap.get(item.getKey()).add(style);
+      mClassHierarchyMap.get(item.getKey()).add(item.getValue());
     }
 
     return this;
@@ -54,7 +53,7 @@ public class CSSKeyFrame extends CSSClass implements IdProperty {
    * @param name Name of property, e.g "background-color".
    * @return
    */
-  public Iterable<Properties> getStyles(String name) {
+  public Iterable<CSSProp> getStyles(String name) {
     return mClassHierarchyMap.get(name);
   }
 

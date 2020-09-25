@@ -37,9 +37,8 @@ import javax.swing.JComponent;
 import org.jebtk.modern.BorderService;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
-import org.jebtk.modern.animation.PillBorderAnimation;
 import org.jebtk.modern.button.ModernButton;
-import org.jebtk.modern.theme.DrawUIService;
+import org.jebtk.modern.css.CSSWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -47,7 +46,7 @@ import org.jebtk.modern.theme.DrawUIService;
  *
  * @author Antony Holmes
  */
-public class SearchTextBorderPanel extends ModernWidget
+public class SearchTextBorderPanel extends CSSWidget
     implements TextProperty {
 
   /**
@@ -174,9 +173,9 @@ public class SearchTextBorderPanel extends ModernWidget
 
     // UI.setSize(this, ModernWidget.STANDARD_SIZE);
 
-    addStyleClass("content", "content-outline");
+    addStyleClass("content", "content-outline", "pill");
 
-    setAnimations(new PillBorderAnimation(this));
+    //setAnimations(new PillBorderAnimation(this));
 
     addComponentListener(new ComponentAdapter() {
 

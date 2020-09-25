@@ -43,7 +43,6 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -63,7 +62,6 @@ import org.jebtk.modern.dialog.ModernDialogConstructor;
 import org.jebtk.modern.dialog.ModernDialogWindow;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
-import org.jebtk.modern.graphics.icons.Raster32Icon;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.panel.ModernPanel;
 import org.jebtk.modern.ribbon.RibbonFileMenu;

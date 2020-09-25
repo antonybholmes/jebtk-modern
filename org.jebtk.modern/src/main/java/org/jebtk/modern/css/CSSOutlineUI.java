@@ -18,6 +18,7 @@ package org.jebtk.modern.css;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
 
@@ -35,12 +36,12 @@ public class CSSOutlineUI extends CSSBaseUI {
   public void draw(ModernComponent c,
       Graphics2D g2,
       IntRect rect,
-      Object... params) {
+      Props props) {
 
     Color color;
 
-    if (params.length > 0) {
-      color = (Color) params[0];
+    if (props != null) {
+      color = props.getColor("color");
     } else {
       if (c != null) {
         color = c.getCSSProps().getColor("border-color");
@@ -55,6 +56,6 @@ public class CSSOutlineUI extends CSSBaseUI {
     }
 
     g2.setColor(color);
-    outline(c, g2, rect);
+    outline(c, g2, rect, props);
   }
 }

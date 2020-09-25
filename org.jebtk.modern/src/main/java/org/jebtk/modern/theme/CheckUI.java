@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
 import org.jebtk.modern.graphics.ImageUtils;
@@ -26,7 +27,7 @@ public class CheckUI extends DrawUI {
   @Override
   public void draw(Graphics2D g2,
       IntRect rect,
-      Object... params) {
+      Props props) {
 
     double wf = rect.w * CHECK_SCALE;
     double t = wf * TICK_SCALE;
@@ -43,8 +44,8 @@ public class CheckUI extends DrawUI {
     Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     try {
-      if (params.length > 0) {
-        g2Temp.setColor((Color) params[0]);
+      if (props != null) {
+        g2Temp.setColor(props.getColor("color"));
       } else {
         g2Temp.setColor(MaterialService.TEXT_COLOR);
       }

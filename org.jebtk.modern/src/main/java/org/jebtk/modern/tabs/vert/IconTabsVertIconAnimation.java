@@ -18,6 +18,8 @@ package org.jebtk.modern.tabs.vert;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
+import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.WidgetAnimation;
 import org.jebtk.modern.graphics.icons.ModernIcon;
@@ -54,7 +56,7 @@ public class IconTabsVertIconAnimation extends WidgetAnimation {
    * ModernWidget, java.awt.Graphics2D, java.lang.Object[])
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
     int n = mTabs.getTabsModel().getTabCount();
 
     int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
@@ -77,7 +79,8 @@ public class IconTabsVertIconAnimation extends WidgetAnimation {
 
         Color color = ICON_COLOR;
 
-        icon.drawIcon(g2, offset, y1, is, is, color);
+        icon.drawIcon(g2, new IntRect(offset, y1, is, is), 
+            new Props().set("color", color));
       }
 
       y -= ts;

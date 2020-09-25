@@ -5,6 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.animation.HoverFadeAnimation;
 
@@ -27,9 +28,9 @@ public class MacScrollAnimation extends HoverFadeAnimation {
    * Graphics2D)
    */
   @Override
-  public void draw(ModernWidget c, Graphics2D g2, Object... params) {
-    Rectangle r = (Rectangle) params[0];
-    int rounding = (Integer) params[1];
+  public void draw(ModernWidget c, Graphics2D g2, Props props) {
+    Rectangle r = (Rectangle) props.get("rect");
+    int rounding = (Integer) props.get("rounding");
 
     g2.setColor(getFadeColorMap().get("highlight"));
 

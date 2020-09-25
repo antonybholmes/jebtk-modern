@@ -39,6 +39,7 @@ import org.jebtk.modern.dialog.ModernDialogWindow;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.graphics.icons.CrossVectorIcon;
+import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.Raster24Icon;
 import org.jebtk.modern.help.GuiAppInfo;
 import org.jebtk.modern.help.HelpManager;
@@ -169,7 +170,7 @@ public class ModernSplashScreen extends ModernDialogWindow {
     box2.add(ModernPanel.createHGap());
 
     mCloseButton = new ModernSplashTitleButton(
-        new Raster24Icon(new CrossVectorIcon(Color.WHITE)));
+        new Raster24Icon(new CrossVectorIcon(), ModernIcon.WHITE_PROPS));
     mCloseButton.setClickMessage(UI.MENU_CLOSE);
     mCloseButton.addClickListener(new CloseEvents());
     box2.add(mCloseButton);

@@ -30,7 +30,6 @@ package org.jebtk.modern.help;
 import org.jebtk.core.AppInfo;
 import org.jebtk.core.AppVersion;
 import org.jebtk.modern.graphics.icons.ModernIcon;
-import org.jebtk.modern.graphics.icons.MultiResIcon;
 
 /**
  * Describes a product.

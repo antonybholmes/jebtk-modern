@@ -31,6 +31,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.ColorUtils;
+import org.jebtk.core.Props;
 import org.jebtk.modern.UI;
 import org.jebtk.modern.event.ModernClickEvent;
 import org.jebtk.modern.event.ModernClickListener;
@@ -57,7 +58,7 @@ public class ModernWindowTitleBarExitButton
    * @param window the window
    */
   public ModernWindowTitleBarExitButton(ModernWindow window) {
-    super(new Raster16Icon(new CrossVectorIcon(Color.WHITE)));
+    super(new Raster16Icon(new CrossVectorIcon(), new Props().set("color", Color.WHITE)));
 
     mWindow = window;
 

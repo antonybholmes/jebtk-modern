@@ -1,8 +1,8 @@
 package org.jebtk.modern.theme;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 
 public class RadioSelectedUI extends RadioUI {
@@ -16,9 +16,9 @@ public class RadioSelectedUI extends RadioUI {
   @Override
   public void draw(Graphics2D g2,
       IntRect rect,
-      Object... params) {
+      Props props) {
 
-    super.draw(g2, rect, params);
+    super.draw(g2, rect, props);
 
     int w2 = rect.w - 8;
 
@@ -28,8 +28,8 @@ public class RadioSelectedUI extends RadioUI {
     // g2.setColor(Color.WHITE);
     // g2.fillOval(x, y, w, w);
 
-    if (params.length > 0) {
-      g2.setColor((Color) params[0]);
+    if (props != null) {
+      g2.setColor(props.getColor("color"));
     } else {
       g2.setColor(HIGHLIGHTED_FILL_COLOR);
     }

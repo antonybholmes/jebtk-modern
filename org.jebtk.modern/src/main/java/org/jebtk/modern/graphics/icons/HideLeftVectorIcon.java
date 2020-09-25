@@ -29,6 +29,8 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 
+import org.jebtk.core.Props;
+
 /**
  * The class HideLeftVectorIcon.
  */
@@ -46,8 +48,8 @@ public class HideLeftVectorIcon extends HideVectorIcon {
       int y,
       int w,
       int h,
-      Object... params) {
-    super.drawIcon(g2, x, y, w, h, params);
+      Props props) {
+    super.drawIcon(g2, x, y, w, h, props);
 
     double wf = w * WIDTH_SCALE;
     double w2 = w / 2.0;
