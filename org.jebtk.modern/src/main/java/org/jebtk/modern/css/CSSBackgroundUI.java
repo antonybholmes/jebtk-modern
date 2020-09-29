@@ -34,9 +34,6 @@ public class CSSBackgroundUI extends CSSBaseUI {
 
   @Override
   public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
-
-    System.err.println("here" + (c == null));
-
     if (props != null && props.getColor("color") != null) {
       g2.setColor(props.getColor("color"));
     } else {
@@ -46,14 +43,9 @@ public class CSSBackgroundUI extends CSSBaseUI {
         if (lp != null) {
           lp.paint(g2, c);
         } else {
-          System.err.println("sd " + c.getCSSProps().getColor("background-color"));
-
           g2.setColor(c.getCSSProps().getColor("background-color"));
         }
       } else {
-        System.err.println(
-            "blob " + CSSKeyFramesService.getInstance().getToStyleClass("widget").getColor("background-color"));
-
         g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget").getColor("background-color"));
 
         // System.err.println("key " +

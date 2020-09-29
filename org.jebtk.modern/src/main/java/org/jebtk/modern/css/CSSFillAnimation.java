@@ -39,11 +39,8 @@ public class CSSFillAnimation extends HoverFadeAnimation {
       // update so that we don't keep triggering repaints()
 
       if (c.isSelected()) {
-        // c.getToKeyFrame().update("background-color", getToColor("fill"));
-
         c.getCSSProps().update("background-color", getToColor("fill"));
       } else {
-        System.err.println("sdfsdf " + getFadeColor("fill"));
         c.getCSSProps().update("background-color", getFadeColor("fill"));
       }
 

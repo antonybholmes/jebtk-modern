@@ -86,8 +86,6 @@ public abstract class CSSBaseUI extends DrawUI {
   public static int cssRounding(ModernComponent c, int h) {
     Object p = getStyle(c).get("border-radius");
 
-    System.err.println(p.getClass().getSimpleName());
-
     int rounding = 0;
 
     switch (p.getClass().getSimpleName()) {

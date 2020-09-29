@@ -82,8 +82,8 @@ public class ModernImagePanel extends ModernComponent {
    * @param iconSize the icon size
    * @param size     the size
    */
-  public ModernImagePanel(ModernIcon image, int iconSize, int size) {
-    setImage(image, iconSize, size);
+  public ModernImagePanel(ModernIcon image, int size, int iconSize) {
+    setImage(image, size, iconSize);
   }
 
   /**
