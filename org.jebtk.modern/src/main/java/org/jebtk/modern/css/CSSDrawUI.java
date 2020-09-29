@@ -33,13 +33,7 @@ public class CSSDrawUI extends CSSOutlineUI {
   }
 
   @Override
-  public void draw(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
-
-    
-
+  public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
 
     if (c != null) {
       ColorGradient lp = c.getCSSProps().getColorGradient("background");
@@ -47,24 +41,16 @@ public class CSSDrawUI extends CSSOutlineUI {
       if (lp != null) {
         lp.paint(g2, c);
       } else {
-        System.err.println("gg " + rect.h +  " " + g2.getColor() + " " + 
-            c.getCSSProps().getColor("background-color"));
-        
         g2.setColor(c.getCSSProps().getColor("background-color"));
       }
     } else {
-      g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget")
-          .getColor("background-color"));
-      
-      System.err.println("pp " + rect.h +  " " + CSSKeyFramesService.getInstance().getToStyleClass("widget")
-          .getColor("background-color"));
+      g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget").getColor("background-color"));
     }
-    
+
     fill(c, g2, rect, props);
 
     /*
-     * if (c != null) { ColorGradient lp =
-     * c.getCSSProps().getColorGradient("fill");
+     * if (c != null) { ColorGradient lp = c.getCSSProps().getColorGradient("fill");
      * 
      * if (lp != null) { lp.paint(g2, c); } else {
      * g2.setColor(c.getCSSProps().getColor("fill-color")); } } else {
@@ -76,9 +62,9 @@ public class CSSDrawUI extends CSSOutlineUI {
 
     // outline
     super.draw(c, g2, rect, props);
-    
+
     // For testing only
-    //g2.setColor(Color.RED);
-    //g2.drawLine(0, 2, c.getWidth(), 2);
+    // g2.setColor(Color.RED);
+    // g2.drawLine(0, 2, c.getWidth(), 2);
   }
 }

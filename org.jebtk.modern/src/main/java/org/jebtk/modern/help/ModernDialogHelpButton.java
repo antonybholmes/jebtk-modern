@@ -47,8 +47,8 @@ public class ModernDialogHelpButton extends ModernUrlTextLink {
 
   /**
    * Creates a new dialog help button, referring to the URL specified by the
-   * settings url string. The parameter must be a setting name that maps to a
-   * URL. It cannot be a URL as a string. To use a URL directory use the URL
+   * settings url string. The parameter must be a setting name that maps to a URL.
+   * It cannot be a URL as a string. To use a URL directory use the URL
    * constructor.
    *
    * @param settingsUrl the settings url

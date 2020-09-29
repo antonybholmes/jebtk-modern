@@ -65,7 +65,7 @@ public abstract class HoverAnimation extends TimerAnimation {
     public void mouseExited(MouseEvent e) {
       // System.err.println("mouse exit " + e.getSource());
 
-      //mEntryMode = false;
+      // mEntryMode = false;
 
       // if (!mPressed) {
       pseudoMouseExited();
@@ -87,8 +87,7 @@ public abstract class HoverAnimation extends TimerAnimation {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     // @Override
     // public void mouseReleased(MouseEvent e) {
@@ -100,7 +99,6 @@ public abstract class HoverAnimation extends TimerAnimation {
     // }
 
   }
-
 
   /**
    * Instantiates a new mouse animation.
@@ -125,7 +123,7 @@ public abstract class HoverAnimation extends TimerAnimation {
 
     return this;
   }
-  
+
   @Override
   public void animate() {
     if (mHoverMode) {
@@ -155,10 +153,10 @@ public abstract class HoverAnimation extends TimerAnimation {
    */
   public void pseudoMouseExited() {
     mHoverMode = false;
-    
+
     stop();
 
-    animateMouseExited(); //restart();
+    animateMouseExited(); // restart();
   }
 
   @Override

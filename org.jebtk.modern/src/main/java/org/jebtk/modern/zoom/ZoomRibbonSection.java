@@ -49,8 +49,7 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes
  *
  */
-public class ZoomRibbonSection extends RibbonSection
-    implements Zoom, ModernClickListener {
+public class ZoomRibbonSection extends RibbonSection implements Zoom, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -88,7 +87,7 @@ public class ZoomRibbonSection extends RibbonSection
    * Instantiates a new zoom ribbon section2.
    *
    * @param parent the parent
-   * @param model the model
+   * @param model  the model
    */
   public ZoomRibbonSection(ModernRibbonWindow parent, ZoomModel model) {
     super(parent.getRibbon(), "Zoom");
@@ -181,8 +180,7 @@ public class ZoomRibbonSection extends RibbonSection
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {

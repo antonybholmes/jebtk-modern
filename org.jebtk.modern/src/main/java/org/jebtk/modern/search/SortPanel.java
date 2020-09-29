@@ -64,8 +64,7 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public class SortPanel<T extends NameGetter> extends HBox
-    implements ModernClickListener {
+public class SortPanel<T extends NameGetter> extends HBox implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -80,8 +79,7 @@ public class SortPanel<T extends NameGetter> extends HBox
   /**
    * The constant MENU_SIZE.
    */
-  private static final Dimension MENU_SIZE = new Dimension(250,
-      ModernIconMenuItem.HEIGHT);
+  private static final Dimension MENU_SIZE = new Dimension(250, ModernIconMenuItem.HEIGHT);
 
   // private static final ModernIcon UP_ICON =
   // Resources.getInstance().loadIcon("up_scroll", Resources.ICON_SIZE_16);
@@ -101,24 +99,21 @@ public class SortPanel<T extends NameGetter> extends HBox
   /**
    * The member sort direction button.
    */
-  private SortDirectionButton mSortDirectionButton = new SortDirectionButton(
-      true);
+  private SortDirectionButton mSortDirectionButton = new SortDirectionButton(true);
 
   /**
    * The member list button.
    */
   private ModernButtonWidget mListButton = new ModernCheckRadioButton(
-      AssetService.getInstance().loadIcon(ListVectorIcon.class, 16),
-      "List view", "Display data in a list.")
-      .setColorStyle(ColorStyle.RIBBON);
+      AssetService.getInstance().loadIcon(ListVectorIcon.class, 16), "List view", "Display data in a list.")
+          .setColorStyle(ColorStyle.RIBBON);
 
   /**
    * The member tree button.
    */
   private ModernClickWidget mTreeButton = new ModernCheckRadioButton(
-      AssetService.getInstance().loadIcon(TreeVectorIcon.class, 16),
-      "Tree view", "Display data in a tree.")
-      .setColorStyle(ColorStyle.RIBBON);
+      AssetService.getInstance().loadIcon(TreeVectorIcon.class, 16), "Tree view", "Display data in a tree.")
+          .setColorStyle(ColorStyle.RIBBON);
 
   /**
    * The member filter button.
@@ -148,8 +143,7 @@ public class SortPanel<T extends NameGetter> extends HBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -165,13 +159,12 @@ public class SortPanel<T extends NameGetter> extends HBox
   /**
    * Instantiates a new sort panel.
    *
-   * @param parent the parent
-   * @param sortModel the sort model
+   * @param parent      the parent
+   * @param sortModel   the sort model
    * @param filterModel the filter model
-   * @param viewModel the view model
+   * @param viewModel   the view model
    */
-  public SortPanel(ModernWindow parent, SortModel<T> sortModel,
-      FilterModel filterModel, ViewModel viewModel) {
+  public SortPanel(ModernWindow parent, SortModel<T> sortModel, FilterModel filterModel, ViewModel viewModel) {
     mSortModel = sortModel;
     mViewModel = viewModel;
 
@@ -282,8 +275,7 @@ public class SortPanel<T extends NameGetter> extends HBox
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {

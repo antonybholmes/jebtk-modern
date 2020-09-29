@@ -60,8 +60,7 @@ public class CloseableTab extends ModernComponent {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -75,7 +74,7 @@ public class CloseableTab extends ModernComponent {
    * Instantiates a new closeable tab.
    *
    * @param title the title
-   * @param c the c
+   * @param c     the c
    * @param model the model
    */
   public CloseableTab(String title, Component c, TabsModel model) {

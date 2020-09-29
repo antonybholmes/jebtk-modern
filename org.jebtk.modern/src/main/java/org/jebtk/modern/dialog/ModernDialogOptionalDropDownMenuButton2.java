@@ -41,8 +41,7 @@ import org.jebtk.modern.menu.ModernPopupMenu2;
  * @author Antony Holmes
  *
  */
-public class ModernDialogOptionalDropDownMenuButton2
-    extends ModernOptionalDropDownMenuButton2 {
+public class ModernDialogOptionalDropDownMenuButton2 extends ModernOptionalDropDownMenuButton2 {
 
   /**
    * The constant serialVersionUID.
@@ -53,11 +52,10 @@ public class ModernDialogOptionalDropDownMenuButton2
    * Instantiates a new modern dialog optional drop down menu button.
    *
    * @param text1 the text1
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public ModernDialogOptionalDropDownMenuButton2(String text1, ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public ModernDialogOptionalDropDownMenuButton2(String text1, ModernIcon icon, ModernPopupMenu2 menu) {
     super(text1, icon, menu);
   }
 
@@ -67,8 +65,7 @@ public class ModernDialogOptionalDropDownMenuButton2
    * @param icon the icon
    * @param menu the menu
    */
-  public ModernDialogOptionalDropDownMenuButton2(ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public ModernDialogOptionalDropDownMenuButton2(ModernIcon icon, ModernPopupMenu2 menu) {
     super(icon, menu);
   }
 

@@ -172,7 +172,8 @@ public class AssetService {
         @Override
         public MultiStateIcon newEntry() {
           return new MultiStateIcon();
-        }}));
+        }
+      }));
 
   /**
    * The member vector icon map.
@@ -210,59 +211,57 @@ public class AssetService {
   public MultiStateIcon loadIcon(String name, int size) {
     return loadIcon(name, size, size);
   }
-  
+
   /**
    * Load icon of a particular size and scale.
    * 
-   * @param name        Name of bitmapped icon.
-   * @param size        Original size.
-   * @param iconSize    Scaled size.
+   * @param name     Name of bitmapped icon.
+   * @param size     Original size.
+   * @param iconSize Scaled size.
    * @return
    */
   public MultiStateIcon loadIcon(String name, int size, int iconSize) {
     if (!mRasterIconMap.containsKey(size) || !mRasterIconMap.get(size).containsKey(name)) {
       // If the icon is not cached, cache it
-      
+
       StringBuilder resource;
       URL imgURL;
-      
-      resource = new StringBuilder(PATH).append(name).append("_")
-          .append(size).append("_").append(size).append(".png");
+
+      resource = new StringBuilder(PATH).append(name).append("_").append(size).append("_").append(size).append(".png");
 
       imgURL = Resources.getResource(resource.toString());
 
       if (imgURL != null) {
-        mRasterIconMap.get(iconSize).get(name).add("default", 
-            new ModernImageIcon(imgURL));
-        
-        //mRasterIconMap.get(iconSize).get(name).add("selected", mRasterIconMap.get(iconSize).get(name).getState("default"));
-        //mRasterIconMap.get(iconSize).get(name).add("highlight", mRasterIconMap.get(iconSize).get(name).getState("default"));
+        mRasterIconMap.get(iconSize).get(name).add("default", new ModernImageIcon(imgURL));
+
+        // mRasterIconMap.get(iconSize).get(name).add("selected",
+        // mRasterIconMap.get(iconSize).get(name).getState("default"));
+        // mRasterIconMap.get(iconSize).get(name).add("highlight",
+        // mRasterIconMap.get(iconSize).get(name).getState("default"));
       }
-      
-      resource = new StringBuilder(PATH).append(name).append("_selected").append("_")
-          .append(size).append("_").append(size).append(".png");
-      
+
+      resource = new StringBuilder(PATH).append(name).append("_selected").append("_").append(size).append("_")
+          .append(size).append(".png");
+
       imgURL = Resources.getResource(resource.toString());
 
       if (imgURL != null) {
-        mRasterIconMap.get(iconSize).get(name).add("selected", 
-            new ModernImageIcon(imgURL));
+        mRasterIconMap.get(iconSize).get(name).add("selected", new ModernImageIcon(imgURL));
       }
-      
-      resource = new StringBuilder(PATH).append(name).append("_highlight").append("_")
-          .append(size).append("_").append(size).append(".png");
-      
+
+      resource = new StringBuilder(PATH).append(name).append("_highlight").append("_").append(size).append("_")
+          .append(size).append(".png");
+
       imgURL = Resources.getResource(resource.toString());
 
       if (imgURL != null) {
-        mRasterIconMap.get(iconSize).get(name).add("highlight", 
-            new ModernImageIcon(imgURL));
+        mRasterIconMap.get(iconSize).get(name).add("highlight", new ModernImageIcon(imgURL));
       }
     }
 
     return mRasterIconMap.get(iconSize).get(name);
   }
-  
+
 //  public ImageView loadFxIcon(String name, int size) {
 //    return new ImageView(loadIcon(name, size).getFxImage(size));
 //  }
@@ -274,9 +273,9 @@ public class AssetService {
   /**
    * Load icon.
    *
-   * @param <T> the generic type
+   * @param <T>       the generic type
    * @param iconClass the icon class
-   * @param size the size
+   * @param size      the size
    * @return the modern icon
    */
   /*
@@ -297,8 +296,8 @@ public class AssetService {
    * 
    * String name = getClassName(iconClass);
    * 
-   * if (!mVectorIconMap.get(name).containsKey(size)) { try { Constructor<T>
-   * cons = iconClass.getConstructor(Color.class);
+   * if (!mVectorIconMap.get(name).containsKey(size)) { try { Constructor<T> cons
+   * = iconClass.getConstructor(Color.class);
    * 
    * mVectorIconMap.get(name).put(size, new RasterIcon(cons.newInstance(color),
    * size)); } catch (InstantiationException e) { e.printStackTrace(); } catch
@@ -311,8 +310,7 @@ public class AssetService {
    * return mVectorIconMap.get(name).get(size); }
    */
 
-  public <T extends ModernVectorIcon> ModernIcon loadIcon(Class<T> iconClass,
-      int size) {
+  public <T extends ModernVectorIcon> ModernIcon loadIcon(Class<T> iconClass, int size) {
     return loadIcon(getClassName(iconClass), iconClass, size);
   }
 
@@ -320,55 +318,43 @@ public class AssetService {
    * Initializes and caches a vector icon supplying a given size and color as
    * parameters.
    *
-   * @param <T> the generic type
+   * @param <T>       the generic type
    * @param iconClass the icon class
-   * @param color the color
-   * @param size the size
+   * @param color     the color
+   * @param size      the size
    * @return the modern icon
    */
-  public <T extends ModernVectorIcon> ModernIcon loadIcon(Class<T> iconClass,
-      Color color,
-      int size) {
+  public <T extends ModernVectorIcon> ModernIcon loadIcon(Class<T> iconClass, Color color, int size) {
     return loadIcon(getClassName(iconClass, color), iconClass, color, size);
   }
 
   /**
    * Load icon.
    *
-   * @param <T> the generic type
+   * @param <T>       the generic type
    * @param iconClass the icon class
-   * @param color1 the color 1
-   * @param color2 the color 2
-   * @param size the size
+   * @param color1    the color 1
+   * @param color2    the color 2
+   * @param size      the size
    * @return the modern icon
    */
-  public <T extends ModernVectorIcon> ModernIcon loadIcon(Class<T> iconClass,
-      Color color1,
-      Color color2,
-      int size) {
-    return loadIcon(getClassName(iconClass, color1, color2),
-        iconClass,
-        color1,
-        color2,
-        size);
+  public <T extends ModernVectorIcon> ModernIcon loadIcon(Class<T> iconClass, Color color1, Color color2, int size) {
+    return loadIcon(getClassName(iconClass, color1, color2), iconClass, color1, color2, size);
   }
 
   /**
    * Load icon.
    *
-   * @param <T> the generic type
-   * @param name the name
+   * @param <T>       the generic type
+   * @param name      the name
    * @param iconClass the icon class
-   * @param size the size
+   * @param size      the size
    * @return the modern icon
    */
-  public <T extends ModernVectorIcon> ModernIcon loadIcon(String name,
-      Class<T> iconClass,
-      int size) {
+  public <T extends ModernVectorIcon> ModernIcon loadIcon(String name, Class<T> iconClass, int size) {
 
     if (!mVectorIconMap.get(name).containsKey(size)) {
-      ModernIcon rastorIcon = ModernVectorIcon.createRastorIcon(iconClass,
-          size);
+      ModernIcon rastorIcon = ModernVectorIcon.createRastorIcon(iconClass, size);
 
       System.err.println("icon " + name + " " + size);
       mVectorIconMap.get(name).put(size, rastorIcon);
@@ -380,23 +366,19 @@ public class AssetService {
   /**
    * Load icon.
    *
-   * @param <T> the generic type
-   * @param name the name
+   * @param <T>       the generic type
+   * @param name      the name
    * @param iconClass the icon class
-   * @param color1 the color 1
-   * @param color2 the color 2
-   * @param size the size
+   * @param color1    the color 1
+   * @param color2    the color 2
+   * @param size      the size
    * @return the modern icon
    */
-  public <T extends ModernVectorIcon> ModernIcon loadIcon(String name,
-      Class<T> iconClass,
-      Color color1,
-      Color color2,
+  public <T extends ModernVectorIcon> ModernIcon loadIcon(String name, Class<T> iconClass, Color color1, Color color2,
       int size) {
 
     if (!mVectorIconMap.get(name).containsKey(size)) {
-      ModernIcon rastorIcon = ModernVectorIcon
-          .createRastorIcon(iconClass, color1, color2, size);
+      ModernIcon rastorIcon = ModernVectorIcon.createRastorIcon(iconClass, color1, color2, size);
 
       mVectorIconMap.get(name).put(size, rastorIcon);
     }
@@ -407,21 +389,17 @@ public class AssetService {
   /**
    * Load icon.
    *
-   * @param <T> the generic type
-   * @param name the name
+   * @param <T>       the generic type
+   * @param name      the name
    * @param iconClass the icon class
-   * @param color1 the color 1
-   * @param size the size
+   * @param color1    the color 1
+   * @param size      the size
    * @return the modern icon
    */
-  public <T extends ModernVectorIcon> ModernIcon loadIcon(String name,
-      Class<T> iconClass,
-      Color color1,
-      int size) {
+  public <T extends ModernVectorIcon> ModernIcon loadIcon(String name, Class<T> iconClass, Color color1, int size) {
 
     if (!mVectorIconMap.get(name).containsKey(size)) {
-      ModernIcon rastorIcon = ModernVectorIcon
-          .createRastorIcon(iconClass, color1, size);
+      ModernIcon rastorIcon = ModernVectorIcon.createRastorIcon(iconClass, color1, size);
 
       mVectorIconMap.get(name).put(size, rastorIcon);
     }
@@ -442,7 +420,7 @@ public class AssetService {
   /**
    * Gets the class name.
    *
-   * @param c the c
+   * @param c     the c
    * @param color the color
    * @return the class name
    */
@@ -453,16 +431,13 @@ public class AssetService {
   /**
    * Gets the class name.
    *
-   * @param c the c
+   * @param c      the c
    * @param color1 the color 1
    * @param color2 the color 2
    * @return the class name
    */
-  public static String getClassName(final Class<?> c,
-      Color color1,
-      Color color2) {
-    return getClassName(c) + "_" + ColorUtils.toHtml(color1) + "_"
-        + ColorUtils.toHtml(color2);
+  public static String getClassName(final Class<?> c, Color color1, Color color2) {
+    return getClassName(c) + "_" + ColorUtils.toHtml(color1) + "_" + ColorUtils.toHtml(color2);
   }
 
   /**

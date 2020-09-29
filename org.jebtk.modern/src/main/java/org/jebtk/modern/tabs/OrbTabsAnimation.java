@@ -31,8 +31,7 @@ import org.jebtk.modern.theme.ThemeService;
  */
 public class OrbTabsAnimation extends WidgetAnimation {
 
-  private static final Color TEXT_COLOR = ThemeService.getInstance().getColors()
-      .getGray(10);
+  private static final Color TEXT_COLOR = ThemeService.getInstance().getColors().getGray(10);
 
   private OrbTabs mTabs;
 
@@ -56,8 +55,7 @@ public class OrbTabsAnimation extends WidgetAnimation {
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
-    int x = (widget.getWidth()
-        - mTabs.mTabSize * mTabs.getTabsModel().getTabCount()) / 2; // mTabs.getInsets().left;
+    int x = (widget.getWidth() - mTabs.mTabSize * mTabs.getTabsModel().getTabCount()) / 2; // mTabs.getInsets().left;
     int h = mTabs.getInternalRect().getH();
     int n = mTabs.getTabsModel().getTabCount();
 
@@ -73,8 +71,7 @@ public class OrbTabsAnimation extends WidgetAnimation {
       g2.setColor(i == selectedIndex ? Color.WHITE : TEXT_COLOR);
       // g2.setFont(selected ? ModernWidget.BOLD_FONT : ModernWidget.FONT);
 
-      String s = mTabs.getTabsModel().getTab(i).getName().toUpperCase()
-          .substring(0, 1);
+      String s = mTabs.getTabsModel().getTab(i).getName().toUpperCase().substring(0, 1);
 
       g2.drawString(s, x + (h - g2.getFontMetrics().stringWidth(s)) / 2, textY);
 

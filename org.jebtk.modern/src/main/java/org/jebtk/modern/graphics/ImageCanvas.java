@@ -101,11 +101,9 @@ public class ImageCanvas extends ModernCanvas {
    * Cache.
    */
   private void cache() {
-    Dimension size = new Dimension(mCanvas.getCanvasSize().getW(),
-        mCanvas.getCanvasSize().getH());
+    Dimension size = new Dimension(mCanvas.getCanvasSize().getW(), mCanvas.getCanvasSize().getH());
 
-    image = new BufferedImage(size.width, size.height,
-        BufferedImage.TYPE_INT_ARGB);
+    image = new BufferedImage(size.width, size.height, BufferedImage.TYPE_INT_ARGB);
 
     Graphics2D g2Temp = ImageUtils.createAATextGraphics(image);
 

@@ -49,8 +49,7 @@ import org.jebtk.modern.scrollpane.ModernScrollPane;
 /**
  * The class LogListPanel.
  */
-public class LogListPanel extends ModernWidget
-    implements MouseListener, ModernClickListener {
+public class LogListPanel extends ModernWidget implements MouseListener, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -65,8 +64,7 @@ public class LogListPanel extends ModernWidget
   /**
    * The list.
    */
-  private ModernList<LogEvent> list = new ModernList<LogEvent>(
-      new LogEventListItemRenderer());
+  private ModernList<LogEvent> list = new ModernList<LogEvent>(new LogEventListItemRenderer());
 
   /**
    * The log popup.
@@ -92,8 +90,7 @@ public class LogListPanel extends ModernWidget
     add(scrollPane, BorderLayout.CENTER);
 
     ModernIconMenuItem menuItem = new ModernIconMenuItem(MENU_CLEAR,
-        AssetService.getInstance().loadIcon("clear_log",
-            AssetService.ICON_SIZE_16));
+        AssetService.getInstance().loadIcon("clear_log", AssetService.ICON_SIZE_16));
     menuItem.addClickListener(this);
     logPopup.add(menuItem);
 
@@ -184,8 +181,7 @@ public class LogListPanel extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {

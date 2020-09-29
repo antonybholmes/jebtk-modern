@@ -70,12 +70,7 @@ public class TriangleVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     g2.setColor(COLOR);
   }
 

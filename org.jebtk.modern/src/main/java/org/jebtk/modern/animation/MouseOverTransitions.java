@@ -42,7 +42,6 @@ public class MouseOverTransitions extends Transitions {
 
   private double mT = 0;
 
-
   /**
    * The Class MouseEvents.
    */
@@ -70,7 +69,7 @@ public class MouseOverTransitions extends Transitions {
       // System.err.println("mouse exit " + e.getSource());
 
       mForward = false;
-      
+
       pseudoMouseExited();
     }
   }
@@ -111,7 +110,7 @@ public class MouseOverTransitions extends Transitions {
 
     bind(widget);
   }
-  
+
   public MouseOverTransitions(ModernWidget widget, TransitionTimer timer) {
     super(widget, timer);
 
@@ -156,11 +155,11 @@ public class MouseOverTransitions extends Transitions {
     if (mT == 0.0 || mT == 1.0) {
       mMouseOverTimer.stop();
     }
-    
+
     mT = Mathematics.bound(getTimer().nextT(mForward), 0.0, 1.0);
-    
+
     updateState(mT, mForward);
-    
+
     // After updating the state, force a repaint
     mWidget.repaint();
   }

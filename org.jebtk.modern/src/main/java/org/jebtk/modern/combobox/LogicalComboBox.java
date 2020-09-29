@@ -122,30 +122,25 @@ public class LogicalComboBox extends ModernComboBox {
   protected void setup() {
     ModernIconMenuItem item;
 
-    item = new ModernIconMenuItem("AND",
-        AssetService.getInstance().loadIcon("and", AssetService.ICON_SIZE_48));
+    item = new ModernIconMenuItem("AND", AssetService.getInstance().loadIcon("and", AssetService.ICON_SIZE_48));
     UI.setSize(item, new Dimension(WIDTH, AssetService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
-    item = new ModernIconMenuItem("OR",
-        AssetService.getInstance().loadIcon("or", AssetService.ICON_SIZE_48));
+    item = new ModernIconMenuItem("OR", AssetService.getInstance().loadIcon("or", AssetService.ICON_SIZE_48));
     UI.setSize(item, new Dimension(WIDTH, AssetService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
     addScrollMenuItem(new ModernMenuDivider());
 
-    item = new ModernIconMenuItem("NOR",
-        AssetService.getInstance().loadIcon("nor", AssetService.ICON_SIZE_48));
+    item = new ModernIconMenuItem("NOR", AssetService.getInstance().loadIcon("nor", AssetService.ICON_SIZE_48));
     UI.setSize(item, new Dimension(WIDTH, AssetService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
-    item = new ModernIconMenuItem("XOR",
-        AssetService.getInstance().loadIcon("xor", AssetService.ICON_SIZE_48));
+    item = new ModernIconMenuItem("XOR", AssetService.getInstance().loadIcon("xor", AssetService.ICON_SIZE_48));
     UI.setSize(item, new Dimension(WIDTH, AssetService.ICON_SIZE_48));
     addScrollMenuItem(item);
 
-    item = new ModernIconMenuItem("NAND",
-        AssetService.getInstance().loadIcon("nand", AssetService.ICON_SIZE_48));
+    item = new ModernIconMenuItem("NAND", AssetService.getInstance().loadIcon("nand", AssetService.ICON_SIZE_48));
     UI.setSize(item, new Dimension(WIDTH, AssetService.ICON_SIZE_48));
     addScrollMenuItem(item);
   }

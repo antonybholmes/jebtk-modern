@@ -52,8 +52,7 @@ import org.jebtk.modern.window.ModernWindow;
  *
  * @param <T> the generic type
  */
-public class ModernHistoryPanel<T> extends ModernComponent
-    implements ModernClickListener {
+public class ModernHistoryPanel<T> extends ModernComponent implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -80,8 +79,7 @@ public class ModernHistoryPanel<T> extends ModernComponent
   /**
    * The member history list.
    */
-  protected ModernHistoryList<T> mHistoryList = new ModernHistoryList<T>(
-      mHistoryModel);
+  protected ModernHistoryList<T> mHistoryList = new ModernHistoryList<T>(mHistoryModel);
 
   /**
    * Instantiates a new modern history panel.
@@ -134,7 +132,7 @@ public class ModernHistoryPanel<T> extends ModernComponent
   /**
    * Adds the item.
    *
-   * @param item the item
+   * @param item          the item
    * @param selectedIndex the selected index
    * @return the t
    */
@@ -230,8 +228,7 @@ public class ModernHistoryPanel<T> extends ModernComponent
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

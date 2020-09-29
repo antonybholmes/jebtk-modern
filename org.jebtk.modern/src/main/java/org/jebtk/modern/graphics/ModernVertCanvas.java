@@ -25,8 +25,7 @@ import javax.swing.Scrollable;
  * vertical content.
  * 
  */
-public abstract class ModernVertCanvas extends ModernCanvas
-    implements Scrollable {
+public abstract class ModernVertCanvas extends ModernCanvas implements Scrollable {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;

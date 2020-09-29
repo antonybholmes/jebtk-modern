@@ -40,8 +40,7 @@ import org.jebtk.modern.zoom.ZoomCanvas;
 /**
  * The class ModernTableHeaderRowCellRenderer.
  */
-public class ModernTableHeaderRowCellRenderer
-    extends ModernTableHeaderCellRenderer {
+public class ModernTableHeaderRowCellRenderer extends ModernTableHeaderCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -99,8 +98,8 @@ public class ModernTableHeaderRowCellRenderer
 
     /*
      * gradient = new GradientPaint(0, 0,
-     * ThemeService.getInstance().getColors().getHighlight(1), mRect.getW() - 1,
-     * 0, LINE_COLOR, false);
+     * ThemeService.getInstance().getColors().getHighlight(1), mRect.getW() - 1, 0,
+     * LINE_COLOR, false);
      * 
      * g2.setPaint(gradient);
      */
@@ -131,8 +130,7 @@ public class ModernTableHeaderRowCellRenderer
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -143,8 +141,7 @@ public class ModernTableHeaderRowCellRenderer
      * int x = 0; int w = mRect.getW() / Math.max(1, mNames.size()); int y =
      * getTextYPosCenter(g2, mRect.getH());
      * 
-     * for (String name : mNames) { String text = getTruncatedText(g2, name, 0,
-     * w);
+     * for (String name : mNames) { String text = getTruncatedText(g2, name, 0, w);
      * 
      * int p = x + (w - g2.getFontMetrics().stringWidth(text)) / 2;
      * 
@@ -170,13 +167,8 @@ public class ModernTableHeaderRowCellRenderer
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernData dataView,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row,
-      int column) {
+  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
 
     if (value != null) {
       setText(value.toString());

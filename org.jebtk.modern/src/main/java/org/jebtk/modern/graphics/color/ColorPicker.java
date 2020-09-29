@@ -70,8 +70,7 @@ public class ColorPicker extends ModernClickWidget {
   private static final int SPACE = GAP + BLOCK_SIZE;
 
   /** The Constant SELECTION_COLOR. */
-  private static final Color SELECTION_COLOR = ThemeService.getInstance()
-      .getColors().getGray(10);
+  private static final Color SELECTION_COLOR = ThemeService.getInstance().getColors().getGray(10);
 
   private static final int OFFSET = 0; // PADDING
 
@@ -153,8 +152,7 @@ public class ColorPicker extends ModernClickWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -207,8 +205,7 @@ public class ColorPicker extends ModernClickWidget {
   public void setColors(List<List<Color>> colors) {
     mColors = colors;
 
-    mSize = new Dimension(BLOCK_SIZE * mColors.size()
-        + GAP * (mColors.size() - 1) + DOUBLE_OFFSET + 1,
+    mSize = new Dimension(BLOCK_SIZE * mColors.size() + GAP * (mColors.size() - 1) + DOUBLE_OFFSET + 1,
         mColors.get(0).size() * BLOCK_SIZE + DOUBLE_OFFSET + 1);
   }
 
@@ -289,8 +286,7 @@ public class ColorPicker extends ModernClickWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

@@ -207,8 +207,8 @@ public abstract class AbstractCollapsePane extends VertScrollWidget
   /**
    * Adds a tab to the control.
    *
-   * @param name The name of the tab.
-   * @param c1 The component to be placed in the tab.
+   * @param name     The name of the tab.
+   * @param c1       The component to be placed in the tab.
    * @param expanded Whether the tab is shown in its expanded view.
    */
   public void addTab(String name, Component c1, boolean expanded) {
@@ -277,8 +277,7 @@ public abstract class AbstractCollapsePane extends VertScrollWidget
   // }
 
   /**
-   * Resizes the collapse pane without indicating to parents that it has
-   * changed.
+   * Resizes the collapse pane without indicating to parents that it has changed.
    *
    * @param index the index
    */

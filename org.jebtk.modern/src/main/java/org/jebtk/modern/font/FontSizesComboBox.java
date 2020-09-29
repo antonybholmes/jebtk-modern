@@ -45,8 +45,8 @@ public class FontSizesComboBox extends ModernComboBox {
   /**
    * The constant sizes.
    */
-  private static final int[] sizes = { 8, 9, 10, 12, 14, 16, 18, 20, 24, 28, 32,
-      36, 40, 44, 48, 54, 60, 66, 72, 80, 88, 96 };
+  private static final int[] sizes = { 8, 9, 10, 12, 14, 16, 18, 20, 24, 28, 32, 36, 40, 44, 48, 54, 60, 66, 72, 80, 88,
+      96 };
 
   /**
    * Instantiates a new font sizes combo box.

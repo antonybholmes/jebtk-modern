@@ -14,10 +14,7 @@ public class ContentUI extends DrawUI {
   }
 
   @Override
-  public void draw(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
     g2.setColor(Color.WHITE);
     fill(c, g2, rect);
   }

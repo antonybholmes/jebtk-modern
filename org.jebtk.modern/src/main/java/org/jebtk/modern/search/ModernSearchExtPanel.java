@@ -61,8 +61,8 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernSearchPanel.
  */
-public class ModernSearchExtPanel extends ModernPillBorderPanel implements
-    ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
+public class ModernSearchExtPanel extends ModernPillBorderPanel
+    implements ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
 
   /**
    * The constant serialVersionUID.
@@ -113,7 +113,7 @@ public class ModernSearchExtPanel extends ModernPillBorderPanel implements
   /**
    * Instantiates a new modern search ext panel.
    *
-   * @param window the window
+   * @param window    the window
    * @param delimiter the delimiter
    */
   public ModernSearchExtPanel(ModernWindow window, String delimiter) {
@@ -123,12 +123,11 @@ public class ModernSearchExtPanel extends ModernPillBorderPanel implements
   /**
    * Instantiates a new modern search panel.
    *
-   * @param window the window
-   * @param model the model
+   * @param window    the window
+   * @param model     the model
    * @param delimiter the delimiter
    */
-  public ModernSearchExtPanel(ModernWindow window, SearchModel model,
-      String delimiter) {
+  public ModernSearchExtPanel(ModernWindow window, SearchModel model, String delimiter) {
     mWindow = window;
     mModel = model;
     mDelimiter = delimiter;
@@ -159,12 +158,11 @@ public class ModernSearchExtPanel extends ModernPillBorderPanel implements
     });
 
     mSearchField.setText(mModel.get());
-    
+
     addComponentListener(new ComponentAdapter() {
       @Override
       public void componentResized(ComponentEvent e) {
-        setBorder(
-            BorderService.getInstance().createBorder(3, getHeight() / 2, 2, 2));
+        setBorder(BorderService.getInstance().createBorder(3, getHeight() / 2, 2, 2));
       }
     });
   }
@@ -184,8 +182,7 @@ public class ModernSearchExtPanel extends ModernPillBorderPanel implements
    * Search 2.
    */
   private void search2() {
-    SearchDialog dialog = new SearchDialog(mWindow, mSearchField.getText(),
-        mDelimiter);
+    SearchDialog dialog = new SearchDialog(mWindow, mSearchField.getText(), mDelimiter);
 
     dialog.setVisible(true);
 
@@ -259,8 +256,7 @@ public class ModernSearchExtPanel extends ModernPillBorderPanel implements
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

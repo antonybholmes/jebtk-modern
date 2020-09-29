@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.graphics.icons;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.Props;
@@ -43,33 +42,27 @@ public class CheveronDownVectorIcon extends CheveronVectorIcon {
   /**
    * Instantiates a new cheveron down vector icon.
    */
-  //public CheveronDownVectorIcon() {
-  //  // do nothing
-  //}
+  // public CheveronDownVectorIcon() {
+  // // do nothing
+  // }
 
   /**
    * Instantiates a new cheveron down vector icon.
    *
    * @param color the color
    */
-  //public CheveronDownVectorIcon(Color color) {
-  //  super(color);
-  //}
+  // public CheveronDownVectorIcon(Color color) {
+  // super(color);
+  // }
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.icons.CheveronVectorIcon#drawForeground(java.awt.
+   * @see org.abh.lib.ui.modern.icons.CheveronVectorIcon#drawForeground(java.awt.
    * Graphics2D, java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     super.drawIcon(g2, x, y, w, h, props);
 
     x += (w - mW) / 2 - 1;

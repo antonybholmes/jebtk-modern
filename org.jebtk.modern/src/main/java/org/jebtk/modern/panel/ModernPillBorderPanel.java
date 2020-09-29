@@ -71,9 +71,9 @@ public class ModernPillBorderPanel extends CSSWidget {
    */
   private void init() {
     setBorder(ModernWidget.TWO_PIXEL_BORDER); // BorderService.getInstance().createBorder(2));
-    
+
     addStyleClass("content", "content-outline", "pill");
-    
+
     getAnimations().add("button-outline");
   }
 }

@@ -41,7 +41,7 @@ public abstract class FadeMouseOverTransition implements Transition {
   /**
    * Set a fade in color.
    *
-   * @param name the name
+   * @param name  the name
    * @param color the color
    */
   public void setFadeColor(String name, Color color) {

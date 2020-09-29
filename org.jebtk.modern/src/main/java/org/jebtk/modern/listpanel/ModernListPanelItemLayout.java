@@ -25,8 +25,7 @@ public class ModernListPanelItemLayout implements LayoutManager {
   public void layoutContainer(Container parent) {
 
     Insets insets = parent.getInsets();
-    int maxWidth = parent.getWidth() - insets.left - insets.right
-        - ModernListPanelItem.HANDLE_SIZE;
+    int maxWidth = parent.getWidth() - insets.left - insets.right - ModernListPanelItem.HANDLE_SIZE;
     int x = insets.left;
     int y = insets.top;
 

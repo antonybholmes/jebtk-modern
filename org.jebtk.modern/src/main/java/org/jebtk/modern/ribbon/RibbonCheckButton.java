@@ -44,12 +44,12 @@ public class RibbonCheckButton extends ModernCheckButton {
 
     setup();
   }
-  
+
   /**
    * Instantiates a new ribbon check button.
    *
    * @param text1 the text 1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public RibbonCheckButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -62,7 +62,7 @@ public class RibbonCheckButton extends ModernCheckButton {
    *
    * @param text1 the text1
    * @param text2 the text 2
-   * @param icon the icon
+   * @param icon  the icon
    */
   public RibbonCheckButton(String text1, String text2, ModernIcon icon) {
     super(text1, icon);
@@ -84,13 +84,12 @@ public class RibbonCheckButton extends ModernCheckButton {
   /**
    * Instantiates a new ribbon check button.
    *
-   * @param text1 the text 1
-   * @param icon the icon
+   * @param text1        the text 1
+   * @param icon         the icon
    * @param toolTipTitle the tool tip title
-   * @param toolTipText the tool tip text
+   * @param toolTipText  the tool tip text
    */
-  public RibbonCheckButton(String text1, ModernIcon icon, String toolTipTitle,
-      String toolTipText) {
+  public RibbonCheckButton(String text1, ModernIcon icon, String toolTipTitle, String toolTipText) {
     this(text1, icon);
 
     setToolTip(toolTipTitle, toolTipText);
@@ -104,8 +103,8 @@ public class RibbonCheckButton extends ModernCheckButton {
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
-   * if (isSelected() || mHighlight) { getWidgetRenderer().drawRibbonButton(g2,
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight) { getWidgetRenderer().drawRibbonButton(g2,
    * mInternalRect, RenderMode.SELECTED); } } }
    */
 }

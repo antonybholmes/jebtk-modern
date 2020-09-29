@@ -109,8 +109,7 @@ public class HelpAutoCompleteBox extends ModernPanel {
 
         // System.err.println(p + " " + l);
 
-        return p.x >= l.x && p.x <= l.x + getWidth() && p.y >= l.y
-            && p.y <= l.y + getHeight();
+        return p.x >= l.x && p.x <= l.x + getWidth() && p.y >= l.y && p.y <= l.y + getHeight();
 
       }
 
@@ -123,8 +122,7 @@ public class HelpAutoCompleteBox extends ModernPanel {
 
         SwingUtilities.convertPointToScreen(p, e.getComponent());
 
-        return p.x >= l.x && p.x <= l.x + mPanel.getWidth() && p.y >= l.y
-            && p.y <= l.y + mPanel.getHeight();
+        return p.x >= l.x && p.x <= l.x + mPanel.getWidth() && p.y >= l.y && p.y <= l.y + mPanel.getHeight();
       }
 
     }, AWTEvent.MOUSE_EVENT_MASK);
@@ -200,15 +198,13 @@ public class HelpAutoCompleteBox extends ModernPanel {
       }
     });
 
-    mField.getInputMap(JComponent.WHEN_FOCUSED).put(
-        KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0, true),
-        "Down released");
+    mField.getInputMap(JComponent.WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0, true), "Down released");
     mField.getActionMap().put("Down released", new AbstractAction() {
       private static final long serialVersionUID = 1L;
 
       @Override
       public void actionPerformed(ActionEvent ae) {// focuses the first label on
-                                                   // popwindow
+        // popwindow
         // mWindow.toFront();
         // mWindow.requestFocusInWindow();
       }
@@ -222,8 +218,8 @@ public class HelpAutoCompleteBox extends ModernPanel {
      * 
      * if (event instanceof WindowEvent) { System.out.println("WindowEvent");
      * WindowEvent evt = (WindowEvent) event; if (evt.getID() ==
-     * WindowEvent.WINDOW_GAINED_FOCUS) { System.out.println("I got you babe");
-     * } else if (evt.getID() == WindowEvent.WINDOW_LOST_FOCUS) {
+     * WindowEvent.WINDOW_GAINED_FOCUS) { System.out.println("I got you babe"); }
+     * else if (evt.getID() == WindowEvent.WINDOW_LOST_FOCUS) {
      * System.out.println("Don't leave me!"); } } else if (event instanceof
      * FocusEvent) { System.out.println("FocusEvent"); } } },
      * AWTEvent.WINDOW_FOCUS_EVENT_MASK | AWTEvent.FOCUS_EVENT_MASK |
@@ -254,15 +250,13 @@ public class HelpAutoCompleteBox extends ModernPanel {
     // mWindow.setMinimumSize(new Dimension(mField.getWidth(), 30));
     // mWindow.setSize(tW, tH);
 
-    Point p = new Point(mField.getLocation().x,
-        mField.getLocation().y + mField.getHeight());
+    Point p = new Point(mField.getLocation().x, mField.getLocation().y + mField.getHeight());
 
     SwingUtilities.convertPointToScreen(p, mField);
 
     SwingUtilities.convertPointFromScreen(p, mFrame.getLayeredPane());
     mPanel.setLocation(p);
-    mPanel.setSize(getWidth(),
-        mPanel.getComponentCount() * ModernMenuItem.HEIGHT);
+    mPanel.setSize(getWidth(), mPanel.getComponentCount() * ModernMenuItem.HEIGHT);
 
     mPanel.setVisible(true);
   }
@@ -275,8 +269,7 @@ public class HelpAutoCompleteBox extends ModernPanel {
   public static void main(String[] args) {
     JFrame frame = new JFrame();
     frame.getContentPane().setLayout(new BorderLayout());
-    frame.getContentPane().add(new HelpAutoCompleteBox(frame),
-        BorderLayout.PAGE_START);
+    frame.getContentPane().add(new HelpAutoCompleteBox(frame), BorderLayout.PAGE_START);
 
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setSize(200, 200);

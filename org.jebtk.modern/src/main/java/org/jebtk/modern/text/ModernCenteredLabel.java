@@ -52,7 +52,7 @@ public class ModernCenteredLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern centered label.
    *
-   * @param text the text
+   * @param text  the text
    * @param color the color
    */
   public ModernCenteredLabel(String text, Color color) {

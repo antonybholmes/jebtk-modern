@@ -39,8 +39,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernWindowTitleBarMinButton.
  */
-public class RibbonTitleBarMinButton extends RibbonTitleBarButton
-    implements ModernClickListener {
+public class RibbonTitleBarMinButton extends RibbonTitleBarButton implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.

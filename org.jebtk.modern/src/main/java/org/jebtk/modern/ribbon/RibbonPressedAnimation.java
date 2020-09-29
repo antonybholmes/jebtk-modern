@@ -85,7 +85,7 @@ public class RibbonPressedAnimation extends ButtonPressedAnimation {
         g2.fillRect(x, Ribbon.Y_OFFSET, tabWidth, Ribbon.TAB_HEIGHT);
 
         double r = TranslateAnimation.BEZ_T[getStep()]; // /
-                                                        // (double)TimerAnimation.AnimationTimer.STEPS;
+        // (double)TimerAnimation.AnimationTimer.STEPS;
 
         int w = tabWidth;
 

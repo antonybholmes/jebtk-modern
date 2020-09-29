@@ -55,7 +55,7 @@ public class ModernCenteredHeadingLabel extends ModernCenteredLabel {
   /**
    * Instantiates a new modern centered heading label.
    *
-   * @param text the text
+   * @param text  the text
    * @param color the color
    */
   public ModernCenteredHeadingLabel(String text, Color color) {

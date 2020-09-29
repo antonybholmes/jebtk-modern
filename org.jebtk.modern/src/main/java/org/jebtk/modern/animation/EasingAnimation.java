@@ -33,8 +33,7 @@ public abstract class EasingAnimation extends TimerAnimation {
   // .normCubicBezier(0.4, 0.0, 0.2, 1);
 
   // CSS default
-  public static final CubicBezier BEZIER = CubicBezier
-      .normCubicBezier(0.25, 0.1, 0.25, 1);
+  public static final CubicBezier BEZIER = CubicBezier.normCubicBezier(0.25, 0.1, 0.25, 1);
 
   public static final double[] BEZ_T = new double[AnimationTimer.STEPS];
 

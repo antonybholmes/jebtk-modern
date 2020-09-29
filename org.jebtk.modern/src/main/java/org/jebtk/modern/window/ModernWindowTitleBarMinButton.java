@@ -40,8 +40,7 @@ import org.jebtk.modern.graphics.icons.WindowMinVectorIcon;
 /**
  * The class ModernWindowTitleBarMinButton.
  */
-public class ModernWindowTitleBarMinButton extends ModernWindowTitleBarWinButton
-    implements ModernClickListener {
+public class ModernWindowTitleBarMinButton extends ModernWindowTitleBarWinButton implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -64,7 +63,7 @@ public class ModernWindowTitleBarMinButton extends ModernWindowTitleBarWinButton
    * Instantiates a new modern window title bar min button.
    *
    * @param window the window
-   * @param icon the icon
+   * @param icon   the icon
    */
   public ModernWindowTitleBarMinButton(ModernWindow window, ModernIcon icon) {
     super(icon);

@@ -56,13 +56,12 @@ public class RibbonViewPanel extends ModernPanel {
     box.add(UI.createHGap(5));
     setRight(box);
 
-    mHideButton.setToolTip("Minimize Ribbon",
-        "Minimize the ribbon so it takes up less space.");
+    mHideButton.setToolTip("Minimize Ribbon", "Minimize the ribbon so it takes up less space.");
   }
 
   @Override
   public void drawBackground(Graphics2D g2) {
-    //fill(g2, Ribbon.TAB_COLOR);
+    // fill(g2, Ribbon.TAB_COLOR);
 
     int y = getHeight() - 1;
     g2.setColor(ModernWidget.LIGHT_LINE_COLOR);

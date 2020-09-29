@@ -67,8 +67,7 @@ import org.xml.sax.SAXException;
  * @author Antony Holmes
  *
  */
-public class RecentFilesModel extends ChangeListeners
-    implements XmlRepresentation, JsonRepresentation, Iterable<Path> {
+public class RecentFilesModel extends ChangeListeners implements XmlRepresentation, JsonRepresentation, Iterable<Path> {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -88,12 +87,10 @@ public class RecentFilesModel extends ChangeListeners
   /**
    * The constant MAX_FILES.
    */
-  public static final int MAX_FILES = SettingsService.getInstance()
-      .getInt("ui.recent-files.max-files");
+  public static final int MAX_FILES = SettingsService.getInstance().getInt("ui.recent-files.max-files");
 
   /** The m file type map. */
-  protected Map<String, List<Path>> mFileTypeMap = DefaultTreeMap
-      .create(new ArrayListCreator<Path>());
+  protected Map<String, List<Path>> mFileTypeMap = DefaultTreeMap.create(new ArrayListCreator<Path>());
 
   /** The m files. */
   protected List<Path> mFiles = new ArrayList<Path>(100);
@@ -107,10 +104,11 @@ public class RecentFilesModel extends ChangeListeners
    * Instantiates a new recent files service.
    *
    * @param file the file
-   * @throws IOException Signals that an I/O exception has occurred.
-   * @throws SAXException the SAX exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
+   * @throws SAXException                 the SAX exception
    * @throws ParserConfigurationException the parser configuration exception
-   * @throws FileIsNotADirException the file is not A dir exception
+   * @throws FileIsNotADirException       the file is not A dir exception
    */
   public RecentFilesModel() {
 
@@ -221,8 +219,7 @@ public class RecentFilesModel extends ChangeListeners
 
     Element filesElement = doc.createElement("files");
 
-    filesElement.setAttribute("pwd",
-        mPwdModel.getPwd().toAbsolutePath().toString());
+    filesElement.setAttribute("pwd", mPwdModel.getPwd().toAbsolutePath().toString());
 
     // We write out no more than max files
     int n = Math.min(mFiles.size(), MAX_FILES);

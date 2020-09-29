@@ -41,8 +41,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public abstract class ModernTreeIconTextNodeRenderer
-    extends ModernTreeBranchNodeRenderer {
+public abstract class ModernTreeIconTextNodeRenderer extends ModernTreeBranchNodeRenderer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -115,11 +114,11 @@ public abstract class ModernTreeIconTextNodeRenderer
   }
 
   /**
-   * Draws the icon for the node. The graphics context is offset so that x = 0
-   * is the correctly offset start for the block the icon should be rendered in.
+   * Draws the icon for the node. The graphics context is offset so that x = 0 is
+   * the correctly offset start for the block the icon should be rendered in.
    * Therefore the only adjustments that may be required are centering the icon
-   * about (mIconWidth, getHeight()) which represents the space allocated to
-   * draw the icon.
+   * about (mIconWidth, getHeight()) which represents the space allocated to draw
+   * the icon.
    *
    * @param g2 the g 2
    */

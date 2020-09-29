@@ -46,7 +46,7 @@ public class ModernDataRowSelection {
    * Instantiates a new modern data row selection.
    *
    * @param startRow the start row
-   * @param endRow the end row
+   * @param endRow   the end row
    */
   public ModernDataRowSelection(int startRow, int endRow) {
     mStartRow = startRow;

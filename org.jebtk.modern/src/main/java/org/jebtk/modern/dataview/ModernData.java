@@ -59,9 +59,8 @@ import org.jebtk.modern.zoom.ZoomModel;
  * @author Antony Holmes
  *
  */
-public abstract class ModernData extends ZoomCanvas implements
-    ModernDataViewEventProducer, ClipboardUI, ModernSelectionListener,
-    ModernDataViewListener, FocusListener, ComponentListener {
+public abstract class ModernData extends ZoomCanvas implements ModernDataViewEventProducer, ClipboardUI,
+    ModernSelectionListener, ModernDataViewListener, FocusListener, ComponentListener {
 
   /**
    * The constant serialVersionUID.
@@ -89,8 +88,8 @@ public abstract class ModernData extends ZoomCanvas implements
   protected ModernDataCellsSelectionModel mSelectionModel = new ModernDataCellsSelectionModel();
 
   /**
-   * Keeps track of the ways the rows can be sorted. It can store multiple
-   * sorters (one for each col) to determine how data is presented.
+   * Keeps track of the ways the rows can be sorted. It can store multiple sorters
+   * (one for each col) to determine how data is presented.
    */
   protected ModernDataSortModel mRowSortModel = new ModernDataSortModel();
 
@@ -161,8 +160,7 @@ public abstract class ModernData extends ZoomCanvas implements
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -172,8 +170,7 @@ public abstract class ModernData extends ZoomCanvas implements
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.dataview.ModernDataEditorListener#editingStopped()
+     * @see org.abh.lib.ui.modern.dataview.ModernDataEditorListener#editingStopped()
      */
     @Override
     public void editingStopped() {
@@ -279,8 +276,8 @@ public abstract class ModernData extends ZoomCanvas implements
   }
 
   /**
-   * Update the views to reflect the table data, i.e ensure there is a col and
-   * row view to represent each colum and row in the table data.
+   * Update the views to reflect the table data, i.e ensure there is a col and row
+   * view to represent each colum and row in the table data.
    */
   protected void updateViewModels() {
     mSelectionModel.clear();
@@ -307,8 +304,7 @@ public abstract class ModernData extends ZoomCanvas implements
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvas#updateViewRectangle(org.abh.
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvas#updateViewRectangle(org.abh.
    * lib. IntRect)
    */
   @Override
@@ -481,13 +477,11 @@ public abstract class ModernData extends ZoomCanvas implements
   /**
    * Sets the selected cell.
    *
-   * @param cell the cell
-   * @param multiRowSelect the multi row select
+   * @param cell             the cell
+   * @param multiRowSelect   the multi row select
    * @param multiRangeSelect the multi range select
    */
-  public final void setSelectedCell(ModernDataCell cell,
-      boolean multiRowSelect,
-      boolean multiRangeSelect) {
+  public final void setSelectedCell(ModernDataCell cell, boolean multiRowSelect, boolean multiRangeSelect) {
     if (cell == null) {
       return;
     }
@@ -498,15 +492,12 @@ public abstract class ModernData extends ZoomCanvas implements
   /**
    * Selects a cell if the mouse is over a valid cell when clicked.
    *
-   * @param row the row
-   * @param col the col
-   * @param multiRowSelect the multi row select
+   * @param row              the row
+   * @param col              the col
+   * @param multiRowSelect   the multi row select
    * @param multiRangeSelect the multi range select
    */
-  public abstract void setSelectedCell(int row,
-      int col,
-      boolean multiRowSelect,
-      boolean multiRangeSelect);
+  public abstract void setSelectedCell(int row, int col, boolean multiRowSelect, boolean multiRangeSelect);
 
   /*
    * (non-Javadoc)
@@ -668,13 +659,8 @@ public abstract class ModernData extends ZoomCanvas implements
 
     mCurrentEditor.addEditorListener(new EditorEvents());
 
-    mCurrentEditorComponent = mCurrentEditor.getCellEditorComponent(this,
-        getValueAt(selectedCell),
-        true,
-        true,
-        true,
-        selectedCell.row,
-        selectedCell.col);
+    mCurrentEditorComponent = mCurrentEditor.getCellEditorComponent(this, getValueAt(selectedCell), true, true, true,
+        selectedCell.row, selectedCell.col);
 
     // Add the component onto the table so the user can see it
     add(mCurrentEditorComponent);
@@ -715,10 +701,10 @@ public abstract class ModernData extends ZoomCanvas implements
 
   /**
    * Returns the value at a given row, col on the table. Since the table may be
-   * sorted, getValue may return a different value to getModel().getValue()
-   * since that returns the ordering of the data as it was loaded.
+   * sorted, getValue may return a different value to getModel().getValue() since
+   * that returns the ordering of the data as it was loaded.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
    * @return the value at
    */
@@ -727,7 +713,7 @@ public abstract class ModernData extends ZoomCanvas implements
   /**
    * Gets the int value at.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
    * @return the int value at
    */
@@ -748,7 +734,7 @@ public abstract class ModernData extends ZoomCanvas implements
   /**
    * Gets the double value at.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
    * @return the double value at
    */
@@ -769,7 +755,7 @@ public abstract class ModernData extends ZoomCanvas implements
   /**
    * Sets the value at.
    *
-   * @param cell the cell
+   * @param cell  the cell
    * @param value the value
    */
   public void setValueAt(ModernDataCell cell, Object value) {
@@ -782,11 +768,11 @@ public abstract class ModernData extends ZoomCanvas implements
 
   /**
    * Returns the value at a given row, col on the table. Since the table may be
-   * sorted, getValue may return a different value to getModel().getValue()
-   * since that returns the ordering of the data as it was loaded.
+   * sorted, getValue may return a different value to getModel().getValue() since
+   * that returns the ordering of the data as it was loaded.
    *
-   * @param i the i
-   * @param j the j
+   * @param i     the i
+   * @param j     the j
    * @param value the value
    */
   public abstract void setValueAt(int i, int j, Object value);
@@ -1002,8 +988,8 @@ public abstract class ModernData extends ZoomCanvas implements
 
   /**
    * Converts a row to that of the model. If a sort model is in use, this method
-   * will map the selected row to the actual row it corresponds to in the
-   * unsorted model.
+   * will map the selected row to the actual row it corresponds to in the unsorted
+   * model.
    *
    * @param i the i
    * @return the model row index

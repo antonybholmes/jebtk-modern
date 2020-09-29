@@ -77,7 +77,7 @@ public class MatrixPanel extends ModernWidget {
   /**
    * Instantiates a new matrix panel.
    *
-   * @param rowHeights the row heights
+   * @param rowHeights   the row heights
    * @param columnWidths the column widths
    */
   public MatrixPanel(int[] rowHeights, int[] columnWidths) {
@@ -87,10 +87,10 @@ public class MatrixPanel extends ModernWidget {
   /**
    * Instantiates a new matrix panel.
    *
-   * @param rowHeights the row heights
+   * @param rowHeights   the row heights
    * @param columnWidths the column widths
-   * @param xSep the x sep
-   * @param ySep the y sep
+   * @param xSep         the x sep
+   * @param ySep         the y sep
    */
   public MatrixPanel(int[] rowHeights, int[] columnWidths, int xSep, int ySep) {
     super.setLayout(new MatrixLayout(rowHeights, columnWidths, xSep, ySep));
@@ -213,8 +213,8 @@ public class MatrixPanel extends ModernWidget {
 
   /*
    * public final void layoutComponents() { if (mRowHeights == null ||
-   * mRowObjectsMap.size() == 0) { // setBorder is called before initialization
-   * so // put a check here return; }
+   * mRowObjectsMap.size() == 0) { // setBorder is called before initialization so
+   * // put a check here return; }
    * 
    * int x = getInsets().left; int y = getInsets().top;
    * 
@@ -222,13 +222,11 @@ public class MatrixPanel extends ModernWidget {
    * 
    * int h = (rows - 1) * mYSep;
    * 
-   * for (int i = 0; i < rows; ++i) { h += mRowHeights[i % mRowHeights.length];
-   * }
+   * for (int i = 0; i < rows; ++i) { h += mRowHeights[i % mRowHeights.length]; }
    * 
    * y += (getHeight() - getInsets().top - getInsets().bottom - h) / 2; }
    * 
-   * for (int row = 0; row < mRowObjectsMap.size(); ++row) { x =
-   * getInsets().left;
+   * for (int row = 0; row < mRowObjectsMap.size(); ++row) { x = getInsets().left;
    * 
    * int r = row % mRowHeights.length;
    * 
@@ -237,13 +235,12 @@ public class MatrixPanel extends ModernWidget {
    * 
    * mRowObjectsMap.get(row).get(col).setBounds(x, y, w, h);
    * 
-   * if (col == mColumnWidths.length - 1) { y += mRowHeights[r] + mYSep; } else
-   * { x += mColumnWidths[col] + mXSep; } } }
+   * if (col == mColumnWidths.length - 1) { y += mRowHeights[r] + mYSep; } else {
+   * x += mColumnWidths[col] + mXSep; } } }
    * 
    * // if the last row was not full, add the extra // row height it occupies if
-   * (mRowObjectsMap.get(mRowObjectsMap.size() - 1).size() %
-   * mColumnWidths.length != 0) { y += mRowHeights[(mRowObjectsMap.size() - 1) %
-   * mRowHeights.length]; }
+   * (mRowObjectsMap.get(mRowObjectsMap.size() - 1).size() % mColumnWidths.length
+   * != 0) { y += mRowHeights[(mRowObjectsMap.size() - 1) % mRowHeights.length]; }
    * 
    * y += getInsets().bottom;
    * 

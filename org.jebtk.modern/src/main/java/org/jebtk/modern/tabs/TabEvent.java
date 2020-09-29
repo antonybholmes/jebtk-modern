@@ -48,7 +48,7 @@ public class TabEvent extends ChangeEvent {
    * Instantiates a new tab event.
    *
    * @param source the source
-   * @param pane the pane
+   * @param pane   the pane
    */
   public TabEvent(Object source, Tab pane) {
     super(source);

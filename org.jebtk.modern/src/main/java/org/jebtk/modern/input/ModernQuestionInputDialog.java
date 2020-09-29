@@ -57,25 +57,23 @@ public class ModernQuestionInputDialog extends ModernDialogHelpWindow {
   /**
    * Instantiates a new modern question input dialog.
    *
-   * @param parent the parent
-   * @param title the title
+   * @param parent   the parent
+   * @param title    the title
    * @param question the question
    */
-  public ModernQuestionInputDialog(ModernWindow parent, String title,
-      String question) {
+  public ModernQuestionInputDialog(ModernWindow parent, String title, String question) {
     this(parent, title, question, false);
   }
 
   /**
    * Instantiates a new modern int input dialog.
    *
-   * @param parent the parent
-   * @param title the title
+   * @param parent   the parent
+   * @param title    the title
    * @param question the question
-   * @param checked the checked
+   * @param checked  the checked
    */
-  public ModernQuestionInputDialog(ModernWindow parent, String title,
-      String question, boolean checked) {
+  public ModernQuestionInputDialog(ModernWindow parent, String title, String question, boolean checked) {
     super(parent, ModernDialogTaskType.OK_CANCEL);
 
     setTitle(title);
@@ -90,27 +88,25 @@ public class ModernQuestionInputDialog extends ModernDialogHelpWindow {
   /**
    * Instantiates a new modern question input dialog.
    *
-   * @param parent the parent
-   * @param title the title
+   * @param parent   the parent
+   * @param title    the title
    * @param question the question
-   * @param help the help
+   * @param help     the help
    */
-  public ModernQuestionInputDialog(ModernWindow parent, String title,
-      String question, String help) {
+  public ModernQuestionInputDialog(ModernWindow parent, String title, String question, String help) {
     this(parent, title, question, help, false);
   }
 
   /**
    * Instantiates a new modern question input dialog.
    *
-   * @param parent the parent
-   * @param title the title
+   * @param parent   the parent
+   * @param title    the title
    * @param question the question
-   * @param help the help
-   * @param checked the checked
+   * @param help     the help
+   * @param checked  the checked
    */
-  public ModernQuestionInputDialog(ModernWindow parent, String title,
-      String question, String help, boolean checked) {
+  public ModernQuestionInputDialog(ModernWindow parent, String title, String question, String help, boolean checked) {
     super(parent, help, ModernDialogTaskType.OK_CANCEL);
 
     setTitle(title);

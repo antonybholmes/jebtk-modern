@@ -125,7 +125,8 @@ public class ModernSettingsTableModel extends ModernTableModel {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(int)
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(
+   * int)
    */
   @Override
   public final String getColumnName(int column) {

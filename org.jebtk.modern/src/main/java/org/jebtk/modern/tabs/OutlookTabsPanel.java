@@ -32,7 +32,6 @@ public class OutlookTabsPanel extends ModernComponent {
 
     TabsViewPanel panel = new TabsViewPanel(model);
 
-
     setBody(panel);
   }
 }

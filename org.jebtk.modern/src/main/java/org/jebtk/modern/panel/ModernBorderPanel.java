@@ -76,7 +76,7 @@ public class ModernBorderPanel extends ModernWidget {
   public ModernBorderPanel(Component c) {
     this(c, BORDER);
   }
-  
+
   public ModernBorderPanel(Component c, Border border) {
     add(c);
 

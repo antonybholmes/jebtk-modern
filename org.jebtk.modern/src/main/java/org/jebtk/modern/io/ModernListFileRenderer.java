@@ -82,20 +82,11 @@ public class ModernListFileRenderer extends ModernListIconCellRenderer {
    * java.lang.Object, boolean, boolean, boolean, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernList<?> list,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row) {
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
 
     // setup
-    super.getCellRendererComponent(list,
-        value,
-        highlight,
-        isSelected,
-        hasFocus,
-        row);
+    super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
 
     mFile = (Path) value;
 
@@ -105,8 +96,7 @@ public class ModernListFileRenderer extends ModernListIconCellRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.list.ModernListIconCellRenderer#drawForegroundAA(
+   * @see org.abh.lib.ui.modern.list.ModernListIconCellRenderer#drawForegroundAA(
    * java. awt.Graphics2D)
    */
   @Override
@@ -130,9 +120,7 @@ public class ModernListFileRenderer extends ModernListIconCellRenderer {
 
     y += h2;
 
-    String text = TextUtils.truncateCenter(
-        mFile.getParent() != null ? PathUtils.toString(mFile.getParent()) : "",
-        60);
+    String text = TextUtils.truncateCenter(mFile.getParent() != null ? PathUtils.toString(mFile.getParent()) : "", 60);
 
     g2.drawString(text, x, y);
 

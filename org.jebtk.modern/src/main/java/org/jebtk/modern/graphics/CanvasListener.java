@@ -43,8 +43,8 @@ public interface CanvasListener extends EventListener {
 
   /**
    * Notify parents to revalidate as the canvas has changed. This implies the
-   * whole underlying structure and or size has changed so it should be
-   * completely re-rendered.
+   * whole underlying structure and or size has changed so it should be completely
+   * re-rendered.
    *
    * @param e the e
    */

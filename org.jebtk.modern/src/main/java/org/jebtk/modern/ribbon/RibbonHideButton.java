@@ -38,7 +38,7 @@ public class RibbonHideButton extends RibbonButton {
 
     addToStyleClass("dialog-button");
     setAnimations("circle-fill"); // new RibbonButtonHighlightAnimation(this,
-                                  // "circle"));
+    // "circle"));
 
     UI.setSize(this, 24);
   }

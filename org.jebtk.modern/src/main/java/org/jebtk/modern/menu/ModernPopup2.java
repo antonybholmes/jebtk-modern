@@ -40,8 +40,7 @@ import org.jebtk.modern.tooltip.ModernToolTipPanel;
  * @author Antony Holmes
  *
  */
-public class ModernPopup2 extends ModernToolTipPanel
-    implements ModernClickListener, ModernClickEventProducer {
+public class ModernPopup2 extends ModernToolTipPanel implements ModernClickListener, ModernClickEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -65,8 +64,7 @@ public class ModernPopup2 extends ModernToolTipPanel
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

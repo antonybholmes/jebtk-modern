@@ -24,8 +24,7 @@ import org.jebtk.modern.button.ModernDropDownWidget;
 /**
  * The Class RibbonDropDownButtonAnimation.
  */
-public class RibbonDropDownButtonAnimation extends ButtonFillAnimation
-    implements ChangeListener {
+public class RibbonDropDownButtonAnimation extends ButtonFillAnimation implements ChangeListener {
 
   /**
    * Instantiates a new ribbon drop down button animation.

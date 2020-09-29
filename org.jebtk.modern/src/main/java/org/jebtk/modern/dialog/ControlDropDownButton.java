@@ -25,8 +25,7 @@ import org.jebtk.modern.UI;
  * @author Antony Holmes
  *
  */
-public abstract class ControlDropDownButton
-    extends ModernDialogFlatDropDownButton {
+public abstract class ControlDropDownButton extends ModernDialogFlatDropDownButton {
 
   /**
    * The constant serialVersionUID.

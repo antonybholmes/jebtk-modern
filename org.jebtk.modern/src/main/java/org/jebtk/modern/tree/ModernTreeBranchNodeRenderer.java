@@ -42,30 +42,27 @@ import org.jebtk.modern.graphics.icons.RasterIcon;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public abstract class ModernTreeBranchNodeRenderer
-    extends ModernTreeNodeRenderer {
+public abstract class ModernTreeBranchNodeRenderer extends ModernTreeNodeRenderer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
   /** The Constant BRANCH_OPEN_ICON. */
-  public static final RasterIcon BRANCH_OPEN_ICON = new RasterIcon(
-      new ModernBranchOpenVectorIcon(), 12); // new
-                                             // TriangleDownVectorIcon());
-                                             // //CheveronDownVectorIcon());
+  public static final RasterIcon BRANCH_OPEN_ICON = new RasterIcon(new ModernBranchOpenVectorIcon(), 12); // new
+  // TriangleDownVectorIcon());
+  // //CheveronDownVectorIcon());
 
   /** The Constant BRANCH_CLOSED_ICON. */
-  public static final RasterIcon BRANCH_CLOSED_ICON = new RasterIcon(
-      new ModernBranchClosedVectorIcon(), 12); // new
-                                               // TriangleRightVectorIcon());
+  public static final RasterIcon BRANCH_CLOSED_ICON = new RasterIcon(new ModernBranchClosedVectorIcon(), 12); // new
+  // TriangleRightVectorIcon());
 
   /** The m branch closed icon. */
   public static ModernIcon mBranchClosedIcon = BRANCH_CLOSED_ICON; // new
-                                                                   // ModernBranchClosedVectorIcon());
+  // ModernBranchClosedVectorIcon());
 
   /** The m branch open icon. */
   public static ModernIcon mBranchOpenIcon = BRANCH_OPEN_ICON; // new
-                                                               // ModernBranchOpenVectorIcon());
+  // ModernBranchOpenVectorIcon());
 
   /** The m branch width. */
   protected int mBranchWidth = 16;
@@ -91,8 +88,7 @@ public abstract class ModernTreeBranchNodeRenderer
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawNode(Graphics2D g2) {
@@ -136,8 +132,8 @@ public abstract class ModernTreeBranchNodeRenderer
    * Draw the branch at a particular location.
    *
    * @param g2 the g 2
-   * @param x the x
-   * @param y the y
+   * @param x  the x
+   * @param y  the y
    */
   public void drawNodeBranch(Graphics2D g2, int x, int y) {
     if (mNode.isParent()) {

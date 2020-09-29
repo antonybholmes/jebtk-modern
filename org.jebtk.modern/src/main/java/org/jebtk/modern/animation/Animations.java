@@ -28,14 +28,12 @@ import org.jebtk.modern.ModernWidget;
 /**
  * The Class Animations.
  */
-public class Animations extends ChangeListeners
-    implements Animation, Iterable<Animation> {
+public class Animations extends ChangeListeners implements Animation, Iterable<Animation> {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
-  private class AnimationIterator
-      implements Iterator<Animation>, Iterable<Animation> {
+  private class AnimationIterator implements Iterator<Animation>, Iterable<Animation> {
     private ListIterator<Object> mIt;
 
     public AnimationIterator() {
@@ -85,7 +83,7 @@ public class Animations extends ChangeListeners
   /**
    * Adds the.
    *
-   * @param animation the animation
+   * @param animation  the animation
    * @param animations the animations
    * @return
    */
@@ -100,7 +98,7 @@ public class Animations extends ChangeListeners
   /**
    * Update.
    *
-   * @param animation the animation
+   * @param animation  the animation
    * @param animations the animations
    */
   public void update(Animation animation, Animation... animations) {
@@ -132,8 +130,8 @@ public class Animations extends ChangeListeners
      * 
      * for (Animation an : al) { mAnimations.add(an); }
      * 
-     * for (String a : animations) { al =
-     * AnimationService.getInstance().create(a, mWidget);
+     * for (String a : animations) { al = AnimationService.getInstance().create(a,
+     * mWidget);
      * 
      * for (Animation an : al) { mAnimations.add(an); } }
      */
@@ -161,7 +159,7 @@ public class Animations extends ChangeListeners
    * Sets the animations to use. TODO: should initialize named animations in a
    * lazy fasion
    *
-   * @param animation the animation
+   * @param animation  the animation
    * @param animations the animations
    * @return
    */
@@ -202,8 +200,7 @@ public class Animations extends ChangeListeners
         Object o = mAnimations.get(i);
 
         if (o instanceof String) {
-          List<Animation> animations = AnimationService.getInstance()
-              .create((String) o, mWidget);
+          List<Animation> animations = AnimationService.getInstance().create((String) o, mWidget);
 
           for (Animation animation : animations) {
             newAnimations.add(animation);
@@ -220,7 +217,7 @@ public class Animations extends ChangeListeners
       mAutoLoad = false;
     }
   }
-  
+
   public void draw(ModernWidget c, Graphics2D g2) {
     draw(c, g2, null);
   }

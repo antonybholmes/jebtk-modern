@@ -44,8 +44,7 @@ import org.jebtk.modern.theme.ThemeService;
  * The class ModernTableHeader.
  */
 public class ModernTableHeader extends ModernScrollPaneHeader
-    implements ModernSelectionListener, ModernDataViewListener,
-    CanvasMouseListener, CanvasKeyListener {
+    implements ModernSelectionListener, ModernDataViewListener, CanvasMouseListener, CanvasKeyListener {
 
   /**
    * The constant serialVersionUID.
@@ -60,12 +59,10 @@ public class ModernTableHeader extends ModernScrollPaneHeader
   /**
    * The constant HEADER_BACKGROUND.
    */
-  public static final Color HEADER_BACKGROUND = ThemeService.getInstance()
-      .getColors().getGray(1);
+  public static final Color HEADER_BACKGROUND = ThemeService.getInstance().getColors().getGray(1);
 
   /** The Constant HEADER_SELECTED_COLOR. */
-  public static final Color HEADER_SELECTED_COLOR = ThemeService.getInstance()
-      .getColors().getTheme(5);
+  public static final Color HEADER_SELECTED_COLOR = ThemeService.getInstance().getColors().getTheme(5);
 
   /** The m table. */
   protected ModernTable mTable;
@@ -140,8 +137,7 @@ public class ModernTableHeader extends ModernScrollPaneHeader
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.scrollpane.ModernScrollPaneHeader#getFixedDimension()
+   * @see org.abh.common.ui.scrollpane.ModernScrollPaneHeader#getFixedDimension()
    */
   @Override
   public int getFixedDimension() {

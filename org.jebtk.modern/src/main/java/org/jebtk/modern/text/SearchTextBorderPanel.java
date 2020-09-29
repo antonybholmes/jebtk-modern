@@ -46,8 +46,7 @@ import org.jebtk.modern.css.CSSWidget;
  *
  * @author Antony Holmes
  */
-public class SearchTextBorderPanel extends CSSWidget
-    implements TextProperty {
+public class SearchTextBorderPanel extends CSSWidget implements TextProperty {
 
   /**
    * The constant serialVersionUID.
@@ -62,14 +61,13 @@ public class SearchTextBorderPanel extends CSSWidget
   /**
    * The constant STANDARD_SIZE.
    */
-  public static final Dimension STANDARD_SIZE = new Dimension(100,
-      ModernWidget.WIDGET_HEIGHT);
+  public static final Dimension STANDARD_SIZE = new Dimension(100, ModernWidget.WIDGET_HEIGHT);
 
   /**
    * Instantiates a new modern text border panel.
    *
    * @param textField the text field
-   * @param color the color
+   * @param color     the color
    */
   public SearchTextBorderPanel(ModernTextField textField) {
     mComponent = textField;
@@ -83,7 +81,7 @@ public class SearchTextBorderPanel extends CSSWidget
    * Instantiates a new modern text border panel.
    *
    * @param textField the text field
-   * @param color the color
+   * @param color     the color
    */
   public SearchTextBorderPanel(ModernTextBox textField) {
     mComponent = textField;
@@ -97,7 +95,7 @@ public class SearchTextBorderPanel extends CSSWidget
    * Instantiates a new modern text border panel.
    *
    * @param textField the text field
-   * @param width the width
+   * @param width     the width
    */
   public SearchTextBorderPanel(ModernTextField textField, int width) {
     this(textField, new Dimension(width, ModernButton.getButtonHeight()));
@@ -107,7 +105,7 @@ public class SearchTextBorderPanel extends CSSWidget
    * Instantiates a new modern text border panel.
    *
    * @param textField the text field
-   * @param width the width
+   * @param width     the width
    */
   public SearchTextBorderPanel(ModernTextBox textField, int width) {
     this(textField, new Dimension(width, ModernButton.getButtonHeight()));
@@ -117,8 +115,8 @@ public class SearchTextBorderPanel extends CSSWidget
    * Instantiates a new modern text border panel.
    *
    * @param textField the text field
-   * @param color the color
-   * @param size the size
+   * @param color     the color
+   * @param size      the size
    */
   public SearchTextBorderPanel(ModernTextField textField, Dimension size) {
 
@@ -135,8 +133,8 @@ public class SearchTextBorderPanel extends CSSWidget
    * Instantiates a new modern text border panel.
    *
    * @param textField the text field
-   * @param color the color
-   * @param size the size
+   * @param color     the color
+   * @param size      the size
    */
   public SearchTextBorderPanel(ModernTextBox textField, Dimension size) {
     mComponent = textField;
@@ -175,22 +173,21 @@ public class SearchTextBorderPanel extends CSSWidget
 
     addStyleClass("content", "content-outline", "pill");
 
-    //setAnimations(new PillBorderAnimation(this));
+    // setAnimations(new PillBorderAnimation(this));
 
     addComponentListener(new ComponentAdapter() {
 
       @Override
       public void componentResized(ComponentEvent e) {
         int h = getHeight() / 2;
-        setBorder(BorderService.getInstance()
-            .createBorder(SMALL_PADDING, h, SMALL_PADDING, h));
+        setBorder(BorderService.getInstance().createBorder(SMALL_PADDING, h, SMALL_PADDING, h));
       }
     });
   }
 
   @Override
   public void drawAnimatedBackground(Graphics2D g2) {
-    //DrawUIService.getInstance().getRenderer("pill-outline").draw(g2, mRect);
+    // DrawUIService.getInstance().getRenderer("pill-outline").draw(g2, mRect);
 
     super.drawAnimatedBackground(g2);
   }

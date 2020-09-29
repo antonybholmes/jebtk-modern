@@ -41,8 +41,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernTableComboBoxCellEditor.
  */
-public class ModernTableColorCellEditor extends AbstractModernTableCellEditor
-    implements ModernClickListener {
+public class ModernTableColorCellEditor extends AbstractModernTableCellEditor implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -66,8 +65,7 @@ public class ModernTableColorCellEditor extends AbstractModernTableCellEditor
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
    */
   @Override
   public final Object getCellEditorValue() {
@@ -77,8 +75,7 @@ public class ModernTableColorCellEditor extends AbstractModernTableCellEditor
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override
@@ -105,13 +102,8 @@ public class ModernTableColorCellEditor extends AbstractModernTableCellEditor
    * boolean, boolean, int, int)
    */
   @Override
-  public Component getCellEditorComponent(ModernData table,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row,
-      int column) {
+  public Component getCellEditorComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
     if (value != null) {
       mColorButton.setSelectedColor((Color) value);
     }

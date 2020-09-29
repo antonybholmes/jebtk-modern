@@ -29,11 +29,9 @@ import org.jebtk.modern.ModernComponent;
  */
 public class ColorDialogButtonUI extends ButtonUI {
 
-  public static final Color C1 = MaterialService.instance()
-      .getColor("color.dialog.button.gradient.start");
+  public static final Color C1 = MaterialService.instance().getColor("color.dialog.button.gradient.start");
 
-  public static final Color C2 = MaterialService.instance()
-      .getColor("color.dialog.button.gradient.end");
+  public static final Color C2 = MaterialService.instance().getColor("color.dialog.button.gradient.end");
 
   @Override
   public String getName() {
@@ -41,10 +39,7 @@ public class ColorDialogButtonUI extends ButtonUI {
   }
 
   @Override
-  public void fill(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void fill(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
 
     GradientPaint gradient = ColorUtils.getVGradient(0, rect.h, C1, C2);
 

@@ -36,8 +36,7 @@ import org.jebtk.modern.ModernFocusableWidget;
 /**
  * The class ModernClipboardWidget.
  */
-public abstract class ModernClipboardWidget extends ModernFocusableWidget
-    implements ClipboardUI {
+public abstract class ModernClipboardWidget extends ModernFocusableWidget implements ClipboardUI {
 
   /**
    * The constant serialVersionUID.

@@ -63,8 +63,8 @@ public class ModernMenuButton2 extends ModernDropDownWidget2 {
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
-   * if (isSelected() || mHighlight || mPopupShown) {
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight || mPopupShown) {
    * getWidgetRenderer().drawButton(g2, mInternalRect, RenderMode.SELECTED); }
    * else { getWidgetRenderer().drawButton(g2, mInternalRect,
    * RenderMode.SELECTED); } } }
@@ -73,8 +73,7 @@ public class ModernMenuButton2 extends ModernDropDownWidget2 {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

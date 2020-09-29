@@ -51,8 +51,7 @@ import org.jebtk.modern.text.ModernTextArea;
 /**
  * The class LogTextAreaPanel.
  */
-public class LogTextAreaPanel extends ModernWidget
-    implements MouseListener, ModernClickListener {
+public class LogTextAreaPanel extends ModernWidget implements MouseListener, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -173,8 +172,7 @@ public class LogTextAreaPanel extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {

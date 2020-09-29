@@ -71,8 +71,7 @@ import org.jebtk.modern.theme.ThemeService;
  * @param <T> the generic type
  */
 public class ModernList<T> extends ModernVertCanvas
-    implements ModernSelectionEventProducer, ModernDataViewEventProducer,
-    HighlightEventProducer {
+    implements ModernSelectionEventProducer, ModernDataViewEventProducer, HighlightEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -82,8 +81,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * The constant DRAG_LINE_COLOR.
    */
-  static final Color DRAG_LINE_COLOR = ThemeService.getInstance().getColors()
-      .getGray(6);
+  static final Color DRAG_LINE_COLOR = ThemeService.getInstance().getColors().getGray(6);
 
   /**
    * The member list model.
@@ -174,15 +172,11 @@ public class ModernList<T> extends ModernVertCanvas
       // selectionModel.clearModernSelection();
       // cellsSelectionModel.clear();
 
-      boolean multiSelect = (e.getModifiers()
-          & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) == Toolkit
-              .getDefaultToolkit().getMenuShortcutKeyMask();
-      boolean multiRangeSelect = (e.getModifiers()
-          & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
+      boolean multiSelect = (e.getModifiers() & Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()) == Toolkit
+          .getDefaultToolkit().getMenuShortcutKeyMask();
+      boolean multiRangeSelect = (e.getModifiers() & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
 
-      setSelectedCell(getCell(translateCoordinate(e)),
-          multiSelect,
-          multiRangeSelect);
+      setSelectedCell(getCell(translateCoordinate(e)), multiSelect, multiRangeSelect);
     }
 
     /*
@@ -386,7 +380,7 @@ public class ModernList<T> extends ModernVertCanvas
    * Instantiates a new modern list.
    *
    * @param model the model
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernList(ModernListModel<T> model, ModernIcon icon) {
     this(model, new ModernListIconCellRenderer(icon));
@@ -395,7 +389,7 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Instantiates a new modern list.
    *
-   * @param model the model
+   * @param model    the model
    * @param renderer the renderer
    */
   public ModernList(ModernListModel<T> model, ModernListCellRenderer renderer) {
@@ -428,8 +422,8 @@ public class ModernList<T> extends ModernVertCanvas
 
     mSelectionModel.addSelectionListener(new SelectionEvents(this));
 
-    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_A,
-        Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "a_pressed");
+    getInputMap(WHEN_FOCUSED)
+        .put(KeyStroke.getKeyStroke(KeyEvent.VK_A, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "a_pressed");
     getActionMap().put("a_pressed", new AbstractAction() {
       private static final long serialVersionUID = 1L;
 
@@ -492,13 +486,11 @@ public class ModernList<T> extends ModernVertCanvas
   /**
    * Selects a cell if the mouse is over a valid cell when clicked.
    *
-   * @param index the index
-   * @param multiItemSelect the multi item select
+   * @param index            the index
+   * @param multiItemSelect  the multi item select
    * @param multiRangeSelect the multi range select
    */
-  protected void setSelectedCell(int index,
-      boolean multiItemSelect,
-      boolean multiRangeSelect) {
+  protected void setSelectedCell(int index, boolean multiItemSelect, boolean multiRangeSelect) {
 
     if (index == -1) {
       return;
@@ -511,13 +503,11 @@ public class ModernList<T> extends ModernVertCanvas
     // a single selection; this prevents multiple items being selected
     // and dragged. The solution is to not change the selection if
     // one of the items being clicked on is already selected.
-    if (!multiItemSelect && !multiRangeSelect
-        && mSelectionModel.contains(index)) {
+    if (!multiItemSelect && !multiRangeSelect && mSelectionModel.contains(index)) {
       return;
     }
 
-    if ((!multiItemSelect && !multiRangeSelect)
-        || mSelectionPolicy != SelectionPolicy.MULTIPLE) {
+    if ((!multiItemSelect && !multiRangeSelect) || mSelectionPolicy != SelectionPolicy.MULTIPLE) {
       // If we are not selecting multiple cells, clear
       // the current selection
       mSelectionModel.removeAll();
@@ -602,9 +592,9 @@ public class ModernList<T> extends ModernVertCanvas
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { // We want to use
-   * the unadjusted canvas space (i.e. no offset changes). if (mListModel ==
-   * null) { return; }
+   * @Override public void drawBackgroundAA(Graphics2D g2) { // We want to use the
+   * unadjusted canvas space (i.e. no offset changes). if (mListModel == null) {
+   * return; }
    * 
    * if (mListModel.getItemCount() == 0) { return; }
    * 
@@ -780,8 +770,7 @@ public class ModernList<T> extends ModernVertCanvas
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
-   * removeSelectionListener(org.abh.lib.ui.modern.event.
-   * ModernSelectionListener)
+   * removeSelectionListener(org.abh.lib.ui.modern.event. ModernSelectionListener)
    */
   @Override
   public void removeSelectionListener(ModernSelectionListener l) {
@@ -792,16 +781,14 @@ public class ModernList<T> extends ModernVertCanvas
   public void fireSelectionAdded(ChangeEvent e) {
     repaint();
 
-    mSelectionListeners
-        .fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
+    mSelectionListeners.fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
   }
 
   @Override
   public void fireSelectionRemoved(ChangeEvent e) {
     repaint();
 
-    mSelectionListeners
-        .fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));
+    mSelectionListeners.fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));
   }
 
   /**

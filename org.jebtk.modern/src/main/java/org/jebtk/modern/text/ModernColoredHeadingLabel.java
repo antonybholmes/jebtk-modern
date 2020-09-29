@@ -59,7 +59,7 @@ public class ModernColoredHeadingLabel extends ModernHeadingLabel {
   /**
    * Instantiates a new modern colored heading label.
    *
-   * @param text the text
+   * @param text   the text
    * @param border the border
    */
   public ModernColoredHeadingLabel(String text, Border border) {

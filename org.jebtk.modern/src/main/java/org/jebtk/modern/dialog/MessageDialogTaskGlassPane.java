@@ -117,8 +117,7 @@ public class MessageDialogTaskGlassPane extends FrostedGlassPane {
     /**
      * The member message label.
      */
-    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel(
-        "Task", Color.WHITE);
+    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel("Task", Color.WHITE);
 
     /**
      * Instantiates a new task panel.

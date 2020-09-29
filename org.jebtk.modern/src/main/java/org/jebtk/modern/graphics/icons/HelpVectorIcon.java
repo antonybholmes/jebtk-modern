@@ -44,12 +44,10 @@ import org.jebtk.modern.theme.ThemeService;
 public class HelpVectorIcon extends ModernMessageIcon {
 
   /** The Constant COLOR1. */
-  private static final Color COLOR1 = ThemeService.getInstance().getColors()
-      .getTheme32(14);
+  private static final Color COLOR1 = ThemeService.getInstance().getColors().getTheme32(14);
 
   /** The Constant COLOR2. */
-  private static final Color COLOR2 = ThemeService.getInstance().getColors()
-      .getTheme32(16);
+  private static final Color COLOR2 = ThemeService.getInstance().getColors().getTheme32(16);
 
   /** The Constant TEXT. */
   private static final String TEXT = "?";
@@ -79,12 +77,7 @@ public class HelpVectorIcon extends ModernMessageIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     int size = w - 2;
 
     int xf = x + (w - size) / 2;
@@ -96,8 +89,7 @@ public class HelpVectorIcon extends ModernMessageIcon {
       // Useful for drawing circles with sub-pixel accuracy.
       ImageUtils.setAAStrokeHints(g2Temp);
 
-      GradientPaint paint = new GradientPaint(0, yf, mColor1, 0, yf + size,
-          mColor2);
+      GradientPaint paint = new GradientPaint(0, yf, mColor1, 0, yf + size, mColor2);
 
       g2Temp.setPaint(paint);
 

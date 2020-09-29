@@ -82,7 +82,7 @@ public class StatusService {
    * Register.
    *
    * @param channel the channel
-   * @param l the l
+   * @param l       the l
    */
   public void register(String channel, StatusEventListener l) {
     getModel(channel).addStatusListener(l);
@@ -115,7 +115,7 @@ public class StatusService {
    * Sets the status.
    *
    * @param channel the channel
-   * @param status the status
+   * @param status  the status
    */
   public void setStatus(String channel, String status) {
     getModel(channel).setStatus(status);

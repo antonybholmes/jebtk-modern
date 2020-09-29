@@ -35,14 +35,12 @@ import org.jebtk.modern.table.ModernTableModel;
 /**
  * The class LogTableModel.
  */
-public class LogTableModel extends ModernTableModel
-    implements LogEventListener {
+public class LogTableModel extends ModernTableModel implements LogEventListener {
 
   /**
    * The constant HEADER.
    */
-  private static final String[] HEADER = { "Type", "Date", "Source", "Message",
-      "ID" };
+  private static final String[] HEADER = { "Type", "Date", "Source", "Message", "ID" };
 
   /**
    * The member events.
@@ -64,7 +62,7 @@ public class LogTableModel extends ModernTableModel
   public final int getRowCount() {
     return mEvents.size();
   }
-  
+
   public final int getColCount() {
     return HEADER.length;
   }
@@ -110,7 +108,8 @@ public class LogTableModel extends ModernTableModel
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(int)
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(
+   * int)
    */
   @Override
   public final String getColumnName(int column) {

@@ -60,9 +60,9 @@ public class FrameCanvas extends ContainerCanvas {
   /**
    * Instantiates a new frame canvas.
    *
-   * @param canvas the canvas
+   * @param canvas     the canvas
    * @param background the background
-   * @param color the color
+   * @param color      the color
    */
   public FrameCanvas(ModernCanvas canvas, Color background, Color color) {
     super(canvas);

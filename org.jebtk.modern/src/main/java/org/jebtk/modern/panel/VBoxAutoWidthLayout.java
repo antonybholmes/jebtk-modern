@@ -70,7 +70,7 @@ public class VBoxAutoWidthLayout implements LayoutManager {
 
     dim.width = parent.getWidth();
     dim.height += insets.top + insets.bottom;
-    
+
     return dim;
   }
 }

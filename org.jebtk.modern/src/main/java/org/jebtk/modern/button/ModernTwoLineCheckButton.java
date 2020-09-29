@@ -41,8 +41,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * The class ModernTwoLineCheckButton.
  */
-public class ModernTwoLineCheckButton extends ModernCheckButton
-    implements TwoLineWidget {
+public class ModernTwoLineCheckButton extends ModernCheckButton implements TwoLineWidget {
 
   /**
    * The constant serialVersionUID.
@@ -97,8 +96,7 @@ public class ModernTwoLineCheckButton extends ModernCheckButton
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -110,8 +108,7 @@ public class ModernTwoLineCheckButton extends ModernCheckButton
   /**
    * The constant DEFAULT_SIZE.
    */
-  public static final Dimension DEFAULT_SIZE = new Dimension(400,
-      AssetService.ICON_SIZE_48);
+  public static final Dimension DEFAULT_SIZE = new Dimension(400, AssetService.ICON_SIZE_48);
 
   /**
    * The color1.
@@ -154,7 +151,7 @@ public class ModernTwoLineCheckButton extends ModernCheckButton
    *
    * @param text1 the text1
    * @param text2 the text2
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernTwoLineCheckButton(String text1, String text2, ModernIcon icon) {
     super(text1, icon);

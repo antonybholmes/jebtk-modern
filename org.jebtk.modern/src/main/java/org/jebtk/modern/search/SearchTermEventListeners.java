@@ -36,8 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class SearchTermEventListeners extends
-    EventProducer<SearchTermEventListener> implements SearchTermEventProducer {
+public class SearchTermEventListeners extends EventProducer<SearchTermEventListener>
+    implements SearchTermEventProducer {
 
   /*
    * (non-Javadoc)

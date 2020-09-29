@@ -68,7 +68,7 @@ public class ColorSwatchButton extends ModernOutlinedDialogButton {
    * Instantiates a new color swatch button.
    *
    * @param parent the parent
-   * @param color the color
+   * @param color  the color
    */
   public ColorSwatchButton(ModernWindow parent, Color color) {
     super("Color Swatch");
@@ -84,8 +84,8 @@ public class ColorSwatchButton extends ModernOutlinedDialogButton {
      * repaint();
      * 
      * if (e.getMessage().equals(ColorSelectionModel.COLOR_CHANGED)) {
-     * fireClicked(new ModernClickEvent(this,
-     * ColorSelectionModel.COLOR_CHANGED)); } }});
+     * fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED)); }
+     * }});
      */
 
     setMenu(mPopup);
@@ -111,8 +111,7 @@ public class ColorSwatchButton extends ModernOutlinedDialogButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
    * awt. Graphics2D)
    */
   @Override
@@ -134,8 +133,8 @@ public class ColorSwatchButton extends ModernOutlinedDialogButton {
     // g2.setColor(ThemeService.getInstance().getColors().getHighlight(4));
     // g2.drawRect(x, y, 32, Resources.ICON_SIZE_16);
 
-    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
-        .drawIcon(g2, getWidth() - 16, (getHeight() - 16) / 2, 16);
+    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, getWidth() - 16,
+        (getHeight() - 16) / 2, 16);
   }
 
   /**

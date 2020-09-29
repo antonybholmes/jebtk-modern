@@ -42,8 +42,7 @@ import org.jebtk.core.tree.TreeNode;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public abstract class ModernTreeNodeSorter<T>
-    implements Comparable<ModernTreeNodeSorter<T>> {
+public abstract class ModernTreeNodeSorter<T> implements Comparable<ModernTreeNodeSorter<T>> {
 
   /**
    * The member name.
@@ -71,12 +70,11 @@ public abstract class ModernTreeNodeSorter<T>
   /**
    * Should take a list of experiments, organise them and then populate a tree.
    *
-   * @param nodes the nodes
+   * @param nodes     the nodes
    * @param ascending the ascending
    * @return the list
    */
-  public abstract List<TreeNode<T>> sort(List<TreeNode<T>> nodes,
-      boolean ascending);
+  public abstract List<TreeNode<T>> sort(List<TreeNode<T>> nodes, boolean ascending);
 
   /*
    * (non-Javadoc)
@@ -91,13 +89,12 @@ public abstract class ModernTreeNodeSorter<T>
   /**
    * Sort nodes by name.
    *
-   * @param <T> the generic type
-   * @param nodes the nodes
+   * @param <T>       the generic type
+   * @param nodes     the nodes
    * @param ascending the ascending
    * @return the list
    */
-  public static <T> List<TreeNode<T>> sortNodesByName(List<TreeNode<T>> nodes,
-      boolean ascending) {
+  public static <T> List<TreeNode<T>> sortNodesByName(List<TreeNode<T>> nodes, boolean ascending) {
 
     List<String> names = new ArrayList<String>();
 

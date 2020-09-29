@@ -47,8 +47,7 @@ import org.jebtk.modern.AssetService;
  * @author Antony Holmes
  *
  */
-public class ModernCollapseEnablePane extends ModernCollapsePane
-    implements MouseListener, MouseMotionListener {
+public class ModernCollapseEnablePane extends ModernCollapsePane implements MouseListener, MouseMotionListener {
 
   /**
    * The constant serialVersionUID.
@@ -99,15 +98,12 @@ public class ModernCollapseEnablePane extends ModernCollapsePane
   /**
    * Adds the tab.
    *
-   * @param name the name
-   * @param c1 the c1
+   * @param name       the name
+   * @param c1         the c1
    * @param tabEnabled the tab enabled
-   * @param hidden the hidden
+   * @param hidden     the hidden
    */
-  public void addTab(String name,
-      JComponent c1,
-      boolean tabEnabled,
-      boolean hidden) {
+  public void addTab(String name, JComponent c1, boolean tabEnabled, boolean hidden) {
     super.addTab(name, c1, hidden);
 
     mEnabledTabs.add(tabEnabled);
@@ -116,36 +112,26 @@ public class ModernCollapseEnablePane extends ModernCollapsePane
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
-    Rectangle r = new Rectangle(getInsets().left, getInsets().top,
-        getWidth() - getInsets().left - getInsets().right, WIDGET_HEIGHT);
+    Rectangle r = new Rectangle(getInsets().left, getInsets().top, getWidth() - getInsets().left - getInsets().right,
+        WIDGET_HEIGHT);
 
     Graphics2D g2Temp = (Graphics2D) g2.create();
 
     g2Temp.translate(mInternalRect.getX(), r.y);
 
     for (int i = 0; i < mTabNames.size(); ++i) {
-      ((ModernCollapseEnableNodeRenderer) mNodeRenderer).getRenderer(this,
-          mTabNames.get(i),
-          i,
-          highlight == i,
-          false,
-          false,
-          mExpanded.get(i),
-          mEnabledTabs.get(i));
+      ((ModernCollapseEnableNodeRenderer) mNodeRenderer).getRenderer(this, mTabNames.get(i), i, highlight == i, false,
+          false, mExpanded.get(i), mEnabledTabs.get(i));
 
       mNodeRenderer.setSize(mInternalRect.getW(), mHeaderHeight);
 
       mNodeRenderer.print(g2Temp);
 
-      g2Temp.translate(0,
-          mHeaderHeight
-              + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height
-                  : 0));
+      g2Temp.translate(0, mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0));
     }
 
     g2Temp.dispose();
@@ -210,9 +196,7 @@ public class ModernCollapseEnablePane extends ModernCollapsePane
         break;
       }
 
-      y += mHeaderHeight
-          + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height
-              : 0);
+      y += mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0);
 
       ++i;
     }
@@ -277,8 +261,7 @@ public class ModernCollapseEnablePane extends ModernCollapsePane
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+   * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
    */
   @Override
   public void mouseMoved(MouseEvent e) {
@@ -303,9 +286,7 @@ public class ModernCollapseEnablePane extends ModernCollapsePane
         break;
       }
 
-      y += mHeaderHeight + (mExpanded.get(highlight)
-          ? mComponents.get(highlight).getPreferredSize().height
-          : 0);
+      y += mHeaderHeight + (mExpanded.get(highlight) ? mComponents.get(highlight).getPreferredSize().height : 0);
 
       ++highlight;
     }

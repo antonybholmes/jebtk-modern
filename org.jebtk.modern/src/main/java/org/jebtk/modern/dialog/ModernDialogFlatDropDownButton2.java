@@ -32,7 +32,7 @@ import org.jebtk.modern.menu.ModernPopupMenu2;
 
 // TODO: Auto-generated Javadoc
 /**
- * @deprecated use {@link #ModernOutlinedDialogButton2()} instead.  
+ * @deprecated use {@link #ModernOutlinedDialogButton2()} instead.
  *
  * @author Antony Holmes
  *
@@ -67,7 +67,7 @@ public class ModernDialogFlatDropDownButton2 extends ModernOutlinedDialogButton2
    * Instantiates a new modern dialog flat button.
    *
    * @param text1 the text1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernDialogFlatDropDownButton2(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -79,8 +79,7 @@ public class ModernDialogFlatDropDownButton2 extends ModernOutlinedDialogButton2
    * @param icon the icon
    * @param menu the menu
    */
-  public ModernDialogFlatDropDownButton2(ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public ModernDialogFlatDropDownButton2(ModernIcon icon, ModernPopupMenu2 menu) {
     super(icon, menu);
   }
 
@@ -88,11 +87,10 @@ public class ModernDialogFlatDropDownButton2 extends ModernOutlinedDialogButton2
    * Instantiates a new modern dialog flat drop down button.
    *
    * @param text1 the text 1
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public ModernDialogFlatDropDownButton2(String text1, ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public ModernDialogFlatDropDownButton2(String text1, ModernIcon icon, ModernPopupMenu2 menu) {
     super(text1, icon, menu);
   }
 
@@ -100,7 +98,7 @@ public class ModernDialogFlatDropDownButton2 extends ModernOutlinedDialogButton2
    * Instantiates a new modern dialog flat drop down button.
    *
    * @param text1 the text 1
-   * @param menu the menu
+   * @param menu  the menu
    */
   public ModernDialogFlatDropDownButton2(String text1, ModernPopupMenu2 menu) {
     super(text1, menu);

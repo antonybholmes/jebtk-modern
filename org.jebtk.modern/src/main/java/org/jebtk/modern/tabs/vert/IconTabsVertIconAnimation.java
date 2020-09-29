@@ -33,8 +33,7 @@ import org.jebtk.modern.theme.ThemeService;
  */
 public class IconTabsVertIconAnimation extends WidgetAnimation {
 
-  public static final Color ICON_COLOR = ThemeService.getInstance().getColors()
-      .getGray(5);
+  public static final Color ICON_COLOR = ThemeService.getInstance().getColors().getGray(5);
 
   private IconVertTabs mTabs;
 
@@ -63,14 +62,14 @@ public class IconTabsVertIconAnimation extends WidgetAnimation {
 
     int is = mTabs.getIconSize();
     int ts = mTabs.getTabSize();
-    
+
     ModernIcon icon;
 
     int offset = (ts - is) / 2;
-    //int xoffset = (mTabs.getHeight() - mTabs.getIconSize()) / 2;
+    // int xoffset = (mTabs.getHeight() - mTabs.getIconSize()) / 2;
 
     int y = mTabs.getHeight() - mTabs.getInsets().bottom - ts;
-    
+
     for (int i = 0; i < n; ++i) {
       if (i != selectedIndex) {
         icon = mTabs.getTabsModel().getTab(i).getIcon();
@@ -79,8 +78,7 @@ public class IconTabsVertIconAnimation extends WidgetAnimation {
 
         Color color = ICON_COLOR;
 
-        icon.drawIcon(g2, new IntRect(offset, y1, is, is), 
-            new Props().set("color", color));
+        icon.drawIcon(g2, new IntRect(offset, y1, is, is), new Props().set("color", color));
       }
 
       y -= ts;

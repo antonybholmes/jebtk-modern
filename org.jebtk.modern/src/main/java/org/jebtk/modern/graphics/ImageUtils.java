@@ -56,8 +56,7 @@ public class ImageUtils {
   static {
     // Create a default graphics context that can be used to size
     // Widgets based on the font
-    BufferedImage newImage = new BufferedImage(1, 1,
-        BufferedImage.TYPE_INT_RGB);
+    BufferedImage newImage = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
 
     DEFAULT_GRAPHICS = newImage.createGraphics();
   }
@@ -72,7 +71,7 @@ public class ImageUtils {
   /**
    * Creates a graphics object of the given dimensions.
    *
-   * @param width the width
+   * @param width  the width
    * @param height the height
    * @return the graphics 2 D
    */
@@ -93,7 +92,7 @@ public class ImageUtils {
 
     return g2;
   }
-  
+
   public static Graphics2D createAAGraphics(final BufferedImage image, AAModes modes) {
     Graphics2D g2 = createGraphics(image);
 
@@ -133,8 +132,7 @@ public class ImageUtils {
   }
 
   public static BufferedImage createImage(final DoubleDim dim) {
-    return createImage((int) Math.max(1, dim.getW()),
-        (int) Math.max(1, dim.getH()));
+    return createImage((int) Math.max(1, dim.getW()), (int) Math.max(1, dim.getH()));
   }
 
   /**
@@ -150,7 +148,7 @@ public class ImageUtils {
   /**
    * Create a buffered image that supports transparency.
    *
-   * @param width the width
+   * @param width  the width
    * @param height the height
    * @return the buffered image
    */
@@ -158,9 +156,7 @@ public class ImageUtils {
     return new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
   }
 
-  public static Graphics2D createAAGraphics(final Graphics g,
-      AAMode type,
-      AAMode... types) {
+  public static Graphics2D createAAGraphics(final Graphics g, AAMode type, AAMode... types) {
     Graphics2D g2 = clone(g);
 
     // setAAHints(g2);
@@ -173,13 +169,12 @@ public class ImageUtils {
 
     return g2;
   }
-  
-  public static Graphics2D createAAGraphics(final Graphics g,
-      AAModes modes) {
+
+  public static Graphics2D createAAGraphics(final Graphics g, AAModes modes) {
     if (modes.size() == 0) {
       return (Graphics2D) g;
     }
-    
+
     Graphics2D g2 = clone(g);
 
     for (AAMode t : modes) {
@@ -189,8 +184,7 @@ public class ImageUtils {
     return g2;
   }
 
-  public static Graphics2D createGraphics(final Graphics g,
-      final Collection<AAMode> types) {
+  public static Graphics2D createGraphics(final Graphics g, final Collection<AAMode> types) {
     Graphics2D g2 = clone(g);
 
     if (CollectionUtils.isNotNullOrEmpty(types)) {
@@ -203,8 +197,6 @@ public class ImageUtils {
 
     return g2;
   }
-
-
 
   public static Graphics2D createAAGraphics(final Graphics g) {
     return createAAGraphics(g, AAMode.AA);
@@ -231,17 +223,16 @@ public class ImageUtils {
     return createAAGraphics(g, AAMode.AA, AAMode.TEXT, AAMode.STROKE);
   }
 
-  public static void setAAHints(final Graphics2D g2,
-      AAModes modes) {
+  public static void setAAHints(final Graphics2D g2, AAModes modes) {
     if (modes.size() == 0) {
       return;
     }
-    
+
     for (AAMode t : modes) {
       applyHints(g2, t);
     }
   }
-  
+
   private static void applyHints(Graphics2D g, AAMode type) {
     switch (type) {
     case TEXT:
@@ -255,7 +246,7 @@ public class ImageUtils {
       break;
     }
   }
-  
+
   /**
    * Sets a default set of rendering hints for high quality, anti-aliased
    * graphics.
@@ -263,11 +254,9 @@ public class ImageUtils {
    * @param g2 the new AA hints
    */
   public static final void setAAHints(Graphics2D g2) {
-    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-        RenderingHints.VALUE_ANTIALIAS_ON);
+    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-    g2.setRenderingHint(RenderingHints.KEY_RENDERING,
-        RenderingHints.VALUE_RENDER_QUALITY);
+    g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
   }
 
   /**
@@ -276,39 +265,29 @@ public class ImageUtils {
    * @param g2 the new AA text hints
    */
   public static void setAATextHints(Graphics2D g2) {
-    g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
-        RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+    g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
   }
 
   /**
-   * Sets hits for drawing circles with sub-pixel accuracy. It is not
-   * recommended to use these hints for general purpose rendering as they
-   * produce somewhat pixelated results for other shapes and text.
+   * Sets hits for drawing circles with sub-pixel accuracy. It is not recommended
+   * to use these hints for general purpose rendering as they produce somewhat
+   * pixelated results for other shapes and text.
    *
    * @param g2 the new stroke hints
    */
   public static final void setAAStrokeHints(Graphics2D g2) {
-    g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL,
-        RenderingHints.VALUE_STROKE_PURE);
+    g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
   }
 
   public static void setQualityHints(Graphics2D g2) {
-    g2.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION,
-        RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
-    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-        RenderingHints.VALUE_ANTIALIAS_ON);
-    g2.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING,
-        RenderingHints.VALUE_COLOR_RENDER_QUALITY);
-    g2.setRenderingHint(RenderingHints.KEY_DITHERING,
-        RenderingHints.VALUE_DITHER_ENABLE);
-    g2.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS,
-        RenderingHints.VALUE_FRACTIONALMETRICS_ON);
-    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION,
-        RenderingHints.VALUE_INTERPOLATION_BILINEAR);
-    g2.setRenderingHint(RenderingHints.KEY_RENDERING,
-        RenderingHints.VALUE_RENDER_QUALITY);
-    g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL,
-        RenderingHints.VALUE_STROKE_PURE);
+    g2.setRenderingHint(RenderingHints.KEY_ALPHA_INTERPOLATION, RenderingHints.VALUE_ALPHA_INTERPOLATION_QUALITY);
+    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+    g2.setRenderingHint(RenderingHints.KEY_COLOR_RENDERING, RenderingHints.VALUE_COLOR_RENDER_QUALITY);
+    g2.setRenderingHint(RenderingHints.KEY_DITHERING, RenderingHints.VALUE_DITHER_ENABLE);
+    g2.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS, RenderingHints.VALUE_FRACTIONALMETRICS_ON);
+    g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+    g2.setRenderingHint(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
+    g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
   }
 
   /**
@@ -334,7 +313,7 @@ public class ImageUtils {
   /**
    * Gets the string width.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param text the text
    * @return the string width
    */
@@ -356,7 +335,7 @@ public class ImageUtils {
   /**
    * Gets the string width.
    *
-   * @param g2 the g 2
+   * @param g2   the g 2
    * @param font the font
    * @param text the text
    * @return the string width
@@ -393,7 +372,7 @@ public class ImageUtils {
   /**
    * Gets the font height.
    *
-   * @param s the s
+   * @param s    the s
    * @param font the font
    * @return the font height
    */
@@ -416,12 +395,12 @@ public class ImageUtils {
   }
 
   /**
-   * Returns the height required to bound the given string. This is more
-   * accurate than using the ascent and descent since it measures the actual
-   * characters rather than the size of the largest character in the font.
+   * Returns the height required to bound the given string. This is more accurate
+   * than using the ascent and descent since it measures the actual characters
+   * rather than the size of the largest character in the font.
    *
    * @param g2 The graphics context
-   * @param s A string.
+   * @param s  A string.
    * @return the font height
    */
   public static int getFontHeight(Graphics2D g2, String s) {
@@ -434,7 +413,7 @@ public class ImageUtils {
    * characters rather than the size of the largest character in the font.
    *
    * @param g2 The graphics context
-   * @param s A string.
+   * @param s  A string.
    * @return the font bounds
    */
   public static Rectangle getFontBounds(Graphics2D g2, String s) {
@@ -446,7 +425,7 @@ public class ImageUtils {
   /**
    * Gets the text Y pos center.
    *
-   * @param font the font
+   * @param font   the font
    * @param height the height
    * @return the text Y pos center
    */
@@ -471,7 +450,7 @@ public class ImageUtils {
   /**
    * Gets the text y pos center.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    * @return the text y pos center
    */
@@ -490,30 +469,26 @@ public class ImageUtils {
   }
 
   /**
-   * Returns the y position to draw text at so that is vertically centered on
-   * the widget.
+   * Returns the y position to draw text at so that is vertically centered on the
+   * widget.
    *
-   * @param g2 the g2
+   * @param g2     the g2
    * @param height the height
    * @return the text y pos center
    */
   public static int getTextYPosCenter(Graphics2D g2, int height) {
-    return getTextYPosCenter(height,
-        g2.getFontMetrics().getAscent(),
-        g2.getFontMetrics().getDescent());
+    return getTextYPosCenter(height, g2.getFontMetrics().getAscent(), g2.getFontMetrics().getDescent());
   }
 
   /**
    * Gets the text Y pos center.
    *
-   * @param height the height
-   * @param ascent the ascent
+   * @param height  the height
+   * @param ascent  the ascent
    * @param descent the descent
    * @return the text Y pos center
    */
-  public static int getTextYPosCenter(int height,
-      double ascent,
-      double descent) {
+  public static int getTextYPosCenter(int height, double ascent, double descent) {
     return (int) ((height + ascent - descent) / 2);
   }
 
@@ -540,7 +515,7 @@ public class ImageUtils {
   /**
    * Fill a rectangle.
    *
-   * @param g2 the g 2
+   * @param g2   the g 2
    * @param rect the rect
    */
   public static void fillRect(Graphics2D g2, IntRect rect) {

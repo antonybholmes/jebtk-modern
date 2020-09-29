@@ -46,8 +46,7 @@ public class CloseVectorIcon extends CrossVectorIcon {
    * Instantiates a new close vector icon.
    */
   public CloseVectorIcon() {
-    this(SettingsService.getInstance()
-        .getColor("theme.icons.close-icon.colors.foreground"));
+    this(SettingsService.getInstance().getColor("theme.icons.close-icon.colors.foreground"));
   }
 
   /**
@@ -67,12 +66,7 @@ public class CloseVectorIcon extends CrossVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     g2.setColor(mColor);
 
     super.drawIcon(g2, x, y, w, h, props);

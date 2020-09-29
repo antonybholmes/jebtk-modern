@@ -42,8 +42,7 @@ import org.jebtk.modern.theme.ColorStyle;
  * @author Antony Holmes
  *
  */
-public abstract class ModernButtonWidget extends ModernClickWidget
-    implements TextProperty, NameGetter {
+public abstract class ModernButtonWidget extends ModernClickWidget implements TextProperty, NameGetter {
 
   /**
    * The constant serialVersionUID.
@@ -98,7 +97,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget
    * Instantiates a new modern button widget.
    *
    * @param text1 the text1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernButtonWidget(String text1, ModernIcon icon) {
     this();

@@ -43,9 +43,7 @@ public class MultiResIcon extends ModernIcon {
    * The member buffered image.
    */
 
-  protected Map<Integer, BufferedImage> mBufMap = 
-      new HashMap<Integer, BufferedImage>();
-  
+  protected Map<Integer, BufferedImage> mBufMap = new HashMap<Integer, BufferedImage>();
 
   /*
    * (non-Javadoc)
@@ -55,15 +53,10 @@ public class MultiResIcon extends ModernIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
-    //x = x + (w - getWidth()) / 2;
-    //y = y + (h - getHeight()) / 2;
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
+    // x = x + (w - getWidth()) / 2;
+    // y = y + (h - getHeight()) / 2;
 
-    rasterIcon(g2, x, y, w, h, props);
+    super.drawIcon(g2, x, y, w, h, props);
   }
 }

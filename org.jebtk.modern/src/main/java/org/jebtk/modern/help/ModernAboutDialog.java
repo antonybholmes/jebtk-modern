@@ -74,7 +74,7 @@ public class ModernAboutDialog extends ModernDialogMultiCardWindow {
   /**
    * Instantiates a new modern about dialog.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param product the product
    */
   public ModernAboutDialog(ModernWindow parent, final GuiAppInfo product) {
@@ -102,15 +102,13 @@ public class ModernAboutDialog extends ModernDialogMultiCardWindow {
 
     if (product.getDescription() != null) {
       box2.add(UI.createVGap(5));
-      box2.add(new ModernSubTitleLabel(
-          product.getDescription().replaceFirst("\\.$", "")));
+      box2.add(new ModernSubTitleLabel(product.getDescription().replaceFirst("\\.$", "")));
     }
 
     box2.add(UI.createVGap(10));
     box2.add(new ModernAutoSizeLabel(product.getCopyright()));
     box2.add(UI.createVGap(10));
-    box2.add(
-        new ModernAutoSizeLabel("Version " + product.getVersion().toString()));
+    box2.add(new ModernAutoSizeLabel("Version " + product.getVersion().toString()));
     box2.add(UI.createVGap(50));
 
     Box box3 = HBox.create();
@@ -138,8 +136,7 @@ public class ModernAboutDialog extends ModernDialogMultiCardWindow {
     try {
       String text = Resources.loadText("res/license.txt");
 
-      ModernScrollPane scrollPane = new ModernScrollPane(
-          new ModernTextArea(text));
+      ModernScrollPane scrollPane = new ModernScrollPane(new ModernTextArea(text));
 
       scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
 
@@ -158,8 +155,7 @@ public class ModernAboutDialog extends ModernDialogMultiCardWindow {
       public void clicked(ModernClickEvent e) {
 
         try {
-          ModernTextDialog dialog = new ModernTextDialog(mParent, "License",
-              Resources.loadText("res/license.txt"));
+          ModernTextDialog dialog = new ModernTextDialog(mParent, "License", Resources.loadText("res/license.txt"));
 
           dialog.setVisible(true);
 
@@ -176,10 +172,8 @@ public class ModernAboutDialog extends ModernDialogMultiCardWindow {
       public void clicked(ModernClickEvent e) {
 
         try {
-          ModernTextDialog dialog = new ModernTextDialog(mParent, "Changes",
-              Resources.loadText(
-                  new StringBuilder("res/").append(product.getHelpName())
-                      .append(".changes.txt").toString()));
+          ModernTextDialog dialog = new ModernTextDialog(mParent, "Changes", Resources
+              .loadText(new StringBuilder("res/").append(product.getHelpName()).append(".changes.txt").toString()));
 
           dialog.setVisible(true);
 
@@ -200,7 +194,7 @@ public class ModernAboutDialog extends ModernDialogMultiCardWindow {
   /**
    * Create a default centered about dialog.
    *
-   * @param parent the parent
+   * @param parent         the parent
    * @param productDetails the product details
    */
   public static void show(ModernWindow parent, GuiAppInfo productDetails) {

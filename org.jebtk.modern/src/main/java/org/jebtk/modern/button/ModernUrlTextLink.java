@@ -40,8 +40,7 @@ public class ModernUrlTextLink extends ModernUrlLinkButton {
   private static Color COLOR1 = Ribbon.BAR_BACKGROUND; // ThemeService.getInstance().getColors().getColorHighlight32(20);
 
   /** The color2. */
-  private static Color COLOR2 = ThemeService.getInstance().getColors()
-      .getTheme32(16);
+  private static Color COLOR2 = ThemeService.getInstance().getColors().getTheme32(16);
 
   /** The m color 1. */
   private Color mColor1 = COLOR1;
@@ -53,7 +52,7 @@ public class ModernUrlTextLink extends ModernUrlLinkButton {
    * Instantiates a new modern url text link.
    *
    * @param title the title
-   * @param url the url
+   * @param url   the url
    */
   public ModernUrlTextLink(String title, URL url) {
     this(title, url, COLOR1, COLOR2);
@@ -66,8 +65,8 @@ public class ModernUrlTextLink extends ModernUrlLinkButton {
   /**
    * Instantiates a new modern url text link.
    *
-   * @param title the title
-   * @param url the url
+   * @param title  the title
+   * @param url    the url
    * @param color1 the color 1
    * @param color2 the color 2
    */
@@ -92,13 +91,12 @@ public class ModernUrlTextLink extends ModernUrlLinkButton {
   /**
    * Instantiates a new modern url text link.
    *
-   * @param title the title
-   * @param email the email
+   * @param title  the title
+   * @param email  the email
    * @param color1 the color 1
    * @param color2 the color 2
    */
-  public ModernUrlTextLink(String title, String email, Color color1,
-      Color color2) {
+  public ModernUrlTextLink(String title, String email, Color color1, Color color2) {
     super(title, email);
 
     setLinkColors(color1, color2);
@@ -110,8 +108,8 @@ public class ModernUrlTextLink extends ModernUrlLinkButton {
    * Instantiates a new modern url text link.
    *
    * @param title the title
-   * @param url the url
-   * @param icon the icon
+   * @param url   the url
+   * @param icon  the icon
    */
   public ModernUrlTextLink(String title, URL url, ModernIcon icon) {
     super(title, url, icon);
@@ -146,9 +144,7 @@ public class ModernUrlTextLink extends ModernUrlLinkButton {
   @Override
   public void autoSize() {
     if (mIcon == null) {
-      UI.setSize(this,
-          ModernWidget.getStringWidth(getFont(), mText1),
-          ModernWidget.getStringHeight(getFont()));
+      UI.setSize(this, ModernWidget.getStringWidth(getFont(), mText1), ModernWidget.getStringHeight(getFont()));
     } else {
       super.autoSize();
     }
@@ -157,8 +153,7 @@ public class ModernUrlTextLink extends ModernUrlLinkButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

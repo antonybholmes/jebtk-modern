@@ -54,8 +54,7 @@ import org.jebtk.modern.window.FrostedGlassPane;
  * @author Antony Holmes
  *
  */
-public class MessageDialogGlassPane extends FrostedGlassPane
-    implements ModernClickListener {
+public class MessageDialogGlassPane extends FrostedGlassPane implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -69,8 +68,7 @@ public class MessageDialogGlassPane extends FrostedGlassPane
    * @author Antony Holmes
    *
    */
-  private class MessageDialogPanel extends ModernPanel
-      implements ModernClickListener, FocusListener {
+  private class MessageDialogPanel extends ModernPanel implements ModernClickListener, FocusListener {
 
     /**
      * The height.
@@ -90,8 +88,7 @@ public class MessageDialogGlassPane extends FrostedGlassPane
     /**
      * The member message label.
      */
-    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel(
-        "Heading", Color.WHITE);
+    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel("Heading", Color.WHITE);
 
     /**
      * The member listeners.
@@ -156,8 +153,7 @@ public class MessageDialogGlassPane extends FrostedGlassPane
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -217,8 +213,7 @@ public class MessageDialogGlassPane extends FrostedGlassPane
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

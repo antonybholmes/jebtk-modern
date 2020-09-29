@@ -52,8 +52,7 @@ import org.jebtk.modern.dataview.ModernDataViewListeners;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public class ModernListModel<T>
-    implements Iterable<T>, ModernDataViewEventProducer {
+public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProducer {
 
   /**
    * The member listeners.
@@ -253,7 +252,7 @@ public class ModernListModel<T>
   /**
    * Indicates an item should be reordered in the list.
    *
-   * @param index the index
+   * @param index    the index
    * @param newIndex the new index
    */
   public void move(int index, int newIndex) {
@@ -265,7 +264,7 @@ public class ModernListModel<T>
   /**
    * Shift.
    *
-   * @param index the index
+   * @param index    the index
    * @param newIndex the new index
    */
   public void shift(int index, int newIndex) {
@@ -298,7 +297,7 @@ public class ModernListModel<T>
    * Shift.
    *
    * @param fromIndices the from indices
-   * @param toIndices the to indices
+   * @param toIndices   the to indices
    */
   public void shift(List<Integer> fromIndices, List<Integer> toIndices) {
     for (int i = 0; i < fromIndices.size(); ++i) {
@@ -319,8 +318,8 @@ public class ModernListModel<T>
   }
 
   /**
-   * Parse a text file into a list model. The first line is assumed to be a
-   * header and is ignored.
+   * Parse a text file into a list model. The first line is assumed to be a header
+   * and is ignored.
    *
    * @param file the file
    * @return the modern list model
@@ -342,8 +341,7 @@ public class ModernListModel<T>
           continue;
         }
 
-        List<String> tokens = TextUtils.fastSplit(line,
-            TextUtils.TAB_DELIMITER);
+        List<String> tokens = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
 
         model.addValue(tokens.get(0));
       }

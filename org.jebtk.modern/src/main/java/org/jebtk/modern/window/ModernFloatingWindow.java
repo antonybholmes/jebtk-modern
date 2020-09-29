@@ -85,7 +85,7 @@ public class ModernFloatingWindow extends JFrame {
     super.getContentPane().add(mContentPanel, BorderLayout.CENTER);
 
     setIconImage(appInfo.getIcon().getImage(32));
-    
+
     setTitle(appInfo.getName());
   }
 

@@ -68,7 +68,7 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
     }
 
     int x = mTabs.getInsets().left; // + widget.getWidth() -
-                                    // SegmentChangeAnimation.HEIGHT;
+    // SegmentChangeAnimation.HEIGHT;
     int y = mTabs.getInsets().top;
     int tabWidth = mTabs.getInternalRect().getW();
 
@@ -77,7 +77,7 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
       g2.setColor(mColor);
 
       double r = TranslateAnimation.BEZ_T[getStep()]; // /
-                                                      // (double)TimerAnimation.AnimationTimer.STEPS;
+      // (double)TimerAnimation.AnimationTimer.STEPS;
 
       int d = (int) (tabWidth * r);
 
@@ -90,11 +90,7 @@ public class RibbonSegmentPressedAnimation extends ButtonPressedAnimation {
       // RibbonSegmentVertTabs.TAB_SIZE);
 
       DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-          new IntRect(x,
-          y + mHighlight * RibbonSegmentVertTabs.TAB_SIZE,
-          d,
-          RibbonSegmentVertTabs.TAB_SIZE),
-          mColor);
+          new IntRect(x, y + mHighlight * RibbonSegmentVertTabs.TAB_SIZE, d, RibbonSegmentVertTabs.TAB_SIZE), mColor);
     }
   }
 }

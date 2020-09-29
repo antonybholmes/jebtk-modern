@@ -40,8 +40,7 @@ import java.awt.event.ComponentListener;
  * @author Antony Holmes
  *
  */
-public class ModernMenuSeparator extends ModernIconMenuItem
-    implements ComponentListener {
+public class ModernMenuSeparator extends ModernIconMenuItem implements ComponentListener {
 
   /**
    * The constant serialVersionUID.
@@ -61,8 +60,7 @@ public class ModernMenuSeparator extends ModernIconMenuItem
   /**
    * The constant MAX_SIZE.
    */
-  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE,
-      HEIGHT);
+  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
 
   /**
    * The y.
@@ -87,8 +85,7 @@ public class ModernMenuSeparator extends ModernIconMenuItem
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   @Override

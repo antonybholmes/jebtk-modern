@@ -41,7 +41,7 @@ public class BottomTabs extends SegmentTabs {
   /**
    * Instantiates a new text tabs.
    *
-   * @param model the model
+   * @param model   the model
    * @param tabSize the tab size
    */
   public BottomTabs(TabsModel model, int tabSize) {
@@ -51,8 +51,8 @@ public class BottomTabs extends SegmentTabs {
   /**
    * Instantiates a new segment tabs.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model    the model
+   * @param tabSize  the tab size
    * @param centered the centered
    */
   public BottomTabs(TabsModel model, int tabSize, boolean centered) {

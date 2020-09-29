@@ -52,7 +52,7 @@ public class MessageDialogStatusGlassPane extends FrostedGlassPane {
    * Show message.
    *
    * @param message the message
-   * @param l the l
+   * @param l       the l
    */
   public void showMessage(String message, DialogEventListener l) {
     mListeners.addDialogListener(l);

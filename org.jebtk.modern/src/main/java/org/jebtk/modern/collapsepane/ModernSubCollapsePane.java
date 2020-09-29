@@ -75,9 +75,7 @@ public class ModernSubCollapsePane extends AbstractCollapsePane {
           break;
         }
 
-        y += mHeaderHeight
-            + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height
-                : 0);
+        y += mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0);
 
         ++i;
       }
@@ -104,8 +102,7 @@ public class ModernSubCollapsePane extends AbstractCollapsePane {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionAdapter#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionAdapter#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -131,9 +128,7 @@ public class ModernSubCollapsePane extends AbstractCollapsePane {
           break;
         }
 
-        y += mHeaderHeight
-            + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height
-                : 0);
+        y += mHeaderHeight + (mExpanded.get(i) ? mComponents.get(i).getPreferredSize().height : 0);
 
         ++i;
       }

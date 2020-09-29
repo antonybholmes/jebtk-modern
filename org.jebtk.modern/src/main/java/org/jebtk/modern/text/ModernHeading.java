@@ -62,7 +62,7 @@ public class ModernHeading extends Box {
   /**
    * Instantiates a new modern heading.
    *
-   * @param title the title
+   * @param title     the title
    * @param component the component
    */
   public ModernHeading(String title, JComponent component) {

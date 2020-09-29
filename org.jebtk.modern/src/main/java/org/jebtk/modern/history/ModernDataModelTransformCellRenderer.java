@@ -40,8 +40,7 @@ import org.jebtk.modern.list.ModernList;
  * @author Antony Holmes
  *
  */
-public class ModernDataModelTransformCellRenderer
-    extends ModernHistoryListBasicCellRenderer {
+public class ModernDataModelTransformCellRenderer extends ModernHistoryListBasicCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -61,8 +60,7 @@ public class ModernDataModelTransformCellRenderer
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -87,30 +85,21 @@ public class ModernDataModelTransformCellRenderer
    * java.lang.Object, boolean, boolean, boolean, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernList<?> list,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row) {
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
 
     ModernDataModelTransform t = (ModernDataModelTransform) value;
 
     setText(row, t.getName(), t.getDescription());
 
-    return super.getCellRendererComponent(list,
-        value,
-        highlight,
-        isSelected,
-        hasFocus,
-        row);
+    return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
   }
 
   /**
    * Sets the text.
    *
-   * @param row the row
-   * @param name the name
+   * @param row         the row
+   * @param name        the name
    * @param description the description
    */
   private void setText(int row, String name, String description) {

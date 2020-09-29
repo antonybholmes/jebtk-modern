@@ -39,13 +39,12 @@ public class FadeAnimation extends EasingAnimation {
   protected static final double MD = 1.0 / AnimationTimer.STEPS;
 
   /** The m fade color map. */
-  private Map<Integer, NamedColors> mFadeColorMap = DefaultHashMap
-      .create(new EntryCreator<NamedColors>() {
-        @Override
-        public NamedColors newEntry() {
-          return new NamedColors();
-        }
-      });
+  private Map<Integer, NamedColors> mFadeColorMap = DefaultHashMap.create(new EntryCreator<NamedColors>() {
+    @Override
+    public NamedColors newEntry() {
+      return new NamedColors();
+    }
+  });
 
   /** Map step to transparency level */
   // private Map<Integer, Double> mStepMap = new HashMap<Integer, Double>();
@@ -95,7 +94,7 @@ public class FadeAnimation extends EasingAnimation {
    * Set a fade in color that can transition linearly between transparent and
    * opaque.
    *
-   * @param name the name
+   * @param name  the name
    * @param color the color
    * @return
    */
@@ -119,8 +118,7 @@ public class FadeAnimation extends EasingAnimation {
     // in the transparent state (the last step) and work backwards to
     // opaque once the animation begins. Therefore with a color map,
     // the last color needs to be the starting color.
-    CSSColor colorMap[] = ColorMap
-        .createTwoColorMap(color1, color2, AnimationTimer.STEPS, false);
+    CSSColor colorMap[] = ColorMap.createTwoColorMap(color1, color2, AnimationTimer.STEPS, false);
 
     for (int i = 0; i < AnimationTimer.STEPS; ++i) {
       mFadeColorMap.get(i).add(name, colorMap[i]);

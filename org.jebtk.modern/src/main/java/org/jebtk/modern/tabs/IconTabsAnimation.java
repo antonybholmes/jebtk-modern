@@ -31,8 +31,7 @@ import org.jebtk.modern.theme.ThemeService;
  */
 public class IconTabsAnimation extends WidgetAnimation {
 
-  private static final Color BACKGROUND = 
-      ThemeService.getInstance().getColors().getGray(2);
+  private static final Color BACKGROUND = ThemeService.getInstance().getColors().getGray(2);
 
   private IconTabs mTabs;
 

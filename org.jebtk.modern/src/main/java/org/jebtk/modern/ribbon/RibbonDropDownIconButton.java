@@ -56,8 +56,7 @@ public class RibbonDropDownIconButton extends ModernDropDownIconButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.button.ModernDropDownWidget#drawBackgroundAA(java.awt.
+   * @see org.abh.common.ui.button.ModernDropDownWidget#drawBackgroundAA(java.awt.
    * Graphics2D)
    */
   @Override
@@ -67,8 +66,7 @@ public class RibbonDropDownIconButton extends ModernDropDownIconButton {
         // getWidgetRenderer()
         // .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
 
-        DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-            mInternalRect);
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mInternalRect);
       }
     }
   }

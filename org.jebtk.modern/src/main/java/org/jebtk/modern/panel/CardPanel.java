@@ -56,7 +56,7 @@ public class CardPanel extends ModernComponent {
   /**
    * Instantiates a new card panel.
    *
-   * @param title the title
+   * @param title   the title
    * @param content the content
    */
   public CardPanel(Component content) {

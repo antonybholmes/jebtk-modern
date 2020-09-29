@@ -47,8 +47,7 @@ import org.jebtk.modern.panel.HBox;
  * @author Antony Holmes
  *
  */
-public class ZoomRibbonPanel extends HBox
-    implements Zoom, ModernClickListener, ChangeListener {
+public class ZoomRibbonPanel extends HBox implements Zoom, ModernClickListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -113,8 +112,7 @@ public class ZoomRibbonPanel extends HBox
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {
@@ -124,8 +122,7 @@ public class ZoomRibbonPanel extends HBox
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void changed(ChangeEvent e) {

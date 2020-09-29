@@ -56,7 +56,6 @@ public class ModernSplashWindow2 extends ModernWindow {
 
     Color color = new Color(appInfo.getIcon().getImage(32).getRGB(1, 1));
     getWindowPanel().setBackground(color);
-    
 
     // mContentPanel = new ModernPanel(color);
 

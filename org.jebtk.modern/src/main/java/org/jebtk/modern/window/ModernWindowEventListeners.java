@@ -36,8 +36,8 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ModernWindowEventListeners extends
-    EventProducer<ModernWindowListener> implements ModernWindowEventProducer {
+public class ModernWindowEventListeners extends EventProducer<ModernWindowListener>
+    implements ModernWindowEventProducer {
 
   /**
    * The constant serialVersionUID.

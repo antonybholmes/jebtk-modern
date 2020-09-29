@@ -60,8 +60,7 @@ public class ModernSeparator extends ModernComponent {
   /**
    * The constant MAX_SIZE.
    */
-  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE,
-      HEIGHT);
+  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
 
   /**
    * The y.
@@ -87,8 +86,7 @@ public class ModernSeparator extends ModernComponent {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   @Override

@@ -49,8 +49,7 @@ public class ColorMapPanel extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.ui.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.common.ui.ui.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -64,10 +63,7 @@ public class ColorMapPanel extends ModernWidget {
     for (int i = 0; i < w; ++i) {
       g2.setColor(mColorMap.getColorByIndex((int) c));
 
-      g2.drawLine(x,
-          mInternalRect.getY(),
-          x,
-          mInternalRect.getY() + mInternalRect.getH() - 1);
+      g2.drawLine(x, mInternalRect.getY(), x, mInternalRect.getY() + mInternalRect.getH() - 1);
 
       ++x;
 

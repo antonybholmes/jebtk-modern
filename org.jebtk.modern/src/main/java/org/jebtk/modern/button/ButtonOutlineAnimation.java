@@ -14,8 +14,7 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
     super(button);
 
     if (button.getFromKeyFrame().contains("border-color")) {
-      setFadeColor("outline",
-          button.getFromKeyFrame().getColor("border-color"),
+      setFadeColor("outline", button.getFromKeyFrame().getColor("border-color"),
           button.getToKeyFrame().getColor("border-color"));
     } else {
       setFadeColor("outline", button.getToKeyFrame().getColor("border-color"));
@@ -40,15 +39,12 @@ public class ButtonOutlineAnimation extends HoverFadeAnimation {
     }
   }
 
-  public void outline(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect) {
+  public void outline(ModernComponent c, Graphics2D g2, IntRect rect) {
     // if (mode == RenderMode.NONE && !hasFocus) {
     // return;
     // }
 
-    DrawUIService.getInstance().getRenderer("button-outline")
-        .draw(c, g2, rect, getFadeColor("outline"));
+    DrawUIService.getInstance().getRenderer("button-outline").draw(c, g2, rect, getFadeColor("outline"));
 
     // g2.setColor(getFadeColor("outline"));
 

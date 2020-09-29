@@ -54,8 +54,8 @@ import org.jebtk.modern.theme.ColorStyle;
 /**
  * The class ModernSearchPanel.
  */
-public class ModernSearchPanel extends ModernPillBorderPanel implements
-    ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
+public class ModernSearchPanel extends ModernPillBorderPanel
+    implements ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
 
   /**
    * The constant serialVersionUID.
@@ -66,8 +66,8 @@ public class ModernSearchPanel extends ModernPillBorderPanel implements
    * The member search button.
    */
   private ModernClickWidget mSearchButton = new ModernButton(
-      AssetService.getInstance().loadIcon(SearchVectorIcon.class, 16))
-          .setColorStyle(ColorStyle.RIBBON).setButtonStyle(ButtonStyle.CIRCLE, ButtonStyle.OUTLINE);
+      AssetService.getInstance().loadIcon(SearchVectorIcon.class, 16)).setColorStyle(ColorStyle.RIBBON)
+          .setButtonStyle(ButtonStyle.CIRCLE, ButtonStyle.OUTLINE);
 
   /**
    * The member search field.
@@ -98,26 +98,26 @@ public class ModernSearchPanel extends ModernPillBorderPanel implements
    */
   public ModernSearchPanel(SearchModel model) {
     mModel = model;
-    
+
     System.err.println("search search " + mSearchButton.getPreferredSize() + " " + mSearchButton.getAspectRatio());
-    
+
     // mSearchField.setBorder(BorderService.getInstance().createLeftBorder(20));
     add(mSearchField);
     add(mSearchButton, BorderLayout.LINE_END);
-    
+
     mSearchField.addKeyListener(this);
     mSearchButton.addClickListener(this);
 
     mSearchField.setText(mModel.get());
-    
-    //UI.setSize(mSearchButton, 24, 24);
+
+    // UI.setSize(mSearchButton, 24, 24);
 
     addComponentListener(new ComponentAdapter() {
       @Override
       public void componentResized(ComponentEvent e) {
-        int b = 2; //mSearchButton.getHeight() + 4; //(getInternalRect().mH - mSearchButton.getHeight()) / 2;
-        setBorder(
-            BorderService.getInstance().createBorder(b, getHeight() / 2, b, b));
+        int b = 2; // mSearchButton.getHeight() + 4; //(getInternalRect().mH -
+        // mSearchButton.getHeight()) / 2;
+        setBorder(BorderService.getInstance().createBorder(b, getHeight() / 2, b, b));
       }
     });
   }
@@ -170,8 +170,7 @@ public class ModernSearchPanel extends ModernPillBorderPanel implements
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

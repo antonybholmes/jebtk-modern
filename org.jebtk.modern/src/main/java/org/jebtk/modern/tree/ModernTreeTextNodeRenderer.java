@@ -49,8 +49,7 @@ public class ModernTreeTextNodeRenderer extends ModernTreeBranchNodeRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
+   * @see org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
    * awt. Graphics2D)
    */
   @Override
@@ -65,8 +64,6 @@ public class ModernTreeTextNodeRenderer extends ModernTreeBranchNodeRenderer {
       g2.setFont(FONT);
     }
 
-    g2.drawString(getTruncatedText(g2, mNode.getName(), 0, mRect.getW()),
-        0,
-        p.y);
+    g2.drawString(getTruncatedText(g2, mNode.getName(), 0, mRect.getW()), 0, p.y);
   }
 }

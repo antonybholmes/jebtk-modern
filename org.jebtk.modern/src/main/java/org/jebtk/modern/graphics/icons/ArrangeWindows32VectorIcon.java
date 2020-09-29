@@ -86,12 +86,7 @@ public class ArrangeWindows32VectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     x = x + (w - WIDTH) / 2;
 
     drawWindow(g2, x, y);
@@ -105,8 +100,8 @@ public class ArrangeWindows32VectorIcon extends ModernVectorIcon {
    * Draw window.
    *
    * @param g2 the g2
-   * @param x the x
-   * @param y the y
+   * @param x  the x
+   * @param y  the y
    */
   private void drawWindow(Graphics2D g2, int x, int y) {
     g2.setColor(Color.WHITE);

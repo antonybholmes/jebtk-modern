@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class StatusEventListeners extends EventProducer<StatusEventListener>
-    implements StatusEventProducer {
+public class StatusEventListeners extends EventProducer<StatusEventListener> implements StatusEventProducer {
 
   /**
    * The constant serialVersionUID.

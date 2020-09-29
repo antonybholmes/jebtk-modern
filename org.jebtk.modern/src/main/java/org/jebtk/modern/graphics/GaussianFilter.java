@@ -70,20 +70,8 @@ public class GaussianFilter extends ConvolveFilter {
     int[] outPixels = new int[s];
     src.getRGB(0, 0, width, height, inPixels, 0, width);
 
-    convolveAndTranspose(kernel,
-        inPixels,
-        outPixels,
-        width,
-        height,
-        alpha,
-        CLAMP_EDGES);
-    convolveAndTranspose(kernel,
-        outPixels,
-        inPixels,
-        height,
-        width,
-        alpha,
-        CLAMP_EDGES);
+    convolveAndTranspose(kernel, inPixels, outPixels, width, height, alpha, CLAMP_EDGES);
+    convolveAndTranspose(kernel, outPixels, inPixels, height, width, alpha, CLAMP_EDGES);
 
     dst.setRGB(0, 0, width, height, inPixels, 0, width);
     return dst;
@@ -94,13 +82,8 @@ public class GaussianFilter extends ConvolveFilter {
     return "Blur/Gaussian Blur...";
   }
 
-  public static void convolveAndTranspose(Kernel kernel,
-      int[] inPixels,
-      int[] outPixels,
-      int width,
-      int height,
-      boolean alpha,
-      int edgeAction) {
+  public static void convolveAndTranspose(Kernel kernel, int[] inPixels, int[] outPixels, int width, int height,
+      boolean alpha, int edgeAction) {
     float[] matrix = kernel.getKernelData(null);
     int cols = kernel.getWidth();
     int cols2 = cols / 2;

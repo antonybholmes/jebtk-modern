@@ -62,7 +62,7 @@ public class SubHeading extends Box {
   /**
    * Instantiates a new sub heading.
    *
-   * @param title the title
+   * @param title     the title
    * @param component the component
    */
   public SubHeading(String title, JComponent component) {

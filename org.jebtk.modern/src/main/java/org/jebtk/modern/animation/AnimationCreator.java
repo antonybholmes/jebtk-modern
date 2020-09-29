@@ -24,8 +24,7 @@ import org.jebtk.core.event.ChangeListeners;
 /**
  * The Class Animations.
  */
-public class AnimationCreator extends ChangeListeners
-    implements Iterable<Class<?>> {
+public class AnimationCreator extends ChangeListeners implements Iterable<Class<?>> {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -34,8 +33,8 @@ public class AnimationCreator extends ChangeListeners
   private List<Class<?>> mAnimations = new ArrayList<Class<?>>();
 
   /**
-   * Add an animation class which can be used to create an animation object for
-   * a particular widget.
+   * Add an animation class which can be used to create an animation object for a
+   * particular widget.
    *
    * @param animation the animation
    * @return
@@ -63,7 +62,7 @@ public class AnimationCreator extends ChangeListeners
   /**
    * Sets the.
    *
-   * @param animation the animation
+   * @param animation  the animation
    * @param animations the animations
    * @return
    */

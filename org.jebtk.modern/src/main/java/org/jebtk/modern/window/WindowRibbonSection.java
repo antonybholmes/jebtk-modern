@@ -51,8 +51,7 @@ import org.jebtk.modern.ribbon.RibbonSection;
  * @author Antony Holmes
  *
  */
-public class WindowRibbonSection extends RibbonSection
-    implements ModernWindowListener {
+public class WindowRibbonSection extends RibbonSection implements ModernWindowListener {
 
   /**
    * The constant serialVersionUID.
@@ -77,16 +76,14 @@ public class WindowRibbonSection extends RibbonSection
   /**
    * The member arrange window button.
    */
-  private RibbonLargeButton mArrangeWindowButton = new RibbonLargeButton(
-      "Arrange All", AssetService.getInstance()
-          .loadIcon(ArrangeWindows32VectorIcon.class, 32));
+  private RibbonLargeButton mArrangeWindowButton = new RibbonLargeButton("Arrange All",
+      AssetService.getInstance().loadIcon(ArrangeWindows32VectorIcon.class, 32));
 
   /**
    * The member switch window button.
    */
   private RibbonLargeDropDownButton2 mSwitchWindowButton = new RibbonLargeDropDownButton2(
-      AssetService.getInstance().loadIcon(SwitchWindows32VectorIcon.class, 32),
-      mWindowMenu);
+      AssetService.getInstance().loadIcon(SwitchWindows32VectorIcon.class, 32), mWindowMenu);
 
   /**
    * The member current window.
@@ -101,8 +98,7 @@ public class WindowRibbonSection extends RibbonSection
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -117,7 +113,7 @@ public class WindowRibbonSection extends RibbonSection
    * Instantiates a new window ribbon section2.
    *
    * @param currentWindow the current window
-   * @param ribbon the ribbon
+   * @param ribbon        the ribbon
    */
   public WindowRibbonSection(ModernWindow currentWindow, Ribbon ribbon) {
     super(ribbon, "Window");
@@ -126,8 +122,7 @@ public class WindowRibbonSection extends RibbonSection
 
     mArrangeWindowButton.setToolTip("Arrange All", "Arrange all the windows.");
 
-    mSwitchWindowButton.setToolTip("Switch Window",
-        "Switch between the different windows of the application.");
+    mSwitchWindowButton.setToolTip("Switch Window", "Switch between the different windows of the application.");
 
     add(mArrangeWindowButton);
     add(mSwitchWindowButton);
@@ -154,8 +149,7 @@ public class WindowRibbonSection extends RibbonSection
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.window.ModernWindowListener#windowRemoved(org.abh.
+   * @see org.abh.lib.ui.modern.window.ModernWindowListener#windowRemoved(org.abh.
    * lib. event.ChangeEvent)
    */
   @Override
@@ -180,8 +174,7 @@ public class WindowRibbonSection extends RibbonSection
     for (ModernWindow window : WindowService.getInstance()) {
       name = TextUtils.truncateCenter(window.getTitle(), MAX_CHARS);
 
-      menuItem = new SwitchWindowMenuItem(counter, name,
-          window.equals(mCurrentWindow));
+      menuItem = new SwitchWindowMenuItem(counter, name, window.equals(mCurrentWindow));
       menuItem.addClickListener(new WindowRegistryListener(window));
 
       // UI.setSize(menuItem, new Dimension(MENU_WIDTH, WIDGET_HEIGHT));

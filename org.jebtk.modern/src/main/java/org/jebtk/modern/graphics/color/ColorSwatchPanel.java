@@ -60,7 +60,7 @@ public class ColorSwatchPanel extends ColorSwatchButton {
    * Instantiates a new color swatch button.
    *
    * @param parent the parent
-   * @param color the color
+   * @param color  the color
    */
   public ColorSwatchPanel(ModernWindow parent, Color color) {
     super(parent, color);
@@ -98,8 +98,7 @@ public class ColorSwatchPanel extends ColorSwatchButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
    * awt. Graphics2D)
    */
   @Override

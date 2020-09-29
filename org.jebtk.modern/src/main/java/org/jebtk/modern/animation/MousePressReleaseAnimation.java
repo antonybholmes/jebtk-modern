@@ -51,7 +51,7 @@ public abstract class MousePressReleaseAnimation extends TimerAnimation {
    */
   public MousePressReleaseAnimation(ModernWidget widget) {
     super(widget);
-    
+
     bind(widget);
   }
 

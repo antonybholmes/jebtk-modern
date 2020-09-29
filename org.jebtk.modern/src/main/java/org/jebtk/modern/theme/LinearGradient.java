@@ -8,9 +8,8 @@ import org.jebtk.modern.ModernComponent;
 
 public class LinearGradient implements ColorGradient {
 
-  public static final ColorGradient BLUE_RED = 
-      new LinearGradient(0, Color.BLUE, Color.RED);
-  
+  public static final ColorGradient BLUE_RED = new LinearGradient(0, Color.BLUE, Color.RED);
+
   private static final double OFFSET = Math.toRadians(270);
   private double mX;
   private double mY;

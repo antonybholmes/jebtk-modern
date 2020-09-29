@@ -54,8 +54,7 @@ public class CollapsePaneHighlightAnimation extends HighlightAnimation {
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     Rectangle r = new Rectangle(widget.getInsets().left, widget.getInsets().top,
-        widget.getWidth() - widget.getInsets().left - widget.getInsets().right,
-        ModernWidget.WIDGET_HEIGHT);
+        widget.getWidth() - widget.getInsets().left - widget.getInsets().right, ModernWidget.WIDGET_HEIGHT);
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
@@ -63,23 +62,15 @@ public class CollapsePaneHighlightAnimation extends HighlightAnimation {
       g2Temp.translate(mPane.getInternalRect().getX(), r.y);
 
       for (int i = 0; i < mPane.mTabNames.size(); ++i) {
-        mPane.mNodeRenderer.getRenderer(mPane,
-            mPane.mTabNames.get(i),
-            i,
-            mPane.mHighlightIndex == i,
-            false,
-            false,
+        mPane.mNodeRenderer.getRenderer(mPane, mPane.mTabNames.get(i), i, mPane.mHighlightIndex == i, false, false,
             mPane.mExpanded.get(i));
 
-        mPane.mNodeRenderer.setSize(mPane.getInternalRect().getW(),
-            mPane.mHeaderHeight);
+        mPane.mNodeRenderer.setSize(mPane.getInternalRect().getW(), mPane.mHeaderHeight);
 
         mPane.mNodeRenderer.print(g2Temp);
 
         g2Temp.translate(0,
-            mPane.mHeaderHeight + (mPane.mExpanded.get(i)
-                ? mPane.mComponents.get(i).getPreferredSize().height
-                : 0));
+            mPane.mHeaderHeight + (mPane.mExpanded.get(i) ? mPane.mComponents.get(i).getPreferredSize().height : 0));
       }
     } finally {
       g2Temp.dispose();

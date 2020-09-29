@@ -123,7 +123,7 @@ public abstract class ModernClickableButtonWidget extends ModernButtonWidget {
    * Instantiates a new modern clickable button widget.
    *
    * @param text1 the text1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernClickableButtonWidget(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -138,8 +138,7 @@ public abstract class ModernClickableButtonWidget extends ModernButtonWidget {
     addMouseListener(new MouseEvents());
 
     // respond to enter key
-    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"),
-        "enter_pressed");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"), "enter_pressed");
     getActionMap().put("enter_pressed", new ActionEvents());
   }
 }

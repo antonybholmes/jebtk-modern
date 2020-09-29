@@ -45,10 +45,10 @@ public class Scroller {
   /**
    * Should cause the scroll pane to scroll in the given direction.
    *
-   * @param notches The number of notches the wheel scrolled by. This can be
-   *          positive (down/right) or negative (up/left) to indicate scroll
-   *          direction.
-   * @param c The component scrolled.
+   * @param notches   The number of notches the wheel scrolled by. This can be
+   *                  positive (down/right) or negative (up/left) to indicate
+   *                  scroll direction.
+   * @param c         The component scrolled.
    * @param scrollbar the scrollbar
    */
   public void wheelScroll(int notches, Component c, ModernScrollBar scrollbar) {
@@ -58,17 +58,13 @@ public class Scroller {
   /**
    * Respond to when the user drags the scroll bar.
    * 
-   * @param x The current position in pixels.
-   * @param startx The starting position in pixels.
+   * @param x              The current position in pixels.
+   * @param startx         The starting position in pixels.
    * @param scrollPosition The position of the scroll bar when the drag started.
-   * @param c The scroll component.
-   * @param scrollbar The scroll bar.
+   * @param c              The scroll component.
+   * @param scrollbar      The scroll bar.
    */
-  public void drag(int x,
-      int startx,
-      double scrollPosition,
-      Component c,
-      ModernScrollBar scrollbar) {
+  public void drag(int x, int startx, double scrollPosition, Component c, ModernScrollBar scrollbar) {
     double diff = (double) (x - startx) / scrollbar.getScrollPixels();
 
     scrollbar.setNormalizedScrollPosition(scrollPosition + diff);
@@ -77,8 +73,8 @@ public class Scroller {
   /**
    * Respond to user pressing a key.
    *
-   * @param up True if the up/left key was pressed.
-   * @param c the c
+   * @param up        True if the up/left key was pressed.
+   * @param c         the c
    * @param scrollbar the scrollbar
    */
   public void keyScroll(boolean up, Component c, ModernScrollBar scrollbar) {

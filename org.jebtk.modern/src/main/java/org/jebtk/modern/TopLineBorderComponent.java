@@ -58,7 +58,7 @@ public class TopLineBorderComponent extends ModernComponent {
   /**
    * Instantiates a new top line border component.
    *
-   * @param c the c
+   * @param c     the c
    * @param color the color
    */
   public TopLineBorderComponent(Component c, Color color) {

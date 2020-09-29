@@ -133,8 +133,7 @@ public abstract class OrbSlider extends SteppedSlider {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-      if (e.getX() >= getInsets().left
-          && e.getX() < getWidth() - getInsets().right) {
+      if (e.getX() >= getInsets().left && e.getX() < getWidth() - getInsets().right) {
         mDrag = true;
       }
 
@@ -185,8 +184,8 @@ public abstract class OrbSlider extends SteppedSlider {
   /**
    * Instantiates a new orb slider.
    *
-   * @param min the min
-   * @param max the max
+   * @param min   the min
+   * @param max   the max
    * @param value the value
    */
   public OrbSlider(double min, double max, double value) {
@@ -198,7 +197,7 @@ public abstract class OrbSlider extends SteppedSlider {
   /**
    * Instantiates a new orb slider.
    *
-   * @param value the value
+   * @param value  the value
    * @param values the values
    */
   public OrbSlider(double value, double... values) {
@@ -210,7 +209,7 @@ public abstract class OrbSlider extends SteppedSlider {
   /**
    * Instantiates a new orb slider.
    *
-   * @param value the value
+   * @param value  the value
    * @param values the values
    */
   public OrbSlider(double value, List<Double> values) {
@@ -261,7 +260,6 @@ public abstract class OrbSlider extends SteppedSlider {
    * @return the int
    */
   public int translateX(int x) {
-    return Mathematics
-        .bound(x - mSliderRadius - getInsets().left, 0, mSliderWidth);
+    return Mathematics.bound(x - mSliderRadius - getInsets().left, 0, mSliderWidth);
   }
 }

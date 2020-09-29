@@ -72,10 +72,11 @@ public class PwdModel extends ChangeListeners {
    *
    * @param pwd the new pwd
    * @return
-   * @throws IOException Signals that an I/O exception has occurred.
-   * @throws SAXException the SAX exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
+   * @throws SAXException                 the SAX exception
    * @throws ParserConfigurationException the parser configuration exception
-   * @throws TransformerException the transformer exception
+   * @throws TransformerException         the transformer exception
    */
   public synchronized boolean setPwd(File pwd) {
     return setPwd(pwd.toPath());
@@ -101,7 +102,7 @@ public class PwdModel extends ChangeListeners {
     pwd = pwd.toAbsolutePath();
 
     if (FileUtils.isDirectory(pwd)) { // if (FileUtils.isDirectory(pwd) &&
-                                      // !pwd.equals(mPwd)) {
+      // !pwd.equals(mPwd)) {
       mPwd = pwd;
       return true;
     } else {

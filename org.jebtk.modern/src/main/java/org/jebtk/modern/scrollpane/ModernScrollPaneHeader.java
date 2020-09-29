@@ -45,9 +45,8 @@ public abstract class ModernScrollPaneHeader extends ModernCanvas {
   private static final long serialVersionUID = 1L;
 
   /**
-   * Returns the fixed dimension of the header, the other dimension is
-   * dynamically adjusted to the size of the scroll pane either by width or
-   * height.
+   * Returns the fixed dimension of the header, the other dimension is dynamically
+   * adjusted to the size of the scroll pane either by width or height.
    *
    * @return the fixed dimension
    */

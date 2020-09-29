@@ -69,7 +69,7 @@ public class ModernImagePanel extends ModernComponent {
    * Instantiates a new modern image panel.
    *
    * @param image the image
-   * @param size the size
+   * @param size  the size
    */
   public ModernImagePanel(ModernIcon image, int size) {
     setImage(image, size, size);
@@ -78,9 +78,9 @@ public class ModernImagePanel extends ModernComponent {
   /**
    * Instantiates a new modern image panel.
    *
-   * @param image the image
+   * @param image    the image
    * @param iconSize the icon size
-   * @param size the size
+   * @param size     the size
    */
   public ModernImagePanel(ModernIcon image, int iconSize, int size) {
     setImage(image, iconSize, size);
@@ -89,9 +89,9 @@ public class ModernImagePanel extends ModernComponent {
   /**
    * Sets the image.
    *
-   * @param image the image
+   * @param image    the image
    * @param iconSize the icon size
-   * @param size the size
+   * @param size     the size
    */
   public void setImage(ModernIcon image, int size, int iconSize) {
     mImage = image;
@@ -106,8 +106,7 @@ public class ModernImagePanel extends ModernComponent {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForeground(Graphics2D g2) {

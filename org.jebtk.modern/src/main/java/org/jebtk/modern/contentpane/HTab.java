@@ -54,7 +54,7 @@ public class HTab extends ModernComponent {
   /**
    * Instantiates a new h tab2.
    *
-   * @param title the title
+   * @param title   the title
    * @param content the content
    */
   public HTab(String title, Component content) {

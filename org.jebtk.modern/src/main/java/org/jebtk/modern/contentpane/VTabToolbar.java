@@ -63,7 +63,7 @@ public class VTabToolbar extends VBox {
    * Instantiates a new v tab toolbar.
    *
    * @param title the title
-   * @param c the c
+   * @param c     the c
    */
   public VTabToolbar(String title, Component c) {
     ModernAutoSizeLabel label = new ModernSubHeadingLabel(title);

@@ -138,8 +138,7 @@ public class ChangeDirectoryRibbonPanel extends RibbonMenuPanel
 
     add(label, BorderLayout.PAGE_START);
 
-    sideTabs.addTab("Computer",
-        AssetService.getInstance().loadIcon(ComputerVectorIcon.class, 32));
+    sideTabs.addTab("Computer", AssetService.getInstance().loadIcon(ComputerVectorIcon.class, 32));
 
     UI.setSize(sideTabs, 300, Short.MAX_VALUE);
 
@@ -159,8 +158,7 @@ public class ChangeDirectoryRibbonPanel extends RibbonMenuPanel
 
     box.add(UI.createVGap(5));
 
-    currentDirectoryList = new ModernList<Path>(
-        new ModernListRecentDirectoryRenderer());
+    currentDirectoryList = new ModernList<Path>(new ModernListRecentDirectoryRenderer());
 
     currentDirectoryList.addSelectionListener(this);
     currentDirectoryList.setRowHeight(48);
@@ -174,14 +172,12 @@ public class ChangeDirectoryRibbonPanel extends RibbonMenuPanel
 
     ModernDialogTaskWindow.midSectionHeader("Recent Directories", box);
 
-    recentDirectoriesList = new ModernList<Path>(
-        new ModernListRecentDirectoryRenderer());
+    recentDirectoriesList = new ModernList<Path>(new ModernListRecentDirectoryRenderer());
 
     recentDirectoriesList.addSelectionListener(this);
     recentDirectoriesList.setRowHeight(48);
 
-    scrollPane = new ModernScrollPane(recentDirectoriesList)
-        .setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
+    scrollPane = new ModernScrollPane(recentDirectoriesList).setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
 
     box.add(scrollPane);
 
@@ -266,8 +262,7 @@ public class ChangeDirectoryRibbonPanel extends RibbonMenuPanel
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {

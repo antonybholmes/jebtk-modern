@@ -27,8 +27,7 @@ import org.jebtk.modern.theme.DrawUIService;
 /**
  * The Class RibbonButtonAnimation.
  */
-public class RibbonLargeOptionalDropDownHighlightAnimation
-    extends DropDownButtonAnimation {
+public class RibbonLargeOptionalDropDownHighlightAnimation extends DropDownButtonAnimation {
 
   /** The m button. */
   private ModernOptionalDropDownMenuButton mButton;
@@ -53,7 +52,7 @@ public class RibbonLargeOptionalDropDownHighlightAnimation
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
     if (getWidget().isEnabled()) { // && (getButton().getHightlighted() ||
-                                   // getButton().getPopupShown())) {
+      // getButton().getPopupShown())) {
       IntRect rect = getWidget().getInternalRect();
 
       int x = 0;
@@ -76,15 +75,13 @@ public class RibbonLargeOptionalDropDownHighlightAnimation
 
         /// getWidget().getWidgetRenderer().fill(g2, rect);
 
-        DrawUIService.getInstance().getRenderer("button-fill")
-            .draw(g2, rect, getFadeColor("fill"));
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, rect, getFadeColor("fill"));
 
       } else {
         // getWidget().getWidgetRenderer().outline(g2, rect);
         // getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
 
-        DrawUIService.getInstance().getRenderer("button-fill")
-            .draw(g2, new IntRect(x, y, w, h), getFadeColor("fill"));
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, new IntRect(x, y, w, h), getFadeColor("fill"));
 
         // getWidgetRenderer().drawRibbonButtonOutline(g2, rect,
         // RenderMode.SELECTED);

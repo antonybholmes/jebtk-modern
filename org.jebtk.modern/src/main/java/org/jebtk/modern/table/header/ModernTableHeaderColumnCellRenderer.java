@@ -46,8 +46,7 @@ import org.jebtk.modern.zoom.ZoomCanvas;
 /**
  * The class ModernTableHeaderColumnCellRenderer.
  */
-public class ModernTableHeaderColumnCellRenderer
-    extends ModernTableHeaderCellRenderer {
+public class ModernTableHeaderColumnCellRenderer extends ModernTableHeaderCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -92,14 +91,13 @@ public class ModernTableHeaderColumnCellRenderer
   /**
    * The constant UP_ICON.
    */
-  private static final ModernIcon UP_ICON = AssetService.getInstance()
-      .loadIcon("up_scroll", AssetService.ICON_SIZE_16);
+  private static final ModernIcon UP_ICON = AssetService.getInstance().loadIcon("up_scroll", AssetService.ICON_SIZE_16);
 
   /**
    * The constant DOWN_ICON.
    */
-  private static final ModernIcon DOWN_ICON = AssetService.getInstance()
-      .loadIcon("down_scroll", AssetService.ICON_SIZE_16);
+  private static final ModernIcon DOWN_ICON = AssetService.getInstance().loadIcon("down_scroll",
+      AssetService.ICON_SIZE_16);
 
   /** The m img line cache. */
   private Map<Integer, BufferedImage> mImgLineCache = new HashMap<Integer, BufferedImage>();
@@ -243,8 +241,7 @@ public class ModernTableHeaderColumnCellRenderer
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -255,11 +252,10 @@ public class ModernTableHeaderColumnCellRenderer
     // g2.setFont(ModernWidget.FONT);
 
     /*
-     * int h = mRect.getH() / Math.max(1, mNames.size()); y =
-     * getTextYPosCenter(g2, h);
+     * int h = mRect.getH() / Math.max(1, mNames.size()); y = getTextYPosCenter(g2,
+     * h);
      * 
-     * for (String name : mNames) { String text = getTruncatedText(g2, name, 0,
-     * w);
+     * for (String name : mNames) { String text = getTruncatedText(g2, name, 0, w);
      * 
      * x = (mRect.getW() - g2.getFontMetrics().stringWidth(text)) / 2;
      * 
@@ -296,13 +292,8 @@ public class ModernTableHeaderColumnCellRenderer
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernData dataView,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row,
-      int column) {
+  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
 
     if (value != null) {
       setText(value.toString());

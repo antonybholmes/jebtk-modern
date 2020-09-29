@@ -71,14 +71,14 @@ public class PasteVectorIcon extends ModernVectorIcon {
   /**
    * The constant CLIP_TOP_WIDTH_SCALE.
    */
-  private static final double CLIP_TOP_WIDTH_SCALE = SettingsService
-      .getInstance().getDouble("theme.icons.paste-icon.clip-top-width-scale");
+  private static final double CLIP_TOP_WIDTH_SCALE = SettingsService.getInstance()
+      .getDouble("theme.icons.paste-icon.clip-top-width-scale");
 
   /**
    * The constant CLIP_HOLE_WIDTH_SCALE.
    */
-  private static final double CLIP_HOLE_WIDTH_SCALE = SettingsService
-      .getInstance().getDouble("theme.icons.paste-icon.clip-hole-width-scale");
+  private static final double CLIP_HOLE_WIDTH_SCALE = SettingsService.getInstance()
+      .getDouble("theme.icons.paste-icon.clip-hole-width-scale");
 
   /**
    * The constant FILE_WIDTH_SCALE.
@@ -95,8 +95,7 @@ public class PasteVectorIcon extends ModernVectorIcon {
   /**
    * The constant CLIP_COLOR.
    */
-  private static final Color CLIP_COLOR = SettingsService.getInstance()
-      .getColor("theme.icons.paste-icon.colors.clip");
+  private static final Color CLIP_COLOR = SettingsService.getInstance().getColor("theme.icons.paste-icon.colors.clip");
 
   /**
    * The constant FILE_ICON.
@@ -111,12 +110,7 @@ public class PasteVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
 
     double wf = w * WIDTH_SCALE;
     double bw = wf * BOARD_WIDTH_SCALE;
@@ -129,41 +123,30 @@ public class PasteVectorIcon extends ModernVectorIcon {
 
     g2.setColor(BOARD_COLOR);
 
-    g2.fillRect((int) Math.round(xf),
-        (int) Math.round(yf + (wf - bh) / 2.0),
-        (int) Math.round(bw),
+    g2.fillRect((int) Math.round(xf), (int) Math.round(yf + (wf - bh) / 2.0), (int) Math.round(bw),
         (int) Math.round(bh));
 
-    FILE_ICON.drawIcon(g2,
-        (int) Math.round(xf + wf - fw),
-        (int) Math.round(yf + wf - fw),
-        (int) Math.round(fw));
+    FILE_ICON.drawIcon(g2, (int) Math.round(xf + wf - fw), (int) Math.round(yf + wf - fw), (int) Math.round(fw));
 
     g2.setColor(CLIP_COLOR);
 
     double cw = bw * CLIP_WIDTH_SCALE;
     double ch = bw * CLIP_HEIGHT_SCALE;
 
-    g2.fillRect((int) Math.round(xf + (bw - cw) / 2.0),
-        (int) Math.round(yf + (wf - bh) / 2.0),
-        (int) Math.round(cw),
+    g2.fillRect((int) Math.round(xf + (bw - cw) / 2.0), (int) Math.round(yf + (wf - bh) / 2.0), (int) Math.round(cw),
         (int) Math.round(ch));
 
     double cw2 = cw * CLIP_TOP_WIDTH_SCALE;
 
-    g2.fillRect((int) Math.round(xf + (bw - cw2) / 2.0),
-        (int) Math.round(yf + (wf - bh) / 2.0 - ch),
-        (int) Math.round(cw2),
-        (int) Math.round(ch));
+    g2.fillRect((int) Math.round(xf + (bw - cw2) / 2.0), (int) Math.round(yf + (wf - bh) / 2.0 - ch),
+        (int) Math.round(cw2), (int) Math.round(ch));
 
     g2.setColor(Color.WHITE);
 
     double hw = cw * CLIP_HOLE_WIDTH_SCALE;
 
-    g2.fillRect((int) Math.round(xf + (bw - hw) / 2.0),
-        (int) Math.round(yf + (wf - bh) / 2.0 - ch + hw / 2),
-        (int) Math.round(hw),
-        (int) Math.round(hw));
+    g2.fillRect((int) Math.round(xf + (bw - hw) / 2.0), (int) Math.round(yf + (wf - bh) / 2.0 - ch + hw / 2),
+        (int) Math.round(hw), (int) Math.round(hw));
 
   }
 }

@@ -78,7 +78,7 @@ public abstract class CheckBox extends ModernTwoStateWidget {
   /**
    * Instantiates a new modern check box.
    *
-   * @param text the text
+   * @param text     the text
    * @param selected the selected
    */
   public CheckBox(String text, boolean selected) {
@@ -88,7 +88,7 @@ public abstract class CheckBox extends ModernTwoStateWidget {
   /**
    * Instantiates a new check box.
    *
-   * @param text the text
+   * @param text  the text
    * @param width the width
    */
   public CheckBox(String text, int width) {
@@ -108,9 +108,9 @@ public abstract class CheckBox extends ModernTwoStateWidget {
   /**
    * Instantiates a new modern check box.
    *
-   * @param text the text
+   * @param text     the text
    * @param selected the selected
-   * @param size the size
+   * @param size     the size
    */
   public CheckBox(String text, boolean selected, Dimension size) {
     setText(text);
@@ -118,9 +118,9 @@ public abstract class CheckBox extends ModernTwoStateWidget {
     setSelected(selected);
 
     UI.setSize(this, size);
-    
+
     // Remove css
-    //getDrawStates().clear();
+    // getDrawStates().clear();
     setCSSMode(false);
   }
 
@@ -161,8 +161,7 @@ public abstract class CheckBox extends ModernTwoStateWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

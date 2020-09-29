@@ -177,8 +177,7 @@ public abstract class SplitPane extends ModernWidget {
   public abstract int getIsDraggable(MouseEvent e);
 
   /*
-   * public void setComponent1(JComponent c1) { if (mC1 != null) { remove(mC1);
-   * }
+   * public void setComponent1(JComponent c1) { if (mC1 != null) { remove(mC1); }
    * 
    * mC1 = c1;
    * 
@@ -186,8 +185,7 @@ public abstract class SplitPane extends ModernWidget {
    * 
    * resize(); }
    * 
-   * public void setComponent2(JComponent c2) { if (mC2 != null) { remove(mC2);
-   * }
+   * public void setComponent2(JComponent c2) { if (mC2 != null) { remove(mC2); }
    * 
    * mC2 = c2;
    * 
@@ -199,7 +197,7 @@ public abstract class SplitPane extends ModernWidget {
   /**
    * Replace component.
    *
-   * @param c the c
+   * @param c     the c
    * @param index the index
    */
   public void replaceComponent(JComponent c, int index) {
@@ -210,18 +208,15 @@ public abstract class SplitPane extends ModernWidget {
    * Replace a component in the divider if it exists otherwise add a new
    * component.
    *
-   * @param c the c
+   * @param c               the c
    * @param dividerLocation the divider location
-   * @param index the index
+   * @param index           the index
    */
-  public void replaceComponent(JComponent c,
-      double dividerLocation,
-      int index) {
+  public void replaceComponent(JComponent c, double dividerLocation, int index) {
     removeComponent(index);
 
     mComponents.add(index, c);
-    mDividerLocations.add(index,
-        Mathematics.bound(dividerLocation, mMinSize, 1.0 - mMinSize));
+    mDividerLocations.add(index, Mathematics.bound(dividerLocation, mMinSize, 1.0 - mMinSize));
     add(c);
 
     resize();
@@ -230,7 +225,7 @@ public abstract class SplitPane extends ModernWidget {
   /**
    * Adds the.
    *
-   * @param c the c
+   * @param c               the c
    * @param dividerLocation the divider location
    */
   public void add(JComponent c, double dividerLocation) {
@@ -240,13 +235,12 @@ public abstract class SplitPane extends ModernWidget {
   /**
    * Add a component and indicate how large you would like it to be.
    *
-   * @param c the c
+   * @param c               the c
    * @param dividerLocation the divider location
    */
   public void addComponent(JComponent c, double dividerLocation) {
     mComponents.add(c);
-    mDividerLocations
-        .add(Mathematics.bound(dividerLocation, mMinSize, 1.0 - mMinSize));
+    mDividerLocations.add(Mathematics.bound(dividerLocation, mMinSize, 1.0 - mMinSize));
     add(c);
 
     resize();
@@ -282,8 +276,8 @@ public abstract class SplitPane extends ModernWidget {
   }
 
   /*
-   * private void addMouseListeners(JComponent component) { if (component ==
-   * null) { return; }
+   * private void addMouseListeners(JComponent component) { if (component == null)
+   * { return; }
    * 
    * component.addMouseListener(this); component.addMouseMotionListener(this);
    * 
@@ -307,22 +301,18 @@ public abstract class SplitPane extends ModernWidget {
    * @return the point
    */
   protected Point convertCoordinatesToReference(MouseEvent e) {
-    return convertCoordinatesToReference((Component) e.getSource(),
-        e.getX(),
-        e.getY());
+    return convertCoordinatesToReference((Component) e.getSource(), e.getX(), e.getY());
   }
 
   /**
    * Convert coordinates to reference.
    *
    * @param source the source
-   * @param x the x
-   * @param y the y
+   * @param x      the x
+   * @param y      the y
    * @return the point
    */
-  protected Point convertCoordinatesToReference(Component source,
-      int x,
-      int y) {
+  protected Point convertCoordinatesToReference(Component source, int x, int y) {
     return SwingUtilities.convertPoint(source, x, y, this);
   }
 

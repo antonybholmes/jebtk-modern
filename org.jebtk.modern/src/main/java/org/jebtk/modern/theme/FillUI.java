@@ -32,10 +32,7 @@ public class FillUI extends ButtonUI {
   }
 
   @Override
-  public void fill(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void fill(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
     g2.fillRect(rect.x, rect.y, rect.w, rect.h);
   }
 }

@@ -193,8 +193,7 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -260,8 +259,7 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -298,10 +296,7 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
 
       mButtonYDivider = getHeight() / 2;
 
-      mField.setBounds(PADDING,
-          BORDER,
-          mMinButtonX - DOUBLE_PADDING,
-          getHeight() - BORDER_2);
+      mField.setBounds(PADDING, BORDER, mMinButtonX - DOUBLE_PADDING, getHeight() - BORDER_2);
     }
   }
 
@@ -454,8 +449,8 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
   /**
    * Instantiates a new modern compact spinner.
    *
-   * @param min the min
-   * @param max the max
+   * @param min   the min
+   * @param max   the max
    * @param value the value
    */
   public ModernCompactSpinner(double min, double max, double value) {
@@ -465,41 +460,38 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
   /**
    * Instantiates a new modern compact spinner.
    *
-   * @param min the min
-   * @param max the max
-   * @param value the value
+   * @param min     the min
+   * @param max     the max
+   * @param value   the value
    * @param bounded the bounded
    */
-  public ModernCompactSpinner(double min, double max, double value,
-      boolean bounded) {
+  public ModernCompactSpinner(double min, double max, double value, boolean bounded) {
     this(min, max, value, 1, bounded);
   }
 
   /**
    * Create a new spinner.
    * 
-   * @param min The minimum allowed value.
-   * @param max The maximum allowed value.
+   * @param min   The minimum allowed value.
+   * @param max   The maximum allowed value.
    * @param value The initial value.
-   * @param step The step size.
+   * @param step  The step size.
    */
-  public ModernCompactSpinner(double min, double max, double value,
-      double step) {
+  public ModernCompactSpinner(double min, double max, double value, double step) {
     this(min, max, value, step, null);
   }
 
   /**
    * Create a new spinner.
    * 
-   * @param min The minimum value the spinner will go to.
-   * @param max The maximum value the spinner will go to.
-   * @param value The initial value of the spinner.
-   * @param step The increment by which the spinner can change.
+   * @param min     The minimum value the spinner will go to.
+   * @param max     The maximum value the spinner will go to.
+   * @param value   The initial value of the spinner.
+   * @param step    The increment by which the spinner can change.
    * @param bounded Whether user input is bounded by the minimum and maximum
-   *          values.
+   *                values.
    */
-  public ModernCompactSpinner(double min, double max, double value, double step,
-      boolean bounded) {
+  public ModernCompactSpinner(double min, double max, double value, double step, boolean bounded) {
     this(min, max, value, step);
 
     setBounded(bounded);
@@ -508,51 +500,48 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
   /**
    * Instantiates a new modern compact spinner.
    *
-   * @param min the min
-   * @param max the max
+   * @param min   the min
+   * @param max   the max
    * @param value the value
-   * @param type the type
+   * @param type  the type
    */
-  public ModernCompactSpinner(double min, double max, double value,
-      String type) {
+  public ModernCompactSpinner(double min, double max, double value, String type) {
     this(min, max, value, 1, type);
   }
 
   /**
    * Instantiates a new modern compact spinner.
    *
-   * @param min the min
-   * @param max the max
+   * @param min   the min
+   * @param max   the max
    * @param value the value
-   * @param step the step
-   * @param type the type
+   * @param step  the step
+   * @param type  the type
    */
-  public ModernCompactSpinner(double min, double max, double value, double step,
-      String type) {
+  public ModernCompactSpinner(double min, double max, double value, double step, String type) {
     this(min, max, value, step, 2, type);
   }
 
   /**
    * Instantiates a new modern compact spinner.
    *
-   * @param min the min
-   * @param max the max
+   * @param min   the min
+   * @param max   the max
    * @param value the value
-   * @param step the step
-   * @param dp the dp
-   * @param type the type
+   * @param step  the step
+   * @param dp    the dp
+   * @param type  the type
    */
-  public ModernCompactSpinner(double min, double max, double value, double step,
-      int dp, String type) {
+  public ModernCompactSpinner(double min, double max, double value, double step, int dp, String type) {
     this(value, dp, type, Linspace.evenlySpaced(min, max, step));
   }
 
   /**
    * Instantiates a new modern compact spinner.
    *
-   * @param value the value
+   * @param value  the value
    * @param suffix the suffix
-   * @param range the range
+   * @param range  the range
    */
   public ModernCompactSpinner(double value, String suffix, List<Double> range) {
     this(value, 2, suffix, range);
@@ -561,13 +550,12 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
   /**
    * Instantiates a new modern compact spinner.
    *
-   * @param value the value
-   * @param dp the dp
+   * @param value  the value
+   * @param dp     the dp
    * @param suffix the suffix
-   * @param range the range
+   * @param range  the range
    */
-  public ModernCompactSpinner(double value, int dp, String suffix,
-      List<Double> range) {
+  public ModernCompactSpinner(double value, int dp, String suffix, List<Double> range) {
     this(value, dp, suffix, CollectionUtils.toArray(range));
   }
 
@@ -585,7 +573,7 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
    * Instantiates a new modern compact spinner.
    *
    * @param value the value
-   * @param dp the dp
+   * @param dp    the dp
    * @param marks the marks
    */
   public ModernCompactSpinner(double value, int dp, double... marks) {
@@ -595,13 +583,12 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
   /**
    * Instantiates a new modern compact spinner.
    *
-   * @param value the value
-   * @param dp the dp
+   * @param value  the value
+   * @param dp     the dp
    * @param suffix the suffix
-   * @param marks the marks
+   * @param marks  the marks
    */
-  public ModernCompactSpinner(double value, int dp, String suffix,
-      double... marks) {
+  public ModernCompactSpinner(double value, int dp, String suffix, double... marks) {
     mMarks = marks;
     mSuffix = suffix;
     mDp = Formatter.decimal().dp(dp);
@@ -677,29 +664,28 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
    * 
    * //getRenderer().drawSelectedOutline(g2, buttonRect);
    * 
-   * if (mButtonZone) { if (mUpperButton) { getWidgetRenderer().drawButton(g2,
-   * new IntRect(mMinButtonX, 0, BUTTON_WIDTH, mButtonYDivider),
-   * RenderMode.SELECTED); //paintHighlightedOutlined(g2, new
-   * Rectangle(mMinButtonX, 0, BUTTON_WIDTH, mButtonYDivider));
-   * //drawHighlightedOutline(g2, new Rectangle(mMinButtonX, mButtonYDivider,
-   * BUTTON_WIDTH, mButtonYDivider)); } else {
-   * getWidgetRenderer().drawButton(g2, new IntRect(mMinButtonX,
-   * mButtonYDivider, BUTTON_WIDTH, mButtonYDivider), RenderMode.SELECTED);
+   * if (mButtonZone) { if (mUpperButton) { getWidgetRenderer().drawButton(g2, new
+   * IntRect(mMinButtonX, 0, BUTTON_WIDTH, mButtonYDivider), RenderMode.SELECTED);
+   * //paintHighlightedOutlined(g2, new Rectangle(mMinButtonX, 0, BUTTON_WIDTH,
+   * mButtonYDivider)); //drawHighlightedOutline(g2, new Rectangle(mMinButtonX,
+   * mButtonYDivider, BUTTON_WIDTH, mButtonYDivider)); } else {
+   * getWidgetRenderer().drawButton(g2, new IntRect(mMinButtonX, mButtonYDivider,
+   * BUTTON_WIDTH, mButtonYDivider), RenderMode.SELECTED);
    * //drawHighlightedOutline(g2, new Rectangle(mMinButtonX, 0, BUTTON_WIDTH,
-   * mButtonYDivider)); //paintHighlightedOutlined(g2, new
-   * Rectangle(mMinButtonX, mButtonYDivider, BUTTON_WIDTH, mButtonYDivider)); }
-   * } } else { getWidgetRenderer().drawOutline(g2, intRect);
-   * //getRenderer().drawOutline(g2, buttonRect);
+   * mButtonYDivider)); //paintHighlightedOutlined(g2, new Rectangle(mMinButtonX,
+   * mButtonYDivider, BUTTON_WIDTH, mButtonYDivider)); } } } else {
+   * getWidgetRenderer().drawOutline(g2, intRect); //getRenderer().drawOutline(g2,
+   * buttonRect);
    * 
    * } }
    */
 
   /*
-   * @Override public void drawForegroundAA(Graphics2D g2) { int x =
-   * getWidth() - 16; int y = (mButtonYDivider - 16) / 2;
+   * @Override public void drawForegroundAA(Graphics2D g2) { int x = getWidth() -
+   * 16; int y = (mButtonYDivider - 16) / 2;
    * 
-   * UIService.getInstance().loadIcon(TriangleUpVectorIcon.class,
-   * 16).drawIcon(g2, x, y, 16);
+   * UIService.getInstance().loadIcon(TriangleUpVectorIcon.class, 16).drawIcon(g2,
+   * x, y, 16);
    * 
    * y += mButtonYDivider;
    * 
@@ -716,8 +702,7 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
 
       if (mSuffix != null && mField.getText().endsWith(mSuffix)) {
         // Strip the prefix before parsing
-        value = Parser.toDouble(mField.getText().substring(0,
-            mField.getText().length() - mSuffix.length()));
+        value = Parser.toDouble(mField.getText().substring(0, mField.getText().length() - mSuffix.length()));
       } else {
         value = Parser.toDouble(mField.getText());
       }
@@ -770,9 +755,9 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
   }
 
   /**
-   * When a user enters a number, the formatting is left unchanged, when the
-   * user users the increment/decrement buttons, the number is formatted to a
-   * given number of dp (default 2) for aesthetic reasons.
+   * When a user enters a number, the formatting is left unchanged, when the user
+   * users the increment/decrement buttons, the number is formatted to a given
+   * number of dp (default 2) for aesthetic reasons.
    *
    * @param v the v
    */
@@ -791,7 +776,7 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
   /**
    * Update value.
    *
-   * @param v the v
+   * @param v       the v
    * @param vAsText the v as text
    */
   public void updateValue(double v, String vAsText) {

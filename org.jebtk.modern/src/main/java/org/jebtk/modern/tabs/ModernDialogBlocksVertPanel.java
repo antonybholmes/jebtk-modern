@@ -30,7 +30,7 @@ public class ModernDialogBlocksVertPanel extends ModernComponent {
   /**
    * Instantiates a new modern dialog segments panel.
    *
-   * @param model the model
+   * @param model   the model
    * @param tabSize the tab size
    */
   public ModernDialogBlocksVertPanel(TabsModel model, int tabSize) {
@@ -44,6 +44,6 @@ public class ModernDialogBlocksVertPanel extends ModernComponent {
     // panel.setBorder(TOP_BORDER);
 
     setBody(panel); // new ModernLineBorderPanel(new ModernComponent(panel,
-                    // LARGE_BORDER)));
+    // LARGE_BORDER)));
   }
 }

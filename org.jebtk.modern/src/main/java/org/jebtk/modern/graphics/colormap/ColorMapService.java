@@ -83,16 +83,14 @@ public class ColorMapService extends ColorMaps {
   }
 
   /** Stores color maps created by the user. */
-  public static final Path USER_COLORMAP_XML_FILE = AppService.getInstance()
-      .getAppDir().resolve("user.colormaps.xml");
+  public static final Path USER_COLORMAP_XML_FILE = AppService.getInstance().getAppDir().resolve("user.colormaps.xml");
 
   /** The Constant COLORMAP_JSON_FILE. */
-  public static final Path COLORMAP_JSON_FILE = PathUtils
-      .getPath("user.colormaps.json");
+  public static final Path COLORMAP_JSON_FILE = PathUtils.getPath("user.colormaps.json");
 
   /** The Constant USER_COLORMAP_JSON_FILE. */
-  public static final Path USER_COLORMAP_JSON_FILE = AppService.getInstance()
-      .getAppDir().resolve("user.colormaps.json");
+  public static final Path USER_COLORMAP_JSON_FILE = AppService.getInstance().getAppDir()
+      .resolve("user.colormaps.json");
 
   /**
    * The log.
@@ -126,20 +124,15 @@ public class ColorMapService extends ColorMaps {
      * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String,
      * java.lang.String, java.lang.String, org.xml.sax.Attributes)
      */
-    public void startElement(String uri,
-        String localName,
-        String qName,
-        Attributes attributes) throws SAXException {
+    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 
       if (qName.equals("colormap")) {
         mName = attributes.getValue("name");
         mColors = Integer.parseInt(attributes.getValue("colors"));
       } else if (qName.equals("color")) {
         mAnchorColors
-            .add(new CSSColor(Integer.parseInt(attributes.getValue("r")),
-                Integer.parseInt(attributes.getValue("g")),
-                Integer.parseInt(attributes.getValue("b")),
-                Integer.parseInt(attributes.getValue("a"))));
+            .add(new CSSColor(Integer.parseInt(attributes.getValue("r")), Integer.parseInt(attributes.getValue("g")),
+                Integer.parseInt(attributes.getValue("b")), Integer.parseInt(attributes.getValue("a"))));
       } else {
         // do nothing
       }
@@ -151,42 +144,26 @@ public class ColorMapService extends ColorMaps {
      * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String,
      * java.lang.String, java.lang.String)
      */
-    public void endElement(String uri, String localName, String qName)
-        throws SAXException {
+    public void endElement(String uri, String localName, String qName) throws SAXException {
 
       if (qName.equals("colormap")) {
         ColorMap colorMap;
 
         switch (mAnchorColors.size()) {
         case 5:
-          colorMap = ColorMap.createFiveColorMap(mName,
-              mAnchorColors.get(0),
-              mAnchorColors.get(1),
-              mAnchorColors.get(2),
-              mAnchorColors.get(3),
-              mAnchorColors.get(4),
-              mColors);
+          colorMap = ColorMap.createFiveColorMap(mName, mAnchorColors.get(0), mAnchorColors.get(1),
+              mAnchorColors.get(2), mAnchorColors.get(3), mAnchorColors.get(4), mColors);
           break;
         case 4:
-          colorMap = ColorMap.createFourColorMap(mName,
-              mAnchorColors.get(0),
-              mAnchorColors.get(1),
-              mAnchorColors.get(2),
-              mAnchorColors.get(3),
-              mColors);
+          colorMap = ColorMap.createFourColorMap(mName, mAnchorColors.get(0), mAnchorColors.get(1),
+              mAnchorColors.get(2), mAnchorColors.get(3), mColors);
           break;
         case 3:
-          colorMap = ColorMap.createThreeColorMap(mName,
-              mAnchorColors.get(0),
-              mAnchorColors.get(1),
-              mAnchorColors.get(2),
-              mColors);
+          colorMap = ColorMap.createThreeColorMap(mName, mAnchorColors.get(0), mAnchorColors.get(1),
+              mAnchorColors.get(2), mColors);
           break;
         default:
-          colorMap = ColorMap.createTwoColorMap(mName,
-              mAnchorColors.get(0),
-              mAnchorColors.get(1),
-              mColors);
+          colorMap = ColorMap.createTwoColorMap(mName, mAnchorColors.get(0), mAnchorColors.get(1), mColors);
           break;
         }
 
@@ -242,8 +219,7 @@ public class ColorMapService extends ColorMaps {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.graphics.colormap.ColorMaps#update(org.abh.common.ui.
+   * @see org.abh.common.ui.graphics.colormap.ColorMaps#update(org.abh.common.ui.
    * graphics.colormap.ColorMap)
    */
   @Override
@@ -252,8 +228,8 @@ public class ColorMapService extends ColorMaps {
 
     /*
      * try { mUserMaps.writeXml(USER_COLORMAP_XML_FILE); } catch (IOException |
-     * TransformerException | ParserConfigurationException e) {
-     * e.printStackTrace(); }
+     * TransformerException | ParserConfigurationException e) { e.printStackTrace();
+     * }
      */
 
     try {
@@ -281,13 +257,13 @@ public class ColorMapService extends ColorMaps {
   /**
    * Auto load.
    *
-   * @throws IOException Signals that an I/O exception has occurred.
-   * @throws SAXException the SAX exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
+   * @throws SAXException                 the SAX exception
    * @throws ParserConfigurationException the parser configuration exception
-   * @throws ParseException the parse exception
+   * @throws ParseException               the parse exception
    */
-  private synchronized void autoLoad() throws IOException, SAXException,
-      ParserConfigurationException, ParseException {
+  private synchronized void autoLoad() throws IOException, SAXException, ParserConfigurationException, ParseException {
     if (mAutoLoad) {
       // Load some default maps
       super.add(ColorMap.createViridisMap());
@@ -314,8 +290,7 @@ public class ColorMapService extends ColorMaps {
       super.add(ColorMap.createGrayMap());
 
       // First load internal settings
-      LOG.info("Auto loading internal colormaps from {}...",
-          USER_COLORMAP_JSON_FILE);
+      LOG.info("Auto loading internal colormaps from {}...", USER_COLORMAP_JSON_FILE);
 
       // loadXml(USER_COLORMAP_XML_FILE);
 
@@ -333,19 +308,19 @@ public class ColorMapService extends ColorMaps {
    * Load xml.
    *
    * @param file the file
-   * @throws SAXException the SAX exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException                 the SAX exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
    * @throws ParserConfigurationException the parser configuration exception
    */
-  public void loadXml(Path file)
-      throws SAXException, IOException, ParserConfigurationException {
+  public void loadXml(Path file) throws SAXException, IOException, ParserConfigurationException {
     // autoLoad();
 
     LOG.info("Loading colormaps from {}...", file);
 
     if (FileUtils.exists(file)) {
       InputStream stream = FileUtils.newBufferedInputStream(file); // new
-                                                                   // FileInputStream(file);
+      // FileInputStream(file);
 
       loadXml(stream);
     }
@@ -355,12 +330,12 @@ public class ColorMapService extends ColorMaps {
    * Load xml.
    *
    * @param is the is
-   * @throws SAXException the SAX exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException                 the SAX exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
    * @throws ParserConfigurationException the parser configuration exception
    */
-  private synchronized void loadXml(InputStream is)
-      throws SAXException, IOException, ParserConfigurationException {
+  private synchronized void loadXml(InputStream is) throws SAXException, IOException, ParserConfigurationException {
     if (is == null) {
       return;
     }
@@ -378,7 +353,7 @@ public class ColorMapService extends ColorMaps {
    *
    * @param file the file
    * @throws ParseException the parse exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws IOException    Signals that an I/O exception has occurred.
    */
   public void loadJson(Path file) throws ParseException, IOException {
     if (!FileUtils.exists(file)) {
@@ -390,18 +365,15 @@ public class ColorMapService extends ColorMaps {
     Json json = parser.parse(file);
 
     for (Json colorMapJson : json) {
-      System.err.println(
-          "loading custom color map " + colorMapJson.getString("name"));
+      System.err.println("loading custom color map " + colorMapJson.getString("name"));
 
       List<CSSColor> colors = new ArrayList<CSSColor>();
 
       for (Json colorsJson : colorMapJson.get("anchor-colors")) {
-        System.err.println("Colors " + colorsJson.getInt("r") + " "
-            + +colorsJson.getInt("g") + " " + +colorsJson.getInt("b") + " "
-            + +colorsJson.getInt("a"));
+        System.err.println("Colors " + colorsJson.getInt("r") + " " + +colorsJson.getInt("g") + " "
+            + +colorsJson.getInt("b") + " " + +colorsJson.getInt("a"));
 
-        CSSColor color = new CSSColor(colorsJson.getInt("r"),
-            colorsJson.getInt("g"), colorsJson.getInt("b"),
+        CSSColor color = new CSSColor(colorsJson.getInt("r"), colorsJson.getInt("g"), colorsJson.getInt("b"),
             colorsJson.getInt("a"));
 
         colors.add(color);
@@ -411,33 +383,19 @@ public class ColorMapService extends ColorMaps {
 
       switch (colors.size()) {
       case 5:
-        colorMap = ColorMap.createFiveColorMap(colorMapJson.getString("name"),
-            colors.get(0),
-            colors.get(1),
-            colors.get(2),
-            colors.get(3),
-            colors.get(4),
-            colorMapJson.getInt("colors"));
+        colorMap = ColorMap.createFiveColorMap(colorMapJson.getString("name"), colors.get(0), colors.get(1),
+            colors.get(2), colors.get(3), colors.get(4), colorMapJson.getInt("colors"));
         break;
       case 4:
-        colorMap = ColorMap.createFourColorMap(colorMapJson.getString("name"),
-            colors.get(0),
-            colors.get(1),
-            colors.get(2),
-            colors.get(3),
-            colorMapJson.getInt("colors"));
+        colorMap = ColorMap.createFourColorMap(colorMapJson.getString("name"), colors.get(0), colors.get(1),
+            colors.get(2), colors.get(3), colorMapJson.getInt("colors"));
         break;
       case 3:
-        colorMap = ColorMap.createThreeColorMap(colorMapJson.getString("name"),
-            colors.get(0),
-            colors.get(1),
-            colors.get(2),
-            colorMapJson.getInt("colors"));
+        colorMap = ColorMap.createThreeColorMap(colorMapJson.getString("name"), colors.get(0), colors.get(1),
+            colors.get(2), colorMapJson.getInt("colors"));
         break;
       default:
-        colorMap = ColorMap.createTwoColorMap(colorMapJson.getString("name"),
-            colors.get(0),
-            colors.get(1),
+        colorMap = ColorMap.createTwoColorMap(colorMapJson.getString("name"), colors.get(0), colors.get(1),
             colorMapJson.getInt("colors"));
         break;
       }
@@ -485,9 +443,9 @@ public class ColorMapService extends ColorMaps {
       mUserMaps.remove(name);
 
       /*
-       * try { mUserMaps.writeXml(USER_COLORMAP_XML_FILE); } catch (IOException
-       * | TransformerException | ParserConfigurationException e) {
-       * e.printStackTrace(); }
+       * try { mUserMaps.writeXml(USER_COLORMAP_XML_FILE); } catch (IOException |
+       * TransformerException | ParserConfigurationException e) { e.printStackTrace();
+       * }
        */
 
       try {

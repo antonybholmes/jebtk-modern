@@ -40,14 +40,8 @@ public class CheckSwitchAnimation extends WidgetAnimation {
     if (mButton.isSelected()) {
       g2.setColor(mColor); // mFade.getToColor("fill"));
 
-      g2.fillRoundRect(
-          widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET,
-          y2,
-          ModernCheckSwitch.SLIDER_WIDTH
-              - ModernCheckSwitch.SWITCH_ICON_OFFSET_2,
-          HEIGHT,
-          HEIGHT,
-          HEIGHT);
+      g2.fillRoundRect(widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET, y2,
+          ModernCheckSwitch.SLIDER_WIDTH - ModernCheckSwitch.SWITCH_ICON_OFFSET_2, HEIGHT, HEIGHT, HEIGHT);
 
     } else {
       // System.err.println("switch bg1 " +
@@ -55,28 +49,16 @@ public class CheckSwitchAnimation extends WidgetAnimation {
       // widget.getFromKeyFrame().getColor("background-color"));
 
       g2.setColor(widget.getFromKeyFrame().getColor("background-color")); // mFade.getFromColor("fill"));
-                                                                          // //
-                                                                          // Color.WHITE);
+      // //
+      // Color.WHITE);
 
-      g2.fillRoundRect(
-          widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET,
-          y2,
-          ModernCheckSwitch.SLIDER_WIDTH
-              - ModernCheckSwitch.SWITCH_ICON_OFFSET_2,
-          HEIGHT,
-          HEIGHT,
-          HEIGHT);
+      g2.fillRoundRect(widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET, y2,
+          ModernCheckSwitch.SLIDER_WIDTH - ModernCheckSwitch.SWITCH_ICON_OFFSET_2, HEIGHT, HEIGHT, HEIGHT);
 
       g2.setColor(widget.getFromKeyFrame().getColor("border-color"));
 
-      g2.drawRoundRect(
-          widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET,
-          y2,
-          ModernCheckSwitch.SLIDER_WIDTH
-              - ModernCheckSwitch.SWITCH_ICON_OFFSET_2,
-          HEIGHT,
-          HEIGHT,
-          HEIGHT);
+      g2.drawRoundRect(widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET, y2,
+          ModernCheckSwitch.SLIDER_WIDTH - ModernCheckSwitch.SWITCH_ICON_OFFSET_2, HEIGHT, HEIGHT, HEIGHT);
     }
 
     /*

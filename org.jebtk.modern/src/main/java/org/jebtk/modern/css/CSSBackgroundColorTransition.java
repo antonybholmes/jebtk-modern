@@ -14,8 +14,7 @@ public class CSSBackgroundColorTransition extends ColorTransition {
     super(steps);
 
     if (button.getFromKeyFrame().contains("background-color")) {
-      setFadeColor("fill",
-          button.getFromKeyFrame().getColor("background-color"),
+      setFadeColor("fill", button.getFromKeyFrame().getColor("background-color"),
           button.getToKeyFrame().getColor("background-color"));
     } else {
       setFadeColor("fill", button.getToKeyFrame().getColor("background-color"));
@@ -53,8 +52,7 @@ public class CSSBackgroundColorTransition extends ColorTransition {
   }
 
   public void fill(ModernWidget c, Graphics2D g2, IntRect rect) {
-    DrawUIService.getInstance().getRenderer("css-background")
-        .draw(g2, rect, getColor("fill"));
+    DrawUIService.getInstance().getRenderer("css-background").draw(g2, rect, getColor("fill"));
 
   }
 }

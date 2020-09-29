@@ -56,7 +56,7 @@ public class ButtonPressedAnimation extends MousePressedAnimation {
     }
 
     double r = TranslateAnimation.BEZ_T[getStep()]; // /
-                                                    // (double)TimerAnimation.AnimationTimer.STEPS;
+    // (double)TimerAnimation.AnimationTimer.STEPS;
 
     int w = widget.getWidth();
 

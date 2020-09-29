@@ -47,20 +47,16 @@ public class IconVertTabs extends TabsVertPanel {
   private static final long serialVersionUID = 1L;
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_1. */
-  public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService
-      .getInstance().getColors().getTheme(3);
+  public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService.getInstance().getColors().getTheme(3);
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_2. */
-  protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService
-      .getInstance().getColors().getTheme(4);
+  protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService.getInstance().getColors().getTheme(4);
 
   /** The Constant TEXT_TAB_SELECTED_OUTLINE_COLOR. */
-  protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService
-      .getInstance().getColors().getTheme(5);
-  
-  protected static final Color BORDER_COLOR =
-    ThemeService.getInstance().getColors().getGray32(3);
-  
+  protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService.getInstance().getColors().getTheme(5);
+
+  protected static final Color BORDER_COLOR = ThemeService.getInstance().getColors().getGray32(3);
+
   /** The m tab size. */
   protected int mTabSize = -1;
 
@@ -69,8 +65,8 @@ public class IconVertTabs extends TabsVertPanel {
   /**
    * Instantiates a new segment tabs.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model    the model
+   * @param tabSize  the tab size
    * @param centered the centered
    */
   public IconVertTabs(TabsModel model, int tabSize, int iconSize) {
@@ -127,32 +123,30 @@ public class IconVertTabs extends TabsVertPanel {
    */
   protected int getTab(int x, int y) {
     int tab = (getHeight() - getInsets().bottom - y) / mTabSize;
-    
+
     tab = Mathematics.bound(tab, 0, mTabWidths.size() - 1);
-    
+
     return tab;
   }
-  
+
   public int getTabSize() {
     return mTabSize;
   }
-  
+
   public int getIconSize() {
     return mIconSize;
   }
 
   /*
-  @Override
-  public void drawBackground(Graphics2D g2) {
-    //g2.setColor(BORDER_COLOR);
-    
-    //int x = getWidth() - 1;
-    
-    //g2.drawLine(x, 0, x, getHeight());
-    
-    fill(g2, Color.WHITE);
-    
-    super.drawBackground(g2);
-  }
-  */
+   * @Override public void drawBackground(Graphics2D g2) {
+   * //g2.setColor(BORDER_COLOR);
+   * 
+   * //int x = getWidth() - 1;
+   * 
+   * //g2.drawLine(x, 0, x, getHeight());
+   * 
+   * fill(g2, Color.WHITE);
+   * 
+   * super.drawBackground(g2); }
+   */
 }

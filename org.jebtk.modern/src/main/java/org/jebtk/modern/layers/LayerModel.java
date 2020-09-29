@@ -39,8 +39,7 @@ import java.util.Map;
  *
  * @author Antony Holmes
  */
-public class LayerModel extends LayerEventListeners
-    implements Iterable<String> {
+public class LayerModel extends LayerEventListeners implements Iterable<String> {
 
   /**
    * The constant serialVersionUID.
@@ -98,7 +97,7 @@ public class LayerModel extends LayerEventListeners
   /**
    * Sets the visible.
    *
-   * @param name the name
+   * @param name    the name
    * @param visible the visible
    */
   public void setVisible(String name, boolean visible) {
@@ -110,7 +109,7 @@ public class LayerModel extends LayerEventListeners
   /**
    * Sets the visible.
    *
-   * @param index the index
+   * @param index   the index
    * @param visible the visible
    */
   public void setVisible(int index, boolean visible) {
@@ -185,7 +184,7 @@ public class LayerModel extends LayerEventListeners
   /**
    * Adds the layer.
    *
-   * @param name the name
+   * @param name    the name
    * @param visible the visible
    */
   public void addLayer(String name, boolean visible) {

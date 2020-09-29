@@ -42,8 +42,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * The class ModernStatusAnimatedProgressBar.
  */
-public class ModernStatusAnimatedProgressBar extends ModernStatusProgressBar
-    implements ActionListener {
+public class ModernStatusAnimatedProgressBar extends ModernStatusProgressBar implements ActionListener {
 
   /**
    * The constant serialVersionUID.
@@ -139,10 +138,8 @@ public class ModernStatusAnimatedProgressBar extends ModernStatusProgressBar
 
     fill(g2, Color.WHITE, getInternalRect());
 
-    Rectangle r = new Rectangle(
-        this.getInsets().left + (int) (minS1 * mInternalRect.getW() / 100.0),
-        this.getInsets().top,
-        (int) ((s2 - minS1) * mInternalRect.getW() / 100.0), h);
+    Rectangle r = new Rectangle(this.getInsets().left + (int) (minS1 * mInternalRect.getW() / 100.0),
+        this.getInsets().top, (int) ((s2 - minS1) * mInternalRect.getW() / 100.0), h);
 
     fill(g2, ThemeService.getInstance().getColors().getTheme(1), r);
   }

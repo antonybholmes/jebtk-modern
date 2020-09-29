@@ -55,8 +55,7 @@ import org.jebtk.modern.scrollpane.VertScrollWidget;
  *
  * @author Antony Holmes
  */
-public class ModernListPanel extends VertScrollWidget
-    implements Iterable<ModernListPanelItem> {
+public class ModernListPanel extends VertScrollWidget implements Iterable<ModernListPanelItem> {
 
   /**
    * The constant serialVersionUID.
@@ -69,8 +68,7 @@ public class ModernListPanel extends VertScrollWidget
   /**
    * The member list model.
    */
-  private List<ModernListPanelItem> mListModel = new ArrayList<ModernListPanelItem>(
-      10);
+  private List<ModernListPanelItem> mListModel = new ArrayList<ModernListPanelItem>(10);
 
   /** The m Y pos. */
   private List<Integer> mYPos = new ArrayList<Integer>();
@@ -141,7 +139,7 @@ public class ModernListPanel extends VertScrollWidget
      * Instantiates a new animate movement.
      *
      * @param index the index
-     * @param y2 the y 2
+     * @param y2    the y 2
      */
     public AnimateMovement(int index, int y2) {
       super(null);
@@ -311,7 +309,7 @@ public class ModernListPanel extends VertScrollWidget
   /**
    * Adds the.
    *
-   * @param c the c
+   * @param c     the c
    * @param color the color
    * @return the component
    */
@@ -363,7 +361,7 @@ public class ModernListPanel extends VertScrollWidget
   /**
    * Gets the index.
    *
-   * @param e the e
+   * @param e        the e
    * @param excludeC the exclude C
    * @return the index
    */
@@ -388,7 +386,7 @@ public class ModernListPanel extends VertScrollWidget
   /**
    * Gets the comp.
    *
-   * @param e the e
+   * @param e        the e
    * @param excludeC the exclude C
    * @return the comp
    */
@@ -400,8 +398,7 @@ public class ModernListPanel extends VertScrollWidget
 
       int ty = mYPos.get(i);
 
-      if ((excludeC == null || !item.equals(excludeC)) && p.y >= ty
-          && p.y < ty + mItemH) {
+      if ((excludeC == null || !item.equals(excludeC)) && p.y >= ty && p.y < ty + mItemH) {
         return mListModel.get(i);
       }
     }
@@ -416,8 +413,7 @@ public class ModernListPanel extends VertScrollWidget
    * @return the point
    */
   private Point convert(MouseEvent e) {
-    Point p = SwingUtilities
-        .convertPoint((Component) e.getSource(), e.getPoint(), this);
+    Point p = SwingUtilities.convertPoint((Component) e.getSource(), e.getPoint(), this);
 
     p.y -= getInsets().top;
 
@@ -551,8 +547,8 @@ public class ModernListPanel extends VertScrollWidget
   }
 
   /**
-   * Reorder items based on y position if necessary. This is so that when
-   * iterated over, items match the order they appear in the UI.
+   * Reorder items based on y position if necessary. This is so that when iterated
+   * over, items match the order they appear in the UI.
    */
   private void autoReorder() {
     if (!mAutoReorder) {
@@ -567,8 +563,7 @@ public class ModernListPanel extends VertScrollWidget
       ySortMap.put(mYPos.get(i), i);
     }
 
-    List<ModernListPanelItem> listModel = new ArrayList<ModernListPanelItem>(
-        mListModel.size());
+    List<ModernListPanelItem> listModel = new ArrayList<ModernListPanelItem>(mListModel.size());
 
     List<Integer> yPos = new ArrayList<Integer>(mListModel.size());
 

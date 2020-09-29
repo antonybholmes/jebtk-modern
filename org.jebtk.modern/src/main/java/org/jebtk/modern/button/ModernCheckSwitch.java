@@ -59,14 +59,13 @@ public class ModernCheckSwitch extends CheckBox {
 
   /** The Constant SLIDER_WIDTH. */
   protected static final int SLIDER_WIDTH = ORB_HEIGHT * 3 / 2; // (int)
-                                                                // Math.round(ORB_HEIGHT
-                                                                // *
-                                                                // Mathematics.GOLDEN_RATIO);
-                                                                // //3 / 2;
+  // Math.round(ORB_HEIGHT
+  // *
+  // Mathematics.GOLDEN_RATIO);
+  // //3 / 2;
 
   /** The Constant SWITCH_ON_OFFSET. */
-  protected static final int SWITCH_ON_OFFSET = SLIDER_WIDTH - ORB_HEIGHT
-      - SLIDER_OFFSET;
+  protected static final int SWITCH_ON_OFFSET = SLIDER_WIDTH - ORB_HEIGHT - SLIDER_OFFSET;
 
   private Color mTextColor;
 
@@ -101,7 +100,7 @@ public class ModernCheckSwitch extends CheckBox {
   /**
    * Instantiates a new modern check box.
    *
-   * @param text the text
+   * @param text     the text
    * @param selected the selected
    */
   public ModernCheckSwitch(String text, boolean selected) {
@@ -112,7 +111,7 @@ public class ModernCheckSwitch extends CheckBox {
     setAnimations("check-switch");
 
     setSelected(selected);
-    
+
     setSize();
   }
 
@@ -120,14 +119,12 @@ public class ModernCheckSwitch extends CheckBox {
     this(text, selected, color, TEXT_COLOR);
   }
 
-  public ModernCheckSwitch(String text, boolean selected, Color color,
-      Color textColor) {
+  public ModernCheckSwitch(String text, boolean selected, Color color, Color textColor) {
     this(text, selected);
 
     mTextColor = textColor;
 
-    getAnimations().set(new CheckSwitchAnimation(this, color),
-        new CheckSwitchChangeAnimation(this));
+    getAnimations().set(new CheckSwitchAnimation(this, color), new CheckSwitchChangeAnimation(this));
 
     setSelected(selected);
   }
@@ -182,8 +179,7 @@ public class ModernCheckSwitch extends CheckBox {
    * Sets the size.
    */
   private void setSize() {
-    setSize(getInsets().left + ModernButton.getStringWidth(mText1)
-        + SLIDER_WIDTH + QUAD_PADDING);
+    setSize(getInsets().left + ModernButton.getStringWidth(mText1) + SLIDER_WIDTH + QUAD_PADDING);
 
   }
 
@@ -205,9 +201,7 @@ public class ModernCheckSwitch extends CheckBox {
   @Override
   public void drawForegroundAA(Graphics2D g2) {
     g2.setColor(mTextColor); // isSelected() ? TEXT_COLOR :
-                             // TEXT_DISABLED_COLOR);
-    g2.drawString(mText1,
-        getInsets().left + SLIDER_WIDTH + PADDING,
-        getTextYPosCenter(g2, getHeight()));
+    // TEXT_DISABLED_COLOR);
+    g2.drawString(mText1, getInsets().left + SLIDER_WIDTH + PADDING, getTextYPosCenter(g2, getHeight()));
   }
 }

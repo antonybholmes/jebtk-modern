@@ -32,10 +32,7 @@ public class ColorCircleHighlightUI extends ColorButtonUI {
   }
 
   @Override
-  public void fill(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void fill(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
 
     if (props != null) {
       g2.setColor(props.getColor("color"));

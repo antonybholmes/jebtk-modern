@@ -26,12 +26,9 @@ public class ComboBoxArrowAnimation2 extends WidgetAnimation {
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
     IntRect rect = widget.getInternalRect();
 
-    IntRect buttonRect = new IntRect(mCombo.mButtonX, widget.getInsets().top,
-        ModernComboBox.BUTTON_WIDTH, rect.getH());
+    IntRect buttonRect = new IntRect(mCombo.mButtonX, widget.getInsets().top, ModernComboBox.BUTTON_WIDTH, rect.getH());
 
-    ModernComboBox.DOWN_ARROW_ICON.drawIcon(g2,
-        buttonRect.getX(),
-        buttonRect.getY() + (buttonRect.getH() - 16) / 2,
+    ModernComboBox.DOWN_ARROW_ICON.drawIcon(g2, buttonRect.getX(), buttonRect.getY() + (buttonRect.getH() - 16) / 2,
         16);
   }
 }

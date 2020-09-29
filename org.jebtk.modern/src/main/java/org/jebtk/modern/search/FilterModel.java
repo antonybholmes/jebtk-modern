@@ -43,8 +43,7 @@ import org.jebtk.core.collections.UniqueArrayList;
  * @author Antony Holmes
  *
  */
-public class FilterModel extends FilterEventListeners
-    implements Iterable<String> {
+public class FilterModel extends FilterEventListeners implements Iterable<String> {
 
   /**
    * The constant serialVersionUID.
@@ -78,7 +77,7 @@ public class FilterModel extends FilterEventListeners
   /**
    * Sets which filter names are selected.
    *
-   * @param names the names
+   * @param names  the names
    * @param filter the filter
    */
   public void setSelected(Collection<String> names, boolean filter) {
@@ -121,7 +120,7 @@ public class FilterModel extends FilterEventListeners
   /**
    * Sets the filter.
    *
-   * @param name the name
+   * @param name   the name
    * @param filter the filter
    */
   public void setFilter(String name, boolean filter) {

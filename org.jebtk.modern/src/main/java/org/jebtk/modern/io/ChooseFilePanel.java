@@ -73,16 +73,14 @@ public class ChooseFilePanel extends ModernComponent {
   /**
    * Instantiates a new choose file panel.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param filters the filters
    */
-  public ChooseFilePanel(ModernWindow parent, GuiFileExtFilter filter,
-      GuiFileExtFilter... filters) {
+  public ChooseFilePanel(ModernWindow parent, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
     this(parent, false, filter, filters);
   }
 
-  public ChooseFilePanel(ModernWindow parent, boolean dirMode,
-      GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+  public ChooseFilePanel(ModernWindow parent, boolean dirMode, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
     this(parent, dirMode, CollectionUtils.toList(filter, filters));
   }
 
@@ -93,12 +91,11 @@ public class ChooseFilePanel extends ModernComponent {
   /**
    * Instantiates a new choose file panel.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param dirMode the dir mode
    * @param filters the filters
    */
-  public ChooseFilePanel(ModernWindow parent, boolean dirMode,
-      List<GuiFileExtFilter> filters) {
+  public ChooseFilePanel(ModernWindow parent, boolean dirMode, List<GuiFileExtFilter> filters) {
     mParent = parent;
     mDirMode = dirMode;
     mFilters = filters;
@@ -124,8 +121,7 @@ public class ChooseFilePanel extends ModernComponent {
         if (mDirMode) {
           file = FileDialog.open(mParent).dirs().getFile(pwd);
         } else {
-          file = FileDialog.open(mParent).filter(mFilters).multiSelect(false)
-              .getFile(pwd);
+          file = FileDialog.open(mParent).filter(mFilters).multiSelect(false).getFile(pwd);
         }
 
         if (file != null) {
@@ -151,20 +147,19 @@ public class ChooseFilePanel extends ModernComponent {
   /**
    * Instantiates a new choose file panel.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param dirMode the dir mode
-   * @param file the file
+   * @param file    the file
    * @param filters the filters
    */
-  public ChooseFilePanel(ModernWindow parent, boolean dirMode, Path file,
-      GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+  public ChooseFilePanel(ModernWindow parent, boolean dirMode, Path file, GuiFileExtFilter filter,
+      GuiFileExtFilter... filters) {
     this(parent, dirMode, filter, filters);
 
     setFile(file);
   }
 
-  public ChooseFilePanel(ModernWindow parent, boolean dirMode, Path file,
-      List<GuiFileExtFilter> filters) {
+  public ChooseFilePanel(ModernWindow parent, boolean dirMode, Path file, List<GuiFileExtFilter> filters) {
     this(parent, dirMode, filters);
 
     setFile(file);

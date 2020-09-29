@@ -53,13 +53,13 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
    */
   private ModernDataViewListeners mListeners = new ModernDataViewListeners();
 
-
   /**
    * Gets the row count.
    *
    * @return the row count
    */
   public abstract int getRowCount();
+
   /**
    * Gets the column count.
    *
@@ -89,7 +89,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   public String getColumnName(int col) {
     return TextUtils.EMPTY_STRING;
   }
-  
+
   public String getRowName(int row) {
     return TextUtils.EMPTY_STRING;
   }
@@ -97,20 +97,19 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Gets the value at.
    *
-   * @param row the row
+   * @param row     the row
    * @param heading the heading
    * @return the value at
    */
   public Object getValueAt(int row, String heading) {
-    System.err.println(
-        "mod data heading " + heading + " " + getHeadingIndex(heading));
+    System.err.println("mod data heading " + heading + " " + getHeadingIndex(heading));
     return getValueAt(row, getHeadingIndex(heading));
   }
 
   /**
    * Gets the value at.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
    * @return the value at
    */
@@ -119,7 +118,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Sets the value at.
    *
-   * @param cell the cell
+   * @param cell  the cell
    * @param value the value
    */
   public final void setValueAt(ModernDataCell cell, Object value) {
@@ -130,9 +129,9 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
    * Set the value of the underlying data. This method should be overridden by
    * data models that allow data editing.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
-   * @param value the value
+   * @param value  the value
    */
   public void setValueAt(int row, int column, Object value) {
     fireDataUpdated();
@@ -162,7 +161,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Sets the cell style.
    *
-   * @param cell the cell
+   * @param cell  the cell
    * @param style the style
    */
   public void setCellStyle(ModernDataCell cell, ModernDataCellStyle style) {
@@ -172,8 +171,8 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Sets the cell style.
    *
-   * @param row the row
-   * @param col the col
+   * @param row   the row
+   * @param col   the col
    * @param style the style
    */
   public void setCellStyle(int row, int col, ModernDataCellStyle style) {
@@ -183,7 +182,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Sets the row style.
    *
-   * @param row the row
+   * @param row   the row
    * @param style the style
    */
   public void setRowStyle(int row, ModernDataCellStyle style) {
@@ -193,7 +192,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Sets the col style.
    *
-   * @param col the col
+   * @param col   the col
    * @param style the style
    */
   public void setColStyle(int col, ModernDataCellStyle style) {
@@ -227,7 +226,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Returns true if the cell can be edited, false otherwise.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
    * @return the checks if is cell editable
    */
@@ -280,7 +279,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Removes the value at.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
    */
   public void removeValueAt(int row, int column) {
@@ -379,7 +378,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Gets the value as string.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
    * @return the value as string
    */
@@ -396,7 +395,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Gets the value as string.
    *
-   * @param row the row
+   * @param row     the row
    * @param heading the heading
    * @return the value as string
    */
@@ -413,7 +412,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Convert a string to a number. Will return 0 if the cell is null or empty.
    *
-   * @param row the row
+   * @param row     the row
    * @param heading the heading
    * @return the value as int
    * @throws ParseException the parse exception
@@ -425,7 +424,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Gets the value as int.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
    * @return the value as int
    * @throws ParseException the parse exception
@@ -437,7 +436,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Gets the value as bool.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
    * @return the value as bool
    */
@@ -448,20 +447,19 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
   /**
    * Gets the value as double.
    *
-   * @param row the row
+   * @param row     the row
    * @param heading the heading
    * @return the value as double
    * @throws ParseException the parse exception
    */
-  public double getValueAsDouble(int row, String heading)
-      throws ParseException {
+  public double getValueAsDouble(int row, String heading) throws ParseException {
     return TextUtils.parseDouble(getValueAsString(row, heading));
   }
 
   /**
    * Gets the value as double.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
    * @return the value as double
    * @throws ParseException the parse exception
@@ -470,18 +468,16 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
     return TextUtils.parseDouble(getValueAsString(row, column));
   }
 
-
-
   //
   // Static methods
   //
 
   /**
-   * Return the index of a header containing some text or return -1 if the text
-   * is not found.
+   * Return the index of a header containing some text or return -1 if the text is
+   * not found.
    *
    * @param model the model
-   * @param text the text
+   * @param text  the text
    * @return the int
    */
   public static int findFirst(ModernDataModel model, String text) {
@@ -500,7 +496,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
    * Match first.
    *
    * @param model the model
-   * @param text the text
+   * @param text  the text
    * @return the int
    */
   public static int matchFirst(ModernDataModel model, String text) {
@@ -519,11 +515,10 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
    * Write.
    *
    * @param model the model
-   * @param file the file
+   * @param file  the file
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static void write(ModernDataModel model, Path file)
-      throws IOException {
+  public static void write(ModernDataModel model, Path file) throws IOException {
     BufferedWriter writer = FileUtils.newBufferedWriter(file);
 
     try {
@@ -531,7 +526,7 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
         if (i > 0) {
           writer.write(TextUtils.TAB_DELIMITER);
         }
-        
+
         writer.write(model.getColumnName(i));
       }
 
@@ -554,6 +549,5 @@ public abstract class ModernDataModel implements ModernDataViewEventProducer {
       writer.close();
     }
   }
-  
 
 }

@@ -68,7 +68,7 @@ public class ModernStatusCheckButton extends ModernCheckButton {
    * Instantiates a new modern status check button.
    *
    * @param text1 the text1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernStatusCheckButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -79,8 +79,7 @@ public class ModernStatusCheckButton extends ModernCheckButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
+   * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
    * Graphics2D)
    */
   /*

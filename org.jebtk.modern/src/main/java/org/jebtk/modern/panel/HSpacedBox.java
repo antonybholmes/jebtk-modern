@@ -52,8 +52,8 @@ public class HSpacedBox extends HBox {
   }
 
   /**
-   * Create a horizontal box containing some components with the default amount
-   * of space between each.
+   * Create a horizontal box containing some components with the default amount of
+   * space between each.
    *
    * @param components the components
    */
@@ -64,7 +64,7 @@ public class HSpacedBox extends HBox {
   /**
    * Instantiates a new h spaced box.
    *
-   * @param space the space
+   * @param space      the space
    * @param components the components
    */
   public HSpacedBox(int space, Component... components) {

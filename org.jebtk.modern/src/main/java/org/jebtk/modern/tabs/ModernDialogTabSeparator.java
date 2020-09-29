@@ -63,8 +63,7 @@ public class ModernDialogTabSeparator extends ModernWidget {
   /**
    * The constant MAX_SIZE.
    */
-  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE,
-      HEIGHT);
+  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
 
   /**
    * The label.
@@ -98,8 +97,7 @@ public class ModernDialogTabSeparator extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

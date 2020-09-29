@@ -35,8 +35,8 @@ public class InputFieldBox extends HBox {
    * Instantiates a new input field box.
    *
    * @param name the name
-   * @param lw the lw
-   * @param fw the fw
+   * @param lw   the lw
+   * @param fw   the fw
    */
   public InputFieldBox(String name, int lw, int fw) {
     add(new ModernAutoSizeLabel(name, lw));
@@ -46,10 +46,10 @@ public class InputFieldBox extends HBox {
   /**
    * Instantiates a new input field box.
    *
-   * @param name the name
+   * @param name  the name
    * @param value the value
-   * @param lw the lw
-   * @param fw the fw
+   * @param lw    the lw
+   * @param fw    the fw
    */
   public InputFieldBox(String name, String value, int lw, int fw) {
     this(name, lw, fw);

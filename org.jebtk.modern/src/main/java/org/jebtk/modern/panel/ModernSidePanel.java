@@ -54,7 +54,7 @@ public class ModernSidePanel extends JComponent {
   /**
    * Instantiates a new modern side panel.
    *
-   * @param title the title
+   * @param title   the title
    * @param content the content
    */
   public ModernSidePanel(String title, JComponent content) {
@@ -69,8 +69,8 @@ public class ModernSidePanel extends JComponent {
   /**
    * Instantiates a new modern side panel.
    *
-   * @param title the title
-   * @param top the top
+   * @param title   the title
+   * @param top     the top
    * @param content the content
    */
   public ModernSidePanel(String title, JComponent top, JComponent content) {

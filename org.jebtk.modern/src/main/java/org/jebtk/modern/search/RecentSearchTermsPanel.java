@@ -52,8 +52,7 @@ import org.jebtk.modern.ribbon.RibbonPanelTitle;
 /**
  * The class RecentSearchTermsPanel.
  */
-public class RecentSearchTermsPanel extends RibbonMenuPanel
-    implements ModernClickListener {
+public class RecentSearchTermsPanel extends RibbonMenuPanel implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -96,16 +95,14 @@ public class RecentSearchTermsPanel extends RibbonMenuPanel
   public RecentSearchTermsPanel() {
     super("Recent searches");
 
-    setup("Recent searches",
-        AssetService.getInstance().loadIcon("recent_search",
-            AssetService.ICON_SIZE_32));
+    setup("Recent searches", AssetService.getInstance().loadIcon("recent_search", AssetService.ICON_SIZE_32));
   }
 
   /**
    * Setup.
    *
    * @param title the title
-   * @param icon the icon
+   * @param icon  the icon
    */
   private void setup(String title, ModernIcon icon) {
 
@@ -136,8 +133,7 @@ public class RecentSearchTermsPanel extends RibbonMenuPanel
     scrollPane.setBorder(BORDER);
     scrollPane.setViewportBorder(BorderFactory.createEmptyBorder());
     scrollPane.getViewport().setBackground(Color.WHITE);
-    scrollPane
-        .setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+    scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
     scrollPane.setBackground(Color.WHITE);
 
     setBorder(BORDER);
@@ -146,8 +142,8 @@ public class RecentSearchTermsPanel extends RibbonMenuPanel
 
     ModernPanel buttonPanel = new ModernPanel(new FlowLayout(FlowLayout.RIGHT));
 
-    ModernButtonWidget button = new ModernButton("Clear", AssetService
-        .getInstance().loadIcon("clear", AssetService.ICON_SIZE_16));
+    ModernButtonWidget button = new ModernButton("Clear",
+        AssetService.getInstance().loadIcon("clear", AssetService.ICON_SIZE_16));
 
     button.addClickListener(this);
 
@@ -190,8 +186,7 @@ public class RecentSearchTermsPanel extends RibbonMenuPanel
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {

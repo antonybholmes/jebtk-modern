@@ -14,9 +14,7 @@ public class RadioSelectedUI extends RadioUI {
   }
 
   @Override
-  public void draw(Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void draw(Graphics2D g2, IntRect rect, Props props) {
 
     super.draw(g2, rect, props);
 

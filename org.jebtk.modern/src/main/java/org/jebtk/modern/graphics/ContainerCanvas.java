@@ -45,8 +45,7 @@ import org.jebtk.core.geom.IntRect;
  * @author Antony Holmes
  *
  */
-public class ContainerCanvas extends ModernCanvas
-    implements CanvasListener, CanvasCursorListener {
+public class ContainerCanvas extends ModernCanvas implements CanvasListener, CanvasCursorListener {
 
   /**
    * The constant serialVersionUID.
@@ -112,8 +111,7 @@ public class ContainerCanvas extends ModernCanvas
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.graphics.ModernCanvas#rasterCanvas(java.awt.
+   * @see org.abh.lib.ui.modern.graphics.ModernCanvas#rasterCanvas(java.awt.
    * Graphics2D)
    */
   @Override

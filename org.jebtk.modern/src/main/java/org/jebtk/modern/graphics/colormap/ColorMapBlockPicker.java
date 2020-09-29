@@ -55,8 +55,7 @@ public class ColorMapBlockPicker extends ModernClickWidget {
   public static final IntDim HIGHLIGHT_MAP_SIZE = HEAT_MAP_SIZE;
 
   /** The Constant OFFSET. */
-  public static final IntDim OFFSET = new IntDim(
-      (BLOCK_SIZE.getW() - HEAT_MAP_SIZE.getW()) / 2,
+  public static final IntDim OFFSET = new IntDim((BLOCK_SIZE.getW() - HEAT_MAP_SIZE.getW()) / 2,
       (BLOCK_SIZE.getH() - HEAT_MAP_SIZE.getH()) / 2);
 
   public static final IntDim SELECTED_OFFSET = OFFSET;
@@ -151,8 +150,7 @@ public class ColorMapBlockPicker extends ModernClickWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -165,8 +163,7 @@ public class ColorMapBlockPicker extends ModernClickWidget {
         mCol = c;
         mI = i;
 
-        mP = new IntPos2D(
-            OUTER_PADDING + BLOCK_SIZE.getW() * mCol + SELECTED_OFFSET.getW(),
+        mP = new IntPos2D(OUTER_PADDING + BLOCK_SIZE.getW() * mCol + SELECTED_OFFSET.getW(),
             OUTER_PADDING + BLOCK_SIZE.getH() * mRow + SELECTED_OFFSET.getH());
 
         repaint();
@@ -205,12 +202,11 @@ public class ColorMapBlockPicker extends ModernClickWidget {
    */
   public void update(List<ColorMap> colorMaps) {
     mRows = colorMaps.size() / mCols + 1; // + (colorMaps.size() % mCols == 0 ?
-                                          // 0 : 1);
+    // 0 : 1);
     mColorMaps = colorMaps;
 
-    setPreferredSize(
-        new Dimension(DOUBLE_OUTER_PADDING + BLOCK_SIZE.getW() * mCols,
-            DOUBLE_OUTER_PADDING + BLOCK_SIZE.getH() * mRows));
+    setPreferredSize(new Dimension(DOUBLE_OUTER_PADDING + BLOCK_SIZE.getW() * mCols,
+        DOUBLE_OUTER_PADDING + BLOCK_SIZE.getH() * mRows));
   }
 
   /**
@@ -224,11 +220,8 @@ public class ColorMapBlockPicker extends ModernClickWidget {
     mSelectedCol = col;
     mSelectedIndex = row * mCols + col;
 
-    mSelectedP = new IntPos2D(
-        BLOCK_SIZE.getW() * mSelectedCol + OUTER_PADDING
-            + SELECTED_OFFSET.getW(),
-        BLOCK_SIZE.getH() * mSelectedRow + OUTER_PADDING
-            + SELECTED_OFFSET.getH());
+    mSelectedP = new IntPos2D(BLOCK_SIZE.getW() * mSelectedCol + OUTER_PADDING + SELECTED_OFFSET.getW(),
+        BLOCK_SIZE.getH() * mSelectedRow + OUTER_PADDING + SELECTED_OFFSET.getH());
 
     if (mSelectedIndex < mColorMaps.size()) {
       mSelectedColorMap = mColorMaps.get(mSelectedIndex);
@@ -260,8 +253,7 @@ public class ColorMapBlockPicker extends ModernClickWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForeground(Graphics2D g2) {
@@ -280,14 +272,11 @@ public class ColorMapBlockPicker extends ModernClickWidget {
         LinearGradientPaint paint;
 
         if (i == mI) {
-          paint = colorMap.getAnchorColors().toGradientPaint(
-              new Point2D.Float(x, 0),
-              new Point2D.Float(x + HEAT_MAP_SIZE.getW(), 0),
-              0.5);
+          paint = colorMap.getAnchorColors().toGradientPaint(new Point2D.Float(x, 0),
+              new Point2D.Float(x + HEAT_MAP_SIZE.getW(), 0), 0.5);
 
         } else {
-          paint = colorMap.getAnchorColors().toGradientPaint(
-              new Point2D.Float(x, 0),
+          paint = colorMap.getAnchorColors().toGradientPaint(new Point2D.Float(x, 0),
               new Point2D.Float(x + HEAT_MAP_SIZE.getW(), 0));
 
         }
@@ -322,10 +311,7 @@ public class ColorMapBlockPicker extends ModernClickWidget {
       if (mSelectedRow != -1) {
         g2Temp.setColor(Color.BLACK); // ModernWidgetRenderer.SELECTED_FILL_COLOR);
 
-        g2Temp.drawRect(mSelectedP.getX(),
-            mSelectedP.getY(),
-            HIGHLIGHT_MAP_SIZE.getW(),
-            HIGHLIGHT_MAP_SIZE.getH());
+        g2Temp.drawRect(mSelectedP.getX(), mSelectedP.getY(), HIGHLIGHT_MAP_SIZE.getW(), HIGHLIGHT_MAP_SIZE.getH());
       }
 
       /*

@@ -51,11 +51,11 @@ public class ModernDataIndexSorter extends ChangeListeners {
   private boolean mEnabled = false;
 
   /**
-   * Sort the given index so that calls to getOriginalIndex or getSortedIndex
-   * will allow the data model to be sorted.
+   * Sort the given index so that calls to getOriginalIndex or getSortedIndex will
+   * allow the data model to be sorted.
    *
-   * @param data the data
-   * @param index the index
+   * @param data          the data
+   * @param index         the index
    * @param sortAscending the sort ascending
    */
   public void sort(ModernData data, int index, boolean sortAscending) {

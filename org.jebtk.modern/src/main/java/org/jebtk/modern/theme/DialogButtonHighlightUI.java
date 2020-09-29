@@ -27,8 +27,7 @@ import org.jebtk.modern.ModernComponent;
  */
 public class DialogButtonHighlightUI extends ButtonUI {
 
-  private static final Color FILL = MaterialService.instance()
-      .getColor("dialog.button.highlight");
+  private static final Color FILL = MaterialService.instance().getColor("dialog.button.highlight");
 
   @Override
   public String getName() {
@@ -36,10 +35,7 @@ public class DialogButtonHighlightUI extends ButtonUI {
   }
 
   @Override
-  public void fill(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void fill(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
 
     // GradientPaint gradient = ColorUtils.getVGradient(0, h, C1, C2);
 

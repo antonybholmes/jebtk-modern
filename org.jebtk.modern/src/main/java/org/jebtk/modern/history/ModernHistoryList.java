@@ -38,8 +38,7 @@ import org.jebtk.modern.list.ModernListModel;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public class ModernHistoryList<T> extends ModernList<T>
-    implements ModernSelectionEventProducer {
+public class ModernHistoryList<T> extends ModernList<T> implements ModernSelectionEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -95,8 +94,8 @@ public class ModernHistoryList<T> extends ModernList<T>
    * 
    * //int counter = 0;
    * 
-   * for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow();
-   * ++i) { if (i == getItemCount()) { break; }
+   * for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i)
+   * { if (i == getItemCount()) { break; }
    * 
    * //System.err.println("get row " + i);
    * 

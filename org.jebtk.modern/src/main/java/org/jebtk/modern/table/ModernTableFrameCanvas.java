@@ -61,12 +61,11 @@ public class ModernTableFrameCanvas extends ContainerCanvas {
   /**
    * Instantiates a new modern table frame canvas.
    *
-   * @param canvas the canvas
+   * @param canvas     the canvas
    * @param background the background
-   * @param color the color
+   * @param color      the color
    */
-  public ModernTableFrameCanvas(ModernCanvas canvas, Color background,
-      Color color) {
+  public ModernTableFrameCanvas(ModernCanvas canvas, Color background, Color color) {
     super(canvas);
 
     mColor = color;
@@ -103,18 +102,12 @@ public class ModernTableFrameCanvas extends ContainerCanvas {
 
     if (mCanvas.getPreferredSize().height >= getHeight()) {
       p = getHeight() - 1;
-      g2.drawLine(0,
-          p,
-          Math.min(mCanvas.getPreferredSize().width, getWidth()),
-          p);
+      g2.drawLine(0, p, Math.min(mCanvas.getPreferredSize().width, getWidth()), p);
     }
 
     if (mCanvas.getPreferredSize().width >= getWidth()) {
       p = getWidth() - 1;
-      g2.drawLine(p,
-          0,
-          p,
-          Math.min(mCanvas.getPreferredSize().height, getHeight()));
+      g2.drawLine(p, 0, p, Math.min(mCanvas.getPreferredSize().height, getHeight()));
     }
   }
 }

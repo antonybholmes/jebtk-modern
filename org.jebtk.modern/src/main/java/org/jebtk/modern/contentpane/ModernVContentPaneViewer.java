@@ -108,20 +108,17 @@ public class ModernVContentPaneViewer extends ModernWidget {
       refresh();
 
       /*
-       * if (e.getPane().getName().equals(ContentPaneModel.CENTER_PANE)) {
-       * return; }
+       * if (e.getPane().getName().equals(ContentPaneModel.CENTER_PANE)) { return; }
        * 
        * Timer timer = new Timer(10, null); timer.setRepeats(true);
-       * timer.addClickListener(new AnimatePane(e.getPane(), timer));
-       * timer.start();
+       * timer.addClickListener(new AnimatePane(e.getPane(), timer)); timer.start();
        */
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.
      * modern. tabs.TabEvent)
      */
     @Override
@@ -132,8 +129,7 @@ public class ModernVContentPaneViewer extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.
      * modern. tabs.TabEvent)
      */
     @Override
@@ -144,8 +140,7 @@ public class ModernVContentPaneViewer extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.
      * modern. tabs.TabEvent)
      */
     @Override
@@ -271,8 +266,7 @@ public class ModernVContentPaneViewer extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -312,16 +306,13 @@ public class ModernVContentPaneViewer extends ModernWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
       selectedDivider = getClosestDivider(e.getY());
 
-      setCursor(Cursor
-          .getPredefinedCursor(selectedDivider != -1 ? Cursor.N_RESIZE_CURSOR
-              : Cursor.DEFAULT_CURSOR));
+      setCursor(Cursor.getPredefinedCursor(selectedDivider != -1 ? Cursor.N_RESIZE_CURSOR : Cursor.DEFAULT_CURSOR));
 
     }
   }
@@ -457,8 +448,7 @@ public class ModernVContentPaneViewer extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

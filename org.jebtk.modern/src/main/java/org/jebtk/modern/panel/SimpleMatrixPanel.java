@@ -42,8 +42,7 @@ import org.jebtk.modern.ModernWidget;
 /**
  * The class SimpleMatrixPanel.
  */
-public class SimpleMatrixPanel extends ModernWidget
-    implements ComponentListener {
+public class SimpleMatrixPanel extends ModernWidget implements ComponentListener {
 
   /**
    * The constant serialVersionUID.
@@ -80,13 +79,12 @@ public class SimpleMatrixPanel extends ModernWidget
   /**
    * Instantiates a new simple matrix panel.
    *
-   * @param rowHeights the row heights
+   * @param rowHeights  the row heights
    * @param columnWidth the column width
-   * @param xSep the x sep
-   * @param ySep the y sep
+   * @param xSep        the x sep
+   * @param ySep        the y sep
    */
-  public SimpleMatrixPanel(int[] rowHeights, int columnWidth, int xSep,
-      int ySep) {
+  public SimpleMatrixPanel(int[] rowHeights, int columnWidth, int xSep, int ySep) {
     super.setLayout(null);
 
     this.rowHeights = rowHeights;

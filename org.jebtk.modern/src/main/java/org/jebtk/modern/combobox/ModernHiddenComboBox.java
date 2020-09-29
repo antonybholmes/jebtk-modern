@@ -55,7 +55,7 @@ public class ModernHiddenComboBox extends ModernComboBox {
   /**
    * Instantiates a new modern hidden combo box.
    *
-   * @param name the name
+   * @param name  the name
    * @param popup the popup
    */
   public ModernHiddenComboBox(String name, ModernScrollPopupMenu popup) {
@@ -70,8 +70,7 @@ public class ModernHiddenComboBox extends ModernComboBox {
    */
   @Override
   public void drawBackground(Graphics2D g2) {
-    Rectangle buttonRect = new Rectangle(mButtonX, mRect.getY(), BUTTON_WIDTH,
-        mRect.getH());
+    Rectangle buttonRect = new Rectangle(mButtonX, mRect.getY(), BUTTON_WIDTH, mRect.getH());
 
     if (mHighlight) {
       // ModernTheme.fillRect(g2, getRect(), highlightBorderColor);
@@ -102,10 +101,7 @@ public class ModernHiddenComboBox extends ModernComboBox {
     // paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON,
     // buttonRect);
 
-    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
-        .drawIcon(g2,
-            buttonRect.x,
-            buttonRect.y + (buttonRect.height - 16) / 2,
-            16);
+    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, buttonRect.x,
+        buttonRect.y + (buttonRect.height - 16) / 2, 16);
   }
 }

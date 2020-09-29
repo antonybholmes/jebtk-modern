@@ -60,10 +60,10 @@ public class TreeNodeMove {
   /**
    * Instantiates a new tree node move.
    *
-   * @param i the node index.
-   * @param d the node depth.
-   * @param y the node y.
-   * @param h the node height.
+   * @param i             the node index.
+   * @param d             the node depth.
+   * @param y             the node y.
+   * @param h             the node height.
    * @param insertBetween whether to insert between two nodes.
    */
   public TreeNodeMove(int i, int d, int y, int h, boolean insertBetween) {

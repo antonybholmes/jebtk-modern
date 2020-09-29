@@ -47,7 +47,7 @@ public class ProgressEvent extends Event {
   /**
    * Instantiates a new progress event.
    *
-   * @param source the source
+   * @param source  the source
    * @param message the message
    * @param percent the percent
    */

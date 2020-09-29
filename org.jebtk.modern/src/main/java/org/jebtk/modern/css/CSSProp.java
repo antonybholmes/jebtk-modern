@@ -8,15 +8,15 @@ public abstract class CSSProp {
   public int getInt() {
     return Integer.MIN_VALUE;
   }
-  
+
   public double getFloat() {
     return Double.MIN_VALUE;
   }
-  
+
   public CSSColor getColor() {
     return null;
   }
-  
+
   public abstract CSSPropType getType();
 
   public CSSUnit getUnit() {

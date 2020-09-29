@@ -31,8 +31,7 @@ import org.jebtk.modern.theme.ThemeService;
  */
 public class RibbonBackMenuAnimation extends HoverFadeAnimation {
 
-  private static final Color MENU_SELECTED_COLOR_2 = ThemeService.getInstance()
-      .getColors().getGray32(12);
+  private static final Color MENU_SELECTED_COLOR_2 = ThemeService.getInstance().getColors().getGray32(12);
 
   /**
    * Instantiates a new quick access animation.
@@ -43,9 +42,7 @@ public class RibbonBackMenuAnimation extends HoverFadeAnimation {
     super(button);
 
     // setFadeColor("fill", RibbonBackMenuItem.BASE_COLOR, Color.WHITE);
-    setFadeColor("fill",
-        RibbonMenuItem.MENU_SELECTED_COLOR,
-        MENU_SELECTED_COLOR_2);
+    setFadeColor("fill", RibbonMenuItem.MENU_SELECTED_COLOR, MENU_SELECTED_COLOR_2);
   }
 
   @Override

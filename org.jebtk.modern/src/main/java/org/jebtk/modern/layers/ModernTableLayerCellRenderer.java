@@ -42,8 +42,7 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes
  *
  */
-public class ModernTableLayerCellRenderer
-    extends ModernTableCheckboxCellRenderer {
+public class ModernTableLayerCellRenderer extends ModernTableCheckboxCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -53,14 +52,12 @@ public class ModernTableLayerCellRenderer
   /**
    * The constant VISIBLE_ICON.
    */
-  private final static ModernIcon VISIBLE_ICON = AssetService.getInstance()
-      .loadIcon("layer_visible", 16);
+  private final static ModernIcon VISIBLE_ICON = AssetService.getInstance().loadIcon("layer_visible", 16);
 
   /**
    * The constant INVISIBLE_ICON.
    */
-  private final static ModernIcon INVISIBLE_ICON = AssetService.getInstance()
-      .loadIcon("blank", 16);
+  private final static ModernIcon INVISIBLE_ICON = AssetService.getInstance().loadIcon("blank", 16);
 
   /**
    * Instantiates a new modern table layer cell renderer.
@@ -90,8 +87,6 @@ public class ModernTableLayerCellRenderer
     x = (this.getWidth() - AssetService.ICON_SIZE_20) / 2;
     y = (this.getHeight() - AssetService.ICON_SIZE_20) / 2;
 
-    drawRect(g2,
-        ThemeService.getInstance().getColors().getTheme(2),
-        new Rectangle(x, y, 20, 20));
+    drawRect(g2, ThemeService.getInstance().getColors().getTheme(2), new Rectangle(x, y, 20, 20));
   }
 }

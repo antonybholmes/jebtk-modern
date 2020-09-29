@@ -49,11 +49,10 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
    * Instantiates a new t test dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param help the help
+   * @param title  the title
+   * @param help   the help
    */
-  public ModernDialogMultiCardWindow(ModernWindow parent, String title,
-      String help) {
+  public ModernDialogMultiCardWindow(ModernWindow parent, String title, String help) {
     this(parent, title, help, ModernDialogTaskType.CLOSE);
   }
 
@@ -61,12 +60,11 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
    * Instantiates a new modern dialog multi option window.
    *
    * @param parent the parent
-   * @param title the title
-   * @param help the help
-   * @param type the type
+   * @param title  the title
+   * @param help   the help
+   * @param type   the type
    */
-  public ModernDialogMultiCardWindow(ModernWindow parent, String title,
-      String help, ModernDialogTaskType type) {
+  public ModernDialogMultiCardWindow(ModernWindow parent, String title, String help, ModernDialogTaskType type) {
     super(parent, help, type);
 
     init(title, type);
@@ -76,7 +74,7 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
    * Instantiates a new modern dialog multi option window.
    *
    * @param parent the parent
-   * @param title the title
+   * @param title  the title
    */
   public ModernDialogMultiCardWindow(ModernWindow parent, String title) {
     this(parent, title, ModernDialogTaskType.CLOSE);
@@ -86,11 +84,10 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
    * Instantiates a new modern dialog multi option window.
    *
    * @param parent the parent
-   * @param title the title
-   * @param type the type
+   * @param title  the title
+   * @param type   the type
    */
-  public ModernDialogMultiCardWindow(ModernWindow parent, String title,
-      ModernDialogTaskType type) {
+  public ModernDialogMultiCardWindow(ModernWindow parent, String title, ModernDialogTaskType type) {
     super(parent, type);
 
     init(title, type);
@@ -100,7 +97,7 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
    * Inits the.
    *
    * @param title the title
-   * @param type the type
+   * @param type  the type
    */
   private void init(String title, ModernDialogTaskType type) {
     setTitle(title);
@@ -120,12 +117,12 @@ public class ModernDialogMultiCardWindow extends ModernDialogHelpWindow {
    * Adds the tab.
    *
    * @param name the name
-   * @param c the c
+   * @param c    the c
    */
   public void addTab(String name, JComponent c) {
     // mTabsModel.addTab(name, new ModernDialogPanel(c));
     mTabsModel.addTab(name, c); // new ModernDialogMutliOptionPanel(c,
-                                // ModernWidget.QUAD_PADDING));
+    // ModernWidget.QUAD_PADDING));
   }
 
   /**

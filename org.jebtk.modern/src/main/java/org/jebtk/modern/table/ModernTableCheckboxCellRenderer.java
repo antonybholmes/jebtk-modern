@@ -43,8 +43,7 @@ import org.jebtk.modern.graphics.icons.UnCheckedVectorIcon;
 /**
  * The class ModernTableCheckboxCellRenderer.
  */
-public class ModernTableCheckboxCellRenderer extends ModernDataCellRenderer
-    implements MouseListener {
+public class ModernTableCheckboxCellRenderer extends ModernDataCellRenderer implements MouseListener {
 
   /**
    * The constant serialVersionUID.
@@ -71,8 +70,7 @@ public class ModernTableCheckboxCellRenderer extends ModernDataCellRenderer
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -84,11 +82,11 @@ public class ModernTableCheckboxCellRenderer extends ModernDataCellRenderer
     // g2.fillRect(0, 0, getWidth(), getHeight());
 
     if (selected) {
-      AssetService.getInstance().loadIcon(CheckedVectorIcon.class, 16)
-          .drawIcon(g2, iconX, iconY, AssetService.ICON_SIZE_16);
+      AssetService.getInstance().loadIcon(CheckedVectorIcon.class, 16).drawIcon(g2, iconX, iconY,
+          AssetService.ICON_SIZE_16);
     } else {
-      AssetService.getInstance().loadIcon(UnCheckedVectorIcon.class, 16)
-          .drawIcon(g2, iconX, iconY, AssetService.ICON_SIZE_16);
+      AssetService.getInstance().loadIcon(UnCheckedVectorIcon.class, 16).drawIcon(g2, iconX, iconY,
+          AssetService.ICON_SIZE_16);
     }
   }
 
@@ -99,13 +97,8 @@ public class ModernTableCheckboxCellRenderer extends ModernDataCellRenderer
    * getCellRendererComponent(org.abh.lib.ui.modern.dataview.ModernData,
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
-  public final Component getCellRendererComponent(ModernData table,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row,
-      int column) {
+  public final Component getCellRendererComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
 
     selected = (Boolean) value;
 
@@ -115,13 +108,7 @@ public class ModernTableCheckboxCellRenderer extends ModernDataCellRenderer
 
     // repaint();
 
-    return super.getCellRendererComponent(table,
-        value,
-        highlight,
-        isSelected,
-        hasFocus,
-        row,
-        column);
+    return super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
   }
 
   /*

@@ -56,8 +56,7 @@ public class ModernCheckLinkButton extends ModernCheckButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
+   * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override
@@ -80,8 +79,7 @@ public class ModernCheckLinkButton extends ModernCheckButton {
 
     boolean underline = mHighlight || isSelected();
 
-    g2.setColor(underline ? ThemeService.getInstance().getColors().getTheme(4)
-        : TEXT_COLOR);
+    g2.setColor(underline ? ThemeService.getInstance().getColors().getTheme(4) : TEXT_COLOR);
     // g2.setFont(underline ? BOLD_FONT : FONT);
 
     int x = PADDING;

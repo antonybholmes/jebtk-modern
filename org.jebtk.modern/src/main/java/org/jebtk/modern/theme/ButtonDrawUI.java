@@ -33,10 +33,7 @@ public class ButtonDrawUI extends ButtonOutlineUI {
   }
 
   @Override
-  public void draw(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
 
     if (c != null) {
       ColorGradient lp = c.getCSSProps().getColorGradient("background");
@@ -47,29 +44,23 @@ public class ButtonDrawUI extends ButtonOutlineUI {
         g2.setColor(c.getCSSProps().getColor("background-color"));
       }
     } else {
-      g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget")
-          .getColor("background-color"));
+      g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget").getColor("background-color"));
     }
 
     fill(c, g2, rect, props);
-    
+
     /*
-    if (c != null) {
-      ColorGradient lp = c.getCSSProps().getColorGradient("alt-background-color");
+     * if (c != null) { ColorGradient lp =
+     * c.getCSSProps().getColorGradient("alt-background-color");
+     * 
+     * if (lp != null) { lp.paint(g2, c); } else {
+     * g2.setColor(c.getCSSProps().getColor("alt-background-color")); } } else {
+     * g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget")
+     * .getColor("fill-color")); }
+     * 
+     * fill(g2, c, x, y, w, h);
+     */
 
-      if (lp != null) {
-        lp.paint(g2, c);
-      } else {
-        g2.setColor(c.getCSSProps().getColor("alt-background-color"));
-      }
-    } else {
-      g2.setColor(KeyFramesService.getInstance().getToStyleClass("widget")
-          .getColor("fill-color"));
-    }
-
-    fill(g2, c, x, y, w, h);
-    */
-    
     // outline
     super.draw(c, g2, rect, props);
   }

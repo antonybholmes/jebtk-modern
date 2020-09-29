@@ -81,8 +81,7 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
       return;
     }
 
-    previousIndex = Mathematics
-        .bound(previousIndex, 0, mTabs.mTabStarts.size() - 1);
+    previousIndex = Mathematics.bound(previousIndex, 0, mTabs.mTabStarts.size() - 1);
 
     int x1 = mTabs.mTabStartX + mTabs.mTabStarts.get(previousIndex);
     int x2 = mTabs.mTabStartX + mTabs.mTabStarts.get(selectedIndex);
@@ -91,9 +90,7 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget,
-      Graphics2D g2,
-      Props props) {
+  public void drawTranslation(ModernWidget widget, Graphics2D g2, Props props) {
     // g2.setColor(Ribbon.BAR_BACKGROUND);
     // g2.fillRect(0,
     // Ribbon.Y_OFFSET + Ribbon.TAB_HEIGHT - BAR_HEIGHT,
@@ -106,9 +103,8 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
 
     /*
      * if (DrawUIService.getInstance().getImage("ribbon", s) == null) { // Cache
-     * shadow as expensive operation to create BufferedImage shadow =
-     * Card.shadow(w + Card.SHADOW_SIZE, Ribbon.TAB_HEIGHT + Card.ROUNDING +
-     * Card.SHADOW_SIZE);
+     * shadow as expensive operation to create BufferedImage shadow = Card.shadow(w
+     * + Card.SHADOW_SIZE, Ribbon.TAB_HEIGHT + Card.ROUNDING + Card.SHADOW_SIZE);
      * 
      * // Add the shadow Card.background(shadow);
      * 
@@ -128,7 +124,7 @@ public class RibbonChangeAnimation extends TranslateXAnimation {
     Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
     try {
-      g2Temp.setColor(Ribbon.BAR_BACKGROUND); //Color.WHITE);
+      g2Temp.setColor(Ribbon.BAR_BACKGROUND); // Color.WHITE);
 
       g2Temp.fillRect(0, Ribbon.Y_OFFSET + Ribbon.TAB_HEIGHT - 3, w, 3);
     } finally {

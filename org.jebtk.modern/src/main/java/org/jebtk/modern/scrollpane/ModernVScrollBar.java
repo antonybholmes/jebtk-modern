@@ -120,7 +120,7 @@ public abstract class ModernVScrollBar extends ModernScrollBar {
     /**
      * Instantiates a new mouse wheel events.
      *
-     * @param c the c
+     * @param c         the c
      * @param scrollbar the scrollbar
      */
     public MouseMotionEvents(Component c, ModernScrollBar scrollbar) {
@@ -137,16 +137,14 @@ public abstract class ModernVScrollBar extends ModernScrollBar {
     @Override
     public void mouseDragged(MouseEvent e) {
       if (mScrollBarDrag) {
-        mScroller.drag(e
-            .getY(), mStartPosition.y, mScrollStartPosition, mC, mScrollbar);
+        mScroller.drag(e.getY(), mStartPosition.y, mScrollStartPosition, mC, mScrollbar);
       }
     }
 
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -251,8 +249,7 @@ public abstract class ModernVScrollBar extends ModernScrollBar {
   public void drawBackgroundAA(Graphics2D g2) {
     int gap = mInternalRect.getH();
 
-    boolean showScroll = gap >= 2 * getInternalFixedDimension()
-        + mMinScrollBarSize;
+    boolean showScroll = gap >= 2 * getInternalFixedDimension() + mMinScrollBarSize;
     boolean showButtons = gap >= 2 * getInternalFixedDimension();
 
     if (!showScroll && !showButtons) {
@@ -266,9 +263,8 @@ public abstract class ModernVScrollBar extends ModernScrollBar {
 
       paintScrollBarBase(g2);
 
-      Rectangle r = new Rectangle(x,
-          (int) (y + getButtonSize() + mScrollPosition),
-          getInternalFixedDimension(), mScrollBarSize);
+      Rectangle r = new Rectangle(x, (int) (y + getButtonSize() + mScrollPosition), getInternalFixedDimension(),
+          mScrollBarSize);
 
       // if (mVScrollBarDrag || mHighlightVScroll) {
       // paintHighlightedScrollBar(g2, r);
@@ -317,8 +313,7 @@ public abstract class ModernVScrollBar extends ModernScrollBar {
 
   @Override
   protected void setPreferredSize() {
-    setPreferredSize(new Dimension(mLinePadding + getInternalFixedDimension(),
-        mPagePadding));
+    setPreferredSize(new Dimension(mLinePadding + getInternalFixedDimension(), mPagePadding));
   }
 
   @Override

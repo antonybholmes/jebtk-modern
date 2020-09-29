@@ -15,7 +15,6 @@
  */
 package org.jebtk.modern.theme;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.Props;
@@ -33,10 +32,7 @@ public class PillOutlineUI extends ButtonUI {
   }
 
   @Override
-  public void draw(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
 
     if (props != null) {
       g2.setColor(props.getColor("color"));

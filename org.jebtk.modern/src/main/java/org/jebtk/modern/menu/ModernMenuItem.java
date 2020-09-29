@@ -56,14 +56,12 @@ public class ModernMenuItem extends ModernButton {
   /**
    * The constant HEIGHT.
    */
-  public static final int HEIGHT = SettingsService.getInstance()
-      .getInt("theme.menu.height");
+  public static final int HEIGHT = SettingsService.getInstance().getInt("theme.menu.height");
 
   /**
    * The constant WIDTH.
    */
-  public static final int WIDTH = SettingsService.getInstance()
-      .getInt("theme.menu.width");
+  public static final int WIDTH = SettingsService.getInstance().getInt("theme.menu.width");
 
   /**
    * The constant MIN_SIZE.
@@ -78,8 +76,7 @@ public class ModernMenuItem extends ModernButton {
   /**
    * The constant MAX_SIZE.
    */
-  public static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE,
-      HEIGHT);
+  public static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
 
   // public static final Color ICON_BACKGROUND = DialogButton.LIGHT_COLOR;
   // public static final Color ICON_BACKGROUND_SEPARATOR =
@@ -113,8 +110,7 @@ public class ModernMenuItem extends ModernButton {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -191,10 +187,10 @@ public class ModernMenuItem extends ModernButton {
 
     // setAnimations("menu");
 
-    //update("square-borders");
-    //addToStyleClass("gray-button");
-    //setAnimations("button-fill");
-    
+    // update("square-borders");
+    // addToStyleClass("gray-button");
+    // setAnimations("button-fill");
+
     addStyleClass("ribbon-button");
   }
 

@@ -59,20 +59,9 @@ public class ModernTableNumericCellRenderer extends ModernDataGridCellRenderer {
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
   @Override
-  public final Component getCellRendererComponent(ModernData table,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row,
-      int column) {
-    super.getCellRendererComponent(table,
-        value,
-        highlight,
-        isSelected,
-        hasFocus,
-        row,
-        column);
+  public final Component getCellRendererComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
+    super.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
 
     if (value != null && value instanceof Double) {
       double v = (Double) value;

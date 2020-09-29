@@ -20,16 +20,11 @@ public class CheckBoxHighlightAnimation extends ButtonOutlineAnimation {
       int y = (widget.getHeight() - ModernCheckBox.ICON_SIZE) / 2;
 
       /*
-       * drawButtonFill(g2, x, y, ModernCheckBox.ICON_SIZE,
-       * ModernCheckBox.ICON_SIZE, getButton().getRenderMode(), false);
+       * drawButtonFill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE,
+       * getButton().getRenderMode(), false);
        */
 
-      outline(widget,
-          g2,
-          new IntRect(x,
-          y,
-          ModernCheckBox.ICON_SIZE,
-          ModernCheckBox.ICON_SIZE));
+      outline(widget, g2, new IntRect(x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE));
 
       // DrawUIService.getInstance().getRenderer("button-outline").draw(g2,
       // x,

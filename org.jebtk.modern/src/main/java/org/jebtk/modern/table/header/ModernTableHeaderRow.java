@@ -118,8 +118,7 @@ public class ModernTableHeaderRow extends ModernTableHeader {
   public void translate(Graphics2D g2) {
     ModernDataSelection visibleCells = mTable.calculateVisibleCells();
 
-    g2.translate(0,
-        mTable.getY(visibleCells.getStartRow()) - getViewRect().getY());
+    g2.translate(0, mTable.getY(visibleCells.getStartRow()) - getViewRect().getY());
   }
 
   /*
@@ -176,8 +175,8 @@ public class ModernTableHeaderRow extends ModernTableHeader {
         // }
 
         boolean highlight = i == mHighlightRow;
-        boolean selected = mTable.getRowModel().isSelected(i) || mTable
-            .getCellSelectionModel().getRowSelectionModel().contains(i);
+        boolean selected = mTable.getRowModel().isSelected(i)
+            || mTable.getCellSelectionModel().getRowSelectionModel().contains(i);
 
         // first draw row number
 
@@ -190,22 +189,16 @@ public class ModernTableHeaderRow extends ModernTableHeader {
         Graphics2D g2Temp2 = (Graphics2D) g2Temp.create();
 
         try {
-          //for (String name : rowNames) {
-          Component c = mTable.getRowHeadingRenderer(i)
-              .getCellRendererComponent(mTable,
-                  name,
-                  highlight,
-                  selected,
-                  highlight,
-                  i,
-                  0);
+          // for (String name : rowNames) {
+          Component c = mTable.getRowHeadingRenderer(i).getCellRendererComponent(mTable, name, highlight, selected,
+              highlight, i, 0);
 
           c.setSize(w, hc);
 
           c.print(g2Temp2);
 
-          //g2Temp2.translate(w, 0);
-          //}
+          // g2Temp2.translate(w, 0);
+          // }
         } finally {
           g2Temp2.dispose();
         }
@@ -287,8 +280,7 @@ public class ModernTableHeaderRow extends ModernTableHeader {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.table.header.ModernTableHeader#mouseReleased(java.
+   * @see org.abh.lib.ui.modern.table.header.ModernTableHeader#mouseReleased(java.
    * awt. event.CanvasMouseEvent)
    */
   @Override
@@ -363,8 +355,8 @@ public class ModernTableHeaderRow extends ModernTableHeader {
      * mHighlightRow = index;
      * 
      * if (inHeader(e)) {
-     * setCursor(Cursor.getPredefinedCursor(mTable.getNearestRowDivider(p.getY()
-     * ) != -1 ? Cursor.S_RESIZE_CURSOR : Cursor.DEFAULT_CURSOR)); }
+     * setCursor(Cursor.getPredefinedCursor(mTable.getNearestRowDivider(p.getY() )
+     * != -1 ? Cursor.S_RESIZE_CURSOR : Cursor.DEFAULT_CURSOR)); }
      * 
      * mTable.fireCanvasRedraw();
      */

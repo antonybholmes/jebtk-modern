@@ -69,7 +69,7 @@ public class RibbonToolbar extends HBox implements RibbonModeProperty {
    * Instantiates a new ribbon toolbar.
    *
    * @param ribbon the ribbon
-   * @param name the name
+   * @param name   the name
    */
   public RibbonToolbar(Ribbon ribbon, String name) {
     mRibbon = ribbon;

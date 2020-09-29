@@ -65,40 +65,35 @@ public class ModernToolTipEvent extends Event {
     this(source, dest, ToolTipLevel.NORMAL);
   }
 
-  public ModernToolTipEvent(Component source, ModernToolTipListener dest,
-      ToolTipLevel l) {
+  public ModernToolTipEvent(Component source, ModernToolTipListener dest, ToolTipLevel l) {
     this(source, dest, source, l);
   }
 
-  public ModernToolTipEvent(Component source, ModernToolTipListener dest,
-      Component tooltip) {
+  public ModernToolTipEvent(Component source, ModernToolTipListener dest, Component tooltip) {
     this(source, dest, tooltip, ToolTipLevel.NORMAL);
   }
 
-  public ModernToolTipEvent(Component source, ModernToolTipListener dest,
-      Component tooltip, ToolTipLevel l) {
+  public ModernToolTipEvent(Component source, ModernToolTipListener dest, Component tooltip, ToolTipLevel l) {
     this(source, dest, tooltip, null, l);
   }
 
-  public ModernToolTipEvent(Component source, ModernToolTipListener dest,
-      Component tooltip, Point p) {
+  public ModernToolTipEvent(Component source, ModernToolTipListener dest, Component tooltip, Point p) {
     this(source, dest, tooltip, p, ToolTipLevel.NORMAL);
   }
 
-  public ModernToolTipEvent(Component source, ModernToolTipListener dest,
-      Component tooltip, Point p, ToolTipLevel l) {
+  public ModernToolTipEvent(Component source, ModernToolTipListener dest, Component tooltip, Point p, ToolTipLevel l) {
     this(source, dest, tooltip, p, l, DEFAULT_MESSAGE);
   }
 
   /**
    * Instantiates a new modern tool tip event.
    *
-   * @param source the source
+   * @param source  the source
    * @param message the message
    * @param tooltip the tooltip
    */
-  public ModernToolTipEvent(Component source, ModernToolTipListener dest,
-      Component tooltip, Point p, ToolTipLevel level, String message) {
+  public ModernToolTipEvent(Component source, ModernToolTipListener dest, Component tooltip, Point p,
+      ToolTipLevel level, String message) {
     super(source, message);
 
     mSource = source;

@@ -30,25 +30,18 @@ import org.jebtk.modern.theme.DrawUI;
 public abstract class CSSBaseUI extends DrawUI {
 
   @Override
-  public void fill(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void fill(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
 
     cssFill(c, g2, rect, props);
   }
 
-  public static void cssFill(ModernComponent c, 
-      Graphics2D g2, 
-      IntRect rect,
-      Props props) {
+  public static void cssFill(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
     if (g2.getColor() == null || g2.getColor().getAlpha() == 0) {
       return;
     }
 
     int rounding = cssRounding(c, Math.min(rect.w, rect.h));
 
-    
     if (rounding > 0) {
       if (rect.w == rect.h && rounding >= rect.h / 2) {
         g2.fillOval(rect.x, rect.y, rect.w - 1, rect.w - 1);
@@ -62,17 +55,11 @@ public abstract class CSSBaseUI extends DrawUI {
   }
 
   @Override
-  public void outline(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void outline(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
     cssOutline(c, g2, rect, props);
   }
 
-  public void cssOutline(ModernComponent c, 
-      Graphics2D g2, 
-      IntRect rect,
-      Props props) {
+  public void cssOutline(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
     if (g2.getColor() == null || g2.getColor().getAlpha() == 0) {
       return;
     }
@@ -97,16 +84,27 @@ public abstract class CSSBaseUI extends DrawUI {
   }
 
   public static int cssRounding(ModernComponent c, int h) {
-    CSSProp p = getStyle(c).getProp("border-radius");
+    Object p = getStyle(c).get("border-radius");
 
-    int rounding;
+    System.err.println(p.getClass().getSimpleName());
 
-    switch (p.getType()) {
-    case NUM:
-      rounding = p.getInt();
+    int rounding = 0;
+
+    switch (p.getClass().getSimpleName()) {
+    case "Integer":
+      rounding = (int) p;
       break;
-    case PERCENT:
-      rounding = Math.min(h, (int) Math.round(p.getFloat() / 100 * h));
+    case "CSSProp":
+      CSSProp prop = (CSSProp) p;
+
+      switch (prop.getType()) {
+      case PERCENT:
+        rounding = Math.min(h, (int) Math.round(prop.getFloat() / 100 * h));
+        break;
+      default:
+        rounding = 0;
+        break;
+      }
       break;
     default:
       rounding = 0;

@@ -68,8 +68,7 @@ import org.jebtk.modern.text.ModernTextField;
 /**
  * The class ModernComboBox.
  */
-public class ModernComboBox2 extends ModernDropDownWidget2
-    implements KeyListener, DocumentListener {
+public class ModernComboBox2 extends ModernDropDownWidget2 implements KeyListener, DocumentListener {
 
   /**
    * The constant serialVersionUID.
@@ -107,8 +106,8 @@ public class ModernComboBox2 extends ModernDropDownWidget2
   /**
    * The constant DOWN_ARROW_ICON.
    */
-  public static final ModernIcon DOWN_ARROW_ICON = AssetService.getInstance()
-      .loadIcon(TriangleDownVectorIcon.class, 16);
+  public static final ModernIcon DOWN_ARROW_ICON = AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class,
+      16);
 
   /**
    * The member editable.
@@ -191,8 +190,7 @@ public class ModernComboBox2 extends ModernDropDownWidget2
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -227,8 +225,7 @@ public class ModernComboBox2 extends ModernDropDownWidget2
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -252,8 +249,8 @@ public class ModernComboBox2 extends ModernDropDownWidget2
   /*
    * private class PopupActions implements PopupMenuListener {
    * 
-   * public final void popupMenuCanceled(PopupMenuEvent e) { mPopupShown =
-   * false; setHighlighted(false);
+   * public final void popupMenuCanceled(PopupMenuEvent e) { mPopupShown = false;
+   * setHighlighted(false);
    * 
    * }
    * 
@@ -262,8 +259,8 @@ public class ModernComboBox2 extends ModernDropDownWidget2
    * 
    * }
    * 
-   * public final void popupMenuWillBecomeVisible(PopupMenuEvent e) { //reset();
-   * } }
+   * public final void popupMenuWillBecomeVisible(PopupMenuEvent e) { //reset(); }
+   * }
    */
 
   /**
@@ -303,7 +300,7 @@ public class ModernComboBox2 extends ModernDropDownWidget2
    * Instantiates a new modern combo box.
    *
    * @param items the items
-   * @param size the size
+   * @param size  the size
    */
   public ModernComboBox2(List<String> items, Dimension size) {
     this(items);
@@ -323,7 +320,7 @@ public class ModernComboBox2 extends ModernDropDownWidget2
   /**
    * Instantiates a new modern combo box.
    *
-   * @param text the text
+   * @param text  the text
    * @param popup the popup
    */
   public ModernComboBox2(String text, ModernPopupMenu2 popup) {
@@ -366,7 +363,7 @@ public class ModernComboBox2 extends ModernDropDownWidget2
     resize();
 
     addStyleClass("content-box", "combobox", "content-outline-highlight");
-    
+
     addAnimations("combobox2");
   }
 
@@ -384,8 +381,8 @@ public class ModernComboBox2 extends ModernDropDownWidget2
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { IntRect buttonRect
-   * = new IntRect(mButtonX, mRect.getY(), BUTTON_WIDTH, mRect.getH());
+   * @Override public void drawBackgroundAA(Graphics2D g2) { IntRect buttonRect =
+   * new IntRect(mButtonX, mRect.getY(), BUTTON_WIDTH, mRect.getH());
    * 
    * getWidgetRenderer().drawBackground(g2, mInternalRect);
    * 
@@ -406,11 +403,9 @@ public class ModernComboBox2 extends ModernDropDownWidget2
    * 
    * //paintSelected(g2, buttonRect); getWidgetRenderer().drawButtonOutline(g2,
    * mRect, RenderMode.SELECTED); getWidgetRenderer().drawButton(g2, buttonRect,
-   * RenderMode.SELECTED); } else { getWidgetRenderer().drawOutline(g2, mRect);
-   * }
+   * RenderMode.SELECTED); } else { getWidgetRenderer().drawOutline(g2, mRect); }
    * 
-   * //paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON,
-   * buttonRect);
+   * //paintImage(this, g2, ModernDropDownMenuButton.DROP_ARROW_ICON, buttonRect);
    * 
    * DOWN_ARROW_ICON.drawIcon(g2, buttonRect.getX(), buttonRect.getY() +
    * (buttonRect.getH() - 16) / 2, 16); }
@@ -419,15 +414,12 @@ public class ModernComboBox2 extends ModernDropDownWidget2
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
     g2.setColor(TEXT_COLOR);
-    g2.drawString(getText(),
-        ModernWidget.PADDING,
-        getTextYPosCenter(g2, getHeight()));
+    g2.drawString(getText(), ModernWidget.PADDING, getTextYPosCenter(g2, getHeight()));
   }
 
   /*
@@ -630,15 +622,11 @@ public class ModernComboBox2 extends ModernDropDownWidget2
 
     mButtonX = getWidth() - insets.right - BUTTON_WIDTH;
 
-    mDisplayText.setBounds(mRect.getX() + TEXT_OFFSET,
-        mRect.getY() + 1,
-        mButtonX - TEXT_OFFSET_2,
-        mRect.getH() - 2);
+    mDisplayText.setBounds(mRect.getX() + TEXT_OFFSET, mRect.getY() + 1, mButtonX - TEXT_OFFSET_2, mRect.getH() - 2);
 
     // Resize the menu items to match the combo width
     for (ModernMenuItem item : mItems) {
-      UI.setSize(item,
-          new Dimension(getWidth(), item.getPreferredSize().height));
+      UI.setSize(item, new Dimension(getWidth(), item.getPreferredSize().height));
     }
 
     repaint();

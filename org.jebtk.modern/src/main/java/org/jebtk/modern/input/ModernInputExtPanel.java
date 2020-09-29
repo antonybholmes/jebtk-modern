@@ -55,8 +55,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernSearchPanel.
  */
-public class ModernInputExtPanel extends ModernPillBorderPanel
-    implements TextProperty {
+public class ModernInputExtPanel extends ModernPillBorderPanel implements TextProperty {
 
   /**
    * The constant serialVersionUID.
@@ -65,8 +64,7 @@ public class ModernInputExtPanel extends ModernPillBorderPanel
 
   /** The m ext button. */
   private ModernButtonWidget mExtButton = new ModernButton(
-      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16))
-      .setButtonStyle(ButtonStyle.CIRCLE); // UIResources.getInstance().loadIcon("binoculars",
+      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16)).setButtonStyle(ButtonStyle.CIRCLE); // UIResources.getInstance().loadIcon("binoculars",
   // 16));
 
   /**
@@ -83,18 +81,17 @@ public class ModernInputExtPanel extends ModernPillBorderPanel
   /**
    * Instantiates a new modern search panel.
    *
-   * @param window the window
-   * @param text the text
+   * @param window    the window
+   * @param text      the text
    * @param delimiter the delimiter
    */
-  public ModernInputExtPanel(ModernWindow window, String text,
-      String delimiter) {
+  public ModernInputExtPanel(ModernWindow window, String text, String delimiter) {
     mWindow = window;
     mDelimiter = delimiter;
 
     UI.setSize(mExtButton, ModernInputPanel.BUTTON_SIZE, ModernInputPanel.BUTTON_SIZE);
-    
-    //mTextField.setBorder(LEFT_BORDER);
+
+    // mTextField.setBorder(LEFT_BORDER);
     add(mTextField);
 
     Box box = HBox.create();
@@ -112,13 +109,12 @@ public class ModernInputExtPanel extends ModernPillBorderPanel
     });
 
     mTextField.setText(text);
-    
+
     addComponentListener(new ComponentAdapter() {
       @Override
       public void componentResized(ComponentEvent e) {
         int b = (getInternalRect().h - ModernInputPanel.BUTTON_SIZE) / 2;
-        setBorder(
-            BorderService.getInstance().createBorder(b, getHeight() / 2, b, b));
+        setBorder(BorderService.getInstance().createBorder(b, getHeight() / 2, b, b));
       }
     });
   }
@@ -127,8 +123,7 @@ public class ModernInputExtPanel extends ModernPillBorderPanel
    * Input ext.
    */
   private void inputExt() {
-    InputExtDialog dialog = new InputExtDialog(mWindow, mTextField.getText(),
-        mDelimiter);
+    InputExtDialog dialog = new InputExtDialog(mWindow, mTextField.getText(), mDelimiter);
 
     dialog.setVisible(true);
 

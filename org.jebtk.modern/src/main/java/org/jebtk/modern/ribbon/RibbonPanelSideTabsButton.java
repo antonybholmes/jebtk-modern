@@ -69,8 +69,7 @@ public class RibbonPanelSideTabsButton extends ModernCheckButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
+   * @see org.abh.lib.ui.modern.button.ModernCheckButton#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

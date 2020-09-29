@@ -58,8 +58,7 @@ import org.jebtk.modern.theme.RenderMode;
  * @author Antony Holmes
  */
 public abstract class ModernClickWidget extends CSSWidget
-    implements ModernClickEventProducer, ModernStateEventProducer,
-    ModernSelectedEventProducer, HighlightEventProducer {
+    implements ModernClickEventProducer, ModernStateEventProducer, ModernSelectedEventProducer, HighlightEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -98,8 +97,7 @@ public abstract class ModernClickWidget extends CSSWidget
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.FocusAdapter#focusLost(java.awt.event.FocusEvent)
+     * @see org.abh.lib.ui.modern.FocusAdapter#focusLost(java.awt.event.FocusEvent)
      */
     @Override
     public void focusLost(FocusEvent e) {
@@ -208,8 +206,8 @@ public abstract class ModernClickWidget extends CSSWidget
   }
 
   /**
-   * Should return true of the click widget supports popup functions and the
-   * popup is visible.
+   * Should return true of the click widget supports popup functions and the popup
+   * is visible.
    * 
    * @return
    */

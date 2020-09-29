@@ -43,8 +43,7 @@ import org.jebtk.modern.ModernWidget;
  * @author Antony Holmes
  *
  */
-public class HorizontalDashedDivider extends ModernWidget
-    implements ComponentListener {
+public class HorizontalDashedDivider extends ModernWidget implements ComponentListener {
 
   /**
    * The constant serialVersionUID.
@@ -64,8 +63,8 @@ public class HorizontalDashedDivider extends ModernWidget
   /**
    * The constant STROKE.
    */
-  private final static BasicStroke STROKE = new BasicStroke(1.0f,
-      BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f, DASH, 0.0f);
+  private final static BasicStroke STROKE = new BasicStroke(1.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 1.0f,
+      DASH, 0.0f);
 
   /**
    * The constant MIN_SIZE.
@@ -75,8 +74,7 @@ public class HorizontalDashedDivider extends ModernWidget
   /**
    * The constant MAX_SIZE.
    */
-  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE,
-      HEIGHT);
+  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
 
   /**
    * The y.
@@ -97,18 +95,14 @@ public class HorizontalDashedDivider extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
     g2.setColor(LINE_COLOR);
 
     g2.setStroke(STROKE);
-    g2.drawLine(getInsets().left,
-        y,
-        getWidth() - getInsets().left - getInsets().right,
-        y);
+    g2.drawLine(getInsets().left, y, getWidth() - getInsets().left - getInsets().right, y);
   }
 
   /*

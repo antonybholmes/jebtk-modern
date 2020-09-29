@@ -39,8 +39,7 @@ import org.jebtk.modern.graphics.icons.WindowMaxVectorIcon;
 /**
  * The class ModernWindowTitleBarMaxButton.
  */
-public class ModernWindowTitleBarMaxButton extends ModernWindowTitleBarWinButton
-    implements ModernClickListener {
+public class ModernWindowTitleBarMaxButton extends ModernWindowTitleBarWinButton implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -63,7 +62,7 @@ public class ModernWindowTitleBarMaxButton extends ModernWindowTitleBarWinButton
    * Instantiates a new modern window title bar max button.
    *
    * @param window the window
-   * @param icon the icon
+   * @param icon   the icon
    */
   public ModernWindowTitleBarMaxButton(ModernWindow window, ModernIcon icon) {
     super(icon);

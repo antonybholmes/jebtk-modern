@@ -35,8 +35,7 @@ import org.jebtk.core.event.ChangeListeners;
  * @author Antony Holmes
  *
  */
-public class TableIndex extends ChangeListeners
-    implements Comparable<TableIndex> {
+public class TableIndex extends ChangeListeners implements Comparable<TableIndex> {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;

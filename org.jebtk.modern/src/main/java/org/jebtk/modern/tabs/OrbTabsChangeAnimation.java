@@ -70,12 +70,10 @@ public class OrbTabsChangeAnimation extends TranslateXAnimation {
     if (previousIndex > selectedIndex) {
       previousIndex = selectedIndex + 1;
     } else {
-      previousIndex = Mathematics
-          .bound(selectedIndex - 1, 0, mTabs.getTabsModel().getTabCount() - 1);
+      previousIndex = Mathematics.bound(selectedIndex - 1, 0, mTabs.getTabsModel().getTabCount() - 1);
     }
 
-    int leftOffset = (mTabs.getWidth()
-        - mTabs.mTabSize * mTabs.mTabWidths.size()) / 2; // mTabs.getInsets().left;
+    int leftOffset = (mTabs.getWidth() - mTabs.mTabSize * mTabs.mTabWidths.size()) / 2; // mTabs.getInsets().left;
 
     int x1 = leftOffset + previousIndex * mTabs.mTabSize;
     int x2 = leftOffset + selectedIndex * mTabs.mTabSize;
@@ -84,9 +82,7 @@ public class OrbTabsChangeAnimation extends TranslateXAnimation {
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget,
-      Graphics2D g2,
-      Props props) {
+  public void drawTranslation(ModernWidget widget, Graphics2D g2, Props props) {
     int h = mTabs.getInternalRect().getH();
 
     /*

@@ -50,8 +50,7 @@ public class RibbonFileMenuPanel extends ModernComponent {
   /**
    * The constant SIZE.
    */
-  public static final Dimension SIZE = new Dimension(RIBBON_MENU_WIDTH,
-      Short.MAX_VALUE);
+  public static final Dimension SIZE = new Dimension(RIBBON_MENU_WIDTH, Short.MAX_VALUE);
 
   /**
    * Instantiates a new ribbon file menu panel.

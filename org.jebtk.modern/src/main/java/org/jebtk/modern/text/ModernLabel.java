@@ -75,7 +75,7 @@ public class ModernLabel extends ModernWidget implements TextProperty {
   /**
    * Instantiates a new modern label panel.
    *
-   * @param text the text
+   * @param text  the text
    * @param color the color
    */
   public ModernLabel(String text, Color color) {
@@ -101,7 +101,7 @@ public class ModernLabel extends ModernWidget implements TextProperty {
   /**
    * Instantiates a new modern label panel.
    *
-   * @param text the text
+   * @param text  the text
    * @param width the width
    */
   public ModernLabel(String text, int width) {
@@ -163,8 +163,6 @@ public class ModernLabel extends ModernWidget implements TextProperty {
     // System.err.println("sdf " + getInsets().top + " " + mInternalRect.getH()
     // + "
     // " + getTextVCenteredYPos(g2, mInternalRect.getH()));
-    g2.drawString(mText,
-        getInsets().left,
-        getInsets().top + getTextYPosCenter(g2, mInternalRect));
+    g2.drawString(mText, getInsets().left, getInsets().top + getTextYPosCenter(g2, mInternalRect));
   }
 }

@@ -44,8 +44,7 @@ import org.jebtk.modern.text.ModernTextField;
 /**
  * The class HtmlColorPanel.
  */
-public class HtmlColorPanel extends ModernWidget
-    implements KeyListener, ChangeListener {
+public class HtmlColorPanel extends ModernWidget implements KeyListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -87,14 +86,12 @@ public class HtmlColorPanel extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override
   public void changed(ChangeEvent e) {
-    mColorField.setText(ColorUtils
-        .toHtml(ColorValue.convert(mModel.getNewColor())).substring(1));
+    mColorField.setText(ColorUtils.toHtml(ColorValue.convert(mModel.getNewColor())).substring(1));
   }
 
   /*
@@ -135,7 +132,6 @@ public class HtmlColorPanel extends ModernWidget
    * @return the color
    */
   public ColorValue getColor() {
-    return ColorValue
-        .convert(ColorUtils.decodeHtmlColor(mColorField.getText()));
+    return ColorValue.convert(ColorUtils.decodeHtmlColor(mColorField.getText()));
   }
 }

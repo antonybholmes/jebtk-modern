@@ -13,8 +13,9 @@ public class CSSFillAnimation extends HoverFadeAnimation {
     super(button);
 
     if (button.getFromKeyFrame().contains("background-color")) {
-      setFadeColor("fill",
-          button.getFromKeyFrame().getColor("background-color"),
+      System.err.println("fggf " + button.getFromKeyFrame().getColor("background-color") + " "
+          + button.getToKeyFrame().getColor("background-color"));
+      setFadeColor("fill", button.getFromKeyFrame().getColor("background-color"),
           button.getToKeyFrame().getColor("background-color"));
     } else {
       setFadeColor("fill", button.getToKeyFrame().getColor("background-color"));
@@ -36,12 +37,13 @@ public class CSSFillAnimation extends HoverFadeAnimation {
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
     if (c.isEnabled()) {
       // update so that we don't keep triggering repaints()
-      
+
       if (c.isSelected()) {
         // c.getToKeyFrame().update("background-color", getToColor("fill"));
 
         c.getCSSProps().update("background-color", getToColor("fill"));
       } else {
+        System.err.println("sdfsdf " + getFadeColor("fill"));
         c.getCSSProps().update("background-color", getFadeColor("fill"));
       }
 
@@ -49,7 +51,7 @@ public class CSSFillAnimation extends HoverFadeAnimation {
       // fill(g2, widget, rect.getX(), rect.getY(), rect.getW(), rect.getH());
     }
   }
-  
+
 //  public void fill(ModernWidget c, Graphics2D g2, int x, int y, int w, int h) {
 //    DrawUIService.getInstance().getRenderer(NAME)
 //        .draw(g2, x, y, w, h, getFadeColor("fill"));

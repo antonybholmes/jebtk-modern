@@ -71,15 +71,14 @@ public class RibbonSegmentHighlightAnimation extends HighlightAnimation {
     //
 
     if (highlighted > -1 && highlighted < n) { // highlighted != selectedIndex
-                                               // &&
+      // &&
       y1 = y + mSegments.mHighlight * RibbonSegmentVertTabs.TAB_SIZE;
 
       // g2.setColor(getFade().getFadeColor("highlight"));
       // g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
 
       DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-          new IntRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE),
-          getFadeColor("highlight"));
+          new IntRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE), getFadeColor("highlight"));
     }
   }
 }

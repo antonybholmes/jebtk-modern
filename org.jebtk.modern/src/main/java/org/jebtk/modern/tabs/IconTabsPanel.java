@@ -29,12 +29,11 @@ public class IconTabsPanel extends ModernComponent {
   /**
    * Instantiates a new segment tabs panel.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model    the model
+   * @param tabSize  the tab size
    * @param iconSize The icon size
    */
   public IconTabsPanel(TabsModel model, int tabSize, int iconSize) {
-    
 
     TabsViewPanel panel = new TabsViewPanel(model);
     // panel.setBorder(0);

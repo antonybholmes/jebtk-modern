@@ -56,8 +56,7 @@ public class WindowResizer extends MouseAdapter {
   /**
    * The constant MAXIMUM_SIZE.
    */
-  private final static Dimension MAXIMUM_SIZE = new Dimension(Integer.MAX_VALUE,
-      Integer.MAX_VALUE);
+  private final static Dimension MAXIMUM_SIZE = new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE);
 
   /**
    * The cursors.
@@ -149,8 +148,8 @@ public class WindowResizer extends MouseAdapter {
 
   /**
    * Convenience contructor. All borders are resizable in increments of a single
-   * pixel. Components can be registered when the class is created or they can
-   * be registered separately afterwards.
+   * pixel. Components can be registered when the class is created or they can be
+   * registered separately afterwards.
    *
    * @param component the component
    */
@@ -160,12 +159,11 @@ public class WindowResizer extends MouseAdapter {
 
   /**
    * Convenience contructor. Eligible borders are resisable in increments of a
-   * single pixel. Components can be registered when the class is created or
-   * they can be registered separately afterwards.
+   * single pixel. Components can be registered when the class is created or they
+   * can be registered separately afterwards.
    *
-   * @param dragInsets Insets specifying which borders are eligible to be
-   *          resized.
-   * @param component the component
+   * @param dragInsets Insets specifying which borders are eligible to be resized.
+   * @param component  the component
    */
   public WindowResizer(Insets dragInsets, Window component) {
     this(dragInsets, new Dimension(1, 1), component);
@@ -174,14 +172,12 @@ public class WindowResizer extends MouseAdapter {
   /**
    * Create a ComponentResizer.
    *
-   * @param dragInsets Insets specifying which borders are eligible to be
-   *          resized.
-   * @param snapSize Specify the dimension to which the border will snap to when
-   *          being dragged. Snapping occurs at the halfway mark.
-   * @param component the component
+   * @param dragInsets Insets specifying which borders are eligible to be resized.
+   * @param snapSize   Specify the dimension to which the border will snap to when
+   *                   being dragged. Snapping occurs at the halfway mark.
+   * @param component  the component
    */
-  public WindowResizer(Insets dragInsets, Dimension snapSize,
-      Window component) {
+  public WindowResizer(Insets dragInsets, Dimension snapSize, Window component) {
     setDragInsets(dragInsets);
     setSnapSize(snapSize);
     registerComponent(component);
@@ -197,11 +193,10 @@ public class WindowResizer extends MouseAdapter {
   }
 
   /**
-   * Set the drag dragInsets. The insets specify an area where mouseDragged
-   * events are recognized from the edge of the border inwards. A value of 0 for
-   * any size will imply that the border is not resizable. Otherwise the
-   * appropriate drag cursor will appear when the mouse is inside the resizable
-   * border area.
+   * Set the drag dragInsets. The insets specify an area where mouseDragged events
+   * are recognized from the edge of the border inwards. A value of 0 for any size
+   * will imply that the border is not resizable. Otherwise the appropriate drag
+   * cursor will appear when the mouse is inside the resizable border area.
    *
    * @param dragInsets the new drag insets
    */
@@ -295,8 +290,8 @@ public class WindowResizer extends MouseAdapter {
    * component is changed. The border will snap to the size once dragging has
    * passed the halfway mark.
    *
-   * @param snapSize Dimension object allows you to separately spcify a
-   *          horizontal and vertical snap size.
+   * @param snapSize Dimension object allows you to separately spcify a horizontal
+   *                 and vertical snap size.
    */
   public void setSnapSize(Dimension snapSize) {
     mSnapSize = snapSize;
@@ -308,7 +303,7 @@ public class WindowResizer extends MouseAdapter {
    * happening.
    *
    * @param minimum the minimum
-   * @param drag the drag
+   * @param drag    the drag
    */
   private void validateMinimumAndInsets(Dimension minimum, Insets drag) {
     int minimumWidth = drag.left + drag.right;
@@ -424,8 +419,8 @@ public class WindowResizer extends MouseAdapter {
    * parent container and that the size is within the minimum and maximum
    * constraints.
    * 
-   * All calculations are done using the bounds of the component when the
-   * resizing started.
+   * All calculations are done using the bounds of the component when the resizing
+   * started.
    *
    * @param e the e
    */
@@ -446,31 +441,24 @@ public class WindowResizer extends MouseAdapter {
    * Change bounds.
    *
    * @param direction the direction
-   * @param bounds the bounds
-   * @param pressed the pressed
-   * @param current the current
+   * @param bounds    the bounds
+   * @param pressed   the pressed
+   * @param current   the current
    */
-  protected void changeBounds(int direction,
-      Rectangle bounds,
-      Point pressed,
-      Point current) {
+  protected void changeBounds(int direction, Rectangle bounds, Point pressed, Point current) {
     changeBounds(mWindow, direction, bounds, pressed, current);
   }
 
   /**
    * Change bounds.
    *
-   * @param source the source
+   * @param source    the source
    * @param direction the direction
-   * @param bounds the bounds
-   * @param pressed the pressed
-   * @param current the current
+   * @param bounds    the bounds
+   * @param pressed   the pressed
+   * @param current   the current
    */
-  protected void changeBounds(Component source,
-      int direction,
-      Rectangle bounds,
-      Point pressed,
-      Point current) {
+  protected void changeBounds(Component source, int direction, Rectangle bounds, Point pressed, Point current) {
     // Start with original locaton and size
 
     int x = bounds.x;
@@ -489,11 +477,7 @@ public class WindowResizer extends MouseAdapter {
     if (WEST == (direction & WEST)) {
       int drag = getDragDistance(pressed.x, current.x, mSnapSize.width);
       int maximum = Math.min(width + x, mMaximumSize.width);
-      drag = getDragBounded(drag,
-          mSnapSize.width,
-          width,
-          mMinimumSize.width,
-          maximum);
+      drag = getDragBounded(drag, mSnapSize.width, width, mMinimumSize.width, maximum);
 
       x -= drag;
       width += drag;
@@ -502,11 +486,7 @@ public class WindowResizer extends MouseAdapter {
     if (NORTH == (direction & NORTH)) {
       int drag = getDragDistance(pressed.y, current.y, mSnapSize.height);
       int maximum = Math.min(height + y, mMaximumSize.height);
-      drag = getDragBounded(drag,
-          mSnapSize.height,
-          height,
-          mMinimumSize.height,
-          maximum);
+      drag = getDragBounded(drag, mSnapSize.height, height, mMinimumSize.height, maximum);
 
       y -= drag;
       height += drag;
@@ -520,11 +500,7 @@ public class WindowResizer extends MouseAdapter {
       if (bound) {
         Dimension boundingSize = getBoundingSize(env, source);
         int maximum = Math.min(boundingSize.width - x, mMaximumSize.width);
-        drag = getDragBounded(drag,
-            mSnapSize.width,
-            width,
-            mMinimumSize.width,
-            maximum);
+        drag = getDragBounded(drag, mSnapSize.width, width, mMinimumSize.width, maximum);
       }
 
       width += drag;
@@ -536,11 +512,7 @@ public class WindowResizer extends MouseAdapter {
       if (bound) {
         Dimension boundingSize = getBoundingSize(env, source);
         int maximum = Math.min(boundingSize.height - y, mMaximumSize.height);
-        drag = getDragBounded(drag,
-            mSnapSize.height,
-            height,
-            mMinimumSize.height,
-            maximum);
+        drag = getDragBounded(drag, mSnapSize.height, height, mMinimumSize.height, maximum);
       }
 
       height += drag;
@@ -554,8 +526,8 @@ public class WindowResizer extends MouseAdapter {
   /**
    * Gets the drag distance.
    *
-   * @param larger the larger
-   * @param smaller the smaller
+   * @param larger   the larger
+   * @param smaller  the smaller
    * @param snapSize the snap size
    * @return the drag distance
    */
@@ -574,21 +546,17 @@ public class WindowResizer extends MouseAdapter {
   /**
    * Gets the drag bounded.
    *
-   * @param drag the drag
-   * @param snapSize the snap size
+   * @param drag      the drag
+   * @param snapSize  the snap size
    * @param dimension the dimension
-   * @param minimum the minimum
-   * @param maximum the maximum
+   * @param minimum   the minimum
+   * @param maximum   the maximum
    * @return the drag bounded
    */
   /*
    * Adjust the drag value to be within the minimum and maximum range.
    */
-  private static int getDragBounded(int drag,
-      int snapSize,
-      int dimension,
-      int minimum,
-      int maximum) {
+  private static int getDragBounded(int drag, int snapSize, int dimension, int minimum, int maximum) {
     while (dimension + drag < minimum) {
       drag += snapSize;
     }
@@ -603,15 +571,14 @@ public class WindowResizer extends MouseAdapter {
   /**
    * Gets the bounding size.
    *
-   * @param env the env
+   * @param env    the env
    * @param source the source
    * @return the bounding size
    */
   /*
    * Keep the size of the component within the bounds of its parent.
    */
-  private static Dimension getBoundingSize(GraphicsEnvironment env,
-      Component source) {
+  private static Dimension getBoundingSize(GraphicsEnvironment env, Component source) {
     if (source instanceof Window) {
       Rectangle bounds = env.getMaximumWindowBounds();
       return new Dimension(bounds.width, bounds.height);

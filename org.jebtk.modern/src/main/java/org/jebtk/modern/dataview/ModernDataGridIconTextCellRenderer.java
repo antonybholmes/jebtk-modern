@@ -33,8 +33,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 /**
  * The class ModernDataGridIconTextCellRenderer.
  */
-public abstract class ModernDataGridIconTextCellRenderer
-    extends ModernDataCellRenderer {
+public abstract class ModernDataGridIconTextCellRenderer extends ModernDataCellRenderer {
 
   /**
    * The constant serialVersionUID.

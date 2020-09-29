@@ -47,8 +47,7 @@ import org.jebtk.modern.event.HighlightListeners;
  * @author Antony Holmes
  *
  */
-public class TabsPanel extends TabsController
-    implements HighlightEventProducer {
+public class TabsPanel extends TabsController implements HighlightEventProducer {
 
   private static final long serialVersionUID = 1L;
 
@@ -105,7 +104,7 @@ public class TabsPanel extends TabsController
   /**
    * Instantiates a new text tabs.
    *
-   * @param model the model
+   * @param model  the model
    * @param center the center
    */
   public TabsPanel(TabsModel model) {
@@ -198,7 +197,6 @@ public class TabsPanel extends TabsController
   public void fireHighlighted(HighlightEvent e) {
     mHighlightListeners.fireHighlighted(e);
   }
-  
 
   public int getHighlightIndex() {
     return mHighlight;

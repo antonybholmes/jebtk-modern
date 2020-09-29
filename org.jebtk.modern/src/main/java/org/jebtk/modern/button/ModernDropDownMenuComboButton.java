@@ -54,8 +54,7 @@ public class ModernDropDownMenuComboButton extends ModernDropDownButton {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -80,11 +79,10 @@ public class ModernDropDownMenuComboButton extends ModernDropDownButton {
    * Instantiates a new modern drop down menu combo button.
    *
    * @param text1 the text1
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public ModernDropDownMenuComboButton(String text1, ModernIcon icon,
-      ModernPopupMenu menu) {
+  public ModernDropDownMenuComboButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
     super(text1, icon, menu);
 
     setup();
@@ -94,7 +92,7 @@ public class ModernDropDownMenuComboButton extends ModernDropDownButton {
    * Instantiates a new modern drop down menu combo button.
    *
    * @param text1 the text1
-   * @param menu the menu
+   * @param menu  the menu
    */
   public ModernDropDownMenuComboButton(String text1, ModernPopupMenu menu) {
     super(text1, menu);

@@ -17,7 +17,7 @@ public class CSSNumProp extends CSSProp {
   public double getFloat() {
     return mV;
   }
-  
+
   @Override
   public String toString() {
     return Double.toString(mV);

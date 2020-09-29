@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ModernSelectedListeners
-    extends EventProducer<ModernSelectedListener>
+public class ModernSelectedListeners extends EventProducer<ModernSelectedListener>
     implements ModernSelectedEventProducer {
 
   /**

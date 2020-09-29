@@ -43,12 +43,7 @@ public class HideLeftVectorIcon extends HideVectorIcon {
    * Graphics2D, java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     super.drawIcon(g2, x, y, w, h, props);
 
     double wf = w * WIDTH_SCALE;
@@ -58,13 +53,7 @@ public class HideLeftVectorIcon extends HideVectorIcon {
     double xf = x + (wf - hf) / 2.0;
     double yf = y + (hf - wf) / 2.0;
 
-    g2.drawLine((int) Math.round(xf),
-        (int) Math.round(yf + w2),
-        (int) Math.round(xf + hf),
-        (int) Math.round(yf));
-    g2.drawLine((int) Math.round(xf),
-        (int) Math.round(yf + w2),
-        (int) Math.round(xf + hf),
-        (int) Math.round(yf + wf));
+    g2.drawLine((int) Math.round(xf), (int) Math.round(yf + w2), (int) Math.round(xf + hf), (int) Math.round(yf));
+    g2.drawLine((int) Math.round(xf), (int) Math.round(yf + w2), (int) Math.round(xf + hf), (int) Math.round(yf + wf));
   }
 }

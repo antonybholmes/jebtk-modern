@@ -41,8 +41,7 @@ import org.jebtk.modern.event.ModernStateListener;
  * @author Antony Holmes
  *
  */
-public class ModernButtonGroup
-    implements ModernClickListener, ModernStateListener {
+public class ModernButtonGroup implements ModernClickListener, ModernStateListener {
 
   /**
    * The buttons.
@@ -110,8 +109,7 @@ public class ModernButtonGroup
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override
@@ -123,8 +121,8 @@ public class ModernButtonGroup
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib.
-   * ui. modern.event.ModernStateEvent)
+   * org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib. ui.
+   * modern.event.ModernStateEvent)
    */
   @Override
   public void stateChanged(ModernStateEvent e) {

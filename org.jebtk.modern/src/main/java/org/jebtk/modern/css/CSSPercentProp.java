@@ -11,12 +11,12 @@ public class CSSPercentProp extends CSSNumProp {
   public String toString() {
     return mV + "%";
   }
-  
+
   @Override
   public CSSUnit getUnit() {
     return CSSUnit.PERCENT;
   }
-  
+
   @Override
   public CSSPropType getType() {
     return CSSPropType.PERCENT;

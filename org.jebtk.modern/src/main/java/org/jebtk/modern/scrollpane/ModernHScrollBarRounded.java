@@ -82,11 +82,7 @@ public class ModernHScrollBarRounded extends ModernHScrollBar {
     try {
       g2Temp.setColor(ROUNDED_SCROLLBAR_BACKGROUND_COLOR);
 
-      g2Temp.fillRoundRect(getInsets().left,
-          getInsets().top,
-          mInternalRect.getW(),
-          mIternalFixedDim,
-          rounding,
+      g2Temp.fillRoundRect(getInsets().left, getInsets().top, mInternalRect.getW(), mIternalFixedDim, rounding,
           rounding);
     } finally {
       g2Temp.dispose();

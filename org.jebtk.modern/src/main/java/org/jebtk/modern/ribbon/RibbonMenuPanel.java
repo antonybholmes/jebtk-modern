@@ -74,7 +74,7 @@ public class RibbonMenuPanel extends ModernClickWidget {
   /**
    * Instantiates a new ribbon menu panel.
    *
-   * @param name the name
+   * @param name   the name
    * @param layout the layout
    */
   public RibbonMenuPanel(String name, BorderLayout layout) {

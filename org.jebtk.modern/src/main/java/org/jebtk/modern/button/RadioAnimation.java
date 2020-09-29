@@ -11,8 +11,7 @@ import org.jebtk.modern.graphics.ImageUtils;
 
 public class RadioAnimation extends WidgetAnimation {
 
-  public static final double RADIO_SCALE = SettingsService.getInstance()
-      .getDouble("theme.icons.radio-icon.scale");
+  public static final double RADIO_SCALE = SettingsService.getInstance().getDouble("theme.icons.radio-icon.scale");
 
   public static int RADIO_SIZE = ModernCheckSwitch.SLIDER_HEIGHT - 2;
   private int w2;
@@ -29,11 +28,7 @@ public class RadioAnimation extends WidgetAnimation {
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
     try {
-      drawOutline(g2Temp,
-          x,
-          y,
-          RadioAnimation.RADIO_SIZE,
-          RadioAnimation.RADIO_SIZE);
+      drawOutline(g2Temp, x, y, RadioAnimation.RADIO_SIZE, RadioAnimation.RADIO_SIZE);
     } finally {
       g2Temp.dispose();
     }

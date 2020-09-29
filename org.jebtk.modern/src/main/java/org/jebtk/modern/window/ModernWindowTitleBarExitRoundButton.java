@@ -39,8 +39,7 @@ import org.jebtk.modern.event.ModernClickListener;
 /**
  * The class ModernWindowTitleBarCloseButton.
  */
-public class ModernWindowTitleBarExitRoundButton
-    extends ModernWindowTitleBarRoundButton {
+public class ModernWindowTitleBarExitRoundButton extends ModernWindowTitleBarRoundButton {
 
   /**
    * The constant serialVersionUID.
@@ -68,13 +67,11 @@ public class ModernWindowTitleBarExitRoundButton
     addClickListener(new ModernClickListener() {
       @Override
       public void clicked(ModernClickEvent e) {
-        mWindow.dispatchEvent(
-            new WindowEvent(mWindow, WindowEvent.WINDOW_CLOSING));
+        mWindow.dispatchEvent(new WindowEvent(mWindow, WindowEvent.WINDOW_CLOSING));
       }
     });
 
-    setToolTip("Close " + window.getAppInfo().getName(),
-        "Exit the application.");
+    setToolTip("Close " + window.getAppInfo().getName(), "Exit the application.");
   }
 
   /*

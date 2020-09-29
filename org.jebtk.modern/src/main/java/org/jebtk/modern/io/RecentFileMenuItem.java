@@ -69,8 +69,7 @@ public class RecentFileMenuItem extends ModernTwoLineMenuItem {
    * @param date the date
    */
   public RecentFileMenuItem(Path file, Date date) {
-    this(file, date,
-        AssetService.getInstance().loadIcon(FileVectorIcon.class, 32));
+    this(file, date, AssetService.getInstance().loadIcon(FileVectorIcon.class, 32));
 
   }
 
@@ -82,8 +81,7 @@ public class RecentFileMenuItem extends ModernTwoLineMenuItem {
    * @param icon the icon
    */
   public RecentFileMenuItem(Path file, Date date, ModernIcon icon) {
-    super(PathUtils.toString(file.getFileName()),
-        PathUtils.toString(file.getParent()), icon);
+    super(PathUtils.toString(file.getFileName()), PathUtils.toString(file.getParent()), icon);
 
     mFile = file;
     mDate = date;
@@ -108,8 +106,7 @@ public class RecentFileMenuItem extends ModernTwoLineMenuItem {
     int x;
 
     String dateText = new SimpleDateFormat(SDF).format(mDate);
-    int rightOffset = getWidth() - getStringWidth(FONT, dateText)
-        - DOUBLE_PADDING;
+    int rightOffset = getWidth() - getStringWidth(FONT, dateText) - DOUBLE_PADDING;
 
     if (mIcon != null) {
       x = iconX + mIcon.getWidth() + PADDING;

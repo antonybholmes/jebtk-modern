@@ -46,8 +46,7 @@ public class ModernSideButton extends ModernButton {
   /**
    * The constant SIZE.
    */
-  private static final Dimension SIZE = ModernTheme
-      .loadDimension("theme/button/dimensions/side-button");
+  private static final Dimension SIZE = ModernTheme.loadDimension("theme/button/dimensions/side-button");
 
   /**
    * Instantiates a new modern side button.

@@ -30,7 +30,6 @@ package org.jebtk.modern.window;
 import org.jebtk.modern.contentpane.ModernHContentPane;
 import org.jebtk.modern.tabs.TabsModel;
 
-
 public class WindowLeftTabNav extends WindowTabNav {
   /**
    * Instantiates a new modern dialog window.

@@ -52,8 +52,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  * @author Antony Holmes
  *
  */
-public class ModernOutlookVerticalTabs extends TabsController
-    implements ModernClickListener, ComponentListener {
+public class ModernOutlookVerticalTabs extends TabsController implements ModernClickListener, ComponentListener {
 
   /**
    * The constant serialVersionUID.
@@ -137,9 +136,7 @@ public class ModernOutlookVerticalTabs extends TabsController
    * @param name the name
    */
   private final void addTab(String name) {
-    addTab(name,
-        AssetService.getInstance().loadIcon("blank",
-            AssetService.ICON_SIZE_16));
+    addTab(name, AssetService.getInstance().loadIcon("blank", AssetService.ICON_SIZE_16));
   }
 
   /**
@@ -150,7 +147,7 @@ public class ModernOutlookVerticalTabs extends TabsController
    */
   private final void addTab(String name, ModernIcon icon) {
     ModernClickWidget button = new TabButton(name, icon); // VerticalTabsModernCheckButton(name,
-                                                          // JLabel.LEFT);
+    // JLabel.LEFT);
 
     addTab(button);
   }
@@ -205,8 +202,7 @@ public class ModernOutlookVerticalTabs extends TabsController
     for (int i = 0; i < buttons.size(); ++i) {
       bounds = buttons.get(i).getBounds();
 
-      bounds.y = getInsets().top + mInternalRect.getH() - buttonHeight
-          + TOTAL_TAB_HEIGHT * i;
+      bounds.y = getInsets().top + mInternalRect.getH() - buttonHeight + TOTAL_TAB_HEIGHT * i;
       bounds.width = mInternalRect.getW();
       bounds.x = getInsets().left;
 
@@ -231,15 +227,13 @@ public class ModernOutlookVerticalTabs extends TabsController
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
     Rectangle r = new Rectangle(mInternalRect.getX(),
-        getInsets().top + mInternalRect.getH()
-            - TOTAL_TAB_HEIGHT * buttons.size() - HALF_GAP,
-        mInternalRect.getW() - 1, 1);
+        getInsets().top + mInternalRect.getH() - TOTAL_TAB_HEIGHT * buttons.size() - HALF_GAP, mInternalRect.getW() - 1,
+        1);
 
     g2.setColor(LINE_COLOR);
 
@@ -270,8 +264,7 @@ public class ModernOutlookVerticalTabs extends TabsController
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {

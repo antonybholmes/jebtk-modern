@@ -31,12 +31,9 @@ public class CSSCircleDrawUI extends CSSDrawUI {
   public String getName() {
     return "css-circle";
   }
-  
+
   @Override
-  public void fill(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void fill(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
     int mw = Math.min(rect.w, rect.h);
 
     int x = (rect.w - mw) / 2;
@@ -53,24 +50,14 @@ public class CSSCircleDrawUI extends CSSDrawUI {
   }
 
   /*
-  @Override
-  public void draw(Graphics2D g2,
-      ModernComponent c,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
-    
-    super.draw(g2, c, x, y, w, h, Color.WHITE);
-
-    if (props.length > 0) {
-      g2.setColor((Color) props[0]);
-    } else {
-      g2.setColor(getStyle(c).getColor("border-color"));
-    }
-    
-    g2.drawRoundRect(x, y, w - 1, h - 1, h, h);
-  }
-  */
+   * @Override public void draw(Graphics2D g2, ModernComponent c, int x, int y,
+   * int w, int h, Props props) {
+   * 
+   * super.draw(g2, c, x, y, w, h, Color.WHITE);
+   * 
+   * if (props.length > 0) { g2.setColor((Color) props[0]); } else {
+   * g2.setColor(getStyle(c).getColor("border-color")); }
+   * 
+   * g2.drawRoundRect(x, y, w - 1, h - 1, h, h); }
+   */
 }

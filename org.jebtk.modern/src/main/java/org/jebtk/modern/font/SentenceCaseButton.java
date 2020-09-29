@@ -53,26 +53,22 @@ public class SentenceCaseButton extends RibbonDropDownIconButton {
   /**
    * The sentence case modern menu item.
    */
-  private ModernIconMenuItem sentenceCaseModernMenuItem = new ModernIconMenuItem(
-      SentenceCase.FONT_CASES[0]);
+  private ModernIconMenuItem sentenceCaseModernMenuItem = new ModernIconMenuItem(SentenceCase.FONT_CASES[0]);
 
   /**
    * The upper case modern menu item.
    */
-  private ModernIconMenuItem upperCaseModernMenuItem = new ModernIconMenuItem(
-      SentenceCase.FONT_CASES[1]);
+  private ModernIconMenuItem upperCaseModernMenuItem = new ModernIconMenuItem(SentenceCase.FONT_CASES[1]);
 
   /**
    * The lower case modern menu item.
    */
-  private ModernIconMenuItem lowerCaseModernMenuItem = new ModernIconMenuItem(
-      SentenceCase.FONT_CASES[2]);
+  private ModernIconMenuItem lowerCaseModernMenuItem = new ModernIconMenuItem(SentenceCase.FONT_CASES[2]);
 
   /**
    * The capitalize modern menu item.
    */
-  private ModernIconMenuItem capitalizeModernMenuItem = new ModernIconMenuItem(
-      SentenceCase.FONT_CASES[3]);
+  private ModernIconMenuItem capitalizeModernMenuItem = new ModernIconMenuItem(SentenceCase.FONT_CASES[3]);
 
   /**
    * The remove case item.
@@ -92,8 +88,7 @@ public class SentenceCaseButton extends RibbonDropDownIconButton {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -119,8 +114,7 @@ public class SentenceCaseButton extends RibbonDropDownIconButton {
    * Instantiates a new sentence case button.
    */
   public SentenceCaseButton() {
-    super(AssetService.getInstance().loadIcon("font_case",
-        AssetService.ICON_SIZE_16));
+    super(AssetService.getInstance().loadIcon("font_case", AssetService.ICON_SIZE_16));
 
     setup();
   }

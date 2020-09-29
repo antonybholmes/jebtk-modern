@@ -93,8 +93,7 @@ import org.jebtk.modern.window.ModernWindowTitleBar;
  * The Class Ribbon.
  */
 public class Ribbon extends ModernClickWidget
-    implements RibbonModeProperty, TabEventProducer, TabEventListener,
-    HighlightEventProducer, ModernToolTipListener {
+    implements RibbonModeProperty, TabEventProducer, TabEventListener, HighlightEventProducer, ModernToolTipListener {
 
   /**
    * The constant serialVersionUID.
@@ -104,9 +103,7 @@ public class Ribbon extends ModernClickWidget
   static {
     AnimationService.getInstance().get("ribbon").add(RibbonAnimation.class)
         // .add(RibbonPressedAnimation.class)
-        .add(RibbonHighlightAnimation.class)
-        .add(RibbonChangeAnimation.class)
-        .add(RibbonHighlightTextAnimation.class);
+        .add(RibbonHighlightAnimation.class).add(RibbonChangeAnimation.class).add(RibbonHighlightTextAnimation.class);
   }
 
   /** The Constant HOME_TOOLBAR. */
@@ -117,7 +114,7 @@ public class Ribbon extends ModernClickWidget
 
   /** The border between the window and where the ribbon starts. */
   public static final int Y_OFFSET = 0; // (UI.CUSTOM_WINDOW_DECORATION ?
-                                        // TAB_HEIGHT : 0); // +1;
+  // TAB_HEIGHT : 0); // +1;
 
   /** The y position where tabs start. */
   public static final int TAB_BODY_Y = Y_OFFSET + TAB_HEIGHT;
@@ -135,8 +132,7 @@ public class Ribbon extends ModernClickWidget
   public static final int MIN_BUTTON_WIDTH = 50;
 
   /** The Constant MIN_COMPACT_BUTTON_WIDTH. */
-  public static final int MIN_COMPACT_BUTTON_WIDTH = Mathematics
-      .makeMult2(1.5 * COMPACT_TOOLBAR_HEIGHT);
+  public static final int MIN_COMPACT_BUTTON_WIDTH = Mathematics.makeMult2(1.5 * COMPACT_TOOLBAR_HEIGHT);
 
   /**
    * The constant TOOLBAR_HEIGHT.
@@ -156,8 +152,7 @@ public class Ribbon extends ModernClickWidget
   /**
    * The constant QUICK_BUTTON_Y.
    */
-  private static final int QUICK_BUTTON_Y = Y_OFFSET
-      + (TAB_HEIGHT - WIDGET_HEIGHT) / 2;
+  private static final int QUICK_BUTTON_Y = Y_OFFSET + (TAB_HEIGHT - WIDGET_HEIGHT) / 2;
 
   /**
    * The constant LARGE_BUTTON_HEIGHT.
@@ -176,48 +171,41 @@ public class Ribbon extends ModernClickWidget
   /**
    * The constant DEFAULT_BUTTON_SIZE.
    */
-  public static final Dimension DEFAULT_BUTTON_SIZE = new Dimension(
-      LARGE_BUTTON_WIDTH, LARGE_BUTTON_HEIGHT);
+  public static final Dimension DEFAULT_BUTTON_SIZE = new Dimension(LARGE_BUTTON_WIDTH, LARGE_BUTTON_HEIGHT);
 
   /**
    * The constant TINY_BUTTON_SIZE.
    */
-  public static final Dimension TINY_BUTTON_SIZE = new Dimension(
-      LARGE_BUTTON_HEIGHT, LARGE_BUTTON_HEIGHT);
+  public static final Dimension TINY_BUTTON_SIZE = new Dimension(LARGE_BUTTON_HEIGHT, LARGE_BUTTON_HEIGHT);
 
   /**
    * The constant TEXT_BUTTON_SIZE.
    */
   public static final Dimension TEXT_BUTTON_SIZE = new Dimension(
-      (int) Mathematics.makeMult2(Math.round(1.6 * LARGE_BUTTON_WIDTH)),
-      LARGE_BUTTON_HEIGHT);
+      (int) Mathematics.makeMult2(Math.round(1.6 * LARGE_BUTTON_WIDTH)), LARGE_BUTTON_HEIGHT);
 
   /**
    * The constant MEDIUM_TEXT_BUTTON_SIZE.
    */
   public static final Dimension MEDIUM_TEXT_BUTTON_SIZE = new Dimension(
-      (int) Mathematics.makeMult2(Math.round(2 * LARGE_BUTTON_WIDTH)),
-      LARGE_BUTTON_HEIGHT);
+      (int) Mathematics.makeMult2(Math.round(2 * LARGE_BUTTON_WIDTH)), LARGE_BUTTON_HEIGHT);
 
   /**
    * The constant LARGE_TEXT_BUTTON_SIZE.
    */
   public static final Dimension LARGE_TEXT_BUTTON_SIZE = new Dimension(
-      (int) Mathematics.makeMult2(Math.round(2.5 * LARGE_BUTTON_WIDTH)),
-      LARGE_BUTTON_HEIGHT);
+      (int) Mathematics.makeMult2(Math.round(2.5 * LARGE_BUTTON_WIDTH)), LARGE_BUTTON_HEIGHT);
 
   /**
    * The constant EXTRA_LARGE_TEXT_BUTTON_SIZE.
    */
   public static final Dimension EXTRA_LARGE_TEXT_BUTTON_SIZE = new Dimension(
-      (int) Mathematics.makeMult2(Math.round(3 * LARGE_BUTTON_WIDTH)),
-      LARGE_BUTTON_HEIGHT);
+      (int) Mathematics.makeMult2(Math.round(3 * LARGE_BUTTON_WIDTH)), LARGE_BUTTON_HEIGHT);
 
   /**
    * The constant TAB_FONT.
    */
-  public static final Font TAB_FONT = MaterialService.instance().getFonts()
-      .text(); // ModernWidget.BOLD_FONT;
+  public static final Font TAB_FONT = MaterialService.instance().getFonts().text(); // ModernWidget.BOLD_FONT;
   // //MaterialUtils.TEXT_FONT;
   // //ModernWidget.FONT;
   // //ThemeService.loadFont("theme.ribbon.getFonts.tab");
@@ -251,37 +239,31 @@ public class Ribbon extends ModernClickWidget
    * The tab start x.
    */
   protected int mTabStartX = MARGIN + PADDING; // FILE_MENU_WIDTH +
-                                               // DOUBLE_PADDING;
+  // DOUBLE_PADDING;
 
   /** The Constant BAR_BACKGROUND. */
-  public static final Color BAR_BACKGROUND = MaterialService.instance()
-      .getColor("ribbon");
+  public static final Color BAR_BACKGROUND = MaterialService.instance().getColor("ribbon");
 
   /** The constant TAB_COLOR. */
-  public static final Color TAB_COLOR = ThemeService.getInstance().getColors()
-      .getGray32(1);
+  public static final Color TAB_COLOR = ThemeService.getInstance().getColors().getGray32(1);
 
   /** The Constant TAB_COLOR_2. */
-  public static final Color TAB_COLOR_2 = ThemeService.getInstance().getColors()
-      .getGray32(3);
+  public static final Color TAB_COLOR_2 = ThemeService.getInstance().getColors().getGray32(3);
 
   /**
    * The constant BORDER_COLOR.
    */
-  public static final Color BORDER_COLOR = ThemeService.getInstance()
-      .getColors().getGray(4);
+  public static final Color BORDER_COLOR = ThemeService.getInstance().getColors().getGray(4);
 
   /**
    * The constant BUTTON_HIGHLIGHTED_COLOR.
    */
-  public static final Color BUTTON_HIGHLIGHTED_COLOR = ThemeService
-      .getInstance().getColors().getGray(5); // Color.WHITE;
+  public static final Color BUTTON_HIGHLIGHTED_COLOR = ThemeService.getInstance().getColors().getGray(5); // Color.WHITE;
 
   /**
    * The constant BUTTON_SELECTED_COLOR.
    */
-  public static final Color BUTTON_SELECTED_COLOR = ThemeService.getInstance()
-      .getColors().getGray(5);
+  public static final Color BUTTON_SELECTED_COLOR = ThemeService.getInstance().getColors().getGray(5);
 
   // ThemeService.getInstance().getThemeColor(4);
 
@@ -297,12 +279,10 @@ public class Ribbon extends ModernClickWidget
   // private static final String FILE_TOOLBAR = "FILE";
 
   /** The Constant ROUNDING. */
-  private static final int ROUNDING = MaterialService.instance().getInts()
-      .cornerRadius();
+  private static final int ROUNDING = MaterialService.instance().getInts().cornerRadius();
 
   /** The Constant SEPARATOR_COLOR. */
-  public static final Color SEPARATOR_COLOR = MaterialService.instance()
-      .getColor("ribbon.separator");
+  public static final Color SEPARATOR_COLOR = MaterialService.instance().getColor("ribbon.separator");
 
   /**
    * The member tabs panel.
@@ -427,8 +407,7 @@ public class Ribbon extends ModernClickWidget
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -441,8 +420,7 @@ public class Ribbon extends ModernClickWidget
       int x = e.getX() - mTabStartX;
 
       for (int i = 0; i < mTitles.size(); ++i) {
-        if (x >= mTabStarts.get(i)
-            && x < mTabStarts.get(i) + mTabWidths.get(i)) {
+        if (x >= mTabStarts.get(i) && x < mTabStarts.get(i) + mTabWidths.get(i)) {
 
           index = i;
 
@@ -586,8 +564,7 @@ public class Ribbon extends ModernClickWidget
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -646,8 +623,8 @@ public class Ribbon extends ModernClickWidget
      * // add the title bar before the ribbon // mHeaderContainer.removeAll();
      * add(mTitleBar);
      * 
-     * // So the title bar can be used to move the window new
-     * WindowMover(window, mTitleBar); }
+     * // So the title bar can be used to move the window new WindowMover(window,
+     * mTitleBar); }
      */
 
     addMouseListener(new MouseEvents());
@@ -663,18 +640,13 @@ public class Ribbon extends ModernClickWidget
 
     mHelpButton.setVisible(false);
 
-    getInputMap().put(
-        KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, KeyEvent.CTRL_MASK),
-        "nextTabAction");
+    getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_RIGHT, KeyEvent.CTRL_MASK), "nextTabAction");
     getActionMap().put("nextTabAction", new NextTabAction());
 
-    getInputMap().put(
-        KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, KeyEvent.CTRL_MASK),
-        "previousTabAction");
+    getInputMap().put(KeyStroke.getKeyStroke(KeyEvent.VK_LEFT, KeyEvent.CTRL_MASK), "previousTabAction");
     getActionMap().put("previousTabAction", new PreviousTabAction());
 
-    getInputMap(WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("F1"),
-        "show_help");
+    getInputMap(WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("F1"), "show_help");
     getActionMap().put("show_help", new ShowHelpAction());
 
     createRightToolbar();
@@ -695,12 +667,12 @@ public class Ribbon extends ModernClickWidget
     // to respond to tooltips
     setToolTipsEnabled(false);
 
-    //addStyleClass("ribbon");
-    
+    // addStyleClass("ribbon");
+
     setAnimations("ribbon");
 
     setCSSMode(false);
-    
+
     /*
      * getBackgroundAnimations() .set(new RibbonAnimation(this)) .add(new
      * RibbonHighlightAnimation(this)) .add(new RibbonChangeAnimation(this));
@@ -762,23 +734,17 @@ public class Ribbon extends ModernClickWidget
 
     ModernRadioMenuItem showTabsMenuItem = new ModernRadioMenuItem("Show Tabs");
 
-    ModernRadioMenuItem showTabsCommandsMenuItem = new ModernRadioMenuItem(
-        "Show Tabs and Commands");
+    ModernRadioMenuItem showTabsCommandsMenuItem = new ModernRadioMenuItem("Show Tabs and Commands");
 
     new ModernButtonGroup(showTabsMenuItem, showTabsCommandsMenuItem);
 
     showTabsCommandsMenuItem.doClick();
 
-    ModernPopupMenu2 menu = new ModernPopupMenu2(showTabsMenuItem,
-        showTabsCommandsMenuItem);
+    ModernPopupMenu2 menu = new ModernPopupMenu2(showTabsMenuItem, showTabsCommandsMenuItem);
 
     mModeButton = new QuickAccessMenuButton2(
-        AssetService.getInstance().loadIcon(RibbonModeVectorIcon.class, 
-            ModernWidget.TEXT_COLOR,
-            16),
-        menu);
-    mModeButton.setToolTip("Ribbon Display Options",
-        "Configure ribbon behavior.");
+        AssetService.getInstance().loadIcon(RibbonModeVectorIcon.class, ModernWidget.TEXT_COLOR, 16), menu);
+    mModeButton.setToolTip("Ribbon Display Options", "Configure ribbon behavior.");
     addRightToolbarButton(mModeButton);
 
     addRightToolbarButton(mHelpButton);
@@ -851,13 +817,10 @@ public class Ribbon extends ModernClickWidget
     add(button);
 
     int x = 0;// QUICK_ACCESS_X;
-              // //ModernTheme.getInstance().getClass("widget").getInt("padding");
+    // //ModernTheme.getInstance().getClass("widget").getInt("padding");
 
     for (ModernClickWidget b : mQuickAccessButtons) {
-      b.setBounds(x,
-          QUICK_BUTTON_Y,
-          b.getPreferredSize().width,
-          b.getPreferredSize().height);
+      b.setBounds(x, QUICK_BUTTON_Y, b.getPreferredSize().width, b.getPreferredSize().height);
 
       x += b.getWidth();
     }
@@ -884,11 +847,8 @@ public class Ribbon extends ModernClickWidget
     }
 
     if (mMode == RibbonMode.TABS) {
-      mTabsPanel.setBounds(mWindow.getInsets().left,
-          TAB_BODY_Y,
-          mWindow.getWidth() - mWindow.getInsets().left
-              - mWindow.getInsets().right,
-          mToolbarHeight);
+      mTabsPanel.setBounds(mWindow.getInsets().left, TAB_BODY_Y,
+          mWindow.getWidth() - mWindow.getInsets().left - mWindow.getInsets().right, mToolbarHeight);
     } else {
       mTabsPanel.setBounds(0, TAB_BODY_Y, mRect.getW(), mToolbarHeight);
     }
@@ -909,10 +869,7 @@ public class Ribbon extends ModernClickWidget
     for (ModernComponent b : mRightToolbarButtons) {
       x -= b.getWidth();
 
-      b.setBounds(x,
-          QUICK_BUTTON_Y,
-          b.getPreferredSize().width,
-          b.getPreferredSize().height);
+      b.setBounds(x, QUICK_BUTTON_Y, b.getPreferredSize().width, b.getPreferredSize().height);
     }
   }
 
@@ -926,8 +883,7 @@ public class Ribbon extends ModernClickWidget
 
     mHelpButton.setVisible(true); // product != null);
 
-    mHelpButton.setToolTip(product.getName() + " Help",
-        "Get help with " + product.getName() + ".");
+    mHelpButton.setToolTip(product.getName() + " Help", "Get help with " + product.getName() + ".");
   }
 
   /**
@@ -976,8 +932,7 @@ public class Ribbon extends ModernClickWidget
    */
   public final void addToToolbar(int index, ModernPanel panel) {
     if (mTabs.getTab(index).getComponent().getComponentCount() > 0) {
-      mTabs.getTab(index).getComponent()
-          .remove(mTabs.getTab(index).getComponent().getComponentCount() - 1);
+      mTabs.getTab(index).getComponent().remove(mTabs.getTab(index).getComponent().getComponentCount() - 1);
     }
 
     mTabs.getTab(index).getComponent().add(panel);
@@ -1069,10 +1024,10 @@ public class Ribbon extends ModernClickWidget
    * @see org.abh.lib.ui.modern.ModernWidget#drawBackground(java.awt.Graphics2D)
    */
 
-   //@Override 
-   //public void drawBackground(Graphics2D g2) {
-   //  fill(g2, Color.WHITE);
-   //}
+  // @Override
+  // public void drawBackground(Graphics2D g2) {
+  // fill(g2, Color.WHITE);
+  // }
 
   /**
    * @Override public void drawForegroundAA(Graphics2D g2) {
@@ -1119,9 +1074,9 @@ public class Ribbon extends ModernClickWidget
   /**
    * Creates the tab.
    *
-   * @param x the x
-   * @param y the y
-   * @param width the width
+   * @param x      the x
+   * @param y      the y
+   * @param width  the width
    * @param height the height
    * @return the general path
    */
@@ -1130,16 +1085,11 @@ public class Ribbon extends ModernClickWidget
 
     path.moveTo(x + ROUNDING, y);
     path.lineTo(x + width - ROUNDING, y);
-    path.append(
-        new Arc2D.Double(x + width - ROUNDING, y, ROUNDING, ROUNDING, 90, -90,
-            Arc2D.OPEN),
-        true);
+    path.append(new Arc2D.Double(x + width - ROUNDING, y, ROUNDING, ROUNDING, 90, -90, Arc2D.OPEN), true);
     path.lineTo(x + width, y + height);
     path.lineTo(x, y + height);
     path.lineTo(x, y + ROUNDING);
-    path.append(
-        new Arc2D.Double(x, y, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN),
-        true);
+    path.append(new Arc2D.Double(x, y, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN), true);
     path.closePath();
 
     /*
@@ -1151,8 +1101,7 @@ public class Ribbon extends ModernClickWidget
   }
 
   /**
-   * Change tab actually changes the tab view and allows access to the file
-   * view.
+   * Change tab actually changes the tab view and allows access to the file view.
    *
    * @param selectedTab the selected tab
    */
@@ -1182,8 +1131,8 @@ public class Ribbon extends ModernClickWidget
    */
   public void hightlightTab(int index) {
     fireHighlighted(new HighlightEvent(this, index)); // mTabs.fireTabHighlighted(new
-                                                      // TabEvent(this,
-                                                      // mTabs.getTab(index)));
+    // TabEvent(this,
+    // mTabs.getTab(index)));
   }
 
   /**
@@ -1208,8 +1157,8 @@ public class Ribbon extends ModernClickWidget
   }
 
   /**
-   * Set the selected tab. The first tab is "File" but this is a special tab
-   * that cannot be selected so the first selectable tab is 1.
+   * Set the selected tab. The first tab is "File" but this is a special tab that
+   * cannot be selected so the first selectable tab is 1.
    *
    * @param index the new selected index
    */
@@ -1374,8 +1323,7 @@ public class Ribbon extends ModernClickWidget
    * @return the tab width
    */
   public static int getTabWidth(String name) {
-    return ((getStringWidth(TAB_FONT, name) + TOTAL_TAB_PADDING_X) / 10 + 1)
-        * 10;
+    return ((getStringWidth(TAB_FONT, name) + TOTAL_TAB_PADDING_X) / 10 + 1) * 10;
   }
 
   /**
@@ -1408,8 +1356,8 @@ public class Ribbon extends ModernClickWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.tabs.TabEventProducer#removeTabListener(org.abh.common.
-   * ui. tabs.TabEventListener)
+   * org.abh.common.ui.tabs.TabEventProducer#removeTabListener(org.abh.common. ui.
+   * tabs.TabEventListener)
    */
   @Override
   public void removeTabListener(TabEventListener l) {
@@ -1419,8 +1367,7 @@ public class Ribbon extends ModernClickWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.tabs.TabEventProducer#fireTabAdded(org.abh.common.ui.
+   * @see org.abh.common.ui.tabs.TabEventProducer#fireTabAdded(org.abh.common.ui.
    * tabs. TabEvent)
    */
   @Override

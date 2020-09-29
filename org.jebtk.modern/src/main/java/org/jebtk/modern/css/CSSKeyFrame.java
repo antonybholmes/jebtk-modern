@@ -18,8 +18,7 @@ public class CSSKeyFrame extends CSSClass implements IdProperty {
   // private List<StyleClass> mStyles = new ArrayList<StyleClass>();
   // private Map<String, Integer> mIndexMap = new HashMap<String, Integer>();
 
-  private Map<String, List<CSSProp>> mClassHierarchyMap = DefaultHashMap
-      .create(new UniqueArrayListCreator<CSSProp>());
+  private Map<String, List<Object>> mClassHierarchyMap = DefaultHashMap.create(new UniqueArrayListCreator<Object>());
 
   private int mId;
 
@@ -30,17 +29,16 @@ public class CSSKeyFrame extends CSSClass implements IdProperty {
   }
 
   /**
-   * Inherit properties from a parent style.
+   * Inherit Props from a parent style.
    * 
    * @param parent
    * @return
    */
-  @Override
   public CSSKeyFrame update(CSSProps style) {
     super.update(style);
 
-    for (Entry<String, CSSProp> item : style) {
-      // Map styles to properties in order they are applied
+    for (Entry<String, Object> item : style) {
+      // Map styles to Props in order they are applied
       mClassHierarchyMap.get(item.getKey()).add(item.getValue());
     }
 
@@ -53,13 +51,25 @@ public class CSSKeyFrame extends CSSClass implements IdProperty {
    * @param name Name of property, e.g "background-color".
    * @return
    */
-  public Iterable<CSSProp> getStyles(String name) {
+  public List<Object> getStyles(String name) {
     return mClassHierarchyMap.get(name);
   }
 
+//	@Override
+//	public Object get(String name) {
+//		// Return the most uptodate property
+//		return mClassHierarchyMap.get(name).get(mClassHierarchyMap.get(name).size() - 1);
+//	}
+//	
+//	@Override
+//	public Object get(String name, Object defaultValue) {
+//		// Return the most uptodate property
+//		return mClassHierarchyMap.get(name).get(mClassHierarchyMap.get(name).size() - 1);
+//	}
+
   /*
-   * private void clear(StyleClass style) { for (Entry<String, Object> f :
-   * style) { mPropertyMap.remove(f.getKey()); } }
+   * private void clear(StyleClass style) { for (Entry<String, Object> f : style)
+   * { mPropertyMap.remove(f.getKey()); } }
    */
 
   /*
@@ -73,11 +83,10 @@ public class CSSKeyFrame extends CSSClass implements IdProperty {
    */
 
   /*
-   * @Override public boolean contains(String name) { if (super.contains(name))
-   * { return true; }
+   * @Override public boolean contains(String name) { if (super.contains(name)) {
+   * return true; }
    * 
-   * ReverseIterator<StyleClass> iter = new
-   * ReverseIterator<StyleClass>(mStyles);
+   * ReverseIterator<StyleClass> iter = new ReverseIterator<StyleClass>(mStyles);
    * 
    * while (iter.hasNext()) { StyleClass s = iter.next();
    * 
@@ -87,13 +96,13 @@ public class CSSKeyFrame extends CSSClass implements IdProperty {
    */
 
   /*
-   * @Override public Object getValue(String name) { // First check if we
-   * created a custom property return that
+   * @Override public Object getValue(String name) { // First check if we created
+   * a custom property return that
    * 
    * if (super.contains(name)) { return super.getValue(name); }
    * 
-   * // Look backwards to find the most recent style class with the property //
-   * of interest. ReverseIterator<StyleClass> iter = new
+   * // Look backwards to find the most recent style class with the property // of
+   * interest. ReverseIterator<StyleClass> iter = new
    * ReverseIterator<StyleClass>(mStyles);
    * 
    * while (iter.hasNext()) { StyleClass s = iter.next();

@@ -50,7 +50,7 @@ public class GrayScaleIcon extends RasterIcon {
    *
    * @param icon the icon
    * @return the modern icon
-   * @throws IOException 
+   * @throws IOException
    */
   public static ModernIcon convert(ModernIcon icon) throws IOException {
     BufferedImage image = convert(icon.getImage(icon.getHeight()));
@@ -78,8 +78,7 @@ public class GrayScaleIcon extends RasterIcon {
     // filter);
     // Image grayImg = Toolkit.getDefaultToolkit().createImage(producer);
 
-    BufferedImageOp op = new ColorConvertOp(
-        ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
+    BufferedImageOp op = new ColorConvertOp(ColorSpace.getInstance(ColorSpace.CS_GRAY), null);
     BufferedImage grayImage = op.filter(image, null);
 
     return grayImage;

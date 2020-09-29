@@ -41,16 +41,14 @@ import org.jebtk.modern.text.TextProperty;
 /**
  * The class ModernSearchPanel.
  */
-public class ModernInputPanel extends ModernPillBorderPanel
-    implements TextProperty {
+public class ModernInputPanel extends ModernPillBorderPanel implements TextProperty {
 
   /**
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-  
-  public static final int BUTTON_SIZE = SettingsService.getInstance()
-      .getInt("theme.input-pane.internal-button-size");
+
+  public static final int BUTTON_SIZE = SettingsService.getInstance().getInt("theme.input-pane.internal-button-size");
 
   /**
    * The member search field.
@@ -60,29 +58,27 @@ public class ModernInputPanel extends ModernPillBorderPanel
   /**
    * Instantiates a new modern search panel.
    *
-   * @param window the window
-   * @param text the text
+   * @param window    the window
+   * @param text      the text
    * @param delimiter the delimiter
    */
   public ModernInputPanel(String text) {
 
-
-    //mTextField.setBorder(LEFT_BORDER);
+    // mTextField.setBorder(LEFT_BORDER);
     add(mTextField);
 
     mTextField.setText(text);
-    
+
     addComponentListener(new ComponentAdapter() {
       @Override
       public void componentResized(ComponentEvent e) {
         int b = (getInternalRect().h - BUTTON_SIZE) / 2;
         int l = getHeight() / 2;
-        setBorder(
-            BorderService.getInstance().createBorder(b, l, b, l));
+        setBorder(BorderService.getInstance().createBorder(b, l, b, l));
       }
     });
   }
-  
+
   /*
    * (non-Javadoc)
    * 

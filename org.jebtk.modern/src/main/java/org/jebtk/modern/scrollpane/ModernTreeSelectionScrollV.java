@@ -46,11 +46,10 @@ public class ModernTreeSelectionScrollV implements ModernSelectionListener {
   /**
    * Instantiates a new modern tree selection scroll V.
    *
-   * @param tree the tree
+   * @param tree      the tree
    * @param scrollbar the scrollbar
    */
-  public ModernTreeSelectionScrollV(ModernTree<?> tree,
-      ModernScrollBar scrollbar) {
+  public ModernTreeSelectionScrollV(ModernTree<?> tree, ModernScrollBar scrollbar) {
     mTree = tree;
     mScrollbar = scrollbar;
   }

@@ -44,8 +44,7 @@ import org.jebtk.modern.view.ViewModel;
  * @author Antony Holmes
  *
  */
-public class RibbonViewSection extends RibbonSection
-    implements ModernClickListener {
+public class RibbonViewSection extends RibbonSection implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -55,23 +54,20 @@ public class RibbonViewSection extends RibbonSection
   /**
    * The list button.
    */
-  private RibbonLargeRadioButton mListButton = new RibbonLargeRadioButton(
-      "List", AssetService.getInstance().loadIcon("view_list",
-          AssetService.ICON_SIZE_32));
+  private RibbonLargeRadioButton mListButton = new RibbonLargeRadioButton("List",
+      AssetService.getInstance().loadIcon("view_list", AssetService.ICON_SIZE_32));
 
   /**
    * The tiles button.
    */
-  private RibbonLargeRadioButton mTilesButton = new RibbonLargeRadioButton(
-      "Tiles", AssetService.getInstance().loadIcon("view_tiles",
-          AssetService.ICON_SIZE_32));
+  private RibbonLargeRadioButton mTilesButton = new RibbonLargeRadioButton("Tiles",
+      AssetService.getInstance().loadIcon("view_tiles", AssetService.ICON_SIZE_32));
 
   /**
    * The details button.
    */
-  private RibbonLargeRadioButton mDetailsButton = new RibbonLargeRadioButton(
-      "Details", AssetService.getInstance().loadIcon("view_details",
-          AssetService.ICON_SIZE_32));
+  private RibbonLargeRadioButton mDetailsButton = new RibbonLargeRadioButton("Details",
+      AssetService.getInstance().loadIcon("view_details", AssetService.ICON_SIZE_32));
 
   /**
    * The member model.
@@ -82,7 +78,7 @@ public class RibbonViewSection extends RibbonSection
    * Instantiates a new ribbon view section.
    *
    * @param ribbon the ribbon
-   * @param model the model
+   * @param model  the model
    */
   public RibbonViewSection(Ribbon ribbon, ViewModel model) {
     super(ribbon, "View");
@@ -125,8 +121,7 @@ public class RibbonViewSection extends RibbonSection
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {

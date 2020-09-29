@@ -65,7 +65,7 @@ public class RasterIcon extends ModernIcon {
   public RasterIcon(ModernIcon icon, int size) {
     this(icon, size, null);
   }
-  
+
   public RasterIcon(ModernIcon icon, int size, Props props) {
     this(icon.getImage(size, props));
   }
@@ -74,14 +74,9 @@ public class RasterIcon extends ModernIcon {
     mBufferedImage = icon;
     mSize = icon.getWidth();
   }
-  
+
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     rasterIcon(g2, x, y, w, h, props);
   }
 
@@ -94,8 +89,6 @@ public class RasterIcon extends ModernIcon {
   public BufferedImage getImage(int w, int h, Props props) {
     return mBufferedImage;
   }
-
-
 
   /*
    * (non-Javadoc)
@@ -116,6 +109,5 @@ public class RasterIcon extends ModernIcon {
   public int getHeight() {
     return mSize;
   }
-
 
 }

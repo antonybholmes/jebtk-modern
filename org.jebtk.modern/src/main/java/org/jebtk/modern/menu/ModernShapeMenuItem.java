@@ -68,7 +68,7 @@ public class ModernShapeMenuItem extends ModernIconMenuItem {
    * Instantiates a new modern shape menu item.
    *
    * @param shape the shape
-   * @param name the name
+   * @param name  the name
    */
   public ModernShapeMenuItem(Shape shape, String name) {
     super(name);
@@ -79,8 +79,7 @@ public class ModernShapeMenuItem extends ModernIconMenuItem {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   @Override

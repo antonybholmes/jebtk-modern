@@ -93,8 +93,7 @@ public class SegmentTextAnimation extends WidgetAnimation {
 
       String s = mSegments.getTabsModel().getTab(i).getName(); // .toUpperCase();
 
-      int textX = x
-          + (mSegments.mTabSize - g2.getFontMetrics().stringWidth(s)) / 2;
+      int textX = x + (mSegments.mTabSize - g2.getFontMetrics().stringWidth(s)) / 2;
 
       g2.drawString(s, textX, textY);
 

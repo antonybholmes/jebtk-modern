@@ -52,8 +52,8 @@ public class VSpacedBox extends VBox {
   }
 
   /**
-   * Creates a vertical box containing some components with the default amount
-   * of space between each.
+   * Creates a vertical box containing some components with the default amount of
+   * space between each.
    *
    * @param components the components
    */
@@ -64,7 +64,7 @@ public class VSpacedBox extends VBox {
   /**
    * Instantiates a new v spaced box.
    *
-   * @param space the space
+   * @param space      the space
    * @param components the components
    */
   public VSpacedBox(int space, Component... components) {

@@ -24,8 +24,8 @@ public interface Transition extends Animation {
   /**
    * Update the transition state based on the supplied time and direction.
    * 
-   * @param t           Normalized time between 0 and 1
-   * @param forward     Whether time is moving forwards or backwards.
+   * @param t       Normalized time between 0 and 1
+   * @param forward Whether time is moving forwards or backwards.
    */
   public void updateState(double t, boolean forward);
 }

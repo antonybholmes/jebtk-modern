@@ -32,8 +32,7 @@ public class RibbonAnimation extends WidgetAnimation {
 
   private Ribbon mRibbon;
 
-  private static final Color RIBBON_LIGHT_COLOR = ColorUtils
-      .tint(Ribbon.BAR_BACKGROUND, 0.1);
+  private static final Color RIBBON_LIGHT_COLOR = ColorUtils.tint(Ribbon.BAR_BACKGROUND, 0.1);
 
   /**
    * Instantiates a new state animation.
@@ -55,21 +54,22 @@ public class RibbonAnimation extends WidgetAnimation {
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
-    //g2.setColor(Color.WHITE); // Ribbon.BAR_BACKGROUND);
+    // g2.setColor(Color.WHITE); // Ribbon.BAR_BACKGROUND);
 
-    //g2.fillRect(0, 0, mRibbon.getWidth(), mRibbon.getHeight()); // Ribbon.TAB_BODY_Y);
+    // g2.fillRect(0, 0, mRibbon.getWidth(), mRibbon.getHeight()); //
+    // Ribbon.TAB_BODY_Y);
 
     // GradientPaint paint = new GradientPaint(0, 0, RIBBON_LIGHT_COLOR, 0,
     // Ribbon.TAB_BODY_Y, Ribbon.BAR_BACKGROUND);
     // g2.setPaint(paint);
 
-    //g2.setColor(Ribbon.BAR_BACKGROUND);
-    //g2.fillRect(0, 0, mRibbon.getWidth(), Ribbon.TAB_BODY_Y);
+    // g2.setColor(Ribbon.BAR_BACKGROUND);
+    // g2.fillRect(0, 0, mRibbon.getWidth(), Ribbon.TAB_BODY_Y);
 
     // g2.setColor(Ribbon.TAB_COLOR);
     // g2.fillRect(0, Ribbon.TAB_BODY_Y, mRibbon.getWidth(),
     // mRibbon.mToolbarHeight);
-    
+
     g2.setColor(Color.WHITE);
     g2.fillRect(0, 0, c.getWidth(), c.getHeight());
   }

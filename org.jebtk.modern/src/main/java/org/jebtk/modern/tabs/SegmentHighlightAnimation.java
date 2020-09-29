@@ -75,9 +75,7 @@ public class SegmentHighlightAnimation extends HighlightAnimation {
       // g2.drawRect(x, mSegments.getInsets().top, mSegments.mTabSize, h - 1);
       // g2.fillRect(x, mSegments.getInsets().top, mSegments.mTabSize, h);
 
-      g2.fillRect(x,
-          mTabs.getInsets().top + h - RibbonChangeAnimation.BAR_HEIGHT,
-          mTabs.mTabSize,
+      g2.fillRect(x, mTabs.getInsets().top + h - RibbonChangeAnimation.BAR_HEIGHT, mTabs.mTabSize,
           RibbonChangeAnimation.BAR_HEIGHT);
 
     }

@@ -86,10 +86,7 @@ public class FileFilterService implements Iterable<String> {
      * java.lang.String, java.lang.String, org.xml.sax.Attributes)
      */
     @Override
-    public void startElement(String uri,
-        String localName,
-        String qName,
-        Attributes attributes) throws SAXException {
+    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 
       if (qName.equals("setting")) {
       }
@@ -166,13 +163,14 @@ public class FileFilterService implements Iterable<String> {
   /**
    * Auto load xml.
    *
-   * @throws IOException Signals that an I/O exception has occurred.
-   * @throws URISyntaxException the URI syntax exception
-   * @throws SAXException the SAX exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
+   * @throws URISyntaxException           the URI syntax exception
+   * @throws SAXException                 the SAX exception
    * @throws ParserConfigurationException the parser configuration exception
    */
-  private synchronized void autoLoadXml() throws IOException,
-      URISyntaxException, SAXException, ParserConfigurationException {
+  private synchronized void autoLoadXml()
+      throws IOException, URISyntaxException, SAXException, ParserConfigurationException {
     LOG.info("Auto loading XML settings...");
 
     for (String res : Resources.getInstance()) {
@@ -200,7 +198,7 @@ public class FileFilterService implements Iterable<String> {
    * Auto load json.
    *
    * @throws ParseException the parse exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws IOException    Signals that an I/O exception has occurred.
    */
   private synchronized void autoLoadJson() throws IOException {
     LOG.info("Auto loading JSON settings...");
@@ -221,14 +219,14 @@ public class FileFilterService implements Iterable<String> {
   /**
    * Load xml.
    *
-   * @param file the file
+   * @param file   the file
    * @param update the update
-   * @throws SAXException the SAX exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException                 the SAX exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
    * @throws ParserConfigurationException the parser configuration exception
    */
-  public void loadXml(Path file, boolean update)
-      throws SAXException, IOException, ParserConfigurationException {
+  public void loadXml(Path file, boolean update) throws SAXException, IOException, ParserConfigurationException {
     if (file == null || !FileUtils.exists(file)) {
       return;
     }
@@ -247,11 +245,12 @@ public class FileFilterService implements Iterable<String> {
   /**
    * Load xml.
    *
-   * @param is the is
+   * @param is     the is
    * @param update the update
    * @return true, if successful
-   * @throws SAXException the SAX exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException                 the SAX exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
    * @throws ParserConfigurationException the parser configuration exception
    */
   private synchronized boolean loadXml(InputStream is, boolean update)
@@ -273,10 +272,10 @@ public class FileFilterService implements Iterable<String> {
   /**
    * Load json.
    *
-   * @param file the file
+   * @param file   the file
    * @param update the update
    * @throws FileNotFoundException the file not found exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws IOException           Signals that an I/O exception has occurred.
    */
   private void loadJson(Path file) throws IOException {
     if (file == null || !FileUtils.exists(file)) {
@@ -297,7 +296,7 @@ public class FileFilterService implements Iterable<String> {
   /**
    * Load xml.
    *
-   * @param is the is
+   * @param is     the is
    * @param update the update
    * @return true, if successful
    * @throws IOException Signals that an I/O exception has occurred.
@@ -314,9 +313,8 @@ public class FileFilterService implements Iterable<String> {
 
       String name = filterJson.getString("name");
 
-      mFilterMap.put(name,
-          new SimpleGuiFileFilter(filterJson.getString("description"),
-              JsonUtils.toStringList(filterJson.get("filters"))));
+      mFilterMap.put(name, new SimpleGuiFileFilter(filterJson.getString("description"),
+          JsonUtils.toStringList(filterJson.get("filters"))));
 
     }
 

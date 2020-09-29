@@ -46,8 +46,7 @@ import org.jebtk.modern.ribbon.Ribbon;
 /**
  * The class ModernTitleBar.
  */
-public class ModernTitleBar extends ModernClickWidget
-    implements ModernClickListener {
+public class ModernTitleBar extends ModernClickWidget implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -74,8 +73,7 @@ public class ModernTitleBar extends ModernClickWidget
   private Box _mRightButtonsBox = HBox.create();
 
   /** The Constant SIZE. */
-  private static final Dimension SIZE = new Dimension(Short.MAX_VALUE,
-      Ribbon.TAB_HEIGHT);
+  private static final Dimension SIZE = new Dimension(Short.MAX_VALUE, Ribbon.TAB_HEIGHT);
 
   /**
    * Instantiates a new modern title bar.
@@ -167,8 +165,7 @@ public class ModernTitleBar extends ModernClickWidget
    */
   @Override
   public void drawForeground(Graphics2D g2) {
-    Point p = ModernWidget
-        .getStringCenterPlotCoordinates(g2, getRect(), mTitle);
+    Point p = ModernWidget.getStringCenterPlotCoordinates(g2, getRect(), mTitle);
 
     Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
 
@@ -183,8 +180,7 @@ public class ModernTitleBar extends ModernClickWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

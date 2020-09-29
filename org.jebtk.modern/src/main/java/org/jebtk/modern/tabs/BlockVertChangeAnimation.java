@@ -67,19 +67,15 @@ public class BlockVertChangeAnimation extends TranslateYAnimation {
       previousIndex = selectedIndex;
     }
 
-    int y1 = mTabs.getInsets().top + mTabs.mOffset
-        + previousIndex * mTabs.mTabSize;
+    int y1 = mTabs.getInsets().top + mTabs.mOffset + previousIndex * mTabs.mTabSize;
 
-    int y2 = mTabs.getInsets().top + mTabs.mOffset
-        + selectedIndex * mTabs.mTabSize;
+    int y2 = mTabs.getInsets().top + mTabs.mOffset + selectedIndex * mTabs.mTabSize;
 
     restart(y1, y2);
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget,
-      Graphics2D g2,
-      Props props) {
+  public void drawTranslation(ModernWidget widget, Graphics2D g2, Props props) {
     g2.setColor(BlockVertTabs.TEXT_TAB_SELECTED_COLOR);
     // g2.fill(mTabs.mP);
     g2.fillRect(0, 0, RibbonChangeAnimation.BAR_HEIGHT, mTabs.mTabSize);

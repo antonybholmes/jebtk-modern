@@ -46,8 +46,8 @@ public class ModernBarSlider extends ModernOrbSlider {
   /**
    * Instantiates a new modern orb slider.
    *
-   * @param min the min
-   * @param max the max
+   * @param min   the min
+   * @param max   the max
    * @param value the value
    */
   public ModernBarSlider(double min, double max, double value) {
@@ -59,7 +59,7 @@ public class ModernBarSlider extends ModernOrbSlider {
   /**
    * Instantiates a new modern bar slider.
    *
-   * @param value the value
+   * @param value  the value
    * @param values the values
    */
   public ModernBarSlider(double value, double... values) {
@@ -71,7 +71,7 @@ public class ModernBarSlider extends ModernOrbSlider {
   /**
    * Instantiates a new modern bar slider.
    *
-   * @param value the value
+   * @param value  the value
    * @param values the values
    */
   public ModernBarSlider(double value, List<Double> values) {
@@ -90,8 +90,7 @@ public class ModernBarSlider extends ModernOrbSlider {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -107,10 +106,7 @@ public class ModernBarSlider extends ModernOrbSlider {
 
     int h = getHeight() / 4;
 
-    g2.drawLine(getInsets().left + mSliderDiameter,
-        y,
-        mRect.getW() - getInsets().right - mSliderDiameter,
-        y);
+    g2.drawLine(getInsets().left + mSliderDiameter, y, mRect.getW() - getInsets().right - mSliderDiameter, y);
 
     // g2.drawLine(getInsets().left + SLIDER_DIAMETER, y - 1,
     // mRect.getW() - getInsets().right - SLIDER_DIAMETER,

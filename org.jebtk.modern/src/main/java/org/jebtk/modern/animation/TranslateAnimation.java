@@ -83,7 +83,7 @@ public abstract class TranslateAnimation extends EasingAnimation {
 
     for (int i = 1; i < AnimationTimer.MAX_STEP_INDEX; ++i) {
       mXPos[i] = x1 + (int) (BEZ_T[i] * mD); // BEZIER.eval(t) mXPos[i - 1] +
-                                             // mD;
+      // mD;
     }
 
     start();
@@ -115,7 +115,5 @@ public abstract class TranslateAnimation extends EasingAnimation {
 
   public abstract void translate(Graphics2D g2);
 
-  public abstract void drawTranslation(ModernWidget widget,
-      Graphics2D g2,
-      Props props);
+  public abstract void drawTranslation(ModernWidget widget, Graphics2D g2, Props props);
 }

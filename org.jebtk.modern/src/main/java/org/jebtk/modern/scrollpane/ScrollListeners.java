@@ -8,8 +8,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ScrollListeners extends EventProducer<ScrollListener>
-    implements ScrollEventProducer {
+public class ScrollListeners extends EventProducer<ScrollListener> implements ScrollEventProducer {
 
   /**
    * The constant serialVersionUID.

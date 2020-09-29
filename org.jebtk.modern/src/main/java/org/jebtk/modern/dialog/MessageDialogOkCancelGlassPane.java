@@ -50,8 +50,7 @@ import org.jebtk.modern.text.ModernCenteredHeadingPanel;
  * @author Antony Holmes
  *
  */
-public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
-    implements ModernClickListener {
+public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -65,8 +64,7 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
    * @author Antony Holmes
    *
    */
-  private class OKCancelPanel extends MessageDialogPanel
-      implements ModernClickListener, FocusListener {
+  private class OKCancelPanel extends MessageDialogPanel implements ModernClickListener, FocusListener {
 
     /**
      * The constant serialVersionUID.
@@ -86,8 +84,7 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
     /**
      * The member message label.
      */
-    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel(
-        "Heading", Color.WHITE);
+    private ModernCenteredHeadingPanel mMessageLabel = new ModernCenteredHeadingPanel("Heading", Color.WHITE);
 
     /**
      * The member listeners.
@@ -143,8 +140,7 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -209,8 +205,7 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override
@@ -219,7 +214,6 @@ public class MessageDialogOkCancelGlassPane extends MessageDialogStatusGlassPane
 
     // call back
     mListeners.fireDialogStatusChanged(new DialogEvent(this,
-        (e.getMessage().equals(UI.BUTTON_OK) ? ModernDialogStatus.OK
-            : ModernDialogStatus.CANCEL)));
+        (e.getMessage().equals(UI.BUTTON_OK) ? ModernDialogStatus.OK : ModernDialogStatus.CANCEL)));
   }
 }

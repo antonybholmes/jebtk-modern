@@ -56,8 +56,7 @@ public class FontsComboBox extends ModernComboBox {
   /**
    * The constant MENU_ITEM_SIZE.
    */
-  public static final Dimension MENU_ITEM_SIZE = new Dimension(300,
-      WIDGET_HEIGHT);
+  public static final Dimension MENU_ITEM_SIZE = new Dimension(300, WIDGET_HEIGHT);
 
   /**
    * Instantiates a new fonts combo box.
@@ -87,8 +86,7 @@ public class FontsComboBox extends ModernComboBox {
     // addScrollMenuItem(new ModernIconMenuItem("Serif", icon));
     // addScrollMenuItem(new ModernMenuSeparator());
 
-    String envfonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment()
-        .getAvailableFontFamilyNames();
+    String envfonts[] = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames();
 
     List<String> fonts = new ArrayList<String>();
 

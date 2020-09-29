@@ -43,8 +43,7 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes
  *
  */
-public class ModernHTabBar extends TabsController
-    implements MouseMotionListener, MouseListener {
+public class ModernHTabBar extends TabsController implements MouseMotionListener, MouseListener {
 
   /**
    * The constant serialVersionUID.
@@ -67,8 +66,7 @@ public class ModernHTabBar extends TabsController
   protected static final int CROSS_WIDTH = 6;
 
   /** The Constant SIZE. */
-  private static final Dimension SIZE = new Dimension(Short.MAX_VALUE,
-      TAB_HEIGHT);
+  private static final Dimension SIZE = new Dimension(Short.MAX_VALUE, TAB_HEIGHT);
 
   // protected List<ModernHTab> tabButtons = new ArrayList<ModernHTab>();
   // protected List<Integer> tabWidths = new ArrayList<Integer>();
@@ -80,8 +78,7 @@ public class ModernHTabBar extends TabsController
   // ModernHTab>();
 
   /** The Constant TAB_HIGHLIGHT_COLOR. */
-  protected static final Color TAB_HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .getColors().getTheme(4);
+  protected static final Color TAB_HIGHLIGHT_COLOR = ThemeService.getInstance().getColors().getTheme(4);
 
   /**
    * The tab width.
@@ -150,8 +147,7 @@ public class ModernHTabBar extends TabsController
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+   * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
    */
   @Override
   public void mouseMoved(MouseEvent e) {

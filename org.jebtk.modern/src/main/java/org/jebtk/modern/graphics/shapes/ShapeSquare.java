@@ -40,8 +40,8 @@ public class ShapeSquare extends ShapeRectangle {
   /**
    * Instantiates a new shape square.
    *
-   * @param x the x
-   * @param y the y
+   * @param x        the x
+   * @param y        the y
    * @param diameter the diameter
    */
   public ShapeSquare(int x, int y, int diameter) {

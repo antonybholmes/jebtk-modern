@@ -31,11 +31,9 @@ import org.jebtk.modern.theme.ThemeService;
  */
 public class OrbTabsHighlightAnimation extends ButtonFillAnimation {
 
-  protected static final Color ORB_COLOR = ThemeService.getInstance()
-      .getColors().getGray(3);
+  protected static final Color ORB_COLOR = ThemeService.getInstance().getColors().getGray(3);
 
-  protected static final Color ORB_COLOR_2 = ThemeService.getInstance()
-      .getColors().getGray(5);
+  protected static final Color ORB_COLOR_2 = ThemeService.getInstance().getColors().getGray(5);
 
   private OrbTabs mTabs;
 
@@ -73,8 +71,8 @@ public class OrbTabsHighlightAnimation extends ButtonFillAnimation {
     //
 
     /*
-     * if (highlighted != selectedIndex && highlighted > -1 && highlighted < n)
-     * { x += mTabs.mHighlight * mTabs.mTabSize;
+     * if (highlighted != selectedIndex && highlighted > -1 && highlighted < n) { x
+     * += mTabs.mHighlight * mTabs.mTabSize;
      * 
      * g2.setColor(getFade().getFadeColor("highlight"));
      * 

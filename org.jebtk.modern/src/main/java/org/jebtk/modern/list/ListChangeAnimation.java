@@ -46,24 +46,22 @@ public class ListChangeAnimation extends TranslateYAnimation {
 
     mTabs = (ModernList<?>) tabs;
 
-    mTabs.getSelectionModel()
-        .addSelectionListener(new ModernSelectionListener() {
-          @Override
-          public void selectionAdded(ChangeEvent e) {
-            selectionRemoved(e);
-          }
+    mTabs.getSelectionModel().addSelectionListener(new ModernSelectionListener() {
+      @Override
+      public void selectionAdded(ChangeEvent e) {
+        selectionRemoved(e);
+      }
 
-          @Override
-          public void selectionRemoved(ChangeEvent e) {
-            restart();
-          }
-        });
+      @Override
+      public void selectionRemoved(ChangeEvent e) {
+        restart();
+      }
+    });
 
     /*
      * mTabs.addComponentListener(new ComponentAdapter() {
      * 
-     * @Override public void componentResized(ComponentEvent arg0) { restart();
-     * }});
+     * @Override public void componentResized(ComponentEvent arg0) { restart(); }});
      */
   }
 
@@ -79,11 +77,9 @@ public class ListChangeAnimation extends TranslateYAnimation {
       previousIndex = selectedIndex - 1;
     }
 
-    previousIndex = Mathematics
-        .bound(previousIndex, 0, mTabs.getItemCount() - 1);
+    previousIndex = Mathematics.bound(previousIndex, 0, mTabs.getItemCount() - 1);
 
-    selectedIndex = Mathematics
-        .bound(selectedIndex, 0, mTabs.getItemCount() - 1);
+    selectedIndex = Mathematics.bound(selectedIndex, 0, mTabs.getItemCount() - 1);
 
     int y1 = mTabs.getInsets().top + previousIndex * mTabs.mRowHeight;
 
@@ -93,15 +89,13 @@ public class ListChangeAnimation extends TranslateYAnimation {
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget,
-      Graphics2D g2,
-      Props props) {
+  public void drawTranslation(ModernWidget widget, Graphics2D g2, Props props) {
     /*
      * widget.getWidgetRenderer().drawMenu(g2, 0, 0, widget.getWidth(),
      * mTabs.mRowHeight, RenderMode.SELECTED, false);
      */
 
-    DrawUIService.getInstance().getRenderer("button-fill")
-        .draw(g2, new IntRect(0, 0, widget.getWidth(), mTabs.mRowHeight));
+    DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
+        new IntRect(0, 0, widget.getWidth(), mTabs.mRowHeight));
   }
 }

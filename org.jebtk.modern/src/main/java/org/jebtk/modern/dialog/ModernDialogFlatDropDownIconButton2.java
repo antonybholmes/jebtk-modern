@@ -38,8 +38,7 @@ import org.jebtk.modern.menu.ModernPopupMenu2;
  * @author Antony Holmes
  *
  */
-public class ModernDialogFlatDropDownIconButton2
-    extends ModernDropDownIconButton2 {
+public class ModernDialogFlatDropDownIconButton2 extends ModernDropDownIconButton2 {
 
   /**
    * The constant serialVersionUID.
@@ -63,8 +62,7 @@ public class ModernDialogFlatDropDownIconButton2
    * @param icon the icon
    * @param menu the menu
    */
-  public ModernDialogFlatDropDownIconButton2(ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public ModernDialogFlatDropDownIconButton2(ModernIcon icon, ModernPopupMenu2 menu) {
     super(icon, menu);
 
     setup();
@@ -75,10 +73,10 @@ public class ModernDialogFlatDropDownIconButton2
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
-   * if (isSelected() || mHighlight || mPopupShown) {
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight || mPopupShown) {
    * getWidgetRenderer().drawButton(g2, mInternalRect, RenderMode.SELECTED,
-   * hasFocus()); } else { getWidgetRenderer().drawContentBox(g2,
-   * mInternalRect); } } }
+   * hasFocus()); } else { getWidgetRenderer().drawContentBox(g2, mInternalRect);
+   * } } }
    */
 }

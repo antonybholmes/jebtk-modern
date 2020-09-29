@@ -29,10 +29,10 @@ public class OrbTabsPanel extends ModernComponent {
   /**
    * Instantiates a new segment tabs panel.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model       the model
+   * @param tabSize     the tab size
    * @param pagePadding the page padding
-   * @param centered the centered
+   * @param centered    the centered
    */
   public OrbTabsPanel(TabsModel model, int tabSize) {
     OrbTabs tabs = new OrbTabs(model, tabSize);

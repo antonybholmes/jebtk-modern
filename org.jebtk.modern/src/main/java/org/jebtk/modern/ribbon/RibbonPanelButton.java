@@ -48,8 +48,7 @@ public class RibbonPanelButton extends RibbonButton {
   /**
    * The constant FONT.
    */
-  protected static final Font FONT = ThemeService
-      .loadFont("theme.ribbon-panel-button.text-font");
+  protected static final Font FONT = ThemeService.loadFont("theme.ribbon-panel-button.text-font");
 
   /** The Constant SIZE. */
   public static final int SIZE = 90;
@@ -110,8 +109,6 @@ public class RibbonPanelButton extends RibbonButton {
 
     g2.setColor(TEXT_COLOR);
     g2.setFont(FONT);
-    g2.drawString(getText(),
-        (mRect.getW() - g2.getFontMetrics().stringWidth(getText())) / 2,
-        mRect.getH() - 16);
+    g2.drawString(getText(), (mRect.getW() - g2.getFontMetrics().stringWidth(getText())) / 2, mRect.getH() - 16);
   }
 }

@@ -37,8 +37,7 @@ import org.jebtk.modern.dataview.ModernDataCellEditor;
  * @author Antony Holmes
  *
  */
-public abstract class AbstractModernTableCellEditor
-    extends ModernDataCellEditor {
+public abstract class AbstractModernTableCellEditor extends ModernDataCellEditor {
 
   /**
    * The constant serialVersionUID.

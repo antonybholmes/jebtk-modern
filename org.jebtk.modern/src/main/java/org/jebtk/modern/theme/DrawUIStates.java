@@ -34,15 +34,15 @@ public class DrawUIStates extends ChangeListeners implements Iterable<DrawUI> {
   private IterMap<String, DrawUI> mRenderMap = new IterHashMap<String, DrawUI>();
 
   private List<DrawUI> mRenderers = new ArrayList<DrawUI>();
-  
+
   public DrawUIStates add(DrawUI draw) {
     return add(draw.getName(), draw);
   }
-  
+
   public DrawUIStates add(String name, DrawUI draw) {
     mRenderMap.put(name, draw);
     mRenderers.add(draw);
-    
+
     return this;
   }
 
@@ -58,12 +58,12 @@ public class DrawUIStates extends ChangeListeners implements Iterable<DrawUI> {
   public DrawUIStates set(DrawUI draw) {
     return set(draw.getName(), draw);
   }
-  
+
   public DrawUIStates set(String name, DrawUI draw) {
     clear();
-    
+
     add(name, draw);
-    
+
     return this;
   }
 

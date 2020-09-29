@@ -68,7 +68,7 @@ public class ModernOutlineButton extends ModernButton {
    * Instantiates a new modern outline button.
    *
    * @param text1 the text1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernOutlineButton(String text1, ModernIcon icon) {
     super(text1, icon);

@@ -59,14 +59,12 @@ public abstract class ModernToolTipPanel extends Card {
   protected ModernDialogButtonsBox mButtons = new ModernDialogButtonsBox();
 
   /** The m ok button. */
-  protected ModernButton mOkButton = new ModernDialogPrimaryButton(
-      UI.BUTTON_OK);
+  protected ModernButton mOkButton = new ModernDialogPrimaryButton(UI.BUTTON_OK);
 
   /**
    * The close button.
    */
-  protected ModernButton mCancelButton = new ModernDialogButton(
-      UI.BUTTON_CANCEL);
+  protected ModernButton mCancelButton = new ModernDialogButton(UI.BUTTON_CANCEL);
 
   private ModernDialogStatus mStatus = ModernDialogStatus.CANCEL;
 

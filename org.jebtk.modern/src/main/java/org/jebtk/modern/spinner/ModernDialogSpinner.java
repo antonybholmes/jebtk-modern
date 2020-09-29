@@ -55,8 +55,8 @@ public class ModernDialogSpinner extends ModernSpinner {
   /**
    * Instantiates a new modern dialog spinner.
    *
-   * @param min the min
-   * @param max the max
+   * @param min   the min
+   * @param max   the max
    * @param value the value
    */
   public ModernDialogSpinner(int min, int max, int value) {
@@ -69,11 +69,9 @@ public class ModernDialogSpinner extends ModernSpinner {
    * @see org.abh.lib.ui.modern.spinner.ModernSpinner#setup()
    */
   protected void setup() {
-    mIncButton = new RibbonBarButton(
-        AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+    mIncButton = new RibbonBarButton(AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
-    mDecButton = new RibbonBarButton(
-        AssetService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+    mDecButton = new RibbonBarButton(AssetService.getInstance().loadIcon(MinusVectorIcon.class, 16));
 
     super.setup();
   }

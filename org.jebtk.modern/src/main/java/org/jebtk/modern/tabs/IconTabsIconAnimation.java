@@ -32,8 +32,7 @@ import org.jebtk.modern.theme.ThemeService;
  */
 public class IconTabsIconAnimation extends WidgetAnimation {
 
-  public static final Color ICON_COLOR = ThemeService.getInstance().getColors()
-      .getGray(5);
+  public static final Color ICON_COLOR = ThemeService.getInstance().getColors().getGray(5);
 
   private IconTabs mTabs;
 
@@ -66,7 +65,7 @@ public class IconTabsIconAnimation extends WidgetAnimation {
 
     int is = mTabs.getIconSize();
     int ts = mTabs.getTabSize();
-    
+
     int offset = (ts - is) / 2;
     int yoffset = (mTabs.getHeight() - is) / 2;
 
@@ -76,10 +75,10 @@ public class IconTabsIconAnimation extends WidgetAnimation {
       } else {
         icon = mTabs.getTabsModel().getTab(i).getIcon();
       }
-      
+
       int x1 = x + offset;
 
-      //Color color = ICON_COLOR;
+      // Color color = ICON_COLOR;
 
       icon.rasterIcon(g2, x1, yoffset, is, is, props);
 

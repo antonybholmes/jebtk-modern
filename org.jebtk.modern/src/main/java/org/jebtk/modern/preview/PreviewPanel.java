@@ -51,7 +51,7 @@ public abstract class PreviewPanel extends ModernWidget {
   /**
    * Add a preview panel to the panel view.
    *
-   * @param name the name
+   * @param name              the name
    * @param previewTablePanel the preview table panel
    */
   public abstract void addPreview(String name, ModernPanel previewTablePanel);

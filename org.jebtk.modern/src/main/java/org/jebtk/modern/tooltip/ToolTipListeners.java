@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ToolTipListeners extends EventProducer<ModernToolTipListener>
-    implements ModernToolTipEventProducer {
+public class ToolTipListeners extends EventProducer<ModernToolTipListener> implements ModernToolTipEventProducer {
 
   /**
    * The constant serialVersionUID.

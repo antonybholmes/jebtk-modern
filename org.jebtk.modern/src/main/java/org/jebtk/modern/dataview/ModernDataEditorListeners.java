@@ -39,8 +39,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ModernDataEditorListeners
-    extends EventProducer<ModernDataEditorListener>
+public class ModernDataEditorListeners extends EventProducer<ModernDataEditorListener>
     implements ModernDataEditorEventProducer {
 
   /**
@@ -97,8 +96,7 @@ public class ModernDataEditorListeners
     // new editor. We generally dont care if new editors are being
     // added after editing stopped, only that the current list is
     // notified.
-    for (ModernDataEditorListener l : new EventListeners<ModernDataEditorListener>(
-        mListeners)) {
+    for (ModernDataEditorListener l : new EventListeners<ModernDataEditorListener>(mListeners)) {
       // System.err.println("hmm " + l.toString());
 
       l.editingStopped();

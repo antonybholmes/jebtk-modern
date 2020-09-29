@@ -41,8 +41,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
  *
  * @author Antony Holmes
  */
-public class ModernTwoLineMenuItem extends ModernIconMenuItem
-    implements TwoLineWidget {
+public class ModernTwoLineMenuItem extends ModernIconMenuItem implements TwoLineWidget {
 
   /**
    * The constant serialVersionUID.
@@ -101,7 +100,7 @@ public class ModernTwoLineMenuItem extends ModernIconMenuItem
    *
    * @param text1 the text1
    * @param text2 the text2
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernTwoLineMenuItem(String text1, String text2, ModernIcon icon) {
     super(text1, icon);
@@ -180,8 +179,7 @@ public class ModernTwoLineMenuItem extends ModernIconMenuItem
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   @Override

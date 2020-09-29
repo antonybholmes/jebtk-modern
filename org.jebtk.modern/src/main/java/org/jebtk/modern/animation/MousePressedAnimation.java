@@ -60,7 +60,7 @@ public abstract class MousePressedAnimation extends TimerAnimation {
    */
   public MousePressedAnimation(ModernWidget widget) {
     super(widget);
-    
+
     bind(widget);
   }
 

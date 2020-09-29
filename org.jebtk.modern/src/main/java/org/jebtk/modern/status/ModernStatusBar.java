@@ -55,14 +55,12 @@ public class ModernStatusBar extends ModernComponent {
   private static final long serialVersionUID = 1L;
 
   /** The Constant STATUS_BORDER. */
-  private static final Border STATUS_BORDER = BorderService.getInstance()
-      .createBorder(1);
+  private static final Border STATUS_BORDER = BorderService.getInstance().createBorder(1);
 
   /**
    * The member status label.
    */
-  private ModernStatusLabel mStatusLabel = new ModernStatusLabel(
-      UI.STATUS_READY);
+  private ModernStatusLabel mStatusLabel = new ModernStatusLabel(UI.STATUS_READY);
 
   /**
    * The member model.

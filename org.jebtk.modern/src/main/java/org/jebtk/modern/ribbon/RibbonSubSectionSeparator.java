@@ -76,8 +76,7 @@ public class RibbonSubSectionSeparator extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -95,8 +94,8 @@ public class RibbonSubSectionSeparator extends ModernWidget {
      * 
      * g2.setPaint(gradient); g2.drawLine(MID_POINT, y, MID_POINT, y + h);
      * 
-     * gradient = new GradientPaint(0, h2 + y, LINE_COLOR, 0, h + y,
-     * Color.WHITE, false);
+     * gradient = new GradientPaint(0, h2 + y, LINE_COLOR, 0, h + y, Color.WHITE,
+     * false);
      * 
      * g2.setPaint(gradient);
      * 

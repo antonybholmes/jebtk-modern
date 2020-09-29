@@ -67,7 +67,7 @@ public class TreeIconNodeRenderer extends ModernTreeIconTextNodeRenderer {
    * The collapse region width.
    *
    * @param parentIcon the parent icon
-   * @param leafIcon the leaf icon
+   * @param leafIcon   the leaf icon
    */
   // protected int mCollapseRegionWidth = WIDGET_HEIGHT;
 
@@ -75,7 +75,7 @@ public class TreeIconNodeRenderer extends ModernTreeIconTextNodeRenderer {
    * Instantiates a new tree icon node renderer.
    *
    * @param parentIcon the parent icon
-   * @param leafIcon the leaf icon
+   * @param leafIcon   the leaf icon
    */
   public TreeIconNodeRenderer(ModernIcon parentIcon, ModernIcon leafIcon) {
     mParentIcon = parentIcon;
@@ -85,8 +85,7 @@ public class TreeIconNodeRenderer extends ModernTreeIconTextNodeRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
+   * @see org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
    * awt. Graphics2D)
    */
   @Override
@@ -114,22 +113,9 @@ public class TreeIconNodeRenderer extends ModernTreeIconTextNodeRenderer {
    * boolean, int, int)
    */
   @Override
-  public ModernTreeNodeRenderer getRenderer(Tree<?> tree,
-      TreeNode<?> node,
-      boolean nodeIsHighlighted,
-      boolean nodeIsSelected,
-      boolean hasFocus,
-      boolean isDragToNode,
-      int depth,
-      int row) {
-    super.getRenderer(tree,
-        node,
-        nodeIsHighlighted,
-        nodeIsSelected,
-        hasFocus,
-        isDragToNode,
-        depth,
-        row);
+  public ModernTreeNodeRenderer getRenderer(Tree<?> tree, TreeNode<?> node, boolean nodeIsHighlighted,
+      boolean nodeIsSelected, boolean hasFocus, boolean isDragToNode, int depth, int row) {
+    super.getRenderer(tree, node, nodeIsHighlighted, nodeIsSelected, hasFocus, isDragToNode, depth, row);
 
     mText = mNode.getName();
 

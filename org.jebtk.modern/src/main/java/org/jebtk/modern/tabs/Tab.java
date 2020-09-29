@@ -71,7 +71,7 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
    * Instantiates a new tab.
    *
    * @param name the name
-   * @param c the c
+   * @param c    the c
    */
   public Tab(String name, JComponent c) {
     this(name, null, c);
@@ -82,7 +82,7 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
    *
    * @param name the name
    * @param icon the icon
-   * @param c the c
+   * @param c    the c
    */
   public Tab(String name, ModernIcon icon, JComponent c) {
     this(name, icon, c, false, TabPosition.LEFT);
@@ -100,8 +100,8 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Instantiates a new tab.
    *
-   * @param name the name
-   * @param c the c
+   * @param name      the name
+   * @param c         the c
    * @param closeable the closeable
    */
   public Tab(String name, JComponent c, boolean closeable) {
@@ -111,9 +111,9 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Instantiates a new tab.
    *
-   * @param name the name
-   * @param icon the icon
-   * @param c the c
+   * @param name      the name
+   * @param icon      the icon
+   * @param c         the c
    * @param closeable the closeable
    */
   public Tab(String name, ModernIcon icon, JComponent c, boolean closeable) {
@@ -123,27 +123,25 @@ public class Tab extends TabEventListeners implements Comparable<Tab> {
   /**
    * Instantiates a new tab.
    *
-   * @param name the name
-   * @param c the c
+   * @param name      the name
+   * @param c         the c
    * @param closeable the closeable
-   * @param position the position
+   * @param position  the position
    */
-  public Tab(String name, JComponent c, boolean closeable,
-      TabPosition position) {
+  public Tab(String name, JComponent c, boolean closeable, TabPosition position) {
     this(name, null, c, closeable, position);
   }
 
   /**
    * Instantiates a new tab.
    *
-   * @param name the name
-   * @param icon the icon
-   * @param c the c
+   * @param name      the name
+   * @param icon      the icon
+   * @param c         the c
    * @param closeable the closeable
-   * @param position the position
+   * @param position  the position
    */
-  public Tab(String name, ModernIcon icon, JComponent c, boolean closeable,
-      TabPosition position) {
+  public Tab(String name, ModernIcon icon, JComponent c, boolean closeable, TabPosition position) {
     mName = name;
     mIcon = icon;
     mClosable = closeable;

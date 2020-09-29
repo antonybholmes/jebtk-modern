@@ -71,7 +71,7 @@ public class ModernDialogButton extends ModernButton {
    * Instantiates a new modern dialog button.
    *
    * @param text1 the text 1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernDialogButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -90,7 +90,7 @@ public class ModernDialogButton extends ModernButton {
 
     addStyleClass("dialog-button");
 
-    //setAnimations("button-fill", "button-outline");
+    // setAnimations("button-fill", "button-outline");
   }
 
   /*

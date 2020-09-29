@@ -72,11 +72,10 @@ public class ModernTableComboBoxCellEditor extends AbstractModernTableCellEditor
   /**
    * Instantiates a new modern table combo box cell editor.
    *
-   * @param combo the combo
+   * @param combo        the combo
    * @param defaultValue the default value
    */
-  public ModernTableComboBoxCellEditor(ModernComboBox combo,
-      String defaultValue) {
+  public ModernTableComboBoxCellEditor(ModernComboBox combo, String defaultValue) {
 
     mCombo = combo;
     mDefaultValue = defaultValue;
@@ -95,8 +94,7 @@ public class ModernTableComboBoxCellEditor extends AbstractModernTableCellEditor
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
    */
   @Override
   public final Object getCellEditorValue() {
@@ -106,8 +104,7 @@ public class ModernTableComboBoxCellEditor extends AbstractModernTableCellEditor
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override
@@ -124,13 +121,8 @@ public class ModernTableComboBoxCellEditor extends AbstractModernTableCellEditor
    * boolean, boolean, int, int)
    */
   @Override
-  public Component getCellEditorComponent(ModernData table,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row,
-      int column) {
+  public Component getCellEditorComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
     if (value != null && !value.toString().equals("")) {
       mCombo.setText(value.toString());
     } else {
@@ -143,8 +135,7 @@ public class ModernTableComboBoxCellEditor extends AbstractModernTableCellEditor
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void changed(ChangeEvent e) {

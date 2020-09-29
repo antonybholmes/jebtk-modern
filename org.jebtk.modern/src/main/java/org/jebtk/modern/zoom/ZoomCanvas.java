@@ -80,7 +80,7 @@ public class ZoomCanvas extends ModernCanvas {
    * Instantiates a new zoom canvas.
    *
    * @param canvas the canvas
-   * @param zoom the zoom
+   * @param zoom   the zoom
    */
   public ZoomCanvas(double zoom) {
     this(new ZoomModel(), zoom);
@@ -90,7 +90,7 @@ public class ZoomCanvas extends ModernCanvas {
    * Instantiates a new zoom canvas.
    *
    * @param canvas the canvas
-   * @param model the model
+   * @param model  the model
    */
   public ZoomCanvas(ZoomModel model) {
     this(model, 1);
@@ -100,8 +100,8 @@ public class ZoomCanvas extends ModernCanvas {
    * Instantiates a new zoom canvas.
    *
    * @param canvas the canvas
-   * @param model the model
-   * @param zoom the zoom
+   * @param model  the model
+   * @param zoom   the zoom
    */
   public ZoomCanvas(ZoomModel model, double zoom) {
     setZoomModel(model);
@@ -122,9 +122,8 @@ public class ZoomCanvas extends ModernCanvas {
      * addCanvasMouseWheelListener(new CanvasMouseWheelListener() {
      * 
      * @Override public void canvasMouseWheelMoved(CanvasMouseWheelEvent e) { if
-     * (MouseUtils.hasCtrlMod(e)) { if (mZoomModel != null) {
-     * mZoomModel.setZoom( mZoomModel.getZoom() + WHEEL_ZOOM *
-     * e.getWheelRotation()); } }
+     * (MouseUtils.hasCtrlMod(e)) { if (mZoomModel != null) { mZoomModel.setZoom(
+     * mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation()); } }
      * 
      * } });
      */
@@ -141,8 +140,7 @@ public class ZoomCanvas extends ModernCanvas {
   }
 
   private void wheelZoom(MouseWheelEvent e) {
-    mZoomModel
-        .setZoom(mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
+    mZoomModel.setZoom(mZoomModel.getZoom() + WHEEL_ZOOM * e.getWheelRotation());
   }
 
   /**
@@ -235,8 +233,8 @@ public class ZoomCanvas extends ModernCanvas {
    * event.ChangeEvent)
    */
   /*
-   * @Override public void canvasChanged(ChangeEvent e) { // since the
-   * underlying canvas changed, adapt to it
+   * @Override public void canvasChanged(ChangeEvent e) { // since the underlying
+   * canvas changed, adapt to it
    * 
    * System.err.println("zoom hmm");
    * 
@@ -284,8 +282,7 @@ public class ZoomCanvas extends ModernCanvas {
       z = mZoomModel.getZoom();
     }
 
-    return new Dimension((int) Math.round(d.width * z),
-        (int) Math.round(d.height * z));
+    return new Dimension((int) Math.round(d.width * z), (int) Math.round(d.height * z));
   }
 
   /**
@@ -312,8 +309,7 @@ public class ZoomCanvas extends ModernCanvas {
       z = mZoomModel.getZoom();
     }
 
-    return new Dimension((int) Math.round(d.getW() * z),
-        (int) Math.round(d.getH() * z));
+    return new Dimension((int) Math.round(d.getW() * z), (int) Math.round(d.getH() * z));
   }
 
   /*
@@ -335,8 +331,8 @@ public class ZoomCanvas extends ModernCanvas {
    * 
    * //IntDim size = mCanvas.getCanvasSize();
    * 
-   * // As we zoom out, the view rectangle of the zoom canvas represents // a
-   * much larger area on the original canvas
+   * // As we zoom out, the view rectangle of the zoom canvas represents // a much
+   * larger area on the original canvas
    * 
    * IntDim zSize = IntDim.create(Math.round(rect.getW() / z),
    * Math.round(rect.getH() / z));
@@ -404,8 +400,7 @@ public class ZoomCanvas extends ModernCanvas {
 
     // IntPos2D newP = IntPos2D.create((int)Math.round(p.getX() / z),
     // (int)Math.round(p.getY() / z));
-    IntPos2D newP = IntPos2D.create((int) Math.round(x / z),
-        (int) Math.round(y / z));
+    IntPos2D newP = IntPos2D.create((int) Math.round(x / z), (int) Math.round(y / z));
 
     return newP;
   }

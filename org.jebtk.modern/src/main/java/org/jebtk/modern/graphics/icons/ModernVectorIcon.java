@@ -53,51 +53,42 @@ public abstract class ModernVectorIcon extends MultiResIcon {
   /**
    * The constant HIDE_UP_16_ICON.
    */
-  public static final ModernIcon HIDE_UP_16_ICON = new Raster16Icon(
-      new CheveronUpVectorIcon(), WHITE_PROPS);
+  public static final ModernIcon HIDE_UP_16_ICON = new Raster16Icon(new CheveronUpVectorIcon(), WHITE_PROPS);
 
   /**
    * The constant HIDE_DOWN_16_ICON.
    */
-  public static final ModernIcon HIDE_DOWN_16_ICON = new Raster16Icon(
-      new CheveronDownVectorIcon(), WHITE_PROPS);
+  public static final ModernIcon HIDE_DOWN_16_ICON = new Raster16Icon(new CheveronDownVectorIcon(), WHITE_PROPS);
 
   /**
    * The constant HIDE_LEFT_ICON.
    */
-  public static final ModernIcon HIDE_LEFT_ICON = new Raster16Icon(
-      new CheveronLeftVectorIcon());
+  public static final ModernIcon HIDE_LEFT_ICON = new Raster16Icon(new CheveronLeftVectorIcon());
 
   /**
    * The constant HIDE_RIGHT_ICON.
    */
-  public static final ModernIcon HIDE_RIGHT_ICON = new Raster16Icon(
-      new CheveronRightVectorIcon());
+  public static final ModernIcon HIDE_RIGHT_ICON = new Raster16Icon(new CheveronRightVectorIcon());
 
   /**
    * The constant UP_16_ICON.
    */
-  public static final ModernIcon UP_16_ICON = new Raster16Icon(
-      new HideUpVectorIcon());
+  public static final ModernIcon UP_16_ICON = new Raster16Icon(new HideUpVectorIcon());
 
   /**
    * The constant DOWN_16_ICON.
    */
-  public static final ModernIcon DOWN_16_ICON = new Raster16Icon(
-      new HideDownVectorIcon());
+  public static final ModernIcon DOWN_16_ICON = new Raster16Icon(new HideDownVectorIcon());
 
   /**
    * The constant LEFT_16_ICON.
    */
-  public static final ModernIcon LEFT_16_ICON = new Raster16Icon(
-      new HideLeftVectorIcon());
+  public static final ModernIcon LEFT_16_ICON = new Raster16Icon(new HideLeftVectorIcon());
 
   /**
    * The constant RIGHT_16_ICON.
    */
-  public static final ModernIcon RIGHT_16_ICON = new Raster16Icon(
-      new HideRightVectorIcon());
-
+  public static final ModernIcon RIGHT_16_ICON = new Raster16Icon(new HideRightVectorIcon());
 
   /**
    * Returns -1 since a vector icon has no intrinsic width.
@@ -119,14 +110,13 @@ public abstract class ModernVectorIcon extends MultiResIcon {
     return -1;
   }
 
-
   @Override
   public BufferedImage getImage(int w, int h, Props props) {
     if (!mBufMap.containsKey(w)) {
       BufferedImage buf = ImageUtils.createImage(w, w);
 
       Graphics2D g2 = (Graphics2D) buf.createGraphics();
-  
+
       ImageUtils.setQualityHints(g2);
 
       try {
@@ -141,7 +131,6 @@ public abstract class ModernVectorIcon extends MultiResIcon {
     return mBufMap.get(w);
   }
 
-
   //
   // Static methods
   //
@@ -149,14 +138,12 @@ public abstract class ModernVectorIcon extends MultiResIcon {
   /**
    * Create a rastorized icon supplying two colors as parameters.
    *
-   * @param <T> the generic type
+   * @param <T>       the generic type
    * @param iconClass the icon class
-   * @param size the size
+   * @param size      the size
    * @return the modern icon
    */
-  public static <T extends ModernVectorIcon> ModernIcon createRastorIcon(
-      Class<T> iconClass,
-      int size) {
+  public static <T extends ModernVectorIcon> ModernIcon createRastorIcon(Class<T> iconClass, int size) {
 
     ModernIcon icon = createIcon(iconClass);
 
@@ -170,18 +157,15 @@ public abstract class ModernVectorIcon extends MultiResIcon {
   /**
    * Create a rastorized icon supplying two colors as parameters.
    *
-   * @param <T> the generic type
+   * @param <T>       the generic type
    * @param iconClass the icon class
-   * @param color1 the color 1
-   * @param size the size
+   * @param color1    the color 1
+   * @param size      the size
    * @return the modern icon
    */
-  public static <T extends ModernVectorIcon> ModernIcon createRastorIcon(
-      Class<T> iconClass,
-      Color color1,
-      int size) {
+  public static <T extends ModernVectorIcon> ModernIcon createRastorIcon(Class<T> iconClass, Color color1, int size) {
 
-    ModernIcon icon = createIcon(iconClass); //, color1);
+    ModernIcon icon = createIcon(iconClass); // , color1);
 
     if (icon != null) {
       return new RasterIcon(icon, size, new Props().set("color", color1));
@@ -193,20 +177,17 @@ public abstract class ModernVectorIcon extends MultiResIcon {
   /**
    * Creates the rastor icon.
    *
-   * @param <T> the generic type
+   * @param <T>       the generic type
    * @param iconClass the icon class
-   * @param color1 the color 1
-   * @param color2 the color 2
-   * @param size the size
+   * @param color1    the color 1
+   * @param color2    the color 2
+   * @param size      the size
    * @return the modern icon
    */
-  public static <T extends ModernVectorIcon> ModernIcon createRastorIcon(
-      Class<T> iconClass,
-      Color color1,
-      Color color2,
+  public static <T extends ModernVectorIcon> ModernIcon createRastorIcon(Class<T> iconClass, Color color1, Color color2,
       int size) {
 
-    ModernIcon icon = createIcon(iconClass); //, color1, color2);
+    ModernIcon icon = createIcon(iconClass); // , color1, color2);
 
     if (icon != null) {
       return new RasterIcon(icon, size, new Props().set("color1", color1).set("color2", color2));
@@ -218,12 +199,11 @@ public abstract class ModernVectorIcon extends MultiResIcon {
   /**
    * Creates the icon.
    *
-   * @param <T> the generic type
+   * @param <T>       the generic type
    * @param iconClass the icon class
    * @return the modern icon
    */
-  public static <T extends ModernVectorIcon> ModernIcon createIcon(
-      Class<T> iconClass) {
+  public static <T extends ModernVectorIcon> ModernIcon createIcon(Class<T> iconClass) {
 
     T icon = null;
 
@@ -239,16 +219,13 @@ public abstract class ModernVectorIcon extends MultiResIcon {
   /**
    * Creates the icon.
    *
-   * @param <T> the generic type
+   * @param <T>       the generic type
    * @param iconClass the icon class
-   * @param color1 the color 1
-   * @param color2 the color 2
+   * @param color1    the color 1
+   * @param color2    the color 2
    * @return the modern icon
    */
-  public static <T extends ModernVectorIcon> ModernIcon createIcon(
-      Class<T> iconClass,
-      Color color1,
-      Color color2) {
+  public static <T extends ModernVectorIcon> ModernIcon createIcon(Class<T> iconClass, Color color1, Color color2) {
 
     T icon = null;
 
@@ -276,14 +253,12 @@ public abstract class ModernVectorIcon extends MultiResIcon {
   /**
    * Creates the icon.
    *
-   * @param <T> the generic type
+   * @param <T>       the generic type
    * @param iconClass the icon class
-   * @param color1 the color 1
+   * @param color1    the color 1
    * @return the modern icon
    */
-  public static <T extends ModernVectorIcon> ModernIcon createIcon(
-      Class<T> iconClass,
-      Color color1) {
+  public static <T extends ModernVectorIcon> ModernIcon createIcon(Class<T> iconClass, Color color1) {
 
     T icon = null;
 
@@ -291,9 +266,8 @@ public abstract class ModernVectorIcon extends MultiResIcon {
       Constructor<T> cons = iconClass.getConstructor(Color.class);
 
       icon = cons.newInstance(color1);
-    } catch (NoSuchMethodException | SecurityException | InstantiationException
-        | IllegalAccessException | IllegalArgumentException
-        | InvocationTargetException e) {
+    } catch (NoSuchMethodException | SecurityException | InstantiationException | IllegalAccessException
+        | IllegalArgumentException | InvocationTargetException e) {
       e.printStackTrace();
     }
 

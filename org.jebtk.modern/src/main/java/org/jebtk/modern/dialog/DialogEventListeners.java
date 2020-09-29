@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class DialogEventListeners extends EventProducer<DialogEventListener>
-    implements DialogEventProducer {
+public class DialogEventListeners extends EventProducer<DialogEventListener> implements DialogEventProducer {
 
   /**
    * The constant serialVersionUID.

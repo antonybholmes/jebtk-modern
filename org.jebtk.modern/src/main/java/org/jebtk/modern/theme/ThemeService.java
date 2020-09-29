@@ -442,18 +442,14 @@ public class ThemeService extends ModernTheme {
       // Mathematics.bound(SettingsService.getInstance().getDouble(color +
       // ".scaling"), 0, 1);
 
-      Color color1 = SettingsService.getInstance()
-          .getColor(color + ".start-color");
-      Color color2 = SettingsService.getInstance()
-          .getColor(color + ".end-color");
+      Color color1 = SettingsService.getInstance().getColor(color + ".start-color");
+      Color color2 = SettingsService.getInstance().getColor(color + ".end-color");
 
-      System.err
-          .println("theme " + color + ".end-color" + " " + (SettingsService
-              .getInstance().getSetting(color + ".end-color").toString()));
+      System.err.println("theme " + color + ".end-color" + " "
+          + (SettingsService.getInstance().getSetting(color + ".end-color").toString()));
 
       mColorMap = ColorMap.createTwoColorMap(theme, color1, color2, 10, false);
-      mColorMap32 = ColorMap
-          .createTwoColorMap(theme, color1, color2, COLORS, false);
+      mColorMap32 = ColorMap.createTwoColorMap(theme, color1, color2, COLORS, false);
     }
 
     /**
@@ -473,8 +469,7 @@ public class ThemeService extends ModernTheme {
      * @return the color 32
      */
     public Color getColor32(int i) {
-      return mColorMap32
-          .getColorByIndex(Mathematics.bound(i, 0, MAX_COLOR_INDEX));
+      return mColorMap32.getColorByIndex(Mathematics.bound(i, 0, MAX_COLOR_INDEX));
     }
 
     public int getIndex(Color color) {
@@ -512,36 +507,36 @@ public class ThemeService extends ModernTheme {
   /**
    * Sets the theme.
    *
-   * @throws ClassNotFoundException the class not found exception
-   * @throws InstantiationException the instantiation exception
-   * @throws IllegalAccessException the illegal access exception
-   * @throws FontFormatException the font format exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws ClassNotFoundException          the class not found exception
+   * @throws InstantiationException          the instantiation exception
+   * @throws IllegalAccessException          the illegal access exception
+   * @throws FontFormatException             the font format exception
+   * @throws IOException                     Signals that an I/O exception has
+   *                                         occurred.
    * @throws UnsupportedLookAndFeelException the unsupported look and feel
-   *           exception
+   *                                         exception
    */
-  public void setTheme() throws ClassNotFoundException, InstantiationException,
-      IllegalAccessException, FontFormatException, IOException,
-      UnsupportedLookAndFeelException {
+  public void setTheme() throws ClassNotFoundException, InstantiationException, IllegalAccessException,
+      FontFormatException, IOException, UnsupportedLookAndFeelException {
     setTheme(ColorTheme.BLUE);
   }
 
   /**
-   * Sets the color theme used by the Modern UI and sets the overall look and
-   * feel and loads fonts etc.
+   * Sets the color theme used by the Modern UI and sets the overall look and feel
+   * and loads fonts etc.
    *
    * @param theme the new theme
-   * @throws FontFormatException the font format exception
-   * @throws IOException Signals that an I/O exception has occurred.
-   * @throws ClassNotFoundException the class not found exception
-   * @throws InstantiationException the instantiation exception
-   * @throws IllegalAccessException the illegal access exception
+   * @throws FontFormatException             the font format exception
+   * @throws IOException                     Signals that an I/O exception has
+   *                                         occurred.
+   * @throws ClassNotFoundException          the class not found exception
+   * @throws InstantiationException          the instantiation exception
+   * @throws IllegalAccessException          the illegal access exception
    * @throws UnsupportedLookAndFeelException the unsupported look and feel
-   *           exception
+   *                                         exception
    */
-  public void setTheme(ColorTheme theme) throws FontFormatException,
-      IOException, ClassNotFoundException, InstantiationException,
-      IllegalAccessException, UnsupportedLookAndFeelException {
+  public void setTheme(ColorTheme theme) throws FontFormatException, IOException, ClassNotFoundException,
+      InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
     getColors().setTheme(theme);
 
     if (mSetup) {
@@ -571,15 +566,14 @@ public class ThemeService extends ModernTheme {
   /**
    * Sets the look and feel.
    *
-   * @throws ClassNotFoundException the class not found exception
-   * @throws InstantiationException the instantiation exception
-   * @throws IllegalAccessException the illegal access exception
+   * @throws ClassNotFoundException          the class not found exception
+   * @throws InstantiationException          the instantiation exception
+   * @throws IllegalAccessException          the illegal access exception
    * @throws UnsupportedLookAndFeelException the unsupported look and feel
-   *           exception
+   *                                         exception
    */
   public static final void setLookAndFeel()
-      throws ClassNotFoundException, InstantiationException,
-      IllegalAccessException, UnsupportedLookAndFeelException {
+      throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
 
     // Set some style properties
 
@@ -597,10 +591,9 @@ public class ThemeService extends ModernTheme {
    * Register fonts.
    *
    * @throws FontFormatException the font format exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws IOException         Signals that an I/O exception has occurred.
    */
-  public static final void registerFonts()
-      throws FontFormatException, IOException {
+  public static final void registerFonts() throws FontFormatException, IOException {
     Resources.getInstance().registerFont("Inconsolata-Regular.ttf");
 
     // Resources.getInstance().registerFont("ProductSans-Regular.ttf");
@@ -645,8 +638,6 @@ public class ThemeService extends ModernTheme {
 
     int size = SettingsService.getInstance().getInt(p);
 
-    return FontService.getInstance().loadFont(family,
-        size,
-        SettingsService.getInstance().getString(p).equals("bold"));
+    return FontService.getInstance().loadFont(family, size, SettingsService.getInstance().getString(p).equals("bold"));
   }
 }

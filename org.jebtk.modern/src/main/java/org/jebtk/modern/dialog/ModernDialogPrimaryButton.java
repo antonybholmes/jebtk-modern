@@ -72,7 +72,7 @@ public class ModernDialogPrimaryButton extends ModernDialogButton {
    * Instantiates a new modern dialog button.
    *
    * @param text1 the text 1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernDialogPrimaryButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -98,20 +98,20 @@ public class ModernDialogPrimaryButton extends ModernDialogButton {
      * public static final Color FILL_2 = ThemeService.getInstance().getColors()
      * .getColorHighlight32(24);
      * 
-     * getKeyFrames().getStyles(0).set("border-color",
-     * ThemeService.getInstance() .getColors().getColorHighlight32(24));
+     * getKeyFrames().getStyles(0).set("border-color", ThemeService.getInstance()
+     * .getColors().getColorHighlight32(24));
      * getKeyFrames().getStyles(0).set("background-color",
      * ThemeService.getInstance().getColors() .getColorHighlight32(20));
      * 
-     * getKeyFrames().getStyles(100).set("border-color",
-     * ThemeService.getInstance() .getColors().getColorHighlight32(28));
+     * getKeyFrames().getStyles(100).set("border-color", ThemeService.getInstance()
+     * .getColors().getColorHighlight32(28));
      * getKeyFrames().getStyles(100).set("background-color",
      * ThemeService.getInstance().getColors() .getColorHighlight32(24));
      */
 
     // getBackgroundAnimations().set("primary-dialog-button");
 
-    //setAnimations("button-fill", "button-outline");
+    // setAnimations("button-fill", "button-outline");
   }
 
   /*

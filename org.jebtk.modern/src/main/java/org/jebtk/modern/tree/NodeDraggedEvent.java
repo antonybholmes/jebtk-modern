@@ -51,7 +51,7 @@ public class NodeDraggedEvent<T> {
    * Instantiates a new node dragged event.
    *
    * @param dragged the dragged
-   * @param target the target
+   * @param target  the target
    */
   public NodeDraggedEvent(TreeNode<T> dragged, TreeNode<T> target) {
     this.dragged = dragged;

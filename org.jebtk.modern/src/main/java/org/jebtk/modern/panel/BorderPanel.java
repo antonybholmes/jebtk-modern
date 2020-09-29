@@ -74,8 +74,7 @@ public class BorderPanel extends ModernPanel {
    * @param colorR the color r
    * @param layout the layout
    */
-  public BorderPanel(Color colorT, Color colorL, Color colorB, Color colorR,
-      LayoutManager layout) {
+  public BorderPanel(Color colorT, Color colorL, Color colorB, Color colorR, LayoutManager layout) {
     super(layout);
 
     this.colorT = colorT;

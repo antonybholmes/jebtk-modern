@@ -51,8 +51,7 @@ public class ExpandVectorIcon extends ModernVectorIcon {
   /**
    * The constant SCALE.
    */
-  private static final double SCALE = SettingsService.getInstance()
-      .getDouble("theme.icons.expand-icon.width-scale");
+  private static final double SCALE = SettingsService.getInstance().getDouble("theme.icons.expand-icon.width-scale");
 
   /**
    * The constant HEIGHT_SCALE.
@@ -63,8 +62,7 @@ public class ExpandVectorIcon extends ModernVectorIcon {
   /**
    * The constant OFFSET.
    */
-  private static final double OFFSET = SettingsService.getInstance()
-      .getDouble("theme.icons.expand-icon.offset");
+  private static final double OFFSET = SettingsService.getInstance().getDouble("theme.icons.expand-icon.offset");
 
   /*
    * (non-Javadoc)
@@ -74,12 +72,7 @@ public class ExpandVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
 
     double wf = w * SCALE;
     double w2 = wf / 2.0;

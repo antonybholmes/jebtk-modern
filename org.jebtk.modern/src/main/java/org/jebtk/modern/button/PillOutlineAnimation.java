@@ -13,17 +13,14 @@ public class PillOutlineAnimation extends ButtonOutlineAnimation {
   }
 
   @Override
-  public void outline(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect) {
+  public void outline(ModernComponent c, Graphics2D g2, IntRect rect) {
     // if (mode == RenderMode.NONE && !hasFocus) {
     // return;
     // }
-    
+
     System.err.println("pill " + rect + " " + getFadeColor("outline"));
 
-    DrawUIService.getInstance().getRenderer("pill-outline")
-        .draw(c, g2, rect, getFadeColor("outline"));
+    DrawUIService.getInstance().getRenderer("pill-outline").draw(c, g2, rect, getFadeColor("outline"));
 
     // g2.setColor(getFadeColor("outline"));
 

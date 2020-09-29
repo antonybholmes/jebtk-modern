@@ -62,10 +62,9 @@ public class ModernSplashScreen extends ModernDialogWindow {
   private static final long serialVersionUID = 1L;
 
   /** The Constant COLOR. */
-  public static final Color COLOR = ThemeService.getInstance().getColors()
-      .getTheme32(24); // new
-                       // Color(appInfo.getIcon().getImage().getRGB(1,
-                       // 1));
+  public static final Color COLOR = ThemeService.getInstance().getColors().getTheme32(24); // new
+  // Color(appInfo.getIcon().getImage().getRGB(1,
+  // 1));
 
   /**
    * The member close button.
@@ -85,8 +84,7 @@ public class ModernSplashScreen extends ModernDialogWindow {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -104,8 +102,7 @@ public class ModernSplashScreen extends ModernDialogWindow {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -123,7 +120,7 @@ public class ModernSplashScreen extends ModernDialogWindow {
   /**
    * Instantiates a new modern splash screen.
    *
-   * @param window the window
+   * @param window  the window
    * @param appInfo the app info
    */
   public ModernSplashScreen(ModernWindow window, GuiAppInfo appInfo) {
@@ -149,9 +146,9 @@ public class ModernSplashScreen extends ModernDialogWindow {
   private void init() {
 
     setUndecorated(true);
-    
+
     setIconImage(getAppInfo().getIcon().getImage(32));
-    
+
     setTitle(getAppInfo().getName());
 
     // determine the color of the icon
@@ -169,8 +166,7 @@ public class ModernSplashScreen extends ModernDialogWindow {
 
     box2.add(ModernPanel.createHGap());
 
-    mCloseButton = new ModernSplashTitleButton(
-        new Raster24Icon(new CrossVectorIcon(), ModernIcon.WHITE_PROPS));
+    mCloseButton = new ModernSplashTitleButton(new Raster24Icon(new CrossVectorIcon(), ModernIcon.WHITE_PROPS));
     mCloseButton.setClickMessage(UI.MENU_CLOSE);
     mCloseButton.addClickListener(new CloseEvents());
     box2.add(mCloseButton);

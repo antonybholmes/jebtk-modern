@@ -62,8 +62,7 @@ public class ModernCheckTree<T> extends ModernTree<T> {
         if (e.getMessage().equals(NODE_CLICKED)) {
           // System.err.println("checked tree " + mMode);
 
-          if (mMode == ModernCheckTreeMode.SINGLE
-              || mMode == ModernCheckTreeMode.RADIO) {
+          if (mMode == ModernCheckTreeMode.SINGLE || mMode == ModernCheckTreeMode.RADIO) {
             // cancel all selections
             setChecked(false);
           }
@@ -142,8 +141,8 @@ public class ModernCheckTree<T> extends ModernTree<T> {
   }
 
   /**
-   * Returns a list of nodes in the tree that are check nodes. Nodes are in
-   * order of how they are found in the tree exploring depth first.
+   * Returns a list of nodes in the tree that are check nodes. Nodes are in order
+   * of how they are found in the tree exploring depth first.
    *
    * @return the check nodes
    */

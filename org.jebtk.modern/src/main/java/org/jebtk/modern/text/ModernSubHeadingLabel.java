@@ -47,8 +47,7 @@ public class ModernSubHeadingLabel extends ModernAutoSizeLabel {
   /**
    * The constant SUB_HEADING_FONT.
    */
-  private static final Font SUB_HEADING_FONT = MaterialService.instance()
-      .getFonts().subHeading();
+  private static final Font SUB_HEADING_FONT = MaterialService.instance().getFonts().subHeading();
 
   /**
    * Instantiates a new modern sub heading label.
@@ -64,7 +63,7 @@ public class ModernSubHeadingLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern sub heading label.
    *
-   * @param text the text
+   * @param text  the text
    * @param color the color
    */
   public ModernSubHeadingLabel(String text, Color color) {
@@ -76,7 +75,7 @@ public class ModernSubHeadingLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern sub heading label.
    *
-   * @param text the text
+   * @param text   the text
    * @param border the border
    */
   public ModernSubHeadingLabel(String text, Border border) {

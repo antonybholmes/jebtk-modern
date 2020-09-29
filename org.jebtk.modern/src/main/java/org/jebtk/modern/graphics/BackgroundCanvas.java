@@ -56,7 +56,7 @@ public class BackgroundCanvas extends ContainerCanvas {
    * Instantiates a new background canvas.
    *
    * @param canvas the canvas
-   * @param color the color
+   * @param color  the color
    */
   public BackgroundCanvas(ModernCanvas canvas, Color color) {
     super(canvas);

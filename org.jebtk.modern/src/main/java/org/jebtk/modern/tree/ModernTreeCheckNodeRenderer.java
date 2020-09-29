@@ -66,8 +66,7 @@ public class ModernTreeCheckNodeRenderer extends TreeNodeFileRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
+   * @see org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
    * awt. Graphics2D)
    */
   @Override
@@ -80,12 +79,10 @@ public class ModernTreeCheckNodeRenderer extends TreeNodeFileRenderer {
       if (mChecked) {
         // getWidgetRenderer().drawChecked(g2, x, y, 16, 16,
         // RenderMode.SELECTED);
-        DrawUIService.getInstance().getRenderer("checkbox.checked")
-            .draw(g2, new IntRect(x, y, 16));
+        DrawUIService.getInstance().getRenderer("checkbox.checked").draw(g2, new IntRect(x, y, 16));
       } else {
         // getWidgetRenderer().drawCheckBox(g2, x, y, 16, 16);
-        DrawUIService.getInstance().getRenderer("checkbox")
-            .draw(g2, new IntRect(x, y, 16));
+        DrawUIService.getInstance().getRenderer("checkbox").draw(g2, new IntRect(x, y, 16));
       }
     } else {
       super.drawNodeIcon(g2);
@@ -97,26 +94,13 @@ public class ModernTreeCheckNodeRenderer extends TreeNodeFileRenderer {
    * 
    * @see
    * org.abh.common.ui.tree.TreeIconNodeRenderer#getRenderer(org.abh.common.ui.
-   * tree.Tree, org.abh.common.tree.TreeNode, boolean, boolean, boolean,
-   * boolean, int, int)
+   * tree.Tree, org.abh.common.tree.TreeNode, boolean, boolean, boolean, boolean,
+   * int, int)
    */
   @Override
-  public ModernTreeNodeRenderer getRenderer(Tree<?> tree,
-      TreeNode<?> node,
-      boolean nodeIsHighlighted,
-      boolean nodeIsSelected,
-      boolean hasFocus,
-      boolean isDragToNode,
-      int depth,
-      int row) {
-    super.getRenderer(tree,
-        node,
-        nodeIsHighlighted,
-        nodeIsSelected,
-        hasFocus,
-        isDragToNode,
-        depth,
-        row);
+  public ModernTreeNodeRenderer getRenderer(Tree<?> tree, TreeNode<?> node, boolean nodeIsHighlighted,
+      boolean nodeIsSelected, boolean hasFocus, boolean isDragToNode, int depth, int row) {
+    super.getRenderer(tree, node, nodeIsHighlighted, nodeIsSelected, hasFocus, isDragToNode, depth, row);
 
     if (node instanceof CheckTreeNode) {
       mIsCheckNode = true;

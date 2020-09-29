@@ -40,8 +40,7 @@ import org.jebtk.modern.menu.ModernIconMenuItem;
  *
  * @author Antony Holmes
  */
-public class SearchTermsComboBox extends ModernComboBox
-    implements SearchTermEventListener {
+public class SearchTermsComboBox extends ModernComboBox implements SearchTermEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -99,8 +98,7 @@ public class SearchTermsComboBox extends ModernComboBox
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(
+   * @see org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(
    * org. abh.lib.event.ChangeEvent)
    */
   @Override

@@ -38,21 +38,20 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 /**
- * The class CSSColor represents a color with additional properties for
- * use with HTML like elements.
+ * The class CSSColor represents a color with additional Props for use with HTML
+ * like elements.
  */
-public class CSSColor extends Color
-    implements XmlRepresentation, JsonRepresentation {
+public class CSSColor extends Color implements XmlRepresentation, JsonRepresentation {
 
   /**
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-  
+
   public CSSColor(Color c) {
     super(c.getRed(), c.getGreen(), c.getBlue(), c.getAlpha());
   }
-  
+
   /**
    * Instantiates a new color map color.
    *
@@ -132,7 +131,7 @@ public class CSSColor extends Color
 
     return element;
   }
-  
+
   @Override
   public String toString() {
     return ColorUtils.toHtml(this);
@@ -145,7 +144,6 @@ public class CSSColor extends Color
    * @return the color map color
    */
   public static CSSColor create(Color c) {
-    return new CSSColor(c.getRed(), c.getGreen(), c.getBlue(),
-        c.getAlpha());
+    return new CSSColor(c.getRed(), c.getGreen(), c.getBlue(), c.getAlpha());
   }
 }

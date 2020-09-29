@@ -46,13 +46,12 @@ public class AutoHidePanel extends ModernComponent {
   private Component mC;
 
   /** The icon. */
-  private ModernIcon ICON = AssetService.getInstance()
-      .loadIcon(CheveronRightVectorIcon.class, 12);
+  private ModernIcon ICON = AssetService.getInstance().loadIcon(CheveronRightVectorIcon.class, 12);
 
   /**
    * Instantiates a new auto hide panel.
    *
-   * @param c the c
+   * @param c        the c
    * @param minWidth the min width
    */
   public AutoHidePanel(Component c, int minWidth) {

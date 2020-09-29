@@ -44,8 +44,7 @@ import org.jebtk.modern.text.ModernTextBox;
 /**
  * The class ModernDataGridCellEditor.
  */
-public class ModernTableTextCellEditor extends ModernDataCellEditor
-    implements DocumentListener, ChangeListener {
+public class ModernTableTextCellEditor extends ModernDataCellEditor implements DocumentListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -112,8 +111,7 @@ public class ModernTableTextCellEditor extends ModernDataCellEditor
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
    */
   @Override
   public final Object getCellEditorValue() {
@@ -133,13 +131,8 @@ public class ModernTableTextCellEditor extends ModernDataCellEditor
    * boolean, boolean, int, int)
    */
   @Override
-  public Component getCellEditorComponent(ModernData view,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row,
-      int column) {
+  public Component getCellEditorComponent(ModernData view, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
 
     mIsNumber = false;
 

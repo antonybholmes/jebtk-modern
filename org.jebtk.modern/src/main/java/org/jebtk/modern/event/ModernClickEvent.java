@@ -59,7 +59,7 @@ public class ModernClickEvent extends Event {
   /**
    * Instantiates a new modern click event.
    *
-   * @param source the source
+   * @param source  the source
    * @param message the message
    */
   public ModernClickEvent(Object source, String message) {

@@ -66,7 +66,7 @@ public class BlockVertPressedAnimation extends ButtonPressedAnimation {
     }
 
     int x = mTabs.getInsets().left; // + widget.getWidth() -
-                                    // SegmentChangeAnimation.HEIGHT;
+    // SegmentChangeAnimation.HEIGHT;
     int y = mTabs.getInsets().top + mTabs.mOffset;
     int tabWidth = mTabs.getInternalRect().getW();
 
@@ -75,7 +75,7 @@ public class BlockVertPressedAnimation extends ButtonPressedAnimation {
       g2.setColor(mColor);
 
       double r = TranslateAnimation.BEZ_T[getStep()]; // /
-                                                      // (double)TimerAnimation.AnimationTimer.STEPS;
+      // (double)TimerAnimation.AnimationTimer.STEPS;
 
       int d = (int) (tabWidth * r);
 

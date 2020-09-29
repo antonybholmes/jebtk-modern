@@ -155,8 +155,7 @@ public abstract class ModernDropDownWidget2 extends ModernButtonWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -169,11 +168,10 @@ public abstract class ModernDropDownWidget2 extends ModernButtonWidget {
    * Instantiates a new modern drop down widget.
    *
    * @param text1 the text1
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public ModernDropDownWidget2(String text1, ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public ModernDropDownWidget2(String text1, ModernIcon icon, ModernPopupMenu2 menu) {
 
     this(text1, icon);
 
@@ -184,7 +182,7 @@ public abstract class ModernDropDownWidget2 extends ModernButtonWidget {
    * Instantiates a new modern drop down widget.
    *
    * @param text1 the text1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernDropDownWidget2(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -196,7 +194,7 @@ public abstract class ModernDropDownWidget2 extends ModernButtonWidget {
    * Instantiates a new modern drop down widget.
    *
    * @param text1 the text1
-   * @param menu the menu
+   * @param menu  the menu
    */
   public ModernDropDownWidget2(String text1, ModernPopupMenu2 menu) {
     super(text1);
@@ -253,8 +251,7 @@ public abstract class ModernDropDownWidget2 extends ModernButtonWidget {
 
     addMouseListener(new MouseEvents());
 
-    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"),
-        "enter_pressed");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"), "enter_pressed");
     getActionMap().put("enter_pressed", new ActionEvents());
 
     final ModernDropDownWidget2 source = this;

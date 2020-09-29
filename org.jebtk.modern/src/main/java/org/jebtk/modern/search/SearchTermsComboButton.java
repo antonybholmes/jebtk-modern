@@ -42,8 +42,7 @@ import org.jebtk.modern.menu.ModernScrollPopupMenu;
  *
  * @author Antony Holmes
  */
-public class SearchTermsComboButton extends ModernDropDownMenuComboButton
-    implements SearchTermEventListener {
+public class SearchTermsComboButton extends ModernDropDownMenuComboButton implements SearchTermEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -58,11 +57,10 @@ public class SearchTermsComboButton extends ModernDropDownMenuComboButton
   /**
    * Instantiates a new search terms combo button.
    *
-   * @param text the text
+   * @param text             the text
    * @param searchTermsModel the search terms model
    */
-  public SearchTermsComboButton(String text,
-      SearchTermsService searchTermsModel) {
+  public SearchTermsComboButton(String text, SearchTermsService searchTermsModel) {
     super(text);
 
     searchTermsModel.addSearchTermListener(this);
@@ -106,8 +104,7 @@ public class SearchTermsComboButton extends ModernDropDownMenuComboButton
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(
+   * @see org.abh.lib.ui.modern.search.SearchTermEventListener#searchTermsChanged(
    * org. abh.lib.event.ChangeEvent)
    */
   @Override

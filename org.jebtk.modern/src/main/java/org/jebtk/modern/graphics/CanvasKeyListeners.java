@@ -37,8 +37,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class CanvasKeyListeners extends EventProducer<CanvasKeyListener>
-    implements CanvasKeyEventProducer {
+public class CanvasKeyListeners extends EventProducer<CanvasKeyListener> implements CanvasKeyEventProducer {
 
   /**
    * The constant serialVersionUID.

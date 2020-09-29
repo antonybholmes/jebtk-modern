@@ -61,7 +61,7 @@ public class ModernUrlLinkButton extends ModernLinkButton {
    * Instantiates a new modern url link button.
    *
    * @param title the title
-   * @param url the url
+   * @param url   the url
    */
   public ModernUrlLinkButton(String title, URL url) {
     super(title);
@@ -73,8 +73,8 @@ public class ModernUrlLinkButton extends ModernLinkButton {
    * Instantiates a new modern url link button.
    *
    * @param title the title
-   * @param url the url
-   * @param icon the icon
+   * @param url   the url
+   * @param icon  the icon
    */
   public ModernUrlLinkButton(String title, URL url, ModernIcon icon) {
     super(title, icon);

@@ -36,7 +36,7 @@ public class ModernScrollBarRenderer {
    * Paint scroll bar.
    *
    * @param g2 the g 2
-   * @param r the r
+   * @param r  the r
    */
   protected void paintScrollBar(Graphics2D g2, Rectangle r) {
     // TODO Auto-generated method stub

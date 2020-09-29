@@ -9,8 +9,8 @@ import java.awt.LayoutManager;
 import org.jebtk.core.Mathematics;
 
 /**
- * Align component in center of screen and dynamically change its width to
- * be a percentage of its parent.
+ * Align component in center of screen and dynamically change its width to be a
+ * percentage of its parent.
  *
  */
 public class HAutoStretchLayout implements LayoutManager {
@@ -22,22 +22,21 @@ public class HAutoStretchLayout implements LayoutManager {
   private double mPW;
 
   private double mMW;
-  
+
   public HAutoStretchLayout(double width) {
     this(width, HAlignment.CENTER);
   }
-  
+
   public HAutoStretchLayout(double width, HAlignment align) {
     this(width, 0.1, align);
   }
-  
+
   public HAutoStretchLayout(double width, double min, HAlignment align) {
     mPW = Mathematics.bound(width, 0, 1);
     mMW = min;
     mAlign = align;
   }
-    
-  
+
   @Override
   public void addLayoutComponent(String s, Component c) {
     // TODO Auto-generated method stub
@@ -51,15 +50,15 @@ public class HAutoStretchLayout implements LayoutManager {
     int maxHeight = parent.getHeight() - (insets.top + insets.bottom);
     int x = insets.left;
     int y = insets.top;
-    
+
     Component c = parent.getComponent(0);
-    
-    int w = (int)Math.round(maxWidth * Math.max(mMW, mPW));
+
+    int w = (int) Math.round(maxWidth * Math.max(mMW, mPW));
     int h = Math.min(c.getPreferredSize().height, maxHeight);
-    
+
     y = (parent.getHeight() - h) / 2;
-    
-    switch(mAlign) {
+
+    switch (mAlign) {
     case CENTER:
       x += (maxWidth - w) / 2;
       break;
@@ -92,7 +91,7 @@ public class HAutoStretchLayout implements LayoutManager {
     Dimension dim = new Dimension(0, 0);
 
     Component c = parent.getComponent(0);
-    
+
     dim.width = parent.getWidth();
     dim.height = c.getHeight();
 

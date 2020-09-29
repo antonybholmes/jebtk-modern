@@ -41,8 +41,7 @@ import org.jebtk.modern.event.ModernSelectionListeners;
  * @author Antony Holmes
  *
  */
-public class ModernDataCellsSelectionModel extends ModernSelectionListeners
-    implements ModernSelectionListener {
+public class ModernDataCellsSelectionModel extends ModernSelectionListeners implements ModernSelectionListener {
 
   /**
    * The constant serialVersionUID.
@@ -103,8 +102,7 @@ public class ModernDataCellsSelectionModel extends ModernSelectionListeners
       return null;
     }
 
-    return new ModernDataCell(mRowsSelectionModel.first(),
-        mColumnsSelectionModel.first());
+    return new ModernDataCell(mRowsSelectionModel.first(), mColumnsSelectionModel.first());
   }
 
   /**
@@ -120,8 +118,7 @@ public class ModernDataCellsSelectionModel extends ModernSelectionListeners
       return null;
     }
 
-    return new ModernDataCell(mRowsSelectionModel.last(),
-        mColumnsSelectionModel.last());
+    return new ModernDataCell(mRowsSelectionModel.last(), mColumnsSelectionModel.last());
   }
 
   /**
@@ -183,13 +180,12 @@ public class ModernDataCellsSelectionModel extends ModernSelectionListeners
   /**
    * Returns true if the cell at the row and column is within the selection.
    *
-   * @param row the row
+   * @param row    the row
    * @param column the column
    * @return true, if successful
    */
   public boolean contains(int row, int column) {
-    return mRowsSelectionModel.contains(row)
-        && mColumnsSelectionModel.contains(column);
+    return mRowsSelectionModel.contains(row) && mColumnsSelectionModel.contains(column);
   }
 
   /**

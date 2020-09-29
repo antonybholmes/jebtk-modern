@@ -46,8 +46,7 @@ public class ModernDataGridCellRenderer extends ModernDataCellRenderer {
   private static final long serialVersionUID = 1L;
 
   /** The Constant MAX_CHARS. */
-  private static final int MAX_CHARS = SettingsService.getInstance()
-      .getInt("ui.dataview.grid.cell.max-display-chars");
+  private static final int MAX_CHARS = SettingsService.getInstance().getInt("ui.dataview.grid.cell.max-display-chars");
 
   /**
    * The member default value.
@@ -83,8 +82,7 @@ public class ModernDataGridCellRenderer extends ModernDataCellRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -124,17 +122,11 @@ public class ModernDataGridCellRenderer extends ModernDataCellRenderer {
    * java.lang.Object, boolean, boolean, boolean, int, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernData dataView,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row,
-      int column) {
+  public Component getCellRendererComponent(ModernData dataView, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
     if (value != null) {
       setForeground(dataView.getModel().getCellStyle(row, column).getColor());
-      setBackground(
-          dataView.getModel().getCellStyle(row, column).getBackground());
+      setBackground(dataView.getModel().getCellStyle(row, column).getBackground());
 
       mIsNumber = (value instanceof Number);
 
@@ -150,12 +142,6 @@ public class ModernDataGridCellRenderer extends ModernDataCellRenderer {
       setText(mDefaultValue);
     }
 
-    return super.getCellRendererComponent(dataView,
-        value,
-        highlight,
-        isSelected,
-        hasFocus,
-        row,
-        column);
+    return super.getCellRendererComponent(dataView, value, highlight, isSelected, hasFocus, row, column);
   }
 }

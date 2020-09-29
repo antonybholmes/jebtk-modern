@@ -49,9 +49,7 @@ public class PreviewModernTreeNodeRenderer extends TreeIconNodeCountRenderer {
    */
   public PreviewModernTreeNodeRenderer() {
 
-    super(
-        AssetService.getInstance().loadIcon("table", AssetService.ICON_SIZE_16),
-        AssetService.getInstance().loadIcon("table",
-            AssetService.ICON_SIZE_16));
+    super(AssetService.getInstance().loadIcon("table", AssetService.ICON_SIZE_16),
+        AssetService.getInstance().loadIcon("table", AssetService.ICON_SIZE_16));
   }
 }

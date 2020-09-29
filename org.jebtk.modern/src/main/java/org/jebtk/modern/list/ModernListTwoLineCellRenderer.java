@@ -77,8 +77,7 @@ public class ModernListTwoLineCellRenderer extends ModernListIconCellRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.list.ModernListIconCellRenderer#drawForegroundAA(
+   * @see org.abh.lib.ui.modern.list.ModernListIconCellRenderer#drawForegroundAA(
    * java. awt.Graphics2D)
    */
   @Override
@@ -122,12 +121,8 @@ public class ModernListTwoLineCellRenderer extends ModernListIconCellRenderer {
    * getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList,
    * java.lang.Object, boolean, boolean, boolean, int)
    */
-  public Component getCellRendererComponent(ModernList<?> list,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row) {
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
 
     if (isSelected) {
       color2 = TEXT_COLOR;
@@ -135,18 +130,13 @@ public class ModernListTwoLineCellRenderer extends ModernListIconCellRenderer {
       color2 = ALT_TEXT_COLOR;
     }
 
-    return super.getCellRendererComponent(list,
-        value,
-        highlight,
-        isSelected,
-        hasFocus,
-        row);
+    return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
   }
 
   /**
    * Sets the text.
    *
-   * @param text the text
+   * @param text  the text
    * @param text2 the text2
    */
   protected void setText(String text, String text2) {

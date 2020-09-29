@@ -91,8 +91,7 @@ public class ModernSpreadsheet extends ModernTable {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.table.ModernTable#setModel(org.abh.common.ui.dataview.
+   * @see org.abh.common.ui.table.ModernTable#setModel(org.abh.common.ui.dataview.
    * ModernDataModel)
    */
   @Override
@@ -104,8 +103,7 @@ public class ModernSpreadsheet extends ModernTable {
   }
 
   /**
-   * @Override protected void drawBorder(Graphics2D g2) {
-   *           g2.setColor(LINE_COLOR);
+   * @Override protected void drawBorder(Graphics2D g2) { g2.setColor(LINE_COLOR);
    * 
    *           Rectangle rect = getVisibleRect();
    * 

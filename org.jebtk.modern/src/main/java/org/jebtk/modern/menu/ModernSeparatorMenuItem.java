@@ -69,8 +69,7 @@ public class ModernSeparatorMenuItem extends ModernIconMenuItem {
   /**
    * The constant MAX_SIZE.
    */
-  public static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE,
-      HEIGHT);
+  public static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, HEIGHT);
 
   /**
    * Instantiates a new modern separator menu item.
@@ -108,16 +107,14 @@ public class ModernSeparatorMenuItem extends ModernIconMenuItem {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override
   public void drawBackground(Graphics2D g2) {
     fillBackground(g2, getRect());
 
-    Rectangle r = new Rectangle(ModernMenuItem.HEIGHT, 0,
-        mRect.getW() - ModernIconMenuItem.HEIGHT, mRect.getH());
+    Rectangle r = new Rectangle(ModernMenuItem.HEIGHT, 0, mRect.getW() - ModernIconMenuItem.HEIGHT, mRect.getH());
 
     fill(g2, ModernDialogWindow.DIALOG_BACKGROUND, r);
   }
@@ -125,8 +122,7 @@ public class ModernSeparatorMenuItem extends ModernIconMenuItem {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
+   * @see org.abh.lib.ui.modern.menu.ModernIconMenuItem#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   public void drawForegroundAA(Graphics2D g2) {

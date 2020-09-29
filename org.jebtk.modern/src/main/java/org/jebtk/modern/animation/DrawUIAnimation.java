@@ -29,7 +29,7 @@ public class DrawUIAnimation extends WidgetAnimation {
   public DrawUIAnimation(ModernWidget c) {
     super(c);
   }
-  
+
   /*
    * (non-Javadoc)
    * 

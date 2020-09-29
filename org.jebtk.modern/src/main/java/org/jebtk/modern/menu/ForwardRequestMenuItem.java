@@ -48,7 +48,7 @@ public class ForwardRequestMenuItem extends ModernIconMenuItem {
    * Instantiates a new forward request menu item.
    *
    * @param title the title
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ForwardRequestMenuItem(String title, ModernIcon icon) {
     super(title, icon);

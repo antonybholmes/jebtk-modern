@@ -59,7 +59,7 @@ public class ModernSelectedEvent extends Event {
   /**
    * Instantiates a new modern state event.
    *
-   * @param source the source
+   * @param source  the source
    * @param message the message
    */
   public ModernSelectedEvent(Object source, String message) {

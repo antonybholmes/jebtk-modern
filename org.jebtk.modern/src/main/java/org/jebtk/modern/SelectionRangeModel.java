@@ -43,8 +43,7 @@ import org.jebtk.modern.event.ModernSelectionListeners;
  * @author Antony Holmes
  *
  */
-public class SelectionRangeModel extends ModernSelectionListeners
-    implements Iterable<Integer> {
+public class SelectionRangeModel extends ModernSelectionListeners implements Iterable<Integer> {
 
   /**
    * The constant serialVersionUID.
@@ -122,8 +121,7 @@ public class SelectionRangeModel extends ModernSelectionListeners
    *
    * @param indices the new selection
    */
-  public void addSelection(final Collection<Integer> indices,
-      SelectionRangeType type) {
+  public void addSelection(final Collection<Integer> indices, SelectionRangeType type) {
     updateSelection(indices, type);
 
     fireSelectionAdded();
@@ -134,8 +132,7 @@ public class SelectionRangeModel extends ModernSelectionListeners
    *
    * @param indices the indices
    */
-  public void updateSelection(final Collection<Integer> indices,
-      SelectionRangeType type) {
+  public void updateSelection(final Collection<Integer> indices, SelectionRangeType type) {
     if (!mEnabled) {
       return;
     }
@@ -282,8 +279,8 @@ public class SelectionRangeModel extends ModernSelectionListeners
   }
 
   /**
-   * Return the currently selected item (the last item that was added even if
-   * the sorted order of items means this index appears in the middle).
+   * Return the currently selected item (the last item that was added even if the
+   * sorted order of items means this index appears in the middle).
    *
    * @return the current
    */

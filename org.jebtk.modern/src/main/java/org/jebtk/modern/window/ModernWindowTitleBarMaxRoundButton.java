@@ -38,8 +38,7 @@ import org.jebtk.modern.event.ModernClickListener;
 /**
  * The class ModernWindowTitleBarCloseButton.
  */
-public class ModernWindowTitleBarMaxRoundButton
-    extends ModernWindowTitleBarRoundButton implements ModernClickListener {
+public class ModernWindowTitleBarMaxRoundButton extends ModernWindowTitleBarRoundButton implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.

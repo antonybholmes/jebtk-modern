@@ -60,9 +60,7 @@ public class ModernCenterButtonsBox extends Box {
   public ModernCenterButtonsBox() {
     super(BoxLayout.LINE_AXIS);
 
-    setBorder(BorderService.getInstance().createBorder(0,
-        ModernWidget.DOUBLE_PADDING,
-        ModernWidget.DOUBLE_PADDING,
+    setBorder(BorderService.getInstance().createBorder(0, ModernWidget.DOUBLE_PADDING, ModernWidget.DOUBLE_PADDING,
         ModernWidget.DOUBLE_PADDING));
 
     setAlignmentX(LEFT_ALIGNMENT);

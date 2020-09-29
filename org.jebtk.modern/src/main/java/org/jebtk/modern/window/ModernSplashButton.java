@@ -50,8 +50,7 @@ public class ModernSplashButton extends ModernButton {
   private static final long serialVersionUID = 1L;
 
   /** The Constant BACKGROUND. */
-  private static final Color BACKGROUND = ColorUtils
-      .getTransparentColor90(Color.WHITE);
+  private static final Color BACKGROUND = ColorUtils.getTransparentColor90(Color.WHITE);
 
   /** The Constant SIZE. */
   private static final Dimension SIZE = new Dimension(48, 32);
@@ -89,8 +88,7 @@ public class ModernSplashButton extends ModernButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

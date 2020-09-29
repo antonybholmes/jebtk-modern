@@ -43,8 +43,7 @@ public class TreeHighlightAnimation extends HighlightAnimation {
 
     mTree = (ModernTree<?>) widget;
 
-    setFadeColor("highlight",
-        widget.getToKeyFrame().getColor("background-color")); // ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
+    setFadeColor("highlight", widget.getToKeyFrame().getColor("background-color")); // ModernWidgetRenderer.RIBBON_HIGHLIGHT_FILL_COLOR);
   }
 
   /*
@@ -56,8 +55,8 @@ public class TreeHighlightAnimation extends HighlightAnimation {
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
-    if (mTree.mSelectionModel == null || mTree.mNodeIndexMap == null
-        || mTree.mNodeDepthMap == null || mTree.mNodeRenderer == null) {
+    if (mTree.mSelectionModel == null || mTree.mNodeIndexMap == null || mTree.mNodeDepthMap == null
+        || mTree.mNodeRenderer == null) {
       return;
     }
 
@@ -84,17 +83,11 @@ public class TreeHighlightAnimation extends HighlightAnimation {
           break;
         }
 
-        boolean isDragToNode = mTree.mDragTo != null && mTree.mDragTo.index == pc
-            && !mTree.mDragTo.insertBetween;
+        boolean isDragToNode = mTree.mDragTo != null && mTree.mDragTo.index == pc && !mTree.mDragTo.insertBetween;
 
-        renderer = mTree.mNodeRenderer.getRenderer(mTree,
-            node,
-            node.equals(mTree.mHighlightNode) || isDragToNode,
-            mTree.mSelectionModel.contains(mTree.mNodeIndexMap.get(node)),
-            mTree.isFocusOwner(),
-            isDragToNode,
-            mTree.mNodeDepthMap.get(node),
-            pc);
+        renderer = mTree.mNodeRenderer.getRenderer(mTree, node, node.equals(mTree.mHighlightNode) || isDragToNode,
+            mTree.mSelectionModel.contains(mTree.mNodeIndexMap.get(node)), mTree.isFocusOwner(), isDragToNode,
+            mTree.mNodeDepthMap.get(node), pc);
 
         h = renderer.getHeight();
 

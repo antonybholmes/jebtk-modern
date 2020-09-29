@@ -53,10 +53,10 @@ public class PathTree extends ModernTree<List<Path>> {
   /**
    * Construct a new path tree.
    * 
-   * @param paths The paths to construct the tree.
-   * @param showLeaves If set to true, will show leaf nodes. In a settings
-   *          dialog etc, it may be desirable to not show the leafs for
-   *          aesthetic reasons.
+   * @param paths      The paths to construct the tree.
+   * @param showLeaves If set to true, will show leaf nodes. In a settings dialog
+   *                   etc, it may be desirable to not show the leafs for
+   *                   aesthetic reasons.
    */
   public PathTree(Collection<Path> paths, boolean showLeaves) {
     ModernTreeNodeFolderRenderer renderer = new ModernTreeNodeFolderRenderer();

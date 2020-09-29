@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ProgressEventListeners extends EventProducer<ProgressEventListener>
-    implements ProgressEventProducer {
+public class ProgressEventListeners extends EventProducer<ProgressEventListener> implements ProgressEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -58,8 +57,7 @@ public class ProgressEventListeners extends EventProducer<ProgressEventListener>
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.progress.ProgressEventProducer#
-   * removeProgressListener(
-   * org.abh.lib.ui.modern.progress.ProgressEventListener)
+   * removeProgressListener( org.abh.lib.ui.modern.progress.ProgressEventListener)
    */
   public void removeProgressListener(ProgressEventListener l) {
     mListeners.remove(l);

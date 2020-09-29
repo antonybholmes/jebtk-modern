@@ -85,15 +85,13 @@ public class ModernStatusProgressBar extends ModernProgressBar {
 
     fill(g2, Color.WHITE, getInternalRect());
 
-    int width = (int) (mInternalRect.getW()
-        * progressModel.getPercentComplete());
+    int width = (int) (mInternalRect.getW() * progressModel.getPercentComplete());
 
     if (width < 2) {
       return;
     }
 
-    Rectangle r = new Rectangle(this.getInsets().left, this.getInsets().top,
-        width, h);
+    Rectangle r = new Rectangle(this.getInsets().left, this.getInsets().top, width, h);
 
     fill(g2, ThemeService.getInstance().getColors().getTheme(1), r);
   }

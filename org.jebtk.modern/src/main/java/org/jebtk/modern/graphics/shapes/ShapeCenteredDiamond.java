@@ -44,8 +44,8 @@ public class ShapeCenteredDiamond extends Polygon {
   /**
    * Instantiates a new shape centered diamond.
    *
-   * @param x the x
-   * @param y the y
+   * @param x    the x
+   * @param y    the y
    * @param size the size
    */
   public ShapeCenteredDiamond(int x, int y, int size) {

@@ -70,23 +70,21 @@ public class ChooseFilesPanel extends ModernComponent {
   /**
    * Instantiates a new choose files panel.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param filters the filters
    */
-  public ChooseFilesPanel(ModernWindow parent, GuiFileExtFilter filter,
-      GuiFileExtFilter... filters) {
+  public ChooseFilesPanel(ModernWindow parent, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
     this(parent, false, filter, filters);
   }
 
   /**
    * Instantiates a new choose files panel.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param dirMode the dir mode
    * @param filters the filters
    */
-  public ChooseFilesPanel(ModernWindow parent, boolean dirMode,
-      GuiFileExtFilter filter, GuiFileExtFilter... filters) {
+  public ChooseFilesPanel(ModernWindow parent, boolean dirMode, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
     mParent = parent;
     mDirMode = dirMode;
     mFilters = CollectionUtils.toList(filter, filters);
@@ -112,8 +110,7 @@ public class ChooseFilesPanel extends ModernComponent {
         if (mDirMode) {
           files = FileDialog.open(mParent).dirs().getFiles(pwd);
         } else {
-          files = FileDialog.open(mParent).filter(mFilters).multiSelect(true)
-              .getFiles(pwd);
+          files = FileDialog.open(mParent).filter(mFilters).multiSelect(true).getFiles(pwd);
         }
 
         if (files.size() > 0) {

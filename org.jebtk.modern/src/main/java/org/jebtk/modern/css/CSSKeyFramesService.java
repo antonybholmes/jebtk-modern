@@ -82,10 +82,7 @@ public class CSSKeyFramesService {
      * java.lang.String, java.lang.String, org.xml.sax.Attributes)
      */
     @Override
-    public void startElement(String uri,
-        String localName,
-        String qName,
-        Attributes attributes) throws SAXException {
+    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 
       if (qName.equals("keyframe")) {
         String index = attributes.getValue("index");
@@ -98,9 +95,8 @@ public class CSSKeyFramesService {
           mKeyFrame = Integer.parseInt(attributes.getValue("index"));
         }
       } else if (qName.equals("inherits")) {
-        // Copy properties from one class to another
-        getStyleClass(mKeyFrame, mClass)
-            .update(getStyleClass(mKeyFrame, attributes.getValue("class")));
+        // Copy Props from one class to another
+        getStyleClass(mKeyFrame, mClass).update(getStyleClass(mKeyFrame, attributes.getValue("class")));
       } else if (qName.equals("class")) {
         mClass = attributes.getValue("name");
 
@@ -122,14 +118,13 @@ public class CSSKeyFramesService {
         } else if (TextUtils.isDouble(v)) {
           cls.set(name, Double.parseDouble(v));
         } else if (v.endsWith("%")) {
-          cls.set(name, new CSSPercentProp(
-              Integer.parseInt(v.substring(0, v.length() - 1))));
+          cls.set(name, new CSSPercentProp(Integer.parseInt(v.substring(0, v.length() - 1))));
         } else if (v.endsWith("px")) {
           cls.set(name, new CSSUnitProp(Integer.parseInt(v.substring(0, v.length() - 2)), CSSUnit.PX));
         } else if (v.equals("true")) {
-          //cls.set(name, true);
+          // cls.set(name, true);
         } else if (v.equals("false")) {
-          //cls.set(name, false);
+          // cls.set(name, false);
         } else {
           if (v.startsWith("#")) {
             cls.set(name, ColorUtils.decodeHtmlColor(v));
@@ -140,8 +135,7 @@ public class CSSKeyFramesService {
             int i = Integer.parseInt(v.substring(v.lastIndexOf("-") + 1));
             cls.set(name, ThemeService.getInstance().getColors().getGray32(i));
           } else if (v.startsWith("colors.material")) {
-            cls.set(name, MaterialService.instance().getColor(
-                v.replace("colors.material.", TextUtils.EMPTY_STRING)));
+            cls.set(name, MaterialService.instance().getColor(v.replace("colors.material.", TextUtils.EMPTY_STRING)));
           } else if (v.equals("white")) {
             cls.set(name, Color.WHITE);
           } else if (v.equals("black")) {
@@ -153,7 +147,7 @@ public class CSSKeyFramesService {
           } else if (v.equals("green")) {
             cls.set(name, Color.GREEN);
           } else {
-           
+
           }
         }
       }
@@ -176,11 +170,9 @@ public class CSSKeyFramesService {
 
   public static final String COMPONENT = "component";
 
-  private static final Logger LOG = LoggerFactory
-      .getLogger(CSSKeyFramesService.class);
+  private static final Logger LOG = LoggerFactory.getLogger(CSSKeyFramesService.class);
 
-  private static final Path DEFAULT_XML_FILE = PathUtils
-      .getPath("res/style.xml");
+  private static final Path DEFAULT_XML_FILE = PathUtils.getPath("res/style.xml");
 
   private Map<Integer, IterMap<String, CSSClass>> mStyleMap = DefaultHashMap
       .create(new HashMapCreator<String, CSSClass>());
@@ -216,8 +208,7 @@ public class CSSKeyFramesService {
 
       try {
         autoLoadXml();
-      } catch (IOException | URISyntaxException | SAXException
-          | ParserConfigurationException e) {
+      } catch (IOException | URISyntaxException | SAXException | ParserConfigurationException e) {
         e.printStackTrace();
       }
     }
@@ -226,13 +217,14 @@ public class CSSKeyFramesService {
   /**
    * Auto load xml.
    *
-   * @throws IOException Signals that an I/O exception has occurred.
-   * @throws URISyntaxException the URI syntax exception
-   * @throws SAXException the SAX exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
+   * @throws URISyntaxException           the URI syntax exception
+   * @throws SAXException                 the SAX exception
    * @throws ParserConfigurationException the parser configuration exception
    */
-  private synchronized void autoLoadXml() throws IOException,
-      URISyntaxException, SAXException, ParserConfigurationException {
+  private synchronized void autoLoadXml()
+      throws IOException, URISyntaxException, SAXException, ParserConfigurationException {
     LOG.info("Auto loading styles...");
 
     for (String res : Resources.getInstance()) {
@@ -262,8 +254,7 @@ public class CSSKeyFramesService {
     LOG.info("Finished loading styles.");
   }
 
-  private synchronized boolean loadXml(Path file)
-      throws SAXException, IOException, ParserConfigurationException {
+  private synchronized boolean loadXml(Path file) throws SAXException, IOException, ParserConfigurationException {
     if (FileUtils.exists(file)) {
       InputStream is = FileUtils.newBufferedInputStream(file);
 
@@ -279,8 +270,7 @@ public class CSSKeyFramesService {
     }
   }
 
-  private synchronized boolean loadXml(InputStream is)
-      throws SAXException, IOException, ParserConfigurationException {
+  private synchronized boolean loadXml(InputStream is) throws SAXException, IOException, ParserConfigurationException {
     if (is == null) {
       return false;
     }
@@ -322,7 +312,7 @@ public class CSSKeyFramesService {
    * Returns true if the given keyframe contains a given style class.
    * 
    * @param frame The keyframe (between 0 and 100 inclusive).
-   * @param name The name of the style class.
+   * @param name  The name of the style class.
    * @return
    */
   public boolean contains(int frame, String name) {

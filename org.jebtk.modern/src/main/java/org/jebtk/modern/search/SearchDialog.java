@@ -51,8 +51,7 @@ import org.jebtk.modern.window.WindowWidgetFocusEvents;
 /**
  * The class MatchDialog.
  */
-public class SearchDialog extends ModernDialogTaskWindow
-    implements ModernClickListener {
+public class SearchDialog extends ModernDialogTaskWindow implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -74,8 +73,8 @@ public class SearchDialog extends ModernDialogTaskWindow
   /**
    * Instantiates a new match dialog.
    *
-   * @param parent the parent
-   * @param text the text
+   * @param parent    the parent
+   * @param text      the text
    * @param delimiter the delimiter
    */
   public SearchDialog(ModernWindow parent, String text, String delimiter) {
@@ -115,16 +114,14 @@ public class SearchDialog extends ModernDialogTaskWindow
 
     ModernComponent content = new ModernComponent();
 
-    content.setHeader(new ModernSubHeadingLabel("Search for:",
-        BorderService.getInstance().createBottomBorder(5)));
+    content.setHeader(new ModernSubHeadingLabel("Search for:", BorderService.getInstance().createBottomBorder(5)));
 
     mText.setText(lines);
 
     ModernScrollPane scrollPane = new ModernScrollPane(mText);
     // scrollPane.setVerticalScrollBarPolicy(ScrollBarPolicy.ALWAYS);
 
-    content.setBody(new ModernBorderPanel(
-        new ModernComponent(scrollPane, ModernWidget.BORDER)));
+    content.setBody(new ModernBorderPanel(new ModernComponent(scrollPane, ModernWidget.BORDER)));
 
     Box box = VBox.create();
 

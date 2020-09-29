@@ -41,8 +41,7 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public class ModernTreeNodeInsertLineRenderer
-    extends ModernTreeNodeInsertRenderer {
+public class ModernTreeNodeInsertLineRenderer extends ModernTreeNodeInsertRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -52,14 +51,12 @@ public class ModernTreeNodeInsertLineRenderer
   /**
    * The constant COLOR.
    */
-  private static final Color COLOR = ThemeService.getInstance().getColors()
-      .getTheme(9);
+  private static final Color COLOR = ThemeService.getInstance().getColors().getTheme(9);
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

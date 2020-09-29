@@ -42,9 +42,9 @@ public class ShapeEllipse extends Ellipse2D.Double {
   /**
    * Instantiates a new shape ellipse.
    *
-   * @param x the x
-   * @param y the y
-   * @param width the width
+   * @param x      the x
+   * @param y      the y
+   * @param width  the width
    * @param height the height
    */
   public ShapeEllipse(int x, int y, int width, int height) {

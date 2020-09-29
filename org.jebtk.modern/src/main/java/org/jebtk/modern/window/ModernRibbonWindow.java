@@ -78,8 +78,7 @@ public class ModernRibbonWindow extends ModernWindow {
 
     private void redispatchMouseEvent(MouseEvent e) {
       Point glassPanePoint = e.getPoint();
-      Point containerPoint = SwingUtilities
-          .convertPoint(mGlassPane, glassPanePoint, mContentPane);
+      Point containerPoint = SwingUtilities.convertPoint(mGlassPane, glassPanePoint, mContentPane);
 
       if (containerPoint.y < 0) { // we're not in the content pane
         // Could have special code to handle mouse events over
@@ -88,17 +87,13 @@ public class ModernRibbonWindow extends ModernWindow {
       } else {
         // The mouse event is probably over the content pane.
         // Find out exactly which component it's over.
-        Component component = SwingUtilities.getDeepestComponentAt(mContentPane,
-            containerPoint.x,
-            containerPoint.y);
+        Component component = SwingUtilities.getDeepestComponentAt(mContentPane, containerPoint.x, containerPoint.y);
 
         if (component != null) {
           // Forward events over the check box.
-          Point componentPoint = SwingUtilities
-              .convertPoint(mGlassPane, glassPanePoint, component);
-          component.dispatchEvent(new MouseEvent(component, e.getID(),
-              e.getWhen(), e.getModifiers(), componentPoint.x, componentPoint.y,
-              e.getClickCount(), e.isPopupTrigger()));
+          Point componentPoint = SwingUtilities.convertPoint(mGlassPane, glassPanePoint, component);
+          component.dispatchEvent(new MouseEvent(component, e.getID(), e.getWhen(), e.getModifiers(), componentPoint.x,
+              componentPoint.y, e.getClickCount(), e.isPopupTrigger()));
         }
       }
     }
@@ -135,16 +130,14 @@ public class ModernRibbonWindow extends ModernWindow {
     private Container mContentPane;
     private Component mGlassPane;
 
-    public GlassPaneMouseMotionEvents(Container contentPane,
-        Component glassPane) {
+    public GlassPaneMouseMotionEvents(Container contentPane, Component glassPane) {
       mContentPane = contentPane;
       mGlassPane = glassPane;
     }
 
     private void redispatchMouseEvent(MouseEvent e) {
       Point glassPanePoint = e.getPoint();
-      Point containerPoint = SwingUtilities
-          .convertPoint(mGlassPane, glassPanePoint, mContentPane);
+      Point containerPoint = SwingUtilities.convertPoint(mGlassPane, glassPanePoint, mContentPane);
 
       if (containerPoint.y < 0) { // we're not in the content pane
         // Could have special code to handle mouse events over
@@ -153,17 +146,13 @@ public class ModernRibbonWindow extends ModernWindow {
       } else {
         // The mouse event is probably over the content pane.
         // Find out exactly which component it's over.
-        Component component = SwingUtilities.getDeepestComponentAt(mContentPane,
-            containerPoint.x,
-            containerPoint.y);
+        Component component = SwingUtilities.getDeepestComponentAt(mContentPane, containerPoint.x, containerPoint.y);
 
         if (component != null) {
           // Forward events over the check box.
-          Point componentPoint = SwingUtilities
-              .convertPoint(mGlassPane, glassPanePoint, component);
-          component.dispatchEvent(new MouseEvent(component, e.getID(),
-              e.getWhen(), e.getModifiers(), componentPoint.x, componentPoint.y,
-              e.getClickCount(), e.isPopupTrigger()));
+          Point componentPoint = SwingUtilities.convertPoint(mGlassPane, glassPanePoint, component);
+          component.dispatchEvent(new MouseEvent(component, e.getID(), e.getWhen(), e.getModifiers(), componentPoint.x,
+              componentPoint.y, e.getClickCount(), e.isPopupTrigger()));
         }
       }
     }
@@ -185,8 +174,7 @@ public class ModernRibbonWindow extends ModernWindow {
   // private MessageDialogGlassPane mMessagePane =
   // new MessageDialogGlassPane();
 
-  private static final Border RIBBON_BORDER = BorderService.getInstance()
-      .createLineBorder(Ribbon.BAR_BACKGROUND);
+  private static final Border RIBBON_BORDER = BorderService.getInstance().createLineBorder(Ribbon.BAR_BACKGROUND);
 
   /**
    * The member ribbon.
@@ -197,7 +185,7 @@ public class ModernRibbonWindow extends ModernWindow {
   protected ModernStatusBar mStatusBar = new ModernStatusBar();
 
   private WindowTabNav mIconTabs;
-  
+
   private WindowTabNav mIconTabsRight;
 
   /**
@@ -219,11 +207,10 @@ public class ModernRibbonWindow extends ModernWindow {
     // GlassPaneMouseMotionEvents(getContentPanel(), getGlassPane()));
 
     /*
-     * if (UI.CUSTOM_WINDOW_DECORATION) { // Disable chrome
-     * setUndecorated(true);
+     * if (UI.CUSTOM_WINDOW_DECORATION) { // Disable chrome setUndecorated(true);
      * 
-     * // Add a colored border for aesthetics and to ensure resizing // works
-     * from any border location // mContentPanel.setBorder(RIBBON_BORDER); //
+     * // Add a colored border for aesthetics and to ensure resizing // works from
+     * any border location // mContentPanel.setBorder(RIBBON_BORDER); //
      * mRibbonMenu.setBorder(RIBBON_BORDER); mCards.setBorder(RIBBON_BORDER);
      * 
      * new WindowMover(this, mRibbon); new WindowResizer(this); }
@@ -306,7 +293,7 @@ public class ModernRibbonWindow extends ModernWindow {
   public WindowTabNav getIconTabs() {
     return mIconTabs;
   }
-  
+
   public WindowTabNav getIconTabsRight() {
     return mIconTabsRight;
   }
@@ -339,35 +326,30 @@ public class ModernRibbonWindow extends ModernWindow {
    * @throws IOException Signals that an I/O exception has occurred.
    */
   public void createFileSavedDialog(Path file) throws IOException {
-    createInformationDialog(TextUtils.singleQuote(
-        ModernMessageDialog.truncate(PathUtils.getName(file))) + " was saved.");
+    createInformationDialog(
+        TextUtils.singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file))) + " was saved.");
   }
 
   /**
    * Creates the file exists dialog.
    *
    * @param file the file
-   * @param l the l
+   * @param l    the l
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public void createFileExistsDialog(Path file, DialogEventListener l)
-      throws IOException {
-    createOkCancelDialog(
-        TextUtils
-            .singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file)))
-            + " already exists. Do you want to replace it?",
-        l);
+  public void createFileExistsDialog(Path file, DialogEventListener l) throws IOException {
+    createOkCancelDialog(TextUtils.singleQuote(ModernMessageDialog.truncate(PathUtils.getName(file)))
+        + " already exists. Do you want to replace it?", l);
   }
 
   /**
    * Creates the ok cancel dialog.
    *
    * @param message the message
-   * @param l the l
+   * @param l       the l
    * @return the message dialog ok cancel glass pane
    */
-  public MessageDialogOkCancelGlassPane createOkCancelDialog(String message,
-      DialogEventListener l) {
+  public MessageDialogOkCancelGlassPane createOkCancelDialog(String message, DialogEventListener l) {
     MessageDialogOkCancelGlassPane searchPane = new MessageDialogOkCancelGlassPane();
 
     setGlassPane(searchPane);
@@ -392,7 +374,7 @@ public class ModernRibbonWindow extends ModernWindow {
    * Create a message overlay over the window.
    *
    * @param message the message
-   * @param type the type
+   * @param type    the type
    */
   public void createDialog(String message, MessageDialogType type) {
     // setGlassPane(mMessagePane);

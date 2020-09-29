@@ -41,8 +41,7 @@ import org.jebtk.modern.graphics.icons.Raster16Icon;
 /**
  * The class ModernWindowTitleBarCloseButton.
  */
-public class ModernWindowTitleBarExitButton
-    extends ModernWindowTitleBarWinButton {
+public class ModernWindowTitleBarExitButton extends ModernWindowTitleBarWinButton {
 
   /**
    * The constant serialVersionUID.
@@ -73,15 +72,13 @@ public class ModernWindowTitleBarExitButton
       }
     });
 
-    setToolTip("Close " + window.getAppInfo().getName(),
-        "Exit the application.");
+    setToolTip("Close " + window.getAppInfo().getName(), "Exit the application.");
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override

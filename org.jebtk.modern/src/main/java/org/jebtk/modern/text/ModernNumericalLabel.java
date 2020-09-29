@@ -56,7 +56,7 @@ public class ModernNumericalLabel extends ModernLabel {
   /**
    * Instantiates a new modern label.
    *
-   * @param text the text
+   * @param text  the text
    * @param color the color
    */
   public ModernNumericalLabel(String text, Color color) {
@@ -76,7 +76,7 @@ public class ModernNumericalLabel extends ModernLabel {
   /**
    * Instantiates a new modern label.
    *
-   * @param text the text
+   * @param text  the text
    * @param width the width
    */
   public ModernNumericalLabel(String text, int width) {
@@ -94,8 +94,7 @@ public class ModernNumericalLabel extends ModernLabel {
     // System.err.println("sdf " + getInsets().top + " " + mInternalRect.getH()
     // + "
     // " + getTextVCenteredYPos(g2, mInternalRect.getH()));
-    g2.drawString(mText,
-        getWidth() - getInsets().right - getStringWidth(g2, mText),
+    g2.drawString(mText, getWidth() - getInsets().right - getStringWidth(g2, mText),
         getInsets().top + getTextYPosCenter(g2, mInternalRect));
   }
 }

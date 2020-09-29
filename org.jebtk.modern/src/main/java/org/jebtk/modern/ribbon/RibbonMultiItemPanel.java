@@ -49,9 +49,7 @@ public class RibbonMultiItemPanel extends ModernComponent {
   public RibbonMultiItemPanel() {
     setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 
-    setBorder(BorderFactory.createCompoundBorder(
-        BorderService.getInstance().createBorder(2),
-        OUTLINE_LINE_BORDER));
+    setBorder(BorderFactory.createCompoundBorder(BorderService.getInstance().createBorder(2), OUTLINE_LINE_BORDER));
   }
 
 }

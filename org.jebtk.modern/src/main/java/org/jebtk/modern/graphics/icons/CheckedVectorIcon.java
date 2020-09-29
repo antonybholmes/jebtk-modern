@@ -44,21 +44,14 @@ public class CheckedVectorIcon extends UnCheckedVectorIcon {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.icons.UnCheckedVectorIcon#drawForeground(java.awt.
+   * @see org.abh.lib.ui.modern.icons.UnCheckedVectorIcon#drawForeground(java.awt.
    * Graphics2D, java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     // WidgetRendererService.getInstance().getRenderer()
     // .drawChecked(g2, x, y, w, h, RenderMode.SELECTED);
 
-    DrawUIService.getInstance().getRenderer("checkbox.checked")
-        .draw(g2, new IntRect(x, y, w, h));
+    DrawUIService.getInstance().getRenderer("checkbox.checked").draw(g2, new IntRect(x, y, w, h));
   }
 }

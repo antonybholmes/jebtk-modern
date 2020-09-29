@@ -43,8 +43,7 @@ import org.jebtk.modern.menu.ModernScrollPopupMenu;
 /**
  * The class RecentFilesPopup.
  */
-public class RecentFilesPopup extends ModernScrollPopupMenu
-    implements ChangeListener {
+public class RecentFilesPopup extends ModernScrollPopupMenu implements ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -77,16 +76,14 @@ public class RecentFilesPopup extends ModernScrollPopupMenu
    * @param recentFiles the recent files
    */
   public RecentFilesPopup(RecentFilesService recentFiles) {
-    setup(recentFiles,
-        AssetService.getInstance().loadIcon("file", AssetService.ICON_SIZE_32),
-        MAX_FILES);
+    setup(recentFiles, AssetService.getInstance().loadIcon("file", AssetService.ICON_SIZE_32), MAX_FILES);
   }
 
   /**
    * Instantiates a new recent files popup.
    *
    * @param recentFiles the recent files
-   * @param icon the icon
+   * @param icon        the icon
    */
   public RecentFilesPopup(RecentFilesService recentFiles, ModernIcon icon) {
     setup(recentFiles, icon, MAX_FILES);
@@ -96,11 +93,10 @@ public class RecentFilesPopup extends ModernScrollPopupMenu
    * Instantiates a new recent files popup.
    *
    * @param recentFiles the recent files
-   * @param icon the icon
-   * @param max the max
+   * @param icon        the icon
+   * @param max         the max
    */
-  public RecentFilesPopup(RecentFilesService recentFiles, ModernIcon icon,
-      int max) {
+  public RecentFilesPopup(RecentFilesService recentFiles, ModernIcon icon, int max) {
     setup(recentFiles, icon, max);
   }
 
@@ -108,8 +104,8 @@ public class RecentFilesPopup extends ModernScrollPopupMenu
    * Setup.
    *
    * @param recentFiles the recent files
-   * @param icon the icon
-   * @param max the max
+   * @param icon        the icon
+   * @param max         the max
    */
   private void setup(RecentFilesService recentFiles, ModernIcon icon, int max) {
     mRecentFiles = recentFiles;
@@ -150,8 +146,7 @@ public class RecentFilesPopup extends ModernScrollPopupMenu
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+   * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
    */
   @Override
   public void changed(ChangeEvent e) {

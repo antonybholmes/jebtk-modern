@@ -44,8 +44,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * The class ModernLayerPanel.
  */
-public class ModernLayerPanel extends ModernWidget
-    implements LayerEventListener, ModernStateListener {
+public class ModernLayerPanel extends ModernWidget implements LayerEventListener, ModernStateListener {
 
   /**
    * The constant serialVersionUID.
@@ -75,7 +74,7 @@ public class ModernLayerPanel extends ModernWidget
   /**
    * Instantiates a new modern layer panel.
    *
-   * @param name the name
+   * @param name       the name
    * @param layerModel the layer model
    */
   public ModernLayerPanel(String name, LayerModel layerModel) {
@@ -105,8 +104,7 @@ public class ModernLayerPanel extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -130,8 +128,7 @@ public class ModernLayerPanel extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.
+   * @see org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.
    * event .ChangeEvent)
    */
   @Override
@@ -143,8 +140,8 @@ public class ModernLayerPanel extends ModernWidget
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib.
-   * ui. modern.event.ModernStateEvent)
+   * org.abh.lib.ui.modern.event.ModernStateListener#stateChanged(org.abh.lib. ui.
+   * modern.event.ModernStateEvent)
    */
   @Override
   public void stateChanged(ModernStateEvent e) {

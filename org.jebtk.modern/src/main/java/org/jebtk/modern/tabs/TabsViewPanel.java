@@ -68,7 +68,7 @@ public class TabsViewPanel extends ViewPanel implements TabEventListener {
   /**
    * Instantiates a new tabs view panel.
    *
-   * @param model the model
+   * @param model  the model
    * @param border the border
    */
   public TabsViewPanel(TabsModel model, Border border) {

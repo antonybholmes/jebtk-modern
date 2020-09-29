@@ -67,7 +67,6 @@ public class ProgressModel extends ProgressEventListeners {
   public void setPercentComplete(int percent) {
     this.percent = Math.min(100, Math.max(0, percent));
 
-    fireProgressChanged(
-        new ProgressEvent(this, PROGRESS_CHANGED_EVENT, percent));
+    fireProgressChanged(new ProgressEvent(this, PROGRESS_CHANGED_EVENT, percent));
   }
 }

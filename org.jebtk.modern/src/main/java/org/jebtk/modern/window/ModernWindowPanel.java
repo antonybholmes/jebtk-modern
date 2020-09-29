@@ -32,8 +32,8 @@ import org.jebtk.modern.theme.MaterialService;
 
 // TODO: Auto-generated Javadoc
 /**
- * Instead of the default grey background of a window, this panel is used
- * to give a subtle gradient look.
+ * Instead of the default grey background of a window, this panel is used to
+ * give a subtle gradient look.
  *
  * @author Antony Holmes
  *
@@ -53,11 +53,8 @@ public class ModernWindowPanel extends ModernGradientPanel {
    * Instantiates a new modern window content panel.
    */
   public ModernWindowPanel() {
-    super(
-        MaterialService.instance()
-            .getColor("window.background.gradient.start"),
-        MaterialService.instance()
-            .getColor("window.background.gradient.end"));
+    super(MaterialService.instance().getColor("window.background.gradient.start"),
+        MaterialService.instance().getColor("window.background.gradient.end"));
   }
 
   // @Override

@@ -40,8 +40,7 @@ import org.jebtk.modern.list.ModernList;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public class ModernHistoryListBasicCellRenderer
-    extends ModernHistoryListCellRenderer {
+public class ModernHistoryListBasicCellRenderer extends ModernHistoryListCellRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -62,12 +61,8 @@ public class ModernHistoryListBasicCellRenderer
    * boolean, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernList<?> list,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row) {
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
 
     if (row <= list.getSelectedIndex()) {
       mTextColor = TEXT_COLOR;
@@ -75,11 +70,6 @@ public class ModernHistoryListBasicCellRenderer
       mTextColor = ALT_TEXT_COLOR;
     }
 
-    return super.getCellRendererComponent(list,
-        value,
-        highlight,
-        isSelected,
-        hasFocus,
-        row);
+    return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
   }
 }

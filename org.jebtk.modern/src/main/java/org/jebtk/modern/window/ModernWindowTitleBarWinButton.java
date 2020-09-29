@@ -45,8 +45,7 @@ public class ModernWindowTitleBarWinButton extends ModernWindowTitleBarButton {
   /**
    * The constant SIZE.
    */
-  private static final IntDim SIZE = new IntDim(Ribbon.TAB_HEIGHT * 3 / 2,
-      Ribbon.TAB_HEIGHT);
+  private static final IntDim SIZE = new IntDim(Ribbon.TAB_HEIGHT * 3 / 2, Ribbon.TAB_HEIGHT);
 
   /**
    * Instantiates a new modern window title bar button.

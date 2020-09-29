@@ -39,6 +39,6 @@ public class TabPanel extends ModernComponent {
   public TabPanel(String name, Component c) {
     setHeader(new ModernSubHeadingLabel(name, BORDER));
     setBody(c);
-    //setBorder(BORDER);
+    // setBorder(BORDER);
   }
 }

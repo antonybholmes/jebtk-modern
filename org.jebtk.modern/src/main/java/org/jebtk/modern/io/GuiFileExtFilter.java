@@ -47,8 +47,7 @@ import org.jebtk.core.text.TextUtils;
  *
  * @author Antony Holmes
  */
-public abstract class GuiFileExtFilter extends FileFilter
-    implements Comparable<FileFilter>, FilenameFilter {
+public abstract class GuiFileExtFilter extends FileFilter implements Comparable<FileFilter>, FilenameFilter {
 
   /**
    * The extensions.
@@ -75,9 +74,8 @@ public abstract class GuiFileExtFilter extends FileFilter
 
   @Override
   public String getDescription() {
-    return TextUtils
-        .parenthesis(TextUtils.scJoin(TextUtils.prefix(mExtensions, "*."))); // "GenBank
-                                                                             // (*.gb)";
+    return TextUtils.parenthesis(TextUtils.scJoin(TextUtils.prefix(mExtensions, "*."))); // "GenBank
+    // (*.gb)";
   }
 
   /*
@@ -162,13 +160,12 @@ public abstract class GuiFileExtFilter extends FileFilter
   /**
    * Adds the extension.
    *
-   * @param file the file
+   * @param file   the file
    * @param filter the filter
    * @return the file
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static File addExtension(File file, GuiFileExtFilter filter)
-      throws IOException {
+  public static File addExtension(File file, GuiFileExtFilter filter) throws IOException {
     return addExtension(file, filter.getExtension());
   }
 
@@ -177,13 +174,12 @@ public abstract class GuiFileExtFilter extends FileFilter
    * does not create duplicate endings such as .txt.txt, but it will allow
    * .csv.txt for example.
    *
-   * @param file the file
+   * @param file      the file
    * @param extension the extension
    * @return the file
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static final File addExtension(final File file, final String extension)
-      throws IOException {
+  public static final File addExtension(final File file, final String extension) throws IOException {
     String s = file.getCanonicalPath();
 
     if (!s.toLowerCase().endsWith("." + extension)) {
@@ -196,7 +192,7 @@ public abstract class GuiFileExtFilter extends FileFilter
   /**
    * Adds the extension.
    *
-   * @param file the file
+   * @param file   the file
    * @param filter the filter
    * @return the path
    */

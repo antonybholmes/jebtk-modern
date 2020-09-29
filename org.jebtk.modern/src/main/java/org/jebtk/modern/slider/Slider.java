@@ -41,8 +41,7 @@ import org.jebtk.modern.UI;
  * @author Antony Holmes
  *
  */
-public abstract class Slider extends ModernFocusableWidget
-    implements ChangeEventProducer {
+public abstract class Slider extends ModernFocusableWidget implements ChangeEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -160,8 +159,7 @@ public abstract class Slider extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.
+   * @see org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.
    * event. ChangeListener)
    */
   public void removeChangeListener(ChangeListener l) {

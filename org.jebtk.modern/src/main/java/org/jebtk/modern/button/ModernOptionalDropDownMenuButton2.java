@@ -58,8 +58,8 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
   private static final long serialVersionUID = 1L;
 
   /** The Constant TRIANGLE_ICON. */
-  protected static final ModernIcon TRIANGLE_ICON = AssetService.getInstance()
-      .loadIcon(TriangleDownVectorIcon.class, 16);
+  protected static final ModernIcon TRIANGLE_ICON = AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class,
+      16);
 
   /**
    * The primary button.
@@ -79,8 +79,7 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
   /**
    * The constant SIZE.
    */
-  private static final Dimension SIZE = ModernTheme
-      .loadDimension("theme.button.dimensions.dropdown-icon-only");
+  private static final Dimension SIZE = ModernTheme.loadDimension("theme.button.dimensions.dropdown-icon-only");
 
   /**
    * The divider location.
@@ -98,8 +97,7 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -148,11 +146,10 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
    * Instantiates a new modern optional drop down menu button.
    *
    * @param text1 the text1
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public ModernOptionalDropDownMenuButton2(String text1, ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public ModernOptionalDropDownMenuButton2(String text1, ModernIcon icon, ModernPopupMenu2 menu) {
     super(text1, icon);
 
     setMenu(menu);
@@ -166,8 +163,7 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
    * @param icon the icon
    * @param menu the menu
    */
-  public ModernOptionalDropDownMenuButton2(ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public ModernOptionalDropDownMenuButton2(ModernIcon icon, ModernPopupMenu2 menu) {
     super(icon);
 
     setMenu(menu);
@@ -179,8 +175,7 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
     setup();
   }
 
-  public ModernOptionalDropDownMenuButton2(String text1,
-      ModernPopupMenu2 menu) {
+  public ModernOptionalDropDownMenuButton2(String text1, ModernPopupMenu2 menu) {
     super(text1);
 
     setMenu(menu);
@@ -214,8 +209,7 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   /*
@@ -224,24 +218,23 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
    * 
    * int x = 0; int y = mRect.getY(); int h = mRect.getH(); int w = 0;
    * 
-   * if (mPrimaryButton || mPopupShown) { x = mRect.getX(); w = mDividerLocation
-   * - mRect.getX(); } else if (mHighlight) { x = mDividerLocation; w =
-   * mRect.getW() - mDividerLocation; } else { // do nothing }
+   * if (mPrimaryButton || mPopupShown) { x = mRect.getX(); w = mDividerLocation -
+   * mRect.getX(); } else if (mHighlight) { x = mDividerLocation; w = mRect.getW()
+   * - mDividerLocation; } else { // do nothing }
    * 
    * if (isSelected() || mPopupShown) {
-   * DrawUIService.getInstance().getRenderer("button-fill").draw(g2, rect); }
-   * else if (mHighlight) {
-   * DrawUIService.getInstance().getRenderer("content-box").draw(this, g2,
-   * rect); DrawUIService.getInstance().getRenderer("button-outline").draw(g2,
-   * rect); DrawUIService.getInstance().getRenderer("button-fill") .draw(g2, x,
-   * y, w, h); } else { // do nothing } }
+   * DrawUIService.getInstance().getRenderer("button-fill").draw(g2, rect); } else
+   * if (mHighlight) {
+   * DrawUIService.getInstance().getRenderer("content-box").draw(this, g2, rect);
+   * DrawUIService.getInstance().getRenderer("button-outline").draw(g2, rect);
+   * DrawUIService.getInstance().getRenderer("button-fill") .draw(g2, x, y, w, h);
+   * } else { // do nothing } }
    */
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -258,8 +251,7 @@ public class ModernOptionalDropDownMenuButton2 extends ModernDropDownWidget2 {
       getIcon().drawIcon(g2, PADDING, iconY, 16);
     }
 
-    Rectangle subRect = new Rectangle(getWidth() - getInsets().right - 16, 0,
-        16, getHeight());
+    Rectangle subRect = new Rectangle(getWidth() - getInsets().right - 16, 0, 16, getHeight());
 
     // UIService.getInstance().loadIcon(TriangleDownVectorIcon.class,
     // 16).drawIcon(g2, subRect.x, (subRect.height - 16) / 2, 16);

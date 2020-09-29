@@ -39,8 +39,7 @@ import org.jebtk.core.tree.TreeNode;
  * @author Antony Holmes
  *
  */
-public class ModernTreeFileSystemNodeRenderer
-    extends TreeNodeFileCountRenderer {
+public class ModernTreeFileSystemNodeRenderer extends TreeNodeFileCountRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -56,22 +55,9 @@ public class ModernTreeFileSystemNodeRenderer
    * boolean, boolean, int, int)
    */
   @Override
-  public ModernTreeNodeRenderer getRenderer(Tree<?> tree,
-      TreeNode<?> node,
-      boolean nodeIsHighlighted,
-      boolean nodeIsSelected,
-      boolean hasFocus,
-      boolean isDragToNode,
-      int depth,
-      int row) {
-    super.getRenderer(tree,
-        node,
-        nodeIsHighlighted,
-        nodeIsSelected,
-        hasFocus,
-        isDragToNode,
-        depth,
-        row);
+  public ModernTreeNodeRenderer getRenderer(Tree<?> tree, TreeNode<?> node, boolean nodeIsHighlighted,
+      boolean nodeIsSelected, boolean hasFocus, boolean isDragToNode, int depth, int row) {
+    super.getRenderer(tree, node, nodeIsHighlighted, nodeIsSelected, hasFocus, isDragToNode, depth, row);
 
     if (node.isParent() || FileUtils.isDirectory((Path) node.getValue())) {
       // we renderer as a parent if the node is classified as a parent {

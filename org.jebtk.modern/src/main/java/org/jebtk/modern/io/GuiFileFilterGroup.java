@@ -41,8 +41,7 @@ import org.jebtk.core.stream.Stream;
  * @author Antony Holmes
  *
  */
-public class GuiFileFilterGroup extends GuiFileExtFilter
-    implements Iterable<GuiFileExtFilter> {
+public class GuiFileFilterGroup extends GuiFileExtFilter implements Iterable<GuiFileExtFilter> {
 
   /** The m name. */
   private String mName;
@@ -53,11 +52,10 @@ public class GuiFileFilterGroup extends GuiFileExtFilter
   /**
    * Instantiates a new gif gui file filter.
    *
-   * @param name the name
+   * @param name    the name
    * @param filters the filters
    */
-  public GuiFileFilterGroup(String name, GuiFileExtFilter filter,
-      GuiFileExtFilter... filters) {
+  public GuiFileFilterGroup(String name, GuiFileExtFilter filter, GuiFileExtFilter... filters) {
     super(getExtensions(filters));
 
     mName = name + " (" + Stream.of(getExtension()).join(";") + ")";

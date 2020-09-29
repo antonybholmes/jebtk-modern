@@ -32,11 +32,10 @@ public class EasingTransitionTimer implements TransitionTimer {
   // .normCubicBezier(0.4, 0.0, 0.2, 1);
 
   // CSS default
-  public static final CubicBezier BEZIER = CubicBezier
-      .normCubicBezier(0.25, 0.1, 0.25, 1);
+  public static final CubicBezier BEZIER = CubicBezier.normCubicBezier(0.25, 0.1, 0.25, 1);
 
   private double[] mBezT;
-  
+
   private int mStep = 0;
 
   private int mSteps;
@@ -48,11 +47,11 @@ public class EasingTransitionTimer implements TransitionTimer {
    */
   public EasingTransitionTimer(int steps) {
     mSteps = steps;
-    
+
     mBezT = new double[steps];
-    
+
     int si = steps - 1;
-    
+
     mBezT[0] = 0;
     mBezT[si] = 1;
 
@@ -68,7 +67,7 @@ public class EasingTransitionTimer implements TransitionTimer {
     } else {
       mStep = Math.max(0, mSteps);
     }
-    
+
     return mBezT[mStep];
   }
 }

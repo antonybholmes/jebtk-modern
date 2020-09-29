@@ -13,7 +13,7 @@ public class CSSUnitProp extends CSSNumProp {
   public CSSUnit getUnit() {
     return mUnit;
   }
-  
+
   @Override
   public CSSPropType getType() {
     return CSSPropType.MEASUREMENT;

@@ -75,16 +75,15 @@ public class ModernVScrollBarMac extends ModernVScrollBar {
   }
 
   /*
-   * @Override public void paintScrollBarBase(Graphics2D g2) { Graphics2D g2Temp
-   * = ImageUtils.createAATextGraphics(g2);
+   * @Override public void paintScrollBarBase(Graphics2D g2) { Graphics2D g2Temp =
+   * ImageUtils.createAATextGraphics(g2);
    * 
    * int rounding = mIternalFixedDim;
    * 
    * try { g2Temp.setColor(ROUNDED_SCROLLBAR_BACKGROUND_COLOR);
    * 
    * g2Temp.fillRoundRect(getInsets().left, getInsets().top, rounding,
-   * mInternalRect.getH(), rounding, rounding); } finally { g2Temp.dispose(); }
-   * }
+   * mInternalRect.getH(), rounding, rounding); } finally { g2Temp.dispose(); } }
    */
 
   /*

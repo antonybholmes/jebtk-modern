@@ -47,8 +47,7 @@ import org.jebtk.core.text.TextUtils;
  * @author Antony Holmes
  *
  */
-public class ClipboardService extends ClipboardEventListeners
-    implements Clipboard {
+public class ClipboardService extends ClipboardEventListeners implements Clipboard {
 
   /**
    * The constant serialVersionUID.
@@ -200,8 +199,8 @@ public class ClipboardService extends ClipboardEventListeners
     }
 
     /*
-     * if (table.getSelectedRowCount() == 0) { // copy all rows for (int i = 0;
-     * i < table.getModel().getRowCount(); ++i) { for (int j = 0; j <
+     * if (table.getSelectedRowCount() == 0) { // copy all rows for (int i = 0; i <
+     * table.getModel().getRowCount(); ++i) { for (int j = 0; j <
      * table.getModel().getColumnCount(); ++j) {
      * builder.append(table.getModel().getValueAt(i, j).toString());
      * 
@@ -236,12 +235,11 @@ public class ClipboardService extends ClipboardEventListeners
     }
 
     /*
-     * if (list.getSelectedIndices().length == 0) { // copy all rows for (int i
-     * = 0; i < list.getModel().getSize(); ++i) {
+     * if (list.getSelectedIndices().length == 0) { // copy all rows for (int i = 0;
+     * i < list.getModel().getSize(); ++i) {
      * builder.append(list.getModel().getElementAt(i));
      * builder.append(Text.NEWLINE); } } else { for (int i :
-     * list.getSelectedIndices()) {
-     * builder.append(list.getModel().getElementAt(i));
+     * list.getSelectedIndices()) { builder.append(list.getModel().getElementAt(i));
      * builder.append(Text.NEWLINE); } }
      */
 
@@ -264,8 +262,7 @@ public class ClipboardService extends ClipboardEventListeners
    */
   public static final void copyToClipboard(String text) {
     StringSelection stringModernSelection = new StringSelection(text);
-    Toolkit.getDefaultToolkit().getSystemClipboard()
-        .setContents(stringModernSelection, null);
+    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringModernSelection, null);
   }
 
   /**
@@ -275,14 +272,12 @@ public class ClipboardService extends ClipboardEventListeners
    */
   public static final String getClipboardContents() {
 
-    java.awt.datatransfer.Clipboard clipboard = Toolkit.getDefaultToolkit()
-        .getSystemClipboard();
+    java.awt.datatransfer.Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 
     // odd: the Object param of getContents is not currently used
     Transferable contents = clipboard.getContents(null);
 
-    boolean hasTransferableText = (contents != null)
-        && contents.isDataFlavorSupported(DataFlavor.stringFlavor);
+    boolean hasTransferableText = (contents != null) && contents.isDataFlavorSupported(DataFlavor.stringFlavor);
 
     String result = "";
 

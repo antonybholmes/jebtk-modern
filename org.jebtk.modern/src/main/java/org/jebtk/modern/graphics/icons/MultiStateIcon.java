@@ -29,29 +29,38 @@ package org.jebtk.modern.graphics.icons;
 
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import org.jebtk.core.Props;
 
 /**
- * The class MultiStateIcon represents an icon 
+ * The class MultiStateIcon represents an icon
  */
 public class MultiStateIcon extends ModernIcon {
+
+  private static final String DEFAULT_STATE = "default";
 
   /**
    * The member icons.
    */
-  private Map<String, ModernIcon> mIcons = new TreeMap<String, ModernIcon>();
+  private Map<String, ModernIcon> mIcons = new HashMap<String, ModernIcon>();
 
   /**
    * The member icon.
    */
-  private String mState = "default";
-  
-  
+  private String mState = DEFAULT_STATE;
+
+  public void add(ModernIcon icon) {
+    add(DEFAULT_STATE, icon);
+  }
+
   public void add(String state, ModernIcon icon) {
     mIcons.put(state, icon);
+
+    if (!mIcons.containsKey(DEFAULT_STATE)) {
+      mIcons.put(DEFAULT_STATE, icon);
+    }
   }
 
   /**
@@ -71,12 +80,7 @@ public class MultiStateIcon extends ModernIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     getState(mState).drawIcon(g2, x, y, w, h, props);
   }
 
@@ -99,14 +103,9 @@ public class MultiStateIcon extends ModernIcon {
   public int getHeight() {
     return getState(mState).getHeight();
   }
-  
+
   @Override
-  public void rasterIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void rasterIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     getState(mState).rasterIcon(g2, x, y, w, h, props);
   }
 
@@ -119,17 +118,21 @@ public class MultiStateIcon extends ModernIcon {
   public BufferedImage getImage(int w, int h, Props props) {
     return getState(mState).getImage(w, h, props);
   }
-  
+
   @Override
   public ModernIcon getDisabledIcon() {
     return getState(mState).getDisabledIcon();
   }
-  
+
   @Override
   public ModernIcon getState(String state) {
-    return mIcons.get(state);
+    if (mIcons.containsKey(state)) {
+      return mIcons.get(state);
+    } else {
+      return mIcons.get(mState);
+    }
   }
-  
+
   @Override
   public Iterable<String> getStates() {
     return mIcons.keySet();

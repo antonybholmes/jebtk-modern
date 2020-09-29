@@ -44,8 +44,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * The class ModernClipboardTextArea.
  */
-public class ModernClipboardTextArea extends ModernTextArea
-    implements ClipboardUI, ModernClickListener {
+public class ModernClipboardTextArea extends ModernTextArea implements ClipboardUI, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -139,12 +138,11 @@ public class ModernClipboardTextArea extends ModernTextArea
   /**
    * Instantiates a new modern clipboard text area.
    *
-   * @param cutEnabled the cut enabled
-   * @param copyEnabled the copy enabled
+   * @param cutEnabled   the cut enabled
+   * @param copyEnabled  the copy enabled
    * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardTextArea(boolean cutEnabled, boolean copyEnabled,
-      boolean pasteEnabled) {
+  public ModernClipboardTextArea(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
 
     this("", cutEnabled, copyEnabled, pasteEnabled);
   }
@@ -161,13 +159,12 @@ public class ModernClipboardTextArea extends ModernTextArea
   /**
    * Instantiates a new modern clipboard text area.
    *
-   * @param text the text
-   * @param cutEnabled the cut enabled
-   * @param copyEnabled the copy enabled
+   * @param text         the text
+   * @param cutEnabled   the cut enabled
+   * @param copyEnabled  the copy enabled
    * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardTextArea(String text, boolean cutEnabled,
-      boolean copyEnabled, boolean pasteEnabled) {
+  public ModernClipboardTextArea(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
 
     super(text);
 
@@ -191,9 +188,7 @@ public class ModernClipboardTextArea extends ModernTextArea
       // copyModernMenuItem.setEnabled(copyEnabled);
       // pasteModernMenuItem.setEnabled(pasteEnabled && this.isEditable());
 
-      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(this,
-          mCutEnabled && isEditable(),
-          true,
+      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(this, mCutEnabled && isEditable(), true,
           mPasteEnabled && isEditable());
 
       popup.showPopup(e.getComponent(), e.getX(), e.getY());
@@ -203,8 +198,7 @@ public class ModernClipboardTextArea extends ModernTextArea
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

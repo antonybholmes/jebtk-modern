@@ -37,7 +37,6 @@ import org.jebtk.modern.tabs.IconTabsPanel;
 import org.jebtk.modern.tabs.IconTabsVectorIcon;
 import org.jebtk.modern.tabs.TabsModel;
 
-
 public class WindowTabNav {
 
   private TabsModel mLeftTabsModel;
@@ -55,8 +54,7 @@ public class WindowTabNav {
    *
    * @param parent the parent
    */
-  public WindowTabNav(String name, String tabSet,
-      ModernHContentPane tabsPane) {
+  public WindowTabNav(String name, String tabSet, ModernHContentPane tabsPane) {
     mName = name;
     mTabSet = tabSet;
     mTabsPane = tabsPane;
@@ -88,7 +86,7 @@ public class WindowTabNav {
 
     addPane();
   }
-  
+
   public void addTab(String name, ModernIcon icon, JComponent c) {
     getModel().addTab(name, icon, c);
 
@@ -98,10 +96,11 @@ public class WindowTabNav {
   public TabsModel getModel() {
     if (mLeftTabsModel == null) {
       mLeftTabsModel = new TabsModel();
-      //mViewPanel = new OutlookTabsPanel(mLeftTabsModel); //new IconTabsVertPanel(mLeftTabsModel, 40, 22);
-      
+      // mViewPanel = new OutlookTabsPanel(mLeftTabsModel); //new
+      // IconTabsVertPanel(mLeftTabsModel, 40, 22);
+
       mViewPanel = new IconTabsPanel(mLeftTabsModel, 40, 24);
-          
+
     }
 
     return mLeftTabsModel;
@@ -115,10 +114,7 @@ public class WindowTabNav {
       return;
     }
 
-    getTabsPane().tabs().tabSet(mTabSet).add(mName,
-        new AutoHidePanel(mViewPanel, 100),
-        200,
-        ModernWidget.WIDGET_HEIGHT,
+    getTabsPane().tabs().tabSet(mTabSet).add(mName, new AutoHidePanel(mViewPanel, 100), 200, ModernWidget.WIDGET_HEIGHT,
         500);
   }
 

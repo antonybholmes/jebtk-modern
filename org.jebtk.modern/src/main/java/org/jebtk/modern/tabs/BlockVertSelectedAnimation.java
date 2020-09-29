@@ -53,7 +53,7 @@ public class BlockVertSelectedAnimation extends HighlightAnimation {
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
     int x = mTabs.getInsets().left; // + widget.getWidth() -
-                                    // SegmentChangeAnimation.HEIGHT;
+    // SegmentChangeAnimation.HEIGHT;
     int y = mTabs.getInsets().top + mTabs.mOffset;
 
     int w = mTabs.getInternalRect().getW();

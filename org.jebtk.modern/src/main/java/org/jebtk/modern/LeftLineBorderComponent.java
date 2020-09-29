@@ -60,7 +60,7 @@ public class LeftLineBorderComponent extends ModernComponent {
   /**
    * Instantiates a new left line border component.
    *
-   * @param c the c
+   * @param c     the c
    * @param color the color
    */
   public LeftLineBorderComponent(Component c, Color color) {

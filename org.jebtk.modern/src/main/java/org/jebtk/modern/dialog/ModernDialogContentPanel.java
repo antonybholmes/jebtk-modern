@@ -46,6 +46,6 @@ public class ModernDialogContentPanel extends ModernComponent {
    */
   public ModernDialogContentPanel(Component c) {
     super(new ModernDialogBorderPanel(new ModernComponent(c))); // ,
-                                                                // ModernWidget.DOUBLE_BORDER)));
+    // ModernWidget.DOUBLE_BORDER)));
   }
 }

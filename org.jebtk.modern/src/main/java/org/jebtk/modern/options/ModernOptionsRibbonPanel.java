@@ -56,8 +56,7 @@ import org.jebtk.modern.tree.PathTree;
  * @author Antony Holmes
  *
  */
-public class ModernOptionsRibbonPanel extends RibbonMenuPanel
-    implements ModernSelectionListener {
+public class ModernOptionsRibbonPanel extends RibbonMenuPanel implements ModernSelectionListener {
 
   /**
    * The constant serialVersionUID.
@@ -154,8 +153,7 @@ public class ModernOptionsRibbonPanel extends RibbonMenuPanel
     mTree.addSelectionListener(this);
     mTree.setBorder(RIGHT_BORDER);
 
-    ModernScrollPane scrollPane = new ModernScrollPane(mTree)
-        .setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER)
+    ModernScrollPane scrollPane = new ModernScrollPane(mTree).setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER)
         .setVerticalScrollBarPolicy(ScrollBarPolicy.AUTO_SHOW);
 
     mTable = new ModernRowTable();

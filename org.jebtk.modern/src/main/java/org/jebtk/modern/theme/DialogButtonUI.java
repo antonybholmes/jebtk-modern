@@ -27,17 +27,13 @@ import org.jebtk.modern.ModernComponent;
  */
 public class DialogButtonUI extends ButtonUI {
 
-  private static final Color FILL = MaterialService.instance()
-      .getColor("dialog.button.fill");
+  private static final Color FILL = MaterialService.instance().getColor("dialog.button.fill");
 
-  public static final Color C1 = MaterialService.instance()
-      .getColor("dialog.button.gradient.start");
+  public static final Color C1 = MaterialService.instance().getColor("dialog.button.gradient.start");
 
-  public static final Color C2 = MaterialService.instance()
-      .getColor("dialog.button.gradient.end");
+  public static final Color C2 = MaterialService.instance().getColor("dialog.button.gradient.end");
 
-  private static final Color BORDER = MaterialService.instance()
-      .getColor("dialog.button.outline");
+  private static final Color BORDER = MaterialService.instance().getColor("dialog.button.outline");
 
   @Override
   public String getName() {
@@ -45,10 +41,7 @@ public class DialogButtonUI extends ButtonUI {
   }
 
   @Override
-  public void draw(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
 
     // GradientPaint gradient = ColorUtils.getVGradient(0, h, C1, C2);
 

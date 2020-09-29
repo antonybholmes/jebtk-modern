@@ -74,10 +74,7 @@ public class RibbonSegmentSelectedAnimation extends WidgetAnimation {
       // g2.fillRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE);
 
       DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-          new IntRect(x,
-          y1,
-          w,
-          RibbonSegmentVertTabs.TAB_SIZE),
+          new IntRect(x, y1, w, RibbonSegmentVertTabs.TAB_SIZE),
           MaterialService.instance().getColor("ribbon-selected"));
     }
   }

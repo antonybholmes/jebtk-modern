@@ -59,20 +59,17 @@ public class ModernTheme {
   /**
    * The constant DOUBLE_LINE_STROKE.
    */
-  public static final Stroke DOUBLE_LINE_STROKE = new BasicStroke(2,
-      BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
+  public static final Stroke DOUBLE_LINE_STROKE = new BasicStroke(2, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
 
   /**
    * The constant SINGLE_LINE_STROKE.
    */
-  public static final Stroke SINGLE_LINE_STROKE = new BasicStroke(1,
-      BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
+  public static final Stroke SINGLE_LINE_STROKE = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
 
   /**
    * The constant QUAD_LINE_STROKE.
    */
-  public static final Stroke QUAD_LINE_STROKE = new BasicStroke(3,
-      BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
+  public static final Stroke QUAD_LINE_STROKE = new BasicStroke(3, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
 
   /**
    * The constant DASH_MARKS.
@@ -82,8 +79,8 @@ public class ModernTheme {
   /**
    * The constant DASHED_LINE_STROKE.
    */
-  public static final Stroke DASHED_LINE_STROKE = new BasicStroke(1,
-      BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, DASH_MARKS, 0);
+  public static final Stroke DASHED_LINE_STROKE = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1,
+      DASH_MARKS, 0);
 
   /**
    * The constant DOTTED_MARKS.
@@ -93,8 +90,8 @@ public class ModernTheme {
   /**
    * The constant DOTTED_LINE_STROKE.
    */
-  public static final Stroke DOTTED_LINE_STROKE = new BasicStroke(1,
-      BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, DOTTED_MARKS, 0);
+  public static final Stroke DOTTED_LINE_STROKE = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1,
+      DOTTED_MARKS, 0);
 
   /**
    * The constant LONG_DASH_MARKS.
@@ -104,8 +101,8 @@ public class ModernTheme {
   /**
    * The constant LONG_DASHED_LINE_STROKE.
    */
-  public static final Stroke LONG_DASHED_LINE_STROKE = new BasicStroke(1,
-      BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, LONG_DASH_MARKS, 0);
+  public static final Stroke LONG_DASHED_LINE_STROKE = new BasicStroke(1, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND,
+      1, LONG_DASH_MARKS, 0);
 
   /**
    * The constant DASH_DOT_MARKS.
@@ -115,8 +112,8 @@ public class ModernTheme {
   /**
    * The constant DASHED_DOTTED_LINE_STROKE.
    */
-  public static final Stroke DASHED_DOTTED_LINE_STROKE = new BasicStroke(1,
-      BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, DASH_DOT_MARKS, 0);
+  public static final Stroke DASHED_DOTTED_LINE_STROKE = new BasicStroke(1, BasicStroke.CAP_ROUND,
+      BasicStroke.JOIN_ROUND, 1, DASH_DOT_MARKS, 0);
 
   /**
    * Load dimension.
@@ -199,8 +196,7 @@ public class ModernTheme {
    * @return the stroke
    */
   public static final Stroke createDashedStroke(int w) {
-    return new BasicStroke(w, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1,
-        DASH_MARKS, 0);
+    return new BasicStroke(w, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, DASH_MARKS, 0);
   }
 
   /**
@@ -210,8 +206,7 @@ public class ModernTheme {
    * @return the stroke
    */
   public static final Stroke createDottedStroke(int w) {
-    return new BasicStroke(w, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1,
-        DOTTED_MARKS, 0);
+    return new BasicStroke(w, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, DOTTED_MARKS, 0);
   }
 
   /**
@@ -221,8 +216,7 @@ public class ModernTheme {
    * @return the stroke
    */
   public static final Stroke createLongDashStroke(int w) {
-    return new BasicStroke(w, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1,
-        LONG_DASH_MARKS, 0);
+    return new BasicStroke(w, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, LONG_DASH_MARKS, 0);
   }
 
   /**
@@ -232,7 +226,6 @@ public class ModernTheme {
    * @return the stroke
    */
   public static final Stroke createDashDottedStroke(int w) {
-    return new BasicStroke(w, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1,
-        DASH_DOT_MARKS, 0);
+    return new BasicStroke(w, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND, 1, DASH_DOT_MARKS, 0);
   }
 }

@@ -46,12 +46,11 @@ public class ModernDataSelection extends ModernDataRowSelection {
    * Instantiates a new modern data selection.
    *
    * @param startRow the start row
-   * @param endRow the end row
+   * @param endRow   the end row
    * @param startCol the start col
-   * @param endCol the end col
+   * @param endCol   the end col
    */
-  public ModernDataSelection(int startRow, int endRow, int startCol,
-      int endCol) {
+  public ModernDataSelection(int startRow, int endRow, int startCol, int endCol) {
     super(startRow, endRow);
 
     mStartCol = startCol;
@@ -83,7 +82,6 @@ public class ModernDataSelection extends ModernDataRowSelection {
    */
   @Override
   public String toString() {
-    return "[" + mStartRow + "," + mEndRow + "," + mStartCol + "," + mEndCol
-        + "]";
+    return "[" + mStartRow + "," + mEndRow + "," + mStartCol + "," + mEndCol + "]";
   }
 }

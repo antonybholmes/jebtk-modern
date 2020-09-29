@@ -56,10 +56,8 @@ import org.jebtk.modern.ModernFocusableWidget;
  *
  */
 public class ModernCanvas extends ModernFocusableWidget
-implements CanvasEventProducer, CanvasMouseEventProducer,
-CanvasMouseWheelEventProducer, CanvasMouseListener,
-CanvasMouseWheelListener, CanvasKeyEventProducer, CanvasKeyListener,
-CanvasCursorEventProducer {
+    implements CanvasEventProducer, CanvasMouseEventProducer, CanvasMouseWheelEventProducer, CanvasMouseListener,
+    CanvasMouseWheelListener, CanvasKeyEventProducer, CanvasKeyListener, CanvasCursorEventProducer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -194,8 +192,7 @@ CanvasCursorEventProducer {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -225,8 +222,7 @@ CanvasCursorEventProducer {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -319,7 +315,7 @@ CanvasCursorEventProducer {
     addMouseWheelListener(new MouseWheelEvents());
     // addComponentListener(new ComponentEvents());
     addKeyListener(new KeyEvents());
-    
+
     // Draw as fast as possible
     getAAModes().clear();
   }
@@ -336,9 +332,9 @@ CanvasCursorEventProducer {
 
   /**
    * Sets whether canvas events are forwarded or not. This can be useful if you
-   * want to temporarily disable drawing operations for instance if doing a
-   * batch update to a canvas where you do not want to trigger multiple drawing
-   * events until it has finished updating.
+   * want to temporarily disable drawing operations for instance if doing a batch
+   * update to a canvas where you do not want to trigger multiple drawing events
+   * until it has finished updating.
    *
    * @param enabled the new forward canvas events enabled
    */
@@ -427,7 +423,7 @@ CanvasCursorEventProducer {
   /**
    * Sets the canvas size.
    *
-   * @param width the width
+   * @param width  the width
    * @param height the height
    */
   public void setCanvasSize(int width, int height) {
@@ -439,7 +435,7 @@ CanvasCursorEventProducer {
   /**
    * Set the size of the canvas. This will take into account any borders.
    *
-   * @param width the width
+   * @param width  the width
    * @param height the height
    */
   public void updateCanvasSize(int width, int height) {
@@ -452,8 +448,8 @@ CanvasCursorEventProducer {
 
     mCanvasMidPoint = new IntPos2D(width / 2, height / 2);
 
-    setPreferredSize(new Dimension(width + getInsets().left + getInsets().right,
-        height + getInsets().top + getInsets().bottom)); // IntDim.toDimension(mCanvasSize));
+    setPreferredSize(
+        new Dimension(width + getInsets().left + getInsets().right, height + getInsets().top + getInsets().bottom)); // IntDim.toDimension(mCanvasSize));
 
     // System.err.println("canvas size " + mPs + " " + this);
 
@@ -526,8 +522,7 @@ CanvasCursorEventProducer {
    * @param position the position
    */
   public void updateViewRectangle(IntPos2D position) {
-    updateViewRectangle(new IntRect(position.getX(), position.getY(),
-        mInternalRect.getW(), mInternalRect.getH()));
+    updateViewRectangle(new IntRect(position.getX(), position.getY(), mInternalRect.getW(), mInternalRect.getH()));
   }
 
   /**
@@ -557,7 +552,7 @@ CanvasCursorEventProducer {
    * Sets the view rectangle.
    *
    * @param position the position
-   * @param dim the dim
+   * @param dim      the dim
    */
   public void setViewRectangle(IntPos2D position, IntDim dim) {
     updateViewRectangle(position, dim);
@@ -597,8 +592,7 @@ CanvasCursorEventProducer {
    * @param y the y
    */
   public void updateViewRectangle(int x, int y) {
-    updateViewRectangle(
-        new IntRect(x, y, mInternalRect.getW(), mInternalRect.getH()));
+    updateViewRectangle(new IntRect(x, y, mInternalRect.getW(), mInternalRect.getH()));
   }
 
   /**
@@ -614,13 +608,10 @@ CanvasCursorEventProducer {
    * Update view rectangle.
    *
    * @param position the position
-   * @param dim the dim
+   * @param dim      the dim
    */
   public void updateViewRectangle(IntPos2D position, IntDim dim) {
-    updateViewRectangle(position.getX(),
-        position.getY(),
-        dim.getW(),
-        dim.getH());
+    updateViewRectangle(position.getX(), position.getY(), dim.getW(), dim.getH());
   }
 
   /**
@@ -729,10 +720,10 @@ CanvasCursorEventProducer {
    * @see org.abh.common.ui.widget.ModernWidget#drawForegroundAA(java.awt.
    * Graphics2D)
    */
-  //@Override
-  //public void drawForegroundAA(Graphics2D g2) {
-  ////  rasterCanvas(g2);
-  //}
+  // @Override
+  // public void drawForegroundAA(Graphics2D g2) {
+  //// rasterCanvas(g2);
+  // }
 
   /**
    * Draw translated canvas.
@@ -745,11 +736,11 @@ CanvasCursorEventProducer {
   }
 
   /**
-   * In charge of rendering the canvas. This is position agnostic,
-   * drawForeground will adjust the offset of the image if necessary. This
-   * method should assume the picture is being rendered at 0,0.
+   * In charge of rendering the canvas. This is position agnostic, drawForeground
+   * will adjust the offset of the image if necessary. This method should assume
+   * the picture is being rendered at 0,0.
    *
-   * @param g2 the g2
+   * @param g2      the g2
    * @param context the context
    */
   // public void drawTranslatedCanvas(Graphics2D g2, DrawingContext context) {
@@ -759,7 +750,7 @@ CanvasCursorEventProducer {
   /**
    * Cache canvas.
    *
-   * @param g2 the g 2
+   * @param g2      the g 2
    * @param context the context
    */
   public void rasterCanvas(Graphics2D g2, DrawingContext context) {
@@ -771,8 +762,7 @@ CanvasCursorEventProducer {
       if (mRasterMode) {
         Rectangle vr = getVisibleRect();
 
-        if (mBufferedImage == null || mCacheViewRect == null
-            || !mCacheViewRect.equals(vr)) {
+        if (mBufferedImage == null || mCacheViewRect == null || !mCacheViewRect.equals(vr)) {
           // The canvas need only be the size of the available display
           mBufferedImage = ImageUtils.createImage(getSize());
 
@@ -830,7 +820,7 @@ CanvasCursorEventProducer {
   /**
    * Draw canvas.
    *
-   * @param g2 the g 2
+   * @param g2      the g 2
    * @param context the context
    */
   public void drawCanvas(Graphics2D g2, DrawingContext context) {
@@ -838,8 +828,7 @@ CanvasCursorEventProducer {
   }
 
   /**
-   * Should translate the graphics context to the current view window
-   * coordinates.
+   * Should translate the graphics context to the current view window coordinates.
    *
    * @param g2 the g 2 temp
    */
@@ -871,8 +860,8 @@ CanvasCursorEventProducer {
   }
 
   /**
-   * Returns the absolute preferred size of the canvas at a zoom level 1, i.e.
-   * no zooming. This is so the desired size of the canvas is always known.
+   * Returns the absolute preferred size of the canvas at a zoom level 1, i.e. no
+   * zooming. This is so the desired size of the canvas is always known.
    * 
    * @return
    */

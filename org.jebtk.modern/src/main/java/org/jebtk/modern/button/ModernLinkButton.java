@@ -88,7 +88,7 @@ public class ModernLinkButton extends RibbonButton {
    * Instantiates a new modern link button.
    *
    * @param title the title
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernLinkButton(String title, ModernIcon icon) {
     super(title, icon);
@@ -106,8 +106,7 @@ public class ModernLinkButton extends RibbonButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   // @Override
@@ -116,8 +115,7 @@ public class ModernLinkButton extends RibbonButton {
   // }
 
   /*
-   * @Override public void drawText(Graphics2D g2) { if (mText1 != null) { int
-   * x;
+   * @Override public void drawText(Graphics2D g2) { if (mText1 != null) { int x;
    * 
    * if (mIcon != null) { x = mIcon.getWidth() + DOUBLE_PADDING; } else { x =
    * (getWidth() - g2.getFontMetrics().stringWidth(mText1)) / 2; }
@@ -126,11 +124,11 @@ public class ModernLinkButton extends RibbonButton {
    * 
    * boolean underline = mHighlight || isSelected();
    * 
-   * g2.setFont(FONT); //underline ? UNDER_LINE_FONT : FONT);
-   * g2.setColor(COLOR); g2.drawString(mText1, x, y);
+   * g2.setFont(FONT); //underline ? UNDER_LINE_FONT : FONT); g2.setColor(COLOR);
+   * g2.drawString(mText1, x, y);
    * 
-   * // I don't line the way underline fonts are rendered so do it // manually
-   * if (underline) { y += LINE_OFFSET;
+   * // I don't line the way underline fonts are rendered so do it // manually if
+   * (underline) { y += LINE_OFFSET;
    * 
    * g2.drawLine(x, y, x + getStringWidth(g2, mText1), y); } } }
    */

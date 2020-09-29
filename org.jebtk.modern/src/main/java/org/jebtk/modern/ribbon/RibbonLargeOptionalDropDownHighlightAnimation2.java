@@ -27,8 +27,7 @@ import org.jebtk.modern.css.CSSBaseUI;
 /**
  * The Class RibbonButtonAnimation.
  */
-public class RibbonLargeOptionalDropDownHighlightAnimation2
-extends DropDownButtonAnimation2 {
+public class RibbonLargeOptionalDropDownHighlightAnimation2 extends DropDownButtonAnimation2 {
 
   /** The m button. */
   private ModernOptionalDropDownMenuButton2 mButton;
@@ -77,22 +76,19 @@ extends DropDownButtonAnimation2 {
       // paintHighlighted(g2, rect);
 
       // getWidget().getWidgetRenderer().fill(g2, rect);
-      //DrawUIService.getInstance().getRenderer("button-fill").draw(g2, rect);
+      // DrawUIService.getInstance().getRenderer("button-fill").draw(g2, rect);
 
       CSSBaseUI.cssFill(c, g2, rect, props);
 
     } else if (mButton.getHightlighted()) {
       System.err.println("what " + g2.getColor() + " " + getStep());
-      
-      
+
       CSSBaseUI.cssFill(c, g2, new IntRect(x, y, w, h), props);
-
-
 
       // getWidget().getWidgetRenderer().outline(g2, rect);
       // getWidget().getWidgetRenderer().fill(g2, x, y, w, h);
-      //DrawUIService.getInstance().getRenderer("button-fill")
-      //    .draw(g2, x, y, w, h, getFadeColor("fill"));
+      // DrawUIService.getInstance().getRenderer("button-fill")
+      // .draw(g2, x, y, w, h, getFadeColor("fill"));
 
       // getWidgetRenderer().drawRibbonButtonOutline(g2, rect,
       // RenderMode.SELECTED);

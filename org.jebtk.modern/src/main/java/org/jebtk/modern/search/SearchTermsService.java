@@ -52,8 +52,7 @@ import org.xml.sax.SAXException;
  * @author Antony Holmes
  *
  */
-public class SearchTermsService extends SearchTermEventListeners
-    implements Iterable<String> {
+public class SearchTermsService extends SearchTermEventListeners implements Iterable<String> {
 
   /**
    * The constant serialVersionUID.
@@ -125,11 +124,11 @@ public class SearchTermsService extends SearchTermEventListeners
    * Load xml.
    *
    * @throws ParserConfigurationException the parser configuration exception
-   * @throws SAXException the SAX exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException                 the SAX exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
    */
-  public final void loadXml()
-      throws ParserConfigurationException, SAXException, IOException {
+  public final void loadXml() throws ParserConfigurationException, SAXException, IOException {
     loadXml(DEFAULT_XML_FILE);
   }
 
@@ -138,11 +137,11 @@ public class SearchTermsService extends SearchTermEventListeners
    *
    * @param file the file
    * @throws ParserConfigurationException the parser configuration exception
-   * @throws SAXException the SAX exception
-   * @throws IOException Signals that an I/O exception has occurred.
+   * @throws SAXException                 the SAX exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
    */
-  public final void loadXml(File file)
-      throws ParserConfigurationException, SAXException, IOException {
+  public final void loadXml(File file) throws ParserConfigurationException, SAXException, IOException {
     if (!file.exists()) {
       return;
     }

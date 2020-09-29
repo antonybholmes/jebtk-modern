@@ -87,12 +87,7 @@ public class FolderVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     w = Mathematics.makeMult2(w * WIDTH_SCALE);
     h = Mathematics.makeMult2(w * HEIGHT_SCALE);
 
@@ -130,8 +125,8 @@ public class FolderVectorIcon extends ModernVectorScalableIcon {
      * gp.moveTo(x, y);
      * 
      * gp.lineTo(x + w2 - corner2, y); gp.lineTo(x + w2 + corner2, y + corner);
-     * gp.lineTo(x + w, y + corner); gp.lineTo(x + w, y + h); gp.lineTo(x, y +
-     * h); gp.closePath();
+     * gp.lineTo(x + w, y + corner); gp.lineTo(x + w, y + h); gp.lineTo(x, y + h);
+     * gp.closePath();
      * 
      * 
      * g2.setColor(Color.WHITE); g2.fill(gp);
@@ -142,8 +137,8 @@ public class FolderVectorIcon extends ModernVectorScalableIcon {
      * 
      * gp = new GeneralPath();
      * 
-     * gp.moveTo(x, y + corner); gp.lineTo(x + w, y + corner); gp.lineTo(x + w,
-     * y + h); gp.lineTo(x, y + h); gp.closePath();
+     * gp.moveTo(x, y + corner); gp.lineTo(x + w, y + corner); gp.lineTo(x + w, y +
+     * h); gp.lineTo(x, y + h); gp.closePath();
      * 
      * g2.fill(gp);
      */

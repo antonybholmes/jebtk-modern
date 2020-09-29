@@ -45,8 +45,7 @@ import org.jebtk.modern.event.ModernClickListeners;
  * @author Antony Holmes
  *
  */
-public class ModernMenu extends JMenu
-    implements ModernClickEventProducer, ModernClickListener {
+public class ModernMenu extends JMenu implements ModernClickEventProducer, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -156,8 +155,7 @@ public class ModernMenu extends JMenu
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

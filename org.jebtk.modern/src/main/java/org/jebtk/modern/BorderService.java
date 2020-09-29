@@ -69,10 +69,8 @@ public class BorderService {
    * The map.
    */
   private Map<Integer, IterMap<Integer, IterMap<Integer, IterMap<Integer, Border>>>> mMap = DefaultHashMap
-      .create(
-          new DefaultHashMapCreator<Integer, IterMap<Integer, IterMap<Integer, Border>>>(
-              new DefaultHashMapCreator<Integer, IterMap<Integer, Border>>(
-                  new HashMapCreator<Integer, Border>())));
+      .create(new DefaultHashMapCreator<Integer, IterMap<Integer, IterMap<Integer, Border>>>(
+          new DefaultHashMapCreator<Integer, IterMap<Integer, Border>>(new HashMapCreator<Integer, Border>())));
 
   /** The m line border map. */
   private Map<Color, Border> mLineBorderMap = new HashMap<Color, Border>();
@@ -161,7 +159,7 @@ public class BorderService {
   /**
    * Creates the top bottom border.
    *
-   * @param top the top
+   * @param top    the top
    * @param bottom the bottom
    * @return the border
    */
@@ -192,17 +190,16 @@ public class BorderService {
   /**
    * Creates a border.
    *
-   * @param top the top
-   * @param left the left
+   * @param top    the top
+   * @param left   the left
    * @param bottom the bottom
-   * @param right the right
+   * @param right  the right
    * @return a border
    */
   public Border createBorder(int top, int left, int bottom, int right) {
 
     if (!mMap.get(top).get(left).get(bottom).containsKey(right)) {
-      mMap.get(top).get(left).get(bottom).put(right,
-          BorderFactory.createEmptyBorder(top, left, bottom, right));
+      mMap.get(top).get(left).get(bottom).put(right, BorderFactory.createEmptyBorder(top, left, bottom, right));
     }
 
     return mMap.get(top).get(left).get(bottom).get(right);

@@ -64,12 +64,7 @@ public class TriangleRightVectorIcon extends TriangleVectorIcon {
    * Graphics2D, int, int, int, int)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     super.drawIcon(g2, x, y, w, h, props);
 
     mXf = x + (w - mHf) / 2.0;

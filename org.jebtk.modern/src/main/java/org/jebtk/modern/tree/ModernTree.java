@@ -77,8 +77,8 @@ import org.jebtk.modern.graphics.ImageUtils;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
-    TreeNodeEventListener, HighlightEventProducer {
+public class ModernTree<T> extends Tree<T>
+    implements TreeNodeEventProducer, TreeNodeEventListener, HighlightEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -86,15 +86,13 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
   private static final long serialVersionUID = 1L;
 
   /**
-   * If the user is within this number of pixels from the edge of the node,
-   * assume they want to insert between rather than making the node a child of
-   * another.
+   * If the user is within this number of pixels from the edge of the node, assume
+   * they want to insert between rather than making the node a child of another.
    */
   private static final int INSERT_ZONE_SIZE = 5;
 
   /** The Constant CTRL_MASK. */
-  private static final int CTRL_MASK = Toolkit.getDefaultToolkit()
-      .getMenuShortcutKeyMask();
+  private static final int CTRL_MASK = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
 
   /**
    * The member listeners.
@@ -121,7 +119,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
    */
   // Keeps track of the currently visible nodes
   protected List<TreeNode<T>> mFlatNodeList = null; // >new
-                                                    // ArrayList<TreeNode<T>>();
+  // ArrayList<TreeNode<T>>();
 
   /**
    * The member selection model.
@@ -206,16 +204,14 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
     public void selectionAdded(ChangeEvent e) {
       repaint();
 
-      mSelectionListeners
-          .fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
+      mSelectionListeners.fireSelectionAdded(new ChangeEvent(this, e.getMessage()));
     }
 
     @Override
     public void selectionRemoved(ChangeEvent e) {
       repaint();
 
-      mSelectionListeners
-          .fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));
+      mSelectionListeners.fireSelectionRemoved(new ChangeEvent(this, e.getMessage()));
     }
   }
 
@@ -235,8 +231,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
       }
 
       if (e.getClickCount() > 1) {
-        mTreeEventListeners.fireTreeNodeDoubleClicked(
-            new ModernTreeEvent(this, NODE_DOUBLE_CLICKED));
+        mTreeEventListeners.fireTreeNodeDoubleClicked(new ModernTreeEvent(this, NODE_DOUBLE_CLICKED));
       }
 
     }
@@ -272,11 +267,10 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
         return;
       }
 
-      boolean multiSelect = mAllowMultiSelect
-          && (e.getModifiers() & CTRL_MASK) == CTRL_MASK;
+      boolean multiSelect = mAllowMultiSelect && (e.getModifiers() & CTRL_MASK) == CTRL_MASK;
 
-      boolean multiRangeSelect = mAllowMultiSelect && (e.getModifiers()
-          & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
+      boolean multiRangeSelect = mAllowMultiSelect
+          && (e.getModifiers() & ActionEvent.SHIFT_MASK) == ActionEvent.SHIFT_MASK;
 
       adjustSelectedNodes(move.index, multiSelect, multiRangeSelect);
     }
@@ -297,8 +291,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
       // System.err.println("what to " + (mDragToNode != null) + " " +
       // mSelectionModel.size() + " " + (mDragTo != null));
 
-      if (mDragToNode != null && mSelectionModel.size() > 0
-          && mDragTo != null) {
+      if (mDragToNode != null && mSelectionModel.size() > 0 && mDragTo != null) {
 
         mTargetNode = mDragToNode;
 
@@ -331,8 +324,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
         } else {
           for (TreeNode<T> node : getSelectedNodes()) {
             // A node cannot be added to itself nor to its children
-            if (!mTargetNode.equals(node)
-                && !mTargetNode.getParent().equals(node)) {
+            if (!mTargetNode.equals(node) && !mTargetNode.getParent().equals(node)) {
               // Remove node from parent
               node.getParent().removeChild(node);
 
@@ -344,8 +336,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
 
         reset();
 
-        mTreeEventListeners
-            .fireTreeNodeDragged(new ModernTreeEvent(this, NODE_DRAGGED));
+        mTreeEventListeners.fireTreeNodeDragged(new ModernTreeEvent(this, NODE_DRAGGED));
       }
 
       // Trigger click events
@@ -357,8 +348,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
 
         boolean inCollapeRegion = inCollapseRegion(e.getX(), selectedNode);
 
-        if (selectedNode.isSelectable() && selectedNode.isParent()
-            && selectedNode.isExpandable() && inCollapeRegion) {
+        if (selectedNode.isSelectable() && selectedNode.isParent() && selectedNode.isExpandable() && inCollapeRegion) {
 
           // Toggle between expanded and collapsed state
           selectedNode.setExpanded(!selectedNode.isExpanded());
@@ -371,11 +361,9 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
         }
 
         if (inCollapeRegion) {
-          mTreeEventListeners.fireTreeNodeClicked(
-              new ModernTreeEvent(this, NODE_COLLAPSE_REGION_CLICKED));
+          mTreeEventListeners.fireTreeNodeClicked(new ModernTreeEvent(this, NODE_COLLAPSE_REGION_CLICKED));
         } else {
-          mTreeEventListeners
-              .fireTreeNodeClicked(new ModernTreeEvent(this, NODE_CLICKED));
+          mTreeEventListeners.fireTreeNodeClicked(new ModernTreeEvent(this, NODE_CLICKED));
         }
       }
 
@@ -426,15 +414,13 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
       TreeNodeMove move = getSelectedIndexFromY(e.getY());
 
-      if (move == null || move.index == mFlatNodeList.size()
-          || move.index == mHighlightNodeIndex) {
+      if (move == null || move.index == mFlatNodeList.size() || move.index == mHighlightNodeIndex) {
         return;
       }
 
@@ -486,10 +472,8 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
      */
     @Override
     public void keyReleased(KeyEvent e) {
-      if (e.getKeyCode() == KeyEvent.VK_UP
-          || e.getKeyCode() == KeyEvent.VK_DOWN) {
-        mTreeEventListeners
-            .fireTreeNodeClicked(new ModernTreeEvent(this, NODE_CLICKED));
+      if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_DOWN) {
+        mTreeEventListeners.fireTreeNodeClicked(new ModernTreeEvent(this, NODE_CLICKED));
       }
     }
 
@@ -535,9 +519,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
     // addKeyListener(new KeyEvents());
 
     getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(
-        KeyStroke.getKeyStroke(KeyEvent.VK_A,
-            Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
-        "ctrl_a_pressed");
+        KeyStroke.getKeyStroke(KeyEvent.VK_A, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()), "ctrl_a_pressed");
     getActionMap().put("ctrl_a_pressed", new AbstractAction() {
       private static final long serialVersionUID = 1L;
 
@@ -548,8 +530,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
     });
 
     getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(
-        KeyStroke.getKeyStroke(KeyEvent.VK_DOWN,
-            Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
+        KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
         "tree_ctrl_down_pressed");
     getActionMap().put("tree_ctrl_down_pressed", new AbstractAction() {
       private static final long serialVersionUID = 1L;
@@ -561,8 +542,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
     });
 
     getInputMap(WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(
-        KeyStroke.getKeyStroke(KeyEvent.VK_UP,
-            Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
+        KeyStroke.getKeyStroke(KeyEvent.VK_UP, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()),
         "tree_ctrl_up_pressed");
     getActionMap().put("tree_ctrl_up_pressed", new AbstractAction() {
       private static final long serialVersionUID = 1L;
@@ -573,8 +553,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
       }
     });
 
-    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0),
-        "tree_down_pressed");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_DOWN, 0), "tree_down_pressed");
     getActionMap().put("tree_down_pressed", new AbstractAction() {
       private static final long serialVersionUID = 1L;
 
@@ -584,8 +563,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
       }
     });
 
-    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0),
-        "tree_up_pressed");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke(KeyEvent.VK_UP, 0), "tree_up_pressed");
     getActionMap().put("tree_up_pressed", new AbstractAction() {
       private static final long serialVersionUID = 1L;
 
@@ -605,8 +583,8 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
      * NODE_CLICKED)); } });
      * 
      * getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("released DOWN"),
-     * "down_released"); getActionMap().put("down_released", new
-     * AbstractAction() { private static final long serialVersionUID = 1L;
+     * "down_released"); getActionMap().put("down_released", new AbstractAction() {
+     * private static final long serialVersionUID = 1L;
      * 
      * @Override public void actionPerformed(ActionEvent e) {
      * mTreeEventListeners.fireTreeNodeClicked(new ModernTreeEvent(this,
@@ -680,20 +658,13 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
    * @return The node renderer.
    */
   public ModernTreeNodeRenderer getNodeRenderer(int i) {
-    return mNodeRenderer.getRenderer(this,
-        mFlatNodeList.get(i),
-        false,
-        false,
-        false,
-        false,
-        0,
-        i);
+    return mNodeRenderer.getRenderer(this, mFlatNodeList.get(i), false, false, false, false, 0, i);
   }
 
   /**
    * Returns the cumulative height of the tree up to a given node. Nodes are
-   * allowed to have different heights, so it is only always appropriate to
-   * simply mulitply the row by a fixed height.
+   * allowed to have different heights, so it is only always appropriate to simply
+   * mulitply the row by a fixed height.
    * 
    * @param row A row in the flattened tree.
    * @return The distance to the start of this node.
@@ -806,8 +777,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
 
         mFlatNodeList.add(node);
 
-        ModernTreeNodeRenderer renderer = mNodeRenderer
-            .getRenderer(this, node, false, false, false, false, depth, -1);
+        ModernTreeNodeRenderer renderer = mNodeRenderer.getRenderer(this, node, false, false, false, false, depth, -1);
 
         height += renderer.getHeight();
 
@@ -829,8 +799,8 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
    * @return the int
    */
   /*
-   * protected int flatten(TreeNode<T> node, int depth) { if (!node.isVisible())
-   * { return 0; }
+   * protected int flatten(TreeNode<T> node, int depth) { if (!node.isVisible()) {
+   * return 0; }
    * 
    * mNodeIndexMap.put(node, mFlatNodeList.size());
    * 
@@ -930,9 +900,9 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
    * Graphics2D)
    */
   /*
-   * public void drawBackgroundAA(Graphics2D g2) { if (mSelectionModel == null
-   * || mNodeIndexMap == null || mNodeDepthMap == null || mNodeRenderer == null)
-   * { return; }
+   * public void drawBackgroundAA(Graphics2D g2) { if (mSelectionModel == null ||
+   * mNodeIndexMap == null || mNodeDepthMap == null || mNodeRenderer == null) {
+   * return; }
    * 
    * ModernTreeNodeRenderer<T> renderer;
    * 
@@ -953,15 +923,14 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
    * boolean isDragToNode = mDragTo != null && mDragTo.index == c &&
    * !mDragTo.insertBetween;
    * 
-   * renderer = mNodeRenderer.getRenderer(this, node,
-   * node.equals(mHighlightNode) || isDragToNode,
-   * mSelectionModel.contains(mNodeIndexMap.get(node)), isFocusOwner(),
-   * isDragToNode, mNodeDepthMap.get(node), c);
+   * renderer = mNodeRenderer.getRenderer(this, node, node.equals(mHighlightNode)
+   * || isDragToNode, mSelectionModel.contains(mNodeIndexMap.get(node)),
+   * isFocusOwner(), isDragToNode, mNodeDepthMap.get(node), c);
    * 
    * h = renderer.getHeight();
    * 
-   * // Skip nodes until we encounter one in the // view space if (y >= y1 || y
-   * + h >= y1) { renderer.print(g2Temp); }
+   * // Skip nodes until we encounter one in the // view space if (y >= y1 || y +
+   * h >= y1) { renderer.print(g2Temp); }
    * 
    * g2Temp.translate(0, h);
    * 
@@ -982,8 +951,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
         // System.err.println("d " + mDragTo.d + " " + mDragTo.index + " " +
         // mDragTo.y);
 
-        mNodeInsertRenderer.getRenderer(this, mDragTo.d, mDragTo.index)
-            .print(g2);
+        mNodeInsertRenderer.getRenderer(this, mDragTo.d, mDragTo.index).print(g2);
       } finally {
         g2.dispose();
       }
@@ -1035,8 +1003,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
     // Selected index must be within current bounds. If it is expired,
     // pick the closest node, with the assumption that the error is
     // caused by a node deletion.
-    return Mathematics
-        .bound(mSelectionModel.getCurrent(), 0, mFlatNodeList.size() - 1);
+    return Mathematics.bound(mSelectionModel.getCurrent(), 0, mFlatNodeList.size() - 1);
   }
 
   /**
@@ -1052,19 +1019,13 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
    * Determine whether the mouse is in the region that can cause a node to
    * collapse.
    *
-   * @param x the x
+   * @param x            the x
    * @param selectedNode the selected node
    * @return true, if successful
    */
   private boolean inCollapseRegion(int x, TreeNode<T> selectedNode) {
-    ModernTreeNodeRenderer r = mNodeRenderer.getRenderer(this,
-        selectedNode,
-        false,
-        false,
-        false,
-        false,
-        getDepth(selectedNode),
-        -1);
+    ModernTreeNodeRenderer r = mNodeRenderer.getRenderer(this, selectedNode, false, false, false, false,
+        getDepth(selectedNode), -1);
 
     int x1 = r.getCumulativeXDepthOffset();
     int x2 = x1 + r.getCollapseRegionWidth();
@@ -1075,13 +1036,11 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
   /**
    * Adjust selected nodes.
    *
-   * @param index the index
-   * @param multiSelect the multi select
+   * @param index            the index
+   * @param multiSelect      the multi select
    * @param multiRangeSelect the multi range select
    */
-  private void adjustSelectedNodes(int index,
-      boolean multiSelect,
-      boolean multiRangeSelect) {
+  private void adjustSelectedNodes(int index, boolean multiSelect, boolean multiRangeSelect) {
     if (index == -1) {
       return;
     }
@@ -1091,8 +1050,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
     // return;
     // }
 
-    if ((!multiSelect && !multiRangeSelect)
-        || mSelectionPolicy != SelectionPolicy.MULTIPLE) {
+    if ((!multiSelect && !multiRangeSelect) || mSelectionPolicy != SelectionPolicy.MULTIPLE) {
       mSelectionModel.removeAll();
     }
 
@@ -1177,14 +1135,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
 
       // get the renderer although here depth is
       // not important
-      renderer = mNodeRenderer.getRenderer(this,
-          mFlatNodeList.get(i),
-          false,
-          false,
-          false,
-          false,
-          d,
-          i);
+      renderer = mNodeRenderer.getRenderer(this, mFlatNodeList.get(i), false, false, false, false, d, i);
 
       h = renderer.getHeight();
 
@@ -1482,14 +1433,12 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
   /**
    * Arrange.
    *
-   * @param <T> the generic type
-   * @param tree the tree
-   * @param root the root
+   * @param <T>   the generic type
+   * @param tree  the tree
+   * @param root  the root
    * @param nodes the nodes
    */
-  public static <T extends Comparable<? super T>> void arrange(
-      ModernTree<T> tree,
-      TreeRootNode<T> root,
+  public static <T extends Comparable<? super T>> void arrange(ModernTree<T> tree, TreeRootNode<T> root,
       List<TreeNode<T>> nodes) {
 
     tree.clear();
@@ -1508,14 +1457,12 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
   /**
    * Arrange.
    *
-   * @param <T> the generic type
-   * @param tree the tree
-   * @param root the root
+   * @param <T>   the generic type
+   * @param tree  the tree
+   * @param root  the root
    * @param nodes the nodes
    */
-  public static <T extends Comparable<? super T>> void arrange(
-      ModernTree<T> tree,
-      TreeNode<T> root,
+  public static <T extends Comparable<? super T>> void arrange(ModernTree<T> tree, TreeNode<T> root,
       List<TreeNode<T>> nodes) {
 
     tree.clear();
@@ -1540,17 +1487,14 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
   /**
    * Uses a sort model to organise a tree.
    *
-   * @param <T> the generic type
-   * @param tree the tree
-   * @param nodes the nodes
-   * @param sorter the sorter
+   * @param <T>       the generic type
+   * @param tree      the tree
+   * @param nodes     the nodes
+   * @param sorter    the sorter
    * @param ascending the ascending
    */
-  public static <T extends Comparable<? super T>> void arrange(
-      ModernTree<T> tree,
-      List<TreeNode<T>> nodes,
-      ModernTreeNodeSorter<T> sorter,
-      boolean ascending) {
+  public static <T extends Comparable<? super T>> void arrange(ModernTree<T> tree, List<TreeNode<T>> nodes,
+      ModernTreeNodeSorter<T> sorter, boolean ascending) {
 
     List<TreeNode<T>> sortedNodes = sorter.sort(nodes, ascending);
 
@@ -1574,13 +1518,12 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
   /**
    * Sort nodes by name.
    *
-   * @param <T> the generic type
-   * @param nodes the nodes
+   * @param <T>       the generic type
+   * @param nodes     the nodes
    * @param ascending the ascending
    * @return the list
    */
-  public static <T extends Comparable<? super T>> List<TreeNode<T>> sortNodesByName(
-      List<TreeNode<T>> nodes,
+  public static <T extends Comparable<? super T>> List<TreeNode<T>> sortNodesByName(List<TreeNode<T>> nodes,
       boolean ascending) {
 
     List<String> names = new ArrayList<String>();
@@ -1631,8 +1574,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.tree.TreeNodeEventProducer#addTreeNodeListener(org.abh.lib.
+   * @see org.abh.lib.tree.TreeNodeEventProducer#addTreeNodeListener(org.abh.lib.
    * tree. TreeNodeEventListener)
    */
   @Override
@@ -1662,8 +1604,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.tree.TreeNodeEventProducer#fireTreeNodeChanged(org.abh.lib.
+   * @see org.abh.lib.tree.TreeNodeEventProducer#fireTreeNodeChanged(org.abh.lib.
    * event. ChangeEvent)
    */
   @Override
@@ -1683,8 +1624,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.tree.TreeNodeEventProducer#fireTreeNodeUpdated(org.abh.lib.
+   * @see org.abh.lib.tree.TreeNodeEventProducer#fireTreeNodeUpdated(org.abh.lib.
    * event. ChangeEvent)
    */
   @Override
@@ -1742,7 +1682,7 @@ public class ModernTree<T> extends Tree<T> implements TreeNodeEventProducer,
    * Equivalent to calling {@code getRoot().setChildrenAreExpanded()}.
    *
    * @param isExpanded the is expanded
-   * @param recursive the recursive
+   * @param recursive  the recursive
    */
   public void setChildrenAreExpanded(boolean isExpanded, boolean recursive) {
     getRoot().setChildrenAreExpanded(isExpanded, recursive);

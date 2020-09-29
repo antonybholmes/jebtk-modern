@@ -63,8 +63,7 @@ public class ShapeService {
   /**
    * The map.
    */
-  private Map<String, IterMap<Integer, Shape>> mShapeMap = DefaultHashMap
-      .create(new HashMapCreator<Integer, Shape>());
+  private Map<String, IterMap<Integer, Shape>> mShapeMap = DefaultHashMap.create(new HashMapCreator<Integer, Shape>());
 
   /**
    * Instantiates a new UI resources.
@@ -97,8 +96,8 @@ public class ShapeService {
   /**
    * Load icon64.
    *
-   * @param name the name
-   * @param size the size
+   * @param name     the name
+   * @param size     the size
    * @param centered the centered
    * @return the modern icon
    */

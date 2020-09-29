@@ -43,16 +43,13 @@ public class OrbTabs extends TabsPanel {
   private static final long serialVersionUID = 1L;
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_1. */
-  public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService
-      .getInstance().getColors().getTheme(3);
+  public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService.getInstance().getColors().getTheme(3);
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_2. */
-  protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService
-      .getInstance().getColors().getTheme(4);
+  protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService.getInstance().getColors().getTheme(4);
 
   /** The Constant TEXT_TAB_SELECTED_OUTLINE_COLOR. */
-  protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService
-      .getInstance().getColors().getTheme(5);
+  protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService.getInstance().getColors().getTheme(5);
 
   /** The m tab size. */
   protected int mTabSize = -1;
@@ -60,8 +57,8 @@ public class OrbTabs extends TabsPanel {
   /**
    * Instantiates a new segment tabs.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model    the model
+   * @param tabSize  the tab size
    * @param centered the centered
    */
   public OrbTabs(TabsModel model, int tabSize) {

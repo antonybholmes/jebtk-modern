@@ -48,12 +48,7 @@ public class UnCheckedVectorIcon extends ModernVectorScalableIcon {
    * int, int, int, int)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     DrawUIService.getInstance().getRenderer("checkbox").draw(g2, new IntRect(x, y, w, h));
   }
 }

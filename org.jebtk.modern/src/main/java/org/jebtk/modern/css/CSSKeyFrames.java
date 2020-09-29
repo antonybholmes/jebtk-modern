@@ -16,8 +16,8 @@ public class CSSKeyFrames extends ChangeListeners implements ChangeListener {
   public static final int TO = 100;
 
   /**
-   * Keep track of keyframes. Use a reverse order comparator since later
-   * keyframes override earlier ones if no preference is given.
+   * Keep track of keyframes. Use a reverse order comparator since later keyframes
+   * override earlier ones if no preference is given.
    */
   private IterMap<Integer, CSSKeyFrame> mFrameMap = new IterTreeMap<Integer, CSSKeyFrame>();
 
@@ -28,8 +28,7 @@ public class CSSKeyFrames extends ChangeListeners implements ChangeListener {
    */
 
   /**
-   * Return a keyframe. If the frame does not exist, it is automatically
-   * created.
+   * Return a keyframe. If the frame does not exist, it is automatically created.
    * 
    * @param frame
    * @return

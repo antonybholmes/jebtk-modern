@@ -51,7 +51,7 @@ public class RibbonSegmentTabs extends SegmentTabs {
   /**
    * Instantiates a new text tabs.
    *
-   * @param model the model
+   * @param model   the model
    * @param tabSize the tab size
    */
   public RibbonSegmentTabs(TabsModel model, int tabSize) {
@@ -61,8 +61,8 @@ public class RibbonSegmentTabs extends SegmentTabs {
   /**
    * Instantiates a new ribbon segment tabs.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model    the model
+   * @param tabSize  the tab size
    * @param centered the centered
    */
   public RibbonSegmentTabs(TabsModel model, int tabSize, boolean centered) {
@@ -76,8 +76,7 @@ public class RibbonSegmentTabs extends SegmentTabs {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -96,8 +95,7 @@ public class RibbonSegmentTabs extends SegmentTabs {
     createEndShapes();
 
     // getWidgetRenderer().drawContentBoxFill(g2, mLeftOffset, y, w, h);
-    DrawUIService.getInstance().getRenderer("content")
-        .draw(g2, new IntRect(mLeftOffset, y, w, h));
+    DrawUIService.getInstance().getRenderer("content").draw(g2, new IntRect(mLeftOffset, y, w, h));
     //
     // Draw if highlighted
     //
@@ -106,8 +104,7 @@ public class RibbonSegmentTabs extends SegmentTabs {
       // getWidgetRenderer()
       // .drawButtonFill(g2, x, y, w, h, RenderMode.HIGHLIGHT, hasFocus());
 
-      DrawUIService.getInstance().getRenderer("button-fill")
-          .draw(g2, new IntRect(x, y, w, h));
+      DrawUIService.getInstance().getRenderer("button-fill").draw(g2, new IntRect(x, y, w, h));
 
       if (mHighlight == 0) {
         g2.fill(mLeftEnd);
@@ -133,8 +130,7 @@ public class RibbonSegmentTabs extends SegmentTabs {
     }
 
     // getWidgetRenderer().drawContentBoxOutline(g2, mLeftOffset, y, w, h);
-    DrawUIService.getInstance().getRenderer("content-outline")
-        .draw(g2, new IntRect(mLeftOffset, y, w, h));
+    DrawUIService.getInstance().getRenderer("content-outline").draw(g2, new IntRect(mLeftOffset, y, w, h));
 
     //
     // Draw the selected tab
@@ -188,11 +184,9 @@ public class RibbonSegmentTabs extends SegmentTabs {
       int tabX;
 
       if (getTabsModel().getTab(i).getIcon() != null) {
-        tabX = (mTabSize - 24 - DOUBLE_PADDING
-            - g2.getFontMetrics().stringWidth(s)) / 2;
+        tabX = (mTabSize - 24 - DOUBLE_PADDING - g2.getFontMetrics().stringWidth(s)) / 2;
 
-        getTabsModel().getTab(i).getIcon()
-            .drawIcon(g2, x + tabX, (getHeight() - 24) / 2, 32);
+        getTabsModel().getTab(i).getIcon().drawIcon(g2, x + tabX, (getHeight() - 24) / 2, 32);
 
         tabX += 24 + DOUBLE_PADDING;
       } else {

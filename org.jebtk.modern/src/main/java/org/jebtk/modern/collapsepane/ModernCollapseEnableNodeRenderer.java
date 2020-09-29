@@ -44,8 +44,7 @@ import org.jebtk.modern.tree.ModernTreeBranchNodeRenderer;
  *
  * @author Antony Holmes
  */
-public class ModernCollapseEnableNodeRenderer
-    extends ModernCollapseNodeRenderer {
+public class ModernCollapseEnableNodeRenderer extends ModernCollapseNodeRenderer {
 
   /**
    * The constant serialVersionUID.
@@ -53,12 +52,10 @@ public class ModernCollapseEnableNodeRenderer
   private static final long serialVersionUID = 1L;
 
   /** The checked icon. */
-  private static ModernIcon CHECKED_ICON = AssetService.getInstance()
-      .loadIcon(CheckedVectorIcon.class, 16);
+  private static ModernIcon CHECKED_ICON = AssetService.getInstance().loadIcon(CheckedVectorIcon.class, 16);
 
   /** The unchecked icon. */
-  private static ModernIcon UNCHECKED_ICON = AssetService.getInstance()
-      .loadIcon(UnCheckedVectorIcon.class, 16);
+  private static ModernIcon UNCHECKED_ICON = AssetService.getInstance().loadIcon(UnCheckedVectorIcon.class, 16);
 
   /**
    * The is enabled.
@@ -84,7 +81,7 @@ public class ModernCollapseEnableNodeRenderer
     }
 
     x += ModernTreeBranchNodeRenderer.BRANCH_OPEN_ICON.getWidth(); // +
-                                                                   // ModernTheme.getInstance().getClass("widget").getInt("padding");
+    // ModernTheme.getInstance().getClass("widget").getInt("padding");
 
     if (mIsEnabled) {
       CHECKED_ICON.drawIcon(g2, x, y, 16);
@@ -106,31 +103,19 @@ public class ModernCollapseEnableNodeRenderer
   /**
    * Obtains a renderer for the tree node.
    *
-   * @param name the name
+   * @param name          the name
    * @param isHighlighted whether to highlight the node.
-   * @param isSelected whether the node is selected or not.
-   * @param hasFocus the has focus
-   * @param isExpanded the is expanded
-   * @param isEnabled the is enabled
+   * @param isSelected    whether the node is selected or not.
+   * @param hasFocus      the has focus
+   * @param isExpanded    the is expanded
+   * @param isEnabled     the is enabled
    * @return the renderer
    * @Param hasFocus whether the tree has focus or not, as this can determine
    *        color.
    */
-  public ModernCollapseEnableNodeRenderer getRenderer(AbstractCollapsePane pane,
-      String name,
-      int index,
-      boolean isHighlighted,
-      boolean isSelected,
-      boolean hasFocus,
-      boolean isExpanded,
-      boolean isEnabled) {
-    super.getRenderer(pane,
-        name,
-        index,
-        isHighlighted,
-        isSelected,
-        hasFocus,
-        isExpanded);
+  public ModernCollapseEnableNodeRenderer getRenderer(AbstractCollapsePane pane, String name, int index,
+      boolean isHighlighted, boolean isSelected, boolean hasFocus, boolean isExpanded, boolean isEnabled) {
+    super.getRenderer(pane, name, index, isHighlighted, isSelected, hasFocus, isExpanded);
 
     mIsEnabled = isEnabled;
 

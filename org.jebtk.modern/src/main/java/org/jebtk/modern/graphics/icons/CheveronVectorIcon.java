@@ -76,18 +76,11 @@ public abstract class CheveronVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
-    
-    if (props != null) {
-      g2.setColor(props.getColor("color", Color.BLACK));
-    }
-    
-    //g2.setColor(mColor);
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
+
+    super.drawIcon(g2, x, y, w, h, props);
+
+    // g2.setColor(mColor);
 
     mW = (w - 4);
     mC = mW / 2;

@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class TreeEventListeners extends EventProducer<TreeEventListener>
-    implements TreeEventProducer {
+public class TreeEventListeners extends EventProducer<TreeEventListener> implements TreeEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -47,8 +46,8 @@ public class TreeEventListeners extends EventProducer<TreeEventListener>
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tree.TreeEventProducer#addTreeListener(org.abh.lib.
-   * ui. modern.tree.TreeEventListener)
+   * org.abh.lib.ui.modern.tree.TreeEventProducer#addTreeListener(org.abh.lib. ui.
+   * modern.tree.TreeEventListener)
    */
   @Override
   public void addTreeListener(TreeEventListener l) {
@@ -58,8 +57,7 @@ public class TreeEventListeners extends EventProducer<TreeEventListener>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tree.TreeEventProducer#removeTreeListener(org.abh.
+   * @see org.abh.lib.ui.modern.tree.TreeEventProducer#removeTreeListener(org.abh.
    * lib. ui.modern.tree.TreeEventListener)
    */
   @Override

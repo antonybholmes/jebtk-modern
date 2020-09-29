@@ -51,8 +51,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class FilterPopupMenu.
  */
-public class FilterPopupMenu extends ModernPopup
-    implements FilterEventListener {
+public class FilterPopupMenu extends ModernPopup implements FilterEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -82,7 +81,7 @@ public class FilterPopupMenu extends ModernPopup
   /**
    * Instantiates a new filter popup menu.
    *
-   * @param parent the parent
+   * @param parent      the parent
    * @param filterModel the filter model
    */
   public FilterPopupMenu(ModernWindow parent, FilterModel filterModel) {
@@ -125,8 +124,7 @@ public class FilterPopupMenu extends ModernPopup
     box.add(mCheckMenuItem);
 
     for (String name : mFilterModel) {
-      ModernTwoStateWidget menuItem = new ModernCheckSwitch(name,
-          mFilterModel.keep(name));
+      ModernTwoStateWidget menuItem = new ModernCheckSwitch(name, mFilterModel.keep(name));
 
       menuItem.addClickListener(this);
 
@@ -214,8 +212,7 @@ public class FilterPopupMenu extends ModernPopup
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.search.FilterEventListener#filtersUpdated(org.abh.
+   * @see org.abh.lib.ui.modern.search.FilterEventListener#filtersUpdated(org.abh.
    * lib. event.ChangeEvent)
    */
   @Override

@@ -79,8 +79,7 @@ import org.slf4j.LoggerFactory;
  *
  * @author Antony Holmes
  */
-public class ModernWindow extends JFrame
-    implements ModernDialogConstructor, ModernToolTipListener {
+public class ModernWindow extends JFrame implements ModernDialogConstructor, ModernToolTipListener {
 
   /**
    * The constant serialVersionUID.
@@ -129,8 +128,8 @@ public class ModernWindow extends JFrame
   // private ModernPanel mHeaderPanel = new ModernPanel();
 
   /**
-   * All content is ultimately a child of this. Content is never directly
-   * added to the JFrame. This is the default view.
+   * All content is ultimately a child of this. Content is never directly added to
+   * the JFrame. This is the default view.
    */
   protected ModernPanel mWindowPanel = new ModernWindowPanel(); // ModernGradientPanel();
 
@@ -157,8 +156,8 @@ public class ModernWindow extends JFrame
   private Component mCenter = null;
 
   /**
-   * Allows multiple items such as toolbars and ribbons to be added to the top
-   * of the window within the {@code CONTENT} context.
+   * Allows multiple items such as toolbars and ribbons to be added to the top of
+   * the window within the {@code CONTENT} context.
    */
   // protected VBoxAutoWidth mHeaderContainer;
 
@@ -175,8 +174,7 @@ public class ModernWindow extends JFrame
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -194,8 +192,7 @@ public class ModernWindow extends JFrame
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.WindowAdapter#windowClosing(java.awt.event.WindowEvent)
+     * @see java.awt.event.WindowAdapter#windowClosing(java.awt.event.WindowEvent)
      */
     @Override
     public void windowClosing(WindowEvent e) {
@@ -240,7 +237,7 @@ public class ModernWindow extends JFrame
     // To implement the card interface we use a card layout with two cards
     // MENU and CONTENT. CONTENT is the default view for adding UI elements
     // whereas MENU offers a ribbon like file menu for import/export etc.
-    
+
     mRibbonMenu = new RibbonFileMenu(this);
 
     mCards.add(mRibbonMenu, MENU_CARD);
@@ -253,10 +250,10 @@ public class ModernWindow extends JFrame
     mCl = (CardLayout) mCards.getLayout();
     mCl.show(mCards, CONTENT_CARD);
 
-    // By default, 
+    // By default,
     mContentPanel.setBody(mTabsPane);
-    //mContentPanel.setBorder(ModernWidget.BORDER);
-    
+    // mContentPanel.setBorder(ModernWidget.BORDER);
+
     setBody(mContentPanel);
 
     // mHeaderContainer = new WindowVBoxAutoWidth(this);
@@ -264,7 +261,7 @@ public class ModernWindow extends JFrame
 
     addWindowListener(new WindowEvents());
 
-    // We hook into the close event so that cleanup can be done before 
+    // We hook into the close event so that cleanup can be done before
     // triggering a close
     setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 
@@ -277,8 +274,7 @@ public class ModernWindow extends JFrame
     ToolTipService.getInstance().addToolTipListener(this);
 
     // Listen for clicking anywhere on the window to get rid of the tool tip
-    Toolkit.getDefaultToolkit().addAWTEventListener(new AllMouseEvents(),
-        AWTEvent.MOUSE_EVENT_MASK);
+    Toolkit.getDefaultToolkit().addAWTEventListener(new AllMouseEvents(), AWTEvent.MOUSE_EVENT_MASK);
 
     addComponentListener(new ComponentAdapter() {
 
@@ -319,7 +315,7 @@ public class ModernWindow extends JFrame
    */
   public void setAppInfo(GuiAppInfo appInfo) {
     mAppInfo = appInfo;
-    
+
     setIconImage(getAppInfo().getIcon().getImage(32));
 
     setTitle(getAppInfo().getName());
@@ -390,9 +386,9 @@ public class ModernWindow extends JFrame
   }
 
   /**
-   * Sets the body UI content of the main window. This method should only
-   * be used for overriding the default behaviour and use of tabs. It is
-   * better to call the setContent methods.
+   * Sets the body UI content of the main window. This method should only be used
+   * for overriding the default behaviour and use of tabs. It is better to call
+   * the setContent methods.
    *
    * @param c the new body
    */
@@ -409,8 +405,8 @@ public class ModernWindow extends JFrame
   }
 
   /**
-   * Set the body of the content panel. The body is normally a tabbed pane
-   * element to allow for multi-column layouts which can be accessed via the 
+   * Set the body of the content panel. The body is normally a tabbed pane element
+   * to allow for multi-column layouts which can be accessed via the
    * {@code tabsPane()} method. Calling this method will destroy the tabbed
    * layout.
    * 
@@ -446,8 +442,8 @@ public class ModernWindow extends JFrame
   }
 
   /**
-   * Returns the panel within the window content panel where the main ui
-   * controls go. This panel typically appears below any tool bars.
+   * Returns the panel within the window content panel where the main ui controls
+   * go. This panel typically appears below any tool bars.
    * 
    * @return
    */
@@ -457,8 +453,8 @@ public class ModernWindow extends JFrame
 
   /**
    * Returns the default tabs within the content panel. For multi-column
-   * interfaces such as UIs with a sidebar and main panel, use this to create
-   * the columns.
+   * interfaces such as UIs with a sidebar and main panel, use this to create the
+   * columns.
    * 
    * @return
    */
@@ -545,9 +541,8 @@ public class ModernWindow extends JFrame
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.
-   * ui. modern.ModernComponent,
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel)
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib. ui.
+   * modern.ModernComponent, org.abh.lib.ui.modern.tooltip.ModernToolTipPanel)
    */
   private synchronized void showToolTip(Component source, Component tooltip) {
     showToolTip(source, tooltip, toolTipPos(source, tooltip));
@@ -577,9 +572,7 @@ public class ModernWindow extends JFrame
    * @param tooltip
    * @return
    */
-  private synchronized Point toolTipPosFromScreen(Component source,
-      Point p,
-      Component tooltip) {
+  private synchronized Point toolTipPosFromScreen(Component source, Point p, Component tooltip) {
     // Put in the context of the window
     SwingUtilities.convertPointFromScreen(p, getLayeredPane());
 
@@ -637,13 +630,11 @@ public class ModernWindow extends JFrame
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib.
-   * ui. modern.ModernComponent,
-   * org.abh.lib.ui.modern.tooltip.ModernToolTipPanel, java.awt.Point)
+   * org.abh.lib.ui.modern.tooltip.ModernToolTipModel#showToolTip(org.abh.lib. ui.
+   * modern.ModernComponent, org.abh.lib.ui.modern.tooltip.ModernToolTipPanel,
+   * java.awt.Point)
    */
-  private synchronized void showToolTip(Component source,
-      Component tooltip,
-      Point p) {
+  private synchronized void showToolTip(Component source, Component tooltip, Point p) {
 
     // System.err.println("show");
 
@@ -653,9 +644,7 @@ public class ModernWindow extends JFrame
     addToolTip(source, tooltip, p);
   }
 
-  private synchronized void addToolTip(Component source,
-      Component tooltip,
-      Point p) {
+  private synchronized void addToolTip(Component source, Component tooltip, Point p) {
     mTooltips.add(tooltip);
 
     Dimension ps = tooltip.getPreferredSize();
@@ -708,8 +697,7 @@ public class ModernWindow extends JFrame
    */
   private void removeToolTip(Component c, ToolTipLevel level) {
     if (c instanceof ModernToolTipPanel) {
-      if (level == ToolTipLevel.FORCE
-          || ((ModernToolTipPanel) c).getAutoHide()) {
+      if (level == ToolTipLevel.FORCE || ((ModernToolTipPanel) c).getAutoHide()) {
         getLayeredPane().remove(c);
       }
     } else {
@@ -734,8 +722,7 @@ public class ModernWindow extends JFrame
    * communicate to other components if the tooltips are hidden.
    */
   protected void doHideTooltips() {
-    ToolTipService.getInstance()
-        .hideToolTips(new ModernToolTipEvent(this, this));
+    ToolTipService.getInstance().hideToolTips(new ModernToolTipEvent(this, this));
   }
 
   /**

@@ -41,15 +41,14 @@ import org.jebtk.modern.tabs.TabsPanel;
  * @author Antony Holmes
  *
  */
-public class TabsVertPanel extends TabsPanel
-    implements HighlightEventProducer {
+public class TabsVertPanel extends TabsPanel implements HighlightEventProducer {
 
   private static final long serialVersionUID = 1L;
 
   /**
    * Instantiates a new text tabs.
    *
-   * @param model the model
+   * @param model  the model
    * @param center the center
    */
   public TabsVertPanel(TabsModel model) {
@@ -70,7 +69,7 @@ public class TabsVertPanel extends TabsPanel
 
       if (y >= y1 && y <= y2) {
         tab = i;
-        
+
         break;
       }
 

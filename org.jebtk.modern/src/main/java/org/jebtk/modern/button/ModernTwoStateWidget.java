@@ -123,11 +123,9 @@ public abstract class ModernTwoStateWidget extends ModernButtonWidget {
   private void init() {
     addMouseListener(new MouseEvents());
 
-    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"),
-        "enter_pressed");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"), "enter_pressed");
     getActionMap().put("enter_pressed", new ActionEvents());
-    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("SPACE"),
-        "space_pressed");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("SPACE"), "space_pressed");
     getActionMap().put("space_pressed", new ActionEvents());
 
   }

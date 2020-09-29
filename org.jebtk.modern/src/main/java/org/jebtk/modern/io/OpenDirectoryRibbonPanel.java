@@ -62,8 +62,7 @@ import org.jebtk.modern.text.ModernDialogHeadingLabel;
 /**
  * The class OpenDirectoryRibbonPanel.
  */
-public class OpenDirectoryRibbonPanel extends RibbonMenuPanel
-    implements ModernClickListener, ModernSelectionListener {
+public class OpenDirectoryRibbonPanel extends RibbonMenuPanel implements ModernClickListener, ModernSelectionListener {
 
   /**
    * The constant serialVersionUID.
@@ -132,8 +131,7 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel
     // label.setBorder(BorderService.getInstance().createBottomBorder(20));
     // setHeader(label);
 
-    sideTabs.addTab("Computer",
-        AssetService.getInstance().loadIcon(ComputerVectorIcon.class, 32));
+    sideTabs.addTab("Computer", AssetService.getInstance().loadIcon(ComputerVectorIcon.class, 32));
 
     UI.setSize(sideTabs, new Dimension(300, Short.MAX_VALUE));
 
@@ -153,8 +151,7 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel
 
     box.add(UI.createVGap(5));
 
-    mCurrentDirectoryList = new ModernList<Path>(
-        new ModernListRecentDirectoryRenderer());
+    mCurrentDirectoryList = new ModernList<Path>(new ModernListRecentDirectoryRenderer());
 
     mCurrentDirectoryList.addSelectionListener(this);
     mCurrentDirectoryList.setRowHeight(48);
@@ -168,8 +165,7 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel
 
     ModernDialogTaskWindow.midSectionHeader("Recent Directories", box);
 
-    mRecentDirectoriesList = new ModernList<Path>(
-        new ModernListRecentDirectoryRenderer());
+    mRecentDirectoriesList = new ModernList<Path>(new ModernListRecentDirectoryRenderer());
 
     mRecentDirectoriesList.addSelectionListener(this);
     mRecentDirectoriesList.setRowHeight(48);
@@ -252,8 +248,7 @@ public class OpenDirectoryRibbonPanel extends RibbonMenuPanel
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {

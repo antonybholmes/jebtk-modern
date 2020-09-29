@@ -33,10 +33,7 @@ public class CSSOutlineUI extends CSSBaseUI {
   }
 
   @Override
-  public void draw(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
 
     Color color;
 
@@ -46,16 +43,13 @@ public class CSSOutlineUI extends CSSBaseUI {
       if (c != null) {
         color = c.getCSSProps().getColor("border-color");
       } else {
-        color = CSSKeyFramesService.getInstance().getToStyleClass("widget")
-            .getColor("border-color");
+        color = CSSKeyFramesService.getInstance().getToStyleClass("widget").getColor("border-color");
       }
     }
 
-    if (color == null || color.getAlpha() == 0) {
-      return;
+    if (color != null && color.getAlpha() > 0) {
+      g2.setColor(color);
+      outline(c, g2, rect, props);
     }
-
-    g2.setColor(color);
-    outline(c, g2, rect, props);
   }
 }

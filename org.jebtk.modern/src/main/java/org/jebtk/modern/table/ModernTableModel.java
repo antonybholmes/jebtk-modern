@@ -47,12 +47,12 @@ public abstract class ModernTableModel extends ModernDataGridModel {
   public String getColumnName(int col) {
     return getAutoColumnName(col);
   }
-  
+
   @Override
   public String getRowName(int row) {
     return Integer.toString(row);
   }
-  
+
   /**
    * Gets the auto header name.
    *
@@ -62,8 +62,7 @@ public abstract class ModernTableModel extends ModernDataGridModel {
   public String getAutoColumnName(int column) {
 
     if (!mHeaderMap.containsKey(column)) {
-      mHeaderMap.put(column,
-          getAutoColumnHeading(column));
+      mHeaderMap.put(column, getAutoColumnHeading(column));
     }
 
     return mHeaderMap.get(column);

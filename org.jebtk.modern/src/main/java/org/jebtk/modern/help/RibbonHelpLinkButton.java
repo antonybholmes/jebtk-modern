@@ -40,8 +40,7 @@ import org.jebtk.modern.event.ModernClickListener;
  * @author Antony Holmes
  *
  */
-public class RibbonHelpLinkButton extends ModernTextLink
-    implements ModernClickListener {
+public class RibbonHelpLinkButton extends ModernTextLink implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -67,8 +66,7 @@ public class RibbonHelpLinkButton extends ModernTextLink
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

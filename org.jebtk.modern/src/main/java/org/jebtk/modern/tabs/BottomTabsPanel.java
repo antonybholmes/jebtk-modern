@@ -29,13 +29,12 @@ public class BottomTabsPanel extends ModernComponent {
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
 
-  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE,
-      ModernWidget.WIDGET_HEIGHT + 2);
+  private static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, ModernWidget.WIDGET_HEIGHT + 2);
 
   /**
    * Instantiates a new segment tabs panel.
    *
-   * @param model the model
+   * @param model   the model
    * @param tabSize the tab size
    */
   public BottomTabsPanel(TabsModel model, int tabSize) {
@@ -45,8 +44,8 @@ public class BottomTabsPanel extends ModernComponent {
   /**
    * Instantiates a new segment tabs panel.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model    the model
+   * @param tabSize  the tab size
    * @param centered the centered
    */
   public BottomTabsPanel(TabsModel model, int tabSize, boolean centered) {
@@ -56,8 +55,8 @@ public class BottomTabsPanel extends ModernComponent {
   /**
    * Instantiates a new segment tabs panel.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model       the model
+   * @param tabSize     the tab size
    * @param pagePadding the page padding
    */
   public BottomTabsPanel(TabsModel model, int tabSize, int pagePadding) {
@@ -67,13 +66,12 @@ public class BottomTabsPanel extends ModernComponent {
   /**
    * Instantiates a new segment tabs panel.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model       the model
+   * @param tabSize     the tab size
    * @param pagePadding the page padding
-   * @param centered the centered
+   * @param centered    the centered
    */
-  public BottomTabsPanel(TabsModel model, int tabSize, int pagePadding,
-      boolean centered) {
+  public BottomTabsPanel(TabsModel model, int tabSize, int pagePadding, boolean centered) {
     SegmentTabs tabs = new BottomTabs(model, tabSize);
 
     UI.setSize(tabs, MAX_SIZE, UI.createTopBottomBorder(pagePadding));

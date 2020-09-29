@@ -30,8 +30,7 @@ import org.jebtk.modern.graphics.ImageUtils;
 public abstract class RotationAnimation extends TimerAnimation {
 
   // Lets define a material design bezier curve to animate transitions
-  public final static CubicBezier BEZIER = CubicBezier
-      .normCubicBezier(0.4, 0.0, 0.2, 1);
+  public final static CubicBezier BEZIER = CubicBezier.normCubicBezier(0.4, 0.0, 0.2, 1);
 
   private static final int MAX_INDEX = AnimationTimer.STEPS - 1;
   private double[] mAngle = new double[AnimationTimer.STEPS];
@@ -59,8 +58,8 @@ public abstract class RotationAnimation extends TimerAnimation {
 
     for (int i = 1; i < MAX_INDEX; ++i) {
       mAngle[i] = mAngle[0] + TranslateAnimation.BEZ_T[i] * mD; // BEZIER.eval(t)
-                                                                // mXPos[i - 1]
-                                                                // + mD;
+      // mXPos[i - 1]
+      // + mD;
     }
   }
 
@@ -127,9 +126,7 @@ public abstract class RotationAnimation extends TimerAnimation {
     }
   }
 
-  public void drawRotation(ModernWidget widget,
-      Graphics2D g2,
-      Props props) {
-    
+  public void drawRotation(ModernWidget widget, Graphics2D g2, Props props) {
+
   }
 }

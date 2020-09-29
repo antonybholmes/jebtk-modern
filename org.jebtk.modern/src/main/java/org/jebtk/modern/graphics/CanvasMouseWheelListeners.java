@@ -29,8 +29,7 @@ package org.jebtk.modern.graphics;
 
 import org.jebtk.core.event.EventProducer;
 
-public class CanvasMouseWheelListeners
-    extends EventProducer<CanvasMouseWheelListener>
+public class CanvasMouseWheelListeners extends EventProducer<CanvasMouseWheelListener>
     implements CanvasMouseWheelEventProducer {
 
   /**

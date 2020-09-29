@@ -42,7 +42,7 @@ public class ModernTreeEvent extends ModernClickEvent {
   /**
    * Instantiates a new modern tree event.
    *
-   * @param source the source
+   * @param source  the source
    * @param message the message
    */
   public ModernTreeEvent(Object source, String message) {

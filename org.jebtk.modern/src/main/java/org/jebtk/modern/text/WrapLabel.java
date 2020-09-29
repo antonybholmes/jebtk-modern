@@ -81,7 +81,7 @@ public class WrapLabel extends ModernWidget implements TextProperty {
   /**
    * Instantiates a new modern label panel.
    *
-   * @param text the text
+   * @param text  the text
    * @param color the color
    */
   public WrapLabel(String text, Color color) {

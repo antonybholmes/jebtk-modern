@@ -60,7 +60,7 @@ public class RightLineBorderComponent extends ModernComponent {
   /**
    * Instantiates a new right line border component.
    *
-   * @param c the c
+   * @param c     the c
    * @param color the color
    */
   public RightLineBorderComponent(Component c, Color color) {

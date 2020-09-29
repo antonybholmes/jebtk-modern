@@ -43,8 +43,7 @@ import org.jebtk.modern.event.ModernSelectionListener;
  * @author Antony Holmes
  *
  */
-public class TableIndexModel extends ChangeListeners
-    implements ModernSelectionEventProducer {
+public class TableIndexModel extends ChangeListeners implements ModernSelectionEventProducer {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -83,7 +82,7 @@ public class TableIndexModel extends ChangeListeners
   /**
    * Instantiates a new table index model.
    *
-   * @param width the width
+   * @param width      the width
    * @param headerSize the header size
    */
   public TableIndexModel(int width, int headerSize) {
@@ -94,7 +93,7 @@ public class TableIndexModel extends ChangeListeners
    * Instantiates a new table index model.
    *
    * @param defaultIndex the default index
-   * @param headerSize the header size
+   * @param headerSize   the header size
    */
   public TableIndexModel(TableIndex defaultIndex, int headerSize) {
     setDefaultIndex(defaultIndex);
@@ -145,7 +144,7 @@ public class TableIndexModel extends ChangeListeners
   /**
    * Sets the width of a row/column.
    *
-   * @param i the row/column
+   * @param i     the row/column
    * @param width the width
    */
   public void setWidth(int i, int width) {
@@ -216,7 +215,7 @@ public class TableIndexModel extends ChangeListeners
   /**
    * Sets the.
    *
-   * @param i the i
+   * @param i     the i
    * @param index the index
    */
   public void set(int i, TableIndex index) {
@@ -306,10 +305,10 @@ public class TableIndexModel extends ChangeListeners
 
   /**
    * Returns the selection model associated with a table index. The selection
-   * model contains the indices of all table indexes (either row or columns)
-   * that are currently selected. This provides a faster method of determining
-   * what is selected rather than iterating over all the indexes to determine if
-   * they are selected or not.
+   * model contains the indices of all table indexes (either row or columns) that
+   * are currently selected. This provides a faster method of determining what is
+   * selected rather than iterating over all the indexes to determine if they are
+   * selected or not.
    *
    * @return the selection model
    */
@@ -332,8 +331,7 @@ public class TableIndexModel extends ChangeListeners
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
-   * removeSelectionListener(org.abh.lib.ui.modern.event.
-   * ModernSelectionListener)
+   * removeSelectionListener(org.abh.lib.ui.modern.event. ModernSelectionListener)
    */
   @Override
   public void removeSelectionListener(ModernSelectionListener l) {
@@ -415,7 +413,7 @@ public class TableIndexModel extends ChangeListeners
    * for any zoom.
    *
    * @param index The index.
-   * @param zoom The zoom level.
+   * @param zoom  The zoom level.
    * @return The cumulative offset
    */
   public int getCumOffset(int index, double zoom) {

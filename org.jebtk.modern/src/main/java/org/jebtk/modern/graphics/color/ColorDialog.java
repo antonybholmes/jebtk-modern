@@ -49,8 +49,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ColorDialog.
  */
-public class ColorDialog extends ModernDialogTaskWindow
-    implements ModernClickListener {
+public class ColorDialog extends ModernDialogTaskWindow implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -122,7 +121,7 @@ public class ColorDialog extends ModernDialogTaskWindow
    * Instantiates a new color dialog.
    *
    * @param parent the parent
-   * @param color the color
+   * @param color  the color
    */
   public ColorDialog(ModernWindow parent, Color color) {
     super(parent);
@@ -240,8 +239,7 @@ public class ColorDialog extends ModernDialogTaskWindow
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

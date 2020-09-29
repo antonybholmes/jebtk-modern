@@ -39,8 +39,7 @@ import org.jebtk.modern.text.ModernAutoSizeLabel;
  * @author Antony Holmes
  *
  */
-public class ModernStatusLabel extends ModernAutoSizeLabel
-    implements StatusEventListener {
+public class ModernStatusLabel extends ModernAutoSizeLabel implements StatusEventListener {
 
   /**
    * The constant serialVersionUID.

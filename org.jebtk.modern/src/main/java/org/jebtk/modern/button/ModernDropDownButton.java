@@ -53,14 +53,13 @@ public class ModernDropDownButton extends ModernDropDownWidget {
   private static final long serialVersionUID = 1L;
 
   /** The Constant TRIANGLE_ICON. */
-  protected static final ModernIcon TRIANGLE_ICON = AssetService.getInstance()
-      .loadIcon(TriangleDownVectorIcon.class, 16);
+  protected static final ModernIcon TRIANGLE_ICON = AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class,
+      16);
 
   /**
    * The constant SIZE.
    */
-  private static final Dimension SIZE = ModernTheme
-      .loadDimension("theme.button.dimensions.dropdown-icon-only");
+  private static final Dimension SIZE = ModernTheme.loadDimension("theme.button.dimensions.dropdown-icon-only");
 
   protected boolean mChangeText = true;
 
@@ -68,11 +67,10 @@ public class ModernDropDownButton extends ModernDropDownWidget {
    * Instantiates a new modern drop down button.
    *
    * @param text1 the text1
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public ModernDropDownButton(String text1, ModernIcon icon,
-      ModernPopupMenu menu) {
+  public ModernDropDownButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
 
     this(text1, icon);
 
@@ -83,7 +81,7 @@ public class ModernDropDownButton extends ModernDropDownWidget {
    * Instantiates a new modern drop down button.
    *
    * @param text1 the text1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernDropDownButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -93,7 +91,7 @@ public class ModernDropDownButton extends ModernDropDownWidget {
    * Instantiates a new modern drop down button.
    *
    * @param text1 the text1
-   * @param menu the menu
+   * @param menu  the menu
    */
   public ModernDropDownButton(String text1, ModernPopupMenu menu) {
     super(text1);
@@ -136,8 +134,7 @@ public class ModernDropDownButton extends ModernDropDownWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -194,8 +191,8 @@ public class ModernDropDownButton extends ModernDropDownWidget {
   }
 
   /**
-   * Sets whether the drop down should change its text in response to a menu
-   * item being clicked on.
+   * Sets whether the drop down should change its text in response to a menu item
+   * being clicked on.
    * 
    * @param change
    * @return

@@ -35,14 +35,9 @@ import org.jebtk.core.Props;
  * The class DeleteVectorIcon.
  */
 public class DeleteVectorIcon extends CrossVectorIcon {
-  
+
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     super.drawIcon(g2, x, y, w, h, RED_PROPS);
   }
 }

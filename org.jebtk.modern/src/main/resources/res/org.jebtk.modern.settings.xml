@@ -7,28 +7,28 @@
 
 		<setting name="color-schemes">
 			<setting name="color-scheme-red">
-				<setting name="start-color" value="#ffffff" />
+				<setting name="start-color" value="#cc000000" />
 				<setting name="end-color" value="#cc0000" />
 			</setting>
 			<setting name="color-scheme-green">
-				<setting name="start-color" value="#ffffff" />
+				<setting name="start-color" value="#33996600" />
 				<setting name="end-color" value="#339966" />
 			</setting>
 			<setting name="color-scheme-blue">
-				<setting name="start-color" value="#ffffff" />
+				<setting name="start-color" value="#3771c800" />
 				<setting name="end-color" value="#3771c8" />
 			</setting>
 			<setting name="color-scheme-orange">
-				<setting name="start-color" value="#ffffff" />
+				<setting name="start-color" value="#cc330000" />
 				<setting name="end-color" value="#cc3300" />
 			</setting>
 			<setting name="color-scheme-purple">
-				<setting name="start-color" value="#ffffff" />
+				<setting name="start-color" value="#6600ff00" />
 				<setting name="end-color" value="#6600ff" />
 			</setting>
 
 			<setting name="color-scheme-gray">
-				<setting name="start-color" value="#ffffff" />
+				<setting name="start-color" value="#4d4d4d00" />
 				<setting name="end-color" value="#4d4d4d" /> <!-- #666666 -->
 			</setting>
 		</setting>

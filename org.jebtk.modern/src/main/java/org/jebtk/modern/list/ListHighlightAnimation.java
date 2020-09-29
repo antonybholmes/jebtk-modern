@@ -44,8 +44,7 @@ public class ListHighlightAnimation extends HighlightAnimation {
 
     mList = (ModernList<?>) list;
 
-    setFadeColor("highlight",
-        MaterialService.instance().getColor("gray-highlight"));
+    setFadeColor("highlight", MaterialService.instance().getColor("gray-highlight"));
   }
 
   /*
@@ -89,11 +88,7 @@ public class ListHighlightAnimation extends HighlightAnimation {
             // g2Table.fillRect(0, 0, mList.getWidth(), mList.mRowHeight);
 
             DrawUIService.getInstance().getRenderer("button-fill").draw(g2Table,
-                new IntRect(0,
-                0,
-                mList.getWidth(),
-                mList.mRowHeight),
-                getFadeColor("highlight"));
+                new IntRect(0, 0, mList.getWidth(), mList.mRowHeight), getFadeColor("highlight"));
 
             // getWidgetRenderer().drawButton(g2, getRect(),
             // RenderMode.SELECTED);

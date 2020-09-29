@@ -58,9 +58,7 @@ public class RibbonBackButton extends ModernButton {
    * Setup.
    */
   private void setup() {
-    UI.setSize(this,
-        RibbonBackAnimation.HEIGHT * 3,
-        RibbonBackAnimation.HEIGHT);
+    UI.setSize(this, RibbonBackAnimation.HEIGHT * 3, RibbonBackAnimation.HEIGHT);
 
     setAnimations("ribbon-back-button");
   }

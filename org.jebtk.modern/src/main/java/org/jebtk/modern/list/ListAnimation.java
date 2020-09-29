@@ -82,12 +82,8 @@ public class ListAnimation extends WidgetAnimation {
 
           boolean selected = mList.mSelectionModel.contains(i);
 
-          Component c = mList.mRenderer.getCellRendererComponent(mList,
-              mList.getValueAt(i),
-              highlighted,
-              selected,
-              true,
-              i);
+          Component c = mList.mRenderer.getCellRendererComponent(mList, mList.getValueAt(i), highlighted, selected,
+              true, i);
 
           c.setSize(mList.getWidth(), mList.mRowHeight);
 
@@ -106,16 +102,14 @@ public class ListAnimation extends WidgetAnimation {
     createDragImage(g2, mList.mVisibleCells);
   }
 
-  protected void createDragImage(Graphics2D g2,
-      ModernDataRowSelection visibleCells) {
+  protected void createDragImage(Graphics2D g2, ModernDataRowSelection visibleCells) {
     if (!mList.mDragEnabled || mList.mDragCellIndex == -1) {
       return;
     }
 
     g2.setColor(ModernList.DRAG_LINE_COLOR);
 
-    int y = mList.mRowHeight
-        * (Math.min(mList.mDragCellIndex, mList.mListModel.getItemCount()));
+    int y = mList.mRowHeight * (Math.min(mList.mDragCellIndex, mList.mListModel.getItemCount()));
 
     g2.drawLine(0, y, mList.getWidth(), y);
   }

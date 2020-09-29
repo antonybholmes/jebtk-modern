@@ -156,8 +156,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -178,8 +177,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * javax.swing.event.PopupMenuListener#popupMenuCanceled(javax.swing.event.
+     * @see javax.swing.event.PopupMenuListener#popupMenuCanceled(javax.swing.event.
      * PopupMenuEvent)
      */
     @Override
@@ -190,8 +188,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * javax.swing.event.PopupMenuListener#popupMenuWillBecomeInvisible(javax.
+     * @see javax.swing.event.PopupMenuListener#popupMenuWillBecomeInvisible(javax.
      * swing. event.PopupMenuEvent)
      */
     @Override
@@ -202,8 +199,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * javax.swing.event.PopupMenuListener#popupMenuWillBecomeVisible(javax.
+     * @see javax.swing.event.PopupMenuListener#popupMenuWillBecomeVisible(javax.
      * swing. event.PopupMenuEvent)
      */
     public final void popupMenuWillBecomeVisible(PopupMenuEvent e) {
@@ -226,11 +222,10 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
    * Instantiates a new modern drop down widget.
    *
    * @param text1 the text1
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public ModernDropDownWidget(String text1, ModernIcon icon,
-      ModernPopupMenu menu) {
+  public ModernDropDownWidget(String text1, ModernIcon icon, ModernPopupMenu menu) {
 
     this(text1, icon);
 
@@ -241,7 +236,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
    * Instantiates a new modern drop down widget.
    *
    * @param text1 the text1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernDropDownWidget(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -253,7 +248,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
    * Instantiates a new modern drop down widget.
    *
    * @param text1 the text1
-   * @param menu the menu
+   * @param menu  the menu
    */
   public ModernDropDownWidget(String text1, ModernPopupMenu menu) {
     super(text1);
@@ -307,8 +302,7 @@ public abstract class ModernDropDownWidget extends ModernButtonWidget {
 
     addMouseListener(new MouseEvents());
 
-    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"),
-        "enter_pressed");
+    getInputMap(WHEN_FOCUSED).put(KeyStroke.getKeyStroke("ENTER"), "enter_pressed");
     getActionMap().put("enter_pressed", new ActionEvents());
 
     // setAnimations("dropdown-button");

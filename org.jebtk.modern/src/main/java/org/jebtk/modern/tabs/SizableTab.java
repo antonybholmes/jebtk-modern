@@ -55,14 +55,13 @@ public class SizableTab extends Tab {
   /**
    * Instantiates a new sizable content pane.
    *
-   * @param name the name
-   * @param c the c
-   * @param width the width
+   * @param name     the name
+   * @param c        the c
+   * @param width    the width
    * @param minWidth the min width
    * @param maxWidth the max width
    */
-  public SizableTab(String name, JComponent c, int width, int minWidth,
-      int maxWidth) {
+  public SizableTab(String name, JComponent c, int width, int minWidth, int maxWidth) {
     super(name, c);
 
     mMinWidth = minWidth;
@@ -74,8 +73,8 @@ public class SizableTab extends Tab {
   /**
    * Instantiates a new sizable content pane.
    *
-   * @param name the name
-   * @param width the width
+   * @param name     the name
+   * @param width    the width
    * @param minWidth the min width
    * @param maxWidth the max width
    */

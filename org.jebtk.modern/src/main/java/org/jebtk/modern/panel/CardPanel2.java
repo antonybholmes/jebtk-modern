@@ -19,14 +19,14 @@ public class CardPanel2 extends ModernComponent {
 
   public CardPanel2(Component c, Border border) {
     super(new ModernComponent(c, border));
-    
+
     addStyleClass("card");
   }
 
   @Override
   public void drawBackground(Graphics2D g2) {
     Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
-    
+
     try {
       DrawUIService.getInstance().getRenderer("card").draw(this, g2Temp);
     } finally {

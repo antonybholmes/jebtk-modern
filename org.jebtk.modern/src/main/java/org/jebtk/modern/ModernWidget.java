@@ -66,8 +66,7 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes
  *
  */
-public abstract class ModernWidget extends ModernComponent
-    implements IdProperty {
+public abstract class ModernWidget extends ModernComponent implements IdProperty {
 
   /**
    * The constant serialVersionUID.
@@ -81,72 +80,60 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant HIGHLIGHT_COLOR.
    */
-  public static final Color HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .getColors().getGray(4);
+  public static final Color HIGHLIGHT_COLOR = ThemeService.getInstance().getColors().getGray(4);
 
   /** The Constant HIGHLIGHT_BORDER_COLOR. */
-  public static final Color HIGHLIGHT_BORDER_COLOR = ThemeService.getInstance()
-      .getColors().getGray(6);
+  public static final Color HIGHLIGHT_BORDER_COLOR = ThemeService.getInstance().getColors().getGray(6);
 
   /**
    * The constant HIGHLIGHT_TEXT_COLOR.
    */
-  public static final Color HIGHLIGHT_TEXT_COLOR = ThemeService.getInstance()
-      .getColors().getTheme(4);
+  public static final Color HIGHLIGHT_TEXT_COLOR = ThemeService.getInstance().getColors().getTheme(4);
 
   /**
    * The constant SELECTED_COLOR.
    */
-  public static final Color SELECTED_COLOR = ThemeService.getInstance()
-      .getColors().getGray(4);
+  public static final Color SELECTED_COLOR = ThemeService.getInstance().getColors().getGray(4);
 
   /**
    * The constant SELECTED_BORDER_COLOR.
    */
-  public static final Color SELECTED_BORDER_COLOR = ThemeService.getInstance()
-      .getColors().getGray(6);
+  public static final Color SELECTED_BORDER_COLOR = ThemeService.getInstance().getColors().getGray(6);
 
   /**
    * The constant THEME_HIGHLIGHT_COLOR.
    */
-  public static final Color THEME_HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .getColors().getTheme(2);
+  public static final Color THEME_HIGHLIGHT_COLOR = ThemeService.getInstance().getColors().getTheme(2);
 
   /**
    * The constant THEME_SELECTED_COLOR.
    */
-  public static final Color THEME_SELECTED_COLOR = ThemeService.getInstance()
-      .getColors().getTheme(3);
+  public static final Color THEME_SELECTED_COLOR = ThemeService.getInstance().getColors().getTheme(3);
 
   /**
    * The constant THEME_SELECTED_BORDER_COLOR.
    */
-  public static final Color THEME_SELECTED_BORDER_COLOR = ThemeService
-      .getInstance().getColors().getTheme32(10);
+  public static final Color THEME_SELECTED_BORDER_COLOR = ThemeService.getInstance().getColors().getTheme32(10);
 
   /**
    * The constant OUTLINE_HIGHLIGHT_COLOR.
    */
-  public static final Color OUTLINE_HIGHLIGHT_COLOR = ThemeService.getInstance()
-      .getColors().getGray(6);
+  public static final Color OUTLINE_HIGHLIGHT_COLOR = ThemeService.getInstance().getColors().getGray(6);
 
   /**
    * The constant THEME_OUTLINE_HIGHLIGHT_COLOR.
    */
-  public static final Color THEME_OUTLINE_HIGHLIGHT_COLOR = ThemeService
-      .getInstance().getColors().getTheme(6);
+  public static final Color THEME_OUTLINE_HIGHLIGHT_COLOR = ThemeService.getInstance().getColors().getTheme(6);
 
   /**
    * The constant OUTLINE_BACKGROUND_COLOR.
    */
-  public static final Color OUTLINE_BACKGROUND_COLOR = ThemeService
-      .getInstance().getColors().getGray(1);
+  public static final Color OUTLINE_BACKGROUND_COLOR = ThemeService.getInstance().getColors().getGray(1);
 
   /**
    * The constant MIN_WIDGET_HEIGHT.
    */
-  public static final int MIN_WIDGET_HEIGHT = SettingsService.getInstance()
-      .getInt("theme.widget.default-height");
+  public static final int MIN_WIDGET_HEIGHT = SettingsService.getInstance().getInt("theme.widget.default-height");
 
   /**
    * The constant WIDGET_HEIGHT.
@@ -156,36 +143,30 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant DIALOG_2_COLOR.
    */
-  private static final Color DIALOG_2_COLOR = ThemeService.getInstance()
-      .getColors().getGray(2);
+  private static final Color DIALOG_2_COLOR = ThemeService.getInstance().getColors().getGray(2);
 
   /**
    * The constant TEXT_COLOR.
    */
-  public static final Color TEXT_COLOR = ThemeService.getInstance().getColors()
-      .getTextColor();
+  public static final Color TEXT_COLOR = ThemeService.getInstance().getColors().getTextColor();
 
   /**
    * The constant ALT_TEXT_COLOR.
    */
-  public static final Color ALT_TEXT_COLOR = MaterialService.instance()
-      .getColors().altText();
+  public static final Color ALT_TEXT_COLOR = MaterialService.instance().getColors().altText();
 
   /** The Constant TEXT_DISABLED_COLOR. */
-  public static final Color TEXT_DISABLED_COLOR = ThemeService.getInstance()
-      .getColors().getDisabledTextColor();
+  public static final Color TEXT_DISABLED_COLOR = ThemeService.getInstance().getColors().getDisabledTextColor();
 
   /**
    * The constant DARK_OUTLINE_COLOR.
    */
-  public static final Color DARK_OUTLINE_COLOR = ThemeService.getInstance()
-      .getColors().getGray(8);
+  public static final Color DARK_OUTLINE_COLOR = ThemeService.getInstance().getColors().getGray(8);
 
   /**
    * The constant FONT.
    */
-  public static final Font FONT = MaterialService.instance().getFonts()
-      .text(); // ThemeService.getInstance().getFonts().getFont();
+  public static final Font FONT = MaterialService.instance().getFonts().text(); // ThemeService.getInstance().getFonts().getFont();
 
   /** The Constant UNDER_LINE_FONT. */
   public static final Font UNDER_LINE_FONT = FontUtils.underline(FONT);
@@ -193,76 +174,63 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant FONT.
    */
-  public static final Font TITLE_FONT = ThemeService.getInstance().getFonts()
-      .getTitleFont();
+  public static final Font TITLE_FONT = ThemeService.getInstance().getFonts().getTitleFont();
 
   /** The Constant TITLE_FONT_BOLD. */
-  public static final Font TITLE_FONT_BOLD = ThemeService
-      .loadFont("theme.widget.fonts.title-bold");
+  public static final Font TITLE_FONT_BOLD = ThemeService.loadFont("theme.widget.fonts.title-bold");
 
   /** The Constant SUB_TITLE_FONT. */
-  public static final Font SUB_TITLE_FONT = ThemeService.getInstance()
-      .getFonts().getSubTitleFont();
+  public static final Font SUB_TITLE_FONT = ThemeService.getInstance().getFonts().getSubTitleFont();
 
   /**
    * The constant HEADING_FONT.
    */
-  public static final Font HEADING_FONT = ThemeService.getInstance().getFonts()
-      .getHeadingFont();
+  public static final Font HEADING_FONT = ThemeService.getInstance().getFonts().getHeadingFont();
 
   /**
    * The constant SUB_HEADING_FONT.
    */
-  public static final Font SUB_HEADING_FONT = ThemeService
-      .loadFont("theme.widget.fonts.sub-heading");
+  public static final Font SUB_HEADING_FONT = ThemeService.loadFont("theme.widget.fonts.sub-heading");
 
   /**
    * The constant SUB_SUB_HEADING_FONT.
    */
-  public static final Font SUB_SUB_HEADING_FONT = ThemeService
-      .loadFont("theme.widget.fonts.sub-sub-heading");
+  public static final Font SUB_SUB_HEADING_FONT = ThemeService.loadFont("theme.widget.fonts.sub-sub-heading");
 
   /**
    * The constant BOLD_FONT.
    */
-  public static final Font BOLD_FONT = MaterialService.instance().getFonts()
-      .bold();
+  public static final Font BOLD_FONT = MaterialService.instance().getFonts().bold();
 
   /**
    * The constant MONOSPACE_FONT.
    */
-  public static final Font MONOSPACE_FONT = ThemeService
-      .loadFont("theme.widget.fonts.monospace");
+  public static final Font MONOSPACE_FONT = ThemeService.loadFont("theme.widget.fonts.monospace");
 
   /**
    * The constant LARGE_BORDER.
    */
-  public static final Border DOUBLE_BORDER = BorderService.getInstance()
-      .createBorder(DOUBLE_PADDING);
+  public static final Border DOUBLE_BORDER = BorderService.getInstance().createBorder(DOUBLE_PADDING);
 
   /**
    * The constant LINE_BORDER.
    */
-  public static final Border LINE_BORDER = BorderService.getInstance()
-      .createLineBorder(LINE_COLOR);
+  public static final Border LINE_BORDER = BorderService.getInstance().createLineBorder(LINE_COLOR);
 
   /**
    * The constant DARK_LINE_BORDER.
    */
-  public static final Border DARK_LINE_BORDER = BorderService.getInstance()
-      .createLineBorder(DARK_LINE_COLOR);
+  public static final Border DARK_LINE_BORDER = BorderService.getInstance().createLineBorder(DARK_LINE_COLOR);
 
   /**
    * The constant MAX_SIZE.
    */
-  public static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE,
-      WIDGET_HEIGHT);
+  public static final Dimension MAX_SIZE = new Dimension(Short.MAX_VALUE, WIDGET_HEIGHT);
 
   /**
    * The constant STANDARD_SIZE.
    */
-  public static final Dimension STANDARD_SIZE = new Dimension(100,
-      WIDGET_HEIGHT);
+  public static final Dimension STANDARD_SIZE = new Dimension(100, WIDGET_HEIGHT);
 
   /** The Constant BIG_SIZE. */
   public static final Dimension BIG_SIZE = new Dimension(120, WIDGET_HEIGHT);
@@ -275,14 +243,12 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant EXTRA_LARGE_SIZE.
    */
-  public static final Dimension EXTRA_LARGE_SIZE = new Dimension(200,
-      WIDGET_HEIGHT);
+  public static final Dimension EXTRA_LARGE_SIZE = new Dimension(200, WIDGET_HEIGHT);
 
   /**
    * The constant VERY_LARGE_SIZE.
    */
-  public static final Dimension VERY_LARGE_SIZE = new Dimension(300,
-      WIDGET_HEIGHT);
+  public static final Dimension VERY_LARGE_SIZE = new Dimension(300, WIDGET_HEIGHT);
 
   /**
    * The constant SMALL_SIZE.
@@ -292,42 +258,34 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant TINY_SIZE.
    */
-  public static final Dimension TINY_SIZE = new Dimension(2 * WIDGET_HEIGHT,
-      WIDGET_HEIGHT);
+  public static final Dimension TINY_SIZE = new Dimension(2 * WIDGET_HEIGHT, WIDGET_HEIGHT);
 
   /**
    * The constant MAX_SIZE_48.
    */
-  public static final Dimension MAX_SIZE_48 = new Dimension(Short.MAX_VALUE,
-      48);
+  public static final Dimension MAX_SIZE_48 = new Dimension(Short.MAX_VALUE, 48);
 
   /**
    * The constant MAX_SIZE_24.
    */
-  public static final Dimension MAX_SIZE_24 = new Dimension(Short.MAX_VALUE,
-      24);
+  public static final Dimension MAX_SIZE_24 = new Dimension(Short.MAX_VALUE, 24);
 
   /** The Constant MAX_SIZE_32. */
-  public static final Dimension MAX_SIZE_32 = new Dimension(Short.MAX_VALUE,
-      32);
+  public static final Dimension MAX_SIZE_32 = new Dimension(Short.MAX_VALUE, 32);
 
   /**
    * The constant SQUARE_WIDGET_SIZE.
    */
-  public static final Dimension SQUARE_WIDGET_SIZE = new Dimension(
-      WIDGET_HEIGHT, WIDGET_HEIGHT);
+  public static final Dimension SQUARE_WIDGET_SIZE = new Dimension(WIDGET_HEIGHT, WIDGET_HEIGHT);
 
   /** The Constant MIN_SIZE. */
-  public static final Dimension MIN_SIZE = new Dimension(WIDGET_HEIGHT / 4,
-      WIDGET_HEIGHT);
+  public static final Dimension MIN_SIZE = new Dimension(WIDGET_HEIGHT / 4, WIDGET_HEIGHT);
 
   /** The Constant INSET_1. */
-  public static final Border INSET_1 = BorderService.getInstance()
-      .createLeftBorder(WIDGET_HEIGHT);
+  public static final Border INSET_1 = BorderService.getInstance().createLeftBorder(WIDGET_HEIGHT);
 
   /** The Constant INSET_2. */
-  public static final Border INSET_2 = BorderService.getInstance()
-      .createLeftBorder(2 * WIDGET_HEIGHT);
+  public static final Border INSET_2 = BorderService.getInstance().createLeftBorder(2 * WIDGET_HEIGHT);
 
   /**
    * The constant SIZE_48.
@@ -340,14 +298,12 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * The constant DIALOG_BUTTON_BASE.
    */
-  private static final Color DIALOG_BUTTON_BASE = ThemeService.getInstance()
-      .getColors().getGray(3);
+  private static final Color DIALOG_BUTTON_BASE = ThemeService.getInstance().getColors().getGray(3);
 
   /**
    * The constant DIALOG_BUTTON_BORDER_COLOR.
    */
-  private static final Color DIALOG_BUTTON_BORDER_COLOR = ThemeService
-      .getInstance().getColors().getGray(5);
+  private static final Color DIALOG_BUTTON_BORDER_COLOR = ThemeService.getInstance().getColors().getGray(5);
 
   /**
    * The next id.
@@ -359,11 +315,9 @@ public abstract class ModernWidget extends ModernComponent
    */
   private static final Graphics2D DEFAULT_GRAPHICS;
 
-  public static final Border SINGLE_BORDER = BorderService.getInstance()
-      .createBorder(1);
+  public static final Border SINGLE_BORDER = BorderService.getInstance().createBorder(1);
 
-  public static final Border TWO_PIXEL_BORDER = BorderService.getInstance()
-      .createBorder(2);
+  public static final Border TWO_PIXEL_BORDER = BorderService.getInstance().createBorder(2);
 
   private Animations mBackgroundAnimations = null;
 
@@ -372,8 +326,7 @@ public abstract class ModernWidget extends ModernComponent
   static {
     // Create a default graphics context that can be used to size
     // Widgets based on the font
-    BufferedImage newImage = new BufferedImage(1, 1,
-        BufferedImage.TYPE_INT_RGB);
+    BufferedImage newImage = new BufferedImage(1, 1, BufferedImage.TYPE_INT_RGB);
 
     DEFAULT_GRAPHICS = newImage.createGraphics();
     DEFAULT_GRAPHICS.setFont(FONT);
@@ -459,16 +412,14 @@ public abstract class ModernWidget extends ModernComponent
   public String getName() {
     return "Widget " + getId();
   }
-  
-  
+
   public Transitions getMouseOverTransitions() {
     if (mMouseOverTransitions == null) {
       mMouseOverTransitions = new MouseOverTransitions(this, new EasingTransitionTimer(5));
     }
-    
+
     return mMouseOverTransitions;
   }
-  
 
   public Animation getBackgroundAnimation() {
     return getAnimations().get(0);
@@ -477,25 +428,24 @@ public abstract class ModernWidget extends ModernComponent
   public Animations getAnimations() {
     return mBackgroundAnimations;
   }
-  
+
   public DrawUIStates getDrawStates() {
     return mDrawStates;
   }
-  
+
   public ModernWidget setAnimations(String animation, String... animations) {
     getAnimations().set(animation, animations);
 
     return this;
   }
-  
+
   public ModernWidget addAnimations(String animation, String... animations) {
     getAnimations().add(animation, animations);
 
     return this;
   }
 
-  public ModernWidget setAnimations(Animation animation,
-      Animation... animations) {
+  public ModernWidget setAnimations(Animation animation, Animation... animations) {
     getAnimations().set(animation, animations);
 
     return this;
@@ -579,37 +529,26 @@ public abstract class ModernWidget extends ModernComponent
   }
 
   /*
-  @Override
-  public void drawForeground(Graphics2D g2) {
-    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
-
-    try {
-      drawForegroundAA(g2Temp);
-    } finally {
-      g2Temp.dispose();
-    }
-  }
-
-  public void drawForegroundAA(Graphics2D g2) {
-    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
-
-    try {
-      drawForegroundAA(g2Temp);
-    } finally {
-      g2Temp.dispose();
-    }
-  }
-  */
+   * @Override public void drawForeground(Graphics2D g2) { Graphics2D g2Temp =
+   * ImageUtils.createAATextGraphics(g2);
+   * 
+   * try { drawForegroundAA(g2Temp); } finally { g2Temp.dispose(); } }
+   * 
+   * public void drawForegroundAA(Graphics2D g2) { Graphics2D g2Temp =
+   * ImageUtils.createAATextGraphics(g2);
+   * 
+   * try { drawForegroundAA(g2Temp); } finally { g2Temp.dispose(); } }
+   */
 
   /**
    * Renders the foreground with antialiasing on by default.
    *
    * @param g2 the g2
    */
-  //@Override
-  //public void drawForegroundAA(Graphics2D g2) {
-  //  // Do nothing
-  //}
+  // @Override
+  // public void drawForegroundAA(Graphics2D g2) {
+  // // Do nothing
+  // }
 
   /*
    * @Override public void drawBackground(Graphics2D g2) { Graphics2D g2Temp =
@@ -625,7 +564,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Draw border.
    *
-   * @param g2 the g 2
+   * @param g2    the g 2
    * @param color the color
    */
   public void drawBorder(Graphics2D g2, Color color) {
@@ -649,7 +588,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint highlighted.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param size the size
    */
   public static void paintHighlighted(Graphics2D g2, Dimension size) {
@@ -659,7 +598,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint highlighted.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintHighlighted(Graphics2D g2, Rectangle rect) {
@@ -670,7 +609,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint highlighted.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintHighlighted(Graphics2D g2, IntRect rect) {
@@ -681,7 +620,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint highlighted base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintHighlightedBase(Graphics2D g2, Rectangle rect) {
@@ -691,7 +630,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint highlighted base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintHighlightedBase(Graphics2D g2, IntRect rect) {
@@ -701,7 +640,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint highlighted border.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintHighlightedBorder(Graphics2D g2, Rectangle rect) {
@@ -711,7 +650,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint highlighted border.
    *
-   * @param g2 the g 2
+   * @param g2   the g 2
    * @param rect the rect
    */
   public static void paintHighlightedBorder(Graphics2D g2, IntRect rect) {
@@ -721,18 +660,17 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint theme highlighted border.
    *
-   * @param g2 the g 2
+   * @param g2   the g 2
    * @param rect the rect
    */
-  public static void paintThemeHighlightedBorder(Graphics2D g2,
-      Rectangle rect) {
+  public static void paintThemeHighlightedBorder(Graphics2D g2, Rectangle rect) {
     drawBorder(g2, THEME_HIGHLIGHT_COLOR, rect);
   }
 
   /**
    * Paint theme highlighted border.
    *
-   * @param g2 the g 2
+   * @param g2   the g 2
    * @param rect the rect
    */
   public static void paintThemeHighlightedBorder(Graphics2D g2, IntRect rect) {
@@ -742,7 +680,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint color highlighted.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintColorHighlighted(Graphics2D g2, Rectangle rect) {
@@ -753,7 +691,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint theme highlighted.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintThemeHighlighted(Graphics2D g2, IntRect rect) {
@@ -764,7 +702,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint theme highlighted base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintThemeHighlightedBase(Graphics2D g2, Rectangle rect) {
@@ -774,7 +712,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint theme highlighted base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintThemeHighlightedBase(Graphics2D g2, IntRect rect) {
@@ -784,7 +722,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint highlighted outlined.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintHighlightedOutlined(Graphics2D g2, Rectangle rect) {
@@ -795,7 +733,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint highlighted outlined.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintHighlightedOutlined(Graphics2D g2, IntRect rect) {
@@ -806,7 +744,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint outlined.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintOutlined(Graphics2D g2, Rectangle rect) {
@@ -817,7 +755,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint outlined.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintOutlined(Graphics2D g2, IntRect rect) {
@@ -828,7 +766,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint outlined focused.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintOutlinedFocused(Graphics2D g2, Rectangle rect) {
@@ -839,7 +777,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint outlined focused.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintOutlinedFocused(Graphics2D g2, IntRect rect) {
@@ -850,11 +788,10 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint outlined with background.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
-  public static void paintOutlinedWithBackground(Graphics2D g2,
-      Rectangle rect) {
+  public static void paintOutlinedWithBackground(Graphics2D g2, Rectangle rect) {
     paintOutlinedBackgroundBase(g2, rect);
     drawOutline(g2, rect);
   }
@@ -862,7 +799,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint outlined with background.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintOutlinedWithBackground(Graphics2D g2, IntRect rect) {
@@ -873,18 +810,17 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint outlined background base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
-  public static void paintOutlinedBackgroundBase(Graphics2D g2,
-      Rectangle rect) {
+  public static void paintOutlinedBackgroundBase(Graphics2D g2, Rectangle rect) {
     fill(g2, OUTLINE_BACKGROUND_COLOR, rect);
   }
 
   /**
    * Paint outlined background base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintOutlinedBackgroundBase(Graphics2D g2, IntRect rect) {
@@ -894,7 +830,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint outlined base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintOutlinedBase(Graphics2D g2, Rectangle rect) {
@@ -904,7 +840,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint outlined base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintOutlinedBase(Graphics2D g2, IntRect rect) {
@@ -914,7 +850,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint background base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintBackgroundBase(Graphics2D g2, Rectangle rect) {
@@ -924,7 +860,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint background base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintBackgroundBase(Graphics2D g2, IntRect rect) {
@@ -934,7 +870,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint dark outline.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintDarkOutline(Graphics2D g2, Rectangle rect) {
@@ -944,7 +880,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint dark outline.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintDarkOutline(Graphics2D g2, IntRect rect) {
@@ -954,7 +890,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paints a widget to look unfocused.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintUnfocused(Graphics2D g2, Rectangle rect) {
@@ -964,7 +900,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint unfocused.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintUnfocused(Graphics2D g2, IntRect rect) {
@@ -974,7 +910,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Draws a component in the selected mode.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintSelected(Graphics2D g2, Rectangle rect) {
@@ -985,7 +921,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint selected.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintSelected(Graphics2D g2, IntRect rect) {
@@ -996,7 +932,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint selected base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintSelectedBase(Graphics2D g2, Rectangle rect) {
@@ -1006,7 +942,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint selected base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintSelectedBase(Graphics2D g2, IntRect rect) {
@@ -1016,7 +952,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint selected border.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintSelectedBorder(Graphics2D g2, Rectangle rect) {
@@ -1026,7 +962,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint selected border.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintSelectedBorder(Graphics2D g2, IntRect rect) {
@@ -1036,7 +972,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint theme selected.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintThemeSelected(Graphics2D g2, Rectangle rect) {
@@ -1047,7 +983,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint theme selected.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintThemeSelected(Graphics2D g2, IntRect rect) {
@@ -1058,7 +994,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint theme selected base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintThemeSelectedBase(Graphics2D g2, Rectangle rect) {
@@ -1068,7 +1004,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint theme selected base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintThemeSelectedBase(Graphics2D g2, IntRect rect) {
@@ -1078,7 +1014,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint theme selected border.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintThemeSelectedBorder(Graphics2D g2, Rectangle rect) {
@@ -1088,7 +1024,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint theme selected border.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintThemeSelectedBorder(Graphics2D g2, IntRect rect) {
@@ -1098,7 +1034,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint white background.
    *
-   * @param g2 the g 2
+   * @param g2   the g 2
    * @param rect the rect
    */
   public static void paintWhiteBackground(Graphics2D g2, IntRect rect) {
@@ -1108,7 +1044,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint pressed.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintPressed(Graphics2D g2, Rectangle rect) {
@@ -1118,7 +1054,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint dialog button.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintDialogButton(Graphics2D g2, Rectangle rect) {
@@ -1129,7 +1065,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint dialog button.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintDialogButton(Graphics2D g2, IntRect rect) {
@@ -1140,7 +1076,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint dialog button focused.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintDialogButtonFocused(Graphics2D g2, Rectangle rect) {
@@ -1151,7 +1087,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint dialog button pressed.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintDialogButtonPressed(Graphics2D g2, Rectangle rect) {
@@ -1161,7 +1097,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint dialog button base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintDialogButtonBase(Graphics2D g2, Rectangle rect) {
@@ -1183,7 +1119,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint dialog button base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void paintDialogButtonBase(Graphics2D g2, IntRect rect) {
@@ -1193,7 +1129,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Draw dialog button border.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void drawDialogButtonBorder(Graphics2D g2, Rectangle rect) {
@@ -1203,7 +1139,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Draw dialog button border.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void drawDialogButtonBorder(Graphics2D g2, IntRect rect) {
@@ -1213,29 +1149,27 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Paint dialog button highlight base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
-  public static void paintDialogButtonHighlightBase(Graphics2D g2,
-      Rectangle rect) {
+  public static void paintDialogButtonHighlightBase(Graphics2D g2, Rectangle rect) {
     paintHighlightedBase(g2, rect);
   }
 
   /**
    * Paint dialog button pressed base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
-  public static void paintDialogButtonPressedBase(Graphics2D g2,
-      Rectangle rect) {
+  public static void paintDialogButtonPressedBase(Graphics2D g2, Rectangle rect) {
     paintDialogButtonBase(g2, rect);
   }
 
   /**
    * Draw highlighted outline.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void drawHighlightedOutline(Graphics2D g2, Rectangle rect) {
@@ -1245,7 +1179,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Draw highlighted outline.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void drawHighlightedOutline(Graphics2D g2, IntRect rect) {
@@ -1255,7 +1189,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Draw outline.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void drawOutline(Graphics2D g2, IntRect rect) {
@@ -1265,7 +1199,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Draw white outline.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   public static void drawWhiteOutline(Graphics2D g2, IntRect rect) {
@@ -1276,24 +1210,18 @@ public abstract class ModernWidget extends ModernComponent
    * Paint image.
    *
    * @param component the component
-   * @param g2 the g2
-   * @param icon the icon
-   * @param rect the rect
+   * @param g2        the g2
+   * @param icon      the icon
+   * @param rect      the rect
    */
-  public static void paintImage(ModernWidget component,
-      Graphics2D g2,
-      ModernIcon icon,
-      Rectangle rect) {
-    icon.drawIcon(g2,
-        rect.x + (rect.width - 16) / 2,
-        rect.y + (rect.height - 16) / 2,
-        16);
+  public static void paintImage(ModernWidget component, Graphics2D g2, ModernIcon icon, Rectangle rect) {
+    icon.drawIcon(g2, rect.x + (rect.width - 16) / 2, rect.y + (rect.height - 16) / 2, 16);
   }
 
   /**
    * Gets the text y pos center.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    * @return the text y pos center
    */
@@ -1312,37 +1240,33 @@ public abstract class ModernWidget extends ModernComponent
   }
 
   /**
-   * Returns the y position to draw text at so that is vertically centered on
-   * the widget.
+   * Returns the y position to draw text at so that is vertically centered on the
+   * widget.
    *
-   * @param g2 the g2
+   * @param g2     the g2
    * @param height the height
    * @return the text y pos center
    */
   public static int getTextYPosCenter(Graphics2D g2, int height) {
-    return getTextYPosCenter(height,
-        g2.getFontMetrics().getAscent(),
-        g2.getFontMetrics().getDescent());
+    return getTextYPosCenter(height, g2.getFontMetrics().getAscent(), g2.getFontMetrics().getDescent());
   }
 
   /**
    * Gets the text Y pos center.
    *
-   * @param height the height
-   * @param ascent the ascent
+   * @param height  the height
+   * @param ascent  the ascent
    * @param descent the descent
    * @return the text Y pos center
    */
-  public static int getTextYPosCenter(int height,
-      double ascent,
-      double descent) {
+  public static int getTextYPosCenter(int height, double ascent, double descent) {
     return (int) ((height + ascent - descent) / 2);
   }
 
   /**
    * Gets the text X pos center.
    *
-   * @param text the text
+   * @param text  the text
    * @param width the width
    * @return the text X pos center
    */
@@ -1354,8 +1278,8 @@ public abstract class ModernWidget extends ModernComponent
    * Returns the x position such that a call to drawString(x...) will render the
    * text in the center of a block of a given width.
    *
-   * @param g2 the g 2
-   * @param text the text
+   * @param g2    the g 2
+   * @param text  the text
    * @param width the width
    * @return the text X pos center
    */
@@ -1366,10 +1290,10 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Center text.
    *
-   * @param g2 the g 2
+   * @param g2   the g 2
    * @param text the text
-   * @param x the x
-   * @param y the y
+   * @param x    the x
+   * @param y    the y
    * @return the point
    */
   public static Point centerText(Graphics2D g2, String text, int x, int y) {
@@ -1379,9 +1303,9 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Center text about x.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param text the text
-   * @param x the x
+   * @param x    the x
    * @return the int
    */
   public static int centerTextAboutX(Graphics2D g2, String text, int x) {
@@ -1392,20 +1316,18 @@ public abstract class ModernWidget extends ModernComponent
    * Center text about y.
    *
    * @param g2 the g2
-   * @param y the y
+   * @param y  the y
    * @return the int
    */
   public static int centerTextAboutY(Graphics2D g2, int y) {
-    return y
-        + (g2.getFontMetrics().getAscent() - g2.getFontMetrics().getDescent())
-            / 2;
+    return y + (g2.getFontMetrics().getAscent() - g2.getFontMetrics().getDescent()) / 2;
   }
 
   /**
    * Returns a truncated version of a string to accomodate narrow nodes.
    *
-   * @param g2 the g2
-   * @param text the text
+   * @param g2    the g2
+   * @param text  the text
    * @param width the width
    * @return the truncated text
    */
@@ -1416,16 +1338,13 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Returns a truncated version of a string to accomodate narrow nodes.
    *
-   * @param g2 the g2
-   * @param text the text
+   * @param g2     the g2
+   * @param text   the text
    * @param offset the offset
-   * @param width the width
+   * @param width  the width
    * @return the truncated text
    */
-  public static String getTruncatedText(Graphics2D g2,
-      String text,
-      int offset,
-      int width) {
+  public static String getTruncatedText(Graphics2D g2, String text, int offset, int width) {
     int textWidth = g2.getFontMetrics().stringWidth(text) + offset;
 
     if (textWidth <= width) {
@@ -1449,57 +1368,48 @@ public abstract class ModernWidget extends ModernComponent
    * For a given getRect(), string and graphics context, return the coordinates
    * where to plot the string so it appears in the center of the getRect().
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    * @param text the text
    * @return the string center plot coordinates
    */
-  public static Point getStringCenterPlotCoordinates(Graphics2D g2,
-      Rectangle rect,
-      String text) {
+  public static Point getStringCenterPlotCoordinates(Graphics2D g2, Rectangle rect, String text) {
     return getStringCenterPlotCoordinates(g2, rect.width, rect.height, text);
   }
 
   /**
    * Gets the string center plot coordinates.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    * @param text the text
    * @return the string center plot coordinates
    */
-  public static Point getStringCenterPlotCoordinates(Graphics2D g2,
-      IntRect rect,
-      String text) {
+  public static Point getStringCenterPlotCoordinates(Graphics2D g2, IntRect rect, String text) {
     return getStringCenterPlotCoordinates(g2, rect.getW(), rect.getH(), text);
   }
 
   /**
    * Gets the string center plot coordinates.
    *
-   * @param g2 the g2
-   * @param w the w
-   * @param h the h
+   * @param g2   the g2
+   * @param w    the w
+   * @param h    the h
    * @param text the text
    * @return the string center plot coordinates
    */
-  public static Point getStringCenterPlotCoordinates(Graphics2D g2,
-      int w,
-      int h,
-      String text) {
-    Rectangle stringBounds = g2.getFontMetrics().getStringBounds(text, g2)
-        .getBounds();
+  public static Point getStringCenterPlotCoordinates(Graphics2D g2, int w, int h, String text) {
+    Rectangle stringBounds = g2.getFontMetrics().getStringBounds(text, g2).getBounds();
 
-    return new Point((w - stringBounds.width) / 2,
-        ModernWidget.getTextYPosCenter(g2, h));
+    return new Point((w - stringBounds.width) / 2, ModernWidget.getTextYPosCenter(g2, h));
   }
 
   /**
    * Left align text x.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param text the text
-   * @param x the x
+   * @param x    the x
    * @return the int
    */
   public static int leftAlignTextX(Graphics2D g2, String text, int x) {
@@ -1507,8 +1417,8 @@ public abstract class ModernWidget extends ModernComponent
   }
 
   /**
-   * Create a default graphics context from an image so we can measure things
-   * etc outside of a drawing event.
+   * Create a default graphics context from an image so we can measure things etc
+   * outside of a drawing event.
    *
    * @return the default graphics
    */
@@ -1529,7 +1439,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Gets the string width based on the graphics context.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param text the text
    * @return the string width
    */
@@ -1633,7 +1543,7 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Truncate.
    *
-   * @param text the text
+   * @param text     the text
    * @param maxWidth the max width
    * @return the string
    */
@@ -1644,8 +1554,8 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Truncate.
    *
-   * @param g2 the g 2
-   * @param text the text
+   * @param g2       the g 2
+   * @param text     the text
    * @param maxWidth the max width
    * @return the string
    */
@@ -1654,11 +1564,10 @@ public abstract class ModernWidget extends ModernComponent
   }
 
   /**
-   * Truncate a string to fit into a max width in pixels based on the widget
-   * font.
+   * Truncate a string to fit into a max width in pixels based on the widget font.
    * 
-   * @param font The widget font.
-   * @param text The text to display.
+   * @param font     The widget font.
+   * @param text     The text to display.
    * @param maxWidth The max width of the space in the widget in pixels.
    * @return The truncated string with ellipsis.
    */
@@ -1690,36 +1599,29 @@ public abstract class ModernWidget extends ModernComponent
   /**
    * Draw icon centered.
    *
-   * @param g2 the g 2
-   * @param icon the icon
+   * @param g2     the g 2
+   * @param icon   the icon
    * @param widget the widget
    */
-  protected static void drawIconCentered(Graphics2D g2,
-      ModernIcon icon,
-      ModernWidget widget) {
+  protected static void drawIconCentered(Graphics2D g2, ModernIcon icon, ModernWidget widget) {
     drawIconCentered(g2, icon, widget.getRect());
   }
 
   /**
    * Draws the icon in the middle of the widget.
    *
-   * @param g2 the g 2
+   * @param g2   the g 2
    * @param icon the icon
    * @param rect the rect
    */
-  protected static void drawIconCentered(Graphics2D g2,
-      ModernIcon icon,
-      IntRect rect) {
-    icon.drawIcon(g2,
-        (rect.getW() - icon.getWidth()) / 2,
-        (rect.getH() - icon.getHeight()) / 2,
-        icon.getWidth());
+  protected static void drawIconCentered(Graphics2D g2, ModernIcon icon, IntRect rect) {
+    icon.drawIcon(g2, (rect.getW() - icon.getWidth()) / 2, (rect.getH() - icon.getHeight()) / 2, icon.getWidth());
   }
 
   /**
    * Size a widget to a given width using the default widget height.
    *
-   * @param c the c
+   * @param c     the c
    * @param width the width
    * @return the component
    */

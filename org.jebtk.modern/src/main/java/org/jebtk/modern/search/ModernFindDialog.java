@@ -53,8 +53,7 @@ import org.jebtk.modern.window.WindowWidgetFocusEvents;
  * @author Antony Holmes
  *
  */
-public class ModernFindDialog extends ModernDialogTaskWindow
-    implements ModernClickListener {
+public class ModernFindDialog extends ModernDialogTaskWindow implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -140,8 +139,7 @@ public class ModernFindDialog extends ModernDialogTaskWindow
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {

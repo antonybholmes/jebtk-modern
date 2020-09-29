@@ -13,13 +13,10 @@ public class ContentBoxUI extends ContentOutlineUI {
   }
 
   @Override
-  public void draw(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
-    //g2.setColor(Color.WHITE);
+  public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
+    // g2.setColor(Color.WHITE);
     g2.setColor(getStyle(c).getColor("background-color"));
-    
+
     fill(c, g2, rect, props);
 
     super.draw(c, g2, rect, props);

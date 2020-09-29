@@ -52,8 +52,7 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes
  *
  */
-public class ModernDialogSideButtonTabs extends TabsController
-    implements ModernClickListener {
+public class ModernDialogSideButtonTabs extends TabsController implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -154,8 +153,7 @@ public class ModernDialogSideButtonTabs extends TabsController
   private final void addTab(ModernCheckButton button) {
     System.err.println("adding side tab");
 
-    UI.setSize(button,
-        new Dimension(Short.MAX_VALUE, AssetService.ICON_SIZE_32));
+    UI.setSize(button, new Dimension(Short.MAX_VALUE, AssetService.ICON_SIZE_32));
     button.addClickListener(this);
 
     buttonMap.put(button, buttons.size());
@@ -169,8 +167,7 @@ public class ModernDialogSideButtonTabs extends TabsController
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {

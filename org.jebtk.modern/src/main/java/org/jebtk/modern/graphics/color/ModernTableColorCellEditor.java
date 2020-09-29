@@ -41,8 +41,7 @@ import org.jebtk.modern.window.ModernWindow;
 /**
  * The class ModernTableColorCellEditor.
  */
-public class ModernTableColorCellEditor extends AbstractModernTableCellEditor
-    implements ModernClickListener {
+public class ModernTableColorCellEditor extends AbstractModernTableCellEditor implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -78,8 +77,7 @@ public class ModernTableColorCellEditor extends AbstractModernTableCellEditor
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
+   * @see org.abh.lib.ui.modern.dataview.ModernDataCellEditor#getCellEditorValue()
    */
   @Override
   public final Object getCellEditorValue() {
@@ -99,8 +97,7 @@ public class ModernTableColorCellEditor extends AbstractModernTableCellEditor
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override
@@ -120,25 +117,14 @@ public class ModernTableColorCellEditor extends AbstractModernTableCellEditor
    * org.abh.lib.ui.modern.dataview.ModernData, java.lang.Object, boolean,
    * boolean, boolean, int, int)
    */
-  public final Component getCellEditorComponent(ModernData table,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row,
-      int column) {
+  public final Component getCellEditorComponent(ModernData table, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row, int column) {
 
     Color color = (Color) value;
 
     mMenu.setSelectedColor(color);
 
-    return mRenderer.getCellRendererComponent(table,
-        value,
-        highlight,
-        isSelected,
-        hasFocus,
-        row,
-        column);
+    return mRenderer.getCellRendererComponent(table, value, highlight, isSelected, hasFocus, row, column);
   }
 
   /**

@@ -53,16 +53,13 @@ public class SegmentTabs extends TextTabs {
   private static final long serialVersionUID = 1L;
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_1. */
-  public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService
-      .getInstance().getColors().getTheme(3);
+  public static final Color TEXT_TAB_SELECTED_COLOR_1 = ThemeService.getInstance().getColors().getTheme(3);
 
   /** The Constant TEXT_TAB_SELECTED_COLOR_2. */
-  protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService
-      .getInstance().getColors().getTheme(4);
+  protected static final Color TEXT_TAB_SELECTED_COLOR_2 = ThemeService.getInstance().getColors().getTheme(4);
 
   /** The Constant TEXT_TAB_SELECTED_OUTLINE_COLOR. */
-  protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService
-      .getInstance().getColors().getTheme(5);
+  protected static final Color TEXT_TAB_SELECTED_OUTLINE_COLOR = ThemeService.getInstance().getColors().getTheme(5);
 
   // protected static final Color TEXT_TAB_OUTLINE_COLOR =
   // ThemeService.getInstance().getColors().getHighlight(5);
@@ -74,8 +71,7 @@ public class SegmentTabs extends TextTabs {
   // ThemeService.getInstance().getColors().getColorHighlight(2);
 
   /** The Constant ROUNDING. */
-  protected static final int ROUNDING = MaterialService.instance().getInts()
-      .cornerRadius();
+  protected static final int ROUNDING = MaterialService.instance().getInts().cornerRadius();
 
   /** The m tab size. */
   protected final int mTabSize;
@@ -95,7 +91,7 @@ public class SegmentTabs extends TextTabs {
   /**
    * Instantiates a new text tabs.
    *
-   * @param model the model
+   * @param model   the model
    * @param tabSize the tab size
    */
   public SegmentTabs(TabsModel model, int tabSize) {
@@ -105,8 +101,8 @@ public class SegmentTabs extends TextTabs {
   /**
    * Instantiates a new segment tabs.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model    the model
+   * @param tabSize  the tab size
    * @param centered the centered
    */
   public SegmentTabs(TabsModel model, int tabSize, boolean centered) {
@@ -159,8 +155,8 @@ public class SegmentTabs extends TextTabs {
    * 
    * // // Draw basic outline //
    * 
-   * // getWidgetRenderer().drawContentBox(g2, // mLeftOffset, // y, // w, //
-   * h); // // x = mLeftOffset + mTabSize; // // for (int i = 1; i <
+   * // getWidgetRenderer().drawContentBox(g2, // mLeftOffset, // y, // w, // h);
+   * // // x = mLeftOffset + mTabSize; // // for (int i = 1; i <
    * getTabsModel().getTabCount(); ++i) { // g2.drawLine(x, y, x, y + h - 1); //
    * // x += mTabSize; // }
    * 
@@ -171,17 +167,17 @@ public class SegmentTabs extends TextTabs {
    * mTabSize;
    * 
    * // getWidgetRenderer().buttonFillPaint(g2, // x, // getInsets().top, //
-   * mTabSize, // h, // RenderMode.SELECTED, // hasFocus()); // // if
-   * (mHighlight == 0) { // g2.fill(mLeftEnd); // } else if (mHighlight == n -
-   * 1) { // g2.fill(mRightEnd); // } else { // g2.fillRect(x, getInsets().top,
-   * mTabSize, h); // } // // g2.fillRect(x, getInsets().top, mTabSize, h); //
+   * mTabSize, // h, // RenderMode.SELECTED, // hasFocus()); // // if (mHighlight
+   * == 0) { // g2.fill(mLeftEnd); // } else if (mHighlight == n - 1) { //
+   * g2.fill(mRightEnd); // } else { // g2.fillRect(x, getInsets().top, mTabSize,
+   * h); // } // // g2.fillRect(x, getInsets().top, mTabSize, h); //
    * 
    * getWidgetRenderer().buttonOutlinePaint(g2, x, getInsets().top, mTabSize, h,
    * RenderMode.HIGHLIGHT, hasFocus());
    * 
-   * // if (mHighlight == 0) { // g2.draw(mLeftEnd); // } else if (mHighlight ==
-   * n - 1) { // g2.draw(mRightEnd); // } else { // g2.drawRect(x,
-   * getInsets().top, mTabSize, h - 1); // }
+   * // if (mHighlight == 0) { // g2.draw(mLeftEnd); // } else if (mHighlight == n
+   * - 1) { // g2.draw(mRightEnd); // } else { // g2.drawRect(x, getInsets().top,
+   * mTabSize, h - 1); // }
    * 
    * g2.drawRect(x, getInsets().top, mTabSize, h - 1); }
    * 
@@ -207,17 +203,17 @@ public class SegmentTabs extends TextTabs {
    * 
    * // getWidgetRenderer().buttonOutlinePaint(g2, // x, // getInsets().top, //
    * mTabSize, // h, // RenderMode.SELECTED, // hasFocus()); // // if
-   * (selectedIndex == 0) { // g2.draw(mLeftEnd); // } else if (selectedIndex ==
-   * n - 1) { // g2.draw(mRightEnd); // } else { // g2.drawRect(x,
-   * getInsets().top, mTabSize, h - 1); // }
+   * (selectedIndex == 0) { // g2.draw(mLeftEnd); // } else if (selectedIndex == n
+   * - 1) { // g2.draw(mRightEnd); // } else { // g2.drawRect(x, getInsets().top,
+   * mTabSize, h - 1); // }
    * 
    * 
    * // // Draw the labels //
    * 
    * x = mLeftOffset;
    * 
-   * for (int i = 0; i < n; ++i) { boolean selected = i == selectedIndex;
-   * boolean highlight = i == mHighlight;
+   * for (int i = 0; i < n; ++i) { boolean selected = i == selectedIndex; boolean
+   * highlight = i == mHighlight;
    * 
    * g2.setColor(selected ? Color.WHITE : TEXT_COLOR); g2.setFont(selected ?
    * BOLD_FONT : FONT);
@@ -231,15 +227,14 @@ public class SegmentTabs extends TextTabs {
    * 
    * x += mTabSize; }
    * 
-   * //g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW()
-   * - 1, mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING); }
+   * //g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW() -
+   * 1, mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING); }
    */
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.tabs.TabsController#tabChanged(org.abh.common.ui.tabs.
+   * @see org.abh.common.ui.tabs.TabsController#tabChanged(org.abh.common.ui.tabs.
    * TabEvent)
    */
   @Override
@@ -300,9 +295,7 @@ public class SegmentTabs extends TextTabs {
     // getTabsModel().getTabCount());
 
     if (mCenter) {
-      mLeftOffset = getInsets().left
-          + (mInternalRect.getW() - mTabSize * getTabsModel().getTabCount())
-              / 2;
+      mLeftOffset = getInsets().left + (mInternalRect.getW() - mTabSize * getTabsModel().getTabCount()) / 2;
     } else {
       mLeftOffset = getInsets().left;
     }
@@ -325,14 +318,11 @@ public class SegmentTabs extends TextTabs {
 
       mLeftEnd = new GeneralPath();
       mLeftEnd.moveTo(x, getInsets().top + ROUNDING);
-      mLeftEnd.append(
-          new Arc2D.Double(x, y, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN),
-          true);
+      mLeftEnd.append(new Arc2D.Double(x, y, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN), true);
       mLeftEnd.lineTo(x + w, y);
       mLeftEnd.lineTo(x + w, y + h);
       mLeftEnd.lineTo(x + ROUNDING, y + h);
-      mLeftEnd.append(new Arc2D.Double(x, y + h - ROUNDING, ROUNDING, ROUNDING,
-          270, -90, Arc2D.OPEN), true);
+      mLeftEnd.append(new Arc2D.Double(x, y + h - ROUNDING, ROUNDING, ROUNDING, 270, -90, Arc2D.OPEN), true);
       // mLeftEnd.lineTo(getInsets().left, getInsets().top + ROUNDING);
       mLeftEnd.closePath();
 
@@ -341,11 +331,10 @@ public class SegmentTabs extends TextTabs {
       mRightEnd = new GeneralPath();
       mRightEnd.moveTo(x, y);
       mRightEnd.lineTo(x + w - ROUNDING, y);
-      mRightEnd.append(new Arc2D.Double(x + w - ROUNDING, y, ROUNDING, ROUNDING,
-          90, -90, Arc2D.OPEN), true);
+      mRightEnd.append(new Arc2D.Double(x + w - ROUNDING, y, ROUNDING, ROUNDING, 90, -90, Arc2D.OPEN), true);
       mRightEnd.lineTo(x + w, y + h - ROUNDING);
-      mRightEnd.append(new Arc2D.Double(x + w - ROUNDING, y + h - ROUNDING,
-          ROUNDING, ROUNDING, 0, -90, Arc2D.OPEN), true);
+      mRightEnd.append(new Arc2D.Double(x + w - ROUNDING, y + h - ROUNDING, ROUNDING, ROUNDING, 0, -90, Arc2D.OPEN),
+          true);
       mRightEnd.lineTo(x, y + h);
       mRightEnd.closePath();
 

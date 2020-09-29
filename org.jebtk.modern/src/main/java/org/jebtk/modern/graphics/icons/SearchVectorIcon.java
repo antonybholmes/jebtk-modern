@@ -50,8 +50,7 @@ public class SearchVectorIcon extends ModernVectorIcon {
   /**
    * The constant SCALE.
    */
-  private static final double SCALE = SettingsService.getInstance()
-      .getDouble("theme.icons.search-icon.width-scale");
+  private static final double SCALE = SettingsService.getInstance().getDouble("theme.icons.search-icon.width-scale");
 
   /**
    * The constant GLASS_SCALE.
@@ -67,12 +66,7 @@ public class SearchVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
 
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
@@ -89,21 +83,13 @@ public class SearchVectorIcon extends ModernVectorIcon {
 
       double w3 = w2 / 2.0;
 
-      g2Temp.drawLine((int) Math.round(xf + w3),
-          (int) Math.round(yf + w3),
-          (int) Math.round(xf + wf),
+      g2Temp.drawLine((int) Math.round(xf + w3), (int) Math.round(yf + w3), (int) Math.round(xf + wf),
           (int) Math.round(yf + wf));
 
       g2Temp.setColor(Color.WHITE);
-      g2Temp.fillOval((int) Math.round(xf),
-          (int) Math.round(yf),
-          (int) Math.round(w2),
-          (int) Math.round(w2));
+      g2Temp.fillOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(w2), (int) Math.round(w2));
       g2Temp.setColor(COLOR);
-      g2Temp.drawOval((int) Math.round(xf),
-          (int) Math.round(yf),
-          (int) Math.round(w2),
-          (int) Math.round(w2));
+      g2Temp.drawOval((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(w2), (int) Math.round(w2));
     } finally {
       g2Temp.dispose();
     }

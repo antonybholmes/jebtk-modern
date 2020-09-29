@@ -45,8 +45,7 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
 
     mTabs = (IconTabs) w;
 
-    setFadeColor("highlight",
-        ThemeService.getInstance().getColors().getGray(3));
+    setFadeColor("highlight", ThemeService.getInstance().getColors().getGray(3));
   }
 
   /*
@@ -68,22 +67,23 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
     //
     // Draw if highlighted
     //
-    
+
     int is = mTabs.getIconSize();
     int ts = mTabs.getTabSize();
     
-
-    if (highlighted != -1 && highlighted != selected) {
+    if (highlighted == selected) {
+      g2.setColor(getToColor("highlight"));
+    } else {
       g2.setColor(getFadeColor("highlight"));
-      g2.fillRect(x + ts * highlighted, y, h, h);
-
-      /*
-       * Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
-       * 
-       * try { g2Temp.setColor(getFade().getFadeColor("highlight"));
-       * g2Temp.fillOval(x + mTabs.mTabSize * highlighted, y, h, h); } finally {
-       * g2Temp.dispose(); }
-       */
     }
+
+    g2.fillRect(x + ts * highlighted, y, h, h);
+
+    /*
+     * Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
+     * 
+     * try { g2Temp.setColor(getFade().getFadeColor("highlight")); g2Temp.fillOval(x
+     * + mTabs.mTabSize * highlighted, y, h, h); } finally { g2Temp.dispose(); }
+     */
   }
 }

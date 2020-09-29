@@ -16,9 +16,7 @@ public class MacScrollAnimation extends HoverFadeAnimation {
   public MacScrollAnimation(ModernScrollBar scrollbar) {
     super(scrollbar);
 
-    setFadeColor("highlight",
-        ROUNDED_SCROLLBAR_COLOR_1,
-        ModernVScrollBarMac.ROUNDED_SCROLLBAR_COLOR);
+    setFadeColor("highlight", ROUNDED_SCROLLBAR_COLOR_1, ModernVScrollBarMac.ROUNDED_SCROLLBAR_COLOR);
   }
 
   /*

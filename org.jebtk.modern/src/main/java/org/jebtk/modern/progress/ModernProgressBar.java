@@ -39,8 +39,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * The class ModernProgressBar.
  */
-public class ModernProgressBar extends ModernWidget
-    implements ProgressEventListener {
+public class ModernProgressBar extends ModernWidget implements ProgressEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -91,8 +90,7 @@ public class ModernProgressBar extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   public void drawForegroundAA(Graphics2D g2) {
     int w = getWidth() - this.getInsets().left - this.getInsets().right;
@@ -113,8 +111,7 @@ public class ModernProgressBar extends ModernWidget
       return;
     }
 
-    Rectangle rect = new Rectangle(this.getInsets().left, this.getInsets().top,
-        width, h);
+    Rectangle rect = new Rectangle(this.getInsets().left, this.getInsets().top, width, h);
 
     paintSelected(g2, rect);
   }

@@ -22,10 +22,7 @@ public class RadioOutlineAnimation extends ButtonOutlineAnimation {
       Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
       try {
-        outline(widget,
-            g2Temp,
-            new IntRect(x, y, RadioAnimation.RADIO_SIZE,
-                RadioAnimation.RADIO_SIZE));
+        outline(widget, g2Temp, new IntRect(x, y, RadioAnimation.RADIO_SIZE, RadioAnimation.RADIO_SIZE));
       } finally {
         g2Temp.dispose();
       }

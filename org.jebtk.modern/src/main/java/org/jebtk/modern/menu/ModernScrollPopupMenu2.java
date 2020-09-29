@@ -155,8 +155,7 @@ public class ModernScrollPopupMenu2 extends ModernPopupMenu2 {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.menu.ModernPopup#showPopup(javax.swing.JComponent)
+   * @see org.abh.lib.ui.modern.menu.ModernPopup#showPopup(javax.swing.JComponent)
    */
   private void setSize() {
 
@@ -164,8 +163,7 @@ public class ModernScrollPopupMenu2 extends ModernPopupMenu2 {
     int w = 0;
 
     for (int i = 0; i < mScrollMenuPanel.getComponentCount(); ++i) {
-      w = Math.max(w,
-          mScrollMenuPanel.getComponent(i).getPreferredSize().width);
+      w = Math.max(w, mScrollMenuPanel.getComponent(i).getPreferredSize().width);
 
       h += mScrollMenuPanel.getComponent(i).getPreferredSize().height;
     }

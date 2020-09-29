@@ -38,8 +38,7 @@ import org.jebtk.modern.window.WindowService;
 /**
  * The class ModernWindowTitleBarMaxButton.
  */
-public class RibbonTitleBarMaxButton extends RibbonTitleBarButton
-    implements ModernClickListener {
+public class RibbonTitleBarMaxButton extends RibbonTitleBarButton implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.

@@ -36,8 +36,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ModernSelectionListeners
-    extends EventProducer<ModernSelectionListener>
+public class ModernSelectionListeners extends EventProducer<ModernSelectionListener>
     implements ModernSelectionEventProducer {
 
   /**
@@ -60,8 +59,7 @@ public class ModernSelectionListeners
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.event.ModernSelectionEventProducer#
-   * removeSelectionListener(org.abh.lib.ui.modern.event.
-   * ModernSelectionListener)
+   * removeSelectionListener(org.abh.lib.ui.modern.event. ModernSelectionListener)
    */
   @Override
   public void removeSelectionListener(ModernSelectionListener l) {

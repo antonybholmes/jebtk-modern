@@ -40,9 +40,9 @@ public class ShapeCenteredRectangle extends ShapeRectangle {
   /**
    * Instantiates a new shape centered rectangle.
    *
-   * @param x the x
-   * @param y the y
-   * @param width the width
+   * @param x      the x
+   * @param y      the y
+   * @param width  the width
    * @param height the height
    */
   public ShapeCenteredRectangle(int x, int y, int width, int height) {

@@ -44,8 +44,7 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes
  *
  */
-public class RibbonColorSwatchButton extends RibbonDropDownButton
-    implements ModernClickListener {
+public class RibbonColorSwatchButton extends RibbonDropDownButton implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -70,7 +69,7 @@ public class RibbonColorSwatchButton extends RibbonDropDownButton
    * Instantiates a new color swatch button.
    *
    * @param parent the parent
-   * @param color the color
+   * @param color  the color
    */
   public RibbonColorSwatchButton(ModernWindow parent, Color color) {
     super("Color Swatch");
@@ -87,8 +86,7 @@ public class RibbonColorSwatchButton extends RibbonDropDownButton
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
    * awt. Graphics2D)
    */
   @Override
@@ -116,8 +114,7 @@ public class RibbonColorSwatchButton extends RibbonDropDownButton
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override
@@ -128,8 +125,7 @@ public class RibbonColorSwatchButton extends RibbonDropDownButton
     repaint();
 
     if (e.getMessage().equals(ColorSelectionModel.COLOR_CHANGED)) {
-      fireClicked(
-          new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
     }
   }
 

@@ -46,8 +46,7 @@ import org.jebtk.modern.text.TextProperty;
  *
  * @author Antony Holmes
  */
-public class ModernCheckButton extends ModernTwoStateWidget
-    implements TextProperty {
+public class ModernCheckButton extends ModernTwoStateWidget implements TextProperty {
 
   /**
    * The constant serialVersionUID.
@@ -132,8 +131,7 @@ public class ModernCheckButton extends ModernTwoStateWidget
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -176,7 +174,7 @@ public class ModernCheckButton extends ModernTwoStateWidget
   /**
    * Instantiates a new modern check button.
    *
-   * @param text1 the text1
+   * @param text1    the text1
    * @param selected the selected
    */
   public ModernCheckButton(String text1, boolean selected) {
@@ -206,7 +204,7 @@ public class ModernCheckButton extends ModernTwoStateWidget
    * Instantiates a new modern check button.
    *
    * @param text1 the text1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernCheckButton(String text1, ModernIcon icon) {
     this(text1, icon, false);
@@ -215,8 +213,8 @@ public class ModernCheckButton extends ModernTwoStateWidget
   /**
    * Instantiates a new modern check button.
    *
-   * @param text1 the text1
-   * @param icon the icon
+   * @param text1    the text1
+   * @param icon     the icon
    * @param selected the selected
    */
   public ModernCheckButton(String text1, ModernIcon icon, boolean selected) {
@@ -309,8 +307,7 @@ public class ModernCheckButton extends ModernTwoStateWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

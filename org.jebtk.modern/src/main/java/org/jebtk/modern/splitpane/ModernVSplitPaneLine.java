@@ -48,13 +48,13 @@ public class ModernVSplitPaneLine extends VSplitPane {
    * @Override public void drawBackgroundAA(Graphics2D g2) {
    * g2.setColor(LIGHT_LINE_COLOR);
    * 
-   * int x = getInsets().left; int h = getInternalRect().getH(); int y = 0; int
-   * x2 = getWidth() - getInsets().right;
+   * int x = getInsets().left; int h = getInternalRect().getH(); int y = 0; int x2
+   * = getWidth() - getInsets().right;
    * 
    * 
    * 
-   * for (int i = 0; i < mDividerLocations.size() - 1; ++i) { y =
-   * getInsets().top + (int)(h * mDividerLocations.get(i));
+   * for (int i = 0; i < mDividerLocations.size() - 1; ++i) { y = getInsets().top
+   * + (int)(h * mDividerLocations.get(i));
    * 
    * g2.drawLine(x, y, x2, y); } }
    */

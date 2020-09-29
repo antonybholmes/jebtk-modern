@@ -52,7 +52,7 @@ public class ModernToolTip {
    * Instantiates a new modern tool tip.
    *
    * @param title the title
-   * @param text the text
+   * @param text  the text
    */
   public ModernToolTip(String title, String text) {
     mTitle = title;

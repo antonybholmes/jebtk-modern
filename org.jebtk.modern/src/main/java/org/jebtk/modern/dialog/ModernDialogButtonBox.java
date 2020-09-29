@@ -57,8 +57,7 @@ public class ModernDialogButtonBox extends ModernWidget {
   /**
    * The constant COLOR.
    */
-  private static final Color COLOR = ThemeService.getInstance().getColors()
-      .getGray(4);
+  private static final Color COLOR = ThemeService.getInstance().getColors().getGray(4);
 
   /**
    * Instantiates a new modern dialog button box.
@@ -72,7 +71,7 @@ public class ModernDialogButtonBox extends ModernWidget {
   /**
    * Instantiates a new modern dialog button box.
    *
-   * @param c the c
+   * @param c     the c
    * @param color the color
    */
   public ModernDialogButtonBox(JComponent c, Color color) {
@@ -84,8 +83,7 @@ public class ModernDialogButtonBox extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawBackgroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawBackground(Graphics2D g2) {

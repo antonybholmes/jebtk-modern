@@ -20,8 +20,7 @@ import org.jebtk.modern.table.header.ModernTableHeaderRowCellRenderer;
 /**
  * The Class ModernTableRowHeadingRendererModel.
  */
-public class ModernTableRowHeadingRendererModel
-    extends ModernTableHeadingRendererModel {
+public class ModernTableRowHeadingRendererModel extends ModernTableHeadingRendererModel {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;

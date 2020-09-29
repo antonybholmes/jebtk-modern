@@ -43,8 +43,8 @@ import org.jebtk.modern.menu.ModernPopupMenu2;
  * @author Antony Holmes
  *
  */
-public class RibbonLargeOptionalDropDownButton2
-    extends ModernOptionalDropDownMenuButton2 implements RibbonModeProperty {
+public class RibbonLargeOptionalDropDownButton2 extends ModernOptionalDropDownMenuButton2
+    implements RibbonModeProperty {
 
   /**
    * The constant serialVersionUID.
@@ -72,8 +72,7 @@ public class RibbonLargeOptionalDropDownButton2
    * @param icon the icon
    * @param menu the menu
    */
-  public RibbonLargeOptionalDropDownButton2(ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public RibbonLargeOptionalDropDownButton2(ModernIcon icon, ModernPopupMenu2 menu) {
     super(icon, menu);
 
     setup();
@@ -83,11 +82,10 @@ public class RibbonLargeOptionalDropDownButton2
    * Instantiates a new ribbon large drop down menu button2.
    *
    * @param text1 the text 1
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public RibbonLargeOptionalDropDownButton2(String text1, ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public RibbonLargeOptionalDropDownButton2(String text1, ModernIcon icon, ModernPopupMenu2 menu) {
     super(text1, icon, menu);
 
     mText = text1;
@@ -95,8 +93,7 @@ public class RibbonLargeOptionalDropDownButton2
     setup();
   }
 
-  public RibbonLargeOptionalDropDownButton2(String text1,
-      ModernPopupMenu2 menu) {
+  public RibbonLargeOptionalDropDownButton2(String text1, ModernPopupMenu2 menu) {
     super(text1, menu);
 
     mText = text1;
@@ -109,11 +106,10 @@ public class RibbonLargeOptionalDropDownButton2
    *
    * @param text1 the text 1
    * @param text2 the text 2
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public RibbonLargeOptionalDropDownButton2(String text1, String text2,
-      ModernIcon icon, ModernPopupMenu2 menu) {
+  public RibbonLargeOptionalDropDownButton2(String text1, String text2, ModernIcon icon, ModernPopupMenu2 menu) {
     super(text1, icon, menu);
 
     mText2 = text2;
@@ -137,7 +133,7 @@ public class RibbonLargeOptionalDropDownButton2
 
     addToStyleClass("ribbon-button");
 
-    //setAnimations("ribbon-optional-dropdown-button-2");
+    // setAnimations("ribbon-optional-dropdown-button-2");
   }
 
   /**
@@ -233,17 +229,17 @@ public class RibbonLargeOptionalDropDownButton2
    * 
    * int x = 0; int y = mRect.getY(); int h = mRect.getH(); int w = 0;
    * 
-   * if (mPrimaryButton || mPopupShown) { x = mRect.getX(); w = mDividerLocation
-   * - mRect.getX(); } else if (mHighlight) { x = mDividerLocation; w =
-   * mRect.getW() - mDividerLocation; } else { // do nothing }
+   * if (mPrimaryButton || mPopupShown) { x = mRect.getX(); w = mDividerLocation -
+   * mRect.getX(); } else if (mHighlight) { x = mDividerLocation; w = mRect.getW()
+   * - mDividerLocation; } else { // do nothing }
    * 
    * if (isSelected() || mPopupShown) { //paintHighlighted(g2, rect);
    * 
    * getWidgetRenderer().drawRibbonButton(g2, rect, RenderMode.SELECTED);
    * 
    * } else if (mHighlight) { getWidgetRenderer().drawRibbonButtonOutline(g2,
-   * rect, RenderMode.SELECTED); getWidgetRenderer().drawRibbonButton(g2, x, y,
-   * w, h, RenderMode.SELECTED);
+   * rect, RenderMode.SELECTED); getWidgetRenderer().drawRibbonButton(g2, x, y, w,
+   * h, RenderMode.SELECTED);
    * 
    * //paintHighlightedBorder(g2, rect); //paintHighlighted(g2, x, y, w, h); }
    * else {
@@ -256,8 +252,7 @@ public class RibbonLargeOptionalDropDownButton2
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
    * awt. Graphics2D)
    */
   @Override
@@ -327,8 +322,7 @@ public class RibbonLargeOptionalDropDownButton2
       x = (getWidth() - TRIANGLE_ICON.getWidth()) / 2;
       y = getHeight() - TRIANGLE_ICON.getHeight() - PADDING;
     } else {
-      x = getWidth() - (mSecondaryButtonWidth - TRIANGLE_ICON.getWidth()) / 2
-          - TRIANGLE_ICON.getWidth();
+      x = getWidth() - (mSecondaryButtonWidth - TRIANGLE_ICON.getWidth()) / 2 - TRIANGLE_ICON.getWidth();
       y = (getHeight() - TRIANGLE_ICON.getHeight()) / 2;
     }
 

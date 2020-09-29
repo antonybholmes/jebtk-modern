@@ -81,8 +81,7 @@ public class ColorRangeSlider extends ContinuousMacOrbSlider {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -107,7 +106,7 @@ public class ColorRangeSlider extends ContinuousMacOrbSlider {
   /**
    * Instantiates a new color range panel.
    *
-   * @param model the model
+   * @param model   the model
    * @param channel the channel
    */
   public ColorRangeSlider(ColorSelectionModel model, ColorChannel channel) {
@@ -140,18 +139,15 @@ public class ColorRangeSlider extends ContinuousMacOrbSlider {
 
         switch (mChannel) {
         case RED:
-          mPaint = new GradientPaint(x1, 0,
-              new Color(0, mColorValue.mGreen, mColorValue.mBlue), x2, 0,
+          mPaint = new GradientPaint(x1, 0, new Color(0, mColorValue.mGreen, mColorValue.mBlue), x2, 0,
               new Color(255, mColorValue.mGreen, mColorValue.mBlue));
           break;
         case GREEN:
-          mPaint = new GradientPaint(x1, 0,
-              new Color(mColorValue.mRed, 0, mColorValue.mBlue), x2, 0,
+          mPaint = new GradientPaint(x1, 0, new Color(mColorValue.mRed, 0, mColorValue.mBlue), x2, 0,
               new Color(mColorValue.mRed, 255, mColorValue.mBlue));
           break;
         default:
-          mPaint = new GradientPaint(x1, 0,
-              new Color(mColorValue.mRed, mColorValue.mGreen, 0), x2, 0,
+          mPaint = new GradientPaint(x1, 0, new Color(mColorValue.mRed, mColorValue.mGreen, 0), x2, 0,
               new Color(mColorValue.mRed, mColorValue.mGreen, 255));
           break;
         }
@@ -164,8 +160,7 @@ public class ColorRangeSlider extends ContinuousMacOrbSlider {
   /*
    * (non-Javadoc)
    * 
-   * @see org.abh.common.ui.slider.MacOrbSlider#drawBar(java.awt.Graphics2D,
-   * int)
+   * @see org.abh.common.ui.slider.MacOrbSlider#drawBar(java.awt.Graphics2D, int)
    */
   @Override
   protected void drawBar(Graphics2D g2, int p) {
@@ -176,11 +171,6 @@ public class ColorRangeSlider extends ContinuousMacOrbSlider {
 
     g2.setPaint(mPaint);
 
-    g2.fillRoundRect(x,
-        y,
-        p - x + mSliderRadius,
-        mBarHeight,
-        mBarHeight,
-        mBarHeight);
+    g2.fillRoundRect(x, y, p - x + mSliderRadius, mBarHeight, mBarHeight, mBarHeight);
   }
 }

@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class CanvasCursorListeners extends EventProducer<CanvasCursorListener>
-    implements CanvasCursorEventProducer {
+public class CanvasCursorListeners extends EventProducer<CanvasCursorListener> implements CanvasCursorEventProducer {
 
   /**
    * The constant serialVersionUID.

@@ -25,12 +25,7 @@ public class RadioSelectedAnimation extends ButtonFillAnimation {
       Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
       try {
-        fill(widget,
-            g2Temp,
-            x,
-            y,
-            RadioAnimation.RADIO_SIZE,
-            RadioAnimation.RADIO_SIZE);
+        fill(widget, g2Temp, x, y, RadioAnimation.RADIO_SIZE, RadioAnimation.RADIO_SIZE);
       } finally {
         g2Temp.dispose();
       }

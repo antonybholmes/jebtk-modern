@@ -43,7 +43,6 @@ public abstract class TranslateYAnimation extends TranslateAnimation {
    */
   @Override
   public void translate(Graphics2D g2) {
-    g2.translate(getWidget().getInsets().left,
-        getWidget().getInsets().top + getX());
+    g2.translate(getWidget().getInsets().left, getWidget().getInsets().top + getX());
   }
 }

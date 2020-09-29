@@ -56,7 +56,7 @@ public class SegmentPressedAnimation extends ButtonPressedAnimation {
     }
 
     double r = TranslateAnimation.BEZ_T[getStep()]; // /
-                                                    // (double)TimerAnimation.AnimationTimer.STEPS;
+    // (double)TimerAnimation.AnimationTimer.STEPS;
 
     int w = mTabs.mTabSize;
 

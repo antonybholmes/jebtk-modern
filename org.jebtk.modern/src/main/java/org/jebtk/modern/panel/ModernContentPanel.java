@@ -56,7 +56,7 @@ public class ModernContentPanel extends ModernComponent {
    */
   public ModernContentPanel(Component c) {
     super(new ModernComponent(c, ModernWidget.DOUBLE_BORDER));
-    
+
     init();
   }
 
@@ -69,12 +69,12 @@ public class ModernContentPanel extends ModernComponent {
    */
   public ModernContentPanel(ModernScrollPane c, int w, int h) {
     this(c);
-    
+
     init();
 
     UI.setSize(this, w, h);
   }
-  
+
   private void init() {
     addStyleClass("content-box");
   }

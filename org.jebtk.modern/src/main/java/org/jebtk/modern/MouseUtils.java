@@ -42,8 +42,8 @@ public class MouseUtils {
    * @return the mouse event
    */
   public static MouseEvent updateXY(final MouseEvent e, int x, int y) {
-    return new MouseEvent(e.getComponent(), e.getID(), e.getWhen(),
-        e.getModifiers(), x, y, e.getClickCount(), e.isPopupTrigger());
+    return new MouseEvent(e.getComponent(), e.getID(), e.getWhen(), e.getModifiers(), x, y, e.getClickCount(),
+        e.isPopupTrigger());
   }
 
   /**
@@ -58,8 +58,7 @@ public class MouseUtils {
   }
 
   /**
-   * Returns true if the Ctrl key is pressed whilst the mouse event is
-   * triggered.
+   * Returns true if the Ctrl key is pressed whilst the mouse event is triggered.
    * 
    * @param e
    * @return

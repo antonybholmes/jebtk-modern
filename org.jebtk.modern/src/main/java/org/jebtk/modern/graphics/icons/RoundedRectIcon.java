@@ -43,8 +43,7 @@ import org.jebtk.modern.theme.MaterialService;
 public class RoundedRectIcon extends ModernVectorScalableIcon {
 
   /** The Constant ROUNDING. */
-  private static final int ROUNDING = MaterialService.instance().getInts()
-      .cornerRadius();
+  private static final int ROUNDING = MaterialService.instance().getInts().cornerRadius();
 
   /**
    * Instantiates a new rounded rect icon.
@@ -60,8 +59,7 @@ public class RoundedRectIcon extends ModernVectorScalableIcon {
    * @param color2 the color 2
    */
   public RoundedRectIcon(Color color1, Color color2) {
-    super(color1 != null ? color1 : Color.WHITE,
-        color2 != null ? color2 : ModernWidget.LINE_COLOR);
+    super(color1 != null ? color1 : Color.WHITE, color2 != null ? color2 : ModernWidget.LINE_COLOR);
 
   }
 
@@ -73,12 +71,7 @@ public class RoundedRectIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     g2.setColor(mColor1);
     g2.fillRoundRect(x, y, w, h, ROUNDING, ROUNDING);
 

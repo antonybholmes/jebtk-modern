@@ -53,8 +53,7 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
   private static final long serialVersionUID = 1L;
 
   /** The Constant COLOR_PICKER_BACKGROUND. */
-  public static final Color COLOR_PICKER_BACKGROUND = ThemeService.getInstance()
-      .getColors().getGray(1);
+  public static final Color COLOR_PICKER_BACKGROUND = ThemeService.getInstance().getColors().getGray(1);
 
   /**
    * The member color picker.
@@ -80,7 +79,7 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
    * Instantiates a new color popup menu.
    *
    * @param parent the parent
-   * @param color the color
+   * @param color  the color
    */
   public ColorPopupMenu2(ModernWindow parent, Color color) {
     mParent = parent;
@@ -136,8 +135,7 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
     // UIService.getInstance().loadIcon("color_wheel", 16))
     // .getBackgroundAnimations().set("color-menu-fade"));
 
-    add(new ModernIconMenuItem("More Colors...",
-        AssetService.getInstance().loadIcon("color_wheel", 16)));
+    add(new ModernIconMenuItem("More Colors...", AssetService.getInstance().loadIcon("color_wheel", 16)));
 
     mColorPicker.addClickListener(this);
     mStandardColorPicker.addClickListener(this);
@@ -157,18 +155,15 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
     if (e.getSource().equals(mColorPicker)) {
       mColor = mColorPicker.getSelectedColor();
 
-      fireClicked(
-          new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
     } else if (e.getSource().equals(mStandardColorPicker)) {
       mColor = mStandardColorPicker.getSelectedColor();
 
-      fireClicked(
-          new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
     } else if (e.getMessage().equals("No Color")) {
       mColor = null;
 
-      fireClicked(
-          new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+      fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
     } else if (e.getMessage().equals("More Colors...")) {
       ColorDialog dialog = new ColorDialog(mParent, mColor);
 
@@ -177,8 +172,7 @@ public class ColorPopupMenu2 extends ModernPopupMenu2 {
       if (dialog.getStatus() == ModernDialogStatus.OK) {
         mColor = dialog.getColor();
 
-        fireClicked(
-            new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
+        fireClicked(new ModernClickEvent(this, ColorSelectionModel.COLOR_CHANGED));
       }
     } else {
       // do nothing

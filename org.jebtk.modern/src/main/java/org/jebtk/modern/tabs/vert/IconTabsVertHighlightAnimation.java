@@ -48,8 +48,7 @@ public class IconTabsVertHighlightAnimation extends HighlightAnimation {
 
     mTabs = (IconVertTabs) w;
 
-    setFadeColor("highlight",
-        ColorUtils.getTransparentColor(Color.BLACK, 0.95));
+    setFadeColor("highlight", ColorUtils.getTransparentColor(Color.BLACK, 0.95));
   }
 
   /*
@@ -63,9 +62,9 @@ public class IconTabsVertHighlightAnimation extends HighlightAnimation {
 
     int x = mTabs.getInsets().left;
     int h = mTabs.getInternalRect().getH();
-    //nt is = mTabs.getIconSize();
+    // nt is = mTabs.getIconSize();
     int ts = mTabs.getTabSize();
-    
+
     int y = mTabs.getHeight() - mTabs.getInsets().bottom - ts;
 
     int highlighted = mTabs.getHighlightIndex();
@@ -76,18 +75,17 @@ public class IconTabsVertHighlightAnimation extends HighlightAnimation {
     //
 
     if (highlighted != -1 && highlighted != selected) {
-      //g2.setColor(getFadeColor("highlight"));
-      //g2.fillRect(x, y - mTabs.getTabSize() * highlighted, h, h);
-      
-      DrawUIService.getInstance().getRenderer("circle-fill")
-      .draw(g2, new IntRect(x, y - ts * highlighted, h, h), getFadeColor("highlight"));
+      // g2.setColor(getFadeColor("highlight"));
+      // g2.fillRect(x, y - mTabs.getTabSize() * highlighted, h, h);
+
+      DrawUIService.getInstance().getRenderer("circle-fill").draw(g2, new IntRect(x, y - ts * highlighted, h, h),
+          getFadeColor("highlight"));
 
       /*
        * Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
        * 
-       * try { g2Temp.setColor(getFade().getFadeColor("highlight"));
-       * g2Temp.fillOval(x + mTabs.mTabSize * highlighted, y, h, h); } finally {
-       * g2Temp.dispose(); }
+       * try { g2Temp.setColor(getFade().getFadeColor("highlight")); g2Temp.fillOval(x
+       * + mTabs.mTabSize * highlighted, y, h, h); } finally { g2Temp.dispose(); }
        */
     }
   }

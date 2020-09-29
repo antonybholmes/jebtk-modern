@@ -67,10 +67,8 @@ public class SearchTermsXmlHandler extends DefaultHandler {
    * java.lang.String, java.lang.String, org.xml.sax.Attributes)
    */
   @Override
-  public final void startElement(String uri,
-      String localName,
-      String qName,
-      Attributes attributes) throws SAXException {
+  public final void startElement(String uri, String localName, String qName, Attributes attributes)
+      throws SAXException {
 
     termMode = qName.equals("term");
   }
@@ -82,8 +80,7 @@ public class SearchTermsXmlHandler extends DefaultHandler {
    * java.lang.String, java.lang.String)
    */
   @Override
-  public final void endElement(String uri, String localName, String qName)
-      throws SAXException {
+  public final void endElement(String uri, String localName, String qName) throws SAXException {
 
     termMode = false;
   }

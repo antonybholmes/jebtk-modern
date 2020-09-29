@@ -73,19 +73,15 @@ public class RibbonSegmentChangeAnimation extends TranslateYAnimation {
       previousIndex = selectedIndex;
     }
 
-    int y1 = mTabs.getInsets().top
-        + previousIndex * RibbonSegmentVertTabs.TAB_SIZE;
+    int y1 = mTabs.getInsets().top + previousIndex * RibbonSegmentVertTabs.TAB_SIZE;
 
-    int y2 = mTabs.getInsets().top
-        + selectedIndex * RibbonSegmentVertTabs.TAB_SIZE;
+    int y2 = mTabs.getInsets().top + selectedIndex * RibbonSegmentVertTabs.TAB_SIZE;
 
     restart(y1, y2);
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget,
-      Graphics2D g2,
-      Props props) {
+  public void drawTranslation(ModernWidget widget, Graphics2D g2, Props props) {
     /*
      * int w = mTabs.getInternalRect().getW();
      * 
@@ -98,10 +94,6 @@ public class RibbonSegmentChangeAnimation extends TranslateYAnimation {
     // g2.fillRect(0, 0, WIDTH, RibbonSegmentVertTabs.TAB_SIZE);
 
     DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-        new IntRect(0,
-        0,
-        WIDTH,
-        RibbonSegmentVertTabs.TAB_SIZE),
-        Ribbon.BAR_BACKGROUND);
+        new IntRect(0, 0, WIDTH, RibbonSegmentVertTabs.TAB_SIZE), Ribbon.BAR_BACKGROUND);
   }
 }

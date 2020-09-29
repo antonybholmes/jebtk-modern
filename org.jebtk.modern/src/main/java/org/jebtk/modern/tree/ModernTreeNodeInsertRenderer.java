@@ -49,16 +49,14 @@ public class ModernTreeNodeInsertRenderer extends ModernTreeNodeRenderer {
   /**
    * Obtains a renderer for the tree node.
    *
-   * @param tree the tree control.
+   * @param tree  the tree control.
    * @param depth the nested depth of the node.
-   * @param row the row
+   * @param row   the row
    * @return the renderer
    * @Param hasFocus whether the tree has focus or not, as this can determine
    *        color.
    */
-  public ModernTreeNodeInsertRenderer getRenderer(Tree<?> tree,
-      int depth,
-      int row) {
+  public ModernTreeNodeInsertRenderer getRenderer(Tree<?> tree, int depth, int row) {
     mDepth = depth;
     mRow = row;
 

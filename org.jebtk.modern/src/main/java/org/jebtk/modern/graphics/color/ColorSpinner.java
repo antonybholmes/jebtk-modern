@@ -76,8 +76,7 @@ public class ColorSpinner extends ModernCompactSpinner {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -102,7 +101,7 @@ public class ColorSpinner extends ModernCompactSpinner {
   /**
    * Instantiates a new color spinner.
    *
-   * @param model the model
+   * @param model   the model
    * @param channel the channel
    */
   public ColorSpinner(ColorSelectionModel model, ColorChannel channel) {

@@ -39,10 +39,10 @@ public class LinearTransitionTimer implements TransitionTimer {
   @Override
   public double nextT(boolean forward) {
     if (forward) {
-      return Math.min(mT  + mInc, 1);
+      return Math.min(mT + mInc, 1);
     } else {
       return Math.max(mT - mInc, 0);
     }
-    
+
   }
 }

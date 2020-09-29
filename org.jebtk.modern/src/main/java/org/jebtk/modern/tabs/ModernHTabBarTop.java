@@ -58,8 +58,7 @@ public class ModernHTabBarTop extends ModernHTabBar {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -111,9 +110,7 @@ public class ModernHTabBarTop extends ModernHTabBar {
 
       g2.setColor(TEXT_COLOR);
       g2.drawString(getTabsModel().getTab(i).getName(),
-          tabX + (TAB_WIDTH - ModernWidget.getStringWidth(g2,
-              getTabsModel().getTab(i).getName())) / 2,
-          textY);
+          tabX + (TAB_WIDTH - ModernWidget.getStringWidth(g2, getTabsModel().getTab(i).getName())) / 2, textY);
 
       tabX += TAB_WIDTH;
     }

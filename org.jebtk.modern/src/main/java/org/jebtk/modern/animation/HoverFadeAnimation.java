@@ -42,9 +42,8 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
     /*
      * widget.addFocusListener(new FocusListener() {
      * 
-     * @Override public void focusGained(FocusEvent e) { // If the button
-     * regains focus, it means a dialog etc was mPressed = false;
-     * //pseudoMouseExited(); }
+     * @Override public void focusGained(FocusEvent e) { // If the button regains
+     * focus, it means a dialog etc was mPressed = false; //pseudoMouseExited(); }
      * 
      * @Override public void focusLost(FocusEvent e) {
      * //System.err.println("f loss "); }});
@@ -54,7 +53,7 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
   /**
    * Set a fade in color.
    *
-   * @param name the name
+   * @param name  the name
    * @param color the color
    */
   public void setFadeColor(String name, Color color) {
@@ -115,9 +114,9 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
 //    } else {
 //      mFade.fadeIn();
 //    }
-    
+
     mFade.fadeIn();
-    
+
     super.animateMouseEntered();
   }
 
@@ -128,7 +127,7 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
    */
   @Override
   public void animateMouseExited() {
-    mFade.setStep(0); //reset(); //fadeOut();
+    mFade.setStep(0); // reset(); //fadeOut();
 
     super.animateMouseExited();
   }
@@ -146,9 +145,9 @@ public abstract class HoverFadeAnimation extends HoverAnimation {
 //    mFade.setStep(step);
 //  }
 
-  //public void reset() {
-  //  mFade.reset();
-  //}
+  // public void reset() {
+  // mFade.reset();
+  // }
 
   public void opaque() {
     mFade.opaque();

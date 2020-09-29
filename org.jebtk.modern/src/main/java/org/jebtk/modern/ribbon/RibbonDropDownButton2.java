@@ -55,7 +55,7 @@ public class RibbonDropDownButton2 extends ModernDropDownButton2 {
    * Instantiates a new ribbon drop down button.
    *
    * @param text1 the text 1
-   * @param menu the menu
+   * @param menu  the menu
    */
   public RibbonDropDownButton2(String text1, ModernPopupMenu2 menu) {
     super(text1, menu);
@@ -68,10 +68,9 @@ public class RibbonDropDownButton2 extends ModernDropDownButton2 {
    *
    * @param text1 the text 1
    * @param text2 the text 2
-   * @param menu the menu
+   * @param menu  the menu
    */
-  public RibbonDropDownButton2(String text1, String text2,
-      ModernPopupMenu2 menu) {
+  public RibbonDropDownButton2(String text1, String text2, ModernPopupMenu2 menu) {
     super(text1, menu);
 
     setup();

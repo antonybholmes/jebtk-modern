@@ -32,8 +32,7 @@ import org.jebtk.modern.tabs.IconTabs;
  */
 public class IconTabsVertAnimation extends HoverFadeAnimation {
 
-  private static final Color BACKGROUND = ColorUtils
-      .getTransparentColor(Color.BLACK, 0.95); // ThemeService.getInstance().getColors().getHighlight(2);
+  private static final Color BACKGROUND = ColorUtils.getTransparentColor(Color.BLACK, 0.95); // ThemeService.getInstance().getColors().getHighlight(2);
 
   private IconTabs mTabs;
 

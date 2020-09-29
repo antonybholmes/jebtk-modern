@@ -31,97 +31,75 @@ import org.jebtk.modern.ModernComponent;
 public abstract class DrawUI implements NameGetter {
 
   /** The Constant LINE_COLOR. */
-  public static final Color LINE_COLOR = ThemeService.getInstance().getColors()
-      .getLineColor();
+  public static final Color LINE_COLOR = ThemeService.getInstance().getColors().getLineColor();
 
   /**
    * Draw a portion of the widget UI.
    *
-   * @param g2 the g 2
-   * @param rect the rect
-   * @param props the props
+   * @param g2    the g 2
+   * @param rect  the rect
+   * @param Props the props
    */
   public void draw(Graphics2D g2, IntRect rect) {
-    draw(g2, rect, (Props)null);
+    draw(g2, rect, (Props) null);
   }
-  
+
   public void draw(Graphics2D g2, Color color) {
     draw(null, g2, new Props().set("color", color));
   }
-  
+
   public void draw(Graphics2D g2, IntRect rect, Color color) {
     draw(g2, rect, new Props().set("color", color));
   }
-  
+
   public void draw(Graphics2D g2, IntRect rect, Props props) {
     draw(null, g2, rect, props);
   }
-  
-  public void draw(ModernComponent c, 
-      Graphics2D g2) {
-    draw(c, g2, (Props)null);
+
+  public void draw(ModernComponent c, Graphics2D g2) {
+    draw(c, g2, (Props) null);
   }
-  
-  public void draw(ModernComponent c, 
-      Graphics2D g2, 
-      Color color) {
+
+  public void draw(ModernComponent c, Graphics2D g2, Color color) {
     draw(c, g2, new Props().set("color", color));
   }
 
-  public void draw(ModernComponent c, 
-      Graphics2D g2, 
-      Props props) {
+  public void draw(ModernComponent c, Graphics2D g2, Props props) {
     draw(c, g2, c.getRect(), props);
   }
-  
-  public void draw(ModernComponent c,
-      Graphics2D g2, 
-      IntRect rect) {
-    draw(c, g2, rect, (Props)null);
+
+  public void draw(ModernComponent c, Graphics2D g2, IntRect rect) {
+    draw(c, g2, rect, (Props) null);
   }
 
-  public void draw(ModernComponent c,
-      Graphics2D g2, 
-      IntRect rect, 
-      Color color) {
+  public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Color color) {
     draw(c, g2, rect, new Props().set("color", color));
   }
-  
+
   /**
    * Draw a portion of the widget UI.
    *
-   * @param g2 the g 2
-   * @param c the c
-   * @param rect the rect
-   * @param props the props
+   * @param g2    the g 2
+   * @param c     the c
+   * @param rect  the rect
+   * @param Props the props
    */
-  public void draw(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
     fill(c, g2, rect, props);
     outline(c, g2, rect, props);
   }
-  
-  public void fill(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect) {
+
+  public void fill(ModernComponent c, Graphics2D g2, IntRect rect) {
     fill(c, g2, rect, null);
   }
 
-  public void fill(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void fill(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
     if (g2.getColor() != null && g2.getColor().getAlpha() > 0) {
       g2.fillRect(rect.x, rect.y, rect.w, rect.h);
     }
   }
 
-  public void outline(ModernComponent c,
-      Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void outline(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
     if (g2.getColor() != null && g2.getColor().getAlpha() > 0) {
       g2.drawRect(rect.x, rect.y, rect.w - 1, rect.h - 1);
     }

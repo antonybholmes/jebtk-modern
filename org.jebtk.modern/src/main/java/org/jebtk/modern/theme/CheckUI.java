@@ -1,6 +1,5 @@
 package org.jebtk.modern.theme;
 
-import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.GeneralPath;
 
@@ -16,8 +15,7 @@ public class CheckUI extends DrawUI {
   /**
    * The constant TICK_SCALE.
    */
-  public static final double TICK_SCALE = SettingsService.getInstance()
-      .getDouble("theme.icons.check-icon.tick-scale");
+  public static final double TICK_SCALE = SettingsService.getInstance().getDouble("theme.icons.check-icon.tick-scale");
 
   @Override
   public String getName() {
@@ -25,15 +23,15 @@ public class CheckUI extends DrawUI {
   }
 
   @Override
-  public void draw(Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void draw(Graphics2D g2, IntRect rect, Props props) {
 
     double wf = rect.w * CHECK_SCALE;
     double t = wf * TICK_SCALE;
 
     double xf = rect.x + (rect.w - wf) / 2;
-    double yf = rect.x + (rect.h - wf) / 2;
+    double yf = rect.y + (rect.h - wf) / 2;
+    
+    System.err.println("check " + rect +  " " + wf + " " + yf);
 
     GeneralPath gp = new GeneralPath();
 

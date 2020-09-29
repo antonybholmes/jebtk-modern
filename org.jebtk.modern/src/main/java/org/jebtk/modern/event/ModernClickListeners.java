@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ModernClickListeners extends EventProducer<ModernClickListener>
-    implements ModernClickEventProducer {
+public class ModernClickListeners extends EventProducer<ModernClickListener> implements ModernClickEventProducer {
 
   /**
    * The constant serialVersionUID.

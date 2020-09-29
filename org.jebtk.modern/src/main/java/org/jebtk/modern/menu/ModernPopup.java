@@ -49,8 +49,7 @@ import org.jebtk.modern.event.ModernClickListeners;
  * @author Antony Holmes
  *
  */
-public class ModernPopup extends JPopupMenu
-    implements ModernClickListener, ModernClickEventProducer {
+public class ModernPopup extends JPopupMenu implements ModernClickListener, ModernClickEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -85,20 +84,20 @@ public class ModernPopup extends JPopupMenu
    * Show popup.
    *
    * @param component the component
-   * @param offsetX the offset x
-   * @param offsetY the offset y
+   * @param offsetX   the offset x
+   * @param offsetY   the offset y
    */
   public void showPopup(Component component, int offsetX, int offsetY) {
     showPopup((JComponent) component, offsetX, offsetY);
   }
 
   /**
-   * Each popup type should override this method to determine how the custom
-   * popup is placed by default.
+   * Each popup type should override this method to determine how the custom popup
+   * is placed by default.
    *
    * @param component the component
-   * @param offsetX the offset x
-   * @param offsetY the offset y
+   * @param offsetX   the offset x
+   * @param offsetY   the offset y
    */
   public void showPopup(JComponent component, int offsetX, int offsetY) {
     // System.err.println("show popup offset " + component.getInsets().left + "
@@ -112,7 +111,7 @@ public class ModernPopup extends JPopupMenu
    * Show popup.
    *
    * @param component the component
-   * @param pt the pt
+   * @param pt        the pt
    */
   public void showPopup(JComponent component, Point pt) {
     show(component, pt.x, pt.y);
@@ -145,8 +144,7 @@ public class ModernPopup extends JPopupMenu
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

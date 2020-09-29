@@ -94,8 +94,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabRemoved(org.abh.lib.ui.
      * modern. tabs.TabEvent)
      */
     @Override
@@ -106,8 +105,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabResized(org.abh.lib.ui.
      * modern. tabs.TabEvent)
      */
     @Override
@@ -118,8 +116,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.tabs.TabEventListener#tabChanged(org.abh.lib.ui.
      * modern. tabs.TabEvent)
      */
     @Override
@@ -158,11 +155,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * @param maxWidth
    * @return
    */
-  public Tabs add(String name,
-      JComponent c,
-      int width,
-      int minWidth,
-      int maxWidth) {
+  public Tabs add(String name, JComponent c, int width, int minWidth, int maxWidth) {
     return add(new SizableTab(name, c, width, minWidth, maxWidth));
   }
 
@@ -170,7 +163,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * Adds the tab.
    *
    * @param name the name
-   * @param c the c
+   * @param c    the c
    */
   public void add(String name, JComponent c) {
     add(new Tab(name, c));
@@ -204,7 +197,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * Replace tab.
    *
    * @param name the name
-   * @param c the c
+   * @param c    the c
    */
   public void replace(String name, JComponent c) {
     replace(new Tab(name, c));
@@ -337,7 +330,7 @@ public class Tabs extends TabEventListeners implements Iterable<Tab> {
    * Sets the.
    *
    * @param index the index
-   * @param pane the pane
+   * @param pane  the pane
    */
   public void set(int index, Tab pane) {
     mNameIndexMap.remove(mTabs.get(index).getName());

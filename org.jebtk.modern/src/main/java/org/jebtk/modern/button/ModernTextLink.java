@@ -53,9 +53,7 @@ public class ModernTextLink extends ModernLinkButton {
   @Override
   public void autoSize() {
     if (mIcon == null) {
-      UI.setSize(this,
-          ModernWidget.getStringWidth(getFont(), mText1),
-          ModernWidget.getStringHeight(getFont()));
+      UI.setSize(this, ModernWidget.getStringWidth(getFont(), mText1), ModernWidget.getStringHeight(getFont()));
     } else {
       super.autoSize();
     }
@@ -64,8 +62,7 @@ public class ModernTextLink extends ModernLinkButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   // @Override

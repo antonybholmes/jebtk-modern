@@ -58,8 +58,7 @@ public class ProductInfoTitleLabel extends ModernAutoSizeLabel {
    */
   private void setup() {
 
-    setBorder(BorderService.getInstance()
-        .createTopBottomBorder(ModernPanel.DOUBLE_PADDING));
+    setBorder(BorderService.getInstance().createTopBottomBorder(ModernPanel.DOUBLE_PADDING));
 
     setFont(ThemeService.loadFont("widget.title"));
   }

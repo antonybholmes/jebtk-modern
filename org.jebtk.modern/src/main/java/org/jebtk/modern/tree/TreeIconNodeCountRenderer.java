@@ -55,7 +55,7 @@ public class TreeIconNodeCountRenderer extends TreeIconNodeRenderer {
    * Instantiates a new tree icon node count renderer.
    *
    * @param parentIcon the parent icon
-   * @param leafIcon the leaf icon
+   * @param leafIcon   the leaf icon
    */
   public TreeIconNodeCountRenderer(ModernIcon parentIcon, ModernIcon leafIcon) {
     super(parentIcon, leafIcon);
@@ -64,8 +64,7 @@ public class TreeIconNodeCountRenderer extends TreeIconNodeRenderer {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
+   * @see org.abh.lib.ui.modern.tree.ModernTreeNodeRenderer#drawForegroundAA(java.
    * awt. Graphics2D)
    */
   @Override
@@ -83,8 +82,7 @@ public class TreeIconNodeCountRenderer extends TreeIconNodeRenderer {
     g2.setColor(getForeground());
 
     /*
-     * if (mNodeIsSelected) { g2.setFont(BOLD_FONT); } else { g2.setFont(FONT);
-     * }
+     * if (mNodeIsSelected) { g2.setFont(BOLD_FONT); } else { g2.setFont(FONT); }
      */
 
     g2.drawString(getTruncatedText(g2, text, 0, mRect.getW()), 0, p.y);
@@ -99,22 +97,9 @@ public class TreeIconNodeCountRenderer extends TreeIconNodeRenderer {
    * boolean, int, int)
    */
   @Override
-  public ModernTreeNodeRenderer getRenderer(Tree<?> tree,
-      TreeNode<?> node,
-      boolean nodeIsHighlighted,
-      boolean nodeIsSelected,
-      boolean hasFocus,
-      boolean isDragToNode,
-      int depth,
-      int row) {
-    super.getRenderer(tree,
-        node,
-        nodeIsHighlighted,
-        nodeIsSelected,
-        hasFocus,
-        isDragToNode,
-        depth,
-        row);
+  public ModernTreeNodeRenderer getRenderer(Tree<?> tree, TreeNode<?> node, boolean nodeIsHighlighted,
+      boolean nodeIsSelected, boolean hasFocus, boolean isDragToNode, int depth, int row) {
+    super.getRenderer(tree, node, nodeIsHighlighted, nodeIsSelected, hasFocus, isDragToNode, depth, row);
 
     if (node.isParent()) {
       mCount = node.getCumulativeChildCount();

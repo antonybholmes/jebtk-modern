@@ -41,8 +41,8 @@ public class HExpandBox extends ModernComponent {
   /**
    * Instantiates a new h expand box.
    *
-   * @param name the name
-   * @param c2 the c 2
+   * @param name   the name
+   * @param c2     the c 2
    * @param others the others
    */
   public HExpandBox(String name, Component c2, Component... others) {
@@ -52,8 +52,8 @@ public class HExpandBox extends ModernComponent {
   /**
    * Instantiates a new h expand box.
    *
-   * @param c1 the c 1
-   * @param c2 the c 2
+   * @param c1     the c 1
+   * @param c2     the c 2
    * @param others the others
    */
   public HExpandBox(Component c1, Component c2, Component... others) {

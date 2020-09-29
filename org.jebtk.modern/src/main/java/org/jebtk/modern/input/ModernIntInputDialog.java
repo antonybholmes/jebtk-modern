@@ -58,14 +58,13 @@ public class ModernIntInputDialog extends ModernDialogTaskWindow {
    * Instantiates a new modern int input dialog.
    *
    * @param parent the parent
-   * @param title the title
+   * @param title  the title
    * @param prompt the prompt
-   * @param value the value
-   * @param min the min
-   * @param max the max
+   * @param value  the value
+   * @param min    the min
+   * @param max    the max
    */
-  public ModernIntInputDialog(ModernWindow parent, String title, String prompt,
-      int value, int min, int max) {
+  public ModernIntInputDialog(ModernWindow parent, String title, String prompt, int value, int min, int max) {
     super(parent);
 
     setTitle(title);

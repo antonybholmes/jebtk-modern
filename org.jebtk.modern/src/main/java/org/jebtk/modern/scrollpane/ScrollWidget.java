@@ -26,8 +26,7 @@ import org.jebtk.modern.ModernWidget;
  * Should be implemented by components designed for scrolling.
  * 
  */
-public abstract class ScrollWidget extends ModernWidget
-    implements Scrollable {
+public abstract class ScrollWidget extends ModernWidget implements Scrollable {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;

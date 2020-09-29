@@ -43,8 +43,7 @@ import org.jebtk.modern.UI;
 /**
  * The class ColorMatrixPanel.
  */
-public class ColorMatrixPanel extends ModernWidget
-    implements MouseMotionListener, MouseListener, ChangeListener {
+public class ColorMatrixPanel extends ModernWidget implements MouseMotionListener, MouseListener, ChangeListener {
 
   /**
    * The constant serialVersionUID.
@@ -128,8 +127,7 @@ public class ColorMatrixPanel extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -177,8 +175,7 @@ public class ColorMatrixPanel extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override
@@ -254,8 +251,7 @@ public class ColorMatrixPanel extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+   * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
    */
   @Override
   public void mouseMoved(MouseEvent e) {

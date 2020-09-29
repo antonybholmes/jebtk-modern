@@ -48,14 +48,14 @@ public class VBoxAutoWidth extends VertScrollComponent {
    */
   public VBoxAutoWidth() {
     setLayout(new VBoxAutoWidthLayout()); // new BoxLayout(this,
-                                          // BoxLayout.PAGE_AXIS));
+    // BoxLayout.PAGE_AXIS));
 
     // addComponentListener(new ComponentEvents());
   }
-  
+
   public VBoxAutoWidth(Border border) {
     this();
-    
+
     setBorder(border);
   }
 

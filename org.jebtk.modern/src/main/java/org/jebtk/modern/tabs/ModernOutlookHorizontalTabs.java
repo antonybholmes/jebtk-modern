@@ -48,8 +48,7 @@ import org.jebtk.modern.view.ViewModel;
  * @author Antony Holmes
  *
  */
-public class ModernOutlookHorizontalTabs extends ModernWidget
-    implements MouseMotionListener, MouseListener {
+public class ModernOutlookHorizontalTabs extends ModernWidget implements MouseMotionListener, MouseListener {
 
   /**
    * The constant serialVersionUID.
@@ -64,8 +63,7 @@ public class ModernOutlookHorizontalTabs extends ModernWidget
   /**
    * The constant COLOR.
    */
-  private static final Color COLOR = ThemeService.getInstance().getColors()
-      .getGray(3);
+  private static final Color COLOR = ThemeService.getInstance().getColors().getGray(3);
 
   // protected List<ModernHTab> tabButtons = new ArrayList<ModernHTab>();
   /**
@@ -85,14 +83,12 @@ public class ModernOutlookHorizontalTabs extends ModernWidget
   private ViewModel mModel;
 
   /** The Constant FONT. */
-  private static final Font FONT = ThemeService
-      .loadFont("theme/text-tabs/text-font"); // ThemeService.loadFont("text-tabs.text");
+  private static final Font FONT = ThemeService.loadFont("theme/text-tabs/text-font"); // ThemeService.loadFont("text-tabs.text");
 
   /**
    * The constant BOLD_FONT.
    */
-  private static final Font BOLD_FONT = ThemeService
-      .loadFont("theme/text-tabs/text-font-bold");
+  private static final Font BOLD_FONT = ThemeService.loadFont("theme/text-tabs/text-font-bold");
 
   /**
    * The member items.
@@ -143,8 +139,7 @@ public class ModernOutlookHorizontalTabs extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+   * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
    */
   @Override
   public void mouseMoved(MouseEvent e) {
@@ -214,8 +209,7 @@ public class ModernOutlookHorizontalTabs extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

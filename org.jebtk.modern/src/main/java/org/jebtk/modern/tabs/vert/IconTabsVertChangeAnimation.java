@@ -53,45 +53,32 @@ public class IconTabsVertChangeAnimation extends FadeAnimation {
       }
     });
 
-    setFadeColor("fill",
-        IconTabsVertIconAnimation.ICON_COLOR,
-        Ribbon.BAR_BACKGROUND);
-    
+    setFadeColor("fill", IconTabsVertIconAnimation.ICON_COLOR, Ribbon.BAR_BACKGROUND);
+
     restart();
   }
 
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    
 
     int selectedIndex = mTabs.getTabsModel().getSelectedIndex();
 
     if (selectedIndex == -1) {
       return;
     }
-    
+
     int is = mTabs.getIconSize();
     int ts = mTabs.getTabSize();
-    
+
     int y = mTabs.getHeight() - mTabs.getInsets().bottom - ts;
-    
-    
+
     ModernIcon icon = mTabs.getTabsModel().getSelectedTab().getIcon();
 
-    
-    
     int offset = (mTabs.getTabSize() - mTabs.getIconSize()) / 2;
-    //int offset = (mTabs.getInternalRect().getH() - mTabs.getIconSize()) / 2;
+    // int offset = (mTabs.getInternalRect().getH() - mTabs.getIconSize()) / 2;
 
-    
-    
     Color color = getFadeColor("fill");
-    
-    icon.drawIcon(g2,
-        new IntRect(offset,
-        y - ts * selectedIndex + offset,
-        is,
-        is),
-        new Props().set("color", color));
+
+    icon.drawIcon(g2, new IntRect(offset, y - ts * selectedIndex + offset, is, is), new Props().set("color", color));
   }
 }

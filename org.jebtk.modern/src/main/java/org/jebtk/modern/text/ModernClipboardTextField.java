@@ -44,8 +44,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * The class ModernClipboardTextField.
  */
-public class ModernClipboardTextField extends ModernTextField
-    implements ClipboardUI {
+public class ModernClipboardTextField extends ModernTextField implements ClipboardUI {
 
   /**
    * The constant serialVersionUID.
@@ -114,8 +113,7 @@ public class ModernClipboardTextField extends ModernTextField
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -171,8 +169,7 @@ public class ModernClipboardTextField extends ModernTextField
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     public final void clicked(ModernClickEvent e) {
@@ -203,12 +200,11 @@ public class ModernClipboardTextField extends ModernTextField
   /**
    * Instantiates a new modern clipboard text field.
    *
-   * @param cutEnabled the cut enabled
-   * @param copyEnabled the copy enabled
+   * @param cutEnabled   the cut enabled
+   * @param copyEnabled  the copy enabled
    * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardTextField(boolean cutEnabled, boolean copyEnabled,
-      boolean pasteEnabled) {
+  public ModernClipboardTextField(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
     mCutEnabled = cutEnabled;
     mPasteEnabled = pasteEnabled;
 
@@ -230,7 +226,7 @@ public class ModernClipboardTextField extends ModernTextField
   /**
    * Instantiates a new modern clipboard text field.
    *
-   * @param text the text
+   * @param text     the text
    * @param editable the editable
    */
   public ModernClipboardTextField(String text, boolean editable) {
@@ -242,13 +238,12 @@ public class ModernClipboardTextField extends ModernTextField
   /**
    * Instantiates a new modern clipboard text field.
    *
-   * @param text the text
-   * @param cutEnabled the cut enabled
-   * @param copyEnabled the copy enabled
+   * @param text         the text
+   * @param cutEnabled   the cut enabled
+   * @param copyEnabled  the copy enabled
    * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardTextField(String text, boolean cutEnabled,
-      boolean copyEnabled, boolean pasteEnabled) {
+  public ModernClipboardTextField(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
 
     super(text);
 
@@ -279,11 +274,8 @@ public class ModernClipboardTextField extends ModernTextField
       // copyModernMenuItem.setEnabled(copyEnabled);
       // pasteModernMenuItem.setEnabled(pasteEnabled && this.isEditable());
 
-      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(
-          new ModernClickEvents(),
-          mCutEnabled && isEditable(),
-          true,
-          mPasteEnabled && isEditable());
+      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(new ModernClickEvents(),
+          mCutEnabled && isEditable(), true, mPasteEnabled && isEditable());
 
       popup.showPopup(e.getComponent(), e.getX(), e.getY());
     }

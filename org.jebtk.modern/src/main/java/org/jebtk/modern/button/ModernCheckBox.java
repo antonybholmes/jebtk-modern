@@ -45,12 +45,11 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
 
   public static int ICON_SIZE = 18;
 
-  public static final ModernIcon CHECK_ICON = AssetService.getInstance()
-      .loadIcon(CheckVectorIcon.class, ICON_SIZE);
+  public static final ModernIcon CHECK_ICON = AssetService.getInstance().loadIcon(CheckVectorIcon.class, ICON_SIZE);
 
   /** The Constant CHECK_ICON. */
-  public static final ModernIcon UNCHECKED_ICON = AssetService.getInstance()
-      .loadIcon(UnCheckedVectorIcon.class, ICON_SIZE);
+  public static final ModernIcon UNCHECKED_ICON = AssetService.getInstance().loadIcon(UnCheckedVectorIcon.class,
+      ICON_SIZE);
 
   /** The Constant CHECKED_ICON. */
   // public static final ModernIcon CHECKED_ICON = UIService.getInstance()
@@ -92,7 +91,7 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   /**
    * Instantiates a new modern check box.
    *
-   * @param text the text
+   * @param text     the text
    * @param selected the selected
    */
   public ModernCheckBox(String text, boolean selected) {
@@ -104,7 +103,7 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   /**
    * Instantiates a new modern check box.
    *
-   * @param text the text
+   * @param text  the text
    * @param width the width
    */
   public ModernCheckBox(String text, int width) {
@@ -128,9 +127,9 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
   /**
    * Instantiates a new modern check box.
    *
-   * @param text the text
+   * @param text     the text
    * @param selected the selected
-   * @param size the size
+   * @param size     the size
    */
   public ModernCheckBox(String text, boolean selected, Dimension size) {
     super(text, selected, size);
@@ -163,8 +162,8 @@ public class ModernCheckBox extends CheckBox { // ModernTickBox
    * @Override public void drawBackgroundAA(Graphics2D g2) { int x =
    * mInternalRect.getX(); int y = (getHeight() - 16) / 2;
    * 
-   * if (isSelected()) { if (isEnabled()) { CHECKED_ICON.drawIcon(g2, x, y, 20);
-   * } else { DISABLED_CHECKED_ICON.drawIcon(g2, x, y, 20); } } else {
+   * if (isSelected()) { if (isEnabled()) { CHECKED_ICON.drawIcon(g2, x, y, 20); }
+   * else { DISABLED_CHECKED_ICON.drawIcon(g2, x, y, 20); } } else {
    * CHECK_ICON.drawIcon(g2, x, y, 20); } }
    */
 }

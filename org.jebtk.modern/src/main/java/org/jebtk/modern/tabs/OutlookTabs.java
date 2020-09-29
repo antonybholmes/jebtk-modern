@@ -52,24 +52,24 @@ public class OutlookTabs extends TabsController {
    * The constant serialVersionUID.
    */
   private static final long serialVersionUID = 1L;
-  
+
   private Map<String, ModernClickWidget> mTabMap = new HashMap<String, ModernClickWidget>();
   private Map<ModernClickWidget, Tab> mButtonMap = new HashMap<ModernClickWidget, Tab>();
 
   /**
    * Instantiates a new text tabs.
    *
-   * @param model the model
+   * @param model  the model
    * @param center the center
    */
   public OutlookTabs(TabsModel model) {
     super(model);
-    
+
     setLayout(new VBoxAutoWidthLayout());
-    
-    //setBorder(BORDER);
+
+    // setBorder(BORDER);
   }
-  
+
   @Override
   public void tabAdded(TabEvent e) {
     refresh();
@@ -85,41 +85,43 @@ public class OutlookTabs extends TabsController {
   public void tabRemoved(TabEvent e) {
     refresh();
   }
-  
+
   public void tabChanged(TabEvent e) {
     String name = e.getTab().getName();
-    
+
     if (mTabMap.containsKey(name)) {
       mTabMap.get(name).doClick();
     }
   }
-  
+
   private void refresh() {
     mTabMap.clear();
     mButtonMap.clear();
     removeAll();
-    
+
     ModernButtonGroup group = new ModernButtonGroup();
-    
+
     for (Tab tab : getTabsModel()) {
-      ModernClickWidget button = new ModernCheckRadioButton(tab.getName()).setColorStyle(ColorStyle.RIBBON).setButtonStyle(ButtonStyle.RECT);
-      
+      ModernClickWidget button = new ModernCheckRadioButton(tab.getName()).setColorStyle(ColorStyle.RIBBON)
+          .setButtonStyle(ButtonStyle.RECT);
+
       UI.setSize(button, 100, 32);
-      
+
       add(button);
       group.add(button);
       mTabMap.put(tab.getName(), button);
       mButtonMap.put(button, tab);
-      
+
       button.addClickListener(new ModernClickListener() {
 
         @Override
         public void clicked(ModernClickEvent e) {
           changeTab((ModernClickWidget) e.getSource());
-        }});
+        }
+      });
     }
   }
-  
+
   private void changeTab(ModernClickWidget e) {
     getTabsModel().changeTab(mButtonMap.get(e).getName());
   }

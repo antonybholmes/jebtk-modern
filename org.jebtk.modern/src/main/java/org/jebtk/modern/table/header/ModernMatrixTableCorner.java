@@ -53,7 +53,7 @@ public class ModernMatrixTableCorner extends ModernWidget {
   /**
    * Instantiates a new modern matrix table corner.
    *
-   * @param <T> the generic type
+   * @param <T>    the generic type
    * @param matrix the matrix
    */
   public <T> ModernMatrixTableCorner(ModernTable matrix) {
@@ -73,8 +73,7 @@ public class ModernMatrixTableCorner extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -101,35 +100,29 @@ public class ModernMatrixTableCorner extends ModernWidget {
      * 
      * polygon.moveTo(getWidth() - o, o);
      * 
-     * polygon.lineTo(getWidth() - o, o + h); polygon.lineTo(getWidth() - o - h,
-     * o + h);
+     * polygon.lineTo(getWidth() - o, o + h); polygon.lineTo(getWidth() - o - h, o +
+     * h);
      * 
      * polygon.closePath(); g2.fill(polygon);
      */
 
     /*
-    Graphics2D g2Temp = ImageUtils.clone(g2);
-
-    try {
-      g2Temp.setColor(TEXT_COLOR);
-
-      // g2Temp.translate(w, 0);
-
-      if (mTable.getModel().getIndex().getNames() != null) {
-        for (String name : mTable.getModel().getIndex().getNames()) {
-          String text = getTruncatedText(g2Temp, name, w);
-
-          int x = (w - g2Temp.getFontMetrics().stringWidth(text)) / 2;
-          int y = getTextYPosCenter(g2Temp, h);
-
-          g2Temp.drawString(text, x, y);
-
-          g2Temp.translate(w, 0);
-        }
-      }
-    } finally {
-      g2Temp.dispose();
-    }
-    */
+     * Graphics2D g2Temp = ImageUtils.clone(g2);
+     * 
+     * try { g2Temp.setColor(TEXT_COLOR);
+     * 
+     * // g2Temp.translate(w, 0);
+     * 
+     * if (mTable.getModel().getIndex().getNames() != null) { for (String name :
+     * mTable.getModel().getIndex().getNames()) { String text =
+     * getTruncatedText(g2Temp, name, w);
+     * 
+     * int x = (w - g2Temp.getFontMetrics().stringWidth(text)) / 2; int y =
+     * getTextYPosCenter(g2Temp, h);
+     * 
+     * g2Temp.drawString(text, x, y);
+     * 
+     * g2Temp.translate(w, 0); } } } finally { g2Temp.dispose(); }
+     */
   }
 }

@@ -45,8 +45,7 @@ public class ModernTitleLabel extends ModernAutoSizeLabel {
   /**
    * The constant TITLE_FONT.
    */
-  private static final Font TITLE_FONT = MaterialService.instance()
-      .getFont("title"); // ThemeService.loadFont("theme.widget.fonts.title");
+  private static final Font TITLE_FONT = MaterialService.instance().getFont("title"); // ThemeService.loadFont("theme.widget.fonts.title");
 
   /**
    * Instantiates a new modern title label.
@@ -62,7 +61,7 @@ public class ModernTitleLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern title label.
    *
-   * @param text the text
+   * @param text  the text
    * @param color the color
    */
   public ModernTitleLabel(String text, Color color) {

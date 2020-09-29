@@ -80,12 +80,7 @@ public class SettingsVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     int wf = (int) (w * WIDTH_SCALE);
     int wf2 = (int) (w * WIDTH_SCALE / 2);
 

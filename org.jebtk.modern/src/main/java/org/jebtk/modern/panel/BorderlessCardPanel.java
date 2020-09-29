@@ -49,7 +49,7 @@ public class BorderlessCardPanel extends ModernPanel {
   /**
    * Instantiates a new card panel.
    *
-   * @param title the title
+   * @param title   the title
    * @param content the content
    */
   public BorderlessCardPanel(Component content) {
@@ -60,12 +60,7 @@ public class BorderlessCardPanel extends ModernPanel {
 
   @Override
   public void drawBackground(Graphics2D g2) {
-    MaterialUtils.drawBorderlessCard(g2,
-        this,
-        0,
-        0,
-        getWidth(),
-        getHeight() - MaterialUtils.SHADOW_BORDER_HEIGHT);
+    MaterialUtils.drawBorderlessCard(g2, this, 0, 0, getWidth(), getHeight() - MaterialUtils.SHADOW_BORDER_HEIGHT);
   }
 
 }

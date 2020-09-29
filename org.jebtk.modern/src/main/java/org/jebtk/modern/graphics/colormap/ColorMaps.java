@@ -49,8 +49,7 @@ import org.w3c.dom.Element;
  * @author Antony Holmes
  *
  */
-public class ColorMaps extends NameListModel<ColorMap>
-    implements XmlRepresentation, JsonRepresentation {
+public class ColorMaps extends NameListModel<ColorMap> implements XmlRepresentation, JsonRepresentation {
 
   /**
    * The constant serialVersionUID.
@@ -79,8 +78,9 @@ public class ColorMaps extends NameListModel<ColorMap>
    * Write xml.
    *
    * @param file the file
-   * @throws IOException Signals that an I/O exception has occurred.
-   * @throws TransformerException the transformer exception
+   * @throws IOException                  Signals that an I/O exception has
+   *                                      occurred.
+   * @throws TransformerException         the transformer exception
    * @throws ParserConfigurationException the parser configuration exception
    */
   public synchronized final void writeXml(Path file)

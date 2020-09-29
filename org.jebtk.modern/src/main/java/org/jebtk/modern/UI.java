@@ -349,20 +349,17 @@ public class UI {
   /**
    * The constant CUT_ICON.
    */
-  public static final ModernIcon CUT_ICON = AssetService.getInstance()
-      .loadIcon("cut", 16);
+  public static final ModernIcon CUT_ICON = AssetService.getInstance().loadIcon("cut", 16);
 
   /**
    * The constant COPY_ICON.
    */
-  public static final ModernIcon COPY_ICON = AssetService.getInstance()
-      .loadIcon("copy", 16);
+  public static final ModernIcon COPY_ICON = AssetService.getInstance().loadIcon("copy", 16);
 
   /**
    * The constant PASTE_ICON.
    */
-  public static final ModernIcon PASTE_ICON = AssetService.getInstance()
-      .loadIcon("paste", 16);
+  public static final ModernIcon PASTE_ICON = AssetService.getInstance().loadIcon("paste", 16);
 
   /**
    * The constant NUMBER_FORMAT.
@@ -375,9 +372,7 @@ public class UI {
 
   /** The Constant TITLE_BUTTONS_ON_LEFT. */
   public static final boolean TITLE_BUTTONS_ON_LEFT = OpSys.isMac()
-      || SettingsService.getInstance()
-          .getString("modern.ui.window.title-bar.buttons.location")
-          .equals("left");
+      || SettingsService.getInstance().getString("modern.ui.window.title-bar.buttons.location").equals("left");
 
   /** The Constant WINDOW_TITLE_STYLE. */
   public static final ModernWindowTitleBarStyle WINDOW_TITLE_STYLE;
@@ -431,8 +426,8 @@ public class UI {
 
   static {
     // Determine if we should mac style buttons or not.
-    if (OpSys.isMac() || SettingsService.getInstance()
-        .getString("modern.ui.window.title-bar.buttons.style").equals("mac")) {
+    if (OpSys.isMac()
+        || SettingsService.getInstance().getString("modern.ui.window.title-bar.buttons.style").equals("mac")) {
       WINDOW_TITLE_STYLE = ModernWindowTitleBarStyle.MAC;
     } else {
       WINDOW_TITLE_STYLE = ModernWindowTitleBarStyle.WINDOWS;
@@ -455,8 +450,7 @@ public class UI {
   /*
    * public static final void centerWindowToScreen(Component component) {
    * 
-   * Dimension d = null; // size of what we're positioning against Point p =
-   * null;
+   * Dimension d = null; // size of what we're positioning against Point p = null;
    * 
    * 
    * Rectangle screen = getScreenBounds(component);
@@ -521,8 +515,7 @@ public class UI {
     Rectangle windowBounds = window.getBounds();
     int lastArea = 0;
 
-    GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment
-        .getLocalGraphicsEnvironment();
+    GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
 
     GraphicsDevice[] graphicsDevices = graphicsEnvironment.getScreenDevices();
 
@@ -530,8 +523,7 @@ public class UI {
     for (int i = 0; i < graphicsDevices.length; ++i) {
       GraphicsDevice graphicsDevice = graphicsDevices[i];
 
-      GraphicsConfiguration[] graphicsConfigurations = graphicsDevice
-          .getConfigurations();
+      GraphicsConfiguration[] graphicsConfigurations = graphicsDevice.getConfigurations();
 
       // It is possible that your device will have only one configuration,
       // but you cannot rely on this(!)…
@@ -550,15 +542,14 @@ public class UI {
           // want to return the null value when no device or
           // configuration has been found.
           /*
-           * if (null == deviceConfig) { // In this case the better solution
-           * would be to declare // the full constructor in the DeviceClass (see
-           * below) and // use it here like this:
+           * if (null == deviceConfig) { // In this case the better solution would be to
+           * declare // the full constructor in the DeviceClass (see below) and // use it
+           * here like this:
            * 
-           * deviceConfig = new DeviceConfig(i, j, graphicsDevice,
-           * graphicsConfiguration);
+           * deviceConfig = new DeviceConfig(i, j, graphicsDevice, graphicsConfiguration);
            * 
-           * // (but the current solution is more simple when no // constructor
-           * is defined)…
+           * // (but the current solution is more simple when no // constructor is
+           * defined)…
            * 
            * } else
            */
@@ -566,8 +557,7 @@ public class UI {
           if (area > lastArea) {
             lastArea = area;
 
-            deviceConfig = new DeviceConfig(i, j, graphicsDevice,
-                graphicsConfiguration);
+            deviceConfig = new DeviceConfig(i, j, graphicsDevice, graphicsConfiguration);
           }
         }
       }
@@ -604,15 +594,14 @@ public class UI {
   public static void centerWindowToScreen(Window w) {
     Rectangle screen = getScreenBounds(w);
 
-    w.setLocation(screen.x + (screen.width - w.getWidth()) / 2,
-        screen.y + (screen.height - w.getHeight()) / 2);
+    w.setLocation(screen.x + (screen.width - w.getWidth()) / 2, screen.y + (screen.height - w.getHeight()) / 2);
   }
 
   /**
    * UI select a directory.
    *
    * @param parent the parent
-   * @param dir the dir
+   * @param dir    the dir
    * @return the file
    */
   public static final Path selectDirectory(Frame parent, Path dir) {
@@ -638,7 +627,7 @@ public class UI {
    * Ui select a file with restricted view. This is shared amongst UI elements.
    *
    * @param parent the parent
-   * @param view the view
+   * @param view   the view
    * @return the file
    */
   public static final Path selectFile(Component parent, FileSystemView view) {
@@ -659,7 +648,7 @@ public class UI {
   /**
    * Ui select a file. This is shared amongst UI elements.
    *
-   * @param parent the parent
+   * @param parent           the parent
    * @param workingDirectory the working directory
    * @return the file
    */
@@ -681,7 +670,7 @@ public class UI {
   /**
    * Save file.
    *
-   * @param parent the parent
+   * @param parent           the parent
    * @param workingDirectory the working directory
    * @return the file
    */
@@ -703,12 +692,11 @@ public class UI {
   /**
    * Select files.
    *
-   * @param parent the parent
+   * @param parent           the parent
    * @param workingDirectory the working directory
    * @return the file[]
    */
-  public static final List<Path> selectFiles(Component parent,
-      Path workingDirectory) {
+  public static final List<Path> selectFiles(Component parent, Path workingDirectory) {
     JFileChooser fc = new JFileChooser();
 
     fc.setCurrentDirectory(workingDirectory.toFile());
@@ -726,7 +714,7 @@ public class UI {
   /**
    * Sets the size.
    *
-   * @param c the c
+   * @param c     the c
    * @param width the width
    * @return the j component
    */
@@ -737,8 +725,8 @@ public class UI {
   /**
    * Sets the size.
    *
-   * @param c the c
-   * @param width the width
+   * @param c      the c
+   * @param width  the width
    * @param height the height
    * @return the j component
    */
@@ -749,36 +737,27 @@ public class UI {
   /**
    * Try to rigidly size a control.
    *
-   * @param c the c
-   * @param max the max
+   * @param c       the c
+   * @param max     the max
    * @param padding the padding
    * @return the j component
    */
-  public static final JComponent setSize(JComponent c,
-      Dimension max,
-      int padding) {
-    return setSize(c,
-        max,
-        BorderFactory.createEmptyBorder(padding, padding, padding, padding));
+  public static final JComponent setSize(JComponent c, Dimension max, int padding) {
+    return setSize(c, max, BorderFactory.createEmptyBorder(padding, padding, padding, padding));
   }
 
   /**
    * Sets the size of a component and including the border for BoxLayouts etc.
    *
-   * @param c the component to resize.
+   * @param c   the component to resize.
    * @param max the max size of the component.
-   * @param t top border.
-   * @param l left border.
-   * @param b bottom border.
-   * @param r right border.
+   * @param t   top border.
+   * @param l   left border.
+   * @param b   bottom border.
+   * @param r   right border.
    * @return the j component
    */
-  public static final JComponent setSize(JComponent c,
-      Dimension max,
-      int t,
-      int l,
-      int b,
-      int r) {
+  public static final JComponent setSize(JComponent c, Dimension max, int t, int l, int b, int r) {
 
     return setSize(c, max, BorderFactory.createEmptyBorder(t, l, b, r));
   }
@@ -786,14 +765,12 @@ public class UI {
   /**
    * Sets the size.
    *
-   * @param c the c
-   * @param max the max
+   * @param c      the c
+   * @param max    the max
    * @param border the border
    * @return the j component
    */
-  public static final JComponent setSize(JComponent c,
-      Dimension max,
-      Border border) {
+  public static final JComponent setSize(JComponent c, Dimension max, Border border) {
     c.setBorder(border);
 
     return setSize(c, max);
@@ -802,7 +779,7 @@ public class UI {
   /**
    * Sets the size.
    *
-   * @param c the c
+   * @param c   the c
    * @param max the max
    * @return the j component
    */
@@ -813,7 +790,7 @@ public class UI {
   /**
    * Sets the size.
    *
-   * @param c the c
+   * @param c   the c
    * @param max the max
    * @return the j component
    */
@@ -829,13 +806,11 @@ public class UI {
   /**
    * Sets the minimum size.
    *
-   * @param c the c
-   * @param size the size
+   * @param c      the c
+   * @param size   the size
    * @param border the border
    */
-  public static void setMinimumSize(JComponent c,
-      Dimension size,
-      Border border) {
+  public static void setMinimumSize(JComponent c, Dimension size, Border border) {
     c.setBorder(border);
 
     c.setMinimumSize(getMaxSize(c, size));
@@ -844,7 +819,7 @@ public class UI {
   /**
    * Gets the max size.
    *
-   * @param c the c
+   * @param c   the c
    * @param max the max
    * @return the max size
    */
@@ -917,10 +892,10 @@ public class UI {
   /**
    * Creates the border.
    *
-   * @param top the top
-   * @param left the left
+   * @param top    the top
+   * @param left   the left
    * @param bottom the bottom
-   * @param right the right
+   * @param right  the right
    * @return the border
    */
   public static Border createBorder(int top, int left, int bottom, int right) {
@@ -1007,8 +982,7 @@ public class UI {
    * @param c the c
    * @return the point
    */
-  public static Point convertPointToComponent(final MouseEvent e,
-      final Component c) {
+  public static Point convertPointToComponent(final MouseEvent e, final Component c) {
     return convertPointToComponent(e.getLocationOnScreen(), c);
   }
 
@@ -1019,8 +993,7 @@ public class UI {
    * @param c the c
    * @return the point
    */
-  public static Point convertPointToComponent(final Point p,
-      final Component c) {
+  public static Point convertPointToComponent(final Point p, final Component c) {
     Point ret = new Point(p);
     SwingUtilities.convertPointFromScreen(ret, c);
 
@@ -1054,9 +1027,9 @@ public class UI {
   /**
    * Truncates a string to fit within a given space, given a graphics context.
    *
-   * @param g2 the g 2
+   * @param g2   the g 2
    * @param text the text
-   * @param w the w
+   * @param w    the w
    * @return the string
    */
   public static String truncateText(Graphics2D g2, String text, int w) {
@@ -1081,10 +1054,9 @@ public class UI {
    * Adds a given mouse listener to a component and all of its children.
    *
    * @param component the component
-   * @param l the l
+   * @param l         the l
    */
-  public static void addMouseListenerAllChildren(JComponent component,
-      MouseListener l) {
+  public static void addMouseListenerAllChildren(JComponent component, MouseListener l) {
 
     Deque<Component> stack = new ArrayDeque<Component>();
 
@@ -1104,13 +1076,11 @@ public class UI {
   /**
    * Sets the min max size.
    *
-   * @param c the c
+   * @param c       the c
    * @param minSize the min size
    * @param maxSize the max size
    */
-  public static void setMinMaxSize(Component c,
-      Dimension minSize,
-      Dimension maxSize) {
+  public static void setMinMaxSize(Component c, Dimension minSize, Dimension maxSize) {
     c.setMinimumSize(minSize);
     c.setMaximumSize(maxSize);
   }
@@ -1119,16 +1089,12 @@ public class UI {
    * Fill a region with a gradient color.
    *
    * @param g2 the g 2
-   * @param w the w
-   * @param h the h
+   * @param w  the w
+   * @param h  the h
    * @param c1 the c 1
    * @param c2 the c 2
    */
-  public static void drawGradient(Graphics2D g2,
-      int w,
-      int h,
-      Color c1,
-      Color c2) {
+  public static void drawGradient(Graphics2D g2, int w, int h, Color c1, Color c2) {
     drawGradient(g2, 0, 0, w, h, c1, c2);
   }
 
@@ -1136,20 +1102,14 @@ public class UI {
    * Fill a region with a gradient color.
    *
    * @param g2 the g 2
-   * @param x the x
-   * @param y the y
-   * @param w the w
-   * @param h the h
+   * @param x  the x
+   * @param y  the y
+   * @param w  the w
+   * @param h  the h
    * @param c1 the c 1
    * @param c2 the c 2
    */
-  public static void drawGradient(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Color c1,
-      Color c2) {
+  public static void drawGradient(Graphics2D g2, int x, int y, int w, int h, Color c1, Color c2) {
     GradientPaint gradient = ColorUtils.getVGradient(0, h, c1, c2);
 
     g2.setPaint(gradient);
@@ -1158,13 +1118,7 @@ public class UI {
     g2.fillRect(x, y, w, h);
   }
 
-  public static void fillGradient(Graphics2D g2,
-      Color c1,
-      Color c2,
-      int x,
-      int y,
-      int w,
-      int h) {
+  public static void fillGradient(Graphics2D g2, Color c1, Color c2, int x, int y, int w, int h) {
     GradientPaint gradient = ColorUtils.getVGradient(0, h, c1, c2);
 
     g2.setPaint(gradient);
@@ -1176,7 +1130,7 @@ public class UI {
   /**
    * Adjust the width of a component, but keep its height.
    *
-   * @param c the c
+   * @param c     the c
    * @param width the width
    */
   public static void setWidth(JComponent c, int width) {

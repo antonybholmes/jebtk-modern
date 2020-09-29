@@ -57,8 +57,7 @@ public class ModernDropDownMenuLabelButton extends ModernDropDownWidget {
   /**
    * The constant SIZE.
    */
-  private static final Dimension SIZE = new Dimension(150,
-      ModernWidget.WIDGET_HEIGHT);
+  private static final Dimension SIZE = new Dimension(150, ModernWidget.WIDGET_HEIGHT);
 
   /**
    * The member prefix.
@@ -76,8 +75,7 @@ public class ModernDropDownMenuLabelButton extends ModernDropDownWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -102,7 +100,7 @@ public class ModernDropDownMenuLabelButton extends ModernDropDownWidget {
    * Instantiates a new modern drop down menu label button.
    *
    * @param text1 the text1
-   * @param menu the menu
+   * @param menu  the menu
    */
   public ModernDropDownMenuLabelButton(String text1, ModernPopupMenu menu) {
     super(text1, menu);
@@ -136,8 +134,7 @@ public class ModernDropDownMenuLabelButton extends ModernDropDownWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
+   * @see org.abh.lib.ui.modern.button.ModernButtonWidget#drawBackground(java.awt.
    * Graphics2D)
    */
   @Override
@@ -148,8 +145,7 @@ public class ModernDropDownMenuLabelButton extends ModernDropDownWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -160,7 +156,6 @@ public class ModernDropDownMenuLabelButton extends ModernDropDownWidget {
     x = getWidth() - PADDING - 16;
 
     // Draw arrow at end of component
-    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16)
-        .drawIcon(g2, x, (getHeight() - 16) / 2, 16);
+    AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class, 16).drawIcon(g2, x, (getHeight() - 16) / 2, 16);
   }
 }

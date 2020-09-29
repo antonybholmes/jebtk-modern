@@ -40,8 +40,7 @@ import org.jebtk.modern.ModernFocusableWidget;
  * @author Antony Holmes
  *
  */
-public class TabsController extends ModernFocusableWidget
-    implements TabEventListener {
+public class TabsController extends ModernFocusableWidget implements TabEventListener {
 
   /**
    * The constant serialVersionUID.

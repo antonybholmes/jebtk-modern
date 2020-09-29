@@ -44,8 +44,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * The class ModernClipboardTextBox.
  */
-public class ModernClipboardTextBox extends ModernTextBox
-    implements ClipboardUI {
+public class ModernClipboardTextBox extends ModernTextBox implements ClipboardUI {
 
   /**
    * The constant serialVersionUID.
@@ -137,8 +136,7 @@ public class ModernClipboardTextBox extends ModernTextBox
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     public final void clicked(ModernClickEvent e) {
@@ -169,12 +167,11 @@ public class ModernClipboardTextBox extends ModernTextBox
   /**
    * Instantiates a new modern clipboard text box.
    *
-   * @param cutEnabled the cut enabled
-   * @param copyEnabled the copy enabled
+   * @param cutEnabled   the cut enabled
+   * @param copyEnabled  the copy enabled
    * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardTextBox(boolean cutEnabled, boolean copyEnabled,
-      boolean pasteEnabled) {
+  public ModernClipboardTextBox(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
     mCutEnabled = cutEnabled;
     // this.copyEnabled = copyEnabled;
     mPasteEnabled = pasteEnabled;
@@ -197,13 +194,12 @@ public class ModernClipboardTextBox extends ModernTextBox
   /**
    * Instantiates a new modern clipboard text box.
    *
-   * @param text the text
-   * @param cutEnabled the cut enabled
-   * @param copyEnabled the copy enabled
+   * @param text         the text
+   * @param cutEnabled   the cut enabled
+   * @param copyEnabled  the copy enabled
    * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardTextBox(String text, boolean cutEnabled,
-      boolean copyEnabled, boolean pasteEnabled) {
+  public ModernClipboardTextBox(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
 
     super(text);
 
@@ -235,11 +231,8 @@ public class ModernClipboardTextBox extends ModernTextBox
       // copyModernMenuItem.setEnabled(copyEnabled);
       // pasteModernMenuItem.setEnabled(pasteEnabled && this.isEditable());
 
-      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(
-          new ModernClickEvents(),
-          mCutEnabled && this.isEditable(),
-          true,
-          mPasteEnabled && this.isEditable());
+      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(new ModernClickEvents(),
+          mCutEnabled && this.isEditable(), true, mPasteEnabled && this.isEditable());
 
       popup.showPopup(e.getComponent(), e.getX(), e.getY());
     }

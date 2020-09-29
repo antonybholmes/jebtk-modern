@@ -33,8 +33,7 @@ import org.jebtk.modern.table.ModernTableModel;
 /**
  * The class LayersTableModel.
  */
-public class LayersTableModel extends ModernTableModel
-    implements LayerEventListener {
+public class LayersTableModel extends ModernTableModel implements LayerEventListener {
 
   /**
    * The constant HEADER.
@@ -96,7 +95,8 @@ public class LayersTableModel extends ModernTableModel
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(int)
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(
+   * int)
    */
   @Override
   public final String getColumnName(int column) {
@@ -145,8 +145,7 @@ public class LayersTableModel extends ModernTableModel
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.
+   * @see org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.
    * event .ChangeEvent)
    */
   @Override

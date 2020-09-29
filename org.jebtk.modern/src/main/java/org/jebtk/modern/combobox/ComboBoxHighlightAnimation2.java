@@ -9,8 +9,7 @@ import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.button.ButtonAltFillAnimation;
 
-public class ComboBoxHighlightAnimation2 extends ButtonAltFillAnimation
-    implements ChangeListener {
+public class ComboBoxHighlightAnimation2 extends ButtonAltFillAnimation implements ChangeListener {
   private ModernComboBox2 mCombo;
 
   public ComboBoxHighlightAnimation2(ModernWidget combo) {
@@ -47,8 +46,8 @@ public class ComboBoxHighlightAnimation2 extends ButtonAltFillAnimation
     if (getWidget().isEnabled()) {
       IntRect rect = widget.getInternalRect();
 
-      IntRect buttonRect = new IntRect(mCombo.mButtonX, widget.getInsets().top,
-          ModernComboBox.BUTTON_WIDTH, rect.getH());
+      IntRect buttonRect = new IntRect(mCombo.mButtonX, widget.getInsets().top, ModernComboBox.BUTTON_WIDTH,
+          rect.getH());
 
       fill(widget, g2, buttonRect);
     }

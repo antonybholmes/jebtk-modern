@@ -30,8 +30,7 @@ import org.jebtk.modern.table.ModernTableModel;
  * @author Antony Holmes
  *
  */
-public class ColorMapTableModel extends ModernTableModel
-    implements ChangeListener {
+public class ColorMapTableModel extends ModernTableModel implements ChangeListener {
 
   /**
    * The constant HEADER.

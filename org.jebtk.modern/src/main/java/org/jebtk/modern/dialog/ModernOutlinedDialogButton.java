@@ -71,7 +71,7 @@ public class ModernOutlinedDialogButton extends ModernDropDownButton {
    * Instantiates a new modern dialog flat button.
    *
    * @param text1 the text1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernOutlinedDialogButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -95,11 +95,10 @@ public class ModernOutlinedDialogButton extends ModernDropDownButton {
    * Instantiates a new modern dialog flat drop down button.
    *
    * @param text1 the text 1
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public ModernOutlinedDialogButton(String text1, ModernIcon icon,
-      ModernPopupMenu menu) {
+  public ModernOutlinedDialogButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
     super(text1, icon, menu);
 
     setup();
@@ -109,7 +108,7 @@ public class ModernOutlinedDialogButton extends ModernDropDownButton {
    * Instantiates a new modern dialog flat drop down button.
    *
    * @param text1 the text 1
-   * @param menu the menu
+   * @param menu  the menu
    */
   public ModernOutlinedDialogButton(String text1, ModernPopupMenu menu) {
     super(text1, menu);
@@ -119,15 +118,15 @@ public class ModernOutlinedDialogButton extends ModernDropDownButton {
 
   private void setup() {
     addStyleClass("outlined-dialog-button");
-    
-    //setAnimations(new FlatDropDownButtonAnimation(this));
+
+    // setAnimations(new FlatDropDownButtonAnimation(this));
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
-   * if (isSelected() || mHighlight || mPopupShown) {
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight || mPopupShown) {
    * getWidgetRenderer().drawButton(g2, mInternalRect, RenderMode.SELECTED,
-   * hasFocus()); } else { getWidgetRenderer().drawContentBox(g2,
-   * mInternalRect); } } }
+   * hasFocus()); } else { getWidgetRenderer().drawContentBox(g2, mInternalRect);
+   * } } }
    */
 }

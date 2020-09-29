@@ -57,8 +57,7 @@ public class ColorMapCirclePicker extends ModernClickWidget {
   /** The Constant OFFSET. */
   public static final int OFFSET = (BLOCK_SIZE - HEAT_MAP_SIZE) / 2;
 
-  public static final int SELECTED_OFFSET = (BLOCK_SIZE - HIGHLIGHT_MAP_SIZE)
-      / 2;
+  public static final int SELECTED_OFFSET = (BLOCK_SIZE - HIGHLIGHT_MAP_SIZE) / 2;
 
   /**
    * The p.
@@ -145,8 +144,7 @@ public class ColorMapCirclePicker extends ModernClickWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseMotionListener#mouseMoved(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseMoved(MouseEvent e) {
@@ -197,11 +195,11 @@ public class ColorMapCirclePicker extends ModernClickWidget {
    */
   public void update(List<ColorMap> colorMaps) {
     mRows = colorMaps.size() / mCols + 1; // + (colorMaps.size() % mCols == 0 ?
-                                          // 0 : 1);
+    // 0 : 1);
     mColorMaps = colorMaps;
 
-    setPreferredSize(new Dimension(DOUBLE_OUTER_PADDING + BLOCK_SIZE * mCols,
-        DOUBLE_OUTER_PADDING + BLOCK_SIZE * mRows));
+    setPreferredSize(
+        new Dimension(DOUBLE_OUTER_PADDING + BLOCK_SIZE * mCols, DOUBLE_OUTER_PADDING + BLOCK_SIZE * mRows));
   }
 
   /**
@@ -215,8 +213,7 @@ public class ColorMapCirclePicker extends ModernClickWidget {
     mSelectedCol = col;
     mSelectedIndex = row * mCols + col;
 
-    mSelectedP = new IntPos2D(
-        BLOCK_SIZE * mSelectedCol + OUTER_PADDING + SELECTED_OFFSET,
+    mSelectedP = new IntPos2D(BLOCK_SIZE * mSelectedCol + OUTER_PADDING + SELECTED_OFFSET,
         BLOCK_SIZE * mSelectedRow + OUTER_PADDING + SELECTED_OFFSET);
 
     if (mSelectedIndex < mColorMaps.size()) {
@@ -249,8 +246,7 @@ public class ColorMapCirclePicker extends ModernClickWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForeground(Graphics2D g2) {
@@ -266,8 +262,7 @@ public class ColorMapCirclePicker extends ModernClickWidget {
         y = i / mCols * BLOCK_SIZE + OUTER_PADDING + OFFSET;
         x = (i % mCols) * BLOCK_SIZE + OUTER_PADDING + OFFSET;
 
-        LinearGradientPaint paint = colorMap.getAnchorColors().toGradientPaint(
-            new Point2D.Float(x, 0),
+        LinearGradientPaint paint = colorMap.getAnchorColors().toGradientPaint(new Point2D.Float(x, 0),
             new Point2D.Float(x + HEAT_MAP_SIZE, 0));
 
         g2Temp.setPaint(paint);
@@ -295,19 +290,13 @@ public class ColorMapCirclePicker extends ModernClickWidget {
       if (mSelectedRow != -1) {
         g2Temp.setColor(Color.BLACK); // ModernWidgetRenderer.SELECTED_FILL_COLOR);
 
-        g2Temp.drawOval(mSelectedP.getX(),
-            mSelectedP.getY(),
-            HIGHLIGHT_MAP_SIZE,
-            HIGHLIGHT_MAP_SIZE);
+        g2Temp.drawOval(mSelectedP.getX(), mSelectedP.getY(), HIGHLIGHT_MAP_SIZE, HIGHLIGHT_MAP_SIZE);
       }
 
       if (mRow != -1) {
         g2Temp.setColor(Color.BLACK); // ModernWidgetRenderer.HIGHLIGHTED_FILL_COLOR);
 
-        g2Temp.drawOval(mP.getX(),
-            mP.getY(),
-            HIGHLIGHT_MAP_SIZE,
-            HIGHLIGHT_MAP_SIZE);
+        g2Temp.drawOval(mP.getX(), mP.getY(), HIGHLIGHT_MAP_SIZE, HIGHLIGHT_MAP_SIZE);
       }
     } finally {
       g2Temp.dispose();

@@ -7,11 +7,9 @@ import org.jebtk.modern.button.ButtonFillAnimation;
 import org.jebtk.modern.theme.MaterialService;
 
 public class DialogButtonHighlightAnimation extends ButtonFillAnimation {
-  public static final Color OUTLINE_COLOR_1 = MaterialService.instance()
-      .getColor("dialog.button.outline");
+  public static final Color OUTLINE_COLOR_1 = MaterialService.instance().getColor("dialog.button.outline");
 
-  public static final Color OUTLINE_COLOR_2 = MaterialService.instance()
-      .getColor("dialog.button.highlight");
+  public static final Color OUTLINE_COLOR_2 = MaterialService.instance().getColor("dialog.button.highlight");
 
   public DialogButtonHighlightAnimation(ModernWidget button) {
     super(button);
@@ -20,8 +18,8 @@ public class DialogButtonHighlightAnimation extends ButtonFillAnimation {
   }
 
   /*
-   * @Override public void draw(ModernWidget c, Graphics2D g2, Object...
-   * props) { UIDrawService.getInstance().get("button-outline") .draw(g2,
+   * @Override public void draw(ModernWidget c, Graphics2D g2, Object... props) {
+   * UIDrawService.getInstance().get("button-outline") .draw(g2,
    * widget.getInternalRect(), getFadeColor("outline")); }
    */
 }

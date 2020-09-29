@@ -53,7 +53,7 @@ public abstract class WidgetAnimation implements Animation {
   public void bindChildren() {
     // Do nothing
   }
-  
+
   public void repaint() {
     this.widget.repaint();
   }

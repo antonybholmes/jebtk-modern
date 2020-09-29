@@ -54,8 +54,7 @@ import org.jebtk.modern.tooltip.ModernToolTipWidget;
  * @author Antony Holmes
  *
  */
-public class RibbonSection extends ModernClickWidget
-    implements RibbonModeProperty, NameGetter {
+public class RibbonSection extends ModernClickWidget implements RibbonModeProperty, NameGetter {
 
   /**
    * The constant serialVersionUID.
@@ -77,12 +76,10 @@ public class RibbonSection extends ModernClickWidget
   private int HEIGHT = 16;
 
   /** The large border. */
-  private Border LARGE_BORDER = BorderService.getInstance()
-      .createBorder(2, 0, HEIGHT, 1);
+  private Border LARGE_BORDER = BorderService.getInstance().createBorder(2, 0, HEIGHT, 1);
 
   /** The small border. */
-  private Border SMALL_BORDER = BorderService.getInstance()
-      .createBorder(0, PADDING, 0, PADDING);
+  private Border SMALL_BORDER = BorderService.getInstance().createBorder(0, PADDING, 0, PADDING);
 
   /** The Constant SEPARATOR_PADDING. */
   // public static final int SEPARATOR_PADDING = DOUBLE_PADDING;
@@ -107,7 +104,7 @@ public class RibbonSection extends ModernClickWidget
    * Instantiates a new ribbon section.
    *
    * @param ribbon the ribbon
-   * @param title the title
+   * @param title  the title
    */
   public RibbonSection(Ribbon ribbon, String title) {
     this(ribbon, title, false);
@@ -121,15 +118,14 @@ public class RibbonSection extends ModernClickWidget
    * Instantiates a new ribbon section.
    *
    * @param ribbon the ribbon
-   * @param title the title
-   * @param mode the mode
+   * @param title  the title
+   * @param mode   the mode
    */
   public RibbonSection(Ribbon ribbon, String title, RibbonSize mode) {
     this(ribbon, title, mode, false);
   }
 
-  public RibbonSection(Ribbon ribbon, String title, RibbonSize mode,
-      boolean showLabel) {
+  public RibbonSection(Ribbon ribbon, String title, RibbonSize mode, boolean showLabel) {
     mRibbon = ribbon;
     mTitle = title;
 
@@ -245,8 +241,7 @@ public class RibbonSection extends ModernClickWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -264,8 +259,8 @@ public class RibbonSection extends ModernClickWidget
      */
 
     /*
-     * gradient = new GradientPaint(0, 0, Color.WHITE, 0, mRect.getH(),
-     * LINE_COLOR, false);
+     * gradient = new GradientPaint(0, 0, Color.WHITE, 0, mRect.getH(), LINE_COLOR,
+     * false);
      */
 
     if (mMode == RibbonSize.LARGE) {
@@ -289,18 +284,18 @@ public class RibbonSection extends ModernClickWidget
   }
 
   public ModernButton createButton(String text, ModernIcon icon) {
-    ModernButton button =  new RibbonLargeButton(text, icon);
-    
+    ModernButton button = new RibbonLargeButton(text, icon);
+
     add(button);
-    
+
     return button;
   }
 
   public ModernButton createButton(ModernIcon icon) {
-    ModernButton button =  new RibbonLargeButton(icon);
-    
+    ModernButton button = new RibbonLargeButton(icon);
+
     add(button);
-    
+
     return button;
   }
 }

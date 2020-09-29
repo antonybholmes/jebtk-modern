@@ -59,13 +59,12 @@ public class ModernInputDialog extends ModernDialogTaskWindow {
   /**
    * Instantiates a new modern input dialog.
    *
-   * @param parent the parent
-   * @param title the title
+   * @param parent  the parent
+   * @param title   the title
    * @param message the message
-   * @param text the text
+   * @param text    the text
    */
-  public ModernInputDialog(ModernWindow parent, String title, String message,
-      String text) {
+  public ModernInputDialog(ModernWindow parent, String title, String message, String text) {
     super(parent);
 
     setTitle(title);

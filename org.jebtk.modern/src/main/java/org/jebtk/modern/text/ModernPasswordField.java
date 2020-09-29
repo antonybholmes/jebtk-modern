@@ -102,8 +102,7 @@ public class ModernPasswordField extends JPasswordField {
 
     setBorder(BorderFactory.createEmptyBorder());
 
-    setMinimumSize(
-        new Dimension(AssetService.ICON_SIZE_24, AssetService.ICON_SIZE_24));
+    setMinimumSize(new Dimension(AssetService.ICON_SIZE_24, AssetService.ICON_SIZE_24));
     setMaximumSize(new Dimension(Short.MAX_VALUE, AssetService.ICON_SIZE_24));
   }
 

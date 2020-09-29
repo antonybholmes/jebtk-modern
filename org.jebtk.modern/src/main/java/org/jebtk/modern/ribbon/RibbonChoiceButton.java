@@ -53,8 +53,7 @@ public class RibbonChoiceButton extends ModernRadioButton {
   /**
    * The constant SIZE.
    */
-  private static final Dimension SIZE = new Dimension(
-      Ribbon.LARGE_BUTTON_HEIGHT, Ribbon.LARGE_BUTTON_HEIGHT);
+  private static final Dimension SIZE = new Dimension(Ribbon.LARGE_BUTTON_HEIGHT, Ribbon.LARGE_BUTTON_HEIGHT);
 
   /**
    * The member icon.
@@ -64,7 +63,7 @@ public class RibbonChoiceButton extends ModernRadioButton {
   /**
    * Instantiates a new ribbon choice button2.
    *
-   * @param icon the icon
+   * @param icon         the icon
    * @param clickMessage the click message
    */
   public RibbonChoiceButton(ModernIcon icon, String clickMessage) {
@@ -90,8 +89,7 @@ public class RibbonChoiceButton extends ModernRadioButton {
         // getWidgetRenderer()
         // .drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
 
-        DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-            mInternalRect);
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mInternalRect);
       }
     }
   }

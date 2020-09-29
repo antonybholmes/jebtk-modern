@@ -161,8 +161,7 @@ public class ModernMultilineLabel extends ModernCanvas implements TextProperty {
     for (String word : words) {
       // See what happens when we add a new word, if this exceeds the
       // line width, create a new line
-      StringBuilder tp = new StringBuilder(buffer.toString())
-          .append(TextUtils.SPACE_DELIMITER).append(word);
+      StringBuilder tp = new StringBuilder(buffer.toString()).append(TextUtils.SPACE_DELIMITER).append(word);
 
       int w = mG2.getFontMetrics().stringWidth(tp.toString());
 

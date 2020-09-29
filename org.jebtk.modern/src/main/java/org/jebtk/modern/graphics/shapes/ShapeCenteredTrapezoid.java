@@ -42,8 +42,8 @@ public class ShapeCenteredTrapezoid extends ShapeParallelogram {
   /**
    * Instantiates a new shape centered diamond.
    *
-   * @param x the x
-   * @param y the y
+   * @param x    the x
+   * @param y    the y
    * @param size the size
    */
   public ShapeCenteredTrapezoid(int x, int y, int size) {

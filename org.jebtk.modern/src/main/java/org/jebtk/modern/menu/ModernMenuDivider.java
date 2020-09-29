@@ -55,9 +55,6 @@ public class ModernMenuDivider extends ModernMenuSeparator {
   public void drawForegroundAA(Graphics2D g2) {
     g2.setColor(LINE_COLOR);
 
-    g2.drawLine(getInsets().left + ModernMenuItem.HEIGHT,
-        y,
-        getWidth() - getInsets().left - getInsets().right,
-        y);
+    g2.drawLine(getInsets().left + ModernMenuItem.HEIGHT, y, getWidth() - getInsets().left - getInsets().right, y);
   }
 }

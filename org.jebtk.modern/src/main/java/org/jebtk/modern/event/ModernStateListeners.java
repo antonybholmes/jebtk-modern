@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ModernStateListeners extends EventProducer<ModernStateListener>
-    implements ModernStateEventProducer {
+public class ModernStateListeners extends EventProducer<ModernStateListener> implements ModernStateEventProducer {
 
   /**
    * The constant serialVersionUID.

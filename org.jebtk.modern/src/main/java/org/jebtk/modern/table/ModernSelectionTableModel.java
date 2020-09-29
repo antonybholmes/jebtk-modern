@@ -38,7 +38,7 @@ public class ModernSelectionTableModel extends ModernTableModel {
    * Instantiates a new modern selection table model.
    *
    * @param heading the heading
-   * @param values the values
+   * @param values  the values
    */
   public ModernSelectionTableModel(String heading, List<?> values) {
     mHeading = heading;

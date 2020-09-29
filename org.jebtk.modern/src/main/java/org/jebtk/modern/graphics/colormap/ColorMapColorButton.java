@@ -42,7 +42,7 @@ public class ColorMapColorButton extends ColorSwatchButton {
    * Instantiates a new color swatch button.
    *
    * @param parent the parent
-   * @param color the color
+   * @param color  the color
    */
   public ColorMapColorButton(ModernWindow parent, Color color) {
     super(parent, color);
@@ -85,8 +85,7 @@ public class ColorMapColorButton extends ColorSwatchButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
    * awt. Graphics2D)
    */
   @Override

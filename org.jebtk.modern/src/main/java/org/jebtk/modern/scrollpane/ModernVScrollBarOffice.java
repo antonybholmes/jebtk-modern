@@ -51,15 +51,15 @@ public class ModernVScrollBarOffice extends ModernVScrollBar {
   /**
    * The constant UP_ARROW_ICON.
    */
-  protected static final ModernIcon UP_ARROW_ICON = AssetService.getInstance()
-      .loadIcon(CheveronUpVectorIcon.class, SCROLLBAR_SIZE);
+  protected static final ModernIcon UP_ARROW_ICON = AssetService.getInstance().loadIcon(CheveronUpVectorIcon.class,
+      SCROLLBAR_SIZE);
 
   /**
    * The constant DOWN_ARROW_ICON.
    */
-  protected static final ModernIcon DOWN_ARROW_ICON = AssetService.getInstance()
-      .loadIcon(CheveronDownVectorIcon.class, SCROLLBAR_SIZE); // Resources.getInstance().loadIcon("down_scroll",
-                                                               // Resources.ICON_SIZE_16);
+  protected static final ModernIcon DOWN_ARROW_ICON = AssetService.getInstance().loadIcon(CheveronDownVectorIcon.class,
+      SCROLLBAR_SIZE); // Resources.getInstance().loadIcon("down_scroll",
+  // Resources.ICON_SIZE_16);
 
   /**
    * Instantiates a new modern V scroll bar office.
@@ -117,8 +117,7 @@ public class ModernVScrollBarOffice extends ModernVScrollBar {
    */
   @Override
   public void paintUpButton(Graphics2D g2) {
-    Rectangle r = new Rectangle(getInsets().left, getInsets().top,
-        mIternalFixedDim, mIternalFixedDim);
+    Rectangle r = new Rectangle(getInsets().left, getInsets().top, mIternalFixedDim, mIternalFixedDim);
 
     if (mHighlightButton1) {
       paintScrollBarButtonHighlighted(g2, r);
@@ -128,10 +127,7 @@ public class ModernVScrollBarOffice extends ModernVScrollBar {
 
     int offset = (getInternalFixedDimension() - UP_ARROW_ICON.getWidth()) / 2;
 
-    UP_ARROW_ICON.drawIcon(g2,
-        getInsets().left + offset,
-        getInsets().top + offset,
-        mIternalFixedDim);
+    UP_ARROW_ICON.drawIcon(g2, getInsets().left + offset, getInsets().top + offset, mIternalFixedDim);
   }
 
   /*
@@ -143,8 +139,7 @@ public class ModernVScrollBarOffice extends ModernVScrollBar {
    */
   @Override
   public void paintDownButton(Graphics2D g2) {
-    Rectangle r = new Rectangle(getInsets().left,
-        getHeight() - mIternalFixedDim - getInsets().bottom, mIternalFixedDim,
+    Rectangle r = new Rectangle(getInsets().left, getHeight() - mIternalFixedDim - getInsets().bottom, mIternalFixedDim,
         mIternalFixedDim);
 
     if (mHighlightButton2) {
@@ -155,10 +150,8 @@ public class ModernVScrollBarOffice extends ModernVScrollBar {
 
     int offset = (mIternalFixedDim - DOWN_ARROW_ICON.getWidth()) / 2;
 
-    DOWN_ARROW_ICON.drawIcon(g2,
-        getInsets().left + offset,
-        getHeight() - mIternalFixedDim - getInsets().bottom + offset,
-        getInternalFixedDimension());
+    DOWN_ARROW_ICON.drawIcon(g2, getInsets().left + offset,
+        getHeight() - mIternalFixedDim - getInsets().bottom + offset, getInternalFixedDimension());
   }
 
 }

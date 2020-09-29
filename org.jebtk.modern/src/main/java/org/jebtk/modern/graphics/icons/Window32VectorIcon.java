@@ -86,12 +86,7 @@ public class Window32VectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     x = x + (w - WIDTH) / 2;
     y = y + (h - HEIGHT) / 2;
 

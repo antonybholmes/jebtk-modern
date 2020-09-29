@@ -72,7 +72,7 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
   /**
    * Instantiates a new modern check box menu item.
    *
-   * @param text the text
+   * @param text     the text
    * @param selected the selected
    */
   public ModernCheckBoxMenuItem(String text, boolean selected) {
@@ -90,8 +90,7 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
     if (isEnabled() && mHighlight) {
       // getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.HIGHLIGHT);
 
-      DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-          mInternalRect);
+      DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mInternalRect);
     }
   }
 
@@ -115,8 +114,7 @@ public class ModernCheckBoxMenuItem extends ModernCheckButton {
     if (isSelected()) {
       // CHECKED_ICON.drawIcon(g2, x, y, ICON_SIZE);
 
-      DrawUIService.getInstance().getRenderer("check")
-          .draw(g2, new IntRect(x, y, ICON_SIZE, ICON_SIZE));
+      DrawUIService.getInstance().getRenderer("check").draw(g2, new IntRect(x, y, ICON_SIZE, ICON_SIZE));
 
     }
 

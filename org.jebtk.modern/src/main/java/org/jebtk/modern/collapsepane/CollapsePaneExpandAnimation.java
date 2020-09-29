@@ -41,15 +41,13 @@ public class CollapsePaneExpandAnimation extends RotationAnimation {
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
     Rectangle r = new Rectangle(widget.getInsets().left, widget.getInsets().top,
-        widget.getWidth() - widget.getInsets().left - widget.getInsets().right,
-        mPane.mHeaderHeight);
+        widget.getWidth() - widget.getInsets().left - widget.getInsets().right, mPane.mHeaderHeight);
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
     int d = (mPane.mHeaderHeight - ModernCollapseNodeRenderer.ICON_SIZE) / 2;
 
-    int xt = widget.getWidth() - widget.getInsets().right
-        - ModernCollapseNodeRenderer.ICON_SIZE - d;
+    int xt = widget.getWidth() - widget.getInsets().right - ModernCollapseNodeRenderer.ICON_SIZE - d;
     int yt = r.y + d;
     int mid = ModernCollapseNodeRenderer.ICON_SIZE / 2;
 
@@ -75,17 +73,14 @@ public class CollapsePaneExpandAnimation extends RotationAnimation {
 
           g2Temp2.translate(-mid, -mid);
 
-          ModernCollapseNodeRenderer.BRANCH_CLOSED_ICON
-              .drawIcon(g2Temp2, 0, 0, ModernCollapseNodeRenderer.ICON_SIZE);
+          ModernCollapseNodeRenderer.BRANCH_CLOSED_ICON.drawIcon(g2Temp2, 0, 0, ModernCollapseNodeRenderer.ICON_SIZE);
 
         } finally {
           g2Temp2.dispose();
         }
 
         g2Temp.translate(0,
-            mPane.mHeaderHeight + (mPane.mExpanded.get(i)
-                ? mPane.mComponents.get(i).getPreferredSize().height
-                : 0));
+            mPane.mHeaderHeight + (mPane.mExpanded.get(i) ? mPane.mComponents.get(i).getPreferredSize().height : 0));
       }
     } finally {
       g2Temp.dispose();

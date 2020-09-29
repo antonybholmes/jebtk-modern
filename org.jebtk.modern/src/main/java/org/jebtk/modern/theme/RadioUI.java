@@ -16,9 +16,7 @@ public class RadioUI extends ButtonUI {
   }
 
   @Override
-  public void draw(Graphics2D g2,
-      IntRect rect,
-      Props props) {
+  public void draw(Graphics2D g2, IntRect rect, Props props) {
 
     g2.setColor(Color.WHITE);
     g2.fillOval(rect.x, rect.y, rect.w, rect.w);

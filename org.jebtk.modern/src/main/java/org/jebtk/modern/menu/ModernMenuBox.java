@@ -40,8 +40,7 @@ import org.jebtk.modern.panel.VBoxAutoWidth;
  * @author Antony Holmes
  *
  */
-public class ModernMenuBox extends VBoxAutoWidth
-    implements ModernClickEventProducer, ModernClickListener {
+public class ModernMenuBox extends VBoxAutoWidth implements ModernClickEventProducer, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -112,8 +111,7 @@ public class ModernMenuBox extends VBoxAutoWidth
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

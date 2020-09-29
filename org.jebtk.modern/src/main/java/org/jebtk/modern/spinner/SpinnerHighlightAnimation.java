@@ -26,8 +26,7 @@ public class SpinnerHighlightAnimation extends ButtonOutlineAnimation {
     int x = r.getX();
     int y = r.getY();
 
-    IntRect intRect = new IntRect(x, y,
-        mSpinner.mMinButtonX - x - ModernCompactSpinner.BORDER, r.getH());
+    IntRect intRect = new IntRect(x, y, mSpinner.mMinButtonX - x - ModernCompactSpinner.BORDER, r.getH());
 
     // widget.getWidgetRenderer().drawBackground(g2, intRect);
 
@@ -35,7 +34,6 @@ public class SpinnerHighlightAnimation extends ButtonOutlineAnimation {
 
     // g2.setColor(getFadeColor("outline"));
     // widget.getWidgetRenderer().outline(g2, intRect);
-    DrawUIService.getInstance().getRenderer("button-outline")
-        .draw(g2, intRect, getFadeColor("outline"));
+    DrawUIService.getInstance().getRenderer("button-outline").draw(g2, intRect, getFadeColor("outline"));
   }
 }

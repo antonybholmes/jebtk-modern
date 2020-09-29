@@ -102,13 +102,13 @@ public class ModernTextArea extends JTextArea {
   /**
    * Sets the text.
    *
-   * @param <T> the generic type
+   * @param <T>   the generic type
    * @param items the new text
    */
   public <T> void setText(List<T> items) {
     setText(Stream.of(items).asString().join(TextUtils.NEW_LINE_DELIMITER));
   }
-  
+
   public <T> void setText(String[] items) {
     setText(Stream.of(items).asString().join(TextUtils.NEW_LINE_DELIMITER));
   }

@@ -30,8 +30,7 @@ import org.jebtk.modern.theme.MaterialService;
  */
 public class RibbonHighlightAnimation extends HighlightAnimation {
 
-  public static final Color HIGHLIGHT_COLOR = MaterialService.instance()
-      .getColor("ribbon-highlight");
+  public static final Color HIGHLIGHT_COLOR = MaterialService.instance().getColor("ribbon-highlight");
 
   /** The m ribbon. */
   private Ribbon mRibbon;
@@ -46,8 +45,7 @@ public class RibbonHighlightAnimation extends HighlightAnimation {
 
     mRibbon = (Ribbon) ribbon;
 
-    setFadeColor("highlight", 
-        MaterialService.instance().getColor("gray-highlight")); //new Color(242, 242, 242));
+    setFadeColor("highlight", MaterialService.instance().getColor("gray-highlight")); // new Color(242, 242, 242));
   }
 
   /*
@@ -62,8 +60,8 @@ public class RibbonHighlightAnimation extends HighlightAnimation {
     /*
      * int x; int tabWidth;
      * 
-     * for (int i = 0; i < mRibbon.mTitles.size(); ++i) { x = mRibbon.mTabStartX
-     * + mRibbon.mTabStarts.get(i); tabWidth = mRibbon.mTabWidths.get(i);
+     * for (int i = 0; i < mRibbon.mTitles.size(); ++i) { x = mRibbon.mTabStartX +
+     * mRibbon.mTabStarts.get(i); tabWidth = mRibbon.mTabWidths.get(i);
      * 
      * if (i == mRibbon.mHighlightedTab) {
      * g2.setColor(mFade.getFadeColor("highlight"));
@@ -74,7 +72,6 @@ public class RibbonHighlightAnimation extends HighlightAnimation {
      * 
      * break; } }
      */
-
 
     //
     // Paint the file menu item

@@ -103,8 +103,7 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
   public void translate(Graphics2D g2) {
     ModernDataSelection visibleCells = mTable.calculateVisibleCells();
 
-    g2.translate(mTable.getX(visibleCells.getStartCol()) - getViewRect().getX(),
-        0);
+    g2.translate(mTable.getX(visibleCells.getStartCol()) - getViewRect().getX(), 0);
   }
 
   /*
@@ -163,8 +162,8 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
         // }
 
         boolean highlight = i == mHighlightColumn;
-        boolean selected = mTable.getColumnModel().isSelected(i) || mTable
-            .getCellSelectionModel().getColumnSelectionModel().contains(i);
+        boolean selected = mTable.getColumnModel().isSelected(i)
+            || mTable.getCellSelectionModel().getColumnSelectionModel().contains(i);
 
         int wc = (int) mTable.scale(mTable.getColumnModel().getWidth(i));
 
@@ -173,22 +172,16 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
         Graphics2D g2Temp2 = (Graphics2D) g2Temp.create();
 
         try {
-          //for (String name : columnNames) {
-          Component c = mTable.getHeadingRenderer(i).getCellRendererComponent(
-              mTable,
-              name,
-              highlight,
-              selected,
-              highlight,
-              0,
-              i);
+          // for (String name : columnNames) {
+          Component c = mTable.getHeadingRenderer(i).getCellRendererComponent(mTable, name, highlight, selected,
+              highlight, 0, i);
 
           c.setSize(wc, h);
 
           c.print(g2Temp2);
 
-          //g2Temp2.translate(0, h);
-          //}
+          // g2Temp2.translate(0, h);
+          // }
         } finally {
           g2Temp2.dispose();
         }
@@ -244,8 +237,7 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
     mDragTableColumn = mTable.getNearestColumnDivider(p.getX());
 
     if (mDragTableColumn != -1) {
-      mDragTableColumnWidth = mTable.getColumnModel()
-          .getWidth(mDragTableColumn);
+      mDragTableColumnWidth = mTable.getColumnModel().getWidth(mDragTableColumn);
       mDragTableColumnX = mTable.getX(mDragTableColumn) + mDragTableColumnWidth;
 
       mTable.setSortColumn(mDragTableColumn);
@@ -259,8 +251,7 @@ public class ModernTableHeaderColumn extends ModernTableHeader {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.table.header.ModernTableHeader#mouseReleased(java.
+   * @see org.abh.lib.ui.modern.table.header.ModernTableHeader#mouseReleased(java.
    * awt. event.CanvasMouseEvent)
    */
   @Override

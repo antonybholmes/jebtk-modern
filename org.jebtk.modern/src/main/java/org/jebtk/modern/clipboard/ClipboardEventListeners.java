@@ -36,8 +36,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ClipboardEventListeners extends
-    EventProducer<ClipboardEventListener> implements ClipboardEventProducer {
+public class ClipboardEventListeners extends EventProducer<ClipboardEventListener> implements ClipboardEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -48,8 +47,7 @@ public class ClipboardEventListeners extends
    * (non-Javadoc)
    * 
    * @see org.abh.lib.ui.modern.clipboard.ClipboardEventProducer#
-   * addClipboardListener(
-   * org.abh.lib.ui.modern.clipboard.ClipboardEventListener)
+   * addClipboardListener( org.abh.lib.ui.modern.clipboard.ClipboardEventListener)
    */
   public void addClipboardListener(ClipboardEventListener l) {
     mListeners.add(l);

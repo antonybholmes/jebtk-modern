@@ -41,8 +41,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * The class RibbonPanelHelpButton.
  */
-public class RibbonPanelHelpButton extends RibbonPanelButton
-    implements ModernClickListener {
+public class RibbonPanelHelpButton extends RibbonPanelButton implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -86,29 +85,23 @@ public class RibbonPanelHelpButton extends RibbonPanelButton
     int x = (mRect.getW() - WIDTH) / 2;
     int y = 16;
 
-    AssetService.getInstance().loadIcon(HelpVectorIcon.class, 32)
-        .drawIcon(g2, x, y, 32);
+    AssetService.getInstance().loadIcon(HelpVectorIcon.class, 32).drawIcon(g2, x, y, 32);
 
-    x = (mRect.getW() - WIDTH) / 2
-        + (WIDTH - g2.getFontMetrics().stringWidth("?")) / 2;
-    y = 16 + (WIDTH + g2.getFontMetrics().getAscent()
-        - g2.getFontMetrics().getDescent()) / 2;
+    x = (mRect.getW() - WIDTH) / 2 + (WIDTH - g2.getFontMetrics().stringWidth("?")) / 2;
+    y = 16 + (WIDTH + g2.getFontMetrics().getAscent() - g2.getFontMetrics().getDescent()) / 2;
 
     g2.drawString("?", x, y);
 
     g2.setColor(TEXT_COLOR);
     g2.setFont(ThemeService.loadFont("widget.text"));
 
-    g2.drawString(getText(),
-        (mRect.getW() - g2.getFontMetrics().stringWidth(getText())) / 2,
-        mRect.getH() - 16);
+    g2.drawString(getText(), (mRect.getW() - g2.getFontMetrics().stringWidth(getText())) / 2, mRect.getH() - 16);
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {

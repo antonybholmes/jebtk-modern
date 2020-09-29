@@ -54,12 +54,11 @@ public class ModernRadioMenuItem extends ModernRadioButton {
   private static final int ICON_SIZE = 16;
 
   /** The Constant ICON_1. */
-  private static final ModernIcon ICON_1 = AssetService.getInstance()
-      .loadIcon(RadioButtonVectorIcon.class, ICON_SIZE);
+  private static final ModernIcon ICON_1 = AssetService.getInstance().loadIcon(RadioButtonVectorIcon.class, ICON_SIZE);
 
   /** The Constant ICON_2. */
-  private static final ModernIcon ICON_2 = AssetService.getInstance()
-      .loadIcon(RadioButtonSelectedVectorIcon.class, ICON_SIZE);
+  private static final ModernIcon ICON_2 = AssetService.getInstance().loadIcon(RadioButtonSelectedVectorIcon.class,
+      ICON_SIZE);
 
   /**
    * Instantiates a new modern check box menu item.
@@ -73,7 +72,7 @@ public class ModernRadioMenuItem extends ModernRadioButton {
   /**
    * Instantiates a new modern check box menu item.
    *
-   * @param text the text
+   * @param text     the text
    * @param selected the selected
    */
   public ModernRadioMenuItem(String text, boolean selected) {
@@ -97,8 +96,7 @@ public class ModernRadioMenuItem extends ModernRadioButton {
     if (isEnabled()) {
       if (mHighlight) {
         // getWidgetRenderer().drawMenu(g2, mInternalRect, RenderMode.SELECTED);
-        DrawUIService.getInstance().getRenderer("button-fill").draw(g2,
-            mInternalRect);
+        DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mInternalRect);
       }
     }
   }

@@ -48,6 +48,6 @@ public class ModernDialogWindowContentPanel extends ModernPanel {
    */
   public ModernDialogWindowContentPanel() {
     super(ModernDialogWindow.DIALOG_BACKGROUND); // ,
-                                                 // ModernDialogWindow.DIALOG_BACKGROUND);
+    // ModernDialogWindow.DIALOG_BACKGROUND);
   }
 }

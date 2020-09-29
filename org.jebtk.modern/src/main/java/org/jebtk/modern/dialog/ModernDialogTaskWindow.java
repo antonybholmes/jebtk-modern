@@ -54,8 +54,7 @@ import org.jebtk.modern.window.WindowLeftTabNav;
  * @author Antony Holmes
  *
  */
-public class ModernDialogTaskWindow extends ModernDialogWindow
-implements ModernClickListener {
+public class ModernDialogTaskWindow extends ModernDialogWindow implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -66,14 +65,12 @@ implements ModernClickListener {
   protected ModernDialogButtonsBox mButtons = new ModernDialogButtonsBox();
 
   /** The m ok button. */
-  protected ModernButton mOkButton = new ModernDialogPrimaryButton(
-      UI.BUTTON_OK);
+  protected ModernButton mOkButton = new ModernDialogPrimaryButton(UI.BUTTON_OK);
 
   /**
    * The close button.
    */
-  protected ModernButton mCancelButton = new ModernDialogButton(
-      UI.BUTTON_CANCEL);
+  protected ModernButton mCancelButton = new ModernDialogButton(UI.BUTTON_CANCEL);
 
   private ModernHContentPane mContentPane = new ModernHContentPane();
 
@@ -92,7 +89,7 @@ implements ModernClickListener {
    * Instantiates a new modern dialog window.
    *
    * @param parent the parent
-   * @param modal the modal
+   * @param modal  the modal
    */
   public ModernDialogTaskWindow(ModernWindow parent, boolean modal) {
     this(parent, modal, ModernDialogTaskType.OK_CANCEL);
@@ -102,10 +99,9 @@ implements ModernClickListener {
    * Instantiates a new modern dialog task window.
    *
    * @param parent the parent
-   * @param type the type
+   * @param type   the type
    */
-  public ModernDialogTaskWindow(ModernWindow parent,
-      ModernDialogTaskType type) {
+  public ModernDialogTaskWindow(ModernWindow parent, ModernDialogTaskType type) {
     this(parent, true, type);
   }
 
@@ -113,11 +109,10 @@ implements ModernClickListener {
    * Instantiates a new modern dialog task window.
    *
    * @param parent the parent
-   * @param modal the modal
-   * @param type the type
+   * @param modal  the modal
+   * @param type   the type
    */
-  public ModernDialogTaskWindow(ModernWindow parent, boolean modal,
-      ModernDialogTaskType type) {
+  public ModernDialogTaskWindow(ModernWindow parent, boolean modal, ModernDialogTaskType type) {
     super(parent, modal);
 
     if (type != ModernDialogTaskType.NONE) {
@@ -156,24 +151,23 @@ implements ModernClickListener {
 
     mIconTabs = new WindowLeftTabNav(getTabsPane());
 
-
     getTabsPane().tabs().setCenterTab(new VBoxAutoWidth(ModernWidget.DOUBLE_BORDER));
   }
 
   /**
-   * Set the center card panel. This is will destroy any cards added using
-   * the {@code addCard()} method.
+   * Set the center card panel. This is will destroy any cards added using the
+   * {@code addCard()} method.
    * 
    * @param c
    */
   @Override
   public void setCard(JComponent c) {
-    getTabsPane().tabs().setCenterTab(
-        new ModernComponent(new CardPanel2(c, ModernWidget.QUAD_BORDER), ModernWidget.DOUBLE_BORDER));
+    getTabsPane().tabs()
+        .setCenterTab(new ModernComponent(new CardPanel2(c, ModernWidget.QUAD_BORDER), ModernWidget.DOUBLE_BORDER));
 
     setDarkBackground();
 
-    //addCard(c);
+    // addCard(c);
   }
 
   /**
@@ -182,9 +176,9 @@ implements ModernClickListener {
    * @param c
    */
   public void addCard(Component c) {
-    //getTabsPane().tabs().setCenterTab(
-    //   new CardPanel(new ModernComponent(c, ModernWidget.TRIPLE_BORDER),
-    //        ModernWidget.DOUBLE_BORDER));
+    // getTabsPane().tabs().setCenterTab(
+    // new CardPanel(new ModernComponent(c, ModernWidget.TRIPLE_BORDER),
+    // ModernWidget.DOUBLE_BORDER));
 
     addBlock(new CardPanel2(new ModernComponent(c, ModernWidget.TRIPLE_BORDER)));
 
@@ -198,9 +192,9 @@ implements ModernClickListener {
    * @param c
    */
   public void addBlock(Component c) {
-    //getTabsPane().tabs().setCenterTab(
-    //   new CardPanel(new ModernComponent(c, ModernWidget.TRIPLE_BORDER),
-    //        ModernWidget.DOUBLE_BORDER));
+    // getTabsPane().tabs().setCenterTab(
+    // new CardPanel(new ModernComponent(c, ModernWidget.TRIPLE_BORDER),
+    // ModernWidget.DOUBLE_BORDER));
 
     getCenterComp().add(c);
   }
@@ -295,7 +289,7 @@ implements ModernClickListener {
    * Create a standardized section header in a dialog vertical box.
    *
    * @param name the name
-   * @param box the box
+   * @param box  the box
    */
   public static void sectionHeader(final String name, Box box) {
     box.add(new ModernDialogHeadingLabel(name));
@@ -307,7 +301,7 @@ implements ModernClickListener {
    * should be used for subsequent headers after using {@code sectionHeader(..)}
    *
    * @param name the name
-   * @param box the box
+   * @param box  the box
    */
   public static void midSectionHeader(final String name, Box box) {
     box.add(UI.createVGap(20));

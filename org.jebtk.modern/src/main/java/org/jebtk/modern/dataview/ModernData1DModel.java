@@ -98,7 +98,7 @@ public class ModernData1DModel<T> extends ModernDataViewListeners {
    * Sets the row.
    *
    * @param index the row
-   * @param o the o
+   * @param o     the o
    */
   public void set(int index, T o) {
     if (!m1dMap.containsKey(index)) {

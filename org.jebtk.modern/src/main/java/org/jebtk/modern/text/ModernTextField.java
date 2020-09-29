@@ -66,8 +66,7 @@ public class ModernTextField extends JTextField implements TextProperty {
   public static final Color ENABLED_COLOR = ModernWidget.TEXT_COLOR;
 
   /** The Constant SELECTION_COLOR. */
-  public static final Color SELECTION_COLOR = ThemeService.getInstance()
-      .getColors().getTheme32(12);
+  public static final Color SELECTION_COLOR = ThemeService.getInstance().getColors().getTheme32(12);
 
   /**
    * Instantiates a new modern text field.
@@ -91,7 +90,7 @@ public class ModernTextField extends JTextField implements TextProperty {
   /**
    * Instantiates a new modern text field.
    *
-   * @param text the text
+   * @param text     the text
    * @param editable the editable
    */
   public ModernTextField(String text, boolean editable) {
@@ -116,8 +115,7 @@ public class ModernTextField extends JTextField implements TextProperty {
 
     setBorder(BorderFactory.createEmptyBorder());
 
-    setMinimumSize(
-        new Dimension(22, TEXT_BOX_SIZE.height));
+    setMinimumSize(new Dimension(22, TEXT_BOX_SIZE.height));
     setMaximumSize(new Dimension(Short.MAX_VALUE, TEXT_BOX_SIZE.height));
 
     UI.setSize(this, TEXT_BOX_SIZE);

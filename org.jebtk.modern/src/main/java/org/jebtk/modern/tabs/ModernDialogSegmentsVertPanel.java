@@ -32,7 +32,7 @@ public class ModernDialogSegmentsVertPanel extends ModernComponent {
   /**
    * Instantiates a new modern dialog segments panel.
    *
-   * @param model the model
+   * @param model   the model
    * @param tabSize the tab size
    */
   public ModernDialogSegmentsVertPanel(TabsModel model, int tabSize) {
@@ -42,29 +42,25 @@ public class ModernDialogSegmentsVertPanel extends ModernComponent {
   /**
    * Instantiates a new modern dialog segments panel.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model    the model
+   * @param tabSize  the tab size
    * @param centered the centered
    */
-  public ModernDialogSegmentsVertPanel(TabsModel model, int tabSize,
-      boolean centered) {
+  public ModernDialogSegmentsVertPanel(TabsModel model, int tabSize, boolean centered) {
     this(model, tabSize, 0);
   }
 
   /**
    * Instantiates a new modern dialog segments panel.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model       the model
+   * @param tabSize     the tab size
    * @param pagePadding the page padding
    */
-  public ModernDialogSegmentsVertPanel(TabsModel model, int tabSize,
-      int pagePadding) {
+  public ModernDialogSegmentsVertPanel(TabsModel model, int tabSize, int pagePadding) {
     SegmentTabs tabs = new SegmentVertTabs(model, tabSize);
 
-    UI.setSize(tabs,
-        new Dimension(tabSize, Short.MAX_VALUE),
-        UI.createRightBorder(pagePadding));
+    UI.setSize(tabs, new Dimension(tabSize, Short.MAX_VALUE), UI.createRightBorder(pagePadding));
 
     setLeft(tabs); // new TextTabsTriangle(model, centered));
 
@@ -72,6 +68,6 @@ public class ModernDialogSegmentsVertPanel extends ModernComponent {
     // panel.setBorder(TOP_BORDER);
 
     setBody(panel); // new ModernLineBorderPanel(new ModernComponent(panel,
-                    // LARGE_BORDER)));
+    // LARGE_BORDER)));
   }
 }

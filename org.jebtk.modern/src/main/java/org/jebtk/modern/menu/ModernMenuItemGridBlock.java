@@ -48,8 +48,7 @@ import org.jebtk.modern.panel.ModernPanel;
  * @author Antony Holmes
  *
  */
-public class ModernMenuItemGridBlock extends ModernMenuItem
-    implements ModernClickListener {
+public class ModernMenuItemGridBlock extends ModernMenuItem implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -79,9 +78,9 @@ public class ModernMenuItemGridBlock extends ModernMenuItem
   /**
    * Instantiates a new modern menu item grid block.
    *
-   * @param title the title
+   * @param title         the title
    * @param menuItemWidth the menu item width
-   * @param columns the columns
+   * @param columns       the columns
    */
   public ModernMenuItemGridBlock(String title, int menuItemWidth, int columns) {
     super("Grid Block");
@@ -98,7 +97,7 @@ public class ModernMenuItemGridBlock extends ModernMenuItem
   /**
    * Sets the width.
    *
-   * @param width the width
+   * @param width   the width
    * @param columns the columns
    */
   private void setWidth(int width, int columns) {
@@ -137,22 +136,17 @@ public class ModernMenuItemGridBlock extends ModernMenuItem
    * Sets the size.
    */
   private void setSize() {
-    UI.setSize(mPanel,
-        mWidth,
-        (mItems.size() / mColumns + (mItems.size() % mColumns > 0 ? 1 : 0))
-            * ModernIconMenuItem.HEIGHT);
+    UI.setSize(mPanel, mWidth,
+        (mItems.size() / mColumns + (mItems.size() % mColumns > 0 ? 1 : 0)) * ModernIconMenuItem.HEIGHT);
 
     // The size of the menu is the size of the grid plus the title height
-    UI.setSize(this,
-        mWidth,
-        mPanel.getPreferredSize().height + ModernTitleMenuItem.HEIGHT);
+    UI.setSize(this, mWidth, mPanel.getPreferredSize().height + ModernTitleMenuItem.HEIGHT);
   }
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

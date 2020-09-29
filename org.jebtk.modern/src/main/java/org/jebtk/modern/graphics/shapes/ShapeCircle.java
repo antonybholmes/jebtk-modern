@@ -40,8 +40,8 @@ public class ShapeCircle extends ShapeEllipse {
   /**
    * Instantiates a new shape circle.
    *
-   * @param x the x
-   * @param y the y
+   * @param x        the x
+   * @param y        the y
    * @param diameter the diameter
    */
   public ShapeCircle(int x, int y, int diameter) {

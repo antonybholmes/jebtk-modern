@@ -74,14 +74,12 @@ public class ModernSpinner extends ModernClickWidget {
   /**
    * The member inc button.
    */
-  protected ModernButton mIncButton = new ModernButton(
-      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16));
+  protected ModernButton mIncButton = new ModernButton(AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16));
 
   /**
    * The member dec button.
    */
-  protected ModernButton mDecButton = new ModernButton(
-      AssetService.getInstance().loadIcon(MinusVectorIcon.class, 16));
+  protected ModernButton mDecButton = new ModernButton(AssetService.getInstance().loadIcon(MinusVectorIcon.class, 16));
 
   /**
    * The member min.
@@ -150,8 +148,7 @@ public class ModernSpinner extends ModernClickWidget {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -175,8 +172,8 @@ public class ModernSpinner extends ModernClickWidget {
   /**
    * Instantiates a new modern spinner.
    *
-   * @param min the min
-   * @param max the max
+   * @param min   the min
+   * @param max   the max
    * @param value the value
    */
   public ModernSpinner(int min, int max, int value) {
@@ -260,7 +257,7 @@ public class ModernSpinner extends ModernClickWidget {
   /**
    * Sets the value.
    *
-   * @param value the value
+   * @param value   the value
    * @param trigger the trigger
    */
   protected void setValue(int value, boolean trigger) {

@@ -32,7 +32,7 @@ public class ModernDataRowFilterModel extends ModernDataModel {
    * Instantiates a new modern data row filter model.
    *
    * @param model the model
-   * @param rows the rows
+   * @param rows  the rows
    */
   public ModernDataRowFilterModel(ModernDataModel model, List<Integer> rows) {
     mModel = model;

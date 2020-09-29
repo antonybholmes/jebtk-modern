@@ -67,8 +67,8 @@ public abstract class SteppedSlider extends Slider {
   /**
    * Instantiates a new stepped slider.
    *
-   * @param min the min
-   * @param max the max
+   * @param min   the min
+   * @param max   the max
    * @param value the value
    */
   public SteppedSlider(double min, double max, double value) {

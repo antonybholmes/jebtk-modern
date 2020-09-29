@@ -45,8 +45,7 @@ import org.jebtk.modern.text.TextProperty;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public class ModernListIconCellRenderer extends ModernListCellRenderer
-    implements TextProperty {
+public class ModernListIconCellRenderer extends ModernListCellRenderer implements TextProperty {
 
   /**
    * The constant serialVersionUID.
@@ -91,8 +90,7 @@ public class ModernListIconCellRenderer extends ModernListCellRenderer
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -132,20 +130,11 @@ public class ModernListIconCellRenderer extends ModernListCellRenderer
    * boolean, int)
    */
   @Override
-  public Component getCellRendererComponent(ModernList<?> list,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row) {
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
     setText(value.toString());
 
-    return super.getCellRendererComponent(list,
-        value,
-        highlight,
-        isSelected,
-        hasFocus,
-        row);
+    return super.getCellRendererComponent(list, value, highlight, isSelected, hasFocus, row);
   }
 
   /*

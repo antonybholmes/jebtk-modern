@@ -96,8 +96,7 @@ public class ZoomDialog extends ModernDialogTaskWindow {
   /**
    * The text custom.
    */
-  private ModernCompactSpinner mTextCustom = new ModernCompactSpinner(1, 400,
-      100);
+  private ModernCompactSpinner mTextCustom = new ModernCompactSpinner(1, 400, 100);
 
   /**
    * The member model.
@@ -136,7 +135,7 @@ public class ZoomDialog extends ModernDialogTaskWindow {
    * Instantiates a new zoom dialog.
    *
    * @param parent the parent
-   * @param model the model
+   * @param model  the model
    */
   public ZoomDialog(ModernWindow parent, ZoomModel model) {
     super(parent, ModernDialogTaskType.CLOSE);
@@ -180,8 +179,8 @@ public class ZoomDialog extends ModernDialogTaskWindow {
 
     mTextCustom.setText(Integer.toString((int) (model.getZoom() * 100)));
 
-    new ModernButtonGroup().add(mCheck25).add(mCheck50).add(mCheck75)
-        .add(mCheck100).add(mCheck200).add(mCheck400).add(mCheckCustom);
+    new ModernButtonGroup().add(mCheck25).add(mCheck50).add(mCheck75).add(mCheck100).add(mCheck200).add(mCheck400)
+        .add(mCheckCustom);
 
     mCheck25.addClickListener(this);
     mCheck50.addClickListener(this);
@@ -211,8 +210,7 @@ public class ZoomDialog extends ModernDialogTaskWindow {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

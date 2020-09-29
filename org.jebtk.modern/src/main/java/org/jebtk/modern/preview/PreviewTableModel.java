@@ -67,7 +67,7 @@ public class PreviewTableModel extends ModernTableModel {
   public PreviewTableModel(final Path file) throws IOException {
     this(file, -1);
   }
-  
+
   public PreviewTableModel(final Path file, int rows) throws IOException {
     BufferedReader reader = FileUtils.newBufferedReader(file);
 
@@ -93,8 +93,7 @@ public class PreviewTableModel extends ModernTableModel {
           break;
         }
 
-        List<String> values = TextUtils.fastSplit(line,
-            TextUtils.TAB_DELIMITER);
+        List<String> values = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
 
         data.add(values);
 
@@ -154,7 +153,8 @@ public class PreviewTableModel extends ModernTableModel {
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(int)
+   * org.abh.lib.ui.modern.dataview.ModernDataModel#getColumn().getAnnotations(
+   * int)
    */
   @Override
   public final String getColumnName(int columnIndex) {

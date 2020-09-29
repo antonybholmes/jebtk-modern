@@ -128,8 +128,7 @@ public abstract class ModernTaskSplashScreen2 extends ModernSplashScreen {
 
     box.add(new ModernSplashTitleLabel(getAppInfo().getName()));
     box.add(UI.createVGap(10));
-    box.add(new ModernAutoSizeLabel(getAppInfo().getVersion().toString(),
-        Color.WHITE));
+    box.add(new ModernAutoSizeLabel(getAppInfo().getVersion().toString(), Color.WHITE));
 
     // box2.add(box3);
 

@@ -109,14 +109,14 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Instantiates a new modern message dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param icon the icon
-   * @param type the type
-   * @param lines the lines
-   * @param l the l
+   * @param title  the title
+   * @param icon   the icon
+   * @param type   the type
+   * @param lines  the lines
+   * @param l      the l
    */
-  public ModernMessageDialog(ModernWindow parent, String title, ModernIcon icon,
-      MessageDialogType type, List<String> lines, DialogEventListener l) {
+  public ModernMessageDialog(ModernWindow parent, String title, ModernIcon icon, MessageDialogType type,
+      List<String> lines, DialogEventListener l) {
     super(parent);
 
     addDialogListener(l);
@@ -131,8 +131,7 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
     // JPanel content = new GradientPanel(Color.WHITE, DialogButton.COLOR_1, new
     // BorderLayout());
 
-    ModernDialogImagePanel iconLabel = new ModernDialogImagePanel(icon,
-        ICON_SIZE);
+    ModernDialogImagePanel iconLabel = new ModernDialogImagePanel(icon, ICON_SIZE);
     content.setLeft(iconLabel);
 
     ModernComponent c = new ModernComponent(new MessageDialogCenterLayout());
@@ -147,19 +146,14 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
 
     // box.setBorder(BorderService.getInstance().createLeftBorder(ModernWidget.TRIPLE_PADDING));
     content.setBody(c);
-    content.setBorder(BorderService.getInstance()
-        .createLeftRightBorder(ModernWidget.DOUBLE_PADDING));
+    content.setBorder(BorderService.getInstance().createLeftRightBorder(ModernWidget.DOUBLE_PADDING));
     // content.setBorder(ModernWidget.DOUBLE_BORDER);
 
     setContent(content);
     // setFlatCardContent(content);
 
-    setSize(
-        Math.min(Math.max(MIN_WIDTH, c.getPreferredSize().width) + FIXED_WIDTH,
-            MAX_WIDTH),
-        Math.min(
-            Math.max(MIN_HEIGHT, c.getPreferredSize().height) + FIXED_HEIGHT,
-            MAX_HEIGHT));
+    setSize(Math.min(Math.max(MIN_WIDTH, c.getPreferredSize().width) + FIXED_WIDTH, MAX_WIDTH),
+        Math.min(Math.max(MIN_HEIGHT, c.getPreferredSize().height) + FIXED_HEIGHT, MAX_HEIGHT));
 
     Box box = new ModernCenterButtonsBox();
 
@@ -169,8 +163,7 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
     focusButton = mOkButton;
     box.add(mOkButton);
 
-    if (type == MessageDialogType.INFORMATION_YES_NO
-        || type == MessageDialogType.WARNING_YES_NO_CANCEL
+    if (type == MessageDialogType.INFORMATION_YES_NO || type == MessageDialogType.WARNING_YES_NO_CANCEL
         || type == MessageDialogType.WARNING_YES_NO) {
       mNoButton.addClickListener(this);
 
@@ -180,8 +173,7 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
       box.add(mNoButton);
     }
 
-    if (type == MessageDialogType.INFORMATION_OK_CANCEL
-        || type == MessageDialogType.WARNING_OK_CANCEL
+    if (type == MessageDialogType.INFORMATION_OK_CANCEL || type == MessageDialogType.WARNING_OK_CANCEL
         || type == MessageDialogType.WARNING_YES_NO_CANCEL) {
       mCancelButton.addClickListener(this);
       focusButton = mCancelButton;
@@ -189,8 +181,7 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
       box.add(mCancelButton);
     }
 
-    if (type == MessageDialogType.INFORMATION_YES_NO
-        || type == MessageDialogType.WARNING_YES_NO_CANCEL
+    if (type == MessageDialogType.INFORMATION_YES_NO || type == MessageDialogType.WARNING_YES_NO_CANCEL
         || type == MessageDialogType.WARNING_YES_NO) {
       mOkButton.setText("Yes");
     }
@@ -219,8 +210,7 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {
@@ -232,22 +222,19 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
 
     close();
 
-    mListeners.fireDialogStatusChanged(new DialogEvent(this,
-        (e.getSource().equals(mOkButton) ? ModernDialogStatus.OK
-            : ModernDialogStatus.CANCEL)));
+    mListeners.fireDialogStatusChanged(
+        new DialogEvent(this, (e.getSource().equals(mOkButton) ? ModernDialogStatus.OK : ModernDialogStatus.CANCEL)));
   }
 
   /**
    * Creates the dialog.
    *
    * @param parent the parent
-   * @param line the line
-   * @param type the type
+   * @param line   the line
+   * @param type   the type
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createDialog(ModernWindow parent,
-      String line,
-      MessageDialogType type) {
+  public static final ModernDialogStatus createDialog(ModernWindow parent, String line, MessageDialogType type) {
     return createDialog(parent, line, type, null);
   }
 
@@ -255,50 +242,36 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the dialog.
    *
    * @param parent the parent
-   * @param line the line
-   * @param type the type
-   * @param l the l
+   * @param line   the line
+   * @param type   the type
+   * @param l      the l
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createDialog(ModernWindow parent,
-      String line,
-      MessageDialogType type,
+  public static final ModernDialogStatus createDialog(ModernWindow parent, String line, MessageDialogType type,
       DialogEventListener l) {
     return createDialog(parent, parent.getAppInfo().getName(), line, type, l);
   }
 
-  public static final ModernDialogStatus createDialog(ModernWindow parent,
-      MessageDialogType type,
-      String line,
+  public static final ModernDialogStatus createDialog(ModernWindow parent, MessageDialogType type, String line,
       String... lines) {
     return createDialog(parent, type, null, line, lines);
   }
 
-  public static final ModernDialogStatus createDialog(ModernWindow parent,
-      MessageDialogType type,
-      DialogEventListener l,
-      String line,
-      String... lines) {
-    return createDialog(parent,
-        parent.getAppInfo().getName(),
-        type,
-        l,
-        line,
-        lines);
+  public static final ModernDialogStatus createDialog(ModernWindow parent, MessageDialogType type,
+      DialogEventListener l, String line, String... lines) {
+    return createDialog(parent, parent.getAppInfo().getName(), type, l, line, lines);
   }
 
   /**
    * Creates the dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param line the line
-   * @param type the type
+   * @param title  the title
+   * @param line   the line
+   * @param type   the type
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createDialog(ModernWindow parent,
-      String title,
-      String line,
+  public static final ModernDialogStatus createDialog(ModernWindow parent, String title, String line,
       MessageDialogType type) {
     return createDialog(parent, title, line, type, null);
   }
@@ -307,17 +280,14 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param line the line
-   * @param type the type
-   * @param l the l
+   * @param title  the title
+   * @param line   the line
+   * @param type   the type
+   * @param l      the l
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createDialog(ModernWindow parent,
-      String title,
-      String line,
-      MessageDialogType type,
-      DialogEventListener l) {
+  public static final ModernDialogStatus createDialog(ModernWindow parent, String title, String line,
+      MessageDialogType type, DialogEventListener l) {
     return createDialog(parent, title, CollectionUtils.asList(line), type, l);
   }
 
@@ -325,16 +295,13 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param lines the lines
-   * @param type the type
+   * @param title  the title
+   * @param lines  the lines
+   * @param type   the type
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createDialog(ModernWindow parent,
-      String title,
-      MessageDialogType type,
-      String line,
-      String... lines) {
+  public static final ModernDialogStatus createDialog(ModernWindow parent, String title, MessageDialogType type,
+      String line, String... lines) {
     return createDialog(parent, title, type, null, line, lines);
   }
 
@@ -342,37 +309,27 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param lines the lines
-   * @param type the type
-   * @param l the l
+   * @param title  the title
+   * @param lines  the lines
+   * @param type   the type
+   * @param l      the l
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createDialog(ModernWindow parent,
-      String title,
-      MessageDialogType type,
-      DialogEventListener l,
-      String line,
-      String... lines) {
-    return createDialog(parent,
-        title,
-        CollectionUtils.toList(line, lines),
-        type,
-        l);
+  public static final ModernDialogStatus createDialog(ModernWindow parent, String title, MessageDialogType type,
+      DialogEventListener l, String line, String... lines) {
+    return createDialog(parent, title, CollectionUtils.toList(line, lines), type, l);
   }
 
   /**
    * Creates the dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param lines the lines
-   * @param type the type
+   * @param title  the title
+   * @param lines  the lines
+   * @param type   the type
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createDialog(ModernWindow parent,
-      String title,
-      List<String> lines,
+  public static final ModernDialogStatus createDialog(ModernWindow parent, String title, List<String> lines,
       MessageDialogType type) {
     return createDialog(parent, title, lines, type, null);
   }
@@ -381,17 +338,14 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param lines the lines
-   * @param type the type
-   * @param l the l
+   * @param title  the title
+   * @param lines  the lines
+   * @param type   the type
+   * @param l      the l
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createDialog(ModernWindow parent,
-      String title,
-      List<String> lines,
-      MessageDialogType type,
-      DialogEventListener l) {
+  public static final ModernDialogStatus createDialog(ModernWindow parent, String title, List<String> lines,
+      MessageDialogType type, DialogEventListener l) {
     ModernMessageDialog dialog;
 
     ModernIcon icon;
@@ -400,13 +354,11 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
     case WARNING:
     case WARNING_OK_CANCEL:
     case WARNING_YES_NO_CANCEL:
-      icon = AssetService.getInstance().loadIcon(WarningVectorIcon.class,
-          ICON_SIZE); // Resources.getInstance().loadIcon("warning",
-                      // Resources.ICON_SIZE_48);
+      icon = AssetService.getInstance().loadIcon(WarningVectorIcon.class, ICON_SIZE); // Resources.getInstance().loadIcon("warning",
+      // Resources.ICON_SIZE_48);
       break;
     default:
-      icon = AssetService.getInstance().loadIcon(HelpVectorIcon.class,
-          ICON_SIZE); // Resources.getInstance().loadIcon("information",
+      icon = AssetService.getInstance().loadIcon(HelpVectorIcon.class, ICON_SIZE); // Resources.getInstance().loadIcon("information",
       // Resources.ICON_SIZE_48);
       break;
     }
@@ -426,12 +378,10 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the file replace dialog.
    *
    * @param parent the parent
-   * @param file the file
+   * @param file   the file
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createFileReplaceDialog(
-      ModernWindow parent,
-      Path file) {
+  public static final ModernDialogStatus createFileReplaceDialog(ModernWindow parent, Path file) {
     return createFileReplaceDialog(parent, file, null);
   }
 
@@ -439,20 +389,14 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the file replace dialog.
    *
    * @param parent the parent
-   * @param file the file
-   * @param l the l
+   * @param file   the file
+   * @param l      the l
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createFileReplaceDialog(
-      ModernWindow parent,
-      Path file,
+  public static final ModernDialogStatus createFileReplaceDialog(ModernWindow parent, Path file,
       DialogEventListener l) {
-    return createDialog(parent,
-        "Confirm Save As",
-        MessageDialogType.WARNING_OK_CANCEL,
-        l,
-        "'" + truncate(PathUtils.getName(file)) + "' already exists.",
-        "Do you want to replace it?");
+    return createDialog(parent, "Confirm Save As", MessageDialogType.WARNING_OK_CANCEL, l,
+        "'" + truncate(PathUtils.getName(file)) + "' already exists.", "Do you want to replace it?");
   }
 
   /**
@@ -461,8 +405,7 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * @param parent the parent
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createRestartDialog(
-      ModernWindow parent) {
+  public static final ModernDialogStatus createRestartDialog(ModernWindow parent) {
     return createRestartDialog(parent, null);
   }
 
@@ -470,25 +413,19 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates a standardized dialog for restarting an application.
    *
    * @param parent the parent
-   * @param l the l
+   * @param l      the l
    * @return the modern dialog status
    */
-  public static final ModernDialogStatus createRestartDialog(
-      ModernWindow parent,
-      DialogEventListener l) {
-    return createDialog(parent,
-        "Confirm Restart",
-        MessageDialogType.WARNING_OK_CANCEL,
-        l,
-        "Are you sure you want to restart?",
-        "Any unsaved data will be lost.");
+  public static final ModernDialogStatus createRestartDialog(ModernWindow parent, DialogEventListener l) {
+    return createDialog(parent, "Confirm Restart", MessageDialogType.WARNING_OK_CANCEL, l,
+        "Are you sure you want to restart?", "Any unsaved data will be lost.");
   }
 
   /**
    * Creates the file saved dialog.
    *
    * @param parent the parent
-   * @param file the file
+   * @param file   the file
    */
   public static void createFileSavedDialog(ModernWindow parent, Path file) {
     createFileSavedDialog(parent, parent.getAppInfo().getName(), file);
@@ -498,32 +435,22 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the file saved dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param file the file
+   * @param title  the title
+   * @param file   the file
    */
-  public static final void createFileSavedDialog(ModernWindow parent,
-      String title,
-      Path file) {
-    createDialog(parent,
-        title,
-        "'" + PathUtils.getName(file) + "' was saved.",
-        MessageDialogType.INFORMATION);
+  public static final void createFileSavedDialog(ModernWindow parent, String title, Path file) {
+    createDialog(parent, title, "'" + PathUtils.getName(file) + "' was saved.", MessageDialogType.INFORMATION);
   }
 
   /**
    * Creates the files saved dialog.
    *
-   * @param parent the parent
-   * @param title the title
+   * @param parent    the parent
+   * @param title     the title
    * @param directory the directory
    */
-  public static final void createFilesSavedDialog(ModernWindow parent,
-      String title,
-      Path directory) {
-    createDialog(parent,
-        title,
-        "Your files were saved in '" + truncate(PathUtils.toString(directory))
-            + "'.",
+  public static final void createFilesSavedDialog(ModernWindow parent, String title, Path directory) {
+    createDialog(parent, title, "Your files were saved in '" + truncate(PathUtils.toString(directory)) + "'.",
         MessageDialogType.INFORMATION);
   }
 
@@ -531,10 +458,9 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the file does not exist dialog.
    *
    * @param parent the parent
-   * @param file the file
+   * @param file   the file
    */
-  public static void createFileDoesNotExistDialog(ModernWindow parent,
-      Path file) {
+  public static void createFileDoesNotExistDialog(ModernWindow parent, Path file) {
     createFileDoesNotExistDialog(parent, parent.getAppInfo().getName(), file);
   }
 
@@ -542,15 +468,11 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the file does not exist dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param file the file
+   * @param title  the title
+   * @param file   the file
    */
-  public static final void createFileDoesNotExistDialog(ModernWindow parent,
-      String title,
-      Path file) {
-    createDialog(parent,
-        title,
-        MessageDialogType.WARNING,
+  public static final void createFileDoesNotExistDialog(ModernWindow parent, String title, Path file) {
+    createDialog(parent, title, MessageDialogType.WARNING,
         "Path '" + truncate(PathUtils.getName(file)) + "' does not exist.",
         "Please check the location and make sure it is accessible.");
   }
@@ -559,14 +481,11 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the file open error dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param file the file
+   * @param title  the title
+   * @param file   the file
    */
-  public static final void createFileOpenErrorDialog(ModernWindow parent,
-      String title,
-      Path file) {
-    String line = "There was an error opening '"
-        + truncate(PathUtils.getName(file)) + "'.";
+  public static final void createFileOpenErrorDialog(ModernWindow parent, String title, Path file) {
+    String line = "There was an error opening '" + truncate(PathUtils.getName(file)) + "'.";
 
     createDialog(parent, title, line, MessageDialogType.WARNING);
   }
@@ -575,14 +494,11 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the integer error dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param text the text
+   * @param title  the title
+   * @param text   the text
    */
-  public static final void createIntegerErrorDialog(ModernWindow parent,
-      String title,
-      String text) {
-    String line = "'" + text
-        + "' is not a valid number. Please correct this value.";
+  public static final void createIntegerErrorDialog(ModernWindow parent, String title, String text) {
+    String line = "'" + text + "' is not a valid number. Please correct this value.";
 
     createDialog(parent, title, line, MessageDialogType.WARNING);
   }
@@ -590,35 +506,25 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
   /**
    * Creates the file save error dialog.
    *
-   * @param parent the parent
-   * @param title the title
-   * @param file the file
+   * @param parent  the parent
+   * @param title   the title
+   * @param file    the file
    * @param message the message
    */
-  public static final void createFileSaveErrorDialog(ModernWindow parent,
-      String title,
-      Path file,
-      String message) {
-    createDialog(parent,
-        title,
-        MessageDialogType.WARNING,
-        "There was an error saving '" + truncate(PathUtils.getName(file))
-            + "'.",
-        message);
+  public static final void createFileSaveErrorDialog(ModernWindow parent, String title, Path file, String message) {
+    createDialog(parent, title, MessageDialogType.WARNING,
+        "There was an error saving '" + truncate(PathUtils.getName(file)) + "'.", message);
   }
 
   /**
-   * Provides a standard warning that the user that the output file is the same
-   * as the input file.
+   * Provides a standard warning that the user that the output file is the same as
+   * the input file.
    *
    * @param parent the parent
-   * @param title the title
+   * @param title  the title
    */
-  public static void createInputSameAsOutputDialog(ModernWindow parent,
-      String title) {
-    createDialog(parent,
-        title,
-        "The output file name cannot be the same as the input file name.",
+  public static void createInputSameAsOutputDialog(ModernWindow parent, String title) {
+    createDialog(parent, title, "The output file name cannot be the same as the input file name.",
         MessageDialogType.WARNING);
   }
 
@@ -626,25 +532,20 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Provides a standard warning that the user should specify an input file.
    *
    * @param parent the parent
-   * @param title the title
+   * @param title  the title
    */
-  public static void createSpecifyInputDialog(ModernWindow parent,
-      String title) {
-    createDialog(parent,
-        title,
-        "You must load a file before you can use this feature.",
-        MessageDialogType.WARNING);
+  public static void createSpecifyInputDialog(ModernWindow parent, String title) {
+    createDialog(parent, title, "You must load a file before you can use this feature.", MessageDialogType.WARNING);
   }
 
   /**
    * Creates the information dialog.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param message the message
    * @return the modern dialog status
    */
-  public static ModernDialogStatus createInformationDialog(ModernWindow parent,
-      String message) {
+  public static ModernDialogStatus createInformationDialog(ModernWindow parent, String message) {
     return createDialog(parent, message, MessageDialogType.INFORMATION);
   }
 
@@ -652,24 +553,21 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the warning dialog.
    *
    * @param parent the parent
-   * @param lines the lines
+   * @param lines  the lines
    * @return the modern dialog status
    */
-  public static ModernDialogStatus createInformationDialog(ModernWindow parent,
-      String line,
-      String... lines) {
+  public static ModernDialogStatus createInformationDialog(ModernWindow parent, String line, String... lines) {
     return createDialog(parent, MessageDialogType.INFORMATION, line, lines);
   }
 
   /**
    * Creates the warning dialog.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param message the message
    * @return the modern dialog status
    */
-  public static ModernDialogStatus createWarningDialog(ModernWindow parent,
-      String message) {
+  public static ModernDialogStatus createWarningDialog(ModernWindow parent, String message) {
     return createDialog(parent, message, MessageDialogType.WARNING);
   }
 
@@ -677,12 +575,10 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
    * Creates the warning dialog.
    *
    * @param parent the parent
-   * @param lines the lines
+   * @param lines  the lines
    * @return the modern dialog status
    */
-  public static ModernDialogStatus createWarningDialog(ModernWindow parent,
-      String line,
-      String... lines) {
+  public static ModernDialogStatus createWarningDialog(ModernWindow parent, String line, String... lines) {
     return createDialog(parent, MessageDialogType.WARNING, line, lines);
   }
 
@@ -699,43 +595,33 @@ public class ModernMessageDialog extends ModernDialogTaskWindow {
   /**
    * Creates the ok cancel warning dialog.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param message the message
    * @return the modern dialog status
    */
-  public static ModernDialogStatus createOkCancelWarningDialog(
-      ModernWindow parent,
-      String message) {
+  public static ModernDialogStatus createOkCancelWarningDialog(ModernWindow parent, String message) {
     return createDialog(parent, message, MessageDialogType.WARNING_OK_CANCEL);
   }
 
   /**
    * Creates the ok cancel info dialog.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param message the message
    * @return the modern dialog status
    */
-  public static ModernDialogStatus createOkCancelInfoDialog(ModernWindow parent,
-      String message) {
-    return createDialog(parent,
-        message,
-        MessageDialogType.INFORMATION_OK_CANCEL);
+  public static ModernDialogStatus createOkCancelInfoDialog(ModernWindow parent, String message) {
+    return createDialog(parent, message, MessageDialogType.INFORMATION_OK_CANCEL);
   }
 
   /**
    * Creates the ok cancel warning dialog.
    *
-   * @param parent the parent
-   * @param message the message
+   * @param parent   the parent
+   * @param message  the message
    * @param listener the listener
    */
-  public static void createOkCancelWarningDialog(ModernWindow parent,
-      String message,
-      DialogEventListener listener) {
-    createDialog(parent,
-        message,
-        MessageDialogType.WARNING_OK_CANCEL,
-        listener);
+  public static void createOkCancelWarningDialog(ModernWindow parent, String message, DialogEventListener listener) {
+    createDialog(parent, message, MessageDialogType.WARNING_OK_CANCEL, listener);
   }
 }

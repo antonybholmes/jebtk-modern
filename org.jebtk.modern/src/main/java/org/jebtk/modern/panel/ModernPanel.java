@@ -93,7 +93,7 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param c the c
+   * @param c      the c
    * @param border the border
    */
   public ModernPanel(Component c, int border) {
@@ -103,7 +103,7 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param c the c
+   * @param c      the c
    * @param border the border
    */
   public ModernPanel(Component c, Border border) {
@@ -115,7 +115,7 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param c the c
+   * @param c     the c
    * @param color the color
    */
   public ModernPanel(Component c, Color color) {
@@ -127,8 +127,8 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param c the c
-   * @param color the color
+   * @param c      the c
+   * @param color  the color
    * @param border the border
    */
   public ModernPanel(Component c, Color color, Border border) {
@@ -140,8 +140,8 @@ public class ModernPanel extends ModernComponent {
   /**
    * Instantiates a new modern panel.
    *
-   * @param c the c
-   * @param color the color
+   * @param c       the c
+   * @param color   the color
    * @param padding the padding
    */
   public ModernPanel(Component c, Color color, int padding) {

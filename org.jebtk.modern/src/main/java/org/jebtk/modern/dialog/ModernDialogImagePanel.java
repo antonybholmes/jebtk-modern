@@ -61,7 +61,7 @@ public class ModernDialogImagePanel extends ModernWidget {
    * Instantiates a new modern dialog image panel.
    *
    * @param image the image
-   * @param size the size
+   * @param size  the size
    */
   public ModernDialogImagePanel(ModernIcon image, int size) {
     setImage(image, size);
@@ -71,7 +71,7 @@ public class ModernDialogImagePanel extends ModernWidget {
    * Instantiates a new modern dialog image panel.
    *
    * @param image the image
-   * @param size the size
+   * @param size  the size
    */
   public ModernDialogImagePanel(ModernIcon image, Dimension size) {
     setImage(image, size);
@@ -81,7 +81,7 @@ public class ModernDialogImagePanel extends ModernWidget {
    * Sets the image.
    *
    * @param image the image
-   * @param size the size
+   * @param size  the size
    */
   public void setImage(ModernIcon image, int size) {
     setImage(image, new Dimension(size, size));
@@ -91,7 +91,7 @@ public class ModernDialogImagePanel extends ModernWidget {
    * Sets the image.
    *
    * @param image the image
-   * @param size the size
+   * @param size  the size
    */
   public void setImage(ModernIcon image, Dimension size) {
     mImage = image;
@@ -105,8 +105,7 @@ public class ModernDialogImagePanel extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

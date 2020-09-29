@@ -81,8 +81,7 @@ public class ModernRowTable extends ModernTable {
    * Graphics2D)
    */
   @Override
-  protected void createGridLines(Graphics2D g2,
-      ModernDataSelection visibleCells) {
+  protected void createGridLines(Graphics2D g2, ModernDataSelection visibleCells) {
     // Do nothing as we don't want the grid lines
   }
 
@@ -105,10 +104,7 @@ public class ModernRowTable extends ModernTable {
    * boolean, boolean)
    */
   @Override
-  public void setSelectedCell(int row,
-      int column,
-      boolean multiSelect,
-      boolean multiRangeSelect) {
+  public void setSelectedCell(int row, int column, boolean multiSelect, boolean multiRangeSelect) {
     super.setSelectedCell(row, column, multiSelect, multiRangeSelect);
 
     selectRows();
@@ -142,19 +138,17 @@ public class ModernRowTable extends ModernTable {
    * org.abh.common.ui.dataview.ModernDataSelection)
    */
   @Override
-  public void drawSelectionRow(Graphics2D g2,
-      ModernDataSelection visibleCells) {
+  public void drawSelectionRow(Graphics2D g2, ModernDataSelection visibleCells) {
     int x = 0; // getX(visibleCells.getStartCol()); //invTranslateX(getX(0));
-    int y = getY(mRowModel.getSelectionModel().first())
-        - getY(visibleCells.getStartRow()); // invTranslateY(getY(mRowModel.getSelectionModel().first()));
-                                            // // - mViewRect.getY();
+    int y = getY(mRowModel.getSelectionModel().first()) - getY(visibleCells.getStartRow()); // invTranslateY(getY(mRowModel.getSelectionModel().first()));
+    // // -
+    // mViewRect.getY();
     int w = getX(visibleCells.getEndCol()) - getX(visibleCells.getStartCol())
         + mColumnModel.getWidth(visibleCells.getEndCol()) - 1; // getColumnCount()
-                                                               // - 1) +
-                                                               // mColumnModel.getWidth(getColumnCount()
-                                                               // - 1) + 1;
-    int h = getY(mRowModel.getSelectionModel().last())
-        - getY(mRowModel.getSelectionModel().first())
+    // - 1) +
+    // mColumnModel.getWidth(getColumnCount()
+    // - 1) + 1;
+    int h = getY(mRowModel.getSelectionModel().last()) - getY(mRowModel.getSelectionModel().first())
         + mRowModel.getWidth(mRowModel.getSelectionModel().last());
 
     Graphics2D g2Temp = ImageUtils.clone(g2);

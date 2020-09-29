@@ -43,8 +43,7 @@ import org.jebtk.modern.help.HelpManager;
  * @author Antony Holmes
  *
  */
-public class RibbonHelpButton extends QuickAccessButton
-    implements ModernClickListener {
+public class RibbonHelpButton extends QuickAccessButton implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -62,7 +61,7 @@ public class RibbonHelpButton extends QuickAccessButton
   public RibbonHelpButton() {
     super("?");
 
-    setForeground(TEXT_COLOR); //Color.WHITE); // Ribbon.BAR_BACKGROUND); //
+    setForeground(TEXT_COLOR); // Color.WHITE); // Ribbon.BAR_BACKGROUND); //
     setFont(BOLD_FONT);
 
     addClickListener(this);
@@ -82,8 +81,7 @@ public class RibbonHelpButton extends QuickAccessButton
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {

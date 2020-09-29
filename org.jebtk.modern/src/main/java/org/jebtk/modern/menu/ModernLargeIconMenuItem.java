@@ -53,7 +53,7 @@ public class ModernLargeIconMenuItem extends ModernIconMenuItem {
    * Instantiates a new modern large icon menu item.
    *
    * @param line1 the line1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public ModernLargeIconMenuItem(String line1, ModernIcon icon) {
     super(line1, icon);
@@ -65,11 +65,10 @@ public class ModernLargeIconMenuItem extends ModernIconMenuItem {
    * Instantiates a new modern large icon menu item.
    *
    * @param line1 the line1
-   * @param icon the icon
-   * @param size the size
+   * @param icon  the icon
+   * @param size  the size
    */
-  public ModernLargeIconMenuItem(String line1, ModernIcon icon,
-      Dimension size) {
+  public ModernLargeIconMenuItem(String line1, ModernIcon icon, Dimension size) {
     super(line1, icon);
 
     setup();

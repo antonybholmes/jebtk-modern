@@ -44,13 +44,11 @@ public class LeftShadowPanel extends ShadowPanel {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
+     * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
      */
     @Override
     public void drawBackground(Graphics2D g2) {
-      GradientPaint paint = new GradientPaint(0, 0,
-          MaterialUtils.SHADOW_COLOR_1, getWidth(), 0,
+      GradientPaint paint = new GradientPaint(0, 0, MaterialUtils.SHADOW_COLOR_1, getWidth(), 0,
           MaterialUtils.SHADOW_COLOR_2);
 
       g2.setPaint(paint);
@@ -76,10 +74,7 @@ public class LeftShadowPanel extends ShadowPanel {
    */
   @Override
   public void componentResized(ComponentEvent e) {
-    mShadow.setBounds(getWidth() - MaterialUtils.SHADOW_HEIGHT,
-        0,
-        MaterialUtils.SHADOW_HEIGHT,
-        getHeight());
+    mShadow.setBounds(getWidth() - MaterialUtils.SHADOW_HEIGHT, 0, MaterialUtils.SHADOW_HEIGHT, getHeight());
 
     super.componentResized(e);
   }

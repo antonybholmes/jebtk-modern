@@ -50,8 +50,7 @@ import org.jebtk.modern.tabs.TabsModel;
  * @author Antony Holmes
  *
  */
-public class RibbonPanelSideTabs extends TabsController
-    implements ModernClickListener {
+public class RibbonPanelSideTabs extends TabsController implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -92,7 +91,7 @@ public class RibbonPanelSideTabs extends TabsController
    */
   public final void addTab(String name, ModernIcon icon) {
     ModernClickWidget button = new RibbonPanelSideTabsButton(name, icon); // VerticalTabsModernCheckButton(name,
-                                                                          // JLabel.LEFT);
+    // JLabel.LEFT);
 
     addTab(button);
   }
@@ -127,8 +126,7 @@ public class RibbonPanelSideTabs extends TabsController
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

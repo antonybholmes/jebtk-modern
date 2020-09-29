@@ -51,7 +51,7 @@ public class ModernDialogHeadingLabel extends ModernSubHeadingLabel {
   /**
    * Instantiates a new modern dialog heading label.
    *
-   * @param text the text
+   * @param text   the text
    * @param border the border
    */
   public ModernDialogHeadingLabel(String text, Border border) {

@@ -71,12 +71,7 @@ public class DownloadVectorIcon extends ModernVectorColorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
 
     double wf = Mathematics.makeMult2(Math.min(w, h) * 0.75);
     double w2 = wf * 0.5;

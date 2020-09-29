@@ -44,8 +44,7 @@ import org.jebtk.modern.ribbon.RibbonButton;
  * @author Antony Holmes
  *
  */
-public class SortDirectionButton extends RibbonButton
-    implements ModernClickListener {
+public class SortDirectionButton extends RibbonButton implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -55,14 +54,14 @@ public class SortDirectionButton extends RibbonButton
   /**
    * The constant ASCENDING_ICON.
    */
-  private static final ModernIcon ASCENDING_ICON = AssetService.getInstance()
-      .loadIcon("sort_ascending", AssetService.ICON_SIZE_16);
+  private static final ModernIcon ASCENDING_ICON = AssetService.getInstance().loadIcon("sort_ascending",
+      AssetService.ICON_SIZE_16);
 
   /**
    * The constant DESCENDING_ICON.
    */
-  private static final ModernIcon DESCENDING_ICON = AssetService.getInstance()
-      .loadIcon("sort_descending", AssetService.ICON_SIZE_16);
+  private static final ModernIcon DESCENDING_ICON = AssetService.getInstance().loadIcon("sort_descending",
+      AssetService.ICON_SIZE_16);
 
   /**
    * The ascending.
@@ -104,8 +103,7 @@ public class SortDirectionButton extends RibbonButton
   }
 
   /*
-   * public final void paintComponent(Graphics g) { Graphics2D g2 =
-   * (Graphics2D)g;
+   * public final void paintComponent(Graphics g) { Graphics2D g2 = (Graphics2D)g;
    * 
    * if (isSelected()) { ModernTheme.paintHighlightedBorder(g2, rect); } else if
    * (pressed) { ModernTheme.paintHighlightedBorder(g2, rect); } else if
@@ -121,8 +119,7 @@ public class SortDirectionButton extends RibbonButton
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public void clicked(ModernClickEvent e) {

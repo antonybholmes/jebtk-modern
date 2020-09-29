@@ -69,8 +69,8 @@ public class FontExtRibbonSection extends FontRibbonSection {
   /**
    * Setup.
    *
-   * @param font the font
-   * @param fontColor the font color
+   * @param font         the font
+   * @param fontColor    the font color
    * @param sentenceCase the sentence case
    */
   public void setup(Font font, Color fontColor, SentenceCaseType sentenceCase) {

@@ -72,8 +72,7 @@ public class PreviewTableNoHeaderModel extends ModernTableModel {
    * @param rows the rows
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public PreviewTableNoHeaderModel(final File file, int rows)
-      throws IOException {
+  public PreviewTableNoHeaderModel(final File file, int rows) throws IOException {
     setup(file, rows);
   }
 
@@ -101,8 +100,7 @@ public class PreviewTableNoHeaderModel extends ModernTableModel {
           break;
         }
 
-        List<String> values = TextUtils.fastSplit(line,
-            TextUtils.TAB_DELIMITER);
+        List<String> values = TextUtils.fastSplit(line, TextUtils.TAB_DELIMITER);
 
         data.add(values);
 

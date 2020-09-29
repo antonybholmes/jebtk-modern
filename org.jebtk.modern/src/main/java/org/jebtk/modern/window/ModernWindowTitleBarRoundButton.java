@@ -36,8 +36,7 @@ import org.jebtk.modern.graphics.ImageUtils;
 /**
  * The class ModernWindowTitleBarCloseButton.
  */
-public abstract class ModernWindowTitleBarRoundButton
-    extends ModernWindowTitleBarButton {
+public abstract class ModernWindowTitleBarRoundButton extends ModernWindowTitleBarButton {
 
   /**
    * The constant serialVersionUID.
@@ -45,8 +44,7 @@ public abstract class ModernWindowTitleBarRoundButton
   private static final long serialVersionUID = 1L;
 
   /** The Constant OUTLINE_COLOR. */
-  protected static final Color OUTLINE_COLOR = ColorUtils
-      .getTransparentColor70(Color.BLACK);
+  protected static final Color OUTLINE_COLOR = ColorUtils.getTransparentColor70(Color.BLACK);
 
   /** The Constant SIZE. */
   private static final int SIZE = 14;

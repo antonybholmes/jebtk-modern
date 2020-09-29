@@ -78,7 +78,7 @@ public class QuickAccessButton extends ModernButton {
   private void init() {
     addStyleClass("quick-access-button");
 
-    //setAnimations("button-fill"); // new QuickAccessAnimation(this));
+    // setAnimations("button-fill"); // new QuickAccessAnimation(this));
   }
 
   /*

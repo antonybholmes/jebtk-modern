@@ -63,9 +63,9 @@ public class ModernZoomSlider extends HBox implements Zoom {
    * The member slider.
    */
   private Slider mSlider = new ContinuousMacOrbSlider(1, 0.1, 1, 5); // new
-                                                                     // MacOrbSlider(1,
-                                                                     // LEVELS,
-                                                                     // MID_LEVEL);
+  // MacOrbSlider(1,
+  // LEVELS,
+  // MID_LEVEL);
 
   /**
    * The constant TIMER_DELAY.
@@ -86,16 +86,16 @@ public class ModernZoomSlider extends HBox implements Zoom {
    * The member zoom in button.
    */
   private ModernButton mZoomInButton = (ModernButton) new ModernCircleButton(
-      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16), "Zoom In",
-      "Zoom in.").setColorStyle(ColorStyle.RIBBON);
+      AssetService.getInstance().loadIcon(PlusVectorIcon.class, 16), "Zoom In", "Zoom in.")
+          .setColorStyle(ColorStyle.RIBBON);
 
   /**
    * The member zoom out button.
    */
   private ModernButton mZoomOutButton = (ModernButton) new ModernCircleButton(
-      AssetService.getInstance().loadIcon(MinusVectorIcon.class, 16),
-      "Zoom Out", "Zoom out.").setColorStyle(ColorStyle.RIBBON);
-  
+      AssetService.getInstance().loadIcon(MinusVectorIcon.class, 16), "Zoom Out", "Zoom out.")
+          .setColorStyle(ColorStyle.RIBBON);
+
   // private double[] mZooms;
 
   /**
@@ -106,8 +106,7 @@ public class ModernZoomSlider extends HBox implements Zoom {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -343,8 +342,8 @@ public class ModernZoomSlider extends HBox implements Zoom {
    * 
    * mZooms[mZooms.length - 1] = mMaxZoom;
    * 
-   * for (int i = mZooms.length - 2; i > HALF_LEVEL; --i) { mZooms[i] = mZooms[i
-   * + 1] - mPInc; } }
+   * for (int i = mZooms.length - 2; i > HALF_LEVEL; --i) { mZooms[i] = mZooms[i +
+   * 1] - mPInc; } }
    */
 
   /*

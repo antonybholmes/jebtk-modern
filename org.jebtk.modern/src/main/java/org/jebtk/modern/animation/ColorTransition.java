@@ -33,8 +33,7 @@ import org.jebtk.modern.graphics.colormap.ColorMap;
 public class ColorTransition implements Transition {
 
   /** The m fade color map. */
-  private Map<String, ColorMap> mFadeColorMap = 
-      new HashMap<String, ColorMap>();
+  private Map<String, ColorMap> mFadeColorMap = new HashMap<String, ColorMap>();
 
   private int mSteps;
 
@@ -70,35 +69,33 @@ public class ColorTransition implements Transition {
    * Set a fade in color that can transition linearly between transparent and
    * opaque.
    *
-   * @param name the name
+   * @param name  the name
    * @param color the color
    * @return
    */
   public void setFadeColor(String name, Color color) {
     setFadeColor(name, ColorUtils.TRANS_COLOR, color);
   }
-  
+
   public void setFadeColor(String name, Color color1, Color color2) {
-    mFadeColorMap.put(name, ColorMap
-      .createTwoColorMap(name, color1, color2, mSteps, false));
+    mFadeColorMap.put(name, ColorMap.createTwoColorMap(name, color1, color2, mSteps, false));
   }
-  
+
   public Color getFromColor(String name) {
     return getColor(name, 0);
   }
-  
+
   public Color getToColor(String name) {
     return getColor(name, 1);
   }
-  
+
   public Color getColor(String name, double v) {
     return mFadeColorMap.get(name).getColor(v);
   }
-  
+
   public Color getColor(String name) {
     return mFadeColorMap.get(name).getColor(mT);
   }
-
 
   /**
    * Gets the trans.

@@ -28,12 +28,12 @@ import org.jebtk.modern.ModernWidget;
 public interface Animation extends NameGetter {
 
   /**
-   * The animation becomes responsible handling the drawing for the widget. 
-   * This method is called on each repaint.
+   * The animation becomes responsible handling the drawing for the widget. This
+   * method is called on each repaint.
    *
    * @param widget the widget
-   * @param g2 the g 2
-   * @param props the props
+   * @param g2     the g 2
+   * @param Props  the props
    */
   public void draw(ModernWidget c, Graphics2D g2, Props props);
 }

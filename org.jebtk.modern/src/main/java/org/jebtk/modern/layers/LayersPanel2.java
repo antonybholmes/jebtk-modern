@@ -42,8 +42,7 @@ import org.jebtk.modern.scrollpane.ScrollBarPolicy;
 /**
  * The class LayersPanel.
  */
-public class LayersPanel2 extends ModernComponent
-    implements LayerEventListener {
+public class LayersPanel2 extends ModernComponent implements LayerEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -73,8 +72,7 @@ public class LayersPanel2 extends ModernComponent
     Box box = VBox.create();
 
     for (String name : mLayerModel) {
-      ModernCheckSwitch button = new ModernCheckSwitch(name,
-          mLayerModel.isVisible(name));
+      ModernCheckSwitch button = new ModernCheckSwitch(name, mLayerModel.isVisible(name));
 
       box.add(button);
       box.add(UI.createVGap(5));
@@ -99,8 +97,7 @@ public class LayersPanel2 extends ModernComponent
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.layers.LayerEventListener#layerChanged(org.abh.common.
+   * @see org.abh.common.ui.layers.LayerEventListener#layerChanged(org.abh.common.
    * event .ChangeEvent)
    */
   @Override
@@ -111,8 +108,7 @@ public class LayersPanel2 extends ModernComponent
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.
+   * @see org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.
    * event .ChangeEvent)
    */
   @Override

@@ -73,12 +73,10 @@ public abstract class TimerAnimation extends WidgetAnimation {
   public void start() {
     mTimer.start();
   }
-  
+
   public void restart() {
     mTimer.restart();
   }
-  
-  
 
   /**
    * Animate state.

@@ -63,8 +63,7 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes
  *
  */
-public class ModernOptionsDialog extends ModernDialogTaskWindow
-    implements ModernSelectionListener {
+public class ModernOptionsDialog extends ModernDialogTaskWindow implements ModernSelectionListener {
 
   /**
    * The constant serialVersionUID.
@@ -89,7 +88,7 @@ public class ModernOptionsDialog extends ModernDialogTaskWindow
   /**
    * Instantiates a new modern options dialog.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param details the details
    */
   public ModernOptionsDialog(ModernWindow parent, GuiAppInfo details) {
@@ -171,8 +170,7 @@ public class ModernOptionsDialog extends ModernDialogTaskWindow
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override
@@ -241,7 +239,7 @@ public class ModernOptionsDialog extends ModernDialogTaskWindow
   /**
    * Sets the visible.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param details the details
    */
   public static void setVisible(ModernWindow parent, GuiAppInfo details) {

@@ -38,8 +38,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ModernDataViewListeners
-    extends EventProducer<ModernDataViewListener>
+public class ModernDataViewListeners extends EventProducer<ModernDataViewListener>
     implements ModernDataViewEventProducer {
 
   /**

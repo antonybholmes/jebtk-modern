@@ -28,18 +28,18 @@ public class TransitionStore implements Transition {
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
     // TODO Auto-generated method stub
-    
+
   }
 
   @Override
   public String getName() {
-     return "transition-store";
+    return "transition-store";
   }
 
   @Override
   public void updateState(double t, boolean forward) {
     // TODO Auto-generated method stub
-    
+
   }
 
 }

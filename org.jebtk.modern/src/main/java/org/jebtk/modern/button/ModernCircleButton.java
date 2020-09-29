@@ -14,8 +14,7 @@ public class ModernCircleButton extends ModernButton {
     // setAnimations("circle-fill");
   }
 
-  public ModernCircleButton(ModernIcon icon, String toolTipTitle,
-      String toolTipText) {
+  public ModernCircleButton(ModernIcon icon, String toolTipTitle, String toolTipText) {
     this(icon);
 
     setToolTip(toolTipTitle, toolTipText);

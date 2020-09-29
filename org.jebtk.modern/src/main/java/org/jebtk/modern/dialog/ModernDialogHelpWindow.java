@@ -45,7 +45,7 @@ public class ModernDialogHelpWindow extends ModernDialogTaskWindow {
   /**
    * Instantiates a new modern dialog help window.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param helpUrl the help url
    */
   public ModernDialogHelpWindow(ModernWindow parent, String helpUrl) {
@@ -55,12 +55,11 @@ public class ModernDialogHelpWindow extends ModernDialogTaskWindow {
   /**
    * Instantiates a new modern dialog help window.
    *
-   * @param parent the parent
+   * @param parent  the parent
    * @param helpUrl the help url
-   * @param type the type
+   * @param type    the type
    */
-  public ModernDialogHelpWindow(ModernWindow parent, String helpUrl,
-      ModernDialogTaskType type) {
+  public ModernDialogHelpWindow(ModernWindow parent, String helpUrl, ModernDialogTaskType type) {
     super(parent, type);
 
     mHelpButton = new ModernDialogHelpButton(helpUrl);
@@ -75,10 +74,9 @@ public class ModernDialogHelpWindow extends ModernDialogTaskWindow {
    * Instantiates a new modern dialog help window.
    *
    * @param parent the parent
-   * @param type the type
+   * @param type   the type
    */
-  public ModernDialogHelpWindow(ModernWindow parent,
-      ModernDialogTaskType type) {
+  public ModernDialogHelpWindow(ModernWindow parent, ModernDialogTaskType type) {
     super(parent, type);
   }
 }

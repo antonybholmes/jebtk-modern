@@ -42,12 +42,7 @@ import org.jebtk.modern.theme.DrawUIService;
 public class CheckVectorIcon extends ModernVectorScalableIcon {
 
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     // WidgetRendererService.getInstance().getRenderer().drawCheck(g2, x, y, w,
     // h);
 

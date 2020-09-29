@@ -88,8 +88,7 @@ public class ModernGradientPanel extends ModernPanel {
    * @param colour1 the colour1
    * @param colour2 the colour2
    */
-  public ModernGradientPanel(LayoutManager manager, Color colour1,
-      Color colour2) {
+  public ModernGradientPanel(LayoutManager manager, Color colour1, Color colour2) {
 
     super(manager);
 
@@ -100,7 +99,7 @@ public class ModernGradientPanel extends ModernPanel {
   /**
    * Instantiates a new modern gradient panel.
    *
-   * @param c the c
+   * @param c       the c
    * @param colour1 the colour 1
    * @param colour2 the colour 2
    */
@@ -115,9 +114,9 @@ public class ModernGradientPanel extends ModernPanel {
   /**
    * Instantiates a new modern gradient panel.
    *
-   * @param c the c
-   * @param c1 the c 1
-   * @param c2 the c 2
+   * @param c      the c
+   * @param c1     the c 1
+   * @param c2     the c 2
    * @param border the border
    */
   public ModernGradientPanel(JComponent c, Color c1, Color c2, Border border) {

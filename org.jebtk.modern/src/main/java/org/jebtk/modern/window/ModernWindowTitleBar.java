@@ -52,10 +52,9 @@ public class ModernWindowTitleBar extends ModernTitleBar {
    * Instantiates a new modern window title bar.
    *
    * @param window the window
-   * @param style the style
+   * @param style  the style
    */
-  public ModernWindowTitleBar(ModernWindow window,
-      ModernWindowTitleBarStyle style) {
+  public ModernWindowTitleBar(ModernWindow window, ModernWindowTitleBarStyle style) {
     this(window, UI.TITLE_BUTTONS_ON_LEFT, style);
   }
 
@@ -74,10 +73,9 @@ public class ModernWindowTitleBar extends ModernTitleBar {
    *
    * @param window Parent window.
    * @param onLeft the on left
-   * @param style The button style.
+   * @param style  The button style.
    */
-  public ModernWindowTitleBar(ModernWindow window, boolean onLeft,
-      ModernWindowTitleBarStyle style) {
+  public ModernWindowTitleBar(ModernWindow window, boolean onLeft, ModernWindowTitleBarStyle style) {
     if (onLeft) {
       if (style == ModernWindowTitleBarStyle.MAC) {
         _addLeft(new ModernWindowTitleBarExitRoundButton(window));

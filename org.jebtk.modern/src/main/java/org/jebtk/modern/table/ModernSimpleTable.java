@@ -56,9 +56,7 @@ public class ModernSimpleTable extends ModernRowTable {
    * org.abh.common.ui.dataview.ModernDataSelection)
    */
   @Override
-  protected final void createTableImage(Graphics2D g2,
-      DrawingContext context,
-      ModernDataSelection visibleCells) {
+  protected final void createTableImage(Graphics2D g2, DrawingContext context, ModernDataSelection visibleCells) {
 
     Graphics2D g2Table = (Graphics2D) g2.create();
 
@@ -71,29 +69,21 @@ public class ModernSimpleTable extends ModernRowTable {
 
       int x;
 
-      for (int i = visibleCells.getStartRow(); i <= visibleCells
-          .getEndRow(); ++i) {
+      for (int i = visibleCells.getStartRow(); i <= visibleCells.getEndRow(); ++i) {
         if (i >= getRowCount()) {
           break;
         }
 
         x = 0;
 
-        for (int j = visibleCells.getStartCol(); j <= visibleCells
-            .getEndCol(); ++j) {
+        for (int j = visibleCells.getStartCol(); j <= visibleCells.getEndCol(); ++j) {
           if (j >= getColCount()) {
             continue;
           }
 
           renderer = mCellRendererModel.get(i, j);
 
-          Component c = renderer.getCellRendererComponent(this,
-              getValueAt(i, j),
-              false,
-              false,
-              isFocusOwner(),
-              i,
-              j);
+          Component c = renderer.getCellRendererComponent(this, getValueAt(i, j), false, false, isFocusOwner(), i, j);
 
           c.setSize(mColumnModel.getWidth(j), mRowModel.getWidth(i));
 

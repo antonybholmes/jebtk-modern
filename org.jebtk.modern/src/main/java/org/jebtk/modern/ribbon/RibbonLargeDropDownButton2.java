@@ -47,8 +47,7 @@ import org.jebtk.modern.menu.ModernPopupMenu2;
  * @author Antony Holmes
  *
  */
-public class RibbonLargeDropDownButton2 extends ModernDropDownButton2
-    implements RibbonModeProperty {
+public class RibbonLargeDropDownButton2 extends ModernDropDownButton2 implements RibbonModeProperty {
 
   /**
    * The constant serialVersionUID.
@@ -93,11 +92,10 @@ public class RibbonLargeDropDownButton2 extends ModernDropDownButton2
    * Instantiates a new ribbon large drop down menu button2.
    *
    * @param text1 the text 1
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public RibbonLargeDropDownButton2(String text1, ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public RibbonLargeDropDownButton2(String text1, ModernIcon icon, ModernPopupMenu2 menu) {
     super(text1, icon, menu);
 
     mText = text1;
@@ -110,11 +108,10 @@ public class RibbonLargeDropDownButton2 extends ModernDropDownButton2
    *
    * @param text1 the text 1
    * @param text2 the text 2
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public RibbonLargeDropDownButton2(String text1, String text2, ModernIcon icon,
-      ModernPopupMenu2 menu) {
+  public RibbonLargeDropDownButton2(String text1, String text2, ModernIcon icon, ModernPopupMenu2 menu) {
     super(text1, icon, menu);
 
     mText2 = text2;
@@ -130,7 +127,7 @@ public class RibbonLargeDropDownButton2 extends ModernDropDownButton2
    * Instantiates a new ribbon large drop down button.
    *
    * @param text1 the text 1
-   * @param menu the menu
+   * @param menu  the menu
    */
   public RibbonLargeDropDownButton2(String text1, ModernPopupMenu2 menu) {
     super(text1, menu);
@@ -167,7 +164,7 @@ public class RibbonLargeDropDownButton2 extends ModernDropDownButton2
     setSize(RibbonSize.COMPACT);
 
     addStyleClass("ribbon-button");
-    //setAnimations("ribbon-dropdown-button-2");
+    // setAnimations("ribbon-dropdown-button-2");
   }
 
   /**
@@ -283,17 +280,16 @@ public class RibbonLargeDropDownButton2 extends ModernDropDownButton2
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
-   * if (isSelected() || mHighlight || mPopupShown) {
-   * getWidgetRenderer().drawRibbonButton(g2, mInternalRect,
-   * RenderMode.SELECTED); } } }
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight || mPopupShown) {
+   * getWidgetRenderer().drawRibbonButton(g2, mInternalRect, RenderMode.SELECTED);
+   * } } }
    */
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
+   * @see org.abh.lib.ui.modern.button.ModernDropDownButton#drawForegroundAA(java.
    * awt. Graphics2D)
    */
   @Override
@@ -389,8 +385,8 @@ public class RibbonLargeDropDownButton2 extends ModernDropDownButton2
    * (non-Javadoc)
    * 
    * @see
-   * org.abh.common.ui.button.ModernDropDownButton#fireClicked(org.abh.common.
-   * ui. event.ModernClickEvent)
+   * org.abh.common.ui.button.ModernDropDownButton#fireClicked(org.abh.common. ui.
+   * event.ModernClickEvent)
    */
   @Override
   public void fireClicked(ModernClickEvent e) {

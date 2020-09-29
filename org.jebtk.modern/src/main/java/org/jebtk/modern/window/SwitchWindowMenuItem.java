@@ -46,14 +46,12 @@ public class SwitchWindowMenuItem extends ModernCheckBoxMenuItem {
   /**
    * Instantiates a new switch window menu item.
    *
-   * @param index the index
-   * @param text the text
+   * @param index    the index
+   * @param text     the text
    * @param selected the selected
    */
   public SwitchWindowMenuItem(int index, String text, boolean selected) {
 
-    super(
-        new StringBuilder().append(index).append(". ").append(text).toString(),
-        selected);
+    super(new StringBuilder().append(index).append(". ").append(text).toString(), selected);
   }
 }

@@ -45,8 +45,7 @@ import org.jebtk.modern.ModernFocusableWidget;
  * @author Antony Holmes
  *
  */
-public abstract class ModernToolTipWidget extends ModernFocusableWidget
-    implements ModernToolTipEventProducer {
+public abstract class ModernToolTipWidget extends ModernFocusableWidget implements ModernToolTipEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -148,8 +147,7 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
    * Sets whether the component will automatically generate tooltip events. The
    * default is true since most components will want to generate tooltip events
    * when the mouse hovers over them. This methods allows tooltip events to be
-   * disabled for more specialized components that will manage them
-   * independently.
+   * disabled for more specialized components that will manage them independently.
    * 
    * @param enable whether the tooltip events should be generated or not.
    */
@@ -161,7 +159,7 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
    * Sets the tool tip.
    *
    * @param title the title
-   * @param help the help
+   * @param help  the help
    * @return
    */
   public ModernToolTipWidget setToolTip(String title, String help) {
@@ -264,8 +262,8 @@ public abstract class ModernToolTipWidget extends ModernFocusableWidget
   }
 
   /**
-   * Try to find a default listener if one is not provided. Typically this will
-   * be the underlying window the component is within.
+   * Try to find a default listener if one is not provided. Typically this will be
+   * the underlying window the component is within.
    * 
    * @return
    */

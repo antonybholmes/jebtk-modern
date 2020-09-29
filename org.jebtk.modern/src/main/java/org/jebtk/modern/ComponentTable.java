@@ -47,8 +47,7 @@ import org.jebtk.modern.panel.VBox;
  *
  * @author Antony Holmes
  */
-public class ComponentTable extends ModernComponent
-    implements Iterable<Component> {
+public class ComponentTable extends ModernComponent implements Iterable<Component> {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -56,8 +55,7 @@ public class ComponentTable extends ModernComponent
   /**
    * The Class ComponentList.
    */
-  private static class ComponentList extends ModernComponent
-      implements Iterable<Component> {
+  private static class ComponentList extends ModernComponent implements Iterable<Component> {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
@@ -66,8 +64,7 @@ public class ComponentTable extends ModernComponent
     private List<Component> mComList = new ArrayList<Component>();
 
     /** The m check all. */
-    private ModernCheckBox mCheckAll = 
-        new ModernCheckBox(UI.MENU_SELECT_ALL, true);
+    private ModernCheckBox mCheckAll = new ModernCheckBox(UI.MENU_SELECT_ALL, true);
 
     /**
      * Instantiates a new component list.
@@ -220,8 +217,7 @@ public class ComponentTable extends ModernComponent
   /**
    * The Class CContainer.
    */
-  private static class CContainer extends ModernComponent
-      implements ModernClickListener, ModernClickEventProducer {
+  private static class CContainer extends ModernComponent implements ModernClickListener, ModernClickEventProducer {
 
     /** The Constant serialVersionUID. */
     private static final long serialVersionUID = 1L;
@@ -285,8 +281,7 @@ public class ComponentTable extends ModernComponent
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.
+     * @see org.abh.common.ui.event.ModernClickListener#clicked(org.abh.common.ui.
      * event. ModernClickEvent)
      */
     @Override
@@ -297,8 +292,7 @@ public class ComponentTable extends ModernComponent
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.common.ui.event.ModernClickEventProducer#addClickListener(org.
+     * @see org.abh.common.ui.event.ModernClickEventProducer#addClickListener(org.
      * abh. common.ui.event.ModernClickListener)
      */
     @Override
@@ -321,8 +315,7 @@ public class ComponentTable extends ModernComponent
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.common.ui.event.ModernClickEventProducer#fireClicked(org.abh.
+     * @see org.abh.common.ui.event.ModernClickEventProducer#fireClicked(org.abh.
      * common. ui.event.ModernClickEvent)
      */
     @Override

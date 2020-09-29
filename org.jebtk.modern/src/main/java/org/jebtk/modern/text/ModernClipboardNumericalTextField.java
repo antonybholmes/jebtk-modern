@@ -44,8 +44,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * The class ModernClipboardNumericalTextField.
  */
-public class ModernClipboardNumericalTextField extends ModernNumericalTextField
-    implements ClipboardUI {
+public class ModernClipboardNumericalTextField extends ModernNumericalTextField implements ClipboardUI {
 
   /**
    * The constant serialVersionUID.
@@ -114,8 +113,7 @@ public class ModernClipboardNumericalTextField extends ModernNumericalTextField
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
+     * @see java.awt.event.MouseListener#mouseReleased(java.awt.event.MouseEvent)
      */
     @Override
     public void mouseReleased(MouseEvent e) {
@@ -171,8 +169,7 @@ public class ModernClipboardNumericalTextField extends ModernNumericalTextField
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     public final void clicked(ModernClickEvent e) {
@@ -203,12 +200,11 @@ public class ModernClipboardNumericalTextField extends ModernNumericalTextField
   /**
    * Instantiates a new modern clipboard numerical text field.
    *
-   * @param cutEnabled the cut enabled
-   * @param copyEnabled the copy enabled
+   * @param cutEnabled   the cut enabled
+   * @param copyEnabled  the copy enabled
    * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardNumericalTextField(boolean cutEnabled,
-      boolean copyEnabled, boolean pasteEnabled) {
+  public ModernClipboardNumericalTextField(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
     mCutEnabled = cutEnabled;
     mPasteEnabled = pasteEnabled;
 
@@ -247,13 +243,12 @@ public class ModernClipboardNumericalTextField extends ModernNumericalTextField
   /**
    * Instantiates a new modern clipboard numerical text field.
    *
-   * @param text the text
-   * @param cutEnabled the cut enabled
-   * @param copyEnabled the copy enabled
+   * @param text         the text
+   * @param cutEnabled   the cut enabled
+   * @param copyEnabled  the copy enabled
    * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardNumericalTextField(String text, boolean cutEnabled,
-      boolean copyEnabled, boolean pasteEnabled) {
+  public ModernClipboardNumericalTextField(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
 
     super(text);
 
@@ -284,11 +279,8 @@ public class ModernClipboardNumericalTextField extends ModernNumericalTextField
       // copyModernMenuItem.setEnabled(copyEnabled);
       // pasteModernMenuItem.setEnabled(pasteEnabled && this.isEditable());
 
-      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(
-          new ModernClickEvents(),
-          mCutEnabled && this.isEditable(),
-          true,
-          mPasteEnabled && this.isEditable());
+      ModernPopupMenu popup = ClipboardSharedMenu.getInstance().getMenu(new ModernClickEvents(),
+          mCutEnabled && this.isEditable(), true, mPasteEnabled && this.isEditable());
 
       popup.showPopup(e.getComponent(), e.getX(), e.getY());
     }

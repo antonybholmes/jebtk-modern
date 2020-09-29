@@ -46,11 +46,9 @@ public class ModernChipButton extends ModernCheckButton {
    */
   private static final long serialVersionUID = 1L;
 
-  public static final Color HIGHLIGHT = ThemeService.getInstance().getColors()
-      .getGray32(4);
+  public static final Color HIGHLIGHT = ThemeService.getInstance().getColors().getGray32(4);
 
-  public static final Color SELECTED = ThemeService.getInstance().getColors()
-      .getGray32(6);
+  public static final Color SELECTED = ThemeService.getInstance().getColors().getGray32(6);
 
   /**
    * Instantiates a new modern check button.
@@ -64,15 +62,13 @@ public class ModernChipButton extends ModernCheckButton {
   /**
    * Instantiates a new modern check button.
    *
-   * @param text1 the text1
+   * @param text1    the text1
    * @param selected the selected
    */
   public ModernChipButton(String text1, boolean selected) {
     super(text1, selected);
 
-    UI.setSize(this,
-        ModernButton.getButtonWidth(text1) + 16,
-        ModernButton.getButtonHeight());
+    UI.setSize(this, ModernButton.getButtonWidth(text1) + 16, ModernButton.getButtonHeight());
 
     // setAnimations("chip-button");
   }
@@ -80,8 +76,7 @@ public class ModernChipButton extends ModernCheckButton {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {

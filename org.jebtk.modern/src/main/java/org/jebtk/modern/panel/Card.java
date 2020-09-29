@@ -36,11 +36,11 @@ public class Card extends ModernComponent {
 
   public static final double ALPHA = 0.85;
 
-  private static final Insets OFFSETS = new Insets(HALF_SHADOW_SIZE,
-      HALF_SHADOW_SIZE, HALF_SHADOW_SIZE, HALF_SHADOW_SIZE);
+  private static final Insets OFFSETS = new Insets(HALF_SHADOW_SIZE, HALF_SHADOW_SIZE, HALF_SHADOW_SIZE,
+      HALF_SHADOW_SIZE);
 
-  private static final IntDim SHADOW_PADDING = IntDim
-      .create(OFFSETS.left + OFFSETS.right, OFFSETS.top + OFFSETS.bottom);
+  private static final IntDim SHADOW_PADDING = IntDim.create(OFFSETS.left + OFFSETS.right,
+      OFFSETS.top + OFFSETS.bottom);
 
   private static final int IMAGE_SIZE = 200;
 
@@ -52,14 +52,10 @@ public class Card extends ModernComponent {
    * Allow for space at the top so that items appear just below the rounded
    * corners rather than running into them.
    */
-  private static final Border CARD_BORDER = BorderService.getInstance()
-      .createBorder(HALF_SHADOW_SIZE,
-          HALF_SHADOW_SIZE,
-          HALF_SHADOW_SIZE,
-          HALF_SHADOW_SIZE);
+  private static final Border CARD_BORDER = BorderService.getInstance().createBorder(HALF_SHADOW_SIZE, HALF_SHADOW_SIZE,
+      HALF_SHADOW_SIZE, HALF_SHADOW_SIZE);
 
-  public static final Color COLOR = ColorUtils.getTransparentColor(Color.BLACK,
-      Card.ALPHA);
+  public static final Color COLOR = ColorUtils.getTransparentColor(Color.BLACK, Card.ALPHA);
 
   /**
    * Pick a point in the image that is not a corner so that we can clone a
@@ -160,8 +156,7 @@ public class Card extends ModernComponent {
 
     Dimension s = c.getPreferredSize();
 
-    setPreferredSize(
-        new Dimension(s.width + SHADOW_SIZE, s.height + SHADOW_SIZE + V_SPACE));
+    setPreferredSize(new Dimension(s.width + SHADOW_SIZE, s.height + SHADOW_SIZE + V_SPACE));
   }
 
   @Override
@@ -200,11 +195,7 @@ public class Card extends ModernComponent {
     try {
       g2Temp.setColor(Color.WHITE);
 
-      g2Temp.fillRoundRect(OFFSETS.left,
-          OFFSETS.top,
-          width - SHADOW_PADDING.w,
-          height - SHADOW_PADDING.h,
-          ROUNDING,
+      g2Temp.fillRoundRect(OFFSETS.left, OFFSETS.top, width - SHADOW_PADDING.mW, height - SHADOW_PADDING.mH, ROUNDING,
           ROUNDING);
     } finally {
       g2Temp.dispose();
@@ -223,17 +214,15 @@ public class Card extends ModernComponent {
     return createCompatibleImage(width, height, Transparency.TRANSLUCENT);
   }
 
-  public static BufferedImage createCompatibleImage(int width,
-      int height,
-      int transparency) {
+  public static BufferedImage createCompatibleImage(int width, int height, int transparency) {
 
     return ImageUtils.createImage(width, height);
 
     /*
      * BufferedImage image = GraphicsEnvironment .getLocalGraphicsEnvironment()
      * .getDefaultScreenDevice() .getDefaultConfiguration()
-     * .createCompatibleImage(width, height, transparency);
-     * image.coerceData(true); return image;
+     * .createCompatibleImage(width, height, transparency); image.coerceData(true);
+     * return image;
      */
 
   }
@@ -245,11 +234,11 @@ public class Card extends ModernComponent {
     Rectangle bounds = new Rectangle();
     bounds.x = OFFSETS.left;
     bounds.y = OFFSETS.top;
-    bounds.width = width - SHADOW_PADDING.w;
-    bounds.height = height - SHADOW_PADDING.h;
+    bounds.width = width - SHADOW_PADDING.mW;
+    bounds.height = height - SHADOW_PADDING.mH;
 
-    RoundRectangle2D shape = new RoundRectangle2D.Double(bounds.x, bounds.y,
-        bounds.width, bounds.height, ROUNDING, ROUNDING);
+    RoundRectangle2D shape = new RoundRectangle2D.Double(bounds.x, bounds.y, bounds.width, bounds.height, ROUNDING,
+        ROUNDING);
 
     Graphics2D g2 = img.createGraphics();
 
@@ -271,8 +260,8 @@ public class Card extends ModernComponent {
     width -= OFFSETS.right + HALF_SHADOW_SIZE;
     height -= OFFSETS.bottom + HALF_SHADOW_SIZE;
 
-    RoundRectangle2D shape = new RoundRectangle2D.Double(HALF_SHADOW_SIZE,
-        HALF_SHADOW_SIZE, width, height, ROUNDING, ROUNDING);
+    RoundRectangle2D shape = new RoundRectangle2D.Double(HALF_SHADOW_SIZE, HALF_SHADOW_SIZE, width, height, ROUNDING,
+        ROUNDING);
 
     Graphics2D g2 = img.createGraphics();
 
@@ -313,8 +302,7 @@ public class Card extends ModernComponent {
     /*
      * GaussianFilter filter = new GaussianFilter(size);
      * 
-     * int imgWidth = imgSource.getWidth(); int imgHeight =
-     * imgSource.getHeight();
+     * int imgWidth = imgSource.getWidth(); int imgHeight = imgSource.getHeight();
      * 
      * BufferedImage imgBlur = createCompatibleImage(imgWidth, imgHeight);
      * Graphics2D g2d = imgBlur.createGraphics();
@@ -325,8 +313,8 @@ public class Card extends ModernComponent {
      * g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_IN,
      * (float)alpha)); g2d.setColor(color);
      * 
-     * g2d.fillRect(0, 0, imgSource.getWidth(), imgSource.getHeight()); }
-     * finally { g2d.dispose(); }
+     * g2d.fillRect(0, 0, imgSource.getWidth(), imgSource.getHeight()); } finally {
+     * g2d.dispose(); }
      */
 
     return new GaussianFilter(size).filter(img, null);

@@ -34,8 +34,7 @@ public class FontUtils {
   static {
     FONT_UNDERLINE_MAP.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
 
-    FONT_STRIKE_MAP.put(TextAttribute.STRIKETHROUGH,
-        TextAttribute.STRIKETHROUGH_ON);
+    FONT_STRIKE_MAP.put(TextAttribute.STRIKETHROUGH, TextAttribute.STRIKETHROUGH_ON);
   }
 
   /**

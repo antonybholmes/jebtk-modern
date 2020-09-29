@@ -66,8 +66,7 @@ public class FileVectorIcon extends ModernVectorIcon {
    * Instantiates a new file vector icon.
    */
   public FileVectorIcon() {
-    this(SettingsService.getInstance()
-        .getColor("theme.icons.file-icon.colors.foreground"));
+    this(SettingsService.getInstance().getColor("theme.icons.file-icon.colors.foreground"));
   }
 
   /**
@@ -87,12 +86,7 @@ public class FileVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     double hf = h * HEIGHT_SCALE;
     double wf = h * WIDTH_SCALE;
 
@@ -121,14 +115,10 @@ public class FileVectorIcon extends ModernVectorIcon {
 
     // the corner piece
 
-    g2.drawLine((int) Math.round(xf + wf - corner),
-        (int) Math.round(yf),
-        (int) Math.round(xf + wf - corner),
+    g2.drawLine((int) Math.round(xf + wf - corner), (int) Math.round(yf), (int) Math.round(xf + wf - corner),
         (int) Math.round(yf + corner));
 
-    g2.drawLine((int) Math.round(xf + wf - corner),
-        (int) Math.round(yf + corner),
-        (int) Math.round(xf + wf),
+    g2.drawLine((int) Math.round(xf + wf - corner), (int) Math.round(yf + corner), (int) Math.round(xf + wf),
         (int) Math.round(yf + corner));
   }
 }

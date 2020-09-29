@@ -48,13 +48,13 @@ public class ModernImageIcon extends MultiResIcon {
    */
 
   public final URL mUrl;
- 
+
   private BufferedImage mBuffered;
 
   public ModernImageIcon(URL url) {
     mUrl = url;
   }
-  
+
   @Override
   public URL getURL() {
     return mUrl;
@@ -68,19 +68,12 @@ public class ModernImageIcon extends MultiResIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
-    //x = x + (w - getWidth()) / 2;
-    //y = y + (h - getHeight()) / 2;
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
+    // x = x + (w - getWidth()) / 2;
+    // y = y + (h - getHeight()) / 2;
 
     rasterIcon(g2, x, y, w, h, props);
   }
-  
-  
 
   /*
    * (non-Javadoc)
@@ -101,7 +94,7 @@ public class ModernImageIcon extends MultiResIcon {
   public int getHeight() {
     return getImage().getHeight();
   }
-  
+
   public BufferedImage getImage() {
     if (mBuffered == null) {
       try {
@@ -110,7 +103,7 @@ public class ModernImageIcon extends MultiResIcon {
         e.printStackTrace();
       }
     }
-    
+
     return mBuffered;
   }
 
@@ -125,34 +118,33 @@ public class ModernImageIcon extends MultiResIcon {
     if (w == getWidth()) {
       return getImage();
     }
-    
+
     // Scale image and cache at other resolutions
     if (!mBufMap.containsKey(w)) {
-      
-      double f = (double)w / getWidth();
-      
+
+      double f = (double) w / getWidth();
+
       BufferedImage buf = ImageUtils.createImage(w, w);
-      
+
       AffineTransform at = AffineTransform.getScaleInstance(f, f);
-      //AffineTransformOp ato = new AffineTransformOp(at, AffineTransformOp.TYPE_BICUBIC);
-      //ato.filter(mBuffered, buf);
-      
+      // AffineTransformOp ato = new AffineTransformOp(at,
+      // AffineTransformOp.TYPE_BICUBIC);
+      // ato.filter(mBuffered, buf);
+
       Graphics2D g2 = (Graphics2D) buf.createGraphics();
       ImageUtils.setQualityHints(g2);
-      
+
       try {
         g2.drawRenderedImage(getImage(), at);
       } finally {
         g2.dispose();
       }
-      
+
       mBufMap.put(w, buf);
     }
 
     return mBufMap.get(w);
   }
-  
-  
 
 //  @Override
 //  public javafx.scene.image.Image getFxImage(int w) {

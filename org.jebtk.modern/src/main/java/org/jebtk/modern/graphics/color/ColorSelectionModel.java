@@ -84,7 +84,7 @@ public class ColorSelectionModel extends ChangeListeners {
    * Update color.
    *
    * @param channel the channel
-   * @param value the value
+   * @param value   the value
    */
   public void updateColor(ColorChannel channel, int value) {
     switch (channel) {

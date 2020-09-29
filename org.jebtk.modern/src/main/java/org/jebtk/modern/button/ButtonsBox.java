@@ -56,11 +56,8 @@ public class ButtonsBox extends HBox {
   private HBox mRightBox = HBox.create();
 
   /** The Constant BORDER. */
-  private static final Border BORDER = BorderService.getInstance().createBorder(
-      ModernWidget.PADDING,
-      ModernWidget.DOUBLE_PADDING,
-      ModernWidget.DOUBLE_PADDING,
-      ModernWidget.DOUBLE_PADDING); // ModernWidget.LARGE_BORDER
+  private static final Border BORDER = BorderService.getInstance().createBorder(ModernWidget.PADDING,
+      ModernWidget.DOUBLE_PADDING, ModernWidget.DOUBLE_PADDING, ModernWidget.DOUBLE_PADDING); // ModernWidget.LARGE_BORDER
 
   /**
    * Instantiates a new buttons box2.

@@ -80,7 +80,7 @@ public class ModernDataSortModel {
    * Sets the.
    *
    * @param sortIndex the sort index
-   * @param sorter the sorter
+   * @param sorter    the sorter
    */
   public final void set(int sortIndex, ModernDataIndexSorter sorter) {
     if (sorter != null && sortIndex > -1) {
@@ -118,9 +118,9 @@ public class ModernDataSortModel {
   }
 
   /**
-   * Returns the sortIndex sorter for a given table sortIndex. If the index is
-   * -1, the special nosort indexer is returned so that the table can be display
-   * as it was loaded (i.e unsorted)
+   * Returns the sortIndex sorter for a given table sortIndex. If the index is -1,
+   * the special nosort indexer is returned so that the table can be display as it
+   * was loaded (i.e unsorted)
    *
    * @param index the index
    * @return the modern data index sorter

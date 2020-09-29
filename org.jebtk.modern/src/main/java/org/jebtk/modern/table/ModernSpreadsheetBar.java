@@ -49,8 +49,7 @@ import org.jebtk.modern.text.ModernTextBox;
 /**
  * The Class ModernSpreadsheetBar allows users to edit table cells.
  */
-public class ModernSpreadsheetBar extends ModernComponent
-    implements ModernSelectionListener {
+public class ModernSpreadsheetBar extends ModernComponent implements ModernSelectionListener {
 
   /** The Constant serialVersionUID. */
   private static final long serialVersionUID = 1L;
@@ -72,8 +71,7 @@ public class ModernSpreadsheetBar extends ModernComponent
   }
 
   /** The Constant REF_PATTERN. */
-  private static final Pattern REF_PATTERN = Pattern
-      .compile("^([A-Za-z]+)([0-9]+)$");
+  private static final Pattern REF_PATTERN = Pattern.compile("^([A-Za-z]+)([0-9]+)$");
 
   /** The m table. */
   private ModernTable mTable;
@@ -232,8 +230,7 @@ public class ModernSpreadsheetBar extends ModernComponent
         // in the table
         mText.setText(v.toString());
 
-        mLocText.setText(mTable.getModel().getColumnName(cell.col)
-            + mTable.getRowName(cell.row));
+        mLocText.setText(mTable.getModel().getColumnName(cell.col) + mTable.getRowName(cell.row));
       }
     }
   }

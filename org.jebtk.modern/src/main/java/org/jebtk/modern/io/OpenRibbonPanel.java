@@ -127,8 +127,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -152,8 +151,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -173,15 +171,14 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
    * Instantiates a new open ribbon panel.
    */
   public OpenRibbonPanel() {
-    this("Files",
-        AssetService.getInstance().loadIcon(FileVectorIcon.class, 32));
+    this("Files", AssetService.getInstance().loadIcon(FileVectorIcon.class, 32));
   }
 
   /**
    * Instantiates a new open ribbon panel.
    *
    * @param title the title
-   * @param icon the icon
+   * @param icon  the icon
    */
   public OpenRibbonPanel(String title, ModernIcon icon) {
     super("Open");
@@ -193,7 +190,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
    * Setup.
    *
    * @param title the title
-   * @param icon the icon
+   * @param icon  the icon
    */
   private void setup(String title, ModernIcon icon) {
     // ModernLabel label = new ModernTitleLabel("Open");
@@ -210,8 +207,8 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
      * button.addClickListener(new ModernClickListener() {
      * 
      * @Override public void clicked(ModernClickEvent e) { mSelectedDirectory =
-     * RecentFilesService.getInstance().getPwd();
-     * fireClicked(DIRECTORY_SELECTED); }});
+     * RecentFilesService.getInstance().getPwd(); fireClicked(DIRECTORY_SELECTED);
+     * }});
      * 
      * Box box = VBox.create(); box.add(UI.createVGap(GAP)); box.add(button);
      * setFooter(box);
@@ -241,8 +238,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
     // title.toUpperCase()
 
     mTabsModel.addTab("Recent " + TextUtils.sentenceCase(title),
-        AssetService.getInstance().loadIcon(ClockVectorIcon.class, 24),
-        scrollPane);
+        AssetService.getInstance().loadIcon(ClockVectorIcon.class, 24), scrollPane);
 
     //
     // Recent directory
@@ -294,8 +290,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
      * ModernButtonWidget button = new RibbonPanelButton(Ui.MENU_BROWSE,
      * ModernVectorIcon.FOLDER_32_ICON);
      * 
-     * button.addClickListener(this);
-     * button.setClickMessage(DIRECTORY_SELECTED);
+     * button.addClickListener(this); button.setClickMessage(DIRECTORY_SELECTED);
      * 
      * box.add(button);
      */
@@ -305,14 +300,10 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
     scrollPane.setHorizontalScrollBarPolicy(ScrollBarPolicy.NEVER);
     // scrollPane.setBackground(Color.WHITE);
 
-    mTabsModel.addTab(UI.ASSET_THIS_PC,
-        AssetService.getInstance().loadIcon(ComputerVectorIcon.class, 24),
-        scrollPane); // new
-                     // ModernContentPanel(scrollPane));
+    mTabsModel.addTab(UI.ASSET_THIS_PC, AssetService.getInstance().loadIcon(ComputerVectorIcon.class, 24), scrollPane); // new
+    // ModernContentPanel(scrollPane));
 
-    mTabsModel.addTab(UI.ASSET_BROWSE,
-        AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 24),
-        null);
+    mTabsModel.addTab(UI.ASSET_BROWSE, AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 24), null);
 
     mTabsModel.addTabListener(new TabEventAdapter() {
 
@@ -370,9 +361,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
 
     for (Path file : RecentFilesService.getInstance()) {
       try {
-        if (FileUtils.exists(file) && today(file,
-            now,
-            RecentFilesService.getInstance().getDate(file))) {
+        if (FileUtils.exists(file) && today(file, now, RecentFilesService.getInstance().getDate(file))) {
           files.add(file);
         }
       } catch (IOException e) {
@@ -384,8 +373,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
       mRecentFileList.add(new FileTitleMenuItem(UI.ASSET_TODAY));
 
       for (Path file : files) {
-        mRecentFileList.add(new RecentFileMenuItem(file,
-            RecentFilesService.getInstance().getDate(file)));
+        mRecentFileList.add(new RecentFileMenuItem(file, RecentFilesService.getInstance().getDate(file)));
       }
     }
 
@@ -393,9 +381,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
 
     for (Path file : RecentFilesService.getInstance()) {
       try {
-        if (FileUtils.exists(file) && !today(file,
-            now,
-            RecentFilesService.getInstance().getDate(file))) {
+        if (FileUtils.exists(file) && !today(file, now, RecentFilesService.getInstance().getDate(file))) {
           files.add(file);
         }
       } catch (IOException e) {
@@ -407,8 +393,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
       mRecentFileList.add(new FileTitleMenuItem(UI.ASSET_OLDER));
 
       for (Path file : files) {
-        mRecentFileList.add(new RecentFileMenuItem(file,
-            RecentFilesService.getInstance().getDate(file)));
+        mRecentFileList.add(new RecentFileMenuItem(file, RecentFilesService.getInstance().getDate(file)));
       }
     }
 
@@ -461,28 +446,24 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
    * Today.
    *
    * @param file the file
-   * @param now the now
+   * @param now  the now
    * @return true, if successful
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static boolean today(final Path file, final Date now)
-      throws IOException {
-    return today(file,
-        new Date(Files.getLastModifiedTime(file).toMillis()),
-        now);
+  public static boolean today(final Path file, final Date now) throws IOException {
+    return today(file, new Date(Files.getLastModifiedTime(file).toMillis()), now);
   }
 
   /**
    * Today.
    *
    * @param file the file
-   * @param now the now
+   * @param now  the now
    * @param date the date
    * @return true, if successful
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  public static boolean today(final Path file, final Date now, final Date date)
-      throws IOException {
+  public static boolean today(final Path file, final Date now, final Date date) throws IOException {
     SimpleDateFormat df = new SimpleDateFormat(DATE_FORMAT);
 
     return df.format(now).equals(df.format(date));
@@ -501,7 +482,7 @@ public class OpenRibbonPanel extends RibbonMenuPanel {
    * 
    * if (i != -1) { mSelectedDirectory = mRecentDirectoriesList.getValueAt(i);
    * 
-   * fireClicked(new ModernClickEvent(this, DIRECTORY_SELECTED)); } } else { //
-   * do nothing } }
+   * fireClicked(new ModernClickEvent(this, DIRECTORY_SELECTED)); } } else { // do
+   * nothing } }
    */
 }

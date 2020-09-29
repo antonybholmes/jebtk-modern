@@ -39,8 +39,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * The class RibbonBarOptionalDropDownMenuButton.
  */
-public class RibbonBarOptionalDropDownMenuButton
-    extends ModernOptionalDropDownMenuButton {
+public class RibbonBarOptionalDropDownMenuButton extends ModernOptionalDropDownMenuButton {
 
   /**
    * The constant serialVersionUID.
@@ -51,11 +50,10 @@ public class RibbonBarOptionalDropDownMenuButton
    * Instantiates a new ribbon bar optional drop down menu button.
    *
    * @param text1 the text1
-   * @param icon the icon
-   * @param menu the menu
+   * @param icon  the icon
+   * @param menu  the menu
    */
-  public RibbonBarOptionalDropDownMenuButton(String text1, ModernIcon icon,
-      ModernPopupMenu menu) {
+  public RibbonBarOptionalDropDownMenuButton(String text1, ModernIcon icon, ModernPopupMenu menu) {
     super(text1, icon, menu);
 
     setup();
@@ -67,8 +65,7 @@ public class RibbonBarOptionalDropDownMenuButton
    * @param icon the icon
    * @param menu the menu
    */
-  public RibbonBarOptionalDropDownMenuButton(ModernIcon icon,
-      ModernPopupMenu menu) {
+  public RibbonBarOptionalDropDownMenuButton(ModernIcon icon, ModernPopupMenu menu) {
     super(icon, menu);
 
     setup();

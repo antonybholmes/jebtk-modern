@@ -14,12 +14,10 @@ public class CSSAltFillAnimation extends HoverFadeAnimation {
     super(button);
 
     if (button.getFromKeyFrame().contains("alt-background-color")) {
-      setFadeColor("fill",
-          button.getFromKeyFrame().getColor("alt-background-color"),
+      setFadeColor("fill", button.getFromKeyFrame().getColor("alt-background-color"),
           button.getToKeyFrame().getColor("alt-background-color"));
     } else {
-      setFadeColor("fill",
-          button.getToKeyFrame().getColor("alt-background-color"));
+      setFadeColor("fill", button.getToKeyFrame().getColor("alt-background-color"));
     }
   }
 
@@ -54,8 +52,7 @@ public class CSSAltFillAnimation extends HoverFadeAnimation {
   }
 
   public void fill(ModernWidget c, Graphics2D g2, IntRect rect) {
-    DrawUIService.getInstance().getRenderer("css-background")
-        .draw(g2, rect, getFadeColor("fill"));
+    DrawUIService.getInstance().getRenderer("css-background").draw(g2, rect, getFadeColor("fill"));
 
   }
 }

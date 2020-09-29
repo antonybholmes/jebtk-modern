@@ -48,8 +48,7 @@ public class ModernLayersCheckBox extends ModernCheckBox {
   /**
    * The constant IMAGE_CHECKED.
    */
-  public static final ModernIcon IMAGE_CHECKED = AssetService.getInstance()
-      .loadIcon("layer_visible", 16);
+  public static final ModernIcon IMAGE_CHECKED = AssetService.getInstance().loadIcon("layer_visible", 16);
 
   /**
    * Instantiates a new modern layers check box.

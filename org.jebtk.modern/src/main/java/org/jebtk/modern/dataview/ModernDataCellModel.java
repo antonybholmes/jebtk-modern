@@ -107,8 +107,7 @@ public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
    * @return the t
    */
   public T get(int row, int col) {
-    if (mCellLevelMap.containsKey(row)
-        && mCellLevelMap.get(row).containsKey(col)) {
+    if (mCellLevelMap.containsKey(row) && mCellLevelMap.get(row).containsKey(col)) {
       return mCellLevelMap.get(row).get(col);
     } else if (mColumnLevelMap.containsKey(col)) {
       return mColumnLevelMap.get(col);
@@ -124,7 +123,7 @@ public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
    *
    * @param row the row
    * @param col the col
-   * @param o the o
+   * @param o   the o
    */
   public void set(int row, int col, T o) {
     if (!mCellLevelMap.containsKey(row)) {
@@ -140,7 +139,7 @@ public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
    * Sets the row.
    *
    * @param row the row
-   * @param o the o
+   * @param o   the o
    */
   public void setRow(int row, T o) {
     if (!mRowLevelMap.containsKey(row)) {
@@ -154,7 +153,7 @@ public abstract class ModernDataCellModel<T> extends ModernDataViewListeners {
    * Sets the col.
    *
    * @param col the col
-   * @param o the o
+   * @param o   the o
    */
   public void setCol(int col, T o) {
     if (!mColumnLevelMap.containsKey(col)) {

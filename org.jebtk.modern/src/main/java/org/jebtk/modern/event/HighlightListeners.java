@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class HighlightListeners extends EventProducer<HighlightListener>
-    implements HighlightEventProducer {
+public class HighlightListeners extends EventProducer<HighlightListener> implements HighlightEventProducer {
 
   /**
    * The constant serialVersionUID.

@@ -32,8 +32,7 @@ import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.ribbon.Ribbon;
 import org.jebtk.modern.text.ModernTextField;
 
-public class ModernFileCrumb extends ModernWidget
-    implements ChangeEventProducer {
+public class ModernFileCrumb extends ModernWidget implements ChangeEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -46,8 +45,7 @@ public class ModernFileCrumb extends ModernWidget
 
   private static final int ICON_SIZE = 12;
 
-  private ModernIcon CRUMB_ICON = AssetService.getInstance()
-      .loadIcon(CheveronRightVectorIcon.class, ICON_SIZE);
+  private ModernIcon CRUMB_ICON = AssetService.getInstance().loadIcon(CheveronRightVectorIcon.class, ICON_SIZE);
 
   private ModernTextField mTextField = new ModernTextField();
 
@@ -62,10 +60,7 @@ public class ModernFileCrumb extends ModernWidget
   private class ResizeEvents extends ComponentAdapter {
     @Override
     public void componentResized(ComponentEvent e) {
-      mTextField.setBounds(PADDING,
-          PADDING,
-          getWidth() - DOUBLE_PADDING,
-          getHeight() - DOUBLE_PADDING);
+      mTextField.setBounds(PADDING, PADDING, getWidth() - DOUBLE_PADDING, getHeight() - DOUBLE_PADDING);
     }
   }
 
@@ -73,7 +68,7 @@ public class ModernFileCrumb extends ModernWidget
    * Instantiates a new modern text border panel.
    *
    * @param textField the text field
-   * @param color the color
+   * @param color     the color
    */
   public ModernFileCrumb(Path file) {
     setup();
@@ -97,8 +92,7 @@ public class ModernFileCrumb extends ModernWidget
       /*
        * (non-Javadoc)
        * 
-       * @see
-       * java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
+       * @see java.awt.event.MouseAdapter#mouseEntered(java.awt.event.MouseEvent)
        */
       // @Override
       // public void mouseEntered(MouseEvent e) {

@@ -70,12 +70,7 @@ public class ViewVerticalVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     double wf = w * WIDTH_SCALE;
 
     double bw = wf * BOX_SCALE;
@@ -85,32 +80,16 @@ public class ViewVerticalVectorIcon extends ModernVectorIcon {
 
     g2.setColor(BACKGROUND);
 
-    g2.fillRect((int) Math.round(xf),
-        (int) Math.round(yf),
-        (int) Math.round(bw),
-        (int) Math.round(wf));
-    g2.fillRect((int) Math.round(xf + wf - bw),
-        (int) Math.round(yf),
-        (int) Math.round(bw),
-        (int) Math.round(bw));
-    g2.fillRect((int) Math.round(xf + wf - bw),
-        (int) Math.round(yf + wf - bw),
-        (int) Math.round(bw),
+    g2.fillRect((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(bw), (int) Math.round(wf));
+    g2.fillRect((int) Math.round(xf + wf - bw), (int) Math.round(yf), (int) Math.round(bw), (int) Math.round(bw));
+    g2.fillRect((int) Math.round(xf + wf - bw), (int) Math.round(yf + wf - bw), (int) Math.round(bw),
         (int) Math.round(bw));
 
     g2.setColor(COLOR);
 
-    g2.drawRect((int) Math.round(xf),
-        (int) Math.round(yf),
-        (int) Math.round(bw),
-        (int) Math.round(wf));
-    g2.drawRect((int) Math.round(xf + wf - bw),
-        (int) Math.round(yf),
-        (int) Math.round(bw),
-        (int) Math.round(bw));
-    g2.drawRect((int) Math.round(xf + wf - bw),
-        (int) Math.round(yf + wf - bw),
-        (int) Math.round(bw),
+    g2.drawRect((int) Math.round(xf), (int) Math.round(yf), (int) Math.round(bw), (int) Math.round(wf));
+    g2.drawRect((int) Math.round(xf + wf - bw), (int) Math.round(yf), (int) Math.round(bw), (int) Math.round(bw));
+    g2.drawRect((int) Math.round(xf + wf - bw), (int) Math.round(yf + wf - bw), (int) Math.round(bw),
         (int) Math.round(bw));
 
   }

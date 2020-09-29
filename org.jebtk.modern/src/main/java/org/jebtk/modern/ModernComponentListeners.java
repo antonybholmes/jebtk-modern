@@ -38,8 +38,7 @@ import org.jebtk.core.event.EventProducer;
  * @author Antony Holmes
  *
  */
-public class ModernComponentListeners extends EventProducer<ComponentListener>
-    implements ModernComponentEventProducer {
+public class ModernComponentListeners extends EventProducer<ComponentListener> implements ModernComponentEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -49,8 +48,7 @@ public class ModernComponentListeners extends EventProducer<ComponentListener>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernComponentEventProducer#addComponentListener(
+   * @see org.abh.lib.ui.modern.ModernComponentEventProducer#addComponentListener(
    * java. awt.event.ComponentListener)
    */
   public void addComponentListener(ComponentListener l) {
@@ -71,8 +69,7 @@ public class ModernComponentListeners extends EventProducer<ComponentListener>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentHidden(
+   * @see org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentHidden(
    * java. awt.event.ComponentEvent)
    */
   public void fireComponentHidden(ComponentEvent e) {
@@ -97,8 +94,7 @@ public class ModernComponentListeners extends EventProducer<ComponentListener>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentResized(
+   * @see org.abh.lib.ui.modern.ModernComponentEventProducer#fireComponentResized(
    * java. awt.event.ComponentEvent)
    */
   public void fireComponentResized(ComponentEvent e) {

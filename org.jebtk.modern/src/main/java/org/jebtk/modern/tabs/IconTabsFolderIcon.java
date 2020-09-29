@@ -71,12 +71,7 @@ public class IconTabsFolderIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     Color c = props.getColor("color");
 
     int wf = Mathematics.makeMult2(w * WIDTH_SCALE);

@@ -62,8 +62,7 @@ import org.jebtk.modern.theme.ThemeService;
  * @author Antony Holmes
  *
  */
-public abstract class ModernScrollBar extends ModernWidget
-    implements ChangeEventProducer {
+public abstract class ModernScrollBar extends ModernWidget implements ChangeEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -78,33 +77,28 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * The constant BASE_COLOR.
    */
-  protected static final Color BASE_COLOR = ThemeService.getInstance()
-      .getColors().getGray(3);
+  protected static final Color BASE_COLOR = ThemeService.getInstance().getColors().getGray(3);
 
   /**
    * The constant SCROLLBAR_COLOR.
    */
-  protected static final Color SCROLLBAR_COLOR = ThemeService.getInstance()
-      .getColors().getGray(4);
+  protected static final Color SCROLLBAR_COLOR = ThemeService.getInstance().getColors().getGray(4);
 
   /**
    * The constant SCROLLBAR_OUTLINE_COLOR.
    */
-  protected static final Color SCROLLBAR_OUTLINE_COLOR = ThemeService
-      .getInstance().getColors().getGray(5);
+  protected static final Color SCROLLBAR_OUTLINE_COLOR = ThemeService.getInstance().getColors().getGray(5);
 
   /**
    * The constant SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR.
    */
-  protected static final Color SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR = ThemeService
-      .getInstance().getColors().getGray32(16);
+  protected static final Color SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR = ThemeService.getInstance().getColors().getGray32(16);
 
   /** The Constant BASE_ROUNDED_COLOR. */
   protected static final Color BASE_ROUNDED_COLOR = Color.BLACK; // ThemeService.getInstance().getColors().getHighlight32(31);
 
   /** The Constant ROUNDED_SCROLLBAR_COLOR. */
-  protected static final Color ROUNDED_SCROLLBAR_COLOR = ColorUtils
-      .getTransparentColor60(BASE_ROUNDED_COLOR); // ThemeService.getInstance().getColors().getHighlight32(31));
+  protected static final Color ROUNDED_SCROLLBAR_COLOR = ColorUtils.getTransparentColor60(BASE_ROUNDED_COLOR); // ThemeService.getInstance().getColors().getHighlight32(31));
 
   /** The Constant ROUNDED_SCROLLBAR_BACKGROUND_COLOR. */
   protected static final Color ROUNDED_SCROLLBAR_BACKGROUND_COLOR = ColorUtils
@@ -113,14 +107,12 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * The constant SCROLLBAR_HIGHLIGHT_COLOR.
    */
-  protected static final Color SCROLLBAR_HIGHLIGHT_COLOR = ThemeService
-      .getInstance().getColors().getGray(2);
+  protected static final Color SCROLLBAR_HIGHLIGHT_COLOR = ThemeService.getInstance().getColors().getGray(2);
 
   /**
    * The constant SCROLLBAR_WIDTH.
    */
-  protected static final int SCROLLBAR_SIZE = SettingsService.getInstance()
-      .getInt("theme.scrollpane.scrollbar.width"); // 15
+  protected static final int SCROLLBAR_SIZE = SettingsService.getInstance().getInt("theme.scrollpane.scrollbar.width"); // 15
 
   /**
    * The constant SCROLL_TIMER_DELAY_MS.
@@ -238,8 +230,8 @@ public abstract class ModernScrollBar extends ModernWidget
   private static final double MIN_STEP_SIZE = 0.1; // SettingsService.getInstance().getDouble("theme.scrollpane.scrollbar.min-step-size");
 
   /**
-   * The normalized amount the component must shift for each pixel the scroll
-   * bar moves.
+   * The normalized amount the component must shift for each pixel the scroll bar
+   * moves.
    */
   protected double mScrollStepSize = MIN_STEP_SIZE;
 
@@ -368,8 +360,8 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * Scroll bar setup.
    *
-   * @param scrollWidth The number of pixels that can be scrolled, i.e between
-   *          the two scroll buttons.
+   * @param scrollWidth The number of pixels that can be scrolled, i.e between the
+   *                    two scroll buttons.
    */
   protected void scrollBarSetup(int scrollWidth) {
     // int vDiff = mVScrollDistance;
@@ -396,8 +388,7 @@ public abstract class ModernScrollBar extends ModernWidget
     // we shift the scrollbar, how much the component must be shifted.
 
     if (mScrollPixels > 0) {
-      mScrollStepSize = Math.max((double) mScrollDistance / mScrollPixels,
-          MIN_STEP_SIZE);
+      mScrollStepSize = Math.max((double) mScrollDistance / mScrollPixels, MIN_STEP_SIZE);
     } else {
       mScrollStepSize = 0;
     }
@@ -424,7 +415,7 @@ public abstract class ModernScrollBar extends ModernWidget
    * Should paint the scroll bar or knob.
    *
    * @param g2 the g 2
-   * @param r the r
+   * @param r  the r
    */
   protected void paintScrollBar(Graphics2D g2, Rectangle r) {
     // TODO Auto-generated method stub
@@ -458,7 +449,7 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * Paint scroll bar base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   protected void paintScrollBarBase(Graphics2D g2, Rectangle rect) {
@@ -468,7 +459,7 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * Paint scroll bar base.
    *
-   * @param g2 the g 2
+   * @param g2   the g 2
    * @param rect the rect
    */
   protected void paintScrollBarBase(Graphics2D g2, IntRect rect) {
@@ -559,8 +550,8 @@ public abstract class ModernScrollBar extends ModernWidget
   }
 
   /**
-   * Set the number of pixels the component can move (i.e. the difference
-   * between the view window and the actual component's size.
+   * Set the number of pixels the component can move (i.e. the difference between
+   * the view window and the actual component's size.
    *
    * @param d the new scroll distance
    */
@@ -668,7 +659,7 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * Normalizes a distance taking into account the sign of notches.
    *
-   * @param d the d
+   * @param d       the d
    * @param notches the notches
    * @return A normalized representation of d.
    */
@@ -701,8 +692,8 @@ public abstract class ModernScrollBar extends ModernWidget
   }
 
   /**
-   * Returns the pixel offset of the scroll bar for setting the view rectangle
-   * of a component.
+   * Returns the pixel offset of the scroll bar for setting the view rectangle of
+   * a component.
    *
    * @return the offset
    */
@@ -725,8 +716,7 @@ public abstract class ModernScrollBar extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.
+   * @see org.abh.lib.event.ChangeEventProducer#removeChangeListener(org.abh.lib.
    * event. ChangeListener)
    */
   @Override
@@ -840,11 +830,10 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * Paint scroll bar highlighted.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
-  protected static void paintScrollBarHighlighted(Graphics2D g2,
-      Rectangle rect) {
+  protected static void paintScrollBarHighlighted(Graphics2D g2, Rectangle rect) {
     fill(g2, SCROLLBAR_HIGHLIGHT_COLOR, rect);
     drawRect(g2, SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR, rect);
   }
@@ -852,7 +841,7 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * Paint scroll bar button.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
   protected static void paintScrollBarButton(Graphics2D g2, Rectangle rect) {
@@ -863,11 +852,10 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * Paint scroll bar button highlighted.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
-  protected static void paintScrollBarButtonHighlighted(Graphics2D g2,
-      Rectangle rect) {
+  protected static void paintScrollBarButtonHighlighted(Graphics2D g2, Rectangle rect) {
     paintHighlightedScrollBarButtonBase(g2, rect);
     drawRect(g2, SCROLLBAR_HIGHLIGHT_OUTLINE_COLOR, rect);
   }
@@ -875,33 +863,30 @@ public abstract class ModernScrollBar extends ModernWidget
   /**
    * Paint highlighted scroll bar button base.
    *
-   * @param g2 the g 2
+   * @param g2   the g 2
    * @param rect the rect
    */
-  protected static void paintHighlightedScrollBarButtonBase(Graphics2D g2,
-      Rectangle rect) {
+  protected static void paintHighlightedScrollBarButtonBase(Graphics2D g2, Rectangle rect) {
     fill(g2, BASE_COLOR, rect);
   }
 
   /**
    * Paint scroll bar button base.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
-  protected static void paintScrollBarButtonBase(Graphics2D g2,
-      Rectangle rect) {
+  protected static void paintScrollBarButtonBase(Graphics2D g2, Rectangle rect) {
     fill(g2, SCROLLBAR_BUTTON_BASE_COLOR, rect);
   }
 
   /**
    * Paint scroll bar button border.
    *
-   * @param g2 the g2
+   * @param g2   the g2
    * @param rect the rect
    */
-  protected static void paintScrollBarButtonBorder(Graphics2D g2,
-      Rectangle rect) {
+  protected static void paintScrollBarButtonBorder(Graphics2D g2, Rectangle rect) {
     drawRect(g2, SCROLLBAR_OUTLINE_COLOR, rect);
   }
 

@@ -67,8 +67,7 @@ public class RecentDirectoriesMenuBox extends ModernMenuBox {
 
     for (Path file : RecentFilesService.getInstance()) {
       if (!used.contains(file.getParent())) {
-        add(new DirectoryMenuItem(file.getParent(),
-            RecentFilesService.getInstance().getDate(file)));
+        add(new DirectoryMenuItem(file.getParent(), RecentFilesService.getInstance().getDate(file)));
         used.add(file.getParent());
       }
     }

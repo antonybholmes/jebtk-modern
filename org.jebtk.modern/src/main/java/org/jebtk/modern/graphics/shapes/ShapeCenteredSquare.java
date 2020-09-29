@@ -40,8 +40,8 @@ public class ShapeCenteredSquare extends ShapeCenteredRectangle {
   /**
    * Instantiates a new shape centered square.
    *
-   * @param x the x
-   * @param y the y
+   * @param x        the x
+   * @param y        the y
    * @param diameter the diameter
    */
   public ShapeCenteredSquare(int x, int y, int diameter) {

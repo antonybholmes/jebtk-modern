@@ -51,8 +51,7 @@ public class DirectoryMenuItem extends RecentFileMenuItem {
    * @param date the date
    */
   public DirectoryMenuItem(Path file, Date date) {
-    this(file, date,
-        AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
+    this(file, date, AssetService.getInstance().loadIcon(OpenFolderVectorIcon.class, 32));
 
   }
 

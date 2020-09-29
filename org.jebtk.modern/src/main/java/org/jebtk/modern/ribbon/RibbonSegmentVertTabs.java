@@ -53,7 +53,7 @@ public class RibbonSegmentVertTabs extends SegmentTabs {
   /**
    * Instantiates a new text tabs.
    *
-   * @param model the model
+   * @param model   the model
    * @param tabSize the tab size
    */
   public RibbonSegmentVertTabs(TabsModel model, int tabSize) {
@@ -63,8 +63,8 @@ public class RibbonSegmentVertTabs extends SegmentTabs {
   /**
    * Instantiates a new ribbon segment vert tabs.
    *
-   * @param model the model
-   * @param tabSize the tab size
+   * @param model    the model
+   * @param tabSize  the tab size
    * @param centered the centered
    */
   public RibbonSegmentVertTabs(TabsModel model, int tabSize, boolean centered) {
@@ -100,8 +100,8 @@ public class RibbonSegmentVertTabs extends SegmentTabs {
    * 
    * y1 = y + TAB_SIZE;
    * 
-   * for (int i = 1; i < getTabsModel().getTabCount(); ++i) { g2.drawLine(x, y1,
-   * x + w - 1, y1);
+   * for (int i = 1; i < getTabsModel().getTabCount(); ++i) { g2.drawLine(x, y1, x
+   * + w - 1, y1);
    * 
    * y1 += TAB_SIZE; }
    * 
@@ -130,14 +130,14 @@ public class RibbonSegmentVertTabs extends SegmentTabs {
    * getWidgetRenderer().buttonFillPaint(g2, x, y1, w, TAB_SIZE,
    * RenderMode.SELECTED, hasFocus());
    * 
-   * if (selectedIndex == 0) { g2.fill(mLeftEnd); } else if (selectedIndex == n
-   * - 1) { g2.fill(mRightEnd); } else { g2.fillRect(x, y1, w, TAB_SIZE); }
+   * if (selectedIndex == 0) { g2.fill(mLeftEnd); } else if (selectedIndex == n -
+   * 1) { g2.fill(mRightEnd); } else { g2.fillRect(x, y1, w, TAB_SIZE); }
    * 
    * getWidgetRenderer().buttonOutlinePaint(g2, x, y1, w, TAB_SIZE,
    * RenderMode.SELECTED, hasFocus());
    * 
-   * if (selectedIndex == 0) { g2.draw(mLeftEnd); } else if (selectedIndex == n
-   * - 1) { g2.draw(mRightEnd); } else { g2.drawRect(x, y1, w - 1, TAB_SIZE); }
+   * if (selectedIndex == 0) { g2.draw(mLeftEnd); } else if (selectedIndex == n -
+   * 1) { g2.draw(mRightEnd); } else { g2.drawRect(x, y1, w - 1, TAB_SIZE); }
    * 
    * 
    * // // Draw the labels //
@@ -162,8 +162,8 @@ public class RibbonSegmentVertTabs extends SegmentTabs {
    * 
    * y1 += TAB_SIZE; iconY += TAB_SIZE; textY += TAB_SIZE; }
    * 
-   * //g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW()
-   * - 1, mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING); }
+   * //g2.drawRoundRect(getInsets().left, getInsets().top, mInternalRect.getW() -
+   * 1, mInternalRect.getH(), ModernWidget.ROUNDING, ModernWidget.ROUNDING); }
    */
 
   /*
@@ -181,12 +181,9 @@ public class RibbonSegmentVertTabs extends SegmentTabs {
 
       mLeftEnd = new GeneralPath();
       mLeftEnd.moveTo(x, getInsets().top + ROUNDING);
-      mLeftEnd.append(
-          new Arc2D.Double(x, y, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN),
-          true);
+      mLeftEnd.append(new Arc2D.Double(x, y, ROUNDING, ROUNDING, 180, -90, Arc2D.OPEN), true);
       mLeftEnd.lineTo(x + w - ROUNDING, y);
-      mLeftEnd.append(new Arc2D.Double(x + w - ROUNDING, y, ROUNDING, ROUNDING,
-          90, -90, Arc2D.OPEN), true);
+      mLeftEnd.append(new Arc2D.Double(x + w - ROUNDING, y, ROUNDING, ROUNDING, 90, -90, Arc2D.OPEN), true);
       mLeftEnd.lineTo(x + w, y + h);
       mLeftEnd.lineTo(x, y + h);
       // mLeftEnd.lineTo(getInsets().left, getInsets().top + ROUNDING);
@@ -198,11 +195,10 @@ public class RibbonSegmentVertTabs extends SegmentTabs {
       mRightEnd.moveTo(x, y);
       mRightEnd.lineTo(x + w, y);
       mRightEnd.lineTo(x + w, y + h - ROUNDING);
-      mRightEnd.append(new Arc2D.Double(x + w - ROUNDING, y + h - ROUNDING,
-          ROUNDING, ROUNDING, 0, -90, Arc2D.OPEN), true);
+      mRightEnd.append(new Arc2D.Double(x + w - ROUNDING, y + h - ROUNDING, ROUNDING, ROUNDING, 0, -90, Arc2D.OPEN),
+          true);
       mRightEnd.lineTo(x + ROUNDING, y + h);
-      mRightEnd.append(new Arc2D.Double(x, y + h - ROUNDING, ROUNDING, ROUNDING,
-          270, -90, Arc2D.OPEN), true);
+      mRightEnd.append(new Arc2D.Double(x, y + h - ROUNDING, ROUNDING, ROUNDING, 270, -90, Arc2D.OPEN), true);
       mRightEnd.closePath();
 
       mCreateEndShapes = false;

@@ -44,8 +44,8 @@ public class ShapeCenteredEquilateralInvertedTriangle extends Polygon {
   /**
    * Instantiates a new shape centered equilateral inverted triangle.
    *
-   * @param x the x
-   * @param y the y
+   * @param x    the x
+   * @param y    the y
    * @param size the size
    */
   public ShapeCenteredEquilateralInvertedTriangle(int x, int y, int size) {

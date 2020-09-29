@@ -42,7 +42,7 @@ public class StatusEvent extends Event {
   /**
    * Instantiates a new status event.
    *
-   * @param source the source
+   * @param source  the source
    * @param message the message
    */
   public StatusEvent(Object source, String message) {

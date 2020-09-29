@@ -55,8 +55,7 @@ public class FilterVectorIcon extends ModernVectorScalableIcon {
   /**
    * The constant LIP_SCALE.
    */
-  private static final double LIP_SCALE = SettingsService.getInstance()
-      .getDouble("theme.icons.filter-icon.lip-scale");
+  private static final double LIP_SCALE = SettingsService.getInstance().getDouble("theme.icons.filter-icon.lip-scale");
 
   /**
    * The constant FUNNEL_WIDTH_SCALE.
@@ -67,8 +66,8 @@ public class FilterVectorIcon extends ModernVectorScalableIcon {
   /**
    * The constant FUNNEL_HEIGHT_SCALE.
    */
-  private static final double FUNNEL_HEIGHT_SCALE = SettingsService
-      .getInstance().getDouble("theme.icons.filter-icon.funnel-height-scale");
+  private static final double FUNNEL_HEIGHT_SCALE = SettingsService.getInstance()
+      .getDouble("theme.icons.filter-icon.funnel-height-scale");
 
   /**
    * The constant SPOUT_SCALE.
@@ -119,12 +118,7 @@ public class FilterVectorIcon extends ModernVectorScalableIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
     double hf = h * HEIGHT_SCALE;
     double wf = h * WIDTH_SCALE;
 

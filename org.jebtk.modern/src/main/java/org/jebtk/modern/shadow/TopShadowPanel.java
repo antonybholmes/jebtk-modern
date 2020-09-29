@@ -57,8 +57,7 @@ public class TopShadowPanel extends ShadowPanel {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
+     * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
      */
     @Override
     public void drawBackground(Graphics2D g2) {
@@ -70,12 +69,7 @@ public class TopShadowPanel extends ShadowPanel {
       }
 
       // Scale image
-      g2.drawImage(mImg,
-          0,
-          -Card.HALF_SHADOW_SIZE,
-          getWidth(),
-          Card.SHADOW_SIZE,
-          null);
+      g2.drawImage(mImg, 0, -Card.HALF_SHADOW_SIZE, getWidth(), Card.SHADOW_SIZE, null);
 
       // MaterialUtils.drawDropShadow(g2Temp, 0, 0, getWidth(), 0);
       // } finally {
@@ -98,7 +92,7 @@ public class TopShadowPanel extends ShadowPanel {
       }
 
       return Card.blur(img, Card.SHADOW_SIZE); // imgMask; //blur(imgMask,
-                                               // size);
+      // size);
     }
   }
 

@@ -47,8 +47,7 @@ import org.jebtk.modern.theme.ThemeService;
 /**
  * The class ModernPreviewLayerPanel.
  */
-public class ModernPreviewLayerPanel extends ModernWidget
-    implements ModernClickListener, LayerEventListener {
+public class ModernPreviewLayerPanel extends ModernWidget implements ModernClickListener, LayerEventListener {
 
   /**
    * The constant serialVersionUID.
@@ -78,20 +77,18 @@ public class ModernPreviewLayerPanel extends ModernWidget
   /**
    * Instantiates a new modern preview layer panel.
    *
-   * @param name the name
+   * @param name       the name
    * @param layerModel the layer model
-   * @param canvas the canvas
+   * @param canvas     the canvas
    */
-  public ModernPreviewLayerPanel(String name, LayerModel layerModel,
-      ModernCanvas canvas) {
+  public ModernPreviewLayerPanel(String name, LayerModel layerModel, ModernCanvas canvas) {
     setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 
     this.mName = name;
     this.mLayerModel = layerModel;
 
     double scale = Math.max(0.2,
-        size / (double) Math.max(canvas.getPreferredSize().width,
-            canvas.getPreferredSize().height));
+        size / (double) Math.max(canvas.getPreferredSize().width, canvas.getPreferredSize().height));
 
     // ZoomCanvas zoomCanvas = new ZoomCanvas(canvas, scale);
 
@@ -124,8 +121,7 @@ public class ModernPreviewLayerPanel extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
@@ -137,8 +133,7 @@ public class ModernPreviewLayerPanel extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override
@@ -161,8 +156,7 @@ public class ModernPreviewLayerPanel extends ModernWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.
+   * @see org.abh.common.ui.layers.LayerEventListener#layerUpdated(org.abh.common.
    * event .ChangeEvent)
    */
   @Override

@@ -35,8 +35,7 @@ import org.jebtk.core.event.EventProducer;
  * 
  * @author Antony Holmes
  */
-public class LayerEventListeners extends EventProducer<LayerEventListener>
-    implements LayerEventProducer {
+public class LayerEventListeners extends EventProducer<LayerEventListener> implements LayerEventProducer {
 
   /**
    * The constant serialVersionUID.
@@ -57,8 +56,7 @@ public class LayerEventListeners extends EventProducer<LayerEventListener>
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.layers.LayerEventProducer#removeLayerListener(org.
+   * @see org.abh.lib.ui.modern.layers.LayerEventProducer#removeLayerListener(org.
    * abh. lib.ui.modern.layers.LayerEventListener)
    */
   public void removeLayerListener(LayerEventListener l) {

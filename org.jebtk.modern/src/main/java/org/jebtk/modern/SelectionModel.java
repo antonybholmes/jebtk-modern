@@ -44,8 +44,7 @@ import org.jebtk.modern.event.ModernSelectionListeners;
  * @author Antony Holmes
  * @param <T> the generic type
  */
-public class SelectionModel<T> extends ModernSelectionListeners
-    implements Iterable<T> {
+public class SelectionModel<T> extends ModernSelectionListeners implements Iterable<T> {
 
   /**
    * The constant serialVersionUID.

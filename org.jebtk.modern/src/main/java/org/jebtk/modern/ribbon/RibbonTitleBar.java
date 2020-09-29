@@ -62,10 +62,9 @@ public class RibbonTitleBar extends ModernTitleBar {
    *
    * @param window Parent window.
    * @param onLeft the on left
-   * @param style The button style.
+   * @param style  The button style.
    */
-  public RibbonTitleBar(ModernWindow window, boolean onLeft,
-      ModernWindowTitleBarStyle style) {
+  public RibbonTitleBar(ModernWindow window, boolean onLeft, ModernWindowTitleBarStyle style) {
 
     setForeground(DARK_LINE_COLOR);
 

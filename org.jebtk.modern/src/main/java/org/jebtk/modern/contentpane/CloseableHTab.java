@@ -66,8 +66,7 @@ public class CloseableHTab extends HTab {
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+     * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
      * modern .event.ModernClickEvent)
      */
     @Override
@@ -80,26 +79,24 @@ public class CloseableHTab extends HTab {
   /**
    * Instantiates a new closeable h tab2.
    *
-   * @param title the title
+   * @param title   the title
    * @param content the content
-   * @param viewer the viewer
+   * @param viewer  the viewer
    */
-  public CloseableHTab(String title, Component content,
-      ModernHContentPane viewer) {
+  public CloseableHTab(String title, Component content, ModernHContentPane viewer) {
     this(title, content, viewer.tabs());
   }
 
-  public CloseableHTab(String title, Component content,
-      ModernHContentPane viewer, Border border) {
+  public CloseableHTab(String title, Component content, ModernHContentPane viewer, Border border) {
     this(title, content, viewer.tabs(), border);
   }
 
   /**
    * Instantiates a new closeable h tab2.
    *
-   * @param title the title
+   * @param title   the title
    * @param content the content
-   * @param model the model
+   * @param model   the model
    */
   public CloseableHTab(String title, Component content, TabsModel model) {
     super(title, content);
@@ -107,8 +104,7 @@ public class CloseableHTab extends HTab {
     setup(title, content, model);
   }
 
-  public CloseableHTab(String title, Component content, TabsModel model,
-      Border border) {
+  public CloseableHTab(String title, Component content, TabsModel model, Border border) {
     super(title, content, border);
 
     setup(title, content, model);

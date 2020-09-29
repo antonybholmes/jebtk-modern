@@ -66,12 +66,7 @@ public class RunVectorIcon extends ModernVectorIcon {
    * java.awt.Rectangle)
    */
   @Override
-  public void drawIcon(Graphics2D g2,
-      int x,
-      int y,
-      int w,
-      int h,
-      Props props) {
+  public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
 
     double hf = w * SCALE;
     double h2 = hf / 2.0;
@@ -90,7 +85,7 @@ public class RunVectorIcon extends ModernVectorIcon {
     g2.setColor(BACKGROUND);
     g2.fill(gp);
   }
-  
+
 //  @Override
 //  public Image getFxImage(int w) {
 //    Canvas canvas = new Canvas(w, w);

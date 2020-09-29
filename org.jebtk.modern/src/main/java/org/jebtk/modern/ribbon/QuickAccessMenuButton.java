@@ -55,12 +55,12 @@ public class QuickAccessMenuButton extends ModernMenuButton {
 
     addStyleClass("quick-access-button");
 
-    //setAnimations(new QuickAccessDropDownAnimation(this));
+    // setAnimations(new QuickAccessDropDownAnimation(this));
   }
 
   /*
    * @Override public void drawBackground(Graphics2D g2) { if (isEnabled()) { if
-   * (mHighlight || mPopupShown) { fill(g2, RibbonMenuItem.MENU_SELECTED_COLOR);
-   * } } }
+   * (mHighlight || mPopupShown) { fill(g2, RibbonMenuItem.MENU_SELECTED_COLOR); }
+   * } }
    */
 }

@@ -74,17 +74,13 @@ public class ModernVerticalSeparator extends ModernWidget {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
+   * @see org.abh.lib.ui.modern.ModernWidget#drawForegroundAA(java.awt.Graphics2D)
    */
   @Override
   public void drawForegroundAA(Graphics2D g2) {
 
     g2.setColor(ModernWidget.LINE_COLOR);
 
-    g2.drawLine(MID_POINT,
-        mInternalRect.getY(),
-        MID_POINT,
-        mInternalRect.getY() + mInternalRect.getH());
+    g2.drawLine(MID_POINT, mInternalRect.getY(), MID_POINT, mInternalRect.getY() + mInternalRect.getH());
   }
 }

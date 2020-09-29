@@ -54,12 +54,8 @@ public class LogEventListItemRenderer extends ModernListIconCellRenderer {
    * getCellRendererComponent(org.abh.lib.ui.modern.list.ModernList,
    * java.lang.Object, boolean, boolean, boolean, int)
    */
-  public Component getCellRendererComponent(ModernList<?> list,
-      Object value,
-      boolean highlight,
-      boolean isSelected,
-      boolean hasFocus,
-      int row) {
+  public Component getCellRendererComponent(ModernList<?> list, Object value, boolean highlight, boolean isSelected,
+      boolean hasFocus, int row) {
     if (value == null) {
       return this;
     }

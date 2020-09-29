@@ -29,8 +29,7 @@ public class CheckBoxTickAnimation extends WidgetAnimation {
         // ModernCheckBox.CHECK_ICON.drawIcon(g2, x, y,
         // ModernCheckBox.ICON_SIZE);
 
-        DrawUIService.getInstance().getRenderer("check")
-            .draw(g2, new IntRect(x, y, TICK_SIZE, TICK_SIZE), Color.WHITE);
+        DrawUIService.getInstance().getRenderer("check").draw(g2, new IntRect(x, y, TICK_SIZE, TICK_SIZE), Color.WHITE);
       }
     }
   }

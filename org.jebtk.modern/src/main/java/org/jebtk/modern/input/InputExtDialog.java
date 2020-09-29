@@ -43,8 +43,7 @@ import org.jebtk.modern.window.WindowWidgetFocusEvents;
 /**
  * The class MatchDialog.
  */
-public class InputExtDialog extends ModernDialogTaskWindow
-    implements ModernClickListener {
+public class InputExtDialog extends ModernDialogTaskWindow implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -60,8 +59,8 @@ public class InputExtDialog extends ModernDialogTaskWindow
   /**
    * Instantiates a new match dialog.
    *
-   * @param parent the parent
-   * @param text the text
+   * @param parent    the parent
+   * @param text      the text
    * @param delimiter the delimiter
    */
   public InputExtDialog(ModernWindow parent, String text, String delimiter) {

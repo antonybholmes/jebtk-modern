@@ -50,50 +50,40 @@ public class ShapeStar extends Polygon {
   public static double RATIO = 0.4;
 
   /** The cos angle 1 2. */
-  public static double COS_ANGLE_1_2 = Math
-      .cos(ShapePentagon.ANGLE_1 + T_ANGLE_2);
+  public static double COS_ANGLE_1_2 = Math.cos(ShapePentagon.ANGLE_1 + T_ANGLE_2);
 
   /** The cos angle 2 2. */
-  public static double COS_ANGLE_2_2 = Math
-      .cos(ShapePentagon.ANGLE_2 + T_ANGLE_2);
+  public static double COS_ANGLE_2_2 = Math.cos(ShapePentagon.ANGLE_2 + T_ANGLE_2);
 
   /** The cos angle 3 2. */
-  public static double COS_ANGLE_3_2 = Math
-      .cos(ShapePentagon.ANGLE_3 + T_ANGLE_2);
+  public static double COS_ANGLE_3_2 = Math.cos(ShapePentagon.ANGLE_3 + T_ANGLE_2);
 
   /** The cos angle 4 2. */
-  public static double COS_ANGLE_4_2 = Math
-      .cos(ShapePentagon.ANGLE_4 + T_ANGLE_2);
+  public static double COS_ANGLE_4_2 = Math.cos(ShapePentagon.ANGLE_4 + T_ANGLE_2);
 
   /** The cos angle 5 2. */
-  public static double COS_ANGLE_5_2 = Math
-      .cos(ShapePentagon.ANGLE_5 + T_ANGLE_2);
+  public static double COS_ANGLE_5_2 = Math.cos(ShapePentagon.ANGLE_5 + T_ANGLE_2);
 
   /** The sin angle 1 2. */
-  public static double SIN_ANGLE_1_2 = Math
-      .sin(ShapePentagon.ANGLE_1 + T_ANGLE_2);
+  public static double SIN_ANGLE_1_2 = Math.sin(ShapePentagon.ANGLE_1 + T_ANGLE_2);
 
   /** The sin angle 2 2. */
-  public static double SIN_ANGLE_2_2 = Math
-      .sin(ShapePentagon.ANGLE_2 + T_ANGLE_2);
+  public static double SIN_ANGLE_2_2 = Math.sin(ShapePentagon.ANGLE_2 + T_ANGLE_2);
 
   /** The sin angle 3 2. */
-  public static double SIN_ANGLE_3_2 = Math
-      .sin(ShapePentagon.ANGLE_3 + T_ANGLE_2);
+  public static double SIN_ANGLE_3_2 = Math.sin(ShapePentagon.ANGLE_3 + T_ANGLE_2);
 
   /** The sin angle 4 2. */
-  public static double SIN_ANGLE_4_2 = Math
-      .sin(ShapePentagon.ANGLE_4 + T_ANGLE_2);
+  public static double SIN_ANGLE_4_2 = Math.sin(ShapePentagon.ANGLE_4 + T_ANGLE_2);
 
   /** The sin angle 5 2. */
-  public static double SIN_ANGLE_5_2 = Math
-      .sin(ShapePentagon.ANGLE_5 + T_ANGLE_2);
+  public static double SIN_ANGLE_5_2 = Math.sin(ShapePentagon.ANGLE_5 + T_ANGLE_2);
 
   /**
    * Instantiates a new shape diamond.
    *
-   * @param x the x
-   * @param y the y
+   * @param x    the x
+   * @param y    the y
    * @param size the size
    */
   public ShapeStar(int x, int y, int size) {
@@ -108,24 +98,19 @@ public class ShapeStar extends Polygon {
     double x1 = x + size / 2.0;
     double y1 = y + size / 2.0;
 
-    addPoint((int) (x1 + ShapePentagon.COS_ANGLE_1 * r),
-        (int) (y1 - ShapePentagon.SIN_ANGLE_1 * r));
+    addPoint((int) (x1 + ShapePentagon.COS_ANGLE_1 * r), (int) (y1 - ShapePentagon.SIN_ANGLE_1 * r));
     addPoint((int) (x1 + COS_ANGLE_1_2 * r2), (int) (y1 - SIN_ANGLE_1_2 * r2));
 
-    addPoint((int) (x1 + ShapePentagon.COS_ANGLE_2 * r),
-        (int) (y1 - ShapePentagon.SIN_ANGLE_2 * r));
+    addPoint((int) (x1 + ShapePentagon.COS_ANGLE_2 * r), (int) (y1 - ShapePentagon.SIN_ANGLE_2 * r));
     addPoint((int) (x1 + COS_ANGLE_2_2 * r2), (int) (y1 - SIN_ANGLE_2_2 * r2));
 
-    addPoint((int) (x1 + ShapePentagon.COS_ANGLE_3 * r),
-        (int) (y1 - ShapePentagon.SIN_ANGLE_3 * r));
+    addPoint((int) (x1 + ShapePentagon.COS_ANGLE_3 * r), (int) (y1 - ShapePentagon.SIN_ANGLE_3 * r));
     addPoint((int) (x1 + COS_ANGLE_3_2 * r2), (int) (y1 - SIN_ANGLE_3_2 * r2));
 
-    addPoint((int) (x1 + ShapePentagon.COS_ANGLE_4 * r),
-        (int) (y1 - ShapePentagon.SIN_ANGLE_4 * r));
+    addPoint((int) (x1 + ShapePentagon.COS_ANGLE_4 * r), (int) (y1 - ShapePentagon.SIN_ANGLE_4 * r));
     addPoint((int) (x1 + COS_ANGLE_4_2 * r2), (int) (y1 - SIN_ANGLE_4_2 * r2));
 
-    addPoint((int) (x1 + ShapePentagon.COS_ANGLE_5 * r),
-        (int) (y1 - ShapePentagon.SIN_ANGLE_5 * r));
+    addPoint((int) (x1 + ShapePentagon.COS_ANGLE_5 * r), (int) (y1 - ShapePentagon.SIN_ANGLE_5 * r));
     addPoint((int) (x1 + COS_ANGLE_5_2 * r2), (int) (y1 - SIN_ANGLE_5_2 * r2));
   }
 }

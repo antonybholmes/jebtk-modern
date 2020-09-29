@@ -33,8 +33,8 @@ public abstract class HighlightAnimation extends FadeAnimation {
    * The listener interface for receiving state events. The class that is
    * interested in processing a state event implements this interface, and the
    * object created with that class is registered with a component using the
-   * component's <code>addStateListener<code> method. When the state event
-   * occurs, that object's appropriate method is invoked.
+   * component's <code>addStateListener<code> method. When the state event occurs,
+   * that object's appropriate method is invoked.
    *
    * @see StateEvent
    */
@@ -53,8 +53,7 @@ public abstract class HighlightAnimation extends FadeAnimation {
    *
    * @param ribbon the ribbon
    */
-  public <T extends ModernWidget & HighlightEventProducer> HighlightAnimation(
-      T widget) {
+  public <T extends ModernWidget & HighlightEventProducer> HighlightAnimation(T widget) {
     super(widget);
 
     widget.addHighlightListener(new Listener());

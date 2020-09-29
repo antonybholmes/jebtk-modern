@@ -44,8 +44,7 @@ import org.jebtk.modern.menu.ModernTitleMenuItem;
 /**
  * The class FillColorButton.
  */
-public class FillColorButton extends ModernOptionalDropDownMenuButton
-    implements ModernClickListener {
+public class FillColorButton extends ModernOptionalDropDownMenuButton implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -101,8 +100,8 @@ public class FillColorButton extends ModernOptionalDropDownMenuButton
     mMenu.add(colorPicker);
 
     mMenu.add(new ModernMenuSeparator());
-    mMenu.add(new ModernIconMenuItem("More colors...", AssetService
-        .getInstance().loadIcon("palette", AssetService.ICON_SIZE_16)));
+    mMenu.add(new ModernIconMenuItem("More colors...",
+        AssetService.getInstance().loadIcon("palette", AssetService.ICON_SIZE_16)));
 
     colorPicker.addClickListener(this);
   }
@@ -110,8 +109,7 @@ public class FillColorButton extends ModernOptionalDropDownMenuButton
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

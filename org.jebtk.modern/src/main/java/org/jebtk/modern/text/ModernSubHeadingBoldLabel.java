@@ -45,8 +45,7 @@ public class ModernSubHeadingBoldLabel extends ModernAutoSizeLabel {
   /**
    * The constant SUB_HEADING_BOLD_FONT.
    */
-  private static final Font SUB_HEADING_BOLD_FONT = ThemeService
-      .loadFont("theme.widget.fonts.sub-heading-bold");
+  private static final Font SUB_HEADING_BOLD_FONT = ThemeService.loadFont("theme.widget.fonts.sub-heading-bold");
 
   /**
    * Instantiates a new modern sub heading bold label.
@@ -62,7 +61,7 @@ public class ModernSubHeadingBoldLabel extends ModernAutoSizeLabel {
   /**
    * Instantiates a new modern sub heading bold label.
    *
-   * @param text the text
+   * @param text  the text
    * @param color the color
    */
   public ModernSubHeadingBoldLabel(String text, Color color) {

@@ -40,8 +40,7 @@ import org.jebtk.modern.menu.ModernPopupMenu;
 /**
  * The class ModernClipboardPasswordField.
  */
-public class ModernClipboardPasswordField extends ModernPasswordField
-    implements MouseListener, ModernClickListener {
+public class ModernClipboardPasswordField extends ModernPasswordField implements MouseListener, ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -74,12 +73,11 @@ public class ModernClipboardPasswordField extends ModernPasswordField
   /**
    * Instantiates a new modern clipboard password field.
    *
-   * @param cutEnabled the cut enabled
-   * @param copyEnabled the copy enabled
+   * @param cutEnabled   the cut enabled
+   * @param copyEnabled  the copy enabled
    * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardPasswordField(boolean cutEnabled, boolean copyEnabled,
-      boolean pasteEnabled) {
+  public ModernClipboardPasswordField(boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
 
     this.cutEnabled = cutEnabled;
     // this.copyEnabled = copyEnabled;
@@ -99,13 +97,12 @@ public class ModernClipboardPasswordField extends ModernPasswordField
   /**
    * Instantiates a new modern clipboard password field.
    *
-   * @param text the text
-   * @param cutEnabled the cut enabled
-   * @param copyEnabled the copy enabled
+   * @param text         the text
+   * @param cutEnabled   the cut enabled
+   * @param copyEnabled  the copy enabled
    * @param pasteEnabled the paste enabled
    */
-  public ModernClipboardPasswordField(String text, boolean cutEnabled,
-      boolean copyEnabled, boolean pasteEnabled) {
+  public ModernClipboardPasswordField(String text, boolean cutEnabled, boolean copyEnabled, boolean pasteEnabled) {
 
     super(text);
 
@@ -144,9 +141,7 @@ public class ModernClipboardPasswordField extends ModernPasswordField
       // copyModernMenuItem.setEnabled(copyEnabled);
       // pasteModernMenuItem.setEnabled(pasteEnabled && this.isEditable());
 
-      popup = ClipboardSharedMenu.getInstance().getMenu(this,
-          cutEnabled && this.isEditable(),
-          true,
+      popup = ClipboardSharedMenu.getInstance().getMenu(this, cutEnabled && this.isEditable(), true,
           pasteEnabled && this.isEditable());
 
       popup.showPopup(e.getComponent(), e.getX(), e.getY());
@@ -186,8 +181,7 @@ public class ModernClipboardPasswordField extends ModernPasswordField
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {

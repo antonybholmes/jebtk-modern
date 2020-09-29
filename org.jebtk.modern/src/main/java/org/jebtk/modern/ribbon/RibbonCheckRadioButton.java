@@ -45,8 +45,6 @@ public class RibbonCheckRadioButton extends RibbonCheckButton {
   public RibbonCheckRadioButton(String text1, ModernIcon icon) {
     super(text1, icon);
   }
-  
-  
 
   @Override
   protected final void toggleSelected() {

@@ -48,8 +48,7 @@ import org.jebtk.modern.event.ModernClickListener;
  * @author Antony Holmes
  *
  */
-public abstract class ModernAbstractHTabs extends TabsController
-    implements ModernClickListener {
+public abstract class ModernAbstractHTabs extends TabsController implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -93,14 +92,14 @@ public abstract class ModernAbstractHTabs extends TabsController
   /**
    * The shift left button.
    */
-  protected ModernButton shiftLeftButton = new ModernButton(AssetService
-      .getInstance().loadIcon("arrow_left", AssetService.ICON_SIZE_16));
+  protected ModernButton shiftLeftButton = new ModernButton(
+      AssetService.getInstance().loadIcon("arrow_left", AssetService.ICON_SIZE_16));
 
   /**
    * The shift right button.
    */
-  protected ModernButton shiftRightButton = new ModernButton(AssetService
-      .getInstance().loadIcon("arrow_right", AssetService.ICON_SIZE_16));
+  protected ModernButton shiftRightButton = new ModernButton(
+      AssetService.getInstance().loadIcon("arrow_right", AssetService.ICON_SIZE_16));
 
   /**
    * The tab start x.
@@ -190,8 +189,7 @@ public abstract class ModernAbstractHTabs extends TabsController
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   public final void clicked(ModernClickEvent e) {

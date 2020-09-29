@@ -81,9 +81,7 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
   }
 
   @Override
-  public void drawTranslation(ModernWidget widget,
-      Graphics2D g2,
-      Props props) {
+  public void drawTranslation(ModernWidget widget, Graphics2D g2, Props props) {
     int s = ModernCheckSwitch.ORB_HEIGHT;
 
     int h = widget.getHeight();
@@ -92,10 +90,7 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
     if (mButton.isSelected()) {
       int w = s - ModernCheckSwitch.SWITCH_MARGIN_2X;
       g2.setColor(Color.WHITE);
-      g2.fillOval(ModernCheckSwitch.SWITCH_MARGIN,
-          y1 + ModernCheckSwitch.SWITCH_MARGIN,
-          w,
-          w);
+      g2.fillOval(ModernCheckSwitch.SWITCH_MARGIN, y1 + ModernCheckSwitch.SWITCH_MARGIN, w, w);
 
     } else {
       g2.setColor(Color.WHITE);

@@ -41,8 +41,7 @@ import org.jebtk.modern.window.ModernWindow;
  * @author Antony Holmes
  *
  */
-public class ModernTextDialog extends ModernDialogTaskWindow
-    implements ModernClickListener {
+public class ModernTextDialog extends ModernDialogTaskWindow implements ModernClickListener {
 
   /**
    * The constant serialVersionUID.
@@ -58,8 +57,8 @@ public class ModernTextDialog extends ModernDialogTaskWindow
    * Instantiates a new modern text dialog.
    *
    * @param parent the parent
-   * @param title the title
-   * @param text the text
+   * @param title  the title
+   * @param text   the text
    */
   public ModernTextDialog(ModernWindow parent, String title, String text) {
     super(parent, ModernDialogTaskType.CLOSE);

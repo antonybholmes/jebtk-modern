@@ -39,8 +39,7 @@ import org.jebtk.modern.graphics.icons.RasterIcon;
 /**
  * The class RibbonLargeCheckButton2.
  */
-public class RibbonLargeCheckButton extends ModernCheckButton
-    implements RibbonModeProperty {
+public class RibbonLargeCheckButton extends ModernCheckButton implements RibbonModeProperty {
 
   /**
    * The constant serialVersionUID.
@@ -66,7 +65,7 @@ public class RibbonLargeCheckButton extends ModernCheckButton
    * Instantiates a new ribbon large check button2.
    *
    * @param text1 the text1
-   * @param icon the icon
+   * @param icon  the icon
    */
   public RibbonLargeCheckButton(String text1, ModernIcon icon) {
     super(text1, icon);
@@ -88,7 +87,7 @@ public class RibbonLargeCheckButton extends ModernCheckButton
   /**
    * Instantiates a new ribbon large check button.
    *
-   * @param icon the icon
+   * @param icon  the icon
    * @param text1 the text 1
    */
   public RibbonLargeCheckButton(ModernIcon icon, String text1) {
@@ -102,13 +101,12 @@ public class RibbonLargeCheckButton extends ModernCheckButton
   /**
    * Instantiates a new ribbon large check button2.
    *
-   * @param text1 the text1
-   * @param icon the icon
+   * @param text1        the text1
+   * @param icon         the icon
    * @param toolTipTitle the tool tip title
-   * @param toolTipText the tool tip text
+   * @param toolTipText  the tool tip text
    */
-  public RibbonLargeCheckButton(String text1, ModernIcon icon,
-      String toolTipTitle, String toolTipText) {
+  public RibbonLargeCheckButton(String text1, ModernIcon icon, String toolTipTitle, String toolTipText) {
     this(text1, icon);
 
     setToolTip(toolTipTitle, toolTipText);
@@ -121,7 +119,7 @@ public class RibbonLargeCheckButton extends ModernCheckButton
    *
    * @param text1 the text1
    * @param text2 the text 2
-   * @param icon the icon
+   * @param icon  the icon
    */
   public RibbonLargeCheckButton(String text1, String text2, ModernIcon icon) {
     this(text1, text2, icon, false);
@@ -132,13 +130,12 @@ public class RibbonLargeCheckButton extends ModernCheckButton
   /**
    * Instantiates a new ribbon large check button.
    *
-   * @param text1 the text 1
-   * @param text2 the text 2
-   * @param icon the icon
+   * @param text1    the text 1
+   * @param text2    the text 2
+   * @param icon     the icon
    * @param selected the selected
    */
-  public RibbonLargeCheckButton(String text1, String text2, ModernIcon icon,
-      boolean selected) {
+  public RibbonLargeCheckButton(String text1, String text2, ModernIcon icon, boolean selected) {
     super(text1, icon);
 
     mText2 = text2;
@@ -155,7 +152,7 @@ public class RibbonLargeCheckButton extends ModernCheckButton
   /**
    * Instantiates a new ribbon large check button.
    *
-   * @param text1 the text 1
+   * @param text1    the text 1
    * @param selected the selected
    */
   public RibbonLargeCheckButton(String text1, boolean selected) {
@@ -204,16 +201,15 @@ public class RibbonLargeCheckButton extends ModernCheckButton
   }
 
   /*
-   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) {
-   * if (isSelected() || mHighlight) { getWidgetRenderer().drawRibbonButton(g2,
+   * @Override public void drawBackgroundAA(Graphics2D g2) { if (isEnabled()) { if
+   * (isSelected() || mHighlight) { getWidgetRenderer().drawRibbonButton(g2,
    * mInternalRect, RenderMode.SELECTED); } } }
    */
 
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.common.ui.button.ModernCheckButton#drawForegroundAA(java.awt.
+   * @see org.abh.common.ui.button.ModernCheckButton#drawForegroundAA(java.awt.
    * Graphics2D)
    */
   @Override
@@ -267,8 +263,7 @@ public class RibbonLargeCheckButton extends ModernCheckButton
           if (isEnabled()) {
             mCompactIcon.drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
           } else {
-            getCompactDisabledIcon()
-                .drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
+            getCompactDisabledIcon().drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
           }
 
           x += mCompactIcon.getWidth();
@@ -289,8 +284,7 @@ public class RibbonLargeCheckButton extends ModernCheckButton
           if (isEnabled()) {
             mCompactIcon.drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
           } else {
-            getCompactDisabledIcon()
-                .drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
+            getCompactDisabledIcon().drawIcon(g2, x, y, Ribbon.COMPACT_ICON_SIZE);
           }
         }
       }

@@ -31,8 +31,7 @@ import org.jebtk.modern.theme.ThemeService;
  */
 public class IconTabsSelectedAnimation extends WidgetAnimation {
 
-  protected static final Color HIGHLIGHT_COLOR =
-      ThemeService.getInstance().getColors().getGray(4);
+  protected static final Color HIGHLIGHT_COLOR = ThemeService.getInstance().getColors().getGray(4);
 
   private IconTabs mTabs;
 
@@ -63,7 +62,7 @@ public class IconTabsSelectedAnimation extends WidgetAnimation {
     int selected = mTabs.getTabsModel().getSelectedIndex();
 
     int ts = mTabs.getTabSize();
-    
+
     if (selected != -1) {
       g2.setColor(HIGHLIGHT_COLOR);
       g2.fillRect(x + ts * selected, y, h, h);

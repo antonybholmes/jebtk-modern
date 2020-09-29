@@ -82,8 +82,7 @@ import org.jebtk.modern.tree.ModernTree;
  * @author Antony Holmes
  *
  */
-public class ModernScrollPane extends ModernFocusableWidget
-    implements ModernClickListener, HierarchyBoundsListener,
+public class ModernScrollPane extends ModernFocusableWidget implements ModernClickListener, HierarchyBoundsListener,
     ModernDataViewListener, DocumentListener, CanvasListener, ChangeListener {
 
   /**
@@ -127,7 +126,7 @@ public class ModernScrollPane extends ModernFocusableWidget
    * The member v scroll bar.
    */
   ModernScrollBar mVScrollBar = null; // new ModernVScrollBarOffice(); //new
-                                      // ModernVScrollBar();
+  // ModernVScrollBar();
 
   //
   // Horizontal
@@ -157,7 +156,7 @@ public class ModernScrollPane extends ModernFocusableWidget
    * The member h scroll bar.
    */
   ModernScrollBar mHScrollBar = null; // new ModernHScrollBarOffice(); //new
-                                      // ModernHScrollBar();
+  // ModernHScrollBar();
 
   //
   // Common
@@ -527,8 +526,7 @@ public class ModernScrollPane extends ModernFocusableWidget
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -544,8 +542,7 @@ public class ModernScrollPane extends ModernFocusableWidget
     /*
      * (non-Javadoc)
      * 
-     * @see
-     * org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
+     * @see org.abh.lib.event.ChangeListener#changed(org.abh.lib.event.ChangeEvent)
      */
     @Override
     public void changed(ChangeEvent e) {
@@ -694,8 +691,8 @@ public class ModernScrollPane extends ModernFocusableWidget
      * if (table.getShowRowHeader()) { setLeftHeader(new
      * ModernTableHeaderRow(table)); }
      * 
-     * if (table.getShowHeader() && table.getShowRowHeader()) {
-     * setTopLeftHeader(new ModernMatrixTableCorner(table)); }
+     * if (table.getShowHeader() && table.getShowRowHeader()) { setTopLeftHeader(new
+     * ModernMatrixTableCorner(table)); }
      */
 
     table.getRowModel().addChangeListener(this);
@@ -802,8 +799,7 @@ public class ModernScrollPane extends ModernFocusableWidget
     setup();
 
     mVScrollBar.setScroller(new ModernTreeScrollerV());
-    tree.getSelectionModel().addSelectionListener(
-        new ModernTreeSelectionScrollV(tree, mVScrollBar));
+    tree.getSelectionModel().addSelectionListener(new ModernTreeSelectionScrollV(tree, mVScrollBar));
   }
 
   /**
@@ -1098,8 +1094,7 @@ public class ModernScrollPane extends ModernFocusableWidget
     }
 
     // Don't bother with this unless we are auto showing the scroll bars
-    if (mVScrollBarPolicy != ScrollBarPolicy.AUTO_SHOW
-        && mHScrollBarPolicy != ScrollBarPolicy.AUTO_SHOW) {
+    if (mVScrollBarPolicy != ScrollBarPolicy.AUTO_SHOW && mHScrollBarPolicy != ScrollBarPolicy.AUTO_SHOW) {
       return;
     }
 
@@ -1146,8 +1141,8 @@ public class ModernScrollPane extends ModernFocusableWidget
   }
 
   /**
-   * Change the size of the component in response to the scrollpane changing
-   * size. This will only affect dimensions where the scrollbar is not visible
+   * Change the size of the component in response to the scrollpane changing size.
+   * This will only affect dimensions where the scrollbar is not visible
    */
   private void adjustComponentSize() {
     if (mComponent == null) {
@@ -1160,14 +1155,12 @@ public class ModernScrollPane extends ModernFocusableWidget
 
     if (mTopHeader != null) {
       Rectangle b = new Rectangle(mLeftHeaderOffset + border, border,
-          mInternalRect.getW() - mLeftHeaderOffset - (mShowClipBorder ? 3 : 0),
-          mTopHeaderOffset);
+          mInternalRect.getW() - mLeftHeaderOffset - (mShowClipBorder ? 3 : 0), mTopHeaderOffset);
 
       // If the scroll bars are visible or auto show is true then resize
       // the components to allow for this
       if (mVScrollBarLocation == ScrollBarLocation.SIDE) {
-        if (mVScrollBar.isVisible()
-            || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        if (mVScrollBar.isVisible() || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
           b.width -= mVScrollBar.getFixedDim();
         }
       }
@@ -1176,12 +1169,11 @@ public class ModernScrollPane extends ModernFocusableWidget
     }
 
     if (mLeftHeader != null) {
-      Rectangle b = new Rectangle(border, mTopHeaderOffset + border,
-          mLeftHeaderOffset, h - mTopHeaderOffset - (mShowClipBorder ? 3 : 0));
+      Rectangle b = new Rectangle(border, mTopHeaderOffset + border, mLeftHeaderOffset,
+          h - mTopHeaderOffset - (mShowClipBorder ? 3 : 0));
 
       if (mHScrollBarPosition == ScrollBarLocation.SIDE) {
-        if (mHScrollBar.isVisible()
-            || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        if (mHScrollBar.isVisible() || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
           b.height -= mHScrollBar.getFixedDim();
         }
 
@@ -1194,18 +1186,15 @@ public class ModernScrollPane extends ModernFocusableWidget
     }
 
     if (mFooter != null) {
-      Rectangle b = new Rectangle(mLeftHeaderOffset + border,
-          h - mFooterOffset + border,
+      Rectangle b = new Rectangle(mLeftHeaderOffset + border, h - mFooterOffset + border,
           mInternalRect.getW() - mLeftHeaderOffset - border, mFooterOffset);
 
       if (mVScrollBarLocation == ScrollBarLocation.SIDE) {
-        if (mVScrollBar.isVisible()
-            || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        if (mVScrollBar.isVisible() || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
           b.width -= mVScrollBar.getFixedDim();
         }
 
-        if (mHScrollBar.isVisible()
-            || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        if (mHScrollBar.isVisible() || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
           b.y -= mHScrollBar.getFixedDim();
         }
       }
@@ -1214,19 +1203,16 @@ public class ModernScrollPane extends ModernFocusableWidget
     }
 
     if (mLeftHeader != null && mTopHeader != null && mTopLeftHeader != null) {
-      Rectangle b = new Rectangle(border, border, mLeftHeaderOffset,
-          mTopHeaderOffset);
+      Rectangle b = new Rectangle(border, border, mLeftHeaderOffset, mTopHeaderOffset);
 
       mTopLeftHeader.setBounds(b);
     }
 
     if (mLeftHeader != null && mFooter != null && mBottomLeftFooter != null) {
-      Rectangle b = new Rectangle(border, h - mFooterOffset + border,
-          mLeftHeaderOffset, mFooterOffset);
+      Rectangle b = new Rectangle(border, h - mFooterOffset + border, mLeftHeaderOffset, mFooterOffset);
 
       if (mHScrollBarPosition == ScrollBarLocation.SIDE) {
-        if (mHScrollBar.isVisible()
-            || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+        if (mHScrollBar.isVisible() || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
           b.y -= mHScrollBar.getFixedDim();
         }
       }
@@ -1234,25 +1220,20 @@ public class ModernScrollPane extends ModernFocusableWidget
       mBottomLeftFooter.setBounds(b);
     }
 
-    Rectangle b = new Rectangle(
-        (mLeftHeader != null ? mLeftHeaderOffset : 0) + border,
+    Rectangle b = new Rectangle((mLeftHeader != null ? mLeftHeaderOffset : 0) + border,
         (mTopHeader != null ? mTopHeaderOffset : 0) + border,
-        mInternalRect.getW() - (mLeftHeader != null ? mLeftHeaderOffset : 0)
-            - (mShowClipBorder ? 2 : 0) - border,
-        h - (mTopHeader != null ? mTopHeaderOffset : 0)
-            - (mFooter != null ? mFooterOffset : 0) - (mShowClipBorder ? 2 : 0)
-            - border);
+        mInternalRect.getW() - (mLeftHeader != null ? mLeftHeaderOffset : 0) - (mShowClipBorder ? 2 : 0) - border,
+        h - (mTopHeader != null ? mTopHeaderOffset : 0) - (mFooter != null ? mFooterOffset : 0)
+            - (mShowClipBorder ? 2 : 0) - border);
 
     if (mVScrollBarLocation == ScrollBarLocation.SIDE) {
-      if (mVScrollBar.isVisible()
-          || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+      if (mVScrollBar.isVisible() || mVScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
         b.width -= mVScrollBar.getFixedDim() + mVScrollSep;
       }
     }
 
     if (mHScrollBarPosition == ScrollBarLocation.SIDE) {
-      if (mHScrollBar.isVisible()
-          || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
+      if (mHScrollBar.isVisible() || mHScrollBarPolicy == ScrollBarPolicy.AUTO_SHOW) {
         b.height -= mHScrollBar.getFixedDim() + mHScrollSep;
       }
     }
@@ -1454,10 +1435,8 @@ public class ModernScrollPane extends ModernFocusableWidget
   private void vScrollBarSetup() {
 
     // if (mVScrollBar.isVisible()) {
-    Rectangle r = new Rectangle(
-        mInternalRect.getW() - mVScrollBar.getFixedDim(), 0,
-        mVScrollBar.getFixedDim(), mInternalRect.getH()
-            - (mHScrollBar.isVisible() ? mHScrollBar.getFixedDim() : 0));
+    Rectangle r = new Rectangle(mInternalRect.getW() - mVScrollBar.getFixedDim(), 0, mVScrollBar.getFixedDim(),
+        mInternalRect.getH() - (mHScrollBar.isVisible() ? mHScrollBar.getFixedDim() : 0));
 
     // if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
     // r.height -= (mHScrollBar.isVisible() ? mHScrollBar.getFixedDimension() :
@@ -1487,8 +1466,7 @@ public class ModernScrollPane extends ModernFocusableWidget
       // mComponent.getPreferredSize().height - mInternalRect.getH());
       // }
 
-      scrollDistance = Math.max(0,
-          mComponent.getPreferredSize().height - mInternalRect.getH());
+      scrollDistance = Math.max(0, mComponent.getPreferredSize().height - mInternalRect.getH());
     }
 
     mVScrollBar.setScrollDistance(scrollDistance);
@@ -1522,8 +1500,8 @@ public class ModernScrollPane extends ModernFocusableWidget
     // * mVScrollBar.getNormalizedScrollBarPosition()));
 
     mComponentVOffset = (int) Math.round(mVScrollBar.getOffset()); // (int)(mVScrollDistance
-                                                                   // *
-                                                                   // mVScrollBar.getNormalizedScrollBarPosition());
+    // *
+    // mVScrollBar.getNormalizedScrollBarPosition());
   }
 
   /**
@@ -1567,11 +1545,8 @@ public class ModernScrollPane extends ModernFocusableWidget
   private void hScrollBarSetup() {
 
     // if (mHScrollBar.isVisible()) {
-    Rectangle r = new Rectangle(0,
-        mInternalRect.getH() - mHScrollBar.getFixedDim(),
-        mInternalRect.getW()
-            - (mVScrollBar.isVisible() ? mVScrollBar.getFixedDim() : 0),
-        mHScrollBar.getFixedDim());
+    Rectangle r = new Rectangle(0, mInternalRect.getH() - mHScrollBar.getFixedDim(),
+        mInternalRect.getW() - (mVScrollBar.isVisible() ? mVScrollBar.getFixedDim() : 0), mHScrollBar.getFixedDim());
 
     // if (mHScrollBarPosition == ScrollBarPosition.SIDE) {
     // r.width -= (mVScrollBar.isVisible() ? mVScrollBar.getFixedDimension() :
@@ -1601,8 +1576,7 @@ public class ModernScrollPane extends ModernFocusableWidget
       /// mComponent.getPreferredSize().width - mInternalRect.getW());
       // }
 
-      hScrollDistance = Math.max(0,
-          mComponent.getPreferredSize().width - mInternalRect.getW());
+      hScrollDistance = Math.max(0, mComponent.getPreferredSize().width - mInternalRect.getW());
     }
 
     mHScrollBar.setScrollDistance(hScrollDistance);
@@ -1629,8 +1603,8 @@ public class ModernScrollPane extends ModernFocusableWidget
    */
   private void updateComponentHOffset() {
     mComponentHOffset = (int) Math.round(mHScrollBar.getOffset()); // (int)(mHScrollDistance
-                                                                   // *
-                                                                   // mHScrollBar.getNormalizedScrollBarPosition());
+    // *
+    // mHScrollBar.getNormalizedScrollBarPosition());
   }
 
   /**
@@ -1706,8 +1680,7 @@ public class ModernScrollPane extends ModernFocusableWidget
    * @param vl The vertical scroll bar location.
    * @return the modern scroll pane
    */
-  public ModernScrollPane setScrollBarLocation(ScrollBarLocation hl,
-      ScrollBarLocation vl) {
+  public ModernScrollPane setScrollBarLocation(ScrollBarLocation hl, ScrollBarLocation vl) {
     setHScrollBarLocation(hl);
     setVScrollBarLocation(vl);
 
@@ -1771,8 +1744,7 @@ public class ModernScrollPane extends ModernFocusableWidget
    * @param vPolicy the v policy
    * @return the modern scroll pane
    */
-  public ModernScrollPane setScrollBarPolicy(ScrollBarPolicy hPolicy,
-      ScrollBarPolicy vPolicy) {
+  public ModernScrollPane setScrollBarPolicy(ScrollBarPolicy hPolicy, ScrollBarPolicy vPolicy) {
     setHorizontalScrollBarPolicy(hPolicy);
     setVerticalScrollBarPolicy(vPolicy);
 
@@ -1833,8 +1805,8 @@ public class ModernScrollPane extends ModernFocusableWidget
   }
 
   /**
-   * Returns the number of pixels in the y dimension that are available to
-   * display content once headers and scrollbar widths are subtracted.
+   * Returns the number of pixels in the y dimension that are available to display
+   * content once headers and scrollbar widths are subtracted.
    *
    * @return the internal height
    */
@@ -1854,8 +1826,7 @@ public class ModernScrollPane extends ModernFocusableWidget
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
+   * @see org.abh.lib.ui.modern.event.ModernClickListener#clicked(org.abh.lib.ui.
    * modern .event.ModernClickEvent)
    */
   @Override

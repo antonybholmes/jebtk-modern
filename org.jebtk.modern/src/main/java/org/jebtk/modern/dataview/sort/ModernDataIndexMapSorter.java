@@ -82,11 +82,10 @@ public abstract class ModernDataIndexMapSorter extends ModernDataIndexSorter {
   /**
    * Sort indexed values for use in a table sorter.
    *
-   * @param <T> the generic type
+   * @param <T>    the generic type
    * @param values the values
    */
-  public <T extends Comparable<? super T>> void sort(
-      List<Indexed<Integer, T>> values) {
+  public <T extends Comparable<? super T>> void sort(List<Indexed<Integer, T>> values) {
     Collections.sort(values);
 
     if (!mSortAscending) {
@@ -102,8 +101,7 @@ public abstract class ModernDataIndexMapSorter extends ModernDataIndexSorter {
   /*
    * (non-Javadoc)
    * 
-   * @see
-   * org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#getModelIndex(
+   * @see org.abh.lib.ui.modern.dataview.sort.ModernDataIndexSorter#getModelIndex(
    * int)
    */
   @Override

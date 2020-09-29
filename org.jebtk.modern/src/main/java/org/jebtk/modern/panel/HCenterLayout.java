@@ -89,7 +89,7 @@ public class HCenterLayout implements LayoutManager {
       Component c = parent.getComponent(i);
       if (c.isVisible()) {
         d = c.getPreferredSize();
-        
+
         if (d.height > dim.height) {
           dim.height = d.height;
         }
