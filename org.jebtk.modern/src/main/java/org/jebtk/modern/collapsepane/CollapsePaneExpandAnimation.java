@@ -40,14 +40,14 @@ public class CollapsePaneExpandAnimation extends RotationAnimation {
 
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    Rectangle r = new Rectangle(widget.getInsets().left, widget.getInsets().top,
-        widget.getWidth() - widget.getInsets().left - widget.getInsets().right, mPane.mHeaderHeight);
+    Rectangle r = new Rectangle(mWidget.getInsets().left, mWidget.getInsets().top,
+        mWidget.getWidth() - mWidget.getInsets().left - mWidget.getInsets().right, mPane.mHeaderHeight);
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
 
     int d = (mPane.mHeaderHeight - ModernCollapseNodeRenderer.ICON_SIZE) / 2;
 
-    int xt = widget.getWidth() - widget.getInsets().right - ModernCollapseNodeRenderer.ICON_SIZE - d;
+    int xt = mWidget.getWidth() - mWidget.getInsets().right - ModernCollapseNodeRenderer.ICON_SIZE - d;
     int yt = r.y + d;
     int mid = ModernCollapseNodeRenderer.ICON_SIZE / 2;
 

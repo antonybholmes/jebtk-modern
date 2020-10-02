@@ -17,10 +17,6 @@ public abstract class CSSWidget extends ModernToolTipWidget {
 
   private static final long serialVersionUID = 1L;
 
-  public static final DrawUI CSS_DRAW = new CSSDrawUI();
-
-  private boolean mCSSMode = true;
-
   public CSSWidget() {
     init();
   }
@@ -34,6 +30,7 @@ public abstract class CSSWidget extends ModernToolTipWidget {
   private void init() {
     // getAnimations().add("draw-ui");
     // getDrawStates().add(DrawUIService.getInstance().getRenderer("css-draw"));
+    // addAnimations("css-hover");
   }
 
   @Override
@@ -51,15 +48,4 @@ public abstract class CSSWidget extends ModernToolTipWidget {
     }
   }
 
-  /**
-   * Set whether to use the CSS renderer. For certain custom components it is
-   * necessary to disable this so that the CSS style does not conflict with the
-   * custom style.
-   * 
-   * @param cssMode
-   */
-  public void setCSSMode(boolean cssMode) {
-    mCSSMode = cssMode;
-    repaint();
-  }
 }

@@ -20,7 +20,6 @@ import java.awt.Graphics2D;
 import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.theme.ColorGradient;
 
 /**
  * The Class ModernRoundedWidgetRenderer.
@@ -34,18 +33,7 @@ public class CSSDrawUI extends CSSOutlineUI {
 
   @Override
   public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
-
-    if (c != null) {
-      ColorGradient lp = c.getCSSProps().getColorGradient("background");
-
-      if (lp != null) {
-        lp.paint(g2, c);
-      } else {
-        g2.setColor(c.getCSSProps().getColor("background-color"));
-      }
-    } else {
-      g2.setColor(CSSKeyFramesService.getInstance().getToStyleClass("widget").getColor("background-color"));
-    }
+    setColor("background-color", c, g2, props);
 
     fill(c, g2, rect, props);
 

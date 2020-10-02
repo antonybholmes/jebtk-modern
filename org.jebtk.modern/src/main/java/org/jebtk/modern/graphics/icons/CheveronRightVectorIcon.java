@@ -63,8 +63,6 @@ public class CheveronRightVectorIcon extends CheveronVectorIcon {
    */
   @Override
   public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
-    System.err.println("hhmm" + (props == null));
-
     super.drawIcon(g2, x, y, w, h, props);
 
     x += (w - mH) / 2;

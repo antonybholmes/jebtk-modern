@@ -49,7 +49,7 @@ public class RibbonBackAnimation extends HoverFadeAnimation {
       g2Temp.setColor(getFadeColor("fill"));
 
       int x = ModernWidget.DOUBLE_PADDING;
-      int y = (widget.getHeight() - HEIGHT) / 2;
+      int y = (mWidget.getHeight() - HEIGHT) / 2;
 
       drawIcon(g2Temp, x, y);
     } finally {

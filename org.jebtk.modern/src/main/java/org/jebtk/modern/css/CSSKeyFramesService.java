@@ -128,10 +128,10 @@ public class CSSKeyFramesService {
         } else {
           if (v.startsWith("#")) {
             cls.set(name, ColorUtils.decodeHtmlColor(v));
-          } else if (v.startsWith("colors.theme32")) {
+          } else if (v.startsWith("colors.theme-32")) {
             int i = Integer.parseInt(v.substring(v.lastIndexOf("-") + 1));
             cls.set(name, ThemeService.getInstance().getColors().getTheme32(i));
-          } else if (v.startsWith("colors.gray32")) {
+          } else if (v.startsWith("colors.gray-32")) {
             int i = Integer.parseInt(v.substring(v.lastIndexOf("-") + 1));
             cls.set(name, ThemeService.getInstance().getColors().getGray32(i));
           } else if (v.startsWith("colors.material")) {

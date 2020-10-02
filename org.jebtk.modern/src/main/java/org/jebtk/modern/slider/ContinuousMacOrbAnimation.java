@@ -11,14 +11,14 @@ import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ThemeService;
 
 public class ContinuousMacOrbAnimation extends HoverFadeAnimation {
-  private ContinuousMacOrbSlider mButton;
+  private ContinuousMacOrbSlider mSlider;
 
   protected static final Color HIGHLIGHT_2 = ThemeService.getInstance().getColors().getTheme32(24);
 
   public ContinuousMacOrbAnimation(ModernWidget button) {
     super(button);
 
-    mButton = (ContinuousMacOrbSlider) button;
+    mSlider = (ContinuousMacOrbSlider) button;
 
     setFadeColor("highlight", MaterialService.instance().getColor("theme-selected"), Ribbon.BAR_BACKGROUND);
     setFadeColor("line", ModernWidget.LINE_COLOR, ModernWidget.DARK_LINE_COLOR);
@@ -32,28 +32,28 @@ public class ContinuousMacOrbAnimation extends HoverFadeAnimation {
    */
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    int p = (int) (widget.getInsets().left + mButton.mSliderDiameter % 2 + mButton.vToX());
+    int p = (int) (mWidget.getInsets().left + mSlider.mSliderDiameter % 2 + mSlider.vToX());
 
     drawBar(g2, p);
     drawOrb(g2, p);
   }
 
   private void drawBar(Graphics2D g2, int p) {
-    mButton.drawBarBase(g2, p);
+    mSlider.drawBarBase(g2, p);
 
-    int x = mButton.getInsets().left + mButton.mSliderRadius;
-    int y = (mButton.getHeight() - mButton.mBarHeight) / 2;
+    int x = mSlider.getInsets().left + mSlider.mSliderRadius;
+    int y = (mSlider.getHeight() - mSlider.mBarHeight) / 2;
 
     g2.setColor(getFadeColor("highlight"));
 
-    g2.fillRoundRect(x, y, p - x + mButton.mSliderRadius, mButton.mBarHeight, mButton.mBarHeight, mButton.mBarHeight);
+    g2.fillRoundRect(x, y, p - x + mSlider.mSliderRadius, mSlider.mBarHeight, mSlider.mBarHeight, mSlider.mBarHeight);
   }
 
   private void drawOrb(Graphics2D g2, int p) {
-    int y = mButton.getHeight() / 2;
+    int y = mSlider.getHeight() / 2;
 
     g2.setColor(getFadeColor("highlight")); // Color.WHITE);
-    g2.fillOval(p, y - mButton.mSliderRadius, mButton.mSliderDiameter, mButton.mSliderDiameter);
+    g2.fillOval(p, y - mSlider.mSliderRadius, mSlider.mSliderDiameter, mSlider.mSliderDiameter);
 
     // g2.setColor(getFadeColor("line"));
     // g2.drawOval(p, y - mButton.mSliderRadius,

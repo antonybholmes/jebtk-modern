@@ -53,8 +53,8 @@ public class CollapsePaneHighlightAnimation extends HighlightAnimation {
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
-    Rectangle r = new Rectangle(widget.getInsets().left, widget.getInsets().top,
-        widget.getWidth() - widget.getInsets().left - widget.getInsets().right, ModernWidget.WIDGET_HEIGHT);
+    Rectangle r = new Rectangle(mWidget.getInsets().left, mWidget.getInsets().top,
+        mWidget.getWidth() - mWidget.getInsets().left - mWidget.getInsets().right, ModernWidget.WIDGET_HEIGHT);
 
     Graphics2D g2Temp = ImageUtils.clone(g2);
 

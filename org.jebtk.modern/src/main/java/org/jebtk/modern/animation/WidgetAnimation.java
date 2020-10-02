@@ -25,7 +25,7 @@ import org.jebtk.modern.ModernWidget;
 public abstract class WidgetAnimation implements Animation {
 
   /** The m widget. */
-  public final ModernWidget widget;
+  public final ModernWidget mWidget;
 
   /**
    * Instantiates a new widget animation.
@@ -33,7 +33,7 @@ public abstract class WidgetAnimation implements Animation {
    * @param widget the widget
    */
   public WidgetAnimation(ModernWidget widget) {
-    this.widget = widget;
+    mWidget = widget;
   }
 
   /**
@@ -42,7 +42,7 @@ public abstract class WidgetAnimation implements Animation {
    * @return the widget
    */
   public ModernWidget getWidget() {
-    return this.widget;
+    return mWidget;
   }
 
   @Override
@@ -55,6 +55,6 @@ public abstract class WidgetAnimation implements Animation {
   }
 
   public void repaint() {
-    this.widget.repaint();
+    mWidget.repaint();
   }
 }

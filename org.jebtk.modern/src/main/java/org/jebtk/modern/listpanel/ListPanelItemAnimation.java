@@ -53,9 +53,9 @@ public class ListPanelItemAnimation extends WidgetAnimation {
 
     g2.setColor(mItem.mColor);
 
-    int x = widget.getWidth() - widget.getInsets().right - ModernListPanelItem.HANDLE_SIZE
+    int x = mWidget.getWidth() - mWidget.getInsets().right - ModernListPanelItem.HANDLE_SIZE
         + (ModernListPanelItem.HANDLE_SIZE - ModernListPanelItem.BURGER_WIDTH) / 2;
-    int y = (widget.getHeight() - 6) / 2;
+    int y = (mWidget.getHeight() - 6) / 2;
 
     g2.drawLine(x, y, x + ModernListPanelItem.BURGER_WIDTH, y);
     y += 2;

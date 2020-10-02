@@ -30,8 +30,6 @@ public class CheckUI extends DrawUI {
 
     double xf = rect.x + (rect.w - wf) / 2;
     double yf = rect.y + (rect.h - wf) / 2;
-    
-    System.err.println("check " + rect +  " " + wf + " " + yf);
 
     GeneralPath gp = new GeneralPath();
 

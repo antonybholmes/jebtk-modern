@@ -4,27 +4,22 @@ import java.awt.Graphics2D;
 
 import org.jebtk.core.Props;
 import org.jebtk.modern.ModernWidget;
-import org.jebtk.modern.animation.HoverFadeAnimation;
 
-public class CSSFillAnimation extends HoverFadeAnimation {
-  private static final String NAME = "css-background";
+public class CSSHoverAnimation extends CSSBorderAnimation {
+  public CSSHoverAnimation(ModernWidget w) {
+    super(w);
 
-  public CSSFillAnimation(ModernWidget button) {
-    super(button);
-
-    if (button.getFromKeyFrame().contains("background-color")) {
-      System.err.println("fggf " + button.getFromKeyFrame().getColor("background-color") + " "
-          + button.getToKeyFrame().getColor("background-color"));
-      setFadeColor("fill", button.getFromKeyFrame().getColor("background-color"),
-          button.getToKeyFrame().getColor("background-color"));
+    if (w.getFromKeyFrame().contains("background-color")) {
+      setFadeColor("fill", w.getFromKeyFrame().getColor("background-color"),
+          w.getToKeyFrame().getColor("background-color"));
     } else {
-      setFadeColor("fill", button.getToKeyFrame().getColor("background-color"));
+      setFadeColor("fill", w.getToKeyFrame().getColor("background-color"));
     }
   }
 
   @Override
   public String getName() {
-    return NAME;
+    return "css-hover";
   }
 
   /*
@@ -35,9 +30,11 @@ public class CSSFillAnimation extends HoverFadeAnimation {
    */
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
+    super.draw(c, g2, props);
+
     if (c.isEnabled()) {
       // update so that we don't keep triggering repaints()
-
+      
       if (c.isSelected()) {
         c.getCSSProps().update("background-color", getToColor("fill"));
       } else {

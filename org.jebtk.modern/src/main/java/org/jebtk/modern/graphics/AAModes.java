@@ -29,6 +29,10 @@ public class AAModes extends ChangeListeners implements Iterable<AAMode> {
     return this;
   }
 
+  public boolean contains(AAMode type) {
+    return mTypes.contains(type);
+  }
+
   public int size() {
     return mTypes.size();
   }

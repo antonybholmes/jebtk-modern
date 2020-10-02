@@ -284,8 +284,6 @@ public class ModernListModel<T> implements Iterable<T>, ModernDataViewEventProdu
 
     mItems.remove(index);
 
-    System.err.println("sddsf " + index + " " + newIndex);
-
     if (newIndex < getItemCount()) {
       mItems.add(newIndex, tmp);
     } else {

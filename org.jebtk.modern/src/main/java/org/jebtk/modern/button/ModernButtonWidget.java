@@ -218,7 +218,8 @@ public abstract class ModernButtonWidget extends ModernClickWidget implements Te
     // //SimpleButtonAnimation.BUTTON_ANIMATION);
 
     // getDrawStates().set(DrawUIService.getInstance().getRenderer("button-draw"));
-    addAnimations("button-fill");
+    // addAnimations("button-fill");
+    addAnimations("css-hover");
 
     setButtonStyle(ButtonStyle.BUTTON);
     setColorStyle(ColorStyle.THEME);
@@ -270,7 +271,7 @@ public abstract class ModernButtonWidget extends ModernClickWidget implements Te
       case RECT:
         addStyleClass("rect");
         break;
-      case BUTTON:
+      case ROUNDED:
         addStyleClass("rounded-rect");
         break;
       case OUTLINE:

@@ -1,5 +1,6 @@
 package org.jebtk.modern.css;
 
+import java.awt.Color;
 import java.awt.Font;
 
 import org.jebtk.core.ColorUtils;
@@ -14,7 +15,7 @@ public class CSSProps extends Props {
   private static final long serialVersionUID = 1L;
 
   public CSSProps() {
-    set("background-color", ColorUtils.TRANS_COLOR);
+    // set("background-color", ColorUtils.TRANS_COLOR);
   }
 
   public Font getFont(String name) {
@@ -31,6 +32,11 @@ public class CSSProps extends Props {
 
   public ColorGradient getColorGradient(String name) {
     return (ColorGradient) get(name);
+  }
+
+  @Override
+  public Color getColor(String name) {
+    return super.getColor(name, ColorUtils.TRANS_COLOR);
   }
 
   public CSSProp getProp(String name) {

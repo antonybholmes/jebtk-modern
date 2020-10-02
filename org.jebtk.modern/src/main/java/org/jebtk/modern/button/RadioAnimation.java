@@ -22,8 +22,8 @@ public class RadioAnimation extends WidgetAnimation {
 
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    int x = widget.getInsets().left;
-    int y = (widget.getHeight() - RadioAnimation.RADIO_SIZE) / 2;
+    int x = mWidget.getInsets().left;
+    int y = (mWidget.getHeight() - RadioAnimation.RADIO_SIZE) / 2;
 
     Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 

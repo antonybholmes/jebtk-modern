@@ -55,7 +55,7 @@ public class OrbTabsAnimation extends WidgetAnimation {
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
 
-    int x = (widget.getWidth() - mTabs.mTabSize * mTabs.getTabsModel().getTabCount()) / 2; // mTabs.getInsets().left;
+    int x = (mWidget.getWidth() - mTabs.mTabSize * mTabs.getTabsModel().getTabCount()) / 2; // mTabs.getInsets().left;
     int h = mTabs.getInternalRect().getH();
     int n = mTabs.getTabsModel().getTabCount();
 

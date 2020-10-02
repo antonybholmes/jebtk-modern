@@ -30,7 +30,7 @@ public class MacOrbAnimation extends HoverFadeAnimation {
    */
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    int p = (int) (widget.getInsets().left + mButton.mSliderDiameter % 2 + mButton.mPc * mButton.mGap);
+    int p = (int) (mWidget.getInsets().left + mButton.mSliderDiameter % 2 + mButton.mPc * mButton.mGap);
 
     drawBar(g2, p);
     drawOrb(g2, p);

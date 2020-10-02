@@ -20,10 +20,10 @@ public class CheckBoxTickAnimation extends WidgetAnimation {
 
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    int x = widget.getInsets().left + OFFSET;
-    int y = (widget.getHeight() - TICK_SIZE) / 2;
+    int x = mWidget.getInsets().left + OFFSET;
+    int y = (mWidget.getHeight() - TICK_SIZE) / 2;
 
-    if (widget.isEnabled()) {
+    if (mWidget.isEnabled()) {
       if (((ModernClickWidget) getWidget()).isSelected()) {
         // Only draw the tick if the button is selected
         // ModernCheckBox.CHECK_ICON.drawIcon(g2, x, y,

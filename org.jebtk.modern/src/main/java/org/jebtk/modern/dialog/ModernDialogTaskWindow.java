@@ -115,6 +115,7 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
   public ModernDialogTaskWindow(ModernWindow parent, boolean modal, ModernDialogTaskType type) {
     super(parent, modal);
 
+    // If there are buttons to add, add the panel to display them.
     if (type != ModernDialogTaskType.NONE) {
       setButtons(mButtons);
     }
@@ -152,6 +153,8 @@ public class ModernDialogTaskWindow extends ModernDialogWindow implements Modern
     mIconTabs = new WindowLeftTabNav(getTabsPane());
 
     getTabsPane().tabs().setCenterTab(new VBoxAutoWidth(ModernWidget.DOUBLE_BORDER));
+
+    setDarkBackground();
   }
 
   /**

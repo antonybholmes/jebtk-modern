@@ -356,7 +356,6 @@ public class AssetService {
     if (!mVectorIconMap.get(name).containsKey(size)) {
       ModernIcon rastorIcon = ModernVectorIcon.createRastorIcon(iconClass, size);
 
-      System.err.println("icon " + name + " " + size);
       mVectorIconMap.get(name).put(size, rastorIcon);
     }
 

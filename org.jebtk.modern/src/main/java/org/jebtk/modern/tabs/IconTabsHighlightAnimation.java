@@ -70,7 +70,7 @@ public class IconTabsHighlightAnimation extends HighlightAnimation {
 
     int is = mTabs.getIconSize();
     int ts = mTabs.getTabSize();
-    
+
     if (highlighted == selected) {
       g2.setColor(getToColor("highlight"));
     } else {

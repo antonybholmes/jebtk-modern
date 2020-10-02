@@ -23,14 +23,14 @@ public class CardPanel2 extends ModernComponent {
     addStyleClass("card");
   }
 
-  @Override
-  public void drawBackground(Graphics2D g2) {
-    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
-
-    try {
-      DrawUIService.getInstance().getRenderer("card").draw(this, g2Temp);
-    } finally {
-      g2Temp.dispose();
-    }
-  }
+//  @Override
+//  public void drawBackground(Graphics2D g2) {
+//    Graphics2D g2Temp = ImageUtils.createAAGraphics(g2);
+//
+//    try {
+//      DrawUIService.getInstance().getRenderer("card").draw(this, g2Temp);
+//    } finally {
+//      g2Temp.dispose();
+//    }
+//  }
 }

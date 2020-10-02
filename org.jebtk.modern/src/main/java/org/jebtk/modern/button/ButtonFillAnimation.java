@@ -1,9 +1,9 @@
 package org.jebtk.modern.button;
 
 import org.jebtk.modern.ModernWidget;
-import org.jebtk.modern.css.CSSFillAnimation;
+import org.jebtk.modern.css.CSSHoverAnimation;
 
-public class ButtonFillAnimation extends CSSFillAnimation {
+public class ButtonFillAnimation extends CSSHoverAnimation {
   private ModernClickWidget mButton;
 
   public ButtonFillAnimation(ModernWidget button) {

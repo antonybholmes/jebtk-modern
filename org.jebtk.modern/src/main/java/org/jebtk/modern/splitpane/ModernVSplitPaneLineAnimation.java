@@ -43,10 +43,10 @@ public class ModernVSplitPaneLineAnimation extends HoverFadeAnimation {
 
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    int x = widget.getInsets().left;
-    int h = widget.getInternalRect().getH();
+    int x = mWidget.getInsets().left;
+    int h = mWidget.getInternalRect().getH();
     int y = 0;
-    int x2 = widget.getWidth() - widget.getInsets().right;
+    int x2 = mWidget.getWidth() - mWidget.getInsets().right;
 
     g2.setColor(getFadeColor("highlight"));
 

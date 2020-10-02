@@ -51,6 +51,6 @@ public class SegmentAnimation extends WidgetAnimation {
    */
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    DrawUIService.getInstance().getRenderer("button-fill").draw(g2, widget.getRect(), BG);
+    DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mWidget.getRect(), BG);
   }
 }

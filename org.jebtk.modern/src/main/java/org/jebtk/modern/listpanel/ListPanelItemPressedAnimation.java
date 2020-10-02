@@ -61,8 +61,8 @@ public class ListPanelItemPressedAnimation extends MousePressReleaseAnimation {
 
     g2.setColor(mFade.getFadeColor("highlight"));
 
-    int w = widget.getWidth();
-    int h = widget.getHeight();
+    int w = mWidget.getWidth();
+    int h = mWidget.getHeight();
 
     g2.fillRect(0, 0, w, h);
 

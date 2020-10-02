@@ -49,6 +49,7 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.core.settings.SettingsService;
+import org.jebtk.modern.css.CSSDrawUI;
 import org.jebtk.modern.css.CSSKeyFrame;
 import org.jebtk.modern.css.CSSKeyFrames;
 import org.jebtk.modern.css.CSSKeyFramesService;
@@ -60,6 +61,7 @@ import org.jebtk.modern.scrollpane.ScrollEvent;
 import org.jebtk.modern.scrollpane.ScrollEventProducer;
 import org.jebtk.modern.scrollpane.ScrollListener;
 import org.jebtk.modern.scrollpane.ScrollListeners;
+import org.jebtk.modern.theme.DrawUI;
 import org.jebtk.modern.theme.MaterialService;
 import org.jebtk.modern.theme.ModernTheme;
 import org.jebtk.modern.theme.ThemeService;
@@ -208,6 +210,8 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
 
   public static final ModernComponentAspectRatio SQUARE_RATIO = new ModernComponentAspectRatioSquare();
 
+  public static final DrawUI CSS_DRAW = new CSSDrawUI();
+
   /**
    * The member listeners.
    */
@@ -242,6 +246,11 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   private CSSProps mCSSProps = new CSSProps();
 
   private ModernComponentAspectRatio mRatio = NORMAL_RATIO;
+
+  /**
+   * Controls whether to use default css renderer to draw widget.
+   */
+  protected boolean mCSSMode = true;
 
   /**
    * The class ComponentEvents.
@@ -795,12 +804,40 @@ public class ModernComponent extends JComponent implements ScrollEventProducer {
   }
 
   /**
+   * Set whether to use the CSS renderer. For certain custom components it is
+   * necessary to disable this so that the CSS style does not conflict with the
+   * custom style.
+   * 
+   * @param cssMode
+   */
+  public void setCSSMode(boolean cssMode) {
+    mCSSMode = cssMode;
+    repaint();
+  }
+
+  public void drawBackground(Graphics2D g2) {
+    if (mAAModes.contains(AAMode.AA)) {
+      Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
+
+      try {
+        drawBackgroundAA(g2Temp);
+      } finally {
+        g2Temp.dispose();
+      }
+    } else {
+      drawBackgroundAA(g2);
+    }
+  }
+
+  /**
    * Should be in charge of rendering the foreground using anti-aliasing.
    *
    * @param g2 the g2
    */
-  public void drawBackground(Graphics2D g2) {
-    // do nothing
+  public void drawBackgroundAA(Graphics2D g2) {
+    if (mCSSMode) {
+      CSS_DRAW.draw(this, g2);
+    }
   }
 
   /**

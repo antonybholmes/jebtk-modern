@@ -15,16 +15,16 @@ public class CheckBoxHighlightAnimation extends ButtonOutlineAnimation {
 
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    if (widget.isEnabled()) {
-      int x = widget.getInsets().left;
-      int y = (widget.getHeight() - ModernCheckBox.ICON_SIZE) / 2;
+    if (mWidget.isEnabled()) {
+      int x = mWidget.getInsets().left;
+      int y = (mWidget.getHeight() - ModernCheckBox.ICON_SIZE) / 2;
 
       /*
        * drawButtonFill(g2, x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE,
        * getButton().getRenderMode(), false);
        */
 
-      outline(widget, g2, new IntRect(x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE));
+      outline(mWidget, g2, new IntRect(x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE));
 
       // DrawUIService.getInstance().getRenderer("button-outline").draw(g2,
       // x,

@@ -46,7 +46,7 @@ public class RibbonBackHighlightAnimation extends HoverFadeAnimation {
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
     int x = ModernWidget.DOUBLE_PADDING;
-    int y = (widget.getHeight() - HEIGHT) / 2;
+    int y = (mWidget.getHeight() - HEIGHT) / 2;
 
     DrawUIService.getInstance().getRenderer("circle-fill").draw(g2, new IntRect(x, y, HEIGHT, HEIGHT),
         getFadeColor("fill"));

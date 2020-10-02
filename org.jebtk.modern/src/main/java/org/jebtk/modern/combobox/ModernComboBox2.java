@@ -63,6 +63,7 @@ import org.jebtk.modern.menu.ModernPopupMenu2;
 import org.jebtk.modern.menu.ModernScrollPopupMenu2;
 import org.jebtk.modern.text.ModernClipboardTextField;
 import org.jebtk.modern.text.ModernTextField;
+import org.jebtk.modern.theme.DrawUI;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -108,6 +109,8 @@ public class ModernComboBox2 extends ModernDropDownWidget2 implements KeyListene
    */
   public static final ModernIcon DOWN_ARROW_ICON = AssetService.getInstance().loadIcon(TriangleDownVectorIcon.class,
       16);
+
+  private static final DrawUI COMBO_UI = new ComboBoxDrawUI();
 
   /**
    * The member editable.
@@ -364,7 +367,8 @@ public class ModernComboBox2 extends ModernDropDownWidget2 implements KeyListene
 
     addStyleClass("content-box", "combobox", "content-outline-highlight");
 
-    addAnimations("combobox2");
+    // addAnimations("combobox2");
+    getDrawStates().add(COMBO_UI);
   }
 
   /**

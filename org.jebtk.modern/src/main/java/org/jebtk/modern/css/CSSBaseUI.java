@@ -15,6 +15,7 @@
  */
 package org.jebtk.modern.css;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 
 import org.jebtk.core.Props;
@@ -33,6 +34,27 @@ public abstract class CSSBaseUI extends DrawUI {
   public void fill(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
 
     cssFill(c, g2, rect, props);
+  }
+  
+  public static void setColor(String name, ModernComponent c, Graphics2D g2) {
+    setColor(name, c, g2, null);
+  }
+  
+  public static void setColor(String name, ModernComponent c, Graphics2D g2, Props props) {
+
+    Color color;
+    
+    if (props != null) {
+      color = props.getColor(name);
+    } else {
+      if (c != null) {
+        color = c.getCSSProps().getColor(name);
+      } else {
+        color = CSSKeyFramesService.getInstance().getToStyleClass("widget").getColor(name);
+      }
+    }
+    
+    g2.setColor(color);
   }
 
   public static void cssFill(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
@@ -64,14 +86,14 @@ public abstract class CSSBaseUI extends DrawUI {
       return;
     }
 
-    int rounding = rounding(c, Math.min(rect.w, rect.h));
+    int rounding = cssRounding(c, Math.min(rect.w, rect.h));
 
     if (rounding > 0) {
       if (rect.w == rect.h && rounding >= rect.h / 2) {
         g2.drawOval(rect.x + 1, rect.y + 1, rect.w - 2, rect.w - 2);
       } else {
         // radius to diameter
-        int d = rounding * 2;
+        int d = rounding * 2 - 1;
         g2.drawRoundRect(rect.x, rect.y, rect.w - 1, rect.h - 1, d, d);
       }
     } else {
@@ -79,12 +101,8 @@ public abstract class CSSBaseUI extends DrawUI {
     }
   }
 
-  public int rounding(ModernComponent c, int h) {
-    return cssRounding(c, h);
-  }
-
   public static int cssRounding(ModernComponent c, int h) {
-    Object p = getStyle(c).get("border-radius");
+    Object p = getStyle(c).get("border-radius", 0);
 
     int rounding = 0;
 

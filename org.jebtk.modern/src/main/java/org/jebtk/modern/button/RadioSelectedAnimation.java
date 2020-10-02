@@ -18,14 +18,14 @@ public class RadioSelectedAnimation extends ButtonFillAnimation {
 
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    if (widget.isEnabled() && mRadio.isSelected()) {
-      int x = widget.getInsets().left;
-      int y = (widget.getHeight() - RadioAnimation.RADIO_SIZE) / 2;
+    if (mWidget.isEnabled() && mRadio.isSelected()) {
+      int x = mWidget.getInsets().left;
+      int y = (mWidget.getHeight() - RadioAnimation.RADIO_SIZE) / 2;
 
       Graphics2D g2Temp = ImageUtils.createAAStrokeGraphics(g2);
 
       try {
-        fill(widget, g2Temp, x, y, RadioAnimation.RADIO_SIZE, RadioAnimation.RADIO_SIZE);
+        fill(mWidget, g2Temp, x, y, RadioAnimation.RADIO_SIZE, RadioAnimation.RADIO_SIZE);
       } finally {
         g2Temp.dispose();
       }

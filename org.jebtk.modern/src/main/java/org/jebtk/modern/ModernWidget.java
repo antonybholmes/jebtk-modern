@@ -493,27 +493,12 @@ public abstract class ModernWidget extends ModernComponent implements IdProperty
 
   }
 
-  /*
-   * (non-Javadoc)
-   * 
-   * @see org.abh.common.ui.ModernComponent#drawBackground(java.awt.Graphics2D)
-   */
-  @Override
-  public void drawBackground(Graphics2D g2) {
-    Graphics2D g2Temp = ImageUtils.createAATextGraphics(g2);
-
-    try {
-      drawBackgroundAA(g2Temp);
-    } finally {
-      g2Temp.dispose();
-    }
-  }
-
   /**
    * Should be in charge of rendering the foreground using anti-aliasing.
    *
    * @param g2 the g2
    */
+  @Override
   public void drawBackgroundAA(Graphics2D g2) {
     drawAnimatedBackground(g2);
   }

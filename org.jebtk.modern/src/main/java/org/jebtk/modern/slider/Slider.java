@@ -31,9 +31,9 @@ import org.jebtk.core.event.ChangeEvent;
 import org.jebtk.core.event.ChangeEventProducer;
 import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
-import org.jebtk.modern.ModernFocusableWidget;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
+import org.jebtk.modern.css.CSSWidget;
 
 /**
  * Basic features of a slider control without any ui elements.
@@ -41,7 +41,7 @@ import org.jebtk.modern.UI;
  * @author Antony Holmes
  *
  */
-public abstract class Slider extends ModernFocusableWidget implements ChangeEventProducer {
+public abstract class Slider extends CSSWidget implements ChangeEventProducer {
 
   /**
    * The constant serialVersionUID.

@@ -27,6 +27,7 @@ ColorSwatchButton.java * Copyright (C) 2016, Antony Holmes
  */
 package org.jebtk.modern.ribbon;
 
+import org.jebtk.modern.button.ButtonStyle;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 
 // TODO: Auto-generated Javadoc
@@ -41,7 +42,8 @@ public class RibbonRoundButton extends RibbonButton {
   public RibbonRoundButton(ModernIcon icon) {
     super(icon);
 
-    setAnimations("circle-fill");
+    //setAnimations("circle-fill");
+    setButtonStyle(ButtonStyle.CIRCLE);
   }
 
 }

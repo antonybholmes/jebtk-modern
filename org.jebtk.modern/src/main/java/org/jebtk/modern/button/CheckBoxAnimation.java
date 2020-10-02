@@ -15,8 +15,8 @@ public class CheckBoxAnimation extends WidgetAnimation {
 
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    int x = widget.getInsets().left;
-    int y = (widget.getHeight() - ModernCheckBox.ICON_SIZE) / 2;
+    int x = mWidget.getInsets().left;
+    int y = (mWidget.getHeight() - ModernCheckBox.ICON_SIZE) / 2;
 
     // if (((ModernClickWidget)widget).isSelected()) {
     // if (widget.isEnabled()) {
@@ -32,7 +32,7 @@ public class CheckBoxAnimation extends WidgetAnimation {
     // ModernCheckBox.UNCHECKED_ICON.drawIcon(g2, x, y,
     // ModernCheckBox.ICON_SIZE);
 
-    DrawUIService.getInstance().getRenderer("content-box").draw(widget, g2,
+    DrawUIService.getInstance().getRenderer("content-box").draw(mWidget, g2,
         new IntRect(x, y, ModernCheckBox.ICON_SIZE, ModernCheckBox.ICON_SIZE));
     // }
   }

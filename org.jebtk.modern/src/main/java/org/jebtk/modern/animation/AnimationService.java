@@ -65,6 +65,7 @@ import org.jebtk.modern.combobox.ComboBoxArrowAnimation2;
 import org.jebtk.modern.combobox.ComboBoxHighlightAnimation;
 import org.jebtk.modern.combobox.ComboBoxHighlightAnimation2;
 import org.jebtk.modern.contentpane.ModernHContentPaneAnimation;
+import org.jebtk.modern.css.CSSHoverAnimation;
 import org.jebtk.modern.dialog.ColorDialogButtonAnimation;
 import org.jebtk.modern.dialog.DialogButtonAnimation;
 import org.jebtk.modern.dialog.DialogButtonHighlightAnimation;
@@ -157,6 +158,8 @@ public class AnimationService {
     // Load the default animations
     //
 
+    get("css-hover").add(CSSHoverAnimation.class);
+
     get("button-fill").add(ButtonFillAnimation.class); // .add(DrawUIAnimation.class);
 
     get("draw-ui").add(DrawUIAnimation.class);
@@ -206,7 +209,7 @@ public class AnimationService {
     get("block-vert-tabs").add(BlockVertHighlightAnimation.class).add(BlockVertSelectedAnimation.class)
         .add(BlockVertPressedAnimation.class); // .add(BlockVertChangeAnimation.class);
 
-    get("spinner").add(SpinnerAnimation.class).add(SpinnerHighlightAnimation.class);
+    get("spinner").add(SpinnerAnimation.class); // .add(SpinnerHighlightAnimation.class);
 
     // get("help-button").add(HelpButtonHighlightAnimation.class);
 

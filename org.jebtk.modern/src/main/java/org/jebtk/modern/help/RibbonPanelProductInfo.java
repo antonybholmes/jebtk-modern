@@ -97,7 +97,7 @@ public class RibbonPanelProductInfo extends RibbonMenuPanel implements ModernCli
 
     Box box2 = HBox.create();
 
-    ModernImagePanel image = new ModernImagePanel(product.getIcon(), 128 );
+    ModernImagePanel image = new ModernImagePanel(product.getIcon(), 128);
 
     box2.add(image);
     box2.add(UI.createHGap(10));

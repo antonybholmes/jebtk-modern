@@ -192,16 +192,17 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipListener
     return mParent;
   }
 
-  @Override
-  public void setBackground(Color color) {
-    // Set the background color of the dialog
-
-    Container c = getContentPane();
-
-    if (c != null) {
-      c.setBackground(color);
-    }
-  }
+//  @Override
+//  public void setBackground(Color color) {
+//    // Set the background color of the dialog
+//
+//    Container c = getContentPane();
+//
+//    if (c != null) {
+//      System.err.println("g" +  " " + color + " " + getTitle());
+//      c.setBackground(Color.ORANGE); //color);
+//    }
+//  }
 
   /**
    * Set the border around the content pane
@@ -325,14 +326,14 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipListener
    * background.
    */
   public void setDarkBackground() {
-    setBackground(DIALOG_BACKGROUND);
+    getContentPane().setBackground(DIALOG_BACKGROUND);
   }
 
   /**
    * Set the background to the default white color.
    */
   public void setLightBackground() {
-    setBackground(Color.WHITE);
+    getContentPane().setBackground(Color.WHITE);
   }
 
   public void setCard(JComponent c) {
@@ -396,7 +397,12 @@ public class ModernDialogWindow extends JDialog implements ModernToolTipListener
    *
    * @return the content panel
    */
-  public ModernComponent getContentPanel() {
+//  public ModernComponent getContentPanel() {
+//    return mContentPanel;
+//  }
+
+  @Override
+  public ModernComponent getContentPane() {
     return mContentPanel;
   }
 

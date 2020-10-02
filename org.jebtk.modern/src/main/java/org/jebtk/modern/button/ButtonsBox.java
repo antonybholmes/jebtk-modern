@@ -27,6 +27,7 @@
  */
 package org.jebtk.modern.button;
 
+import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.Box;
@@ -68,6 +69,9 @@ public class ButtonsBox extends HBox {
     super.add(mLeftBox);
     super.add(Box.createHorizontalGlue());
     super.add(mRightBox);
+
+    // this.setOpaque(false);
+    // this.setBackground(Color.RED);
   }
 
   /*

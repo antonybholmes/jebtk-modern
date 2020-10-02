@@ -35,12 +35,12 @@ public class CheckSwitchAnimation extends WidgetAnimation {
 
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    int y2 = (widget.getHeight() - HEIGHT) / 2;
+    int y2 = (mWidget.getHeight() - HEIGHT) / 2;
 
     if (mButton.isSelected()) {
       g2.setColor(mColor); // mFade.getToColor("fill"));
 
-      g2.fillRoundRect(widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET, y2,
+      g2.fillRoundRect(mWidget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET, y2,
           ModernCheckSwitch.SLIDER_WIDTH - ModernCheckSwitch.SWITCH_ICON_OFFSET_2, HEIGHT, HEIGHT, HEIGHT);
 
     } else {
@@ -48,16 +48,16 @@ public class CheckSwitchAnimation extends WidgetAnimation {
       // widget.getFromKeyFrame().getStyles("background-color") + " " +
       // widget.getFromKeyFrame().getColor("background-color"));
 
-      g2.setColor(widget.getFromKeyFrame().getColor("background-color")); // mFade.getFromColor("fill"));
+      g2.setColor(mWidget.getFromKeyFrame().getColor("background-color")); // mFade.getFromColor("fill"));
       // //
       // Color.WHITE);
 
-      g2.fillRoundRect(widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET, y2,
+      g2.fillRoundRect(mWidget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET, y2,
           ModernCheckSwitch.SLIDER_WIDTH - ModernCheckSwitch.SWITCH_ICON_OFFSET_2, HEIGHT, HEIGHT, HEIGHT);
 
-      g2.setColor(widget.getFromKeyFrame().getColor("border-color"));
+      g2.setColor(mWidget.getFromKeyFrame().getColor("border-color"));
 
-      g2.drawRoundRect(widget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET, y2,
+      g2.drawRoundRect(mWidget.getInsets().left + ModernCheckSwitch.SWITCH_ICON_OFFSET, y2,
           ModernCheckSwitch.SLIDER_WIDTH - ModernCheckSwitch.SWITCH_ICON_OFFSET_2, HEIGHT, HEIGHT, HEIGHT);
     }
 

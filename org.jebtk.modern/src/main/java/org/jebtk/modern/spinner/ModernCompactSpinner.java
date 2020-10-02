@@ -59,6 +59,7 @@ import org.jebtk.modern.slider.Slider;
 import org.jebtk.modern.text.ModernNumericalTextField;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.text.TextProperty;
+import org.jebtk.modern.theme.DrawUI;
 
 /**
  * Editable numerical text box with controls to increment and decrement the
@@ -120,6 +121,8 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
    */
   // Timer increment delay in milliseconds
   private static final int DELAY = 120;
+
+  private static final DrawUI SPINNER_UI = new SpinnerUI();
 
   /**
    * The member min button x.
@@ -613,9 +616,10 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
 
     UI.setSize(this, ModernWidget.SMALL_SIZE);
 
-    addStyleClass("content", "content-outline");
+    addStyleClass("spinner");
 
-    setAnimations("spinner");
+    // addAnimations("spinner");
+    getDrawStates().add(SPINNER_UI);
 
     setValue(value);
   }

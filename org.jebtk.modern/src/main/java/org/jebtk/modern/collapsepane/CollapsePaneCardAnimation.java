@@ -16,10 +16,10 @@ public class CollapsePaneCardAnimation extends WidgetAnimation {
 
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {
-    Dimension s = widget.getPreferredSize();
+    Dimension s = mWidget.getPreferredSize();
     // Insets insets = widget.getInsets();
 
-    MaterialUtils.drawCard(g2, widget, 0, 0, widget.getWidth(), s.height - MaterialUtils.SHADOW_HEIGHT);
+    MaterialUtils.drawCard(g2, mWidget, 0, 0, mWidget.getWidth(), s.height - MaterialUtils.SHADOW_HEIGHT);
   }
 
 }

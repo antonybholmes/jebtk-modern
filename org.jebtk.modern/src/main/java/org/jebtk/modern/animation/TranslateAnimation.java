@@ -107,7 +107,7 @@ public abstract class TranslateAnimation extends EasingAnimation {
     try {
       translate(g2Temp);
 
-      drawTranslation(widget, g2Temp, props);
+      drawTranslation(mWidget, g2Temp, props);
     } finally {
       g2Temp.dispose();
     }

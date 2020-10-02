@@ -30,9 +30,9 @@ public class UrlTextLinkHighlightAnimation extends HoverFadeAnimation {
       // getButton().getPopupShown())) {
       String text = mButton.getText();
 
-      int x = (widget.getWidth() - g2.getFontMetrics().stringWidth(text)) / 2;
+      int x = (mWidget.getWidth() - g2.getFontMetrics().stringWidth(text)) / 2;
 
-      int y = ModernWidget.getTextYPosCenter(g2, widget.getHeight()) + OFFSET;
+      int y = ModernWidget.getTextYPosCenter(g2, mWidget.getHeight()) + OFFSET;
 
       g2.setColor(getFadeColor("highlight"));
       g2.drawLine(x, y, x + ModernWidget.getStringWidth(g2, text), y);

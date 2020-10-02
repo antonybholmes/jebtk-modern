@@ -68,7 +68,7 @@ public abstract class MousePressedAnimation extends TimerAnimation {
    * Bind the widget so it can respond with an animation. This widget can be
    * auxiliary to the primary widget whose animation is being controlled.
    * 
-   * @param widget
+   * @param mWidget
    * @return
    */
   public MousePressedAnimation bind(Component c) {

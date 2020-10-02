@@ -54,8 +54,8 @@ public class RibbonBackMenuAnimation extends HoverFadeAnimation {
 
       g2Temp.setColor(getFadeColor("fill"));
 
-      int x = (widget.getWidth() - RibbonBackMenuItem.HEIGHT) / 2;
-      int y = (widget.getHeight() - RibbonBackMenuItem.HEIGHT) / 2;
+      int x = (mWidget.getWidth() - RibbonBackMenuItem.HEIGHT) / 2;
+      int y = (mWidget.getHeight() - RibbonBackMenuItem.HEIGHT) / 2;
 
       RibbonBackMenuItem.drawIcon(g2Temp, x, y);
     } finally {
