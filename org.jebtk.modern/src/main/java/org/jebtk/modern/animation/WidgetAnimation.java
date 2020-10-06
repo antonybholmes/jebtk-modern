@@ -35,7 +35,7 @@ public abstract class WidgetAnimation extends Animation {
   public WidgetAnimation(ModernWidget widget) {
     mWidget = widget;
   }
-  
+
   public void trigger(String trigger) {
     // Do nothing
   }

@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.button;
 
-import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.Box;

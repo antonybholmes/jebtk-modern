@@ -36,13 +36,13 @@ public abstract class Animation implements NameGetter {
    * @param Props  the props
    */
   public abstract void draw(ModernWidget c, Graphics2D g2, Props props);
-  
+
   /**
    * Trigger action in animation. Designed for more complex events such as
-   * triggering an animation in a parent when a mouse event in a child is 
+   * triggering an animation in a parent when a mouse event in a child is
    * triggered. Should make event logic simpler.
    * 
-   * @param trigger   name of event to trigger, e.g. "mouse-entered".
+   * @param trigger name of event to trigger, e.g. "mouse-entered".
    */
   public void fireEvent(AnimationEventType trigger) {
     // Do nothing

@@ -27,7 +27,6 @@
  */
 package org.jebtk.modern.contentpane;
 
-import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;

@@ -77,15 +77,15 @@ public class ContinuousMacOrbSlider extends ContinuousOrbSlider {
 
     setBorder(BorderService.getInstance().createLeftRightBorder(1));
 
-    //setAnimations("continuous-orb-slider"); // getBackgroundAnimations().set(new
+    // setAnimations("continuous-orb-slider"); // getBackgroundAnimations().set(new
     // ContinuousMacOrbAnimation(this));
-    
+
     addStyleClass("slider");
-    
+
     setAnimations("css-hover");
-    
+
     setCSSMode(false);
-    
+
     getDrawStates().add(SLIDER_UI);
   }
 

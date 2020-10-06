@@ -35,15 +35,15 @@ public abstract class CSSBaseUI extends DrawUI {
 
     cssFill(c, g2, rect, props);
   }
-  
+
   public static void setColor(String name, ModernComponent c, Graphics2D g2) {
     setColor(name, c, g2, null);
   }
-  
+
   public static void setColor(String name, ModernComponent c, Graphics2D g2, Props props) {
 
     Color color;
-    
+
     if (props != null) {
       color = props.getColor(name);
     } else {
@@ -53,7 +53,7 @@ public abstract class CSSBaseUI extends DrawUI {
         color = CSSKeyFramesService.getInstance().getToStyleClass("widget").getColor(name);
       }
     }
-    
+
     g2.setColor(color);
   }
 

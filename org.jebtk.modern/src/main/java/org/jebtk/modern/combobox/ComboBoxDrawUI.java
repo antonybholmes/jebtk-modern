@@ -5,7 +5,6 @@ import java.awt.Graphics2D;
 import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.theme.DrawUI;
 
 public class ComboBoxDrawUI extends DrawUI {

@@ -14,7 +14,7 @@ public class RadioAnimation extends WidgetAnimation {
   public static final double RADIO_SCALE = SettingsService.getInstance().getDouble("theme.icons.radio-icon.scale");
 
   public static int RADIO_SIZE = ModernCheckSwitch.SLIDER_HEIGHT - 2;
-  private int w2;
+  // private int w2;
 
   public RadioAnimation(ModernWidget widget) {
     super(widget);
@@ -45,7 +45,7 @@ public class RadioAnimation extends WidgetAnimation {
 
     g2.setColor(ModernWidget.LINE_COLOR);
 
-    w2 = w - 2;
+    // w2 = w - 2;
 
     // g2.setStroke(ModernTheme.DOUBLE_LINE_STROKE);
     // g2.drawOval(x + 1, y + 1, w2, w2);

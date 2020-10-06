@@ -93,7 +93,6 @@ import org.jebtk.modern.ribbon.RibbonSegmentPressedAnimation;
 import org.jebtk.modern.ribbon.RibbonSegmentSelectedAnimation;
 import org.jebtk.modern.slider.ContinuousMacOrbAnimation;
 import org.jebtk.modern.spinner.SpinnerAnimation;
-import org.jebtk.modern.spinner.SpinnerHighlightAnimation;
 import org.jebtk.modern.splitpane.ModernHSplitPaneLineAnimation;
 import org.jebtk.modern.splitpane.ModernVSplitPaneLineAnimation;
 import org.jebtk.modern.tabs.BlockVertHighlightAnimation;

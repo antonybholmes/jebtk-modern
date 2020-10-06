@@ -108,7 +108,7 @@ public class Animations extends Animation implements Iterable<Animation>, Change
   public void update(Animation animation, Animation... animations) {
     mAnimations.add(animation);
     mAnimationMap.put(animation.getName(), animation);
-    
+
     for (Animation a : animations) {
       mAnimations.add(a);
       mAnimationMap.put(a.getName(), a);
@@ -118,7 +118,7 @@ public class Animations extends Animation implements Iterable<Animation>, Change
   public void update(Animations animations) {
     for (Object a : animations.mAnimations) {
       mAnimations.add(a);
-      mAnimationMap.put(((Animation)a).getName(), a);
+      mAnimationMap.put(((Animation) a).getName(), a);
     }
   }
 
@@ -222,7 +222,7 @@ public class Animations extends Animation implements Iterable<Animation>, Change
           }
         } else {
           newAnimations.add(o);
-          mAnimationMap.put(((Animation)o).getName(), o);
+          mAnimationMap.put(((Animation) o).getName(), o);
         }
       }
 
@@ -264,7 +264,7 @@ public class Animations extends Animation implements Iterable<Animation>, Change
 
     return (Animation) mAnimations.get(index);
   }
-  
+
   public Animation get(String name) {
     autoLoad();
 
@@ -285,7 +285,7 @@ public class Animations extends Animation implements Iterable<Animation>, Change
 
   @Override
   public void fireEvent(AnimationEventType trigger) {
-    for (Animation a: this) {
+    for (Animation a : this) {
       a.fireEvent(trigger);
     }
   }

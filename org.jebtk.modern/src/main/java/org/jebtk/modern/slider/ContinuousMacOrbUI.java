@@ -9,7 +9,6 @@ import org.jebtk.modern.ModernComponent;
 import org.jebtk.modern.css.CSSBaseUI;
 
 public class ContinuousMacOrbUI extends CSSBaseUI {
-  
 
   /*
    * (non-Javadoc)
@@ -19,8 +18,8 @@ public class ContinuousMacOrbUI extends CSSBaseUI {
    */
   @Override
   public void draw(ModernComponent c, Graphics2D g2, IntRect rect, Props props) {
-    ContinuousMacOrbSlider slider = (ContinuousMacOrbSlider)c;
-    
+    ContinuousMacOrbSlider slider = (ContinuousMacOrbSlider) c;
+
     int p = (int) (c.getInsets().left + slider.mSliderDiameter % 2 + slider.vToX());
 
     drawBar(g2, slider, p);
@@ -35,7 +34,7 @@ public class ContinuousMacOrbUI extends CSSBaseUI {
 
     g2.setColor(Color.WHITE);
     g2.fillRoundRect(x, y, p - x + slider.mSliderRadius, slider.mBarHeight, slider.mBarHeight, slider.mBarHeight);
-    
+
     setColor("background-color", slider, g2);
     g2.fillRoundRect(x, y, p - x + slider.mSliderRadius, slider.mBarHeight, slider.mBarHeight, slider.mBarHeight);
   }
@@ -45,7 +44,7 @@ public class ContinuousMacOrbUI extends CSSBaseUI {
 
     g2.setColor(Color.WHITE);
     g2.fillOval(p, y - slider.mSliderRadius, slider.mSliderDiameter, slider.mSliderDiameter);
-    
+
     setColor("background-color", slider, g2);
     g2.fillOval(p, y - slider.mSliderRadius, slider.mSliderDiameter, slider.mSliderDiameter);
 

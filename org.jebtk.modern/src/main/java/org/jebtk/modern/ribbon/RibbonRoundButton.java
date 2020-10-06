@@ -42,7 +42,7 @@ public class RibbonRoundButton extends RibbonButton {
   public RibbonRoundButton(ModernIcon icon) {
     super(icon);
 
-    //setAnimations("circle-fill");
+    // setAnimations("circle-fill");
     setButtonStyle(ButtonStyle.CIRCLE);
   }
 

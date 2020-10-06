@@ -32,7 +32,7 @@ import org.jebtk.modern.event.ModernStateListener;
  */
 public class CheckSwitchChangeAnimation extends TranslateXAnimation {
   private ModernCheckSwitch mButton;
-  private Color mColor;
+  // private Color mColor;
 
   // private FadeAnimation mFade;
 
@@ -43,7 +43,7 @@ public class CheckSwitchChangeAnimation extends TranslateXAnimation {
   public CheckSwitchChangeAnimation(ModernWidget widget, Color color) {
     super(widget);
 
-    mColor = color;
+    // mColor = color;
 
     mButton = (ModernCheckSwitch) widget;
 

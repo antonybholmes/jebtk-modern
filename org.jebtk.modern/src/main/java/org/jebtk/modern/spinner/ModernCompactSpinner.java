@@ -319,8 +319,8 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
       mHighlight = true;
       mButtonZone = false;
 
-      //repaint();
-      
+      // repaint();
+
       getAnimations().get("css-hover").fireEvent(AnimationEventType.MOUSE_ENTERED);
     }
 
@@ -335,7 +335,7 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
       mButtonZone = false;
 
       repaint();
-      //getAnimations().get("css-hover").fireEvent(AnimationEventType.MOUSE_EXITED);
+      // getAnimations().get("css-hover").fireEvent(AnimationEventType.MOUSE_EXITED);
     }
   }
 
@@ -619,7 +619,7 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
     addComponentListener(new ComponentActions());
 
     UI.setSize(this, ModernWidget.SMALL_SIZE);
-    
+
     addAnimations("css-hover");
     addStyleClass("content-outline-highlight");
 

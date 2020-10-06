@@ -6,7 +6,6 @@ import org.jebtk.core.Props;
 import org.jebtk.core.geom.IntRect;
 import org.jebtk.modern.AssetService;
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.graphics.icons.ModernIcon;
 import org.jebtk.modern.graphics.icons.TriangleDownVectorIcon;
 import org.jebtk.modern.graphics.icons.TriangleUpVectorIcon;

@@ -1,13 +1,10 @@
 package org.jebtk.modern.panel;
 
 import java.awt.Component;
-import java.awt.Graphics2D;
 
 import javax.swing.border.Border;
 
 import org.jebtk.modern.ModernComponent;
-import org.jebtk.modern.graphics.ImageUtils;
-import org.jebtk.modern.theme.DrawUIService;
 
 public class CardPanel2 extends ModernComponent {
 

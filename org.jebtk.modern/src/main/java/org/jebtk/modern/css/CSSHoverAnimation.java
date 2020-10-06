@@ -34,7 +34,7 @@ public class CSSHoverAnimation extends CSSBorderAnimation {
 
     if (c.isEnabled()) {
       // update so that we don't keep triggering repaints()
-      
+
       if (c.isSelected()) {
         c.getCSSProps().update("background-color", getToColor("fill"));
       } else {
