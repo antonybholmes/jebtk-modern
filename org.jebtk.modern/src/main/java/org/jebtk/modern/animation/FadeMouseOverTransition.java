@@ -25,7 +25,7 @@ import org.jebtk.modern.graphics.colormap.NamedColors;
  *
  * @author Antony Holmes
  */
-public abstract class FadeMouseOverTransition implements Transition {
+public abstract class FadeMouseOverTransition extends Transition {
 
   private FadeAnimation mFade;
 

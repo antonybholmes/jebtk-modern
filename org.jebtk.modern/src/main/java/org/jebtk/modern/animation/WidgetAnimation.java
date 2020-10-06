@@ -22,7 +22,7 @@ import org.jebtk.modern.ModernWidget;
  *
  * @author Antony Holmes
  */
-public abstract class WidgetAnimation implements Animation {
+public abstract class WidgetAnimation extends Animation {
 
   /** The m widget. */
   public final ModernWidget mWidget;
@@ -34,6 +34,10 @@ public abstract class WidgetAnimation implements Animation {
    */
   public WidgetAnimation(ModernWidget widget) {
     mWidget = widget;
+  }
+  
+  public void trigger(String trigger) {
+    // Do nothing
   }
 
   /**

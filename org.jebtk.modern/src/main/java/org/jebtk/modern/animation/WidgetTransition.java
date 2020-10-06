@@ -22,7 +22,7 @@ import org.jebtk.modern.ModernWidget;
  *
  * @author Antony Holmes
  */
-public abstract class WidgetTransition implements Transition {
+public abstract class WidgetTransition extends Transition {
 
   /** The m widget. */
   private ModernWidget mWidget;

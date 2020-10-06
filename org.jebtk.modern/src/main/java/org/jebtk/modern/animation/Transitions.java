@@ -27,7 +27,7 @@ import org.jebtk.modern.ModernWidget;
  *
  * @author Antony Holmes
  */
-public abstract class Transitions implements Transition {
+public abstract class Transitions extends Transition {
 
   private TransitionTimer mTimer = null;
 

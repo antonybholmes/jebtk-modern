@@ -24,7 +24,7 @@ import org.jebtk.modern.ModernWidget;
  * The Class NoAnimation does nothing. Can act as a placeholder for drawing
  * nothing or static animations
  */
-public class NoAnimation implements Animation {
+public class NoAnimation extends Animation {
 
   /** The Constant NO_ANIMATION. */
   public static final Animation NO_ANIMATION = new NoAnimation();

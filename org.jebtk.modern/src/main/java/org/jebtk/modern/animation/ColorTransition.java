@@ -30,7 +30,7 @@ import org.jebtk.modern.graphics.colormap.ColorMap;
  *
  * @author Antony Holmes
  */
-public class ColorTransition implements Transition {
+public class ColorTransition extends Transition {
 
   /** The m fade color map. */
   private Map<String, ColorMap> mFadeColorMap = new HashMap<String, ColorMap>();

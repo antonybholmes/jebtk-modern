@@ -20,12 +20,12 @@ package org.jebtk.modern.animation;
  *
  * @author Antony Holmes
  */
-public interface Transition extends Animation {
+public abstract class Transition extends Animation {
   /**
    * Update the transition state based on the supplied time and direction.
    * 
    * @param t       Normalized time between 0 and 1
    * @param forward Whether time is moving forwards or backwards.
    */
-  public void updateState(double t, boolean forward);
+  public abstract void updateState(double t, boolean forward);
 }

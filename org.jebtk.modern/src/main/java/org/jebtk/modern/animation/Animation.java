@@ -25,7 +25,7 @@ import org.jebtk.modern.ModernWidget;
  * An animation is a series of one or more widget drawings to indicate a sense
  * of flow or movement.
  */
-public interface Animation extends NameGetter {
+public abstract class Animation implements NameGetter {
 
   /**
    * The animation becomes responsible handling the drawing for the widget. This
@@ -35,5 +35,16 @@ public interface Animation extends NameGetter {
    * @param g2     the g 2
    * @param Props  the props
    */
-  public void draw(ModernWidget c, Graphics2D g2, Props props);
+  public abstract void draw(ModernWidget c, Graphics2D g2, Props props);
+  
+  /**
+   * Trigger action in animation. Designed for more complex events such as
+   * triggering an animation in a parent when a mouse event in a child is 
+   * triggered. Should make event logic simpler.
+   * 
+   * @param trigger   name of event to trigger, e.g. "mouse-entered".
+   */
+  public void fireEvent(AnimationEventType trigger) {
+    // Do nothing
+  }
 }

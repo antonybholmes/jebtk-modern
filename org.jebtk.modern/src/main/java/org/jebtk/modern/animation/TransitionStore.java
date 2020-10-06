@@ -23,7 +23,7 @@ import org.jebtk.modern.ModernWidget;
 /**
  * Stores all transitions objects
  */
-public class TransitionStore implements Transition {
+public class TransitionStore extends Transition {
 
   @Override
   public void draw(ModernWidget c, Graphics2D g2, Props props) {

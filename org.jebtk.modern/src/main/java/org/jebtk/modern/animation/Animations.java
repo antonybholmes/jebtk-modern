@@ -17,21 +17,23 @@ package org.jebtk.modern.animation;
 
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 
 import org.jebtk.core.Props;
+import org.jebtk.core.event.ChangeEvent;
+import org.jebtk.core.event.ChangeEventProducer;
+import org.jebtk.core.event.ChangeListener;
 import org.jebtk.core.event.ChangeListeners;
 import org.jebtk.modern.ModernWidget;
 
 /**
  * The Class Animations.
  */
-public class Animations extends ChangeListeners implements Animation, Iterable<Animation> {
-
-  /** The Constant serialVersionUID. */
-  private static final long serialVersionUID = 1L;
+public class Animations extends Animation implements Iterable<Animation>, ChangeEventProducer {
 
   private class AnimationIterator implements Iterator<Animation>, Iterable<Animation> {
     private ListIterator<Object> mIt;
@@ -63,7 +65,9 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
   }
 
   /** The m animations. */
+  private ChangeListeners mChangeListeners = new ChangeListeners();
   private List<Object> mAnimations = new ArrayList<Object>();
+  private Map<String, Object> mAnimationMap = new HashMap<String, Object>();
 
   private ModernWidget mWidget = null;
   private boolean mAutoLoad = false;
@@ -103,15 +107,18 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
    */
   public void update(Animation animation, Animation... animations) {
     mAnimations.add(animation);
-
+    mAnimationMap.put(animation.getName(), animation);
+    
     for (Animation a : animations) {
       mAnimations.add(a);
+      mAnimationMap.put(a.getName(), a);
     }
   }
 
   public void update(Animations animations) {
     for (Object a : animations.mAnimations) {
       mAnimations.add(a);
+      mAnimationMap.put(((Animation)a).getName(), a);
     }
   }
 
@@ -155,6 +162,10 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
     return this;
   }
 
+  private void fireChanged() {
+    mChangeListeners.fireChanged();
+  }
+
   /**
    * Sets the animations to use. TODO: should initialize named animations in a
    * lazy fasion
@@ -190,6 +201,9 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
     return this;
   }
 
+  /**
+   * Convert string animation names to animation objects.
+   */
   private void autoLoad() {
     if (mAutoLoad) {
       // If there are string names in the list, we lazy load the corresponding
@@ -204,9 +218,11 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
 
           for (Animation animation : animations) {
             newAnimations.add(animation);
+            mAnimationMap.put(animation.getName(), animation);
           }
         } else {
           newAnimations.add(o);
+          mAnimationMap.put(((Animation)o).getName(), o);
         }
       }
 
@@ -248,6 +264,12 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
 
     return (Animation) mAnimations.get(index);
   }
+  
+  public Animation get(String name) {
+    autoLoad();
+
+    return (Animation) mAnimationMap.get(name);
+  }
 
   @Override
   public Iterator<Animation> iterator() {
@@ -259,5 +281,27 @@ public class Animations extends ChangeListeners implements Animation, Iterable<A
   @Override
   public String getName() {
     return "animations";
+  }
+
+  @Override
+  public void fireEvent(AnimationEventType trigger) {
+    for (Animation a: this) {
+      a.fireEvent(trigger);
+    }
+  }
+
+  @Override
+  public void addChangeListener(ChangeListener l) {
+    mChangeListeners.addChangeListener(l);
+  }
+
+  @Override
+  public void removeChangeListener(ChangeListener l) {
+    mChangeListeners.removeChangeListener(l);
+  }
+
+  @Override
+  public void fireChanged(ChangeEvent e) {
+    mChangeListeners.fireChanged(e);
   }
 }

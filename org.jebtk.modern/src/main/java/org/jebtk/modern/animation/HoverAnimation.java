@@ -51,9 +51,7 @@ public abstract class HoverAnimation extends TimerAnimation {
      */
     @Override
     public void mouseEntered(MouseEvent e) {
-      mHoverMode = true;
-
-      restart();
+      fireEvent(AnimationEventType.MOUSE_ENTERED);
     }
 
     /*
@@ -63,13 +61,7 @@ public abstract class HoverAnimation extends TimerAnimation {
      */
     @Override
     public void mouseExited(MouseEvent e) {
-      // System.err.println("mouse exit " + e.getSource());
-
-      // mEntryMode = false;
-
-      // if (!mPressed) {
-      pseudoMouseExited();
-      // }
+      fireEvent(AnimationEventType.MOUSE_EXITED);
     }
 
     /*
@@ -109,6 +101,21 @@ public abstract class HoverAnimation extends TimerAnimation {
     super(widget);
 
     bind(widget);
+  }
+
+  @Override
+  public void fireEvent(AnimationEventType trigger) {
+    switch (trigger) {
+    case MOUSE_ENTERED:
+      mHoverMode = true;
+      restart();
+      break;
+    case MOUSE_EXITED:
+      pseudoMouseExited();
+      break;
+    default:
+      break;
+    }
   }
 
   /**

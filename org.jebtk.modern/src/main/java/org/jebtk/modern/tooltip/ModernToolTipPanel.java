@@ -69,7 +69,7 @@ public abstract class ModernToolTipPanel extends Card {
   private ModernDialogStatus mStatus = ModernDialogStatus.CANCEL;
 
   public ModernToolTipPanel() {
-    setBorder(DOUBLE_BORDER);
+    setBorder(BORDER);
   }
 
   public void setAutoHide(boolean hide) {

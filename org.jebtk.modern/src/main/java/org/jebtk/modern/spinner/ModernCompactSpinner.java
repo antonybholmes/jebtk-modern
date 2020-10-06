@@ -55,6 +55,7 @@ import org.jebtk.core.text.TextUtils;
 import org.jebtk.math.Linspace;
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
+import org.jebtk.modern.animation.AnimationEventType;
 import org.jebtk.modern.slider.Slider;
 import org.jebtk.modern.text.ModernNumericalTextField;
 import org.jebtk.modern.text.ModernTextField;
@@ -318,7 +319,9 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
       mHighlight = true;
       mButtonZone = false;
 
-      repaint();
+      //repaint();
+      
+      getAnimations().get("css-hover").fireEvent(AnimationEventType.MOUSE_ENTERED);
     }
 
     /*
@@ -332,6 +335,7 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
       mButtonZone = false;
 
       repaint();
+      //getAnimations().get("css-hover").fireEvent(AnimationEventType.MOUSE_EXITED);
     }
   }
 
@@ -615,8 +619,9 @@ public class ModernCompactSpinner extends Slider implements TextProperty {
     addComponentListener(new ComponentActions());
 
     UI.setSize(this, ModernWidget.SMALL_SIZE);
-
-    addStyleClass("spinner");
+    
+    addAnimations("css-hover");
+    addStyleClass("content-outline-highlight");
 
     // addAnimations("spinner");
     getDrawStates().add(SPINNER_UI);
