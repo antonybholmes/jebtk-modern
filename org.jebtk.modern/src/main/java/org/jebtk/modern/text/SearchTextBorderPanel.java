@@ -171,7 +171,7 @@ public class SearchTextBorderPanel extends CSSWidget implements TextProperty {
 
     // UI.setSize(this, ModernWidget.STANDARD_SIZE);
 
-    addStyleClass("content", "content-outline", "pill");
+    addStyleClass("content", "content-outline", "rounded");
 
     // setAnimations(new PillBorderAnimation(this));
 

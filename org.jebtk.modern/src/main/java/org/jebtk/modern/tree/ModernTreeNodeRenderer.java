@@ -200,7 +200,7 @@ public abstract class ModernTreeNodeRenderer extends ModernWidget {
       // g2.setColor(ModernWidgetRenderer.RIBBON_SELECTED_OUTLINE_COLOR);
 
       // getWidgetRenderer().drawRibbonButton(g2, mRect, RenderMode.SELECTED);
-
+      
       DrawUIService.getInstance().getRenderer("button-fill").draw(g2, mRect);
 
     } else if (mNodeIsHighlighted) {

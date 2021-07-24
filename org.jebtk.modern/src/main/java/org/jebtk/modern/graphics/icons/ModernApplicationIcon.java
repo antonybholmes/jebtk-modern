@@ -99,9 +99,6 @@ public class ModernApplicationIcon extends ModernVectorScalableIcon {
    */
   @Override
   public void drawIcon(Graphics2D g2, int x, int y, int w, int h, Props props) {
-
-    System.err.println("app icon " + w + " " + h + " " + mText1);
-
     GradientPaint p = new GradientPaint(0, y, mColor1, 0, y + h, mColor2);
 
     // int rounding = (int)Math.round(Math.max(1, w / 4.0f));

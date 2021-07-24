@@ -163,6 +163,11 @@
 		<!-- <property name="background-color" -->
 		<!-- value="colors.material.gray-highlight" /> -->
 		<!-- </class> -->
+		
+		<class name="widget">
+      <property name="background-color"
+        value="colors.material.dialog.button.outline" />
+    </class>
 
 		<class name="outline">
 			<property name="background-color" value="none" />

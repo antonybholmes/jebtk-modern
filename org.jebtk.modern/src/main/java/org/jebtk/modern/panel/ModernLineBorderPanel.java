@@ -35,6 +35,7 @@ import java.awt.LayoutManager;
 
 import org.jebtk.modern.ModernWidget;
 import org.jebtk.modern.UI;
+import org.jebtk.modern.css.CSSWidget;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -43,7 +44,7 @@ import org.jebtk.modern.UI;
  * @author Antony Holmes
  *
  */
-public class ModernLineBorderPanel extends ModernWidget {
+public class ModernLineBorderPanel extends CSSWidget {
 
   /**
    * The constant serialVersionUID.
@@ -113,7 +114,7 @@ public class ModernLineBorderPanel extends ModernWidget {
     addStyleClass("content", "content-outline");
     // update("content-outline");
 
-    setAnimations("button-outline");
+    //setAnimations("button-outline");
   }
 
   /*

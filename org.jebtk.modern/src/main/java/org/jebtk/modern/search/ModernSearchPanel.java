@@ -44,7 +44,7 @@ import org.jebtk.modern.event.ModernClickEventProducer;
 import org.jebtk.modern.event.ModernClickListener;
 import org.jebtk.modern.event.ModernClickListeners;
 import org.jebtk.modern.graphics.icons.SearchVectorIcon;
-import org.jebtk.modern.panel.ModernPillBorderPanel;
+import org.jebtk.modern.panel.ModernBorderPanel;
 import org.jebtk.modern.text.ModernClipboardTextField;
 import org.jebtk.modern.text.ModernTextField;
 import org.jebtk.modern.text.TextProperty;
@@ -54,7 +54,7 @@ import org.jebtk.modern.theme.ColorStyle;
 /**
  * The class ModernSearchPanel.
  */
-public class ModernSearchPanel extends ModernPillBorderPanel
+public class ModernSearchPanel extends ModernBorderPanel
     implements ModernClickEventProducer, ModernClickListener, TextProperty, KeyListener {
 
   /**
